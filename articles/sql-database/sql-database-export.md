@@ -34,7 +34,7 @@ In diesem Artikel wird das Exportieren Ihrer Azure SQL-Datenbank oder einer SQL 
 
 Wenn Sie eine Datenbank zur Archivierung oder zum Verschieben auf eine andere Plattform exportieren müssen, können Sie das Datenbankschema und die Daten in eine BACPAC-Datei exportieren. Eine BACPAC-Datei ist einfach eine ZIP-Datei mit der Erweiterung BACPAC. Eine BACPAC-Datei kann später im Azure-Blobspeicher oder im lokalen Speicher an einem lokalen Standort gespeichert werden und dann zurück in die Azure SQL-Datenbank oder in eine lokale SQL-Serverinstallation importiert werden. 
 
-* Sie können Ihre Azure SQL-Datenbankdatei über das [Azure-Portal](sql-database-export-portal.md), [PowerShell](sql-database-export-powershell.md), [SQL Server Management Studio](sql-database-export-sqlpackage.md) oder [SQLPackage](sql-database-export-ssms.md) in eine BACPAC-Datei exportieren.
+* Sie können Ihre Azure SQL-Datenbankdatei über das [Azure-Portal](sql-database-export-portal.md), [PowerShell](sql-database-export-powershell.md), [SQLPackage](sql-database-export-sqlpackage.md) oder [SQL Server Management Studio](sql-database-export-ssms.md) in eine BACPAC-Datei exportieren.
 * Sie können eine SQL Server-Datenbank über [PowerShell](sql-database-export-powershell.md), [SQLPackage](sql-database-export-sqlpackage.md) oder [SQL Server Management Studio](sql-database-export-ssms.md) exportieren.
 
 > [!IMPORTANT]
