@@ -27,15 +27,15 @@ Der Azure Load Balancer bietet hohe Verfügbarkeit und Netzwerkleistung für Ihr
 
 Azure Load Balancer kann für Folgendes konfiguriert werden:
 
-* Lastenausgleich des eingehenden Internetdatenverkehrs für virtuelle Computer. Diese Konfiguration wird als [Lastenausgleich für Internetzugriff](load-balancer-internet-overview.md)bezeichnet.
-* Lastenausgleich für Datenverkehr zwischen virtuellen Computern in einem virtuellen Netzwerk, zwischen virtuellen Computern in Clouddiensten oder zwischen lokalen und virtuellen Computern in einem standortübergreifenden virtuellen Netzwerk. Diese Konfiguration wird als [interner Lastenausgleich](load-balancer-internal-overview.md)bezeichnet.
+* Lastenausgleich des eingehenden Internetdatenverkehrs für virtuelle Computer. Diese Konfiguration wird als [Lastenausgleich für Internetzugriff](load-balancer-internet-overview.md) bezeichnet.
+* Lastenausgleich für Datenverkehr zwischen virtuellen Computern in einem virtuellen Netzwerk, zwischen virtuellen Computern in Clouddiensten oder zwischen lokalen und virtuellen Computern in einem standortübergreifenden virtuellen Netzwerk. Diese Konfiguration wird als [interner Lastenausgleich](load-balancer-internal-overview.md) bezeichnet.
 * Weiterleiten von externem Datenverkehr an eine bestimmte Instanz eines virtuellen Computers.
 
 Alle Ressourcen in der Cloud benötigen eine öffentliche IP-Adresse, damit sie im Internet erreichbar sind. Die Cloudinfrastruktur in Azure verwendet für ihre Ressourcen nicht routingfähige IP-Adressen. Für die Kommunikation mit dem Internet verwendet Azure die Netzwerkadressübersetzung (Network Address Translation, NAT) mit öffentlichen IP-Adressen.
 
 ## <a name="azure-deployment-models"></a>Azure-Bereitstellungsmodelle
 
-Es ist wichtig, die Unterschiede zwischen dem [klassischen Bereitstellungsmodell und dem Azure Resource Manager-Bereitstellungsmodell](../azure-resource-manager/resource-manager-deployment-model.md)zu verstehen. Azure Load Balancer wird in den beiden Modellen unterschiedlich konfiguriert.
+Es ist wichtig, die Unterschiede zwischen dem [klassischen Bereitstellungsmodell und dem Azure Resource Manager-Bereitstellungsmodell](../azure-resource-manager/resource-manager-deployment-model.md) zu verstehen. Azure Load Balancer wird in den beiden Modellen unterschiedlich konfiguriert.
 
 ### <a name="azure-classic-deployment-model"></a>Klassisches Azure-Bereitstellungsmodell
 
@@ -43,11 +43,10 @@ In einem Clouddienst bereitgestellte virtuelle Computer können gruppiert werden
 
 Datenverkehr mit Lastenausgleich wird durch die Endpunkte definiert. Die Endpunkte der Portübersetzung bilden eine 1:1-Beziehung zwischen dem öffentlichen zugewiesenen Port der öffentlichen IP-Adresse und dem lokalen Port, der dem Dienst auf einem bestimmten virtuellen Computer zugewiesen wurde. Lastenausgleichs-Endpunkte bilden eine 1:n-Beziehung zwischen der öffentlichen IP-Adresse und den lokalen Ports, die den Diensten auf den virtuellen Computern im Clouddienst zugewiesen sind.
 
-![Azure Load Balancer im klassischen Bereitstellungsmodell](./media/load-balancer-overview/asm-lb.png)
-
-Abbildung 1: Azure Load Balancer im klassischen Bereitstellungsmodell
-
 Die Domänenbezeichnung für die öffentliche IP-Adresse, die der Lastenausgleich für dieses Bereitstellungsmodell verwendet, lautet „\<Clouddienstname\>.cloudapp.net“. Die folgende Grafik zeigt Azure Load Balancer in diesem Modell:
+
+![Azure Load Balancer im klassischen Bereitstellungsmodell](./media/load-balancer-overview/asm-lb.png)
+Abbildung 1: Azure Load Balancer im klassischen Bereitstellungsmodell
 
 ### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager-Bereitstellungsmodell
 
