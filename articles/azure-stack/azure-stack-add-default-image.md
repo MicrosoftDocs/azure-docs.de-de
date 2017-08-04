@@ -67,6 +67,12 @@ After the download completes, the image is added to the **Marketplace Management
      -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
    ```
 
+The parameter ArmEndpoint is not available in all versions of AzureRM. You've to load the correct AzureRMProfile first by using:
+
+   ```PowerShell
+   Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+   ```
+
 8. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
     a. **Azure Active Directory**, use the following cmdlet:
