@@ -211,4 +211,5 @@ Weitere Informationen zum Nachrichtenrouting in IoT Hub finden Sie unter [Senden
 
 [lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-free-trial]: https://azure.microsoft.com/de-de/free/
 
