@@ -1,4 +1,4 @@
----
+ConvertTo-SecureString -String---
 title: "Azure Monitoring-REST-API – exemplarische Vorgehensweise | Microsoft-Dokumentation"
 description: "Informationen zum Authentifizieren von Anforderungen und Verwenden der Azure Monitor-REST-API, um verfügbare Metrikdefinitionen und Metrikwerte abzurufen."
 author: mcollier
@@ -44,7 +44,7 @@ $resourceGroupName = "{resource-group-name}"
 Login-AzureRmAccount -SubscriptionId $subscriptionId
 
 # Password for the service principal
-$pwd = "{service-principal-password}"
+$pwd = ConvertTo-SecureString -String "{service-principal-password}" -AsPlainText -Force
 
 # Create a new Azure AD application
 $azureAdApplication = New-AzureRmADApplication `
