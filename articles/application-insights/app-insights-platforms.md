@@ -39,11 +39,13 @@ Bei diesen Elementen handelt es sich um Implementierungen von [Application Insig
 * [ASP.NET – Für Apps, die bereits aktiv sind.](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center, HockeyApp)
+* [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure-Web-Apps](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md): Einschließlich Web- und Workerrollen
 * [Azure-Funktionen](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
+* [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE – Für Apps, die bereits aktiv sind.](app-insights-java-live.md)
