@@ -1,3 +1,4 @@
+
 ---
 title: "Azure AD Connect: Passthrough-Authentifizierung – Funktionsweise | Microsoft-Dokumentation"
 description: In diesem Artikel wird die Funktionsweise der Passthrough-Authentifizierung mit Azure Active Directory beschrieben.
@@ -29,15 +30,16 @@ Wenn ein Benutzer versucht, sich bei einer durch Azure AD gesicherten Anwendung 
 
 1. Der Benutzer versucht, auf eine Anwendung zuzugreifen (z.B. [Outlook-Web-App](https://outlook.office365.com/owa/)).
 2. Wenn der Benutzer nicht bereits angemeldet ist, wird der Benutzer zur Azure AD-Seite **Benutzeranmeldung** umgeleitet.
-3. Der Benutzer gibt auf der Azure AD-Anmeldeseite seinen Benutzernamen und sein Kennwort ein und klickt anschließend auf die Schaltfläche **Anmelden**.
-4. Nach dem Empfang der Anmeldeanforderung platziert Azure AD den Benutzernamen und das (mit einem öffentlichen Schlüssel verschlüsselte) Kennwort in einer Warteschlange.
-5. Ein lokaler Authentifizierungs-Agent ruft den Benutzernamen und das verschlüsselte Kennwort aus der Warteschlange ab. Beachten Sie, dass der Agent die Warteschlange nicht häufig auf Anforderungen überprüft, sondern Anforderungen über eine eingerichtete dauerhafte Verbindung abruft.
-6. Der Agent entschlüsselt das Kennwort mithilfe des privaten Schlüssels.
-7. Der Agent überprüft dann mithilfe von Standard-Windows-APIs den Benutzernamen und das Kennwort in Active Directory (ein ähnlicher Mechanismus wie bei den Active Directory-Verbunddiensten (AD FS)). Beim Benutzernamen kann es sich entweder um den lokalen Standardbenutzernamen (in der Regel `userPrincipalName`) handeln oder um ein anderes (als `Alternate ID` bezeichnetes) Attribut, das in Azure AD Connect konfiguriert ist.
-8. Der lokale Active Directory-Domänencontroller (DC) wertet die Anforderung aus und gibt die entsprechende Antwort (Erfolg, Fehler, Kennwort abgelaufen oder Benutzer gesperrt) an den Agenten zurück.
-9. Der Authentifizierungs-Agent gibt diese Antwort wiederum an Azure AD zurück.
-10. Azure AD wertet die Antwort aus und gibt eine entsprechende Antwort an den Benutzer zurück. Beispiel: Der Benutzer wird sofort angemeldet, oder es wird Azure Multi-Factor Authentication angefordert.
-11. Wenn die Anmeldung erfolgreich ist, kann der Benutzer auf die Anwendung zugreifen.
+3. Der Benutzer gibt auf der Azure AD-Anmeldeseite seinen Benutzernamen ein und klickt anschließend auf die Schaltfläche **Weiter**.
+4. Der Benutzer gibt auf der Azure AD-Anmeldeseite sein Kennwort ein und klickt anschließend auf die Schaltfläche **Anmelden**.
+5. Nach dem Empfang der Anmeldeanforderung platziert Azure AD den Benutzernamen und das (mit den öffentlichen Schlüsseln der Authentifizierungs-Agents verschlüsselte) Kennwort in einer Warteschlange.
+6. Ein lokaler Authentifizierungs-Agent ruft den Benutzernamen und das verschlüsselte Kennwort aus der Warteschlange ab. Beachten Sie, dass der Agent die Warteschlange nicht häufig auf Anforderungen überprüft, sondern Anforderungen über eine eingerichtete dauerhafte Verbindung abruft.
+7. Der Agent entschlüsselt das Kennwort mithilfe des privaten Schlüssels.
+8. Der Agent überprüft dann mithilfe von Standard-Windows-APIs den Benutzernamen und das Kennwort in Active Directory (ein ähnlicher Mechanismus wie bei den Active Directory-Verbunddiensten (AD FS)). Beim Benutzernamen kann es sich entweder um den lokalen Standardbenutzernamen (in der Regel `userPrincipalName`) handeln oder um ein anderes (als `Alternate ID` bezeichnetes) Attribut, das in Azure AD Connect konfiguriert ist.
+9. Der lokale Active Directory-Domänencontroller (DC) wertet die Anforderung aus und gibt die entsprechende Antwort (Erfolg, Fehler, Kennwort abgelaufen oder Benutzer gesperrt) an den Agenten zurück.
+10. Der Authentifizierungs-Agent gibt diese Antwort wiederum an Azure AD zurück.
+11. Azure AD wertet die Antwort aus und gibt eine entsprechende Antwort an den Benutzer zurück. Beispiel: Der Benutzer wird sofort angemeldet, oder es wird Azure Multi-Factor Authentication angefordert.
+12. Wenn die Anmeldung erfolgreich ist, kann der Benutzer auf die Anwendung zugreifen.
 
 Das folgende Diagramm veranschaulicht die dafür notwendigen Schritte und Komponenten:
 
