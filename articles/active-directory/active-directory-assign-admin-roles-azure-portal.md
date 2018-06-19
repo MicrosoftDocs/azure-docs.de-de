@@ -46,7 +46,7 @@ Die folgenden Administratorrollen sind verfügbar:
 
 * **Geräteadministratoren**: Benutzer mit dieser Rolle werden zu lokalen Geräteadministratoren für alle Windows 10-Geräte, die mit Azure Active Directory verknüpft werden. Sie haben nicht die Möglichkeit zum Verwalten von Geräteobjekten in Azure Active Directory.
 
-* **Verzeichnis lesen**: Dies ist eine Legacyrolle, die Anwendungen ohne Unterstützung für das [Consent Framework](active-directory-integrating-applications.md) zugewiesen wird. Diese Rolle sollte keinem Benutzer zugewiesen werden.
+* **Verzeichnis-Reader**: Dies ist eine Legacyrolle, die Anwendungen ohne Unterstützung für das [Consent Framework](active-directory-integrating-applications.md) zugewiesen wird. Diese Rolle sollte keinem Benutzer zugewiesen werden.
 
 * **Konten für die Verzeichnissynchronisierung**: Verwenden Sie diese Rolle nicht. Diese Rolle wird automatisch dem Azure AD Connect-Dienst zugewiesen und ist weder für eine andere Verwendung vorgesehen, noch wird eine andere Verwendung unterstützt.
 
@@ -86,9 +86,9 @@ Die folgenden Administratorrollen sind verfügbar:
 
 * **Meldet Reader**: Benutzer mit dieser Rolle können Verwendungsberichtsdaten und das Berichtsdashboard in Office 365 Admin Center und das Anpassungskontextpaket in Power BI anzeigen. Darüber hinaus stellt die Rolle Zugriff auf Anmeldeberichte und -aktivitäten in Azure AD und von der Microsoft Graph-Berichterstellungs-API zurückgegebene Daten zur Verfügung. Ein Benutzer, dem die Rolle „Meldet Reader“ zugewiesen ist, kann nur auf relevante Nutzungs- und Anpassungsmetriken zugreifen. Sie verfügen nicht über Administratorrechte, um Einstellungen zu konfigurieren oder auf produktspezifische Verwaltungskonsolen wie das Exchange Admin Center zuzugreifen. 
 
-* **Sicherheitsadministrator**: Benutzer mit dieser Rolle verfügen über alle Leseberechtigungen der Rolle „Sicherheit lesen“ sowie die Möglichkeit, die Konfiguration für sicherheitsrelevante Dienste zu verwalten (z.B. Azure Active Directory Identity Protection, Azure Information Protection, Privileged Identity Management und Office 365 Security &amp; Compliance Center). Weitere Informationen zu Office 365-Berechtigungen finden Sie unter [Berechtigungen im Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Sicherheitsadministrator**: Benutzer mit dieser Rolle verfügen über alle Leseberechtigungen der Rolle „Sicherheits-Reader“ sowie die Möglichkeit, die Konfiguration für sicherheitsrelevante Dienste zu verwalten (z.B. Azure Active Directory Identity Protection, Azure Information Protection, Privileged Identity Management und Office 365 Security &amp; Compliance Center). Weitere Informationen zu Office 365-Berechtigungen finden Sie unter [Berechtigungen im Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Sicherheit lesen**: Benutzer mit dieser Rolle verfügen über einen globalen schreibgeschützten Zugriff, einschließlich aller Informationen in Azure Active Directory, Identity Protection, Privileged Identity Management, sowie die Möglichkeit, Azure Active Directory-Anmeldeberichte und Überwachungsprotokolle zu lesen. Die Rolle gewährt außerdem Leseberechtigung im Office 365 Security & Compliance Center. Weitere Informationen zu Office 365-Berechtigungen finden Sie unter [Berechtigungen im Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Sicherheits-Reader**: Benutzer mit dieser Rolle verfügen über einen globalen schreibgeschützten Zugriff, einschließlich aller Informationen in Azure Active Directory, Identity Protection, Privileged Identity Management, sowie die Möglichkeit, Azure Active Directory-Anmeldeberichte und Überwachungsprotokolle zu lesen. Die Rolle gewährt außerdem Leseberechtigung im Office 365 Security & Compliance Center. Weitere Informationen zu Office 365-Berechtigungen finden Sie unter [Berechtigungen im Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Dienstunterstützungsadministrator**: Benutzer mit dieser Rolle können bei Microsoft Supportanfragen für Azure- und Office 365-Dienste öffnen sowie das Service-Dashboard und das Nachrichtencenter im Azure-Portal und im Office 365-Verwaltungsportal einsehen. Weitere Informationen finden Sie unter [Informationen zu Administratorrollen von Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -137,7 +137,7 @@ Möglich | Nicht möglich
 ------ | ----------
 Anzeigen von Azure AD-Anmeldeberichten und -Überwachungsprotokollen<br>Anzeigen von Unternehmens- und Benutzerinformationen<br>Zugreifen auf das Office 365-Nutzungsdashboard | Erstellen und Verwalten von Benutzeransichten<br>Erstellen, Bearbeiten und Löschen von Benutzern und Gruppen und Verwalten von Benutzerlizenzen<br>Delegieren von Administratorrollen an andere Benutzer<br>Verwalten von Unternehmensinformationen
 
-### <a name="security-reader"></a>Sicherheit lesen
+### <a name="security-reader"></a>Sicherheits-Reader
 | Geben Sie in | Möglich |
 | --- | --- |
 | Identity Protection Center |Lesen von allen Sicherheitsberichten und Einstellungsinformationen für die Sicherheitsfunktionen<ul><li>Antispam<li>Verschlüsselung<li>Verhindern von Datenverlusten<li>Antischadsoftware<li>Erweiterter Schutz vor Bedrohungen<li>Antiphishing<li>Nachrichtenflussregeln |
@@ -147,9 +147,9 @@ Anzeigen von Azure AD-Anmeldeberichten und -Überwachungsprotokollen<br>Anzeigen
 ### <a name="security-administrator"></a>Sicherheitsadministrator
 | Geben Sie in | Möglich |
 | --- | --- |
-| Identity Protection Center |<ul><li>Alle Berechtigungen der Rolle „Sicherheit lesen“<li>Darüber hinaus die Möglichkeit, alle IPC-Vorgänge außer des Zurücksetzens von Kennwörtern auszuführen. |
-| Privileged Identity Management |<ul><li>Alle Berechtigungen der Rolle „Sicherheit lesen“<li>**nicht** verwalten. |
-| <p>Überwachen der Office 365-Dienstintegrität</p><p>Office 365 Security & Compliance Center |<ul><li>Alle Berechtigungen der Rolle „Sicherheit lesen“<li>Kann alle Einstellungen im Feature „Advanced Threat Protection“ (Schutz vor Malware und Viren, schadhafte URL-Konfiguration, URL-Ablaufverfolgung usw.) konfigurieren. |
+| Identity Protection Center |<ul><li>Alle Berechtigungen der Rolle „Sicherheits-Reader“<li>Darüber hinaus die Möglichkeit, alle IPC-Vorgänge außer des Zurücksetzens von Kennwörtern auszuführen. |
+| Privileged Identity Management |<ul><li>Alle Berechtigungen der Rolle „Sicherheits-Reader“<li>**nicht** verwalten. |
+| <p>Überwachen der Office 365-Dienstintegrität</p><p>Office 365 Security & Compliance Center |<ul><li>Alle Berechtigungen der Rolle „Sicherheits-Reader“<li>Kann alle Einstellungen im Feature „Advanced Threat Protection“ (Schutz vor Malware und Viren, schadhafte URL-Konfiguration, URL-Ablaufverfolgung usw.) konfigurieren. |
 
 ### <a name="service-administrator"></a>Dienstadministrator
 | Möglich | Nicht möglich |
