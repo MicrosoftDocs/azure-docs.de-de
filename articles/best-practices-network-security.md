@@ -37,7 +37,7 @@ Das folgende logische Diagramm bietet Hilfestellung bei der Auswahl aus den viel
 Beispiele für das Hinzufügen von Verbindungen zwischen virtuellen Netzwerken, Hochverfügbarkeit und Dienstverkettung werden diesem Dokument in den nächsten Monaten hinzugefügt.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Microsoft-Compliance und Infrastrukturschutz
-Um Organisationen bei der Einhaltung nationaler sowie länder- und branchenspezifischer Anforderungen hinsichtlich der Erfassung und Nutzung personenbezogener Daten zu helfen, bietet Microsoft mehr als 40 Zertifizierungen und Nachweise. Dies sind mehr als alle anderen Clouddienstanbieter.
+Um Organisationen bei der Einhaltung nationaler sowie land- und branchenspezifischer Anforderungen hinsichtlich der Erfassung und Nutzung personenbezogener Daten zu helfen, bietet Microsoft mehr als 40 Zertifizierungen und Nachweise. Dies sind mehr als alle anderen Clouddienstanbieter.
 
 Weitere Informationen finden Sie in den Informationen zur Compliance im [Microsoft Trust Center][TrustCenter].
 
