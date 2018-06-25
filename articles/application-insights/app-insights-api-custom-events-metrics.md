@@ -41,7 +41,7 @@ Sie können den meisten dieser Telemetrieaufrufe [Eigenschaften und Metriken anf
 ## <a name="prep"></a>Vorbereitung
 Gehen Sie wie folgt vor, falls Sie noch nicht über einen Verweis auf das Application Insights SDK verfügen:
 
-* Fügen Sie Ihrem Projekt das Application Insights-SDK hinzu:
+* Fügen Sie Ihrem Projekt Application Insights-SDK hinzu:
 
   * [ASP.NET-Projekt](app-insights-asp-net.md)
   * [Java-Projekt](app-insights-java-get-started.md)
