@@ -426,13 +426,13 @@ Mit diesem Befehl wird in eine vorhandene Funktionen-App in Azure veröffentlich
 Der `publish`-Befehl lädt den Inhalt des Functions-Projektverzeichnisses hoch. Wenn Sie Dateien lokal löschen, werden sie mit dem Befehl `publish` nicht aus Azure gelöscht. Sie können Dateien in Azure löschen, indem Sie das [Kudu-Tool](functions-how-to-use-azure-function-app-settings.md#kudu) im [Azure-Portal] verwenden.  
 
 >[!IMPORTANT]  
-> Wenn Sie eine Funktionen-App in Azure erstellen, verwendet sie standardmäßig Version 1.x der Functions-Laufzeit. Damit die Funktionen-App Version 2.0 der Laufzeit verwendet, fügen Sie die Anwendungseinstellung `FUNCTIONS_EXTENSION_VERSION=beta` hinzu.  
+> Wenn Sie eine Funktionen-App in Azure erstellen, verwendet sie standardmäßig Version 1.x der Functions-Laufzeit. Damit die Funktionen-App Version 2.0 der Laufzeit verwendet, fügen Sie die Anwendungseinstellung `FUNCTIONS_EXTENSION_VERSION=~2` hinzu.  
 Verwenden Sie den folgenden Azure-CLI-Code, um diese Einstellung zu Ihrer Funktionen-App hinzuzufügen:
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
---settings FUNCTIONS_EXTENSION_VERSION=beta   
+--settings FUNCTIONS_EXTENSION_VERSION=~2   
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
