@@ -56,6 +56,51 @@ Eine Ablehnungsaktion im Rahmen von RBAC-[Ablehnungszuweisungen](../../../role-b
 > [!IMPORTANT]
 > Azure Resource Manager speichert Details zu Rollenzuweisungen bis zu 30 Minuten lang zwischen. Daher sind Ablehnungsaktionen von Ablehnungszuweisungen für Blaupausenressourcen möglicherweise nicht sofort in vollem Umfang wirksam. Während dieser Zeit ist es ggf. möglich, eine Ressource zu löschen, die eigentlich durch Blaupausensperren geschützt werden sollte.
 
+## Exclude a principal from a deny assignment
+
+In manchen Design, oder Security Szenarien kann es notwendig sein bestimmte Accounts von [Ablehnungszuweisungen](../../../role-based-access-control/deny-assignments.md) auszunehmen, die vom Blueprint erstellt werden. Das kann über die REST API realisiert werden, indem man bis zu fünf Werte zum **excludedPrincipals** Array im **locks** Wert hinterlegt, während man das [Assignment erstellt](/rest/api/blueprints/assignments/createorupdate).
+Das ist ein Beipiel eines Request Bodies, dass die **excludedPrincipals** enthält:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Erfahren Sie mehr über den [Lebenszyklus von Blaupausen](lifecycle.md).
