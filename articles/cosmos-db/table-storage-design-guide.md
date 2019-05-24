@@ -4,16 +4,16 @@ description: 'Azure Storage Table – Entwurfshandbuch: Entwerfen von skalierbar
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960212"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966096"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage Table – Entwurfshandbuch: Entwerfen von skalierbaren und leistungsfähigen Tabellen
 
@@ -204,7 +204,7 @@ In den folgenden Beispielen wird angenommen, dass der Tabellenspeicherdienst Ent
 | **RowKey** (Mitarbeiter-ID) |Zeichenfolge |
 | **Vorname** |Zeichenfolge |
 | **Nachname** |Zeichenfolge |
-| **Alter** |Ganze Zahl  |
+| **Alter** |Integer |
 | **EmailAddress** |Zeichenfolge |
 
 Im Abschnitt „Übersicht über den Azure-Tabellenspeicherdienst“ weiter oben werden einige der wichtigsten Funktionen des Azure-Tabellenspeicherdiensts beschrieben, die direkten Einfluss auf den Entwurf für Abfragen haben. Dadurch ergeben sich die folgenden allgemeinen Richtlinien für den Entwurf von Abfragen für den Tabellenspeicherdienst. Die in den Beispielen unten verwendete Filtersyntax stammt aus dem REST-API-Tabellenspeicherdienst. Weitere Informationen finden Sie unter [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx) (Abfragen von Entitäten).  

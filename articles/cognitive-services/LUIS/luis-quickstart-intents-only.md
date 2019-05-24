@@ -3,20 +3,20 @@ title: Vorhersagen von Absichten
 titleSuffix: Azure Cognitive Services
 description: In diesem Tutorial erstellen Sie eine benutzerdefinierte App, die die Absicht eines Benutzers vorhersagt. Diese App stellt den einfachsten Typ von LUIS-App dar, da sie keine verschiedenen Datenelemente, wie E-Mail-Adressen oder Datumsangaben, aus dem Äußerungstext extrahiert.
 services: cognitive-services
-author: diberry
-manager: nitinme
+author: lingliw
+manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
-ms.author: diberry
+ms.date: 04/19/19
+ms.author: v-lingwu
 ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123934"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Erstellen einer LUIS-App zum Bestimmen von Benutzerabsichten
 
@@ -239,3 +239,7 @@ Fahren Sie mit dieser App fort, und [fügen Sie eine einfache Entität und eine 
 
 > [!div class="nextstepaction"]
 > [Add prebuilt intents and entities to this app (Hinzufügen von vordefinierten Absichten und Entitäten)](luis-tutorial-prebuilt-intents-entities.md)
+
+
+
+

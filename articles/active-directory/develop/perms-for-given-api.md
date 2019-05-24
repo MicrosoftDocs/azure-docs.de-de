@@ -3,8 +3,8 @@ title: Auswählen von Berechtigungen für eine bestimmte API | Microsoft-Dokumen
 description: Hier erfahren Sie, wie Berechtigungsanforderungen für Client- und Ressourcenanwendungen für von Ihnen entwickelte Anwendungen funktionieren.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af7206b94342a4844cf272784aff4e4dc5a35f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 42d5ce8a890f6f02e03a16b60f358d9430a09f88
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169676"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545834"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Auswählen von Berechtigungen für eine bestimmte API 
 

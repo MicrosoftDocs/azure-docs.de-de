@@ -9,11 +9,11 @@ ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 7c5eee801c4aaf4f4cc9abd8c0d423979341c823
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59550507"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66137711"
 ---
 Erstellen Sie eine [Web-App](../articles/app-service/containers/app-service-linux-intro.md) im App Service-Plan `myAppServicePlan`. 
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ba4af5d3b6612614dee54db7fdb1287ff7136321
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: d41f1b61345d365bb315a7a5c5570f729f140324
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245761"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791088"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Verwenden der QnA Maker-REST-API mit Node.js 
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ Sie müssen über ein [Cognitive Services-API-Konto](https://docs.microsoft.com/
 
 ## <a name="create-knowledge-base"></a>Erstellen einer Wissensdatenbank
 
-Über den folgenden Code können Sie mithilfe der [Methode zum Erstellen einer Wissensdatenbank](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) eine neue Wissensdatenbank erstellen.
+Über den folgenden Code können Sie mithilfe der [Methode zum Erstellen einer Wissensdatenbank](https://go.microsoft.com/fwlink/?linkid=2092179) eine neue Wissensdatenbank erstellen.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -162,7 +162,7 @@ let req = {
   "qnaList": [
     {
       "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -246,7 +246,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="update-knowledge-base"></a>Aktualisieren einer Wissensdatenbank
 
-Über den folgenden Code können Sie eine Wissensdatenbank mithilfe der [Methode zum Aktualisieren einer Wissensdatenbank](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) aktualisieren.
+Über den folgenden Code können Sie eine Wissensdatenbank mithilfe der [Methode zum Aktualisieren einer Wissensdatenbank](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) aktualisieren.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -361,7 +361,7 @@ let req = {
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -439,7 +439,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Abrufen des Anforderungsstatus
 
-Sie können die Methode für [Vorgänge](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) aufrufen, um den Status einer Anforderung zum Erstellen oder Aktualisieren einer Wissensdatenbank zu prüfen. Sie können dem Beispielcode für die Methoden zum [Erstellen](#Create) oder [Aktualisieren](#Update) entnehmen, wie diese Methode verwendet wird.
+Sie können die Methode für [Vorgänge](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) aufrufen, um den Status einer Anforderung zum Erstellen oder Aktualisieren einer Wissensdatenbank zu prüfen. Sie können dem Beispielcode für die Methoden zum [Erstellen](#Create) oder [Aktualisieren](#Update) entnehmen, wie diese Methode verwendet wird.
 
 [Nach oben](#HOLTop)
 
@@ -447,7 +447,7 @@ Sie können die Methode für [Vorgänge](https://westus.dev.cognitive.microsoft.
 
 ## <a name="publish-knowledge-base"></a>Veröffentlichen einer Wissensdatenbank
 
-Über den folgenden Code können Sie eine Wissensdatenbank mithilfe der [Methode zum Veröffentlichen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) veröffentlichen.
+Über den folgenden Code können Sie eine Wissensdatenbank mithilfe der [Methode zum Veröffentlichen](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) veröffentlichen.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -559,7 +559,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="replace-knowledge-base"></a>Ersetzen einer Wissensdatenbank
 
-Über den folgenden Code können Sie den Inhalt einer angegebenen Wissensdatenbank mithilfe der [Methode zum Ersetzen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) ersetzen.
+Über den folgenden Code können Sie den Inhalt einer angegebenen Wissensdatenbank mithilfe der [Methode zum Ersetzen](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace) ersetzen.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -653,7 +653,7 @@ let req = {
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -692,7 +692,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>Herunterladen von Inhalten einer Wissensdatenbank
 
-Über den folgenden Code können Sie die Inhalte einer angegebenen Datenbank über die [Methode zum Herunterladen einer Wissensdatenbank](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) herunterladen.
+Über den folgenden Code können Sie die Inhalte einer angegebenen Datenbank über die [Methode zum Herunterladen einer Wissensdatenbank](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download) herunterladen.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -791,7 +791,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -954,7 +954,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="get-information-about-a-knowledge-base"></a>Abrufen von Informationen zu einer Wissensdatenbank
 
-Über den folgenden Code können Sie Informationen zur angegebenen Wissensdatenbank abrufen, indem Sie die Methode [zum Abrufen von Details zur Wissensdatenbank](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) verwenden.
+Über den folgenden Code können Sie Informationen zur angegebenen Wissensdatenbank abrufen, indem Sie die Methode [zum Abrufen von Details zur Wissensdatenbank](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) verwenden.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -1069,7 +1069,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Abrufen aller Wissensdatenbanken für einen Benutzer
 
-Über den folgenden Code können Sie Informationen zu allen Wissensdatenbanken für einen angegebenen Benutzer abrufen, indem Sie die [Methode zum Abrufen von Details zur Wissensdatenbank](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) verwenden.
+Über den folgenden Code können Sie Informationen zu allen Wissensdatenbanken für einen angegebenen Benutzer abrufen, indem Sie die [Methode zum Abrufen von Details zur Wissensdatenbank](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall) verwenden.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -1197,7 +1197,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Löschen einer Wissensdatenbank
 
-Über den folgenden Code werden die Inhalte einer angegebenen Datenbank mithilfe der [Methode zum Löschen von Wissensdatenbanken](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) gelöscht.
+Über den folgenden Code werden die Inhalte einer angegebenen Datenbank mithilfe der [Methode zum Löschen von Wissensdatenbanken](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete) gelöscht.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -1309,7 +1309,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="get-endpoint-keys"></a>Abrufen von Endpunktschlüsseln
 
-Über den folgenden Code können Sie mithilfe der [Methode zum Abrufen von Endpunktschlüsseln](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) die aktuellen Endpunktschlüssel abrufen.
+Über den folgenden Code können Sie mithilfe der [Methode zum Abrufen von Endpunktschlüsseln](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) die aktuellen Endpunktschlüssel abrufen.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -1410,7 +1410,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="refresh-endpoint-keys"></a>Aktualisieren von Endpunktschlüsseln
 
-Über den folgenden Code können Sie mithilfe der [Methode zum Aktualisieren von Endpunktschlüsseln](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) die aktuellen Endpunktschlüssel aktualisieren.
+Über den folgenden Code können Sie mithilfe der [Methode zum Aktualisieren von Endpunktschlüsseln](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys) die aktuellen Endpunktschlüssel aktualisieren.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -1536,7 +1536,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="get-word-alterations"></a>Abrufen von Wortänderungen
 
-Über den folgenden Code können Sie aktuelle Wortvarianten mithilfe der [Methode zum Herunterladen von Varianten](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) abrufen.
+Über den folgenden Code können Sie aktuelle Wortvarianten mithilfe der [Methode zum Herunterladen von Varianten](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get) abrufen.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -1643,7 +1643,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 
 ## <a name="replace-word-alterations"></a>Ersetzen von Wortänderungen
 
-Über den folgenden Code können Sie die aktuellen Wortvarianten mithilfe der [Methode zum Ersetzen von Varianten](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) ersetzen.
+Über den folgenden Code können Sie die aktuellen Wortvarianten mithilfe der [Methode zum Ersetzen von Varianten](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) ersetzen.
 
 1. Erstellen Sie in Ihrer bevorzugten IDE ein neues Node.js-Projekt.
 2. Fügen Sie den unten stehenden Code hinzu.
@@ -1764,7 +1764,7 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [REST-API-Referenz für QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [REST-API-Referenz für QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## <a name="see-also"></a>Weitere Informationen 
 

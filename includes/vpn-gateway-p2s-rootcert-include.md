@@ -9,11 +9,11 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323754"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157254"
 ---
 Verwenden Sie entweder ein Stammzertifikat, das mit einer Unternehmenslösung generiert wurde (empfohlen), oder generieren Sie ein selbstsigniertes Zertifikat. Nach dem Erstellen des Stammzertifikats exportieren Sie die Daten des öffentlichen Zertifikats (nicht den privaten Schlüssel) als Base64-codierte X.509-CER-Datei. Laden Sie dann Daten des öffentlichen Zertifikats in den Azure-Server hoch.
 

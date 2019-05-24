@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213041"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160072"
 ---
 Sie können Ihre [virtuellen Computer (VMs)](../articles/virtual-machines/windows/overview.md) leicht [automatisch skalieren](../articles/azure-monitor/platform/autoscale-best-practices.md), indem Sie [VM-Skalierungsgruppen](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) und das [Feature für die automatische Skalierung von Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md) verwenden. Ihre VMs müssen Mitglieder einer Skalierungsgruppe sein, um automatisch skaliert werden zu können. Dieser Artikel enthält Informationen, mit denen Sie besser verstehen, wie Sie Ihre VMs mit automatischen und manuellen Methoden sowohl vertikal als auch horizontal skalieren können.
 

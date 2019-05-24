@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523442"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955743"
 ---
 # <a name="security-in-azure-app-service"></a>Sicherheit in Azure App Service
 
@@ -105,7 +105,7 @@ Für den sicheren Zugriff auf lokale Ressourcen (beispielsweise Datenbanken) ste
 
 ## <a name="application-secrets"></a>Anwendungsgeheimnisse
 
-Speichern Sie Anwendungsgeheimnisse wie Datenbank-Anmeldeinformationen, API-Token und private Schlüssel nicht in Ihrem Code oder in Konfigurationsdateien. Für den Zugriff auf diese Geheimnisse hat es sich bewährt, [Umgebungsvariablen](https://wikipedia.org/wiki/Environment_variable) mit dem Standardmuster in der Sprache Ihrer Wahl zu verwenden. In App Service werden Umgebungsvariablen über [App-Einstellungen](web-sites-configure.md#app-settings) (und speziell für .NET-Anwendungen über [Verbindungszeichenfolgen](web-sites-configure.md#connection-strings)) definiert. App-Einstellungen und Verbindungszeichenfolgen werden in Azure verschlüsselt gespeichert und erst entschlüsselt, wenn sie beim Start der App in ihren Prozessspeicher eingefügt werden. Die Verschlüsselungsschlüssel werden regelmäßig rotiert.
+Speichern Sie Anwendungsgeheimnisse wie Datenbank-Anmeldeinformationen, API-Token und private Schlüssel nicht in Ihrem Code oder in Konfigurationsdateien. Für den Zugriff auf diese Geheimnisse hat es sich bewährt, [Umgebungsvariablen](https://wikipedia.org/wiki/Environment_variable) mit dem Standardmuster in der Sprache Ihrer Wahl zu verwenden. In App Service werden Umgebungsvariablen über [App-Einstellungen](configure-common.md#configure-app-settings) (und speziell für .NET-Anwendungen über [Verbindungszeichenfolgen](configure-common.md#configure-connection-strings)) definiert. App-Einstellungen und Verbindungszeichenfolgen werden in Azure verschlüsselt gespeichert und erst entschlüsselt, wenn sie beim Start der App in ihren Prozessspeicher eingefügt werden. Die Verschlüsselungsschlüssel werden regelmäßig rotiert.
 
 Wenn Sie eine erweiterte Geheimnisverwaltung benötigen, können Sie Ihre App Service-App auch in [Azure Key Vault](/azure/key-vault/) integrieren. Durch den [Zugriff auf Key Vault mit einer verwalteten Identität](../key-vault/tutorial-web-application-keyvault.md) kann Ihre App Service-App sicher auf die benötigten Geheimnisse zugreifen.
 

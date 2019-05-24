@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 115efe8a3a98c502931765f67489ded0fa15b7b6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 145b5a686b2707b6e60a481c08f187164d788580
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66121232"
 ---
 # <a name="load-balance-multiple-websites"></a>Lastenausgleich für mehrere Websites
 

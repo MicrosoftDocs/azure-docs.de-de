@@ -15,11 +15,11 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2cdc6ea01e6c3555740102f319d0f4e8e4fc1c22
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528529"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121742"
 ---
 ## <a name="register-your-application"></a>Anwendung registrieren
 

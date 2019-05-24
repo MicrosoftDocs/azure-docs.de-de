@@ -2,20 +2,20 @@
 title: Problembehandlung bei Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Problembehandlung bei Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: mlee3gsd
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.component: supportability
 ms.date: 03/27/2019
-ms.author: martinle
+ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 5115ffbc3568c87c37bae4a3e65c37f8504f1fb8
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: ddae39b7a2c76b5bb3f7caff1c0d5a8165c9d93a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541127"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873830"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Behandlung von Konnektivitätsproblemen
 

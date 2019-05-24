@@ -2,20 +2,20 @@
 title: Migrieren von SQL-Code nach SQL Data Warehouse | Microsoft Docs
 description: Tipps für die Migration des SQL-Codes in Azure SQL Data Warehouse zum Entwickeln von Lösungen.
 services: sql-data-warehouse
-author: jrowlandjones
+author: TwoUnder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: fae3ae16ee0100ad446c0b6c7851553a3376bb4f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61821af2c1c4732488d1a691939a21df284fe3c8
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400978"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873507"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrieren von SQL-Code nach SQL Data Warehouse
 

@@ -16,11 +16,11 @@ ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65868098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Azure Active Directory-Integration mit SAP Cloud Platform
 
@@ -215,7 +215,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei SAP Clou
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |firstname |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |lastname |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |E-Mail |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |email |
    
      >[!NOTE]
      >Die Konfiguration der Attribute hängt davon ab, wie die Anwendung(en) für SPC entwickelt wurden – also welche Attribute sie in der SAML-Antwort erwarten und unter welchem Namen (Prinzipal-Attribut) sie auf dieses Attribut im Code zugreifen.

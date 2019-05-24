@@ -3,27 +3,26 @@ title: Support- und Hilfeoptionen für Entwickler von Azure AD-Apps| Microsoft-D
 description: Hier erfahren Sie, wie Sie beim Erstellen einer Anwendung, die mit Microsoft-Identitäten (Azure Active Directory und Microsoft-Konto) integriert wird, Hilfe und Support zu entwicklungsbezogenen Problemen und Fragen erhalten.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
-ms.author: celested
-ms.reviewer: jmprieur, dadobali
+ms.author: ryanwi
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0741dda0aa087f21625cabe79e51d0b9e344f7ef
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501588"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962665"
 ---
 # <a name="support-and-help-options-for-developers"></a>Support- und Hilfeoptionen für Entwickler
 
@@ -63,7 +62,7 @@ Stack Overflow ist der bevorzugte Kanal für entwicklungsbezogene Fragen. Hier s
 
 Wenn Sie über die Suche keine Antwort auf Ihre Frage finden können, übermitteln Sie eine neue Frage auf Stack Overflow. Verwenden Sie bei der Fragestellung eines der folgenden Tags, damit die Community Ihre Frage schneller identifizieren und beantworten kann:
 
-|Komponente/Bereich  | Tags |
+|Komponente/Bereich  | `Tags` |
 |---------|---------|
 | ADAL-Bibliothek | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL-Bibliothek     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: efeab014c7d92a6c19d516a121fbc4436925be75
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 82e8936a888cbc99088ab18423e55dd57a3c2e77
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012934"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604147"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurieren einer Windows-Java-App für Azure App Service
 
@@ -27,7 +27,7 @@ Mit Azure App Service können Java-Entwickler schnell ihre mit Tomcat oder Java 
 Dieser Leitfaden enthält die wichtigsten Konzepte und Anweisungen für Java-Entwickler, die App Service verwenden. Wenn Sie Azure App Service noch nie verwendet haben, lesen Sie zunächst den [Java-Schnellstart](app-service-web-get-started-java.md). Allgemeine Fragen zur Verwendung von App Service, die sich nicht speziell auf die Java-Entwicklung beziehen, werden unter [Häufig gestellte Fragen (FAQ) zu App Service unter Windows](faq-configuration-and-management.md) beantwortet.
 
 > [!NOTE]
-> Können Sie die gesuchten Informationen nicht finden? Informationen zum Bereitstellen und Absichern Ihrer Java-App finden Sie in den [häufig gestellten Fragen (FAQ) zu OSS unter Windows](faq-configuration-and-management.md) und im [Java-Linux-Konfigurationshandbuch](containers/app-service-linux-java.md).
+> Können Sie die gesuchten Informationen nicht finden? Informationen zum Bereitstellen und Absichern Ihrer Java-App finden Sie in den [häufig gestellten Fragen (FAQ) zu OSS unter Windows](faq-configuration-and-management.md) und im [Java-Linux-Konfigurationshandbuch](containers/configure-language-java.md).
 
 ## <a name="configuring-tomcat"></a>Konfigurieren von Tomcat
 

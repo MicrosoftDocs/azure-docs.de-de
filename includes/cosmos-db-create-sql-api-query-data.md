@@ -9,11 +9,11 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 9971b16da42cdf1de0464857291c74a947535735
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804108"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151371"
 ---
 Sie können zum Abrufen und Filtern Ihrer Daten Abfragen im Daten-Explorer verwenden.
 

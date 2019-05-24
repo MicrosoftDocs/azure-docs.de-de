@@ -3,8 +3,8 @@ title: Fehler auf der Seite einer Anwendung nach dem Anmelden | Microsoft-Dokume
 description: Beheben von Problemen mit der Azure AD-Anmeldung, wenn die Anwendung selbst einen Fehler ausgibt
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 438f4f60c80cb798c3c40f57e22c9194a9fd5f86
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 234fc94a0a2ad3d3bee49853cf1dfc6a805a0166
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110850"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825403"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Fehler auf der Seite einer Anwendung nach dem Anmelden
 

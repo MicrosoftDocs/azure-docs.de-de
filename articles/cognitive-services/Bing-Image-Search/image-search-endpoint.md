@@ -3,19 +3,19 @@ title: Endpunkte für die Bing-Bildersuche-API
 titleSuffix: Azure Cognitive Services
 description: Eine Liste der verfügbaren Endpunkte für die Bing-Bildersuche-API.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: v-gedod
-ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: aahi
+ms.openlocfilehash: 9b3edd10d2928a512b94e9273000439f80cb8f33
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336139"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777094"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Endpunkte für die Bing-Bildersuche-API
 

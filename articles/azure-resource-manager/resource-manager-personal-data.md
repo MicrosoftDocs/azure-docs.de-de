@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: tomfitz
 ms.openlocfilehash: db4e1b8705b879fd5716763869462bafdf1f905c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495206"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128468"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Verwalten von mit Azure Resource Manager verknüpften persönlichen Daten
 

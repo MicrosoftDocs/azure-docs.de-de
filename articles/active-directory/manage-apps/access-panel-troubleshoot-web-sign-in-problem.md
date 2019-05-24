@@ -3,8 +3,8 @@ title: Problem beim Anmelden bei der Website des Zugriffsbereichs | Microsoft-Do
 description: Leitfaden zur Behandlung von Problemen, die bei der Anmeldung beim Zugriffsbereich auftreten können
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f7418c16d5d5312d2a9a7913da49941ef0a7870
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090456"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784305"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problem beim Anmelden bei der Website des Zugriffsbereichs
 

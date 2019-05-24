@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: glenga
 ms.openlocfilehash: a02eadcacddc91ae9d17c50efd5e573718c41a21
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904674"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131653"
 ---
 * [Konzepte für Azure Functions-Trigger und -Bindungen](../articles/azure-functions/functions-triggers-bindings.md)  
   Erfahren Sie, wie Functions in andere Dienste integriert wird.  

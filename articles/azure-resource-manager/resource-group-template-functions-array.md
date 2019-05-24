@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128694"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Array- und Objektfunktionen für Azure Resource Manager-Vorlagen
 
@@ -197,7 +197,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | ---- | ---- | ----- |
 | stringOutput | Zeichenfolge | die Standardeinstellung |
 | intOutput | Int | 1 |
-| objectOutput | Objekt | {"first": "default"} |
+| objectOutput | Object | {"first": "default"} |
 | arrayOutput | Array | [1] |
 | emptyOutput | Bool | True |
 
@@ -709,7 +709,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| objectOutput | Objekt | {"one": "a", "three": "c"} |
+| objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
@@ -781,9 +781,9 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| jsonOutput | Objekt | {"a": "b"} |
+| jsonOutput | Object | {"a": "b"} |
 | nullOutput | Boolescher Wert | True |
-| paramOutput | Objekt | {"a": "demo value"}
+| paramOutput | Object | {"a": "demo value"}
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
 
@@ -1363,7 +1363,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| objectOutput | Objekt | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:

@@ -9,11 +9,11 @@ ms.date: 03/19/2019
 ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: 852d80866f56f27e2ed51561d2f5f23b96608ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865862"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155580"
 ---
 ## <a name="guest-configuration"></a>Gastkonfiguration
 

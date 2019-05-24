@@ -16,11 +16,11 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cde9d4efd3d6eb5bc987a4bf7eb423447ceddc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274330"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Tutorial: Azure Active Directory-Integration mit IMAGE WORKS
 

@@ -9,11 +9,11 @@ ms.date: 10/09/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 50d71a3967e61e5d531f4bfeae3582b56230a0d2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56825357"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117304"
 ---
 ## <a name="terminology"></a>Begriff
 

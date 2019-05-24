@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: d0fd3e88bdb25fdfd430924ef6b7f571d070b733
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: fdd4e26839661ab9765b7d496e7f60c3686ba637
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33905203"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166171"
 ---
 ### <a name="create-a-nodejs-application"></a>Erstellen einer Node.js-Anwendung
 

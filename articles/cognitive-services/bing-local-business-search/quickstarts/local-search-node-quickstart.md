@@ -3,18 +3,18 @@ title: 'Schnellstart: Senden einer Abfrage an die API für die Bing-Suche nach o
 titleSuffix: Azure Cognitive Services
 description: Einführung in die Verwendung der API für die Bing-Suche nach ortsansässigen Unternehmen mit Node
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d649926a60d115c66a2763cef6b02b4aedbb962c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d0760f89eb98955f7ebb503ce59f904192635f7a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761309"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796894"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Schnellstart: Senden einer Abfrage an die API für die Bing-Suche nach ortsansässigen Unternehmen mit Node.js
 

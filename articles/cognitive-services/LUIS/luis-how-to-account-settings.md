@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116621"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523519"
 ---
 # <a name="manage-account-and-authoring-key"></a>Verwalten von Konto und Authoringschlüssel
 
@@ -24,7 +24,7 @@ Die zwei entscheidenden Informationen für ein LUIS-Konto sind das Benutzerkonto
 
 ## <a name="authoring-key"></a>Erstellungsschlüssel
 
-Dieser eindeutige, regionsspezifische Authoringschlüssel auf der Seite **Einstellungen** ermöglicht Ihnen das Authoring Ihrer sämtlichen Apps über das [LUIS](luis-reference-regions.md)-Portal sowie mithilfe der [Authoring-APIs](https://aka.ms/luis-authoring-api). Zu Ihrer Bequemlichkeit ist es dem Authoringschlüssel gestattet, eine [beschränkte](luis-boundaries.md) Anzahl Endpunktabfragen im Monat auszuführen.
+Dieser eindeutige, regionsspezifische Authoringschlüssel auf der Seite **Einstellungen** ermöglicht Ihnen das Authoring Ihrer sämtlichen Apps über das [LUIS](luis-reference-regions.md)-Portal sowie mithilfe der [Authoring-APIs](https://go.microsoft.com/fwlink/?linkid=2092087). Zu Ihrer Bequemlichkeit ist es dem Authoringschlüssel gestattet, eine [beschränkte](luis-boundaries.md) Anzahl Endpunktabfragen im Monat auszuführen.
 
 [![LUIS-Seite „Einstellungen“](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

@@ -9,11 +9,11 @@ ms.date: 06/08/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 8709956adee06e4e783ac5a7b317b2c4dec43e73
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736815"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66137116"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>Was geschieht während der Bereitstellung mit meiner App?
 

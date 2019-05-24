@@ -14,11 +14,11 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66119163"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Aktivieren der Datenträgerverschlüsselung für Service Fabric-Windows-Clusterknoten 
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 * Installieren Sie die aktuellste [Azure CLI](/cli/azure/install-azure-cli) mit den neuen Verschlüsselungsbefehlen.
 * Installieren Sie die aktuelle Version des [Azure SDK aus dem Azure PowerShell-Release](https://github.com/Azure/azure-powershell/releases). Es folgen die ADE-Cmdlets der VM-Skalierungsgruppe zum Aktivieren ([Set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) der Verschlüsselung, Abrufen ([Get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) des Verschlüsselungsstatus und Entfernen ([disable](/powershell/module/az.compute/disable-azvmssdiskencryption)) der Verschlüsselung von der Skalierungsgruppeninstanz.
 
-| Get-Help | Version |  Quelle  |
+| Get-Help | Version |  `Source`  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 oder höher | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 oder höher | Az.Compute |

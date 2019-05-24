@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: 56b13a0ba6a93f1acd8edf1ce6c95561f63758c8
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002180"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148780"
 ---
 > [!WARNING]
 >  **Azure Container Service (ACS) wird ausgemustert. Für ACS werden keine neuen Features oder Funktionen mehr hinzugefügt. Sämtliche APIs, Portalfunktionen, CLI-Befehle und Dokumentationen werden als veraltet gekennzeichnet.**

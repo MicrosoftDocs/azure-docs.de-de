@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 61cf31bcd82997a13ffae79df106485a86a9444d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136822"
 ---
 # <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>Erstellen einer App Service-App mit Bereitstellung über GitHub mit der Azure CLI
 

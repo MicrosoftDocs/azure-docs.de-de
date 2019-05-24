@@ -257,6 +257,10 @@
       items:
         - name: Analysieren Ihrer Workload
           href: analyze-your-workload.md
+        - name: Verwalten und Überwachen der Workloadpriorität
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: Konfigurieren der Workloadpriorität
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
     - name: Verwalten und Überwachen
       items:
         - name: Upgrade auf Gen2

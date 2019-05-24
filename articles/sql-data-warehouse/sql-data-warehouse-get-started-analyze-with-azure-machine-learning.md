@@ -2,20 +2,20 @@
 title: Analysieren von Daten mit Azure Machine Learning | Microsoft Docs
 description: Azure Machine Learning wird verwendet, um ein Predictive Machine Learning-Modell basierend auf in Azure SQL Data Warehouse gespeicherten Daten zu erstellen.
 services: sql-data-warehouse
-author: anumjs
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 03/22/2019
-ms.author: anjangsh
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402557"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860840"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysieren von Daten mit Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Für dieses Lernprogramm ist Folgendes erforderlich:
 * Für eine SQL Data Warehouse-Instanz werden AdventureWorksDW-Beispieldaten vorab geladen. Informationen zur Bereitstellung finden Sie unter [Erstellen eines SQL Data Warehouse][Create a SQL Data Warehouse]. Wählen Sie die Option zum Laden der Beispieldaten. Wenn Sie bereits über ein Data Warehouse verfügen, aber noch keine Beispieldaten besitzen, können Sie [Beispieldaten manuell laden][load sample data manually].
 
 ## <a name="1-get-the-data"></a>1. Abrufen von Daten
-Die Daten befinden sich in der Ansicht „dbo.vTargetMail“ in der AdventureWorksDW-Datenbank. Gehen Sie wie folgt vor, um diese Daten zu lesen:
+Die Daten befinden sich in der Sicht „dbo.vTargetMail“ in der AdventureWorksDW-Datenbank. Gehen Sie wie folgt vor, um diese Daten zu lesen:
 
 1. Melden Sie sich bei [Azure Machine Learning Studio][Azure Machine Learning studio] an, und klicken Sie auf „Meine Experimente“.
 2. Klicken Sie unten links im Bildschirm auf **+ Neu**, und wählen Sie **Leeres Experiment** aus.
@@ -71,7 +71,7 @@ FROM [dbo].[vTargetMail]
 Führen Sie das Experiment aus, indem Sie unterhalb des Experimentbereichs auf **Ausführen** klicken.
 ![Ausführen des Experiments][1]
 
-Klicken Sie nach Abschluss des Experiments auf den Ausgabeport im unteren Bereich des Reader-Moduls, und wählen Sie **Visualisieren** aus, um die importierten Daten anzuzeigen.
+Klicken Sie nach Abschluss des Experiments auf den Ausgabeport im unteren Bereich des Reader-Moduls, und wählen Sie **Visualisieren** , um die importierten Daten anzuzeigen.
 ![Anzeigen der importierten Daten][3]
 
 ## <a name="2-clean-the-data"></a>2. Bereinigen der Daten
@@ -91,7 +91,7 @@ Wir teilen die Daten im Verhältnis 80:20: 80 % zum Trainieren eines Machine Lea
    ![Aufteilen von Daten in Trainings- und Testsätze][6]
 3. Ziehen Sie das Modul **Two-Class Boosted Decision Tree** in den Zeichenbereich.
 4. Ziehen Sie das Modul **Train Model** in den Zeichenbereich, und machen Sie Eingaben, indem Sie es mit den Modulen **Two-Class Boosted Decision Tree** (ML-Algorithmus) und **Split Data** (zum Trainieren des Algorithmus) verbinden. 
-     ![Verbinden des Moduls „Train Model“][7]
+     ![Verbinden des „Modell trainieren“-Moduls][7]
 5. Klicken Sie im Eigenschaftenbereich auf **Spaltenauswahl starten** . Wählen Sie die Spalte **BikeBuyer** als die vorherzusagende Spalte aus.
    ![Auswählen der vorherzusagenden Spalte][8]
 
@@ -103,12 +103,12 @@ Wir testen nun die Leistung des Modells mithilfe von Testdaten. Wir vergleichen 
 2. Ziehen Sie das Modul **Two-Class Bayes Point Machine** in den Experimentbereich. Wir sehen uns an, wie dieser Algorithmus im Vergleich zum Modul „Two-Class Boosted Decision Tree“ abschneidet.
 3. Kopieren Sie die Module „Train Model“ und „Score Model“, und fügen Sie sie im Zeichenbereich ein.
 4. Ziehen Sie das Modul **Evaluate Model** in den Zeichenbereich, um die beiden Algorithmen zu vergleichen.
-5. **Führen** Sie das Experiment aus.
+5. **Ausführen** aus.
    ![Ausführen des Experiments][10]
-6. Klicken Sie unten im Modul „Evaluate Model“ auf den Ausgabeport und anschließend auf „Visualisieren“.
+6. Klicken Sie unten im Modul „Modell evaluieren“ auf den Ausgabeport und anschließend auf „Visualisieren“.
    ![Anzeigen der Auswertungsergebnisse][11]
 
-Folgende Metriken stehen zur Verfügung: ROC-Kurve, Precision-Recall-Diagramm und Lorenz-Kurve. Anhand dieser Metriken erkennen wir, dass mit dem ersten Modell eine bessere Leistung als mit dem zweiten Modell erzielt wird. Wenn Sie die Vorhersage des ersten Modells anzeigen möchten, klicken Sie im Modul „Score Model“ auf den Ausgabeport und anschließend auf „Visualisieren“.
+Folgende Metriken stehen zur Verfügung: ROC-Kurve, Precision-Recall-Diagramm und Lorenz-Kurve. Anhand dieser Metriken erkennen wir, dass mit dem ersten Modell eine bessere Leistung als mit dem zweiten Modell erzielt wird. Wenn Sie die Vorhersage des ersten Modells anzeigen möchten, klicken Sie im „Bewertungsmodell“ auf den Ausgabeport und anschließend auf „Visualisieren“.
 ![Anzeigen der Bewertungsergebnisse][12]
 
 Ihrem Testdatensatz werden zwei weitere Spalten hinzugefügt.

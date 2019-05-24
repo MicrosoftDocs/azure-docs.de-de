@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238158"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761993"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Lösungsmuster in Azure Stream Analytics
 
@@ -58,7 +58,7 @@ Sie können mithilfe von Azure Stream Analytics und Azure SignalR Service benutz
 
 Die meisten Webdienste und Webanwendungen verwenden heute ein Anforderung/Antwort-Muster für die Darstellungsschicht. Das Anforderung/Antwort-Muster ist einfach zu erstellen und kann mithilfe eines zustandslosen Front-Ends und skalierbaren Speichern wie Cosmos DB einfach mit schnellen Antwortzeiten skaliert werden.
 
-Hohe Datenvolumen führen in einem CRUD-basierten System häufig zu Leistungsengpässen. Das [Ereignissourcing-Lösungsmuster](/azure/architecture/patterns/event-sourcing.md) wird verwendet, um Leistungsengpässe zu beheben. Das Extrahieren von temporalen Mustern und Einblicken aus einem herkömmlichen Datenspeicher ist auch schwierig und ineffizient. Moderne, von einem umfangreichen Datenvolumen gesteuerte Anwendungen übernehmen häufig eine datenflussbasierte Architektur. Azure Stream Analytics ist als Computeengine für bewegte Daten zentrales A und O in dieser Architektur.
+Hohe Datenvolumen führen in einem CRUD-basierten System häufig zu Leistungsengpässen. Das [Ereignissourcing-Lösungsmuster](/azure/architecture/patterns/event-sourcing) wird verwendet, um Leistungsengpässe zu beheben. Das Extrahieren von temporalen Mustern und Einblicken aus einem herkömmlichen Datenspeicher ist auch schwierig und ineffizient. Moderne, von einem umfangreichen Datenvolumen gesteuerte Anwendungen übernehmen häufig eine datenflussbasierte Architektur. Azure Stream Analytics ist als Computeengine für bewegte Daten zentrales A und O in dieser Architektur.
 
 ![ASA – Ereignissourcing-App](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 8ff9c298d0ced28a2cce19aa762cdf8f9e516d37
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 61278314f6d75a4771142fca8048a0c3788844a8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141179"
 ---
 # <a name="add-a-user"></a>Hinzufügen eines Benutzers
 

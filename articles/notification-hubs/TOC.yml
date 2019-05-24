@@ -45,7 +45,11 @@
     - name: iOS
       items:
         - name: Senden von Pushbenachrichtigungen an iOS-Apps
-          href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+          items:
+            - name: Objective-C
+              href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+            - name: Swift
+              href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
         - name: Senden von Pushbenachrichtigungen an bestimmte Geräte
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Senden von Pushbenachrichtigungen an bestimmte Benutzer

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409845"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795908"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bewährte Methoden für Azure Operational Security
 Dieser Artikel enthält eine Reihe von bewährten Methoden für den Schutz Ihrer Daten, Anwendungen und anderen Ressourcen in Azure.
@@ -153,7 +153,7 @@ Mit dem [Azure Resource Manager](https://azure.microsoft.com/documentation/artic
 **Detail**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) ist eine Lösung für die Automatisierung einer mehrstufigen Bereitstellung und die Verwaltung des Releaseprozesses. Erstellen Sie verwaltete Continuous Deployment-Pipelines für schnelle, einfache und häufige Releases. Mit Azure Pipelines können Sie den Releaseprozess automatisieren und vordefinierte Genehmigungsworkflows einrichten. Stellen Sie lokal und in der Cloud bereit, und führen Sie nach Bedarf Erweiterungen und Anpassungen durch.
 
 **Bewährte Methode**: Testen Sie die Leistung Ihrer Web-App, bevor Sie sie starten oder Updates für die Produktion bereitstellen.  
-**Detail**: Führen Sie cloudbasierte [Auslastungstest](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) für folgende Zwecke durch:
+**Detail**: Führen Sie cloudbasierte [Auslastungstest](/azure/devops/test/load-test/overview#alternatives) für folgende Zwecke durch:
 
 - Leistungsprobleme in Ihrer Web-App finden.
 - Qualität der Bereitstellung verbessern.

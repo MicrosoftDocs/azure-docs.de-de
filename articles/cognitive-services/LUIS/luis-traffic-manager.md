@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123544"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Verwenden von Microsoft Azure Traffic Manager zum Verwalten von Endpunktkontingenten über mehrere Schlüssel
 Language Understanding Intelligent Service (LUIS) bietet die Möglichkeit, das Endpunkt-Anforderungskontingent über das Kontingent eines einzelnen Schlüssels hinaus zu erhöhen. Dies erfolgt, indem Sie mehrere Schlüssel für LUIS erstellen und diese der LUIS-Anwendung auf der Seite **Veröffentlichen** im Abschnitt **Resources and Keys** (Ressourcen und Schlüssel) hinzuzufügen. 
@@ -104,7 +104,7 @@ Das Erstellen des Traffic Manager-Profils für „USA, Osten“ umfasst mehrere 
     |-Type|ExternalEndpoints|Weitere Informationen finden Sie unter [Traffic Manager-Endpunkt][traffic-manager-endpoints]. |
     |-Target|eastus.api.cognitive.microsoft.com|Dies ist die Domäne für den LUIS-Endpunkt.|
     |-EndpointLocation|"eastus"|Region des Endpunkts|
-    |-EndpointStatus|Aktiviert|Endpunkt beim Erstellen aktivieren|
+    |-EndpointStatus|Enabled|Endpunkt beim Erstellen aktivieren|
 
     Eine erfolgreiche Antwort sieht wie folgt aus:
 
@@ -173,7 +173,7 @@ Das Erstellen des Traffic Manager-Profils für „USA, Westen“ umfasst die gle
     |-Type|ExternalEndpoints|Weitere Informationen finden Sie unter [Traffic Manager-Endpunkt][traffic-manager-endpoints]. |
     |-Target|westus.api.cognitive.microsoft.com|Dies ist die Domäne für den LUIS-Endpunkt.|
     |-EndpointLocation|"westus"|Region des Endpunkts|
-    |-EndpointStatus|Aktiviert|Endpunkt beim Erstellen aktivieren|
+    |-EndpointStatus|Enabled|Endpunkt beim Erstellen aktivieren|
 
     Eine erfolgreiche Antwort sieht wie folgt aus:
 
@@ -239,7 +239,7 @@ Erstellen Sie das übergeordnete Traffic Manager-Profil, und verknüpfen Sie zwe
     |-TrafficManagerProfile|$parentprofile|Profil, dem dieser Endpunkt zugewiesen werden soll|
     |-Type|NestedEndpoints|Weitere Informationen finden Sie unter [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$eastprofile.Id|ID des untergeordneten Profils|
-    |-EndpointStatus|Aktiviert|Endpunktstatus nach dem Hinzufügen zum übergeordneten Element|
+    |-EndpointStatus|Enabled|Endpunktstatus nach dem Hinzufügen zum übergeordneten Element|
     |-EndpointLocation|"eastus"|[Name der Azure-Region](https://azure.microsoft.com/global-infrastructure/regions/) der Ressource|
     |-MinChildEndpoints|1|Minimale Anzahl von untergeordneten Endpunkten|
 
@@ -276,7 +276,7 @@ Erstellen Sie das übergeordnete Traffic Manager-Profil, und verknüpfen Sie zwe
     |-TrafficManagerProfile|$parentprofile|Profil, dem dieser Endpunkt zugewiesen werden soll|
     |-Type|NestedEndpoints|Weitere Informationen finden Sie unter [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$westprofile.Id|ID des untergeordneten Profils|
-    |-EndpointStatus|Aktiviert|Endpunktstatus nach dem Hinzufügen zum übergeordneten Element|
+    |-EndpointStatus|Enabled|Endpunktstatus nach dem Hinzufügen zum übergeordneten Element|
     |-EndpointLocation|"westus"|[Name der Azure-Region](https://azure.microsoft.com/global-infrastructure/regions/) der Ressource|
     |-MinChildEndpoints|1|Minimale Anzahl von untergeordneten Endpunkten|
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: ca5999e6d850c2e30a9243a48dae6ceb88a11415
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164542"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114595"
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/storage/files/storage-dotnet-how-to-use-files.md)

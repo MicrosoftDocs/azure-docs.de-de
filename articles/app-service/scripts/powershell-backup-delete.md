@@ -16,11 +16,11 @@ ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: dbe8417e8a26cb222fe52ac7c0284b3956ed65fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136628"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Löschen einer Sicherung für eine Web-App mit Azure PowerShell
 

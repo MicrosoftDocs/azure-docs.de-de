@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167286"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Schützen von Aufrufen benutzerdefinierter APIs in Azure Logic Apps
 
@@ -190,7 +190,7 @@ In der obigen Vorlage ist der Abschnitt für die Autorisierung bereits eingerich
 
 | Element | Erforderlich | BESCHREIBUNG | 
 | ------- | -------- | ----------- | 
-| Mandant | Ja | Die GUID für den Azure AD-Mandanten | 
+| tenant | Ja | Die GUID für den Azure AD-Mandanten | 
 | audience | Ja | Die GUID für die Zielressource, auf die Sie zugreifen möchten. Dies ist die Client-ID der Anwendungsidentität für Ihre Web-App oder API-App | 
 | clientId | Ja | Die GUID für den Client, der darauf zugreifen möchte. Dies ist die Client-ID der Anwendungsidentität für Ihre Logik-App | 
 | secret | Ja | Der Schlüssel oder das Kennwort der Anwendungsidentität für den Client, der das Zugriffstoken anfordert | 

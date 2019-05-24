@@ -3,8 +3,8 @@ title: Anzeige von Anwendungen im Zugriffsbereich | Microsoft-Dokumentation
 description: Beheben des Problems, dass eine Anwendung im Zugriffsbereich angezeigt wird
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8fa8ea75cc7fda05326c802c25a91d025b66b5ce
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122198"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784411"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Anzeige von Anwendungen im Zugriffsbereich
 

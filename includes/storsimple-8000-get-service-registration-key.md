@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a76f61902c6affdab9f70526d2de40852747f34e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888479"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118272"
 ---
 #### <a name="to-get-the-storsimple-service-registration-key"></a>So rufen Sie den StorSimple-Dienstregistrierungsschlüssel ab
 

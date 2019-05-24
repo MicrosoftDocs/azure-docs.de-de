@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406406"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544698"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Was ist der Azure Blockchain-Dienst?
 
@@ -77,7 +77,7 @@ Benötigen Sie Hilfe oder haben Sie Feedback?
 ## <a name="next-steps"></a>Nächste Schritte
 
 Um loszulegen, probieren Sie einen Schnellstart aus, oder informieren Sie sich über weitere Details in diesen Ressourcen.
-* [Erstellen eines Blockchainmitglieds über das Azure-Portal](create-member.md) oder [Erstellen eines Blockchainmitglieds mit der Azure-Befehlszeilenschnittstelle]()
+* [Erstellen eines Blockchainmitglieds über das Azure-Portal](create-member.md) oder [Erstellen eines Blockchainmitglieds mit der Azure-Befehlszeilenschnittstelle](create-member-cli.md)
 * Kostenvergleiche und -rechner finden Sie auf der [Seite mit der Preisgestaltung](https://azure.microsoft.com/pricing/details/blockchain-service).
 * Erstelle Ihrer ersten Anwendung mit dem [Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
 * [Benutzerhandbuch](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) für die Azure Blockchain-VSCode-Erweiterung

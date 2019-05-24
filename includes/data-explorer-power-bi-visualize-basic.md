@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: mblythe
 ms.openlocfilehash: 9624856841ec7473543575c31928c6eefd1404c1
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51858020"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120579"
 ---
 Da Sie nun über Daten in Power BI Desktop verfügen, können Sie Berichte auf der Grundlage dieser Daten erstellen. Sie erstellen einen einfachen Bericht mit einem Säulendiagramm, das die Ernteschäden nach Bundesstaat zeigt.
 

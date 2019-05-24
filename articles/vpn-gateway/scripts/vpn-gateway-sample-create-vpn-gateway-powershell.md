@@ -10,11 +10,11 @@ ms.topic: sample
 ms.date: 04/17/2018
 ms.author: alzam
 ms.openlocfilehash: 433899c2b558a5182ca1a5c7c0e0ac76c87e0007
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66113755"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>Erstellen eines VPN-Gateways mithilfe von PowerShell
 

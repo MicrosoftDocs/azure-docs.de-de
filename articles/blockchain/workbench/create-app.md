@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578797"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619752"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: Erstellen einer Blockchainanwendung in Blockchain Workbench
 
@@ -271,7 +271,7 @@ Fügen Sie die Zustandsvariablen zu Ihrem Vertrag in Ihrer intelligenten Vertrag
 
 ### <a name="constructor"></a>Konstruktor
 
-Der Konstruktor definiert Eingabeparameter für eine neue intelligente Vertragsinstanz eines Workflows. Der Konstruktor wird als Funktion mit dem gleichen Namen wie der Vertrag deklariert. Erforderliche Parameter für den Konstruktor werden als Konstruktorparameter in der Konfigurationsdatei definiert. Anzahl, Reihenfolge und Art der Parameter müssen in beiden Dateien übereinstimmen.
+Der Konstruktor definiert Eingabeparameter für eine neue intelligente Vertragsinstanz eines Workflows. Erforderliche Parameter für den Konstruktor werden als Konstruktorparameter in der Konfigurationsdatei definiert. Anzahl, Reihenfolge und Art der Parameter müssen in beiden Dateien übereinstimmen.
 
 Schreiben Sie in die Konstruktorfunktion eine beliebige Geschäftslogik, die Sie vor dem Erstellen des Vertrags ausführen möchten. Initialisieren Sie z.B. die Zustandsvariablen mit Anfangswerten.
 

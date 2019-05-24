@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 16d4c92642fb6bd0191c24ebcf57ee092301971f
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 282a9d0b1ae5afb873d9f3736550dff52e16bc12
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160533"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Lastenausgleich für den Datenverkehr zu virtuellen Computern für Hochverfügbarkeit
 

@@ -9,11 +9,11 @@ ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
 ms.openlocfilehash: 1d3ce900f7354b31e999c12b8e1eb0e23d391fcb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56078545"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111566"
 ---
 | | Standard-SKU | Basic-SKU |
 | --- | --- | --- |

@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791608"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779566"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Schützen neuer Ressourcen mit Azure Blueprints-Ressourcensperren
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Schützen neuer Ressourcen mit Azure Blueprints-Ressourcensperren
 
 Mit Azure Blueprints-[Ressourcensperren](../concepts/resource-locking.md) können Sie neu bereitgestellte Ressourcen schützen, sodass sie nicht einmal von einem Konto mit der Rolle _Besitzer_ manipuliert werden können. Dieser Schutz kann in der Blaupausendefinition zu Ressourcen hinzugefügt werden, die mithilfe eines Resource Manager-Vorlagenartefakts erstellt wurden.
 
@@ -152,7 +152,7 @@ Nachdem die Blaupausendefinition erfolgreich **veröffentlicht** wurde, kann sie
      |Artefaktname|Artefakttyp|Parametername|Wert|BESCHREIBUNG|
      |-|-|-|-|-|
      |Ressourcengruppe „RGtoLock“|Ressourcengruppe|NAME|TestingBPLocks|Definiert den Namen der neuen Ressourcengruppe, auf die Blaupausensperren angewendet werden sollen.|
-     |Ressourcengruppe „RGtoLock“|Ressourcengruppe|Standort|USA, Westen 2|Definiert den Standort der neuen Ressourcengruppe, auf die Blaupausensperren angewendet werden sollen.|
+     |Ressourcengruppe „RGtoLock“|Ressourcengruppe|Location|USA, Westen 2|Definiert den Standort der neuen Ressourcengruppe, auf die Blaupausensperren angewendet werden sollen.|
      |StorageAccount|Resource Manager-Vorlage|storageAccountType (StorageAccount)|Standard_GRS|Auswählen der Speicher-SKU. Der Standardwert lautet _Standard_LRS_.|
 
 1. Nachdem Sie alle Parameter eingegeben haben, wählen Sie unten auf der Seite die Option **Zuweisen** aus.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59488232"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113125"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Von Azure Active Directory Identity Protection erkannte Sicherheitsrisiken
 
@@ -29,8 +29,6 @@ Die folgenden Abschnitte bieten Ihnen eine Übersicht der Sicherheitsrisiken, di
 ## <a name="multi-factor-authentication-registration-not-configured"></a>Multi-Factor Authentication-Registrierung nicht konfiguriert
 
 Anhand dieses Sicherheitsrisikos können Sie die Bereitstellung von Azure Multi-Factor Authentication in Ihrer Organisation besser bewerten.
-
-Um die Anzahl der Benutzer anzuzeigen, die nicht für MFA registriert sind, klicken Sie auf das Sicherheitsrisiko. Sie werden dann zu den Statistiken in Identity Secure Score umgeleitet.
 
 Azure Multi-Factor Authentication dient als zweite Sicherheitsebene für die Benutzerauthentifizierung. Sie hilft beim Schutz des Zugriffs auf Daten und Anwendungen und erfüllt gleichzeitig die Anforderungen von Benutzern an ein einfaches Anmeldeverfahren. Azure Multi-Factor Authentication umfasst folgende benutzerfreundliche Überprüfungsoptionen:
 

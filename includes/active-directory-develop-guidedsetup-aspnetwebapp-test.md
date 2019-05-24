@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528538"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121777"
 ---
 ## <a name="test-your-code"></a>Testen Ihres Codes
 
@@ -47,7 +47,7 @@ Nachdem Sie die Controlleransicht aufgerufen haben, sollten Sie eine Tabelle mit
 |---|---|---|
 |**Name** |Vollständiger Name des Benutzers | Vor- und Nachname des Benutzers
 |**Benutzername** |Benutzer<span>@domain.com</span> | Der zur Identifizierung des Benutzers verwendete Benutzername
-|**Betreff** |Antragsteller |Eine Zeichenfolge, die den Benutzer im Internet eindeutig identifiziert|
+|**Betreff** |Subject |Eine Zeichenfolge, die den Benutzer im Internet eindeutig identifiziert|
 |**Tenant ID** |Guid | Eine **GUID**, die die Azure AD-Organisation des Benutzers eindeutig identifiziert|
 
 Darüber hinaus sollten Sie eine Tabelle aller Ansprüche sehen, die in der Authentifizierungsanforderung enthalten sind. Weitere Informationen finden Sie in der [Liste der im Azure AD-ID-Token enthaltenen Ansprüche](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

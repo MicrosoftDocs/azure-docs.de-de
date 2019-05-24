@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408075"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65903997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Azure Active Directory-Integration mit QuickHelp
 
@@ -150,11 +150,11 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit QuickHe
    
     b. Klicken Sie zum Hochladen der heruntergeladenen Azure-Metadatendatei auf **Durchsuchen**, navigieren Sie zur Datei, und klicken Sie dann auf **Metadaten hochladen**.
    
-    c. Geben Sie in das Textfeld **E-Mail** die Adresse `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` ein.
+    c. Geben Sie in das Textfeld **E-Mail** die Adresse `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` ein.
    
-    d. Geben Sie in das Textfeld **Vorname** den Namen `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` ein.
+    d. Geben Sie in das Textfeld **Vorname** den Namen `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` ein.
    
-    e. Geben Sie in das Textfeld **Nachname** den Namen `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` ein.
+    e. Geben Sie in das Textfeld **Nachname** den Namen `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` ein.
    
     f. Klicken Sie in der **Aktionsleiste** auf **Speichern**.
 

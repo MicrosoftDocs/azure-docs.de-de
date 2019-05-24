@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
 ms.openlocfilehash: f16a02cd110397b1ef6bb3aa00ea12c44e4b9563
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117135"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-powershell"></a>Abonnieren von Ereignissen für ein benutzerdefiniertes Thema mit PowerShell
 

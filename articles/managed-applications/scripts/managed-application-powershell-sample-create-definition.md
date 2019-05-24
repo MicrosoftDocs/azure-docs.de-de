@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 35f1b805323da03f1622e5c355d6ffa6d960b275
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171502"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Erstellen einer Definition für die verwaltete Anwendung mit PowerShell
 

@@ -2,20 +2,20 @@
 title: 'Azure SQL Data Warehouse: Anmerkungen zu dieser Version – Juni 2018 | Microsoft-Dokumentation'
 description: Versionshinweise zu Azure SQL Data Warehouse
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 08/06/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 123198b21122a23d81794db0a5ca2051b15ee2e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 4ec90bef9228eccb9556d07bb5680deb00e2550e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834199"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912176"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Neuerungen in Azure SQL Data Warehouse Juli 2018
 Azure SQL Data Warehouse wird fortlaufend verbessert. In diesem Artikel informieren wir Sie über neue Features und Änderungen, die im Juli 2018 eingeführt wurden.

@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793544"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522363"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Anleitung zur Migration von API-Version 1 zu API-Version 2 für LUIS-Apps
-Die [Endpunkt](https://aka.ms/v1-endpoint-api-docs)- und [Erstellungs](https://aka.ms/v1-authoring-api-docs)-APIs der Version 1 sind veraltet. In diesem Handbuch erfahren Sie, wie Sie zu den [Endpunkt](https://aka.ms/luis-endpoint-apis)- und [Erstellungs](https://aka.ms/luis-authoring-apis)-APIs der Version 2 migrieren. 
+Die [Endpunkt](https://aka.ms/v1-endpoint-api-docs)- und [Erstellungs](https://aka.ms/v1-authoring-api-docs)-APIs der Version 1 sind veraltet. In diesem Handbuch erfahren Sie, wie Sie zu den [Endpunkt](https://go.microsoft.com/fwlink/?linkid=2092356)- und [Erstellungs](https://go.microsoft.com/fwlink/?linkid=2092087)-APIs der Version 2 migrieren. 
 
 ## <a name="new-azure-regions"></a>Neue Azure-Regionen
 LUIS stellt neue [Regionen](https://aka.ms/LUIS-regions) für die LUIS-APIs bereit. LUIS bietet ein eigenes Portal für Regionsgruppen. Die Anwendung muss in derselben Region erstellt werden, die Sie abfragen möchten. Regionen werden von Anwendungen nicht automatisch migriert. Sie exportieren die App aus einer Region und importieren sie dann in eine andere, damit sie in einer neuen Region verfügbar ist.
@@ -28,7 +28,7 @@ LUIS stellt neue [Regionen](https://aka.ms/LUIS-regions) für die LUIS-APIs bere
 Die Route der Erstellungs-API wurde von der Route **prog** zur Route **api** geändert.
 
 
-| Version | Route |
+| version | Route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
@@ -37,7 +37,7 @@ Die Route der Erstellungs-API wurde von der Route **prog** zur Route **api** ge�
 ## <a name="endpoint-route-changes"></a>Endpunkt-Routenänderungen
 Die Endpunkt-API weist neue Abfragezeichenfolgen-Parameter sowie eine andere Antwort auf. Wenn das verbose-Flag auf TRUE festgelegt ist, werden alle Absichten unabhängig von ihrer Bewertung, zusätzlich zur höchstbewerteten Absicht topScoringIntent in einem Array mit dem Namen „intents“ zurückgegeben.
 
-| Version | GET-Route |
+| version | GET-Route |
 |--|--|
 |1|/luis/v1/application?ID={App-ID}&q={q}|
 |2|/luis/v2.0/apps/{App-ID}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&Bing-Rechtschreibprüfungs-Abonnementschlüssel][&log]|
@@ -107,7 +107,7 @@ Erfolgsantwort v2-Endpunkt:
 ## <a name="key-management-no-longer-in-api"></a>Schlüsselverwaltung nicht mehr in der API
 Die Abonnementendpunkt-Schlüssel-APIs sind veraltet und geben den Fehler „410 GONE“ zurück.
 
-| Version | Route |
+| version | Route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{Abonnementschlüssel}|
@@ -117,7 +117,7 @@ Azure-[Endpunktschlüssel](luis-how-to-azure-subscription.md) werden im Azure-Po
 ## <a name="new-versioning-route"></a>Neue Versionsverwaltungsroute
 Die v2-Modell ist nun in einer [Version](luis-how-to-manage-versions.md) enthalten. Ein Versionsname umfasst 10 Zeichen in der Route. Die Standardversion ist 0.1.
 
-| Version | Route |
+| version | Route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{App-ID}/entities|
 |2|/luis/**api**/v2.0/apps/{App-ID}/**versions**/{Versions-ID}/entities|
@@ -136,7 +136,7 @@ Mehrere APIs, die LUIS Metadaten zurückgeben, weisen neue Namen auf.
 ## <a name="sample-renamed-to-suggest"></a>„Beispiel“ in „Vorschlag“ umbenannt
 LUIS schlägt Äußerungen von vorhandenen [Endpunktäußerungen](luis-how-to-review-endpoint-utterances.md) vor, die das Modell verbessern können. In der vorherigen Version wurde dies als **Beispiel** bezeichnet. In der neuen Version wurde diese Bezeichnung von „Beispiel“ in **Vorschlag** geändert. Auf der LUIS-Website wird dies **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Endpunktäußerungen überprüfen) genannt.
 
-| Version | Route |
+| version | Route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{App-ID}/entities/{Entitäts-ID}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{App-ID}/intents/{Absichts-ID}/**sample**|
@@ -169,6 +169,6 @@ Weitere Informationen finden Sie unter [LUIS-API-Antwortcodes](luis-reference-re
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Verwenden Sie die v2-API-Dokumentation zum Aktualisieren vorhandener REST-Aufrufe an die LUIS-[Endpunkt](https://aka.ms/luis-endpoint-apis)- und [Erstellungs](https://aka.ms/luis-authoring-apis)-APIs. 
+Verwenden Sie die v2-API-Dokumentation zum Aktualisieren vorhandener REST-Aufrufe an die LUIS-[Endpunkt](https://go.microsoft.com/fwlink/?linkid=2092356)- und [Erstellungs](https://go.microsoft.com/fwlink/?linkid=2092087)-APIs. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

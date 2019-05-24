@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263355"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522118"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Deaktivieren der Überwachung Ihrer virtuellen Computer mit Azure Monitor für VMs (Vorschauversion)
 
@@ -56,7 +56,7 @@ Die folgenden Schritte beschreiben, wie Sie Azure Monitor für VMs vollständig 
 5. Wählen Sie in der Liste der Lösungen den Eintrag **InfrastructureInsights(Arbeitsbereichsname)** aus, und klicken Sie dann auf der Seite **Übersicht** der Lösung auf **Löschen**.  Wenn Sie aufgefordert werden, die Auswahl zu bestätigen, klicken Sie auf **Ja**.  
 6. Wählen Sie in der Liste der Lösungen den Eintrag **ServiceMap(Arbeitsbereichsname)** aus, und klicken Sie dann auf der Seite **Übersicht** der Lösung auf **Löschen**.  Wenn Sie aufgefordert werden, die Auswahl zu bestätigen, klicken Sie auf **Ja**.  
 
-Wenn Sie vor der Integration von Azure Monitor für VMs die [aktivierten Leistungsindikatoren](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) für die Windows- oder Linux-basierten VMs in Ihrem Arbeitsbereich nicht gesammelt haben, müssen Sie diese Regeln deaktivieren. Führen Sie dazu die [hier](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) beschriebenen Schritte für Windows bzw. Linux aus.
+Wenn Sie vor der Integration von Azure Monitor für VMs die [aktivierten Leistungsindikatoren](vminsights-enable-overview.md#performance-counters-enabled) für die Windows- oder Linux-basierten VMs in Ihrem Arbeitsbereich nicht gesammelt haben, müssen Sie diese Regeln deaktivieren. Führen Sie dazu die [hier](../platform/data-sources-performance-counters.md#configuring-performance-counters) beschriebenen Schritte für Windows bzw. Linux aus.
 
 ## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Deaktivieren der Überwachung für eine Azure-VM und Beibehalten des Arbeitsbereichs  
 

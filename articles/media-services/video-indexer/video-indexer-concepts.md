@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: c7bbe8c6b2ad51ed7272cd215552807c7cea3aee
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 156eceba856bf159d4821360639a0641d3ed02be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991506"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799060"
 ---
 # <a name="video-indexer-concepts"></a>Video Indexer-Konzepte
  

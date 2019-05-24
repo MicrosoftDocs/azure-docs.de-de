@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: abshamsft
-ms.openlocfilehash: d0819b57307fc037b3be6ab04ed9ec6c8720a618
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: absha
+ms.openlocfilehash: 7f9c0d905a7b2bc81063e59229d78a1200894d47
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103586"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963744"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute-Monitor
 

@@ -3,19 +3,19 @@ title: 'Schnellstart: Senden einer Suchanforderung mit dem Bing-Entitätssuche-S
 titleSuffix: Azure Cognitive Services
 description: Verwenden Sie diese Schnellstartanleitung, um unter Verwendung des Bing-Entitätssuche-SDK für Node.js nach Entitäten zu suchen.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: 015a2d344b066bd7b65c3228a2795c3395793f2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aahi
+ms.openlocfilehash: 9c178b8278dd7854e4f79fbfae1bafc117a1970e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097029"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813659"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Schnellstart: Senden einer Suchanforderung mit dem Bing-Entitätssuche-SDK für Node.js
 

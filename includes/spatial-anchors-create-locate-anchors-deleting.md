@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 9e50caeac5c52b9f2309448e2bb0b760f533fb6c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631692"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66110484"
 ---
 ## <a name="delete-anchors"></a>Löschen von Ankern
 

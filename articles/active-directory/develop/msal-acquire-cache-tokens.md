@@ -4,7 +4,7 @@ description: Erfahren Sie mehr über das Abrufen und Zwischenspeichern von Token
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d32b56b28d9ce7425e782fc10fa9ffb67047ce0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139134"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546086"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Abrufen und Zwischenspeichern von Token mit MSAL
 [Zugriffstoken](access-tokens.md) ermöglichen Clients das sichere Aufrufen von Web-APIs, die durch Azure geschützt sind. Es gibt viele Möglichkeiten zum Abrufen von Token mithilfe der Microsoft-Authentifizierungsbibliothek. In einigen Fällen sind Benutzerinteraktionen über einen Webbrowser erforderlich und in anderen Fällen nicht. Wie Sie ein Token anfordern, hängt in der Regel davon ab, ob es sich bei der Anwendung um eine öffentliche Clientanwendung (Desktopanwendung oder mobile App) oder um eine vertrauliche Clientanwendung (Web-App, Web-API oder Daemon-Anwendung wie einen Windows-Dienst) handelt.

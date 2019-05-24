@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 889b9c0cf944085f5f42ece892d5cac747a27240
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246884"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132159"
 ---
 ## <a name="create-an-azure-storage-account"></a>Erstellen eines Azure-Speicherkontos
 

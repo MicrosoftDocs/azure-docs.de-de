@@ -6,14 +6,14 @@ author: bwren
 ms.service: log-analytics
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/19/2019
 ms.author: bwren
-ms.openlocfilehash: 2d3f1ab6704a0f5ecd15190fd08b10485cdf1ee9
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 36cb2462a47f9d175ca25bbbde46a14009637db0
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510110"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907886"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Verwalten von Log Analytics-Arbeitsbereichen in Azure Monitor mithilfe von PowerShell
 
@@ -79,7 +79,7 @@ $ExportedSearches = @"
     {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
-        "Query":  "Type=Perf ObjectName=LogicalDisk InstanceName=\"C:\" CounterName=\"Current Disk Queue Length\"",
+        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:",
         "Version":  1
     }
 ]

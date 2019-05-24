@@ -3,25 +3,25 @@ title: Durchführen eines Upgrades auf den Azure AD-Anwendungsproxy | Microsoft-
 description: Wählen Sie aus, welche Proxylösung am besten für Sie geeignet ist, um ein Upgrade von Microsoft Forefront oder Unified Access Gateway durchzuführen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2017
-ms.author: celested
+ms.date: 05/17/2019
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b9a3468d720cb04e73cb284abb20c7bcf6a392dd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279311"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859522"
 ---
 # <a name="compare-remote-access-solutions"></a>Vergleichen von Remotezugriffslösungen
 
@@ -65,4 +65,3 @@ Azure AD-Anwendungsproxy bietet besondere Vorteile im Vergleich zu ähnlichen Pr
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Bereitstellen eines sicheren Remotezugriffs auf lokale Anwendungen mit Azure AD-Anwendungsproxy](application-proxy.md)
-- [Übergang von Forefront TMG und UAG zu Anwendungsproxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

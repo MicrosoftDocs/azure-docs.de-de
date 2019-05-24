@@ -2,20 +2,20 @@
 title: Migrieren Ihres Schemas nach SQL Data Warehouse | Microsoft Docs
 description: Tipps für die Migration eines Schemas in Azure SQL Data Warehouse zum Entwickeln von Lösungen.
 services: sql-data-warehouse
-author: jrowlandjones
+author: TwoUnder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: 4139ea776f6947eeacf4620c3676606d6535dd2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c27183e0c66cbc477ce8bb5eb52a813baf7d2a97
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461683"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65857034"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Migrieren Ihrer Schemas nach SQL Data Warehouse
 Anleitung zum Migrieren Ihrer SQL-Schemas in SQL Data Warehouse 

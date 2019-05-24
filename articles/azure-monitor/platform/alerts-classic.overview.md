@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788649"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914703"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Was sind klassische Warnungen in Microsoft Azure?
 
@@ -24,7 +24,7 @@ Mit Warnungen können Sie Bedingungen für Daten konfigurieren und benachrichtig
 
 ## <a name="old-and-new-alerting-capabilities"></a>Alte und neue Warnungsfunktionen
 
-In der Vergangenheit verfügten Azure Monitor, Application Insights, Log Analytics und Service Health über separate Benachrichtigungsfunktionen. Im Laufe der Zeit verbesserte und kombinierte Azure sowohl die Benutzeroberfläche als auch verschiedene Benachrichtigungsmethoden. Die Konsolidierung ist noch nicht abgeschlossen. Alerts
+In der Vergangenheit verfügten Azure Monitor, Application Insights, Log Analytics und Service Health über separate Benachrichtigungsfunktionen. Im Laufe der Zeit verbesserte und kombinierte Azure sowohl die Benutzeroberfläche als auch verschiedene Benachrichtigungsmethoden. Die Konsolidierung ist noch nicht abgeschlossen.
 
 Sie können klassische Warnungen nur auf dem Benutzerbildschirm für klassische Warnungen im Azure-Portal anzeigen. Sie erhalten diesen Bildschirm über die Schaltfläche **Klassische Warnungen anzeigen** auf dem Bildschirm „Warnungen“. 
 

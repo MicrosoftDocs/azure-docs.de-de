@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 75ac8a45eb49ac5c4ec3b39667542f4f454a9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111303"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Schnellstart: Erstellen einer Azure DNS-Zone und eines entsprechenden Eintrags mithilfe von Azure PowerShell
 
@@ -66,7 +66,7 @@ Sie besitzen nun eine DNS-Testzone mit einem A-Testeintrag und können die Namen
 
 **Testen Sie die DNS-Namensauflösung wie folgt:**
 
-1. Führen Sie das folgende Cmdlet aus, um die Liste der Namenserver für Ihre Zone abzurufen:
+1. Führen Sie das folgende Cmdlet aus, um die Liste mit den Namenservern für Ihre Zone abzurufen:
 
    ```azurepowershell
    Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -RecordType ns
@@ -90,7 +90,7 @@ Sie besitzen nun eine DNS-Testzone mit einem A-Testeintrag und können die Namen
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Der Hostname **www\.contoso.xyz** wird gemäß Ihrer Konfiguration in **10.10.10.10** aufgelöst. Mit diesem Ergebnis wird bestätigt, dass die Namensauflösung richtig funktioniert.
+Der Hostname **www\.contoso.xyz** wird gemäß Ihrer Konfiguration zu **10.10.10.10** aufgelöst. Mit diesem Ergebnis wird bestätigt, dass die Namensauflösung richtig funktioniert.
 
 ## <a name="delete-all-resources"></a>Löschen aller Ressourcen
 

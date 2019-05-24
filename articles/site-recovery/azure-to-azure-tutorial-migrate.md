@@ -1,5 +1,5 @@
 ---
-title: Verschieben von Azure IaaS-VMs in eine andere Azure-Region mithilfe des Azure Site Recovery-Diensts | Microsoft-Dokumentation
+title: Verschieben von Azure IaaS-VMs in eine andere Azure-Region mithilfe des Azure Site Recovery-Diensts | Microsoft-Dokumentation
 description: Verwenden Sie Azure Site Recovery, um virtuelle Azure IaaS-Computer von einer Azure-Region zu einer anderen zu migrieren.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7619b8831d75ce639c6f6c773c7c7d491abc93e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122028"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791040"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Verschieben virtueller Azure-Computer in eine andere Region
 
@@ -56,7 +56,7 @@ In diesem Lernprogramm lernen Sie Folgendes:
     - Installieren Sie alle aktuellen Windows-Updates auf Windows-VMs, damit alle vertrauenswürdigen Stammzertifikate auf den Computern vorhanden sind. Führen Sie in einer nicht verbundenen Umgebung den Standardprozess für Windows Update und Zertifikatupdates in Ihrer Organisation durch.
     - Befolgen Sie bei virtuellen Linux-Computern die Anleitung Ihres Linux-Distributors, um die aktuellen vertrauenswürdigen Stammzertifikate und die Zertifikatsperrliste für den virtuellen Computer abzurufen.
 1. Stellen Sie sicher, dass Sie keinen Authentifizierungsproxy zum Steuern der Netzwerkkonnektivität für die VMs verwenden, die Sie verschieben möchten.
-1. Wenn der virtuelle Computer, den Sie verschieben möchten, keinen Zugriff auf das Internet hat oder einen Firewallproxy zum Steuern des ausgehenden Zugriffs verwendet, [überprüfen Sie die Anforderungen](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Wenn der virtuelle Computer, den Sie verschieben möchten, keinen Zugriff auf das Internet hat oder einen Firewallproxy zum Steuern des ausgehenden Zugriffs verwendet, [überprüfen Sie die Anforderungen](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 1. Identifizieren Sie das Layout des Quellnetzwerks und alle Ressourcen, die Sie aktuell verwenden. Dies schließt unter anderem Lastenausgleichsmodule, Netzwerksicherheitsgruppen (NSGs) und öffentliche IP-Adressen ein.
 
 ## <a name="prepare-the-target-region"></a>Vorbereiten der Zielregion
@@ -74,7 +74,7 @@ In diesem Lernprogramm lernen Sie Folgendes:
 
    - [Netzwerksicherheitsgruppen](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
    - [Load Balancer](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Öffentliche IP-Adresse](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Öffentliche IP-Adresse](../virtual-network/virtual-network-public-ip-address.md)
     
      Informationen zu anderen Netzwerkkomponenten finden Sie in der [Netzwerkdokumentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
@@ -96,7 +96,7 @@ In den folgenden Schritten wird erläutert, wie Sie Daten mithilfe von Azure Sit
 1. Wählen Sie das Ressourcen-Manager-Bereitstellungsmodell. Wählen Sie dann das **Quellabonnement** und die **Quellressourcengruppe** aus.
 1. Wählen Sie **OK**, um die Einstellungen zu speichern.
 
-### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Aktivieren der Replikation für Azure-VMs und Starten des Vorgangs zum Kopieren der Daten
+### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Aktivieren der Replikation für Azure-VMs und Starten des Kopiervorgangs für die Daten
 
 Site Recovery ruft eine Liste der VMs ab, die dem Abonnement und der Ressourcengruppe zugeordnet sind.
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295622"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768365"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Die Elemente der Einladungs-E-Mail für die B2B-Zusammenarbeit – Azure Active Directory
 
@@ -28,7 +28,7 @@ Einladungs-E-Mails sind eine wichtige Komponente zum Onboarding von Partnern als
 ## <a name="explaining-the-email"></a>Erläuterungen zur E-Mail
 Sehen wir uns einige Elemente der E-Mail an, damit Sie diese Funktionen optimal nutzen können.
 
-### <a name="subject"></a>Antragsteller
+### <a name="subject"></a>Subject
 Der Betreff der E-Mail folgt dem folgenden Muster: Einladung der Organisation von &lt;Mandantenname&gt;
 
 ### <a name="from-address"></a>Absenderadresse

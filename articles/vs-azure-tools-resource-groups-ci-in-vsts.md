@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786932"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019771"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Continuous Integration in Azure DevOps Services mit Bereitstellungsprojekten für Azure-Ressourcengruppen
 Zum Bereitstellen einer Azure-Vorlage führen Sie Aufgaben in verschiedenen Phasen aus: Erstellen, Testen, in Azure kopieren (auch als „Staging“ bezeichnet) und Bereitstellen der Vorlage. Es gibt zwei Möglichkeiten zum Bereitstellen von Vorlagen für Azure DevOps Services. Da beide Verfahren zum gleichen Ergebnis führen, können Sie das Verfahren wählen, das am besten in Ihren Workflow passt.
@@ -93,7 +93,7 @@ Hier werden Sie durch die erforderlichen Schritte der Continuous Deployment-Konf
       
       Verwenden Sie für die Azure-Befehlszeilenschnittstelle den folgenden Befehl:
       
-      `azure account show`
+      `az account show`
    8. Verwenden Sie zum Ermitteln von Dienstprinzipal-ID, Dienstprinzipalschlüssel und Mandanten-ID die Vorgehensweise unter [Erstellen einer Active Directory-Anwendung und eines Dienstprinzipals mithilfe des Portals](active-directory/develop/howto-create-service-principal-portal.md) oder [Authentifizieren eines Dienstprinzipals mit dem Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Fügen Sie im Dialogfeld **Azure-Abonnement hinzufügen** die Werte für Dienstprinzipal-ID, Dienstprinzipalschlüssel und Mandanten-ID hinzu, und klicken Sie auf die Schaltfläche **OK**.
       

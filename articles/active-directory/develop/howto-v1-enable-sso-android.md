@@ -3,27 +3,26 @@ title: Aktivieren von App-übergreifendem SSO auf Android mit ADAL | Microsoft D
 description: Verwenden der ADAL SDK-Features zum Aktivieren von SSO über Ihre Anwendungen hinweg
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442170"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962638"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Gewusst wie: Aktivieren von App-übergreifendem SSO auf Android mit ADAL
 
@@ -39,7 +38,7 @@ In dieser Anleitung erfahren Sie, wie Sie das SDK innerhalb Ihrer Anwendung konf
 
 In dieser Anleitung wird davon ausgegangen, dass Sie mit folgenden Schritten vertraut sind:
 
-- Bereitstellen Ihrer App mit dem Legacyportal für Azure Active Directory (Azure AD). Weitere Informationen finden Sie unter [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](quickstart-v1-add-azure-ad-app.md) (Schnellstart: Registrieren einer App mit dem Azure Active Directory v1.0-Endpunkt).
+- Bereitstellen Ihrer App mit dem Legacyportal für Azure Active Directory (Azure AD). Weitere Informationen finden Sie unter [Registrieren einer App](quickstart-register-app.md).
 - Integrieren Ihrer Anwendung mit dem [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android)
 
 ## <a name="single-sign-on-concepts"></a>Konzepte des einmaligen Anmeldens

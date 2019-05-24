@@ -3,18 +3,18 @@ title: Senden und Verwenden von Abfragen und Antworten der API für die Bing-Suc
 titleSuffix: Azure Cognitive Services
 description: In diesem Artikel erfahren Sie, wie Sie Suchabfragen mit der API für die Bing-Suche nach ortsansässigen Unternehmen senden und verwenden.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
-ms.openlocfilehash: 79219de775be96f35bd11ac85640efcc4a04a93b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 45f7adab684b7b6097328a42abb60c8d58c1acc2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779792"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796780"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Senden und Verwenden von Abfragen und Antworten der API für die Bing-Suche nach ortsansässigen Unternehmen
 
@@ -61,7 +61,7 @@ Die von der API zurückgegebenen JSON-Ergebnisse beinhalten die folgenden Attrib
 * name
 * routeablePoint
 * telephone
-* URL
+* url
 
 Weitere Informationen zu Headern, Parametern, Marktcodes, Antwortobjekten, Fehlern usw. finden Sie in der Referenz für die [API für die Bing-Suche nach ortsansässigen Unternehmen v7](local-search-reference.md).
 

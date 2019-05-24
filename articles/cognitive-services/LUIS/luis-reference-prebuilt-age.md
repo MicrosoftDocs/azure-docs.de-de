@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: c901a384d7629a187a2a4fbd4295a1a68615abdb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b8239688000f0ce32ca2c2be054b1443bbb698b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342597"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65069138"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Vordefinierte Age-Entität für eine LUIS-App
 Die vorgefertigte Altersentität erfasst den Alterswert sowohl numerisch als auch bezüglich Tagen, Wochen, Monaten und Jahren. Da diese Entität bereits trainiert wurde, müssen Sie den Anwendungsabsichten keine Beispieläußerungen mit Altersangaben hinzufügen. Die Altersentität wird in [vielen Kulturen](luis-reference-prebuilt-entities.md) unterstützt. 
@@ -25,6 +25,9 @@ Die vorgefertigte Altersentität erfasst den Alterswert sowohl numerisch als auc
 Die Entität „age“ wird über das GitHub-Repository [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) verwaltet.
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Auflösung der vorgefertigten Altersentität
+
+### <a name="api-version-2x"></a>API-Version 2.x
+
 Im folgenden Beispiel wird die Auflösung der Entität **builtin.age** veranschaulicht.
 
 ```json
@@ -34,12 +37,6 @@ Im folgenden Beispiel wird die Auflösung der Entität **builtin.age** veranscha
     "intent": "None",
     "score": 0.8236133
   },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.8236133
-    }
-  ],
   "entities": [
     {
       "entity": "90 day old",
@@ -52,6 +49,70 @@ Im folgenden Beispiel wird die Auflösung der Entität **builtin.age** veranscha
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Vorschau-API-Version 3.x
+
+Beim folgenden JSON-Code wurde der `verbose`-Parameter auf `false` festgelegt:
+
+```json
+{
+    "query": "A 90 day old utilities bill is quite late.",
+    "prediction": {
+        "normalizedQuery": "a 90 day old utilities bill is quite late.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.558252
+            }
+        },
+        "entities": {
+            "age": [
+                {
+                    "number": 90,
+                    "unit": "Day"
+                }
+            ]
+        }
+    }
+}
+```
+
+Beim folgenden JSON-Code wurde der `verbose`-Parameter auf `true` festgelegt:
+
+```json
+{
+    "query": "A 90 day old utilities bill is quite late.",
+    "prediction": {
+        "normalizedQuery": "a 90 day old utilities bill is quite late.",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.558252
+            }
+        },
+        "entities": {
+            "age": [
+                {
+                    "number": 90,
+                    "unit": "Day"
+                }
+            ],
+            "$instance": {
+                "age": [
+                    {
+                        "type": "builtin.age",
+                        "text": "90 day old",
+                        "startIndex": 2,
+                        "length": 10,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

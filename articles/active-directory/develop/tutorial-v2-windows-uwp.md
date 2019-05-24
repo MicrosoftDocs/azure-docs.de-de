@@ -16,17 +16,16 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 42b7e59e39adbb485738ca66b7ad8e5ba8293ddc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138250"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784989"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Aufrufen der Microsoft Graph-API über eine UWP-Anwendung (XAML)
 
 > [!div renderon="docs"]
-> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Diese Anleitung veranschaulicht, wie eine native Universelle Windows-Plattform-Anwendung (UWP) ein Zugriffstoken abrufen und anschließend die Microsoft Graph-API aufrufen kann. Die Anleitung bezieht sich außerdem auf andere APIs, die Zugriffstoken von einem Microsoft Identity Platform-Endpunkt anfordern.
 

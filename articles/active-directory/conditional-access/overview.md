@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799384"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997245"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Was ist der bedingte Zugriff in Azure Active Directory?
 
@@ -64,7 +64,7 @@ Eine Richtlinie für bedingten Zugriff ist die Definition eines Zugriffsszenario
 
 - **[Benutzer](conditions.md#users-and-groups)**: Dies ist der Benutzer, der einen Zugriffsversuch durchführt (**Wer**).
 
-- **[Cloud-Apps](conditions.md#cloud-apps)**: Dies sind die Ziele des Zugriffsversuchs (**Was**).
+- **[Cloud-Apps](conditions.md#cloud-apps-and-actions)**: Dies sind die Ziele des Zugriffsversuchs (**Was**).
 
 Beide Bedingungen müssen in einer Richtlinie für bedingten Zugriff angegeben werden. Zusätzlich zu den beiden obligatorischen Bedingungen können Sie auch zusätzliche Bedingungen einfügen, die beschreiben, wie der Zugriffsversuch erfolgt. Gängige Beispiele sind mobile Geräte oder Standorte außerhalb des Unternehmensnetzwerks. Weitere Informationen finden Sie unter [Bedingungen beim bedingten Zugriff von Azure Active Directory](conditions.md).
 
@@ -86,9 +86,9 @@ Wenn die konfigurierte Richtlinie für bedingten Zugriff eine mehrstufige Authen
 
 Nachdem sich der Benutzer bei dem Verbundauthentifizierungsdienst angemeldet hat, kümmert sich Azure AD um weitere Richtlinienanforderungen wie Gerätekonformität oder eine genehmigte Anwendung.
 
-## <a name="license-requirements-for-using-conditional-access"></a>Lizenzanforderungen für die Verwendung des bedingten Zugriffs
+## <a name="license-requirements"></a>Lizenzanforderungen
 
-Für die Verwendung des bedingten Zugriffs ist eine Azure AD Premium-Lizenz erforderlich. Um die richtige Lizenz für Ihre Anforderungen zu ermitteln, lesen Sie [Vergleich: Allgemein verfügbare Features der Editionen Free, Basic und Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

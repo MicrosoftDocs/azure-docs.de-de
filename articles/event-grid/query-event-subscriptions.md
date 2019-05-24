@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: spelluru
 ms.openlocfilehash: ad9c2d492f70a697ef0e7dc3b7ed03b9938f2468
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162022"
 ---
 # <a name="query-event-grid-subscriptions"></a>Abfragen von Event Grid-Abonnements 
 

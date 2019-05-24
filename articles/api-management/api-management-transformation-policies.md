@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407604"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833410"
 ---
 # <a name="api-management-transformation-policies"></a>Azure API Management-Transformationsrichtlinien
 Dieses Thema enthält eine Referenz für die folgenden API Management-Richtlinien. Weitere Informationen zum Hinzufügen und Konfigurieren von Richtlinien finden Sie unter [Richtlinien in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -375,7 +375,7 @@ Die Richtlinie `set-body` kann so konfiguriert werden, dass Sie den Hauptteil ei
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Konvertieren von JSON in SOAP mithilfe einer Liquid-Vorlage
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -405,7 +405,7 @@ Die Richtlinie `set-body` kann so konfiguriert werden, dass Sie den Hauptteil ei
 
 |NAME|BESCHREIBUNG|Erforderlich|Standard|
 |----------|-----------------|--------------|-------------|
-|Vorlage|Es wird verwendet, um den Vorlagenmodus zu ändern, in dem die Richtlinie zum Festlegen von Text ausgeführt werden wird. Der einzige derzeit unterstützte Wert ist:<br /><br />– Liquid: Die Richtlinie zum Festlegen von Text verwendet die Liquid-Vorlagen-Engine. |Nein |Liquid|
+|Vorlage|Es wird verwendet, um den Vorlagenmodus zu ändern, in dem die Richtlinie zum Festlegen von Text ausgeführt werden wird. Der einzige derzeit unterstützte Wert ist:<br /><br />– Liquid: Die Richtlinie zum Festlegen von Text verwendet die Liquid-Vorlagen-Engine. |Nein ||
 
 Für den Zugriff auf Informationen über die Anforderung und Antwort, kann die Liquid-Vorlage an ein context-Objekt mit den folgenden Eigenschaften binden: <br />
 <pre>context.

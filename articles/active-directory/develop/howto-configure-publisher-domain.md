@@ -3,8 +3,8 @@ title: Konfigurieren der Herausgeberdomäne einer Anwendung | Azure
 description: Erfahren Sie, wie Sie die Herausgeberdomäne einer Anwendung konfigurieren, damit Benutzer wissen, wohin ihre Informationen gesendet werden.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efbf448770bfcf797d6bf01cd3c28dc98023adff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d47075f9e18b299341a98983ffb8a47389fd7063
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793892"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540242"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Gewusst wie: Konfigurieren der Herausgeberdomäne einer Anwendung (Vorschau)
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: a2bfcdcef00889d12fb30cb6f16bf74e6ab2cbd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278342"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-postbeyond"></a>Tutorial: Azure Active Directory-Integration mit PostBeyond
 

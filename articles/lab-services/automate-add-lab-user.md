@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502027"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522961"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatisieren des Hinzufügens eines Lab-Benutzers zu einem Lab in Azure DevTest Labs
 Mit Azure DevTest Labs können Sie über das Azure-Portal schnell Self-Service-DevTest-Umgebungen erstellen. Wenn Sie jedoch über mehrere Teams und mehrere DevTest Labs-Instanzen verfügen, kann die Automatisierung des Erstellungsprozesses Zeit sparen. [Azure Resource Manager-Vorlagen](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) ermöglichen Ihnen das Erstellen von Labs, Lab-VMs, benutzerdefinierten Images, Formeln sowie das Hinzufügen von Benutzern auf automatisierte Weise. Dieser Artikel befasst sich insbesondere mit dem Hinzufügen von Benutzern zu einer DevTest Labs-Instanz.
@@ -85,7 +85,7 @@ Die folgende Resource Manager-Beispielvorlage gibt an, dass ein Benutzer der Rol
 
 ```
 
-Wenn Sie die Rolle in der gleichen Vorlage zuweisen, in der auch das Lab erstellt wird, denken Sie daran, eine Abhängigkeit zwischen der Ressourcenzuordnung der Rolle und dem Lab hinzuzufügen. Weitere Informationen finden Sie im Artikel [Definieren von Abhängigkeiten in Azure Resource Manager-Vorlagen](/azure-resource-manager/resource-group-define-dependencies.md).
+Wenn Sie die Rolle in der gleichen Vorlage zuweisen, in der auch das Lab erstellt wird, denken Sie daran, eine Abhängigkeit zwischen der Ressourcenzuordnung der Rolle und dem Lab hinzuzufügen. Weitere Informationen finden Sie im Artikel [Definieren von Abhängigkeiten in Azure Resource Manager-Vorlagen](../azure-resource-manager/resource-group-define-dependencies.md).
 
 ### <a name="role-assignment-resource-information"></a>Informationen der Rollenzuweisungsressource
 Die Rollenzuweisungsressource muss den Typ und den Namen angeben.

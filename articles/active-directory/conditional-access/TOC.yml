@@ -19,8 +19,8 @@
 - name: Konzepte
   expanded: false
   items:
-    - name: Baselineschutz
-      href: baseline-protection.md
+    - name: Baselineschutzrichtlinien
+      href: concept-baseline-protection.md
     - name: Bedingungen
       href: conditions.md
     - name: Standortbedingungen
@@ -38,6 +38,16 @@
       href: plan-conditional-access.md
     - name: Bewährte Methoden
       href: best-practices.md
+    - name: Basisrichtlinien
+      items:
+        - name: Anfordern von MFA für Administratoren
+          href: howto-baseline-protect-administrators.md
+        - name: Endbenutzerschutz
+          href: howto-baseline-protect-end-users.md
+        - name: Blockieren älterer Authentifizierungsmethoden
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Anfordern von MFA für die Dienstverwaltung
+          href: howto-baseline-protect-azure.md
     - name: Blockieren älterer Authentifizierungsmethoden
       href: block-legacy-authentication.md
     - name: Migrieren von klassischen Richtlinien

@@ -9,11 +9,11 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 8da233088389797271541b1aae55ec2e842f252d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381488"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166213"
 ---
 ## <a name="extended-iot-scenarios"></a>Erweiterte IoT-Szenarien
 

@@ -10,11 +10,11 @@ ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 74e14e36b1ac0979da31203a2d16e2396ed821d0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987989"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132181"
 ---
 ## <a name="run-the-function-locally"></a>Lokales Ausführen der Funktion
 

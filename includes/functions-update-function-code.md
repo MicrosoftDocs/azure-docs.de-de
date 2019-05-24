@@ -10,11 +10,11 @@ ms.date: 03/12/2019
 ms.author: glenga
 ms.custom: include file, fasttrack-edit
 ms.openlocfilehash: 5b009fafc818a06bdda309b3e025251cc0997e47
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737097"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132147"
 ---
 ## <a name="update-the-function"></a>Aktualisieren der Funktion
 

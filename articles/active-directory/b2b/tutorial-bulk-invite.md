@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f91d51bda4c41a314c7cc1c2cc895e36bde0500
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009154"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768206"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Masseneinladen von Benutzern für die Azure AD B2B-Zusammenarbeit
 
@@ -104,7 +105,7 @@ foreach ($email in $invitations)
    {New-AzureADMSInvitation `
       -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
       -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.azure.com `
+      -InviteRedirectUrl https://myapps.microsoft.com `
       -InvitedUserMessageInfo $messageInfo `
       -SendInvitationMessage $true
    }

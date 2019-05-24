@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 8b457f1d2dd8c2f9e5c707906eb9ca2aa818c411
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c00aee73d546095b3bf73febdceaac59cf5ee687
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141167"
 ---
 # <a name="scale-the-service-instance"></a>Skalieren der Dienstinstanz
 

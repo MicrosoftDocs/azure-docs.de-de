@@ -4,15 +4,15 @@ description: Mit TTL bietet Microsoft Azure Cosmos DB die Möglichkeit, im Syste
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 692e0ec575904ff0a70b8c73268d2df62e776bb6
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271270"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978789"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Gültigkeitsdauer (TTL) in Azure Cosmos DB 
 

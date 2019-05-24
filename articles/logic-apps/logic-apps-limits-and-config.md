@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147745"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990203"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Grenzwert- und Konfigurationsinformationen für Azure Logic Apps
 
@@ -166,7 +166,7 @@ Die folgenden Grenzwerte gelten für benutzerdefinierte Connectors, die Sie übe
 
 | NAME | Begrenzung |
 | ---- | ----- |
-| Anzahl von Logik-Apps mit vom System zugewiesenen verwalteten Identitäten pro Azure-Abonnement | 10 |
+| Anzahl von Logik-Apps mit vom System zugewiesenen verwalteten Identitäten pro Azure-Abonnement | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,7 +241,7 @@ Für alle Logik-Apps in derselben Region werden dieselben IP-Adressbereiche verw
 
 Um die Aufrufe zu unterstützen, die [von Microsoft verwalteten Connectors](../connectors/apis-list.md) ausführen, richten Sie Ihre Firewall mit *allen* [ausgehenden](#outbound) IP-Adressen ein, die von diesen Connectors verwendet werden, basierend auf den Regionen, in denen Ihre Logik-Apps vorhanden sind. Diese Adressen werden unter der Überschrift **Ausgehend** in diesem Abschnitt angezeigt, wobei sie nach Region sortiert sind.
 
-Für [Azure Government](../azure-government/documentation-government-overview.md) und [Azure China 21Vianet](/azure/china/china-welcome) stehen derzeit keine reservierten IP-Adressen für Connectors zur Verfügung.
+Für [Azure Government](../azure-government/documentation-government-overview.md) und [Azure China 21Vianet](https://docs.microsoft.com/azure/china/) stehen derzeit keine reservierten IP-Adressen für Connectors zur Verfügung.
 
 > [!IMPORTANT]
 >

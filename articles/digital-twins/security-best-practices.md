@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: adgera
-ms.openlocfilehash: 16bb148a0b3a424c9ba3aaae422f423ebd40793b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.author: v-adgera
+ms.openlocfilehash: 1d7194beeac1f6f0034738c842e0fc3a58668a13
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358812"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966960"
 ---
 # <a name="security-best-practices"></a>Bewährte Methoden für die Sicherheit
 

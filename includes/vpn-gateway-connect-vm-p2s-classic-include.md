@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323694"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157662"
 ---
 Stellen Sie eine Remotedesktopverbindung mit einer VM her, die in Ihrem VNet bereitgestellt wird. Die beste Möglichkeit, zu überprüfen, ob Sie eine Verbindung mit Ihrer VM herstellen können, ist das Herstellen der Verbindung mit der privaten IP-Adresse anstelle des Computernamens. Auf diese Weise können Sie testen, ob die Verbindungsherstellung möglich ist, anstatt zu überprüfen, ob die Namensauflösung richtig konfiguriert ist. 
 

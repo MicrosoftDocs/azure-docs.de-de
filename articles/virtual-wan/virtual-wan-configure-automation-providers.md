@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 05/22/2019
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c007684f351e0980ff9840ac8950121f212eeb36
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958685"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016086"
 ---
 # <a name="virtual-wan-partners"></a>Virtual WAN-Partner
 
@@ -209,17 +209,13 @@ Die folgenden Abschnitte listen die unterstützten Richtlinienkombinationen auf,
 * AES_256, SHA_256, DH_GROUP_2
 * AES_128, SHA1, DH_GROUP_2
 * AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
 
 **Phase-2**
 
 * GCM_AES_256, GCM_AES_256, PFS_NONE
 * AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
 * AES_256, SHA_256, PFS_NONE
 * AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
 
 ### <a name="responder"></a>Antwortdienst
 

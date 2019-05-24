@@ -3,8 +3,8 @@ title: Behandeln von Problemen mit der Azure-Zugriffsbereichserweiterung für IE
 description: So stellen Sie das Internet Explorer-Add-On für das Portal "Meine Apps" mithilfe von Gruppenrichtlinien bereit
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63dfece713657df4450f18b8a7ce212ce2c41687
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: f08a02842c97b0f4076a1b311aa918df6d83c592
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565026"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824503"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Behandeln von Problemen mit der Zugriffsbereichserweiterung für Internet Explorer
 

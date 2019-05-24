@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106337"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872701"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Exemplarische Vorgehensweise: Exportieren aus Application Insights in SQL mit Stream Analytics
 Dieser Artikel zeigt, wie Sie Ihre Telemetriedaten aus [Azure Application Insights][start] mithilfe von [fortlaufendem Export][export] und [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) in eine Azure SQL-Datenbank verschieben. 
@@ -179,10 +179,10 @@ Um den Namen und iKey Ihrer Application Insights-Ressource zu erhalten, öffnen 
 
 > [!TIP]
 > Verwenden Sie die Beispielfunktion um zu überprüfen, ob der Eingabepfad ordnungsgemäß festgelegt wurde. Bei einem Fehler: Überprüfen Sie, ob sich für den ausgewählten Beispielzeitraum Daten im Speicher befinden. Bearbeiten Sie die Eingabedefinition, und überprüfen Sie, ob die Einstellungen für Speicherkonto, Pfadpräfix und Datumsformat richtig sind.
-> 
-> 
-> ## <a name="set-query"></a>Festlegen der Abfrage
-> Öffnen Sie den Abfrageabschnitt:
+
+ 
+## <a name="set-query"></a>Festlegen der Abfrage
+Öffnen Sie den Abfrageabschnitt:
 
 Ersetzen Sie die Standardabfrage durch folgende:
 

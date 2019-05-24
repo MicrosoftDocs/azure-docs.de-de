@@ -17,11 +17,11 @@ ms.date: 04/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1a250b8deba3d12b968c593ddec7ad9f052ae7d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191177"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-real-links"></a>Tutorial: Azure Active Directory-Integration mit Real Links
 

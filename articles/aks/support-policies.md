@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506681"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786459"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Unterstützungsrichtlinien für Azure Kubernetes Service
 
@@ -146,7 +146,7 @@ Previewfunktionen oder Features mit Featureflag sind nicht für die Produktionsu
 
 Features in der öffentlichen Vorschauversion fallen unter den „bestmöglichen“ Support, da sich diese Features in der Vorschauversion befinden und nicht für die Produktionsumgebung bestimmt sind und von den technischen AKS-Supportteams nur während der Geschäftszeiten unterstützt werden. Weitere Informationen finden Sie unter:
 
-* [Häufig gestellte Fragen zum Azure-Support](https://azure.microsoft.com/en-us/support/faq/)
+* [Häufig gestellte Fragen zum Azure-Support](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Previewfunktionen werden auf der *Azure-Abonnementebene* aktiviert. Installieren Sie keine Previewfunktionen in einem Produktionsabonnement. In einem Produktionsabonnement können Previewfunktionen zu einer Änderung des API-Standardverhaltens führen und den regulären Betrieb beeinträchtigen.

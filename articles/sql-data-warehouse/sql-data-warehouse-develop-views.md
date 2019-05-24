@@ -2,20 +2,20 @@
 title: Verwenden von T-SQL-Ansichten in Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Tipps für die Verwendung von T-SQL-Sichten in Azure SQL Data Warehouse zum Entwickeln von Lösungen.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: dba6d49590cc4064155e58784a166d3abbb19b6f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468426"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873609"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Sichten in Azure SQL Data Warehouse
 Tipps für die Verwendung von T-SQL-Sichten in Azure SQL Data Warehouse zum Entwickeln von Lösungen. 

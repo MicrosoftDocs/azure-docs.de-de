@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213040"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148853"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(VERALTET) Schützen von Docker-Containern in Azure Container Service
 

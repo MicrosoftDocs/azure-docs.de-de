@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154430"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907179"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Verwenden von Shared Access Signatures (SAS)
 
@@ -232,7 +232,7 @@ Unten sind einige Beispiele für beide Arten von Shared Access Signatures aufgef
 Um diese C#-Beispiele auszuführen, müssen Sie in Ihrem Projekt auf die folgenden NuGet-Pakete verweisen:
 
 * [Azure Storage-Clientbibliothek für .NET](https://www.nuget.org/packages/WindowsAzure.Storage), Version 6.x oder höher (zur Verwendung von Konto-SAS).
-* [Azure-Konfigurations-Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure-Konfigurations-Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 Weitere Beispiele, die das Erstellen und Testen einer SAS veranschaulichen, finden Sie unter [Azure-Codebeispiele](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -422,7 +422,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Shared Access Signatures sind nützlich für die Vergabe eingeschränkter Berechtigungen für Ihr Speicherkonto an Clients, die keinen Zugriff auf Ihren Kontoschlüssel haben dürfen. Somit sind sie ein wichtiger Teil des Sicherheitsmodells für alle Anwendungen, die den Azure-Speicher verwenden. Wenn Sie den hier genannten Empfehlungen folgen, können Sie mit SAS eine größere Flexibilität für den Zugriff auf Ressourcen in Ihrem Speicherkonto erreichen, ohne die Sicherheit Ihrer Anwendung zu gefährden.
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Shared Access Signatures, Teil 2: Erstellen und Verwenden einer SAS mit Blob Storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Verwalten des anonymen Lesezugriffs auf Container und Blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegieren des Zugriffs mit einer Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introducing Table and Queue SAS (Einführung in Tabellen- und Warteschlangen-SAS; in englischer Sprache)](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

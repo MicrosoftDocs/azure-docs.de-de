@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190914"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787834"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Bereitstellen eines Machine Learning-Modells mithilfe der grafischen Benutzeroberfläche
 
@@ -158,4 +158,4 @@ Die von Ihnen auf der grafischen Benutzeroberfläche erstellten Modelle und Webd
 In diesem Tutorial haben Sie die wichtigsten Schritte zum Erstellen, Bereitstellen und Verwenden eines Machine Learning-Modells auf der grafischen Benutzeroberfläche gelernt. Wenn Sie mehr darüber erfahren möchten, wie Sie die grafische Benutzeroberfläche verwenden können, um andere Arten von Problemen zu lösen, sehen Sie sich die Beispielexperimente an.
 
 > [!div class="nextstepaction"]
-> [Beispiel für die Kreditrisikoklassifizierung](ui-sample-classification-predict-credit-risk-basic.md)
+> [Beispiel für die Kreditrisikoklassifizierung](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

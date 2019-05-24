@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: ef8dae8219eaf1a85a5c112705517b992e25a50f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741554"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124067"
 ---
 Der Zugriff auf den Vorhersageendpunkt erfolgt mit einem Endpunktschlüssel. Verwenden Sie für diese Schnellstartanleitung den kostenlosen Startschlüssel, der Ihrem LUIS-Konto zugeordnet ist. 
  

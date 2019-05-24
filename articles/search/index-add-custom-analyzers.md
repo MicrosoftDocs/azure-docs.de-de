@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021659"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951906"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Hinzufügen von Analysetools zu einem Azure Search-Index
 
@@ -223,7 +223,7 @@ Bei Analysetools variieren die Indexattribute je nachdem, ob Sie vordefinierte o
 |-|-|  
 |NAME|Er darf nur Buchstaben, Ziffern, Leerzeichen, Bindestriche und Unterstriche enthalten. Er muss mit alphanumerischen Zeichen beginnen und enden und darf maximal 128 Zeichen lang sein.|  
 |Type|Muss "#Microsoft.Azure.Search.CustomAnalyzer" sein.|  
-|CharFilters|Wird entweder auf einen der vordefinierten Zeichenfilter festgelegt, die in der Tabelle [Zeichenfilter](#CharFilter) aufgeführt sind, oder auf einen benutzerdefinierten Zeichenfilter, der in der Indexdefinition angegeben ist.|  
+|CharFilters|Wird entweder auf einen der vordefinierten Zeichenfilter festgelegt, die in der Tabelle [Zeichenfilter](#char-filters-reference) aufgeführt sind, oder auf einen benutzerdefinierten Zeichenfilter, der in der Indexdefinition angegeben ist.|  
 |Tokenizer|Erforderlich. Wird entweder auf einen der vordefinierten Tokenizer festgelegt, die in der Tabelle [Tokenizer](#Tokenizers) aufgeführt sind, oder auf einen benutzerdefinierten Tokenizer, der in der Indexdefinition angegeben ist.|  
 |TokenFilters|Wird entweder auf einen der vordefinierten Tokenfilter festgelegt, die in der Tabelle [Tokenfilter](#TokenFilters) aufgeführt sind, oder auf einen benutzerdefinierten Tokenfilter, der in der Indexdefinition angegeben ist.|  
 
@@ -236,8 +236,8 @@ Bei Analysetools variieren die Indexattribute je nachdem, ob Sie vordefinierte o
 |||  
 |-|-|  
 |NAME|Er darf nur Buchstaben, Ziffern, Leerzeichen, Bindestriche und Unterstriche enthalten. Er muss mit alphanumerischen Zeichen beginnen und enden und darf maximal 128 Zeichen lang sein.|  
-|Type|Zeichenfiltertyp aus der Liste der unterstützten Zeichenfilter. Informationen dazu finden Sie in der Spalte **char_filter_type** in der Tabelle [Zeichenfilter](#CharFilter) unten.|  
-|Optionen|Müssen gültige Optionen für einen bestimmten Typ von [Zeichenfilter](#CharFilter) sein.|  
+|Type|Zeichenfiltertyp aus der Liste der unterstützten Zeichenfilter. Informationen dazu finden Sie in der Spalte **char_filter_type** in der Tabelle [Zeichenfilter](#char-filters-reference) unten.|  
+|Optionen|Müssen gültige Optionen für einen bestimmten Typ von [Zeichenfilter](#char-filters-reference) sein.|  
 
 ### <a name="tokenizers"></a>Tokenizer
 

@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae5ae6d742bc6b4420b886c9ea2bd4e023075f4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a7b9ebefb9762b663adcd17fb1fdd656cb4f2ec2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295520"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768427"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Support für die B2B-Zusammenarbeit
 

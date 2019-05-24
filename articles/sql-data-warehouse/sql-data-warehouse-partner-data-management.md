@@ -2,20 +2,20 @@
 title: Partner für die Datenverwaltung mit SQL Data Warehouse | Microsoft Docs
 description: Liste der externen Partner für die Datenverwaltung mit Lösungen, die SQL Data Warehouse unterstützen.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 08d168a688935328fb4716b849c70e828545765b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 98f581eca893fc3f0cf2eae12fdcffbe0440bdd7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620069"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873694"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partner für die Datenverwaltung bei SQL Data Warehouse
 Für die Erstellung Ihrer eigenen Data Warehouse-Lösung können Sie auf eine Vielzahl branchenführender Tools zurückgreifen. In diesem Artikel sind Partnerunternehmen von Microsoft aufgeführt, die Tools und Lösungen für die Datenverwaltung anbieten, die Azure SQL Data Warehouse unterstützen.

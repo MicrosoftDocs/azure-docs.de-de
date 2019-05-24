@@ -4,14 +4,14 @@ description: Erfahren Sie, wie Sie synthetische Partitionsschlüssel in Ihren Az
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 6b3499c36ae7abd03c4a1f1ca3a3a46e2c315120
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1fd436746dcd2e93a1699ac5c68965213c74580e
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792097"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978866"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Erstellen eines synthetischen Partitionsschlüssels
 

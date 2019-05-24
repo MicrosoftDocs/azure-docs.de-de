@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5de9890369b6f99cec3b271117fd4d0cfe70001d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c9214d8906ad00744f811782f732b15aeec3a7f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136534"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-powershell"></a>Binden eines benutzerdefinierten SSL-Zertifikats an eine Web-App mit PowerShell
 

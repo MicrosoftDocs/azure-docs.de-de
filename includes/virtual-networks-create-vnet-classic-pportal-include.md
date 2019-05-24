@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 815a217526117325ff80759701141b2b4d148514
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: aa88bf3bd6c5037b41c09e9ffe47921f1b9dc9be
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805300"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171988"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Erstellen eines klassischen VNET im Azure-Portal.
 Führen Sie zum Erstellen eines klassischen VNET basierend auf dem zuvor beschriebenen Szenario die folgenden Schritte aus.

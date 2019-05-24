@@ -3,8 +3,8 @@ title: Probleme beim Hinzufügen einer nicht im Katalog enthaltenen Anwendung | 
 description: Informationen zu häufig auftretenden Problemen beim Hinzufügen von benutzerdefinierten nicht im Katalog enthaltenen Anwendungen
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842456"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784473"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Probleme beim Hinzufügen einer nicht im Katalog enthaltenen Anwendung
 

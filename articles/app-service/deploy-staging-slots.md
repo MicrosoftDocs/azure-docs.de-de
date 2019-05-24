@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137881"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955908"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Einrichten von Stagingumgebungen in Azure App Service
 <a name="Overview"></a>
@@ -217,7 +217,7 @@ Bei Verwendung des Features [Automatisch tauschen](#Auto-Swap) müssen für eini
 
 Weitere Informationen zum Anpassen des `applicationInitialization`-Elements finden Sie unter [Häufigste Bereitstellungsfehler beim Slotaustausch und Vorgehensweise zu deren Behebung](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-Sie können das Aufwärmverhalten ferner mit einer oder mehrerer der folgenden [App-Einstellungen](web-sites-configure.md) anpassen:
+Sie können das Aufwärmverhalten ferner mit einer oder mehrerer der folgenden [App-Einstellungen](configure-common.md) anpassen:
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Der Pfad zum Senden eines Pings zum Aufwärmen Ihrer Website. Fügen Sie diese App-Einstellung durch Angeben eines benutzerdefinierten Pfads hinzu, der mit einem Schrägstrich als Wert beginnt. Beispiel: `/statuscheck`. Standardwert: `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Gültige HTTP-Antwortcodes für den Aufwärmvorgang. Fügen Sie diese App-Einstellung mit einer durch Trennzeichen getrennten Liste mit HTTP-Codes hinzu. Beispiel: `200,202`. Wenn der zurückgegebene Statuscode nicht in der Liste enthalten ist, werden die Aufwärm- und Austauschvorgänge beendet. Standardmäßig sind alle Antwortcodes gültig.

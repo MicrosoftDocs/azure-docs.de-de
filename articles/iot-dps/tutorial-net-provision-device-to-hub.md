@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6e1681e4eca923e8e4ce541570b4ed4b3ba9d567
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241318"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834427"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrieren des Geräts für eine IoT Hub-Instanz mithilfe des Azure IoT Hub Device Provisioning-Diensts (.NET)
 
@@ -30,7 +30,7 @@ Im vorherigen Tutorial haben Sie erfahren, wie ein Gerät eingerichtet wird, um 
 
 Bevor Sie fortfahren, konfigurieren Sie auf jeden Fall Ihr Gerät und das zugehörige *Hardwaresicherheitsmodul* (HSM), wie in dem Tutorial [Einrichten eines bereitzustellenden Geräts mithilfe des Azure IoT Hub Device Provisioning-Diensts](./tutorial-set-up-device.md) erläutert wird.
 
-* Visual Studio 2015 oder Visual Studio 2017
+* Visual Studio
 
 > [!NOTE]
 > Visual Studio ist nicht erforderlich. Die Installation von [.NET](https://www.microsoft.com/net) ist ausreichend, und Entwickler können ihren bevorzugten Editor unter Windows oder Linux verwenden.  

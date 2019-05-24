@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161821"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Hinzufügen oder Entfernen von Zertifikaten für einen Service Fabric-Cluster in Azure
 Es wird empfohlen, dass Sie sich damit vertraut machen, wie Service Fabric X.509-Zertifikate verwendet werden, und dass Sie sich mit den [Szenarien für die Clustersicherheit](service-fabric-cluster-security.md) auskennen. Sie müssen verstehen, was ein Clusterzertifikat ist, und wofür es verwendet wird, bevor Sie den Vorgang fortsetzen.
@@ -61,7 +61,7 @@ Diese Schritte setzen voraus, dass Sie mit der Funktionsweise von Resource Manag
 
 Damit Sie alles besser verfolgen können, enthält die Beispieldatei „5-VM-1-NodeTypes-Secure_Step2.JSON“ alle Bearbeitungsschritte, die wir ausführen. Die Beispieldatei finden Sie im [Git-Repository](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
-**Achten Sie darauf, dass Sie alle Schritte ausführen.**
+**Achten Sie darauf, dass Sie alle Schritte ausführen**.
 
 1. Öffnen Sie die Resource Manager-Vorlage, die Sie verwendet haben, um den Cluster bereitzustellen. (Gehen Sie wie folgt vor, wenn Sie das Beispiel aus dem vorherigen Repository heruntergeladen haben: Verwenden Sie die Datei „5-VM-1-NodeTypes-Secure_Step1.JSON“, um einen sicheren Cluster bereitzustellen, und öffnen Sie anschließend diese Vorlage.)
 
@@ -291,7 +291,7 @@ Zum Entfernen eines sekundären Zertifikats aus der Verwendung für die Clusters
 ## <a name="next-steps"></a>Nächste Schritte
 Lesen Sie die folgenden Artikel, um weitere Informationen zur Clusterverwaltung zu enthalten:
 
-* [Upgrade und Update von Azure Service Fabric-Clustern](service-fabric-cluster-upgrade.md)
+* [Service Fabric-Cluster-Upgradeprozess und Erwartungen](service-fabric-cluster-upgrade.md)
 * [Rollenbasierte Zugriffssteuerung für Service Fabric-Clients](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->

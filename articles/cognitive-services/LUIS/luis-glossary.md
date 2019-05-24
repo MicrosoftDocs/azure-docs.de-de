@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874480"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523495"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Language Understanding-Glossar mit allgemeinem Vokabular und Konzepten
 In diesem Glossar für Language Understanding (LUIS) werden Begriffe erläutert, auf die Sie möglicherweise beim Arbeiten mit der LUIS-API stoßen.
@@ -26,7 +26,7 @@ Die aktive LUIS-Version ist die Version, in der alle Änderungen am Modell vorge
 
 ## <a name="authoring"></a>Erstellung
 
-Die Erstellung ist die Fähigkeit zum Erstellen, Verwalten und Bereitstellen einer [LUIS-App](#luis-app) – entweder über die [LUIS](luis-reference-regions.md)-Website oder die [Erstellungs-APIs](https://aka.ms/luis-authoring-api).
+Die Erstellung ist die Fähigkeit zum Erstellen, Verwalten und Bereitstellen einer [LUIS-App](#luis-app) – entweder über die [LUIS](luis-reference-regions.md)-Website oder die [Erstellungs-APIs](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Erstellungsschlüssel
 
@@ -74,13 +74,13 @@ Im LUIS-Kontext ist eine **Domäne** ein Themenbereich. Die Domäne bezieht sich
 
 ## <a name="endpoint"></a>Endpunkt
 
-In der [LUIS-Endpunkt](https://aka.ms/luis-endpoint-apis)-URL übermitteln Sie LUIS Abfragen, nachdem die [LUIS-App](#luis-app) erstellt und veröffentlicht wurde. Die Endpunkt-URL enthält die Region der veröffentlichten App und die App-ID. Sie finden den Endpunkt auf der Seite **[Schlüssel und Endpunkte](luis-how-to-azure-subscription.md)** Ihrer App, oder Sie können die Endpunkt-URL bei der [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37)-API abrufen.
+In der [LUIS-Endpunkt](https://go.microsoft.com/fwlink/?linkid=2092356)-URL übermitteln Sie LUIS Abfragen, nachdem die [LUIS-App](#luis-app) erstellt und veröffentlicht wurde. Die Endpunkt-URL enthält die Region der veröffentlichten App und die App-ID. Sie finden den Endpunkt auf der Seite **[Schlüssel und Endpunkte](luis-how-to-azure-subscription.md)** Ihrer App, oder Sie können die Endpunkt-URL bei der [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37)-API abrufen.
 
 Ein Beispiel für einen Endpunkt:
 
 `https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
 
-|QueryString-Parameter|Beschreibung|
+|QueryString-Parameter|description|
 |--|--|
 |region| [veröffentlichte Region](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS-App-ID |

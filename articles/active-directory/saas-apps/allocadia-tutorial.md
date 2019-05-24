@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab731bf7526521f6c091d2cd7d7d296636f76f67
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Tutorial: Azure Active Directory-Integration mit Allocadia
 
@@ -131,7 +131,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Allocadi
     | ------------------- | -------------------- |
     | firstname | user.givenname |
     | lastname | user.surname |
-    | E-Mail | user.mail |
+    | email | user.mail |
     | | |
 
     a. Klicken Sie auf **Neuen Anspruch hinzufügen**, um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.

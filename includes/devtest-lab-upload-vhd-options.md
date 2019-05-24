@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: f4a9a131bcabc28a1eb77ffc31d93dc1d391cce4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572157"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157190"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen 
 Zum Durchführen dieses Tutorials müssen Sie eine VHD-Datei in das Speicherkonto hochgeladen haben, das dem Lab zugeordnet ist, in dem Sie das benutzerdefinierte Image erstellen. Wählen Sie einen der folgenden Links aus, um eine VHD-Datei hochzuladen:

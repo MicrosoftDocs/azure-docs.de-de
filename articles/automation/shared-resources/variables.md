@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58807314"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786195"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variable Objekte in Azure Automation
 
@@ -42,7 +42,7 @@ Sie können mehrere Werte in einer einzigen Variable speichern, indem Sie ein Ar
 Im Folgenden finden Sie eine Liste von in Automation verfügbaren Variablentypen:
 
 * Zeichenfolge
-* Ganze Zahl 
+* Integer
 * Datetime
 * Boolean
 * Null
@@ -135,45 +135,6 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
     Write-Output "$i`: $SampleMessage"
 }
 Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
-```
-
-#### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Festlegen und Abrufen eines komplexen Objekts in einer Variablen
-
-Der folgende Beispielcode zeigt, wie eine Variable mit einem komplexen Wert in einem Textrunbook aktualisiert wird. In diesem Beispiel wird ein virtueller Azure-Computer mit **Get-AzureVM** abgerufen und in einer vorhandenen Automation-Variablen gespeichert.  Wie im Abschnitt [Variablentypen](#variable-types)erläutert, erfolgt die Speicherung als "PSCustomObject".
-
-```powershell
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-```
-
-Im folgenden Code wird der Wert aus der Variablen abgerufen und zum Starten des virtuellen Computers verwendet.
-
-```powershell
-$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-if ($vmObject.PowerState -eq 'Stopped') {
-    Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-}
-```
-
-#### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>Festlegen und Abrufen eine Auflistung in einer Variablen
-
-Der folgende Beispielcode zeigt, wie eine Variable mit einer Auflistung komplexer Werte in einem Textrunbook aktualisiert wird. In diesem Beispiel werden mehrere virtuelle Azure-Computer mit **Get-AzureVM** abgerufen und in einer vorhandenen Automation-Variablen gespeichert. Wie im Abschnitt [Variablentypen](#variable-types)erläutert, erfolgt die Speicherung als PSCustomObject-Auflistung gespeichert.
-
-```powershell
-$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}
-Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
-```
-
-Im folgenden Code wird die Auflistung aus der Variablen abgerufen und zum Starten der virtuellen Computer verwendet.
-
-```powershell
-$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-ForEach ($vmValue in $vmValues)
-{
-    if ($vmValue.PowerState -eq 'Stopped') {
-        Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-    }
-}
 ```
 
 #### <a name="setting-and-retrieving-a-variable-in-python2"></a>Festlegen und Abrufen einer Variablen in Python2

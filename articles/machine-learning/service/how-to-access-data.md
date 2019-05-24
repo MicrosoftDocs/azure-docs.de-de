@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563525"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909003"
 ---
 # <a name="access-data-from-your-datastores"></a>Zugreifen auf Daten aus Ihren Datenspeichern
 
@@ -30,7 +30,7 @@ In dieser Vorgehensweise finden Sie Beispiele für die folgenden Aufgaben:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Wenn Sie einen Datenspeicher verwenden möchten, benötigen Sie zunächst einen [Arbeitsbereich](concept-azure-machine-learning-architecture.md#workspace).
+Wenn Sie einen Datenspeicher verwenden möchten, benötigen Sie zunächst einen [Arbeitsbereich](concept-workspace.md).
 
 Sie können entweder einen [neuen Arbeitsbereich erstellen](setup-create-workspace.md#sdk) oder einen vorhandenen Arbeitsbereich abrufen:
 

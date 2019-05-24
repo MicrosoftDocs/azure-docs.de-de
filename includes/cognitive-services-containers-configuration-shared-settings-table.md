@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/22/2019
-ms.openlocfilehash: ed512c0f56d8da5cb8e47b20f2495054fdedf020
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 05/15/2019
+ms.openlocfilehash: c4abc5fa89b48b6fc55637e9ff3b259387d0d410
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740873"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116728"
 ---
 Dieser Container hat die folgenden Konfigurationseinstellungen:
 
@@ -20,6 +20,6 @@ Dieser Container hat die folgenden Konfigurationseinstellungen:
 |Ja|[Abrechnung](#billing-configuration-setting)|Gibt den Endpunkt-URI der Dienstressource in Azure an.|
 |Ja|[Eula](#eula-setting)| Gibt an, dass Sie die Lizenz für den Container akzeptiert haben.|
 |Nein |[Fluentd](#fluentd-settings)|Schreibt Protokoll- und optional auch Metrikdaten auf einen Fluentd-Server.|
-|Nein |[HTTP-Proxy](#http-proxy-credentials-settings)|Konfigurieren Sie einen HTTP-Proxy für ausgehende Anforderungen.|
+|Nein |HTTP-Proxy|Konfigurieren Sie einen HTTP-Proxy für ausgehende Anforderungen.|
 |Nein |[Protokollierung](#logging-settings)|Bietet Unterstützung für die ASP.NET Core-Protokollierung für Ihren Container. |
 |Nein |[Mounts](#mount-settings)|Liest und schreibt Daten vom Hostcomputer in den Container und umgekehrt.|

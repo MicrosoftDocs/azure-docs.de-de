@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 2dea1dcd2f6ecef580d65a95d1227380901213eb
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65866437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Tutorial: Azure Active Directory-Integration mit Sugar CRM
 

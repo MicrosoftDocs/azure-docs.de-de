@@ -12,12 +12,12 @@ ms.devlang: <optional>
 ms.topic: article
 ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 2a969240da6e16f5a5ba76605a6efa2a96f9e4dd
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 56310b7356dd9e263238234cf3e28bd498fa70fc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283058"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127809"
 ---
 ## <a name="upgrade-the-mars-agent"></a>Durchführen eines Upgrades für den MARS-Agent
 

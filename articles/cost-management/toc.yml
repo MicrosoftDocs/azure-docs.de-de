@@ -46,6 +46,8 @@
           href: 'https://docs.microsoft.com/rest/api/consumption'
         - name: Resource Manager-Vorlage
           href: /azure/templates/microsoft.consumption/budgets
+        - name: Cost Management-REST-API-Beispiele
+          href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
     - name: Ressourcen
       items:
         - name: Erweitern Ihrer Fähigkeiten mit Microsoft Learn

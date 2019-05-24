@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 01/19/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ae43ab6cb8236d2e438eb107491126756325bb5d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4693117e28f23e4dc94e4edbe96e949080ad2cce
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161972"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Erstellen von Service Fabric-Clustern
 

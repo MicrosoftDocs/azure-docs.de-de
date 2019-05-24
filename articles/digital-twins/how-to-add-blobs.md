@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263066"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967048"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Hinzufügen von Blobs zu Objekten in Azure Digital Twins
 
@@ -51,14 +51,14 @@ JSON-Blobmetadaten entsprechen dem folgenden Modell:
   }
 ```
 
-| Attribut | Typ | BESCHREIBUNG |
+| Attribut | Type | BESCHREIBUNG |
 | --- | --- | --- |
 | **parentId** | Zeichenfolge | Die übergeordnete Entität, der das Blob zugeordnet werden soll (Räume, Geräte oder Benutzer) |
 | **name** |Zeichenfolge | Ein benutzerfreundlicher Name für das Blob |
 | **type** | Zeichenfolge | Der Blobtyp: *type* und *typeId* können nicht verwendet werden.  |
-| **typeId** | Ganze Zahl  | Die Blobtyp-ID: *type* und *typeId* können nicht verwendet werden. |
+| **typeId** | Integer | Die Blobtyp-ID: *type* und *typeId* können nicht verwendet werden. |
 | **subtype** | Zeichenfolge | Der Blobuntertyp: *subtype* und *subtypeId* können nicht verwendet werden. |
-| **subtypeId** | Ganze Zahl  | Die Untertyp-ID des Blobs: *subtype* und *subtypeId* können nicht verwendet werden. |
+| **subtypeId** | Integer | Die Untertyp-ID des Blobs: *subtype* und *subtypeId* können nicht verwendet werden. |
 | **description** | Zeichenfolge | Benutzerdefinierte Beschreibung des Blobs |
 | **sharing** | Zeichenfolge | Gibt an, ob das Blob freigegeben werden kann: Enumeration [`None`, `Tree`, `Global`] |
 
@@ -108,15 +108,15 @@ Einzeln zurückgegebene Blobs haben folgendes JSON-Schema:
 }
 ```
 
-| Attribut | Typ | BESCHREIBUNG |
+| Attribut | Type | BESCHREIBUNG |
 | --- | --- | --- |
 | **id** | Zeichenfolge | Der eindeutige Bezeichner für das Blob |
 | **name** |Zeichenfolge | Ein benutzerfreundlicher Name für das Blob |
 | **parentId** | Zeichenfolge | Die übergeordnete Entität, der das Blob zugeordnet werden soll (Räume, Geräte oder Benutzer) |
 | **type** | Zeichenfolge | Der Blobtyp: *type* und *typeId* können nicht verwendet werden.  |
-| **typeId** | Ganze Zahl  | Die Blobtyp-ID: *type* und *typeId* können nicht verwendet werden. |
+| **typeId** | Integer | Die Blobtyp-ID: *type* und *typeId* können nicht verwendet werden. |
 | **subtype** | Zeichenfolge | Der Blobuntertyp: *subtype* und *subtypeId* können nicht verwendet werden. |
-| **subtypeId** | Ganze Zahl  | Die Untertyp-ID des Blobs: *subtype* und *subtypeId* können nicht verwendet werden. |
+| **subtypeId** | Integer | Die Untertyp-ID des Blobs: *subtype* und *subtypeId* können nicht verwendet werden. |
 | **sharing** | Zeichenfolge | Gibt an, ob das Blob freigegeben werden kann: Enumeration [`None`, `Tree`, `Global`] |
 | **description** | Zeichenfolge | Benutzerdefinierte Beschreibung des Blobs |
 | **contentInfos** | Array | Gibt unstrukturierte Metadateninformationen an, einschließlich der Version |

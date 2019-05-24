@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6efec75884857d93f2e128104136bf59a1114594
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197173"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159231"
 ---
 In der folgenden Tabelle sind die Gatewaytypen und der geschätzte zusammengefasste Durchsatz nach Gateway-SKU angegeben. Diese Tabelle betrifft sowohl das Resource Manager-Bereitstellungsmodell als auch das klassische Bereitstellungsmodell. 
 
@@ -23,9 +23,9 @@ Beachten Sie, dass die UltraPerformance-Gateway-SKU nicht in dieser Tabelle enth
 
 |  | **VPN Gateway-Durchsatz (1)** | **Max. IPsec-Tunnel für VPN Gateway (2)** | **ExpressRoute-Gateway-Durchsatz** | **Gemeinsame Verwendung von VPN-Gateway und ExpressRoute** |
 | --- | --- | --- | --- | --- |
-| **Basic-SKU (3)(5)(6)** |100 MBit/s |10 |500 MBit/s (6) |Nein  |
-| **Standard-SKU (4)(5)** |100 MBit/s |10 |1.000 MBit/s |Ja |
-| **High-Performance-SKU (4)** |200 MBit/s |30 |2.000 MBit/s |Ja |
+| **Basic-SKU (3)(5)(6)** |100 MBit/s |10 |500 MBit/s (6) |Nein  |
+| **Standard-SKU (4)(5)** |100 MBit/s |10 |1.000 MBit/s |Ja |
+| **High-Performance-SKU (4)** |200 MBit/s |30 |2.000 MBit/s |Ja |
 
 
 (1) Der VPN-Durchsatz ist eine grobe Schätzung, die auf Messungen zwischen den VNets einer Azure-Region basiert. Es ist kein garantierter Durchsatz für standortübergreifende Verbindungen über das Internet. Hierbei wird der maximal mögliche Durchsatz gemessen.

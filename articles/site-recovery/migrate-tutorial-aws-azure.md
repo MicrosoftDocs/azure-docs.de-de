@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310386"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519236"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrieren von AWS-VMs (Amazon Web Services) zu Azure
 
@@ -115,7 +115,11 @@ Wählen Sie auf der Seite **Schutzziel** die folgenden Werte aus:
 
 Wählen Sie anschließend **OK**, um zum nächsten Abschnitt zu wechseln.
 
-### <a name="2-prepare-source"></a>2: Vorbereiten der Quelle
+### <a name="2-select-deployment-planning"></a>2: Auswählen der Bereitstellungsplanung
+
+Wählen Sie unter **Haben Sie die Bereitstellungsplanung abgeschlossen?** die Option **Wird später durchgeführt**, und wählen Sie dann **OK**.
+
+### <a name="3-prepare-source"></a>3: Vorbereiten der Quelle
 
 Wählen Sie auf der Seite **Quelle vorbereiten** die Option **+ Konfigurationsserver**.
 
@@ -140,7 +144,7 @@ Wählen Sie auf der Seite **Quelle vorbereiten** die Option **+ Konfigurationsse
 
 Wenn Sie mit dem Einrichten des Konfigurationsservers fertig sind, können Sie zurück zum Portal wechseln und den Server auswählen, den Sie als **Konfigurationsserver** erstellt haben. Klicken Sie auf **OK**, um fortzufahren mit 3: Vorbereiten des Ziels.
 
-### <a name="3-prepare-target"></a>3: Vorbereiten des Ziels
+### <a name="4-prepare-target"></a>4: Vorbereiten des Ziels
 
 In diesem Abschnitt geben Sie Informationen zu den Ressourcen ein, die Sie weiter oben in diesem Tutorial unter [Vorbereiten von Azure-Ressourcen](#prepare-azure-resources) erstellt haben.
 
@@ -149,8 +153,7 @@ In diesem Abschnitt geben Sie Informationen zu den Ressourcen ein, die Sie weite
 3. Site Recovery überprüft, ob Sie über ein oder mehrere kompatible Azure-Speicherkonten und -Netzwerke verfügen. Dies sollten die Ressourcen sein, die Sie weiter oben in diesem Tutorial unter [Vorbereiten der Azure-Ressourcen](#prepare-azure-resources) erstellt haben.
 4. Wenn Sie fertig sind, wählen Sie **OK**.
 
-
-### <a name="4-prepare-replication-settings"></a>4: Vorbereiten der Replikationseinstellungen
+### <a name="5-prepare-replication-settings"></a>5: Vorbereiten der Replikationseinstellungen
 
 Bevor Sie die Replikation aktivieren können, müssen Sie eine Replikationsrichtlinie erstellen.
 
@@ -158,12 +161,7 @@ Bevor Sie die Replikation aktivieren können, müssen Sie eine Replikationsricht
 2. Geben Sie unter **Name** den Namen **myReplicationPolicy** ein.
 3. Übernehmen Sie die übrigen Standardeinstellungen, und wählen Sie anschließend **OK**, um die Richtlinie zu erstellen. Die neue Richtlinie wird dem Konfigurationsserver automatisch zugeordnet.
 
-### <a name="5-select-deployment-planning"></a>5: Auswählen der Bereitstellungsplanung
-
-Wählen Sie unter **Haben Sie die Bereitstellungsplanung abgeschlossen?** die Option **Wird später durchgeführt**, und wählen Sie dann **OK**.
-
 Wenn Sie alle fünf Abschnitte unter **Infrastruktur vorbereiten** abgeschlossen haben, können Sie **OK** wählen.
-
 
 ## <a name="enable-replication"></a>Aktivieren der Replikation
 

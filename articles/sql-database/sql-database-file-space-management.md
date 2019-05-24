@@ -13,11 +13,11 @@ ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123294"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Verwalten von Dateispeicherplatz für Einzel- und Pooldatenbanken in Azure SQL-Datenbank
 
@@ -250,9 +250,9 @@ Nach dem Verkleinern von Datenbankdateien sind Indizes möglicherweise fragmenti
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Informationen zur maximalen Datenbankgröße finden Sie unter:
-  - [Limits des auf virtuellen Kernen basierenden Kaufmodells für eine Einzeldatenbank in Azure SQL-Datenbank](sql-database-vcore-resource-limits-single-databases.md)
-  - [Ressourcenlimits für Einzeldatenbanken, die das Kaufmodell auf DTU-Basis verwenden](sql-database-dtu-resource-limits-single-databases.md)
-  - [Limits des V-Kern-basierten Kaufmodells für Pools für elastische Datenbanken in Azure SQL-Datenbank](sql-database-vcore-resource-limits-elastic-pools.md)
-  - [Grenzwerte für Ressourcen für elastische Pools, die das Kaufmodell auf DTU-Basis verwenden](sql-database-dtu-resource-limits-elastic-pools.md)
+  - [Limits des vCore-basierten Kaufmodells für eine Einzeldatenbank in Azure SQL-Datenbank](sql-database-vcore-resource-limits-single-databases.md)
+  - [Ressourcenlimits für Einzeldatenbanken, die DTU-basierte Kaufmodell verwenden](sql-database-dtu-resource-limits-single-databases.md)
+  - [Limits des vCore-basierten Kaufmodells für Pools für elastische Datenbanken in Azure SQL-Datenbank](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Grenzwerte für Ressourcen für Pools für elastische Datenbanken, die das DTU-basierte Kaufmodell verwenden](sql-database-dtu-resource-limits-elastic-pools.md)
 - Weitere Informationen zum `SHRINKDATABASE`-Befehl finden Sie unter [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Weitere Informationen zum Fragmentieren und Neuerstellen von Indizes finden Sie unter [Neuorganisieren und Neuerstellen von Indizes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

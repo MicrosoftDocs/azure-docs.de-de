@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: abshamsft
-ms.openlocfilehash: 85a35207293f5afda40c78d105fc58732f06b626
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.author: absha
+ms.openlocfilehash: 5b1c0212205575f1d40f320fb959d98e55d87fb9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509797"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963594"
 ---
 # <a name="service-connectivity-monitor"></a>Dienstkonnektivitätsmonitor
 

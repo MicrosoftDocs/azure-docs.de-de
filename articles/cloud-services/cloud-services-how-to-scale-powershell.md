@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
-ms.author: mmccrory
-ms.openlocfilehash: a7ae8ff202d403dff19b8c9a6a09492235db27ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: memccror
+ms.openlocfilehash: 6c013687faaca33938d0b27303e9b1252482fcb9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998005"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963319"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Skalieren eines Clouddiensts in PowerShell
 

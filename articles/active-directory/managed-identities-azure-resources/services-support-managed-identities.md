@@ -4,18 +4,18 @@ description: Liste der Dienste, die verwaltete Identitäten für Azure-Ressource
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 04/15/2019
+ms.date: 05/09/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79c3f8ae183c78b19f7f520f8154bf9484a1f795
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607992"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518687"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Dienste, die verwaltete Identitäten für Azure-Ressourcen unterstützen
 
@@ -221,3 +221,12 @@ Konfigurieren Sie den Zugriff auf Azure Resource Manager anhand der folgenden Li
 | Azure Government | `https://storage.azure.com/` | Verfügbar |
 | Azure Deutschland | `https://storage.azure.com/` | Verfügbar |
 | Azure China 21Vianet | `https://storage.azure.com/` | Verfügbar |
+
+### <a name="azure-analysis-services"></a>Azure Analysis Services
+
+| Cloud | Ressourcen-ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://*.asazure.windows.net` | Verfügbar |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | Verfügbar |
+| Azure Deutschland | `https://*.asazure.cloudapi.de` | Verfügbar |
+| Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | Verfügbar |

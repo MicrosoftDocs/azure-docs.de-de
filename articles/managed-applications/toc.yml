@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: Verwenden eines Geheimnisses aus Key Vault
           href: key-vault-access.md
+        - name: Bereitstellen mit verwalteten Identitäten
+          href: publish-managed-identity.md
     - name: Consumer
       items:
         - name: Überwachen der verwalteten Anwendung

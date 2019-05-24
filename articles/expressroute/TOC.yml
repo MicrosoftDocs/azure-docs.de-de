@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: Standorte nach Anbieter
           href: expressroute-locations.md
-    - name: ExpressRoute-Gateway für virtuelle Netzwerke und FastPath
+    - name: Gateway für virtuelle Netzwerke und FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Voraussetzungen
       href: expressroute-prerequisites.md

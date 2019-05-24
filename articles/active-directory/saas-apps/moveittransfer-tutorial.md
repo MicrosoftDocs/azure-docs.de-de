@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a491cd303cccd94cbb489654890d55c03912a63
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408039"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Azure Active Directory-Integration mit MOVEit Transfer – Azure AD-Integration
 
@@ -174,7 +174,7 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD m
     
     b. Wählen Sie als **vollständiger Name** **Andere** aus, und fügen Sie im Textfeld **Attributname** den Wert `http://schemas.microsoft.com/identity/claims/displayname` ein.
     
-    c. Wählen Sie als **E-Mail** **Andere** aus, und fügen Sie im Textfeld **Attributname** den Wert `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` ein.
+    c. Wählen Sie als **E-Mail** **Andere** aus, und fügen Sie im Textfeld **Attributname** den Wert `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` ein.
     
     d. Wählen Sie unter **Auto-create account on signon** (Konto bei der Anmeldung automatisch erstellen) die Option **Ja** aus.
     

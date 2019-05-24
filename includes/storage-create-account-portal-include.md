@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 842201ee20ef2e13c5179ccb5992a1ed98d36a3e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238132"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114658"
 ---
 Führen Sie diese Schritte aus, wenn Sie ein allgemeines Speicherkonto vom Typ „General Purpose v2“ über das Azure-Portal erstellen möchten:
 
@@ -33,7 +33,7 @@ Führen Sie diese Schritte aus, wenn Sie ein allgemeines Speicherkonto vom Typ �
    |Bereitstellungsmodell     |Ressourcen-Manager         |
    |Leistung     |Standard         |
    |Kontoart     |StorageV2 (universell v2)         |
-   |Replikation     |Georedundanter Speicher mit Lesezugriff (LRS)         |
+   |Replikation     |Georedundanter Speicher mit Lesezugriff (RA-GRS)         |
    |Zugriffsebene     |Heiß         |
 
 1. Wählen Sie **Überprüfen + erstellen**, um die Speicherkontoeinstellungen zu überprüfen und das Konto zu erstellen.

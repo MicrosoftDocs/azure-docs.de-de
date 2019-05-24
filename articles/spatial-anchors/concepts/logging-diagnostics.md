@@ -4,16 +4,16 @@ description: Ausführliche Erklärung der Vorgehensweise zum Generieren und Abru
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 134023c0884ce3a402b99806f1bf19dcb59ecc32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57882827"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964744"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Protokollierung und Diagnose in Azure Spatial Anchors
 

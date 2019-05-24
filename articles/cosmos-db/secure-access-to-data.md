@@ -4,14 +4,14 @@ description: Informationen zu Zugriffssteuerungskonzepten in Azure Cosmos DB, da
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 133181fcc76d759a57725df1ff965966f3797399
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6ccb9afb528edf67b29c781217ca1de97b81e017
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245710"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969217"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sicherer Zugriff auf Daten in Azure Cosmos DB
 

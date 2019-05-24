@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553488"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146246"
 ---
-| Ressource | Standardlimit |
+| Resource | Standardlimit |
 | --- | :--- |
 | Containergruppen pro [Abonnement](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Anzahl von Containern pro Containergruppe | 60 |

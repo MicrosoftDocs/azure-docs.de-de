@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 3b10ae0998acbb010e61ebb41c602c7d42bc14fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 5421423441d03a7375feea2ca0dfe289993145ee
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263161"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873221"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Erste Schritte mit der Modulidentität und dem Modulzwilling von IoT Hub unter Verwendung eines .NET-Back-Ends und eines .NET-Geräts
 
@@ -31,7 +31,7 @@ Am Ende dieses Tutorials verfügen Sie über zwei .NET-Konsolen-Apps:
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Visual Studio 2017.
+* Visual Studio.
 
 * Ein aktives Azure-Konto. (Wenn Sie nicht über ein Konto verfügen, können Sie in nur wenigen Minuten ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) erstellen.)
 
@@ -167,4 +167,4 @@ Sie können die Apps nun ausführen. Klicken Sie in Visual Studio im Projektmapp
 Informationen zu den weiteren ersten Schritten mit IoT Hub und zum Kennenlernen anderer IoT-Szenarien finden Sie in den folgenden Artikeln:
 
 * [Erste Schritte mit der Geräteverwaltung](iot-hub-node-node-device-management-get-started.md)
-* [Bereitstellen Ihres ersten IoT Edge-Moduls auf einem Linux-Gerät](../iot-edge/tutorial-simulate-device-linux.md)
+* [Erste Schritte mit IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

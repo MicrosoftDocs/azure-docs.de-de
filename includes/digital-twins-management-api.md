@@ -9,11 +9,11 @@ ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 1bd878460f9910f2ed9c7af8e80f349815ab9ed4
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54121786"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157830"
 ---
 In den folgenden Beispielen bezieht sich `YOUR_MANAGEMENT_API_URL` auf den URI der Digital Twins-APIs:
 

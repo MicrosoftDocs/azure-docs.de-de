@@ -9,11 +9,11 @@ ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 1de7221f100077e07a2211bdb94e0198b35cb77c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716186"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170405"
 ---
 ## <a name="deployment-considerations"></a>Überlegungen zur Bereitstellung
 

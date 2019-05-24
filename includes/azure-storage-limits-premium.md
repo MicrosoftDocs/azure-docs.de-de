@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528491"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114796"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Blockblobspeicher mit Premium-Leistung
 
@@ -25,9 +25,9 @@ Premiumdateien verwenden ein eindeutiges Speicherkonto namens **FileStorage (Vor
 
 |Bereich  |Ziel  |
 |---------|---------|
-|Bereitgestellte maximale Größe     |5 TiB (öffentliche Vorschau), 100 TiB (eingeschränkte öffentliche Vorschau)     |
+|Bereitgestellte maximale Größe     |ca. 100 TiB     |
 |Freigaben   |Unbegrenzt  |
-|IOPS     |100.000 (eingeschränkte öffentliche Vorschau)    |
+|IOPS     |100.000    |
 |Eingehende Daten|4.136 MiB/s     |
 |Ausgehende Daten|6.204 MiB/s |
 

@@ -4,14 +4,14 @@ description: In diesem Artikel wird erläutert, wird Sie in Azure Cosmos DB die 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: b6c5722d5e096300f76f60dfaf8bab1e07d0c61c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 13ce5ee8b0e2a5d9cc84ea1a408ebba152b46050
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455665"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967404"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Optimieren der Lese- und Schreibkosten in Azure Cosmos DB
 

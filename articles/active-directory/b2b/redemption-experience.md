@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d00808295d39247729f6e843ac59ad7b23407148
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046494"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785419"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-Zusammenarbeit: Einlösen von Einladungen
 
@@ -62,8 +62,8 @@ Mithilfe des Nutzungsbedingungsfeatures von Azure AD können Sie dem Gastbenutze
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Was ist die Azure AD B2B-Zusammenarbeit?](what-is-b2b.md)
-- [Hinzufügen von Azure Active Directory B2B-Zusammenarbeitsbenutzern über das Azure-Portal](add-users-administrator.md)
-- [Wie fügen Information-Worker B2B-Zusammenarbeitsbenutzer zu Azure Active Directory hinzu?](add-users-information-worker.md)
-- [Hinzufügen von Azure Active Directory B2B-Zusammenarbeitsbenutzern mithilfe von PowerShell](customize-invitation-api.md#powershell)
-- [Verlassen einer Organisation als Gastbenutzer](leave-the-organization.md)
+- [Was ist die Azure AD B2B-Zusammenarbeit?](what-is-b2b.md)
+- [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md) (Hinzufügen von Azure Active Directory B2B-Zusammenarbeitsbenutzern über das Azure-Portal)
+- [How do information workers add B2B collaboration users to Azure Active Directory?](add-users-information-worker.md) (Wie fügen Information-Worker B2B-Zusammenarbeitsbenutzer zu Azure Active Directory hinzu?)
+- [Azure Active Directory B2B collaboration API and customization](customize-invitation-api.md#powershell) (Azure Active Directory B2B-Zusammenarbeit: API und Anpassung)
+- [Leave an organization as a guest user](leave-the-organization.md) (Verlassen einer Organisation als Gastbenutzer)

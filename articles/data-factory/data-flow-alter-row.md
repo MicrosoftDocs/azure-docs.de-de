@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: d842898ca700490ae99b46140be6609622a144df
-ms.sourcegitcommit: 5f41e855d415cfa741d8f710792ea486480df5cf
+ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133160"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520147"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory: Zeilenänderungstransformation
 

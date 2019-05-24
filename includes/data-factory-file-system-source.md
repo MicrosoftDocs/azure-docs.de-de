@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1300b15f91a6522a2c2a1c19f2999947abaac083
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572190"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161501"
 ---
 Wenn die Quelle der Kopieraktivität vom Typ **FileSystemSource** ist, sind im Abschnitt „typeProperties“ die folgenden Eigenschaften verfügbar:
 

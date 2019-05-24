@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 871fe502a40b4c22f3e57a2f357e940c7f659314
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 001574cef8f0ea074b65fdc94f6d8b255f98bff5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66159944"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Aktualisieren der Werte des RDP-Portbereichs
 

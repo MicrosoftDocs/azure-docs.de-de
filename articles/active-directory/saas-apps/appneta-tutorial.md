@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e48e353df6c14ec24a01fe3b1852de2c6a0a3155
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843690"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Tutorial: Azure Active Directory-Integration mit AppNeta Performance Monitor
 
@@ -123,7 +123,7 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD m
     | --------| ----------------|
     | firstName| user.givenname|
     | lastName| user.surname|
-    | E-Mail| user.userprincipalname|
+    | email| user.userprincipalname|
     | name| user.userprincipalname|
     | groups  | user.assignedroles |
     | phone| user.telephonenumber |

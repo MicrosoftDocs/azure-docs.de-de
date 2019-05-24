@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438648"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594020"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenzen bei Azure Active Directory-Berichten
 
@@ -41,10 +41,10 @@ Die folgende Tabelle enthält Latenzzeitinformationen für Aktivitätsberichte.
 > **Latenz (95. Perzentil)** bezieht sich auf die Zeit, bis zu der 95 % der Protokolle gemeldet werden, und **Latenz (99. Perzentil)** bezieht sich auf die Zeit, bis zu der 99 % der Protokolle gemeldet werden. 
 >
 
-| Bericht | Latenz (95. Perzentil) |Latenz (99. Perzentil)|Zeitraum, in dem Protokolle gemeldet werden.|
-| :-- | --- | --- | --- |
-| Überwachungsprotokolle | 2 Min.  | 5 Min.  | 2-60 Min. |
-| Anmeldungen | 2 Min.  | 5 Min. | 2-120 Min. |
+| Bericht | Latenz (95. Perzentil) |Latenz (99. Perzentil)|
+| :-- | --- | --- |
+| Überwachungsprotokolle | 2 Min.  | 5 Min.  |
+| Anmeldungen | 2 Min.  | 5 Min. |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Wie schnell werden nach Erwerb einer Premium-Lizenz Daten zu Aktivitäten angezeigt?
 

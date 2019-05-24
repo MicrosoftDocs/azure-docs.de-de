@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919783"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956161"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Konfigurieren einer Linux-Node.js-App für Azure App Service
 
@@ -137,7 +137,7 @@ Nachdem Sie mit dem Debuggen fertig sind, stoppen Sie den Debugger, indem Sie **
 
 ## <a name="access-environment-variables"></a>Zugreifen auf Umgebungsvariablen
 
-In App Service können Sie [App-Einstellungen außerhalb Ihres App-Codes festlegen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings). Anschließend können Sie darauf unter Verwendung des Node.js-Standardmusters zugreifen. Verwenden Sie beispielsweise den folgenden Code, um auf eine App-Einstellung namens `NODE_ENV` zuzugreifen:
+In App Service können Sie [App-Einstellungen außerhalb Ihres App-Codes festlegen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings). Anschließend können Sie darauf unter Verwendung des Node.js-Standardmusters zugreifen. Verwenden Sie beispielsweise den folgenden Code, um auf eine App-Einstellung namens `NODE_ENV` zuzugreifen:
 
 ```javascript
 process.env.NODE_ENV
@@ -253,7 +253,7 @@ Wenn sich eine funktionierende Node.js-App in App Service anders verhält oder F
     - Abhängig von Ihrer *package.json* können verschiedene Pakete für den Produktionsmodus installiert sein (`dependencies` oder `devDependencies`).
     - Bestimmte Webframeworks können statische Dateien im Produktionsmodus unterschiedlich bereitstellen.
     - Bestimmte Webframeworks können benutzerdefinierte Startskripts verwenden, wenn sie im Produktionsmodus ausgeführt werden.
-- Führen Sie Ihre App in App Service im Entwicklungsmodus aus. In [MEAN.js](https://meanjs.org/) können Sie Ihre App z. B. zur Laufzeit in den Entwicklungsmodus versetzen, indem Sie die [App-Einstellung `NODE_ENV` festlegen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Führen Sie Ihre App in App Service im Entwicklungsmodus aus. In [MEAN.js](https://meanjs.org/) können Sie Ihre App z. B. zur Laufzeit in den Entwicklungsmodus versetzen, indem Sie die [App-Einstellung `NODE_ENV` festlegen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

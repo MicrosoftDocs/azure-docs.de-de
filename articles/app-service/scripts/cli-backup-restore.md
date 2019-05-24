@@ -15,11 +15,11 @@ ms.date: 12/07/2017
 ms.author: msangapu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: affdf22a3c4cb496983da557b415773f4274db48
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136921"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>Wiederherstellen einer Web-App aus einem Backup mithilfe der CLI
 

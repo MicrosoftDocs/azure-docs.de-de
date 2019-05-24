@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441966"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522007"
 ---
 # <a name="what-is-language-understanding-luis"></a>Worum handelt es sich bei Language Understanding (LUIS)?
 
@@ -53,7 +53,7 @@ Eine LUIS-App enthält ein domänenspezifisches Modell für natürliche Sprache.
 * **Benutzerdefinierte Entitäten**: LUIS bietet Ihnen mehrere Möglichkeiten zum Festlegen eigener benutzerdefinierter Absichten und Entitäten, einschließlich auf maschinellem Lernen basierender Entitäten, bestimmter oder literaler Entitäten sowie einer Kombination von literalen und auf maschinellem Lernen basierenden Entitäten.
 
 ## <a name="build-the-luis-model"></a>Erstellen des LUIS-Modells
-Erstellen Sie das Modell mit den [Dokumenterstellungs](https://aka.ms/luis-authoring-apis)-APIs oder über das LUIS-Portal.
+Erstellen Sie das Modell mit den [Dokumenterstellungs](https://go.microsoft.com/fwlink/?linkid=2092087)-APIs oder über das LUIS-Portal.
 
 Das LUIS-Modell beginnt mit Kategorien von Benutzerabsichten, die als **[Absichten](luis-concept-intent.md)** bezeichnet werden. Jede Absicht erfordert Beispiele für **[Äußerungen](luis-concept-utterance.md)** von Benutzern. Jede Äußerung kann eine Vielzahl von Daten enthalten, die mit **[Entitäten](luis-concept-entity-types.md)** extrahiert werden müssen. 
 
@@ -65,7 +65,7 @@ Das LUIS-Modell beginnt mit Kategorien von Benutzerabsichten, die als **[Absicht
 
 ## <a name="query-prediction-endpoint"></a>Abfragen eines Vorhersageendpunkts
 
-Nachdem das Modell erstellt und am Endpunkt veröffentlicht wurde, sendet die Clientanwendung Äußerungen an die API des veröffentlichten [Vorhersageendpunkts](https://aka.ms/luis-endpoint-apis). Die API wendet das Modell zur Analyse auf den Text an. Die API gibt die Vorhersageergebnisse in einem JSON-Format zurück.  
+Nachdem das Modell erstellt und am Endpunkt veröffentlicht wurde, sendet die Clientanwendung Äußerungen an die API des veröffentlichten [Vorhersageendpunkts](https://go.microsoft.com/fwlink/?linkid=2092356). Die API wendet das Modell zur Analyse auf den Text an. Die API gibt die Vorhersageergebnisse in einem JSON-Format zurück.  
 
 Die JSON-Endpunktantwort enthält mindestens die Abfrageäußerung und die Absicht mit der höchsten Bewertung. Sie kann auch Daten wie die folgende **Kontakttyp**-Entität extrahieren. 
 
@@ -126,6 +126,6 @@ Erstellen Sie eine neue LUIS-App mit einer [vordefinierten](luis-get-started-cre
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

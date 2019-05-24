@@ -2,20 +2,20 @@
 title: Verbinden mit Azure SQL Data Warehouse –VSTS | Microsoft Docs
 description: Es wird beschrieben, wie Sie SQL Data Warehouse mit Visual Studio abfragen.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 564a30767f650e4ead025acb22e518eb0da55bd4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6aa707d3c63b7ead6db94f84ebd9214302cc7367
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463581"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873725"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Herstellen einer Verbindung mit SQL Data Warehouse über Visual Studio und SSDT
 > [!div class="op_single_selector"]

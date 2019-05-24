@@ -15,22 +15,22 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09e04e6b61d3387cb8c50c2af4eef2cfb4bec196
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575761"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602438"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Konfigurieren von Sicherheitswarnungen für Azure-Ressourcenrollen in PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) generiert bei verdächtigen oder nicht sicheren Aktivitäten in Ihrer Umgebung Warnungen. Wenn eine Warnung ausgelöst wird, wird sie auf der Seite „Warnungen“ angezeigt. 
 
-![Seite „Warnungen“](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Seite „Warnungen“](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>Überprüfen von Warnungen
 Wählen Sie eine Warnung aus, um einen Bericht mit den Benutzern oder Rollen, die die Warnung ausgelöst haben, zusammen mit Ratschlägen zur Lösung anzuzeigen.
 
-![Warnungsbericht](media/azure-pim-resource-rbac/rbac-alert-info.png)
+![Warnungsbericht](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alerts
 | Warnung | Severity | Trigger | Empfehlung |
@@ -47,10 +47,10 @@ Wählen Sie eine Warnung aus, um einen Bericht mit den Benutzern oder Rollen, di
 
 ## <a name="configure-security-alert-settings"></a>Konfigurieren der Einstellungen für Sicherheitswarnungen
 Navigieren Sie auf der Seite „Warnungen“ zu **Einstellungen**.
-![Einstellungen](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+![Einstellungen](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 Passen Sie die Einstellungen für die verschiedenen Warnungen so an, dass sie für Ihre Umgebung und Sicherheitsziele funktionieren.
-![Anpassen von Einstellungen](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Anpassen von Einstellungen](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

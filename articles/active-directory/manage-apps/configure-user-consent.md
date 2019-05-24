@@ -2,22 +2,22 @@
 title: Konfigurieren der Benutzereinwilligung für eine Anwendung – Azure Active Directory | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie die Art und Weise verwalten, in der Benutzer Anwendungsberechtigungen zustimmen. Sie können die Benutzerfreundlichkeit verbessern, indem Sie Administratoreinwilligung erteilen. Diese Methoden gelten für alle Endbenutzer in Ihrem Azure AD-Mandanten.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d35f8b440fe748f91c9e01003fe83a3a5343c8df
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203725"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824845"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Konfigurieren der Art der Benutzereinwilligung für eine Anwendung in Azure Active Directory
 Erfahren Sie, wie Sie die Art und Weise konfigurieren, in der Benutzer Anwendungsberechtigungen zustimmen. Sie können die Benutzerfreundlichkeit verbessern, indem Sie Administratoreinwilligung erteilen. Dieser Artikel erläutert die verschiedenen Möglichkeiten für die Konfiguration der Benutzereinwilligung. Diese Methoden gelten für alle Endbenutzer in Ihrem Azure AD-Mandanten. 

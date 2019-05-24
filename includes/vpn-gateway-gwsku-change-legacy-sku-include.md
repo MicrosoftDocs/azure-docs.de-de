@@ -9,11 +9,11 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57908687"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159273"
 ---
 Wenn Sie mit dem Resource Manager-Bereitstellungsmodell arbeiten, können Sie zur neuen Gateway-SKU wechseln. Wenn Sie von einer älteren Gateway-SKU zu einer neuen SKU wechseln, löschen Sie das vorhandene VPN-Gateway und erstellen ein neues VPN-Gateway.
 

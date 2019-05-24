@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662566"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595502"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Ausführen von Unittests für zustandsbehaftete Dienste in Service Fabric
 
@@ -36,7 +36,7 @@ Bei Unittests für zustandsbehaftete Dienste können einige häufige Fehler aufg
 
 ## <a name="common-practices"></a>Gängige Verfahren
 
-Im folgenden Abschnitt werden die gängigsten Verfahren für Unittests für zustandsbehaftete Dienste empfohlen. Zudem wird erläutert, wie eine Simulationsebene aussehen soll, damit sie eng an die Service Fabric-Orchestrierung und die Zustandsverwaltung angelehnt ist. Es stehen verschiedene Bibliotheken zur Verfügung, die diese Funktionalität bieten. Eine dieser Bibliotheken ist [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) ab Version 3.3.0. Diese Bibliothek umfasst die empfohlenen Simulationsfunktionen und entspricht den nachfolgend beschriebenen Verfahren.
+Im folgenden Abschnitt werden die gängigsten Verfahren für Unittests für zustandsbehaftete Dienste empfohlen. Zudem wird erläutert, wie eine Simulationsebene aussehen soll, damit sie eng an die Service Fabric-Orchestrierung und die Zustandsverwaltung angelehnt ist. Eine dieser Bibliotheken ist [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) ab Version 3.3.0. Diese Bibliothek umfasst die empfohlenen Simulationsfunktionen und entspricht den nachfolgend beschriebenen Verfahren.
 
 ### <a name="arrangement"></a>Vorbereitung
 

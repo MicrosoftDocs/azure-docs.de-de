@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894182"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522478"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Zugriff für die Erstellung und Benutzerzugriff auf Endpunkte
 Erstellungszugriff ist für Besitzer und Projektmitarbeiter möglich. Bei einer privaten App ist der Zugriff auf den Endpunkt für Besitzer und Projektmitarbeiter möglich. Bei einer öffentlichen App ist der Zugriff auf den Endpunkt für jede Person möglich, die über ein eigenes LUIS-Konto und die öffentliche App-ID verfügt. 
 
 ## <a name="access-to-authoring"></a>Zugriff für die Erstellung
-Der Zugriff auf die App von der [LUIS](luis-reference-regions.md#luis-website)-Website oder den [Erstellungs-APIs](https://aka.ms/luis-authoring-apis) wird vom Besitzer der App gesteuert. 
+Der Zugriff auf die App von der [LUIS](luis-reference-regions.md#luis-website)-Website oder den [Erstellungs-APIs](https://go.microsoft.com/fwlink/?linkid=2092087) wird vom Besitzer der App gesteuert. 
 
 Der Besitzer und alle Projektmitarbeiter haben Zugriff für die Erstellung der App. 
 

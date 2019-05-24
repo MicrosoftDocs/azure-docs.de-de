@@ -3,8 +3,8 @@ title: Zuweisen von Benutzern zu Anwendungen | Microsoft-Dokumentation
 description: Informationen zum Zuweisen von Benutzern zu einer Anwendung in Ihrem Mandanten
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be36bfeb0991dc4a4b7fce723cadb6b508c0d6a3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b818fe1d8b6bbc9d2d8c5b460b4d71dccdd39366
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198720"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825988"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Zuweisen von Benutzern zu Anwendungen
 

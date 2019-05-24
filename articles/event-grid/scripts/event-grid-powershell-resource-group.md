@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell script sample - Subscribe to resource group | Microsoft Docs
-description: Azure PowerShell script sample - Subscribe to resource group
+title: 'Azure PowerShell-Skriptbeispiel: Abonnieren einer Ressourcengruppe | Microsoft-Dokumentation'
+description: 'Azure PowerShell-Skriptbeispiel: Abonnieren einer Ressourcengruppe'
 services: event-grid
 documentationcenter: na
 author: tfitzmac
@@ -13,41 +13,41 @@ ms.workload: na
 ms.date: 12/10/2018
 ms.author: tomfitz
 ms.openlocfilehash: db4be11286825a8a990918a80c687f86c2294c6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117187"
 ---
-# <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>Subscribe to events for a resource group with PowerShell
+# <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>Abonnieren von Ereignissen für eine Ressourcengruppe mit PowerShell
 
-This script creates an Event Grid subscription to the events for a resource group.
+Dieses Skript erstellt ein Event Grid-Abonnement für die Ereignisse für eine Ressourcengruppe.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-The preview sample script requires the Event Grid module. To install, run `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+Für das Vorschaubeispielskript ist das Event Grid-Modul erforderlich. Führen Sie zum Installieren `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery` aus.
 
-## <a name="sample-script---stable"></a>Sample script - stable
+## <a name="sample-script---stable"></a>Beispielskript: stabil
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.ps1 "Subscribe to resource group")]
 
-## <a name="sample-script---preview-module"></a>Sample script - preview module
+## <a name="sample-script---preview-module"></a>Beispielskript: Vorschaumodul
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group-preview/subscribe-to-resource-group-preview.ps1 "Subscribe to resource group")]
 
-## <a name="script-explanation"></a>Script explanation
+## <a name="script-explanation"></a>Erläuterung des Skripts
 
-This script uses the following command to create the event subscription. Each command in the table links to command-specific documentation.
+Dieses Skript verwendet den folgenden Befehl, um das Ereignisabonnement zu erstellen. Jeder Befehl in der Tabelle ist mit der zugehörigen Dokumentation verknüpft.
 
-| Command | Notes |
+| Get-Help | Notizen |
 |---|---|
-| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Create an Event Grid subscription. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Erstellen Sie ein Event Grid-Abonnement. |
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Nächste Schritte
 
-* For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Eine Einführung in verwaltete Anwendungen finden Sie in der [Übersicht über verwaltete Azure-Anwendungen](../overview.md).
+* Weitere Informationen zu PowerShell finden Sie in der [Azure PowerShell-Dokumentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).

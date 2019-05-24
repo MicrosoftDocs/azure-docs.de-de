@@ -9,11 +9,11 @@ ms.date: 11/20/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: f562d04cb4e67334711072740b695dc6d6bd6f94
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392733"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111717"
 ---
 > [!div class="op_single_selector"]
 > * [Visual Studio](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md)

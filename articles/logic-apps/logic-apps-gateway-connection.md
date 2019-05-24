@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064065"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546271"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Herstellen einer Verbindung mit lokalen Datenquellen in Azure Logic Apps
 
@@ -36,7 +36,7 @@ Informationen zum Verwenden des Gateways mit anderen Diensten finden Sie in den 
 
 * Ihre Gatewayinstallation ist nicht bereits einer Gatewayressource in Azure zugeordnet. Sie können Ihre Gatewayinstallation nur mit einer einzigen Gatewayressource verknüpfen, was der Fall ist, wenn Sie die Gatewayressource erstellen und Ihre Gatewayinstallation auswählen. Diese Verknüpfung macht die Gatewayinstallation für andere Ressourcen nicht mehr verfügbar.
 
-* Wenn Sie sich beim Azure-Portal anmelden und die Gatewayressource erstellen, müssen Sie dasselbe Anmeldekonto verwenden, das Sie zuvor zum [Installieren des lokalen Datengateways](../logic-apps/logic-apps-gateway-install.md#requirements) verwendet haben. Zudem ist dasselbe [Azure-Abonnement](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) erforderlich, dass zum Installieren des Gateways benutzt wurde. Wenn Sie noch kein Azure-Abonnement haben, <a href="https://azure.microsoft.com/free/" target="_blank">melden Sie sich für ein kostenloses Azure-Konto an</a>.
+* Wenn Sie sich beim Azure-Portal anmelden und die Gatewayressource erstellen, müssen Sie dasselbe Anmeldekonto verwenden, das Sie zuvor zum [Installieren des lokalen Datengateways](../logic-apps/logic-apps-gateway-install.md#requirements) verwendet haben. Zudem ist dasselbe [Azure-Abonnement](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) erforderlich, dass zum Installieren des Gateways benutzt wurde. Wenn Sie noch kein Azure-Abonnement haben, <a href="https://azure.microsoft.com/free/" target="_blank">melden Sie sich für ein kostenloses Azure-Konto an</a>.
 
 * Um die Gatewayressource über das Azure-Portal erstellen und verwalten zu können, muss Ihr [Windows-Dienstkonto](../logic-apps/logic-apps-gateway-install.md#windows-service-account) mindestens über die Berechtigung **Mitwirkender** verfügen. Das lokale Datengateway wird als Windows-Dienst ausgeführt und ist so eingerichtet, dass es `NT SERVICE\PBIEgwService` für die Anmeldeinformationen des Windows-Diensts verwendet. 
 

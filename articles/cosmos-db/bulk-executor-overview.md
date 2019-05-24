@@ -4,15 +4,15 @@ description: Ausführen von Massenvorgängen in Azure Cosmos DB über Massenimpo
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 05/21/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: e0176af0ce77e9306f6f0031122f8ba8a7b27e61
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f37e7f508805dcdc20626dddf6d27768e4ab0b01
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038279"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978684"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB-BulkExecutor-Bibliothek – Übersicht
  

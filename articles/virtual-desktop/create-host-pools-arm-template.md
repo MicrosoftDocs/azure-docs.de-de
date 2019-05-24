@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: b1c7d1fe561ebc11f88644a5bf2fd8bda1c9a6c6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924990"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523977"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Erstellen eines Hostpools mit einer Azure Resource Manager-Vorlage
 
@@ -58,12 +58,6 @@ Zunächst müssen Sie das [Windows Virtual Desktop-PowerShell-Modul herunterlade
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Legen Sie als Nächstes mit dem folgenden Cmdlet den Kontext auf die Mandantengruppe fest, die in der Azure Resource Manager-Vorlage angegeben ist:
-
-```powershell
-Set-RdsContext -TenantGroupName <Tenant Group name>
 ```
 
 Fügen Sie die Benutzer anschließend mit diesem Cmdlet der Desktopanwendungsgruppe hinzu:

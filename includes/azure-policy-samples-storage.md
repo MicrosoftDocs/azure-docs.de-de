@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: fe6c6d461fd6b99ce2ce57ebdd61a3f3e961489c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318237"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155379"
 ---
 ## <a name="storage"></a>Storage
 

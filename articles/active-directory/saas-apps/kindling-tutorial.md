@@ -16,11 +16,11 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c89f79c9654ed440134c1d65cdc01f1b580c73c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263637"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Tutorial: Azure Active Directory-Integration mit Kindling
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270335"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160952"
 ---
 Mit dem Auftrag wird eine JSON-Ausgabedatei erzeugt, die Metadaten zu erkannten und nachverfolgten Gesichtern enthält. Die Metadaten enthalten Koordinaten, die die Position der Gesichter sowie eine Gesichts-ID angeben, um die Nachverfolgung einer einzelnen Person kenntlich zu machen. Gesichts-IDs können zurückgesetzt werden, wenn die Frontalansicht des Gesichts verloren geht oder im Frame überlappt wird, sodass einigen Personen möglicherweise mehrere IDs zugewiesen werden.
 
@@ -19,7 +19,7 @@ Die JSON-Ausgabe enthält die folgenden Elemente:
 
 | Element | BESCHREIBUNG |
 | --- | --- |
-| Version |Dies bezieht sich auf die Version der Video-API. |
+| version |Dies bezieht sich auf die Version der Video-API. |
 | timescale |„Ticks“ pro Sekunde des Videos. |
 | offset |Dies ist der Zeitoffset für Zeitstempel. In Version 1.0 von Video-APIs wird dies immer 0 sein. In zukünftigen Szenarien, die wir unterstützen, kann sich dieser Wert ändern. |
 | width, height |Breite und Höhe des Ausgabevideobilds in Pixel.|

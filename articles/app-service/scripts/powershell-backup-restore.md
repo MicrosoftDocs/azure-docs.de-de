@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: aca7f700dc7004f682430d0794f8bc9b024f41b3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fe1ac9f445434507c65f87fcd423eccb1a4ffacc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136605"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Wiederherstellen einer Web-App aus einer Sicherung mit Azure PowerShell
 

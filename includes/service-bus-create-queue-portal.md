@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d1cf75d8e678bc5bd3e3036930eea42526194df1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58125303"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171309"
 ---
 ## <a name="create-a-queue-in-the-azure-portal"></a>Erstellen einer Warteschlange im Azure-Portal
 1. Wählen Sie auf der Seite **Service Bus-Namespace** im linken Navigationsmenü die Option **Warteschlangen** aus.

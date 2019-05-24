@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578525"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957471"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Übersicht: Azure Load Balancer Standard
 
@@ -226,7 +226,6 @@ Informationen zu den Preisen für den Standard-Load Balancer finden Sie auf der 
 - SKUs sind nicht änderbar. Sie können die SKU einer vorhandenen Ressource nicht ändern.
 - Eine Ressource eines eigenständigen virtuellen Computers, eine Verfügbarkeitsgruppenressource oder eine Ressource einer VM-Skalierungsgruppe kann auf eine SKU verweisen, nie auf beide.
 - Eine Load Balancer-Regel kann sich nicht über zwei virtuelle Netzwerke erstrecken.  Front-Ends und ihre zugehörigen Back-End-Instanzen müssen sich im gleichen virtuellen Netzwerk befinden.  
-- Load Balancer-Front-Ends sind nicht über globales Peering in virtuellen Netzwerken verfügbar.
 - [Vorgänge zum Verschieben von Abonnements](../azure-resource-manager/resource-group-move-resources.md) werden für Standard-SKU-LB- und -PIP-Ressourcen nicht unterstützt.
 - Auf Web-Workerrollen ohne VNet und andere Plattformdienste von Microsoft kann aufgrund eines Nebeneffekts der Funktionsweise von Diensten vor VNet und anderen Plattformdiensten nur zugegriffen werden, wenn interner Standard-Load Balancer verwendet wird. Sie können sich nicht darauf verlassen, da der jeweilige Dienst oder die zugrunde liegende Plattform ohne vorherige Ankündigung geändert werden kann. Sie müssen immer davon ausgehen, dass Sie [ausgehende Verbindungen](load-balancer-outbound-connections.md), falls gewünscht, explizit erstellen müssen, wenn Sie nur den internen Standard-Load Balancer verwenden.
 - Load Balancer ist ein TCP- oder UDP-Produkt für den Lastenausgleich und die Portweiterleitung für diese spezifischen IP-Protokolle.  Regeln für den Lastenausgleich und eingehende NAT-Regeln werden für TCP und UDP, aber nicht für andere IP-Protokolle wie ICMP unterstützt. Der Load Balancer beendet die Payload des UDP- oder TCP-Flows nicht, antwortet nicht auf diese und interagiert auch nicht auf andere Weise mit ihr. Es handelt sich nicht um einen Proxy. Eine erfolgreiche Validierung der Konnektivität auf ein Front-End muss über einen In-Band-Zugriff mit dem Protokoll ausgeführt werden, das in einer Regel für den Lastenausgleich oder die eingehende Netzwerkadressenübersetzung (TCP oder UDP) verwendet wird, _und_ mindestens einer Ihrer virtuellen Computer muss eine Antwort für einen Client generieren, damit eine Antwort von einem Front-End angezeigt werden kann.  Wenn Sie keine In-Band-Antwort vom Load Balancer-Front-End erhalten, deutet dies darauf hin, dass keine virtuellen Computer antworten konnten.  Die Interaktion mit einer Load Balancer-Instanz ist nicht möglich, wenn ein virtueller Computer nicht antworten kann.  Dies gilt auch für ausgehende Verbindungen, für die die [Portmaskierung mit SNAT](load-balancer-outbound-connections.md#snat) nur für TCP und UDP unterstützt wird. Andere IP-Protokolle wir ICMP schlagen fehl.  Weisen Sie eine öffentlichen IP-Adresse auf Instanzebene zu, die eingeschränkt werden soll.

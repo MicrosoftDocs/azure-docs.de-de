@@ -2,21 +2,21 @@
 title: Indizieren von Tabellen in Azure SQL Data Warehouse | Microsoft Azure
 description: Empfehlungen und Beispiele für die Indizierung von Tabellen in Azure SQL Data Warehouse
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/18/2019
-ms.author: rortloff
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797940"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851650"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indizieren von Tabellen in SQL Data Warehouse
 

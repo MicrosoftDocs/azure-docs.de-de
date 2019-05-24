@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407622"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780354"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Verwenden einer externen Azure Cache for Redis-Instanz in Azure API Management
 
@@ -40,11 +40,6 @@ Sie lernen Folgendes:
 
 > [!div class="checklist"]
 > * Hinzufügen eines externen Caches in API Management
-
-## <a name="availability"></a>Verfügbarkeit
-
-> [!NOTE]
-> Dieses Feature steht derzeit nur im **Verbrauchstarif** von API Management zur Verfügung.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -94,6 +89,7 @@ Gehen Sie wie folgt vor, um in Azure API Management eine externe Azure Cache for
 Nachdem der externe Cache in Azure API Management konfiguriert wurde, kann er über Zwischenspeicherungsrichtlinien verwendet werden. Ausführliche Informationen finden Sie unter [Hinzufügen der Zwischenspeicherung zum Verbessern der Leistung in Azure API Management](api-management-howto-cache.md).
 
 ## <a name="next-steps"> </a>Nächste Schritte
+
 * Weitere Informationen zu Richtlinien für die Zwischenspeicherung finden Sie unter [Richtlinien für die Zwischenspeicherung][Caching policies] in der [Richtlinienreferenz für API Management][API Management policy reference].
 * Informationen zum Zwischenspeichern von Elementen nach Schlüssel mithilfe von Richtlinienausdrücken finden Sie unter [Benutzerdefiniertes Zwischenspeichern in Azure API Management](api-management-sample-cache-by-key.md).
 

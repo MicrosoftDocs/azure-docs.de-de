@@ -3,8 +3,8 @@ title: Integration in Microsoft Identity Platform | Azure
 description: Erhalten Sie Informationen zu bewährten Methoden und häufigen Fehlern bei der Integration in Microsoft Identity Platform (v2. 0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080304"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823347"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Checkliste für die Integration in Microsoft Identity Platform
 
@@ -31,13 +31,13 @@ Lesen Sie zum Einstieg die [Dokumentation](index.yml), um Grundlagen zu Authenti
 
 ## <a name="testing-your-integration"></a>Testen Ihrer Integration
 
-Stellen Sie anhand der folgenden Checkliste sicher, dass Ihre Anwendung effektiv in [Microsoft Identity Platform](https://docs.microsoft.com/legal/mdsa) integriert wird.
+Stellen Sie anhand der folgenden Checkliste sicher, dass Ihre Anwendung effektiv in [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/) integriert wird.
 
 ### <a name="basics"></a>Grundlagen
 
 |   |   |
 |---|---|
-| ![Kontrollkästchen](./media/active-directory-integration-checklist/checkbox-two.svg) | Beschäftigen Sie sich intensiv mit den [Richtlinien für die Microsoft-Plattform](https://docs.microsoft.com/legal/mdsa). Stellen Sie sicher, dass Ihre Anwendung den dargelegten Bedingungen entspricht, weil diese für den Schutz der Benutzer und der Plattform entwickelt wurden. |
+| ![Kontrollkästchen](./media/active-directory-integration-checklist/checkbox-two.svg) | Beschäftigen Sie sich intensiv mit den [Richtlinien für die Microsoft-Plattform](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Stellen Sie sicher, dass Ihre Anwendung den dargelegten Bedingungen entspricht, weil diese für den Schutz der Benutzer und der Plattform entwickelt wurden. |
 
 ### <a name="ownership"></a>Besitz
 

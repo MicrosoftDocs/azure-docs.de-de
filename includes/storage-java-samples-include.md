@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 41ec1940409953c7e12ffa9e919397a800591fed
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209788"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114744"
 ---
 ## <a name="java-sample-code-repositories"></a>Repositorys mit Java-Beispielcode
 

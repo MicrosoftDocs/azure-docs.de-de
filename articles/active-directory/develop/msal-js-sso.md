@@ -4,7 +4,7 @@ description: Erfahren Sie etwas über das Erstellen von Umgebungen mit einmalige
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a0fb0731b7ac46210294e3766b33bd6a239dcc2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f1f102307256852ac92616c7fb707e0e2739e5d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080230"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544153"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Einmaliges Anmelden mit MSAL.js
 

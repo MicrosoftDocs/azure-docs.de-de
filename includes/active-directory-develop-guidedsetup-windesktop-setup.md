@@ -11,16 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/10/2019
-ms.date: 05/10/2019
-ms.author: v-junlch
+ms.date: 04/10/2019
+ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: ae6d590cdada24638ec2d24c83609b8e6addfaf0
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416299"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121625"
 ---
 ## <a name="set-up-your-project"></a>Einrichten des Projekts
 
@@ -70,14 +69,14 @@ In diesem Schritt erstellen Sie eine Klasse zur Handhabung der Interaktion mit M
         static App()
         {
             _clientApp = PublicClientApplicationBuilder.Create(ClientId)
-                .WithAuthority(AzureCloudInstance.AzureChina, Tenant)
+                .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();
         }
 
         // Below are the clientId (Application Id) of your app registration and the tenant information. 
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
-        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
+        // - the content of Tenant by the information about the accounts allowed to sign-in in your application:
         //   - For Work or School account in your org, use your tenant ID, or domain
         //   - for any Work or School accounts, use `organizations`
         //   - for any Work or School accounts, or Microsoft personal account, use `common`
@@ -112,4 +111,3 @@ Die Datei *MainWindow.xaml* sollte als Teil Ihrer Projektvorlage automatisch ers
     </StackPanel>
 </Grid>
 ```
-

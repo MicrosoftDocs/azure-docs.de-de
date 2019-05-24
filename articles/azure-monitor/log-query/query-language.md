@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749817"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560852"
 ---
 # <a name="azure-monitor-log-queries"></a>Protokollabfragen in Azure Monitor
 Azure Monitor-Protokolle basieren auf Azure Data Explorer, und Azure Monitor-Protokollabfragen verwenden eine Version der gleichen Abfragesprache Kusto. Die [Dokumentation über die Abfragesprache Kusto](/azure/kusto/query) enthält alle Informationen zur Sprache und ist die wichtigste Ressource zum Schreiben von Azure Monitor-Protokollabfragen. Diese Seite enthält Links zu anderen Ressourcen, die Sie beim Erlernen des Schreibens von Abfragen unterstützen und die Unterschiede der Sprachversionen bei der Azure Monitor-Implementierung erläutern.
@@ -61,7 +61,7 @@ Azure Monitor-Protokolle basieren auf Azure Data Explorer, und Azure Monitor-Pro
 ## <a name="cheatsheets"></a>Spickzettel
 
 -  [Von SQL zur Azure Monitor-Protokollabfrage](sql-cheatsheet.md) hilft Benutzern, die bereits mit SQL vertraut sind.
--  [Von Splunk zur Azure Monitor-Protokollabfrage](sql-cheatsheet.md) hilft Benutzern, die bereits mit Splunk vertraut sind.
+-  [Von Splunk zur Azure Monitor-Protokollabfrage](splunk-cheatsheet.md) hilft Benutzern, die bereits mit Splunk vertraut sind.
  
 ## <a name="next-steps"></a>Nächste Schritte
 

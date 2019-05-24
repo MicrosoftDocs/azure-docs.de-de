@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: v-adgera
+ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259273"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967783"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Vorgehensweise: Konfigurieren von Postman für Azure Digital Twins
 
@@ -74,7 +74,7 @@ Richten Sie als Nächstes Postman ein, und konfigurieren Sie das Tool so, dass e
     | Rückruf-URL | `https://www.getpostman.com/oauth2/callback` |
     | Authentifizierungs-URL | Verwenden Sie die **Autorisierungs-URL** aus Schritt 2. |
     | Client-ID | Verwenden Sie die **Anwendungs-ID** für die Azure Active Directory-App, die im vorherigen Abschnitt erstellt bzw. anderweitig eingesetzt wurde. |
-    | Bereich | Nicht ausfüllen |
+    | `Scope` | Nicht ausfüllen |
     | Zustand | Nicht ausfüllen |
     | Clientauthentifizierung | `Send as Basic Auth header` |
 

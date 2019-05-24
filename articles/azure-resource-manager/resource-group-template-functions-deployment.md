@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128663"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Bereitstellungsfunktionen für Azure Resource Manager-Vorlagen 
 
@@ -158,7 +158,7 @@ Eine Vorlage auf Abonnementebene, die die Bereitstellungsfunktion verwendet, fin
 
 <a id="parameters" />
 
-## <a name="parameters"></a>Parameter
+## <a name="parameters"></a>parameters
 `parameters(parameterName)`
 
 Gibt einen Parameterwert zurück. Der spezifizierte Parametername muss im Parameterabschnitt der Vorlage definiert werden.
@@ -256,7 +256,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | ---- | ---- | ----- |
 | stringOutput | Zeichenfolge | option 1 |
 | intOutput | Int | 1 |
-| objectOutput | Objekt | {"one": "a", "two": "b"} |
+| objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | Zeichenfolge | option 1 |
 
@@ -360,7 +360,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | exampleOutput1 | Zeichenfolge | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | Zeichenfolge | myVariable |
-| exampleOutput4 |  Objekt | {"property1": "value1", "property2": "value2"} |
+| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
 

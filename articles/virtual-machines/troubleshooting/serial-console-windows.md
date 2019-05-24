@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
-ms.author: harijay
-ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.author: alsin
+ms.openlocfilehash: 6fd7f36510bdc7ed56ede6a5743a5f131149472e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442110"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834755"
 ---
 # <a name="azure-serial-console-for-windows"></a>Die serielle Azure-Konsole für Windows
 

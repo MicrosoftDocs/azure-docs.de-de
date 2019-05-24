@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565957"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955757"
 ---
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Häufig gestellte Fragen zur Anwendungsleistung von Web-Apps in Azure
+
 > [!NOTE]
 > Einige der folgende Richtlinien funktionieren eventuell nur mit Windows oder Linux App Services. Linux App Services werden beispielsweise standardmäßig im 64-Bit-Modus ausgeführt.
 >
-
-# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Häufig gestellte Fragen zur Anwendungsleistung von Web-Apps in Azure
 
 In diesem Artikel erhalten Sie Antworten auf häufig gestellte Fragen zu Problemen mit der Anwendungsleistung bei [Azure App Service-Web-Apps](https://azure.microsoft.com/services/app-service/web/).
 
@@ -161,7 +161,7 @@ Erwägen Sie einen Wechsel zu 64-Bit-Prozessen, damit Sie den zusätzlichen Arbe
 
 Beachten Sie außerdem, dass eine 64-Bit-Umgebung einen Serviceplan des Typs „Basic“ oder „Standard“ erfordert. Die Servicepläne „Free“ und „Shared“ werden stets in einer 32-Bit-Umgebung ausgeführt.
 
-Weitere Informationen finden Sie unter [Konfigurieren von Web-Apps in App Service](web-sites-configure.md).
+Weitere Informationen finden Sie unter [Konfigurieren von Web-Apps in App Service](configure-common.md).
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>Warum erfolgt für meine Anforderung nach 230 Sekunden ein Timeout?
 

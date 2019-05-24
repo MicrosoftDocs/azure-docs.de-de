@@ -4,14 +4,14 @@ description: In diesem Artikel wird erläutert, wie Sie mit Azure Cosmos DB mehr
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 3bb39fe99e612fb19f12fd049ebb8f600e48373e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f9cb18b66def144b84de708351743832d1831fbf
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457869"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967264"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optimieren der Entwicklungs- und Testkosten in Azure Cosmos DB
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 7ea7cbf4526528eb481b6125b006d0c29d86deb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001075"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002051"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Anzeigen der wichtigsten Kostenmetriken mit Dashboards
 

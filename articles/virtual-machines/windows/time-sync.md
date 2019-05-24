@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1a2e75dcffe32c6f1aeaba8646b96bbc1500ffdf
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: aac0a3ab14cc2543fe3b60f4c52e14e3cb0ee743
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546912"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991712"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Zeitsynchronisierung für Windows-VMs in Azure
 
@@ -39,7 +39,7 @@ Die Genauigkeit einer Computeruhr wird daran gemessen, wie nahe die Computeruhr 
 
 Azure-Hosts werden mit internen Microsoft-Zeitservern synchronisiert, die die Uhrzeit von Microsoft-eigenen Stratum 1-Geräten mit GPS-Antennen abfragen. Virtuelle Computer in Azure können zum Übergeben der genauen Uhrzeit an den virtuellen Computer von ihrem Host abhängen (*Hostzeit*), oder der virtuelle Computer kann die Uhrzeit direkt von einem Zeitserver abrufen, oder eine Kombination aus beidem. 
 
-VM-Interaktionen mit dem Host können sich auch auf die Uhr auswirken. Während der [Wartung mit Speicherbeibehaltung](maintenance-and-updates.md#maintenance-not-requiring-a-reboot) werden VMs bis zu 30 Sekunden angehalten. Beispiel: Vor Beginn der Wartung zeigt die VM-Uhr 10:00:00 Uhr an und wird 28 Sekunden angehalten. Nach Wiederaufnahme würde die Uhr des virtuellen Computers auch noch 10:00:00 Uhr anzeigen, was einen Zeitverlust von 28 Sekunden bedeuten würde. Um dies zu korrigieren, überwacht der VMICTimeSync-Dienst die Vorgänge auf dem Host und fordert zwecks Kompensierung zum Durchführen von Änderungen auf dem virtuellen Computer auf.
+VM-Interaktionen mit dem Host können sich auch auf die Uhr auswirken. Während der [Wartung mit Speicherbeibehaltung](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) werden VMs bis zu 30 Sekunden angehalten. Beispiel: Vor Beginn der Wartung zeigt die VM-Uhr 10:00:00 Uhr an und wird 28 Sekunden angehalten. Nach Wiederaufnahme würde die Uhr des virtuellen Computers auch noch 10:00:00 Uhr anzeigen, was einen Zeitverlust von 28 Sekunden bedeuten würde. Um dies zu korrigieren, überwacht der VMICTimeSync-Dienst die Vorgänge auf dem Host und fordert zwecks Kompensierung zum Durchführen von Änderungen auf dem virtuellen Computer auf.
 
 Der VMICTimeSync-Dienst wird entweder im Sampling- oder Synchronisierungsmodus ausgeführt und wirkt sich nur auf das Vorstellen der Uhr aus. Im Sampling-Modus, der die Ausführung von W32time erfordert, fragt der VMICTimeSync-Dienst den Host alle 5 Sekunden ab und Zeit-Samples an W32time bereit. Etwa alle 30 Sekunden verwendet der W32time-Dienst das letzte Zeit-Sample, um damit die Uhr des Gasts zu beeinflussen. Der Synchronisierungsmodus wird aktiviert, wenn der Gast fortgesetzt wurde oder die Uhr des Gasts mehr als 5 Sekunden hinter der Uhr des Hosts liegt. Bei einer ordnungsgemäßen Ausführung des W32time-Diensts sollte der letztere Fall nie eintreten.
 

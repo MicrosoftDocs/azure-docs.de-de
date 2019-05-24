@@ -16,11 +16,11 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118583"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127511"
 ---
 ### <a name="general-requirements"></a>Allgemeine Anforderungen
 
@@ -64,14 +64,14 @@ Sie müssen keine NSGs auf der Subnetzebene angeben, da Batch eigene NSGs konfig
 
 **Eingangssicherheitsregeln**
 
-| Quell-IP-Adressen | Quelldiensttag | Quellports | Ziel | Zielports | Protokoll | Aktion |
+| Quell-IP-Adressen | Quelldiensttag | Quellports | Ziel | Zielports | Protocol | Aktion |
 | --- | --- | --- | --- | --- | --- | --- |
 | – | `BatchNodeManagement` [Diensttag](../articles/virtual-network/security-overview.md#service-tags) | * | Beliebig | 29876–29877 | TCP | ZULASSEN |
 | Benutzerquellen-IPs für den Remotezugriff auf Computeknoten und/oder Computeknoten-Subnetz für Multi-Instanz-Aufgaben unter Linux, falls erforderlich. | – | * | Beliebig | 3389 (Windows), 22 (Linux) | TCP | ZULASSEN |
 
 **Ausgangssicherheitsregeln**
 
-| Quelle | Quellports | Ziel | Zieldiensttag | Protokoll | Aktion |
+| `Source` | Quellports | Ziel | Zieldiensttag | Protocol | Aktion |
 | --- | --- | --- | --- | --- | --- |
 | Beliebig | 443 | [Diensttag](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (in der gleichen Region wie Ihr Batchkonto und VNET)  | Beliebig | ZULASSEN |
 
@@ -97,13 +97,13 @@ Konfigurieren Sie eingehenden Datenverkehr am Port 3389 für Windows, wenn Sie R
 
 **Eingangssicherheitsregeln**
 
-| Quell-IP-Adressen | Quellports | Ziel | Zielports | Protokoll | Aktion |
+| Quell-IP-Adressen | Quellports | Ziel | Zielports | Protocol | Aktion |
 | --- | --- | --- | --- | --- | --- |
 Beliebig <br /><br />Dafür ist zwar im Grunde die Zulassung aller IP-Adressen erforderlich, der Batch-Dienst wendet jedoch auf der Ebene jedes Knotens eine ACL-Regel an, die alle nicht vom Batch-Dienst stammenden IP-Adressen herausfiltert. | * | Beliebig | 10100, 20100, 30100 | TCP | ZULASSEN |
 | Optional, um RDP-Zugriff auf Computeknoten zu ermöglichen. | * | Beliebig | 3389 | TCP | ZULASSEN |
 
 **Ausgangssicherheitsregeln**
 
-| Quelle | Quellports | Ziel | Zielports | Protokoll | Aktion |
+| `Source` | Quellports | Ziel | Zielports | Protocol | Aktion |
 | --- | --- | --- | --- | --- | --- |
 | Beliebig | * | Beliebig | 443  | Beliebig | ZULASSEN |

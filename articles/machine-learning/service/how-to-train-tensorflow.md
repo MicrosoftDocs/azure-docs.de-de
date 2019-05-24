@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 82c9aa961221b582bb16438f30a0584232164393
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442352"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65915104"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Trainieren von TensorFlow- und Keras-Modellen mit Azure Machine Learning Service
 
@@ -28,7 +28,7 @@ Der `TensorFlow`-Estimator stellt zudem eine Abstraktionsebene über der Ausfüh
 
 Da die Estimator-Klasse `TensorFlow` dem Basis-[`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) ähnlich ist, empfehlen wir Ihnen, zuerst den [Artikel mit Anleitungen zum Basis-Estimator](how-to-train-ml-models.md) zu lesen, um die übergeordneten Konzepte zu verstehen.
 
-Informationen zu den ersten Schritte mit Azure Machine Learning Service finden Sie im [Schnellstart](quickstart-run-cloud-notebook.md). Wenn Sie fertig sind, verfügen Sie über einen [Azure Machine Learning-Arbeitsbereich](concept-azure-machine-learning-architecture.md#workspace) und alle unsere [Beispielnotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml), einschließlich derjenigen für das Training von DNNs mit TensorFlow und Keras.
+Informationen zu den ersten Schritte mit Azure Machine Learning Service finden Sie im [Schnellstart](quickstart-run-cloud-notebook.md). Wenn Sie fertig sind, verfügen Sie über einen [Azure Machine Learning-Arbeitsbereich](concept-workspace.md) und alle unsere [Beispielnotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml), einschließlich derjenigen für das Training von DNNs mit TensorFlow und Keras.
 
 ## <a name="single-node-training"></a>Training auf einem einzelnen Knoten
 

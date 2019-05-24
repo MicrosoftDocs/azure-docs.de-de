@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: msangapu
 ms.custom: include file
 ms.openlocfilehash: 8b5be0a438d9c5bb1fd0596368327c53a2d6c31f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218259"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66137864"
 ---
 > [!NOTE]
 > Der Befehl `az webapp up` bewirkt Folgendes:

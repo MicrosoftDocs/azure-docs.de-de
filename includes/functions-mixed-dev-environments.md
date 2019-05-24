@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: dcebef9dde173f5a26c5abed26a2d20b6d0bd116
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: a5252d64c00a4de4c5d2faf083904a994e67a994
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37086380"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131406"
 ---
 >[!IMPORTANT]  
 > Kombinieren Sie die lokale Entwicklung und die Portalentwicklung nicht in der gleichen Funktions-App. Wenn Sie Funktionen über ein lokales Projekt erstellen und veröffentlichen, sollten Sie nicht versuchen, den Projektcode im Portal zu verwalten oder zu ändern.

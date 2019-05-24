@@ -9,11 +9,11 @@ ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58863014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127666"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Sichern virtueller Azure-Computer mit PowerShell
 

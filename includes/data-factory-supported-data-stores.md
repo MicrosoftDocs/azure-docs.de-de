@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "52156768"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122553"
 ---
 | Category (Kategorie) | Datenspeicher | Als Quelle unterstützt | Als Senke unterstützt |
 |:--- |:--- |:--- |:--- |

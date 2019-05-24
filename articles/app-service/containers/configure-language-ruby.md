@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 402c85e7902c8c2f612ad6c777d8f6773a4d0ca3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 412efac3742acf7ad1cdc3d08f9d90c4d39bad3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549553"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956119"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Konfigurieren einer Linux-Ruby-App für Azure App Service
 
@@ -65,7 +65,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Zugreifen auf Umgebungsvariablen
 
-In App Service können Sie [App-Einstellungen außerhalb Ihres App-Codes festlegen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings). Anschließend können Sie darauf unter Verwendung des Standardmusters [ENV['<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) zugreifen. Verwenden Sie beispielsweise den folgenden Code, um auf eine App-Einstellung namens `WEBSITE_SITE_NAME` zuzugreifen:
+In App Service können Sie [App-Einstellungen außerhalb Ihres App-Codes festlegen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings). Anschließend können Sie darauf unter Verwendung des Standardmusters [ENV['<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) zugreifen. Verwenden Sie beispielsweise den folgenden Code, um auf eine App-Einstellung namens `WEBSITE_SITE_NAME` zuzugreifen:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -76,13 +76,13 @@ ENV['WEBSITE_SITE_NAME']
 Beim Bereitstellen eines [Git-Repositorys](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) oder [ZIP-Pakets](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) mit aktivierten Buildprozessen führt die Bereitstellungs-Engine (Kudu) nach der Bereitstellung standardmäßig automatisch die folgenden Schritte aus:
 
 1. Überprüfen, ob eine *Gemfile* vorhanden ist
-1. Ausführen von `bundle clean` 
-1. Ausführen von `bundle install --path "vendor/bundle"`
+1. Führen Sie `bundle clean`aus. 
+1. Führen Sie `bundle install --path "vendor/bundle"`aus.
 1. Ausführen von `bundle package`, um Gems im Ordner „vendor/cache“ zu verpacken
 
 ### <a name="use---without-flag"></a>Verwenden des Flags „--without“
 
-Legen Sie zum Ausführen von `bundle install` mit dem Flag [--without](https://bundler.io/man/bundle-install.1.html) die [App-Einstellung](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) `BUNDLE_WITHOUT` auf eine durch Trennzeichen getrennte Liste mit Gruppen fest. Mit dem folgenden Befehl wird beispielsweise `development,test` festgelegt.
+Legen Sie zum Ausführen von `bundle install` mit dem Flag [--without](https://bundler.io/man/bundle-install.1.html) die [App-Einstellung](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `BUNDLE_WITHOUT` auf eine durch Trennzeichen getrennte Liste mit Gruppen fest. Mit dem folgenden Befehl wird beispielsweise `development,test` festgelegt.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
@@ -92,7 +92,7 @@ Wenn diese Einstellung definiert ist, führt die Bereitstellungs-Engine `bundle 
 
 ### <a name="precompile-assets"></a>Vorkompilieren von Ressourcen
 
-Mit den Schritten nach der Bereitstellung werden standardmäßig keine Ressourcen vorkompiliert. Legen Sie die [App-Einstellung](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) `ASSETS_PRECOMPILE` auf `true` fest, um die Vorkompilierung von Ressourcen zu aktivieren. Anschließend wird nach Abschluss der Schritte nach der Bereitstellung der Befehl `bundle exec rake --trace assets:precompile` ausgeführt. Beispiel: 
+Mit den Schritten nach der Bereitstellung werden standardmäßig keine Ressourcen vorkompiliert. Legen Sie die [App-Einstellung](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `ASSETS_PRECOMPILE` auf `true` fest, um die Vorkompilierung von Ressourcen zu aktivieren. Anschließend wird nach Abschluss der Schritte nach der Bereitstellung der Befehl `bundle exec rake --trace assets:precompile` ausgeführt. Beispiel: 
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -121,7 +121,7 @@ Sie können den Startvorgang auf folgende Weise anpassen:
 Der Rails-Server im Ruby-Container wird standardmäßig im Produktionsmodus ausgeführt, und [es wird vorausgesetzt, dass die Ressourcen vorkompiliert und von ihrem Webserver bereitgestellt werden](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Sie müssen zwei Schritte ausführen, um statische Ressourcen über den Rails-Server bereitzustellen:
 
 - **Vorkompilieren der Ressourcen** - [Führen Sie das Vorkompilieren der Ressourcen lokal durch](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation), und stellen Sie sie manuell bereit. Sie können die Verarbeitung aber auch der Bereitstellungs-Engine überlassen (siehe [Vorkompilieren von Ressourcen](#precompile-assets)).
-- **Aktivieren der Bereitstellung von statischen Dateien**: Legen Sie zum Bereitstellen von statischen Ressourcen aus dem Ruby-Container die `RAILS_SERVE_STATIC_FILES`[App-Einstellung `RAILS_SERVE_STATIC_FILES`](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) auf `true` fest. Beispiel: 
+- **Aktivieren der Bereitstellung von statischen Dateien**: Legen Sie zum Bereitstellen von statischen Ressourcen aus dem Ruby-Container die `RAILS_SERVE_STATIC_FILES`[App-Einstellung `RAILS_SERVE_STATIC_FILES`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) auf `true` fest. Beispiel: 
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -129,13 +129,13 @@ Der Rails-Server im Ruby-Container wird standardmäßig im Produktionsmodus ausg
 
 ### <a name="run-in-non-production-mode"></a>Ausführen in einem anderen Modus als dem Produktionsmodus
 
-Der Rails-Server wird standardmäßig im Produktionsmodus ausgeführt. Legen Sie für die Ausführung im Entwicklungsmodus die [App-Einstellung](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) `RAILS_ENV` auf `development` fest.
+Der Rails-Server wird standardmäßig im Produktionsmodus ausgeführt. Legen Sie für die Ausführung im Entwicklungsmodus die [App-Einstellung](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `RAILS_ENV` auf `development` fest.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-Diese Einstellung allein führt aber nur dazu, dass der Rails-Server im Entwicklungsmodus gestartet wird. Hierbei werden nur localhost-Anforderungen akzeptiert, und der Zugriff von außerhalb des Containers ist nicht möglich. Legen Sie die [App-Einstellung](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) `APP_COMMAND_LINE` auf `rails server -b 0.0.0.0` fest, damit Anforderungen von Remoteclients akzeptiert werden. Mit dieser App-Einstellung können Sie im Ruby-Container einen benutzerdefinierten Befehl ausführen. Beispiel: 
+Diese Einstellung allein führt aber nur dazu, dass der Rails-Server im Entwicklungsmodus gestartet wird. Hierbei werden nur localhost-Anforderungen akzeptiert, und der Zugriff von außerhalb des Containers ist nicht möglich. Legen Sie die [App-Einstellung](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `APP_COMMAND_LINE` auf `rails server -b 0.0.0.0` fest, damit Anforderungen von Remoteclients akzeptiert werden. Mit dieser App-Einstellung können Sie im Ruby-Container einen benutzerdefinierten Befehl ausführen. Beispiel: 
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
@@ -143,7 +143,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secretkeybase-manually"></a>Manuelles Festlegen von „secret_key_base“
 
-Legen Sie die [App-Einstellung](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) `SECRET_KEY_BASE` mit dem gewünschten Wert fest, um Ihren eigenen `secret_key_base`-Wert zu verwenden, anstatt von App Service einen Wert generieren zu lassen. Beispiel: 
+Legen Sie die [App-Einstellung](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` mit dem gewünschten Wert fest, um Ihren eigenen `secret_key_base`-Wert zu verwenden, anstatt von App Service einen Wert generieren zu lassen. Beispiel: 
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"

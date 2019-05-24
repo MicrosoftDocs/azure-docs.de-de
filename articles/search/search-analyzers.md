@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651820"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795794"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analysetools für Textverarbeitung in Azure Search
 
@@ -92,10 +92,6 @@ Wenn Sie die Standardanalyse überschreiben, muss der Index neu erstellt werden.
 ### <a name="inspect-tokenized-terms"></a>Überprüfen von tokenisierten Begriffen
 
 Wenn eine Suche nicht die erwarteten Ergebnisse zurückgibt, ist das wahrscheinlichste Szenario, dass Abweichungen zwischen Begriffseingaben für die Abfrage und tokenisierten Begriffen im Index vorliegen. Wenn die Token nicht identisch sind, können Übereinstimmungen nicht materialisiert werden. Zur Überprüfung der Tokenizer-Ausgabe wird empfohlen, die [Analyse-API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) als Untersuchungstool zu verwenden. Die Antwort besteht aus Token, die von einem bestimmten Analyzer generiert wurden.
-
-### <a name="compare-english-analyzers"></a>Vergleichen von englischen Analyzern
-
-Die [Search Analyzer Demo](https://alice.unearth.ai/) ist eine Demo eines Drittanbieters, die eine Gegenüberstellung der Lucene-Standardanalyse, der Lucene-Englischanalyse und der Verarbeitung natürlicher Sprache (Englisch) von Microsoft zeigt. Der Index ist vorgegeben. Er enthält Text aus einer bekannten Geschichte. Für jede von Ihnen bereitgestellte Sucheingabe werden Ergebnisse der einzelnen Analyzer in angrenzenden Bereichen angezeigt. Dadurch erhalten Sie einen Eindruck davon, wie dieselbe Zeichenfolge von den einzelnen Analyzern verarbeitet wird. 
 
 <a name="examples"></a>
 
@@ -348,8 +344,6 @@ Erstellen Sie ein [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microso
 + Informieren Sie sich darüber, wie Sie [sprachspezifische lexikalische Analysen](index-add-language-analyzers.md) anwenden.
 
 + [Konfigurieren Sie benutzerdefinierte Analysen](index-add-custom-analyzers.md) für eine minimale oder besondere Verarbeitung einzelner Felder.
-
-+ Vergleichen Sie auf [dieser Demowebsite](https://alice.unearth.ai/) die Standard- und die Englischanalyse in einer Gegenüberstellung. 
 
 ## <a name="see-also"></a>Weitere Informationen
 

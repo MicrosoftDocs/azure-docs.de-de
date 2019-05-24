@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511236"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957392"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Verwalten einer Funktionen-App im Azure-Portal 
 
@@ -61,7 +61,7 @@ Im weiteren Verlauf dieses Themas werden schwerpunktmäßig folgende App Service
 + [Authentifizierung](#auth)
 + [API-Definition](#swagger)
 
-Weitere Informationen zum Verwenden von App Service-Einstellungen finden Sie unter [Konfigurieren von Web-Apps in Azure App Service](../app-service/web-sites-configure.md).
+Weitere Informationen zum Verwenden von App Service-Einstellungen finden Sie unter [Konfigurieren von Web-Apps in Azure App Service](../app-service/configure-common.md).
 
 ### <a name="editor"></a>App Service-Editor
 
@@ -124,7 +124,7 @@ Weitere Informationen zum Verwenden von App Service-Einstellungen finden Sie unt
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-+ [Konfigurieren von Web-Apps in Azure App Service](../app-service/web-sites-configure.md)
++ [Konfigurieren von Web-Apps in Azure App Service](../app-service/configure-common.md)
 + [Kontinuierliche Bereitstellung für Azure Functions](functions-continuous-deployment.md)
 
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4e262c9e5bb88e77bc9c09853c06f4cdb41eedaa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58890958"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149642"
 ---
 ## <a name="preparing-for-updates"></a>Vorbereitung auf Updates
 Sie müssen die folgenden Schritte ausführen, bevor Sie das Update überprüfen und anwenden können:

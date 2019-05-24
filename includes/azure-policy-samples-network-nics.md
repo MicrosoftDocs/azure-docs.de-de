@@ -5,16 +5,15 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
-ms.date: 11/12/2018
-ms.author: v-biyu
+ms.date: 09/18/2018
+ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: f189843e865863d9b4088363e691ebc42ad9f2a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865897"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155420"
 ---
 ### <a name="network-interfaces"></a>Netzwerkschnittstellen
 

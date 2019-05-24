@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Schnelle Kubernetes-Entwicklung mit Containern und Microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, Helm, Service Mesh, Service Mesh-Routing, kubectl, k8s '
 manager: mmontwil
-ms.openlocfilehash: 29a50a871702985b64c594d5bd3700d4e29f40df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 458cf762b2d24d325a21f2f8032895a0a87f957c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788308"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65765184"
 ---
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 

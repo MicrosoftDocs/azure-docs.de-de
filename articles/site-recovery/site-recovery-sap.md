@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670875"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793674"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Einrichten der Notfallwiederherstellung für die Bereitstellung einer SAP NetWeaver-App mit mehreren Ebenen
 
@@ -103,7 +103,7 @@ Nachfolgend ist die Empfehlung für eine Notfallwiederherstellung der einzelnen 
 **SAP-Anwendungsserverpool** |  Replikation mithilfe von Site Recovery 
 **SAP Central Services-Cluster** |  Replikation mithilfe von Site Recovery 
 **Virtuelle Active Directory-Computer** |  Active Directory-Replikation 
-**SQL-Datenbankserver** |  SQL Always On-Replikation
+**SQL-Datenbank-Server** |  SQL Always On-Replikation
 
 ## <a name="replicate-virtual-machines"></a>Replizieren von virtuellen Computern
 
@@ -166,5 +166,5 @@ Weitere Informationen finden Sie unter [Testfailover nach Azure in Site Recovery
 Weitere Informationen finden Sie unter [Failover in Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
-* Weitere Informationen zum Erstellen einer Lösung für die Notfallwiederherstellung für SAP NetWeaver-Bereitstellungen mithilfe von Site Recovery finden Sie unter den herunterladbaren Whitepapers [SAP NetWeaver: Erstellen einer Notfallwiederherstellungslösung mit Azure Site Recovery](https://aka.ms/asr-sap). Das Whitepaper behandelt auch Empfehlungen für unterschiedliche SAP-Architekturen, listet unterstützte Anwendungen und VM-Typen für SAP in Azure auf und beschreibt Testplanoptionen für Ihre Notfallwiederherstellungslösung.
+* Weitere Informationen zum Erstellen einer Lösung für die Notfallwiederherstellung für SAP NetWeaver-Bereitstellungen mithilfe von Site Recovery finden Sie unter den herunterladbaren Whitepapers [SAP NetWeaver: Erstellen einer Notfallwiederherstellungslösung mit Azure Site Recovery](https://aka.ms/asr_sap). Das Whitepaper behandelt auch Empfehlungen für unterschiedliche SAP-Architekturen, listet unterstützte Anwendungen und VM-Typen für SAP in Azure auf und beschreibt Testplanoptionen für Ihre Notfallwiederherstellungslösung.
 * Erfahren Sie mehr über das [Replizieren anderer Workloads](site-recovery-workload.md) mit Site Recovery.

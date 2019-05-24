@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 963769315302ba4e7d1600253b617c7cb0f02bc5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257228"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794262"
 ---
 # <a name="what-is-qna-maker"></a>Was ist QnA Maker?
 
@@ -57,7 +57,7 @@ QnA Maker stellt zwei zentrale Dienste für Ihre Daten bereit:
 
 Die QnA Maker-Architektur umfasst die beiden folgenden Komponenten:
 
-1. **QnA Maker-Verwaltungsdienste**: Die Verwaltungsumgebung für eine QnA Maker-Wissensdatenbank mit Ersterstellung, Aktualisierung, Training und Veröffentlichung. Diese Aktivitäten können über das [Portal](https://qnamaker.ai) oder über [Verwaltungs-APIs](https://aka.ms/qnamaker-v4-apis) ausgeführt werden. 
+1. **QnA Maker-Verwaltungsdienste**: Die Verwaltungsumgebung für eine QnA Maker-Wissensdatenbank mit Ersterstellung, Aktualisierung, Training und Veröffentlichung. Diese Aktivitäten können über das [Portal](https://qnamaker.ai) oder über [Verwaltungs-APIs](https://go.microsoft.com/fwlink/?linkid=2092179) ausgeführt werden. 
 
 2. **QnA Maker-Daten und -Runtime**: Werden unter Ihrem Azure-Abonnement in Ihrer angegebenen Region bereitgestellt. Ihre Wissensdatenbank-Inhalte werden in [Azure Search](https://azure.microsoft.com/services/search/) gespeichert, und der Endpunkt wird als [App Service](https://azure.microsoft.com/services/app-service/) bereitgestellt. Sie können auch eine [Application Insights](https://azure.microsoft.com/services/application-insights/)-Ressource für Analysen bereitstellen.
 

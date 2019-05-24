@@ -15,11 +15,11 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160320"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Verwalten des Zugriffs auf Azure-Ressourcen mit RBAC und Azure PowerShell
 
@@ -271,8 +271,8 @@ CanDelegate        : False
 
 In bestimmten Fällen kann sich ein Rollenname ändern, z. B.:
 
-- Sie verwenden eine eigene benutzerdefinierte Rolle und entscheiden sich, den Namen zu ändern.
-- Sie verwenden eine als Vorschauversion verfügbare Rolle, deren Name den Zusatz **(Vorschauversion)** enthält. Wenn die Rolle veröffentlicht wird, wird sie umbenannt.
+- Sie verwenden eine eigene benutzerdefinierte Rolle und beschließen, den Namen zu ändern.
+- Sie verwenden eine als Vorschauversion verfügbare Rolle, deren Name den Zusatz **(Vorschauversion)** enthält. Beim Veröffentlichen wird die Rolle umbenannt.
 
 > [!IMPORTANT]
 > Eine Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.

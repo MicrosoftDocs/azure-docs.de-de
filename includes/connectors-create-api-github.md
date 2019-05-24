@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/02/2018
 ms.author: mandia
 ms.custom: include file
-ms.openlocfilehash: ec5b3ca9ccd139cbdf17768056eb1d835336e7a7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 11280e1678f52ede928cb2a85ea83add222e15fa
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29764176"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149225"
 ---
 1. Erstellen Sie im [Azure-Portal](https://portal.azure.com) eine leere Logik-App. 
 

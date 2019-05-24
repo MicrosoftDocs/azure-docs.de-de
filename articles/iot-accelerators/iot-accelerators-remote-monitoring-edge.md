@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117504"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Erkennen von Anomalien im Edgebereich mit dem Solution Accelerator für die Remoteüberwachung
 
@@ -80,7 +80,7 @@ Um die Verwaltung der IoT Edge-Geräte in der Lösung zu vereinfachen, erstellen
 
     | Einstellung | Wert |
     | ------- | ----- |
-    | Auftrag     | Tags  |
+    | Auftrag     | `Tags`  |
     | Auftragsname | AddEdgeTag |
     | Schlüssel     | IsOilPump |
     | Wert   | J     |
@@ -163,7 +163,7 @@ Sie definieren den Stream Analytics-Auftrag im Portal, bevor Sie ihn als IoT Edg
     | Auftragsname | EdgeDeviceJob |
     | Abonnement | Ihr Azure-Abonnement |
     | Ressourcengruppe | IoTEdgeDevices |
-    | Standort | USA (Ost) |
+    | Location | USA (Ost) |
     | Hosting-Umgebung | Microsoft Edge |
     | Streamingeinheiten | 1 |
 

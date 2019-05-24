@@ -14,12 +14,12 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 127b411f4de0bceff98f1c81f6a4ca8c1fc4fb3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c147023635f337e203f02779ef6df3d0a0f0088c
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390992"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015556"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrieren von Azure Key Vault in die Resource Manager-Vorlagenbereitstellung
 
@@ -203,7 +203,7 @@ New-AzResourceGroupDeployment `
 
 Verwenden Sie beim Bereitstellen der Vorlage die gleiche Ressourcengruppe wie für den Schlüsseltresor. Das erleichtert später die Bereinigung der Ressourcen. Sie müssen dann nicht zwei Ressourcengruppen löschen, sondern nur eine.
 
-## <a name="valid-the-deployment"></a>Überprüfen der Bereitstellung
+## <a name="validate-the-deployment"></a>Überprüfen der Bereitstellung
 
 Testen Sie nach erfolgreicher Bereitstellung des virtuellen Computers die Anmeldung unter Verwendung des im Schlüsseltresor gespeicherten Kennworts.
 

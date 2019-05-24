@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
 ms.openlocfilehash: cde06aaf149785f464cd354c95c8f39575bad73b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136132"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Erstellen eines Anwendungsgateways mithilfe der Azure CLI
 

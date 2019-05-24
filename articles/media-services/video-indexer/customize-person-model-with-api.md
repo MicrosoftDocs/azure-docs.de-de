@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 6c4980536eddd0226fac422ae17ddb717e34630d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360502"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799467"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Anpassen eines Personenmodells mit der Video Indexer-API
 
@@ -54,7 +55,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 ### <a name="request-parameters"></a>Anforderungsparameter 
 
-|**NAME**|**Type**|**Erforderlich**|**BESCHREIBUNG**|
+|**Name**|**Typ**|**Erforderlich**|**Beschreibung**|
 |---|---|---|---|
 |location|Zeichenfolge|Ja|Die Azure-Region, an die der Aufruf weitergeleitet werden soll. Weitere Informationen finden Sie unter [Azure-Regionen und Video Indexer](regions.md).|
 |accountId|Zeichenfolge|Ja|Global eindeutiger Bezeichner für das Konto|
@@ -99,7 +100,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-|**NAME**|**Type**|**Erforderlich**|**BESCHREIBUNG**|
+|**Name**|**Typ**|**Erforderlich**|**Beschreibung**|
 |---|---|---|---|
 |location|Zeichenfolge|Ja|Die Azure-Region, an die der Aufruf weitergeleitet werden soll. Weitere Informationen finden Sie unter [Azure-Regionen und Video Indexer](regions.md).|
 |accountId|Zeichenfolge|Ja|Global eindeutiger Bezeichner für das Konto|
@@ -136,7 +137,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-|**NAME**|**Type**|**Erforderlich**|**BESCHREIBUNG**|
+|**Name**|**Typ**|**Erforderlich**|**Beschreibung**|
 |---|---|---|---|
 |location|Zeichenfolge|Ja|Die Azure-Region, an die der Aufruf weitergeleitet werden soll. Weitere Informationen finden Sie unter [Azure-Regionen und Video Indexer](regions.md).|
 |accountId|Zeichenfolge|Ja|Global eindeutiger Bezeichner für das Konto|
@@ -191,7 +192,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ### <a name="request-parameters"></a>Anforderungsparameter
 
-|**NAME**|**Type**|**Erforderlich**|**BESCHREIBUNG**|
+|**Name**|**Typ**|**Erforderlich**|**Beschreibung**|
 |---|---|---|---|
 |location|Zeichenfolge|Ja|Die Azure-Region, an die der Aufruf weitergeleitet werden soll. Weitere Informationen finden Sie unter [Azure-Regionen und Video Indexer](regions.md).|
 |accountId|Zeichenfolge|Ja|Global eindeutiger Bezeichner für das Konto|

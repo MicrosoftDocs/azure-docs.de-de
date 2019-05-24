@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508406"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593892"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Optimieren der Ausgabe der Sprachsynthese
 
@@ -35,7 +35,7 @@ Bevor Sie mit der Optimierung der Sprachsyntheseausgabe mit dem Tool zur Spracho
    >Wenn Sie eine Sprachressource im Azure-Portal erstellen, müssen die Azure-Standortinformationen mit der TTS-Sprachregion übereinstimmen. Die neuronale TTS-Stimme unterstützt eine Teilmenge der Azure-Standorte. Eine vollständige Liste der unterstützten Standorte finden Sie unter [Regionen](regions.md#text-to-speech).
 
    >[!NOTE]
-   >Sie müssen einen F0- oder S0-Schlüssel im Azure-Portal erstellen, bevor Sie den Dienst nutzen können. Die Sprachoptimierung unterstützt den [Schlüssel der 30-tägigen kostenlosen Testversion](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial) **nicht**.
+   >Sie müssen einen F0- oder S0-Schlüssel im Azure-Portal erstellen, bevor Sie den Dienst nutzen können. Die Sprachoptimierung unterstützt den [Schlüssel der 30-tägigen kostenlosen Testversion](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial) **nicht**.
 
 4. Melden Sie sich beim Portal für [Sprachoptimierung](https://aka.ms/voicetuning) an, und verbinden Sie Ihr Speech-Dienstabonnement. Wählen Sie ein einzelnes Speech-Dienstabonnement, und erstellen Sie dann ein Projekt.
 5. Wählen Sie die Option für eine **neue Optimierung** aus. Führen Sie dann die folgenden Schritte durch:
@@ -43,7 +43,7 @@ Bevor Sie mit der Optimierung der Sprachsyntheseausgabe mit dem Tool zur Spracho
    * Suchen Sie **Alle Abonnements**, und wählen Sie die Option aus.  
    * Wählen Sie **Verbindung mit vorhandenem Abonnement herstellen** aus.  
      ![Stellen Sie eine Verbindung mit einem vorhandenem Abonnement her](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Geben Sie Ihren Abonnementschlüssel für Azure Speech-Dienste ein, und wählen Sie dann **Hinzufügen** aus. Ihre Abonnementschlüssel sind im Speech-Anpassungsportal auf der [Abonnementseite](https://go.microsoft.com/fwlink/?linkid=2090458) verfügbar. Sie finden die Schlüssel auch im [Azure-Portal](https://portal.azure.com/) im Bereich „Ressourcenverwaltung“. 
+   * Geben Sie Ihren Abonnementschlüssel für Azure Speech-Dienste ein, und wählen Sie dann **Hinzufügen** aus. Ihre Abonnementschlüssel sind im Speech-Anpassungsportal auf der [Abonnementseite](https://go.microsoft.com/fwlink/?linkid=2090458) verfügbar. Sie finden die Schlüssel auch im [Azure-Portal](https://portal.azure.com/) im Bereich „Ressourcenverwaltung“.
    * Wenn Sie mehrere Speech-Dienstabonnements haben, die Sie verwenden möchten, wiederholen Sie diese Schritte für jedes Abonnement.
 
 ## <a name="customize-the-text-to-speech-output"></a>Anpassen der Ausgabe der Sprachsynthese

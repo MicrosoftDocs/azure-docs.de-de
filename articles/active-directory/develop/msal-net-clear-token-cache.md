@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1604d2833387b105fc7897a89f96ebcf9486d6a8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c6763c6b2b1f9b4de7d8669a50a4979a7aac00c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468441"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544115"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>Löschen des Tokencaches mit MSAL.NET
 

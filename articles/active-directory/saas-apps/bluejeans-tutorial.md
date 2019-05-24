@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463522"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Azure Active Directory-Integration mit BlueJeans
 
@@ -108,7 +108,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei BlueJean
 
     ![SSO-Informationen zur Domäne und zu den URLs für BlueJeans](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - Geben Sie im Textfeld **Bezeichner** Folgendes ein: `https://samlsp.bluejeans.com`
+   - Geben Sie im Textfeld **Bezeichner** Folgendes ein: `http://samlsp.bluejeans.com`
     
    - Geben Sie im Textfeld **Anmelde-URL** die URL der Landing Page ein, die Sie von BlueJeans erhalten haben. (Sie erhalten diesen Wert vom [Supportteam für den BlueJeans-Client](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`.
     
@@ -160,9 +160,9 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei BlueJean
 
     ![Änderungen speichern](./media/bluejeans-tutorial/ic785874.png "Änderungen speichern")
 
-    a. Geben Sie in das Textfeld **Benutzer-ID** `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` ein.
+    a. Geben Sie in das Textfeld **Benutzer-ID** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` ein.
 
-    b. Geben Sie in das Textfeld **E-Mail** `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` ein.
+    b. Geben Sie in das Textfeld **E-Mail** `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` ein.
 
     c. Klicken Sie auf **ÄNDERUNGEN SPEICHERN**.
 

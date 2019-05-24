@@ -3,8 +3,8 @@ title: Reaktivieren deaktivierter Azure Access Control Service (ACS)-Namespaces
 description: Erfahren Sie, wie Sie Ihre Azure Access Control Service (ACS)-Namespaces finden und aktivieren können, und fordern Sie eine Erweiterung an, um die Aktivierung bis zum 4. Februar 2019 beizubehalten.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094557"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540279"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Gewusst wie: Reaktivieren deaktivierter Access Control Service-Namespaces
 

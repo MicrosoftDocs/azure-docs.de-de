@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 148716260dc32a6091915a8f0ab4158f8ed32053
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b049b3651f12b1a73a3511d030bbdbbfaceb2480
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724281"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113063"
 ---
 >[!Note] 
 > Dieser Artikel enthält Schritte zum Löschen von persönlichen Daten vom Gerät oder aus dem Dienst und kann zur Unterstützung Ihrer Verpflichtungen im Rahmen der Datenschutz-Grundverordnung (DSGVO) verwendet werden. Allgemeine Informationen zur Datenschutz-Grundverordnung finden Sie im [Service Trust Portal im Abschnitt zur DSGVO](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

@@ -3,19 +3,19 @@ title: Websuche-Endpunkt
 titleSuffix: Azure Cognitive Services
 description: Überblick über den API-Endpunkt für die Websuche.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 11/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 8c3fd0fc091edbc4323315f636ed2f4fea7d822a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: aahi
+ms.openlocfilehash: e91f798e6bfae33f8f4c8b5aa2d0f6ddc0047389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880787"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798265"
 ---
 # <a name="web-search-endpoint"></a>Websuche-Endpunkt
 

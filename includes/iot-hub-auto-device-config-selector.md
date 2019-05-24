@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/18/2018
 ms.author: chrisgre
 ms.custom: include file
-ms.openlocfilehash: 2c935a9e54e19e2495170878abff0f7385e8cb5b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 3b87ffed197f2504b8e63e355f2803ef6a3c722e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032366"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146646"
 ---
 > [!div class="op_single_selector"]
 > * [Azure-Portal](../articles/iot-hub/iot-hub-auto-device-config.md)

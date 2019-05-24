@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/28/2019
-ms.author: monhaber
-ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.author: v-mohabe
+ms.openlocfilehash: b07a89491343220c5c3411b5fc525f9b43f54e30
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758296"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968508"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Verwalten des Zugriffs auf virtuelle Computer mithilfe des Just-In-Time-Features
 

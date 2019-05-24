@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f9f5b24a52ebfb8b87f1abaa3b60091d7f4690ab
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 0991a0df8d34ddbcebf3d4097c0219b47793120b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230652"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779943"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps-Streckenabdeckung
 
@@ -76,7 +76,6 @@ In der folgenden Tabelle finden Sie Informationen zur Abdeckung für Azure Maps-
 | Togo                           |        ✓       |                       |             |
 | Tunesien                        |        ✓       |                       |             |
 | Uganda                         |        ✓       |                       |             |
-| Westsahara                 |        ✓       |                       |             |
 | Sambia                         |        ✓       |                       |             |
 | Simbabwe                       |        ✓       |                       |             |
 

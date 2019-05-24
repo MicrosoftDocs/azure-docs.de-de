@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
 ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129428"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Verwalten von Log Analytics-Arbeitsbereichen mithilfe von Azure Resource Manager-Vorlagen
 
@@ -42,7 +42,7 @@ Dieser Artikel enthält Vorlagenbeispiele, die einen Teil der Konfiguration vera
 ## <a name="api-versions"></a>API-Versionen
 Die folgende Tabelle enthält die API-Versionen für die Ressourcen, die in diesem Beispiel verwendet werden.
 
-| Ressource | Ressourcentyp | API-Version |
+| Resource | Ressourcentyp | API-Version |
 |:---|:---|:---|
 | Arbeitsbereich   | workspaces    | 2017-03-15-preview |
 | Suchen,      | savedSearches | 2015-03-20 |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 94e9262d259bb2a4f46cc88c87d9c39137a84d2f
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5aa64671cddf2542972ac753c0132a5abebaebfb
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117306"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115408"
 ---
 Wechseln Sie nach dem Versand der Datenträger zurück zur Seite **Import/Export** im Azure-Portal. 
 

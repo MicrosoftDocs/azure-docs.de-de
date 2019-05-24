@@ -3,8 +3,8 @@ title: Keine funktionierende Connectorgruppe für eine Anwendungsproxyanwendung 
 description: Beheben von Problemen, die auftreten können, wenn kein funktionierender Connector in einer Connectorgruppe für die Anwendung mit dem Azure AD-Anwendungsproxy vorhanden ist
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96608853d2eec3cf90f1425992d755cbe6c2e8dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4f829b8e8a4bc08b43d3c30a6333771ccd4e26e8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437903"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783607"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Keine funktionierende Connectorgruppe für eine Anwendungsproxyanwendung gefunden
 

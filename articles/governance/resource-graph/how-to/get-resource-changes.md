@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142537"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551537"
 ---
 # <a name="get-resource-changes"></a>Abrufen von Ressourcenänderungen
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 51c0d6dcb2ebc6bec567fee84b88d7bba8a873bf
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133130"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132130"
 ---
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

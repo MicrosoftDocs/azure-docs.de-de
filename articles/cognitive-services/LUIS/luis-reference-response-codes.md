@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337243"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522965"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Allgemeine API-Antwortcodes und ihre Bedeutung
 
-Die APIs für die Erstellung ([authoring](https://aka.ms/luis-authoring-apis)) und für Endpunkte ([endpoint](https://aka.ms/luis-endpoint-apis)) geben HTTP-Antwortcodes zurück. Antwortnachrichten enthalten spezifische Informationen zu einer Anforderung, aber es wird ein allgemeiner HTTP-Antwortstatuscode verwendet. 
+Die APIs für die Erstellung ([authoring](https://go.microsoft.com/fwlink/?linkid=2092087)) und für Endpunkte ([endpoint](https://go.microsoft.com/fwlink/?linkid=2092356)) geben HTTP-Antwortcodes zurück. Antwortnachrichten enthalten spezifische Informationen zu einer Anforderung, aber es wird ein allgemeiner HTTP-Antwortstatuscode verwendet. 
 
 ## <a name="common-status-codes"></a>Häufige Statuscodes
-In der folgenden Tabelle sind einige der häufigsten HTTP-Antwortstatuscodes für die [Erstellungs-](https://aka.ms/luis-authoring-apis) und [Endpunkt](https://aka.ms/luis-endpoint-apis)-APIs aufgeführt:
+In der folgenden Tabelle sind einige der häufigsten HTTP-Antwortstatuscodes für die [Erstellungs-](https://go.microsoft.com/fwlink/?linkid=2092087) und [Endpunkt](https://go.microsoft.com/fwlink/?linkid=2092356)-APIs aufgeführt:
 
 |Code|API|Erklärung|
 |:--|--|--|

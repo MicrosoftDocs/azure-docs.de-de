@@ -3,8 +3,8 @@ title: Unerwartete Anwendung in der Liste meiner Anwendungen | Microsoft-Dokumen
 description: Anzeigen aller Anwendungen in Ihrem Mandanten und Informationen dazu, wie Anwendungen in der Liste aller Anwendungen unter „Unternehmensanwendungen“ angezeigt werden.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075a50802a05a9b8254ff6ab1e0a38f43baca970
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105623"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781094"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Unerwartete Anwendung in der Liste meiner Anwendungen
 

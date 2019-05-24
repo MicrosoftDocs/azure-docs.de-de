@@ -4,15 +4,15 @@ description: Kompromisse in Bezug auf Verfügbarkeit und Leistung für verschied
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266425"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990219"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisse in Bezug auf Konsistenz, Verfügbarkeit und Leistung 
 
@@ -20,11 +20,11 @@ Bei verteilten Datenbanken, die mithilfe der Replikation Hochverfügbarkeit, nie
 
 Azure Cosmos DB bietet in Bezug auf die Datenkonsistenz vielfältige Auswahlmöglichkeiten. Dieser Ansatz beinhaltet mehr Optionen als die beiden Extreme der starken und der letztlichen Konsistenz. Sie können im Hinblick auf die Konsistenz aus fünf gut definierten Modellen auswählen. Diese sind (vom stärksten bis zum schwächsten Modell):
 
-- *STARK (Strong)*
-- *Bounded staleness*
-- *Sitzung*
-- *Konsistentes Präfix*
-- *Letztlich (Eventual)*
+- *Starke Konsistenz*
+- *Begrenzte Veraltung*
+- *Sitzungskonsistenz*
+- *Präfixkonsistenz*
+- *Letztliche Konsistenz*
 
 Jedes Modell ermöglicht Verfügbarkeits- und Leistungskompromisse und wird durch umfassende SLAs abgesichert.
 
@@ -55,9 +55,9 @@ In der folgenden Tabelle wird die Beziehung zwischen dem Konsistenzmodell und de
 |1|Einzel- oder Multimaster|Jede Konsistenzebene|< 240 Minuten|< 1 Woche|
 |> 1|Einzelmaster|Sitzung, Präfixkonsistenz, Letztlich|< 15 Minuten|< 15 Minuten|
 |> 1|Einzelmaster|Begrenzte Veraltung (Bounded staleness)|*K* & *T*|< 15 Minuten|
+|> 1|Einzelmaster|STARK (Strong)|0|< 15 Minuten|
 |> 1|Multimaster|Sitzung, Präfixkonsistenz, Letztlich|< 15 Minuten|0|
 |> 1|Multimaster|Begrenzte Veraltung (Bounded staleness)|*K* & *T*|0|
-|> 1|Einzel- oder Multimaster|STARK (Strong)|0|< 15 Minuten|
 
 *K* = Anzahl von *„K“*-Versionen (d. h. Updates) eines Elements.
 
@@ -69,4 +69,4 @@ Die folgenden Artikel bieten weitere Informationen zur globalen Verteilung und z
 
 - [Konsistenzkompromisse im Design moderner verteilter Datenbanksysteme](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Hochverfügbarkeit](high-availability.md)
-- [Azure Cosmos DB-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Azure Cosmos DB-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

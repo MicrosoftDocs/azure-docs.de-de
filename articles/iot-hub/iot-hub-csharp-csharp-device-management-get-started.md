@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 556c10cc5ec5e528857a120dadb16c2a10202ed3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe548b0e8c791d5e7e3bdbc7bd4612a130ff8168
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788960"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873285"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Erste Schritte mit der Geräteverwaltung (.NET/.NET)
 
@@ -36,7 +36,7 @@ Am Ende dieses Tutorials verfügen Sie über zwei .NET-Konsolen-Apps:
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Visual Studio 2017.
+* Visual Studio.
 
 * Ein aktives Azure-Konto. (Wenn Sie nicht über ein Konto verfügen, können Sie in nur wenigen Minuten ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) erstellen.)
 

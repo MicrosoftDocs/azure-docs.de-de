@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 319623487f37308b5b8fe3fd107b01733825184d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: cdfa5212f321cc6ec976ea9df301243acc54a23f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454717"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794864"
 ---
 # <a name="qna-maker-api-http-response-codes"></a>QnA Maker-API – HTTP-Antwortcodes
-Die APIs für die [Verwaltung](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) und Vorhersage geben HTTP-Antwortcodes zurück. Antwortnachrichten enthalten spezifische Informationen zu einer Anforderung, aber es wird ein allgemeiner HTTP-Antwortstatuscode verwendet. 
+Die APIs für die [Verwaltung](https://go.microsoft.com/fwlink/?linkid=2092179) und Vorhersage geben HTTP-Antwortcodes zurück. Antwortnachrichten enthalten spezifische Informationen zu einer Anforderung, aber es wird ein allgemeiner HTTP-Antwortstatuscode verwendet. 
 
 ### <a name="management"></a>Verwaltung
 

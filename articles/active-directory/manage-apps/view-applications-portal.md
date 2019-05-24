@@ -3,8 +3,8 @@ title: Anzeigen von Mandantenanwendungen – Azure Active Directory | Microsoft-
 description: Verwenden Sie das Azure-Portal, um die Anwendungen in Ihrem Azure Active Directory-Mandanten (Azure AD) anzuzeigen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b57d87a9a00213945a09f380a74b129226c4017e
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 537916ef14a7cd2748ad453e2d0d91e3b5c936b1
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564826"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826046"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Anzeigen Ihrer Azure Active Directory-Mandantenanwendungen
 

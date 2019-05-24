@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/01/2019
 ms.author: danlep
 ms.openlocfilehash: 0a6d617d8aa03344edcfb8c73373e02edb5ee73f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552274"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149119"
 ---
 ### <a name="resource-availability"></a>Ressourcenverfügbarkeit
 

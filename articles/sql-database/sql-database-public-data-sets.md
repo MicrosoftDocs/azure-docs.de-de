@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: reference
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: e7d01a6512c2d39c86da9f7020aa3988c9680c6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eabb65203ed8a37975e09271ce4aa11c9478498
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995217"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779174"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Öffentliche Datasets zum Testen und Erstellen von Prototypen
 

@@ -9,11 +9,11 @@ ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
 ms.openlocfilehash: 5fd9e593a9a5158b35d3c0e17436d54bc7c1bd03
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128397"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Erstellen eines SignalR Service per App Service
 

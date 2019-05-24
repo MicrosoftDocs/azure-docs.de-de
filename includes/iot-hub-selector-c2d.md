@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: a6c69950bbf5202fc0a43abbb52b4bff093602f4
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011695"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146383"
 ---
 > [!div class="op_single_selector"]
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-c2d.md)

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.openlocfilehash: 9636157182e8b40914bde2515c5b295d0480255a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: db36bbf6e20f9fab2f9a99f59be7a088e8f208e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510999"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800910"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Verwenden von Interactive Query mit HDInsight
 Interactive Query (auch Apache Hive LLAP oder [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP) genannt) ist ein Azure HDInsight-[Clustertyp](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactive Query unterstützt speicherinternes Zwischenspeichern, wodurch Apache Hive-Abfragen schneller und viel interaktiver werden.
@@ -67,7 +67,7 @@ So suchen Sie die Verbindungszeichenfolge für die Java Database Connectivity (J
 
 * Erfahren Sie, wie Sie [Interactive Query-Cluster in HDInsight erstellen](../hdinsight-hadoop-provision-linux-clusters.md).
 * Erfahren Sie, wie Sie [Big Data mit Power BI in Azure HDInsight visualisieren](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* Erfahren Sie, wie Sie [Apache Zeppelin zum Ausführen von Apache Hive-Abfragen in Azure HDInsight verwenden](../hdinsight-connect-hive-zeppelin.md).
+* Erfahren Sie, wie Sie [Apache Zeppelin zum Ausführen von Apache Hive-Abfragen in Azure HDInsight verwenden](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * Erfahren Sie, wie Sie [Apache Hive-Abfragen mit Data Lake-Tools für Visual Studio ausführen](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
 * Erfahren Sie, wie Sie [HDInsight-Tools für Visual Studio Code verwenden](../hdinsight-for-vscode.md).
 * Erfahren Sie, wie Sie die [Apache Hive-Ansicht mit Apache Hadoop in HDInsight verwenden](../hadoop/apache-hadoop-use-hive-ambari-view.md).

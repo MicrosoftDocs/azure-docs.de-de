@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 90e85e0030a696dd024dd65d27a0f4dbdc7e3cdc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3730e4a0bfa05e6606e50b9bbd9d9152e2488954
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023672"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851718"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Problembehandlung von Bereitstellungen von Azure Machine Learning Service mit AKS und ACI
 
@@ -168,7 +168,7 @@ Wenn bei der Bereitstellung eines Modells für ACI oder AKS Probleme auftreten, 
 from azureml.core.model import InferenceConfig
 from azureml.core.webservice import LocalWebservice
 
-# Create inferencing configuration. This creates a docker image that contains the model.
+# Create inference configuration. This creates a docker image that contains the model.
 inference_config = InferenceConfig(runtime= "python", 
                                    execution_script="score.py",
                                    conda_file="myenv.yml")

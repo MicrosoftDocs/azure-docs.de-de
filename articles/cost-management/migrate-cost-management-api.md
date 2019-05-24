@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279872"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967241"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrieren von Enterprise Agreement-APIs zu APIs der Microsoft-Kundenvereinbarung
 
@@ -187,7 +187,7 @@ Der Eigenschaftenname, der das Array von Nutzungsdatensätzen enthält, hat sich
 | ExtendedCost und Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
 | Is Recurring Charge | Keine | &nbsp;  |
-| Standort | location | &nbsp;  |
+| Location | location | &nbsp;  |
 | MeterCategory | meterCategory | Genaue Zeichenfolgenwerte können abweichen. |
 | MeterId | meterId | Genaue Zeichenfolgenwerte abweichend. |
 | MeterName | meterName | Genaue Zeichenfolgenwerte können abweichen. |
@@ -216,7 +216,7 @@ Der Eigenschaftenname, der das Array von Nutzungsdatensätzen enthält, hat sich
 | SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
-| Tags | tags | Die tags-Eigenschaft gilt für das Stammobjekt und nicht für die geschachtelte properties-Eigenschaft. |
+| `Tags` | tags | Die tags-Eigenschaft gilt für das Stammobjekt und nicht für die geschachtelte properties-Eigenschaft. |
 | UnitOfMeasure | unitOfMeasure | Genaue Zeichenfolgenwerte abweichend. |
 | usageEndDate | date | &nbsp;  |
 | Jahr | Keine | Analysiert das Jahr ab Datum. |

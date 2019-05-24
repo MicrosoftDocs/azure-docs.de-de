@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
 ms.openlocfilehash: 818aa63ced56d7cf382536f10bb6150199ab74e9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128429"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Bereitstellen privater Resource Manager-Vorlagen mit SAS-Token und Azure PowerShell
 

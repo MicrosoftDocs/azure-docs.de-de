@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192921"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793721"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Verschieben virtueller Azure-Computer in eine andere Region
 
@@ -53,7 +53,7 @@ Vielleicht möchten Sie Azure Infrastructure-as-a-Service-VMs (IaaS) von einer 
     - Installieren Sie die aktuellen Windows-Updates auf Windows-VMs, damit alle vertrauenswürdigen Stammzertifikate auf den Computern vorhanden sind. Führen Sie in einer nicht verbundenen Umgebung den Standardprozess für Windows Update und Zertifikatupdates in Ihrer Organisation durch.
     - Befolgen Sie bei Linux-VMs die Anleitung des Linux-Distributors, um die aktuellen vertrauenswürdigen Stammzertifikate und die Zertifikatsperrliste abzurufen.
 2. Stellen Sie sicher, dass Sie keinen Authentifizierungsproxy zum Steuern der Netzwerkkonnektivität für die VMs verwenden, die Sie verschieben möchten.
-3. Falls eine VM, die Sie verschieben möchten, keinen Zugriff auf das Internet hat und einen Firewallproxy zum Steuern des ausgehenden Zugriffs verwendet, überprüfen Sie die [Anforderungen](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Falls eine VM, die Sie verschieben möchten, keinen Zugriff auf das Internet hat und einen Firewallproxy zum Steuern des ausgehenden Zugriffs verwendet, überprüfen Sie die [Anforderungen](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Dokumentieren Sie zur Überprüfung das Quellnetzwerklayout und alle Ressourcen, die Sie derzeit verwenden, einschließlich, aber nicht beschränkt auf Lastenausgleichsmodule, Netzwerksicherheitsgruppen und öffentliche IP-Adressen.
 
 ## <a name="prepare-the-target-region"></a>Vorbereiten der Zielregion
