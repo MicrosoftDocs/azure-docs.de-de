@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: ffed12b9184c7b6a690c30db9826f031fe6c9f9b
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60795903"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Auswählen eines Kartenstils in Azure Maps
 

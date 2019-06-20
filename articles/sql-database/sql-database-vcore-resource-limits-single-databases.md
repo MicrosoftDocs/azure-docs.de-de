@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118069"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limits des vCore-basierten Kaufmodells für eine Einzeldatenbank in Azure SQL-Datenbank
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Ressourcenlimits für Einzeldatenbanken, die das auf virtuellen Kernen (V-Kernen) basierende (vCore-basierte) Kaufmodell verwenden
 
 Dieser Artikel enthält ausführliche Angaben zu Ressourcenlimits für Einzeldatenbanken in Azure SQL-Datenbank, die das vCore-basierte Kaufmodell verwenden.
 
@@ -72,7 +72,7 @@ Sie können mit dem [Azure-Portal](sql-database-single-databases-manage.md#manag
 |tempdb-Größe (GB)|224|256|288|320|384|384|
 |Speichertyp|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|
 |E/A-Wartezeit (ungefähr)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)
-|Ziel-IOPS (64 KB)|3500|4000|4500|5.000|7.000|7.000|
+|Ziel-IOPS (64 KB)|3500|4000|4500|5\.000|7\.000|7\.000|
 |Grenzwerte für die Protokollrate (MB/s)|26,25|30|30|30|30|30|
 |Max. gleichzeitige Worker (Anforderungen)|1400|1600|1800|2000|3200|4800|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|
@@ -95,7 +95,7 @@ Sie können mit dem [Azure-Portal](sql-database-single-databases-manage.md#manag
 |tempdb-Größe (GB)|64|128|192|256|320|384|384|
 |Speichertyp|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|
 |E/A-Wartezeit (ungefähr)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|
-|Ziel-IOPS (64 KB)|1000|2000|3000|4000|5.000|6000|7.000|
+|Ziel-IOPS (64 KB)|1000|2000|3000|4000|5\.000|6000|7\.000|
 |Grenzwerte für die Protokollrate (MB/s)|3,75|7,5|11,25|15|18,75|22,5|26,25|
 |Max. gleichzeitige Worker (Anforderungen)|200|400|600|800|1000|1200|1400|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|30000|
@@ -118,9 +118,9 @@ Sie können mit dem [Azure-Portal](sql-database-single-databases-manage.md#manag
 |tempdb-Größe (GB)|384|384|384|384|384|384|384|
 |Speichertyp|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|
 |E/A-Wartezeit (ungefähr)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|
-|Ziel-IOPS (64 KB)|7.000|7.000|7.000|7.000|7.000|7.000|7.000|
+|Ziel-IOPS (64 KB)|7\.000|7\.000|7\.000|7\.000|7\.000|7\.000|7\.000|
 |Grenzwerte für die Protokollrate (MB/s)|30|30|30|30|30|30|30|
-|Max. gleichzeitige Worker (Anforderungen)|1600|1800|2000|2400|3200|4000|8.000|
+|Max. gleichzeitige Worker (Anforderungen)|1600|1800|2000|2400|3200|4000|8\.000|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|30000|
 |Anzahl von Replikaten|1|1|1|1|1|1|1|
 |Multi-AZ|–|–|–|–|–|–|–|
@@ -129,7 +129,7 @@ Sie können mit dem [Azure-Portal](sql-database-single-databases-manage.md#manag
 
 ### <a name="serverless-compute-tier"></a>Serverlose Computeebene
 
-Die [serverlose Computeebene](sql-database-serverless.md) ist in der öffentlichen Vorschauversion und gilt nur für einzelne Datenbanken, die das V-Kern-Kaufmodell verwenden.
+Die [serverlose Computeebene](sql-database-serverless.md) ist in der Vorschauversion und gilt nur für einzelne Datenbanken, die das V-Kern-Kaufmodell verwenden.
 
 #### <a name="generation-5-compute-platform"></a>Computeplattform der 5. Generation
 
@@ -146,7 +146,7 @@ Die [serverlose Computeebene](sql-database-serverless.md) ist in der öffentlich
 |tempdb-Größe (GB)|32|64|128|
 |Speichertyp|Storage Premium (Remote)|Storage Premium (Remote)|Storage Premium (Remote)|
 |E/A-Wartezeit (ungefähr)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|5-7 ms (Schreiben)<br>5-10 ms (Lesen)|
-|Ziel-IOPS (64 KB)|250|500|1000|
+|Ziel-IOPS (64 KB)|500|1000|2000|
 |Grenzwerte für die Protokollrate (MB/s)|2.5|5.6|10|
 |Max. gleichzeitige Worker (Anforderungen)|75|150|300|
 |Maximal zulässige Sitzungen|30000|30000|30000|
@@ -171,7 +171,7 @@ Die [serverlose Computeebene](sql-database-serverless.md) ist in der öffentlich
 |Maximale Protokollgröße (GB)|195|195|195|195|195|195|
 |tempdb-Größe (GB)|32|64|96|128|160|192|
 |E/A-Wartezeit (ungefähr)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|
-|Ziel-IOPS (64 KB)|5.000|10000|15000|20000|25000|30000|
+|Ziel-IOPS (64 KB)|5\.000|10000|15000|20000|25000|30000|
 |Grenzwerte für die Protokollrate (MB/s)|8|16|24|32|40|48|
 |Max. gleichzeitige Worker (Anforderungen)|200|400|600|800|1000|1200|
 |Maximale Anzahl gleichzeitiger Anmeldungen|200|400|600|800|1000|1200|
@@ -219,7 +219,7 @@ Die [serverlose Computeebene](sql-database-serverless.md) ist in der öffentlich
 |tempdb-Größe (GB)|64|128|192|256|320|384|384|
 |Speichertyp|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |E/A-Wartezeit (ungefähr)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|
-|Ziel-IOPS (64 KB)|8.000|16000|24.000|32000|40.000|48000|56000|
+|Ziel-IOPS (64 KB)|8\.000|16000|24.000|32000|40.000|48000|56000|
 |Grenzwerte für die Protokollrate (MB/s)|12|24|36|48|60|72|84|
 |Max. gleichzeitige Worker (Anforderungen)|200|400|600|800|1000|1200|1400|
 |Maximale Anzahl gleichzeitiger Anmeldungen|200|400|600|800|1000|1200|1400|
@@ -245,8 +245,8 @@ Die [serverlose Computeebene](sql-database-serverless.md) ist in der öffentlich
 |E/A-Wartezeit (ungefähr)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|1-2 ms (Schreiben)<br>1-2 ms (Lesen)|
 |Ziel-IOPS (64 KB)|64000|72000|80.000|96000|128000|160000|320000|
 |Grenzwerte für die Protokollrate (MB/s)|96|96|96|96|96|96|96|
-|Max. gleichzeitige Worker (Anforderungen)|1600|1800|2000|2400|3200|4000|8.000|
-|Maximale Anzahl gleichzeitiger Anmeldungen|1600|1800|2000|2400|3200|4000|8.000|
+|Max. gleichzeitige Worker (Anforderungen)|1600|1800|2000|2400|3200|4000|8\.000|
+|Maximale Anzahl gleichzeitiger Anmeldungen|1600|1800|2000|2400|3200|4000|8\.000|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|30000|
 |Anzahl von Replikaten|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -270,7 +270,7 @@ Die [serverlose Computeebene](sql-database-serverless.md) ist in der öffentlich
 |Speichertyp|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |Ziel-IOPS (64 KB)|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|
 |E/A-Wartezeit (ungefähr)|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|Noch festzulegen|
-|Max. gleichzeitige Worker (Anforderungen)|200|400|800|1600|2400|3200|4000|8.000|
+|Max. gleichzeitige Worker (Anforderungen)|200|400|800|1600|2400|3200|4000|8\.000|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|30000|30000|
 |Anzahl von Replikaten|2|2|2|2|2|2|2|2|
 |Multi-AZ|–|–|–|–|–|–|–|–|

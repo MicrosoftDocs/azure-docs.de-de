@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549864"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130451"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Grundlegendes zur Integrität Ihrer Azure-VMs
 
@@ -28,7 +28,7 @@ Die Anzeige des Integritätsgesamtstatus von Azure-VMs und des zugrundeliegenden
 
 Dieser Artikel soll Ihr Verständnis dafür schärfen, wie Sie erkannte Integritätsprobleme schnell bewerten, untersuchen und beheben.
 
-Informationen zum Konfigurieren von Azure Monitor for VMs finden Sie unter [Enable Azure Monitor for VMs](vminsights-onboard.md) (Aktivieren von Azure Monitor for VMs).
+Informationen zum Konfigurieren von Azure Monitor for VMs finden Sie unter [Enable Azure Monitor for VMs](vminsights-enable-overview.md) (Aktivieren von Azure Monitor for VMs).
 
 ## <a name="monitoring-configuration-details"></a>Details der Überwachungskonfiguration
 
@@ -85,7 +85,7 @@ Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
 Bevor wir in die Verwendung des Integritätsfeatures für eine einzelne VM oder eine Gruppe von VMs einsteigen, müssen wir Ihnen eine kurze Einführung geben, damit Sie verstehen, wie die Informationen dargestellt werden und wofür die Visualisierungen stehen.  
 
-## <a name="view-health-directly-from-a-virtual-machine"></a>Direktes Anzeigen der Integrität in einer VM 
+### <a name="view-health-directly-from-a-virtual-machine"></a>Direktes Anzeigen der Integrität in einer VM 
 
 Um die Integrität einer Azure-VM anzuzeigen, wählen Sie im linken Bereich der VM **Insights (Vorschau)** aus. Auf der Insights-Seite der VM ist standardmäßig **Integrität** geöffnet und zeigt die Integritätsansicht der VM an.  
 
@@ -96,11 +96,21 @@ Auf der Registerkarte **Integrität** zeigt die Tabelle unter dem Abschnitt **In
 Die für eine VM definierten Integritätszustände sind in der folgenden Tabelle beschrieben: 
 
 |Symbol |Integritätsstatus |Bedeutung |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |Healthy |Der Integritätszustand lautet „Fehlerfrei“, wenn er innerhalb des Bereichs der definierten Integritätsbedingungen liegt, für den virtuellen Computer keine Probleme erkannt werden und dieser wie erwartet ausgeführt wird. Bei einem übergeordneten Rollupmonitor wird ein Rollup der Integrität durchgeführt, das den Status des untergeordneten Elements im günstigsten und ungünstigsten Fall wiedergibt.|
 | |Kritisch |Der Integritätszustand lautet „Kritisch“, wenn er nicht innerhalb des Bereichs der definierten Integritätsbedingung liegt und ein oder mehrere kritische Probleme erkannt wurden, die behoben werden müssen, um die normale Funktionsweise wiederherzustellen. Bei einem übergeordneten Rollupmonitor wird ein Rollup der Integrität durchgeführt, das den Status des untergeordneten Elements im günstigsten und ungünstigsten Fall wiedergibt.|
 | |Warnung |Der Integritätszustand lautet „Warnung“, wenn er zwischen zwei Schwellenwerten für die definierte Integritätsbedingung liegt, wobei ein Wert den Zustand *Warnung* und der andere Wert den Zustand *kritisch* angibt (drei Schwellenwerte für den Integritätszustand können konfiguriert werden), oder wenn ein nicht kritisches Problem erkannt wird, das zu kritischen Problemen führen kann, wenn es nicht behoben wird. Bei einem übergeordneten Rollupmonitor gibt das übergeordnete Element den Status *Warnung* wieder, wenn mindestens eines der untergeordneten Elemente den Status „Warnung“ aufweist. Wenn ein untergeordnetes Element vorhanden ist, das den Status *Kritisch* und zugleich ein weiteres untergeordnetes Element den Status *Warnung* aufweist, weist das übergeordnete Rollup den Integritätsstatus *Kritisch* aus.|
-| |Unknown |Der Integritätszustand lautet *Unbekannt*, wenn er aus verschiedenen Gründen nicht berechnet werden kann, etwa wegen fehlender Möglichkeit zum Erfassen von Daten, fehlender Dienstinitialisierung usw. Dieser Integritätszustand ist nicht konfigurierbar.| 
+| |Unknown |Der Integritätszustand ist *Unbekannt*, falls er aus verschiedenen Gründen nicht berechnet werden kann. Fußnote <sup>1</sup> enthält weitere Details und Lösungsmöglichkeiten. |
+
+<sup>1</sup> Der Integritätszustand „Unbekannt“ wird durch die folgenden Probleme verursacht:
+
+- Der Agent wurde neu konfiguriert und sendet keine Berichtsdaten mehr an den Arbeitsbereich, der beim Aktivieren von Azure Monitor für VMs angegeben wurde. Informationen zur Konfiguration des Agents zum Senden von Berichten an den Arbeitsbereich finden Sie unter [Hinzufügen oder Entfernen von Arbeitsbereichen](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- Die VM wurde gelöscht.
+- Der Arbeitsbereich, der Azure Monitor für VMs zugeordnet ist, wurde gelöscht. Wenn Sie über Premier Support-Vorteile verfügen, können Sie zum Wiederherstellen des Arbeitsbereichs unter [Premier](https://premier.microsoft.com/) eine Supportanfrage erstellen.
+- Die Abhängigkeiten der Lösung wurden gelöscht. Um die Lösungen ServiceMap und InfrastructureInsights in Ihrem Log Analytics-Arbeitsbereich wieder zu aktivieren, können Sie für die erneute Installation eine bereitgestellte [Azure Resource Manager-Vorlage](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) oder auf der Registerkarte „Erste Schritte“ die Option „Arbeitsbereich konfigurieren“ verwenden.
+- Die VM wurde beendet.
+- Der Azure-VM-Dienst ist nicht verfügbar, oder es wird gerade eine Wartung durchgeführt.
+- Für den Arbeitsbereich wurde das [Tages- bzw. Speicherlimit für Daten](../platform/manage-cost-storage.md) erreicht.
 
 Durch Auswählen von **Integritätsdiagnose anzeigen** wird eine Seite geöffnet, auf der alle Komponenten der VM mit den ihnen zugeordneten Integritätskriterien, Statusänderungen und sonstigen wichtigen Problemen dargestellt sind, die durch Überwachung der mit der VM zusammenhängenden Komponenten gefunden wurden. Weitere Informationen finden Sie unter [Integritätsdiagnose](#health-diagnostics). 
 
@@ -108,7 +118,7 @@ Die Tabelle unter dem Abschnitt **Integrität der Komponente** zeigt einen Integ
 
 Beim Zugriff auf „Integrität“ on einer Azure-VM, die das Betriebssystem Windows ausführt, wird der Integritätsstatus der fünf wichtigsten Windows-Kerndienste unter **Integrität der Kerndienste** angezeigt.  Durch Auswählen eines der Dienste wird eine Seite geöffnet, auf der die Integritätskriterien zur Überwachung der betreffenden Komponente und ihr Integritätsstatus aufgelistet werden.  Ein Klick auf den Namen eines Integritätskriteriums öffnet dessen Eigenschaftenseite, auf der Sie die Konfigurationsdetails überprüfen können, darunter auch, ob für das Integritätskriterium eine entsprechende Azure Monitor-Warnung definiert ist. Weitere Informationen finden Sie unter [Integritätsdiagnose](#health-diagnostics) im Abschnitt zur Verwendung von Integritätskriterien.  
 
-## <a name="aggregate-virtual-machine-perspective"></a>Aggregieren der VM-Perspektive
+### <a name="aggregate-virtual-machine-perspective"></a>Aggregieren der VM-Perspektive
 
 Um die Integritätssammlung aller Ihrer virtuellen Computer in einer Ressourcengruppe anzuzeigen, wählen Sie in der Navigationsliste im Portal **Azure Monitor** und dann **Virtual Machines (Vorschau)** aus.  
 
@@ -254,7 +264,7 @@ Zum Filtern dieser Ansicht können Sie Werte in den Dropdownmenüs am oberen Ran
 |Abonnement |Wählen Sie ein Azure-Abonnement aus. Nur Warnungen im ausgewählten Abonnement sind in der Ansicht enthalten. | 
 |Ressourcengruppe |Wählen Sie eine einzelne Ressourcengruppe aus. Nur Warnungen mit Zielen in der ausgewählten Ressourcengruppe sind in der Ansicht enthalten. | 
 |Ressourcentyp |Wählen Sie mindestens einen Ressourcentyp aus. Standardmäßig sind in dieser Ansicht nur Warnungen mit dem Ziel **Virtuelle Computer** ausgewählt und enthalten. Diese Spalte ist nur verfügbar, nachdem eine Ressourcengruppe angegeben wurde. | 
-|Ressource |Wählen Sie eine Ressource aus. Nur Warnungen mit dieser Ressource als Ziel sind in der Ansicht enthalten. Diese Spalte ist nur verfügbar, nachdem ein Ressourcentyp angegeben wurde. | 
+|Resource |Wählen Sie eine Ressource aus. Nur Warnungen mit dieser Ressource als Ziel sind in der Ansicht enthalten. Diese Spalte ist nur verfügbar, nachdem ein Ressourcentyp angegeben wurde. | 
 |Severity |Wählen Sie einen Warnungsschweregrad oder *Alle* aus, um Warnungen aller Schweregrade einzuschließen. | 
 |Überwachungsbedingung |Wählen Sie eine Überwachungsbedingung aus, um Warnungen danach zu filtern, ob sie vom System *Ausgelöst* oder vom System *Gelöst* wurden, falls die Bedingung nicht mehr aktiv ist. Oder wählen Sie *Alle* aus, um Warnungen in allen Zuständen einzuschließen. | 
 |Warnungsstatus |Wählen Sie einen Warnungsstatus aus, *Neu*, *Bestätigt*, *Geschlossen*, oder wählen Sie *Alle* aus, um Warnungen mit jedem Status einzuschließen. | 
@@ -343,7 +353,7 @@ Um eine Warnung für ein bestimmtes Integritätskriterium zu aktivieren oder zu 
 Die Funktion „Integrität“ von Azure Monitor für VMs unterstützt SMS-und E-Mail-Benachrichtigungen, wenn Warnungen generiert werden, sobald Integritätskriterien fehlerhaft werden. Um Benachrichtigungen zu konfigurieren, müssen Sie den Namen der Aktionsgruppe notieren, die für das Senden von SMS- oder E-Mail-Benachrichtigungen konfiguriert ist. 
 
 >[!NOTE]
->Diese Aktion muss für jede überwachte VM erfolgen, für die Sie eine Benachrichtigung erhalten möchten.
+>Diese Aktion muss für jede überwachte VM durchgeführt werden, für die Sie eine Benachrichtigung erhalten möchten. Sie gilt nicht automatisch für alle VMs der Ressourcengruppe.  
 
 1. Geben Sie in einem Terminalfenster **armclient.exe login**ein. Dabei werden Sie dazu aufgefordert, sich bei Azure anzumelden.
 

@@ -170,7 +170,7 @@ Beim Kopieren von Daten aus Teradata werden die folgenden Zuordnungen von Terada
 | Char |String |
 | Clob |String |
 | Date |DateTime |
-| Decimal |Decimal |
+| DECIMAL |DECIMAL |
 | Double |Double |
 | Graphic |String |
 | Integer |Int32 |
@@ -194,14 +194,14 @@ Beim Kopieren von Daten aus Teradata werden die folgenden Zuordnungen von Terada
 | Period(Timestamp) |String |
 | Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
-| Time |TimeSpan |
+| Zeit |TimeSpan |
 | Time With Time Zone |String |
-| Timestamp |DateTime |
+| Zeitstempel |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
-| Xml |String |
+| xml |String |
 
 
 ## <a name="next-steps"></a>Nächste Schritte

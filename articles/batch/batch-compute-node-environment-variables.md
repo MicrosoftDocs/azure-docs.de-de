@@ -1,6 +1,6 @@
 ---
-title: Umgebungsvariablen für Computeknoten – Azure Batch | Microsoft-Dokumentation
-description: Referenz zu Umgebungsvariablen für Computeknoten für Azure Batch-Analysen.
+title: Umgebungsvariablen für Aufgabenlaufzeit – Azure Batch | Microsoft-Dokumentation
+description: Anleitung und Referenz zu Umgebungsvariablen für Aufgabenlaufzeit für Azure Batch-Analysen.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874760"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64575590"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Umgebungsvariablen für Azure Batch-Computeknoten
+# <a name="azure-batch-runtime-environment-variables"></a>Umgebungsvariablen der Azure Batch-Laufzeit
 
 Der [Azure Batch-Dienst](https://azure.microsoft.com/services/batch/) legt die folgenden Umgebungsvariablen für Computeknoten fest. Sie können auf diese Umgebungsvariablen in Taskbefehlszeilen sowie in den Programmen und Skripts verweisen, die über die Befehlszeilen ausgeführt werden.
 
@@ -28,6 +28,12 @@ Weitere Informationen zur Verwendung von Umgebungsvariablen mit dem Batch-Dienst
 ## <a name="environment-variable-visibility"></a>Sichtbarkeit von Umgebungsvariablen
 
 Diese Umgebungsvariablen sind nur sichtbar im Kontext des **Taskbenutzers**, d.h. des Benutzerkontos im Knoten, unter dem ein Task ausgeführt wird. Sie werden *nicht* angezeigt, wenn Sie über RDP (Remotedesktopprotokoll) oder SSH (Secure Shell) eine [Remoteverbindung](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) herstellen und die Umgebungsvariablen auflisten. Das liegt daran, dass das Benutzerkonto, das für die Remoteverbindung verwendet wird, nicht dem Konto entspricht, das vom Task verwendet wird.
+
+Um den aktuellen Wert einer Umgebungsvariablen abzurufen, starten Sie `cmd.exe` auf einem Windows-Computeknoten oder `/bin/sh` auf einem Linux-Knoten:
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Befehlszeilenerweiterung von Umgebungsvariablen
 

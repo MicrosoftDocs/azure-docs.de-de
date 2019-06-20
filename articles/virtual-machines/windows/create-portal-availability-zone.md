@@ -17,11 +17,11 @@ ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: e813b26a91d25fbaa1298acd455f27d2cac705f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61403639"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Erstellen eines virtuellen Windows-Computers in einer Verfügbarkeitszone mit dem Azure-Portal
 

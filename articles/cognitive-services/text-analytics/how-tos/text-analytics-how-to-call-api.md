@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
 ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011249"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60831417"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Aufrufen der Textanalyse-REST-API
 

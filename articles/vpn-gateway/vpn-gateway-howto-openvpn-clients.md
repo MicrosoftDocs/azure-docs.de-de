@@ -5,22 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 1/15/2019
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274671"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989106"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Konfigurieren von OpenVPN-Clients für Azure VPN Gateway (Vorschau)
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Konfigurieren von OpenVPN-Clients für Azure VPN Gateway
 
 Dieser Artikel umfasst Informationen zum Konfigurieren von **OpenVPN ® Protocol**-Clients.
-
-> [!IMPORTANT]
-> Diese öffentliche Vorschauversion wird ohne Servicelevelvereinbarung bereitgestellt und sollte nicht für Produktionsworkloads verwendet werden. Unter Umständen werden bestimmte Features nicht unterstützt, verfügen über eingeschränkte Funktionen und sind nicht an allen Azure-Standorten verfügbar. Weitere Informationen finden Sie unter [Ergänzende Nutzungsbedingungen für Microsoft Azure-Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -128,7 +124,7 @@ Vergewissern Sie sich, dass Sie die Schritte zum Konfigurieren von OpenVPN für 
     sudo openvpn –-config <name and path of your VPN profile file>
     ```
 12. Um über die grafische Benutzeroberfläche eine Verbindung herzustellen, wechseln Sie zu „Systemeinstellungen“.
-13. Klicken Sie auf **+**, um eine neue VPN-Verbindung hinzuzufügen.
+13. Klicken Sie auf **+** , um eine neue VPN-Verbindung hinzuzufügen.
 14. Wählen Sie unter **VPN hinzufügen**, den Befehl **Aus Datei importieren...** aus.
 15. Navigieren Sie zur Profildatei, und doppelklicken Sie darauf, oder wählen Sie **Öffnen** aus.
 16. Klicken Sie im Fenster **VPN hinzufügen** auf **Hinzufügen**.
@@ -138,6 +134,6 @@ Vergewissern Sie sich, dass Sie die Schritte zum Konfigurieren von OpenVPN für 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Wenn die VPN-Clients Zugriff auf Ressourcen in einem anderen VNET (Produktion) haben sollen, führen Sie die Anweisungen im Artikel [Konfigurieren einer VNET-zu-VNET-VPN-Gatewayverbindung](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) aus, um eine VNET-zu-VNET-Verbindung einzurichten. Stellen Sie sicher, dass BGP (Border Gateway Protocol) für die Gateways und die Verbindungen aktiviert ist, da andernfalls kein Datenverkehr fließt.
+Wenn die VPN-Clients Zugriff auf Ressourcen in einem anderen VNET haben sollen, führen Sie die Anweisungen im Artikel [Konfigurieren einer VNET-zu-VNET-VPN-Gatewayverbindung](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) aus, um eine VNET-zu-VNET-Verbindung einzurichten. Stellen Sie sicher, dass BGP (Border Gateway Protocol) für die Gateways und die Verbindungen aktiviert ist, da andernfalls kein Datenverkehr fließt.
 
 **„OpenVPN“ ist eine Marke von OpenVPN Inc.**

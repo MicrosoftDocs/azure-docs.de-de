@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121070"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255887"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analysieren von Trends in Visual Studio
 Mit dem Application Insights-Tool „Trends“ wird visualisiert, wie sich die wichtigen Telemetrieereignisse Ihrer Webanwendung im Laufe der Zeit ändern, damit Sie Probleme und Anomalien schnell identifizieren können. Durch die Angabe von Links zu ausführlicheren Diagnoseinformationen kann das Trends-Tool Sie in Bezug auf das Verbessern der App-Leistung, das Ermitteln der Ursachen von Ausnahmen und das Erlangen von Einblicken in benutzerdefinierte Ereignisse unterstützen.
@@ -94,7 +94,7 @@ Um einen dieser Filter aufzuheben, klicken Sie für die Dimension auf die Schalt
 ![Mehrere Filter](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Suchen nach Anomalien
-Mit dem Tool Trends können Sie Blasen mit Ereignissen hervorheben, die im Vergleich mit anderen Blasen in derselben Zeitreihe Anomalien aufweisen. Wählen Sie in der Dropdownliste „Ansichtstyp“ die Option **Anzahl im Zeitrahmen (Anomalien hervorheben)** oder **Prozentwerte im Zeitrahmen (Anomalien hervorheben)**. Rote Blasen weisen auf Anomalien hin. Anomalien sind als Blasen mit Anzahlen/Prozentwerten definiert, die das 2,1-fache der Standardabweichung von Anzahlen/Prozentwerten der letzten beiden Zeiträume überschreiten (48 Stunden, wenn Sie die letzten 24 Stunden betrachten, usw.).
+Mit dem Tool Trends können Sie Blasen mit Ereignissen hervorheben, die im Vergleich mit anderen Blasen in derselben Zeitreihe Anomalien aufweisen. Wählen Sie in der Dropdownliste „Ansichtstyp“ die Option **Anzahl im Zeitrahmen (Anomalien hervorheben)** oder **Prozentwerte im Zeitrahmen (Anomalien hervorheben)** . Rote Blasen weisen auf Anomalien hin. Anomalien sind als Blasen mit Anzahlen/Prozentwerten definiert, die das 2,1-fache der Standardabweichung von Anzahlen/Prozentwerten der letzten beiden Zeiträume überschreiten (48 Stunden, wenn Sie die letzten 24 Stunden betrachten, usw.).
 
 ![Farbige Punkte als Hinweis auf Anomalien](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -108,5 +108,5 @@ Mit dem Tool Trends können Sie Blasen mit Ereignissen hervorheben, die im Vergl
 | --- | --- |
 | **[Arbeiten mit Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Durchsuchen Sie die Telemetriedaten, zeigen Sie Daten in CodeLens an, und konfigurieren Sie Application Insights. Alles in Visual Studio. |![Klicken Sie mit der rechten Maustaste auf das Projekt, und wählen Sie „Application Insights > Durchsuchen“ aus.](./media/visual-studio-trends/34.png) |
 | **[Hinzufügen weiterer Daten](../../azure-monitor/app/asp-net-more.md)**<br/>Überwachen Sie Nutzung, Verfügbarkeit, Abhängigkeiten und Ausnahmen. Integrieren Sie Ablaufverfolgungen aus Protokollierungsframeworks. Schreiben Sie benutzerdefinierte Telemetriedaten. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Navigation und Dashboards im Application Insights-Portal](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Enthält Informationen zu Dashboards, leistungsstarken Diagnose- und Analysetools, Warnungen und zum Export von Telemetriedaten sowie eine Livekarte der Abhängigkeiten Ihrer Anwendung. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Navigation und Dashboards im Application Insights-Portal](../../azure-monitor/app/overview-dashboard.md)**<br/>Enthält Informationen zu Dashboards, leistungsstarken Diagnose- und Analysetools, Warnungen und zum Export von Telemetriedaten sowie eine Livekarte der Abhängigkeiten Ihrer Anwendung. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93adedc5c1343df1eee05b653b60cfd7e810044c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540425"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235442"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory-Zustimmungsframework
 
@@ -40,7 +40,7 @@ Die folgenden Schritte zeigen, wie das Zustimmungsframework auf der Benutzerober
 
 1. Angenommen, Sie verfügen über eine Webclientanwendung, die für den Zugriff auf eine Ressource oder API bestimmte Berechtigungen anfordern muss. Im nächsten Abschnitt wird beschrieben, wie Sie diese Konfiguration durchführen. Im Wesentlichen wird aber das Azure-Portal verwendet, um zur Konfigurationszeit Berechtigungsanforderungen zu deklarieren. Wie andere Konfigurationseinstellungen auch, werden diese Teil der Azure AD-Registrierung der Anwendung:
 
-    ![Berechtigungen für andere Anwendungen](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Berechtigungen für andere Anwendungen](./media/consent-framework/permissions.png)
 
 1. Angenommen, die Berechtigungen für Ihre Anwendung wurden aktualisiert, die Anwendung wird ausgeführt, und ein Benutzer möchte die Anwendung zum ersten Mal verwenden. Zuerst muss die Anwendung vom `/authorize`-Endpunkt von Azure AD einen Autorisierungscode erhalten. Der Autorisierungscode kann dann genutzt werden, um ein neues Zugriffs- und Aktualisierungstoken zu beschaffen.
 
@@ -58,11 +58,10 @@ Die folgenden Schritte zeigen, wie das Zustimmungsframework auf der Benutzerober
 
     **So gewähren Sie delegierte App-Berechtigungen**
 
-   1. Rufen Sie für Ihre Anwendung die Seite **Einstellungen** auf.
-   1. Wählen Sie **Erforderliche Berechtigungen** aus.
-   1. Klicken Sie auf Schaltfläche **Berechtigungen erteilen**.
+   1. Rufen Sie für Ihre Anwendung die Seite **API-Berechtigungen** auf.
+   1. Klicken Sie auf die Schaltfläche **Administratoreinwilligung gewähren**.
 
-      ![Erteilen von Berechtigungen für explizite Administratorzustimmung](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Erteilen von Berechtigungen für explizite Administratorzustimmung](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
    > Das explizite Gewähren der Zustimmung über die Schaltfläche **Berechtigungen erteilen** ist derzeit für Single-Page-Webanwendungen (Single-Page Applications, SPAs) erforderlich, die „ADAL.js“ nutzen. Andernfalls tritt für die Anwendung ein Fehler auf, wenn das Zugriffstoken angefordert wird.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial zum Bestellen des Microsoft Azure Data Box-Datenträgers | Microsoft Docs
+title: Tutorial zum Bestellen von Azure Data Box Disk | Microsoft-Dokumentation
 description: Verwenden Sie dieses Tutorial, um zu erfahren, wie Sie sich für einen Azure Data Box-Datenträger registrieren und diesen bestellen können, um Daten in Azure zu importieren.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404891"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603165"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Bestellen von Azure Data Box Disk
 
@@ -65,7 +65,7 @@ Führen Sie die folgenden Schritte im [Azure-Portal](https://aka.ms/azuredatabox
     |---|---|
     |Abonnement|Wählen Sie ein Abonnement aus, für das der Data Box-Dienst aktiviert ist.<br> Das Abonnement ist mit Ihrem Abrechnungskonto verknüpft. |
     |Übertragungstyp| In Azure importieren|
-    |Quellland/-region | Wählen Sie das Land aus, in dem sich Ihre Daten aktuell befinden.|
+    |Quellland/-region | Wählen Sie das Land/die Region aus, in dem/der sich Ihre Daten zurzeit befinden.|
     |Azure-Zielregion|Wählen Sie die Azure-Region aus, in die Daten übertragen werden sollen.|
 
   

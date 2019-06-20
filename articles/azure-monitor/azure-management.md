@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
 ms.openlocfilehash: b56993b9ad03f2ab50fe3954ab5e8855d0d8bc0f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60371637"
 ---
 # <a name="azure-management---monitoring"></a>Azure-Verwaltung – Überwachung
 

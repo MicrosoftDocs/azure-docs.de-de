@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 68376751a3c673b2d89d028312f992aec40d4dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60366025"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Konfigurieren eines virtuellen Netzwerkgateways für ExpressRoute mit dem Azure-Portal
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Sie können sich ein [Video](https://azure.microsoft.com/documentation/videos/az
 
 ## <a name="create-the-virtual-network-gateway"></a>Erstellen des Gateways für das lokale Netzwerk
 
-1. Klicken Sie im Portal auf der linken Seite auf **+**, und geben Sie für die Suche „Virtuelles Netzwerkgateway“ ein. Suchen Sie in der Ausgabe nach **Virtuelles Netzwerkgateway**, und klicken Sie auf den Eintrag. Klicken Sie am unteren Rand des Blatts **Virtuelles Netzwerkgateway** auf **Erstellen**. Das Blatt **Virtuelles Netzwerkgateway erstellen** wird geöffnet.
+1. Klicken Sie im Portal auf der linken Seite auf **+** , und geben Sie für die Suche „Virtuelles Netzwerkgateway“ ein. Suchen Sie in der Ausgabe nach **Virtuelles Netzwerkgateway**, und klicken Sie auf den Eintrag. Klicken Sie am unteren Rand des Blatts **Virtuelles Netzwerkgateway** auf **Erstellen**. Das Blatt **Virtuelles Netzwerkgateway erstellen** wird geöffnet.
 2. Geben Sie auf dem Blatt **Virtuelles Netzwerkgateway erstellen** die Werte für das virtuelle Netzwerkgateway an.
 
     ![Felder des Blatts „Virtuelles Netzwerkgateway erstellen“](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Felder des Blatts „Virtuelles Netzwerkgateway erstellen“")

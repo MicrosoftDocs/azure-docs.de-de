@@ -9,11 +9,11 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271678"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60256776"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Erweiterte Funktionen von Azure Metrik-Explorer
 
@@ -47,7 +47,7 @@ Klicken Sie auf **Diagramm hinzufügen**, und erstellen Sie ein weiteres Diagram
 
 ### <a name="order-or-delete-multiple-charts"></a>Sortieren oder Löschen mehrerer Diagramme
 
-Klicken Sie zum Sortieren oder Löschen mehrerer Diagramme auf die Auslassungszeichen (**...**), um das Diagrammmenü zu öffnen, und wählen Sie das entsprechende Menüelement (**Nach oben**, **Nach unten** oder **Löschen**) aus.
+Klicken Sie zum Sortieren oder Löschen mehrerer Diagramme auf die Auslassungszeichen ( **...** ), um das Diagrammmenü zu öffnen, und wählen Sie das entsprechende Menüelement (**Nach oben**, **Nach unten** oder **Löschen**) aus.
 
 ## <a name="apply-filters-to-charts"></a>Anwenden von Filtern auf Diagramme
 

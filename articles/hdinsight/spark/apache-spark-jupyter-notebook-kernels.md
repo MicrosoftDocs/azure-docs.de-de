@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: fed8791fbc7cc7f049a1161fb3903c7f6d42d4e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b2ae24c0449b009db6fcecdd8a1366ea5154629a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689306"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257817"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernel für Jupyter Notebook in Apache Spark-Clustern in Azure HDInsight 
 
@@ -28,25 +28,22 @@ In diesem Artikel erfahren Sie, wie Sie diese Kernels verwenden und welche Vorte
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Einen Apache Spark-Cluster unter HDInsight Eine Anleitung finden Sie unter [Erstellen von Apache Spark-Clustern in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+Einen Apache Spark-Cluster unter HDInsight Eine Anleitung finden Sie unter [Erstellen von Apache Spark-Clustern in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Erstellen eines Jupyter-Notebooks unter Spark HDInsight
 
-1. Öffnen Sie Ihren Cluster im [Azure-Portal](https://portal.azure.com/).  Anweisungen dazu finden Sie unter [Auflisten und Anzeigen von Clustern](../hdinsight-administer-use-portal-linux.md#showClusters). Der Cluster wird in einem neuen Blatt des Portals geöffnet.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) Ihren Spark-Cluster aus.  Anweisungen dazu finden Sie unter [Auflisten und Anzeigen von Clustern](../hdinsight-administer-use-portal-linux.md#showClusters). Die **Übersicht** wird geöffnet.
 
-2. Klicken Sie im Abschnitt **Quick links** (Direktlinks) auf **Cluster dashboards** (Clusterdashboards), um das Blatt **Cluster dashboards** (Clusterdashboards) zu öffnen.  Wenn Ihnen **Quick Links** (Direktlinks) nicht angezeigt wird, klicken Sie im linken Menü des Blatts auf **Übersicht**.
+2. Wählen Sie in der **Übersicht** im Feld **Clusterdashboards** die Option **Jupyter-Notebook** aus. Geben Sie die Administratoranmeldeinformationen für den Cluster ein, wenn Sie dazu aufgefordert werden.
 
-    ![Jupyter-Notebook unter Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Jupyter-Notebook unter Spark") 
-
-3. Klicken Sie auf **Jupyter Notebook**. Geben Sie die Administratoranmeldeinformationen für den Cluster ein, wenn Sie dazu aufgefordert werden.
-   
+    ![Jupyter-Notebook unter Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter-Notebook unter Spark") 
+  
    > [!NOTE]  
    > Sie können das Jupyter-Notebook im Spark-Cluster auch aufrufen, indem Sie in Ihrem Browser die folgende URL öffnen. Ersetzen Sie **CLUSTERNAME** durch den Namen Ihres Clusters:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-
-3. Klicken Sie auf **Neu** und anschließend entweder auf **Pyspark**, **PySpark3** oder **Spark**, um ein Notebook zu erstellen. Der Spark-Kernel ist für Scala-Anwendungen vorgesehen, der PySpark-Kernel für Python2-Anwendungen und der PySpark3-Kernel für Python3-Anwendungen.
+3. Wählen Sie **Neu** und anschließend entweder **Pyspark**, **PySpark3** oder **Spark** aus, um ein Notebook zu erstellen. Der Spark-Kernel ist für Scala-Anwendungen vorgesehen, der PySpark-Kernel für Python2-Anwendungen und der PySpark3-Kernel für Python3-Anwendungen.
    
     ![Kernel für Jupyter-Notebooks unter Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernel für Jupyter-Notebooks unter Spark") 
 
@@ -78,15 +75,15 @@ Hier sind einige Vorteile der Verwendung der neuen Kernel mit einem Jupyter-Note
    | info |`%%info` |Gibt Sitzungsinformationen für den aktuellen Livy-Endpunkt heraus. |
    | KONFIGURIEREN |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfiguriert die Parameter für das Erstellen einer neuen Sitzung. Das Force-Flag (-f) ist obligatorisch, wenn bereits eine Sitzung erstellt wurde, um sicherzustellen, dass die Sitzung gelöscht und neu erstellt wird. Unter [„Request Body“ in „POST /sessions“ für Livy](https://github.com/cloudera/livy#request-body) finden Sie eine Liste der gültigen Parameter. Parameter müssen als JSON-Zeichenfolge übergeben werden und in der nächsten Zeile nach dem Magic-Befehl stehen, wie in der Beispielspalte gezeigt. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Führt eine Hive-Abfrage für sqlContext aus. Wenn der Parameter `-o` übergeben wird, wird das Ergebnis der Abfrage im %%local-Python-Kontext als [Pandas](https://pandas.pydata.org/) -Dataframe beibehalten. |
-   | local |`%%local`<br>`a=1` |Der gesamte Code in den folgenden Zeilen wird lokal ausgeführt. Der Code muss gültiger Python2-Code sein, unabhängig vom verwendeten Kernel. Sogar wenn Sie beim Erstellen des Notebooks **PySpark3** oder **Spark**-Kernels gewählt haben und die `%%local`-Magic in einer Zelle verwenden, darf diese Zelle nur gültigen Python2-Code enthalten. |
-   | Protokolle |`%%logs` |Gibt die Protokolle für die aktuelle Livy-Sitzung aus. |
+   | local |`%%local`<br>`a=1` |Der gesamte Code in den folgenden Zeilen wird lokal ausgeführt. Der Code muss gültiger Python2-Code sein, unabhängig vom verwendeten Kernel. Sogar wenn Sie beim Erstellen des Notebooks **PySpark3**- oder **Spark**-Kernels gewählt haben und die `%%local`-Magic in einer Zelle verwenden, darf diese Zelle nur gültigen Python2-Code enthalten. |
+   | logs |`%%logs` |Gibt die Protokolle für die aktuelle Livy-Sitzung aus. |
    | delete |`%%delete -f -s <session number>` |Löscht eine bestimmte Sitzung des aktuellen Livy-Endpunkts. Die Sitzung, die für den Kernel selbst initiiert wird, können Sie nicht löschen. |
    | cleanup |`%%cleanup -f` |Löscht alle Sitzungen für den aktuellen Livy-Endpunkt, einschließlich dieser Notebook-Sitzung. Das Force-Flag „-f“ ist obligatorisch |
 
    > [!NOTE]  
    > Zusätzlich zu den Magics, die durch den PySpark-Kernel hinzugefügt werden, können Sie auch die [integrierten IPython-Magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics) verwenden, einschließlich `%%sh`. Sie können das Magic `%%sh` verwenden, um Skripts und Codeblöcke auf dem Clusterhauptknoten auszuführen.
 
-1. **Automatische Visualisierung**. Der **Pyspark** -Kernel visualisiert automatisch die Ausgabe von Hive- und SQL-Abfragen. Sie können zwischen verschiedenen Arten von Visualisierungen wählen, inklusive Tabelle, Kreis-, Linie-, Flächen- und Balkendiagramm.
+- **Automatische Visualisierung**. Der Pyspark-Kernel visualisiert automatisch die Ausgabe von Hive- und SQL-Abfragen. Sie können zwischen verschiedenen Arten von Visualisierungen wählen, inklusive Tabelle, Kreis-, Linie-, Flächen- und Balkendiagramm.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Mit %%sql-Magic unterstützte Parameter
 Die `%%sql`-Magic unterstützt verschiedene Parameter, mit denen Sie steuern können, welche Art der Ausgabe Sie erhalten, wenn Sie Abfragen ausführen. In der folgenden Tabelle werden die Ausgaben aufgeführt.
@@ -107,22 +104,13 @@ Die `%%sql`-Magic unterstützt verschiedene Parameter, mit denen Sie steuern kö
 Die obige Anweisung führt Folgendes aus:
 
 * Wählt alle Datensätze aus **hivesampletable**aus.
-* Da wir -q verwenden, wird die automatische Visualisierung deaktiviert.
+* Da wir „-q“ verwenden, wird die automatische Visualisierung deaktiviert.
 * Da wir `-m sample -r 0.1 -n 500` verwenden, werden nach dem Zufallsprinzip 10% der Zeilen in „hivesampletable“ ausgewählt, und die Größe des Resultsets wird auf 500 Zeilen beschränkt.
 * Da wir `-o query2` verwendet haben, wird schließlich auch die Ausgabe in einem Dataframe namens **query2**gespeichert.
 
 ## <a name="considerations-while-using-the-new-kernels"></a>Überlegungen bei der Verwendung der neuen Kernel
 
-Unabhängig vom verwendeten Kernel werden von ausgeführten Notebooks immer Clusterressourcen beansprucht.  Da die Kontexte für diese Kernels voreingestellt sind, werden die Kontexte durch ein einfaches Beenden der Notebooks nicht ebenfalls beendet, sondern beanspruchen weiterhin Clusterressourcen. Daher empfiehlt sich die Verwendung der Option zum **Schließen und Anhalten** aus dem Menü **Datei** des Notebooks. Dadurch wird die Beendigung des Kontexts erzwungen und das Notebook beendet.     
-
-## <a name="show-me-some-examples"></a>Beispiele
-
-Wenn Sie ein Jupyter Notebook öffnen, sind auf der Stammebene zwei Ordner verfügbar.
-
-* Der Ordner **PySpark** enthält Beispiele für Notebooks, die den neuen Kernel vom Typ **Python** verwenden.
-* Der Ordner **Scala** enthält Beispiele für Notebooks, die den neuen Kernel vom Typ **Spark** verwenden.
-
-Sie können das Notebook **00 - [READ ME FIRST] Spark Magic Kernel Features** im Ordner **PySpark** oder **Spark** öffnen, um Informationen zu den verschiedenen verfügbaren Magics zu erhalten. Sie können auch anhand der anderen in den beiden Ordnern verfügbaren Beispiel-Notebooks erfahren, wie Sie verschiedene Szenarien der Verwendung von Jupyter-Notebooks mit HDInsight Spark-Clustern realisieren können.
+Unabhängig vom verwendeten Kernel werden von ausgeführten Notebooks immer Clusterressourcen beansprucht.  Da die Kontexte für diese Kernels voreingestellt sind, werden die Kontexte durch ein einfaches Beenden der Notebooks nicht ebenfalls beendet, sondern beanspruchen weiterhin Clusterressourcen. Daher empfiehlt sich die Verwendung der Option zum **Schließen und Anhalten** aus dem Menü **Datei** des Notebooks. Dadurch wird die Beendigung des Kontexts erzwungen und das Notebook beendet.
 
 ## <a name="where-are-the-notebooks-stored"></a>Wo werden die Notebooks gespeichert?
 
@@ -133,8 +121,8 @@ Wenn Ihr Cluster Azure Storage als Standardspeicherkonto verwendet, werden Jupyt
 
 Der Vorgang des Speicherns von Notebooks im Speicherkonto ist mit [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) kompatibel. Wenn Sie also eine SSH-Verbindung mit dem Cluster herstellen, können Sie Dateiverwaltungsbefehle wie im folgenden Codeausschnitt verwenden:
 
-    hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
-    hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
+    hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
+    hdfs dfs –copyToLocal /HdiNotebooks                   # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
 Unabhängig davon, ob der Cluster Azure Storage oder Azure Data Lake Storage als das Standardspeicherkonto verwendet, werden die Notebooks auch auf dem Clusterhauptknoten unter `/var/lib/jupyter` gespeichert.
@@ -144,7 +132,8 @@ Unabhängig davon, ob der Cluster Azure Storage oder Azure Data Lake Storage als
 Jupyter Notebooks in Spark HDInsight-Clustern werden nur von Google Chrome unterstützt.
 
 ## <a name="feedback"></a>Feedback
-Die neuen Kernels befinden sich in der Entwicklungsphase und werden mit der Zeit ausreifen. Im Zuge dieser Entwicklung ändern sich unter Umständen auch APIs. Wir freuen uns über Ihr Feedback zur Verwendung der neuen Kernel. Dies hilft uns bei der Gestaltung der endgültigen Kernelversion. Kommentare/Feedback können Sie im **Kommentarbereich** am Ende dieses Artikels hinterlassen.
+
+Die neuen Kernels befinden sich in der Entwicklungsphase und werden mit der Zeit ausreifen. Im Zuge dieser Entwicklung ändern sich unter Umständen auch APIs. Wir freuen uns über Ihr Feedback zur Verwendung der neuen Kernel. Dies hilft uns bei der Gestaltung der endgültigen Kernelversion. Kommentare/Feedback können Sie im **Feedbackabschnitt** am Ende dieses Artikels hinterlassen.
 
 ## <a name="seealso"></a>Weitere Informationen
 * [Übersicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)

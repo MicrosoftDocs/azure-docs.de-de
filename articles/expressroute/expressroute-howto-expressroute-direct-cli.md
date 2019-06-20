@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 2/25/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080081"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965906"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurieren von ExpressRoute Direct mit der Azure-Befehlszeilenschnittstelle
 
@@ -280,8 +280,9 @@ Sie können standardmäßig zehn Leitungen im Abonnement erstellen, in dem die E
 
 Sie können zusätzliche Leitungsbandbreiten für ExpressRoute Direct nur verwenden, um die hier beschriebenen Szenarien zu unterstützen. Die Bandbreiten sind 40 GBit/s und 100 GBit/s.
 
-Sie können entweder Standard- oder Premium-Verbindungen erstellen. Standardverbindungen sind in den Kosten des Diensts enthalten. Die Kosten für Premium-Leitungen basieren auf der von Ihnen gewählten Bandbreite. Sie können nur getaktete Leitungen erstellen. Unbegrenzte Leitungen werden für ExpressRoute Direct nicht unterstützt.
+**SkuTier** kann Local, Standard oder Premium sein.
 
+**SkuFamily** darf nur MeteredData sein, da „unlimited“ von ExpressRoute Direct nicht unterstützt wird.
 Erstellen Sie in der ExpressRoute Direct-Ressource eine Leitung:
 
   ```azurecli

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/22/2017
+ms.date: 12/22/2018
 ms.author: ramkris
-ms.openlocfilehash: e276980235494f7f808510889bda91761cb76544
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dfb4e40aeed797a55a7b2cabad32d33920547c06
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794607"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479495"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Erstellen einer Java-Webanwendung mithilfe von Azure Cosmos DB und der SQL-API
 
@@ -70,7 +70,7 @@ So erstellen Sie eine JSP-Anwendung
 4. Geben Sie der Datei im Dialogfeld **Neue JSP-Datei** den Namen **index.jsp**. Behalten Sie für den übergeordneten Ordner **WebContent** bei, wie in der folgenden Abbildung gezeigt, und klicken dann auf **Weiter**.
    
     ![Erstellen einer neuen JSP-Datei – Java-Webanwendungs-Lernprogramm](./media/sql-api-java-application/image11.png)
-5. Wählen Sie im Dialogfeld **JSP-Vorlage auswählen** im Rahmen dieses Lernprogramms **Neue JSP-Datei (HTML)**, und klicken Sie dann auf **Fertig stellen**.
+5. Wählen Sie im Dialogfeld **JSP-Vorlage auswählen** im Rahmen dieses Lernprogramms **Neue JSP-Datei (HTML)** , und klicken Sie dann auf **Fertig stellen**.
 6. Wenn in Eclipse die Datei „index.jsp“ geöffnet wird, geben Sie den Text **Hello World!** ein, damit er dynamisch im vorhandenen `<body>`-Element angezeigt wird. Der aktualisierte Inhalt von `<body>` sollte wie im folgenden Code aussehen:
    
         <body>
@@ -737,7 +737,7 @@ Alle Beispiele in diesem Tutorial befinden sich im Projekt [todo](https://github
 3. Klicken in Eclipse im Menü **Datei** auf **Importieren**.
 4. Klicken Sie im Fenster **Importieren** auf **Git**, dann auf **Projekte aus Git** und schließlich auf **Weiter**.
 5. Klicken Sie auf dem Bildschirm **Repositoryquelle auswählen** auf **URI klonen**.
-6. Geben Sie im Bildschirm **Source Git Repository (Quell-Git-Repository)** im Feld **URI** „https://github.com/Azure-Samples/documentdb-java-todo-app.git“ ein, und klicken Sie auf **Next (Weiter)**.
+6. Geben Sie im Bildschirm **Source Git Repository (Quell-Git-Repository)** im Feld **URI** „ https://github.com/Azure-Samples/documentdb-java-todo-app.git “ ein, und klicken Sie auf **Next (Weiter)** .
 7. Stellen Sie auf dem Bildschirm **Verzweigungsauswahl** sicher, dass **Master** ausgewählt ist, und klicken Sie dann auf **Weiter**.
 8. Klicken Sie auf dem Bildschirm **Lokales Ziel** auf **Durchsuchen**, um einen Ordner auszuwählen, in den das Repository kopiert werden kann, und klicken Sie dann auf **Weiter**.
 9. Stellen Sie auf dem Bildschirm **Assistent zum Importieren von Projekten auswählen** sicher, dass **Vorhandene Projekte importieren** ausgewählt ist, und klicken Sie dann auf **Weiter**.

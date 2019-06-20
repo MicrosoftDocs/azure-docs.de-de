@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62129398"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Verwenden von Apache Sqoop mit Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -80,7 +80,7 @@ Der Cluster, die SQL-Datenbank und andere Objekte werden über das Azure-Portal 
     |---|---|
     |Abonnement |Wählen Sie in der Dropdownliste Ihr Azure-Abonnement aus.|
     |Ressourcengruppe |Wählen Sie in der Dropdownliste Ihre Ressourcengruppe aus, oder erstellen Sie eine neue Gruppe.|
-    |Standort |Wählen Sie in der Dropdownliste eine Region aus.|
+    |Location |Wählen Sie in der Dropdownliste eine Region aus.|
     |Clustername |Geben Sie einen Namen für den Hadoop-Cluster ein. Verwenden Sie nur Kleinbuchstaben.|
     |Benutzername für Clusteranmeldung |Behalten Sie den vorgegebenen Wert `admin` bei.|
     |Kennwort für Clusteranmeldung |Geben Sie ein Kennwort ein.|
@@ -91,7 +91,7 @@ Der Cluster, die SQL-Datenbank und andere Objekte werden über das Azure-Portal 
     |„_artifacts“-Speicherort | Verwenden Sie den Standardwert, sofern Sie nicht eine eigene BACPAC-Datei an einem anderen Speicherort verwenden möchten.|
     |SAS-Token für „_artifacts“-Speicherort |Lassen Sie dieses Feld leer.|
     |BACPAC-Dateiname |Verwenden Sie den Standardwert, sofern Sie nicht eine eigene BACPAC-Datei verwenden möchten.|
-    |Standort |Verwenden Sie den Standardwert.|
+    |Location |Verwenden Sie den Standardwert.|
 
     Der Azure SQL Server-Name lautet `<ClusterName>dbserver`. Der Datenbankname lautet `<ClusterName>db`. Der Name des Standardspeicherkontos lautet `e6qhezrh2pdqu`.
 

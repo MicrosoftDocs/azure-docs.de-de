@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60844198"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Verwenden des Laufwerks „D:“ als Datenlaufwerk auf einem virtuellen Windows-Computer
 Wenn Ihre Anwendung Laufwerk D zum Speichern der Daten verwenden muss, können Sie diese Anweisungen befolgen, um für den temporären Datenträger einen anderen Laufwerkbuchstaben zu verwenden. Verwenden Sie niemals den temporären Datenträger zum Speichern von Daten, die Sie behalten müssen.
 
-Wenn Sie die Größe eines virtuellen Computers ändern oder diesen **beenden (Zuordnung aufheben)**, kann dies das Platzieren des virtuellen Computers auf einem neuen Hypervisor auslösen. Ein geplantes oder ungeplantes Wartungsereignis kann ebenfalls diese Neuanordnung auslösen. In diesem Szenario wird dem temporären Datenträger der erste verfügbare Laufwerkbuchstabe zugewiesen. Wenn Sie eine Anwendung nutzen, für die speziell das Laufwerk D: erforderlich ist, müssen Sie diese Schritte ausführen. Sie verschieben die Datei „pagefile.sys“ vorübergehend, fügen einen neuen Datenträger an und weisen ihm den Buchstaben D zu und verschieben die Datei „pagefile.sys“ dann wieder zurück auf das temporäre Laufwerk. Nachdem der Vorgang abgeschlossen ist, wird D: von Azure nicht zurückgenommen, wenn die VM auf einen anderen Hypervisor verschoben wird.
+Wenn Sie die Größe eines virtuellen Computers ändern oder diesen **beenden (Zuordnung aufheben)** , kann dies das Platzieren des virtuellen Computers auf einem neuen Hypervisor auslösen. Ein geplantes oder ungeplantes Wartungsereignis kann ebenfalls diese Neuanordnung auslösen. In diesem Szenario wird dem temporären Datenträger der erste verfügbare Laufwerkbuchstabe zugewiesen. Wenn Sie eine Anwendung nutzen, für die speziell das Laufwerk D: erforderlich ist, müssen Sie diese Schritte ausführen. Sie verschieben die Datei „pagefile.sys“ vorübergehend, fügen einen neuen Datenträger an und weisen ihm den Buchstaben D zu und verschieben die Datei „pagefile.sys“ dann wieder zurück auf das temporäre Laufwerk. Nachdem der Vorgang abgeschlossen ist, wird D: von Azure nicht zurückgenommen, wenn die VM auf einen anderen Hypervisor verschoben wird.
 
 Weitere Informationen zur Verwendung des temporären Datenträgers in Azure finden Sie unter [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
@@ -52,7 +52,7 @@ Zunächst müssen Sie den Datenträger an den virtuellen Computer anfügen. Info
 5. Klicken Sie mit der rechten Maustaste auf den Datenträger, und wählen Sie **Laufwerkbuchstaben und -pfade ändern**.
 6. Wählen Sie **D** als Laufwerkbuchstaben, und klicken Sie dann auf **OK**. 
 
-## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Verschieben von „pagefile.sys“ zurück auf das temporäre Speicherlaufwerk 
+## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Verschieben von „pagefile.sys“ zurück auf das temporäre Speicherlaufwerk
 1. Klicken Sie mit der rechten Maustaste auf **Start**, und wählen Sie **System**.
 2. Wählen Sie im linken Menü **Erweiterte Systemeinstellungen**.
 3. Wählen Sie im Abschnitt **Leistung** die Option **Einstellungen**.

@@ -4,14 +4,14 @@ description: Hier erfahren Sie, wie Sie die Gebühr für eine Anforderungseinhei
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 730f0604d0c292764aaee6e0ffb8ef95d90be5f2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410288"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416035"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Ermitteln der Gebühr für eine Anforderungseinheit in Azure Cosmos DB
 
@@ -231,7 +231,7 @@ Wenn Sie das [.NET SDK](https://www.nuget.org/packages/CassandraCSharpDriver/) v
 
 ```csharp
 RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
-double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"], 0);
+double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
 Weitere Informationen finden Sie unter [Quickstart: Erstellen einer Cassandra-App mithilfe des .NET-SDK und Azure Cosmos DB](create-cassandra-dotnet.md).

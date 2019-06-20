@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416035"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833123"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Was ist die IP-Adresse 168.63.129.16?
 
@@ -38,7 +38,7 @@ Die öffentliche IP-Adresse 168.63.129.16 wird in allen Regionen und allen natio
 
 [Azure Load Balancer-Integritätstests](../load-balancer/load-balancer-custom-probe-overview.md) gehen von dieser IP-Adresse aus. Wenn Sie diese IP-Adresse blockieren, treten bei Ihren Tests Fehler auf.
 
-In einem nicht virtuellen Netzwerkszenario wird der Integritätstest von einer privaten IP bezogen und 168.63.129.16 nicht verwendet.
+In einem nicht virtuellen Netzwerkszenario (klassisch) wird der Integritätstest von einer privaten IP bezogen und 168.63.129.16 nicht verwendet.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

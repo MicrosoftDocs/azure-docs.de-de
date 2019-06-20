@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121586"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60587332"
 ---
 # <a name="azure-network-security"></a>Azure-Netzwerksicherheit
 
@@ -161,7 +161,7 @@ VNets können mit [lokalen](https://docs.microsoft.com/azure/virtual-network/vir
 
 Sie können Ihr lokales Netzwerk mit einem VNet verbinden, indem Sie eine Kombination der folgenden Optionen verwenden:
 
-- **Point-to-Site-VPN (virtuelles privates Netzwerk)**: Wird zwischen einem einzelnen PC Ihres Netzwerks und dem VNet eingerichtet. Dieser Verbindungstyp ist gut geeignet, wenn Azure noch neu für Sie ist, oder wenn Sie ein Entwickler sind, da keine oder nur sehr geringe Änderungen Ihres vorhandenen Netzwerks erforderlich sind. Für die Verbindung wird das SSTP-Protokoll verwendet, um zwischen dem PC und dem VNet eine verschlüsselte Kommunikation über das Internet zu ermöglichen. Die Dauer der Wartezeit für ein Point-to-Site-VPN ist unvorhersehbar, weil der Datenverkehr über das Internet übertragen wird.
+- **Point-to-Site-VPN (virtuelles privates Netzwerk)** : Wird zwischen einem einzelnen PC Ihres Netzwerks und dem VNet eingerichtet. Dieser Verbindungstyp ist gut geeignet, wenn Azure noch neu für Sie ist, oder wenn Sie ein Entwickler sind, da keine oder nur sehr geringe Änderungen Ihres vorhandenen Netzwerks erforderlich sind. Für die Verbindung wird das SSTP-Protokoll verwendet, um zwischen dem PC und dem VNet eine verschlüsselte Kommunikation über das Internet zu ermöglichen. Die Dauer der Wartezeit für ein Point-to-Site-VPN ist unvorhersehbar, weil der Datenverkehr über das Internet übertragen wird.
 
 - **Site-to-Site-VPN**: Wird zwischen Ihrem VPN-Gerät und einem Azure VPN Gateway eingerichtet. Bei diesem Verbindungstyp können alle lokalen Ressourcen, die von Ihnen autorisiert werden, auf ein VNet zugreifen. Die Verbindung ist ein IPsec/IKE-VPN, mit dem die verschlüsselte Kommunikation über das Internet zwischen Ihrem lokalen Gerät und dem Azure VPN Gateway ermöglicht wird. Die Dauer der Wartezeit für eine Site-to-Site-Verbindung ist unvorhersehbar, da der Datenverkehr über das Internet übertragen wird.
 
@@ -173,7 +173,7 @@ Sie können Ihr lokales Netzwerk mit einem VNet verbinden, indem Sie eine Kombin
 
 Sie können den Netzwerkdatenverkehr zwischen Subnetzen filtern, indem Sie eine oder beide folgenden Optionen verwenden:
 
-- **Netzwerksicherheitsgruppen (NSGs)**: Jede Netzwerksicherheitsgruppe kann mehrere Sicherheitsregeln für die eingehende und ausgehende Richtung enthalten, mit denen Sie Datenverkehr nach IP-Adresse, Port und Protokoll für die Quelle und das Ziel filtern können. Sie können eine NSG auf jede Netzwerkschnittstelle einer VM anwenden. Außerdem können Sie eine NSG auf das Subnetz anwenden, mit dem eine Netzwerkschnittstelle oder eine andere Azure-Ressource verbunden ist. Weitere Informationen zu NSGs finden Sie unter [Filtern des Netzwerkdatenverkehrs mit Netzwerksicherheitsgruppen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- **Netzwerksicherheitsgruppen (NSGs)** : Jede Netzwerksicherheitsgruppe kann mehrere Sicherheitsregeln für die eingehende und ausgehende Richtung enthalten, mit denen Sie Datenverkehr nach IP-Adresse, Port und Protokoll für die Quelle und das Ziel filtern können. Sie können eine NSG auf jede Netzwerkschnittstelle einer VM anwenden. Außerdem können Sie eine NSG auf das Subnetz anwenden, mit dem eine Netzwerkschnittstelle oder eine andere Azure-Ressource verbunden ist. Weitere Informationen zu NSGs finden Sie unter [Filtern des Netzwerkdatenverkehrs mit Netzwerksicherheitsgruppen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
 - **Virtuelle Network Appliances**: Eine virtuelle Network Appliance ist eine VM, auf der Software zum Ausführen einer Netzwerkfunktion, z.B. einer Firewall, betrieben wird. In Azure Marketplace können Sie eine Liste mit verfügbaren NVAs anzeigen. Es sind auch NVAs verfügbar, die eine WAN-Optimierung und andere Funktionen für den Netzwerkdatenverkehr ermöglichen. NVAs werden normalerweise mit benutzerdefinierten oder BGP-Routen verwendet. Darüber hinaus können Sie eine NVA zum Filtern von Datenverkehr zwischen VNets verwenden.
 
@@ -284,9 +284,9 @@ In eine NSG sind einige Regeln integriert, die Sie kennen sollten. Dies sind:
 
 -   **Zulassen des gesamten Datenverkehrs innerhalb eines bestimmten virtuellen Netzwerks:** Alle VMs, die mit demselben virtuellen Azure-Netzwerk verbunden sind, können miteinander kommunizieren.
 
--   **Zulassen des Azure-Lastenausgleichs in eingehender Richtung:**  Mit dieser Regel wird Datenverkehr von jeder Quelladresse zu jeder Zieladresse für den Azure-Lastenausgleich zugelassen.
+-   **Zulassen des Azure-Lastenausgleichs in eingehender Richtung:**   Mit dieser Regel wird Datenverkehr von jeder Quelladresse zu jeder Zieladresse für den Azure-Lastenausgleich zugelassen.
 
--   **Eingehenden Datenverkehr verweigern:**  Mit dieser Regel wird der gesamte Datenverkehr aus dem Internet blockiert, den Sie explizit zugelassen haben.
+-   **Eingehenden Datenverkehr verweigern:**   Mit dieser Regel wird der gesamte Datenverkehr aus dem Internet blockiert, den Sie explizit zugelassen haben.
 
 -   **Zulassen des ausgehenden Datenverkehrs in das Internet:** Mit dieser Regel wird zugelassen, dass VMs Verbindungen mit dem Internet einleiten. Wenn Sie nicht möchten, dass diese Verbindungen initiiert werden, müssen Sie eine Regel erstellen, um diese Verbindungen zu blockieren oder die Tunnelerzwingung durchzusetzen.
 
@@ -588,7 +588,7 @@ Vorgänge, die im Rahmen der Konfiguration von Netzwerken durchgeführt werden, 
 Überwachungsprotokolle stehen für Vorgänge zur Verfügung, die für alle Netzwerkressourcen durchgeführt werden.
 
 
-#### <a name="metrics"></a>Metriken
+#### <a name="metrics"></a>metrics
 
 Metriken sind Leistungsmessungen und -indikatoren, die über einen bestimmten Zeitraum gesammelt werden. Zurzeit sind Metriken für Application Gateway verfügbar. Metriken können verwendet werden, um basierend auf Schwellenwerten Warnungen auszulösen. Azure Application Gateway überwacht standardmäßig die Integrität aller Ressourcen in seinem Back-End-Pool und entfernt automatisch alle als fehlerhaft geltenden Ressourcen aus dem Pool. Application Gateway überwacht die fehlerhaften Instanzen weiterhin und fügt sie dem fehlerfreien Back-End-Pool hinzu, sobald sie verfügbar sind und auf Zustandsüberprüfungen reagieren. Application Gateway sendet die Integritätstests über denselben Port, der in den HTTP-Einstellungen des Back-Ends festgelegt wurde. Durch diese Konfiguration wird sichergestellt, dass derselbe Port getestet wird, den der Kunde für die Verbindung mit dem Back-End verwenden würde.
 

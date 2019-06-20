@@ -13,11 +13,11 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61484453"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Mandantenmuster für mehrinstanzenfähige SaaS-Datenbanken
 
@@ -33,8 +33,8 @@ Als Gegenleistung für die Leihgebühr erhält jeder Mandant Zugriff auf Ihre Sa
 
 Der Begriff *Mandantenmodell* bezieht sich auf die Art und Weise, in der die gespeicherten Daten des Mandanten organisiert sind:
 
-- *Einzelinstanzenfähigkeit:*&nbsp; Jede Datenbank speichert Daten eines einzelnen Mandanten.
-- *Mehrinstanzenfähigkeit:*&nbsp; Jede Datenbank speichert Daten mehrerer Mandanten (mit Mechanismen zum Datenschutz).
+- *Einzelinstanzenfähigkeit:* &nbsp; Jede Datenbank speichert Daten eines einzelnen Mandanten.
+- *Mehrinstanzenfähigkeit:* &nbsp; Jede Datenbank speichert Daten mehrerer Mandanten (mit Mechanismen zum Datenschutz).
 - Hybride Mandantenmodelle sind ebenfalls verfügbar.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B: Vorgehensweise zum Auswählen des geeigneten Mandantenmodells
@@ -47,9 +47,9 @@ Das Mandantenmodell wirkt sich in der Regel nicht auf die Funktionsweise einer A
     - Aggregierter Speicher
     - Workload
 
-- **Mandantenisolation:**&nbsp; Datenisolation und Leistung (Auswirkungen der Workload eines Mandanten auf andere Workloads)
+- **Mandantenisolation:** &nbsp; Datenisolation und Leistung (Auswirkungen der Workload eines Mandanten auf andere Workloads)
 
-- **Kosten pro Mandant:**&nbsp; Kosten für Datenbank
+- **Kosten pro Mandant:** &nbsp; Kosten für Datenbank
 
 - **Komplexität der Entwicklung:**
     - Änderungen am Schema
@@ -61,7 +61,7 @@ Das Mandantenmodell wirkt sich in der Regel nicht auf die Funktionsweise einer A
     - Wiederherstellen eines Mandanten
     - Notfallwiederherstellung
 
-- **Anpassbarkeit:**&nbsp; Einfache Durchführung von speziell für Mandanten oder Mandantenklassen geltenden Schemaanpassungen
+- **Anpassbarkeit:** &nbsp; Einfache Durchführung von speziell für Mandanten oder Mandantenklassen geltenden Schemaanpassungen
 
 Die Informationen zu Mandanten beziehen sich hauptsächlich auf die *Datenschicht*.  Im Folgenden sollten wir jedoch einen kurzen Blick auf die *Anwendungsschicht* werfen.  Die Anwendungsschicht ist als monolithische Einheit zu betrachten.  Wenn Sie die Anwendung in viele kleine Komponenten unterteilen, kann dies die Wahl Ihres Mandantenmodells ändern.  Einige Komponenten können je nach Mandant sowie verwendeter Speichertechnologie oder Plattform unterschiedlich behandelt werden.
 
@@ -71,7 +71,7 @@ Die Informationen zu Mandanten beziehen sich hauptsächlich auf die *Datenschich
 
 In diesem Modell wird die gesamte Anwendung mehrmals installiert, nämlich einmal pro Mandant.  Da jede Instanz der App eine eigenständige Instanz darstellt, interagiert sie nie mit einer anderen eigenständigen Instanz.  Jede App-Instanz umfasst nur einen Mandanten und erfordert daher nur eine Datenbank.  Die gesamte Datenbank ist somit ausschließlich für den jeweiligen Mandanten bestimmt.
 
-![Entwurf einer eigenständigen App mit einer Datenbank mit nur einem Mandanten.][image-standalone-app-st-db-111a]
+![Entwurf einer eigenständigen App mit einer Einzelinstanzdatenbank][image-standalone-app-st-db-111a]
 
 Jede App-Instanz wird in einer separaten Azure-Ressourcengruppe installiert.  Die Ressourcengruppe kann einem Abonnement zugeordnet sein, das dem Softwarehersteller oder Mandanten gehört.  In beiden Fällen kann der Hersteller die Software für den Mandanten verwalten.  Jede Anwendungsinstanz ist so konfiguriert, dass sie eine Verbindung mit der entsprechenden Datenbank herstellt.
 
@@ -126,9 +126,9 @@ Ein weiteres verfügbares Muster besteht darin, viele Mandanten in einer mehrins
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Eingeschränkte Mandantenisolation
 
-*Daten:*&nbsp; Eine mehrinstanzenfähige Datenbank schränkt zwangsläufig die Mandantenisolation ein.  Die Daten mehrerer Mandanten werden zusammen in einer Datenbank gespeichert.  Achten Sie bei der Entwicklung darauf, dass bei Abfragen niemals Daten von mehr als einem Mandanten offengelegt werden.  Die SQL-Datenbank unterstützt die [Sicherheit auf Zeilenebene][docu-sql-svr-db-row-level-security-947w], wodurch erzwungen werden kann, dass die von einer Abfrage zurückgegebenen Daten auf einen einzelnen Mandanten beschränkt werden.
+*Daten:* &nbsp; Eine mehrinstanzenfähige Datenbank schränkt zwangsläufig die Mandantenisolation ein.  Die Daten mehrerer Mandanten werden zusammen in einer Datenbank gespeichert.  Achten Sie bei der Entwicklung darauf, dass bei Abfragen niemals Daten von mehr als einem Mandanten offengelegt werden.  Die SQL-Datenbank unterstützt die [Sicherheit auf Zeilenebene][docu-sql-svr-db-row-level-security-947w], wodurch erzwungen werden kann, dass die von einer Abfrage zurückgegebenen Daten auf einen einzelnen Mandanten beschränkt werden.
 
-*Verarbeitung:*&nbsp; Eine mehrinstanzenfähige Datenbank teilt Compute- und Speicherressourcen auf alle seine Mandanten auf.  Um einen ordnungsgemäßen Betrieb sicherzustellen, kann die gesamte Datenbank überwacht werden.  Allerdings weist das Azure-System keine integrierte Option auf, um die Nutzung dieser Ressourcen durch einen einzelnen Mandanten zu überwachen oder zu verwalten.  Daher besteht bei einer mehrinstanzenfähigen Datenbank ein höheres Risiko eines sogenannten „Noisy Neighbor“-Effekts, bei dem die Workload eines übermäßig aktiven Mandanten die Leistung anderer Mandanten in derselben Datenbank beeinträchtigt.  Durch zusätzliche Überwachung auf Anwendungsebene kann die Leistung auf Mandantenebene überwacht werden.
+*Verarbeitung:* &nbsp; Eine mehrinstanzenfähige Datenbank teilt Compute- und Speicherressourcen auf alle seine Mandanten auf.  Um einen ordnungsgemäßen Betrieb sicherzustellen, kann die gesamte Datenbank überwacht werden.  Allerdings weist das Azure-System keine integrierte Option auf, um die Nutzung dieser Ressourcen durch einen einzelnen Mandanten zu überwachen oder zu verwalten.  Daher besteht bei einer mehrinstanzenfähigen Datenbank ein höheres Risiko eines sogenannten „Noisy Neighbor“-Effekts, bei dem die Workload eines übermäßig aktiven Mandanten die Leistung anderer Mandanten in derselben Datenbank beeinträchtigt.  Durch zusätzliche Überwachung auf Anwendungsebene kann die Leistung auf Mandantenebene überwacht werden.
 
 #### <a name="lower-cost"></a>Kostensenkung
 
@@ -146,7 +146,7 @@ Bei mehrinstanzenfähigen Datenbanken ist die Implementierung von Verwaltungsvor
 
 Die meisten SaaS-Anwendungen greifen auf die Daten von jeweils nur einem Mandanten zu.  Bei diesem Zugriffsmuster können Mandantendaten auf mehrere Datenbanken oder Shards aufgeteilt werden, wobei alle Daten eines beliebigen Mandanten in einem Shard enthalten sind.  In Kombination mit einem Muster einer mehrinstanzenfähigen Datenbank ermöglicht ein Modell in Shards eine nahezu unbegrenzte Skalierbarkeit.
 
-![Entwurf einer mehrinstanzenfähigen App mit mehrinstanzenfähigen Sharddatenbanken][image-mt-app-sharded-mt-db-174s]
+![Entwurf einer mehrinstanzenfähigen App mit mehrinstanzenfähigen Datenbanken mit Sharding][image-mt-app-sharded-mt-db-174s]
 
 #### <a name="manage-shards"></a>Verwalten von Shards
 

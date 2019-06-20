@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: bbad72b41a177bdbafd6cf98bfd2025190d98b16
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237636"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128956"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Konfigurieren der benutzerdefinierten Vorschlagssuche
 
@@ -36,7 +36,7 @@ Schalten Sie den Schieberegler für **Automatische Bing-Vorschläge** auf die Po
 
 ## <a name="add-your-own-suggestions"></a>Hinzufügen eigener Vorschläge
 
-Ihre eigenen Vorschläge für Abfragezeichenfolgen fügen Sie der Liste mit **benutzerdefinierten Vorschlägen** hinzu. Nachdem Sie der Liste einen Vorschlag hinzugefügt haben, drücken Sie die EINGABETASTE, oder klicken Sie auf das Symbol **+**. Sie können die Vorschläge in einer beliebigen Sprache angeben. Sie können maximal 5.000 Vorschläge für Abfragezeichenfolgen hinzufügen.
+Ihre eigenen Vorschläge für Abfragezeichenfolgen fügen Sie der Liste mit **benutzerdefinierten Vorschlägen** hinzu. Nachdem Sie der Liste einen Vorschlag hinzugefügt haben, drücken Sie die EINGABETASTE, oder klicken Sie auf das Symbol **+** . Sie können die Vorschläge in einer beliebigen Sprache angeben. Sie können maximal 5.000 Vorschläge für Abfragezeichenfolgen hinzufügen.
 
 ## <a name="upload-suggestions"></a>Hochladen von Vorschlägen
 
@@ -48,7 +48,7 @@ Wenn Sie einen Vorschlag für eine Abfragezeichenfolge entfernen möchten, klick
 
 ## <a name="block-suggestions"></a>Blockieren von Vorschlägen
 
-Wenn Sie Bing-Vorschläge einschließen, können Sie eine Liste von Abfragezeichenfolgen für die Suche hinzufügen, die Bing nicht zurückgeben soll. Wenn Sie blockierte Abfragezeichenfolgen hinzufügen möchten, klicken Sie auf **Show blocked suggestions** (Blockierte Vorschläge anzeigen). Fügen Sie die Abfragezeichenfolge der Liste hinzu, und drücken Sie die EINGABETASTE, oder klicken Sie auf das Symbol **+**. Sie können maximal 50 blockierte Abfragezeichenfolgen hinzufügen.
+Wenn Sie Bing-Vorschläge einschließen, können Sie eine Liste von Abfragezeichenfolgen für die Suche hinzufügen, die Bing nicht zurückgeben soll. Wenn Sie blockierte Abfragezeichenfolgen hinzufügen möchten, klicken Sie auf **Show blocked suggestions** (Blockierte Vorschläge anzeigen). Fügen Sie die Abfragezeichenfolge der Liste hinzu, und drücken Sie die EINGABETASTE, oder klicken Sie auf das Symbol **+** . Sie können maximal 50 blockierte Abfragezeichenfolgen hinzufügen.
 
 
 

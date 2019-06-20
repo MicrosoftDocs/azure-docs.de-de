@@ -2,19 +2,19 @@
 title: 'Datenfilterung: Benutzerdefinierter Translator'
 titleSuffix: Azure Cognitive Services
 description: Wenn Sie Dokumente übermitteln, die für das Trainieren eines benutzerdefinierten Systems verwendet werden sollen, durchlaufen die Dokumente eine Reihe von Verarbeitungs- und Filterschritten als Vorbereitung für das Training.
-author: v-pawal
+author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ba6d1ed5bc26f121f32fad548e7a17c1f4998851
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916109"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389354"
 ---
 # <a name="data-filtering"></a>Datenfilterung
 

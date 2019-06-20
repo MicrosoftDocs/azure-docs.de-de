@@ -16,11 +16,11 @@ ms.date: 02/22/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671963"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60852447"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurieren der gegenseitigen TLS-Authentifizierung für Azure App Service
 

@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085081"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60474934"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Einrichten der Sicherheitsinformation (Vorschauversion) zur Verwendung von Telefonanrufen
 Mit diesen Schritten können Sie Ihre Methoden für die zweistufige Überprüfung und die Kennwortzurücksetzung hinzufügen. Nachdem Sie die Ersteinrichtung abgeschlossen haben, können Sie zur Seite **Sicherheitsinformation** zurückkehren, um Sicherheitsinformationen hinzuzufügen, zu aktualisieren oder zu löschen.
@@ -51,7 +51,7 @@ Je nach den Einstellungen Ihrer Organisation können Sie Telefonanrufe als einer
 
     ![Feld „Methode hinzufügen“ mit ausgewählter Option „Telefon“](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-4. Geben Sie auf der Seite **Telefon** die Telefonnummer für Ihr Mobilgerät ein, wählen Sie **Anrufen** aus, und wählen Sie dann **Weiter** aus.
+4. Geben Sie auf der Seite **Telefon** die Telefonnummer für Ihr Mobilgerät ein, wählen **Anrufen**, und wählen Sie dann **Weiter** aus.
 
     ![Telefonnummer hinzufügen und Telefonanrufe wählen](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
@@ -86,11 +86,11 @@ Wenn Sie Telefonanrufe als Standardmethode für das Anmelden bei Ihrem Geschäft
 
     ![Link zum Ändern der Standardanmeldemethode](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Wählen Sie aus der Dropdownliste der verfügbaren Methoden die Option **Telefon – (*_Ihre_Telefonnummer_*) anrufen** aus, und klicken Sie dann auf **Bestätigen**.
+2. Wählen Sie aus der Dropdownliste der verfügbaren Methoden die Option **Telefon – ( *_Ihre_Telefonnummer_* ) anrufen** aus, und klicken Sie dann auf **Bestätigen**.
 
     ![Standardmäßige Anmeldemethode auswählen](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    Die Standardmethode für Anmeldungen ändert sich zu **Telefon – (*_Ihre_Telefonnummer_*) anrufen**.
+    Die Standardmethode für Anmeldungen ändert sich zu **Telefon – ( *_Ihre_Telefonnummer_* ) anrufen**.
 
 ## <a name="additional-security-info-methods"></a>Weitere Methoden für Sicherheitsinformationen
 Basierend auf der Aktion, die Sie ausführen möchten, stehen zusätzliche Möglichkeiten zur Verfügung, wie Ihre Organisation sich mit Ihnen in Verbindung setzen kann, um Ihre Identität zu überprüfen. Die Optionen lauten:

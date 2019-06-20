@@ -18,11 +18,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60437455"
 ---
 # <a name="license-requirements-to-use-pim"></a>Lizenzanforderungen für die Verwendung von PIM
 

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43f8d338cf07999d7791cbd5d3e8ddcc0d6b2b59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43e8134ede0735c40b18be739f58b7b69e88fce1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127861"
 ---
 # <a name="what-are-storsimple-virtual-array-limits"></a>Welche Einschränkungen gelten für ein StorSimple Virtual Array?
 

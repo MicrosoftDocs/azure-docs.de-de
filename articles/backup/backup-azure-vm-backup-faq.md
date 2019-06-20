@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885263"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966321"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Häufig gestellte Fragen – Sicherung von Azure-VMs
 
@@ -24,25 +24,25 @@ Dieser Artikel enthält Antworten auf häufig gestellte Fragen zur Sicherung von
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Welche VM-Images können für die Sicherung aktiviert werden, wenn ich sie erstelle?
 Wenn Sie eine VM erstellen, können Sie die Sicherung für VMs aktivieren, die auf [unterstützten Betriebssystemen](backup-support-matrix-iaas.md#supported-backup-actions) ausgeführt werden.
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Sind die Sicherungskosten in den VM-Kosten enthalten? 
 
- Nein. Die Sicherungskosten werden separat zu den Kosten einer VM berechnet. Erfahren Sie mehr über die [Preise für Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Welche Berechtigungen werden zum Aktivieren der Sicherung für eine VM benötigt? 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Sind die Sicherungskosten in den VM-Kosten enthalten?
 
-Wenn Sie ein „VM-Mitwirkender“ sind, können Sie die Sicherung der VM aktivieren. Wenn Sie eine benutzerdefinierte Rolle verwenden, benötigen Sie die folgenden Berechtigungen zum Aktivieren der Sicherung der VM: 
+Nein. Die Sicherungskosten werden separat zu den Kosten einer VM berechnet. Erfahren Sie mehr über die [Preise für Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Welche Berechtigungen werden zum Aktivieren der Sicherung für eine VM benötigt?
+
+Wenn Sie ein „VM-Mitwirkender“ sind, können Sie die Sicherung der VM aktivieren. Wenn Sie eine benutzerdefinierte Rolle verwenden, benötigen Sie die folgenden Berechtigungen zum Aktivieren der Sicherung der VM:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 Stellen Sie sicher, dass Sie in der Ressourcengruppe für den Recovery Services-Tresor über Schreibberechtigungen verfügen, wenn der Recovery Services-Tresor und die VM unterschiedliche Ressourcengruppen aufweisen.  
 
 
@@ -51,7 +51,7 @@ Stellen Sie sicher, dass Sie in der Ressourcengruppe für den Recovery Services-
 Überprüfen Sie die [Supportmatrix](backup-support-matrix-iaas.md) auf Supportdetails und -einschränkungen.
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Wird bei bedarfsbasierten Sicherungsaufträgen der gleiche Aufbewahrungszeitplan verwendet wie bei geplanten Sicherungen?
- Nein. Geben Sie die Beibehaltungsdauer für einen bedarfsgesteuerten Sicherungsauftrag an. Bei Aufträgen, die über das Portal ausgelöst werden, beträgt die Aufbewahrungsdauer standardmäßig 30 Tage.
+Nein. Geben Sie die Beibehaltungsdauer für einen bedarfsgesteuerten Sicherungsauftrag an. Bei Aufträgen, die über das Portal ausgelöst werden, beträgt die Aufbewahrungsdauer standardmäßig 30 Tage.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ich habe kürzlich für einige virtuelle Computer Azure Disk Encryption aktiviert. Funktionieren meine Sicherungen auch weiterhin?
 Gewähren Sie Azure Backup Berechtigungen für den Zugriff auf Key Vault. Geben Sie die Berechtigungen wie im Abschnitt zum **Aktivieren der Sicherung** in der Dokumentation zu [Azure Backup PowerShell](backup-azure-vms-automation.md) in PowerShell ein.
@@ -74,7 +74,7 @@ Wenn Sie die vom Azure Backup-Dienst erstellte Ressourcengruppe sperren, treten 
 Der Benutzer muss die Sperre aufheben und die Wiederherstellungspunkt-Sammlung aus dieser Ressourcengruppe löschen, damit die künftigen Sicherungen erfolgreich sind. [Gehen Sie folgendermaßen vor](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal), um die Wiederherstellungspunkt-Sammlung zu entfernen.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>Berücksichtigt die Sicherungsrichtlinie die Sommerzeit?
- Nein. Das Datum und die Uhrzeit auf Ihrem lokalen Computer stimmt mit der aktuellen lokalen Zeit überein (Sommerzeit berücksichtigt). Die festgelegte Zeit für geplante Sicherungen kann aufgrund der Sommerzeit von der lokalen Zeit abweichen.
+Nein. Das Datum und die Uhrzeit auf Ihrem lokalen Computer stimmt mit der aktuellen lokalen Zeit überein (Sommerzeit berücksichtigt). Die festgelegte Zeit für geplante Sicherungen kann aufgrund der Sommerzeit von der lokalen Zeit abweichen.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Wie viele Datenträger kann ich an eine VM anfügen, die durch Azure Backup gesichert wird?
 Azure Backup kann VMs mit bis zu 16 Datenträgern sichern. Unterstützung für 16 Datenträger wird in der [sofortigen Wiederherstellung](backup-instant-restore-capability.md) bereitgestellt.
@@ -140,3 +140,6 @@ Die VM wird unter Verwendung der Zeitplan- und Aufbewahrungseinstellungen in der
 3. Aktivieren Sie die Sicherung erneut in demselben oder einem neuen Tresor.
 
 Sie können eine Wiederherstellung der VM mithilfe der verfügbaren Wiederherstellungspunkte durchführen, die vor dem Verschiebevorgang erstellt wurden.
+
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Gibt es einen Grenzwert bei der Anzahl der VMs, die derselben Sicherungsrichtlinie zugeordnet werden können?
+Ja. Es gibt den Grenzwert 100 VMs, die über das Portal derselben Sicherungsrichtlinie zugeordnet werden können. Wir empfehlen, dass Sie bei mehr als 100 VMs mehrere Sicherungsrichtlinien mit demselben Zeitplan oder einem anderen Zeitplan erstellen.

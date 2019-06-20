@@ -16,11 +16,11 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: e3da856efd7d44f15f9de27c9e38375d40dc211d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60850964"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Konfigurieren Ihrer App Service-Anwendung zur Verwendung der Microsoft-Kontoanmeldung
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

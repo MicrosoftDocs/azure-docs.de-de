@@ -1,30 +1,30 @@
 ---
-title: Auswählen eines Seitenvertrags in Azure Active Directory B2C | Microsoft-Dokumentation
+title: Auswählen eines Seitenvertrags – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie in Azure Active Directory B2C einen Seitenvertrag auswählen.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: davidmu
+ms.date: 04/25/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7aab43695f0b11590d8bd2aa011073ba04d95250
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66512998"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Auswählen eines Seitenvertrags in Azure Active Directory B2C mit benutzerdefinierten Richtlinien
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Sie können den clientseitigen JavaScript-Code in Ihren Azure Active Directory B2C- Richtlinien (Azure AD) aktivieren, und zwar unabhängig davon, ob Sie Benutzerflows oder benutzerdefinierte Richtlinien verwenden. In diesem Artikel wird das Auswählen eines Seitenvertrags in Azure AD B2C beschrieben, indem dieser mit einer [benutzerdefinierten Richtlinie](active-directory-b2c-overview-custom.md) konfiguriert wird. Ein Seitenvertrag ist eine Zusammenstellung der von Azure AD B2C bereitgestellten Elemente und des von Ihnen bereitgestellten Inhalts. Wenn Sie [JavaScript](javascript-samples.md) verwenden möchten, müssen Sie eine Vertragsversion der Seite für alle Ihre Inhaltsdefinitionen in Ihrer benutzerdefinierten Richtlinie definieren.
+Sie können den clientseitigen JavaScript-Code in Ihren Azure Active Directory B2C- Richtlinien (Azure AD) aktivieren, und zwar unabhängig davon, ob Sie Benutzerflows oder benutzerdefinierte Richtlinien verwenden. Um JavaScript für Ihre Anwendungen zu aktivieren, müssen Sie ein Element zu Ihrer [benutzerdefinierten Richtlinie](active-directory-b2c-overview-custom.md) hinzufügen, einen Seitenvertrag auswählen und [b2clogin.com](b2clogin.md) in Ihren Anforderungen verwenden. Ein Seitenvertrag ist eine Zusammenstellung der von Azure AD B2C bereitgestellten Elemente und des von Ihnen bereitgestellten Inhalts. In diesem Artikel wird das Auswählen eines Seitenvertrags in Azure AD B2C beschrieben, indem dieser in einer benutzerdefinierten Richtlinie konfiguriert wird.
 
 > [!NOTE]
-> Wenn Sie JavaScript für Benutzerflows aktivieren möchten, lesen Sie unter [Verwenden von JavaScript und Seitenvertragsversionen in einem Benutzerflow](user-flow-javascript-overview.md) nach.
+> Wenn Sie JavaScript für Benutzerflows aktivieren möchten, finden Sie Informationen unter [JavaScript und Seitenvertragsversionen in Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>Ersetzen von DataUri-Werten
 

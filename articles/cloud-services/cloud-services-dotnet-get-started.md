@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 68801f888df55924791188a3f4ff5b718798c9f3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595154"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Erste Schritte mit Azure-Clouddiensten und ASP.NET
 
@@ -51,11 +51,12 @@ Dieses Tutorial setzt voraus, dass Sie mit den [Grundkonzepten von Azure-Clouddi
 
 Sie können die Anwendung ohne Azure-Abonnement lokal ausführen, aber für die Bereitstellung der Anwendung in der Cloud benötigen Sie ein Abonnement. Wenn Sie kein Konto haben, können Sie [Ihre MSDN-Abonnentenvorteile aktivieren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) oder [sich für eine kostenlose Testversion registrieren](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Die Anweisungen im Tutorial funktionieren mit den folgenden beiden Produkten:
+Die Anweisungen im Tutorial funktionieren mit allen der folgenden Produkte:
 
 * Visual Studio 2013
 * Visual Studio 2015
 * Visual Studio 2017
+* Visual Studio 2019
 
 Falls Sie keines dieser Produkte besitzen, wird Visual Studio möglicherweise zusammen mit dem Azure SDK installiert.
 
@@ -117,7 +118,7 @@ Führen Sie folgende Schritte aus, um die Anwendung in der Cloud auszuführen:
 Ein Azure-Clouddienst ist die Umgebung, in der die Anwendung ausgeführt wird.
 
 1. Öffnen Sie das [Azure-Portal](https://portal.azure.com) in Ihrem Browser.
-2. Klicken Sie auf **„Ressource erstellen“ > „Compute“ > „Clouddienst“**.
+2. Klicken Sie auf **„Ressource erstellen“ > „Compute“ > „Clouddienst“** .
 
 3. Geben Sie im Eingabefeld für den DNS-Namen ein URL-Präfix für den Clouddienst ein.
 
@@ -136,7 +137,7 @@ Ein Azure-Clouddienst ist die Umgebung, in der die Anwendung ausgeführt wird.
 ### <a name="create-an-azure-sql-database"></a>Erstellen einer Azure SQL-Datenbank
 Wenn die Anwendung in der Cloud ausgeführt wird, verwendet sie eine cloudbasierte Datenbank.
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com) auf **„Ressource erstellen“ > „Datenbanken“ > „SQL-Datenbank“**.
+1. Klicken Sie im [Azure-Portal](https://portal.azure.com) auf **„Ressource erstellen“ > „Datenbanken“ > „SQL-Datenbank“** .
 2. Geben Sie unter **Datenbankname** den Wert *contosoads*ein.
 3. Klicken Sie in der **Ressourcengruppe** auf **Vorhandene verwenden**, und wählen Sie die Ressourcengruppe aus, die für den Clouddienst verwendet wird.
 4. Klicken Sie in der folgenden Abbildung auf **Server – Erforderliche Einstellungen konfigurieren** und dann auf **Neuen Server erstellen**.
@@ -163,7 +164,7 @@ Azure-Speicherkonten bieten Ressourcen zum Speichern von Warteschlangen- und Blo
 
 In einer tatsächlichen Anwendung würden Sie normalerweise separate Konten für Anwendungsdaten und Protokolldaten sowie für Test- und Produktionsdaten erstellen. In diesem Tutorial verwenden wir nur ein einzelnes Konto.
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com) auf **„Ressource erstellen“ > „Storage“ > „Speicherkonto – Blob, Datei, Tabelle, Warteschlange“**.
+1. Klicken Sie im [Azure-Portal](https://portal.azure.com) auf **„Ressource erstellen“ > „Storage“ > „Speicherkonto – Blob, Datei, Tabelle, Warteschlange“** .
 2. Geben Sie im Feld **Name** ein URL-Präfix ein.
 
     Dieses Präfix zusammen mit dem Text unterhalb des Eingabefelds ergibt die eindeutige URL Ihres Speicherkontos. Falls das eingegebene Präfix bereits von einer anderen Person verwendet wird, müssen Sie ein anderes Präfix auswählen.
@@ -235,7 +236,7 @@ Die Verbindungszeichenfolgen für das Azure-Speicherkonto für das Web- und Work
 2. Klicken Sie auf die Registerkarte **Settings** . Wählen Sie in der Dropdownliste **Dienstkonfiguration** den Wert **Cloud** aus.
 
     ![Cloudkonfiguration](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Wenn Sie den Eintrag **StorageConnectionString** auswählen, sehen Sie am Ende der Zeile eine Schaltfläche mit Auslassungspunkten (**...**). Klicken Sie auf die elliptische Schaltfläche, um das Dialogfeld **Verbindungszeichenfolge für Speicherkonto erstellen** zu öffnen.
+3. Wenn Sie den Eintrag **StorageConnectionString** auswählen, sehen Sie am Ende der Zeile eine Schaltfläche mit Auslassungspunkten ( **...** ). Klicken Sie auf die elliptische Schaltfläche, um das Dialogfeld **Verbindungszeichenfolge für Speicherkonto erstellen** zu öffnen.
 
     ![Erstellungsdialog für Verbindungszeichenfolge](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. Klicken Sie im Dialogfeld **Verbindungszeichenfolge für Speicherkonto** auf **Ihr Abonnement**, wählen Sie das zuvor erstellte Speicherkonto aus, und klicken Sie auf **OK**. Falls Sie noch nicht angemeldet sind, werden Sie zur Eingabe Ihrer Azure-Anmeldeinformationen aufgefordert.
@@ -325,7 +326,7 @@ Nach der Erstellung der Lösung werden Sie den Code prüfen, der speziell für C
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Erstellen einer Clouddienst-Lösung in Visual Studio
 1. Klicken Sie in Visual Studio im Menü **Neues Projekt** from the **Neues Projekt** .
-2. Erweitern Sie im linken Bereich des Dialogfelds **Neues Projekt** den Eintrag **Visual C#**, wählen Sie den Vorlagentyp **Cloud** aus, und klicken Sie auf die Vorlage **Azure Cloud Service**.
+2. Erweitern Sie im linken Bereich des Dialogfelds **Neues Projekt** den Eintrag **Visual C#** , wählen Sie den Vorlagentyp **Cloud** aus, und klicken Sie auf die Vorlage **Azure Cloud Service**.
 3. Geben Sie den Namen ContosoAdsCloudService für Projekt und Lösung ein, und klicken Sie auf **OK**.
 
     ![Neues Projekt](./media/cloud-services-dotnet-get-started/newproject.png)
@@ -391,7 +392,7 @@ In diesem Abschnitt konfigurieren Sie die Verbindungszeichenfolgen für Azure St
 8. Fügen Sie ebenfalls im **ContosoAdsWorker [Role]** -Eigenschaftenfenster eine weitere Verbindungszeichenfolge hinzu:
 
    * Name: ContosoAdsDbConnectionString
-   * Geben Sie Folgendes ein:  Zeichenfolge
+   * Geben Sie Folgendes ein:  string
    * Wert: Fügen Sie dieselbe Verbindungszeichenfolge ein, die Sie auch für das Webrollenprojekt verwendet haben. (Das folgende Beispiel bezieht sich auf Visual Studio 2013. Wenn Sie Visual Studio 2015 oder höher verwenden und dieses Beispiel kopieren, sollten sich daran denken, den Wert für „Data Source“ zu ändern.)
 
        ```

@@ -9,10 +9,10 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
 ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230980"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matrix der Ansible-Module und -Versionen

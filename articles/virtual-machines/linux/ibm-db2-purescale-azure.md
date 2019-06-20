@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
 ms.openlocfilehash: 1622de0cccdbc8fee0681e209e756b30da292d3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60543008"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale in Azure
 

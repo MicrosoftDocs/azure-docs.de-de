@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8c1e50064491032d78e467496f0c53300dd6acd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 24a723bd32cb40807da1757b3fffb925d4ba1fef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799187"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Anzeigen und Bearbeiten von Video Indexer-Auswertungen
 
@@ -36,7 +37,7 @@ In diesem Thema wird veranschaulicht, wie Sie die Video Indexer-Erkenntnisse ein
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Informieren Sie sich über die Erstellung Ihrer eigenen Video Indexer-Erkenntnisse basierend auf einem anderen Video](video-indexer-create-new.md).
+[Verwenden der tiefen Einblicke Ihrer Videos](use-editor-create-project.md)
 
 ## <a name="see-also"></a>Weitere Informationen
 

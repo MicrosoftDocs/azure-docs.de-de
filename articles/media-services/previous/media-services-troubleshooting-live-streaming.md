@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: f502e3228274840d23b9f52512280fc0d9f0553b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60544693"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Anleitung zur Behandlung von Problemen bei Livestreaming  
 

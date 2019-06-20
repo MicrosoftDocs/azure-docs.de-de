@@ -1,5 +1,5 @@
 ---
-title: Includedatei
+title: include file
 description: Includedatei mit erforderlichen Komponenten
 services: active-directory-ds
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
 ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551528"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178673"
 ---
 > [!IMPORTANT]
 > **Aktivieren Sie die Kennworthashsynchronisierung mit Azure AD Domain Services, bevor Sie die Aufgaben in diesem Artikel ausführen.**

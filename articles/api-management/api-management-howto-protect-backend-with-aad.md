@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141077"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241674"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Schützen einer API über OAuth 2.0 mit Azure Active Directory und API Management
 
@@ -44,17 +44,19 @@ Es folgt eine kurze Übersicht über die Schritte:
 
 Um eine API mit Azure AD zu schützen, besteht der erste Schritt darin, eine Anwendung in Azure AD zu registrieren, die die API darstellt. 
 
-1. Navigieren Sie zu Ihrem Azure AD-Mandanten und dann zu **App-Registrierungen (Legacy)**.
+1. Navigieren Sie zur Seite [Azure-Portal – App-Registrierungen](https://go.microsoft.com/fwlink/?linkid=2083908). 
 
-2. Wählen Sie **Registrierung einer neuen Anwendung** aus. 
+2. Wählen Sie **Neue Registrierung** aus. 
 
-3. Geben Sie den Namen der Anwendung an. (In diesem Beispiel lautet der Name `backend-app`.)  
+1. Geben Sie auf der daraufhin angezeigten Seite **Anwendung registrieren** die Registrierungsinformationen Ihrer Anwendung ein: 
+    - Geben Sie im Abschnitt **Name** einen aussagekräftigen Anwendungsnamen ein, der den Benutzern der App angezeigt wird (beispielsweise `backend-app`). 
+    - Wählen Sie im Abschnitt **Unterstützte Kontotypen** die Option **Konten in einem beliebigen Organisationsverzeichnis** aus. 
 
-4. Wählen Sie **Web-App/API** als **Anwendungstyp** aus. 
+1. Lassen Sie den Abschnitt **Umleitungs-URI** erst einmal leer.
 
-5. Für **Anmelde-URL** können Sie `https://localhost` als Platzhalter verwenden.
+1. Wählen Sie **Registrieren** aus, um die Anwendung zu erstellen. 
 
-6. Klicken Sie auf **Erstellen**.
+1. Suchen Sie auf der Seite **Übersicht** den Wert von **Anwendungsclient-ID** und notieren Sie ihn zur späteren Verwendung.
 
 Wenn die Anwendung erstellt wird, notieren Sie sich die **Anwendungs-ID**, um sie in einem späteren Schritt verwenden zu können. 
 
@@ -62,23 +64,25 @@ Wenn die Anwendung erstellt wird, notieren Sie sich die **Anwendungs-ID**, um si
 
 Jede Clientanwendung, aus der die API aufgerufen wird, muss auch in Azure AD als eine Anwendung registriert werden. In diesem Beispiel wird die Entwicklerkonsole im API Management-Entwicklerportal als Beispielclientanwendung verwendet. So registrieren Sie eine weitere Anwendung in Azure AD, die die Entwicklerkonsole darstellt:
 
-1. Wählen Sie unter **App-Registrierungen (Legacy)** die Option **Registrierung einer neuen Anwendung** aus. 
+1. Navigieren Sie zur Seite [Azure-Portal – App-Registrierungen](https://go.microsoft.com/fwlink/?linkid=2083908). 
 
-2. Geben Sie den Namen der Anwendung an. (In diesem Beispiel lautet der Name `client-app`.)
+1. Wählen Sie **Neue Registrierung** aus.
 
-3. Wählen Sie **Web-App/API** als **Anwendungstyp** aus.  
+1. Geben Sie auf der daraufhin angezeigten Seite **Anwendung registrieren** die Registrierungsinformationen Ihrer Anwendung ein: 
+    - Geben Sie im Abschnitt **Name** einen aussagekräftigen Anwendungsnamen ein, der den Benutzern der App angezeigt wird (beispielsweise `client-app`). 
+    - Wählen Sie im Abschnitt **Unterstützte Kontotypen** die Option **Konten in einem beliebigen Organisationsverzeichnis** aus. 
 
-4. Für **Anmelde-URL** können Sie `https://localhost` als Platzhalter oder die Anmelde-URL Ihrer API Management-Instanz verwenden. (In diesem Beispiel lautet die URL `https://contoso5.portal.azure-api.net/signin`.)
+1. Wählen Sie im Abschnitt **Umleitungs-URI** die Option `Web` aus, und geben Sie die URL `https://contoso5.portal.azure-api.net/signin` ein.
 
-5. Klicken Sie auf **Erstellen**.
+1. Wählen Sie **Registrieren** aus, um die Anwendung zu erstellen. 
 
-Wenn die Anwendung erstellt wird, notieren Sie sich die **Anwendungs-ID**, um sie in einem späteren Schritt verwenden zu können. 
+1. Suchen Sie auf der Seite **Übersicht** den Wert von **Anwendungsclient-ID** und notieren Sie ihn zur späteren Verwendung.
 
 Erstellen Sie nun einen geheimen Clientschlüssel für diese Anwendung, der in einem späteren Schritt verwendet wird.
 
-1. Klicken Sie erneut auf **Einstellungen**, und wechseln Sie zu **Schlüssel**.
+1. Wählen Sie in der Liste der Seiten für Ihre Client-App die Option **Zertifikate und Geheimnisse** aus, und klicken Sie auf **Neuer geheimer Clientschlüssel**.
 
-2. Geben Sie unter **Kennwörter** eine **Schlüsselbeschreibung** ein. Legen Sie ein Ablaufdatum für den Schlüssel fest, und klicken Sie auf **Speichern**.
+2. Geben Sie unter **Geheimen Clientschlüssel hinzufügen** eine **Beschreibung** ein. Legen Sie ein Ablaufdatum für den Schlüssel fest, und klicken Sie auf **Hinzufügen**.
 
 Notieren Sie sich den Schlüsselwert. 
 
@@ -86,17 +90,17 @@ Notieren Sie sich den Schlüsselwert.
 
 Nachdem nun zwei Anwendungen registriert sind, die die API und die Entwicklerkonsole darstellen, müssen Sie Berechtigungen gewähren, damit die Client-App die Back-End-App aufrufen kann.  
 
-1. Navigieren Sie zu **Anwendungsregistrierungen (Legacy)**. 
+1. Navigieren Sie zu **App-Registrierungen**. 
 
-2. Klicken Sie auf `client-app`, und wechseln Sie zu **Einstellungen**.
+2. Wählen Sie `client-app` aus, und wechseln Sie in der Liste mit den Seiten für die App zu **API-Berechtigungen**.
 
-3. Klicken Sie auf **Erforderliche Berechtigungen** > **Hinzufügen**.
+3. Wählen Sie **Berechtigung hinzufügen** aus.
 
-4. Klicken Sie auf **Hiermit wählen Sie eine API aus**, und suchen Sie nach `backend-app`.
+4. Suchen Sie unter **API auswählen** nach `backend-app`, und wählen Sie die Option aus.
 
-5. Klicken Sie unter **Delegierte Berechtigungen** auf `Access backend-app`. 
+5. Wählen Sie unter **Delegierte Berechtigungen** die geeigneten Berechtigungen für `backend-app` aus.
 
-6. Klicken Sie auf **Auswählen** und dann auf **Fertig**. 
+6. Wählen Sie **Berechtigungen hinzufügen** aus. 
 
 > [!NOTE]
 > Wenn **Azure Active Directory** unter den Berechtigungen für andere Programme nicht aufgeführt ist, klicken Sie auf **Hinzufügen**, und fügen Sie die Option aus der Liste hinzu.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e51061dc781e4ec6e822cde9cc450887ff3b1368
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9aee881844e9338cc1da2484a94c8355f2516c82
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061184"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720761"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Benutzeroberflächenelement „Microsoft.Common.OptionsGroup“
 Ein Auswahlsteuerelement mit einer Zeile der verfügbaren Optionen.

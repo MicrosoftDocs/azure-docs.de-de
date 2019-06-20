@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: jehollan
 ms.openlocfilehash: c82ed7aa841f53f5c81f3281ed1b09926e565e75
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65080464"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions in Kubernetes mit KEDA

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: e4ec13453c204885f38b10272e76245e641fbef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f54da6e350b2cf9027b6e9e02ace2a90e292e1ce
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203589"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472344"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob Storage-Bindungen für Azure Functions
 
@@ -258,7 +258,7 @@ public void run(
 
 Verwenden Sie in [C#-Klassenbibliotheken](functions-dotnet-class-library.md) die folgenden Attribute, um einen Blobtrigger zu konfigurieren:
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
   Der Konstruktor des Attributs akzeptiert eine Pfadzeichenfolge, die den zu überwachenden Container angibt, und optional ein [Blobnamensmuster](#trigger---blob-name-patterns). Hier sehen Sie ein Beispiel:
 
@@ -420,7 +420,7 @@ Die Azure Functions-Runtime stellt sicher, dass Blobtriggerfunktionen für ein n
 
 Azure Functions speichert Blobbelege in einem Container mit dem Namen *azure-webjobs-hosts* im Azure Storage-Konto für Ihre Funktions-App (per App-Einstellung `AzureWebJobsStorage` definiert). Ein Blobbeleg enthält die folgenden Informationen:
 
-* Die ausgelöste Funktion („*&lt;Funktions-App-Name>*.Functions.*&lt;Funktionsname>*“, z. B.: „MyFunctionApp.Functions.CopyBlob“)
+* Die ausgelöste Funktion („ *&lt;Funktions-App-Name>* .Functions. *&lt;Funktionsname>* “, z. B.: „MyFunctionApp.Functions.CopyBlob“)
 * Containername
 * Blobtyp ("BlockBlob" oder "PageBlob")
 * Blobname
@@ -434,7 +434,7 @@ Wenn bei Ausführung einer Blobtriggerfunktion für ein Blob ein Fehler auftritt
 
 Wenn bei allen fünf Versuchen Fehler auftreten, fügt Azure Functions der Storage-Warteschlange *webjobs-blobtrigger-poison* eine Nachricht hinzu. Die Warteschlangennachricht für nicht verarbeitbare Blobs ist ein JSON-Objekt, das die folgenden Eigenschaften enthält:
 
-* FunctionId (im Format *&lt;Funktionen-App-Name>*.Functions.*&lt;Funktionsname>*)
+* FunctionId (im Format *&lt;Funktionen-App-Name>* .Functions. *&lt;Funktionsname>* )
 * BlobType ("BlockBlob" oder "PageBlob")
 * ContainerName
 * BlobName

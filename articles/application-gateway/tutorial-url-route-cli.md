@@ -1,27 +1,27 @@
 ---
-title: Tutorial – Weiterleiten von Webdatenverkehr basierend auf der URL – Azure-CLI
-description: In diesem Tutorial erfahren Sie, wie Sie Webdatenverkehr basierend auf der URL mithilfe der Azure-Befehlszeilenschnittstelle an spezifische skalierbare Serverpools weiterleiten.
+title: Weiterleiten von Webdatenverkehr basierend auf der URL – Azure CLI
+description: In diesem Artikel erfahren Sie, wie Sie Webdatenverkehr basierend auf der URL mithilfe der Azure-Befehlszeilenschnittstelle an spezifische skalierbare Serverpools weiterleiten.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006480"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955548"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: Weiterleiten von Webdatenverkehr basierend auf der URL mit der Azure-Befehlszeilenschnittstelle
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Weiterleiten von Webdatenverkehr basierend auf der URL mit der Azure-Befehlszeilenschnittstelle
 
-Als IT-Administrator, der Webdatenverkehr verwaltet, möchten Sie Ihren Kunden oder Benutzern dabei helfen, schnellstmöglich die Informationen zu erhalten, die sie benötigen. Zur Verbesserung der Benutzerfreundlichkeit können Sie unter anderem verschiedene Arten von Webdatenverkehr an verschiedene Serverressourcen weiterleiten. In diesem Tutorial erfahren Sie, wie Sie die Azure-Befehlszeilenschnittstelle verwenden, um Application Gateway-Routing für verschiedene Arten von Datenverkehr aus Ihrer Anwendung einzurichten und zu konfigurieren. Der Datenverkehr wird dann auf der Grundlage der URL an verschiedene Serverpools weitergeleitet.
+Als IT-Administrator, der Webdatenverkehr verwaltet, möchten Sie Ihren Kunden oder Benutzern dabei helfen, schnellstmöglich die Informationen zu erhalten, die sie benötigen. Zur Verbesserung der Benutzerfreundlichkeit können Sie unter anderem verschiedene Arten von Webdatenverkehr an verschiedene Serverressourcen weiterleiten. In diesem Artikel erfahren Sie, wie Sie die Azure-Befehlszeilenschnittstelle verwenden, um Application Gateway-Routing für verschiedene Arten von Datenverkehr aus Ihrer Anwendung einzurichten und zu konfigurieren. Der Datenverkehr wird dann auf der Grundlage der URL an verschiedene Serverpools weitergeleitet.
 
 ![URL-Routingbeispiel](./media/tutorial-url-route-cli/scenario.png)
 
-In diesem Tutorial lernen Sie Folgendes:
+In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 > [!div class="checklist"]
 > * Erstellen einer Ressourcengruppe für die benötigten Netzwerkressourcen
@@ -31,13 +31,13 @@ In diesem Tutorial lernen Sie Folgendes:
 > * Erstellen einer Skalierungsgruppe für jeden Pool, damit der Pool automatisch skaliert werden kann
 > * Testen, ob die verschiedenen Arten von Datenverkehr an den richtigen Pool weitergeleitet werden
 
-Dieses Tutorial kann auch mit [Azure PowerShell](tutorial-url-route-powershell.md) oder mit dem [Azure-Portal](create-url-route-portal.md) durchgearbeitet werden.
+Dieses Verfahren kann auch mit [Azure PowerShell](tutorial-url-route-powershell.md) oder mit dem [Azure-Portal](create-url-route-portal.md) durchgearbeitet werden.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
+Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für diesen Artikel die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>Erstellen von VM-Skalierungsgruppen
 
-In diesem Tutorial erstellen Sie drei VM-Skalierungsgruppen, die die drei von Ihnen erstellten Back-End-Pools unterstützen. Sie erstellen Skalierungsgruppen namens *myvmss1*, *myvmss2* und *myvmss3*. Jede Skalierungsgruppe enthält zwei VM-Instanzen, auf denen Sie NGINX installieren.
+In diesem Artikel erstellen Sie drei VM-Skalierungsgruppen, die die drei von Ihnen erstellten Back-End-Pools unterstützen. Sie erstellen Skalierungsgruppen namens *myvmss1*, *myvmss2* und *myvmss3*. Jede Skalierungsgruppe enthält zwei VM-Instanzen, auf denen Sie NGINX installieren.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Erstellen eines Anwendungsgateways mit Umleitung auf URL-Pfadbasis](./tutorial-url-redirect-cli.md)
+* [Erstellen eines Anwendungsgateways mit Umleitung auf URL-Pfadbasis](./tutorial-url-redirect-cli.md)

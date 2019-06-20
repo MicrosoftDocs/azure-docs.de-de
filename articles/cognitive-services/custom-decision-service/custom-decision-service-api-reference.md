@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
 ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552060"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60510953"
 ---
 # <a name="api"></a>API
 

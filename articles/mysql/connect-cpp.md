@@ -8,15 +8,15 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: b262359b91a2545682e7611c44cfccd2b08da0c1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ff5232c4569e94322d76928f19f202c8bad1a39a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544191"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428506"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL: Verwenden eines Connectors/von C++ zum Herstellen einer Verbindung und Abfragen von Daten
-Dieser Schnellstart zeigt, wie Sie mit einer C#-Anwendung eine Verbindung mit einer Azure Database for MySQL-Instanz herstellen. Es wird veranschaulicht, wie Sie SQL-Anweisungen zum Abfragen, Einfügen, Aktualisieren und Löschen von Daten in der Datenbank verwenden. Bei den Schritten in diesem Artikel wird davon ausgegangen, dass Sie mit der C#-Entwicklung vertraut sind und noch keine Erfahrung mit Azure Database for MySQL haben.
+Dieser Schnellstart zeigt, wie Sie mit einer C#-Anwendung eine Verbindung mit einer Azure Database for MySQL-Instanz herstellen. Es wird veranschaulicht, wie Sie SQL-Anweisungen zum Abfragen, Einfügen, Aktualisieren und Löschen von Daten in der Datenbank verwenden. In diesem Thema wird davon ausgegangen, dass Sie mit der C++-Entwicklung vertraut sind, aber noch keine Erfahrung mit Azure Database for MySQL haben.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 In diesem Schnellstart werden die Ressourcen, die in den folgenden Anleitungen erstellt wurden, als Ausgangspunkt verwendet:
@@ -30,25 +30,25 @@ Außerdem benötigen Sie Folgendes:
 - Installieren von [Boost](https://www.boost.org/)
 
 ## <a name="install-visual-studio-and-net"></a>Installieren von Visual Studio Code und .NET
-Bei den Schritten in diesem Abschnitt wird davon ausgegangen, dass Sie mit der Entwicklung per .NET vertraut sind.
+Bei den Schritten in diesem Abschnitt wird davon ausgegangen, dass Sie mit der .NET-Entwicklung vertraut sind.
 
 ### <a name="windows"></a>**Windows**
-- Installieren Sie Visual Studio 2017 Community. Hierbei handelt es sich um eine vollwertige, kostenlose und erweiterbare IDE zum Erstellen von modernen Anwendungen für Android, iOS und Windows sowie zum Erstellen von Web- und Datenbankanwendungen sowie Clouddiensten. Sie können entweder das vollständige .NET Framework oder nur .NET Core installieren. Die Codeausschnitte in der Schnellstartanleitung können mit beiden Lösungen verwendet werden. Falls Visual Studio bereits auf Ihrem Computer installiert ist, können Sie die nächsten beiden Schritte überspringen.
-   1. Laden Sie das [Visual Studio 2017-Installationsprogramm](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15) herunter. 
+- Installieren Sie Visual Studio 2019 Community. Visual Studio 2019 Community ist eine erweiterbare IDE mit vollem Funktionsumfang, die kostenlos bereitgestellt wird. Mit dieser IDE können Sie moderne Anwendungen für Android, iOS und Windows, Web- und Datenanwendungen sowie Clouddienste entwickeln. Sie können entweder das vollständige .NET Framework oder nur .NET Core installieren. Die Codeausschnitte in der Schnellstartanleitung können mit beiden Lösungen verwendet werden. Falls Visual Studio bereits auf Ihrem Computer installiert ist, können Sie die nächsten beiden Schritte überspringen.
+   1. Laden Sie das [Visual Studio 2019-Installationsprogramm](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15) herunter. 
    2. Führen Sie das Installationsprogramm aus, und befolgen Sie die Installationsanweisungen, um die Installation abzuschließen.
 
 ### <a name="configure-visual-studio"></a>**Konfigurieren von Visual Studio**
-1. Fügen Sie in Visual Studio unter „Projekt“ > „Eigenschaften“ > „Linker“ > „Allgemein“ > „Zusätzliche Bibliotheksverzeichnisse“ das Verzeichnis „\lib\opt“ (also „C:\Programme (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt“) des C++-Connectors hinzu.
+1. Fügen Sie in Visual Studio unter „Projekt“ > „Eigenschaften“ > „Linker“ > „Allgemein“ > „Zusätzliche Bibliotheksverzeichnisse“ das Verzeichnis „\lib\opt“ (Beispiel: „C:\Programme (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt“) des C++-Connectors hinzu.
 2. Gehen Sie in Visual Studio unter „Projekt“ > „Eigenschaften“ > „C/C++“ > „Allgemein“ > „Zusätzliche Includeverzeichnisse“ wie folgt vor:
-   - Fügen Sie das Verzeichnis „\include“ des C++-Connectors (also „C:\Programme (x86)\MySQL\MySQL Connector C++ 1.1.9\include“\) hinzu.
-   - Fügen Sie das Stammverzeichnis der Boost-Bibliothek hinzu (also „C:\boost_1_64_0“\).
+   - Fügen Sie das Verzeichnis „\include“ des C++-Connectors (Beispiel: „C:\Programme (x86)\MySQL\MySQL Connector C++ 1.1.9\include“\) hinzu.
+   - Fügen Sie das Stammverzeichnis der Boost-Bibliothek hinzu (Beispiel: „C:\boost_1_64_0“\).
 3. Fügen Sie in Visual Studio unter „Projekt“ > „Eigenschaften“ > „Linker“ > „Eingabe“ > „Zusätzliche Abhängigkeiten“ dem Textfeld die Bibliothek **mysqlcppconn.lib** hinzu.
 4. Kopieren Sie die Datei **mysqlcppconn.dll** aus dem Bibliotheksordner des C++-Connectors in Schritt 3 in dasselbe Verzeichnis wie die ausführbare Datei der Anwendung, oder fügen Sie sie der Umgebungsvariablen hinzu, damit sie von Ihrer Anwendung gefunden werden kann.
 
 ## <a name="get-connection-information"></a>Abrufen von Verbindungsinformationen
 Rufen Sie die Verbindungsinformationen ab, die zum Herstellen einer Verbindung mit der Azure SQL-Datenbank für MySQL erforderlich sind. Sie benötigen den vollqualifizierten Servernamen und die Anmeldeinformationen.
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 2. Klicken Sie im Azure-Portal im linken Menü auf **Alle Ressourcen**, und suchen Sie dann nach dem soeben erstellten Server, z.B. **mydemoserver**.
 3. Klicken Sie auf den Servernamen.
 4. Notieren Sie sich im Bereich **Übersicht** des Servers den **Servernamen** und den **Anmeldenamen des Serveradministrators**. Wenn Sie Ihr Kennwort vergessen haben, können Sie es in diesem Bereich auch zurücksetzen.
@@ -57,7 +57,7 @@ Rufen Sie die Verbindungsinformationen ab, die zum Herstellen einer Verbindung m
 ## <a name="connect-create-table-and-insert-data"></a>Herstellen der Verbindung, Erstellen der Tabelle und Einfügen von Daten
 Verwenden Sie den folgenden Code, um eine Verbindung herzustellen und die Daten zu laden, indem Sie die SQL-Anweisungen **CREATE TABLE** und **INSERT INTO** verwenden. Im Code wird die sql::Driver-Klasse mit der connect()-Methode verwendet, um eine Verbindung mit MySQL herzustellen. Anschließend werden im Code die Methoden „createStatement()“ und „execute()“ verwendet, um die Datenbankbefehle auszuführen. 
 
-Ersetzen Sie die Parameter „Host“, „DBName“, „User“ und „Password“ durch die Werte, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
+Ersetzen Sie die Parameter für Host, DBName, Benutzer und Kennwort. Sie können die Parameter durch die Werte ersetzen, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
 
 ```c++
 #include <stdlib.h>
@@ -131,7 +131,7 @@ int main()
 
 Verwenden Sie den folgenden Code, um die Daten mit einer SQL-Anweisung des Typs **SELECT** zu verbinden und zu lesen. Im Code wird die sql::Driver-Klasse mit der connect()-Methode verwendet, um eine Verbindung mit MySQL herzustellen. Anschließend werden im Code die Methoden „prepareStatement()“ und „executeQuery()“ verwendet, um die Auswahlbefehle auszuführen. Als Nächstes wird im Code „next()“ verwendet, um zu den Datensätzen in den Ergebnissen zu gelangen. Schließlich werden im Code „getInt()“ und „getString()“ verwendet, um die Werte im Datensatz zu analysieren.
 
-Ersetzen Sie die Parameter „Host“, „DBName“, „User“ und „Password“ durch die Werte, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
+Ersetzen Sie die Parameter für Host, DBName, Benutzer und Kennwort. Sie können die Parameter durch die Werte ersetzen, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
 
 ```c++
 #include <stdlib.h>
@@ -190,7 +190,7 @@ int main()
 ## <a name="update-data"></a>Aktualisieren von Daten
 Verwenden Sie den folgenden Code, um die Daten mit einer SQL-Anweisung des Typs **UPDATE** zu verbinden und zu lesen. Im Code wird die sql::Driver-Klasse mit der connect()-Methode verwendet, um eine Verbindung mit MySQL herzustellen. Anschließend werden im Code die Methoden „prepareStatement()“ und „executeQuery()“ verwendet, um die Aktualisierungsbefehle auszuführen. 
 
-Ersetzen Sie die Parameter „Host“, „DBName“, „User“ und „Password“ durch die Werte, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
+Ersetzen Sie die Parameter für Host, DBName, Benutzer und Kennwort. Sie können die Parameter durch die Werte ersetzen, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
 
 ```c++
 #include <stdlib.h>
@@ -248,7 +248,7 @@ int main()
 ## <a name="delete-data"></a>Löschen von Daten
 Verwenden Sie den folgenden Code, um die Daten mit einer SQL-Anweisung des Typs **DELETE** zu verbinden und zu lesen. Im Code wird die sql::Driver-Klasse mit der connect()-Methode verwendet, um eine Verbindung mit MySQL herzustellen. Anschließend werden im Code die Methoden „prepareStatement()“ und „executeQuery()“ verwendet, um die Löschbefehle auszuführen.
 
-Ersetzen Sie die Parameter „Host“, „DBName“, „User“ und „Password“ durch die Werte, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
+Ersetzen Sie die Parameter für Host, DBName, Benutzer und Kennwort. Sie können die Parameter durch die Werte ersetzen, die Sie beim Erstellen des Servers und der Datenbank angegeben haben. 
 
 ```c++
 #include <stdlib.h>

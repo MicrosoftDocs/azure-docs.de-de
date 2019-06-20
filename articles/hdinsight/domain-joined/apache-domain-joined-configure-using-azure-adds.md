@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415486"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240176"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurieren eines HDInsight-Clusters mit Enterprise-Sicherheitspaket (Enterprise Security Package, ESP) mithilfe von Azure Active Directory Domain Services
 
@@ -31,13 +31,13 @@ In diesem Artikel erfahren Sie, wie Sie einen HDInsight-Cluster mit ESP mit Azur
 >
 > Wenn der Clusterspeicher Azure Blob Storage (WASB) ist, deaktivieren Sie MFA nicht.
 
-Das Aktivieren von AD DS ist eine Voraussetzung zum Erstellen eines HDInsight-Clusters mit ESP. Weitere Informationen finden Sie unter [Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Das Aktivieren von AD DS ist eine Voraussetzung zum Erstellen eines HDInsight-Clusters mit ESP. Weitere Informationen finden Sie unter [Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals](../../active-directory-domain-services/create-instance.md). 
 
 Wenn Azure AD DS aktiviert ist, beginnen alle Benutzer und Objekte standardmäßig mit der Synchronisierung von Azure Active Directory (AAD) zu Azure AD DS. Die Dauer des Synchronisierungsvorgangs hängt von der Anzahl von Objekten in Azure AD ab. Die Synchronisierung kann bei Hunderttausenden von Objekten einige Tage dauern. 
 
-Sie können auswählen, nur die Gruppen zu synchronisieren, die Zugriff auf die HDInsight-Cluster benötigen. Diese Option, nur bestimmte Gruppen zu synchronisieren, wird als *bereichsbezogene Synchronisierung* bezeichnet. Anweisungen finden Sie unter [Konfigurieren der bereichsbezogenen Synchronisierung von Azure AD mit Ihrer verwalteten Domäne](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md).
+Sie können auswählen, nur die Gruppen zu synchronisieren, die Zugriff auf die HDInsight-Cluster benötigen. Diese Option, nur bestimmte Gruppen zu synchronisieren, wird als *bereichsbezogene Synchronisierung* bezeichnet. Anweisungen finden Sie unter [Konfigurieren der bereichsbezogenen Synchronisierung von Azure AD mit Ihrer verwalteten Domäne](../../active-directory-domain-services/scoped-synchronization.md).
 
-Wenn Sie Secure LDAP aktivieren, geben Sie den Domänennamen im Antragstellernamen und im alternativen Antragstellernamen im Zertifikat ein. Wenn Ihr Domänenname beispielsweise *contoso100.onmicrosoft.com* lautet, stellen Sie sicher, dass der genaue Name im Antragstellernamen und im alternativen Antragstellernamen des Zertifikats vorhanden ist. Weitere Informationen finden Sie unter [Konfigurieren von sicherem LDAP für eine durch Azure AD DS verwaltete Domäne](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Nachfolgend sehen Sie ein Beispiel zum Erstellen eines selbstsignierten Zertifikats mit dem Domänennamen (*contoso100.onmicrosoft.com*) im Antragstellernamen und im alternativen Antragstellernamen (DnsName):
+Wenn Sie Secure LDAP aktivieren, geben Sie den Domänennamen im Antragstellernamen und im alternativen Antragstellernamen im Zertifikat ein. Wenn Ihr Domänenname beispielsweise *contoso100.onmicrosoft.com* lautet, stellen Sie sicher, dass der genaue Name im Antragstellernamen und im alternativen Antragstellernamen des Zertifikats vorhanden ist. Weitere Informationen finden Sie unter [Konfigurieren von sicherem LDAP für eine durch Azure AD DS verwaltete Domäne](../../active-directory-domain-services/configure-ldaps.md). Nachfolgend sehen Sie ein Beispiel zum Erstellen eines selbstsignierten Zertifikats mit dem Domänennamen (*contoso100.onmicrosoft.com*) im Antragstellernamen und im alternativen Antragstellernamen (DnsName):
 
 ```powershell
 $lifetime=Get-Date

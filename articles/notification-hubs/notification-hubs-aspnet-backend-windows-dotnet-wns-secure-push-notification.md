@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475678"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61459249"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Sicheres Übertragen von Pushbenachrichtigungen von Azure Notification Hubs
 
@@ -90,10 +90,10 @@ Dieses Lernprogramm zu sicheren Pushbenachrichtigungen veranschaulicht das siche
 Im nächsten Schritt erstellen Sie die Push-Hintergrundkomponente.
 
 1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf den Knoten der obersten Ebene der Projektmappe (in diesem Fall **Solution SecurePush**). Klicken Sie dann auf **Hinzufügen** und **Neues Projekt**.
-2. Erweitern Sie **Store-Apps**, und klicken Sie anschließend auf **Windows Phone-Apps** und **Komponente für Windows-Runtime (Windows Phone)**. Benennen Sie das Projekt **PushBackgroundComponent**, und klicken Sie dann auf **OK**, um das Projekt zu erstellen.
+2. Erweitern Sie **Store-Apps**, und klicken Sie anschließend auf **Windows Phone-Apps** und **Komponente für Windows-Runtime (Windows Phone)** . Benennen Sie das Projekt **PushBackgroundComponent**, und klicken Sie dann auf **OK**, um das Projekt zu erstellen.
 
     ![][12]
-3. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **PushBackgroundComponent (Windows Phone 8.1)**, und klicken Sie dann auf **Hinzufügen** und **Klasse**. Geben Sie der neuen Klasse den Namen `PushBackgroundTask.cs`. Klicken Sie auf **Hinzufügen** , um die Klasse zu erstellen.
+3. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **PushBackgroundComponent (Windows Phone 8.1)** , und klicken Sie dann auf **Hinzufügen** und **Klasse**. Geben Sie der neuen Klasse den Namen `PushBackgroundTask.cs`. Klicken Sie auf **Hinzufügen** , um die Klasse zu erstellen.
 4. Ersetzen Sie den gesamten Inhalt der Namespacedefinition `PushBackgroundComponent` durch den folgenden Code, und ersetzen Sie dabei den Platzhalter `{back-end endpoint}` durch den Back-End-Endpunkt, den Sie bei der Bereitstellung des Back-Ends abgerufen haben:
 
     ```csharp
@@ -140,7 +140,7 @@ Im nächsten Schritt erstellen Sie die Push-Hintergrundkomponente.
             }
         }
     ```
-5. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **PushBackgroundComponent (Windows Phone 8.1)**, und klicken Sie dann auf **NuGet-Pakete verwalten**.
+5. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt **PushBackgroundComponent (Windows Phone 8.1)** , und klicken Sie dann auf **NuGet-Pakete verwalten**.
 6. Klicken Sie auf der linken Seite auf **Online**.
 7. Geben Sie in das **Suchfeld** den Begriff **Http Client** ein.
 8. Klicken Sie in der Ergebnisliste auf **Microsoft HTTP-Clientbibliotheken** und dann auf **Installieren**. Schließen Sie die Installation ab.

@@ -1,5 +1,5 @@
 ---
-title: High Density-Hosting mit Skalierung pro App – Azure App Service | Microsoft-Dokumentation
+title: High-Density-Hosting mit Skalierung pro App – Azure App Service | Microsoft-Dokumentation
 description: High Density-Hosting in Azure App Service
 author: btardif
 manager: erikre
@@ -12,27 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65602329"
 ---
-# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>High Density-Hosting in Azure App Service mit Skalierung pro App
+# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>High-Density-Hosting in Azure App Service mit Skalierung pro App
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Standardmäßig skalieren Sie App Service-Apps durch Skalierung des [App Service-Plans](overview-hosting-plans.md), in dem sie ausgeführt werden. Wenn sich mehrere Apps im gleichen App Service-Plan befinden, führt jede horizontal hochskalierte Instanz alle Apps im Plan aus.
+Wenn Sie App Service nutzen, können Sie Ihre Apps skalieren, indem Sie den [App Service-Plan](overview-hosting-plans.md) skalieren, in dem sie ausgeführt werden. Wenn sich mehrere Apps im gleichen App Service-Plan befinden, führt jede horizontal hochskalierte Instanz alle Apps im Plan aus.
 
-Sie können die *Skalierung pro App* auf Ebene des App Service-Plans aktivieren. Hierbei wird eine App unabhängig von dem App Service-Plan skaliert, in dem sie gehostet wird. Auf diese Weise kann ein App Service-Plan auf 10 Instanzen skaliert werden. Jedoch kann eine App nur auf das Verwenden von fünf Instanzen festgelegt werden.
+Die *Skalierung pro App* kann auf Ebene des App Service-Plans aktiviert werden, damit eine App unabhängig von dem App Service-Plan, in dem sie gehostet wird, skaliert werden kann. Auf diese Weise kann ein App Service-Plan auf 10 Instanzen skaliert werden. Jedoch kann eine App nur auf das Verwenden von fünf Instanzen festgelegt werden.
 
 > [!NOTE]
 > Die Skalierung pro App steht nur für die Tarife **Standard**, **Premium**, **Premium V2** und **Isolated** zur Verfügung.
 >
+
+Apps werden verfügbaren App Service-Plänen zugeordnet. Dabei wird eine gleichmäßige Verteilung über die Instanzen angestrebt. Eine gleichmäßige Verteilung kann zwar nicht garantiert werden, aber die Plattform stellt sicher, dass zwei Instanzen derselben App nicht in derselben Instanz eines App Service-Plans gehostet wird.
+
+Die Plattform ist nicht von Metriken abhängig, um die Workerzuordnung festzulegen. Die Verteilung der Apps wird nur angeglichen, wenn Instanzen zum App Service-Plan hinzugefügt oder aus diesem entfernt werden.
 
 ## <a name="per-app-scaling-using-powershell"></a>Skalierung pro App mit PowerShell
 
@@ -60,10 +64,10 @@ Im folgenden Beispiel ist die App auf zwei Instanzen beschränkt, und zwar unabh
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -128,17 +132,18 @@ Im App Service-Plan wird die **PerSiteScaling**-Eigenschaft auf TRUE festgelegt 
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Empfohlene Konfiguration für High Density-Hosting
-Bei der Skalierung pro App handelt es sich um ein Feature, das sowohl in globalen Azure-Regionen als auch in [App Service-Umgebungen](environment/app-service-app-service-environment-intro.md) aktiviert ist. Es wird jedoch empfohlen, App Service-Umgebungen mit ihren hoch entwickelten Features und größeren Kapazitätspools zu nutzen.  
+
+Bei der Skalierung pro App handelt es sich um ein Feature, das sowohl in globalen Azure-Regionen als auch in [App Service-Umgebungen](environment/app-service-app-service-environment-intro.md) aktiviert ist. Es wird jedoch empfohlen, App Service-Umgebungen zu nutzen, da diese hochentwickelte Features und eine höhere Kapazität für App Service-Pläne bieten.  
 
 Führen Sie zum Konfigurieren des High Density-Hosting für Ihre Apps die folgenden Schritte aus:
 
-1. Konfigurieren Sie die App Service-Umgebung, und wählen Sie einen Workerpool aus, der ausschließlich für das Szenario mit High Density-Hosting genutzt wird.
-2. Erstellen Sie einen einzelnen App Service-Plan, und skalieren Sie ihn so, dass die gesamte verfügbare Kapazität für den Workerpool verwendet wird.
-3. Legen Sie im App Service-Plan das Flag `PerSiteScaling` auf TRUE fest.
-4. Neue Apps werden erstellt und diesem App Service-Plan zugewiesen, wobei die **numberOfWorkers**-Eigenschaft auf **1** festgelegt wird. Durch die Konfiguration ergibt sich die höchstmögliche Dichte für diesen Workerpool.
-5. Die Anzahl der Worker kann pro App unabhängig konfiguriert werden, um nach Bedarf zusätzliche Ressourcen zur Verfügung zu stellen. Beispiel: 
-    - Bei einer stark ausgelasteten App kann **numberOfWorkers** auf **3** festgelegt werden, damit diese App über mehr Verarbeitungskapazität verfügt. 
-    - Bei selten verwendeten Apps kann **numberOfWorkers** auf **1** festgelegt werden.
+1. Legen Sie einen App Service-Plan als High-Density-Plan fest, und passen Sie diesen an die gewünschte Kapazität an.
+1. Legen Sie im App Service-Plan das Flag `PerSiteScaling` auf TRUE fest.
+1. Neue Apps werden erstellt und diesem App Service-Plan zugewiesen, wobei die **numberOfWorkers**-Eigenschaft auf **1** festgelegt wird.
+   - Durch diese Konfiguration ergibt sich die höchstmögliche Dichte.
+1. Die Anzahl der Worker kann pro App unabhängig konfiguriert werden, um nach Bedarf zusätzliche Ressourcen zur Verfügung zu stellen. Beispiel:
+   - Bei einer stark ausgelasteten App kann **numberOfWorkers** auf **3** festgelegt werden, damit diese App über mehr Verarbeitungskapazität verfügt.
+   - Bei selten verwendeten Apps kann **numberOfWorkers** auf **1** festgelegt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

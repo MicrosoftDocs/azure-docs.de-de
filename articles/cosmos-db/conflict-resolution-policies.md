@@ -4,15 +4,15 @@ description: Dieser Artikel beschreibt die Konfliktkategorien und Konfliktauflö
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 98e9f5fff1b74d417ee07ed0056c8046b49baa17
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684224"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236545"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Konflikttypen und Konfliktauflösungsrichtlinien
 
@@ -30,7 +30,7 @@ In Azure Cosmos-Konten, die mit mehreren Schreibregionen konfiguriert sind, kön
 
 Azure Cosmos DB bietet einen flexiblen, richtlinienbasierten Mechanismus zum Auflösen von Schreibkonflikten. Zwei Konfliktauflösungsrichtlinien stehen für einen Azure Cosmos-Container zur Auswahl:
 
-- **Letzter Schreibvorgang gewinnt (LWW)**: Diese Auflösungsrichtlinie verwendet standardmäßig eine vom System definierte Zeitstempeleigenschaft. Sie basiert auf dem Protokoll zur Zeitsynchronisierung. Bei Verwendung der SQL-API können Sie auch eine andere benutzerdefinierte numerische Eigenschaft (z.B. Ihre eigenes Konzept für Zeitstempel) für die Konfliktauflösung angeben. Eine benutzerdefinierte numerische Eigenschaft wird auch als *Konfliktauflösungspfad* bezeichnet. 
+- **Letzter Schreibvorgang gewinnt (LWW)** : Diese Auflösungsrichtlinie verwendet standardmäßig eine vom System definierte Zeitstempeleigenschaft. Sie basiert auf dem Protokoll zur Zeitsynchronisierung. Bei Verwendung der SQL-API können Sie auch eine andere benutzerdefinierte numerische Eigenschaft (z.B. Ihre eigenes Konzept für Zeitstempel) für die Konfliktauflösung angeben. Eine benutzerdefinierte numerische Eigenschaft wird auch als *Konfliktauflösungspfad* bezeichnet. 
 
   Wenn beim Einfügen oder Ersetzen ein Konflikt zwischen mindestens zwei Elementen auftritt, erhält das Element mit dem höchsten Wert für den „Konfliktauflösungspfad“ Vorrang. Wenn mehrere Elemente denselben numerischen Wert für den Konfliktauflösungspfad aufweisen, bestimmt das System den „Gewinner“. Alle Regionen konvergieren garantiert zu einem einzigen Gewinner und erhalten dieselbe Version des Elements, für das ein Commit ausgeführt wurde. Wenn Konflikte beim Löschen beteiligt sind, „gewinnt“ immer die gelöschte Version gegenüber den Konflikten beim Einfügen oder Ersetzen. Dieses Ergebnis tritt unabhängig vom Wert des Konfliktauflösungspfads ein.
 

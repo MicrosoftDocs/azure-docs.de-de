@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351999"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689372"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysieren von Video- und Audiodateien
 
@@ -33,8 +33,9 @@ Media Services unterstützt derzeit die folgenden integrierten Analysevoreinstel
 
 |**Name der Voreinstellung**|**Szenario**|**Details**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analysieren von Audioinhalten|Die Voreinstellung wendet einen vordefinierten Satz von AI-basierten Analysevorgängen, einschließlich Sprachtranskription, an. Die Voreinstellung unterstützt derzeit die Verarbeitung von Inhalten mit einer einzelnen, einsprachigen Audiospur. Sie können die Sprache für die Audionutzlast in der Eingabe angeben. Verwenden Sie dazu das BCP-47-Format des Tags zur Identifizierung von Sprache und Region. Folgende Sprachen werden unterstützt: Englisch („en-US“ und „en-GB“), Spanisch („es-ES“ und „es-MX“), Französisch („fr-FR“), Italienisch („it-IT“), Japanisch („ja-JP“), Portugiesisch („pt-BR“), Chinesisch („zh-CN“), Deutsch („de-DE“), Arabisch („ar-EG“), Russisch („ru-RU“), Hindi („hi-IN“) und Koreanisch („ko-KR“).<br/><br/> Wenn die Sprache nicht angegeben oder auf NULL festgelegt ist, wählt die automatische Spracherkennung die erste erkannte Sprache aus und führt die Verarbeitung für die ausgewählte Sprache für die Länge der Datei durch. Die automatische Spracherkennung unterstützt derzeit Englisch, Chinesisch, Französisch, Deutsch, Italienisch, Japanisch, Spanisch, Russisch und Portugiesisch. Sie unterstützt derzeit keine dynamische Umschaltung zwischen Sprachen, nachdem die erste Sprache erkannt wurde. Die automatische Spracherkennung funktioniert am besten mit Audioaufnahmen mit deutlicher Sprache. Kann die Sprache nicht automatisch erkannt werden, wird standardmäßig Englisch verwendet.|
-|**VideoAnalyzerPreset**|Analysieren von Audio und Video|Extrahiert Erkenntnisse (umfangreiche Metadaten) von Audio- und Videoinhalten und gibt eine Datei im JSON-Format aus. Beim Verarbeiten einer Videodatei können Sie angeben, ob Sie nur Audioerkenntnisse erhalten möchten. Weitere Informationen finden Sie unter [Analysieren von Videos](analyze-videos-tutorial-with-api.md).|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysieren von Audioinhalten|Die Voreinstellung wendet einen vordefinierten Satz von AI-basierten Analysevorgängen, einschließlich Sprachtranskription, an. Die Voreinstellung unterstützt derzeit die Verarbeitung von Inhalten mit einer einzelnen, einsprachigen Audiospur. Sie können die Sprache für die Audionutzlast in der Eingabe angeben. Verwenden Sie dazu das BCP-47-Format des Tags zur Identifizierung von Sprache und Region. Folgende Sprachen werden unterstützt: Englisch („en-US“ und „en-GB“), Spanisch („es-ES“ und „es-MX“), Französisch („fr-FR“), Italienisch („it-IT“), Japanisch („ja-JP“), Portugiesisch („pt-BR“), Chinesisch („zh-CN“), Deutsch („de-DE“), Arabisch („ar-EG“), Russisch („ru-RU“), Hindi („hi-IN“) und Koreanisch („ko-KR“).<br/><br/> Wenn die Sprache nicht angegeben oder auf NULL festgelegt ist, wählt die automatische Spracherkennung die erste erkannte Sprache aus und führt die Verarbeitung für die ausgewählte Sprache für die Länge der Datei durch. Die automatische Spracherkennung unterstützt derzeit Englisch, Chinesisch, Französisch, Deutsch, Italienisch, Japanisch, Spanisch, Russisch und Portugiesisch. Sie unterstützt derzeit keine dynamische Umschaltung zwischen Sprachen, nachdem die erste Sprache erkannt wurde. Die automatische Spracherkennung funktioniert am besten mit Audioaufnahmen mit deutlicher Sprache. Kann die Sprache nicht automatisch erkannt werden, wird standardmäßig Englisch verwendet.|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysieren von Audio und Video|Extrahiert Erkenntnisse (umfangreiche Metadaten) von Audio- und Videoinhalten und gibt eine Datei im JSON-Format aus. Beim Verarbeiten einer Videodatei können Sie angeben, ob Sie nur Audioerkenntnisse erhalten möchten. Weitere Informationen finden Sie unter [Analysieren von Videos](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Erkennen aller im Video vorhandenen Gesichter|Beschreibt die Einstellungen, die bei der Analyse eines Videos verwendet werden, um alle vorhandenen Gesichter zu erkennen.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
@@ -65,7 +66,7 @@ Die Ausgabe umfasst eine JSON-Datei (insights.json) mit allen Informationen, die
 |---|---|
 |id|Die Zeilen-ID.|
 |text|Das Transkript selbst.|
-|Language|Die Sprache des Transkripts. Vorgesehen zur Unterstützung von Transkripts, bei denen jede Zeile eine andere Sprache enthalten kann.|
+|language|Die Sprache des Transkripts. Vorgesehen zur Unterstützung von Transkripts, bei denen jede Zeile eine andere Sprache enthalten kann.|
 |instances|Eine Liste der Zeitbereiche, in denen diese Zeile angezeigt wurde. Wenn die Instanz „transcript“ lautet, ist nur eine Instanz vorhanden.|
 
 Beispiel:
@@ -104,7 +105,7 @@ Beispiel:
 |id|Die OCR-Zeilen-ID.|
 |text|Der OCR-Text.|
 |confidence|Die Zuverlässigkeit der Erkennung.|
-|Language|Die OCR-Sprache.|
+|language|Die OCR-Sprache.|
 |instances|Eine Liste der Zeitbereiche, in denen diese OCR angezeigt wurde (die gleiche OCR kann mehrfach vorkommen).|
 
 ```json
@@ -147,7 +148,7 @@ Beispiel:
 |id|Die Gesichts-ID.|
 |name|Der Name des Gesichts. Möglich sind „Unknown #0“, ein identifizierter Prominenter oder eine vom Kunden trainierte Person.|
 |confidence|Die Zuverlässigkeit der Gesichtsidentifikation.|
-|Beschreibung|Eine Beschreibung des Prominenten. |
+|description|Eine Beschreibung des Prominenten. |
 |thumbnailId|Die ID der Miniaturansicht dieses Gesichts.|
 |knownPersonId|Bei einer bekannten Person die interne ID.|
 |referenceId|Bei einem Bing-Prominenten die Bing-ID.|
@@ -296,7 +297,7 @@ Stimmungen werden anhand ihres Felds „SentimentType“ (neutral/positiv/negati
 |---|---|
 |id|Die Bezeichnungs-ID.|
 |name|Der Bezeichnungsname (z. B. „Computer“, „TV“).|
-|Language|Die Sprache des Bezeichnungsnamens (sofern übersetzt). BCP-47|
+|language|Die Sprache des Bezeichnungsnamens (sofern übersetzt). BCP-47|
 |instances|Eine Liste der Zeitbereiche, in denen diese Bezeichnung angezeigt wurde (eine Bezeichnung kann mehrfach vorkommen). Jedes Vorkommen weist ein Zuverlässigkeitsfeld auf. |
 
 
@@ -356,7 +357,7 @@ Stimmungen werden anhand ihres Felds „SentimentType“ (neutral/positiv/negati
 |id|Die Stichwort-ID.|
 |text|Der Stichworttext.|
 |confidence|Die Zuverlässigkeit der Erkennung des Stichworts.|
-|Language|Die Sprache des Stichworts (sofern übersetzt).|
+|language|Die Sprache des Stichworts (sofern übersetzt).|
 |instances|Eine Liste der Zeitbereiche, in denen dieses Stichwort angezeigt wurde (ein Stichwort kann mehrfach vorkommen).|
 
 ```json

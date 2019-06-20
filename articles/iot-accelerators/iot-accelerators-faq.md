@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009683"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447953"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Häufig gestellte Fragen zu IoT-Solution Accelerators
 
@@ -23,8 +23,8 @@ Sehen Sie sich auch die [häufig gestellten Fragen zu verbundenen Factorys](iot-
 
 Der Quellcode wird in den folgenden GitHub-Repositorys gespeichert:
 
-* [Solution Accelerator für Remoteüberwachung (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Solution Accelerator für Remoteüberwachung (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Solution Accelerator für die Remoteüberwachung (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Solution Accelerator für die Remoteüberwachung (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Solution Accelerator für Predictive Maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Solution Accelerator für verbundene Factorys](https://github.com/Azure/azure-iot-connected-factory)
 
@@ -86,7 +86,7 @@ Standardmäßig können Sie [10 IoT Hubs pro Abonnement](../azure-subscription-s
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Wie viele Instanzen von Cosmos DB kann ich in einem Abonnement bereitstellen?
 
-50. Sie können ein [Azure-Supportticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) erstellen, um dieses Limit zu erhöhen. Standardmäßig können Sie jedoch nur 50 Cosmos DB-Instanzen pro Abonnement bereitstellen.
+50\. Sie können ein [Azure-Supportticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) erstellen, um dieses Limit zu erhöhen. Standardmäßig können Sie jedoch nur 50 Cosmos DB-Instanzen pro Abonnement bereitstellen.
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Wie viele Bing Maps-APIs im Tarif „Free“ kann ich in einem Abonnement bereitstellen?
 
@@ -107,7 +107,7 @@ Informationen hierzu finden Sie im Blogbeitrag von Eric Golpe: [Walkthrough of D
 
 Sie können auch einige andere Features und Funktionen der IoT-Solution Accelerators ausprobieren:
 
-* [Erkunden der Funktionen des Solution Accelerators für Remoteüberwachung](quickstart-remote-monitoring-deploy.md)
+* [Erkunden der Funktionen des Solution Accelerators für die Remoteüberwachung](quickstart-remote-monitoring-deploy.md)
 * [Übersicht über den Solution Accelerator für Predictive Maintenance](iot-accelerators-predictive-overview.md)
 * [Bereitstellen des Solution Accelerators für Connected Factory](quickstart-connected-factory-deploy.md)
 * [Sicherheit im Internet der Dinge von Anfang an](/azure/iot-fundamentals/iot-security-ground-up)

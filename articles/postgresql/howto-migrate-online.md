@@ -1,19 +1,19 @@
 ---
-title: Migration zu Azure Database for PostgreSQL mit minimaler Ausfallzeit
-description: In diesem Artikel wird beschrieben, wie Sie eine Migration mit minimaler Ausfallzeit einer PostgreSQL-Datenbank-Instanz zu Azure Database for PostgreSQL mit dem Azure Database Migration Service durchführen können.
+title: Migration zu Azure Database for PostgreSQL (Einzelserver) mit minimaler Ausfallzeit
+description: In diesem Artikel wird beschrieben, wie Sie mit Azure Database Migration Service und minimaler Ausfallzeit eine Migration einer PostgreSQL-Datenbank-Instanz zu Azure Database for PostgreSQL (Einzelserver) durchführen.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: ceb64781dc7e5243f785ad239c24e5f21b0481ce
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: 93cd390889c023adf1c30a8470e1c2298598439e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543647"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067513"
 ---
-# <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migration zu Azure Database for PostgreSQL mit minimaler Ausfallzeit
+# <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migration zu Azure Database for PostgreSQL (Einzelserver) mit minimaler Ausfallzeit
 Mit der neu eingeführten **fortlaufenden Synchronisationsfunktion** für den [Azure Database Migration Service](https://aka.ms/get-dms) (DMS) können Sie PostgreSQL-Migrationen zu Azure Database for PostgreSQL mit minimaler Ausfallzeit ausführen. Diese Funktion beschränkt die Ausfallzeit der Anwendung.
 
 ## <a name="overview"></a>Übersicht

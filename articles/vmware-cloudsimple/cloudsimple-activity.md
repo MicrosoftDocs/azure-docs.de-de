@@ -9,17 +9,17 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dd073d040e6e7f149109c9988580dcd889f7c62f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65157944"
 ---
 # <a name="activity-management-overview"></a>Übersicht über die Aktivitätenverwaltung
 
 Mit CloudSimple werden alle Aktivitäten verfolgt, die sich auf die Funktionsfähigkeit Ihrer Private Clouds auswirken können. Zu diesen Aktivitäten zählen Warnungen, Ereignisse, Aufgaben und Überwachungsaktivitäten. Auf den [Aktivitätsseiten](https://docs.azure.cloudsimple.com/activity/) werden alle aktuellen Aktivitäten zusammengefasst. Hier können Sie einen Drilldown ausführen und zusätzliche Detailinformationen anzeigen.
 
-## <a name="events"></a>Ereignisse
+## <a name="events"></a>Events
 
 Mit Ereignissen werden Benutzer- und Systemaktivitäten im CloudSimple-Portal verfolgt.  Mit Ereignissen werden die mit einer bestimmten Ressource verknüpften Aktivitäten sowie der Schweregrad für die Auswirkungen angezeigt.  Ereignisse können Sie über das CloudSimple-Portal anzeigen.
 

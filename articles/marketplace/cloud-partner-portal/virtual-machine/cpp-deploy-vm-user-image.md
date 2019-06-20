@@ -1,25 +1,18 @@
 ---
-title: Bereitstellen einer Azure-VM aus einer Benutzer-VHD | Microsoft-Dokumentation
+title: Bereitstellen einer Azure-VM aus einer Benutzer-VHD | Azure Marketplace
 description: Erläutert, wie ein Benutzer-VHD-Image bereitgestellt wird, um eine Azure-VM-Instanz zu erstellen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.author: pabutler
+ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046734"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938240"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Bereitstellen einer Azure-VM aus einer Benutzer-VHD
 
@@ -38,11 +31,11 @@ Kopieren Sie die Azure Resource Manager-Vorlage für [VHD-Bereitstellung](cpp-de
 | userStorageAccountName     | Name des Speicherkontos                                                    |
 | sNameForPublicIP           | DNS-Name für die öffentliche IP-Adresse. Muss aus Kleinbuchstaben bestehen.                                  |
 | subscriptionId             | Azure-Abonnement-ID                                                  |
-| Standort                   | Standardmäßiger geografischer Azure-Standort der Ressourcengruppe                       |
+| Location                   | Standardmäßiger geografischer Azure-Standort der Ressourcengruppe                       |
 | vmName                     | Name des virtuellen Computers                                                    |
 | vaultName                  | Der Name des Schlüsseltresors                                                          |
 | vaultResourceGroup         | Die Ressourcengruppe des Schlüsseltresors
-| certificateUrl             | URL des Zertifikats (einschließlich Version), das im Schlüsseltresor gespeichert ist, zum Beispiel:  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl             | URL des Zertifikats (einschließlich Version), das im Schlüsseltresor gespeichert ist, zum Beispiel: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL der virtuellen Festplatte                                                   |
 | vmSize                     | Größe des Instanz des virtuellen Computers.                                           |
 | publicIPAddressName        | Name der öffentlichen IP-Adresse                                                  |

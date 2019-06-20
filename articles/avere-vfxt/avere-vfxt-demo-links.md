@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 42a2055b9a49d6d9f8f4930cb3704fe581f41724
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669617"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409990"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Avere vFXT-Demoprojekte
 

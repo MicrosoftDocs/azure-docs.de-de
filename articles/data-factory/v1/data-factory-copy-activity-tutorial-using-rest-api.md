@@ -185,7 +185,7 @@ Die folgende Tabelle enthält eine Beschreibung der JSON-Eigenschaften, die im C
 | linkedServiceName | Diese Eigenschaft verweist auf den **AzureStorageLinkedService**-Dienst, den Sie zuvor erstellt haben. |
 | folderPath | Diese Eigenschaft gibt den **Blobcontainer** und den **Ordner** an, der Eingabeblobs enthält. In diesem Tutorial ist „adftutorial“ der Blobcontainer und „folder“ der Stammordner. | 
 | fileName | Diese Eigenschaft ist optional. Wenn Sie diese Eigenschaft nicht angeben, werden alle Dateien in „folderPath“ übernommen. In diesem Tutorial wurde **emp.txt** für „fileName“ angegeben. Daher wird nur diese Datei für die Verarbeitung gewählt. |
-| Format -> Typ |Die Eingabedatei weist das Textformat auf. Daher verwenden wir **TextFormat**. |
+| format -> type |Die Eingabedatei weist das Textformat auf. Daher verwenden wir **TextFormat**. |
 | columnDelimiter | Die Spalten in der Eingabedatei werden per **Komma (`,`)** voneinander getrennt. |
 | frequency/interval | „frequency“ wird auf **Hour** und „interval“ auf **1** festgelegt, was bedeutet, dass die Eingabeslices **stündlich** verfügbar sind. Der Data Factory-Dienst sucht also stündlich im Stammordner des angegebenen Blobcontainers (**adftutorial**) nach Eingabedaten. Er sucht innerhalb der Start- und Endzeit der Pipeline nach den Daten, nicht vor oder nach diesen Zeiten.  |
 | external | Diese Eigenschaft wird auf **true** festgelegt, wenn die Daten nicht von dieser Pipeline generiert werden. Die Eingabedaten in diesem Tutorial sind in der Datei „emp.txt“ enthalten, die nicht von dieser Pipeline generiert wurde. Daher legen wir diese Eigenschaft auf „true“ fest. |

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tulasim
 ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61379449"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datenquellen für QnA Maker-Inhalt
 
@@ -141,7 +141,7 @@ Unten sehen Sie ein Beispiel für eine strukturierte QnA-*XLS*-Datei mit HTML-In
 
 Beim Importieren einer Wissensdatenbank wird der Inhalt der vorhandenen Wissensdatenbank ersetzt. Der Import erfordert eine strukturierte TSV-Datei, die Informationen zur Datenquelle enthält. Diese Informationen helfen QnA Maker beim Gruppieren der Frage-Antwort-Paare und dem Zuweisen zu einer bestimmten Datenquelle.
 
-| Frage  | Antwort  | Quelle| Metadaten (1 Schlüssel: 1 Wert) |          
+| Frage  | Antwort  | `Source`| Metadaten (1 Schlüssel: 1 Wert) |          
 |-----------|---------|----|---------------------|
 | Frage1 | Antwort1 | URL1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Frage2 | Antwort2 | Redaktionelle Änderung|    `Key:Value`       |

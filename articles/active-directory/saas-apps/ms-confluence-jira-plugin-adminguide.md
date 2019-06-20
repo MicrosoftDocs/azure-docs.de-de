@@ -15,11 +15,11 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60935758"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian Jira und Confluence – Administratorhandbuch für Azure Active Directory
 
@@ -112,11 +112,11 @@ Die folgende Abbildung zeigt den Konfigurationsbildschirm in JIRA und Confluence
 
 * **Metadaten-URL**: Die URL zum Abrufen der Verbundmetadaten von Azure AD.
 
-* **Bezeichner**: Die URL, die Azure AD zum Überprüfen der Quelle der Anforderung verwendet. Sie wird dem Element **Bezeichner** in Azure AD zugeordnet. Das Plug-In leitet diese URL automatisch als „https://*\<<Domäne:Port>*/“ ab.
+* **Bezeichner**: Die URL, die Azure AD zum Überprüfen der Quelle der Anforderung verwendet. Sie wird dem Element **Bezeichner** in Azure AD zugeordnet. Das Plug-In leitet diese URL automatisch als „https:// *\<<Domäne:Port>* /“ ab.
 
-* **Antwort-URL**: Die Antwort-URL in Ihrem Identitätsanbieter (IdP), die die SAML-Anmeldung initiiert. Sie wird dem **Antwort-URL**-Element in Azure AD zugeordnet. Das Plug-In leitet diese URL automatisch als „https://*\<<Domäne:Port>*/plugins/servlet/saml/auth“ ab.
+* **Antwort-URL**: Die Antwort-URL in Ihrem Identitätsanbieter (IdP), die die SAML-Anmeldung initiiert. Sie wird dem **Antwort-URL**-Element in Azure AD zugeordnet. Das Plug-In leitet diese URL automatisch als „https:// *\<<Domäne:Port>* /plugins/servlet/saml/auth“ ab.
 
-* **Anmelde-URL**: Die Anmelde-URL in Ihrem IdP, die die SAML-Anmeldung initiiert. Sie wird dem **Anmelde**-Element in Azure AD zugeordnet. Das Plug-In leitet diese URL automatisch als „https://*\<<Domäne:Port>*/plugins/servlet/saml/auth“ ab.
+* **Anmelde-URL**: Die Anmelde-URL in Ihrem IdP, die die SAML-Anmeldung initiiert. Sie wird dem **Anmelde**-Element in Azure AD zugeordnet. Das Plug-In leitet diese URL automatisch als „https:// *\<<Domäne:Port>* /plugins/servlet/saml/auth“ ab.
 
 * **IdP-Entitäts-ID**: Die Entitäts-ID, die Ihr IdP verwendet. Dieses Feld wird gefüllt, wenn die Metadaten-URL aufgelöst ist.
 
@@ -162,7 +162,7 @@ Die folgende Abbildung zeigt den Konfigurationsbildschirm in JIRA und Confluence
 
 * **„App nicht gefunden“-Fehlermeldung in Azure AD**: Stellen Sie fest, ob die entsprechende URL in Azure AD der App zugeordnet ist.
 
-* **Benötigen Sie Support?**: Wenden Sie sich an das [Azure AD-SSO-Integrationsteam](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Das Team antwortet innerhalb von 24 bis 48 Geschäftsstunden.
+* **Benötigen Sie Support?** : Wenden Sie sich an das [Azure AD-SSO-Integrationsteam](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Das Team antwortet innerhalb von 24 bis 48 Geschäftsstunden.
 
   Sie können auch bei Microsoft ein Supportticket über den Azure-Portalkanal erstellen.
 
@@ -180,7 +180,7 @@ Das Plug-In funktioniert mit lokalen Versionen von JIRA und Confluence.
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>Funktioniert dieses Plug-In mit Cloudversionen?
 
- Nein. Das Plug-In unterstützt lokale Versionen von JIRA und Confluence.
+Nein. Das Plug-In unterstützt lokale Versionen von JIRA und Confluence.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Welche Versionen von JIRA und Confluence unterstützt das Plug-In?
 
@@ -224,7 +224,7 @@ Wir haben dieses Plug-In nur mit 64-Bit-Windows-Serverinstallationen von JIRA un
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>Funktioniert das Plug-In mit anderen IdPs als Azure AD?
 
- Nein. Es funktioniert nur mit Azure AD.
+Nein. Es funktioniert nur mit Azure AD.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>Mit welcher SAML-Version funktioniert das Plug-In?
 
@@ -232,12 +232,12 @@ Es funktioniert mit SAML 2.0.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>Führt das Plug-In eine Benutzerbereitstellung durch?
 
- Nein. Das Plug-In stellt nur SSO auf Basis von SAML 2.0 bereit. Der Benutzer muss vor der SSO-Anmeldung in der Anwendung bereitgestellt werden.
+Nein. Das Plug-In stellt nur SSO auf Basis von SAML 2.0 bereit. Der Benutzer muss vor der SSO-Anmeldung in der Anwendung bereitgestellt werden.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>Unterstützt das Plug-In Clusterversionen von JIRA und Confluence?
 
- Nein. Das Plug-In funktioniert mit lokalen Versionen von JIRA und Confluence.
+Nein. Das Plug-In funktioniert mit lokalen Versionen von JIRA und Confluence.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>Funktioniert das Plug-In mit HTTP-Versionen von JIRA und Confluence?
 
- Nein. Das Plug-In funktioniert nur mit HTTPS-fähigen Installationen.
+Nein. Das Plug-In funktioniert nur mit HTTPS-fähigen Installationen.

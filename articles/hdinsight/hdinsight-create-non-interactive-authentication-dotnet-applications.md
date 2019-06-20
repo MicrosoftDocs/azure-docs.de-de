@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: b07a932ef048aa894af990baa57b87529d9da3aa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66241464"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Erstellen einer .NET HDInsight-Anwendung für die nicht interaktive Authentifizierung
 Sie können Ihre Microsoft .NET Azure HDInsight-Anwendung entweder unter der eigenen Identität der Anwendung (nicht interaktiv) oder unter der Identität des angemeldeten Benutzers der Anwendung (interaktiv) ausführen. In diesem Artikel erfahren Sie, wie Sie eine .NET-Anwendung für die nicht interaktive Authentifizierung erstellen, um eine Verbindung mit Azure herzustellen und HDInsight zu verwalten. Ein Beispiel für die interaktive Anwendung finden Sie unter [Verbinden mit Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 Für die nicht interaktive .NET-Anwendung benötigen Sie Folgendes:
 
-* Mandanten-ID Ihres Azure-Abonnements auch *Verzeichnis-ID*). Siehe [Abrufen der Mandanten-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-* Client-ID der Azure Active Directory-Anwendung (Azure AD). Weitere Informationen finden Sie unter [Erstellen einer Azure Active Directory-Anwendung](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) und [Abrufen der Anwendungs-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* Geheimer Schlüssel der Azure AD-Anwendung. Siehe [Abrufen des Anwendungsauthentifizierungsschlüssels](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Mandanten-ID Ihres Azure-Abonnements auch *Verzeichnis-ID*). Siehe [Abrufen der Mandanten-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Client-ID der Azure Active Directory-Anwendung (Azure AD). Weitere Informationen finden Sie unter [Erstellen einer Azure Active Directory-Anwendung](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) und [Abrufen der Anwendungs-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Geheimer Schlüssel der Azure AD-Anwendung. Siehe [Abrufen des Anwendungsauthentifizierungsschlüssels](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 * Einen HDInsight-Cluster Siehe [Erste-Schritte-Tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -35,7 +35,7 @@ Weisen Sie Ihrer Azure AD-Anwendung eine [Rolle](../role-based-access-control/bu
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 2. Wählen Sie im Menü auf der linken Seite die Option **Ressourcengruppen** aus.
 3. Wählen Sie die Ressourcengruppe mit dem HDInsight-Cluster aus, in dem Sie später in diesem Tutorial die Hive-Abfrage ausführen möchten. Wenn Sie über eine große Anzahl von Ressourcengruppen verfügen, können Sie mit dem Filter die gewünschte suchen.
-4. Wählen Sie im Ressourcengruppenmenü **Zugriffssteuerung (IAM)**.
+4. Wählen Sie im Ressourcengruppenmenü **Zugriffssteuerung (IAM)** .
 5. Wählen Sie die Registerkarte **Rollenzuweisungen** aus, um die aktuellen Rollenzuweisungen anzuzeigen.
 6. Klicken Sie oben auf der Seite auf **Rollenzuweisung hinzufügen**.
 7. Führen Sie die Anweisungen zum Hinzufügen der Rolle „Besitzer“ zu Ihrer Azure AD-Anwendung aus. Nachdem Sie die Rolle erfolgreich hinzugefügt haben, wird die Anwendung unter der Rolle „Besitzer“ aufgelistet. 

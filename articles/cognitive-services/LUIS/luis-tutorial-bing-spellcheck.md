@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 1e5536b08b3b78f35426207369f444e6eb21c87d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60494999"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Korrigieren falsch geschriebener Wörter mit der Bing-Rechtschreibprüfung
 

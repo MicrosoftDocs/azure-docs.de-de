@@ -17,11 +17,11 @@ ms.date: 11/08/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315525"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60852528"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Continuous Deployment mit Web-App für Container
 

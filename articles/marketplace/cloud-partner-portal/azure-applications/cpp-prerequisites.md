@@ -1,25 +1,18 @@
 ---
-title: Voraussetzungen für ein Azure-Anwendungsangebot | Microsoft-Dokumentation
+title: Voraussetzungen für ein Azure-Anwendungsangebot | Azure Marketplace
 description: Die Voraussetzungen für das Veröffentlichen eines Azure-Anwendungsangebots im Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007165"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258183"
 ---
 # <a name="azure-application-prerequisites"></a>Voraussetzungen für eine Azure-Anwendung
 
@@ -36,7 +29,7 @@ Zu den technischen Anforderungen gehören die folgenden Elemente:
 * Azure-Schnellstartvorlagen.<br> Weitere Informationen finden Sie unter
 
   * [Azure-Schnellstartvorlagen](https://azure.microsoft.com/documentation/templates/). Steigern Sie Ihre Produktivität, indem Sie Azure-Ressourcen über den Azure Resource Manager und mithilfe von Vorlagen bereitstellen, die von der Community entwickelt wurden. Mit dem Azure-Ressourcen-Manager können Sie Ihre Anwendungen mit einer deklarativen Vorlage bereitstellen. In einer Vorlage können Sie mehrere Dienste zusammen mit ihren Abhängigkeiten bereitstellen. Sie verwenden die gleiche Vorlage, um Ihre Anwendung während jeder Phase des Anwendungslebenszyklus wiederholt bereitzustellen.
-  * [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates). Dieses Repository enthält alle derzeit verfügbaren Azure Resource Manager-Vorlagen, die von der Community bereitgestellt werden. Ein durchsuchbarer Vorlagenindex wird unter https://azure.microsoft.com/en-us/documentation/templates/ verwaltet.
+  * [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates). Dieses Repository enthält alle derzeit verfügbaren Azure Resource Manager-Vorlagen, die von der Community bereitgestellt werden. Ein durchsuchbarer Vorlagenindex wird unter https://azure.microsoft.com/documentation/templates/ verwaltet.
 * Erstellen von Benutzeroberflächendefinitionen<br>
 Weitere Informationen finden Sie unter [Erstellen einer Benutzeroberfläche im Azure-Portal für die verwaltete Anwendung](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). In diesem Artikel werden die grundlegenden Konzepte der Datei „createUiDefinition.json“ vorgestellt. Das Azure-Portal verwendet diese Datei zum Generieren der Benutzeroberfläche zum Erstellen einer verwalteten Anwendung.
 
@@ -45,12 +38,13 @@ Weitere Informationen finden Sie unter [Erstellen einer Benutzeroberfläche im A
 
 Die geschäftlichen Anforderungen umfassen die folgenden verfahrenstechnischen, vertraglichen und rechtlichen Verpflichtungen:
 
-* Sie müssen ein registrierter Cloud Marketplace-Herausgeber sein. Falls Sie noch nicht registriert sind, führen Sie die Schritte im Artikel [Weg zum Cloud Marketplace-Herausgeber](../../become-publisher.md) aus.
+* Sie müssen ein registrierter Cloud Marketplace-Herausgeber sein. Falls Sie noch nicht registriert sind, führen Sie die Schritte im Artikel [Weg zum Cloud Marketplace-Herausgeber](https://docs.microsoft.com/azure/marketplace/become-publisher
+) aus.
 
 >[!NOTE]
 >Sie sollten dasselbe Microsoft Developer Center-Registrierungskonto für die Anmeldung beim Cloud-Partnerportal verwenden. Sie sollten für Ihre Azure Marketplace-Angebote nur ein Microsoft-Konto verwenden. Dieses Konto sollte nicht speziell für einzelne Dienste oder Angebote vorgesehen sein.
 
-* Der Standort Ihres Unternehmens (oder der Niederlassung) muss sich in einem vom Azure Marketplace unterstützten Verkäuferland befinden. Eine aktuelle Länderliste finden Sie in den [Teilnahmerichtlinien für Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+* Der Standort Ihres Unternehmens (oder der Niederlassung) muss sich in einem der von Azure Marketplace unterstützten Verkäuferländer/-regionen befinden. Eine aktuelle Länder-/Regionenliste finden Sie in den [Teilnahmerichtlinien für Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 * Ihr Produkt muss auf eine Weise lizenziert sein, die mit den vom Azure Marketplace unterstützten Abrechnungsmodellen kompatibel ist. Weitere Informationen finden Sie unter [Kommerzielle Transaktionen ‎in Azure Marketplace: Möglichkeiten und Überlegungen](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
 * Sie sind dafür zuständig, technischen Support für Kunden in einer wirtschaftlich vertretbaren Weise zur Verfügung zu stellen. Der Support kann kostenlos, kostenpflichtig oder communitybasiert sein.
 * Sie sind für die Lizenzierung Ihrer Software und sämtlicher Abhängigkeiten von Drittanbietersoftware verantwortlich.

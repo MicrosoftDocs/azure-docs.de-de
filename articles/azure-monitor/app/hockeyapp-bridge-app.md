@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
 ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60898715"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Untersuchen von HockeyApp-Daten in Application Insights
 

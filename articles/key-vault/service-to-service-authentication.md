@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722471"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Dienst-zu-Dienst-Authentifizierung in Azure Key Vault mithilfe von .NET
@@ -177,7 +177,7 @@ So verwenden Sie ein Zertifikat für die Anmeldung bei Azure AD:
           CertificateStoreLocation={CertificateStore}
     ```
  
-    Ersetzen Sie *{AppId}*, *{TenantId}* und *{Thumbprint}* durch die in Schritt 1 generierten Werte. Ersetzen Sie *{CertificateStore}* basierend auf Ihrem Bereitstellungsplan entweder durch `LocalMachine` oder `CurrentUser`.
+    Ersetzen Sie *{AppId}* , *{TenantId}* und *{Thumbprint}* durch die in Schritt 1 generierten Werte. Ersetzen Sie *{CertificateStore}* basierend auf Ihrem Bereitstellungsplan entweder durch `LocalMachine` oder `CurrentUser`.
 
 4. Führen Sie die Anwendung aus. 
 
@@ -191,7 +191,7 @@ So melden Sie sich mit einem gemeinsamen geheimen Schlüssel als Azure AD-Anmeld
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
-    Ersetzen Sie _{AppId}_, _{TenantId}_ und _{ClientSecret}_ durch die in Schritt 1 generierten Werte.
+    Ersetzen Sie _{AppId}_ , _{TenantId}_ und _{ClientSecret}_ durch die in Schritt 1 generierten Werte.
 
 3. Führen Sie die Anwendung aus. 
 

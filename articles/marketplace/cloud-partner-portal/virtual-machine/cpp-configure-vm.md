@@ -1,25 +1,18 @@
 ---
-title: Konfigurieren der in Microsoft Azure gehosteten VM für den Azure Marketplace | Microsoft-Dokumentation
+title: Konfigurieren der in Microsoft Azure gehosteten VM für den Azure Marketplace
 description: Es wird beschrieben, wie Sie für eine in Azure gehostete VM die Größe festlegen und sie aktualisieren und generalisieren.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938429"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Konfigurieren der in Azure gehosteten VM
 

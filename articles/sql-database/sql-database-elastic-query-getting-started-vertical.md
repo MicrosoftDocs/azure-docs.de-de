@@ -1,5 +1,5 @@
 ---
-title: Erste Schritte mit datenbankübergreifenden Abfragen (vertikale Partitionierung) | Microsoft-Dokumentation
+title: Erste Schritte mit datenbankübergreifenden Abfragen (vertikale Partitionierung) | Microsoft Docs
 description: Sie erfahren, wie Sie Abfragen für elastische Datenbanken für vertikal partitionierte Datenbanken verwenden.
 services: sql-database
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 116a465a0ddc913e342e0ffcc1fb29f5bf969419
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60307443"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Erste Schritte mit datenbankübergreifenden Abfragen (vertikale Partitionierung, Vorschau)
 

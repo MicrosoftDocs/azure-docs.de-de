@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fb766a8cc6ae0de2407f44982a58fcc448e4b00c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766800"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382668"
 ---
 # <a name="how-to-manage-settings"></a>Verwalten von Einstellungen
 

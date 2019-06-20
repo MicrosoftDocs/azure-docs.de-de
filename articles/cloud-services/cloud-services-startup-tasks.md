@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60405986"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Konfigurieren und Ausführen von Startaufgaben für einen Clouddienst
 Mit Startaufgaben können Sie Vorgänge ausführen, bevor eine Rolle gestartet wird. Zu den Vorgängen, die Sie vielleicht ausführen möchten, gehören das Installieren von Komponenten, das Registrieren von COM-Komponenten, das Festlegen von Registrierungsschlüsseln und das Starten eines lang andauernden Prozesses.
@@ -100,9 +100,9 @@ Im Folgenden werden die Attribute des **Task** -Elements in der Datei [ServiceDe
 **executionContext** – Legt die Berechtigungsstufe für die Startaufgabe fest. Die Berechtigungsstufe kann eingeschränkt oder mit erhöhten Rechten sein:
 
 * **limited**  
-   – Die Startaufgabe wird mit den gleichen Berechtigungen wie die Rolle ausgeführt. Wenn das **executionContext**-Attribut für das [Laufzeit]-Element ebenfalls **eingeschränkt** ist, werden Benutzerberechtigungen verwendet.
+  – Die Startaufgabe wird mit den gleichen Berechtigungen wie die Rolle ausgeführt. Wenn das **executionContext**-Attribut für das [Laufzeit]-Element ebenfalls **eingeschränkt** ist, werden Benutzerberechtigungen verwendet.
 * **elevated**  
-   Die Startaufgabe wird mit Administratorrechten ausgeführt. Dadurch können Startaufgaben Programme installieren, IIS-Konfigurationsänderungen oder Registrierungsänderungen durchführen, ohne die Berechtigungsstufe der Rolle selbst zu erhöhen.  
+  Die Startaufgabe wird mit Administratorrechten ausgeführt. Dadurch können Startaufgaben Programme installieren, IIS-Konfigurationsänderungen oder Registrierungsänderungen durchführen, ohne die Berechtigungsstufe der Rolle selbst zu erhöhen.  
 
 > [!NOTE]
 > Die Berechtigungsstufe einer Startaufgabe muss nicht mit derjenigen der Rolle selbst identisch sein.

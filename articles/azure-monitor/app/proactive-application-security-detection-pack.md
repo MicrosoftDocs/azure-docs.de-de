@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 16dd381301bdc650022ba5580f96a1733aeb32b0
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64572889"
 ---
 # <a name="application-security-detection-pack-preview"></a>Paket zur Anwendungsicherheitserkennung (Vorschau)
 
@@ -29,7 +29,7 @@ Diese Funktion erfordert keine spezielle Einrichtung, abgesehen von der [Konfigu
 Es gibt drei Arten von Sicherheitsproblemen, die erkannt werden:
 1. Unsicherer URL-Zugriff: Auf eine URL in der Anwendung wird über HTTP und HTTPS zugegriffen. In der Regel sollte eine URL, die HTTPS-Anforderungen akzeptiert, keine HTTP-Anforderungen akzeptieren. Dies kann auf einen Fehler oder ein Sicherheitsproblem in Ihrer Anwendung hinweisen.
 2. Unsicheres Formular: Ein Formular (oder eine andere „POST“-Anforderung) in der Anwendung verwendet HTTP statt HTTPS. Die Verwendung von HTTP kann die vom Formular gesendeten Benutzerdaten gefährden.
-3. Verdächtige Benutzeraktivität: Der Zugriff auf die Anwendung erfolgt aus mehreren Ländern durch denselben Benutzer zum ungefähr gleichen Zeitpunkt. Beispiel: Derselbe Benutzer hat innerhalb einer Stunde von Spanien und den USA aus auf die Anwendung zugegriffen. Diese Erkennung gibt einen potenziell böswilligen Zugriffsversuch auf Ihre Anwendung an.
+3. Verdächtige Benutzeraktivität: Der Zugriff auf die Anwendung erfolgt aus mehreren Ländern/Regionen durch denselben Benutzer zum ungefähr gleichen Zeitpunkt. Beispiel: Derselbe Benutzer hat innerhalb einer Stunde von Spanien und den USA aus auf die Anwendung zugegriffen. Diese Erkennung gibt einen potenziell böswilligen Zugriffsversuch auf Ihre Anwendung an.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>Liegt in meiner App definitiv ein Sicherheitsproblem vor?
 Nein, eine Benachrichtigung bedeutet nicht zwingend, dass in Ihrer App ein Sicherheitsproblem vorliegt. Eine Erkennung eines der oben genannten Szenarien kann in vielen Fällen auf ein Sicherheitsproblem hinweisen. Die Erkennung kann jedoch einen natürlichen geschäftlichen Grund haben und ignoriert werden.
@@ -46,5 +46,5 @@ Nein, eine Benachrichtigung bedeutet nicht zwingend, dass in Ihrer App ein Siche
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Wie behebe ich die Erkennung „Verdächtige Benutzeraktivität“?
 1. **Selektierung.** Die Benachrichtigung enthält die Anzahl der verschiedenen Benutzer, die das verdächtige Verhalten gezeigt haben. Dadurch können Sie dem Problem eine Priorität zuweisen.
-2. **Umfang.** Aus welchen Ländern stammen die verdächtigen Anforderungen? Welcher Benutzer war am verdächtigsten? Diese Informationen können Sie der Benachrichtigung entnehmen.
-3. **Diagnose.** Die Erkennung enthält die Liste der verdächtigen Benutzer und die Liste der Länder für jeden Benutzer, sodass Sie das Problem anhand dieser Informationen weiter diagnostizieren können.
+2. **Umfang.** Aus welchen Ländern/Regionen stammen die verdächtigen Anforderungen? Welcher Benutzer war am verdächtigsten? Diese Informationen können Sie der Benachrichtigung entnehmen.
+3. **Diagnose.** Die Erkennung enthält die Liste der verdächtigen Benutzer und die Liste der Ländern/Regionen für jeden Benutzer, sodass Sie das Problem anhand dieser Informationen weiter diagnostizieren können.

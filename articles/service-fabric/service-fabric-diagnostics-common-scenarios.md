@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669281"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60394210"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostizieren häufiger Szenarien mit Service Fabric
 
@@ -62,7 +62,7 @@ Für die Lösungen in diesem Artikel werden die folgenden Tools verwendet. Es wi
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Wie erstelle ich eine Warnung, wenn ein Knoten ausfällt?
 
-1. Knotenereignisse werden von Ihrem Service Fabric-Cluster nachverfolgt. Navigieren Sie zur Service Fabric Analytics-Lösungsressource mit dem Namen **ServiceFabric(Name_der_Ressourcengruppe)**.
+1. Knotenereignisse werden von Ihrem Service Fabric-Cluster nachverfolgt. Navigieren Sie zur Service Fabric Analytics-Lösungsressource mit dem Namen **ServiceFabric(Name_der_Ressourcengruppe)** .
 2. Klicken Sie unten auf dem Blatt auf das Diagramm mit dem Titel „Zusammenfassung“.
 
     ![Lösung mit Azure Monitor-Protokolle](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)

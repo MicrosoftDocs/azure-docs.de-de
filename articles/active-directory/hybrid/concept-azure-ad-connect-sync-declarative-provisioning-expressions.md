@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181982"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60245506"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-Synchronisierung: Grundlegendes zu Ausdrücken für die deklarative Bereitstellung
 Die Azure AD Connect-Synchronisierung basiert auf der deklarativen Bereitstellung, die erstmals in Forefront Identity Manager 2010 eingeführt wurde. Sie ermöglicht Ihnen die Implementierung Ihrer gesamten Geschäftslogik zur Identitätsintegration, ohne kompilierten Code schreiben zu müssen.
@@ -62,10 +62,10 @@ Der Active Directory Connector stellt folgende Parameter für eingehende Synchro
 | Forest.FQDN |FQDN-Format des Gesamtstrukturnamens, der gerade importiert wird, z.B. „fabrikam.com“ |
 | Forest.LDAP |LDAP-Format des Gesamtstrukturnamens, der gerade importiert wird, z.B. „DC=fabrikam,DC=com“ |
 
-Das System stellt den folgenden Parameter bereit, mit dem der Bezeichner des derzeit ausgeführten Connectors abgerufen wird:   
+Das System stellt den folgenden Parameter bereit, mit dem der Bezeichner des derzeit ausgeführten Connectors abgerufen wird:  
 `Connector.ID`
 
-Hier sehen Sie ein Beispiel, in dem die Metaverseattributdomäne mit dem NetBIOS-Namen der Domäne aufgefüllt wird, in der sich der Benutzer befindet:   
+Hier sehen Sie ein Beispiel, in dem die Metaverseattributdomäne mit dem NetBIOS-Namen der Domäne aufgefüllt wird, in der sich der Benutzer befindet:  
 `domain` <- `%Domain.Netbios%`
 
 ### <a name="operators"></a>Operatoren
@@ -74,7 +74,7 @@ Folgende Operatoren können verwendet werden:
 * **Vergleich**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Mathematik**: +, -, \*, -
 * **Zeichenfolge**: &amp; (Verkettung)
-* **Logischer Ausdruck**: &&amp;amp; (und), || (oder)
+* **Logischer Ausdruck**: &&amp;amp;amp;amp; (und), || (oder)
 * **Auswertungsreihenfolge**: ( )
 
 Operatoren werden von links nach rechts ausgewertet und haben bei der Auswertung die gleiche Priorität. Dies bedeutet, dass der Multiplikator (\*) nicht vor der Subtraktion (-) ausgewertet wird. „2\*(5+3)“ ist nicht dasselbe wie „2\*5+3“. Die Klammern werden verwendet, um die Reihenfolge der Auswertung zu ändern, wenn die Auswertungsreihenfolge von links nach rechts nicht geeignet ist.
@@ -82,7 +82,7 @@ Operatoren werden von links nach rechts ausgewertet und haben bei der Auswertung
 ## <a name="multi-valued-attributes"></a>Mehrwertige Attribute
 Die Funktionen können sowohl für einwertige als auch für mehrwertige Attribute verwendet werden. Bei mehrwertigen Attributen wird die Funktion für jeden Wert ausgeführt, und auf alle Werte wird die gleiche Funktion angewendet.
 
-Beispiel:   
+Beispiel:  
 `Trim([proxyAddresses])` – Führt eine Trim-Funktion für jeden Wert im Attribut „proxyAddress“ aus.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"` – Ersetzt für jeden Wert mit dem @-sign-Zeichen die Domäne durch „@contoso.com“.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` – Sucht nach der SIP-Adresse und entfernt sie aus den Werten.

@@ -16,11 +16,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60350558"
 ---
 # <a name="risky-ip-report-public-preview"></a>Bericht über riskante IP-Adressen (öffentliche Vorschauversion)
 AD FS-Kunden können Endpunkte für die Kennwortauthentifizierung für den Zugriff über das Internet verfügbar machen, um Authentifizierungsdienste für Endbenutzer bereitzustellen, damit diese auf SaaS-Anwendungen wie Office 365 zugreifen können. In diesem Fall ist es möglich, dass ein böswilliger Benutzer versucht, sich an Ihrem AD FS-System anzumelden, um das Kennwort eines Endbenutzers zu erraten und Zugriff auf Anwendungsressourcen zu erhalten. AD FS verfügt seit der Einbindung in Windows Server 2012 R2 über die Funktion zum Sperren von Extranet-Konten, um diese Arten von Angriffen zu verhindern. Falls Sie eine frühere Version verwenden, empfehlen wir Ihnen dringend, Ihr AD FS-System auf Windows Server 2016 zu aktualisieren. <br />
@@ -34,7 +34,7 @@ Außerdem ist es möglich, dass von einer einzelnen IP-Adresse versucht wird, me
 
 > [!NOTE]
 > Für die Verwendung dieses Berichts muss die AD FS-Überwachung aktiviert sein. Weitere Informationen finden Sie unter [Aktivieren der Überwachung für AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Zugriff auf die Vorschauversion erhalten nur globale Administratoren und [Benutzer mit Leseberechtigung für Sicherheitsfunktionen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader).  
+> Zugriff auf die Vorschauversion erhalten nur globale Administratoren und [Sicherheitsleseberechtigte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>Inhalt des Berichts
@@ -112,7 +112,7 @@ Sie sollten identifizierte schädliche IP-Adressen der Firewall hinzufügen oder
 - Überwachungen sind in AD FS-Farmen nicht aktiviert.
 
 **Warum habe ich keinen Zugriff auf den Bericht?**  <br />
-Zugriff erhalten nur globale Administratoren und [Benutzer mit Leseberechtigung für Sicherheitsfunktionen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Wenden Sie sich an den globalen Administrator aus, um Zugriff zu erhalten.
+Zugriff erhalten nur globale Administratoren und [Sicherheitsleseberechtigte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Wenden Sie sich an den globalen Administrator aus, um Zugriff zu erhalten.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

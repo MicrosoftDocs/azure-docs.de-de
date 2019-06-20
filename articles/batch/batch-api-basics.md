@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64700937"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Entwickeln von parallelen Computelösungen in größerem Umfang mit Batch
 
@@ -132,7 +132,7 @@ Wenn Sie einen Batch-Pool erstellen, können Sie die Konfiguration für virtuell
 
 - Die **Konfiguration „Virtueller Computer“** gibt an, dass der Pool aus virtuellen Azure-Computern besteht. Diese virtuellen Computer können aus Linux- oder Windows-Images erstellt werden. 
 
-    Beim Erstellen eines Pools auf Basis der Konfiguration „Virtueller Computer“ müssen Sie nicht nur die Knotengröße und die Quelle der Images für deren Erstellen angeben, sondern auch die **VM-Imagereferenz** und die **Knoten-Agent-SKU** von Batch, die auf den Knoten installiert werden soll. Weitere Informationen zum Angeben dieser Pooleigenschaften finden Sie unter [Bereitstellen von Linux-Computeknoten in Azure Batch-Pools](batch-linux-nodes.md). Sie können optional leere Datenträger an virtuelle Poolcomputer anfügen, die auf der Grundlage von Marketplace-Images erstellt wurden, oder Datenträger in benutzerdefinierte Images einschließen, die zum Erstellen der virtuellen Computer verwendet werden.
+    Beim Erstellen eines Pools auf Basis der Konfiguration „Virtueller Computer“ müssen Sie nicht nur die Knotengröße und die Quelle der Images für deren Erstellen angeben, sondern auch die **VM-Imagereferenz** und die **Knoten-Agent-SKU** von Batch, die auf den Knoten installiert werden soll. Weitere Informationen zum Angeben dieser Pooleigenschaften finden Sie unter [Bereitstellen von Linux-Computeknoten in Azure Batch-Pools](batch-linux-nodes.md). Sie können optional leere Datenträger an virtuelle Poolcomputer anfügen, die auf der Grundlage von Marketplace-Images erstellt wurden, oder Datenträger in benutzerdefinierte Images einschließen, die zum Erstellen der virtuellen Computer verwendet werden. Wenn Sie Datenträger einbeziehen, müssen Sie sie innerhalb eines virtuellen Computers einbinden und formatieren, um sie zu verwenden.
 
 - Die **Konfiguration „Cloud Services“** gibt an, dass der Pool aus Azure Cloud Services-Knoten besteht. Bei „Cloud Services“ werden *ausschließlich* Windows-Serverknoten bereitgestellt.
 

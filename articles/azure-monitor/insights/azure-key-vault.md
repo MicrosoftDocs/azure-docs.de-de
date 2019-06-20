@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629271"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60498347"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault-Analyse-Lösung in Azure Monitor
 
@@ -103,7 +103,7 @@ Nachdem Sie auf die Kachel **Key Vault-Analyse** geklickt haben, können Sie Zus
 ## <a name="azure-monitor-log-records"></a>Protokolldatensätze in Azure Monitor
 Die Azure Key Vault-Lösung analysiert Datensätze vom Typ **KeyVaults**, die aus den [AuditEvent-Protokollen](../../key-vault/key-vault-logging.md) in Azure-Diagnose gesammelt wurden.  Eigenschaften für diese Datensätze finden Sie in der folgenden Tabelle:  
 
-| Eigenschaft | BESCHREIBUNG |
+| Eigenschaft | Description |
 |:--- |:--- |
 | Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
@@ -114,12 +114,12 @@ Die Azure Key Vault-Lösung analysiert Datensätze vom Typ **KeyVaults**, die au
 | httpStatusCode_d |Der von der Anforderung zurückgegebene HTTP-Statuscode (beispielsweise *200*) |
 | id_s |Eindeutige ID der Anforderung |
 | identity_claim_appid_g | GUID für die Anwendungs-ID |
-| NameVorgang |Der Name des Vorgangs, wie unter [Azure Key Vault-Protokollierung](../../key-vault/key-vault-logging.md) beschrieben |
+| OperationName |Der Name des Vorgangs, wie unter [Azure Key Vault-Protokollierung](../../key-vault/key-vault-logging.md) beschrieben |
 | OperationVersion |Die vom Client angeforderte REST-API-Version (beispielsweise *2015-06-01*) |
 | requestUri_s |Der URI der Anforderung |
-| Ressource |Der Name des Schlüsseltresors |
+| Resource |Der Name des Schlüsseltresors |
 | ResourceGroup |Die Ressourcengruppe des Schlüsseltresors |
-| ResourceId |Azure-Ressourcen-Manager-Ressourcen-ID. Für Key Vault-Protokolle ist dies die Key Vault-Ressourcen-ID. |
+| resourceId |Azure-Ressourcen-Manager-Ressourcen-ID. Für Key Vault-Protokolle ist dies die Key Vault-Ressourcen-ID. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
 | ResultSignature |HTTP-Status (beispielsweise *OK*) |
@@ -145,7 +145,7 @@ So verwenden Sie die aktualisierte Lösung:
    + Für jedes Feld, dessen Name das Suffix \_o enthält, werden die Daten basierend auf den geschachtelten Feldnamen in einzelne Felder aufgeteilt. Der UPN des Aufrufers wird z.B. in einem Feld `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s` gespeichert.
    + Feld CallerIpAddress wurde in CallerIPAddress geändert.
    + Feld RemoteIPCountry ist nicht mehr vorhanden.
-4. Entfernen Sie die Lösung *Key Vault Analytics (veraltet)*. Wenn Sie PowerShell einsetzen, verwenden Sie `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`.
+4. Entfernen Sie die Lösung *Key Vault Analytics (veraltet)* . Wenn Sie PowerShell einsetzen, verwenden Sie `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`.
 
 Daten, die vor der Änderung gesammelt wurden, werden in der neuen Lösung nicht angezeigt. Sie können die Abfrage dieser Daten mithilfe des alten Typs und der alten Feldnamen fortsetzen.
 

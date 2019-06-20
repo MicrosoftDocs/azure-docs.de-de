@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276489"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979313"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmgesteuertes Erstellen von Richtlinien und Anzeigen von Konformitätsdaten
 
-In diesem Artikel wird das programmgesteuerte Erstellen und Verwalten von Richtlinien Schritt für Schritt beschrieben. Mit Richtliniendefinitionen werden verschiedene Regeln und Auswirkungen für Ihre Ressourcen erzwungen. Durch die Erzwingung wird sichergestellt, dass die Ressourcen stets konform mit Ihren Unternehmensstandards und Vereinbarungen zum Servicelevel bleiben.
+In diesem Artikel wird das programmgesteuerte Erstellen und Verwalten von Richtlinien Schritt für Schritt beschrieben. Mit Azure Policy-Definitionen werden verschiedene Regeln und Auswirkungen für Ihre Ressourcen erzwungen. Durch die Erzwingung wird sichergestellt, dass die Ressourcen stets konform mit Ihren Unternehmensstandards und Vereinbarungen zum Servicelevel bleiben.
 
 Weitere Informationen zur Konformität finden Sie unter [Abrufen von Konformitätsdaten](getting-compliance-data.md).
 
@@ -31,7 +31,7 @@ Stellen Sie zunächst sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
 1. Aktualisieren Sie Ihr Azure PowerShell-Modul auf die neueste Version. Ausführliche Informationen finden Sie unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps). Weitere Informationen zur aktuellen Version finden Sie unter [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registrieren Sie den Ressourcenanbieter „Policy Insights“ über Azure PowerShell, um zu prüfen, ob Ihr Abonnement mit dem Ressourcenanbieter funktioniert. Um einen Ressourcenanbieter zu registrieren, benötigen Sie die Berechtigungen zum Ausführen des Vorgangs „Aktion registrieren“ für den Ressourcenanbieter. Dieser Vorgang ist in den Rollen „Mitwirkender“ und „Besitzer“ enthalten. Führen Sie den folgenden Befehl aus, um den Ressourcenanbieter zu registrieren:
+1. Registrieren Sie den Azure-Ressourcenanbieter „Policy Insights“ über Azure PowerShell, um zu prüfen, ob Ihr Abonnement mit dem Ressourcenanbieter funktioniert. Um einen Ressourcenanbieter zu registrieren, benötigen Sie die Berechtigungen zum Ausführen des Vorgangs „Aktion registrieren“ für den Ressourcenanbieter. Dieser Vorgang ist in den Rollen „Mitwirkender“ und „Besitzer“ enthalten. Führen Sie den folgenden Befehl aus, um den Ressourcenanbieter zu registrieren:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -97,10 +97,10 @@ Im ersten Schritt zur besseren Sichtbarkeit Ihrer Ressourcen werden Richtlinien 
    Der Parameter **Scope** für `New-AzPolicyAssignment` kann mit einer Verwaltungsgruppe, einem Abonnement, einer Ressourcengruppe oder einer einzelnen Ressource verwendet werden. Der Parameter verwendet einen vollständigen Ressourcenpfad, den die Eigenschaft **ResourceId** in `Get-AzResourceGroup` zurückgibt. Das Muster für **Scope** sieht für jeden Container wie folgt aus. Ersetzen Sie `{rName}`, `{rgName}`, `{subId}` und `{mgName}` durch Ihre(n) Ressourcennamen, Ressourcengruppennamen, Abonnement-ID bzw. Namen der Verwaltungsgruppe.
    `{rType}` wird durch den **Ressourcentyp** der Ressource ersetzt, z. B. `Microsoft.Compute/virtualMachines` für eine VM.
 
-   - Ressource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Ressourcengruppe - `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Abonnement - `/subscriptions/{subId}/`
-   - Verwaltungsgruppe - `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Ressource: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Ressourcengruppe: `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Abonnement: `/subscriptions/{subId}/`
+   - Verwaltungsgruppe: `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Weitere Informationen zum Verwalten von Ressourcenrichtlinien unter Verwendung des Azure Resource Manager-PowerShell-Moduls finden Sie unter [Az.Resources](/powershell/module/az.resources/#policies).
 
@@ -148,7 +148,7 @@ Verwenden Sie das folgende Verfahren, um eine Richtliniendefinition zu erstellen
 
    Ersetzen Sie „{subscriptionId}“ durch die ID Ihres Abonnements oder „{managementGroupId}“ durch die ID Ihrer [Verwaltungsgruppe](../../management-groups/overview.md).
 
-   Weitere Informationen zur Struktur der Abfrage finden Sie unter [Policy Definitions - Create Or Update](/rest/api/resources/policydefinitions/createorupdate) (Richtliniendefinitionen: Erstellen oder Aktualisieren) sowie unter [Policy Definitions - Create Or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) (Richtliniendefinitionen: Erstellen oder Aktualisieren in einer Verwaltungsgruppe).
+   Weitere Informationen zur Struktur der Abfrage finden Sie unter [Policy Definitions – Create Or Update](/rest/api/resources/policydefinitions/createorupdate) (Richtliniendefinitionen: Erstellen oder Aktualisieren) sowie unter [Policy Definitions – Create Or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) (Richtliniendefinitionen: Erstellen oder Aktualisieren in einer Verwaltungsgruppe).
 
 Verwenden Sie das folgende Verfahren, um eine Richtlinienzuweisung zu erstellen und die Richtliniendefinition auf Ressourcengruppenebene zuzuweisen.
 
@@ -225,12 +225,12 @@ Verwenden Sie das folgende Verfahren, um eine Richtliniendefinition zu erstellen
 
    Die Parameter **--scope** für `az policy assignment create` kann mit einer Verwaltungsgruppe, einem Abonnement, einer Ressourcengruppe oder einer einzelnen Ressource verwendet werden. Der Parameter verwendet einen vollständigen Ressourcenpfad. Das Muster für **--scope** für die einzelnen Container ist unten aufgeführt. Ersetzen Sie `{rName}`, `{rgName}`, `{subId}` und `{mgName}` durch Ihre(n) Ressourcennamen, Ressourcengruppennamen, Abonnement-ID bzw. Namen der Verwaltungsgruppe. `{rType}` wird durch den **Ressourcentyp** der Ressource ersetzt, z. B. `Microsoft.Compute/virtualMachines` für eine VM.
 
-   - Ressource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Ressourcengruppe - `/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Abonnement - `/subscriptions/{subID}`
-   - Verwaltungsgruppe - `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Ressource: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Ressourcengruppe: `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Abonnement: `/subscriptions/{subID}`
+   - Verwaltungsgruppe: `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Sie können die ID der Richtliniendefinition abrufen, indem Sie PowerShell mit dem folgenden Befehl verwenden:
+Sie können die ID der Azure Policy-Definition abrufen, indem Sie PowerShell mit dem folgenden Befehl verwenden:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +251,5 @@ Weitere Informationen zu den in diesem Artikel verwendeten Befehlen und Abfragen
 - [Azure-REST-API-Ressourcen](/rest/api/resources/)
 - [Azure PowerShell-Module](/powershell/module/az.resources/#policies)
 - [Befehle für Azure CLI-Richtlinien](/cli/azure/policy?view=azure-cli-latest)
-- [Ressourcenanbieter „Policy Insights“ – REST-API-Referenz](/rest/api/policy-insights)
+- [Azure-Ressourcenanbieter „Policy Insights“ – REST-API-Referenz](/rest/api/policy-insights)
 - [Organisieren Ihrer Ressourcen mit Azure-Verwaltungsgruppen](../../management-groups/overview.md)

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 2f6be01a3aee4e156b7af184fa2537455fc73f3f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267171"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386532"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Worum handelt es sich bei der Bing-Videosuche-API?
 
@@ -50,6 +50,6 @@ Sehen Sie sich die [Schnellstartanleitung](csharp.md) an, um schnell mit Ihrer e
 
 ## <a name="see-also"></a>Weitere Informationen
 
-* Die Referenzseite zur [ Bing-Videosuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) enthält die Liste mit den Endpunkten, Headern und Abfrageparametern zum Anfordern von Suchergebnissen.
+* Die Referenzseite zur [ Bing-Videosuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) enthält die Liste mit den Endpunkten, Headern und Abfrageparametern zum Anfordern von Suchergebnissen.
 
 * In den [Verwendungs- und Anzeigeanforderungen für Bing](./useanddisplayrequirements.md) erfahren Sie, wie Inhalte und Informationen verwendet werden dürfen, die über die Bing-Suche-APIs gefunden wurden.

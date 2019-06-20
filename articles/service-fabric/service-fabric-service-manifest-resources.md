@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8707a9cb90afe1bf72f3aef6377f8ada409a1c64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837758"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Angeben von Ressourcen in einem Dienstmanifest
 ## <a name="overview"></a>Übersicht
@@ -192,7 +192,7 @@ Fügen Sie unter „Parameters“ Folgendes hinzu:
   </Parameters>
 ```
 
-Beim Bereitstellen der Anwendung können Sie die folgenden Werte als ApplicationParameters übergeben.  Beispiel: 
+Beim Bereitstellen der Anwendung können Sie die folgenden Werte als ApplicationParameters übergeben.  Beispiel:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -200,7 +200,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Hinweis: Wenn für die Anwendungsparameter keine Werte angegeben wurden, wird der Standardwert für den entsprechenden EndPointName aus dem ServiceManifest verwendet.
 
-Beispiel: 
+Beispiel:
 
 Angenommen, Sie haben im Dienstmanifest Folgendes angegeben:
 

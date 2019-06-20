@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7dcdb960fbd9196aca8b667269a4c6e5a1fb8f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60794953"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomfaktoren und Linienraster
 Azure Maps verwendet das Koordinatensystem der sphärischen Mercator-Projektion (EPSG: 3857).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: adc74dbcb943af9ad793dbc3f59a31465f44b6fd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a6be4f89f19cd64f5c9d235dc628ca222dab973c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916787"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515248"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Schnellstart: Verwenden der Textübersetzungs-API zur Erkennung der Textsprache mit C#
 
@@ -163,7 +163,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Beispiel für eine Antwort
 
-Die Landesabkürzung finden Sie in [dieser Liste der Sprachen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Die Abkürzung für das Land bzw. die Region finden Sie in [dieser Liste der Sprachen](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

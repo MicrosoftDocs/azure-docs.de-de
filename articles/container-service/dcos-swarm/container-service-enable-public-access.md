@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996590"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61457330"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(VERALTET) Ermöglichen des öffentlichen Zugriffs auf eine Azure Container Service-Anwendung
 
@@ -39,7 +39,7 @@ Zunächst müssen wir den gewünschten Port öffnen.
    | --- | --- |
    | NAME |Ein beschreibender Name des Tests. |
    | Port |Der Port des zu testenden Containers. |
-   | path |(Im HTTP-Modus) Der relative Websitepfad zum Test. HTTPS wird nicht unterstützt. |
+   | `Path` |(Im HTTP-Modus) Der relative Websitepfad zum Test. HTTPS wird nicht unterstützt. |
    | Intervall |Der Zeitraum zwischen Testversuchen in Sekunden. |
    | Fehlerhafter Schwellenwert |Anzahl von aufeinander folgenden Testversuchen, bevor der Container als fehlerhaft angesehen wird. |
 6. Wechseln Sie zurück zu den Eigenschaften des Agent-Lastenausgleichs, und klicken Sie auf **Lastenausgleichsregeln** und dann auf **Hinzufügen**.
@@ -74,9 +74,9 @@ Als Nächstes müssen wir eine Sicherheitsregel hinzufügen, mit der Datenverkeh
    | --- | --- |
    | NAME |Ein beschreibender Name der Firewallregel. |
    | Priorität |Prioritätsrang für die Regel. Je niedriger die Nummer ist, desto höher ist die Priorität. |
-   | Quelle |Schränkt den IP-Adressbereich für eingehenden Datenverkehr ein, der mit dieser Regel zugelassen oder abgelehnt wird. Verwenden Sie **Alle** , um keine Einschränkung anzugeben. |
+   | `Source` |Schränkt den IP-Adressbereich für eingehenden Datenverkehr ein, der mit dieser Regel zugelassen oder abgelehnt wird. Verwenden Sie **Alle** , um keine Einschränkung anzugeben. |
    | Dienst |Wählen Sie einen Satz mit vordefinierten Diensten aus, für die diese Sicherheitsregel gilt. Verwenden Sie andernfalls **Benutzerdefiniert** , um einen eigenen Satz zu erstellen. |
-   | Protokoll |Schränkt den Datenverkehr basierend auf **TCP** oder **UDP** ein. Verwenden Sie **Alle** , um keine Einschränkung anzugeben. |
+   | Protocol |Schränkt den Datenverkehr basierend auf **TCP** oder **UDP** ein. Verwenden Sie **Alle** , um keine Einschränkung anzugeben. |
    | Portbereich |Wenn **Dienst** auf **Benutzerdefiniert** festgelegt ist, wird hiermit der Portbereich angegeben, auf den sich diese Regel auswirkt. Sie können einen einzelnen Port, z.B. **80**, oder einen Bereich wie **1024–1500** verwenden. |
    | Aktion |Dient zum Zulassen oder Verweigern von Datenverkehr, der die Kriterien erfüllt. |
 

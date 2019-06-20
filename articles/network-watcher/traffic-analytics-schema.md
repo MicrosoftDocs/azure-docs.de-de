@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64691415"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema und Datenaggregation in Traffic Analytics
 
@@ -35,7 +35,7 @@ Traffic Analytics ist eine cloudbasierte Lösung, die Einblick in Benutzer- und 
 1. Alle Flowprotokolle in einer Netzwerksicherheitsgruppe zwischen „FlowIntervalStartTime_t“ und „FlowIntervalEndTime_t“ werden im Speicherkonto in Intervallen von einer Minute als Blobs erfasst, bevor sie von Traffic Analytics verarbeitet werden. 
 2. Das Standardintervall für die Verarbeitung in Traffic Analytics beträgt 60 Minuten. Das bedeutet, dass Traffic Analytics alle 60 Minuten Blobs aus dem Speicher erfasst, um diese zu aggregieren.
 3. Flows, die die gleichen Werte für Quell-IP, Ziel-IP, Zielport, NSG-Name, NSG-Regel, Flowrichtung und Transportschichtprotokoll (TCP oder UDP) aufweisen (Hinweis: der Quellport wird bei der Aggregation ausgeschlossen), werden von Traffic Analytics in einen einzigen Flow zusammengefasst.
-4. Dieser einzelne Datensatz wird ergänzt (Details dazu im folgenden Abschnitt) und von Traffic Analytics in Log Analytics erfasst.
+4. Dieser einzelne Datensatz wird ergänzt (Details dazu im folgenden Abschnitt) und von Traffic Analytics in Log Analytics erfasst. Dieser Vorgang kann bis zu 1 Stunde (max.) dauern.
 5. Das Feld „FlowStartTime_t“ gibt das erste Vorkommen eines solchen aggregierten Flows (gleiches 4-Tupel) im Verarbeitungsintervall des Flowprotokolls zwischen „FlowIntervalStartTime_t“ und „FlowIntervalEndTime_t“ an. 
 6. Bei allen Ressourcen in Traffic Analytics handelt es sich bei den auf der Benutzeroberfläche angezeigten Flows um alle Flows, die von Mitgliedern der Netzwerksicherheitsgruppe gesehen werden. In Log Analytics sehen Benutzer jedoch nur den einzelnen, zusammengefassten Datensatz. Um alle Flows anzuzeigen, verwenden Sie das Feld „blob_id“, auf das aus dem Speicher verwiesen werden kann. Die Gesamtanzahl von Flows für diesen Datensatz entspricht den einzelnen Flows, die im Blob zu sehen sind.
 
@@ -60,7 +60,7 @@ Im Folgenden werden die Felder im Schema und ihre Bedeutung aufgeführt.
 | SrcIP_s | Quell-IP-Adresse | Ist im Fall von AzurePublic- und ExternalPublic-Flows leer. |
 | DestIP_s | IP-Zieladresse | Ist im Fall von AzurePublic- und ExternalPublic-Flows leer. |
 | VMIP_s | IP der VM | Wird für AzurePublic- und ExternalPublic-Flows verwendet. |
-| PublicIP_S | Öffentliche IP-Adressen | Wird für AzurePublic- und ExternalPublic-Flows verwendet. |
+| PublicIP_s | Öffentliche IP-Adressen | Wird für AzurePublic- und ExternalPublic-Flows verwendet. |
 | DestPort_d | Zielport | Port, an dem Datenverkehr eingeht. | 
 | L4Protocol_s  | * T <br> * U  | Transportprotokoll. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Name des Protokolls | Wird aus dem Zielport abgeleitet. |
@@ -121,6 +121,7 @@ Im Folgenden werden die Felder im Schema und ihre Bedeutung aufgeführt.
 1. MaliciousFlow – eine der IP-Adressen gehört zu einem Azure Virtual Network, die andere ist eine öffentliche IP-Adresse außerhalb von Azure. Diese wird in den ASC-Feeds, die Traffic Analytics im Verarbeitungsintervall zwischen „FlowIntervalStartTime_t“ und „FlowIntervalEndTime_t“ nutzt, als schädlich gemeldet. 
 1. UnknownPrivate – eine der IP-Adressen gehört zu einem Azure Virtual Network, die andere zu einem privaten IP-Adressbereich, wie in RFC 1918 definiert. Diese kann von Traffic Analytics keinem Standort im Besitz eines Kunden und keinem Azure Virtual Network zugeordnet werden.
 1. Unknown – keine der IP-Adressen in den Flows kann der Kundentopologie in Azure oder einem lokalen Standort zugeordnet werden.
+1. An einige Feldnamen wird „_s“ oder „_d“ angefügt. Diese bezeichnen NICHT die Quelle (Source) und das Ziel (Destination).
 
 ### <a name="next-steps"></a>Nächste Schritte
 Antworten auf häufig gestellte Fragen finden Sie in den [FAQ zu Traffic Analytics](traffic-analytics-faq.md). Weitere Informationen zur Funktionalität finden Sie in der [Dokumentation zu Traffic Analytics](traffic-analytics.md).

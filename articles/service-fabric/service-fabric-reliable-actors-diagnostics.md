@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670743"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60726569"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnose und Leistungsüberwachung für Reliable Actors
 Die Reliable Actors-Laufzeit gibt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx)-Ereignisse und [Leistungsindikatoren](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) aus. Diese bieten Einblicke in den Laufzeitbetrieb und Hilfe bei der Problembehandlung und Leistungsüberwachung.
@@ -32,7 +32,7 @@ Beispiele für Tools und Technologien, mit deren Hilfe EventSource-Ereignisse er
 ### <a name="keywords"></a>Schlüsselwörter
 Allen Ereignissen, die zu Reliable Actors EventSource gehören, werden ein oder mehrere Schlüsselwörter zugeordnet. Dies ermöglicht das Filtern von erfassten Ereignissen. Die folgenden Schlüsselwort-Bits sind definiert.
 
-| Bit | BESCHREIBUNG |
+| bit | BESCHREIBUNG |
 | --- | --- |
 | 0x1 |Gruppe von wichtigen Ereignissen, die den Vorgang der Fabric Actors-Laufzeit zusammenfassen. |
 | 0x2 |Gruppe von Ereignissen, die Actor-Methodenaufrufe beschreiben. Weitere Informationen finden Sie im [Einführungsthema zu Actors](service-fabric-reliable-actors-introduction.md). |
@@ -92,7 +92,7 @@ Im obigen Beispiel ist `ivoicemailboxactor.leavemessageasync` der Methodenname, 
 ### <a name="actor-method-events-and-performance-counters"></a>Actor-Methodenereignisse und Leistungsindikatoren
 Die Reliable Actors-Laufzeit gibt die folgenden Ereignisse im Zusammenhang mit [Actor-Methoden](service-fabric-reliable-actors-introduction.md) aus.
 
-| Ereignisname | Ereignis-ID | Ebene | Schlüsselwort | BESCHREIBUNG |
+| Ereignisname | Ereignis-ID | Level | Schlüsselwort | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Ausführlich |0x2 |Die Actors-Laufzeit ruft in Kürze eine Actor-Methode auf. |
 | ActorMethodStop |8 |Ausführlich |0x2 |Die Ausführung einer Actor-Methode wurde abgeschlossen. Das heißt, der asynchrone Aufruf der Laufzeit an die Actor-Methode wurde zurückgegeben, und die von der Actor-Methode zurückgegebene Aufgabe ist abgeschlossen. |
@@ -109,7 +109,7 @@ Die Reliable Actors-Laufzeit veröffentlicht die folgenden Leistungsindikatoren 
 ### <a name="concurrency-events-and-performance-counters"></a>Parallelitätsereignisse und Leistungsindikatoren
 Die Reliable Actors-Laufzeit gibt die folgenden Ereignisse im Zusammenhang mit [Parallelität](service-fabric-reliable-actors-introduction.md#concurrency)aus.
 
-| Ereignisname | Ereignis-ID | Ebene | Schlüsselwort | BESCHREIBUNG |
+| Ereignisname | Ereignis-ID | Level | Schlüsselwort | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Ausführlich |0x8 |Dieses Ereignis wird zu Beginn jedes neuen Turns in einen Actor geschrieben. Es enthält die Anzahl der ausstehenden Actor-Aufrufe, die darauf warten, die Pro-Actor-Sperre zu übernehmen, die Turn-basierte Parallelität erzwingt. |
 
@@ -124,7 +124,7 @@ Die Reliable Actors-Laufzeit veröffentlicht die folgenden Leistungsindikatoren 
 ### <a name="actor-state-management-events-and-performance-counters"></a>Actor-Statusmanagement-Ereignisse und Leistungsindikatoren
 Die Reliable Actors-Laufzeit gibt die folgenden Ereignisse im Zusammenhang mit der [Actor-Statusverwaltung](service-fabric-reliable-actors-state-management.md)aus.
 
-| Ereignisname | Ereignis-ID | Ebene | Schlüsselwort | BESCHREIBUNG |
+| Ereignisname | Ereignis-ID | Level | Schlüsselwort | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Ausführlich |0x4 |Die Actors-Laufzeit speichert in Kürze den Actor-Status. |
 | ActorSaveStateStop |11 |Ausführlich |0x4 |Die Actors-Laufzeit hat das Speichern des Actor-Status abgeschlossen. |
@@ -139,7 +139,7 @@ Die Reliable Actors-Laufzeit veröffentlicht die folgenden Leistungsindikatoren 
 ### <a name="events-related-to-actor-replicas"></a>Mit Actor-Replikaten verbundene Ereignisse
 Die Reliable Actors-Laufzeit gibt die folgenden Ereignisse im Zusammenhang mit [Actor-Replikaten](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) aus.
 
-| Ereignisname | Ereignis-ID | Ebene | Schlüsselwort | BESCHREIBUNG |
+| Ereignisname | Ereignis-ID | Level | Schlüsselwort | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Information |0x1 |Rolle von Actor-Replikat auf „Primär“ geändert. Dies bedeutet, dass die Actors für diese Partition in diesem Replikat erstellt werden. |
 | ReplicaChangeRoleFromPrimary |2 |Information |0x1 |Rolle von Actor-Replikat auf „Nicht primär“ geändert. Dies bedeutet, dass die Actors für diese Partition nicht mehr in diesem Replikat erstellt werden. An Actors, die bereits in diesem Replikat erstellt wurden, werden keine neuen Anforderungen übermittelt. Die Actors werden zerstört, nachdem alle gerade ausgeführten Anforderungen abgeschlossen sind. |
@@ -147,7 +147,7 @@ Die Reliable Actors-Laufzeit gibt die folgenden Ereignisse im Zusammenhang mit [
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Actor-Aktivierungs- und -Deaktivierungsereignisse und Leistungsindikatoren
 Die Reliable Actors-Laufzeit gibt die folgenden Ereignisse im Zusammenhang mit der [Actor-Aktivierung und -Deaktivierung](service-fabric-reliable-actors-lifecycle.md)aus.
 
-| Ereignisname | Ereignis-ID | Ebene | Schlüsselwort | BESCHREIBUNG |
+| Ereignisname | Ereignis-ID | Level | Schlüsselwort | BESCHREIBUNG |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |Information |0x1 |Ein Actor wurde aktiviert. |
 | ActorDeactivated |6 |Information |0x1 |Ein Actor wurde deaktiviert. |

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850310"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242621"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-Metriken, -Warnungen und -Protokolle für die Diagnoseauswertung und -überwachung
 
@@ -109,7 +109,7 @@ Andere optionale Ziele für Diagnoseprotokolle:
 
     ![Batch-Diagnose](media/batch-diagnostics/diagnostics-portal.png)
 
-Andere Optionen zum Aktivieren der Protokollerfassung: Konfigurieren von Diagnoseeinstellungen mithilfe von Azure Monitor im Portal, Verwenden einer [Resource Manager-Vorlage](../azure-monitor/platform/diagnostic-logs-stream-template.md) oder Verwenden von Azure PowerShell bzw. der Azure-Befehlszeilenschnittstelle. Informationen finden Sie unter [Erfassen und Nutzen von Protokolldaten aus Ihren Azure-Ressourcen](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
+Andere Optionen zum Aktivieren der Protokollerfassung: Konfigurieren von Diagnoseeinstellungen mithilfe von Azure Monitor im Portal, Verwenden einer [Resource Manager-Vorlage](../azure-monitor/platform/diagnostic-logs-stream-template.md) oder Verwenden von Azure PowerShell bzw. der Azure-Befehlszeilenschnittstelle. Informationen finden Sie unter [Erfassen und Nutzen von Protokolldaten aus Ihren Azure-Ressourcen](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Zugreifen auf Diagnoseprotokolle im Speicher

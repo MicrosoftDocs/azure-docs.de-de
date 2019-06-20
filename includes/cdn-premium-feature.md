@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: cdn
 author: SyntaxC4
 ms.service: cdn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: 54be18f2b114f4bb3ac9dd71e4517ee8806339bf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a0edb0a2017466ded4709dbf09dbb8ff940b8f20
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814661"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178434"
 ---
 > [!IMPORTANT]
 > Dies ist nur ein Feature von **Azure CDN Premium von Verizon** und für Azure CDN Standard-Produkte nicht verfügbar. Einen Vergleich der CDN-Features finden Sie unter [Azure CDN-Produktfeatures](../articles/cdn/cdn-features.md). 

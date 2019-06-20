@@ -3,8 +3,8 @@ title: Fehler „Zugriff auf diese Unternehmensanwendung nicht möglich“ bei V
 description: Informationen zum Beheben häufiger Probleme mit Azure AD-Anwendungsproxyanwendungen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8db5552ad81a1a47db72a5372e643a6fc167888
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091204"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016076"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Fehler „Zugriff auf diese Unternehmensanwendung nicht möglich“ bei Verwendung der Anwendungsproxyanwendung
 
@@ -77,7 +77,7 @@ So überprüfen Sie, ob die Anwendung einer funktionierenden Connectorgruppe zug
 
 1. Öffnen Sie die Anwendung im Verwaltungsportal, indem Sie zu **Azure Active Directory** navigieren und dann auf **Unternehmensanwendungen** und **Alle Anwendungen** klicken. Öffnen Sie die Anwendung, und wählen Sie dann im linken Menü **Anwendungsproxy** aus.
 
-2. Sehen Sie sich das Feld „Connectorgruppe“ an. Wenn keine aktiven Connectors in der Gruppe vorhanden sind, wird eine Warnung angezeigt. Wenn keine Warnungen angezeigt werden, fahren Sie mit „Überprüfen, ob alle erforderlichen Ports in der Zulassungsliste enthalten sind“ fort.
+2. Sehen Sie sich das Feld „Connectorgruppe“ an. Wenn keine aktiven Connectors in der Gruppe vorhanden sind, wird eine Warnung angezeigt. Wenn keine Warnungen angezeigt werden, setzen Sie den Vorgang fort und überprüfen, ob alle erforderlichen Ports zulässig sind.
 
 3. Wird die falsche Connectorgruppe angezeigt, wählen Sie die richtige Gruppe über die Dropdownliste aus, und bestätigen Sie, dass keine Warnungen mehr angezeigt werden. Wird die gewünschte Connectorgruppe angezeigt, klicken Sie auf die Warnung und öffnen die Seite zur Connectorverwaltung.
 
@@ -87,11 +87,11 @@ So überprüfen Sie, ob die Anwendung einer funktionierenden Connectorgruppe zug
 
    * Herunterladen eines neuen Connectors für diese Gruppe: Auf dieser Seite finden Sie den Link zum [Herunterladen eines neuen Connectors](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installieren Sie den Connector auf einem Computer mit direktem Zugriff auf die Back-End-Anwendung. In der Regel ist der Connector auf dem selben Server wie die Anwendung installiert. Verwenden Sie den Downloadlink, um einen Connector auf den Zielcomputer herunterzuladen. Als Nächstes klicken Sie auf den Connector und verwenden die Dropdownliste „Connectorgruppe“, um sicherzustellen, dass er der richtigen Gruppe angehört.
 
-   * Untersuchen eines inaktiven Connectors: Wenn ein Connector als inaktiv angezeigt wird, kann er den Dienst nicht erreichen. Dieser Fehler liegt in der Regel darin begründet, dass einige erforderliche Ports blockiert werden. Um das Problem zu beheben, fahren Sie mit dem Schritt „Überprüfen, ob alle erforderlichen Ports in der Zulassungsliste enthalten sind“ fort.
+   * Untersuchen eines inaktiven Connectors: Wenn ein Connector als inaktiv angezeigt wird, kann er den Dienst nicht erreichen. Dieser Fehler liegt in der Regel darin begründet, dass einige erforderliche Ports blockiert werden. Um das Problem zu beheben, setzen Sie den Vorgang fort und überprüfen, ob alle erforderlichen Ports zulässig sind.
 
 Testen Sie nach dem Ausführen der Schritte die Anwendung erneut, um sicherzustellen, dass die Anwendung einer Gruppe funktionierender Connectors zugewiesen ist. Wenn der Fehler immer noch auftritt, fahren Sie mit dem nächsten Abschnitt fort.
 
-## <a name="check-all-required-ports-are-whitelisted"></a>Überprüfen, ob alle erforderlichen Ports in der Zulassungsliste enthalten sind
+## <a name="check-all-required-ports-are-open"></a>Überprüfen, ob alle erforderlichen Ports geöffnet sind
 
 Informationen zur Überprüfung, ob alle erforderlichen Ports geöffnet sind, finden Sie in der Dokumentation zum Öffnen von Ports. Wenn alle erforderlichen Ports geöffnet sind, fahren Sie mit dem nächsten Abschnitt fort.
 

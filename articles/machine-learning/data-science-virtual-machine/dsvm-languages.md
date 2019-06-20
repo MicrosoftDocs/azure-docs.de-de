@@ -18,11 +18,11 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60502238"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Unterstützte Sprachen der Data Science-VM 
 
@@ -234,12 +234,12 @@ Julia befindet sich standardmäßig in einer globalen, für alle Benutzer lesbar
 
 ## <a name="other-languages"></a>Weitere Sprachen
 
-**C#**: Verfügbar unter Windows, Zugriff über Visual Studio Community Edition oder über eine `Developer Command Prompt for Visual Studio` (durch Ausführen des Befehls `csc`). 
+**C#** : Verfügbar unter Windows, Zugriff über Visual Studio Community Edition oder über eine `Developer Command Prompt for Visual Studio` (durch Ausführen des Befehls `csc`). 
 
 **Java**: OpenJDK steht sowohl in der Linux- als auch in der Windows-Edition der DSVM zur Verfügung und ist auf den Pfad festgelegt. Geben Sie zur Verwendung von Java den Befehl `javac` oder `java` an einer Eingabeaufforderung (Windows) bzw. in einer Bash-Shell (Linux) ein. 
 
 **Node.js:** Node.js steht sowohl in der Linux- als auch in der Windows-Edition der DSVM zur Verfügung und ist auf den Pfad festgelegt. Geben Sie zur Verwendung von Node.js den Befehl `node` oder `npm` an einer Eingabeaufforderung (Windows) bzw. in einer Bash-Shell (Linux) ein. Unter Windows werden die Node.js-Tools für Visual Studio als Erweiterung installiert, sodass Ihnen für die Entwicklung Ihrer Node.js-Anwendung eine grafische IDE zur Verfügung steht. 
 
-**F#**: Verfügbar unter Windows, Zugriff über Visual Studio Community Edition oder über eine `Developer Command Prompt for Visual Studio` (durch Ausführen des Befehls `fsc`). 
+**F#** : Verfügbar unter Windows, Zugriff über Visual Studio Community Edition oder über eine `Developer Command Prompt for Visual Studio` (durch Ausführen des Befehls `fsc`). 
 
 

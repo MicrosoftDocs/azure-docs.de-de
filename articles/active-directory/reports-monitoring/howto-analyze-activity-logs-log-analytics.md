@@ -18,11 +18,11 @@ ms.author: priyamo
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60438247"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analysieren von Azure AD-Aktivitätsprotokollen mithilfe von Azure Monitor-Protokollen
 

@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138355"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299146"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gewusst wie: Hinzufügen von App-Rollen in Ihrer Anwendung und Empfangen der Rollen im Token
 
@@ -62,7 +62,7 @@ Diese Anwendungsrollen werden im [Azure-Portal](https://portal.azure.com) im Reg
 Das folgende Beispiel zeigt den `appRoles`-Wert, den Sie `users` zuweisen können.
 
 > [!NOTE]
->  `id` muss eine eindeutige GUID sein.
+>`id` muss eine eindeutige GUID sein.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -81,6 +81,9 @@ Das folgende Beispiel zeigt den `appRoles`-Wert, den Sie `users` zuweisen könne
 "availableToOtherTenants": false,
 ```
 
+> [!NOTE]
+>`displayName` darf keine Leerzeichen enthalten.
+
 Sie können App-Rollen mit Ausrichtung auf `users`, `applications` oder auf beides festlegen. Wenn App-Rollen für `applications` verfügbar sind, werden sie auf dem Blatt **Erforderliche Berechtigungen** als Anwendungsberechtigungen angezeigt. Das folgende Beispiel zeigt eine App-Rolle für `Application`.
 
 ```Json
@@ -90,7 +93,7 @@ Sie können App-Rollen mit Ausrichtung auf `users`, `applications` oder auf beid
       "allowedMemberTypes": [
         "Application"
       ],
-      "displayName": "Consumer Apps",
+      "displayName": "ConsumerApps",
       "id": "47fbb575-859a-4941-89c9-0f7a6c30beac",
       "isEnabled": true,
       "description": "Consumer apps have access to the consumer data.",
@@ -99,6 +102,8 @@ Sie können App-Rollen mit Ausrichtung auf `users`, `applications` oder auf beid
   ],
 "availableToOtherTenants": false,
 ```
+
+Die Anzahl der definierten Rollen wirkt sich auf die Grenzwerte des Anwendungsmanifests aus. Diese wurden ausführlich auf der Seite [Grenzwerte für das Manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) erläutert.
 
 ### <a name="assign-users-and-groups-to-roles"></a>Zuweisen von Benutzern und Gruppen zu Rollen
 

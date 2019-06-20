@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6bd7a014e765d32349951d99d3027c90f61f7eb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2befe553cc19fc2a20f506fa8e505623c3f3f452
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66514616"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Registrieren für die Textübersetzungs-API
 

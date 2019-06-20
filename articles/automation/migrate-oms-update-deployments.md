@@ -10,11 +10,11 @@ ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999682"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60499210"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrieren von OMS-Updatebereitstellungen zu Azure
 

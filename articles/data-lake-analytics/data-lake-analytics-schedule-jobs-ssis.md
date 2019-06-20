@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814671"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planen von U-SQL-Aufträgen mit SQL Server Integration Services (SSIS)
 
@@ -56,7 +56,7 @@ Führen Sie die folgenden Schritte aus, um die Verbindung zwischen dem Task „A
 
 ### <a name="set-task-control-flow"></a>Festlegen der Ablaufsteuerung für Tasks
 
-Fügen Sie in der SSIS-Paketentwurfsansicht den **Task „Azure Data Lake Store File System“**, einen **Foreach-Schleifencontainer** und den **Task „Azure Data Lake Analytics“** im Foreach-Schleifencontainer hinzu. Mithilfe des Tasks „Azure Data Lake Store File System“ können Sie U-SQL-Dateien in Ihrem ADLS-Konto in einen temporären Ordner herunterladen. Der Foreach-Schleifencontainer und der Task „Azure Data Lake Analytics“ dienen zum Übermitteln aller U-SQL-Dateien im temporären Ordner in das Azure Data Lake Analytics-Konto als U-SQL-Auftrag.
+Fügen Sie in der SSIS-Paketentwurfsansicht den **Task „Azure Data Lake Store File System“** , einen **Foreach-Schleifencontainer** und den **Task „Azure Data Lake Analytics“** im Foreach-Schleifencontainer hinzu. Mithilfe des Tasks „Azure Data Lake Store File System“ können Sie U-SQL-Dateien in Ihrem ADLS-Konto in einen temporären Ordner herunterladen. Der Foreach-Schleifencontainer und der Task „Azure Data Lake Analytics“ dienen zum Übermitteln aller U-SQL-Dateien im temporären Ordner in das Azure Data Lake Analytics-Konto als U-SQL-Auftrag.
 
 ![Verwenden von U-SQL-Dateien in Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 

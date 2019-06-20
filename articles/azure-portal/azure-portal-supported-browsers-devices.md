@@ -16,11 +16,11 @@ ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
 ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576393"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60551153"
 ---
 # <a name="supported-devices"></a>Unterstützte Geräte
 

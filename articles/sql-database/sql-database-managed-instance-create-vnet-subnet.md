@@ -13,11 +13,11 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
 ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59782523"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60700476"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Erstellen eines virtuellen Netzwerks für eine verwaltete Azure SQL-Datenbank-Instanz
 

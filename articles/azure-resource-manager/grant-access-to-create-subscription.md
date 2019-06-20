@@ -2,8 +2,8 @@
 title: Gewähren des Zugriffs zum Erstellen von Azure Enterprise-Abonnements | Microsoft Docs
 description: Erfahren Sie, wie Sie einem Benutzer oder Dienstprinzipal ermöglichen können, programmgesteuert Azure Enterprise-Abonnements zu erstellen.
 services: azure-resource-manager
-author: adpick
-manager: adpick
+author: jureid
+manager: jureid
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -11,78 +11,177 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 7a2397328f715dbf63246e8d4aaa789b5986b3b4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 05/23/2019
+ms.author: jureid
+ms.openlocfilehash: 81f3edcfcffad1b9b6d0ab4b49769601196049ad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112562"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238053"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Gewähren des Zugriffs zum Erstellen von Azure Enterprise-Abonnements (Vorschau)
 
 Als Azure-Kunde mit einem [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) können Sie einem anderen Benutzer oder Dienstprinzipal die Berechtigung zum Erstellen von Abonnements erteilen, die Ihrem Konto in Rechnung gestellt werden. In diesem Artikel erfahren Sie, wie Sie [rollenbasierte Zugriffssteuerung (RBAC)](../active-directory/role-based-access-control-configure.md) verwenden können, um anderen Benutzern das Erstellen von Abonnements zu ermöglichen, und wie Sie die Erstellung von Abonnements überwachen können. Sie müssen für das Konto, das Sie freigeben möchten, über die Rolle „Besitzer“ verfügen.
 
-Weitere Informationen zum Erstellen eines Abonnements finden Sie unter [Programmgesteuertes Erstellen von Azure Enterprise-Abonnements (Vorschau)](programmatically-create-subscription.md).
-
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Delegieren des Zugriffs auf ein Registrierungskonto mithilfe von RBAC
-
-Um einem anderen Benutzer oder Dienstprinzipal die Möglichkeit zu geben, Abonnements für ein bestimmtes Konto zu erstellen, [weisen Sie ihm eine RBAC-Besitzerrolle im Bereich des Registrierungskontos zu](../active-directory/role-based-access-control-manage-access-rest.md). Im folgenden Beispiel wird einem Benutzer im Mandanten mit der `principalId` `<userObjectId>` (für SignUpEngineering@contoso.com) eine Besitzerrolle für das Registrierungskonto zugewiesen. Informationen zum ermitteln der Registrierungskonto-ID und der Prinzipal-ID finden Sie unter [Programmgesteuertes Erstellen von Azure Enterprise-Abonnements (Vorschau)](programmatically-create-subscription.md).
-
-# <a name="resttabrest"></a>[REST](#tab/rest)
-
-```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
-
-{
-  "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-    "principalId": "<userObjectId>"
-  }
-}
-```
-
-Wenn die Besitzerrolle im Bereich des Anmeldekontos erfolgreich zugewiesen wurde, antwortet Azure mit Informationen zur Rollenzuweisung:
-
-```json
-{
-  "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-    "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "createdOn": "2018-03-05T08:36:26.4014813Z",
-    "updatedOn": "2018-03-05T08:36:26.4014813Z",
-    "createdBy": "<assignerObjectId>",
-    "updatedBy": "<assignerObjectId>"
-  },
-  "id": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "<roleAssignmentGuid>"
-}
-```
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Verwenden Sie [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md), um einem anderen Benutzer Besitzerzugriff auf Ihr Registrierungskonto zu gewähren.
+## <a name="grant-access"></a>Gewähren von Zugriff
 
-```azurepowershell-interactive
-New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
+Benutzer müssen in einem Registrierungskonto über die [RBAC-Rolle „Besitzer“](../role-based-access-control/built-in-roles.md#owner) verfügen, um [Abonnements in diesem Konto zu erstellen](programmatically-create-subscription.md). Sie können einem Benutzer oder einer Gruppe von Benutzern die RBAC-Rolle „Besitzer“ in einem Registrierungskonto zuweisen, indem Sie folgende Schritte ausführen:
 
-# <a name="azure-clitabazure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
+1. Abrufen der Objekt-ID des Registrierungskontos, dem Sie den Zugriff gewähren möchten
 
-Verwenden Sie [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md), um einem anderen Benutzer Besitzerzugriff auf Ihr Registrierungskonto zu gewähren.
+    Sie müssen entweder der Kontobesitzer sein oder in diesem Konto über die RBAC-Rolle „Besitzer“ verfügen, um anderen in einem Registrierungskonto die RBAC-Rolle „Besitzer“ zuweisen zu können.
 
-```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
+    # <a name="resttabrest"></a>[REST](#tab/rest)
 
-----
+    Fordern Sie eine Liste aller Registrierungskonten an, auf die Sie zugreifen können:
 
-Sobald ein Benutzer ein RBAC-Besitzer für Ihr Registrierungskonto ist, kann er darunter programmgesteuert Abonnements erstellen. Ein Abonnement, das von einem delegierten Benutzer erstellt wurde, weist weiterhin den ursprünglichen Kontobesitzer als Dienstadministrator auf, verfügt aber standardmäßig auch über den delegierten Benutzer als Besitzer. 
+    ```json
+    GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
+    ```
+
+    Azure gibt eine Liste aller Registrierungskonten zurück, auf die Sie zugreifen können:
+
+    ```json
+    {
+      "value": [
+        {
+          "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "type": "Microsoft.Billing/enrollmentAccounts",
+          "properties": {
+            "principalName": "SignUpEngineering@contoso.com"
+          }
+        },
+        {
+          "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "type": "Microsoft.Billing/enrollmentAccounts",
+          "properties": {
+            "principalName": "BillingPlatformTeam@contoso.com"
+          }
+        }
+      ]
+    }
+    ```
+
+    Verwenden Sie die `principalName`-Eigenschaft zum Identifizieren des Kontos, in dem Sie die RBAC-Rolle „Besitzer“ zuweisen möchten. Kopieren Sie den `name`-Wert dieses Kontos. Wenn Sie beispielsweise dem SignUpEngineering@contoso.com-Registrierungskonto die RBAC-Rolle „Besitzer“ zuweisen möchten, müssen Sie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` kopieren. Dies ist die Objekt-ID des Registrierungskontos. Kopieren Sie diesen Wert, um ihn im nächsten Schritt als `enrollmentAccountObjectId`-Wert zu verwenden.
+
+    # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+    Verwenden Sie das Cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) zum Auflisten aller Registrierungskonten, auf die Sie zugreifen können. Wählen Sie **Jetzt ausprobieren** aus, um [Azure Cloud Shell](https://shell.azure.com/) zu öffnen. Klicken Sie zum Einfügen des Codes mit der rechten Maustaste auf die Shell-Fenster, und wählen Sie dann **Einfügen** aus.
+
+    ```azurepowershell-interactive
+    Get-AzEnrollmentAccount
+    ```
+
+    Azure gibt eine Liste aller Registrierungskonten zurück, auf die Sie zugreifen können:
+
+    ```azurepowershell
+    ObjectId                               | PrincipalName
+    747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+    4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
+    ```
+
+    Verwenden Sie die `principalName`-Eigenschaft zum Identifizieren des Kontos, dem Sie die RBAC-Rolle „Besitzer“ zuweisen möchten. Kopieren Sie den `ObjectId`-Wert dieses Kontos. Wenn Sie beispielsweise dem SignUpEngineering@contoso.com-Registrierungskonto die RBAC-Rolle „Besitzer“ zuweisen möchten, müssen Sie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` kopieren. Kopieren Sie diese Objekt-ID, um sie im nächsten Schritt als `enrollmentAccountObjectId`-Wert zu verwenden.
+
+    # <a name="azure-clitabazure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
+
+    Verwenden Sie den Befehl [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) zum Auflisten aller Registrierungskonten, auf die Sie zugreifen können. Wählen Sie **Jetzt ausprobieren** aus, um [Azure Cloud Shell](https://shell.azure.com/) zu öffnen. Klicken Sie zum Einfügen des Codes mit der rechten Maustaste auf das Shell-Fenster, und wählen Sie dann **Einfügen** aus.
+
+    ```azurecli-interactive
+    az billing enrollment-account list
+    ```
+
+    Azure gibt eine Liste aller Registrierungskonten zurück, auf die Sie zugreifen können:
+
+    ```json
+    [
+      {
+        "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "principalName": "SignUpEngineering@contoso.com",
+        "type": "Microsoft.Billing/enrollmentAccounts",
+      },
+      {
+        "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "principalName": "BillingPlatformTeam@contoso.com",
+        "type": "Microsoft.Billing/enrollmentAccounts",
+      }
+    ]
+    ```
+
+    ---
+
+    Verwenden Sie die `principalName`-Eigenschaft zum Identifizieren des Kontos, in dem Sie die RBAC-Rolle „Besitzer“ zuweisen möchten. Kopieren Sie den `name`-Wert dieses Kontos. Wenn Sie beispielsweise dem SignUpEngineering@contoso.com-Registrierungskonto die RBAC-Rolle „Besitzer“ zuweisen möchten, müssen Sie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` kopieren. Dies ist die Objekt-ID des Registrierungskontos. Kopieren Sie diesen Wert, um ihn im nächsten Schritt als `enrollmentAccountObjectId`-Wert zu verwenden.
+
+1. <a id="userObjectId"></a>Abrufen der Objekt-ID des Benutzers oder der Gruppe, dem bzw. der Sie die RBAC-Rolle „Besitzer“ zuweisen möchten
+
+    1. Suchen Sie im Azure-Portal nach **Azure Active Directory**.
+    1. Wenn Sie einem Benutzer Zugriff gewähren möchten, klicken Sie im Menü auf der linken Seite auf **Benutzer**. Wenn Sie einer Gruppe Zugriff gewähren möchten, klicken Sie auf **Gruppen**.
+    1. Wählen Sie den Benutzer oder die Gruppe aus, dem bzw. der Sie die RBAC-Rolle „Besitzer“ zuweisen möchten.
+    1. Wenn Sie einen Benutzer ausgewählt haben, finden Sie die Objekt-ID auf der Seite „Profil“. Wenn Sie eine Gruppe ausgewählt haben, befindet sich die Objekt-ID auf der Seite „Übersicht“. Kopieren Sie die **ObjectID**, indem Sie auf das Symbol rechts neben dem Textfeld klicken. Fügen Sie diese irgendwo ein, damit Sie sie im nächsten Schritt als `userObjectId` verwenden können.
+
+1. Zuweisen der RBAC-Rolle „Besitzer“ zu einem Benutzer oder einer Gruppe im Registrierungskonto
+
+    Verwenden Sie die Werte, die Sie in den ersten beiden Schritten erfasst haben, um dem Benutzer oder der Gruppe die RBAC-Rolle „Besitzer“ im Registrierungskonto zuzuweisen.
+
+    # <a name="resttabrest-2"></a>[REST](#tab/rest-2)
+
+    Führen Sie den folgenden Befehl aus, und ersetzen Sie dabei ```<enrollmentAccountObjectId>``` durch den `name`-Wert, den Sie im ersten Schritt (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) kopiert haben. Ersetzen Sie ```<userObjectId>``` durch die Objekt-ID, die Sie im zweiten Schritt kopiert haben.
+
+    ```json
+    PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+
+    {
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
+        "principalId": "<userObjectId>"
+      }
+    }
+    ```
+
+    Wenn die Besitzerrolle im Bereich des Anmeldekontos erfolgreich zugewiesen wurde, antwortet Azure mit Informationen zur Rollenzuweisung:
+
+    ```json
+    {
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
+        "principalId": "<userObjectId>",
+        "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "createdOn": "2018-03-05T08:36:26.4014813Z",
+        "updatedOn": "2018-03-05T08:36:26.4014813Z",
+        "createdBy": "<assignerObjectId>",
+        "updatedBy": "<assignerObjectId>"
+      },
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "<roleAssignmentGuid>"
+    }
+    ```
+
+    # <a name="powershelltabazure-powershell-2"></a>[PowerShell](#tab/azure-powershell-2)
+
+    Führen Sie den folgenden [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md)-Befehl aus, und ersetzen Sie ```<enrollmentAccountObjectId>``` durch den `ObjectId`-Wert, den Sie im ersten Schritt erfasst haben (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Ersetzen Sie ```<userObjectId>``` durch die Objekt-ID, die Sie im zweiten Schritt erfasst haben.
+
+    ```azurepowershell-interactive
+    New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
+    ```
+
+    # <a name="azure-clitabazure-cli-2"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli-2)
+
+    Führen Sie den folgenden [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md)-Befehl aus, und ersetzen Sie ```<enrollmentAccountObjectId>``` durch den `name`-Wert, den Sie im ersten Schritt kopiert haben (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Ersetzen Sie ```<userObjectId>``` durch die Objekt-ID, die Sie im zweiten Schritt erfasst haben.
+
+    ```azurecli-interactive
+    az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
+    ```
+
+    Sobald ein Benutzer ein RBAC-Besitzer für Ihr Registrierungskonto ist, kann er darunter [programmgesteuert Abonnements erstellen](programmatically-create-subscription.md). Ein Abonnement, das von einem delegierten Benutzer erstellt wurde, weist weiterhin den ursprünglichen Kontobesitzer als Dienstadministrator auf, verfügt aber standardmäßig auch über den delegierten Benutzer als RBAC-Besitzer.
+
+    ---
 
 ## <a name="audit-who-created-subscriptions-using-activity-logs"></a>Überwachen mit Aktivitätsprotokollen, wer Abonnements erstellt hat
 
@@ -91,12 +190,11 @@ Verwenden Sie zum Nachverfolgen der über diese API erstellten Abonnements die [
 1. Als Mandantenadministrator des Azure AD-Mandanten [erhöhen Sie die Zugriffsrechte](../active-directory/role-based-access-control-tenant-admin-access.md), und weisen Sie dann dem überwachenden Benutzer eine Leserrolle über den Bereich `/providers/microsoft.insights/eventtypes/management` zu.
 1. Rufen Sie als überwachender Benutzer die [Mandantenaktivitätsprotokoll-API](/rest/api/monitor/tenantactivitylogs) auf, um Aktivitäten zum Erstellen von Abonnements anzuzeigen. Beispiel:
 
-```
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
-```
+    ```
+    GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'"
+    ```
 
-> [!NOTE]
-> Um diese API bequem über die Befehlszeile aufzurufen, verwenden Sie [ARMClient](https://github.com/projectkudu/ARMClient).
+Um diese API bequem über die Befehlszeile aufzurufen, verwenden Sie [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

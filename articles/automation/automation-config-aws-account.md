@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 419d5643981083c8e06a68e780e95db8ba5ee2c7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998140"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61074002"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Authentifizieren von Runbooks mit Amazon Web Services
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1e80b2083a2fce90259ac0634d9e7f796f459fcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706838"
 ---
 # <a name="about-azure-vm-backup"></a>Informationen zur Sicherung von Azure-VMs
 
@@ -31,10 +31,14 @@ Hier erfahren Sie, wie Azure Backup eine Sicherung für Azure-VMs durchführt:
     - Backup erstellt standardmäßig vollständige VSS-Sicherungen.
     - Wenn Backup keine App-konsistente Momentaufnahme erstellen kann, wird eine dateikonsistente Momentaufnahme des zugrunde liegenden Speichers erstellt (weil keine Schreibvorgänge der Anwendung stattfinden, solange die VM beendet ist).
 1. Für virtuelle Linux-Computer erstellt Backup eine dateikonsistente Sicherung. Zur Erstellung App-konsistenter Momentaufnahmen müssen Sie Pre- und Postskripts manuell anpassen.
-1. Nachdem Backup die Momentaufnahme erstellt hat, werden die Daten in den Tresor übertragen. 
+1. Nachdem Backup die Momentaufnahme erstellt hat, werden die Daten in den Tresor übertragen.
     - Zur Optimierung der Sicherung werden die einzelnen VM-Datenträger parallel gesichert.
     - Für jeden Datenträger, der gesichert wird, liest Azure Backup die Blöcke auf dem Datenträger und identifiziert und überträgt nur die Datenblöcke, die sich seit der vorherigen Sicherung geändert haben (das Delta).
     - Momentaufnahmedaten werden möglicherweise nicht sofort in den Tresor kopiert. Zu Spitzenzeiten vergehen unter Umständen mehrere Stunden. Bei täglichen Sicherungsrichtlinien beträgt die Gesamtdauer der Sicherung eines virtuellen Computers weniger als 24 Stunden.
+ 1. An einem virtuellen Windows-Computer werden folgende Änderungen vorgenommen, nachdem Azure Backup darauf aktiviert wurde:
+    -   Microsoft Visual C++ 2013 Redistributable(x64) – 12.0.40660 wird auf dem virtuellen Computer installiert.
+    -   Der Starttyp des Volumeschattenkopie-Diensts (Volume Shadow Copy Service, VSS) wird von „automatisch“ in „manuell“ geändert.
+    -   Der IaaSVmProvider-Windows-Dienst wird hinzugefügt.
 
 1. Wenn die Datenübertragung abgeschlossen ist, wird die Momentaufnahme entfernt und ein Wiederherstellungspunkt erstellt.
 
@@ -57,7 +61,7 @@ BEKs werden auch gesichert. Wenn die BEKs verloren gehen, können autorisierte B
 
 ## <a name="snapshot-creation"></a>Erstellung der Momentaufnahme
 
-Azure Backup erstellt Momentaufnahmen gemäß des Sicherungszeitplans. 
+Azure Backup erstellt Momentaufnahmen gemäß des Sicherungszeitplans.
 
 - **Virtuelle Windows-Computer:** Für virtuelle Windows-Computer erstellt der Backup-Dienst in Zusammenarbeit mit VSS eine App-konsistente Momentaufnahme der VM-Datenträger.
 
@@ -82,7 +86,7 @@ In der folgenden Tabelle werden die verschiedenen Typen der Konsistenz von Momen
 **Dateisystemkonsistent** | Dateisystemkonsistente Sicherungen bieten Konsistenz, indem eine Momentaufnahme aller Dateien gleichzeitig erstellt wird.<br/><br/> | Wenn Sie die Wiederherstellung einer VM mit einer dateisystemkonsistenten Momentaufnahme durchführen, wird die VM hochgefahren. Es kommt weder zu einer Beschädigung noch zum Verlust von Daten. Apps müssen einen eigenen Reparaturmechanismus implementieren, um sicherzustellen, dass wiederhergestellte Daten konsistent sind. | Windows: Fehler bei einigen VSS-Writern <br/><br/> Linux: Standardmäßig (wenn Pre-/Post-Skripts nicht konfiguriert oder bei ihnen Fehler aufgetreten sind)
 **Absturzkonsistent** | Absturzkonsistente Momentaufnahmen treten in der Regel auf, wenn eine Azure-VM zum Zeitpunkt der Sicherung heruntergefahren wird. Nur die Daten, die zum Zeitpunkt der Sicherung bereits auf dem Datenträger vorhanden sind, werden erfasst und gesichert.<br/><br/> Ein absturzkonsistenter Wiederherstellungspunkt garantiert keine Datenkonsistenz für das Betriebssystem oder die App. | Es gibt keine Garantien, aber normalerweise wird die VM hochgefahren. Anschließend erfolgt eine Datenträgerprüfung, um Beschädigungen zu beheben. Alle Daten im Arbeitsspeicher oder Schreibvorgänge, die vor dem Absturz nicht vollständig auf den Datenträger übertragen wurden, gehen verloren. Apps implementieren ihre eigene Datenüberprüfung. Beispielsweise kann eine Datenbank-App das Transaktionsprotokoll für die Überprüfung verwenden. Falls das Transaktionsprotokoll Einträge enthält, die nicht in der Datenbank vorhanden sind, führt die Datenbanksoftware ein Transaktionenrollback durch, bis die Daten konsistent sind. | VM wird heruntergefahren.
 
-## <a name="backup-and-restore-considerations"></a>Überlegungen zu Sicherung und Wiederherstellung 
+## <a name="backup-and-restore-considerations"></a>Überlegungen zu Sicherung und Wiederherstellung
 
 **Aspekt** | **Details**
 --- | ---
@@ -99,8 +103,8 @@ In der folgenden Tabelle werden die verschiedenen Typen der Konsistenz von Momen
 Diese gängigen Szenarien können die gesamte Sicherungsdauer beeinflussen:
 
 - **Hinzufügen eines neuen Datenträgers zu einer geschützten Azure-VM:** Wenn eine inkrementelle Sicherung einer VM durchgeführt und ein neuer Datenträger hinzugefügt wird, erhöht dies die Dauer der Sicherung. Die Gesamtdauer der Sicherung könnte aufgrund der ersten Replikation des neuen Datenträgers und der Deltareplikation vorhandener Datenträger mehr als 24 Stunden betragen.
-- **Fragmentierte Datenträger:** Sicherungsvorgänge sind schneller, wenn Datenträgeränderungen zusammenhängend sind. Wenn die Änderungen über einen Datenträger verteilt und fragmentiert werden, verläuft die Sicherung langsamer. 
-- **Datenträgeränderungen:** Wenn geschützte Datenträger, für die eine inkrementelle Sicherung durchgeführt wird, täglich eine Änderungsrate von mehr als 200GB aufweisen, kann der Sicherungsvorgang eine lange Zeit (mehr als acht Stunden) in Anspruch nehmen. 
+- **Fragmentierte Datenträger:** Sicherungsvorgänge sind schneller, wenn Datenträgeränderungen zusammenhängend sind. Wenn die Änderungen über einen Datenträger verteilt und fragmentiert werden, verläuft die Sicherung langsamer.
+- **Datenträgeränderungen:** Wenn geschützte Datenträger, für die eine inkrementelle Sicherung durchgeführt wird, täglich eine Änderungsrate von mehr als 200GB aufweisen, kann der Sicherungsvorgang eine lange Zeit (mehr als acht Stunden) in Anspruch nehmen.
 - **Backup-Versionen:** In der neuesten Version von Backup (namens „Instant Restore“) wird ein besser optimierter Prozess als der Prüfsummenvergleich zum Identifizieren der Änderungen verwendet. Aber wenn Sie Instant Restore verwenden und eine Sicherungsmomentaufnahme gelöscht haben, geht die Sicherung wieder zum Prüfsummenvergleich über. In diesem Fall wird der Sicherungsvorgang 24 Stunden überschreiten (oder mit einem Fehler abgebrochen).
 
 ## <a name="best-practices"></a>Bewährte Methoden

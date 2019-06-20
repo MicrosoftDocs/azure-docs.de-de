@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074052"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431316"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Netzwerkkonzepte für Anwendungen in Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,7 @@ Es können sowohl *interne* als auch *externe* Lastenausgleichsmodule erstellt w
 In AKS können Sie einen Cluster bereitstellen, der eines der beiden folgenden Netzwerkmodelle verwendet:
 
 - *Kubenet*-Netzwerke: Die Netzwerkressourcen werden normalerweise bei der Bereitstellung des AKS-Clusters erstellt und konfiguriert.
-- *Azure Container Networking Interface (CNI)*-Netzwerke: Der AKS-Cluster wird mit vorhandenen virtuellen Netzwerkressourcen und -konfigurationen verbunden.
+- *Azure Container Networking Interface (CNI)* -Netzwerke: Der AKS-Cluster wird mit vorhandenen virtuellen Netzwerkressourcen und -konfigurationen verbunden.
 
 ### <a name="kubenet-basic-networking"></a>Kubenet-Netzwerke – „Basic“ (Grundlegend)
 
@@ -99,6 +99,8 @@ Wenn Sie einen Dienst des Typs "LoadBalancer" erstellen, wird eine zugrunde lieg
 In AKS können Sie mit NGINX (oder ähnlich) eine Dateneingangsressource erstellen oder die AKS-Funktion für das HTTP-Anwendungsrouting verwenden. Wenn Sie das HTTP-Anwendungsrouting für einen AKS-Cluster aktivieren, erstellt die Azure-Plattform den Eingangscontroller und einen *externen DNS-Controller*. Wenn in Kubernetes neue Eingangsressourcen erstellt werden, werden in einer clusterspezifischen DNS-Zone die erforderlichen DNS-A-Einträge erstellt. Weitere Informationen finden Sie unter [HTTP-Anwendungsrouting][aks-http-routing].
 
 Ein weiteres allgemeines Feature des Dateneingangs ist die SSL/TLS-Terminierung. Bei großen Webanwendungen, auf die über HTTPS zugegriffen wird, kann die TLS-Terminierung durch die Eingangsressource erfolgen und braucht nicht innerhalb der Anwendung verarbeitet zu werden. Um die automatische Generierung und Konfiguration der TLS-Zertifizierung bereitzustellen, können Sie die Eingangsressource für die Verwendung von Anbietern wie Let's Encrypt konfigurieren. Weitere Informationen zum Konfigurieren eines NGINX-Eingangscontrollers mit Let's Encrypt finden Sie unter [Eingang und TLS][aks-ingress-tls].
+
+Sie können den Eingangscontroller auch so konfigurieren, dass die Quell-IP des Clients bei Anforderungen an Container im AKS-Cluster beibehalten wird. Wenn die Anforderung eines Clients über den Eingangscontroller an einen Container im AKS-Cluster weitergeleitet wird, ist die ursprüngliche Quell-IP dieser Anforderung für den Zielcontainer nicht verfügbar. Wenn Sie die *Beibehaltung der Clientquell-IP* aktivieren, ist die Quell-IP für den Client im Anforderungsheader unter *X-Forwarded-For* verfügbar. Wenn Sie die Beibehaltung der Clientquell-ID auf dem Eingangscontroller verwenden, können Sie kein SSL-Pass-Through verwenden. Die Beibehaltung der Clientquell-ID und SSL-Pass-Through-können mit anderen Diensten verwendet werden, z. B. dem *LoadBalancer*-Typ.
 
 ## <a name="network-security-groups"></a>Netzwerksicherheitsgruppen
 

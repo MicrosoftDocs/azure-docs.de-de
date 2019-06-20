@@ -10,11 +10,11 @@ ms.topic: conceptual
 description: Schnelle Kubernetes-Entwicklung mit Containern und Microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, Container
 ms.openlocfilehash: 4e0a3c5aa849799872371ef1c5ac0867babffebb
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60686414"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Upgrade von Azure Dev Spaces-Tools
 

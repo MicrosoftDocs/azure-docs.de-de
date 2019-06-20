@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60859391"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Gewusst wie: Verwenden des Azure Mobile Apps SDK für Android
 
@@ -108,7 +108,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 Der Client benötigt außerdem Zugriff auf die Aktivität oder den Kontext, d.h. bei diesem Beispiel auf den Parameter `this`.  Die „MobileServiceClient“-Konstruktion muss in der `onCreate()`-Methode der Aktivität erfolgen, auf die in der Datei `AndroidManifest.xml` verwiesen wird.
 
-Es wird empfohlen, die Serverkommunikation in einer eigenen Klasse (mit Singleton-Muster) zu abstrahieren.  In diesem Fall müssen Sie die Aktivität innerhalb des Konstruktors übergeben, um den Dienst entsprechend zu konfigurieren.  Beispiel: 
+Es wird empfohlen, die Serverkommunikation in einer eigenen Klasse (mit Singleton-Muster) zu abstrahieren.  In diesem Fall müssen Sie die Aktivität innerhalb des Konstruktors übergeben, um den Dienst entsprechend zu konfigurieren.  Beispiel:
 
 ```java
 package com.example.appname.services;
@@ -207,7 +207,7 @@ Eine Azure Mobile Apps-Back-End-Tabelle definiert fünf spezielle Felder, von de
 * `byte[] version`: Die Version, die normalerweise als Zeichenfolge dargestellt wird, wird ebenfalls vom Server festgelegt.
 * `boolean deleted`: Gibt an, dass der Datensatz zwar gelöscht, aber noch nicht endgültig gelöscht wurde.  Verwenden Sie `deleted` nicht als Eigenschaft in Ihrer Klasse.
 
-`id` ist ein Pflichtfeld.  Die Felder `updatedAt` und `version` werden für die Offlinesynchronisierung (inkrementelle Synchronisierung bzw. zur Konfliktlösung) verwendet.  Das Feld `createdAt` ist ein Verweisfeld, das nicht vom Client verwendet wird.  Die Namen sind unveränderliche Namen der Eigenschaften.  Sie können jedoch mithilfe der [gson][3]-Bibliothek eine Zuordnung zwischen Ihrem Objekt und den unveränderlichen Namen erstellen.  Beispiel: 
+`id` ist ein Pflichtfeld.  Die Felder `updatedAt` und `version` werden für die Offlinesynchronisierung (inkrementelle Synchronisierung bzw. zur Konfliktlösung) verwendet.  Das Feld `createdAt` ist ein Verweisfeld, das nicht vom Client verwendet wird.  Die Namen sind unveränderliche Namen der Eigenschaften.  Sie können jedoch mithilfe der [gson][3]-Bibliothek eine Zuordnung zwischen Ihrem Objekt und den unveränderlichen Namen erstellen.  Beispiel:
 
 ```java
 package com.example.zumoappname;
@@ -456,7 +456,7 @@ Bei einer Anforderung aller Datensätze mit dieser Methode werden mindestens zwe
 
 ### <a name="chaining"></a>Gewusst wie: Verketten von Abfragemethoden
 
-Die beim Abfragen von Back-End-Tabellen verwendeten Methoden können verkettet werden. Durch die Verkettung von Abfragemethoden können Sie spezielle Spalten gefilterter Zeilen mit Sortierung und Paging abfragen. Sie können komplexe logische Filter erstellen.  Jede Abfragemethode gibt ein Query-Objekt zurück. Um die Methodenserie zu beenden und die Abfrage auszuführen, rufen Sie die **execute** -Methode auf. Beispiel: 
+Die beim Abfragen von Back-End-Tabellen verwendeten Methoden können verkettet werden. Durch die Verkettung von Abfragemethoden können Sie spezielle Spalten gefilterter Zeilen mit Sortierung und Paging abfragen. Sie können komplexe logische Filter erstellen.  Jede Abfragemethode gibt ein Query-Objekt zurück. Um die Methodenserie zu beenden und die Abfrage auszuführen, rufen Sie die **execute** -Methode auf. Beispiel:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -487,7 +487,7 @@ Datenbindung besteht aus drei Komponenten:
 * Das Bildschirmlayout
 * Der Adapter, der diese beiden Komponenten verbindet.
 
-In unserem Beispielcode geben wir die Daten aus der Mobile Apps-SQL Azure-Tabelle **ToDoItem** in ein Array zurück. Diese Aktivität ist ein typisches Muster für Datenanwendungen.  Datenbankabfragen geben häufig eine Sammlung von Zeilen zurück, die der Client in Form einer Liste oder eines Arrays erhält. In diesem Beispiel ist das Array die Datenquelle.  Der Code gibt ein Bildschirmlayout an, das die Ansicht der auf dem Gerät angezeigten Daten definiert.  Diese beiden Komponenten sind über einen Adapter verbunden, in diesem Fall eine Erweiterung der **ArrayAdapter&lt;ToDoItem&gt;**-Klasse.
+In unserem Beispielcode geben wir die Daten aus der Mobile Apps-SQL Azure-Tabelle **ToDoItem** in ein Array zurück. Diese Aktivität ist ein typisches Muster für Datenanwendungen.  Datenbankabfragen geben häufig eine Sammlung von Zeilen zurück, die der Client in Form einer Liste oder eines Arrays erhält. In diesem Beispiel ist das Array die Datenquelle.  Der Code gibt ein Bildschirmlayout an, das die Ansicht der auf dem Gerät angezeigten Daten definiert.  Diese beiden Komponenten sind über einen Adapter verbunden, in diesem Fall eine Erweiterung der **ArrayAdapter&lt;ToDoItem&gt;** -Klasse.
 
 #### <a name="layout"></a>Definieren des Layouts
 
@@ -519,14 +519,14 @@ Das *listitem* -Attribut im obigen Code definiert die ID des Layouts für eine b
 ```
 
 #### <a name="adapter"></a>Definieren des Adapters
-Da die Datenquelle in unserer Ansicht ein **ToDoItem** ist, leiten wir unseren Adapter von der Klasse **ArrayAdapter&lt;ToDoItem&gt;** ab. Diese Unterklasse produziert eine Ansicht für jedes **ToDoItem** und verwendet dabei das **row_list_to_do**-Layout.  In unserem Code definieren wir die folgende Klasse, die eine Erweiterung der **ArrayAdapter&lt;E&gt;**-Klasse ist:
+Da die Datenquelle in unserer Ansicht ein **ToDoItem** ist, leiten wir unseren Adapter von der Klasse **ArrayAdapter&lt;ToDoItem&gt;** ab. Diese Unterklasse produziert eine Ansicht für jedes **ToDoItem** und verwendet dabei das **row_list_to_do**-Layout.  In unserem Code definieren wir die folgende Klasse, die eine Erweiterung der **ArrayAdapter&lt;E&gt;** -Klasse ist:
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Überschreiben Sie die **getView** -Methode der Klasse. Beispiel: 
+Überschreiben Sie die **getView** -Methode der Klasse. Beispiel:
 
 ```java
     @Override
@@ -672,7 +672,7 @@ mToDoTable
 
 ## <a name="lookup"></a>Suchen eines bestimmtes Elements anhand der ID
 
-Mit der **lookUp()**-Methode suchen Sie nach einem Element mit einem bestimmten **id**-Feld:
+Mit der **lookUp()** -Methode suchen Sie nach einem Element mit einem bestimmten **id**-Feld:
 
 ```java
 ToDoItem result = mToDoTable

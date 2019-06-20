@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013095"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714894"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Erstellen und Trainieren eines Vorhersagemodells in R mit Machine Learning Services (Vorschauversion) für Azure SQL-Datenbank
 
@@ -171,7 +171,7 @@ VALUES (
 
 **Ergebnisse**
 
-![Trainiertes Modell mit zusätzlicher Ausgabe](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Trainiertes Modell mit zusätzlicher Ausgabe](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>Bewerten von neuen Daten mit dem trainierten Modell
 
@@ -239,7 +239,7 @@ Haben Sie bemerkt, dass die ursprünglichen Trainingsdaten nur bis 25 Meilen pro
 
    **Ergebnisse**
 
-   ![Resultset für die Vorhersage des Anhaltewegs](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Resultset für die Vorhersage des Anhaltewegs](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > In diesem Beispielskript wird die Funktion `str` während der Testphase hinzugefügt, um das Schema der Daten zu überprüfen, die von R zurückgegeben werden. Sie können die Anweisung dann später entfernen.
@@ -248,10 +248,9 @@ Haben Sie bemerkt, dass die ursprünglichen Trainingsdaten nur bis 25 Meilen pro
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zu Machine Learning Services finden Sie in den folgenden Artikeln. Einiger dieser Artikel sind zwar für SQL Server bestimmt, aber die meisten Informationen gelten auch für Machine Learning Services (mit R) in Azure SQL-Datenbank.
+Weitere Informationen zu Machine Learning Services (mit R) in Azure SQL-Datenbank (Vorschauversion) finden Sie in den folgenden Artikeln.
 
-- [Machine Learning Services (mit R) in Azure SQL-Datenbank](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Learn in-database analytics using R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Datenbankinterne Analysen mit R in SQL Server)
-- [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) (Lückenlose exemplarische Vorgehensweise für Data Science für R und SQL Server)
-- [Tutorial: Use RevoScaleR R functions with SQL Server data](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages) (Verwenden von RevoScaleR-R-Funktionen mit SQL Server-Daten)
+- [Machine Learning Services (mit R) in Azure SQL-Datenbank (Vorschauversion)](sql-database-machine-learning-services-overview.md)
+- [Erstellen und Ausführen einfacher R-Skripts in Machine Learning Services von Azure SQL-Datenbank (Vorschauversion)](sql-database-quickstart-r-create-script.md)
+- [Schreiben erweiterter R-Funktionen in Azure SQL-Datenbank mit Machine Learning Services (Vorschauversion)](sql-database-machine-learning-services-functions.md)
+- [Arbeiten mit R- und SQL-Daten in Azure SQL-Datenbank mit Machine Learning Services (Vorschauversion)](sql-database-machine-learning-services-data-issues.md)

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: daf0b1c12ab10230690a62eb5dc772417d8b92f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60824234"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory – Benennungsregeln
 > [!NOTE]

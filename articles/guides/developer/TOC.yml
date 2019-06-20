@@ -83,7 +83,7 @@
     - name: Plan
       items:
         - name: Architekturen von Webanwendungen
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: VM-Architekturen
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/'
         - name: Herstellen von Verbindungen mit lokalen Netzwerken

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: e522883da7fddad44741599107f2dbc4c99aace6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316370"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60826931"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Hochladen von Dateien in ein Media Services-Konto mithilfe des Diensts „Aspera Server On Demand“ in Azure 
 

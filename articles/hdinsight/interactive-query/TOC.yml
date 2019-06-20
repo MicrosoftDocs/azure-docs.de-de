@@ -2,11 +2,8 @@
   href: /azure/hdinsight
 - name: Übersicht
   items:
-    - name: Apache Hadoop-Komponenten in HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
+    - name: Was ist Interactive Query in HDInsight?
+      href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Schnellstarts
   items:
@@ -14,8 +11,6 @@
       href: ./hdinsight-connect-hive-zeppelin.md
 - name: Erste Schritte
   items:
-    - name: Verwenden von interaktiven Abfragen
-      href: ./apache-interactive-query-get-started.md
     - name: Installieren von HDInsight-Apps
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
@@ -88,7 +83,7 @@
         - name: Verwenden von Python mit Apache Hive und Apache Pig
           href: ../hadoop/python-udf-hdinsight.md
           maintainContext: true
-        - name: 'Erstellen von .NET HDInsight-Anwendungen für die nicht interaktive Authentifizierung '
+        - name: Erstellen von .NET HDInsight-Anwendungen für die nicht interaktive Authentifizierung
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
     - name: Analysieren von Big Data
@@ -320,12 +315,14 @@
       maintainContext: true
     - name: Netzwerkzugriff
       items:
+        - name: Architektur des virtuellen HDInsight-Netzwerks
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Verwenden einer Firewall zum Einschränken des ausgehenden Datenverkehrs
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight in Azure VNET
           href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Verbinden von HDInsight mit dem lokalen Netzwerk
           href: ../connect-on-premises-network.md
-          maintainContext: true
     - name: Überwachen mithilfe von Azure Monitor-Protokollen
       items:
         - name: Verwenden von Azure Monitor-Protokollen

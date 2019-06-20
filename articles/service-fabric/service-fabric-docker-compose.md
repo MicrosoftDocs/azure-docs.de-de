@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661393"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60948833"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker Compose-Bereitstellungsunterstützung in Azure Service Fabric (Vorschau)
 
@@ -138,8 +138,8 @@ Der Cluster muss für das Erzwingen von Ressourcengrenzwerten wie in [Service Fa
 ### <a name="ports-section"></a>Abschnitt „Ports“
 
 Geben Sie entweder das HTTP- oder HTTPS-Protokoll im Abschnitt „Ports“ an, das vom Listener für den Service Fabric-Dienst verwendet wird. Dadurch wird sichergestellt, dass das Endpunktprotokoll ordnungsgemäß mit dem Naming Service veröffentlicht wird, damit der Reverseproxy die Anforderungen weiterleiten kann:
-* Geben Sie **/http** an, um zu unsicheren Service Fabric Compose-Diensten weiterzuleiten. Beispiel: - **"80:80/http"**.
-* Geben Sie **/https** an, um zu sicheren Service Fabric Compose-Diensten weiterzuleiten. Beispiel: - **"443:443/https"**.
+* Geben Sie **/http** an, um zu unsicheren Service Fabric Compose-Diensten weiterzuleiten. Beispiel: - **"80:80/http"** .
+* Geben Sie **/https** an, um zu sicheren Service Fabric Compose-Diensten weiterzuleiten. Beispiel: - **"443:443/https"** .
 
 > [!NOTE]
 > Die Syntax der Portabschnitte für /http und /https ist spezifisch für Service Fabric, um die ordnungsgemäße URL für den Service Fabric Listener zu registrieren.  Wenn die Docker Compose-Dateisyntax programmgesteuert überprüft wird, kann dies zu einem Validierungsfehler führen.

@@ -4,23 +4,23 @@ description: In diesem Artikel werden zwei Einstellungen beschrieben, mit denen 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dc192b1e8f5492cdfbfb434b5efb573182c51bb1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406352"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164580"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>Grundlagen der Datenaufbewahrung in Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Grundlagen der Datenaufbewahrung in Azure Time Series Insights
 
-In diesem Artikel werden zwei Einstellungen beschrieben, die sich auf die Datenaufbewahrung in Ihrer TSI-Umgebung (Time Series Insights) auswirken.
+In diesem Artikel werden zwei Einstellungen beschrieben, die sich auf die Datenaufbewahrung in Ihrer Azure Time Series Insights-Umgebung auswirken.
 
 ## <a name="video"></a>Video
 
@@ -36,7 +36,7 @@ Darüber hinaus gibt es in Ihrer Azure Time Series-Umgebung die Einstellung **Ve
 - **Eingang anhalten**
 
 > [!NOTE]
-> Bei der Erstellung einer neuen Umgebung wird für die Aufbewahrung standardmäßig **Purge old data** (Alte Daten bereinigen) konfiguriert. Diese Einstellung kann nach der Erstellung im Azure-Portal auf der Seite **Konfigurieren** der TSI-Umgebung je nach Bedarf geändert werden.
+> Bei der Erstellung einer neuen Umgebung wird für die Aufbewahrung standardmäßig **Purge old data** (Alte Daten bereinigen) konfiguriert. Diese Einstellung kann nach der Erstellung im Azure-Portal auf der Seite **Konfigurieren** der Time Series Insights-Umgebung je nach Bedarf geändert werden.
 
 Informationen zum Wechseln des Aufbewahrungsverhaltens finden Sie unter [Konfigurieren der Vermerkdauer in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
@@ -44,8 +44,8 @@ Vergleichen Sie das Verhalten in Bezug auf die Datenaufbewahrung:
 
 ## <a name="purge-old-data"></a>Purge old data (Alte Daten bereinigen)
 
-- Dieses Verhalten ist das Standardverhalten für TSI-Umgebungen, das sich seit der Einführung der öffentlichen Vorschauversion von TSI-Umgebungen nicht geändert hat.  
-- Das Verhalten sollte gewählt werden, wenn Benutzer in ihrer TSI-Umgebung immer die *aktuellen Daten* angezeigt bekommen möchten. 
+- Dieses Verhalten ist das Standardverhalten für Time Series Insights-Umgebungen.  
+- Das Verhalten sollte gewählt werden, wenn Benutzer in ihrer Time Series Insights-Umgebung immer die *aktuellen Daten* angezeigt bekommen möchten.
 - Daten werden hierbei *bereinigt*, wenn die Grenzwerte der Umgebung erreicht sind (Aufbewahrungsdauer, Größe oder Anzahl, je nachdem, was zuerst eintritt). Die Aufbewahrungsdauer ist standardmäßig auf 30 Tage festgelegt.
 - Die ältesten erfassten Daten werden zuerst bereinigt (FIFO-Ansatz).
 
@@ -75,7 +75,7 @@ Immer wenn die tägliche Eingangsrate für diese Umgebung über den Wert von 0,1
 
 ### <a name="example-three"></a>Beispiel drei
 
-Bei der nächsten Umgebung ist für das Aufbewahrungsverhalten **Pause ingress** (Eingang anhalten) konfiguriert. In diesem Beispiel ist die **Datenaufbewahrungszeit** auf 60 Tage festgelegt. Die **Kapazität** ist auf drei S1-Einheiten festgelegt. Angenommen, diese Umgebung verfügt pro Tag über einen Dateneingang von 2 GB. In dieser Umgebung wird der Dateneingang angehalten, nachdem die maximale Kapazität erreicht ist.
+Bei der nächsten Umgebung ist für das Aufbewahrungsverhalten **Pause ingress** (Eingang anhalten) konfiguriert. In diesem Beispiel ist die **Datenaufbewahrungszeit** auf 60 Tage festgelegt. Die **Kapazität** ist auf drei (3) S1-Einheiten festgelegt. Angenommen, diese Umgebung verfügt pro Tag über einen Dateneingang von 2 GB. In dieser Umgebung wird der Dateneingang angehalten, nachdem die maximale Kapazität erreicht ist.
 
 Anschließend wird in der Umgebung dasselbe Dataset angezeigt, bis der Dateneingang fortgesetzt oder **continue ingress** (Eingang fortsetzen) aktiviert wird (sodass ältere Daten wieder bereinigt würden, um Platz für neue Daten zu schaffen).
 
@@ -91,7 +91,7 @@ Erwägen Sie für die betroffenen Event Hubs die Anpassung der Eigenschaft **Nac
 
 [![Event Hub-Nachrichtenbeibehaltung.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Wenn für die Ereignisquelle (`timeStampPropertyName`) keine Eigenschaften konfiguriert werden, wird für TSI der Zeitstempel der Ankunft im Event Hub standardmäßig als X-Achse verwendet. Wenn `timeStampPropertyName` als etwas Anderes konfiguriert wird, sucht die Umgebung im Datenpaket bei der Analyse von Ereignissen nach dem konfigurierten `timeStampPropertyName`.
+Wenn für die Ereignisquelle (`timeStampPropertyName`) keine Eigenschaften konfiguriert werden, wird für Time Series Insights der Zeitstempel der Ankunft im Event Hub standardmäßig als X-Achse verwendet. Wenn `timeStampPropertyName` als etwas Anderes konfiguriert wird, sucht die Umgebung im Datenpaket bei der Analyse von Ereignissen nach dem konfigurierten `timeStampPropertyName`.
 
 Sofern Sie Ihre Umgebung zentral hochskalieren müssen, um zusätzliche Kapazität bereitzustellen oder die Länge des Aufbewahrungszeitraums zu erhöhen, helfen Ihnen die Informationen unter [Gewusst wie: Skalieren der Azure Time Series Insights-Umgebung](time-series-insights-how-to-scale-your-environment.md) weiter.  
 

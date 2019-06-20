@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 6f9064c6027499fff3a8551ee60722cd66c54dc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883427"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60877702"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Erstellen von HDInsight-Clustern mit Azure Data Lake Storage Gen1 mithilfe des Azure-Portals
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ In diesem Abschnitt erstellen Sie einen HDInsight-Cluster mit Data Lake Storage 
     ![Dienstprinzipal für HDInsight-Cluster hinzufügen](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Dienstprinzipal für HDInsight-Cluster hinzufügen")
 
     - **Data Lake Store-Konto auswählen**: Wählen Sie ein vorhandenes Data Lake Storage Gen1-Konto aus. Ein vorhandenes Data Lake Storage Gen1-Konto ist erforderlich.  Siehe [Voraussetzungen](#prerequisites).
-    - **Stammpfad**: Geben Sie einen Pfad ein, in dem die clusterspezifischen Dateien gespeichert werden sollen. Im Screenshot lautet der Pfad __/clusters/myhdiadlcluster/__, in dem der Ordner __/clusters__ vorhanden sein muss. Der Ordner *myhdicluster* wird vom Portal erstellt.  *myhdicluster* ist der Clustername.
+    - **Stammpfad**: Geben Sie einen Pfad ein, in dem die clusterspezifischen Dateien gespeichert werden sollen. Im Screenshot lautet der Pfad __/clusters/myhdiadlcluster/__ , in dem der Ordner __/clusters__ vorhanden sein muss. Der Ordner *myhdicluster* wird vom Portal erstellt.  *myhdicluster* ist der Clustername.
     - **Data Lake Store-Zugriff**: Konfigurieren Sie den Zugriff zwischen dem Data Lake Storage Gen1-Konto und dem HDInsight-Cluster. Entsprechende Anweisungen finden Sie unter „Konfigurieren des Data Lake Storage Gen1-Zugriffs“.
     - **Zusätzliche Speicherkonten**: Fügen Sie Azure-Speicherkonten als zusätzliche Speicherkonten für den Cluster hinzu. Das Hinzufügen zusätzlicher Data Lake Storage Gen1-Konten erfolgt, indem dem Cluster die Berechtigungen für Daten in weiteren Data Lake Storage Gen1-Konten erteilt werden, während ein Data Lake Storage Gen1-Konto als primärer Speichertyp konfiguriert wird. Weitere Informationen finden Sie unter „Konfigurieren des Data Lake Storage Gen1-Zugriffs“.
 

@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547607"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61364436"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replizieren von Daten in Azure Database for MariaDB
 
@@ -26,7 +26,7 @@ Zu den wichtigsten Szenarien, bei denen die Datenreplikation für Azure Database
 ## <a name="limitations-and-considerations"></a>Einschränkungen und Aspekte
 
 ### <a name="data-not-replicated"></a>Nicht replizierte Daten
-Die [*Systemdatenbank „mysql“*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) auf dem Masterserver wird nicht repliziert. Änderungen an Konten und Berechtigungen auf dem Masterserver werden nicht repliziert. Wenn Sie ein Konto auf dem Masterserver erstellen und dieses Konto über Zugriff auf den Replikatserver verfügen muss, erstellen Sie dasselbe Konto manuell auf dem Replikatserver. Einen Überblick über die Tabellen, die in der Systemdatenbank enthalten sind, finden Sie in der [Dokumentation zu MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
+Die [*Systemdatenbank „mysql“* ](https://mariadb.com/kb/en/library/the-mysql-database-tables/) auf dem Masterserver wird nicht repliziert. Änderungen an Konten und Berechtigungen auf dem Masterserver werden nicht repliziert. Wenn Sie ein Konto auf dem Masterserver erstellen und dieses Konto über Zugriff auf den Replikatserver verfügen muss, erstellen Sie dasselbe Konto manuell auf dem Replikatserver. Einen Überblick über die Tabellen, die in der Systemdatenbank enthalten sind, finden Sie in der [Dokumentation zu MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
 ### <a name="requirements"></a>Requirements (Anforderungen)
 - Der Masterserver muss mindestens die MariaDB-Version 10.2 aufweisen.

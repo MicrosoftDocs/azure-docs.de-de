@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65789267"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-Bereitstellungsmodi
 
@@ -46,7 +46,9 @@ Wenn die Ressourcengruppe [gesperrt](resource-group-lock-resources.md) ist, werd
 
 ## <a name="incremental-mode"></a>Inkrementeller Modus
 
-Im inkrementellen Modus lässt Resource Manager Ressourcen **unverändert**, die in der Ressourcengruppe vorhanden, aber nicht in der Vorlage angegeben sind. Wenn Sie eine Ressource im inkrementellen Modus erneut bereitstellen, sollten Sie alle Eigenschaftswerte für die Ressource angeben – nicht nur diejenigen, die Sie aktualisieren. Falls Sie bestimmte Eigenschaften nicht angeben, interpretiert Resource Manager das Update als Überschreibung dieser Werte.
+Im inkrementellen Modus lässt Resource Manager Ressourcen **unverändert**, die in der Ressourcengruppe vorhanden, aber nicht in der Vorlage angegeben sind.
+
+Bei der erneuten Bereitstellung einer vorhandenen Ressource im inkrementellen Modus ist das Ergebnis jedoch anders. Geben Sie alle Eigenschaften für die Ressource an und nicht nur diejenigen, die Sie aktualisieren. Ein weit verbreitetes Missverständnis ist, dass Eigenschaften, die nicht angegeben sind, unverändert bleiben. Falls Sie bestimmte Eigenschaften nicht angeben, interpretiert Resource Manager das Update als Überschreibung dieser Werte.
 
 ## <a name="example-result"></a>Beispielergebnis
 

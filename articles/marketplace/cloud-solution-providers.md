@@ -1,20 +1,18 @@
 ---
-title: Cloud Solution Provider (CSP) | Azure
+title: Cloud Solution Provider (CSP) | Azure Marketplace
 description: Herausgeber können jetzt ihre Angebote über den Microsoft CSP-Partnerkanal verkaufen
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 516cb10fe368334d8fe30d998857d0688dcae972
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d39ebf993498cea3ede11e07c5e71628287b81ac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938552"
 ---
 # <a name="cloud-solution-providers"></a>Cloud Solution Provider (CSP)
 
@@ -26,7 +24,7 @@ Die Herausgeber sind verantwortlich für die Bereitstellung des Supports zum Beh
 
 Die folgende Tabelle enthält die Angebotsarten und Preismodelle, für die der CSP-Partnerkanal abonniert werden kann:
 
-| **Angebotstyp**    | **BYOL (Bring your own License)**  |  **Kostenlos** | **Nutzungsbasierte Zahlung**   |
+| **Angebotstyp**    | **BYOL**  |  **Free** | **Nutzungsbasierte Zahlung**   |
 | :---------------- | :---------|:----------|:-----------|
 | VMs  | Ja | Ja | Ja |
 | Container | – | Ja | – |

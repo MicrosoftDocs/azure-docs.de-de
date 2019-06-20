@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 51f057a1dd0da866a50a0219574c70c3c805882e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60549647"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Upgradeleitfaden für die Vorschlagssuche-API
 

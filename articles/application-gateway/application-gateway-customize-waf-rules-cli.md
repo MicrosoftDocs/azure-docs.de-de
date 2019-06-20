@@ -7,11 +7,11 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
 ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726260"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60832896"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Anpassen von Web Application Firewall-Regeln mit der Azure CLI
 

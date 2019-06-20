@@ -13,11 +13,11 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60331025"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Code des Ringpufferziels für erweiterte Ereignisse in SQL-Datenbank
 
@@ -30,7 +30,7 @@ In diesem Thema finden Sie ein Transact-SQL-Codebeispiel, mit dem folgende Aufga
 1. Erstellen einer Tabelle mit Daten zur Veranschaulichung.
 2. Erstellen einer Sitzung für ein vorhandenes erweitertes Ereignis (**sqlserver.sql_statement_starting**).
    
-   * Das Ereignis ist auf SQL-Anweisungen beschränkt, die eine bestimmte Update-Zeichenfolge enthalten: **statement LIKE '%UPDATE tabEmployee%'**.
+   * Das Ereignis ist auf SQL-Anweisungen beschränkt, die eine bestimmte Update-Zeichenfolge enthalten: **statement LIKE '%UPDATE tabEmployee%'** .
    * Senden der Ausgabe des Ereignisses an ein Ziel vom Typ Ringpuffer (**package0.ring_buffer**).
 3. Starten der Ereignissitzung.
 4. Ausgeben einer Reihe einfacher SQL UPDATE-Anweisungen.
@@ -55,7 +55,7 @@ In diesem Thema finden Sie ein Transact-SQL-Codebeispiel, mit dem folgende Aufga
 
 ## <a name="code-sample"></a>Codebeispiel
 
-Das folgende Codebeispiel für einen Ringpuffer kann mit kleineren Änderungen sowohl für Azure SQL-Datenbank als auch für Microsoft SQL Server ausgeführt werden. Der Unterschied besteht im Vorhandensein des Knotens „_database“ im Namen einiger dynamischer Verwaltungssichten (DMVs) in der FROM-Klausel in Schritt 5. Beispiel: 
+Das folgende Codebeispiel für einen Ringpuffer kann mit kleineren Änderungen sowohl für Azure SQL-Datenbank als auch für Microsoft SQL Server ausgeführt werden. Der Unterschied besteht im Vorhandensein des Knotens „_database“ im Namen einiger dynamischer Verwaltungssichten (DMVs) in der FROM-Klausel in Schritt 5. Beispiel:
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -223,7 +223,7 @@ Um die Ergebnisse anzuzeigen, haben wir auf die Zelle unterhalb der Spaltenüber
 
 Anschließend haben wir im Ergebnisbereich auf die Zelle unterhalb der Spaltenüberschrift **target_data_XML** geklickt. Mit diesem Klicken wurde in „ssms.exe“ eine weitere Dateiregisterkarte erstellt, auf welcher der Inhalt der Ergebniszelle angezeigt wurde (als XML).
 
-Der folgende Block zeigt die Ausgabe. Obwohl die Ausgabe lang erscheint, umfasst sie lediglich zwei **\<Ereignis>**-Elemente.
+Der folgende Block zeigt die Ausgabe. Obwohl die Ausgabe lang erscheint, umfasst sie lediglich zwei **\<Ereignis>** -Elemente.
 
 &nbsp;
 

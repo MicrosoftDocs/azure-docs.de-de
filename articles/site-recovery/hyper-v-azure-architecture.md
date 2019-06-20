@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f77069592fb34caf409b387f5c8452159f55e296
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7a1685622c44666eed6dac328772f6dba1418371
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311508"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398232"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architektur der Notfallwiederherstellung von Hyper-V zu Azure
 

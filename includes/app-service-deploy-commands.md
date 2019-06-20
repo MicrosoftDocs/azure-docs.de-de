@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2be66b742d7a4572d3613a8b1fdeafd5fb7ed271
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825494"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177901"
 ---
 Um die Ressourcen in Azure bereitzustellen, müssen Sie bei Ihrem Azure-Konto angemeldet sein und das Azure Resource Manager-Modul verwenden. Informationen zum Verwenden des Azure-Ressourcen-Managers mit Azure PowerShell oder der Azure-Befehlszeilenschnittstelle finden Sie hier:
 

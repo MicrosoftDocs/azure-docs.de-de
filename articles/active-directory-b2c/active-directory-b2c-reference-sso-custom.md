@@ -2,20 +2,20 @@
 title: Sitzungsverwaltung für einmaliges Anmelden mit benutzerdefinierten Richtlinien in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie SSO-Sitzungen mithilfe benutzerdefinierter Richtlinien in Azure AD B2C verwalten.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5e23f88b805f2d294a42c6e3e75a1ad63d3cc53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 246e00418c784ee463170d78543e4a9aae3d7da8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726779"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509052"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Sitzungsverwaltung für einmaliges Anmelden in Azure Active Directory B2C
 

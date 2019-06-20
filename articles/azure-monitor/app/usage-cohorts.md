@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604104"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights-Kohorten
 
@@ -123,13 +123,13 @@ Die beiden vorherigen Kohorten wurden durch Verwenden von Dropdownlisten definie
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Wählen Sie **Run Query** (Abfrage ausführen) aus. Werden in der Tabelle keine Benutzer-IDs angezeigt, wechseln Sie zu einem Land, in dem Ihre Anwendung Benutzer hat.
+3. Wählen Sie **Run Query** (Abfrage ausführen) aus. Werden in der Tabelle keine Benutzer-IDs angezeigt, wechseln Sie zu einem Land oder einer Region, in dem bzw. der Ihre Anwendung Benutzer hat.
 
 4. Geben Sie der Kohorte einen Namen, und speichern Sie sie.
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-_Ich habe eine Kohorte von Benutzern aus einem bestimmten Land definiert. Wenn ich diese Kohorte im Tool „Benutzer“ mit dem Ergebnis eines einfachen Festlegen eines Filters für dieses Land vergleiche, werden unterschiedliche Ergebnisse angezeigt. Warum?_
+_Ich habe eine Kohorte von Benutzern aus einem bestimmten Land/einer Region definiert. Wenn ich diese Kohorte im Tool „Benutzer“ mit dem Ergebnis durch einfaches Festlegen eines Filters für dieses Land bzw. diese Region vergleiche, werden unterschiedliche Ergebnisse angezeigt. Warum?_
 
 Kohorten und Filter unterscheiden sich. Angenommen, Sie haben eine Kohorte von Benutzern aus Großbritannien (definiert wie im vorherigen Beispiel), und Sie vergleichen deren Ergebnisse mit dem Festlegen des Filters „Country or region = United Kingdom“.
 

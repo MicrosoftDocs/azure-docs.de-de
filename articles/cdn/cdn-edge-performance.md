@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320073"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61070001"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analysieren der Leistung von Edgeknoten in Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -163,7 +163,7 @@ Jeder Bericht in diesem Modul enthält ein Diagramm und Statistiken zu Bandbreit
 | CONFIG_NOCACHE Details |Enthält ein Diagramm der 10 am häufigsten verwendeten URLs für Assets, die aufgrund der CDN-Konfiguration des Kunden nicht im Cache zwischengespeichert wurden. Diese Arten von Assets werden direkt vom Ursprungsserver bereitgestellt. Direkt unter diesem Diagramm werden Statistiken zu den 100 am häufigsten verwendeten URLs für diese Arten von Assets angezeigt. |
 | UNCACHEABLE Details |Enthält ein Diagramm der 10 am häufigsten verwendeten URLs für Assets, die aufgrund von Daten im Anforderungsheader nicht im Cache zwischengespeichert werden konnten. Direkt unter diesem Diagramm werden Statistiken zu den 100 am häufigsten verwendeten URLs für diese Arten von Assets angezeigt. |
 | TCP_HIT Details |Enthält ein Diagramm der 10 am häufigsten verwendeten URLs für Assets, die direkt aus dem Cache bereitgestellt werden. Direkt unter diesem Diagramm werden Statistiken zu den 100 am häufigsten verwendeten URLs für diese Arten von Assets angezeigt. |
-| TCP_MISS Details |Enthält ein Diagramm der 10 am häufigsten verwendeten URLs für Assets mit dem Cachestatus TCP_MISS.  Direkt unter diesem Diagramm werden Statistiken zu den 100 am häufigsten verwendeten URLs für diese Arten von Assets angezeigt. |
+| TCP_MISS Details |Enthält ein Diagramm der 10 am häufigsten verwendeten URLs für Assets mit dem Cachestatus TCP_MISS. Direkt unter diesem Diagramm werden Statistiken zu den 100 am häufigsten verwendeten URLs für diese Arten von Assets angezeigt. |
 | TCP_EXPIRED_HIT Details |Enthält ein Diagramm der 10 am häufigsten verwendeten URLs für veraltete Assets, die direkt vom POP bereitgestellt wurden. Direkt unter diesem Diagramm werden Statistiken zu den 100 am häufigsten verwendeten URLs für diese Arten von Assets angezeigt. |
 | TCP_EXPIRED_MISS Details |Enthält ein Diagramm der 10 am häufigsten verwendeten URLs für veraltete Assets, für die eine neue Version vom Ursprungsserver abgerufen werden musste. Direkt unter diesem Diagramm werden Statistiken zu den 100 am häufigsten verwendeten URLs für diese Arten von Assets angezeigt. |
 | TCP_CLIENT_REFRESH_MISS Details |Enthält ein Balkendiagramm der 10 am häufigsten verwendeten URLs für Assets, die aufgrund einer Anforderung vom Typ „no-cache“ des Clients von einem Ursprungsserver abgerufen wurden. Direkt unter diesem Diagramm werden Statistiken zu den 100 am häufigsten verwendeten URLs für diese Arten von Anforderungen angezeigt. |

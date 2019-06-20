@@ -9,10 +9,10 @@ ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
 ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789317"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Unterstützte Dienste, Schemas und Kategorien für Azure-Diagnoseprotokolle
@@ -38,7 +38,7 @@ Ein Schema wird mit einer Kombination aus dem Ressourcentyp (in der `resourceId`
 | callerIpAddress | Optional | Die IP-Adresse des Aufrufers, wenn der Vorgang einem API-Aufruf entspricht, der von einer Entität mit einer öffentlich verfügbaren IP-Adresse stammt. |
 | correlationId | Optional | Eine GUID, die zum Gruppieren eines Satzes mit verwandten Ereignissen verwendet wird. Wenn zwei Ereignisse über den gleichen „operationName“ verfügen, aber über einen unterschiedlichen Status (z.B. „Started“ (Gestartet) und „Succeeded“ (Erfolgreich)), weisen sie die gleiche Korrelations-ID auf. Hiermit können auch andere Beziehungen zwischen Ereignissen dargestellt werden. |
 | identity | Optional | Ein JSON-Blob zum Beschreiben der Identität des Benutzers oder der Anwendung, der bzw. die den Vorgang durchgeführt hat. Normalerweise sind hierin auch die Autorisierung und die Ansprüche bzw. das JWT-Token aus Active Directory enthalten. |
-| Ebene | Optional | Der Schweregrad des Ereignisses. Er kann „Informational“ (Information), „Warning“ (Warnung), „Error“ (Fehler) oder „Critical“ (Kritisch) lauten. |
+| Level | Optional | Der Schweregrad des Ereignisses. Er kann „Informational“ (Information), „Warning“ (Warnung), „Error“ (Fehler) oder „Critical“ (Kritisch) lauten. |
 | location | Optional | Die Region der Ressource, die das Ereignis ausgibt, z.B. „USA, Osten“ oder „Frankreich, Süden“. |
 | properties | Optional | Alle erweiterten Eigenschaften, die sich auf die jeweilige Kategorie der Ereignisse beziehen. Alle benutzerdefinierten bzw. eindeutigen Eigenschaften müssen in diesem „Teil B“ des Schemas angeordnet werden. |
 

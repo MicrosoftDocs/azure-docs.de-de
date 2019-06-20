@@ -1,103 +1,115 @@
 ---
-title: 'Azure Data Factory Mapping Data Flow: Quelltransformation'
-description: 'Azure Data Factory Mapping Data Flow: Quelltransformation'
+title: Einrichten einer Quelltransformation in der Mapping Data Flow-Funktion von Azure Data Factory
+description: Erfahren Sie, wie Sie eine Quelltransformation in Mapping Data Flow einrichten.
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369168"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234549"
 ---
-# <a name="mapping-data-flow-source-transformation"></a>Mapping Data Flow – Quelltransformation
+# <a name="source-transformation-for-mapping-data-flow"></a>Quelltransformation für Mapping Data Flow 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Die Quelltransformation konfiguriert eine Datenquelle, die Sie verwenden möchten, um Daten in Ihre Data Flow-Instanz zu übertragen. Sie können mehr als eine Quellentransformation in einer einzigen Data Flow-Instanz haben. Beginnen Sie immer mit dem Entwerfen Ihrer Data Flows mit einer Quellentransformation.
+Mit einer Quelltransformation wird die Datenquelle für den Datenfluss konfiguriert. Ein Datenfluss kann mehrere Quelltransformationen enthalten. Beginnen Sie beim Entwerfen von Datenflüssen immer mit einer Quelltransformation.
+
+Jeder Datenfluss erfordert mindestens eine Quelltransformation. Fügen Sie so viele Quellen hinzu, wie Sie benötigen, um Ihre Datentransformationen abzuschließen. Sie können diese Quellen zusammen mit einer Join- oder Union-Transformation verwenden.
 
 > [!NOTE]
-> Jeder Data Flow erfordert mindestens eine Quelltransformation. Fügen Sie so viele zusätzliche Quellen hinzu, wie Sie benötigen, um Ihre Datentransformationen abzuschließen. Sie können diese Quellen zusammen mit einer Join- oder Union-Transformation verwenden. Beim Debuggen des Datenflusses in Debugsitzungen werden Daten mithilfe der Sampling-Einstellung oder der Debugquellenlimits aus der Quelle gelesen. Es werden jedenfalls erst Daten in eine Senke geschrieben, wenn Sie Ihren Datenfluss aus einer Pipeline-Datenflussaktivität heraus ausführen. 
+> Beim Debuggen des Datenflusses werden Daten mithilfe der Samplingeinstellung oder der Debugquellenlimits aus der Quelle gelesen. Um Daten in eine Senke zu schreiben, müssen Sie Ihren Datenfluss aus einer Datenflussaktivität in der Pipeline ausführen. 
 
-![Optionen für die Quelltransformation](media/data-flow/source.png "Quelle")
+![Optionen der Quelltransformation auf der Registerkarte „Quelleinstellungen“](media/data-flow/source.png "Quelle")
 
-Jede Datenfluss-Quelltransformation muss genau einem Data Factory-Dataset zugeordnet sein. Das Dataset definiert die Form und Position Ihrer Daten, in die geschrieben oder aus denen gelesen werden soll. Sie können Platzhalter und Dateilisten in Ihrer Quelle verwenden, um mit mehr als einer Datei gleichzeitig zu arbeiten, wenn Dateiquellen verwendet werden.
+Ordnen Sie Ihre Datenfluss-Quelltransformation genau einem Data Factory-Dataset zu. Das Dataset definiert die Form und Position der Daten, in die geschrieben oder aus denen gelesen werden soll. Sie können Platzhalter und Dateilisten in Ihrer Quelle verwenden, um mit mehreren Dateien gleichzeitig zu arbeiten.
 
-## <a name="data-flow-staging-areas"></a>Data Flow-Stagingbereich
+## <a name="data-flow-staging-areas"></a>Datenfluss-Stagingbereiche
 
-Data Flow arbeitet mit „Staging“-Datasets, die Sie alle in Azure finden. Diese Data Flow-Datasets werden für die Datenbereitstellung verwendet, um Ihre Datentransformationen durchzuführen. Data Factory hat Zugriff auf fast 80 verschiedene native Konnektoren. Um Daten aus diesen anderen Quellen in Ihren Data Flow einzubeziehen, sollten Sie im ersten Schritt diese Daten anhand der Kopieraktivität in eine dieser Staging-Bereiche des Data Flow-Datasets aufnehmen.
+Datenflüsse arbeiten mit *Stagingdatasets*, die sich alle in Azure befinden. Verwenden Sie diese Datasets für den Stagingprozess, wenn Sie Ihre Daten transformieren. 
+
+Data Factory hat Zugriff auf nahezu 80 native Connectors. Um Daten aus diesen anderen Quellen in Ihren Datenfluss einzubeziehen, verwenden Sie die Kopieraktivität, um Daten in einen dieser Stagingbereiche des Datenflussdatasets aufzunehmen.
 
 ## <a name="options"></a>Optionen
 
+Wählen Sie das Schema und die Samplingoptionen für Ihre Daten aus.
+
 ### <a name="allow-schema-drift"></a>Schemaabweichung zulassen
-Wählen Sie „Schemaabweichung zulassen“, wenn sich die Quellspalten häufig ändern. Diese Einstellung ermöglicht es, dass alle eingehenden Felder von Ihrer Quelle durch die Transformationen zur Senke fließen.
+Wählen Sie **Schemaabweichung zulassen** aus, wenn die Quellspalten häufig geändert werden. Diese Einstellung ermöglicht es, dass alle eingehenden Quellfelder durch die Transformationen zur Senke fließen.
 
-### <a name="validate-schema"></a>Schema überprüfen
+### <a name="validate-schema"></a>Überprüfen des Schemas
 
-![Öffentliche Quelle](media/data-flow/source1.png "Öffentliche Quelle 1")
+Wenn die eingehende Version der Quelldaten nicht mit dem definierten Schema übereinstimmt, führt das Ausführen des Datenflusses zu einem Fehler.
 
-Wenn die eingehende Version der Quelldaten nicht mit dem definierten Schema übereinstimmt, schlägt die Ausführung des Datenflusses fehl.
+![Einstellungen für die öffentliche Quelle mit den Optionen „Schema überprüfen“, „Schemaabweichung zulassen“ und „Sampling“](media/data-flow/source1.png "Öffentliche Quelle 1")
 
-### <a name="sampling"></a>Stichproben
-Verwenden Sie Stichproben, um die Anzahl der Zeilen aus der Quelle zu beschränken.  Dies ist hilfreich beim Testen oder der Stichprobenentnahme von Daten aus Ihrer Quelle zu Debugzwecken.
+### <a name="sample-the-data"></a>Sampling der Daten
+Aktivieren Sie **Sampling**, um die Anzahl der Zeilen aus der Quelle zu beschränken. Verwenden Sie diese Einstellung, wenn Sie für das Debuggen Stichproben der Daten an der Quelle erstellen möchten.
 
-## <a name="define-schema"></a>Schema definieren
+## <a name="define-schema"></a>Definieren des Schemas
 
-![Quelltransformation](media/data-flow/source2.png "Quelle 2")
+Wenn Ihre Quelldateitypen nicht stark typisiert sind (z. B. Flatfile-Dateien im Gegensatz zu Parquet-Dateien), sollten Sie hier in der Quelltransformation die Datentypen für jedes Feld definieren.  
 
-Für Quelldateitypen, die nicht stark typisiert sind (d.h. Flatfile-Dateien im Gegensatz zu Parquet-Dateien), sollten Sie hier in der Quelltransformation die Datentypen für jedes Feld definieren. Sie können die Spaltennamen in einer Auswahltransformation und die Datentypen in einer abgeleiteten Spaltentransformation nachträglich ändern. 
+![Einstellungen der Quelltransformation auf die Registerkarte „Schema definieren“](media/data-flow/source2.png "Quelle 2")
 
-![Quelltransformation](media/data-flow/source003.png "Datentypen")
+Sie können die Spaltennamen später in einer select-Transformation ändern. Verwenden Sie eine Transformation für abgeleitete Spalten, um die Datentypen zu ändern. Für stark typisierte Quellen können Sie die Datentypen in einer späteren select-Transformation ändern. 
 
-Für stark typisierte Quellen können Sie die Datentypen in einer nachfolgenden Auswahltransformation ändern. 
+![Datentypen in einer select-Transformation](media/data-flow/source003.png "Datentypen")
 
-### <a name="optimize"></a>Optimierung
+### <a name="optimize-the-source-transformation"></a>Optimieren der Quelltransformation
 
-![Quellpartitionen](media/data-flow/sourcepart.png "Partitionierung")
+Auf der Registerkarte **Optimieren** für die Quelltransformation wird möglicherweise der Partitionstyp **Quelle** angezeigt. Diese Option ist nur verfügbar, wenn die Quelle eine Azure SQL-Datenbank ist. Dies liegt daran, dass Data Factory versucht, parallele Verbindungen herzustellen, um umfangreiche Abfragen für Ihre SQL-Datenbankquelle auszuführen.
 
-Auf der Registerkarte „Optimieren“ für die Quelltransformation sehen Sie einen zusätzlichen Partitionierungstyp namens „Source“. Dieser wird nur angezeigt, wenn Sie „Azure SQL DB“ als Quelle ausgewählt haben. Dies liegt daran, dass ADF Verbindungen parallelisieren möchte, um große Abfragen für Ihre Azure SQL DB-Quelle auszuführen.
+![Einstellungen der Quellpartition](media/data-flow/sourcepart2.png "Partitionierung")
 
-Die Partitionierung von Daten auf Ihrer SQL-Datenbankquelle ist optional, aber für große Abfragen nützlich. Sie haben zwei Möglichkeiten:
+Sie verfügen nicht über Partitionsdaten in Ihrer SQL-Datenbank-Quelle, Partitionen sind aber besonders hilfreich für große Abfragen. Sie können Ihre Partitionierung auf eine Spalte oder einer Abfrage basieren.
 
-### <a name="column"></a>Column
+### <a name="use-a-column-to-partition-data"></a>Verwenden einer Spalte zum Partitionieren von Daten
 
-Wählen Sie eine Spalte aus Ihrer Quelltabelle aus, auf der partitioniert werden soll. Sie müssen auch die maximale Anzahl von Verbindungen festlegen.
+Wählen Sie in Ihrer Quelltabelle eine Spalte aus, nach der partitioniert werden soll. Legen Sie auch die maximale Anzahl von Verbindungen fest.
 
-### <a name="query-condition"></a>Abfragebedingung
+### <a name="use-a-query-to-partition-data"></a>Verwenden einer Abfrage zum Partitionieren von Daten
 
-Sie können optional wählen, ob Sie die Verbindungen basierend auf einer Abfrage partitionieren möchten. Fügen Sie bei dieser Option einfach den Inhalt eines WHERE-Prädikats ein. z.B. Jahr > 1980
+Sie können die Verbindungen basierend auf einer Abfrage partitionieren. Geben Sie einfach den Inhalt eines WHERE-Prädikats ein. Geben Sie beispielsweise „year > 1980“ ein.
 
 ## <a name="source-file-management"></a>Quelldateiverwaltung
-![Neue Quelleinstellungen](media/data-flow/source2.png "Neue Einstellungen")
 
-* Platzhalterpfad, um eine Reihe von Dateien aus Ihrem Quellordner auszuwählen, die einem Muster entsprechen. Dadurch wird jede Datei überschrieben, die Sie in Ihrer Datasetdefinition festgelegt haben.
-* Liste der Dateien. Identisch mit der Dateigruppe. Zeigen Sie auf eine Textdatei, die Sie mit einer Liste der zu verarbeitenden relativen Pfaddateien erstellen.
-* Die Spalte zum Speichern des Dateinamens speichert den Namen der Datei aus der Quelle in einer Spalte in Ihren Daten. Geben Sie hier einen neuen Namen ein, um die Zeichenfolge für den Dateinamen zu speichern.
-* Nach der Fertigstellung können Sie wählen, ob Sie nach dem Ausführen des Datenflusses nichts mit der Quelldatei machen, die Quelldatei(en) löschen oder die Quelldateien verschieben möchten. Die Pfade für das Verschieben sind relative Pfade.
+Wählen Sie die Einstellungen zum Verwalten von Dateien in Ihrer Quelle aus. 
+
+![Einstellungen für eine neue Quelle](media/data-flow/source2.png "Einstellungen für neue Quelle")
+
+* **Platzhalterpfad:** Wählen Sie in Ihrem Quellordner eine Reihe von Dateien aus, die einem Muster entsprechen. Diese Einstellung überschreibt alle Dateien in Ihrer Datasetdefinition.
+* **Liste der Dateien:** Dies ist eine Dateigruppe. Erstellen Sie eine Textdatei mit einer Liste der relativen Pfade der zu verarbeitenden Dateien. Verweisen Sie auf diese Textdatei.
+* **Spalte für die Speicherung im Dateinamen:** Speichern Sie den Namen der Quelldatei in einer Spalte in den Daten. Geben Sie hier einen neuen Namen ein, um die Zeichenfolge für den Dateinamen zu speichern.
+* **Nach der Fertigstellung:** Wählen Sie aus, ob Sie nach dem Ausführen des Datenflusses nichts mit der Quelldatei anstellen, die Quelldatei löschen oder die Quelldateien verschieben möchten. Die Pfade für das Verschieben sind relative Pfade.
 
 ### <a name="sql-datasets"></a>SQL-Datasets
 
-Wenn Sie Azure SQL DB oder Azure SQL DW als Quelle verwenden, haben Sie zusätzliche Optionen.
+Wenn sich Ihre Quelle in SQL-Datenbank oder SQL Data Warehouse befindet, stehen Ihnen zusätzliche Optionen für die Verwaltung von Quelldateien zur Verfügung.
 
-* Abfrage: Geben Sie eine SQL-Abfrage für die Quelle ein. Durch das Festlegen einer Abfrage wird jede Tabelle, die Sie im Dataset ausgewählt haben, überschrieben. Beachten Sie, dass die Order By-Klauseln hier nicht unterstützt werden. Sie können hier jedoch eine vollständige SELECT FROM-Anweisung festlegen.
-
-* Batchgröße: Geben Sie eine Batchgröße ein, um große Datenmengen Leseblöcke zu segmentieren.
+* **Query** (Abfrage): Geben Sie eine SQL-Abfrage für die Quelle ein. Diese Einstellung überschreibt jede Tabelle, die Sie im Dataset ausgewählt haben. Beachten Sie, dass **Order By**-Klauseln hier nicht unterstützt werden. Sie können aber eine vollständige SELECT FROM-Anweisung festlegen. Sie können auch benutzerdefinierte Tabellenfunktionen verwenden. **select * from udfGetData()** ist eine benutzerdefinierte Funktion in SQL, die eine Tabelle zurückgibt. Diese Abfrage generiert eine Quelltabelle, die Sie in Ihrem Datenfluss verwenden können.
+* **Batchgröße**: Geben Sie eine Batchgröße ein, um große Datenmengen in Leseblöcke zu segmentieren.
 
 > [!NOTE]
-> Die Einstellungen für den Dateivorgang werden nur ausgeführt, wenn der Datenfluss anhand der Aktivität zum Ausführen des Data Flow in einer Pipeline über eine Pipelineausführung ausgeführt wird (Debuggen der Pipeline oder Ausführung). Dateivorgänge werden NICHT im Data Flow-Debugmodus ausgeführt werden.
+> Die Dateivorgänge werden nur ausgeführt, wenn der Datenfluss anhand der Aktivität zum Ausführen des Datenflusses in einer Pipeline über eine Pipelineausführung ausgeführt wird (Debuggen der Pipeline oder Ausführung). Dateivorgänge werden *nicht* im Datenfluss-Debugmodus ausgeführt.
 
 ### <a name="projection"></a>Projektion
 
-![Projektion](media/data-flow/source3.png "Projektion")
+Wie Schemas in Datasets definiert die Projektion in einer Quelle die Datenspalten, Datentypen und Datenformate aus den Quelldaten. 
 
-Ähnlich wie Schemas in Datasets definiert die Projektion in Quelle die Datenspalten, Datentypen und Datenformate aus den Quelldaten. Wenn Sie eine Textdatei ohne definiertes Schema haben, klicken Sie auf „Datentyp erkennen“, damit ADF versucht, die Datentypen zu erfassen und abzuleiten. Über die Schaltfläche „Standardformat definieren“ können Sie die Standarddatenformate für die automatische Erkennung festlegen. Sie können die Spaltendatentypen in einer nachfolgenden abgeleiteten Spaltentransformation ändern. Die Spaltennamen können über die Auswahltransformation geändert werden.
+![Einstellungen auf der Registerkarte „Projektion“](media/data-flow/source3.png "Projektion")
 
-![Standardformate](media/data-flow/source2.png "Standardformate")
+Wenn in Ihrer Textdatei kein Schema definiert ist, wählen Sie **Datentyp erkennen** aus, damit Data Factory Stichproben erstellt und die Datentypen ableitet. Wählen Sie **Standarddatenformat** aus, um die Standarddatenformate automatisch zu ermitteln. 
+
+Sie können die Spaltendatentypen in einer späteren Transformation für abgeleitete Spalten ändern. Verwenden Sie eine Transformation, um die Spaltennamen zu ändern.
+
+![Einstellungen für Standarddatenformate](media/data-flow/source2.png "Standardformate")
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erstellen Ihrer Transformation mit [Abgeleitete Spalte](data-flow-derived-column.md) und [Auswahl](data-flow-select.md).
+Beginnen Sie mit dem Erstellen einer [Transformation für abgeleitete Spalten](data-flow-derived-column.md) und einer [select-Transformation](data-flow-select.md).

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658265"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60749386"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus und Event Hubs – Protokollleitfaden
 
@@ -218,7 +218,7 @@ Jede Eigenschaft, die die Anwendung definieren muss, sollte der `application-pro
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
-#### <a name="properties"></a>Eigenschaften
+#### <a name="properties"></a>properties
 
 | Feldname | Verwendung | API-Name |
 | --- | --- | --- |
@@ -270,7 +270,7 @@ Um mit Transaktionsaufgaben zu beginnen, benötigt der Controller eine `txn-id` 
 | --- | --- | --- |
 | attach(<br/>name={Name der Verknüpfung},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={Name der Verknüpfung},<br/>... ,<br/>target=Coordinator()<br/>) |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()** )}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={Transaktions-ID}<br/>)|
 
 #### <a name="discharging-a-transaction"></a>Entladen einer Transaktion
@@ -284,8 +284,8 @@ Der Controller schließt die Transaktionsaufgabe durch Senden einer `discharge`-
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>)|
 | | . . . <br/>Transaktionsaufgabe<br/>auf anderen Links<br/> . . . |
-| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
-| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)** )}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()** )|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Senden einer Nachricht in einer Transaktion
 
@@ -295,8 +295,8 @@ Alle Transaktionsaufgaben erfolgen mit dem Transaktionsübermittlungsstatus `tra
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>)|
-| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ Nutzlast }| ------> |  |
-| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)** )<br/>{ Nutzlast }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Löschen einer Nachricht in einer Transaktion
 
@@ -307,7 +307,7 @@ Die Nachrichtenlöschung umfasst Vorgänge wie `Complete` / `Abandon` / `DeadLet
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>)|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ Nutzlast }|  
-| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Erweiterte Service Bus-Funktionen
@@ -361,9 +361,9 @@ Die Anforderungsnachricht weist die folgenden Anwendungseigenschaften auf:
 
 | Schlüssel | Optional | Werttyp | Wertinhalt |
 | --- | --- | --- | --- |
-| operation |Nein  |Zeichenfolge |**put-token** |
-| type |Nein  |Zeichenfolge |Der Typ des abgelegten Tokens. |
-| name |Nein  |Zeichenfolge |Die Zielgruppe, für die das Token gilt. |
+| operation |Nein |Zeichenfolge |**put-token** |
+| type |Nein |Zeichenfolge |Der Typ des abgelegten Tokens. |
+| name |Nein |Zeichenfolge |Die Zielgruppe, für die das Token gilt. |
 | expiration |Ja |timestamp |Der Ablaufzeitpunkt des Tokens. |
 
 Die *name*-Eigenschaft identifiziert die Entität, der das Token zugeordnet werden soll. In Service Bus ist dies der Pfad zur Warteschlange oder zum Thema/Abonnement. Die *type*-Eigenschaft dient zum Identifizieren des Tokentyps:
@@ -380,7 +380,7 @@ Die Antwortnachricht verfügt über die folgenden *application-properties*-Werte
 
 | Schlüssel | Optional | Werttyp | Wertinhalt |
 | --- | --- | --- | --- |
-| status-code |Nein  |int |HTTP-Antwortcode **[RFC2616]** |
+| status-code |Nein |int |HTTP-Antwortcode **[RFC2616]** |
 | status-description |Ja |Zeichenfolge |Beschreibung des Status |
 
 Der Client kann *put-token* wiederholt und für jede Entität in der Messaginginfrastruktur aufrufen. Die Token gelten für den aktuellen Client und sind in der aktuellen Verbindung verankert. Das bedeutet, dass der Server alle beibehaltenen Token verwirft, wenn die Verbindung getrennt wird.
@@ -403,7 +403,7 @@ Mit dieser Funktionalität erstellen Sie einen Sender und richten den Link zur `
 
 | Client | | Service Bus |
 | --- | --- | --- |
-| attach(<br/>name={Name der Verknüpfung},<br/>role=sender,<br/>source={Clientverknüpfungs-ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| attach(<br/>name={Name der Verknüpfung},<br/>role=sender,<br/>source={Clientverknüpfungs-ID},<br/>target= **{via-entity}** ,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={Name der Verknüpfung},<br/>role=receiver,<br/>source={Clientverknüpfungs-ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -3,19 +3,19 @@ title: Erkennungsmethode für die Textübersetzungs-API
 titlesuffix: Azure Cognitive Services
 description: Verwenden Sie die Erkennungsmethode (Detect) der Textübersetzungs-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: v-pawal
+ms.openlocfilehash: 275cf91eb3bf72a612882164c24e4773edcad0f2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578656"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389801"
 ---
 # <a name="translator-text-api-30-detect"></a>Textübersetzungs-API 3.0: Detect
 
@@ -158,7 +158,7 @@ Im Folgenden finden Sie die möglichen HTTP-Statuscodes, die eine Anforderung zu
   </tr>
   <tr>
     <td>429</td>
-    <td>Der Aufrufer sendet zu viele Anforderungen.</td>
+    <td>Der Server hat die Anforderung abgelehnt, da der Client die Anforderungsgrenzwerte überschritten hat.</td>
   </tr>
   <tr>
     <td>500</td>

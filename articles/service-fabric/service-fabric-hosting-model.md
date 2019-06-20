@@ -13,11 +13,11 @@ ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60483570"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric-Hostingmodell
 Dieser Artikel bietet einen Überblick über von Azure Service Fabric bereitgestellte Anwendungshostingmodelle und beschreibt die Unterschiede zwischen dem Modell mit einem **gemeinsam genutzten Prozess** und dem Modell mit einem **exklusiven Prozess**. Er veranschaulicht grafisch die Bereitstellung einer Anwendung auf einem Service Fabric-Knoten beschreibt und die Beziehung zwischen Replikaten (oder Instanzen) des Diensts und dem Dienst-Host-Prozess.

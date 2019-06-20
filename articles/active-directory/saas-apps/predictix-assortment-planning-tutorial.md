@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory-Integration mit Predictix Assortment Planning | Microsoft-Dokumentation'
-description: Erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active Directory und Predictix Assortment Planning konfigurieren.
+description: In diesem Tutorial erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active Directory und Predictix Assortment Planning konfigurieren.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,73 +15,72 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c5d2002393165eb734b80e0fbc3677915809ba8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c14362a220cc60b0b8956ca41950faecd0563b3e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282626"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890621"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Azure Active Directory-Integration mit Predictix Assortment Planning
 
 In diesem Tutorial erfahren Sie, wie Sie Predictix Assortment Planning in Azure Active Directory (Azure AD) integrieren.
-Die Integration von Predictix Assortment Planning in Azure AD bietet die folgenden Vorteile:
+Diese Integration bietet die folgenden Vorteile:
 
 * Sie können in Azure AD steuern, wer Zugriff auf Predictix Assortment Planning hat.
-* Sie können es Ihren Benutzern ermöglichen, dass sie mit ihren Azure AD-Konten automatisch bei Predictix Assortment Planning angemeldet werden (einmaliges Anmelden; Single Sign-On, SSO).
-* Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
+* Sie können es Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei Predictix Assortment Planning anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
+* Sie können Ihre Konten an einem zentralen Ort verwalten: im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto erstellen](https://azure.microsoft.com/free/), bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um die Azure AD-Integration mit Predictix Assortment Planning konfigurieren zu können, benötigen Sie Folgendes:
+Um die Azure AD-Integration von Predictix Assortment Planning zu konfigurieren, benötigen Sie Folgendes:
 
 * Ein Azure AD-Abonnement Sollten Sie nicht über eine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) verwenden.
-* Predictix Assortment Planning-Abonnement, für das einmaliges Anmelden aktiviert ist
+* Ein Predictix Assortment Planning-Abonnement, für das einmaliges Anmelden aktiviert ist
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* Predictix Assortment Planning unterstützt **SP**-initiiertes einmaliges Anmelden.
+* Predictix Assortment Planning unterstützt SP-initiiertes einmaliges Anmelden.
 
-## <a name="adding-predictix-assortment-planning-from-the-gallery"></a>Hinzufügen von Predictix Assortment Planning aus dem Katalog
+## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Hinzufügen von Predictix Assortment Planning aus dem Katalog
 
-Zum Konfigurieren der Integration von Predictix Assortment Planning in Azure AD müssen Sie Predictix Assortment Planning aus dem Katalog Ihrer Liste mit den verwalteten SaaS-Apps hinzufügen.
+Um die Integration von Predictix Assortment Planning in Azure AD einzurichten, müssen Sie Ihrer Liste der verwalteten SaaS-Apps Predictix Assortment Planning aus dem Katalog hinzufügen.
 
-**Um Predictix Assortment Planning aus dem Katalog hinzuzufügen, führen Sie die folgenden Schritte aus:**
+1. Klicken Sie im linken Bereich des [Azure-Portals](https://portal.azure.com) auf **Azure Active Directory**:
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
+    ![Wählen Sie „Azure Active Directory“.](common/select-azuread.png)
 
-    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
-
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+2. Navigieren Sie zu **Unternehmensanwendungen** > **Alle Anwendungen**:
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Um eine Anwendung hinzuzufügen, wählen Sie oben im Fenster die Option **Neue Anwendung**:
 
-    ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
+    ![Auswählen von „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie im Suchfeld **Predictix Assortment Planning** ein, wählen Sie im Ergebnisbereich **Predictix Assortment Planning** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+4. Geben Sie in das Suchfeld **Predictix Assortment Planning** ein. Wählen Sie in den Suchergebnissen den Eintrag **Predictix Assortment Planning** aus, und wählen Sie dann **Hinzufügen** aus.
 
-     ![Predictix Assortment Planning in der Ergebnisliste](common/search-new-app.png)
+     ![Suchergebnisse](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Predictix Assortment Planning mithilfe einer Testbenutzerin namens **Britta Simon**.
-Damit einmaliges Anmelden funktioniert, muss zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Predictix Assortment Planning eine Linkbeziehung eingerichtet werden.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Predictix Assortment Planning mithilfe einer Testbenutzerin namens „Britta Simon“.
+Damit einmaliges Anmelden funktioniert, müssen Sie eine Beziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Predictix Assortment Planning einrichten.
 
-Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei Predictix Assortment Planning müssen die folgenden Schritte ausgeführt werden:
+Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei Predictix Assortment Planning müssen Sie die folgenden Schritte ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für Predictix Assortment Planning](#configure-predictix-assortment-planning-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines Predictix Assortment Planning-Testbenutzers](#create-predictix-assortment-planning-test-user)**, um eine Entsprechung von Britta Simon in Predictix Assortment Planning zu erhalten, die mit der Darstellung des Benutzers in Azure AD verknüpft ist.
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden der Funktion zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für Predictix Assortment Planning](#configure-predictix-assortment-planning-single-sign-on)** auf der Anwendungsseite.
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD für den Benutzer zu aktivieren.
+5. **[Erstellen eines Predictix Assortment Planning-Testbenutzers](#create-a-predictix-assortment-planning-test-user)** , der mit der Darstellung des Benutzers in Azure AD verknüpft ist.
+6. **[Testen des einmaligen Anmeldens](#test-single-sign-on)** , um sicherzustellen, dass die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -89,127 +88,126 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-
 
 Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Predictix Assortment Planning die folgenden Schritte aus:
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Predictix Assortment Planning** die Option **Einmaliges Anmelden**.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Predictix Assortment Planning** die Option **Einmaliges Anmelden** aus:
 
-    ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
+    ![„Einmaliges Anmelden“ auswählen](common/select-sso.png)
 
-2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
+2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren:
 
-    ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
+    ![SSO-Methode auswählen](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** das Symbol **Bearbeiten** aus, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen:
 
-    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
+    ![Symbol „Bearbeiten“](common/edit-urls.png)
 
-4. Führen Sie im Abschnitt **Grundlegende SAML-Konfiguration** die folgenden Schritte aus:
+4. Führen Sie im Dialogfeld **Grundlegende SAML-Konfiguration** die folgenden Schritte aus.
 
-    ![SSO-Informationen zur Domäne und zu den URLs für Predictix Assortment Planning](common/sp-identifier.png)
+    ![Dialogfeld „Grundlegende SAML-Konfiguration“](common/sp-identifier.png)
 
-    a. Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein:
+    1. Geben Sie im Feld **Anmelde-URL** eine URL im folgenden Format ein:
 
-    | |
-    |--|
-    | `https://<sub-domain>.ap.predictix.com/sso/request`|
-    | `https://<sub-domain>.dev.ap.predictix.com/`|
-    | |
+       | |
+        |--|
+        | `https://<sub-domain>.ap.predictix.com/sso/request`|
+        | `https://<sub-domain>.dev.ap.predictix.com/`|
+        | |
 
-    b. Geben Sie im Textfeld **Bezeichner (Entitäts-ID)** eine URL im folgenden Format ein:
+    1. Geben Sie im Feld **Bezeichner (Entitäts-ID)** eine URL im folgenden Format ein:
 
-    | |
-    |--|
-    | `https://<sub-domain>.ap.predictix.com`|
-    | `https://<sub-domain>.dev.ap.predictix.com`|
-    | |
+        | |
+        |--|
+        | `https://<sub-domain>.ap.predictix.com`|
+        | `https://<sub-domain>.dev.ap.predictix.com`|
+        | |
 
     > [!NOTE]
-    > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächliche Anmelde-URL und den tatsächlichen Bezeichner. Wenden Sie sich an das [Clientsupportteam von Predictix Assortment Planning](https://www.infor.com/support), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
+    > Diese Werte sind Platzhalter. Sie müssen die tatsächliche Anmelde-URL und den tatsächlichen Bezeichner verwenden. Wenden Sie sich an das [Supportteam von Predictix Assortment Planning](https://www.infor.com/support), um die Werte zu erhalten. Sie können sich auch die Muster im Azure-Portal im Dialogfeld **Grundlegende SAML-Konfiguration** ansehen.
 
-5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um das Ihrer Anforderung entsprechende **Zertifikat (Base64)** aus den angegebenen Optionen herunterzuladen und auf Ihrem Computer zu speichern.
+5. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** den Link **Herunterladen** neben **Zertifikat (Base64)** gemäß Ihren Anforderungen aus, und speichern Sie das Zertifikat auf Ihrem Computer:
 
-    ![Downloadlink für das Zertifikat](common/certificatebase64.png)
+    ![Downloadlink für Zertifikat](common/certificatebase64.png)
 
-6. Kopieren Sie im Abschnitt **Predictix Assortment Planning einrichten** die entsprechenden URLs gemäß Ihren Anforderungen.
+6. Kopieren Sie im Abschnitt **Predictix Assortment Planning einrichten** die entsprechenden URLs gemäß Ihren Anforderungen:
 
     ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    a. Anmelde-URL
+    1. **Anmelde-URL**
 
-    b. Azure AD-Bezeichner
+    1. **Azure AD-Bezeichner**
 
-    c. Abmelde-URL
+    1. **Abmelde-URL**
 
 ### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für Predictix Assortment Planning
 
-Zum Konfigurieren des einmaligen Anmeldens bei **Predictix Assortment Planning** müssen Sie das heruntergeladene **Zertifikat (Base64)** sowie die entsprechenden kopierten URLs aus dem Azure-Portal an das [Supportteam von Predictix Assortment Planning](https://www.infor.com/support) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+Um das einmalige Anmelden auf der Seite von Predictix Assortment Planning zu konfigurieren, müssen Sie das heruntergeladene Zertifikat und die aus dem Azure-Portal kopierten URLs an das [Supportteam von Predictix Assortment Planning](https://www.infor.com/support) senden. Dieses Team sorgt dafür, dass die SAML-Verbindung für einmaliges Anmelden auf beiden Seiten ordnungsgemäß eingerichtet wird.
 
-### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers 
+### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
-Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
+In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin namens „Britta Simon“.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** aus, und wählen Sie dann **Benutzer** und anschließend **Alle Benutzer** aus:
 
-    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
+    ![„Alle Benutzer“ auswählen](common/users.png)
 
-2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
+2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus:
 
-    ![Schaltfläche „Neuer Benutzer“](common/new-user.png)
+    ![„Neuer Benutzer“ auswählen](common/new-user.png)
 
-3. Führen Sie in den Benutzereigenschaften die folgenden Schritte aus.
+3. Führen Sie im Dialogfeld **Benutzer** die folgenden Schritte aus.
 
     ![Dialogfeld „Benutzer“](common/user-properties.png)
 
-    a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
+    1. Geben Sie in das Feld **Name** den Namen **BrittaSimon** ein.
   
-    b. Geben Sie im Feld **Benutzername** den Namen brittasimon@yourcompanydomain.extension ein. Zum Beispiel, BrittaSimon@contoso.com
+    1. Geben Sie im Feld **Benutzername** die Zeichenfolge **BrittaSimon@\<IhreUnternehmensdomäne>.\<Erweiterung>** ein. (Beispiel: BrittaSimon@contoso.com.)
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den im Feld **Kennwort** angezeigten Wert.
 
-    d. Klicken Sie auf **Create**.
+    1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Predictix Assortment Planning gewähren.
+In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure AD, indem Sie ihr Zugriff auf Predictix Assortment Planning gewähren.
 
-1. Wählen Sie im Azure-Portal nacheinander die Optionen **Unternehmensanwendungen**, **Alle Anwendungen** und **Predictix Assortment Planning**.
+1. Wählen Sie im Azure-Portal nacheinander die Optionen **Unternehmensanwendungen**, **Alle Anwendungen** und **Predictix Assortment Planning** aus.
 
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
+    ![Unternehmensanwendungen](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste den Eintrag **Predictix Assortment Planning**aus.
+2. Wählen Sie in der Anwendungsliste den Eintrag **Predictix Assortment Planning** aus.
 
-    ![Predictix Assortment Planning-Link in der Anwendungsliste](common/all-applications.png)
+    ![Liste der Anwendungen](common/all-applications.png)
 
-3. Wählen Sie im Menü auf der linken Seite **Benutzer und Gruppen** aus.
+3. Wählen Sie im linken Bereich die Option **Benutzer und Gruppen** aus:
 
-    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
+    ![Benutzer und Gruppen auswählen](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+4. Wählen Sie die Schaltfläche **Benutzer hinzufügen** und anschließend im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
-    ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
+    ![Auswählen von „Benutzer hinzufügen“](common/add-assign-user.png)
 
-5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Bildschirm auf die Schaltfläche **Auswählen**.
+5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste den Eintrag **Britta Simon** aus, und klicken Sie dann am unteren Bildschirmrand auf die Schaltfläche **Auswählen**.
 
-6. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** in der Liste die entsprechende Rolle für den Benutzer aus, und klicken Sie dann unten auf dem Bildschirm auf **Auswählen**.
+6. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Klicken Sie am unteren Bildschirmrand auf die Schaltfläche **Auswählen**.
 
-7. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
+7. Wählen Sie im Dialogfeld **Zuweisung hinzufügen** die Option **Zuweisen** aus.
 
-### <a name="create-predictix-assortment-planning-test-user"></a>Erstellen eines Predictix Assortment Planning-Testbenutzers
+### <a name="create-a-predictix-assortment-planning-test-user"></a>Erstellen eines Predictix Assortment Planning-Testbenutzers
 
-In diesem Abschnitt erstellen Sie in Predictix Assortment Planning einen Benutzer mit dem Namen Britta Simon. Wenden Sie sich an das [Supportteam von Predictix Assortment Planning](https://www.infor.com/support), um die Benutzer der Predictix Assortment Planning-Plattform hinzufügen zu lassen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
+Als Nächstes müssen Sie in Predictix Assortment Planning einen Benutzer mit dem Namen „Britta Simon“ erstellen. Lassen Sie sich beim Hinzufügen von Benutzern vom [Supportteam von Predictix Assortment Planning](https://www.infor.com/support) unterstützen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
 
 > [!NOTE]
-> Der Besitzer des Azure Active Directory-Kontos erhält eine E-Mail und folgt einem Link zur Bestätigung des Kontos, bevor es aktiv wird.
+> Der Besitzer des Azure AD-Kontos erhält eine E-Mail und muss einen Link zur Bestätigung des Kontos auswählen, bevor es aktiv wird.
 
-### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens 
+### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 
-In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
+Jetzt müssen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich testen.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Predictix Assortment Planning“ klicken, sollten Sie automatisch bei Ihrer Predictix Assortment Planning-Anwendung angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich die Kachel „Predictix Assortment Planning“ auswählen, sollten Sie automatisch bei Ihrer Predictix Assortment Planning-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials zur Integration von SaaS-Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

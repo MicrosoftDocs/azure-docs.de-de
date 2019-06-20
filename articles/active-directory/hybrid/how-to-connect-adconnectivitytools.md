@@ -1,24 +1,24 @@
 ---
 title: 'Azure AD Connect: Was ist das PowerShell-Modul „ADConnectivityTool“? | Microsoft-Dokumentation'
-description: In diesem Dokument wird das neue PowerShell-Modul „ADConnectivity“ eingeführt.
+description: In diesem Dokument werden das neue PowerShell-Modul ADConnectivity und seine Verwendung für die Problembehandlung vorgestellt.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436709"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64571114"
 ---
-# <a name="what-is-the-adconnectivitytool-powershell-module"></a>Was ist das PowerShell-Modul „ADConnectivityTool“?
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Behandeln von Azure AD-Verbindungsproblemen mit dem PowerShell-Modul ADConnectivity-Tool
 
 Das ADConnectivity-Tool ist ein PowerShell-Modul, das auf eine der folgenden Arten verwendet wird:
 

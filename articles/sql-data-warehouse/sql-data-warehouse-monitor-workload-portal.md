@@ -11,11 +11,11 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6c8ce090039e3d5cc85c86d920710294de2165f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60748914"
 ---
 # <a name="monitor-workload---azure-portal"></a>Überwachen von Workloads – Azure-Portal
 

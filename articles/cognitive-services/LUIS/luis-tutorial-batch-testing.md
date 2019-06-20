@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146155"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Testen von Datasets in Batches
@@ -161,7 +161,7 @@ Um sicherzustellen, dass die Äußerungen im Batchtest richtig vorhergesagt werd
 
 1. Wählen Sie auf der oberen Navigationsleiste **Test** aus. Wenn die Batchergebnisse noch geöffnet sind, wählen Sie **Zurück zur Liste** aus.  
 
-2. Klicken Sie auf die Schaltfläche mit Auslassungspunkten (**...**) rechts neben dem Batchnamen und dann auf ***Dataset ausführen***. Warten Sie, bis der Batchtest abgeschlossen ist. Beachten Sie, dass die Schaltfläche **Ergebnisse anzeigen** nun in Grün angezeigt wird. Dies bedeutet, dass der gesamte Batch erfolgreich ausgeführt wurde.
+2. Klicken Sie auf die Schaltfläche mit Auslassungspunkten ( **...** ) rechts neben dem Batchnamen und dann auf ***Dataset ausführen***. Warten Sie, bis der Batchtest abgeschlossen ist. Beachten Sie, dass die Schaltfläche **Ergebnisse anzeigen** nun in Grün angezeigt wird. Dies bedeutet, dass der gesamte Batch erfolgreich ausgeführt wurde.
 
 3. Wählen Sie **See results** (Ergebnisse anzeigen) aus. Links neben dem Namen aller Absichten sollten grüne Symbole angezeigt werden. 
 

@@ -2,20 +2,20 @@
 title: Hinzufügen einer Webanwendung – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Ihrem Active Directory B2C-Mandanten eine Webanwendung hinzufügen.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 04/16/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ede3fd0dd1d0351e691a9f160260c029d01c8f8a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a1d098550c6fb733e088f8ad211d29f48f55d2d6
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704023"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511707"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Hinzufügen einer Web-API-Anwendung zu Ihrem Azure Active Directory B2C-Mandanten
 

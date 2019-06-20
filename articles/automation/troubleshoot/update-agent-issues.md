@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: 864fe70d7702680f21234a1a15c02515b19f770b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60597712"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Grundlegende Informationen zu den Windows-Agent-Überprüfungsergebnissen in der Updateverwaltung

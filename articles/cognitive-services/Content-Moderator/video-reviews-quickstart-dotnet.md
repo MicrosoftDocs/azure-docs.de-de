@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726831"
 ---
 # <a name="create-video-reviews-using-net"></a>Erstellen von Videoüberprüfungen per .NET
 
@@ -166,7 +166,7 @@ Erstellen Sie mit **ContentModeratorClient.Reviews.CreateVideoReviews** eine Vid
 **CreateVideoReviews** verfügt über die folgenden erforderlichen Parameter:
 1. Eine Zeichenfolge, die einen MIME-Typ enthält. Dieser sollte „application/json“ lauten. 
 1. Ihr Content Moderator-Teamname.
-1. Ein **IList\<CreateVideoReviewsBodyItem>**-Objekt. Jedes **CreateVideoReviewsBodyItem**-Objekt stellt eine Videoüberprüfung dar. In dieser Schnellstartanleitung wird jeweils nur eine Überprüfung erstellt.
+1. Ein **IList\<CreateVideoReviewsBodyItem>** -Objekt. Jedes **CreateVideoReviewsBodyItem**-Objekt stellt eine Videoüberprüfung dar. In dieser Schnellstartanleitung wird jeweils nur eine Überprüfung erstellt.
 
 **CreateVideoReviewsBodyItem** verfügt über mehrere Eigenschaften. Sie legen mindestens die folgenden Eigenschaften fest:
 - **Content**: Die URL des zu überprüfenden Videos.
@@ -174,7 +174,7 @@ Erstellen Sie mit **ContentModeratorClient.Reviews.CreateVideoReviews** eine Vid
 - **Status**: Legen Sie den Wert auf „Unpublished“ (Veröffentlichung aufgehoben) fest. Wenn Sie nichts festlegen, wird standardmäßig „Pending“ (Ausstehend) verwendet. Dies bedeutet, dass die Videoüberprüfung veröffentlicht wird und dass die Prüfung durch den Menschen noch aussteht. Nachdem eine Videoüberprüfung veröffentlicht wurde, können Sie ihr keine Videoframes, kein Transkript und auch kein Transkriptmoderationsergebnis mehr hinzufügen.
 
 > [!NOTE]
-> **CreateVideoReviews** gibt „IList<string>“ zurück. Jede dieser Zeichenfolgen enthält eine ID für eine Videoüberprüfung. Diese IDs sind GUIDs und nicht mit dem Wert der **ContentId**-Eigenschaft identisch. 
+> **CreateVideoReviews** gibt „IList\<string>“ zurück. Jede dieser Zeichenfolgen enthält eine ID für eine Videoüberprüfung. Diese IDs sind GUIDs und nicht mit dem Wert der **ContentId**-Eigenschaft identisch. 
 
 Fügen Sie dem VideoReviews-Namespace (Program-Klasse) die folgende Methodendefinition hinzu.
 
@@ -224,7 +224,7 @@ Sie fügen einer Videoüberprüfung Videoframes mit **ContentModeratorClient.Rev
 1. Eine Zeichenfolge, die einen MIME-Typ enthält. Dieser sollte „application/json“ lauten.
 1. Ihr Content Moderator-Teamname.
 1. Die von **CreateVideoReviews** zurückgegebene ID für die Videoüberprüfung.
-1. Ein **IList\<VideoFrameBodyItem>**-Objekt. Jedes **VideoFrameBodyItem**-Objekt steht für einen Videoframe.
+1. Ein **IList\<VideoFrameBodyItem>** -Objekt. Jedes **VideoFrameBodyItem**-Objekt steht für einen Videoframe.
 
 **VideoFrameBodyItem** verfügt über die folgenden Eigenschaften:
 - **Timestamp**: Eine Zeichenfolge, die den Zeitpunkt des Videos (in Sekunden) enthält, ab dem der Videoframe beginnt.

@@ -10,11 +10,11 @@ ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61289183"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Erste Schritte mit Azure Search in Node.js
 > [!div class="op_single_selector"]

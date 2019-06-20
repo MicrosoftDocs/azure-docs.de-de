@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61471877"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Hinzufügen von Azure Automation-Runbooks zu Wiederherstellungsplänen
 In diesem Artikel wird beschrieben, wie Azure Site Recovery in Azure Automation integriert wird, um Sie bei der Erweiterung Ihrer Wiederherstellungspläne zu unterstützen. Mit Wiederherstellungsplänen kann die Wiederherstellung von VMs orchestriert werden, die mit Site Recovery geschützt werden. Wiederherstellungspläne können sowohl für die Replikation in eine sekundäre Cloud als auch für die Replikation in Azure genutzt werden. Darüber hinaus tragen Wiederherstellungspläne zu einer **durchgängig exakten**, **wiederholbaren** und **automatisierten** Wiederherstellung bei. Wenn Sie für Ihre VMs ein Failover zu Azure durchführen, wird die Integration mit Azure Automation auf Ihre Wiederherstellungspläne erweitert. Sie können sie zum Ausführen von Runbooks verwenden, die leistungsfähige Automatisierungsaufgaben ermöglichen.

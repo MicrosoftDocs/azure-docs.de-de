@@ -10,11 +10,11 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60238054"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Konfigurationsschema für Azure-Diagnose 1.3 und höher
 > [!NOTE]
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Ermöglicht Ihnen das Generieren einer Leistungsindikatortabelle, die für schnelle Abfragen optimiert ist. Jeder Leistungsindikator, der im **PerformanceCounters**-Element definiert ist, wird in der Metriktabelle zusätzlich zur Leistungsindikatortabelle gespeichert.  
 
- Das **resourceId**-Attribut muss angegeben werden.  Die Ressourcen-ID des virtuellen Computers oder der VM-Skalierungsgruppe, auf dem bzw. in der Sie die Azure-Diagnose bereitstellen. Rufen Sie **resourceID** im [Azure-Portal](https://portal.azure.com) ab. Wählen Sie **Durchsuchen** -> **Ressourcengruppen** -> **<Name\>** aus. Klicken Sie auf die Kachel **Eigenschaften**, und kopieren Sie den Wert aus dem Feld **ID**.  
+ Das **resourceId**-Attribut muss angegeben werden.  Die Ressourcen-ID des virtuellen Computers oder der VM-Skalierungsgruppe, auf dem bzw. in der Sie die Azure-Diagnose bereitstellen. Rufen Sie **resourceID** im [Azure-Portal](https://portal.azure.com) ab. Wählen Sie **Durchsuchen** -> **Ressourcengruppen** ->  **<Name\>** aus. Klicken Sie auf die Kachel **Eigenschaften**, und kopieren Sie den Wert aus dem Feld **ID**.  
 
 |Untergeordnete Elemente|BESCHREIBUNG|  
 |--------------------|-----------------|  
@@ -598,7 +598,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Untergeordnetes Element|BESCHREIBUNG|  
 |-------------------|-----------------|  
-|**DataSource**|Die Windows-Ereignisprotokolle, die erfasst werden sollen. Erforderliches Attribut:<br /><br /> **name**: Die XPath-Abfrage, die die zu erfassenden Windows-Ereignisse beschreibt. Beispiel: <br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Zum Erfassen aller Ereignisse geben Sie „*“ ein.|  
+|**DataSource**|Die Windows-Ereignisprotokolle, die erfasst werden sollen. Erforderliches Attribut:<br /><br /> **name**: Die XPath-Abfrage, die die zu erfassenden Windows-Ereignisse beschreibt. Beispiel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Zum Erfassen aller Ereignisse geben Sie „*“ ein.|  
 
 
 

@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515085"
 ---
 # <a name="what-is-bing-speech"></a>Was ist die Bing-Spracheingabe?
 
@@ -37,9 +37,9 @@ Die Spracherkennungs-API von Microsoft *überträgt* Audiodatenströme in Text, 
 | Anwendungsfälle | [REST-APIs](GetStarted/GetStartedREST.md) | [Clientbibliotheken](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | Konvertieren von kurzem gesprochenem Audio mit einer Länge von weniger als 15 Sekunden (beispielsweise Befehle) ohne Zwischenergebnisse | Ja | Ja |
-| Konvertieren von langem Audio (länger als 15 Sekunden) | Nein  | Ja |
-| Streamen von Audio mit Zwischenergebnissen | Nein  | Ja |
-| Verstehen des aus Audio konvertierten Texts mithilfe von LUIS | Nein  | Ja |
+| Konvertieren von langem Audio (länger als 15 Sekunden) | Nein | Ja |
+| Streamen von Audio mit Zwischenergebnissen | Nein | Ja |
+| Verstehen des aus Audio konvertierten Texts mithilfe von LUIS | Nein | Ja |
 
 Unabhängig vom gewählten Ansatz (REST-APIs oder Clientbibliotheken) unterstützt der Speech-Dienst von Microsoft Folgendes:
 

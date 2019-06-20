@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: lahugh
 ms.openlocfilehash: b863785575263fedd144b3d599962a8e1559e0a3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60549751"
 ---
 # <a name="design-your-application-for-high-availability"></a>Entwerfen Ihrer Anwendung für Hochverfügbarkeit
 

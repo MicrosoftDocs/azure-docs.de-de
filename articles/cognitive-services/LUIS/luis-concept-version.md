@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
 ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870651"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60509676"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Grundlegendes zur Verwendung einer LUIS-Version
 
@@ -51,7 +51,7 @@ Sie können eine Version auf App- oder auf Versionsebene exportieren. Der einzig
 Die exportierte Datei enthält keine maschinell erlernten Informationen, da die App nach dem Importieren neu trainiert wird. Die exportierte Datei enthält keine Projektmitarbeiter – Sie müssen diese wieder hinzufügen, nachdem die Version in die neue App importiert wurde.
 
 ## <a name="export-each-version-as-app-backup"></a>Exportieren jeder Version als App-Sicherung
-Um Ihre LUIS-App zu sichern, exportieren Sie jede Version auf der Seite **[Einstellungen](luis-how-to-manage-versions.md)**.
+Um Ihre LUIS-App zu sichern, exportieren Sie jede Version auf der Seite **[Einstellungen](luis-how-to-manage-versions.md)** .
 
 ## <a name="delete-a-version"></a>Löschen von Versionen
 Sie können alle Versionen außer der aktiven Version aus der Versionsliste auf der Seite „Einstellungen“ löschen. 

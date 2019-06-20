@@ -9,11 +9,11 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: dc4281c17b92e1720625764a52a34a94d6f296ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64732752"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164605"
 ---
 Im Folgenden finden Sie vor dem Erstellen von Elementen Informationen über das Konzept von Bereichen. Azure bietet vier Verwaltungsebenen: Verwaltungsgruppen, Abonnement, Ressourcengruppe und Ressource. [Verwaltungsgruppen](../articles/billing/billing-enterprise-mgmt-group-overview.md) befinden sich in der Vorschauversion. Die folgende Abbildung zeigt ein Beispiel dieser Ebenen.
 

@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153940"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriken von Azure Storage Analytics (klassisch)
@@ -141,7 +141,7 @@ Wenn Sie die Metriken zur langfristigen Speicherung oder für eine lokale Analys
 ||||  
 |-|-|-|  
 |**Metriken**|**Tabellennamen**|**Hinweise**|  
-|Stundenmetriken|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|In Versionen vor 2013-08-15 hatten diese Tabellen folgende Namen:<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> Metriken für den Dateidienst sind ab Version 2015-04-05 verfügbar.|  
+|Stundenmetriken|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|In Versionen vor 2013-08-15 hatten diese Tabellen folgende Namen:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Metriken für den Dateidienst sind ab Version 2015-04-05 verfügbar.|  
 |Minutenmetriken|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Kann nur mithilfe von PowerShell oder programmgesteuert aktiviert werden.<br /><br /> Metriken für den Dateidienst sind ab Version 2015-04-05 verfügbar.|  
 |Capacity|$MetricsCapacityBlob|Nur Blob-Dienst.|  
 

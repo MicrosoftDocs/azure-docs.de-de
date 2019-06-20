@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5bb45ff87f558e1142b68af01147ad55386ee28f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888058"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428253"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Erste Schritte mit HTTP-Anforderungen von Relay Hybrid Connections in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -67,7 +67,7 @@ Schreiben Sie in Visual Studio eine C#-Konsolenanwendung, um Nachrichten an das 
 1. Führen Sie die Clientanwendung aus. Sie sehen `hello!` im Clientfenster. Der Client sendet eine HTTP-Anforderung an den Server, und der Server antwortet mit `hello!`. 
 3. Um das Konsolenfenster zu schließen, drücken Sie in beiden Konsolenfenstern die **EINGABETASTE**. 
 
-Glückwunsch! Sie haben eine Anwendung für End-to-End-Hybridverbindungen erstellt.
+Glückwunsch! Sie haben eine vollständige Hybrid Connections-Anwendung erstellt!
 
 ## <a name="next-steps"></a>Nächste Schritte
 

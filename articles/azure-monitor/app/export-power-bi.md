@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60900235"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Datenimport nach Power BI aus Application Insights
 [Power BI](https://www.powerbi.com/) ist eine Suite aus Unternehmenstools, mit denen Sie Daten analysieren und Informationen teilen können. Auf jedem Gerät stehen leistungsfähige Dashboards zur Verfügung. Sie können Daten aus vielen Quellen kombinieren, z.B. Analytics-Abfragen aus [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -42,7 +42,7 @@ Installieren Sie [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/
 ### <a name="export-an-analytics-query"></a>Exportieren einer Analytics-Abfrage
 1. [Öffnen Sie Analytics, und schreiben Sie Ihre Abfrage](../../azure-monitor/log-query/get-started-portal.md).
 2. Testen und optimieren Sie die Abfrage, bis Sie mit den Ergebnissen zufrieden sind. Stellen Sie sicher, dass die Abfrage ordnungsgemäß in Analytics ausgeführt wird, bevor Sie sie exportieren.
-3. Wählen Sie im Menü **Exportieren** die Option **Power BI (M)**. Speichern Sie die Textdatei.
+3. Wählen Sie im Menü **Exportieren** die Option **Power BI (M)** . Speichern Sie die Textdatei.
    
     ![Screenshot von Analytics mit hervorgehobenem Menü „Exportieren“](./media/export-power-bi/analytics-export-power-bi.png)
 4. Klicken Sie in Power BI Desktop auf **Daten abrufen** > **Leere Abfrage**. Klicken Sie dann im Abfrage-Editor unter **Ansicht** auf **Erweiterter Editor**.

@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148064"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66245000"
 ---
 ## <a name="sign-in-to-azure"></a>Anmelden bei Azure 
 
@@ -51,10 +51,9 @@ Erstellen Sie die Definition des Katalogimages innerhalb Ihres Katalogs. In dies
 1. Geben Sie für **Herausgeber** *myPublisher* ein. 
 1. Geben Sie für **Angebot** *myOffer* ein.
 1. Geben Sie für **SKU** *mySKU* ein.
-1. Stellen Sie sicher, dass **Ja** für **Aktivieren** ausgewählt ist, und wählen Sie dann **Überprüfen + Erstellen**.
+1. Wenn Sie fertig sind, wählen Sie **Überprüfen und erstellen** aus.
 1. Nachdem die Imagedefinition erfolgreich überprüft wurde, wählen Sie **Erstellen**.
 1. Wählen Sie nach Abschluss der Bereitstellung die Option **Zu Ressourcengruppe wechseln**.
-
 
 
 ## <a name="create-an-image-version"></a>Erstellen einer Imageversion
@@ -75,3 +74,20 @@ Zulässige Zeichen für die Imageversion sind Zahlen und Punkte. Zahlen müssen 
 1. Wählen Sie nach Abschluss der Bereitstellung die Option **Zu Ressourcengruppe wechseln**.
 
 Es kann eine Weile dauern, bis das Image in alle Zielregionen repliziert ist.
+
+## <a name="share-the-gallery"></a>Teilen des Katalogs
+
+Wir empfehlen, dass Sie den Zugriff auf der Ebene des Imagekatalogs teilen. Im Folgenden werden Sie durch das Teilen des Katalogs geführt, den Sie gerade erstellt haben.
+
+1. Öffnen Sie das [Azure-Portal](https://portal.azure.com).
+1. Wählen Sie im Menü auf der linken Seite die Option **Ressourcengruppen** aus. 
+1. Wählen Sie in der Liste der Ressourcengruppen **myGalleryRG-Portal** aus. Das Blatt für Ihre Ressourcengruppe wird geöffnet.
+1. Wählen Sie im Menü auf der linken Seite **myGalleryRG** und dann **Zugriffssteuerung (IAM)** aus. 
+1. Wählen Sie unter **Rollenzuweisung hinzufügen** die Option **Hinzufügen** aus. Der Bereich **Rollenzuweisung hinzufügen** wird geöffnet. 
+1. Wählen Sie unter **Rolle** die Option **Leser** aus.
+1. Behalten Sie unter **Zugriff zuweisen zu** den Standardwert von **Azure AD-Benutzer, -Gruppe oder -Dienstprinzipal** bei.
+1. Geben Sie unter **Auswählen** die E-Mail-Adresse der Person ein, die Sie einladen möchten.
+1. Wenn der Benutzer außerhalb Ihrer Organisation ist, wird die Meldung **Dieser Benutzer erhält eine E-Mail, die ihm die Zusammenarbeit mit Microsoft ermöglicht.** angezeigt. Wählen Sie den Benutzer mit der E-Mail-Adresse aus, und klicken Sie dann auf **Speichern**.
+
+Wenn sich der Benutzer außerhalb Ihrer Organisation befindet, erhält er eine E-Mail-Einladung, um der Organisation beizutreten. Der Benutzer muss die Einladung annehmen, woraufhin er in der Lage ist, den Katalog und alle Imagedefinitionen und -versionen in seiner Liste der Ressourcen anzuzeigen.
+

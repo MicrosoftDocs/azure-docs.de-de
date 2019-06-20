@@ -10,11 +10,11 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58807317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60881128"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integration der Quellcodeverwaltung in Azure Automation: Legacy
 
@@ -65,7 +65,7 @@ Wenn Sie bereits ein GitHub-Konto und ein Repository besitzen, das Sie mit Azure
      | **Parameter** | **Wert** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
-     | `Type`  |Zeichenfolge |
+     | `Type`  |string |
      | `Value` |{„Verzweigung“:\<*Name Ihrer Verzweigung*>, „Runbook-Ordnertyp“:\<*Runbook-Ordnerpfad*>, „Anbietertyp“:\<*hat einen Wert 1 für GitHub*>, „Verzeichnis“:\<*Name Ihres Repositorys*>, „Benutzername“:\<*Ihr GitHub-Benutzername*>} |
 
    * Die Variable **Microsoft.Azure.Automation.SourceControl.OauthToken**enthält den sicher verschlüsselten Wert Ihres OAuth-Tokens.  

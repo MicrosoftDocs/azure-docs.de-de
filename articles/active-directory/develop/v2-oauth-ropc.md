@@ -18,10 +18,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545106"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft Identity Platform und die OAuth 2.0-Kennwortanmeldeinformationen des Ressourcenbesitzers
@@ -89,7 +89,7 @@ Das folgende Beispiel stellt eine erfolgreiche Tokenantwort dar:
 
 | Parameter | Format | BESCHREIBUNG |
 | --------- | ------ | ----------- |
-| `token_type` | Zeichenfolge | Immer auf `Bearer` festgelegt. |
+| `token_type` | string | Immer auf `Bearer` festgelegt. |
 | `scope` | Durch Leerzeichen getrennte Zeichenfolgen | Wenn ein Zugriffstoken zurückgegeben wurde, führt dieser Parameter die Bereiche auf, für die das Zugriffstoken gültig ist. |
 | `expires_in`| int | Die Anzahl von Sekunden, die das enthaltene Zugriffstoken gültig ist. |
 | `access_token`| Nicht transparente Zeichenfolge | Ausgestellt für die [Bereiche](v2-permissions-and-consent.md), die angefordert wurden. |

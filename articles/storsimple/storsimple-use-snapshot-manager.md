@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
-ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23113528"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60845280"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Verwenden der Benutzeroberfläche des StorSimple Snapshot Managers zum Verwalten von Sicherungsaufträgen und Sicherungskatalog
 
@@ -67,7 +67,7 @@ Klicken Sie zum Anzeigen des Menüs **Datei** auf der Menüleiste auf **Datei**.
 #### <a name="menu-description"></a>Menübeschreibung
 In der folgenden Tabelle werden die Elemente im Menü **Datei** beschrieben.
 
-| Menüelement | Beschreibung |
+| Menüelement | BESCHREIBUNG |
 |:--- |:--- |
 | Neu |Klicken Sie auf **Neu** , um mithilfe des StorSimple Snapshot Managers eine neue Konsole zu erstellen. |
 | Öffnen |Klicken Sie auf **Öffnen** , um eine vorhandene Konsole zu öffnen. |
@@ -107,7 +107,7 @@ Die folgende Tabelle enthält eine alphabetische Liste aller StorSimple Snapshot
 > 
 > 
 
-| Aktion | Navigation | Beschreibung |
+| Aktion | Navigation | BESCHREIBUNG |
 |:--- |:--- |:--- |
 | Authentifizieren |Klicken Sie auf den Knoten **Geräte**, und klicken Sie dann im **Ergebnisbereich** mit der rechten Maustaste auf ein Gerät. |Klicken Sie auf **Authentifizieren** , um das für das Gerät konfigurierte Kennwort einzugeben. |
 | Klonen |Erweitern Sie nacheinander **Sicherungskatalog** und **Cloudmomentaufnahmen**, klicken Sie auf eine datierte Sicherung, und wählen Sie dann ein Volume im **Ergebnisbereich** aus. |Klicken Sie auf **Klonen** , um eine Kopie einer Cloudmomentaufnahme zu erstellen und in einem von Ihnen festgelegten Verzeichnis zu speichern. |
@@ -116,15 +116,15 @@ Die folgende Tabelle enthält eine alphabetische Liste aller StorSimple Snapshot
 | Volumegruppe erstellen |Führen Sie einen der folgenden Schritte aus:<ul><li>Klicken Sie auf den Knoten **Volumes**, und klicken Sie dann im **Ergebnisbereich** mit der rechten Maustaste auf ein Volume.</li><li>Klicken Sie mit der rechten Maustaste auf den Knoten **Volumegruppen** .</li></ul> |Klicken Sie auf **Volumegruppe erstellen** , um einer Volumegruppe Volumes zuweisen. |
 | Löschen |Klicken Sie auf einen Knoten oder ein Ergebnis. (Dieses Element wird häufig im Menü **Aktion** und im Bereich **Aktionen** angezeigt.) |Klicken Sie auf **Löschen** , um den ausgewählten Knoten oder das ausgewählte Ergebnis zu löschen. Wenn das Bestätigungsdialogfeld angezeigt wird, können Sie den Löschvorgang bestätigen oder abbrechen. |
 | Details |Klicken Sie auf den Knoten **Geräte**, und klicken Sie dann im **Ergebnisbereich** mit der rechten Maustaste auf ein Gerät. |Klicken Sie auf **Details** , um die Konfigurationsdetails für ein Gerät anzuzeigen. |
-| Bearbeiten |Klicken Sie auf **Sicherungsrichtlinien**, und klicken Sie dann im **Ergebnisbereich** mit der rechten Maustaste auf eine Richtlinie. |Klicken Sie auf **Bearbeiten** , um den Sicherungszeitplan für eine Volumegruppe zu ändern. |
+| Edit (Bearbeiten) |Klicken Sie auf **Sicherungsrichtlinien**, und klicken Sie dann im **Ergebnisbereich** mit der rechten Maustaste auf eine Richtlinie. |Klicken Sie auf **Bearbeiten** , um den Sicherungszeitplan für eine Volumegruppe zu ändern. |
 | Liste exportieren |Klicken Sie auf einen Knoten oder ein Ergebnis. (Dieses Element wird immer im Menü **Aktion** und im Bereich **Aktionen** angezeigt.) |Klicken Sie auf **Liste exportieren** , um eine Liste in einer Datei mit durch Trennzeichen getrennten Werten (CSV) zu speichern. Sie können diese Datei dann für die Analyse in eine Tabellenkalkulationsanwendung importieren. |
 | Hilfe |Klicken Sie auf einen Knoten oder ein Ergebnis. (Dieses Element wird immer im Menü **Aktion** und im Bereich **Aktionen** angezeigt.) |Klicken Sie auf **Hilfe** , um die Onlinehilfe in einem separaten Browserfenster zu öffnen. |
 | Neues Fenster hier öffnen |Klicken Sie auf einen Knoten oder ein Ergebnis. (Dieses Element wird immer im Menü **Aktion** und im Bereich **Aktionen** angezeigt.) |Klicken Sie auf **Neues Fenster hier öffnen** , um ein neues StorSimple Snapshot Manager-Fenster zu öffnen. |
 | Aktualisieren |Klicken Sie auf einen Knoten oder ein Ergebnis. (Dieses Element wird immer im Menü **Aktion** und im Bereich **Aktionen** angezeigt.) |Klicken Sie auf **Aktualisieren** , um das aktuell angezeigte StorSimple Snapshot Manager-Fenster zu aktualisieren. |
 | Gerät aktualisieren |Klicken Sie auf den Knoten **Geräte**, und klicken Sie dann im **Ergebnisbereich** mit der rechten Maustaste auf ein Gerät. |Klicken Sie auf **Gerät aktualisieren** , um ein bestimmtes verbundenes Gerät mit StorSimple Snapshot Manager zu synchronisieren. |
 | Geräte aktualisieren |Klicken Sie mit der rechten Maustaste auf den Knoten **Geräte** . |Klicken Sie auf **Geräte aktualisieren** , um die Liste verbundener Geräte mit StorSimple Snapshot Manager zu synchronisieren. |
-| Volumes erneut einlesen |Klicken Sie mit der rechten Maustaste auf den Knoten **Volumes** . |Klicken Sie auf **Volumes erneut überprüfen**, um die Liste der Volumes im **Ergebnisbereich** zu aktualisieren. |
-| Wiederherstellen |Erweitern Sie nacheinander **Sicherungskatalog**, eine Volumegruppe, **Lokale Momentaufnahmen** oder **Cloudmomentaufnahmen**, und klicken Sie dann mit der rechten Maustaste auf eine Sicherung. |Klicken Sie auf **Wiederherstellen** , um die aktuellen Volumegruppendaten durch die Daten aus der ausgewählten Sicherung zu ersetzen. |
+| Erneutes Einlesen von Volumes |Klicken Sie mit der rechten Maustaste auf den Knoten **Volumes** . |Klicken Sie auf **Volumes erneut überprüfen**, um die Liste der Volumes im **Ergebnisbereich** zu aktualisieren. |
+| Restore |Erweitern Sie nacheinander **Sicherungskatalog**, eine Volumegruppe, **Lokale Momentaufnahmen** oder **Cloudmomentaufnahmen**, und klicken Sie dann mit der rechten Maustaste auf eine Sicherung. |Klicken Sie auf **Wiederherstellen** , um die aktuellen Volumegruppendaten durch die Daten aus der ausgewählten Sicherung zu ersetzen. |
 | Sicherung anlegen |Führen Sie einen der folgenden Schritte aus:<ul><li>Erweitern Sie **Volumegruppen**, und klicken Sie dann mit der rechten Maustaste auf eine Volumegruppe.</li><li>Erweitern Sie **Sicherungskatalog**, und klicken Sie dann mit der rechten Maustaste auf eine Volumegruppe.</li></ul> |Klicken Sie auf **Sicherung anlegen** , um sofort einen Sicherungsauftrag zu starten. |
 | Importanzeige umschalten |Klicken Sie im **Bereichsfenster** mit der rechten Maustaste auf den obersten Knoten (in den Beispielen der Knoten **StorSimple Snapshot Manager**). |Klicken Sie auf **Importanzeige umschalten**, um die Volumegruppen und die zugeordneten Sicherungen, die aus dem Dashboard des StorSimple-Geräte-Manager-Diensts importiert wurden, ein- oder auszublenden. |
 
@@ -139,7 +139,7 @@ Sie finden das Menü **Ansicht** auf der Menüleiste oder im Bereich **Aktionen*
 #### <a name="menu-description"></a>Menübeschreibung
 In der folgenden Tabelle werden die Elemente im Menü **Ansicht** beschrieben.
 
-| Menüelement | Beschreibung |
+| Menüelement | BESCHREIBUNG |
 |:--- |:--- |
 | Spalten hinzufügen/entfernen |Klicken Sie auf **Spalten hinzufügen/entfernen**, um Spalten im **Ergebnisbereich** hinzuzufügen oder daraus zu entfernen. |
 | Anpassen |Klicken Sie auf **Anpassen** , um Elemente im StorSimple Snapshot Manager-Konsolenfenster ein-oder auszublenden. |
@@ -155,7 +155,7 @@ Sie finden das Menü **Favoriten** auf der Menüleiste.
 #### <a name="menu-description"></a>Menübeschreibung
 In der folgenden Tabelle werden die Elemente im Menü **Favoriten** beschrieben.
 
-| Menüelement | Beschreibung |
+| Menüelement | BESCHREIBUNG |
 |:--- |:--- |
 | Zu Favoriten hinzufügen |Klicken Sie auf **Zu Favoriten hinzufügen** , um Ihrer Favoritenliste die aktuelle Ansicht hinzuzufügen. |
 | Favoriten verwalten |Klicken Sie auf **Favoriten verwalten** , um den Inhalt des Ordners "Favoriten" zu organisieren. |
@@ -173,7 +173,7 @@ Die nummerierte Liste am unteren Rand des Menüs enthält die zurzeit geöffnete
 #### <a name="menu-description"></a>Menübeschreibung
 In der folgenden Tabelle werden die Elemente im Menü "Fenster" beschrieben.
 
-| Menüelement | Beschreibung |
+| Menüelement | BESCHREIBUNG |
 |:--- |:--- |
 | Neues Fenster |Klicken Sie auf **Neues Fenster** , um ein neues Konsolenfenster (zusätzlich zum vorhandenen Fenster) zu öffnen. |
 | Überlappend |Klicken Sie auf **Überlappend** , um die offenen Konsolenfenster überlappend anzuzeigen. |
@@ -190,7 +190,7 @@ Sie finden das Menü **Hilfe** auf der Menüleiste. Sie können auch über den B
 #### <a name="menu-description"></a>Menübeschreibung
 In der folgenden Tabelle werden die Elemente im Menü "Hilfe" beschrieben.
 
-| Menüelement | Beschreibung |
+| Menüelement | BESCHREIBUNG |
 |:--- |:--- |
 | Hilfe zum StorSimple Snapshot Manager |Klicken Sie auf **Hilfe zum StorSimple Snapshot Manager** , um die StorSimple Snapshot Manager-Hilfe in einem separaten Fenster zu öffnen. |
 | Hilfethemen |Klicken Sie auf **Hilfethemen** , um die MMC-Onlinehilfe in einem separaten Fenster zu öffnen. |
@@ -204,7 +204,7 @@ Die Symbolleiste unterhalb der Menüleiste enthält Navigations- und Aufgabensym
 ### <a name="icon-descriptions"></a>Symbolbeschreibungen
 In der folgenden Tabelle werden die Symbole auf der Symbolleiste beschrieben. 
 
-| Symbol | Beschreibung |
+| Symbol | BESCHREIBUNG |
 |:--- |:--- |
 | ![Pfeil nach links](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Klicken Sie auf den Pfeil nach links, um zur vorherigen Seite zurückzukehren. |
 | ![Pfeil nach rechts](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Klicken Sie auf den Pfeil nach rechts, um zur nächsten Seite zu wechseln (wenn der Pfeil grau ist, ist die Aktion nicht verfügbar). |
@@ -359,7 +359,7 @@ In der folgenden Tabelle werden die Tastenkombinationen für die Menüleiste bes
 | ALT+F |Öffnet das Menü **Datei** . |N |Öffnet eine neue Konsoleninstanz. |
 |  |O |Öffnet die Seite **Verwaltung** . | |
 |  |S |Speichert die StorSimple Snapshot Manager-Konsole. | |
-|  |A |Öffnet die Seite **Speichern unter** . | |
+|  |Eine Datei |Öffnet die Seite **Speichern unter** . | |
 |  |M |Öffnet die Seite **Snap-In hinzufügen/entfernen** . | |
 |  |P |Öffnet die Seite **Optionen** . | |
 |  |H |Öffnet die Onlinehilfe. | |
@@ -368,9 +368,9 @@ In der folgenden Tabelle werden die Tastenkombinationen für die Menüleiste bes
 |  |F |Aktualisiert die StorSimple Snapshot Manager-Konsole. | |
 |  |L |Öffnet die Seite **Liste exportieren** . | |
 |  |H |Öffnet die Onlinehilfe. | |
-| ALT+V |Öffnet das Menü **Ansicht** . |A |Öffnet die Seite **Spalten hinzufügen/entfernen** . |
+| ALT+V |Öffnet das Menü **Ansicht** . |Eine Datei |Öffnet die Seite **Spalten hinzufügen/entfernen** . |
 |  |U |Öffnet die Seite **Ansicht anpassen** . | |
-| ALT+O |Öffnet das Menü **Favoriten** . |A |Öffnet die Seite **Zu Favoriten hinzufügen** . |
+| ALT+O |Öffnet das Menü **Favoriten** . |Eine Datei |Öffnet die Seite **Zu Favoriten hinzufügen** . |
 |  |O |Öffnet die Seite **Favoriten verwalten** . | |
 | ALT+W |Öffnet das Menü **Fenster** . |N |Öffnet ein weiteres StorSimple Snapshot Manager-Fenster. |
 |  |C |Zeigt alle offenen Konsolenfenster überlappend an. | |
@@ -378,7 +378,7 @@ In der folgenden Tabelle werden die Tastenkombinationen für die Menüleiste bes
 |  |I |Ordnet die Symbole in einer horizontalen Zeile am unteren Bildschirmrand an. | |
 | ALT+H |Öffnet das Menü **Hilfe** . |H |Öffnet die Onlinehilfe. |
 |  |T |Öffnet die Webseite von Microsoft TechNet TechCenter. | |
-|  |A |Öffnet die Seite **Info** . | |
+|  |Eine Datei |Öffnet die Seite **Info** . | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Tastenkombinationen im Bereichsfenster
 In den folgenden Tabellen werden die Tastenkombinationen für die einzelnen Knoten im **Bereichsfenster** aufgelistet. 
@@ -424,7 +424,7 @@ In den folgenden Tabellen werden die Tastenkombinationen für die einzelnen Knot
 #### <a name="backup-policies-node-shortcut-keys"></a>Tastenkombinationen für den Knoten "Sicherungsrichtlinien"
 | Tastenkombination im Menü | Ergebnis |
 |:--- |:--- |
-| B |Öffnet die Seite **Richtlinie erstellen** . |
+| b |Öffnet die Seite **Richtlinie erstellen** . |
 | V |Öffnet das Menü **Ansicht** . |
 | W |Öffnet eine neue StorSimple Snapshot Manager-Konsole mit Fokus auf dem Knoten **Volumegruppen** . |
 | F |Aktualisiert die StorSimple Snapshot Manager-Konsole. |
@@ -448,6 +448,6 @@ In den folgenden Tabellen werden die Tastenkombinationen für die einzelnen Knot
 | H |Öffnet die Onlinehilfe. |
 
 ## <a name="next-steps"></a>Nächste Schritte
-* Weitere Informationen zum [Verwenden von StorSimple Snapshot Manager zum Verwalten der StorSimple-Lösung](storsimple-snapshot-manager-admin.md).
+* Erfahren Sie mehr über das [Verwenden von StorSimple Snapshot Manager zum Verwalten der StorSimple-Lösung](storsimple-snapshot-manager-admin.md).
 * Erfahren Sie, wie Sie [mit dem StorSimple Snapshot Manager Verbindungen mit Geräten herstellen und diese verwalten](storsimple-snapshot-manager-manage-devices.md).
 

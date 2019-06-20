@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 2dcd7f42d86000dd3b642c10f6d3db0b0d0fcb03
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116336"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951773"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Erzwingen der mehrstufigen Authentifizierung (Multi-Factor Authentication, MFA) für Abonnementadministratoren
 
@@ -22,7 +22,7 @@ Bei der Erstellung Ihrer Administratoren, einschließlich Ihres globalen Adminis
 Sie können die tagtägliche Verwaltung durch Zuweisen von bestimmten Administratorrollen – z.B. Exchange-Administrator oder Kennwortadministrator – zu Benutzerkonten von IT-Mitarbeitern nach Bedarf durchführen.
 Aktivieren Sie darüber hinaus [Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) für Ihre Administratoren, um eine zweite Sicherheitsebene für Benutzeranmeldungen und Transaktionen hinzuzufügen. Azure MFA hilft der IT, die Wahrscheinlichkeit zu verringern, dass kompromittierte Anmeldeinformationen Zugriff auf die Daten einer Organisation erhalten.
 
-Beispiel: Sie erzwingen Azure MFA für Ihre Benutzer und konfigurieren den Vorgang so, dass zur Verifizierung ein Telefonanruf oder eine SMS verwendet wird. Wenn die Anmeldeinformationen eines Benutzers kompromittiert werden, kann der Angreifer dann nicht auf Ressourcen zugreifen, da er keinen Zugriff auf das Telefon des Benutzers hat. Organisationen, die keine zusätzliche Schicht zur Identitätssicherung hinzufügen, sind anfälliger für Angriffe mit dem Ziel des Diebstahls von Anmeldeinformationen, was wiederum zu kompromittierten Daten führen kann.
+Beispiel:  Sie erzwingen Azure MFA für Ihre Benutzer und konfigurieren den Vorgang so, dass zur Verifizierung ein Telefonanruf oder eine SMS verwendet wird. Wenn die Anmeldeinformationen eines Benutzers kompromittiert werden, kann der Angreifer dann nicht auf Ressourcen zugreifen, da er keinen Zugriff auf das Telefon des Benutzers hat. Organisationen, die keine zusätzliche Schicht zur Identitätssicherung hinzufügen, sind anfälliger für Angriffe mit dem Ziel des Diebstahls von Anmeldeinformationen, was wiederum zu kompromittierten Daten führen kann.
 
 Eine Alternative für Organisationen, die die gesamte Authentifizierung weiterhin lokal steuern möchten, ist die Verwendung des [Azure Multi-Factor Authentication-Servers](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server). Dies wird auch als „MFA lokal“ bezeichnet. Mithilfe dieser Methode können Sie weiterhin die Multi-Factor Authentication erzwingen und dabei den MFA-Server lokal halten.
 

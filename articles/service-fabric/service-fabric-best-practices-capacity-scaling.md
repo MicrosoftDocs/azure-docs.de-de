@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235754"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258754"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapazitätsplanung und Skalierung
 
@@ -42,7 +42,7 @@ Skalierungsvorgänge sollten über die Bereitstellung von Azure Resource Manager
 
 ## <a name="vertical-scaling-considerations"></a>Überlegungen zur vertikalen Skalierung
 
-Die [vertikale Skalierung](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) eines Knotentyps in Azure Service Fabric erfordert mehrere Schritte und Überlegungen. Beispiel: 
+Die [vertikale Skalierung](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) eines Knotentyps in Azure Service Fabric erfordert mehrere Schritte und Überlegungen. Beispiel:
 
 * Der Cluster muss vor der Skalierung fehlerfrei sein. Andernfalls wird der Cluster nur weiter destabilisiert.
 * Für alle Knotentypen des Service Fabric-Clusters, die zustandsbehaftete Dienste hosten, ist die **Dauerhaftigkeitsstufe „Silber“ oder höher** erforderlich.
@@ -70,6 +70,9 @@ Führen Sie nach dem Deklarieren der Knoteneigenschaften und Platzierungseinschr
 2. Führen Sie `Get-ServiceFabricNode` aus, um sicherzustellen, dass der Status des Knotens tatsächlich in „Deaktiviert“ geändert wurde. Falls nicht, warten Sie, bis der Knoten deaktiviert ist. Dies kann für jeden Knoten einige Stunden dauern. Fahren Sie erst fort, nachdem der Status des Knotens in „Deaktiviert“ geändert wurde.
 3. Verringern Sie die Anzahl der virtuellen Computer in diesem Knotentyp um 1. Damit wird die höchste VM-Instanz entfernt.
 4. Wiederholen Sie den Anforderungen entsprechend die Schritte 1 bis 3. Skalieren Sie allerdings auf keinen Fall die Anzahl der Instanzen auf den primären Knotentypen auf einen Wert herunter, der unter dem liegt, den die Zuverlässigkeitsstufe verlangt. Eine Liste der empfohlenen Instanzen finden Sie unter [Planen der Service Fabric-Clusterkapazität ](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+
+> [!NOTE]
+> Ein unterstütztes Szenario für die Durchführung einer vertikalen Skalierung ist: Ich kann meinen Service Fabric-Cluster und meine -Anwendung ohne Ausfallzeiten der Anwendung von „Nicht verwalteter Datenträger“ zu „Verwalteter Datenträger“ migrieren. Durch die Bereitstellung einer neuen VM-Skalierungsgruppe mit verwalteten Datenträgern und die Durchführung eines Anwendungsupgrades mit Platzierungseinschränkungen, die auf die bereitgestellte Kapazität ausgerichtet sind, kann Ihr Service Fabric-Cluster die Workload gemäß der Kapazität der bereitgestellten Clusterknoten planen, die von der Upgradedomäne ohne Ausfallzeiten der Anwendung eingeführt wird. [Azure Load Balancers Basic-SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus): Back-End-Poolendpunkte können virtuelle Computer in einer einzelnen Verfügbarkeitsgruppe oder VM-Skalierungsgruppe sein. Das bedeutet, dass Sie keinen Load Balancer mit Basic-SKU verwenden können, wenn Sie Ihre Service Fabric Systems-Anwendung zwischen den Skalierungsgruppen verschieben, ohne eine temporäre Nichterreichbarkeit Ihres Endpunkts für die Service Fabric-Clusterverwaltung zu verursachen, obwohl der Cluster und seine Anwendung noch ausgeführt werden. In der Regel stellen Sie einen Load Balancer mit Standard-SKU zur Verfügung, wenn Sie einen Wechsel der der virtuellen IP-Adresse (VIP) zwischen Load Balancer-Ressourcen mit Basic-SKU und Load Balancer-Ressourcen mit Standard-SKU durchführen, um die zukünftig für den VIP-Wechsel erforderlichen 30 Sekunden (ungefähre Angabe) der Nichterreichbarkeit zu verringern.
 
 ## <a name="horizontal-scaling"></a>Horizontale Skalierung
 
@@ -99,7 +102,7 @@ Für ein manuelles horizontales Hochskalieren aktualisieren Sie die Kapazität i
 
 ### <a name="scaling-in"></a>Horizontales Herunterskalieren
 
-Beim horizontalen Herunterskalieren müssen mehr Aspekte berücksichtigt werden als beim horizontalen Hochskalieren. Beispiel: 
+Beim horizontalen Herunterskalieren müssen mehr Aspekte berücksichtigt werden als beim horizontalen Hochskalieren. Beispiel:
 
 * Service Fabric-Systemdienste werden auf dem primären Knotentyp in Ihrem Cluster ausgeführt. Sie dürfen also niemals die Anzahl der Instanzen für diesen Knotentyp herunterfahren oder so herunterskalieren, dass weniger Instanzen vorhanden sind, als durch die Zuverlässigkeitsstufe vorgegeben ist. 
 * Für einen zustandsbehafteten Dienst muss eine bestimmte Anzahl von Knoten stets aktiv sein, um die Verfügbarkeit sicherzustellen und den Zustand des Diensts beizubehalten. Sie benötigen mindestens eine Anzahl von Knoten, die der Anzahl der Zielreplikatgruppen der Partition oder des Diensts entspricht.
@@ -123,7 +126,7 @@ Um manuell horizontal herunterzuskalieren, aktualisieren Sie die Kapazität in d
 
 1. Wiederholen Sie die Schritte 1 bis 3, bis die gewünschte Kapazität bereitgestellt wird. Skalieren Sie auf keinen Fall die Anzahl der Instanzen des primären Knotentyps auf einen Wert herunter, der unter dem von der Zuverlässigkeitsstufe vorgegebenen liegt. Ausführliche Informationen zu Zuverlässigkeitsstufen und der jeweils erforderlichen Anzahl von Instanzen finden Sie unter [Planen der Service Fabric-Clusterkapazität](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Damit das horizontale Herunterskalieren programmgesteuert durchgeführt werden kann, müssen Sie den Knoten auf das Herunterfahren vorbereiten. Dies umfasst das Suchen und Deaktivieren des zu entfernenden Knotens, d.h. des Knotens der höchsten Instanz. Beispiel: 
+Damit das horizontale Herunterskalieren programmgesteuert durchgeführt werden kann, müssen Sie den Knoten auf das Herunterfahren vorbereiten. Dies umfasst das Suchen und Deaktivieren des zu entfernenden Knotens, d.h. des Knotens der höchsten Instanz. Beispiel:
 
 ```c#
 using (var client = new FabricClient())

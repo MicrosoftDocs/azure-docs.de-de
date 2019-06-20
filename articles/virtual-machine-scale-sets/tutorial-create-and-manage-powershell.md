@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0eb5a33b91925260c89e0b1c23800614ed637bdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990643"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728696"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Erstellen und Verwalten einer VM-Skalierungsgruppe mit Azure PowerShell
 
@@ -36,9 +36,9 @@ Mit einer VM-Skalierungsgruppe können Sie eine Gruppe identischer, automatisch 
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 
@@ -140,7 +140,7 @@ IpAddress
 52.168.121.216
 ```
 
-Erstellen Sie eine Remoteverbindung mit Ihrer ersten VM-Instanz. Geben Sie Ihre öffentliche IP-Adresse und Portnummer der erforderlichen VM-Instanz an, wie in den vorherigen Befehlen zu sehen. Geben Sie bei entsprechender Aufforderung die Anmeldeinformationen ein, die Sie beim Erstellen der Skalierungsgruppe verwendet haben (in den Beispielbefehlen standardmäßig *azureuser* und *P\@ssw0rd!*). Führen Sie diesen Schritt bei Verwendung von Azure Cloud Shell an einer lokalen PowerShell-Eingabeaufforderung oder über einen Remotedesktopclient aus. Im folgenden Beispiel wird eine Verbindung mit der VM-Instanz *1* hergestellt:
+Erstellen Sie eine Remoteverbindung mit Ihrer ersten VM-Instanz. Geben Sie Ihre öffentliche IP-Adresse und Portnummer der erforderlichen VM-Instanz an, wie in den vorherigen Befehlen zu sehen. Geben Sie bei entsprechender Aufforderung die Anmeldeinformationen ein, die Sie beim Erstellen der Skalierungsgruppe verwendet haben (in den Beispielbefehlen standardmäßig *azureuser* und *P\@ssw0rd!* ). Führen Sie diesen Schritt bei Verwendung von Azure Cloud Shell an einer lokalen PowerShell-Eingabeaufforderung oder über einen Remotedesktopclient aus. Im folgenden Beispiel wird eine Verbindung mit der VM-Instanz *1* hergestellt:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436828"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60437677"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Verwenden des Power BI-Inhaltspakets für Azure Active Directory
 
@@ -59,7 +59,7 @@ Sie können die Ergebnisse auch filtern, indem Sie ein bestimmtes Datum oder ein
 
 - Benutzername
 - IP-Adresse
-- Standort 
+- Location 
 - Anmeldestatus 
 
 **SSPR-Trichter**: Mit diesem Bericht können Sie nachvollziehen, wie das SSPR-Tool in Ihrer Organisation verwendet wird. Sie können anzeigen, wie viele Kennwortzurücksetzungen mit dem SSPR-Tool durchgeführt wurden und wie viele davon erfolgreich waren. Zudem können Sie Fehler bei der Kennwortzurücksetzung genauer analysieren, damit Sie verstehen, warum bestimmte Fehler aufgetreten sind. 

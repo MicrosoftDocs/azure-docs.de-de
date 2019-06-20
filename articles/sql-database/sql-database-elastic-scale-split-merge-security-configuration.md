@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60335222"
 ---
 # <a name="split-merge-security-configuration"></a>Split-Merge-Sicherheitskonfiguration
 

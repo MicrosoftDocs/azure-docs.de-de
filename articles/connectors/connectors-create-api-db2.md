@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60314076"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Verwalten von Ressourcen mit IBM DB2-REST-APIs und Azure Logic Apps
 
@@ -85,7 +85,7 @@ Um die Verbindung einzurichten, geben Sie diese Verbindungsdetails ein, wenn Sie
 
 | Eigenschaft | Erforderlich | BESCHREIBUNG |
 |----------|----------|-------------|
-| **Connect via on-premises gateway** (Über lokales Datengateway verbinden) | Nein  | Gilt nur für lokale Verbindungen. |
+| **Connect via on-premises gateway** (Über lokales Datengateway verbinden) | Nein | Gilt nur für lokale Verbindungen. |
 | **Verbindungsname** | Ja | Der Name Ihrer Verbindung, z.B. „MyLogicApp-DB2-connection“ |
 | **Server** | Ja | Die Adresse oder Aliasportnummer für Ihren DB2-Server, z.B. „myDB2server.cloudapp.net:50000“ <p><p>**Hinweis**: Dieser Wert ist eine Zeichenfolge im IPv4- oder IPv6-Format, die für eine TCP/IP-Adresse oder einen Alias steht, gefolgt von einem Doppelpunkt und einer TCP/IP-Portnummer. |
 | **Datenbank** | Ja | Der Name Ihrer Datenbank <p><p>**Hinweis**: Dieser Wert ist eine Zeichenfolge, die einen DRDA-Namen einer relationalen Datenbank (RDBNAM) darstellt: <p>- DB2 für z/OS akzeptiert eine 16-Byte-Zeichenfolge, wobei die Datenbank ein Speicherort vom Typ „IBM DB2 für z/OS“ ist. <br>- DB2 für i akzeptiert eine 18-Byte-Zeichenfolge, wobei die Datenbank eine relationale Datenbank vom Typ „IBM DB2 für i“ ist. <br>- DB2 für LUW akzeptiert eine 8-Byte-Zeichenfolge. |
@@ -93,7 +93,7 @@ Um die Verbindung einzurichten, geben Sie diese Verbindungsdetails ein, wenn Sie
 | **Kennwort** | Ja | Ihr Kennwort für die Datenbank |
 ||||
 
-Beispiel: 
+Beispiel:
 
 ![Verbindungsdetails für cloudbasierte Datenbanken](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -115,7 +115,7 @@ Vor dem Herstellen einer Verbindung muss Ihr lokales Datengateway bereits instal
 | **Gateway** | Ja | Der Name Ihres installierten lokalen Datengateways <p><p>**Hinweis**: Wählen Sie diesen Wert aus der Liste, die alle installierten Datengateways in Ihrem Azure-Abonnement und der Ressourcengruppe enthält. |
 ||||
 
-Beispiel: 
+Beispiel:
 
 ![Verbindungsdetails für die lokalen Datenbanken](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -242,7 +242,7 @@ Um einen einzelnen Datensatz zu einer DB2-Datenbanktabelle hinzuzufügen, verwen
    | **Regions-ID** | Ja | Die ID für die hinzuzufügenden Region, z.B. „102“ |
    |||| 
 
-   Beispiel: 
+   Beispiel:
 
    ![Tabelle auswählen](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -290,7 +290,7 @@ Um einen einzelnen Datensatz in einer DB2-Datenbanktabelle zu aktualisieren, ver
    | **Regions-ID** | Ja | Die neue Regions-ID, z.B. „102“ |
    ||||
 
-   Beispiel: 
+   Beispiel:
 
    ![Tabelle auswählen](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -335,7 +335,7 @@ Um einen einzelnen Datensatz aus einer DB2-Datenbanktabelle zu löschen, verwend
    | **Zeilen-ID** | Ja | Die ID für den zu löschenden Datensatz, z.B. „99999“ |
    ||||
 
-   Beispiel: 
+   Beispiel:
 
    ![Tabelle auswählen](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 

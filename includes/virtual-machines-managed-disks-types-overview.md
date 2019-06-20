@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395560"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147795"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Welche Datenträgertypen stehen in Azure zur Verfügung?
 
@@ -44,6 +44,7 @@ Einige Hauptfunktionen von SSD Ultra-Datenträgern sind:
 - Datenträgerkapazität: Die Kapazität von SSD Ultra reicht von 4 GiB bis 64 TiB.
 - Datenträger-IOPS: SSD Ultra-Datenträger unterstützen IOPS-Limits von 300 IOPS/GiB bis hin zu maximal 160.000 IOPS pro Datenträger. Um die bereitgestellten IOPS-Werte zu erreichen, stellen Sie sicher, dass der IOPS-Wert für den ausgewählten Datenträger unter dem für den virtuellen Computer liegt. Der Mindestwert für Datenträger-IOPS beträgt 100 IOPS.
 - Datenträgerdurchsatz: Mit SSD Ultra beträgt das Durchsatzlimit für einen einzelnen Datenträger 256 KiB/s für jeden bereitgestellten IOPS-Wert bis zu maximal 2000 MB/s pro Datenträger (dabei ist 1 MB/s = 10^6 Byte pro Sekunde). Der Mindest-Datenträgerdurchsatz beträgt 1 MiB.
+- SSD Ultra unterstützt die Anpassung der Datenträgerleistungsattribute (IOPS und Durchsatz) zur Laufzeit, ohne den Datenträger vom virtuellen Computer zu trennen. Nachdem ein Vorgang zur Größenänderung der Datenträgerleistung auf einem Datenträger gestartet wurde, kann es bis zu einer Stunde dauern, bis die Änderung tatsächlich wirksam wird.
 
 ### <a name="disk-size"></a>Datenträgergröße
 
@@ -58,6 +59,10 @@ Einige Hauptfunktionen von SSD Ultra-Datenträgern sind:
 |256     |76.800         |2.000         |
 |512     |80.000         |2.000         |
 |1.024–65.536 (Größen in diesem Bereich erhöhen sich in Schritten von 1 TiB)     |160.000         |2.000         |
+
+### <a name="transactions"></a>Transaktionen
+
+Für SSD Ultra gilt jeder E/A-Vorgang kleiner oder gleich 256 KiB Durchsatz als einzelner E/A-Vorgang. E/A-Vorgänge mit einem Durchsatz größer als 256 KiB gelten als mehrere Ein-bzw. Ausgabevorgänge der Größe 256 KiB.
 
 ### <a name="preview-scope-and-limitations"></a>Umfang und Einschränkungen der Vorschauversion
 

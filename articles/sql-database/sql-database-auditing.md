@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924755"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827771"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Erste Schritte bei der Überwachung von SQL-Datenbank
 
@@ -110,10 +110,11 @@ Der folgende Abschnitt beschreibt die Konfiguration der Überwachung über das A
 10. Wenn Sie die überwachten Ereignisse anpassen möchten, können Sie [PowerShell-Cmdlets](#subheading-7) oder die [REST-API](#subheading-9) verwenden.
 11. Nachdem Sie Ihre Überwachungseinstellungen konfiguriert haben, können Sie das neue Feature der Bedrohungserkennung aktivieren und die E-Mail-Konten konfigurieren, an die Sicherheitswarnungen gesendet werden sollen. Mit der Bedrohungserkennung können Sie proaktive Warnungen bei anomalen Datenbankaktivitäten erhalten, die auf mögliche Sicherheitsbedrohungen hinweisen können. Weitere Informationen finden Sie unter [Erste Schritte mit der Bedrohungserkennung](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->Das Aktivieren der Überwachung in einem Azure SQL Data Warehouse oder auf einem Server mit einem Azure SQL Data Warehouse **führt dazu, dass das Data Warehouse wieder aufgenommen wird**, auch wenn es zuvor angehalten wurde. **Stellen Sie sicher, dass Sie das Data Warehouse nach dem Aktivieren der Überwachung erneut anhalten**.
+> Das Aktivieren der Überwachung auf einer angehaltenen Azure SQL Data Warehouse-Instanz ist nicht möglich. Um sie aktivieren, nehmen Sie die Instanz wieder in Betrieb.
 
+> [!WARNING]
+> Das Aktivieren der Überwachung auf einem Server mit einer Azure SQL Data Warehouse-Instanz **führt dazu, dass die Instanz fortgesetzt und wieder angehalten wird**. Dadurch können Gebühren anfallen.
 
 ## <a id="subheading-3"></a>Analysieren von Überwachungsprotokollen und -berichten
 
@@ -230,7 +231,7 @@ In einer Produktionsumgebung werden Sie Ihre Speicherschlüssel wahrscheinlich r
 
 ## <a id="subheading-7"></a>Verwalten der Überwachung von SQL-Datenbank mithilfe von Azure PowerShell
 
-**PowerShell-Cmdlets (einschließlich Unterstützung der WHERE-Klausel für zusätzliche Filterung)**:
+**PowerShell-Cmdlets (einschließlich Unterstützung der WHERE-Klausel für zusätzliche Filterung)** :
 
 - [Erstellen oder Aktualisieren der Datenbanküberwachungsrichtlinie (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Erstellen oder Aktualisieren der Serverüberwachungsrichtlinie (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)

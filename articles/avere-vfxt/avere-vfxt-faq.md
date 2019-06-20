@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264453"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595411"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT für Azure: Häufig gestellte Fragen
 
@@ -25,7 +25,7 @@ Avere vFXT for Azure ist ein leistungsstarkes Dateisystem, das aktive Daten in A
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Ist Avere vFXT eine Speicherlösung?
 
- Nein. Avere vFXT ist ein *Dateisystemcache*, der an Speicherumgebungen wie EMC oder NetApp NAS oder einen Azure-Blobcontainer angefügt werden kann. Avere vFXT optimiert Datenanforderungen von Clients und speichert die bereitgestellten Daten zwischen, um die Leistung bedarfsgerecht und im Lauf der Zeit zu verbessern. Avere vFXT speichert selbst keine Daten. Es verfügt über keine Informationen hinsichtlich der Menge der gespeicherten Daten.
+Nein. Avere vFXT ist ein *Dateisystemcache*, der an Speicherumgebungen wie EMC oder NetApp NAS oder einen Azure-Blobcontainer angefügt werden kann. Avere vFXT optimiert Datenanforderungen von Clients und speichert die bereitgestellten Daten zwischen, um die Leistung bedarfsgerecht und im Lauf der Zeit zu verbessern. Avere vFXT speichert selbst keine Daten. Es verfügt über keine Informationen hinsichtlich der Menge der gespeicherten Daten.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Ist Avere vFXT eine Tieringlösung?
 
@@ -106,7 +106,7 @@ Der Avere vFXT-Cluster kann zwischen drei und 24 virtuelle Computerknoten umfass
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>Kann die Avere vFXT-Umgebung automatisch skaliert werden?
 
- Nein. Sie können den Cluster vergrößern oder verkleinern, aber das Hinzufügen oder Entfernen von Clusterknoten ist ein manueller Schritt.
+Nein. Sie können den Cluster vergrößern oder verkleinern, aber das Hinzufügen oder Entfernen von Clusterknoten ist ein manueller Schritt.
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-as-a-virtual-machine-scale-set"></a>Können Avere vFXT-Cluster als VM-Skalierungsgruppe ausgeführt werden?
 
@@ -126,7 +126,7 @@ Ja. Stellen Sie sicher, dass Sie über ein ausreichendes Kontingent in der Regio
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>Ist es möglich, die Avere vFXT-Clustercomputer in verschiedenen Verfügbarkeitszonen auszuführen?
 
- Nein. Das in Avere vFXT verwendete Hochverfügbarkeitsmodell unterstützt derzeit keine einzelnen vFXT-Clustermitglieder, die sich in verschiedenen Verfügbarkeitszonen befinden.
+Nein. Das in Avere vFXT verwendete Hochverfügbarkeitsmodell unterstützt derzeit keine einzelnen vFXT-Clustermitglieder, die sich in verschiedenen Verfügbarkeitszonen befinden.
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Können virtuelle Avere vFXT-Computer geklont werden?
 
@@ -204,7 +204,7 @@ Nein, Avere vFXT ist für den Betrieb in einer Netzwerkumgebung vorgesehen, die 
 
 Im Allgemeinen können Sie bei Bedarf zusätzliche Sicherheit in Ihrem virtuellen Netzwerk konfigurieren, aber einige Einschränkungen können den Betrieb des Clusters beeinträchtigen.
 
-Wenn Sie z. B. den ausgehenden Internetzugriff über Ihr virtuelles Netzwerk einschränken, führt dies zu Problemen für den Cluster, es sei denn, Sie fügen Regeln hinzu, die den Zugriff auf „AzureConnectors“ und auf „AzureCloud“ explizit gestatten. Diese Situation ist in der [ergänzenden Dokumentation auf GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md) beschrieben.
+Wenn Sie z. B. den ausgehenden Internetzugriff über Ihr virtuelles Netzwerk einschränken, führt dies zu Problemen für den Cluster, es sei denn, Sie fügen ebenfalls eine Regel hinzu, die den Zugriff auf „AzureCloud“ explizit gestattet. Diese Situation ist in der [ergänzenden Dokumentation auf GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md) beschrieben.
 
 Wenn Sie Hilfe bei der angepassten Sicherheit benötigen, wenden Sie sich an den Support wie unter [Abrufen von Hilfe zu Ihrem System](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) beschrieben.
 
@@ -254,7 +254,7 @@ Ihr Speicherkonto muss ein GPv2-Konto (General Purpose v2) sein, das nur für lo
 
 ### <a name="can-i-use-archive-blob-storage"></a>Kann ich Archiv-Blob Storage verwenden?
 
- Nein. Die Vereinbarung zum Servicelevel (SLA) für Archivspeicher ist nicht kompatibel mit den Echtzeitanforderungen des Avere vFXT-Systems an den Verzeichnis- und Dateizugriff. 
+Nein. Die Vereinbarung zum Servicelevel (SLA) für Archivspeicher ist nicht kompatibel mit den Echtzeitanforderungen des Avere vFXT-Systems an den Verzeichnis- und Dateizugriff. 
 
 ### <a name="can-i-use-cool-blob-storage"></a>Kann ich kalten Blob Storage verwenden?
 

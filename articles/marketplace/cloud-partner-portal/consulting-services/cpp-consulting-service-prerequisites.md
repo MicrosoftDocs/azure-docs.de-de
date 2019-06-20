@@ -1,25 +1,18 @@
 ---
-title: Azure- und Dynamics 365-Beratungsdienstangebot – Voraussetzungen | Microsoft-Dokumentation
-description: Dies ist ein Leitfaden für die Voraussetzungen für ein Azure- oder Dynamics 365-Beratungsdienstangebot im Cloud-Partnerportal.
+title: 'Azure- und Dynamics 365-Beratungsdienstangebot: Voraussetzungen | Azure Marketplace'
+description: Voraussetzungen für ein Azure- oder Dynamics 365-Beratungsdienstangebot im Cloud-Partnerportal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 7bd0f407424d7335094f1b4ad533281fc024d000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: bd32f68037e29e38fffb0b716772040d22fdfff0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011750"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942756"
 ---
 # <a name="consulting-service-prerequisites"></a>Voraussetzungen für Beratungsdienst
 

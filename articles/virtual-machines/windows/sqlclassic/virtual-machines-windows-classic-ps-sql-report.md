@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60609809"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Verwenden von PowerShell zum Erstellen einer Azure-VM mit einem Berichtsserver im einheitlichen Modus
 > [!IMPORTANT] 
@@ -120,7 +120,7 @@ Bei der Bereitstellung des virtuellen Computer wurde auf ihm ein selbstsignierte
    
    1. Wählen Sie im Azure-Portal den virtuellen Computer aus, und klicken Sie auf „Verbinden“. Abhängig von Ihrer Browserkonfiguration werden Sie möglicherweise aufgefordert, eine RDP-Datei zum Herstellen einer Verbindung mit dem virtuellen Computer zu speichern.
       
-       ![Verbindung mit virtuellem Azure-Computer herstellen](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Verwenden Sie den Namen des virtuellen Computers, den Benutzernamen und das Kennwort, die Sie bei der Erstellung des virtuellen Computers konfiguriert haben. 
+       ![Verbindung mit virtuellem Azure-Computer herstellen](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Verwenden Sie den Namen des virtuellen Computers, den Benutzernamen und das Kennwort, die Sie bei der Erstellung des virtuellen Computers konfiguriert haben. 
       
        Beispielsweise ist im folgenden Image der Name des virtuellen Computers **ssrsnativecloud** und der Benutzername **testuser**.
       
@@ -156,7 +156,7 @@ Wenn Sie das Windows PowerShell-Skript verwenden möchten, um den Berichtsserver
 
 1. Wählen Sie im Azure-Portal den virtuellen Computer aus, und klicken Sie auf „Verbinden“. Abhängig von Ihrer Browserkonfiguration werden Sie möglicherweise aufgefordert, eine RDP-Datei zum Herstellen einer Verbindung mit dem virtuellen Computer zu speichern.
    
-    ![Verbindung mit virtuellem Azure-Computer herstellen](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Verwenden Sie den Namen des virtuellen Computers, den Benutzernamen und das Kennwort, die Sie bei der Erstellung des virtuellen Computers konfiguriert haben. 
+    ![Verbindung mit virtuellem Azure-Computer herstellen](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Verwenden Sie den Namen des virtuellen Computers, den Benutzernamen und das Kennwort, die Sie bei der Erstellung des virtuellen Computers konfiguriert haben. 
    
     Beispielsweise ist im folgenden Image der Name des virtuellen Computers **ssrsnativecloud** und der Benutzername **testuser**.
    
@@ -290,7 +290,7 @@ Wenn Sie ein Windows PowerShell-Skript verwenden möchten, um den Berichtsserver
 
 1. Wählen Sie im Azure-Portal den virtuellen Computer aus, und klicken Sie auf „Verbinden“. Abhängig von Ihrer Browserkonfiguration werden Sie möglicherweise aufgefordert, eine RDP-Datei zum Herstellen einer Verbindung mit dem virtuellen Computer zu speichern.
    
-    ![Verbindung mit virtuellem Azure-Computer herstellen](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Verwenden Sie den Namen des virtuellen Computers, den Benutzernamen und das Kennwort, die Sie bei der Erstellung des virtuellen Computers konfiguriert haben. 
+    ![Verbindung mit virtuellem Azure-Computer herstellen](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Verwenden Sie den Namen des virtuellen Computers, den Benutzernamen und das Kennwort, die Sie bei der Erstellung des virtuellen Computers konfiguriert haben. 
    
     Beispielsweise ist im folgenden Image der Name des virtuellen Computers **ssrsnativecloud** und der Benutzername **testuser**.
    
@@ -564,7 +564,7 @@ Damit Sie sich vergewissern können, dass die grundlegenden Berichtsserverfunkti
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Erstellen von Benutzern und Zuweisen von Rollen
-Nach dem Konfigurieren und Überprüfen des Berichtsservers besteht eine der üblichen administrativen Aufgaben darin, Benutzer zu erstellen und diesen Reporting Services-Rollen zuzuweisen. Weitere Informationen finden Sie unter 
+Nach dem Konfigurieren und Überprüfen des Berichtsservers besteht eine der üblichen administrativen Aufgaben darin, Benutzer zu erstellen und diesen Reporting Services-Rollen zuzuweisen. Weitere Informationen finden Sie unter
 
 * [Erstellen eines lokalen Benutzerkontos](https://technet.microsoft.com/library/cc770642.aspx)
 * [Gewähren von Benutzerzugriff auf einen Berichtsserver (Berichts-Manager)](https://msdn.microsoft.com/library/ms156034.aspx))
@@ -582,7 +582,7 @@ In der folgende Tabelle sind einige der Optionen zusammengefasst, mit denen vorh
      Weitere Informationen finden Sie unter [Installation, Deinstallation und Unterstützung des Berichts-Generators](https://technet.microsoft.com/library/dd207038.aspx).
 * **SQL Server Data Tools: VM**:  Wenn Sie den virtuellen Computer mit SQL Server 2012 erstellt haben, ist SQL Server Data Tools auf dem virtuellen Computer installiert. Mit dieser Sammlung von Tools können **Berichtsserverprojekte** und Berichte auf dem virtuellen Computer erstellt werden. SQL Server Data Tools kann die Berichte im Berichtsserver auf dem virtuellen Computer veröffentlichen.
   
-    Wenn Sie den virtuellen Computer mit SQLServer 2014 erstellt haben, können Sie SQL Server Data Tools - Business Intelligence für Visual Studio installieren. Weitere Informationen finden Sie unter 
+    Wenn Sie den virtuellen Computer mit SQLServer 2014 erstellt haben, können Sie SQL Server Data Tools - Business Intelligence für Visual Studio installieren. Weitere Informationen finden Sie unter
   
   * [Microsoft SQL Server Data Tools - Business Intelligence für Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence für Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047278"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60735020"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Konfigurieren des Dateiuploads in IoT Hub im Azure-Portal
 
@@ -53,4 +53,4 @@ Weitere Informationen zu den Funktionen von IoT Hub finden Sie unter:
 
 * [Entwicklungsleitfaden für IoT Hub](iot-hub-devguide.md)
 * [Bereitstellen von KI auf Edge-Geräten mit Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Sicherheit im Internet der Dinge (IoT) von Anfang an](../iot-fundamentals/iot-security-ground-up.md)
+* [Schützen Ihrer IoT-Lösung von Grund auf](../iot-fundamentals/iot-security-ground-up.md)

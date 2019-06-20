@@ -142,6 +142,8 @@
           href: concepts-data-flow-column-pattern.md
         - name: Datenflussüberwachung
           href: concepts-data-flow-monitoring.md
+        - name: Datenflussleistung
+          href: concepts-data-flow-performance.md
         - name: Verschieben von Knoten
           href: concepts-data-flow-move-nodes.md
         - name: Registerkarte „Optimieren“
@@ -180,7 +182,7 @@
           href: connector-azure-blob-storage.md
         - name: SQL-API von Azure Cosmos DB
           href: connector-azure-cosmos-db.md
-        - name: 'Azure Cosmos DB: MongoDB-API'
+        - name: Azure Cosmos DB-API für MongoDB
           href: connector-azure-cosmos-db-mongodb-api.md
         - name: Azure-Daten-Explorer
           href: connector-azure-data-explorer.md
@@ -318,6 +320,8 @@
           href: connector-sap-ecc.md
         - name: SAP HANA
           href: connector-sap-hana.md
+        - name: SAP-Tabelle
+          href: connector-sap-table.md
         - name: ServiceNow
           href: connector-servicenow.md
         - name: SFTP
@@ -482,6 +486,8 @@
           href: control-flow-expression-language-functions.md
         - name: Systemvariablen
           href: control-flow-system-variables.md
+        - name: Datenflussparameter
+          href: parameters-data-flow.md
     - name: Sicherheit
       items:
         - name: Sicherheitshinweise für die Datenverschiebung
@@ -542,6 +548,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Bereinigen von SSISDB-Protokollen mit Aufträgen für die elastische Datenbank
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Problembehandlung für die Paketausführung in Azure-SSIS IR
+          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Erstellen von Triggern
       items:
         - name: Erstellen eines ereignisbasierten Triggers

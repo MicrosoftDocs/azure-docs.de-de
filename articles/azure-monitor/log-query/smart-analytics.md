@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: bwren
 ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355067"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61425847"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Beispiele für intelligente Log Analytics-Analysen
 Dieser Artikel enthält Beispiele für die Nutzung intelligenter Analysefunktionen in Log Analytics zum Analysieren von Benutzeraktivitäten. Sie können diese Beispiele verwenden, um Ihre eigenen Anwendungen, die von Application Insights überwacht werden, zu analysieren. Sie können die Konzepte in diesen Abfragen auch für ähnliche Analysen anderer Daten verwenden. 

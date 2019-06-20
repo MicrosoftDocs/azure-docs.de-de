@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 12/03/2018
 ms.custom: seodec18
 ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024242"
 ---
 # <a name="collect-data-for-models-in-production"></a>Sammeln von Daten für Modelle in der Produktion
@@ -218,7 +218,7 @@ Greifen Sie wie folgt schnell auf die Daten Ihres Blobs zu:
 
     [![Databricks-Tabelle](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. Aktualisieren Sie den Speicherort Ihrer Daten. Beispiel: 
+1. Aktualisieren Sie den Speicherort Ihrer Daten. Beispiel:
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

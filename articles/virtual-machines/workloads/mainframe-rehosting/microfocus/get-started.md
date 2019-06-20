@@ -7,11 +7,11 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893774"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60498898"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Micro Focus Entwicklungs-/Testumgebung in Azure
 

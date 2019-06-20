@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078350"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Ausführen von Apache Hive-Abfragen mit Apache Hadoop in HDInsight mit REST
 
@@ -24,9 +24,6 @@ Erfahren Sie, wie Sie die WebHCat-REST-API verwenden, um Apache Hive-Abfragen mi
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Ein Linux-basierter Hadoop-Cluster in HDInsight, Version 3.4 oder höher.
-
-  > [!IMPORTANT]  
-  > Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. Weitere Informationen finden Sie unter [Welche Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Ein REST-Client. In diesem Dokument werden Windows PowerShell und [Curl](https://curl.haxx.se/)-Beispiele verwendet.
 

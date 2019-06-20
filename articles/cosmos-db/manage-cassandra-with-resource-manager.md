@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9878939a461f3ba35d2b6c270de2a965f66204cc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: db754adbe60acfa155400910c47de556db793eef
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080454"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968913"
 ---
-# <a name="create-azure-cosmos-db-cassandra-api-resources-from-a-resource-manager-template"></a>Erstellen von Ressourcen für die Cassandra-API von Azure Cosmos DB anhand einer Resource Manager-Vorlage
+# <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Verwalten von Ressourcen für die Cassandra-API von Azure Cosmos DB mithilfe von Azure Resource Manager-Vorlagen
 
-Erfahren Sie, wie Sie mit einer Azure Resource Manager-Vorlage ein Azure Cosmos DB-Konto für die Cassandra-API erstellen. Im folgenden Beispiel wird ein Azure Cosmos DB-Konto für die Cassandra-API anhand einer [Azure-Schnellstartvorlage](https://aka.ms/cassandra-arm-qs) erstellt. Mit dieser Vorlage wird ein Azure Cosmos-Konto für die Cassandra-API mit zwei Tabellen erstellt, die sich auf Keyspace-Ebene einen Durchsatz von 400 RU/s teilen. 
+## Erstellen von Azure Cosmos-Konto, -Keyspace und -Tabelle <a id="create-resource"></a>
 
-Hier ist eine Kopie der Vorlage angegeben:
+Erstellen Sie Azure Cosmos DB-Ressourcen mithilfe einer Azure Resource Manager-Vorlage. Mit dieser Vorlage wird ein Azure Cosmos-Konto für die Cassandra-API mit zwei Tabellen erstellt, die sich auf Keyspace-Ebene einen Durchsatz von 400 RU/s teilen. Kopieren Sie die Vorlage, und stellen Sie sie wie unten gezeigt bereit, oder besuchen Sie den [Azure-Schnellstartkatalog](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/), und führen Sie die Bereitstellung über das Azure-Portal durch. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
 
 [!code-json[create-cosmos-Cassandra](~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json)]
 
@@ -47,7 +47,48 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 Der Befehl `az cosmosdb show` zeigt das neu erstellte Azure Cosmos-Konto, nachdem es bereitgestellt wurde. Wenn Sie eine lokal installierte Version von Azure CLI anstelle von CloudShell verwenden möchten, lesen Sie den Artikel [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/).
 
-Im vorherigen Beispiel haben Sie auf eine Vorlage verwiesen, die auf GitHub gespeichert ist. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
+## Aktualisieren des Durchsatzes (RU/s) für einen Keyspace <a id="keyspace-ru-update"></a>
+
+Mit der folgenden Vorlage wird der Durchsatz eines Keyspace aktualisiert. Kopieren Sie die Vorlage, und stellen Sie sie wie unten gezeigt bereit, oder besuchen Sie den [Azure-Schnellstartkatalog](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-keyspace-ru-update/), und führen Sie die Bereitstellung über das Azure-Portal durch. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
+
+[!code-json[cosmosdb-cassandra-keyspace-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json)]
+
+### <a name="deploy-keyspace-template-via-azure-cli"></a>Bereitstellen der Keyspacevorlage über die Azure CLI
+
+Um die Resource Manager-Vorlage mit der Azure CLI bereitzustellen, kopieren Sie das Skript, und klicken Sie auf **Ausprobieren**, um Azure Cloud-Shell zu öffnen. Klicken Sie zum Einfügen des Skripts mit der rechten Maustaste auf die Shell, und wählen Sie **Einfügen** aus:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the keyspace name: ' keyspaceName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName keyspaceName=$keyspaceName throughput=$throughput
+```
+
+## Aktualisieren des Durchsatzes (RU/s) für eine Tabelle <a id="table-ru-update"></a>
+
+Mit der folgenden Vorlage wird der Durchsatz einer Tabelle aktualisiert. Kopieren Sie die Vorlage, und stellen Sie sie wie unten gezeigt bereit, oder besuchen Sie den [Azure-Schnellstartkatalog](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-table-ru-update/), und führen Sie die Bereitstellung über das Azure-Portal durch. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
+
+[!code-json[cosmosdb-cassandra-table-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json)]
+
+### <a name="deploy-table-template-via-azure-cli"></a>Bereitstellen einer Tabellenvorlage über die Azure CLI
+
+Um die Resource Manager-Vorlage mit der Azure CLI bereitzustellen, kopieren Sie das Skript, und klicken Sie auf **Ausprobieren**, um Azure Cloud-Shell zu öffnen. Klicken Sie zum Einfügen des Skripts mit der rechten Maustaste auf die Shell, und wählen Sie **Einfügen** aus:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the keyspace name: ' keyspaceName
+read -p 'Enter the table name: ' tableName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName keyspaceName=$keyspaceName tableName=$tableName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Nächste Schritte
 

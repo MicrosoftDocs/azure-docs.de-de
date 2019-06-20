@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60647408"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-Architektur
 
@@ -50,7 +50,7 @@ Recovery Services-Tresore bieten die folgenden Vorteile:
 - Der Zugriff auf den Tresor kann mithilfe der [rollenbasierten Zugriffssteuerung](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (Role-Based Access Control, RBAC) von Azure verwaltet werden.
 - Sie können angeben, wie die Daten im Tresor repliziert werden sollen, um für Redundanz zu sorgen:
     - **Lokal redundanter Speicher (LRS):** Sie können LRS zum Schutz vor Ausfällen in einem Datencenter verwenden. LRS repliziert Daten in einer Speicherskalierungseinheit. [Weitere Informationen](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-    - **Georedundanter Speicher (Geo-Redundant Storage, GRS)**: Sie können GRS zum Schutz vor regionsweiten Ausfällen verwenden. GRS repliziert Ihre Daten in einer sekundären Region. [Weitere Informationen](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) 
+    - **Georedundanter Speicher (Geo-Redundant Storage, GRS)** : Sie können GRS zum Schutz vor regionsweiten Ausfällen verwenden. GRS repliziert Ihre Daten in einer sekundären Region. [Weitere Informationen](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) 
     - Recovery Services-Tresore verwenden standardmäßig GRS. 
 
 ## <a name="backup-agents"></a>Sicherungs-Agents
@@ -178,7 +178,7 @@ Weitere Informationen zu Datenträgerspeicher und den verfügbaren Datenträgert
 
 Sie können virtuelle Azure-Computer mithilfe von Storage Premium mit Azure Backup sichern:
 
-- Während des Vorgangs zum Sichern virtueller Computer mit Storage Premium erstellt der Backup-Dienst im Speicherkonto einen temporären Stagingspeicherort mit dem Namen *AzureBackup-*. Die Größe des Stagingspeicherorts entspricht der Größe der Momentaufnahme des Wiederherstellungspunkts.
+- Während des Vorgangs zum Sichern virtueller Computer mit Storage Premium erstellt der Backup-Dienst im Speicherkonto einen temporären Stagingspeicherort mit dem Namen *AzureBackup-* . Die Größe des Stagingspeicherorts entspricht der Größe der Momentaufnahme des Wiederherstellungspunkts.
 - Stellen Sie sicher, dass das Premium-Speicherkonto über genügend freien Speicherplatz für den temporären Stagingspeicherort verfügt. [Weitere Informationen](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits) Ändern Sie den Stagingspeicherort nicht.
 - Nach Abschluss des Sicherungsauftrags wird der Stagingspeicherort gelöscht.
 - Die Kosten für den Speicher, der für den Stagingspeicherort genutzt wird, entsprechen den [Preisen für Storage Premium](../virtual-machines/windows/disks-types.md#billing).

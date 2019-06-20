@@ -1,6 +1,6 @@
 ---
-title: Verbinden, Konfigurieren und Aktivieren eines Azure Data Box Edge-Geräts im Azure-Portal | Microsoft-Dokumentation
-description: Im dritten Tutorial zur Bereitstellung von Data Box Edge erfahren Sie, wie Sie Ihr physisches Gerät verbinden, einrichten und aktivieren können.
+title: Tutorial zum Verbinden, Konfigurieren, Aktivieren eines Azure Data Box Edge-Geräts im Azure-Portal | Microsoft-Dokumentation
+description: Im Tutorial zur Bereitstellung von Data Box Edge erfahren Sie, wie Sie Ihr physisches Gerät verbinden, einrichten und aktivieren können.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: b97334ae60715f021cce387f9d73b5ea69eea7fc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3e951e44aeaa4ca8d3d06bae80a80bcb2eb1dd52
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998106"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924556"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Verbinden, Einrichten und Aktivieren von Azure Data Box Edge 
 

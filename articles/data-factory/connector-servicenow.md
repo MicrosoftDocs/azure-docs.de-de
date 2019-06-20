@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351742"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60203413"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopieren von Daten aus ServiceNow mithilfe von Azure Data Factory
 
@@ -41,16 +41,16 @@ Folgende Eigenschaften werden für den mit ServiceNow verknüpften Dienst unters
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **ServiceNow** | JA |
-| endpoint | Der Endpunkt des ServiceNow-Servers (`http://<instance>.service-now.com`).  | JA |
-| authenticationType | Der zu verwendende Authentifizierungstyp. <br/>Zulässige Werte sind: **Basic**, **OAuth2** | JA |
-| username | Der Benutzername, der für die Verbindung mit dem ServiceNow-Server für die Authentifizierung „Basic“ und „OAuth2“ verwendet wird.  | JA |
-| password | Das Kennwort für den Benutzernamen für die Authentifizierung „Basic“ und „OAuth2“. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | JA |
-| clientId | Die Client-ID für die Authentifizierung „OAuth2“.  | Nein  |
-| clientSecret | Der geheime Clientschlüssel für die Authentifizierung „OAuth2“. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein  |
-| useEncryptedEndpoints | Gibt an, ob die Endpunkte der Datenquelle mit HTTPS verschlüsselt sind. Der Standardwert lautet „true“.  | Nein  |
-| useHostVerification | Gibt an, ob der Hostname im Zertifikat des Servers mit dem Hostnamen des Servers übereinstimmen muss, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert lautet „true“.  | Nein  |
-| usePeerVerification | Gibt an, ob die Identität des Servers bei Verbindung über SSL überprüft werden soll. Der Standardwert lautet „true“.  | Nein  |
+| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **ServiceNow** | Ja |
+| endpoint | Der Endpunkt des ServiceNow-Servers (`http://<instance>.service-now.com`).  | Ja |
+| authenticationType | Der zu verwendende Authentifizierungstyp. <br/>Zulässige Werte sind: **Basic**, **OAuth2** | Ja |
+| userName | Der Benutzername, der für die Verbindung mit dem ServiceNow-Server für die Authentifizierung „Basic“ und „OAuth2“ verwendet wird.  | Ja |
+| password | Das Kennwort für den Benutzernamen für die Authentifizierung „Basic“ und „OAuth2“. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Ja |
+| clientId | Die Client-ID für die Authentifizierung „OAuth2“.  | Nein |
+| clientSecret | Der geheime Clientschlüssel für die Authentifizierung „OAuth2“. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein |
+| useEncryptedEndpoints | Gibt an, ob die Endpunkte der Datenquelle mit HTTPS verschlüsselt sind. Der Standardwert lautet „true“.  | Nein |
+| useHostVerification | Gibt an, ob der Hostname im Zertifikat des Servers mit dem Hostnamen des Servers übereinstimmen muss, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert lautet „true“.  | Nein |
+| usePeerVerification | Gibt an, ob die Identität des Servers bei Verbindung über SSL überprüft werden soll. Der Standardwert lautet „true“.  | Nein |
 
 **Beispiel:**
 
@@ -80,7 +80,7 @@ Legen Sie zum Kopieren von Daten aus ServiceNow die „type“-Eigenschaft des D
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **ServiceNowObject** | JA |
+| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **ServiceNowObject** | Ja |
 | tableName | Name der Tabelle. | Nein (wenn „query“ in der Aktivitätsquelle angegeben ist) |
 
 **Beispiel**
@@ -109,7 +109,7 @@ Legen Sie zum Kopieren von Daten aus ServiceNow den Quelltyp in der Kopieraktivi
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **ServiceNowSource** | JA |
+| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **ServiceNowSource** | Ja |
 | query | Verwendet die benutzerdefinierte SQL-Abfrage zum Lesen von Daten. Beispiel: `"SELECT * FROM Actual.alm_asset"`. | Nein (wenn „tableName“ im Dataset angegeben ist) |
 
 Beachten Sie Folgendes, wenn Sie das Schema und die Spalte für ServiceNow in der Abfrage angeben, und **lesen Sie die [Leistungstipps](#performance-tips) bezüglich der Auswirkung auf die Kopierleistung**.
@@ -117,7 +117,7 @@ Beachten Sie Folgendes, wenn Sie das Schema und die Spalte für ServiceNow in de
 - **Schema:** Geben Sie in der ServiceNow-Abfrage das Schema mit `Actual` oder `Display` an, das als Parameter `sysparm_display_value` (als TRUE oder FALSE) beim Aufrufen von [ServiceNow-RESTful-APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET) angesehen werden kann. 
 - **Spalte:** Der Spaltenname für den tatsächlichen Wert unter dem Schema `Actual` lautet `[column name]_value`. Der Anzeigewert unter dem Schema `Display` lautet dagegen `[column name]_display_value`. Beachten Sie, dass der Spaltenname dem Schema zugeordnet sein muss, das in der Abfrage verwendet wird.
 
-**Beispielabfrage:**
+**Beispielabfrage:** 
 `SELECT col_value FROM Actual.alm_asset` ODER 
 `SELECT col_display_value FROM Display.alm_asset`
 

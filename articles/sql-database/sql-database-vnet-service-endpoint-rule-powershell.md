@@ -13,15 +13,15 @@ ms.reviewer: genemi, vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855570"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60331144"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Erstellen eines virtuellen Dienstendpunkts und einer VNet-Regel für SQL
 
-*Regeln für ein virtuelles Netzwerk* sind eine Firewallsicherheitsfunktion, die steuert, ob der Datenbankserver für Ihre Singletons und Ihren Pool für elastische Datenbanken in [Azure SQL-Datenbank](sql-database-technical-overview.md) oder für Ihre Datenbanken in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Nachrichten akzeptiert, die von bestimmten Subnetzen in virtuellen Netzwerken gesendet werden.
+*VNET-Regeln* sind eine Firewallsicherheitsfunktion, die steuert, ob der Datenbankserver für Ihre Einzeldatenbanken und Ihren Pool für elastische Datenbanken in [Azure SQL-Datenbank](sql-database-technical-overview.md) oder für Ihre Datenbanken in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Nachrichten akzeptiert, die von bestimmten Subnetzen in virtuellen Netzwerken gesendet werden.
 
 > [!IMPORTANT]
 > Dieser Artikel gilt für den Azure SQL-Datenbankserver sowie für Datenbanken von SQL-Datenbank und SQL Data Warehouse, die auf dem Azure SQL-Datenbankserver erstellt werden. Der Einfachheit halber wird nur SQL-Datenbank verwendet, wenn sowohl SQL-Datenbank als auch SQL Data Warehouse gemeint sind. Dieser Artikel gilt *nicht* für die Bereitstellungsoption **Verwaltete Instanz** in Azure SQL-Datenbank, da dieser kein Dienstendpunkt zugeordnet ist.

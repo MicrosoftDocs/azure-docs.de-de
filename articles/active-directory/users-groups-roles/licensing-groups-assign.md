@@ -16,11 +16,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a54d1ad3ab809f2a2f8df6ae0e30b1b061c2be1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201085"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60471272"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Zuweisen von Lizenzen zu Benutzer nach Gruppenmitgliedschaft in Azure Active Directory
 

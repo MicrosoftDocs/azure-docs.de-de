@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
 ms.openlocfilehash: 84b93005941acf625d05a48f0df7b685e1bea0bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785494"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Auflösen von Transact-SQL-Unterschieden während der Migration zur SQL-Datenbank
@@ -83,7 +83,7 @@ Weitere Informationen zu Transact-SQL-Grammatik und -Syntax sowie Beispiele find
 
 ### <a name="about-the-applies-to-tags"></a>Informationen zu Tags vom Typ "Gilt für"
 
-Die Transact-SQL-Referenz umfasst Artikel zu SQL Server-Versionen ab 2008. Unter der Artikelüberschrift befindet sich ein Symbol, in dem die vier SQL Server-Plattformen aufgelistet sind und die Anwendbarkeit angezeigt wird. Beispielsweise wurden Verfügbarkeitsgruppen in SQL Server 2012 eingeführt. Im Artikel [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) ist angegeben, dass die Anweisung für **SQL Server gilt (beginnend mit 2012)**. Die Anweisung gilt nicht für SQL Server 2008, SQL Server 2008 R2, Azure SQL-Datenbank, Azure SQL Data Warehouse oder Parallel Data Warehouse.
+Die Transact-SQL-Referenz umfasst Artikel zu SQL Server-Versionen ab 2008. Unter der Artikelüberschrift befindet sich ein Symbol, in dem die vier SQL Server-Plattformen aufgelistet sind und die Anwendbarkeit angezeigt wird. Beispielsweise wurden Verfügbarkeitsgruppen in SQL Server 2012 eingeführt. Im Artikel [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) ist angegeben, dass die Anweisung für **SQL Server gilt (beginnend mit 2012)** . Die Anweisung gilt nicht für SQL Server 2008, SQL Server 2008 R2, Azure SQL-Datenbank, Azure SQL Data Warehouse oder Parallel Data Warehouse.
 
 In einigen Fällen kann der allgemeine Gegenstand eines Artikels in einem Produkt verwendet werden, es liegen jedoch kleine Unterschiede im Hinblick auf die verschiedenen Produkte vor. Die Unterschiede werden dann im Artikel entsprechend angegeben. In einigen Fällen kann der allgemeine Gegenstand eines Artikels in einem Produkt verwendet werden, es liegen jedoch kleine Unterschiede im Hinblick auf die verschiedenen Produkte vor. Die Unterschiede werden dann im Artikel entsprechend angegeben. Der Artikel CREATE TRIGGER ist zum Beispiel in SQL-Datenbank verfügbar. Aber die Option **ALL SERVER** für Trigger auf Serverebene gibt an, dass Trigger auf Serverebene in der SQL-Datenbank nicht verwendet werden können. Verwenden Sie stattdessen Trigger auf Datenbankebene.
 

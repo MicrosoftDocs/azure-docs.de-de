@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236672"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235859"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Aktivität „Datenfluss ausführen“ in Azure Data Factory
 Verwenden Sie die Aktivität „Datenfluss ausführen“, um Ihren ADF-Datenfluss in (der Sandbox) in Läufen zum Debuggen der Pipeline oder in von der Pipeline ausgelösten Läufen auszuführen.
@@ -49,10 +49,6 @@ Verwenden Sie die Aktivität „Datenfluss ausführen“, um Ihren ADF-Datenflus
 
 ![Datenfluss ausführen](media/data-flow/activity-data-flow.png "Datenfluss ausführen")
 
-### <a name="run-on"></a>Run on (Ausführen auf)
-
-Wählen Sie die Compute-Umgebung für die Ausführung Ihres Datenflusses. Standardeinstellung ist die standardmäßige Azure Integration Runtime mit automatischer Auflösung. Bei dieser Wahl wird der Datenfluss in der Spark-Umgebung in der Region Ihrer Data Factory ausgeführt. Der Computetyp ist ein Auftragscluster, d.h. das Starten der Compute-Umgebung benötigt mehrere Minuten.
-
 ### <a name="debugging-pipelines-with-data-flows"></a>Debuggen von Pipelines mit Datenflüssen
 
 ![Schaltfläche „Debuggen“](media/data-flow/debugbutton.png "Schaltfläche „Debuggen“")
@@ -64,6 +60,15 @@ Verwenden Sie das Debuggen des Datenflusses, um einen aufgewärmten Cluster zum 
 Dies ist ein Pflichtfeld, das definiert, welche Integration Runtime, die für die Ausführung Ihrer Datenflussaktivität verwendet werden soll. Standardmäßig verwendet Data Factory die standardmäßige Azure Integration Runtime mit automatischer Auflösung. Sie können aber auch Ihre eigene Azure Integration Runtime erstellen, die bestimmte Regionen, den Computetyp, die Kernanzahl und die Gültigkeitsdauer (TTL) für die Ausführung Ihrer Datenflussausführung definiert.
 
 Die Standardeinstellung für die Ausführung von Datenflüssen sind 8 Kerne von Compute allgemein mit einer Gültigkeitsdauer (TTL) von 60 Minuten.
+
+Wählen Sie die Compute-Umgebung für die Ausführung Ihres Datenflusses. Standardeinstellung ist die standardmäßige Azure Integration Runtime mit automatischer Auflösung. Bei dieser Wahl wird der Datenfluss in der Spark-Umgebung in der Region Ihrer Data Factory ausgeführt. Der Computetyp ist ein Auftragscluster, d.h. das Starten der Compute-Umgebung benötigt mehrere Minuten.
+
+Sie haben die Kontrolle über die Spark-Ausführungsumgebung für Ihre Datenflussaktivitäten. In der [Azure Integration Runtime](concepts-integration-runtime.md) gibt es Einstellungen zum Festlegen des Computetyps (universell, arbeitsspeicheroptimiert und für Compute optimiert), der Anzahl der Workerkerne und der Gültigkeitsdauer, um die Ausführungs-Engine mit Ihren Datenfluss-Computeanforderungen abzugleichen. Außerdem ermöglicht das Festlegen der Gültigkeitsdauer das Verwalten eines „warmen“ Clusters, der sofort für die Auftragsausführung verfügbar ist.
+
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
+
+> [!NOTE]
+> Die Auswahl von Integration Runtime in der Datenflussaktivität bezieht sich nur auf *getriggerte Ausführungen* Ihrer Pipeline. Beim Debuggen Ihrer Pipeline mit Datenflüssen mithilfe von „Debug“ erfolgt die Ausführung auf dem Spark-Standardcluster mit 8 Kernen.
 
 ### <a name="staging-area"></a>Stagingbereich
 

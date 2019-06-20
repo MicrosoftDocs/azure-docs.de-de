@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719827"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Problembehandlung bei der Hyper-V-zu-Azure-Replikation und Failover
 
@@ -129,7 +129,7 @@ Eine App-konsistente Momentaufnahme ist eine Zeitpunkt-Momentaufnahme der Anwend
 
 2. Um VSS-Momentaufnahmen für den virtuellen Computer zu generieren, überprüfen Sie, ob Hyper-V Integration Services auf dem virtuellen Computer installiert sind und ob der Backup-Integrationsdienst (VSS) aktiviert ist.
     - Stellen Sie sicher, dass der Integration Services-VSS-Dienst bzw. die Daemons auf dem Gastcomputer ausgeführt werden und den Status **OK** aufweisen.
-    - Dies können Sie in einer PowerShell-Sitzung mit erhöhten Rechten auf dem Hyper-V-Host mit dem Befehl **et-VMIntegrationService -VMName<VMName>-Name VSS** überprüfen. Zudem können Sie diese Informationen über die Anmeldung bei dem virtuellen Gastcomputer abrufen. [Weitere Informationen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
+    - Dies können Sie in einer PowerShell-Sitzung mit erhöhten Rechten auf dem Hyper-V-Host mit dem Befehl **et-VMIntegrationService -VMName\<VMName>-Name VSS** überprüfen. Außerdem können Sie diese Informationen über die Anmeldung bei dem virtuellen Gastcomputer abrufen. [Weitere Informationen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
     - Stellen Sie sicher, dass die Backup/VSS-Integrationsdienste auf dem virtuellen Computer ausgeführt werden und fehlerfrei sind. Starten Sie andernfalls diese Dienste und den Hyper-V-Volumeschattenkopie-Anfordererdienst auf dem Hyper-V-Hostserver neu.
 
 ### <a name="common-errors"></a>Häufige Fehler

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630911"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271540"
 ---
 Das [Nachrichtenrouting](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) ermöglicht das Senden von Telemetriedaten von Ihren IoT-Geräten an integrierte, Event Hub-kompatible Endpunkte oder benutzerdefinierte Endpunkte wie Blob Storage-Instanzen, Service Bus-Warteschlangen, Service Bus-Themen und Event Hubs. Zum Konfigurieren des benutzerdefinierten Nachrichtenroutings erstellen Sie [Routingabfragen](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md), um die Route anzupassen, die eine bestimmte Bedingung erfüllt. Nach der Einrichtung werden die eingehenden Daten von IoT Hub automatisch an die Endpunkte weitergeleitet. Wenn eine Nachricht nicht mit einer der definierten Routingabfragen übereinstimmt, wird sie an den Standardendpunkt geleitet.
 
 In diesem zweiteiligen Tutorial lernen Sie, wie Sie diese benutzerdefinierten Routingabfragen mit IoT Hub einrichten und verwenden. Sie leiten Nachrichten von einem IoT-Gerät an einen von mehreren Endpunkten weiter, z. B. Blob Storage oder eine Service Bus-Warteschlange. Nachrichten an die Service Bus-Warteschlange werden über eine Logik-App per E-Mail gesendet. Nachrichten, für die kein benutzerdefiniertes Nachrichtenrouting definiert ist, werden an den Standardendpunkt gesendet und dann von Azure Stream Analytics ausgewählt und in einer Power BI-Visualisierung angezeigt.
 
- Sie führen die folgenden Aufgaben aus, um Teil 1 und 2 dieses Tutorials durchzuarbeiten:
+Sie haben die folgenden Aufgaben ausgeführt, um Teil 1 und 2 dieses Tutorials durchzuarbeiten:
 
 **Teil 1: Erstellen von Ressourcen, Einrichten des Nachrichtenroutings**
 > [!div class="checklist"]

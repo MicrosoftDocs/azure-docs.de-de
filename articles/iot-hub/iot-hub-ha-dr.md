@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007626"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60779371"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Hochverfügbarkeit und Notfallwiederherstellung von IoT Hub
 
@@ -127,9 +127,9 @@ Diese Zusammenfassung der in diesem Artikel vorgestellten Optionen für Hochverf
 
 | Option für Hochverfügbarkeit/Notfallwiederherstellung | RTO | RPO | Manueller Eingriff | Implementierungskomplexität | Zusätzliche Kosten|
 | --- | --- | --- | --- | --- | --- |
-| Von Microsoft initiiertes Failover |2–26 Stunden|Siehe RPO-Tabelle oben|Nein |Keine|Keine|
+| Von Microsoft initiiertes Failover |2–26 Stunden|Siehe RPO-Tabelle oben|Nein|Keine|Keine|
 | Manuelles Failover |10 Minuten–2 Stunden|Siehe RPO-Tabelle oben|Ja|Sehr gering. Sie müssen diesen Vorgang lediglich über das Portal auslösen.|Keine|
-| Regionenübergreifende Hochverfügbarkeit |< 1 Minute|Abhängig von der Replikationsrate Ihrer benutzerdefinierten Hochverfügbarkeitslösung|Nein |Hoch|> 1-malig anfallende Kosten für 1 IoT Hub-Instanz|
+| Regionenübergreifende Hochverfügbarkeit |< 1 Minute|Abhängig von der Replikationsrate Ihrer benutzerdefinierten Hochverfügbarkeitslösung|Nein|Hoch|> 1-malig anfallende Kosten für 1 IoT Hub-Instanz|
 
 ## <a name="next-steps"></a>Nächste Schritte
 

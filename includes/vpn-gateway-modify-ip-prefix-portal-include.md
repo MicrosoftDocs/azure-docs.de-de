@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1199819d274590cc81d0234680f8765f9cc36c0a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121009"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177927"
 ---
 ### <a name="noconnection"></a>So ändern Sie die IP-Adresspräfixe eines Gateways des lokalen Netzwerks: Keine Gatewayverbindung
 
@@ -51,7 +51,7 @@ So fügen Sie weitere Adresspräfixe hinzu:
 So entfernen Sie Adresspräfixe:
 
 1. Klicken Sie für die Ressource für das lokale Netzwerkgateway unter **Einstellungen** auf **Konfiguration**.
-2. Klicken Sie in der Zeile mit dem Präfix, das Sie entfernen möchten, auf **...**.
+2. Klicken Sie in der Zeile mit dem Präfix, das Sie entfernen möchten, auf **...** .
 3. Klicken Sie auf **Entfernen**.
 4. Klicken Sie auf **Save**, um Ihre Einstellungen zu speichern.
 

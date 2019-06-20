@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389538"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241381"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Erstellen verknüpfter Azure Resource Manager-Vorlagen
 
@@ -89,7 +89,7 @@ Die verknüpfte Vorlage erstellt ein Speicherkonto. Die verknüpfte Vorlage kann
 2. Nehmen Sie die folgenden Änderungen vor:
 
     * Entfernen Sie alle Parameter außer **location**.
-    * Fügen Sie einen Parameter namens **storageAccountName** hinzu. 
+    * Fügen Sie einen Parameter namens **storageAccountName** hinzu.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Die verknüpfte Vorlage erstellt ein Speicherkonto. Die verknüpfte Vorlage kann
         },
         ```
         Der Name des Speicherkontos und der Speicherort werden aus der Hauptvorlage als Parameter an die verknüpfte Vorlage übergeben.
-        
+
     * Entfernen Sie das **variables**-Element und alle Variablendefinitionen.
     * Entfernen Sie alle Ressourcen mit Ausnahme des Speicherkontos. Sie entfernen insgesamt vier Ressourcen.
     * Aktualisieren Sie den Wert des **name**-Elements der Speicherkontoressource in Folgendes:
@@ -109,7 +109,7 @@ Die verknüpfte Vorlage erstellt ein Speicherkonto. Die verknüpfte Vorlage kann
         ```
 
     * Aktualisieren Sie das **outputs**-Element, sodass es so aussieht:
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -272,7 +272,7 @@ Die Hauptvorlage hat den Namen „azuredeploy.json“.
     Berücksichtigen Sie dabei folgende Details:
 
     * Eine `Microsoft.Resources/deployments`-Ressource in der Hauptvorlage wird zum Verknüpfen mit einer anderen Vorlage verwendet.
-    * Die `deployments`-Ressource hat den Namen `linkedTemplate`. Dieser Name wird zum [Konfigurieren der Abhängigkeit](#configure-dependency) verwendet.  
+    * Die `deployments`-Ressource hat den Namen `linkedTemplate`. Dieser Name wird zum [Konfigurieren der Abhängigkeit](#configure-dependency) verwendet.
     * Beim Aufrufen verknüpfter Vorlagen können Sie nur den Bereitstellungsmodus [Inkrementell](./deployment-modes.md) verwenden.
     * `templateLink/uri` enthält den URI der verknüpften Vorlage. Ersetzen Sie den Wert durch den URI, den Sie beim Hochladen der verknüpften Vorlage (also der Vorlage mit SAS-Token) erhalten.
     * Übergeben Sie mit `parameters` Werte aus der Hauptvorlage an die verknüpfte Vorlage.
@@ -305,7 +305,7 @@ Da das Speicherkonto nun in der verknüpften Vorlage definiert ist, müssen Sie 
 
     ![Azure Resource Manager: verknüpfte Vorlagen – Abhängigkeit konfigurieren](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate* ist der Name der Ressource der Bereitstellungen.  
+    *linkedTemplate* ist der Name der Ressource der Bereitstellungen.
 3. Aktualisieren Sie **properties/diagnosticsProfile/bootDiagnostics/storageUri** wie im vorherigen Screenshot dargestellt.
 4. Speichern Sie die geänderte Vorlage.
 
@@ -334,4 +334,4 @@ Nehmen Sie zur Verbesserung des Projekts die folgenden zusätzlichen Änderungen
 In diesem Tutorial haben Sie eine Vorlage in eine Hauptvorlage und eine verknüpfte Vorlage modularisiert. Informationen zum Ausführen von Aufgaben nach der Bereitstellung mithilfe von VM-Erweiterungen finden Sie unter
 
 > [!div class="nextstepaction"]
-> [Bereitstellen von Erweiterungen für virtuelle Computer](./deployment-manager-tutorial.md)
+> [Bereitstellen von Erweiterungen für virtuelle Computer](./resource-manager-tutorial-deploy-vm-extensions.md)

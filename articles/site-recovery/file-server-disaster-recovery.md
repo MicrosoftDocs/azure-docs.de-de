@@ -9,11 +9,11 @@ ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005210"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772154"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Schützen eines Dateiservers mit Azure Site Recovery 
 
@@ -64,7 +64,7 @@ Das folgende Diagramm hilft Ihnen beim Festlegen der Strategie für Ihre Dateise
 ### <a name="site-recovery-support"></a>Site Recovery-Unterstützung
 Da die Site Recovery-Replikation anwendungsunabhängig ist, gelten diese Empfehlungen voraussichtlich auch für die folgenden Szenarien.
 
-| Quelle    |Sekundärer Standort    |Azure
+| `Source`    |Sekundärer Standort    |Azure
 |---------|---------|---------|
 |Azure| -|Ja|
 |Hyper-V|   Ja |Ja

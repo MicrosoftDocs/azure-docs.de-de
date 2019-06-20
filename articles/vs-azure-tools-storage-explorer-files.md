@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60456725"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Verwenden des Storage-Explorers mit Azure File Storage
 
@@ -203,7 +203,7 @@ Die folgenden Schritte veranschaulichen, wie Sie die Dateien (und Ordner) auf ei
 
         ![Hochladen von Dateien](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. Wählen Sie im Dialogfeld **Dateien hochladen** rechts neben dem Feld **Dateien** die Schaltfläche mit den Auslassungspunkten (**…**) aus, um die hochzuladenden Dateien auszuwählen.
+        b. Wählen Sie im Dialogfeld **Dateien hochladen** rechts neben dem Feld **Dateien** die Schaltfläche mit den Auslassungspunkten ( **…** ) aus, um die hochzuladenden Dateien auszuwählen.
 
         ![Hinzufügen von Dateien](media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -215,7 +215,7 @@ Die folgenden Schritte veranschaulichen, wie Sie die Dateien (und Ordner) auf ei
 
         ![Menü „Upload folder“ (Ordner hochladen)](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. Klicken Sie im Dialogfeld **Uploadordner** rechts vom Textfeld **Ordner** auf die Schaltfläche mit den Auslassungszeichen (**…**), um den Ordner auszuwählen, dessen Inhalt Sie hochladen möchten.
+        b. Klicken Sie im Dialogfeld **Uploadordner** rechts vom Textfeld **Ordner** auf die Schaltfläche mit den Auslassungszeichen ( **…** ), um den Ordner auszuwählen, dessen Inhalt Sie hochladen möchten.
 
         c. Optional können Sie einen Zielordner angeben, in den der Inhalt des ausgewählten Ordners hochgeladen wird. Falls der Zielordner noch nicht vorhanden ist, wird er erstellt.
 

@@ -17,11 +17,11 @@ ms.date: 06/15/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae9c2c975bf49725be1858ad02a1c4b90ef58a7f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370579"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Grundlegendes zur Abrechnung von Azure-Gebühren für externe Dienste
 Externe Dienste werden von Drittanbietern im Azure Marketplace veröffentlicht. Ein Beispiel für einen externen Dienst, den Sie in Azure erwerben können, der jedoch nicht von Microsoft veröffentlicht wird, ist SendGrid.
@@ -88,5 +88,5 @@ Wenn Sie einen externen Dienst kündigen möchten, löschen Sie die Ressource im
 
 ## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Wenden Sie sich an uns.
 
-Wenn Sie Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
+Wenn Sie weitere Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
 

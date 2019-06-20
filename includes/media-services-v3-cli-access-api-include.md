@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -9,11 +9,11 @@ ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: b0f93f950b55052ea8d8b31538c47226413dc82a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149197"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178182"
 ---
 ## <a name="access-the-media-services-api"></a>Zugreifen auf die Media Services-API
 

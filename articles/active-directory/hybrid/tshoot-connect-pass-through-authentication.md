@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60456122"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Behandlung von Problemen bei der Azure Active Directory-Passthrough-Authentifizierung
 
@@ -161,7 +161,7 @@ Weitere Informationen finden Sie auch in den Sicherheitsprotokollen Ihrer Domän
 
 ## <a name="performance-monitor-counters"></a>Leistungsüberwachungsindikatoren
 
-Eine weitere Möglichkeit zum Überwachen des Authentifizierung-Agents ist das Nachverfolgen bestimmter Leistungsüberwachungsindikatoren auf jedem Server, auf dem der Authentifizierung-Agent installiert ist. Verwenden Sie die folgenden globalen Indikatoren **# PTA authentications**, **#PTA failed authentications** und **#PTA successful authentications**) und Fehlerzähler (**# PTA authentication errors**):
+Eine weitere Möglichkeit zum Überwachen des Authentifizierung-Agents ist das Nachverfolgen bestimmter Leistungsüberwachungsindikatoren auf jedem Server, auf dem der Authentifizierung-Agent installiert ist. Verwenden Sie die folgenden globalen Indikatoren **# PTA authentications**, **#PTA failed authentications** und **#PTA successful authentications**) und Fehlerzähler ( **# PTA authentication errors**):
 
 ![Passthrough-Authentifizierungs-Leistungsüberwachungsindikatoren](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

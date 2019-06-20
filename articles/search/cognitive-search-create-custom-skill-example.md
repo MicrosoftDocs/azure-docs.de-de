@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023625"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428433"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Beispiel: Erstellen eines benutzerdefinierten Skills mithilfe der Textübersetzungs-API
 
-Erfahren Sie in diesem Beispiel, wie ein benutzerdefinierter Web-API-Skill erstellt wird, der Text in einer beliebigen Sprache akzeptiert und ins Englische übersetzt. Das Beispiel verwendet eine [Azure-Funktion](https://azure.microsoft.com/services/functions/), um die [Textübersetzungs-API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) so einzubinden, dass sie die Schnittstelle des benutzerdefinierten Skills implementiert.
+In diesem Beispiel erfahren Sie, wie Sie eine benutzerdefinierte Qualifikation einer Web-API erstellen. Diese Qualifikation akzeptiert Text in einer beliebigen Sprache und übersetzt diesen ins Englische. Das Beispiel verwendet eine [Azure-Funktion](https://azure.microsoft.com/services/functions/), um die [Textübersetzungs-API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) so einzubinden, dass sie die Schnittstelle des benutzerdefinierten Skills implementiert.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-+ Lesen Sie den Artikel über die [Schnittstelle des benutzerdefinierten Skills](cognitive-search-custom-skill-interface.md), wenn Sie nicht mit der Eingabe/Ausgabe-Schnittstelle vertraut sind, die einen benutzerdefinierten Skill implementieren sollte.
++ Lesen Sie den Artikel über die [Schnittstelle für benutzerdefinierte Qualifikationen](cognitive-search-custom-skill-interface.md), wenn Sie nicht mit der Eingabe/Ausgabe-Schnittstelle vertraut sind, die eine benutzerdefinierte Qualifikation implementieren sollte.
 
 + [Registrieren Sie sich für die Textübersetzungs-API](../cognitive-services/translator/translator-text-how-to-signup.md), und erhalten Sie hierfür einen API-Schlüssel.
 
-+ Installieren Sie [Visual Studio 2017 Version 15.5 oder höher](https://www.visualstudio.com/vs/) mit der Workload für die Azure-Entwicklung.
++ Installieren Sie [Visual Studio 2019](https://www.visualstudio.com/vs/) oder höher zusammen mit der Workload für die Azure-Entwicklung.
 
 ## <a name="create-an-azure-function"></a>Erstellen einer Azure Function
 
@@ -37,7 +37,7 @@ Obwohl in diesem Beispiel eine Azure-Funktion zum Hosten einer Web-API verwendet
 
 1. Wählen Sie in Visual Studio im Menü „Datei“ die Optionen **Neu** > **Projekt** aus.
 
-1. Wählen Sie im Dialogfeld „Neues Projekt“ die Option **Installiert**, erweitern Sie **Visual C#** > **Cloud**, und wählen Sie **Azure Functions** aus. Geben Sie unter „Name“ einen Namen für Ihr Projekt ein, und wählen Sie **OK**. Der Name der Funktions-App muss als C#-Namespace gültig sein, verwenden Sie daher keine Unterstriche, Bindestriche oder andere nicht alphanumerische Zeichen.
+1. Wählen Sie im Dialogfeld „Neues Projekt“ die Option **Installiert**, erweitern Sie **Visual C#**  > **Cloud**, und wählen Sie **Azure Functions** aus. Geben Sie unter „Name“ einen Namen für Ihr Projekt ein, und wählen Sie **OK**. Der Name der Funktions-App muss als C#-Namespace gültig sein, verwenden Sie daher keine Unterstriche, Bindestriche oder andere nicht alphanumerische Zeichen.
 
 1. Wählen Sie **Azure Functions v2 (.NET Core)** aus. Sie können dies auch mit Version 1 erreichen, aber der nachfolgende Code basiert auf der Vorlage der Version 2.
 
@@ -195,7 +195,7 @@ Dieses Beispiel ist eine einfache Anreicherungsfunktion, die immer nur an einem 
 
 ## <a name="test-the-function-from-visual-studio"></a>Testen der Funktion aus Visual Studio
 
-Drücken Sie **F5**, um das Programm- und Testfunktionsverhalten auszuführen. In diesem Fall wird die Funktion unten verwendet, um einen spanischen Text in Englisch zu übersetzen. Verwenden Sie Postman oder Fiddler, um einen Aufruf wie den unten gezeigten auszugeben:
+Drücken Sie **F5**, um das Programm- und Testfunktionsverhalten auszuführen. In diesem Fall wird die Funktion unten verwendet, um einen spanischen Text ins Englische zu übersetzen. Verwenden Sie Postman oder Fiddler, um einen Aufruf wie den unten gezeigten auszugeben:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-Dieser Code sollte ein ähnliches Ergebnis liefern wie der, den Sie zuvor bei der Ausführung der Funktion in der lokalen Umgebung gesehen haben.
+Dieses Beispiel sollte ein ähnliches Ergebnis liefern wie das, das Sie zuvor bei der Ausführung der Funktion in der lokalen Umgebung gesehen haben.
 
 ## <a name="connect-to-your-pipeline"></a>Herstellen einer Verbindung mit Ihrer Pipeline
 Nun, da Sie über einen neuen benutzerdefinierten Skill verfügen, können Sie diesen zu Ihrem Skillset hinzufügen. Im folgenden Beispiel wird gezeigt, wie Sie den Skill aufrufen. Da der Skill keine Batches verarbeitet, fügen Sie eine Anweisung hinzu, dass die maximale Batchgröße nur ```1``` sein darf, um Dokumente einzeln zu versenden.

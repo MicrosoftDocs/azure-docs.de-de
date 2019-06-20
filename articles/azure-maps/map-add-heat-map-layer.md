@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 82a6d6b2af7df91696844b09fb7650c547cb6bd1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62108633"
 ---
 # <a name="add-a-heat-map-layer"></a>Hinzufügen einer Wärmebildebene
 
@@ -36,7 +36,7 @@ Wenn Sie eine Datenquelle, die aus Punkten besteht, als Wärmebild rendern möch
 <iframe height='500' scrolling='no' title='Einfache Wärmebildebene' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Weitere Informationen finden Sie unter dem Pen <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>Simple Heat Map Layer</a> (Einfache Wärmebildebene) von Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) auf <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In diesem Beispiel weist jeder Wärmepunkt in allen Zoomfaktoren einen Radius von 10 Pixeln auf. Beim Hinzufügen der Wärmebildebene zur Karte wird sie in diesem Beispiel unter der Bezeichnungsebene hinzugefügt. Dies erhöht die Benutzerfreundlichkeit, da die Bezeichnungen deutlich über dem Wärmebild zu erkennen sind. Die Daten für dieses Beispiel stammen vom [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) und stellen relevante Erdbeben der letzten 30 Tage dar.
+In diesem Beispiel weist jeder Wärmepunkt in allen Zoomfaktoren einen Radius von 10 Pixeln auf. Beim Hinzufügen der Wärmebildebene zur Karte wird sie in diesem Beispiel unter der Bezeichnungsebene hinzugefügt. Dadurch wird die Benutzeroberfläche verbessert, da die Bezeichnungen deutlich über dem Wärmebild zu erkennen sind. Die Daten für dieses Beispiel stammen vom [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) und stellen relevante Erdbeben der letzten 30 Tage dar.
 
 ## <a name="customizing-the-heat-map-layer"></a>Anpassen der Wärmebildebene
 
@@ -63,7 +63,7 @@ Mit diesem Tool können Sie die verschiedenen Optionen für Wärmebildebenen tes
 
 ## <a name="consistent-zoomable-heat-map"></a>Konsistentes zoombares Wärmebild
 
-Standardmäßig ist für die in der Wärmebildebene gerenderten Daten ein fester Pixelradius für alle Zoomebenen definiert. Wenn die Karte gezoomt wird, werden die Daten aggregiert und die Wärmebildebene verändert sich. Zum Skalieren des Radius für jede Zoomebene kann ein `zoom`-Ausdruck verwendet werden, sodass jeder Datenpunkt den gleichen physischen Bereich der Karte abdeckt. Dadurch sieht die Wärmebildebene statischer und konsistenter aus. Jede Zoomebene der Karte hat vertikal und horizontal doppelt so viele Pixel wie die vorherige Zoomebene. Wenn der Radius so skaliert wird, dass er sich mit jeder Zoomebene verdoppelt, wird ein Wärmebild erstellt, das auf allen Zoomebenen konsistent aussieht. Dies kann wie im folgenden Beispiel gezeigt durch Verwenden von `zoom` mit einem `exponential interpolation`-Ausdruck zur Basis 2 erreicht werden. Zoomen Sie die Karte, um zu sehen, wie das Wärmebild mit der Zoomebene skaliert wird.
+Standardmäßig ist für die in der Wärmebildebene gerenderten Daten ein fester Pixelradius für alle Zoomebenen definiert. Wenn die Karte gezoomt wird, werden die Daten aggregiert und die Wärmebildebene verändert sich. Zum Skalieren des Radius für jede Zoomebene kann ein `zoom`-Ausdruck verwendet werden, sodass jeder Datenpunkt den gleichen physischen Bereich der Karte abdeckt. Hierdurch sieht die Wärmebildebene statischer und konsistenter aus. Jede Zoomebene der Karte hat vertikal und horizontal doppelt so viele Pixel wie die vorherige Zoomebene. Wenn der Radius so skaliert wird, dass er sich mit jeder Zoomebene verdoppelt, wird ein Wärmebild erstellt, das auf allen Zoomebenen konsistent aussieht. Dies kann wie im folgenden Beispiel gezeigt durch Verwenden von `zoom` mit einem `exponential interpolation`-Ausdruck zur Basis 2 erreicht werden. Zoomen Sie die Karte, um zu sehen, wie das Wärmebild mit der Zoomebene skaliert wird.
 
 <br/>
 
@@ -85,10 +85,10 @@ Anzeigen des <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>konsistenten zoo
 Erfahren Sie mehr zu den in diesem Artikel verwendeten Klassen und Methoden:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
+> [HtmlMarker-Klasse](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [HeatMapLayerOptions-Schnittstelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
 
 Weitere Codebeispiele, die Sie zu Ihren Karten hinzufügen können, finden Sie in den folgenden Artikeln:
 

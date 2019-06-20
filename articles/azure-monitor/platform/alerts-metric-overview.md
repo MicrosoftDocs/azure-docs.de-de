@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342982"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244903"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Informationen zur Funktionsweise von Metrikwarnungen in Azure Monitor
 
@@ -29,7 +29,7 @@ Nehmen wir an, Sie haben wie folgt eine einfache statische Metrikwarnung mit Sch
 - Zielressource (die zu überwachende Azure-Ressource): myVM
 - Metrik: CPU in Prozent
 - Bedingungstyp: statischen
-- Zeitaggregation (Statistik, die über Rohmetriken geführt wird. Unterstützte Zeitaggregationen sind Minimum, Maximum, Durchschnitt, Gesamtwert): Durchschnitt
+- Zeitaggregation (Statistik, die über Rohmetriken geführt wird. Unterstützte Zeitaggregationen sind Minimum, Maximum, Durchschnitt, Gesamtwert, Anzahl): Durchschnitt
 - Zeitraum (das zurückliegende Zeitfenster, über das Metrikwerte geprüft werden): Über die letzten 5 Minuten
 - Häufigkeit (die Häufigkeit, mit der die Metrikwarnung überprüft werden soll, wenn die Bedingungen erfüllt sind): 1 Minute
 - Operator: Größer als
@@ -44,7 +44,7 @@ Nehmen wir an, Sie haben wie folgt eine einfache dynamische Metrikwarnung mit Sc
 - Zielressource (die zu überwachende Azure-Ressource): myVM
 - Metrik: CPU in Prozent
 - Bedingungstyp: Dynamisch
-- Zeitaggregation (Statistik, die über Rohmetriken geführt wird. Unterstützte Zeitaggregationen sind Minimum, Maximum, Durchschnitt, Gesamtwert): Durchschnitt
+- Zeitaggregation (Statistik, die über Rohmetriken geführt wird. Unterstützte Zeitaggregationen sind Minimum, Maximum, Durchschnitt, Gesamtwert, Anzahl): Durchschnitt
 - Zeitraum (das zurückliegende Zeitfenster, über das Metrikwerte geprüft werden): Über die letzten 5 Minuten
 - Häufigkeit (die Häufigkeit, mit der die Metrikwarnung überprüft werden soll, wenn die Bedingungen erfüllt sind): 1 Minute
 - Operator: Größer als
@@ -148,16 +148,16 @@ Wenn Sie im Moment klassische Metrikwarnungen verwenden und erfahren möchten, o
 | Microsoft.ApiManagement/service | Ja |
 | Microsoft.Batch/batchAccounts| Ja|
 |Microsoft.Cache/redis| Ja |
-|Microsoft.ClassicCompute/virtualMachines | Nein  |
-|Microsoft.ClassicCompute/domainNames/slots/roles | Nein |
-|Microsoft.CognitiveServices/accounts | Nein  |
+|Microsoft.ClassicCompute/virtualMachines | Nein |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Nein|
+|Microsoft.CognitiveServices/accounts | Nein |
 |Microsoft.Compute/virtualMachines | Ja|
 |Microsoft.Compute/virtualMachineScaleSets| Ja|
-|Microsoft.ClassicStorage/storageAccounts| Nein  |
+|Microsoft.ClassicStorage/storageAccounts| Nein |
 |Microsoft.DataFactory/datafactories | Ja|
 |Microsoft.DBforMySQL/servers| Ja|
 |Microsoft.DBforPostgreSQL/servers| Ja|
-|Microsoft.Devices/IotHubs | Nein |
+|Microsoft.Devices/IotHubs | Nein|
 |Microsoft.DocumentDB/databaseAccounts| Ja|
 |Microsoft.EventHub/namespaces | Ja|
 |Microsoft.Logic/workflows | Ja|
@@ -173,9 +173,9 @@ Wenn Sie im Moment klassische Metrikwarnungen verwenden und erfahren möchten, o
 |Microsoft.TimeSeriesInsights/environments | Ja|
 |Microsoft. Web/serverfarms | Ja |
 |Microsoft. Web/sites (ohne Funktionen) | Ja|
-|Microsoft. Web/hostingEnvironments/multiRolePools | Nein |
-|Microsoft. Web/hostingEnvironments/workerPools| Nein  |
-|Microsoft.SQL/Servers | Nein  |
+|Microsoft. Web/hostingEnvironments/multiRolePools | Nein|
+|Microsoft. Web/hostingEnvironments/workerPools| Nein |
+|Microsoft.SQL/Servers | Nein |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

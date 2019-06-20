@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153049"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752444"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installieren und Ausführen von Containern für den Speech-Dienst
 
-Mit Speech-Containern können Kunden eine Speech-basierte Anwendungsarchitektur erstellen, die sowohl von widerstandsfähigen Cloudfunktionen als auch von der Edgeposition profitieren kann. Aktuell werden zwei Speech-Container unterstützt: **Spracherkennung** und **Sprachsynthese**. 
+Mit Speech-Containern können Kunden eine Speech-basierte Anwendungsarchitektur erstellen, die sowohl von widerstandsfähigen Cloudfunktionen als auch von der Edgeposition profitieren kann. 
 
 Die beiden Sprachcontainer sind **Spracherkennung** und **Sprachsynthese**. 
 
 |Funktion|Features|Neueste Version|
 |-|-|--|
-|Spracherkennung| <li>Wandelt fortlaufende Sprache in Echtzeit in Text um.<li>Kann Sprache aus Audioaufnahmen als Batch transkribieren. <li>Unterstützt Zwischenergebnisse, die Erkennung des Endes der Spracheingabe, automatische Textformatierung sowie die Maskierung anstößiger Ausdrücke. <li>Kann mithilfe von [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) die Benutzerabsicht aus der transkribierten Sprache ableiten.\*|1.1.1|
-|Sprachsynthese| <li>Konvertiert Text in natürlich klingende Sprache. <li>Bietet mehrere Geschlechter und/oder Dialekte für viele unterstützte Sprachen. <li>Unterstützt Nur-Text-Eingabe und SSML (Speech Synthesis Markup Language, Markupsprache für Sprachsynthese). |1.1.0|
+|Spracherkennung| <li>Transkribiert kontinuierliche Echtzeitsprache oder Batchaudioaufzeichnungen in Text mit Zwischenergebnissen.|1.1.1|
+|Sprachsynthese| <li>Konvertiert Text in natürlich klingende Sprache. mit Nur-Text-Eingabe und SSML (Speech Synthesis Markup Language, Markupsprache für Sprachsynthese). |1.1.0|
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
@@ -38,7 +38,7 @@ Für die Verwendung von Speech-Containern müssen folgende Voraussetzungen erfü
 |--|--|
 |Docker-Engine| Die Docker-Engine muss auf einem [Hostcomputer](#the-host-computer) installiert sein. Für die Docker-Umgebung stehen Konfigurationspakete für [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) und [Linux](https://docs.docker.com/engine/installation/#supported-platforms) zur Verfügung. Eine Einführung in Docker und Container finden Sie in der [Docker-Übersicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker muss so konfiguriert werden, dass die Container eine Verbindung mit Azure herstellen und Abrechnungsdaten an Azure senden können. <br><br> **Unter Windows** muss Docker auch für die Unterstützung von Linux-Containern konfiguriert werden.<br><br>|
 |Kenntnisse zu Docker | Sie sollten über Grundkenntnisse der Konzepte von Docker, einschließlich Registrierungen, Repositorys, Container und Containerimages, verfügen und die grundlegenden `docker`-Befehle kennen.| 
-|Speech-Ressource |Um diese Container verwenden zu können, benötigen Sie Folgendes:<br><br>Eine Azure-Ressource vom Typ _Speech_, um den entsprechenden Abrechnungsschlüssel und den URI des Abrechnungsendpunkts zu erhalten. Beide Werte stehen im Azure-Portal auf der Übersichts- und auf der Schlüsselseite für **Speech** zur Verfügung und werden zum Starten des Containers benötigt.<br><br>**{BILLING_KEY}**: Der Ressourcenschlüssel.<br><br>**{BILLING_ENDPOINT_URI}**: Der Endpunkt-URI. Beispiel: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Speech-Ressource |Um diese Container verwenden zu können, benötigen Sie Folgendes:<br><br>Eine Azure-Ressource vom Typ _Speech_, um den entsprechenden Abrechnungsschlüssel und den URI des Abrechnungsendpunkts zu erhalten. Beide Werte stehen im Azure-Portal auf der Übersichts- und auf der Schlüsselseite für **Speech** zur Verfügung und werden zum Starten des Containers benötigt.<br><br>**{BILLING_KEY}** : Der Ressourcenschlüssel.<br><br>**{BILLING_ENDPOINT_URI}** : Der Endpunkt-URI. Beispiel: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="request-access-to-the-container-registry"></a>Anfordern des Zugriffs auf die Containerregistrierung
 
@@ -260,7 +260,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ### <a name="text-to-speech"></a>Text-zu-Sprache
 
-Die vom Container bereitgestellten REST-Endpunkt-APIs finden Sie [hier](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api). Beispiele finden Sie [hier](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+Die vom Container bereitgestellten REST-Endpunkt-APIs finden Sie [hier](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech). Beispiele finden Sie [hier](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -281,6 +281,10 @@ Der Speech-Container sendet Abrechnungsinformationen an Azure und verwendet daf�
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Weitere Informationen zu diesen Optionen finden Sie unter [Konfigurieren von Containern](speech-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Zusammenfassung
 

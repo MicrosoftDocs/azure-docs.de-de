@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 527e9979b624970dd55b4300fe63c27386640ac4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a293f0b656c075ae3b21ccf98e602e43ed761958
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886601"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428459"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Tutorial: Senden von lokalisierten Benachrichtigungen an iOS-Geräte mit Azure Notification Hubs
 
@@ -49,7 +49,7 @@ In [Verwenden von Benachrichtigungshubs zum Übermitteln von Nachrichten] haben 
 > [!NOTE]
 > Sie können mehrere Versionen der einzelnen Tags erstellen, um lokalisierte Benachrichtigungen zu verschicken. Für Englisch, Französisch und Mandarin müssen Sie z.B. drei verschiedene Markierungen für Weltnachrichten erstellen: „world_en“, „world_fr“ und „world_ch“. Anschließend müssten Sie eine lokalisierte Version der Nachrichten an die einzelnen Tags schicken. In diesem Thema verwenden Sie Vorlagen, um die Anzahl der Tags einzugrenzen und den Versand mehrerer Nachrichten zu vermeiden.
 
-Mit Vorlagen können Sie auf einer hohen Ebene festlegen, wie ein bestimmtes Gerät eine Benachrichtigung empfangen soll. Die Vorlage gibt das exakte Format der Nutzlast anhand von Eigenschaften an, die Teil der von Ihrem Back-End verschickten Nachricht sind. In Ihrem Fall senden Sie eine sprachenunabhängige Nachricht, die alle unterstützten Sprachen enthält:
+Mit Vorlagen können Sie festlegen, wie ein bestimmtes Gerät eine Benachrichtigung empfangen soll. Die Vorlage gibt das exakte Format der Nutzlast anhand von Eigenschaften an, die Teil der von Ihrem Back-End verschickten Nachricht sind. In Ihrem Fall senden Sie eine sprachenunabhängige Nachricht, die alle unterstützten Sprachen enthält:
 
 ```json
 {
@@ -74,7 +74,7 @@ Weitere Informationen zu Vorlagen finden Sie im Artikel [Vorlagen](notification-
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Arbeiten Sie das Tutorial [Verwenden von Notification Hubs zum Übermitteln von aktuellen Nachrichten](notification-hubs-ios-xplat-segmented-apns-push-notification.md) durch, und halten Sie den Code verfügbar, da dieses Tutorial direkt auf diesem Code aufbaut.
-* Visual Studio 2017 ist optional.
+* Visual Studio 2019 ist optional.
 
 ## <a name="update-the-app-user-interface"></a>Aktualisieren der App-Benutzeroberfläche
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607091"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574108"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integration der Quellcodeverwaltung in Azure Automation
 
@@ -52,14 +52,16 @@ Geben Sie auf der Seite **Quellcodeverwaltung – Übersicht** die Informationen
 |Repository     | Der Name des Repositorys oder Projekts. Die ersten 200 Repositorys werden zurückgegeben. Geben Sie zum Suchen nach einem Repository den Namen in das Feld ein, und klicken Sie auf **Search on GitHub** (Auf GitHub suchen).|
 |Verzweigung     | Die Verzweigung, von der die Quelldateien abgerufen werden. Die Ausrichtung auf Verzweigungen ist für den TFVC-Quellcodeverwaltungstyp nicht verfügbar.          |
 |Ordnerpfad     | Der Ordner, der die Runbooks für die Synchronisierung enthält. Beispiel: /Runbooks </br>*Nur im Ordner angegebene Runbooks werden synchronisiert. Die Rekursion wird nicht unterstützt.*        |
-|Automatische Synchronisierung     | Aktiviert oder deaktiviert die automatische Synchronisierung, wenn im Repository für die Quellcodeverwaltung ein Commit durchgeführt wird.         |
+|Automatische Synchronisierung<sup>1</sup>     | Aktiviert oder deaktiviert die automatische Synchronisierung, wenn im Repository für die Quellcodeverwaltung ein Commit durchgeführt wird.         |
 |Runbook veröffentlichen     | Wenn diese Option auf **Ein** festgelegt ist, werden die Runbooks automatisch veröffentlicht, nachdem sie aus der Quellcodeverwaltung synchronisiert wurden.         |
 |BESCHREIBUNG     | Ein Textfeld, in dem weitere Details bereitgestellt werden können.        |
+
+<sup>1</sup> Um die automatische Synchronisierung beim Konfigurieren der Integration der Quellcodeverwaltung in Azure Repos zu aktivieren, müssen Sie Projektadministrator sein.
 
 ![Zusammenfassung der Quellcodeverwaltung](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Stellen Sie sicher, dass Sie mit dem richtigen Konto angemeldet sind, wenn Sie die Quellcodeverwaltung konfigurieren. Wenn Sie diesbezüglich unsicher sind, öffnen Sie in Ihrem Browser eine neue Registerkarte, und melden Sie sich von „visualstudio.com“ oder „github.com“ ab, und stellen Sie erneut eine Verbindung mit der Quellcodeverwaltung her.
+> Ihre Anmeldung für Ihr Quellcodeverwaltungs-Repository kann von Ihrer Anmeldung beim Azure-Portal abweichen. Stellen Sie sicher, dass Sie mit dem richtigen Konto für Ihr Quellcodeverwaltungs-Repository angemeldet sind, wenn Sie die Quellcodeverwaltung konfigurieren. Wenn Sie diesbezüglich unsicher sind, öffnen Sie in Ihrem Browser eine neue Registerkarte, und melden Sie sich von „visualstudio.com“ oder „github.com“ ab, und stellen Sie erneut eine Verbindung mit der Quellcodeverwaltung her.
 
 ## <a name="configure-source-control---powershell"></a>Konfigurieren der Quellcodeverwaltung – PowerShell
 
@@ -91,7 +93,7 @@ Die Quellcodeverwaltung erfordert einige Mindestberechtigungen für persönliche
 
 Weitere Informationen zur Erstellung eines persönlichen Zugriffstokens in GitHub finden Sie unter [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) (Erstellen eines persönlichen Zugriffstokens für die Befehlszeile).
 
-|Bereich  |BESCHREIBUNG  |
+|`Scope`  |BESCHREIBUNG  |
 |---------|---------|
 |**Repository**     |         |
 |repo:status     | Zugriff auf den Commitstatus         |
@@ -105,7 +107,7 @@ Weitere Informationen zur Erstellung eines persönlichen Zugriffstokens in GitHu
 
 Weitere Informationen zur Erstellung eines persönlichen Zugriffstokens in Azure Repos finden Sie unter [Authenticate access with personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) (Authentifizieren des Zugriffs mit persönlichen Zugriffstoken).
 
-|Bereich  |
+|`Scope`  |
 |---------|
 |Code (Lesen)     |
 |Projekt und Team (Lesen)|

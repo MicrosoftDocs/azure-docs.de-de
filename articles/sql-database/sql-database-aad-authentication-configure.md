@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60390484"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurieren und Verwalten der Azure Active Directory-Authentifizierung mit SQL
 
@@ -231,7 +231,7 @@ Das folgende Beispiel gibt Informationen zum aktuellen Azure AD-Administrator f√
 Get-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
 ```
 
-Im folgenden Beispiel wird ein Azure AD-Administrator entfernt: 
+Im folgenden Beispiel wird ein Azure AD-Administrator entfernt:
 
 ```powershell
 Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"

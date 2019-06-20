@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b444ad799eaa356d654952c32ac58188de8d7131
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619752"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417372"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: Erstellen einer Blockchainanwendung in Blockchain Workbench
 
@@ -39,9 +39,10 @@ Sie lernen Folgendes:
 
 ## <a name="hello-blockchain"></a>Blockchain
 
-Erstellen Sie eine einfache Anwendung, in der ein Anforderer eine Anforderung sendet und ein Antwortdienst eine Antwort auf die Anforderung sendet. Zum Beispiel kann eine Anforderung lauten: „Hallo, wie geht es dir?“, und die Antwort kann lauten: „Mir geht es gut“. Sowohl die Anforderung als auch die Antwort werden auf der zugrundeliegenden Blockchain aufgezeichnet. 
+Erstellen Sie eine einfache Anwendung, in der ein Anforderer eine Anforderung sendet und ein Antwortdienst eine Antwort auf die Anforderung sendet.
+Zum Beispiel kann eine Anforderung lauten: „Hallo, wie geht es dir?“, und die Antwort kann lauten: „Mir geht es gut“. Sowohl die Anforderung als auch die Antwort werden auf der zugrundeliegenden Blockchain aufgezeichnet.
 
-Führen Sie die Schritte zum Erstellen der Anwendungsdateien aus, oder [laden Sie das Beispiel aus GitHub herunter](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
+Führen Sie die Schritte zum Erstellen der Anwendungsdateien aus, oder [laden Sie das Beispiel aus GitHub herunter](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain).
 
 ## <a name="configuration-file"></a>Konfigurationsdatei
 
@@ -215,7 +216,7 @@ Der Abschnitt zu den Anwendungsrollen definiert die Benutzerrollen, die innerhal
 
 ### <a name="workflows"></a>Workflows
 
-Workflows definieren eine oder mehrere Stufen und Aktionen des Vertrages. Im Anforderung/Antwort-Szenario ist die erste Stufe (Zustand) des Workflows ein Anforderer (Rolle), der eine Aktion (Übergang) ausführt, um eine Anforderung (Funktion) zu senden. Die nächste Stufe (Zustand) ist ein Antwortdienst (Rolle), der eine Aktion (Übergang) ausführt, um eine Antwort (Funktion) zu senden. Der Workflow einer Anwendung kann Eigenschaften, Funktionen und Zustände beinhalten, die den Ablauf eines Vertrages beschreiben. 
+Workflows definieren eine oder mehrere Stufen und Aktionen des Vertrages. Im Anforderung/Antwort-Szenario ist die erste Stufe (Zustand) des Workflows ein Anforderer (Rolle), der eine Aktion (Übergang) ausführt, um eine Anforderung (Funktion) zu senden. Die nächste Stufe (Zustand) ist ein Antwortdienst (Rolle), der eine Aktion (Übergang) ausführt, um eine Antwort (Funktion) zu senden. Der Workflow einer Anwendung kann Eigenschaften, Funktionen und Zustände beinhalten, die den Ablauf eines Vertrages beschreiben.
 
 Weitere Informationen zum Inhalt von Konfigurationsdateien finden Sie unter [Referenz zur Azure Blockchain-Workflowkonfiguration](configuration.md).
 
@@ -229,24 +230,23 @@ Erstellen Sie in Ihrem bevorzugten Editor eine Datei namens `HelloBlockchain.sol
 
 ### <a name="version-pragma"></a>Versionspragma
 
-Eine bewährte Methode ist, die Version von Solidity anzugeben, auf die Sie abzielen. Die Angabe der Version hilft, Inkompatibilitäten mit zukünftigen Solidity-Versionen zu vermeiden. 
+Eine bewährte Methode ist, die Version von Solidity anzugeben, auf die Sie abzielen. Die Angabe der Version hilft, Inkompatibilitäten mit zukünftigen Solidity-Versionen zu vermeiden.
 
 Fügen Sie das folgende Versionspragma am Anfang der intelligenten Vertragscodedatei `HelloBlockchain.sol` hinzu.
 
-
-  ``` solidity
-  pragma solidity ^0.4.20;
-  ```
+``` solidity
+pragma solidity >=0.4.25 <0.6.0;
+```
 
 ### <a name="configuration-and-smart-contract-code-relationship"></a>Beziehung zwischen Konfiguration und intelligentem Vertragscode
 
-Blockchain Workbench verwendet die Konfigurationsdatei und die intelligente Vertragscodedatei, um eine Blockchainanwendung zu erstellen. Es besteht ein Zusammenhang zwischen dem, was in der Konfiguration definiert ist, und dem Code im intelligenten Vertrag. Vertragsdetails, Funktionen, Parameter und Typen müssen übereinstimmen, um die Anwendung zu erstellen. Blockchain Workbench überprüft die Dateien vor der Erstellung der Anwendung. 
+Blockchain Workbench verwendet die Konfigurationsdatei und die intelligente Vertragscodedatei, um eine Blockchainanwendung zu erstellen. Es besteht ein Zusammenhang zwischen dem, was in der Konfiguration definiert ist, und dem Code im intelligenten Vertrag. Vertragsdetails, Funktionen, Parameter und Typen müssen übereinstimmen, um die Anwendung zu erstellen. Blockchain Workbench überprüft die Dateien vor der Erstellung der Anwendung.
 
 ### <a name="contract"></a>Vertrag
 
 Fügen Sie den Header des **Vertrags** zu Ihrer `HelloBlockchain.sol` intelligenten Vertragscodedatei hinzu.
 
-```
+``` solidity
 contract HelloBlockchain {
 ```
 
@@ -254,17 +254,17 @@ contract HelloBlockchain {
 
 Zustandsvariablen speichern für jede Vertragsinstanz Werte des Zustands. Die Zustandsvariablen in Ihrem Vertrag müssen mit den in der Konfigurationsdatei definierten Workfloweigenschaften übereinstimmen.
 
-Fügen Sie die Zustandsvariablen zu Ihrem Vertrag in Ihrer intelligenten Vertragscodedatei `HelloBlockchain.sol` hinzu. 
+Fügen Sie die Zustandsvariablen zu Ihrem Vertrag in Ihrer intelligenten Vertragscodedatei `HelloBlockchain.sol` hinzu.
 
-```
+``` solidity
     //Set of States
     enum StateType { Request, Respond}
-    
+
     //List of properties
     StateType public  State;
     address public  Requestor;
     address public  Responder;
-    
+
     string public RequestMessage;
     string public ResponseMessage;
 ```
@@ -275,11 +275,11 @@ Der Konstruktor definiert Eingabeparameter für eine neue intelligente Vertragsi
 
 Schreiben Sie in die Konstruktorfunktion eine beliebige Geschäftslogik, die Sie vor dem Erstellen des Vertrags ausführen möchten. Initialisieren Sie z.B. die Zustandsvariablen mit Anfangswerten.
 
-Fügen Sie die Konstruktorfunktion zu Ihrem Vertrag in Ihrer intelligenten Vertragscodedatei `HelloBlockchain.sol` hinzu. 
+Fügen Sie die Konstruktorfunktion zu Ihrem Vertrag in Ihrer intelligenten Vertragscodedatei `HelloBlockchain.sol` hinzu.
 
-```
+``` solidity
     // constructor function
-    constructor(string message) public
+    constructor(string memory message) public
     {
         Requestor = msg.sender;
         RequestMessage = message;
@@ -293,22 +293,23 @@ Funktionen sind die ausführbaren Einheiten der Geschäftslogik innerhalb eines 
 
 Schreiben Sie eine beliebige Geschäftslogik, die Sie in der Funktion ausführen möchten. Zum Beispiel, dass der Wert einer Zustandsvariablen geändert wird.
 
-1. Fügen Sie die folgenden Funktionen zu Ihrem Vertrag in Ihrer intelligenten Vertragscodedatei `HelloBlockchain.sol` hinzu. 
+1. Fügen Sie die folgenden Funktionen zu Ihrem Vertrag in Ihrer intelligenten Vertragscodedatei `HelloBlockchain.sol` hinzu.
 
-    ```
+    ``` solidity
         // call this function to send a request
-        function SendRequest(string requestMessage) public
+        function SendRequest(string memory requestMessage) public
         {
             if (Requestor != msg.sender)
             {
                 revert();
             }
+    
             RequestMessage = requestMessage;
             State = StateType.Request;
         }
     
         // call this function to send a response
-        function SendResponse(string responseMessage) public
+        function SendResponse(string memory responseMessage) public
         {
             Responder = msg.sender;
     
@@ -334,7 +335,7 @@ Um eine Blockchainanwendung zu Blockchain Workbench hinzuzufügen, laden Sie die
 Die Bereitstellung der Blockchainanwendung kann einige Minuten in Anspruch nehmen. Wenn die Bereitstellung abgeschlossen ist, wird die neue Anwendung unter **Anwendungen** angezeigt. 
 
 > [!NOTE]
-> Sie können Blockchainanwendungen auch über die [Azure Blockchain Workbench-REST-API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench) erstellen. 
+> Sie können Blockchainanwendungen auch über die [Azure Blockchain Workbench-REST-API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench) erstellen.
 
 ## <a name="add-blockchain-application-members"></a>Hinzufügen von Mitgliedern zu einer Blockchainanwendung
 

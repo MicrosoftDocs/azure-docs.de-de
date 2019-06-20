@@ -1,26 +1,26 @@
 ---
-title: Unternehmensintegration mit Azure Logic Apps | Microsoft-Dokumentation
-description: In dieser Übersicht wird beschrieben, wie Sie durch das Automatisieren von Aufgaben, Workflows und Geschäftsprozessen Lösungen für die Unternehmensintegration erstellen können, die Apps, Daten, Dienste und Systeme für unternehmens- und organisationsübergreifend integrieren. Erstellen Sie Lösungen für die Datenintegration, Systemintegration, Enterprise Application Integration (EAI) und Orchestrierungsszenarien.
+title: Unternehmensintegration mit Azure Logic Apps
+description: Diese Übersicht enthält Informationen dazu, wie Sie durch das Automatisieren und Orchestrieren von Aufgaben, Workflows und Geschäftsprozessen Lösungen für die Unternehmensintegration erstellen können, die Apps, Daten, Dienste und Systeme unternehmens- und organisationsübergreifend integrieren. Erstellen Sie Lösungen für die Datenintegration, Systemintegration, Enterprise Application Integration (EAI) und Orchestrierungsszenarien.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065270"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299106"
 ---
 # <a name="what-is-azure-logic-apps"></a>Was ist Azure Logic Apps?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) ist ein Clouddienst, der Sie beim Automatisieren und Orchestrieren von Aufgaben, Geschäftsprozessen und [Workflows](#logic-app-concepts) unterstützt, wenn Sie Apps, Daten, Systeme und Dienste unternehmens- und organisationsübergreifend integrieren müssen. Logic Apps vereinfacht das Entwerfen und Erstellen von skalierbaren Lösungen für die App-[Integration](https://azure.microsoft.com/product-categories/integration/), Datenintegration, Systemintegration, Enterprise Application Integration (EAI) und B2B-Kommunikation (Business-to-Business) – in der Cloud, lokal oder an beiden Orten.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) ist ein Clouddienst, der Sie beim Planen, Automatisieren und Orchestrieren von Aufgaben, Geschäftsprozessen und [Workflows](#logic-app-concepts) unterstützt, wenn Sie Apps, Daten, Systeme und Dienste unternehmens- und organisationsübergreifend integrieren müssen. Logic Apps vereinfacht das Entwerfen und Erstellen von skalierbaren Lösungen für die App-[Integration](https://azure.microsoft.com/product-categories/integration/), Datenintegration, Systemintegration, Enterprise Application Integration (EAI) und B2B-Kommunikation (Business-to-Business) – in der Cloud, lokal oder an beiden Orten.
 
 Hier sind beispielsweise einige Workloads angegeben, die Sie mit Logik-Apps automatisieren können:
 
@@ -35,7 +35,7 @@ Zum Erstellen von Lösungen für die Unternehmensintegration mit Azure Logic App
 
 ## <a name="how-does-logic-apps-work"></a>Wie funktioniert Logic Apps? 
 
-Jeder Logik-App-Workflow beginnt mit einem Trigger, der ausgelöst wird, wenn ein bestimmtes Ereignis eintritt oder neue verfügbare Daten bestimmte Kriterien erfüllen. Viele Trigger enthalten grundlegende Planungsfunktionen, damit Sie angeben können, wie regelmäßig Ihre Workloads ausgeführt werden. Starten Sie Ihre Workflows mit dem Zeitplantrigger, um weitere Szenarien für die benutzerdefinierte Planung zu nutzen. Informieren Sie sich über das [Erstellen von zeitplanbasierten Workflows](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
+Jeder Logik-App-Workflow beginnt mit einem Trigger, der ausgelöst wird, wenn ein bestimmtes Ereignis eintritt oder neue verfügbare Daten bestimmte Kriterien erfüllen. Viele von den Connectors in Logic Apps bereitgestellten Trigger enthalten grundlegende Planungsfunktionen, damit Sie festlegen können, wie regelmäßig Ihre Workloads ausgeführt werden. Für eine komplexere Zeitplanung oder fortgeschrittene Serien können Sie einen Recurrence-Trigger als ersten Schritt in einem Workflow verwenden. Informieren Sie sich über [zeitplanbasierte Workflows](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Bei jeder Auslösung des Triggers erstellt das Logic Apps-Modul eine Logik-App-Instanz, mit der die Aktionen im Workflow ausgeführt werden. Diese Aktionen können auch Datenkonvertierungen und Flusssteuerungen umfassen, z.B. bedingte Anweisungen, switch-Anweisungen, Schleifen und Verzweigungen. Diese Logik-App beginnt beispielsweise mit einem Dynamics 365-Trigger mit dem integrierten Kriterium „When a record is updated“ (Wenn ein Datensatz aktualisiert wird). Wenn der Trigger ein Ereignis erkennt, das mit diesem Kriterium übereinstimmt, wird der Trigger ausgelöst und führt die Aktionen des Workflows aus. Hier umfassen diese Aktionen eine XML-Transformation, Datenaktualisierungen, Entscheidungsverzweigungen und E-Mail-Benachrichtigungen.
 
@@ -132,14 +132,9 @@ All diese Dienste dienen Ihnen als Hilfe beim Verknüpfen bzw. Verbinden von ver
 
 ## <a name="get-started"></a>Erste Schritte 
 
-Logic Apps ist einer der vielen Dienste, die unter Microsoft Azure gehostet werden. Bevor Sie beginnen können, benötigen Sie also ein Azure-Abonnement. Falls Sie kein Abonnement besitzen, können Sie sich <a href="https://azure.microsoft.com/free/" target="_blank">für ein kostenloses Azure-Konto registrieren</a>. 
+Logic Apps ist einer der vielen Dienste, die unter Microsoft Azure gehostet werden. Bevor Sie beginnen können, benötigen Sie also ein Azure-Abonnement. Falls Sie kein Abonnement besitzen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/). 
 
 Wenn Sie über ein Azure-Abonnement verfügen, können Sie [diese Schnellstartanleitung zum Erstellen Ihrer ersten Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md) ausprobieren. Darin wird beschrieben, wie damit neuer Inhalt auf einer Website per RSS-Feed überwacht und beim Erscheinen von neuem Inhalt E-Mails gesendet werden.
-
-## <a name="support-and-feedback"></a>Support und Feedback
-
-* Sollten Sie Fragen haben, besuchen Sie das [Azure Logic Apps-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Wenn Sie Features vorschlagen oder für Vorschläge abstimmen möchten, besuchen Sie die [Website für Logic Apps-Benutzerfeedback](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

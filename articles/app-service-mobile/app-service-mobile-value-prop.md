@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f3eb781e7f84e8cf03a975f7cb77f6a7ef074d44
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60861375"
 ---
 # <a name="getting-started"></a>Informationen zu Mobile Apps in Azure App Service
 Azure App Service ist ein vollständig verwaltetes PaaS-Angebot ([Platform-as-a-Service](https://azure.microsoft.com/overview/what-is-paas/)) für professionelle Entwickler. Der Dienst stellt umfangreiche Funktionen für Web- und Integrationsszenarien sowie für mobile Szenarien bereit. 

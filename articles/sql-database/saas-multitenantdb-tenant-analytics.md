@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4bf97c0c447bfabc1454959d457bbd50f3490299
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481381"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242797"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Mandantenübergreifende Analysen mit extrahierten Daten – Mehrinstanzenfähige App
  
@@ -100,9 +100,9 @@ Nachdem Sie die Anwendung bereitgestellt und mit interessanten Mandantendaten ge
 
 Führen Sie im Objekt-Explorer die folgenden Schritte aus:
 
-1. Erweitern Sie den Server *tenants1-mt-\<Benutzer\>*.
+1. Erweitern Sie den Server *tenants1-mt-\<Benutzer\>* .
 2. Erweitern Sie den Knoten „Datenbanken“, und sehen Sie sich die Datenbank *tenants1* mit mehreren Mandanten an.
-3. Erweitern Sie den Server *catalog-mt-\<Benutzer\>*.
+3. Erweitern Sie den Server *catalog-mt-\<Benutzer\>* .
 4. Überprüfen Sie, ob der Analysespeicher und die Datenbank „jobaccount“ angezeigt werden.
 
 Zeigen Sie durch Erweitern des Knotens für den Analysespeicher die folgenden Datenbankelemente im Objekt-Explorer von SSMS an:
@@ -242,5 +242,5 @@ Glückwunsch!
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 Zusätzliche [Tutorials, die auf der Wingtip-SaaS-Anwendung aufbauen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) 
-- [Elastische Aufträge](sql-database-elastic-jobs-overview.md)
+- [Elastische Aufträge](elastic-jobs-overview.md)
 - [Mandantenübergreifende Analysen mit extrahierten Daten – App mit einem Mandanten](saas-tenancy-tenant-analytics.md) 

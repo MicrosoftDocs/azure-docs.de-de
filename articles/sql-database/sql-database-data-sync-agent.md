@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: adb8917605a00208b328e7fd15f96d28c7838988
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60201662"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Datensynchronisierungs-Agent für die Azure SQL-Datensynchronisierung
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
 ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276846"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60542406"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Vorbereiten eines virtuellen Oracle Linux-Computers für Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

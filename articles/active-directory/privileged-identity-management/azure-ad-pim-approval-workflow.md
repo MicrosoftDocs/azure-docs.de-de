@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60289723"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Genehmigen oder Ablehnen von Anforderungen für Azure AD-Rollen in PIM
 

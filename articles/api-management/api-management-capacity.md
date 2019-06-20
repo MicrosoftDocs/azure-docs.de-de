@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60658307"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapazität einer Azure API Management-Instanz
 

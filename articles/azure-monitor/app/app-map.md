@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509968"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964036"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Anwendungsübersicht: Selektieren verteilter Anwendungen
 
@@ -94,7 +94,9 @@ Wählen Sie **Warnungen** aus, um aktive Warnungen und die zugrunde liegenden Re
 
 In der Anwendungsübersicht wird die Eigenschaft **Cloudrollenname** verwendet, um die Komponenten in der Zuordnung zu identifizieren. Das Application Insights SDK versieht die von Komponenten ausgegebenen Telemetriedaten automatisch mit der Eigenschaft „Cloudrollenname“. So fügt das SDK der Eigenschaft „Cloudrollenname“ beispielsweise einen Websitenamen oder einen Dienstrollennamen hinzu. Manchmal soll der Standardwert jedoch möglicherweise überschrieben werden. So überschreiben Sie den Cloudrollennamen und ändern den Inhalt der Anwendungsübersicht
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**Schreiben Sie einen benutzerdefinierten Telemetrie-Initialisierer wie nachfolgend gezeigt.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -110,16 +112,16 @@ namespace CustomInitializer.Telemetry
             {
                 //set custom role name here
                 telemetry.Context.Cloud.RoleName = "Custom RoleName";
-                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }
 }
 ```
 
-**Laden des Initialisierers**
+**Laden Sie den Initialisierer in die aktive TelemetryConfiguration.**
 
-In "ApplicationInsights.config":
+In „ApplicationInsights.config“:
 
 ```xml
     <ApplicationInsights>
@@ -131,7 +133,10 @@ In "ApplicationInsights.config":
     </ApplicationInsights>
 ```
 
-Alternativ können Sie den Initialisierer im Code instanziieren (beispielsweise in „Global.aspx.cs“):
+> [!NOTE]
+> Das Hinzufügen eines Initialisieres mit `ApplicationInsights.config` ist für ASP.NET Core-Anwendungen nicht gültig.
+
+Alternativ können Sie für ASP.NET-Web-Apps den Initialisierer im Code instanziieren (beispielsweise in „Global.aspx.cs“):
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ Alternativ können Sie den Initialisierer im Code instanziieren (beispielsweise 
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+Zum Hinzufügen eines neuen `TelemetryInitializer` für [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers)-Anwendungen wird dieser wie unten gezeigt dem Abhängigkeitsinjektionscontainer hinzugefügt. Dies erfolgt in der `ConfigureServices`-Methode Ihrer `Startup.cs`-Klasse.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 

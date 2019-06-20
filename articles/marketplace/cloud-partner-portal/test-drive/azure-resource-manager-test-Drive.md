@@ -1,25 +1,19 @@
 ---
-title: Azure Resource Manager-Testversion | Microsoft-Dokumentation
+title: Erstellen einer Azure Resource Manager-Testversion | Azure Marketplace
 description: Erstellen einer Marketplace-Testversion mithilfe von Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Patrick .Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.author: pabutler
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606440"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Testversion
 
@@ -95,7 +89,7 @@ Zudem ist zu beachten, dass **alle Parameter optional sind**. Wenn Sie also kein
 | **password**    | Sichere Zeichenfolge    | Neues zufälliges Kennwort | Lp!ACS\^2kh     |
 | **session id**   | Zeichenfolge          | Eindeutige Sitzungs-ID für Testversion (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>username
+#### <a name="username"></a>userName
 
 In der Testversion wird dieser Parameter mit einem **Basis-URI** des Bereitstellungspakets initialisiert, sodass Sie mit diesem Parameter den URI einer beliebigen in dem Paket enthaltenen Datei erstellen können.
 
@@ -122,7 +116,7 @@ In Ihrer Vorlage können Sie mit diesem Parameter einen URI einer in dem Bereits
 }
 ```
 
-#### <a name="username"></a>username
+#### <a name="username"></a>userName
 
 In der Testversion wird dieser Parameter mit einem neuen zufälligen Benutzernamen initialisiert:
 
@@ -368,7 +362,7 @@ Berechnen Sie nun die Gesamtanzahl der möglichen gleichzeitig ausführbaren Tes
 
 **Test Drive Resource Manager template** (Resource Manager-Vorlage für Testversion): *Erforderlich* Laden Sie hier Ihre Resource Manager-Vorlage hoch. Dies ist die Datei, die Sie im vorherigen Abschnitt oben erstellt haben. Geben Sie der Hauptvorlagendatei den Namen „main-template.json“, und stellen Sie sicher, dass die Resource Manager-Vorlage Ausgabeparameter für erforderliche Hauptvariablen enthält. (Es muss sich um eine ZIP-Datei handeln.)
 
-**Zugriffsinformationen:** *Erforderlich* Nachdem ein Kunde seine Testversion erhalten hat, erhält er auch die Zugriffsinformationen. In diesen Anweisungen können die nützlichen Ausgabeparameter aus der Resource Manager-Vorlage für die Testversion angegeben werden. Verwenden Sie zum Einfügen von Ausgabeparametern doppelte geschweifte Klammern (z.B. **{{Ausgabename}}**). So werden sie am Speicherort korrekt eingefügt. (Zur Darstellung im Front-End wird die HTML-Formatierung von Zeichenfolgen empfohlen.)
+**Zugriffsinformationen:** *Erforderlich* Nachdem ein Kunde seine Testversion erhalten hat, erhält er auch die Zugriffsinformationen. In diesen Anweisungen können die nützlichen Ausgabeparameter aus der Resource Manager-Vorlage für die Testversion angegeben werden. Verwenden Sie zum Einfügen von Ausgabeparametern doppelte geschweifte Klammern (z.B. **{{Ausgabename}}** ). So werden sie am Speicherort korrekt eingefügt. (Zur Darstellung im Front-End wird die HTML-Formatierung von Zeichenfolgen empfohlen.)
 
 ### <a name="test-drive-deployment-subscription-details"></a>Abonnementdetails für Bereitstellung der Testversion
 
@@ -388,7 +382,7 @@ Erstellen Sie andernfalls einen neuen Mandanten in Azure Active Directory.
 
 ![Liste der Azure Active Directory-Mandanten](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definieren der Organisation, der Domäne und des Lands für den Azure AD-Mandanten](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definieren der Organisation, der Domäne und des Lands bzw. der Region für den Azure AD-Mandanten](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Bestätigen der Auswahl](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -409,7 +403,7 @@ Klicken Sie auf Speichern. Im letzten Schritt wird die Anwendungs-ID für diese 
 Wenn die Anwendung zum Durchführen der Bereitstellung im Abonnement verwendet wird, muss die Anwendung im Abonnement als Mitwirkender hinzugefügt werden. Dazu müssen folgende Schritte ausgeführt werden:
 
 1. Navigieren Sie zum Blatt „Abonnements“, und wählen Sie das entsprechende Abonnement aus, das nur für die Testversion verwendet wird.
-1. Klicken Sie auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 1. Klicken Sie auf die Registerkarte **Rollenzuweisungen**.  ![Hinzufügen eines neuen Zugriffssteuerungsprinzipals](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Klicken Sie auf **Rollenzuweisung hinzufügen**.
 1. Legen Sie die Rolle als **Mitwirkender** fest.

@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279351"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60400659"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Verstehen und Verwenden von Azure IoT Hub SDKs
 

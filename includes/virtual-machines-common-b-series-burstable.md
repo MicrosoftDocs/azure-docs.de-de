@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: d76a3bb463452207e4b5b023cfe07dfd156e95f4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: ecf70bbbeae8fd68309f3343615f021038fb10b6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684683"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178087"
 ---
 Bei virtuellen Computern der B-Serie können Sie wählen, welche VM-Größe Ihnen die nötige Grundleistung für Ihre Workload bietet. Zudem haben Sie die Möglichkeit, die CPU-Leistung um bis zu 100 Prozent einer vCPU vom Typ Intel® Broadwell E5-2673 v4 mit 2,3 GHz oder Intel® Haswell E5-2673 v3 mit 2,4 GHz zu steigern.
 
@@ -21,15 +21,15 @@ Virtuelle Computer der B-Serie sind ideal für Workloads, die nicht kontinuierli
 
 Die B-Serie ist in sechs VM-Größen erhältlich:
 
-| Größe             | vCPU  | Arbeitsspeicher: GiB | Temporärer Speicher (SSD): GiB | CPU-Grundleistung des virtuellen Computers | Maximale CPU-Leistung des virtuellen Computers | Guthabenbildung/Stunde | Maximalguthaben | Max. Anzahl Datenträger | Maximaler Durchsatz (Cache und temporärer Speicher): IOPS/MBps | Maximaler Durchsatz des Datenträgers ohne Cache: IOPS/MBps | Maximale Anzahl NICs |          
-|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
-| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5 %                   | 100 %                   | 3                  | 72            | 2                                      | 200/10                                  | 160/10                                  | 2  |
-| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100 %                   | 6                  | 144            | 2                       | 400/10                                  | 320/10                                  | 2  |
-| Standard_B1ms | 1           | 2              | 4                          | 20%                   | 100 %                   | 12                 | 288           | 2                        | 800/10                                  | 640/10                                  | 2  |
-| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200 %                   | 24                 | 576            | 4                                      | 1600/15                                 | 1280/15                                 | 3  |
-| Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 200 %                   | 36                 | 864            | 4                                      | 2400/22,5                               | 1920/22,5                               | 3  |
-| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400 %                   | 54                 | 1296           | 8                                      | 3600/35                                 | 2880/35                                 | 4  |
-| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800 %                   | 81                 | 1944           | 16                                     | 4320/50                                 | 4320/50                                 | 4  |
+| Größe             | vCPU  | Arbeitsspeicher: GiB | Temporärer Speicher (SSD): GiB | CPU-Grundleistung des virtuellen Computers | Maximale CPU-Leistung des virtuellen Computers | Anfängliche Guthaben | Guthabenbildung/Stunde | Maximalguthaben | Max. Anzahl Datenträger | Maximaler Durchsatz (Cache und temporärer Speicher): IOPS/MBps | Maximaler Durchsatz des Datenträgers ohne Cache: IOPS/MBps | Maximale Anzahl NICs |          
+|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
+| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5 %                   | 100 %                   | 30                   | 3                  | 72            | 2                                      | 200/10                                  | 160/10                                  | 2  |
+| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100 %                   | 30                   | 6                  | 144            | 2                        | 400/10                                  | 320/10                                  | 2  |
+| Standard_B1ms | 1           | 2              | 4                          | 20%                   | 100 %                   | 30                   | 12                 | 288           | 2                         | 800/10                                  | 640/10                                  | 2  |
+| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200 %                   | 60                   | 24                 | 576            | 4                                      | 1600/15                                 | 1280/15                                 | 3  |
+| Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 200 %                   | 60                   | 36                 | 864            | 4                                      | 2400/22,5                               | 1920/22,5                               | 3  |
+| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400 %                   | 120                   | 54                 | 1296           | 8                                      | 3600/35                                 | 2880/35                                 | 4  |
+| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800 %                   | 240                   | 81                 | 1944           | 16                                     | 4320/50                                 | 4320/50                                 | 4  |
 
 <sup>1</sup> B1ls wird nur unter Linux unterstützt
 

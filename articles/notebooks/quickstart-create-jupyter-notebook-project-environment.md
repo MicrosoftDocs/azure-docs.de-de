@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262005"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754032"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Schnellstart: Erstellen eines Projekts mit benutzerdefinierter Umgebung
 
@@ -77,4 +77,4 @@ Ein Projekt in Azure Notebooks ist eine Sammlung von Dateien, wie etwa Notebooks
 > [Verwalten und Konfigurieren von Projekten in Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Erstellen und Ausführen einer Jupyter Notebook-Datei mit Python](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Erstellen und Ausführen eines Jupyter-Notebooks für lineare Regression](tutorial-create-run-jupyter-notebook.md)

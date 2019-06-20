@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 42ca0c116521b7493c587271422fa760f2376533
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 817a19d5cabd7d20dc17154f29b4430e6b96c5fa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767230"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072043"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Schnellstart: Abrufen einer Antwort aus einer Wissensdatenbank mit cURL
 

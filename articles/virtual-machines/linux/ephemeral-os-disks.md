@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: c04ff09ba769cda2968bde9ae9a89e8eaf48cedf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65157874"
 ---
 # <a name="preview-ephemeral-os-disks-for-azure-vms"></a>Vorschau: Kurzlebige Betriebssystemdatenträger für virtuelle Azure-Computer

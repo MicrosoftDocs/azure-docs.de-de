@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: 408ef5abeed238a2bf4437bea0b77b6768961f53
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4b2d88004696515169ffde96b50d2771bcc1a669
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661155"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428131"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Bereitstellen und Entfernen von Anwendungen mithilfe von FabricClient
 > [!div class="op_single_selector"]
@@ -39,15 +39,15 @@ Sobald der [Anwendungstyp gepackt][10] wurde, ist die Anwendung für die Bereits
 3. Entfernen des Anwendungspakets aus dem Image-Speicher
 4. Erstellen der Anwendungsinstanz
 
-Nachdem eine Anwendung bereitgestellt wurde und eine Instanz im Cluster ausgeführt wird, können Sie die Anwendungsinstanz und ihren Anwendungstyp löschen. Das vollständige Entfernen einer Anwendung aus dem Cluster umfasst die folgenden Schritte:
+Nachdem Sie eine Anwendung bereitgestellt und eine Instanz im Cluster ausgeführt haben, können Sie die Anwendungsinstanz und den zugehörigen Anwendungstyp löschen. Führen Sie diese Schritte aus, um eine Anwendung vollständig aus dem Cluster zu entfernen:
 
 1. Entfernen (oder Löschen) der ausgeführten Anwendungsinstanz
 2. Aufheben der Registrierung des Anwendungstyps, wenn er nicht mehr benötigt wird
 
-Wenn Sie Visual Studio zum Bereitstellen und Debuggen von Anwendungen in Ihrem lokalen Entwicklungscluster verwenden, werden alle vorherigen Schritte automatisch über ein PowerShell-Skript ausgeführt.  Dieses Skript befindet sich im Ordner *Skripts* des Anwendungsprojekts. In diesem Artikel wird die grundlegende Funktionsweise dieses Skripts erläutert, sodass Sie die gleichen Vorgänge außerhalb von Visual Studio ausführen können. 
+Wenn Sie Visual Studio zum Bereitstellen und Debuggen von Anwendungen in Ihrem lokalen Entwicklungscluster verwenden, werden alle vorherigen Schritte automatisch über ein PowerShell-Skript ausgeführt.  Dieses Skript befindet sich im Ordner *Skripts* des Anwendungsprojekts. In diesem Artikel wird die grundlegende Funktionsweise dieses Skripts erläutert, damit Sie die gleichen Vorgänge außerhalb von Visual Studio durchführen können. 
  
 ## <a name="connect-to-the-cluster"></a>Verbinden mit dem Cluster
-Stellen Sie durch Erstellen einer [FabricClient](/dotnet/api/system.fabric.fabricclient)-Instanz eine Verbindung mit dem Cluster her, bevor Sie die Codebeispiele in diesem Artikel ausführen. Beispiele für das Herstellen einer Verbindung mit einem lokalen Entwicklungscluster oder einem Remotecluster bzw. einem mit Azure Active Directory, X509-Zertifikaten oder Windows Active Directory gesicherten Cluster finden Sie unter [Herstellen einer Verbindung mit einem sicheren Cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Führen Sie zum Herstellen der Verbindung mit dem lokalen Entwicklungscluster den folgenden Befehl aus:
+Stellen Sie durch Erstellen einer [FabricClient](/dotnet/api/system.fabric.fabricclient)-Instanz eine Verbindung mit dem Cluster her, bevor Sie die Codebeispiele in diesem Artikel ausführen. Beispiele für das Herstellen einer Verbindung mit einem lokalen Entwicklungscluster oder einem Remotecluster bzw. einem mit Azure Active Directory, X509-Zertifikaten oder Windows Active Directory gesicherten Cluster finden Sie unter [Herstellen einer Verbindung mit einem sicheren Cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Führen Sie zum Herstellen der Verbindung mit dem lokalen Entwicklungscluster das folgende Beispiel aus:
 
 ```csharp
 // Connect to the local cluster.
@@ -55,9 +55,9 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Hochladen des Anwendungspakets
-Angenommen, Sie erstellen und verpacken eine Anwendung namens *MyApplication* in Visual Studio. Der Name des Anwendungstyps ist in der Datei „ApplicationManifest.xml“ standardmäßig als „MyApplicationType“ aufgeführt.  Das Anwendungspaket mit den erforderlichen Anwendungs- und Dienstmanifesten sowie Code-/Konfigurations-/Datenpaketen befindet sich in *C:\Benutzer\&lt;Benutzername&gt;\Eigene Dokumente\Visual Studio 2017\Projekte\MeineAnwendung\MeineAnwendung\pkg\Debuggen*.
+Angenommen, Sie erstellen und verpacken eine Anwendung namens *MyApplication* in Visual Studio. Der Name des Anwendungstyps ist in der Datei „ApplicationManifest.xml“ standardmäßig als „MyApplicationType“ aufgeführt.  Das Anwendungspaket mit den erforderlichen Anwendungs- und Dienstmanifesten sowie Code-/Konfigurations-/Datenpaketen befindet sich unter *C:\Benutzer\&lt;Benutzername&gt;\Eigene Dokumente\Visual Studio 2019\Projekte\MeineAnwendung\MeineAnwendung\pkg\Debuggen*.
 
-Beim Hochladen des Anwendungspakets wird das Paket an einem Speicherort gespeichert, an dem die internen Service Fabric-Komponenten auf das Paket zugreifen können. Service Fabric überprüft das Anwendungspaket während der Registrierung des Pakets. Wenn Sie das Anwendungspaket jedoch lokal überprüfen möchten (d.h. vor dem Hochladen), verwenden Sie das Cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
+Beim Hochladen des Anwendungspakets wird das Paket an einem Speicherort gespeichert, an dem die internen Service Fabric-Komponenten auf das Paket zugreifen können. Service Fabric überprüft das Anwendungspaket während der Registrierung des Pakets. Wenn Sie das Anwendungspaket aber lokal überprüfen möchten (also vor dem Hochladen), müssen Sie das Cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) verwenden.
 
 Mit der [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage)-API wird das Anwendungspaket in den Clusterimagespeicher hochgeladen. 
 
@@ -76,14 +76,14 @@ Die [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.querycl
 Es wird empfohlen, nach erfolgreicher Registrierung der Anwendung das Anwendungspaket zu entfernen.  Sie können Systemressourcen freigeben, indem Sie Anwendungspakete aus dem Imagespeicher löschen.  Nicht verwendete Anwendungspakete nehmen Speicherplatz in Anspruch und führen zu Leistungsproblemen der Anwendung. Löschen Sie das Anwendungspaket aus dem Imagespeicher mithilfe der API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
 
 ## <a name="create-an-application-instance"></a>Erstellen einer Anwendungsinstanz
-Sie können eine Anwendung mit einem beliebigen Anwendungstyp instanziieren, der mit der [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync)-API erfolgreich registriert wurde. Der Name jeder Anwendung muss mit dem *„fabric:“*-Schema beginnen und für jede Anwendungsinstanz (innerhalb eines Clusters) eindeutig sein. Wenn im Anwendungsmanifest des Zielanwendungstyps Standarddienste festgelegt wurden, werden diese ebenfalls erstellt.
+Sie können eine Anwendung mit einem beliebigen Anwendungstyp instanziieren, der mit der [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync)-API erfolgreich registriert wurde. Der Name jeder Anwendung muss mit dem *„fabric:“* -Schema beginnen und für jede Anwendungsinstanz (innerhalb eines Clusters) eindeutig sein. Wenn im Anwendungsmanifest des Zielanwendungstyps Standarddienste festgelegt wurden, werden diese ebenfalls erstellt.
 
 Für jede Version des registrierten Anwendungstyps können mehrere Anwendungsinstanzen erstellt werden. Jede Anwendungsinstanz wird isoliert mit einem eigenen Arbeitsverzeichnis und einer Reihe von Prozessen ausgeführt.
 
 Um anzuzeigen, welche benannten Anwendungen und Dienste im Cluster ausgeführt werden, führen Sie die APIs [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) und [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) aus.
 
 ## <a name="create-a-service-instance"></a>Erstellen einer Dienstinstanz
-Mit der [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync)-API können Sie einen Dienst über einen Diensttyp instanziieren.  Wenn der Dienst im Anwendungsmanifest als Standarddienst deklariert ist, wird er beim Instanziieren der Anwendung instanziiert.  Wenn die [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync)-API für einen bereits instanziierten Dienst aufgerufen wird, wird eine Ausnahme des Typs FabricException zurückgegeben, die einen Fehlercode mit dem Wert „FabricErrorCode.ServiceAlreadyExists“ enthält.
+Mit der [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync)-API können Sie einen Dienst über einen Diensttyp instanziieren.  Wenn der Dienst im Anwendungsmanifest als Standarddienst deklariert ist, wird er beim Instanziieren der Anwendung instanziiert.  Wenn die [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync)-API für einen Dienst aufgerufen wird, der bereits instanziiert ist, wird eine Ausnahme vom Typ „FabricException“ zurückgegeben. Die Ausnahme enthält einen Fehlercode mit dem Wert „FabricErrorCode.ServiceAlreadyExists“.
 
 ## <a name="remove-a-service-instance"></a>Entfernen einer Dienstinstanz
 Wenn eine Dienstinstanz nicht mehr benötigt wird, können Sie sie durch Aufrufen der [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync)-API aus der ausgeführten Anwendungsinstanz entfernen.  
@@ -98,7 +98,7 @@ Wenn eine Anwendungsinstanz nicht mehr benötigt wird, können Sie sie anhand de
 > Dieser Vorgang kann nicht rückgängig gemacht werden, und der Anwendungsstatus kann nicht wiederhergestellt werden.
 
 ## <a name="unregister-an-application-type"></a>Aufheben der Registrierung eines Anwendungstyps
-Wird eine bestimmte Version eines Anwendungstyps nicht mehr benötigt, sollten Sie die Registrierung dieser bestimmten Version des Anwendungstyps mit der [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync)-API aufheben. Durch das Aufheben der Registrierung nicht verwendeter Versionen der Anwendungstypen wird Speicherplatz freigegeben, der vom Imagespeicher verwendet wird. Die Registrierung einer Version eines Anwendungstyps kann nur aufgehoben werden, wenn keine Anwendungen für diese Version des Anwendungstyps instanziiert sind und keine ausstehenden Anwendungsupgrades vorliegen, die auf diese Version des Typs verweisen.
+Wird eine bestimmte Version eines Anwendungstyps nicht mehr benötigt, sollten Sie die Registrierung dieser bestimmten Version des Anwendungstyps mit der [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync)-API aufheben. Durch das Aufheben der Registrierung nicht verwendeter Versionen der Anwendungstypen wird Speicherplatz freigegeben, der vom Imagespeicher verwendet wird. Für eine Version eines Anwendungstyps kann die Registrierung aufgehoben werden, sofern für diese Version keine Anwendungen instanziiert werden. Für den Anwendungstyp dürfen auch keine ausstehenden Anwendungsupgrades auf diese Version des Anwendungstyps verweisen.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage fordert einen ImageStoreConnectionString an
@@ -141,7 +141,7 @@ Wenn sich der Clientcomputer in einem anderen Bereich als der Cluster befindet, 
 
 Problem: Das Paket wurde erfolgreich hochgeladen, allerdings tritt bei Verwendung der [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync)-API ein Timeout auf. Versuchen Sie Folgendes:
 - [Komprimieren Sie das Paket](service-fabric-package-apps.md#compress-a-package), bevor Sie es in den Abbildspeicher kopieren.
-Durch eine Komprimierung werden Größe und Anzahl der Dateien verringert, wodurch wiederum die Menge des Datenverkehrs und der Aufgaben, die das Service Fabric durchführen muss, reduziert wird. Der Upload kann sich eventuell verlangsamen (insbesondere, wenn Sie die Komprimierungszeit berücksichtigen), allerdings werden die Registrierung und die Aufhebung der Registrierung des Anwendungstyps schneller durchgeführt.
+Durch eine Komprimierung werden Größe und Anzahl der Dateien verringert, wodurch wiederum die Menge des Datenverkehrs und der Aufgaben, die das Service Fabric durchführen muss, reduziert wird. Der Upload kann sich eventuell verlangsamen (insbesondere, wenn Sie die Komprimierungszeit berücksichtigen), aber die Registrierung und die Aufhebung der Registrierung des Anwendungstyps werden schneller durchgeführt.
 - Geben Sie für die [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync)-API mit dem Parameter `timeout` einen höheren Timeoutwert an.
 
 ### <a name="deploy-application-package-with-many-files"></a>Bereitstellen eines Anwendungspakets mit vielen Dateien
@@ -151,7 +151,7 @@ Versuchen Sie Folgendes:
 - Geben Sie für [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) mit dem Parameter `timeout` einen höheren Timeoutwert an.
 
 ## <a name="code-example"></a>Codebeispiel
-Im folgenden Beispiel wird ein Anwendungspaket in den Imagespeicher kopiert, der Anwendungstyp bereitgestellt, eine Anwendungsinstanz erstellt, eine Dienstinstanz erstellt, die Anwendungsinstanz entfernt, die Bereitstellung des Anwendungstyps aufgehoben und das Anwendungspaket aus dem Imagespeicher gelöscht.
+Im folgenden Beispiel wird ein Anwendungspaket in den Imagespeicher kopiert und der Anwendungstyp bereitgestellt. Anschließend werden im Beispiel eine Anwendungsinstanz und eine Dienstinstanz erstellt. Abschließend wird im Beispiel die Anwendungsinstanz entfernt, die Bereitstellung des Anwendungstyps aufgehoben und das Anwendungspaket aus dem Imagespeicher gelöscht.
 
 ```csharp
 using System;
@@ -179,7 +179,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2019\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

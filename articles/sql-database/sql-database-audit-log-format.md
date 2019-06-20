@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61417387"
 ---
 # <a name="sql-database-audit-log-format"></a>Überwachungsprotokollformate in SQL-Datenbank
 
@@ -60,9 +60,9 @@ Für die Datenbank `Database1` unter `Server1` wäre beispielsweise folgender Pf
 | database_principal_id | database_principal_id_d | ID des Datenbankbenutzerkontexts, in dem die Aktion durchgeführt wurde | int | int |
 | database_principal_name | database_principal_name_s | Name des Datenbankbenutzerkontexts, in dem die Aktion durchgeführt wurde | sysname | Zeichenfolge |
 | duration_milliseconds | duration_milliseconds_d | Ausführungsdauer der Abfrage in Millisekunden | bigint | int |
-| event_time | event_time_t | Datum und Uhrzeit, zu dem die überwachbare Aktion ausgelöst wurde | datetime2 | Datetime |
+| event_time | event_time_t | Datum und Uhrzeit, zu dem die überwachbare Aktion ausgelöst wurde | datetime2 | datetime |
 | host_name | – | Clienthostname | Zeichenfolge | – |
-| is_column_permission | is_column_permission_s | Flag, das angibt, ob die Berechtigung auf Benutzerebene erteilt wurde 1 = ja, 0 = nein | Bit | Zeichenfolge |
+| is_column_permission | is_column_permission_s | Flag, das angibt, ob die Berechtigung auf Benutzerebene erteilt wurde 1 = ja, 0 = nein | bit | Zeichenfolge |
 | – | is_server_level_audit_s | Flag, das angibt, ob die Überwachung auf Serverebene durchgeführt wird | – | Zeichenfolge |
 | object_ id | object_id_d | ID der Entität, für die die Überwachung durchgeführt wurde Dazu zählen Serverobjekte, Datenbanken, Datenbankobjekte und Schemaobjekte. 0, wenn die Entität den Server selbst darstellt oder die Überwachung nicht auf Objektebene durchgeführt wurde | int | int |
 | object_name | object_name_s | Name der Entität, für die die Überwachung durchgeführt wurde Dazu zählen Serverobjekte, Datenbanken, Datenbankobjekte und Schemaobjekte. 0, wenn die Entität den Server selbst darstellt oder die Überwachung nicht auf Objektebene durchgeführt wurde | sysname | Zeichenfolge |
@@ -79,7 +79,7 @@ Für die Datenbank `Database1` unter `Server1` wäre beispielsweise folgender Pf
 | session_id | session_id_d | ID der Sitzung, in der das Ereignis aufgetreten ist | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Serverprinzipal für die Sitzung | sysname | Zeichenfolge |
 | statement | statement_s | Ausgeführte T-SQL-Anweisung (falls verfügbar) | nvarchar(4000) | Zeichenfolge |
-| succeeded | succeeded_s | Gibt an, ob die Aktion, die das Ereignis ausgelöst hat, erfolgreich war Für Ereignisse, die keine Anmelde- oder Batchereignisse sind, wird nur erfasst, ob die Berechtigungsüberprüfung erfolgreich war oder nicht. Der Vorgang wird nicht erfasst. 1 = Erfolg, 0 = Fehler | Bit | Zeichenfolge |
+| succeeded | succeeded_s | Gibt an, ob die Aktion, die das Ereignis ausgelöst hat, erfolgreich war Für Ereignisse, die keine Anmelde- oder Batchereignisse sind, wird nur erfasst, ob die Berechtigungsüberprüfung erfolgreich war oder nicht. Der Vorgang wird nicht erfasst. 1 = Erfolg, 0 = Fehler | bit | Zeichenfolge |
 | target_database_principal_id | target_database_principal_id_d | Datenbankprinzipal, auf dem der GRANT-, DENY- oder REVOKE-Vorgang ausgeführt wird 0, falls nicht zutreffend | int | int |
 | target_database_principal_name | target_database_principal_name_s | Zielbenutzer der Aktion NULL, falls nicht zutreffend | Zeichenfolge | Zeichenfolge |
 | target_server_principal_id | target_server_principal_id_d | Serverprinzipal, auf dem der GRANT-, DENY- oder REVOKE-Vorgang ausgeführt wird Gibt 0 zurück, falls nicht zutreffend | int | int |

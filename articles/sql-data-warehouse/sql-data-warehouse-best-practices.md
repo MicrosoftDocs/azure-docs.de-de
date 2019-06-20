@@ -2,20 +2,20 @@
 title: Bewährte Methoden für Azure SQL Data Warehouse | Microsoft Docs
 description: Enthält Empfehlungen und bewährte Methoden, die Sie kennen sollten, wenn Sie Lösungen für Azure SQL Data Warehouse entwickeln.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/26/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e7fe0f7630e59be231f2513cdb7e38f8c15a68f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 72a705e11a84e27a97946f33f837105614691f6a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66515777"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Bewährte Methoden für Azure SQL Data Warehouse
 Dieser Artikel enthält eine Sammlung mit bewährten Methoden, mit denen Sie mit Ihrem Azure SQL Data Warehouse die optimale Leistung erzielen.  Einige Konzepte dieses Artikels sind einfach und leicht zu erklären, während andere Konzepte etwas komplizierter sind, sodass in diesem Artikel nicht ausführlicher darauf eingegangen wird.  Dieser Artikel soll Ihnen als einfache Anleitung dienen und Sie auf wichtige Punkte aufmerksam machen, die Sie beim Erstellen des Data Warehouse beachten sollten.  In jedem Abschnitt wird ein Konzept vorgestellt, und es sind Links zu Artikeln mit ausführlicheren Informationen angegeben, in denen näher auf ein Konzept eingegangen wird.
@@ -29,7 +29,7 @@ Weitere Informationen zur Kostensenkung durch Anhalten und Skalieren finden Sie 
 
 
 ## <a name="maintain-statistics"></a>Verwalten von Statistiken
-Im Gegensatz zu SQL Server, wobei Statistiken zu Spalten, automatisch erkannt und erstellt oder aktualisiert werden, ist für SQL Data Warehouse eine manuelle Verwaltung der Statistiken erforderlich.  Dies soll in Zukunft geändert werden, aber vorerst sollten Sie Ihre Statistiken selbst verwalten, um sicherzustellen, dass die SQL Data Warehouse-Pläne optimiert sind.  Die vom Optimierer erstellten Pläne sind nur so gut wie die verfügbaren Statistiken.  **Das Erstellen von erfassten Statistiken für jede Spalte ist eine einfache Möglichkeit zum Einsteigen in das Thema Statistiken.**   Genauso wichtig ist es, Statistiken zu aktualisieren, da für Ihre Daten erhebliche Änderungen durchgeführt werden.  Ein konservativer Ansatz ist das Aktualisieren von Statistiken jeden Tag oder nach jedem Ladevorgang.  Es gibt immer Vor- und Nachteile, was die Leistung einerseits und die Kosten für die Erstellung und Aktualisierung von Statistiken andererseits betrifft. Falls die Verwaltung aller Statistiken zu lange dauert, können Sie versuchen, selektiver auszuwählen, welche Spalten über Statistiken verfügen sollen oder häufig aktualisiert werden müssen.  Beispielsweise können Sie Datumsspalten aktualisieren, wenn täglich neue Werte hinzugefügt werden. **Die größten Vorteile ergeben sich, wenn Sie Statistiken zu Spalten in Verknüpfungen, in der WHERE-Klausel verwendete Spalten und Spalten in GROUP BY nutzen.**
+Im Gegensatz zu SQL Server, wobei Statistiken zu Spalten, automatisch erkannt und erstellt oder aktualisiert werden, ist für SQL Data Warehouse eine manuelle Verwaltung der Statistiken erforderlich.  Dies soll in Zukunft geändert werden, aber vorerst sollten Sie Ihre Statistiken selbst verwalten, um sicherzustellen, dass die SQL Data Warehouse-Pläne optimiert sind.  Die vom Optimierer erstellten Pläne sind nur so gut wie die verfügbaren Statistiken.  **Das Erstellen von erfassten Statistiken für jede Spalte ist eine einfache Möglichkeit zum Einsteigen in das Thema Statistiken.**  Genauso wichtig ist es, Statistiken zu aktualisieren, da für Ihre Daten erhebliche Änderungen durchgeführt werden.  Ein konservativer Ansatz ist das Aktualisieren von Statistiken jeden Tag oder nach jedem Ladevorgang.  Es gibt immer Vor- und Nachteile, was die Leistung einerseits und die Kosten für die Erstellung und Aktualisierung von Statistiken andererseits betrifft. Falls die Verwaltung aller Statistiken zu lange dauert, können Sie versuchen, selektiver auszuwählen, welche Spalten über Statistiken verfügen sollen oder häufig aktualisiert werden müssen.  Beispielsweise können Sie Datumsspalten aktualisieren, wenn täglich neue Werte hinzugefügt werden. **Die größten Vorteile ergeben sich, wenn Sie Statistiken zu Spalten in Verknüpfungen, in der WHERE-Klausel verwendete Spalten und Spalten in GROUP BY nutzen.**
 
 Siehe auch: [Verwalten von Tabellenstatistiken][Manage table statistics], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS]
 

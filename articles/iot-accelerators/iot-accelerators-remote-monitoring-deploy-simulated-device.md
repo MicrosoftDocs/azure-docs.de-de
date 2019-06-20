@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682048"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427568"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Bereitstellen eines neuen simulierten Geräts
 
@@ -88,13 +88,14 @@ In diesem Abschnitt konfigurieren Sie Docker zum Laden der Gerätemodelldateien 
 1. Kopieren Sie die vorhandenen Gerätemodelldateien aus dem Container an den neuen Speicherort. Suchen Sie zuerst die Container-ID für den Gerätesimulationscontainer:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Kopieren Sie dann die Gerätemodelldateien in den Ordner **tmp** auf dem virtuellen Computer. Beim folgenden Befehl wird angenommen, dass die Container-ID "c378d6878407" lautet. Ersetzen Sie diesen Wert durch die ID des Gerätesimulationscontainers:
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     Lassen Sie das **Bash**-Fenster mit Ihrer SSH-Sitzung geöffnet.
@@ -116,13 +117,13 @@ In diesem Abschnitt konfigurieren Sie Docker zum Laden der Gerätemodelldateien 
     Wenn Sie den Status der aktiven Docker-Container und deren Container-IDs anzeigen möchten, verwenden Sie den folgenden Befehl:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Wenn Sie das Protokoll aus dem Gerätesimulationscontainer anzeigen möchten, führen Sie den folgenden Befehl aus. Ersetzen Sie die Container-ID durch die ID Ihres Gerätesimulationscontainers:
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>Ausführen der Simulation

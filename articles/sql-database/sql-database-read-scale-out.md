@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146109"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492723"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Verwenden von schreibgeschützten Replikaten für den Lastenausgleich schreibgeschützter Abfrageworkloads
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Das PowerShell Azure Resource Manager-Modul wird von Azure SQL-Datenbank weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az-Modul und den AzureRm-Modulen sind im Wesentlichen identisch.
 
 Als Teil der [Hochverfügbarkeitsarchitektur](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) wird jede Datenbank auf den Dienstebenen Premium, Unternehmenskritisch oder Hyperscale automatisch mit einem primären Replikat und mehreren sekundären Replikaten bereitgestellt. Die sekundären Replikate werden mit derselben Computegröße wie das primäre Replikat bereitgestellt. Die Funktion **Horizontale Leseskalierung** ermöglicht es Ihnen, einen Lastenausgleich für schreibgeschützte SQL-Datenbank-Workloads vorzunehmen, indem Sie die Kapazität eines der schreibgeschützten Replikate verwenden, statt das Replikat mit Lese-/Schreibzugriff freizugeben. Auf diese Weise wird die schreibgeschützte Workload von der Hauptworkload für Lesen und Schreiben isoliert und beeinträchtigen deren Leistung nicht. Die Funktion ist für Anwendungen vorgesehen, die logisch getrennte, schreibgeschützte Workloads (z. B. zur Analyse) enthalten. Für diese könnten Sie mithilfe dieser zusätzlichen Kapazität ohne Zusatzkosten Leistungsvorteile erzielen.
 

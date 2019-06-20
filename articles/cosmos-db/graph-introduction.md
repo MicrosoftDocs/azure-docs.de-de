@@ -5,18 +5,18 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 09/05/2018
+ms.date: 05/20/2019
 ms.author: lbosq
-ms.openlocfilehash: 36465c253996e4cecc665b2fd1d59c03adc78a2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f5d90f8b825b7076a1a5122dbef3c8b2990e216
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110544"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954265"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Einführung in Azure Cosmos DB: Gremlin-API
 
-[Azure Cosmos DB](introduction.md) ist der global verteilte Datenbankdienst von Microsoft mit mehreren Modellen für unternehmenskritische Anwendungen. Es handelt sich um eine Datenbank für mehrere Datenmodelle, die Dokumente, Schlüsselwerte, Diagramme und spaltenorientierte Datenmodelle unterstützt. Die Azure Cosmos DB Gremlin-API dient zum Speichern und Verarbeiten der Graphdaten. Die Gremlin-API unterstützt die Modellierung von Graphdaten und bieten APIs, um die Graphdaten zu durchlaufen.
+[Azure Cosmos DB](introduction.md) ist der global verteilte Datenbankdienst von Microsoft mit mehreren Modellen für unternehmenskritische Anwendungen. Es handelt sich um eine Datenbank für mehrere Modelle, die Dokumente, Schlüsselwerte, Graphen und spaltenorientierte Datenmodelle unterstützt. Die Azure Cosmos DB Gremlin-API dient zum Speichern und Verarbeiten der Graphdaten. Die Gremlin-API unterstützt die Modellierung von Graphdaten und bieten APIs, um die Graphdaten zu durchlaufen.
 
 Dieser Artikel enthält eine Übersicht über die Gremlin-API von Azure Cosmos DB und erläutert, wie Sie diese zum Speichern von umfangreichen Diagrammen mit Milliarden von Scheitelpunkten und Kanten verwenden können. Sie können die Diagramme mit einer Latenz im Millisekundenbereich abfragen und die Diagrammstruktur und das Schema entwickeln. Zum Abfragen von Azure Cosmos DB können Sie die Graphdurchlauf-Sprache [Apache TinkerPop](https://tinkerpop.apache.org) oder [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) verwenden.
 

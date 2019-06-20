@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496026"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113238"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Überprüfen des Zugriffs auf Gruppen oder Anwendungen mit Azure AD-Zugriffsüberprüfungen
 
 Azure Active Directory (Azure AD) erleichtert Unternehmen das Verwalten des Zugriffs auf Gruppen und Anwendungen in Azure AD und anderen Microsoft-Onlinediensten durch die Funktion „Zugriffsüberprüfungen“.
 
 In diesem Artikel wird beschrieben, wie ein Reviewer eine Zugriffsüberprüfung für Gruppenmitglieder oder Benutzer mit Zugriffsberechtigungen für eine Anwendung durchführt.
+
+## <a name="prerequisites"></a>Voraussetzungen
+
+- Azure AD Premium P2
+
+Weitere Informationen finden Sie unter [Welche Benutzer benötigen Lizenzen?](access-reviews-overview.md#which-users-must-have-licenses)
 
 ## <a name="open-the-access-review"></a>Öffnen der Zugriffsüberprüfung
 
@@ -64,16 +70,16 @@ Wenn Sie aufgefordert werden, Ihren eigenen Zugriff zu überprüfen, sieht die S
 
 Es gibt zwei Möglichkeiten, Zugriff zu gewähren oder zu verweigern:
 
-- Sie können jede Anforderung einzeln gewähren oder verweigern, oder
+- Sie können einem oder mehreren Benutzern den Zugriff gewähren oder verweigern.
 - Sie können die Systemempfehlungen annehmen, was die einfachste und schnellste Möglichkeit ist.
 
-### <a name="approve-or-deny-access-for-each-request"></a>Gewähren oder Verweigern von Zugriff für jede Anforderung
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Gewähren oder Verweigern des Zugriffs eines oder mehrerer Benutzer
 
 1. Sehen Sie sich die Liste der Benutzer an, um zu entscheiden, ob deren weiterer Zugriff gewährt oder verweigert werden soll.
 
-1. Klicken Sie zum Genehmigen oder Verweigern von Anforderungen auf die jeweilige Zeile, um ein Fenster zu öffnen, in dem Sie die auszuführende Aktion angeben können.
+1. Um einem einzelnen Benutzer den Zugriff zu gewähren oder zu verweigern, klicken Sie auf die entsprechende Zeile, um ein Fenster zu öffnen, in dem Sie die auszuführende Aktion angeben können. Um mehreren Benutzern den Zugriff zu gewähren oder zu verweigern, müssen Sie die einzelnen Benutzernamen mit einem Häkchen versehen (aktivieren) und dann auf die Schaltfläche **X Benutzer überprüfen** klicken, um ein Fenster zu öffnen, in dem Sie die auszuführende Aktion angeben können.
 
-1. Klicken Sie auf **Approve** (Gewähren) oder **Deny** (Verweigern). Wenn Sie sich nicht sicher sind, können Sie auch auf **Don‘t know** (Nicht bekannt) klicken. Wenn Sie dies tun, behält der Benutzer seinen Zugriff, aber die Auswahl wird in den Überwachungsprotokollen widergespiegelt.
+1. Klicken Sie auf **Approve** (Gewähren) oder **Deny** (Verweigern). Wenn Sie sich nicht sicher sind, können Sie auch auf **Don‘t know** (Nicht bekannt) klicken. In diesem Fall behält der Benutzer zwar seinen Zugriff, allerdings wird die Auswahl in den Überwachungsprotokollen aufgezeichnet.
 
     ![Durchführen der Zugriffsüberprüfung](./media/perform-access-review/approve-deny.png)
 

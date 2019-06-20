@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60318168"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Vorbereiten des Quellcomputers für die Pushinstallation des Mobilitäts-Agents
 
@@ -27,7 +27,7 @@ Führen Sie auf jedem Windows-Computer, den Sie schützen möchten, folgende Sch
     - Fügen Sie unter dem Registrierungsschlüssel „HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System“ einen neuen DWORD-Eintrag hinzu: **LocalAccountTokenFilterPolicy**. Legen Sie den Wert auf **1** fest.
     -  Führen Sie den folgenden Befehl aus, wenn Sie eine Eingabeaufforderung verwenden möchten:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. Wählen Sie in der Windows-Firewall des Computers, den Sie schützen möchten, **Allow an app or feature through Firewall** (App oder Feature durch die Windows-Firewall zulassen) aus. Aktivieren Sie **Datei- und Druckerfreigabe** und **Windows-Verwaltungsinstrumentation (WMI)**. Für Computer, die zu einer Domäne gehören, können Sie die Firewalleinstellungen konfigurieren, indem Sie ein Gruppenrichtlinienobjekt (Group Policy Object, GPO) verwenden.
+3. Wählen Sie in der Windows-Firewall des Computers, den Sie schützen möchten, **Allow an app or feature through Firewall** (App oder Feature durch die Windows-Firewall zulassen) aus. Aktivieren Sie **Datei- und Druckerfreigabe** und **Windows-Verwaltungsinstrumentation (WMI)** . Für Computer, die zu einer Domäne gehören, können Sie die Firewalleinstellungen konfigurieren, indem Sie ein Gruppenrichtlinienobjekt (Group Policy Object, GPO) verwenden.
 
    ![Firewalleinstellungen](./media/vmware-azure-install-mobility-service/mobility1.png)
 

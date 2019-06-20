@@ -9,11 +9,11 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
 ms.openlocfilehash: b1cae7dc553ce324349e66f1bcb8a281d7c7c7e0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62101291"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Ausführen von Azure Table Storage-Vorgängen mit Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]

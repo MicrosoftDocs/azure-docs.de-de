@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 11/20/2017
+ms.date: 11/20/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 1cf72069d545fc1f4c337a1b67f5fd4aa2ef143c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b849db465bb9a30456e9f93f9439c53cb26c9e52
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043718"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480178"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB-Tabellen-API für Node.js: Versionshinweise und Ressourcen
 > [!div class="op_single_selector"]

@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61322706"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Eigenschaften der Modulzwillinge von IoT Edge-Agent und IoT Edge-Hub
 
@@ -28,29 +28,29 @@ Der Modulzwilling für den IoT Edge-Agent heißt `$edgeAgent` und koordiniert di
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 | -------- | ----------- | -------- |
-| Schemaversion | Muss „1.0“ sein. | JA |
-| runtime.type | Muss „Docker“ sein. | JA |
-| runtime.settings.minDockerVersion | Legen Sie hier die für dieses Bereitstellungsmanifest mindestens erforderliche Docker-Version fest. | JA |
-| runtime.settings.loggingOptions | In eine Zeichenfolge umgewandelter JSON-Code mit den Protokollierungsoptionen für den IoT Edge-Agent-Container. [Docker-Protokollierungsoptionen](https://docs.docker.com/engine/admin/logging/overview/) | Nein  |
-| runtime.settings.registryCredentials<br>.{registryId}.username | Der Benutzername der Containerregistrierung. Für Azure Container Registry entspricht der Benutzername in der Regel dem Namen der Registrierung.<br><br> Registrierungsanmeldeinformationen werden für jedes nicht öffentliche Modulimage benötigt. | Nein  |
-| runtime.settings.registryCredentials<br>.{registryId}.password | Das Kennwort der Containerregistrierung. | Nein  |
-| runtime.settings.registryCredentials<br>.{registryId}.address | Die Adresse der Containerregistrierung. Für Azure Container Registry lautet die Adresse in der Regel *{Registryname}.azurecr.io*. | Nein  |  
-| systemModules.edgeAgent.type | Muss „Docker“ sein. | JA |
-| systemModules.edgeAgent.settings.image | Der URI des IoT Edge-Agent-Images. Der IoT Edge-Agent kann sich derzeit nicht selbst aktualisieren. | JA |
-| systemModules.edgeAgent.settings<br>.createOptions | In eine Zeichenfolge umgewandelter JSON-Code, der die Optionen für die Erstellung des IoT Edge-Agent-Containers enthält. [Docker-Erstellungsoptionen](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nein  |
+| Schemaversion | Muss „1.0“ sein. | Ja |
+| runtime.type | Muss „Docker“ sein. | Ja |
+| runtime.settings.minDockerVersion | Legen Sie hier die für dieses Bereitstellungsmanifest mindestens erforderliche Docker-Version fest. | Ja |
+| runtime.settings.loggingOptions | In eine Zeichenfolge umgewandelter JSON-Code mit den Protokollierungsoptionen für den IoT Edge-Agent-Container. [Docker-Protokollierungsoptionen](https://docs.docker.com/engine/admin/logging/overview/) | Nein |
+| runtime.settings.registryCredentials<br>.{registryId}.username | Der Benutzername der Containerregistrierung. Für Azure Container Registry entspricht der Benutzername in der Regel dem Namen der Registrierung.<br><br> Registrierungsanmeldeinformationen werden für jedes nicht öffentliche Modulimage benötigt. | Nein |
+| runtime.settings.registryCredentials<br>.{registryId}.password | Das Kennwort der Containerregistrierung. | Nein |
+| runtime.settings.registryCredentials<br>.{registryId}.address | Die Adresse der Containerregistrierung. Für Azure Container Registry lautet die Adresse in der Regel *{Registryname}.azurecr.io*. | Nein |  
+| systemModules.edgeAgent.type | Muss „Docker“ sein. | Ja |
+| systemModules.edgeAgent.settings.image | Der URI des IoT Edge-Agent-Images. Der IoT Edge-Agent kann sich derzeit nicht selbst aktualisieren. | Ja |
+| systemModules.edgeAgent.settings<br>.createOptions | In eine Zeichenfolge umgewandelter JSON-Code, der die Optionen für die Erstellung des IoT Edge-Agent-Containers enthält. [Docker-Erstellungsoptionen](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nein |
 | systemModules.edgeAgent.configuration.id | Die ID der Bereitstellung, von der dieses Modul bereitgestellt wurde. | IoT Hub legt diese Eigenschaft fest, wenn das Manifest mithilfe einer Bereitstellung angewandt wird. Nicht Teil eines Bereitstellungsmanifests. |
-| systemModules.edgeHub.type | Muss „Docker“ sein. | JA |
-| systemModules.edgeHub.type | Muss „running“ sein. | JA |
-| systemModules.edgeHub.restartPolicy | Muss „always“ sein. | JA |
-| systemModules.edgeHub.settings.image | Der URI des Images des IoT Edge-Hubs. | JA |
-| systemModules.edgeHub.settings<br>.createOptions | In eine Zeichenfolge umgewandelter JSON-Code mit den Optionen für die Erstellung des IoT Edge-Hubcontainers. [Docker-Erstellungsoptionen](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nein  |
+| systemModules.edgeHub.type | Muss „Docker“ sein. | Ja |
+| systemModules.edgeHub.type | Muss „running“ sein. | Ja |
+| systemModules.edgeHub.restartPolicy | Muss „always“ sein. | Ja |
+| systemModules.edgeHub.settings.image | Der URI des Images des IoT Edge-Hubs. | Ja |
+| systemModules.edgeHub.settings<br>.createOptions | In eine Zeichenfolge umgewandelter JSON-Code mit den Optionen für die Erstellung des IoT Edge-Hubcontainers. [Docker-Erstellungsoptionen](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nein |
 | systemModules.edgeHub.configuration.id | Die ID der Bereitstellung, von der dieses Modul bereitgestellt wurde. | IoT Hub legt diese Eigenschaft fest, wenn das Manifest mithilfe einer Bereitstellung angewandt wird. Nicht Teil eines Bereitstellungsmanifests. |
-| modules.{moduleId}.version | Benutzerdefinierte Zeichenfolge, die die Version des Moduls darstellt. | JA |
-| modules.{moduleId}.type | Muss „Docker“ sein. | JA |
-| modules.{moduleId}.status | {"running" \| "stopped"} | JA |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | JA |
-| modules.{moduleId}.settings.image | URI des Modulimage. | JA |
-| modules.{moduleId}.settings.createOptions | In eine Zeichenfolge umgewandelter JSON-Code mit den Optionen für die Erstellung des Modulcontainers. [Docker-Erstellungsoptionen](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nein  |
+| modules.{moduleId}.version | Benutzerdefinierte Zeichenfolge, die die Version des Moduls darstellt. | Ja |
+| modules.{moduleId}.type | Muss „Docker“ sein. | Ja |
+| modules.{moduleId}.status | {"running" \| "stopped"} | Ja |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Ja |
+| modules.{moduleId}.settings.image | URI des Modulimage. | Ja |
+| modules.{moduleId}.settings.createOptions | In eine Zeichenfolge umgewandelter JSON-Code mit den Optionen für die Erstellung des Modulcontainers. [Docker-Erstellungsoptionen](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nein |
 | modules.{moduleId}.configuration.id | Die ID der Bereitstellung, von der dieses Modul bereitgestellt wurde. | IoT Hub legt diese Eigenschaft fest, wenn das Manifest mithilfe einer Bereitstellung angewandt wird. Nicht Teil eines Bereitstellungsmanifests. |
 
 ## <a name="edgeagent-reported-properties"></a>Gemeldete EdgeAgent-Eigenschaften
@@ -100,9 +100,9 @@ Der Modulzwilling für den IoT Edge-Hub wird als `$edgeHub` bezeichnet und koord
 
 | Eigenschaft | BESCHREIBUNG | Im Bereitstellungsmanifest erforderlich |
 | -------- | ----------- | -------- |
-| Schemaversion | Muss „1.0“ sein. | JA |
+| Schemaversion | Muss „1.0“ sein. | Ja |
 | routes.{routeName} | Eine Zeichenfolge, die eine IoT Edge-Hubroute darstellt. | Das `routes`-Element kann vorhanden, aber leer sein. |
-| storeAndForwardConfiguration.timeToLiveSecs | Zeit in Sekunden, wie lange der IoT Edge-Hub Nachrichten nach einer Trennung von Routingendpunkten aufbewahrt, z.B. nach einer Trennung von IoT Hub oder einem lokalen Modul | JA |
+| storeAndForwardConfiguration.timeToLiveSecs | Zeit in Sekunden, wie lange der IoT Edge-Hub Nachrichten nach einer Trennung von Routingendpunkten aufbewahrt, z.B. nach einer Trennung von IoT Hub oder einem lokalen Modul | Ja |
 
 ## <a name="edgehub-reported-properties"></a>Gemeldete EdgeHub-Eigenschaften
 

@@ -17,17 +17,17 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 0609cabd5a9898900580580d1f5f412722637bcf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60407033"
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Verwenden der Deep Learning Virtual Machine
 
-Sobald Sie Ihre Deep Learning Virtual Machine (DLVM) bereitgestellt haben, können Sie beginnen, tiefe neuronale Netzwerkmodelle zu erstellen, um AI-Anwendungen in Bereichen wie maschinellem Sehen oder Sprachverständnis zu erstellen. 
+Sobald Sie Ihre DLVM-Instanz (Deep Learning Virtual Machine) bereitgestellt haben, können Sie beginnen, tiefe neuronale Netzwerkmodelle zu erstellen, um KI-Anwendungen in Bereichen wie maschinellem Sehen oder Sprachverständnis zu erstellen. 
 
-Es gibt eine Reihe von Tools, die auf der Deep Learning VM für AI bereitgestellt werden. Die [Seite zu Deep Learning und AI-Frameworks](dsvm-deep-learning-ai-frameworks.md) enthält Einzelheiten zur Nutzung dieser Tools. 
+Es gibt eine Reihe von Tools, die auf Deep Learning VM für KI bereitgestellt werden. Die [Seite zu Deep Learning und KI-Frameworks](dsvm-deep-learning-ai-frameworks.md) enthält Einzelheiten zur Nutzung dieser Tools. 
 
 ## <a name="deep-learning-tutorials-and-walkthroughs"></a>Deep Learning-Tutorials und exemplarische Vorgehensweisen
 

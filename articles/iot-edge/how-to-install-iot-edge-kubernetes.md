@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 66aca7be9a2df93d846d7e78bc64c93279afc2d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65158014"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Installieren von IoT Edge unter Kubernetes (Vorschauversion)
@@ -78,7 +78,7 @@ Jede Komponente der Edge-Bereitstellungen bezieht sich auf einen gerätespezifis
     minikube dashboard
     ```
 
-    Unter den Cluster-Namespaces sehen Sie einen für das IoT Edge-Gerät nach der Konvention *msiot-\<iothub-name>-\<edgedevice-name>*. Der IoT Edge-Agent und die iotedged-Pods sollten in diesem Namespace installiert und ausgeführt werden.
+    Unter den Cluster-Namespaces sehen Sie einen für das IoT Edge-Gerät nach der Konvention *msiot-\<iothub-name>-\<edgedevice-name>* . Der IoT Edge-Agent und die iotedged-Pods sollten in diesem Namespace installiert und ausgeführt werden.
 
 1. Fügen Sie ein simuliertes Temperatursensormodul hinzu, indem Sie die Schritte im Abschnitt [Bereitstellung eines Moduls](quickstart-linux.md#deploy-a-module) des Schnellstarts ausführen. Die Verwaltung der IoT Edge-Module erfolgt über das IoT Hub-Portal wie bei jedem anderen IoT Edge-Gerät auch. Lokale Änderungen an der Modulkonfiguration über Kubernetes-Tools werden nicht empfohlen, da sie überschrieben werden können.
 

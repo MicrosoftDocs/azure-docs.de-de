@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
 ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000387"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62116240"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Verwalten von Datenflussprotokollen für Netzwerksicherheitsgruppen mit Network Watcher und Grafana
 

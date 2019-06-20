@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: ce6188732720bc43c5849fa492237c7ab98487c6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067503"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Erstellen von Benutzern auf einem Azure Database for PostgreSQL-Einzelserver
@@ -64,7 +64,7 @@ Mit dem Konto des Serveradministratorbenutzers können zusätzliche Benutzer ers
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. Bei der Verwendung eines Administratorkontos müssen Sie unter Umständen zusätzliche Berechtigungen erteilen, um die Objekte in der Datenbank zu schützen. Weitere Einzelheiten zu Datenbankrollen und Berechtigungen finden Sie in der [PostgreSQL-Dokumentation](https://www.postgresql.org/docs/current/static/ddl-priv.html). Beispiel:  
+4. Bei der Verwendung eines Administratorkontos müssen Sie unter Umständen zusätzliche Berechtigungen erteilen, um die Objekte in der Datenbank zu schützen. Weitere Einzelheiten zu Datenbankrollen und Berechtigungen finden Sie in der [PostgreSQL-Dokumentation](https://www.postgresql.org/docs/current/static/ddl-priv.html). Beispiel: 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.openlocfilehash: abc8c09a51104c81b827afb7055531df98691714
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60328747"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Erstellen einer Kopie Ihrer Linux-VM mithilfe von Azure CLI und Managed Disks
 

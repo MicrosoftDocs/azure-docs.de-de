@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines-linux
 author: RicksterCDN
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.topic: include file
 ms.date: 04/20/2018
 ms.author: rclaus
 ms.custom: include file
-ms.openlocfilehash: ebf03a0fe1f274e3a3bb67dfa2defd623735faf9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ed68d9d2a0e983fbe753360d9f539f5d89a2187f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33953733"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178114"
 ---
 > [!IMPORTANT]
 > Diese Erweiterung ist veraltet und hier nur zu Informationszwecken dokumentiert. Es wird davon abgeraten, diese Erweiterung weiterhin in Bereitstellungen zu verwenden. 

@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60563842"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installieren des Chef-Clients aus dem Azure-Portal
 Im Azure-Portal können Sie einem Linux- oder Windows-Computer direkt die Chef-Clienterweiterung hinzufügen. Dieser Artikel führt Sie mithilfe eines neuen virtuellen Linux-Computers durch den Prozess.
@@ -82,7 +82,7 @@ In diesem Abschnitt verwenden Sie zuerst das Azure-Portal, um eine Linux-VM zu e
 
 1. Geben Sie auf der Registerkarte **Erweiterung installieren** die folgenden Werte an, und wählen Sie dann **OK** aus.
 
-    - **URL des Chef-Servers:** Geben Sie die URL des Chef-Servers ein, die den Namen der Organisation enthält, z.B. *https://api.chef.io/organization/mycompany*.
+    - **URL des Chef-Servers:** Geben Sie die URL des Chef-Servers ein, die den Namen der Organisation enthält, z.B. *https://api.chef.io/organization/mycompany* .
     - **Chef-Knotenname**: Geben Sie den Namen des Chef-Knotens ein. Dies kann ein beliebiger Wert sein.
     - **Ausführungsliste**: Geben Sie die Chef-Ausführungsliste ein, die dem Computer hinzugefügt wird. Dieser Wert kann leer bleiben.
     - **Name des Überprüfungsclients**: Geben Sie den Namen des Chef-Überprüfungsclients ein. Beispiel: *Tarcher-Validierungssteuerelement*.

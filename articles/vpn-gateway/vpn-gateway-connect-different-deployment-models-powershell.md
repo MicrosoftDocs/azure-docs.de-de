@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: cf7726d017afd579b1eb227ec0fd3b9710395de6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62095577"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Verbinden von virtuellen Netzwerken aus verschiedenen Bereitstellungsmodellen mit PowerShell
 
@@ -44,17 +44,17 @@ Sie können diese Werte zum Erstellen einer Testumgebung verwenden oder zum bess
 
 **Einstellungen für das klassische VNet**
 
-VNet-Name = ClassicVNet  <br>
+VNet-Name = ClassicVNet <br>
 Standort = USA, Westen <br>
 Adressräume des virtuellen Netzwerks = 10.0.0.0/24 <br>
 Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 Name des lokalen Netzwerks = RMVNetLocal <br>
- Gatewaytyp = DynamicRouting
+Gatewaytyp = DynamicRouting
 
 **Einstellungen für das Resource Manager-VNet**
 
-VNet-Name = RMVNet  <br>
+VNet-Name = RMVNet <br>
 Ressourcengruppe = RG1 <br>
 IP-Adressräume des virtuellen Netzwerks = 192.168.0.0/16 <br>
 Subnet-1 = 192.168.1.0/24 <br>
@@ -63,7 +63,7 @@ Standort = USA, Osten <br>
 Name der öffentlichen Gateway-IP = gwpip <br>
 Lokales Netzwerkgateway = ClassicVNetLocal <br>
 Name des Gateways für virtuelle Netzwerke = RMGateway <br>
- Gateway-IP-Adressierungskonfiguration = gwipconfig
+Gateway-IP-Adressierungskonfiguration = gwipconfig
 
 ## <a name="createsmgw"></a>Abschnitt 1 – Konfigurieren des klassischen VNet
 ### <a name="1-download-your-network-configuration-file"></a>1. Herunterladen der Netzwerkkonfigurationsdatei

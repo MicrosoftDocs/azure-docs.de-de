@@ -1,5 +1,5 @@
 ---
-title: Kopieren Ihres Microsoft Azure Data Box-Datenträgers | Microsoft-Dokumentation
+title: Tutorial zum Kopieren von Daten auf Azure Data Box Disk | Microsoft-Dokumentation
 description: Verwenden Sie dieses Tutorial, um zu erfahren, wie Sie Daten auf Ihren Azure Data Box-Datenträger kopieren.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678495"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925169"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Kopieren von Daten auf die Azure Data Box Disk und Durchführen der Überprüfung
 
@@ -88,7 +88,7 @@ Führen Sie die folgenden Schritte aus, um eine Verbindung herzustellen und Date
     
     |Parameter/Optionen  |BESCHREIBUNG |
     |--------------------|------------|
-    |Quelle            | Gibt den Pfad zum Quellverzeichnis an.        |
+    |`Source`            | Gibt den Pfad zum Quellverzeichnis an.        |
     |Ziel       | Gibt den Pfad zum Zielverzeichnis an.        |
     |/E                  | Kopiert Unterverzeichnisse, einschließlich der leeren Verzeichnisse. |
     |/MT[:N]             | Erstellt Multithread-Kopien mit N Threads, wobei N hier für eine ganze Zahl zwischen 1 und 128 steht. <br>Der Standardwert für N ist „8“.        |

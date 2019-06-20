@@ -12,10 +12,10 @@ ms.date: 05/08/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472091"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Interaktives Testen Ihrer Wissensdatenbank in QnA Maker

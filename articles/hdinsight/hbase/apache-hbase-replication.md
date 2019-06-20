@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707975"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Einrichten der Apache HBase-Clusterreplikation in virtuellen Azure-Netzwerken
@@ -390,7 +390,7 @@ Der Abschnitt `print_usage()` des [Skripts](https://raw.githubusercontent.com/Az
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
-- **Deaktivieren der Replikation in angegebenen Tabellen („table1“, „table2“ und „table3“)**:
+- **Deaktivieren der Replikation in angegebenen Tabellen („table1“, „table2“ und „table3“)** :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 

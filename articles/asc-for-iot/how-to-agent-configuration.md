@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198441"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Konfigurieren von Sicherheits-Agents
@@ -112,7 +112,7 @@ Standardwerte sind im entsprechenden Schema auf [GitHub](https://aka.ms/iot-secu
 |highPriorityMessageFrequency|Erforderlich: „false“ |Gültige Werte:  Dauer im ISO 8601-Format |Standardwert: PT7M |Maximale Zeit, bevor Nachrichten mit hoher Priorität gesendet werden.|
 |lowPriorityMessageFrequency |Erforderlich: „false“|Gültige Werte:  Dauer im ISO 8601-Format |Standardwert: PT5H |Maximale Zeit, bevor Nachrichten mit niedriger Priorität gesendet werden.| 
 |snapshotFrequency |Erforderlich: „false“|Gültige Werte: Dauer im ISO 8601-Format |Standardwert PT13H |Zeitintervall für die Erstellung von Momentaufnahmen des Gerätstatus.| 
-|maxLocalCacheSizeInBytes |Erforderlich: „false“ |Gültige Werte:  |Standardwert: 2560000, größer als 8192 | Maximaler, für den Nachrichtencache eines Agents zulässiger Speicher (in Byte). Maximale Größe des zum Speichern von Nachrichten auf dem Gerät verwendeten Speicherplatzes, bevor Nachrichten gesendet werden.| 
+|maxLocalCacheSizeInBytes |Erforderlich: „false“ |Gültige Werte: |Standardwert: 2560000, größer als 8192 | Maximaler, für den Nachrichtencache eines Agents zulässiger Speicher (in Byte). Maximale Größe des zum Speichern von Nachrichten auf dem Gerät verwendeten Speicherplatzes, bevor Nachrichten gesendet werden.| 
 |maxMessageSizeInBytes |Erforderlich: „false“ |Gültige Werte:  Eine positive Zahl, größer als 8192 und kleiner als 262144 |Standardwert: 204800 |Maximal zulässige Größe einer Agent-an-Cloud-Nachricht. Diese Einstellung steuert die maximal gesendete Datenmenge in den einzelnen Nachrichten. |
 |eventPriority${EventName} |Erforderlich: „false“ |Gültige Werte:  Hoch, Niedrig, Aus |Standardwerte: |Priorität jedes von einem Agent generierten Ereignisses | 
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
 ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359426"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66153834"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Häufig gestellte Fragen zu Service Fabric
 
@@ -107,7 +107,7 @@ Wir arbeiten an einer optimierten Lösung, derzeit müssen Sie jedoch das Upgrad
 Ja.  Weitere Informationen finden Sie unter [Erstellen eines Clusters mit angefügten Datenträgern](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Verschlüsseln von Datenträgern (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) und [Verschlüsseln von Datenträgern (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kann ich virtuelle Computer mit niedriger Priorität in einem Clusterknotentyp verwenden (VM-Skalierungsgruppe)?
- Nein. Virtuelle Computer mit niedriger Priorität werden nicht unterstützt. 
+Nein. Virtuelle Computer mit niedriger Priorität werden nicht unterstützt. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Welche Verzeichnisse und Prozesse muss ich ausschließen, wenn ein Antivirenprogramm in meinem Cluster ausgeführt wird?
 

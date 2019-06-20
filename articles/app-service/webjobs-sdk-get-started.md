@@ -13,32 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198613"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418227"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Erste Schnitte mit dem Azure WebJobs SDK für die ereignisgesteuerte Hintergrundverarbeitung
 
-In diesem Artikel erfahren Sie, wie Sie mit Visual Studio 2017 ein Azure WebJobs SDK-Projekt erstellen, es lokal ausführen und dann in [Azure App Service](overview.md) bereitstellen. Das Projekt, das Sie erstellen, ist eine .NET Core-Konsolenanwendung, die Version 3.x des WebJobs SDK verwendet. Weitere Informationen zu Version 2.x, die das .NET Framework verwendet, finden Sie unter [Entwickeln und Bereitstellen von WebJobs mit Visual Studio – Azure App Service](webjobs-dotnet-deploy-vs.md).
+In diesem Artikel erfahren Sie, wie Sie mit Visual Studio 2019 ein Azure WebJobs SDK-Projekt erstellen, es lokal ausführen und dann in [Azure App Service](overview.md) bereitstellen. Version 3.x des WebJobs SDK unterstützt .NET Core und .NET Framework-Konsolen-Apps. Weitere Informationen zum Arbeiten mit dem WebJobs SDK finden Sie unter [Verwenden des WebJobs SDK für die ereignisgesteuerte Hintergrundverarbeitung](webjobs-sdk-how-to.md).
 
-Weitere Informationen zum Arbeiten mit dem WebJobs SDK finden Sie unter [Verwenden des WebJobs SDK für die ereignisgesteuerte Hintergrundverarbeitung](webjobs-sdk-how-to.md).
+In diesem Artikel erfahren Sie, wie Sie WebJobs als .NET Core-Konsolen-App bereitstellen. Wie Sie WebJobs als .NET Framework-Konsolen-App bereitstellen, erfahren Sie unter [Webaufträge als .NET Framework-Konsolenanwendungen](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Weitere Informationen zu WebJobs SDK Version 2.x, die nur .NET Framework unterstützt, finden Sie unter [Entwickeln und Bereitstellen von WebJobs mit Visual Studio – Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* [Installieren Sie Visual Studio 2017](/visualstudio/install/) mit der Workload **Azure-Entwicklung**. Wenn Sie bereits über Visual Studio, jedoch nicht über diese Workload verfügen, müssen Sie die Workload hinzufügen, indem Sie **Tools > Tools und Features abrufen** auswählen.
+* [Installieren Sie Visual Studio 2019](/visualstudio/install/) mit der Workload **Azure-Entwicklung**. Wenn Sie bereits über Visual Studio, jedoch nicht über diese Workload verfügen, müssen Sie die Workload hinzufügen, indem Sie **Tools > Tools und Features abrufen** auswählen.
 
 * Sie benötigen [ein Azure-Konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), um Ihr WebJobs SDK-Projekt in Azure zu veröffentlichen.
 
 ## <a name="create-a-project"></a>Erstellen eines Projekts
 
-1. Wählen Sie in Visual Studio **Datei > Neu > Projekt** aus.
+1. Wählen Sie in Visual Studio die Option **Neues Projekt erstellen** aus.
 
-2. Wählen Sie **.NET Core > Console App (.NET Core)** (.NET Core > Konsolenanwendung (.NET Core)) aus.
+2. Wählen Sie **Konsolen-App (.NET Core)** aus.
 
-3. Weisen Sie dem Projekt den Namen *WebJobsSDKSample* zu, und wählen Sie dann **OK** aus.
+3. Weisen Sie dem Projekt den Namen *WebJobsSDKSample* zu, und wählen Sie dann **Erstellen** aus.
 
    ![Dialogfeld "Neues Projekt"](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -217,7 +217,7 @@ Der lokal ausgeführte Azure Storage-Emulator verfügt nicht über alle Funktion
 
    ![Speicherkonto erstellen](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. Wählen Sie in **Server-Explorer** unter dem Knoten **Speicher** das neue Speicherkonto aus. Wählen Sie im Fenster **Eigenschaften** die Auslassungspunkte (**...**) rechts neben dem Wertfeld **Verbindungszeichenfolge** aus.
+1. Wählen Sie in **Server-Explorer** unter dem Knoten **Speicher** das neue Speicherkonto aus. Wählen Sie im Fenster **Eigenschaften** die Auslassungspunkte ( **...** ) rechts neben dem Wertfeld **Verbindungszeichenfolge** aus.
 
    ![Verbindungszeichenfolge, Auslassungspunkte](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
@@ -462,7 +462,7 @@ Während der Bereitstellung erstellen Sie eine App Service-Instanz, in der Ihre 
 
 1. Wenn die Nachricht *Hello Azure!* nicht angezeigt wird, wählen Sie **Aktualisieren** in regelmäßigen Abständen mehrere Minuten lang aus.
 
-   Es werden die Protokolle der Funktion angezeigt, die in einem WebJob ausgeführt wird, einschließlich des Texts *Hello Azure!*, den Sie im vorherigen Abschnitt eingegeben haben.
+   Es werden die Protokolle der Funktion angezeigt, die in einem WebJob ausgeführt wird, einschließlich des Texts *Hello Azure!* , den Sie im vorherigen Abschnitt eingegeben haben.
 
 ## <a name="add-an-input-binding"></a>Hinzufügen einer Eingabebindung
 

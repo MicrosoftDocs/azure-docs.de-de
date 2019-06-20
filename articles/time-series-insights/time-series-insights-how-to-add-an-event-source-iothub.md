@@ -4,19 +4,19 @@ description: In diesem Artikel wird beschrieben, wie eine Ereignisquelle hinzuge
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 12e86e2a47698d7f736b5f66a92819a4621d5e96
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143350"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165685"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Hinzufügen einer IoT Hub-Ereignisquelle zu einer Time Series Insights-Umgebung
 
@@ -40,7 +40,7 @@ So fügen Sie Ihrem IoT-Hub eine neue Consumergruppe hinzu
 
 1. Suchen Sie im Azure-Portal nach Ihrem IoT-Hub, und öffnen Sie ihn.
 
-1. Wählen Sie in dem Menü unter **Einstellungen** die Option **Integrierte Endpunkte** aus, und wählen Sie dann den Endpunkt **Ereignisse** aus.
+1. Wählen Sie unter **Einstellungen** die Option **Integrierte Endpunkte** und dann den Endpunkt **Ereignisse** aus.
 
    [![Auswählen der Schaltfläche „Ereignisse“ auf der Seite „Integrierte Endpunkte“](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
 
@@ -65,36 +65,37 @@ So fügen Sie Ihrem IoT-Hub eine neue Consumergruppe hinzu
 1. Wählen Sie einen Wert für **Importoption** aus:
 
    * Wenn Sie in einem Ihrer Abonnements bereits über einen IoT-Hub verfügen, wählen Sie **IoT-Hub aus verfügbaren Abonnements verwenden** aus. Diese Option stellt den einfachsten Ansatz dar.
-   * Wenn sich der IoT-Hub außerhalb Ihrer Abonnements befindet oder Sie erweiterte Optionen auswählen möchten, wählen Sie **IoT-Hub-Einstellungen manuell angeben** aus.
+   
+     [![Auswählen von Optionen im Bereich „Neue Ereignisquelle“](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
 
-   [![Auswählen von Optionen im Bereich „Neue Ereignisquelle“](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
+    * In der folgenden Tabelle werden die Eigenschaften beschrieben, die für die Option **IoT Hub aus verfügbaren Abonnements verwenden** erforderlich sind:
 
-1. In der folgenden Tabelle werden die Eigenschaften beschrieben, die für die Option **IoT Hub aus verfügbaren Abonnements verwenden** erforderlich sind:
+       [![Bereich „Neue Ereignisquelle“: In der Option „IoT Hub aus verfügbaren Abonnements verwenden“ festzulegende Eigenschaften](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
-   [![Bereich „Neue Ereignisquelle“: In der Option „IoT Hub aus verfügbaren Abonnements verwenden“ festzulegende Eigenschaften](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
+       | Eigenschaft | BESCHREIBUNG |
+       | --- | --- |
+       | Abonnement-ID | Wählen Sie das Abonnement aus, in dem dieser IoT-Hub erstellt wurde.
+       | IoT Hub-Name | Wählen Sie den Namen des IoT-Hubs aus.
+       | IoT Hub-Richtlinienname | Wählen Sie die SAS-Richtlinie aus. Sie finden die SAS-Richtlinie auf der Registerkarte „IoT-Hub-Einstellungen“. Jede SAS-Richtlinie umfasst einen Namen, die von Ihnen festgelegten Berechtigungen und Zugriffsschlüssel. Die SAS-Richtlinie für die Ereignisquelle *muss* über die Berechtigung zum Herstellen einer **Dienstverbindung** verfügen.
+       | IoT Hub-Richtlinienschlüssel | Der Schlüssel ist bereits angegeben.
+       | IoT Hub-Consumergruppe | Die Consumergruppe, die Ereignisse aus dem IoT-Hub liest. Wir empfehlen ausdrücklich, dass Sie eine dedizierte Consumergruppe für Ihre Ereignisquelle verwenden.
+       | Ereignisserialisierungsformat | Zurzeit ist JSON das einzige verfügbare Serialisierungsformat. Die Ereignismeldungen müssen in diesem Format vorliegen, damit Daten gelesen werden können. |
+       | Name der Timestamp-Eigenschaft | Um diesen Wert ermitteln, müssen Sie das Nachrichtenformat der Nachrichtendaten kennen, die an den IoT-Hub gesendet werden. Dieser Wert entspricht **name** der spezifischen Ereigniseigenschaft in den Nachrichtendaten, die Sie als Ereigniszeitstempel verwenden möchten. Bei dem Wert wird die Groß-/Kleinschreibung beachtet. Wenn dieser Wert nicht angegeben wird, wird der Zeitpunkt der **Einreihung des Ereignisses** in die Warteschlange in der Ereignisquelle als Ereigniszeitstempel verwendet. |
 
-   | Eigenschaft | BESCHREIBUNG |
-   | --- | --- |
-   | Abonnement-ID | Wählen Sie das Abonnement aus, in dem dieser IoT-Hub erstellt wurde.
-   | IoT Hub-Name | Wählen Sie den Namen des IoT-Hubs aus.
-   | IoT Hub-Richtlinienname | Wählen Sie die SAS-Richtlinie aus. Sie finden die SAS-Richtlinie auf der Registerkarte „IoT-Hub-Einstellungen“. Jede SAS-Richtlinie umfasst einen Namen, die von Ihnen festgelegten Berechtigungen und Zugriffsschlüssel. Die SAS-Richtlinie für die Ereignisquelle *muss* über die Berechtigung zum Herstellen einer **Dienstverbindung** verfügen.
-   | IoT Hub-Richtlinienschlüssel | Der Schlüssel ist bereits angegeben.
-   | IoT Hub-Consumergruppe | Die Consumergruppe, die Ereignisse aus dem IoT-Hub liest. Wir empfehlen ausdrücklich, dass Sie eine dedizierte Consumergruppe für Ihre Ereignisquelle verwenden.
-   | Ereignisserialisierungsformat | Zurzeit ist JSON das einzige verfügbare Serialisierungsformat. Die Ereignismeldungen müssen in diesem Format vorliegen, damit Daten gelesen werden können. |
-   | Name der Timestamp-Eigenschaft | Um diesen Wert ermitteln, müssen Sie das Nachrichtenformat der Nachrichtendaten kennen, die an den IoT-Hub gesendet werden. Dieser Wert entspricht **name** der spezifischen Ereigniseigenschaft in den Nachrichtendaten, die Sie als Ereigniszeitstempel verwenden möchten. Bei dem Wert wird die Groß-/Kleinschreibung beachtet. Wenn dieser Wert nicht angegeben wird, wird der Zeitpunkt der **Einreihung des Ereignisses** in die Warteschlange in der Ereignisquelle als Ereigniszeitstempel verwendet. |
+    * Wenn sich der IoT-Hub außerhalb Ihrer Abonnements befindet oder Sie erweiterte Optionen auswählen möchten, wählen Sie **IoT-Hub-Einstellungen manuell angeben** aus.
 
-1. In der folgenden Tabelle werden die für die Option **IoT Hub-Einstellungen manuell angeben** erforderlichen Eigenschaften beschrieben:
+      In der folgenden Tabelle werden die für die Option **IoT Hub-Einstellungen manuell angeben** erforderlichen Eigenschaften beschrieben:
 
-   | Eigenschaft | BESCHREIBUNG |
-   | --- | --- |
-   | Abonnement-ID | Das Abonnement, in dem der IoT-Hub erstellt wurde.
-   | Ressourcengruppe | Der Name der Ressourcengruppe, in der der IoT-Hub erstellt wurde.
-   | IoT Hub-Name | Der Name Ihres IoT-Hubs. Bei der Erstellung Ihres IoT-Hubs haben Sie einen Namen für den IoT-Hub eingegeben.
-   | IoT Hub-Richtlinienname | Die SAS-Richtlinie. Sie können die SAS-Richtlinie auf der Registerkarte „IoT-Hub-Einstellungen“ erstellen. Jede SAS-Richtlinie umfasst einen Namen, die von Ihnen festgelegten Berechtigungen und Zugriffsschlüssel. Die SAS-Richtlinie für die Ereignisquelle *muss* über die Berechtigung zum Herstellen einer **Dienstverbindung** verfügen.
-   | IoT Hub-Richtlinienschlüssel | Der Schlüssel für den gemeinsamen Zugriff, der für die Authentifizierung des Zugriffs auf den Azure Service Bus-Namespace verwendet wird. Geben Sie hier den primären oder sekundären Schlüssel ein.
-   | IoT Hub-Consumergruppe | Die Consumergruppe, die Ereignisse aus dem IoT-Hub liest. Wir empfehlen ausdrücklich, dass Sie eine dedizierte Consumergruppe für Ihre Ereignisquelle verwenden.
-   | Ereignisserialisierungsformat | Zurzeit ist JSON das einzige verfügbare Serialisierungsformat. Die Ereignismeldungen müssen in diesem Format vorliegen, damit Daten gelesen werden können. |
-   | Name der Timestamp-Eigenschaft | Um diesen Wert ermitteln, müssen Sie das Nachrichtenformat der Nachrichtendaten kennen, die an den IoT-Hub gesendet werden. Dieser Wert entspricht **name** der spezifischen Ereigniseigenschaft in den Nachrichtendaten, die Sie als Ereigniszeitstempel verwenden möchten. Bei dem Wert wird die Groß-/Kleinschreibung beachtet. Wenn dieser Wert nicht angegeben wird, wird der Zeitpunkt der **Einreihung des Ereignisses** in die Warteschlange in der Ereignisquelle als Ereigniszeitstempel verwendet. |
+       | Eigenschaft | BESCHREIBUNG |
+       | --- | --- |
+       | Abonnement-ID | Das Abonnement, in dem der IoT-Hub erstellt wurde.
+       | Ressourcengruppe | Der Name der Ressourcengruppe, in der der IoT-Hub erstellt wurde.
+       | IoT Hub-Name | Der Name Ihres IoT-Hubs. Bei der Erstellung Ihres IoT-Hubs haben Sie einen Namen für den IoT-Hub eingegeben.
+       | IoT Hub-Richtlinienname | Die SAS-Richtlinie. Sie können die SAS-Richtlinie auf der Registerkarte „IoT-Hub-Einstellungen“ erstellen. Jede SAS-Richtlinie umfasst einen Namen, die von Ihnen festgelegten Berechtigungen und Zugriffsschlüssel. Die SAS-Richtlinie für die Ereignisquelle *muss* über die Berechtigung zum Herstellen einer **Dienstverbindung** verfügen.
+       | IoT Hub-Richtlinienschlüssel | Der Schlüssel für den gemeinsamen Zugriff, der für die Authentifizierung des Zugriffs auf den Azure Service Bus-Namespace verwendet wird. Geben Sie hier den primären oder sekundären Schlüssel ein.
+       | IoT Hub-Consumergruppe | Die Consumergruppe, die Ereignisse aus dem IoT-Hub liest. Wir empfehlen ausdrücklich, dass Sie eine dedizierte Consumergruppe für Ihre Ereignisquelle verwenden.
+       | Ereignisserialisierungsformat | Zurzeit ist JSON das einzige verfügbare Serialisierungsformat. Die Ereignismeldungen müssen in diesem Format vorliegen, damit Daten gelesen werden können. |
+       | Name der Timestamp-Eigenschaft | Um diesen Wert ermitteln, müssen Sie das Nachrichtenformat der Nachrichtendaten kennen, die an den IoT-Hub gesendet werden. Dieser Wert entspricht **name** der spezifischen Ereigniseigenschaft in den Nachrichtendaten, die Sie als Ereigniszeitstempel verwenden möchten. Bei dem Wert wird die Groß-/Kleinschreibung beachtet. Wenn dieser Wert nicht angegeben wird, wird der Zeitpunkt der **Einreihung des Ereignisses** in die Warteschlange in der Ereignisquelle als Ereigniszeitstempel verwendet. |
 
 1. Fügen Sie den dedizierten Time Series Insights-Consumergruppennamen hinzu, den Sie Ihrem IoT-Hub hinzugefügt haben.
 

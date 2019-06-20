@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61241556"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Erweiterte Media Encoder Premium Workflow-Tutorials
 ## <a name="overview"></a>Übersicht

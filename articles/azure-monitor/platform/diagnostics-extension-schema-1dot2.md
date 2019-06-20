@@ -10,11 +10,11 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496487"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60237839"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Konfigurationsschema für die Azure-Diagnose 1.2
 > [!NOTE]
@@ -112,7 +112,7 @@ Definiert Konfigurationseinstellungen für die Telemetriedaten, die gesammelt we
 |**DiagnosticInfrastructureLogs**|Aktivieren Sie die Sammlung der Protokolle, die von der Azure-Diagnose generiert wurde. Die Protokolle der Diagnoseinfrastruktur sind hilfreich für die Problembehandlung des Diagnosesystems selbst. Optionale Attribute sind:<br /><br /> -                     **scheduledTransferLogLevelFilter**: Konfiguriert den minimalen Schweregrad der erfassten Protokolle.<br /><br /> -                     **scheduledTransferPeriod**: Das Intervall zwischen geplanten Datenübertragungen an den Speicher (minutengenau gerundet). Der Wert ist ein [Dauer-Datentyp im XML-Format](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**Directories**|Ermöglicht das Sammeln der Inhalte eines Verzeichnisses, der IIS-Zugriffsfehlerprotokolle und/oder der IIS-Protokolle. Optionales Attribut:<br /><br /> **scheduledTransferPeriod**: Das Intervall zwischen geplanten Datenübertragungen an den Speicher (minutengenau gerundet). Der Wert ist ein [Dauer-Datentyp im XML-Format](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**EtwProviders**|Konfiguriert die Erfassung der ETW-Ereignisse von EventSource und/oder der ETW-Manifest-basierten Anbieter|  
-|**Metriken**|Dieses Element ermöglicht Ihnen das Generieren einer Leistungsindikatortabelle, die für schnelle Abfragen optimiert ist. Jeder Leistungsindikator, der im **PerformanceCounters**-Element definiert ist, wird in der Metriktabelle zusätzlich zur Leistungsindikatortabelle gespeichert. Erforderliches Attribut:<br /><br /> **resourceId**: Dies ist die Ressourcen-ID des virtuellen Computers, auf dem Sie die Azure-Diagnose bereitstellen. Rufen Sie **resourceID** im [Azure-Portal](https://portal.azure.com) ab. Wählen Sie **Durchsuchen** -> **Ressourcengruppen** -> **<Name\>** aus. Klicken Sie auf die Kachel **Eigenschaften**, und kopieren Sie den Wert aus dem Feld **ID**.|  
+|**Metriken**|Dieses Element ermöglicht Ihnen das Generieren einer Leistungsindikatortabelle, die für schnelle Abfragen optimiert ist. Jeder Leistungsindikator, der im **PerformanceCounters**-Element definiert ist, wird in der Metriktabelle zusätzlich zur Leistungsindikatortabelle gespeichert. Erforderliches Attribut:<br /><br /> **resourceId**: Dies ist die Ressourcen-ID des virtuellen Computers, auf dem Sie die Azure-Diagnose bereitstellen. Rufen Sie **resourceID** im [Azure-Portal](https://portal.azure.com) ab. Wählen Sie **Durchsuchen** -> **Ressourcengruppen** ->  **<Name\>** aus. Klicken Sie auf die Kachel **Eigenschaften**, und kopieren Sie den Wert aus dem Feld **ID**.|  
 |**PerformanceCounters**|Ermöglicht das Sammeln von Leistungsindikatoren. Optionales Attribut:<br /><br /> **scheduledTransferPeriod**: Das Intervall zwischen geplanten Datenübertragungen an den Speicher (minutengenau gerundet). Der Wert ist ein [Dauer-Datentyp im XML-Format](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**WindowsEventLog**|Ermöglicht das Sammeln von Windows-Ereignisprotokollen. Optionales Attribut:<br /><br /> **scheduledTransferPeriod**: Das Intervall zwischen geplanten Datenübertragungen an den Speicher (minutengenau gerundet). Der Wert ist ein [Dauer-Datentyp im XML-Format](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
@@ -199,5 +199,5 @@ Definiert Konfigurationseinstellungen für die Telemetriedaten, die gesammelt we
 
 |Elementname|BESCHREIBUNG|  
 |------------------|-----------------|  
-|**DataSource**|Die Windows-Ereignisprotokolle, die erfasst werden sollen. Erforderliches Attribut:<br /><br /> **name**: Die XPath-Abfrage, die die zu erfassenden Windows-Ereignisse beschreibt. Beispiel: <br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Zum Erfassen aller Ereignisse geben Sie „*“ ein.|
+|**DataSource**|Die Windows-Ereignisprotokolle, die erfasst werden sollen. Erforderliches Attribut:<br /><br /> **name**: Die XPath-Abfrage, die die zu erfassenden Windows-Ereignisse beschreibt. Beispiel:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Zum Erfassen aller Ereignisse geben Sie „*“ ein.|
 

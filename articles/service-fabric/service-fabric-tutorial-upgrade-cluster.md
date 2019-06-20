@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8bb8a635c3699828376390c489697b6315030937
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046239"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306673"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Upgraden der Runtime eines Service Fabric-Clusters in Azure
 
-Dieses Tutorial ist der vierte Teil einer Reihe und zeigt, wie Sie die Service Fabric-Runtime in einem Azure Service Fabric-Cluster aktualisieren. Dieser Tutorialteil wurde für unter Azure ausgeführte Service Fabric-Cluster geschrieben und gilt nicht für eigenständige Service Fabric-Cluster.
+Dieses Tutorial ist der vierte Teil einer Reihe und zeigt, wie Sie die Service Fabric-Runtime in einem Azure Service Fabric-Cluster aktualisieren. Dieser Tutorialteil wurde für unter Azure ausgeführte Service Fabric-Cluster geschrieben und gilt nicht für eigenständige Service Fabric-Cluster.
 
 > [!WARNING]
 > Für diesen Teil des Tutorials ist PowerShell erforderlich. Das Upgrade der Clusterruntime wird von den Azure CLI-Tools noch nicht unterstützt. Alternativ kann ein Cluster auch im Portal aktualisiert werden. Weitere Informationen finden Sie unter [Aktualisieren eines Azure Service Fabric-Clusters](service-fabric-cluster-upgrade.md).
@@ -55,7 +55,7 @@ Bevor Sie mit diesem Tutorial beginnen können, müssen Sie Folgendes tun:
 * Wenn Sie kein Azure-Abonnement besitzen, erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installieren Sie [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) oder die [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli).
 * Erstellen eines sicheren [Windows-Clusters](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in Azure
-* Einrichten einer Windows-Entwicklungsumgebung Installieren Sie [Visual Studio 2017](https://www.visualstudio.com) und die Workloads für **Azure-Entwicklung**, **ASP.NET und Webentwicklung** und **Plattformübergreifende .NET Core-Entwicklung**.  Richten Sie dann eine [.NET-Entwicklungsumgebung](service-fabric-get-started.md) ein.
+* Einrichten einer Windows-Entwicklungsumgebung Installieren Sie [Visual Studio 2019](https://www.visualstudio.com) und die Workloads **Azure-Entwicklung**, **ASP.NET und Webentwicklung** und **Plattformübergreifende .NET Core-Entwicklung**.  Richten Sie dann eine [.NET-Entwicklungsumgebung](service-fabric-get-started.md) ein.
 
 ### <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
@@ -69,14 +69,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>Abrufen der Runtimeversion
 
-Nachdem Sie eine Verbindung mit Azure hergestellt und das Abonnement mit dem Service Fabric-Cluster ausgewählt haben, können Sie die Runtimeversion des Clusters abrufen.
+Nachdem Sie eine Verbindung mit Azure hergestellt und das Abonnement mit dem Service Fabric-Cluster ausgewählt haben, können Sie die Runtimeversion des Clusters abrufen.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Sie können auch einfach folgendermaßen eine Liste aller Cluster in Ihrem Abonnement abrufen:
+Sie können auch einfach mit dem folgenden Beispiel eine Liste aller Cluster in Ihrem Abonnement abrufen:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
@@ -207,8 +207,7 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 > * Aktualisieren der Clusterruntime
 > * Überwachen des Upgrades
 
-[!div class="checklist"]
-> * Abrufen der Version der Clusterruntime
-> * Aktualisieren der Clusterruntime
-> * Überwachen des Upgrades
+Fahren Sie mit dem nächsten Tutorial fort:
 
+> [!div class="nextstepaction"]
+> [Löschen eines Clusters](service-fabric-tutorial-delete-cluster.md)

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66399428"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Unterstützungsmatrix für die Notfallwiederherstellung von lokalen Hyper-V-VMs in Azure
 
@@ -62,12 +62,12 @@ Datenträger auf einer replizierten Hyper-V-VM hinzufügen | Nicht unterstützt.
 Hostnetzwerk: NIC Teaming | Ja | Ja
 Hostnetzwerk: VLAN | Ja | Ja
 Hostnetzwerk: IPv4 | Ja | Ja
-Hostnetzwerk: IPv6 | Nein  | Nein 
-Gast-VM-Netzwerk: NIC Teaming | Nein  | Nein 
+Hostnetzwerk: IPv6 | Nein | Nein
+Gast-VM-Netzwerk: NIC Teaming | Nein | Nein
 Gast-VM-Netzwerk: IPv4 | Ja | Ja
-Gast-VM-Netzwerk: IPv6 | Nein  | Ja
+Gast-VM-Netzwerk: IPv6 | Nein | Ja
 Gast-VM-Netzwerk: Statische IP-Adresse (Windows) | Ja | Ja
-Gast-VM-Netzwerk: Statische IP-Adresse (Linux) | Nein  | Nein 
+Gast-VM-Netzwerk: Statische IP-Adresse (Linux) | Nein | Nein
 Gast-VM-Netzwerk: Multi-NIC | Ja | Ja
 
 
@@ -85,7 +85,7 @@ Reservierte IP | Ja | Ja
 IPv4 | Ja | Ja
 Quell-IP-Adresse beibehalten | Ja | Ja
 Azure Virtual Network-Dienstendpunkte<br/> (ohne Azure Storage-Firewalls) | Ja | Ja
-Beschleunigter Netzwerkbetrieb | Nein  | Nein 
+Beschleunigter Netzwerkbetrieb | Nein | Nein
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V-Hostspeicher
@@ -105,10 +105,10 @@ VMDK | Nicht verfügbar | Nicht verfügbar
 VHD/VHDX | Ja | Ja
 VM der 2. Generation | Ja | Ja
 EFI/UEFI| Ja | Ja
-Freigegebener Clusterdatenträger | Nein  | Nein 
-Verschlüsselter Datenträger | Nein  | Nein 
+Freigegebener Clusterdatenträger | Nein | Nein
+Verschlüsselter Datenträger | Nein | Nein
 NFS | Nicht verfügbar | Nicht verfügbar
-SMB 3.0 | Nein  | Nein 
+SMB 3.0 | Nein | Nein
 RDM | Nicht verfügbar | Nicht verfügbar
 Datenträger > 1 TB | Ja, bis zu 4.095 GB | Ja, bis zu 4.095 GB
 Datenträger: 4K für logischen und physischen Sektor | Nicht unterstützt: Gen 1, Gen 2 | Nicht unterstützt: Gen 1, Gen 2
@@ -116,7 +116,7 @@ Datenträger: 4K für logischen, 512 Byte für physischen Sektor | Ja |  Ja
 Logische Volumeverwaltung (Logical Volume Management, LVM). LVM wird nur für Datenträger unterstützt. Azure stellt nur einen einzelnen Betriebssystemdatenträger bereit. | Ja | Ja
 Volume mit Stripesetdatenträger > 1 TB | Ja | Ja
 Speicherplätze | Ja | Ja
-Datenträger laufendem Systembetrieb hinzufügen/entfernen | Nein  | Nein 
+Datenträger laufendem Systembetrieb hinzufügen/entfernen | Nein | Nein
 Ausschließen von Datenträgern | Ja | Ja
 Multipfad (MPIO) | Ja | Ja
 
@@ -127,13 +127,13 @@ Multipfad (MPIO) | Ja | Ja
 Lokal redundanter Speicher | Ja | Ja
 Georedundanter Speicher | Ja | Ja
 Georedundanter Speicher mit Lesezugriff | Ja | Ja
-Speicherebene „Kalt“ | Nein  | Nein 
-Speicherebene „Heiß“| Nein  | Nein 
-Blockblobs | Nein  | Nein 
+Speicherebene „Kalt“ | Nein | Nein
+Speicherebene „Heiß“| Nein | Nein
+Blockblobs | Nein | Nein
 Verschlüsselung ruhender Daten (SSE)| Ja | Ja
 Storage Premium | Ja | Ja
-Import-/Exportdienst | Nein  | Nein 
-Azure Storage-Firewalls für virtuelle Netzwerke, konfiguriert im Zielspeicher-/Cachespeicherkonto (zum Speichern von Replikationsdaten) | Nein  | Nein 
+Import-/Exportdienst | Nein | Nein
+Azure Storage-Firewalls für virtuelle Netzwerke, konfiguriert im Zielspeicher-/Cachespeicherkonto (zum Speichern von Replikationsdaten) | Nein | Nein
 
 
 ## <a name="azure-compute-features"></a>Azure-Computefeatures
@@ -159,7 +159,7 @@ Größe des VHD-Datenträgers | Bis zu 4.095 GB | Beim Überprüfen der Vorausse
 Netzwerkadapter | Es werden mehrere Adapter unterstützt. |
 Freigegebene VHD | Nicht unterstützt | Beim Überprüfen der Voraussetzungen tritt ein Fehler auf, wenn keine Unterstützung vorhanden ist.
 Fiber-Channel-Datenträger | Nicht unterstützt | Beim Überprüfen der Voraussetzungen tritt ein Fehler auf, wenn keine Unterstützung vorhanden ist.
-Festplattenformat | VHD  <br/><br/> VHDX | Site Recovery konvertiert VHDX automatisch in VHD, wenn Sie das Failover auf Azure anstoßen. Wenn Sie ein Failback zum lokalen Speicher durchführen, wird für die virtuellen Computer weiterhin das VHDX-Format verwendet.
+Festplattenformat | VHD <br/><br/> VHDX | Site Recovery konvertiert VHDX automatisch in VHD, wenn Sie das Failover auf Azure anstoßen. Wenn Sie ein Failback zum lokalen Speicher durchführen, wird für die virtuellen Computer weiterhin das VHDX-Format verwendet.
 BitLocker | Nicht unterstützt | BitLocker muss deaktiviert sein, bevor Sie die Replikation für einen virtuellen Computer aktivieren.
 Name des virtuellen Computers | Zwischen 1 und 63 Zeichen. Ist auf Buchstaben, Zahlen und Bindestriche beschränkt. Der VM-Name muss mit einem Buchstaben oder einer Zahl beginnen und enden. | Aktualisieren Sie den Wert in den VM-Eigenschaften in Site Recovery.
 VM-Typ | Generation 1<br/><br/> Generation 2 – Windows | Zwei virtuelle Computer der Generation 2 mit einem Betriebssystem-Datenträger des Typs „Basic“ (mit einem oder zwei als VHDX formatierten Datenvolumes) und weniger als 300 GB Speicherplatz werden unterstützt.<br></br>Linux-VMs der Generation 2 werden nicht unterstützt. [Weitere Informationen](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
@@ -168,8 +168,8 @@ VM-Typ | Generation 1<br/><br/> Generation 2 – Windows | Zwei virtuelle Comput
 
 **Aktion** |  **Hyper-V mit Virtual Machine Manager** | **Hyper-V ohne Virtual Machine Manager**
 --- | --- | ---
-Tresor über Ressourcengruppen hinweg verschieben<br/><br/> Innerhalb von und über Abonnements hinweg | Nein  | Nein 
-Speicher, Netzwerk, Azure-VMs über Ressourcengruppen hinweg verschieben<br/><br/> Innerhalb von und über Abonnements hinweg | Nein  | Nein 
+Tresor über Ressourcengruppen hinweg verschieben<br/><br/> Innerhalb von und über Abonnements hinweg | Nein | Nein
+Speicher, Netzwerk, Azure-VMs über Ressourcengruppen hinweg verschieben<br/><br/> Innerhalb von und über Abonnements hinweg | Nein | Nein
 
 > [!NOTE]
 > Wenn Hyper-VMs (mit oder ohne Verwaltung durch SCVMM) von lokalen VMs in Azure repliziert werden, kann die Replikation aus einer bestimmten Umgebung heraus, nämlich dem Hyper-V-Standort oder SCVMM (je nachdem, was davon zutrifft), nur in einem bestimmten AD-Mandanten durchgeführt werden.

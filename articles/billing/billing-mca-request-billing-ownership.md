@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890932"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60371925"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Übernehmen des Abrechnungsbesitzes für Azure-Abonnements von anderen Benutzern
 

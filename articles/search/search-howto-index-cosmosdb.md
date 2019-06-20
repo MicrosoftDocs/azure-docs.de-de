@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024722"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522834"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indizieren von Cosmos DB mithilfe eines Azure Search-Indexers
+
+
+> [!Note]
+> Die Unterstützung der MongoDB-API befindet sich in der Vorschau und ist nicht für die Produktion ausgelegt. Dieses Feature wird durch die [REST-API-Version 2019-05-06-Preview](search-api-preview.md) bereitgestellt. Derzeit werden weder das Portal noch das .NET SDK unterstützt.
+>
+> Die SQL-API ist allgemein verfügbar.
 
 In diesem Artikel erfahren Sie, wie Sie einen Azure Cosmos DB-[Indexer](search-indexer-overview.md) zum Extrahieren von Inhalten konfigurieren und dafür sorgen, dass er in Azure Search durchsucht werden kann. Mit diesem Workflow erstellen Sie einen Azure Search-Index und laden ihn mit vorhandenem, aus Azure Cosmos DB extrahiertem Text. 
 
@@ -26,7 +32,7 @@ Da die Begrifflichkeiten etwas verwirrend sind, soll hier darauf hingewiesen sei
 Sie können das [Portal](#cosmos-indexer-portal), REST-APIs oder das .NET SDK verwenden, um Cosmos-Inhalt zu indizieren. Mit dem Cosmos DB-Indexer in Azure Search können Sie [Azure Cosmos-Elemente](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) durchforsten, auf die über folgende Protokolle zugegriffen wird:
 
 * [SQL-API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [API für MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search-Support für diese API finden Sie in Public Preview)  
+* [MongoDB-API (Vorschau)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > Im Benutzerfeedback sind vorhandene Elemente für zusätzlichen API-Support enthalten. Sie können eine Stimme für die Cosmos-APIs abgeben, die Ihrer Meinung nach in Azure Search unterstützt werden sollen: [Tabellen-API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph-API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra-API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
@@ -118,7 +124,7 @@ Wenn die Indizierung abgeschlossen ist, können Sie den [Such-Explorer](search-e
 
 Sie können die REST-API für die Indizierung von Azure Cosmos DB-Daten in einem dreiteiligen Workflow verwenden, der für alle Indexer in Azure Search gleich ist: Erstellen einer Datenquelle, eines Indexes und eines Indexers. Das Extrahieren von Daten aus dem Cosmos-Speicher wird durchgeführt, wenn Sie die Anforderung „Indexer erstellen“ senden. Nachdem diese Anforderung abgeschlossen ist, verfügen Sie über einen Index, der abgefragt werden kann. 
 
-Wenn Sie MongoDB bewerten, müssen Sie die REST-API zum Erstellen der Datenquelle verwenden.
+Wenn Sie MongoDB bewerten, müssen Sie die REST-`api-version=2019-05-06-Preview` zum Erstellen der Datenquelle verwenden.
 
 In Ihrem Cosmos DB-Konto können Sie auswählen, ob die Sammlung automatisch alle Dokumente indizieren soll. Standardmäßig werden alle Dokumente automatisch indiziert, aber Sie können die automatische Indizierung deaktivieren. Wenn die Indizierung deaktiviert ist, kann auf die Dokumente nur über ihre Self-Links oder über Abfragen mithilfe der Dokument-ID zugegriffen werden. Für Azure Search muss die automatische Cosmos DB-Indizierung für die Sammlung aktiviert sein, die von Azure Search indiziert wird. 
 
@@ -279,7 +285,7 @@ Weitere Informationen zur API zum Erstellen eines Indexers finden Sie unter [Ers
 
 ## <a name="use-net"></a>Verwenden von .NET
 
-Das .NET SDK ist der REST-API vollständig gleichgestellt. Es wird empfohlen, dass Sie den vorherige Abschnitt zur REST-API genau lesen, um die Konzepte, den Workflow und die Anforderungen zu verstehen. Sie können sich anschließend auf die folgende .NET-API-Referenzdokumentation beziehen, um einen JSON-Indexer in verwalteten Code zu implementieren.
+Das allgemein verfügbare .NET SDK ist vollständig gleichwertig mit der allgemein verfügbaren REST-API. Es wird empfohlen, dass Sie den vorherige Abschnitt zur REST-API genau lesen, um die Konzepte, den Workflow und die Anforderungen zu verstehen. Sie können sich anschließend auf die folgende .NET-API-Referenzdokumentation beziehen, um einen JSON-Indexer in verwalteten Code zu implementieren.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ Im folgenden Beispiel wird eine Datenquelle mit einer Richtlinie zum vorläufige
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>Video ansehen
-
-In diesem etwas älteren 7 Minuten langen Video zeigt Azure Cosmos DB-Programm-Manager Andrew Liu, wie einem Azure Cosmos DB-Container ein Azure Search-Index hinzugefügt wird. Die Portalseiten, die im Video zu sehen sind, sind veraltet, die Informationen sind jedoch weiterhin gültig.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>Nächste Schritte
 

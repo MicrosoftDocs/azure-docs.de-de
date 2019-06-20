@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023632"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299029"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Was ist die „kognitive Suche“ in Azure Search?
 
@@ -25,7 +25,7 @@ Kognitive Suche ist eine KI-Funktion in Azure Search zum Extrahieren von Text au
 
 + Die **Bildverarbeitungsfähigkeiten** umfassen [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) und die Identifizierung von [visuellen Features](cognitive-search-skill-image-analysis.md), z.B. Gesichtserkennung, Bildinterpretation, Bilderkennung (berühmte Personen und Wahrzeichen) oder Attribute wie Farben oder Bildausrichtung. Sie können Textdarstellungen von Bildinhalt erstellen, indem Sie alle Abfragefunktionen von Azure Search verwenden.
 
-![Diagramm der Cognitive Search-Pipeline](./media/cognitive-search-intro/cogsearch-architecture.png "Übersicht über die Cognitive Search-Pipeline")
+![Diagramm der Pipeline für Kognitive Suche](./media/cognitive-search-intro/cogsearch-architecture.png "Übersicht über die Pipeline für Kognitive Suche")
 
 Die kognitiven Fähigkeiten in Azure Search basieren auf Machine Learning-Modellen in Cognitive Services-APIs: [Maschinelles Sehen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) und [Textanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
@@ -86,7 +86,7 @@ Indizes werden über ein Indexschema generiert, das die Felder, Attribute und we
 | Verarbeitung natürlicher Sprache | Textverarbeitung für Einblicke und Informationen zu Texteingaben. Sprachenerkennung, Standpunktanalyse und Schlüsselbegriffserkennung sind Fähigkeiten, die in den Bereich der Verarbeitung natürlicher Sprache fallen.  | [Fähigkeit: Schlüsselbegriffserkennung](cognitive-search-skill-keyphrases.md), [Fähigkeit: Sprachenerkennung](cognitive-search-skill-language-detection.md), [Fähigkeit: Standpunktanalyse](cognitive-search-skill-sentiment.md) |
 | Dokumententschlüsselung | Der Prozess des Extrahierens oder Erstellens von Textinhalt aus Nicht-Text-Quellen während der Indizierung. OCR (Optical Character Recognition) ist ein Beispiel hierfür. In der Regel bezieht sich dies jedoch auf die Kernfunktionalität des Indexers, da dieser Inhalte aus Anwendungsdateien extrahiert. Sowohl die Datenquelle, die den Speicherort der Quelldatei bereitstellt, als auch die Indexerdefinition, die Feldzuordnungen zur Verfügung stellt, stellen Schlüsselfaktoren bei der Dokumententschlüsselung dar. | Weitere Informationen finden Sie unter [Indexer](search-indexer-overview.md). |
 | Strukturierung | Textfragmente werden zu einer größeren Struktur konsolidiert, oder größere Textblöcke werden zur weiteren Downstream-Verarbeitung in eine überschaubare Größe aufgeteilt. | [Fähigkeit: Strukturierung](cognitive-search-skill-shaper.md), [Fähigkeit: Textzusammenführung](cognitive-search-skill-textmerger.md), [Fähigkeit: Textunterteilung](cognitive-search-skill-textsplit.md) |
-| Angereicherte Dokumente | Eine vorübergehende interne Struktur, auf die im Code nicht direkt zugegriffen werden kann. Angereicherte Dokumente werden während der Verarbeitung generiert. In einem Suchindex werden jedoch nur endgültige Ausgaben permanent gespeichert. Feldzuordnungen bestimmen, welche Datenelemente zum Index hinzugefügt werden. | Weitere Informationen finden Sie unter [Zugriff auf angereicherte Dokumente](cognitive-search-tutorial-blob.md#access-enriched-document). |
+| Angereicherte Dokumente | Eine vorübergehende interne Struktur, die bei der Verarbeitung generiert wird. Die endgültige Ausgabe spiegelt sich in einem Suchindex wider. Eine Skillset bestimmt, welche Anreicherungen vorgenommen werden. Feldzuordnungen bestimmen, welche Datenelemente zum Index hinzugefügt werden. Optional können Sie einen Wissensspeicher erstellen, um angereicherte Dokumente mit Tools wie dem Storage-Explorer, Power BI oder einem anderen Tool, das mit Azure Blob Storage verbunden ist, zu speichern und zu untersuchen. | Informationen finden Sie im Thema zum [Wissensspeicher (Vorschau)](knowledge-store-concept-intro.md). |
 | Indexer |  Ein Crawler, mit dem durchsuchbare Daten und Metadaten aus einer externen Datenquelle extrahiert werden und mit dem ein Index basierend auf Feld-zu-Feld-Zuordnungen zwischen dem Index und Ihrer Datenquelle zur Dokumententschlüsselung aufgefüllt wird. Bei Cognitive Search-Anreicherungen ruft der Indexer eine Fähigkeitengruppe auf und enthält die Feldzuordnungen, durch welche die Ausgabe der Anreicherung Zielfeldern im Index zugeordnet wird. Die Indexerdefinition enthält sämtliche Anweisungen und Verweise für Pipelinevorgänge. Die Pipeline wird bei Ausführung des Indexers aufgerufen. | [Indexer](search-indexer-overview.md) |
 | Data source  | Ein von einem Indexer verwendetes Objekt zum Verbinden mit einer externen Datenquelle von unterstützten Typen in Azure. | Weitere Informationen finden Sie unter [Indexer](search-indexer-overview.md). |
 | Index | Ein persistenter Suchindex in Azure Search, der aus einem Indexschema erstellt wurde, das die Feldstruktur und -verwendung definiert. | [Indizes in Azure Search](search-what-is-an-index.md) | 
@@ -146,4 +146,4 @@ Weitere Informationen zu bestimmten Fragen oder Problemen finden Sie unter [Prob
 + [Schnellstart: Testen der kognitiven Suche anhand einer exemplarischen Vorgehensweise zu Portalfunktionen](cognitive-search-quickstart-blob.md)
 + [Tutorial: Informationen zum Aufrufen von APIs der kognitiven Suche](cognitive-search-tutorial-blob.md)
 + [Übersicht über Wissensspeicher](knowledge-store-concept-intro.md)
-+ [Wissensspeicher – exemplarische Vorgehensweise](knowledge-store-howto.md)
++ [Wissensspeicher: exemplarische Vorgehensweise](knowledge-store-howto.md)

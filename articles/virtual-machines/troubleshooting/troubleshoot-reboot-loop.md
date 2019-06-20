@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
 ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472293"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Windows-Neustartschleife auf einem virtuellen Azure-Computer

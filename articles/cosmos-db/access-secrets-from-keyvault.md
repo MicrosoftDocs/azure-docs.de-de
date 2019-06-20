@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 05/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 36b0a2f18cf2917251a87405456980811af1bc3d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 157ccd284c25cb5c7275aa942823ade2a40795cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242191"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239851"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Sichern von Azure Cosmos-Schlüsseln mit Azure Key Vault 
 

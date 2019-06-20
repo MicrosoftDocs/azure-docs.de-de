@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
 ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61426730"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analysieren von Textdaten in Azure Monitor-Protokollen
 Einige von Azure Monitor gesammelte Protokolldaten umfassen mehrere Arten von Informationen in einer einzelnen Eigenschaft. Das Analysieren dieser Daten in mehrere Eigenschaften erleichtert die Verwendung in Abfragen. Ein gängiges Beispiel ist ein [benutzerdefiniertes Protokoll](../../log-analytics/log-analytics-data-sources-custom-logs.md), das einen kompletten Protokolleintrag mit mehreren Werten in einer einzelnen Eigenschaft sammelt. Durch die Erstellung separater Eigenschaften für die verschiedenen Werte können Sie nach den einzelnen Eigenschaften suchen und sie aggregieren.

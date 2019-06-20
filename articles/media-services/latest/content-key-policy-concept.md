@@ -9,27 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d9e86c45d535862e0c3d02b3f331bc40ebb7f6c7
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 68778cea51144ec33efd4d5843a51b489ea17ca4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745120"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155736"
 ---
 # <a name="content-key-policies"></a>Richtlinien für Inhaltsschlüssel
 
 Mit Media Services können Sie Ihre zu übermittelnden Live- und On-Demand-Inhalte dynamisch mit Advanced Encryption Standard (AES-128) oder einem der drei wichtigsten DRM-Systeme verschlüsseln: Microsoft PlayReady, Google Widevine und Apple FairPlay. Media Services bietet auch einen Dienst für die Übermittlung von AES-Schlüsseln und DRM-Lizenzen (PlayReady, Widevine und FairPlay) an autorisierte Clients.
 
-Um Verschlüsselungsoptionen für Ihren Datenstrom festzulegen, müssen Sie die [Inhaltsschlüsselrichtlinie](https://docs.microsoft.com/rest/api/media/contentkeypolicies) erstellen und sie mit Ihrem **Streaminglocator** verknüpfen. Die **Inhaltsschlüsselrichtlinie** konfiguriert, wie der Inhaltsschlüssel mithilfe der Schlüsselbereitstellungskomponente von Media Services an Endclients übermittelt wird. Sie können den Inhaltsschlüssel automatisch von Media Services generieren lassen. Normalerweise würde ein langlebiger Schlüssel verwendet und das Vorhandensein der Richtlinie mithilfe von „Get“ überprüft. Um den Schlüssel abzurufen, müssen Sie eine separate Aktionsmethode aufrufen, um geheime Schlüssel oder Anmeldeinformationen abzurufen, wie im folgenden Beispiel gezeigt.
+Um Verschlüsselungsoptionen für Ihren Datenstrom festzulegen, müssen Sie die [Streamingrichtlinie](streaming-policy-concept.md) erstellen und sie mit Ihrem [Streaminglocator](streaming-locators-concept.md) verknüpfen. Sie müssen eine [Richtlinie für den Inhaltsschlüssel](https://docs.microsoft.com/rest/api/media/contentkeypolicies) erstellen, mit der konfiguriert wird, wie der Inhaltsschlüssel (der sicheren Zugriff auf Ihre [Ressourcen](assets-concept.md) bereitstellt) an Endclients übermittelt wird. Die **Richtlinie für Inhaltsschlüssel** wird Ihrem **Streaminglocator** zugeordnet. Sie müssen die Anforderungen (Einschränkungen) für die Richtlinie für den Inhaltsschlüssel festlegen, die erfüllt sein müssen, damit Schlüssel mit der angegebenen Konfiguration an Clients übermittelt werden. 
+
+Es wird empfohlen, Media Services Inhaltsschlüssel automatisch generieren zu lassen. Normalerweise würde ein langlebiger Schlüssel verwendet und das Vorhandensein der Richtlinie mithilfe von **Get** überprüft. Um den Schlüssel abzurufen, müssen Sie eine separate Aktionsmethode aufrufen, um geheime Schlüssel oder Anmeldeinformationen abzurufen, wie im folgenden Beispiel gezeigt.
 
 **Richtlinien für Inhaltsschlüssel** sind aktualisierbar. Es empfiehlt sich beispielsweise, die Richtlinie zu aktualisieren, wenn Sie eine Schlüsselrotation ausführen müssen. Sie können auch den primären Verifizierungsschlüssel und die Liste der alternativen Verifizierungsschlüssel in der vorhandenen Richtlinie ändern. Es dauert bis zu 15 Minuten, die Schlüsselbereitstellungscaches zu aktualisieren und die aktualisierte Richtlinie zu übernehmen. 
 
 > [!IMPORTANT]
 > * Eigenschaften von **Inhaltssschlüsselrichtlinien** vom Datetime-Typ liegen immer im UTC-Format vor.
-> * Sie sollten eine begrenzte Sammlung von Richtlinien für Ihr Media Services-Konto erstellen und diese für Ihre Streaminglocators wiederverwenden, wenn dieselben Optionen benötigt werden. 
+> * Sie sollten eine begrenzte Sammlung von Richtlinien für Ihr Media Services-Konto erstellen und diese für Ihre Streaminglocators wiederverwenden, wenn dieselben Optionen benötigt werden. Weitere Informationen finden Sie unter [Kontingente und Einschränkungen](limits-quotas-constraints.md).
 
 ## <a name="example"></a>Beispiel
 

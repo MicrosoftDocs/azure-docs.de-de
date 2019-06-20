@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60288378"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Konfigurieren von Einstellungen für Azure-Ressourcenrollen in PIM
 

@@ -1,25 +1,18 @@
 ---
-title: Abrufen eines bestimmten Angebots – API| Microsoft-Dokumentation
+title: API zum Abrufen eines bestimmten Angebots | Azure Marketplace
 description: Die API ruft das angegebene Angebot im Herausgebernamespace ab.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9484cf0f549db94be8f1ac2363addca952a3cff3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935441"
 ---
 <a name="retrieve-a-specific-offer"></a>Abrufen eines bestimmten Angebots
 =========================
@@ -47,11 +40,11 @@ Sie können auch eine bestimmte Version des Angebots abrufen oder das Angebot au
 
 | **Name**    | **Beschreibung**                                                                          | **Datentyp** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | Herausgeber-ID. Beispiel: Contoso                                                        | Zeichenfolge        |
-| offerId     | GUID, die das Angebot eindeutig identifiziert.                                                 | Zeichenfolge        |
-| Version     | Die Version des Angebots, das abgerufen wird. Standardmäßig wird die neueste Version des Angebots abgerufen. | Ganze Zahl        |
+| publisherId | Herausgeber-ID. Beispiel: Contoso                                                        | string        |
+| offerId     | GUID, die das Angebot eindeutig identifiziert.                                                 | string        |
+| version     | Die Version des Angebots, das abgerufen wird. Standardmäßig wird die neueste Version des Angebots abgerufen. | Integer       |
 | slotId      | Der Slot, aus dem das Angebot abgerufen werden soll. Einer der folgenden Werte ist möglich:      <br/>  - `Draft` (Standard) Ruft die Angebotsversion ab, die sich aktuell im Entwurfsstadium befindet.  <br/>  -  `Preview` Ruft die Angebotsversion ab, die sich aktuell im Vorschaustadium befindet.     <br/>  -  `Production` Ruft die Angebotsversion ab, die sich aktuell im Produktionsstadium befindet.          |      enum |
-| api-version | Neueste Version der API                                                                    | Datum          |
+| api-version | Neueste Version der API                                                                    | Date          |
 |  |  |  |
 
 
@@ -181,7 +174,7 @@ Sie können auch eine bestimmte Version des Angebots abrufen oder das Angebot au
 |  publisherId    | Eindeutiger Bezeichner des Herausgebers                                                                                              |
 |  status         | Status des Angebots. Die Liste der möglichen Werte finden Sie weiter unten unter [Angebotsstatus](#offer-status).                                  |
 |  id             | GUID, die das Angebot eindeutig identifiziert                                                                                         |
-|  Version        | Aktuelle Version des Angebots. Die version-Eigenschaft kann vom Client nicht geändert werden. Sie wird nach jeder Veröffentlichung inkrementiert.    |
+|  version        | Aktuelle Version des Angebots. Die version-Eigenschaft kann vom Client nicht geändert werden. Sie wird nach jeder Veröffentlichung inkrementiert.    |
 |  Definition     | Tatsächliche Definition der des Workloads                                                                                               |
 |  changedTime    | UTC-Zeitpunkt (Datum und Uhrzeit), zu dem das Angebot letztmalig geändert wurde                                                                                   |
 |  |  |
@@ -191,10 +184,10 @@ Sie können auch eine bestimmte Version des Angebots abrufen oder das Angebot au
 
 | **Code**  | **Beschreibung**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK` –Die Anforderung wurde erfolgreich verarbeitet, und alle Angebote unter dem Verleger wurden an den Client zurückgegeben.               |
-|  400      | `Bad/Malformed request` – Der Fehlerantworttext enthält möglicherweise weitere Informationen.                                                 |
-|  403      | `Forbidden` – Der Client hat keinen Zugriff auf den angegebenen Namespace.                                                        |
-|  404      | `Not found` – Die angegebene Entität ist nicht vorhanden. Für den Client sollten die Parameter „publisherId“, „offerId“ und „version“ geprüft werden (sofern angegeben).      |
+|  200      | `OK`: Die Anforderung wurde erfolgreich verarbeitet, und alle Angebote unter dem Herausgeber wurden an den Client zurückgegeben.               |
+|  400      | `Bad/Malformed request` – der Fehlerantworttext enthält möglicherweise weitere Informationen.                                                 |
+|  403      | `Forbidden` – der Client hat keinen Zugriff auf den angegebenen Namespace.                                                        |
+|  404      | `Not found`: Die angegebene Entität ist nicht vorhanden. Für den Client sollten die Parameter „publisherId“, „offerId“ und „version“ geprüft werden (sofern angegeben).      |
 |  |  |
 
 
@@ -204,7 +197,7 @@ Sie können auch eine bestimmte Version des Angebots abrufen oder das Angebot au
 | --------------------------- |  -------------------------------------------- |
 |  NeverPublished             | Das Angebot wurde nie veröffentlicht.               |
 |  NotStarted                 | Das Angebot ist neu, aber nicht gestartet.              |
-|  WaitingForPublisherReview  | Für das Angebot wird auf die Herausgebergenehmigung gewartet.      |
+|  WaitingForPublisherReview  | Das Angebot wartet auf die Herausgebergenehmigung.      |
 |  Wird ausgeführt                    | Die Angebotsübermittlung wird verarbeitet.          |
 |  Succeeded                  | Die Verarbeitung der Angebotsübermittlung ist abgeschlossen.    |
 |  Canceled                   | Die Angebotsübermittlung wurde abgebrochen.                |

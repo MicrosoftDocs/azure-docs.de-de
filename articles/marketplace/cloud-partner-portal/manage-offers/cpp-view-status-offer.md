@@ -1,25 +1,18 @@
 ---
-title: Anzeigen des Status von Marketplace-Angeboten – Azure Marketplace | Microsoft-Dokumentation
+title: Anzeigen des Status von Marketplace-Angeboten | Azure Marketplace
 description: Anzeigen des Angebotsstatus in Azure Marketplace und AppSource über das Cloud-Partnerportal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pbutlerm
-ms.openlocfilehash: bdec2d699e8448c8e2303dfbabcb4d176a9ca389
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: pabutler
+ms.openlocfilehash: b8113552edf9dd2f886b5752b2ebc69afc0fda08
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430380"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942392"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Anzeigen des Veröffentlichungsstatus von Azure Marketplace- und AppSource-Angeboten
 

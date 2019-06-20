@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548169"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153613"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Trainieren von Azure Machine Learning-Modellen mit einem Estimator
 
@@ -26,7 +26,7 @@ Um das Deep Learning-Modelltraining zu erleichtern, bietet das Python SDK für A
 
 ## <a name="train-with-an-estimator"></a>Trainieren mit einem Estimator
 
-Nach der Erstellung Ihres [Arbeitsbereichs](concept-azure-machine-learning-architecture.md#workspace) und Einrichten Ihrer [Entwicklungsumgebung](how-to-configure-environment.md) umfasst das Trainieren eines Modells in Azure Machine Learning die folgenden Schritte:  
+Nach der Erstellung Ihres [Arbeitsbereichs](concept-workspace.md) und Einrichten Ihrer [Entwicklungsumgebung](how-to-configure-environment.md) umfasst das Trainieren eines Modells in Azure Machine Learning die folgenden Schritte:  
 1. Erstellen eines [Remotecomputeziels](how-to-set-up-training-targets.md) (Sie können auch einen lokalen Computer als Computeziel verwenden)
 2. Hochladen Ihrer [Trainingsdaten](how-to-access-data.md) in den Datenspeicher (optional)
 3. Erstellen Ihres [Trainingsskripts](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -119,6 +119,10 @@ Parameter | BESCHREIBUNG | Standard
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>GitHub-Nachverfolgung und -Integration
+
+Wenn Sie eine Trainingsausführung starten, bei der das Quellverzeichnis ein lokales Git-Repository ist, werden Informationen über das Repository im Ausführungsverlauf gespeichert. Zum Beispiel wird die aktuelle Commit-ID für das Repository als Teil des Verlaufs protokolliert.
 
 ## <a name="examples"></a>Beispiele
 Ein Notebook, das die grundlegenden Einstellungen des Estimator-Musters zeigt, finden Sie unter:

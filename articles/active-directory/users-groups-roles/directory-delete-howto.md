@@ -15,11 +15,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60473127"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Löschen eines Verzeichnisses in Azure Active Directory
 

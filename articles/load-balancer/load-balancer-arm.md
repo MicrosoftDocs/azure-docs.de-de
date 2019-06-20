@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593810"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60888979"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Verwenden der Azure Resource Manager-Unterstützung mit Azure Load Balancer
 

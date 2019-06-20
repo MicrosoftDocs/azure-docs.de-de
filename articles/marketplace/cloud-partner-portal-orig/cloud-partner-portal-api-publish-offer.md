@@ -1,25 +1,18 @@
 ---
-title: Veröffentlichen eines Angebots | Microsoft-Dokumentation
+title: Veröffentlichen eines Angebots | Azure Marketplace
 description: API zum Veröffentlichen des angegebenen Angebots.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806728"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64934977"
 ---
 <a name="publish-an-offer"></a>Veröffentlichen eines Angebots
 ================
@@ -33,9 +26,9 @@ Startet den Veröffentlichungsprozess für das angegebene Angebot. Bei diesem Au
 
 |  **Name**      |    **Beschreibung**                               |  **Datentyp** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Herausgeber-ID, z.B. `contoso`      |   Zeichenfolge       |
-|  offerId       | Angebots-ID                                 |   Zeichenfolge       |
-|  api-version   | Aktuelle Version der API                        |   Datum         |
+|  publisherId   | Herausgeber-ID, z.B. `contoso`      |   string       |
+|  offerId       | Angebots-ID                                 |   string       |
+|  api-version   | Aktuelle Version der API                        |   Date         |
 |  |  |
 
 
@@ -49,7 +42,7 @@ Startet den Veröffentlichungsprozess für das angegebene Angebot. Bei diesem Au
 |  |  |
 
 
-<a name="body-example"></a>Beispiel für den Text
+<a name="body-example"></a>Beispiel für Hauptteil
 ------------
 
 ### <a name="request"></a>Anforderung

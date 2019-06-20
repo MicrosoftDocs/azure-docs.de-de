@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: functions
 author: nzthiago
 ms.service: azure-functions
@@ -9,11 +9,11 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305157"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178653"
 ---
 ## <a name="timeout"></a>Funktions-App-Timeoutdauer 
 

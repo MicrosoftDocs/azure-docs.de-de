@@ -1,30 +1,23 @@
 ---
-title: Marketplace-Beschreibung für ein Azure IoT Edge-Modul | Microsoft-Dokumentation
+title: Marketplace-Beschreibung für ein Azure IoT Edge-Modul | Azure Marketplace
 description: Erstellen der Marketplace-Beschreibung für ein IoT Edge-Modul.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942430"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Registerkarte „Marketplace“ für ein IoT Edge-Modul
 
-
 Auf der Registerkarte **Marketplace** auf der Seite **Neues Angebot** können Sie für Ihre potenziellen Kunden Informationen zu Marketing, Vertrieb und rechtlichen Fragen und Vereinbarungen bereitstellen und die über den Marketplace generierten Leads verwalten. Dieses lange Formular ist in vier Abschnitte unterteilt: **Übersicht**, **Marketingartefakte**, **Leadverwaltung** und **Rechtliche Hinweise**.
+
 
 ## <a name="overview"></a>Übersicht
 
@@ -32,22 +25,25 @@ In diesem Abschnitt geben Sie allgemeine Informationen zu Ihrem Azure Marketplac
 
 ![Abschnitt „Übersicht“ der Registerkarte „Marketplace“ im Formular „Neues Angebot“ für IoT Edge-Module](./media/iot-edge-module-marketplace-tab-overview.png)
 
-In der folgenden Tabelle werden Zweck und Inhalt dieser Felder beschrieben.
+In der folgenden Tabelle werden Zweck und Inhalt dieser Felder beschrieben. Erforderliche Felder sind durch ein Sternchen (*) gekennzeichnet.
 
 |  **Feld**                |     **Beschreibung**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Titel**                 | Der Titel des Angebots. Er wird im Marketplace gut sichtbar angezeigt.  Die maximale Länge beträgt 50 Zeichen. <!--ADD PICTURE IN ACTION-->|
-| **Zusammenfassung**               | Kurze Zusammenfassung zum Angebot. Die maximale Länge beträgt 100 Zeichen. <!--ADD PICTURE IN ACTION-->|
-| **Long Summary** (Lange Zusammenfassung)          | Längere Zusammenfassung zum Angebot (kann auch mit **Zusammenfassung** identisch sein).  Die maximale Länge beträgt 256 Zeichen. <!--ADD PICTURE IN ACTION-->|
-| **Beschreibung**           | Beschreibung des Angebots.  Die maximale Länge beträgt 3.000 Zeichen, und die einfache HTML-Formatierung wird unterstützt.<br/> Die Beschreibung muss unten einen Absatz zu den *Mindesthardwareanforderungen* enthalten. Beispiel: <br/> <p><u>Mindestanforderungen für Hardware</u>: Betriebssystem Linux x64 und ARM32, 1 GB RAM, 500 MB Speicher</p>
-| **Marketing Identifier** (Marketingbezeichner)  | Eine eindeutige URL, die diesem Angebot zugeordnet wird und normalerweise den Namen Ihrer Organisation und der Lösung enthält. Die maximale Länge beträgt 50 Zeichen.  Beispiel:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Titel\***                 | Der Titel des Angebots. Er wird im Marketplace gut sichtbar angezeigt.  Die maximale Länge beträgt 50 Zeichen. <!--ADD PICTURE IN ACTION-->|
+| **Zusammenfassung\***               | Kurze Zusammenfassung zum Angebot. Die maximale Länge beträgt 100 Zeichen. <!--ADD PICTURE IN ACTION-->|
+| **Lange Zusammenfassung\***          | Längere Zusammenfassung zum Angebot (kann auch mit **Zusammenfassung** identisch sein).  Die maximale Länge beträgt 256 Zeichen. <!--ADD PICTURE IN ACTION-->|
+| **Beschreibung\***           | Beschreibung des Angebots.  Die maximale Länge beträgt 3.000 Zeichen, und die einfache HTML-Formatierung wird unterstützt.<br/> Die Beschreibung muss unten einen Absatz zu den *Mindesthardwareanforderungen* enthalten. Beispiel: <br/> <p><u>Mindestanforderungen für Hardware</u>: Betriebssystem Linux x64 und ARM32, 1 GB RAM, 500 MB Speicher</p>
+| **Marketingbezeichner\***  | Eine eindeutige URL, die diesem Angebot zugeordnet wird und normalerweise den Namen Ihrer Organisation und der Lösung enthält. Die maximale Länge beträgt 50 Zeichen.  Beispiel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Preview Subscription IDs** (Abonnement-IDs für die Vorschauversion) | Sie können zwischen 1 und 100 Abonnement-IDs für Benutzer hinzufügen, die die Vorschauversion testen. Diese auf der Whitelist befindlichen Abonnements haben Zugriff auf das Angebot, nachdem es veröffentlicht wurde und bevor es live geschaltet wird. |
 | **Nützliche Links**          | Mehrfachauswahl von geschäftlichen und technischen Kategorien, denen das Angebot am ehesten zugeordnet werden kann.  Maximal 10 Kategorien können ausgewählt werden. Fügen Sie mindestens einen Link zu Ihrer Dokumentation und einen Link zu den kompatiblen IoT Edge-Geräten aus dem [Azure IoT-Gerätekatalog](https://catalog.azureiotsolutions.com/) hinzu. |
-| **Suggested Categories** (Vorgeschlagene Kategorien) | Wählen Sie bis zu fünf Kategorien aus. Diese werden auf Ihrer Produktdetailseite angezeigt. Auf den Seiten zum Durchsuchen werden alle IoT Edge-Module unter der Kategorie *Internet der Dinge \> IoT Edge-Modul* angezeigt.|
+| **Vorgeschlagene Kategorien\*** | Wählen Sie bis zu fünf Kategorien aus. Diese werden auf Ihrer Produktdetailseite angezeigt. Auf den Seiten zum Durchsuchen werden alle IoT Edge-Module unter der Kategorie *Internet der Dinge \> IoT Edge-Modul* angezeigt.|
+|  |  |
+
 
 ### <a name="offer-example"></a>Beispiel für ein Angebot
 
  In den folgenden Beispielen sehen Sie, wie die Felder **Titel**, **Zusammenfassung**, **Beschreibung**, **Logos** und **Screenshots** für ein Angebot in verschiedenen Ansichten angezeigt werden.
+
  
 #### <a name="on-the-azure-marketplace-website"></a>Auf der Azure Marketplace-Website:
 
@@ -58,6 +54,7 @@ In der folgenden Tabelle werden Zweck und Inhalt dieser Felder beschrieben.
 - Beim Anzeigen von Angebotsdetails:
 
     ![Ansicht des IoT Edge-Moduls beim Anzeigen der Produktdetails auf der Website](./media/iot-edge-module-ampdotcom-pdp.png)
+
 
 #### <a name="on-the-azure-portal-website"></a>Auf der Website des Azure-Portals:
 
@@ -88,18 +85,19 @@ Dieser Abschnitt enthält die folgenden Unterabschnitte: **Logos**, **Screenshot
 |  **Feld**                |     **Beschreibung**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logos*  | In den Screenshots können Sie sehen, wie und wo die Logos verwendet werden.  |
-| **Klein**                 | PNG-Format, 40 x 40 Pixel                                                     |
-| **Mittel**                | PNG-Format, 90 x 90 Pixel                                                     |
-| **Groß**                 | PNG-Format, 115 x 115 Pixel                                                  |
-| **Breit**                  | PNG-Format, 255 x 115 Pixel                                                   |
+| **Klein\***                 | PNG-Format, 40 x 40 Pixel                                                     |
+| **Mittel\***                | PNG-Format, 90 x 90 Pixel                                                     |
+| **Groß\***                 | PNG-Format, 115 x 115 Pixel                                                  |
+| **Breit\***                  | PNG-Format, 255 x 115 Pixel                                                   |
 | **Hero**                  | PNG-Format, 815 x 290 Pixel.  Optional, aber nachdem das Herologo hochgeladen wurde, kann es nicht mehr gelöscht werden. |
 | *Screenshots*  | Screenshots werden auf Ihrer Produktdetailseite angezeigt. Damit können Sie sehr gut die Features und die Funktionsweise Ihres IoT Edge-Moduls veranschaulichen. Sie können beispielsweise Architekturdiagramme oder Anwendungsfälle präsentieren. Optional, aber maximal fünf Screenshots pro SKU. |
 | **Name**                  | Name oder Titel. Die maximale Länge beträgt 100 Zeichen.                             |
-| **Image**                 | Bildschirmaufnahme, PNG-Format, 533 x 324 Pixel                                         |
+| **Image**                 | Bildschirmaufnahme, PNG-Format, 533 x 324 Pixel                               |
 | *Videos*  | Videos werden auf Ihrer Produktdetailseite angezeigt. Damit können Sie sehr gut die Features und die Funktionsweise Ihres IoT Edge-Moduls veranschaulichen. |
-| **Name**                  | Name oder Titel. Die maximale Länge beträgt 100 Zeichen.                              |
+| **Name**                  | Name oder Titel. Die maximale Länge beträgt 100 Zeichen.                             |
 | **Link**                  | Video-URL, unter YouTube oder Vimeo gehostet                                        |
-| **Miniaturansicht**             | PNG-Format, 533 x 324 Pixel                                                           |
+| **Miniaturansicht**             | PNG-Format, 533 x 324 Pixel                                                     |
+|  |  |
 
 
 ### <a name="logo-guidelines"></a>Richtlinien für Logos
@@ -114,6 +112,7 @@ Alle in das Cloud-Partnerportal hochgeladenen Logos müssen folgende Richtlinien
 *  Verwenden Sie im Logo keinen Hintergrund mit Farbverlauf.
 *  Platzieren Sie nach Möglichkeit keinen Text auf dem Logo, auch nicht Ihren Firmen- oder Markennamen. Das Erscheinungsbild Ihres Logos sollte klar und direkt und frei von Farbverläufen sein.
 *  Strecken Sie das Logo nicht.
+
 
 #### <a name="hero-logo"></a>Herologo
 
@@ -158,16 +157,18 @@ Nachdem Sie Ihr Angebot erfolgreich veröffentlicht haben, wird die Leadverbindu
 3. amp.com the pricing tab
 4. amp.com the tile -->
 
+
 ## <a name="legal"></a>Rechtliche Hinweise
 
 In diesem Abschnitt können Sie die beiden rechtlichen Dokumente bereitstellen, die für jedes Angebot erforderlich sind: Datenschutzrichtlinie und Nutzungsbedingungen.
 
-|  **Feld**                |     **Beschreibung**                                                          |
-|  ---------                |     ---------------                                                          |
-| **URL der Datenschutzrichtlinie**    | Die URL Ihrer bereitgestellten Datenschutzrichtlinie.                                            |
-| **Nutzungsbedingungen**          | Die Nutzungsbedingungen im einfachen Inline-HTML-Format oder als Link zu Ihren veröffentlichten Nutzungsbedingungen.       |
+|  **Feld**                    |     **Beschreibung**                                                          |
+|  ---------                    |     ---------------                                                          |
+| **URL der Datenschutzrichtlinie\***      | Die URL Ihrer bereitgestellten Datenschutzrichtlinie.                                            |
+| **Standardvertrag verwenden?\***  | Gibt an, ob die standardmäßige Microsoft-Vertragsvorlage verwendet werden soll.  Weitere Informationen finden Sie unter [Standardvertrag](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Nutzungsbedingungen\***            | Die *Nutzungsbedingungen* im einfachen Inline-HTML-Format oder als Link zur Seite Ihrer veröffentlichten Nutzungsbedingungen.     |
+|  |  |
 
-<br/>
 
 ## <a name="next-steps"></a>Nächste Schritte
 

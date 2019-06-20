@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 979a09da805abfd6558fac90e6adedb66de438f1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159318"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177975"
 ---
 > [!NOTE]
 > Die neuen VPN-Gateway-SKUs (VpnGw1, VpnGw2 und VpnGw3) werden nur für das Resource Manager-Bereitstellungsmodell unterstützt. Für klassische virtuelle Netzwerke sollten weiterhin die alten SKUs (Legacy-SKUs) verwendet werden.

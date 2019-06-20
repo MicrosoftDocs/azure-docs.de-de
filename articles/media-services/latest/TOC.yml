@@ -19,28 +19,19 @@
         - name: Mit Node.js
           href: stream-files-nodejs-quickstart.md
     - name: Codieren von hochgeladenen Dateien und Streamen von Videos
-      items:
-        - name: Mit .NET
-          displayName: 'encode, encoding, job, transform'
-          href: stream-files-tutorial-with-api.md
+      displayName: 'encode, encoding, job, transform'
+      href: stream-files-tutorial-with-api.md
     - name: Livestreaming
-      items:
-        - name: Mit .NET
-          href: stream-live-tutorial-with-api.md
+      href: stream-live-tutorial-with-api.md
+      displayName: 'Live Events, Live Outputs, ingest'
     - name: Analysieren Ihres Videos
-      items:
-        - name: Mit .NET
-          displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-          href: analyze-videos-tutorial-with-api.md
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
+      href: analyze-videos-tutorial-with-api.md
     - name: Dynamische Verschlüsselung mit AES-128
-      items:
-        - name: Mit .NET
-          href: protect-with-aes128.md
+      href: protect-with-aes128.md
     - name: Dynamische Verschlüsselung mit DRM
-      items:
-        - name: Mit .NET
-          displayName: 'PlayReady, Widevine, FairPlay'
-          href: protect-with-drm.md
+      displayName: 'PlayReady, Widevine, FairPlay'
+      href: protect-with-drm.md
 - name: Konzepte
   items:
     - name: Übersicht
@@ -50,7 +41,7 @@
         - name: Storage
           href: storage-account-concept.md
           displayName: Storage side encryption
-        - name: Ressourcen-API
+        - name: Objekte
           href: assets-concept.md
     - name: Codieren
       items:
@@ -122,6 +113,7 @@
           href: live-streaming-overview.md
         - name: Liveereignisse und Liveausgaben
           href: live-events-outputs-concept.md
+          displayName: 'vanity, ingest'
         - name: Empfohlene Liveencoder
           href: recommended-on-premises-live-encoders.md
         - name: Verwenden eines Cloud-DVR

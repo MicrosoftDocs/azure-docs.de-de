@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/06/2019
 ms.author: aschhab
 ms.openlocfilehash: 699581c7ccd3f36da0cd0c1def623607b7c0a13b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891119"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60589679"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partitionierte Warteschlangen und Themen
 
@@ -47,7 +47,7 @@ In einem Namespace des Premium-Tarifs werden Partitionierungsentitäten nicht un
 
 ### <a name="create-a-partitioned-entity"></a>Erstellen einer partitionierten Entität
 
-Es gibt mehrere Möglichkeiten, eine partitionierte Warteschlange oder ein partitioniertes Thema zu erstellen. Wenn Sie die Warteschlange oder das Thema über Ihre Anwendung erstellen, können Sie die Partitionierung für die Warteschlange oder das Thema aktivieren, indem Sie die [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning]- bzw. [TopicDescription.EnablePartitioning-Eigenschaft][TopicDescription.EnablePartitioning] auf **TRUE** festlegen. Diese Eigenschaften müssen zum Zeitpunkt der Erstellung der Warteschlange oder des Themas festgelegt werden und sind nur in der älteren [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)-Bibliothek verfügbar. Wie bereits erwähnt, ist es nicht möglich, diese Eigenschaften für eine vorhandene Warteschlange oder ein Thema zu ändern. Beispiel: 
+Es gibt mehrere Möglichkeiten, eine partitionierte Warteschlange oder ein partitioniertes Thema zu erstellen. Wenn Sie die Warteschlange oder das Thema über Ihre Anwendung erstellen, können Sie die Partitionierung für die Warteschlange oder das Thema aktivieren, indem Sie die [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning]- bzw. [TopicDescription.EnablePartitioning-Eigenschaft][TopicDescription.EnablePartitioning] auf **TRUE** festlegen. Diese Eigenschaften müssen zum Zeitpunkt der Erstellung der Warteschlange oder des Themas festgelegt werden und sind nur in der älteren [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)-Bibliothek verfügbar. Wie bereits erwähnt, ist es nicht möglich, diese Eigenschaften für eine vorhandene Warteschlange oder ein Thema zu ändern. Beispiel:
 
 ```csharp
 // Create partitioned topic
@@ -87,7 +87,7 @@ Ein Partitionsschlüssel „heftet“ eine Nachricht an eine bestimmte Partition
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Weiterführende Themen: Verwenden von Transaktionen mit partitionierten Entitäten
 
-Nachrichten, die als Teil einer Transaktion gesendet werden, müssen einen Partitionsschlüssel angeben. Folgende Eigenschaften können als Schlüssel verwendet werden: [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) oder [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid). Für alle Nachrichten, die als Teil derselben Transaktion gesendet werden, muss derselbe Partitionsschlüssel angegeben werden. Wenn Sie versuchen, eine Nachricht innerhalb einer Transaktion ohne Partitionsschlüssel zu senden, wird von Service Bus eine Ausnahme für einen ungültigen Vorgang zurückgegeben. Wenn Sie versuchen, mehrere Nachrichten mit verschiedenen Partitionsschlüsseln innerhalb derselben Transaktion zu senden, gibt Service Bus eine Ausnahme für einen ungültigen Vorgang zurück. Beispiel: 
+Nachrichten, die als Teil einer Transaktion gesendet werden, müssen einen Partitionsschlüssel angeben. Folgende Eigenschaften können als Schlüssel verwendet werden: [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) oder [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid). Für alle Nachrichten, die als Teil derselben Transaktion gesendet werden, muss derselbe Partitionsschlüssel angegeben werden. Wenn Sie versuchen, eine Nachricht innerhalb einer Transaktion ohne Partitionsschlüssel zu senden, wird von Service Bus eine Ausnahme für einen ungültigen Vorgang zurückgegeben. Wenn Sie versuchen, mehrere Nachrichten mit verschiedenen Partitionsschlüsseln innerhalb derselben Transaktion zu senden, gibt Service Bus eine Ausnahme für einen ungültigen Vorgang zurück. Beispiel:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -107,7 +107,7 @@ Wenn Eigenschaften, die als Partitionsschlüssel dienen, festgelegt werden, heft
 
 Um eine Transaktionsnachricht an ein sitzungsorientiertes Thema bzw. eine sitzungsorientierte Warteschlange zu senden, muss für die Nachricht die [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)-Eigenschaft festgelegt sein. Wenn die [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey)-Eigenschaft ebenfalls angegeben wird, muss diese mit der [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)-Eigenschaft identisch sein. Falls sie sich unterscheiden, gibt Service Bus eine Ausnahme für einen ungültigen Vorgang aus.
 
-Im Gegensatz zu normalen (nicht partitionierten) Warteschlangen oder Themen ist es nicht möglich, eine einzelne Transaktion zu verwenden, um mehrere Nachrichten an verschiedene Sitzungen zu senden. Bei einem entsprechenden Versuch gibt Service Bus eine Ausnahme für einen ungültigen Vorgang aus. Beispiel: 
+Im Gegensatz zu normalen (nicht partitionierten) Warteschlangen oder Themen ist es nicht möglich, eine einzelne Transaktion zu verwenden, um mehrere Nachrichten an verschiedene Sitzungen zu senden. Bei einem entsprechenden Versuch gibt Service Bus eine Ausnahme für einen ungültigen Vorgang aus. Beispiel:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();

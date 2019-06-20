@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245742"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62097036"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Einschränkungen von Azure Cloud Shell
 

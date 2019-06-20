@@ -1,25 +1,18 @@
 ---
-title: Seite „Überwachungsverlauf“ für Azure Marketplace | Microsoft-Dokumentation
-description: .
+title: Seite „Überwachungsverlauf“ für Azure Marketplace
+description: Übersicht über die Seite „Überwachungsverlauf“ im Cloud-Partnerportal für Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 6dffc7a24bb0c6b006d06a1018364f08abaaee41
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.author: pabutler
+ms.openlocfilehash: a579008aa0954507a130bef65dc60254f9e12c03
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943473"
 ---
 # <a name="audit-history-page"></a>Seite „Überwachungsverlauf“
 

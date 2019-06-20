@@ -1,25 +1,18 @@
 ---
-title: Problembehandlung von häufigen Authentifizierungsfehlern | Microsoft-Dokumentation
+title: Problembehandlung von häufigen Authentifizierungsfehlern | Azure Marketplace
 description: Erfahren Sie, wie Sie häufig auftretende Authentifizierungsfehler beheben, wenn Sie Cloud-Partnerportal-APIs verwenden.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 12ed395855b9d870f8f6e3564dc5b3b899b9c6c1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: pabutler
+ms.openlocfilehash: ddf3c9ce26a1538d91f1e6d6bcc04fd0d18e7936
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313869"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935816"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Problembehandlung von häufigen Authentifizierungsfehlern
 

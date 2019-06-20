@@ -1,101 +1,103 @@
 ---
 title: Migrieren Ihrer klassischen Warnungen in Azure Monitor mithilfe des freiwilligen Migrationstools
-description: Hier erfahren Sie, wie Sie das freiwillige Migrationstool verwenden, um Ihre klassischen Warnungsregeln zu migrieren.
+description: Erfahren Sie, wie Sie mithilfe des freiwilligen Migrationstools Ihre klassischen Warnungsregeln migrieren können.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 58c664beee942fe7115c7fff38a039c23bed6ac3
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 5149c20431155b92aa6dab3b976fe68e6d9cb8c2
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631645"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153949"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Verwenden des freiwilligen Migrationstools zum Migrieren Ihrer klassischen Warnungsregeln
 
-Wie [bereits angekündigt](monitoring-classic-retirement.md) werden klassische Warnungen in Azure Monitor im Juli 2019 eingestellt. Das Migrationstool zum freiwilligen Auslösen der Migration steht im Azure-Portal bereit, und der Rollout erfolgt für Kunden, die klassische Warnungsregeln verwenden. In diesem Artikel werden Sie durch die Schritte zur Verwendung des Migrationstools für das freiwillige Migrieren Ihrer klassischen Warnungsregeln vor Beginn der automatischen Migration im Juli 2019 geführt.
+Wie [bereits angekündigt](monitoring-classic-retirement.md) werden klassische Warnungen in Azure Monitor im September 2019 (ursprünglich Juli 2019) eingestellt. Im Azure-Portal steht ein Migrationstool für Kunden bereit, die klassische Warnungsregeln verwenden und die Migration selbst auslösen möchten. In diesem Artikel wird erläutert, wie Sie mithilfe des Migrationstools Ihre klassischen Warnungsregeln vor Beginn der automatischen Migration im September 2019 freiwillig migrieren.
+
+> [!NOTE]
+> Aufgrund einer Verzögerung beim Rollout des Migrationstools wurde der Deaktivierungstermin vom ursprünglich angekündigten Datum, dem 30. Juni 2019, auf den [31. August 2019 verschoben](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/).
 
 ## <a name="benefits-of-new-alerts"></a>Vorteile der neuen Warnungen
 
 Klassische Warnungen werden durch neue einheitliche Warnungen in Azure Monitor ersetzt. Die neue Warnungsplattform bietet die folgenden Vorteile:
 
-- Warnungen für eine Vielzahl mehrdimensionaler Metriken für [viele weitere Azure-Dienste](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-- Neue Metrikwarnungen unterstützen [Warnungsregeln für mehrere Ressourcen](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor), wodurch der erforderliche Aufwand zur Verwaltung vieler Regeln erheblich reduziert wird.
-- Einheitlicher Benachrichtigungsmechanismus
-  - [Aktionsgruppen](action-groups.md) ist ein modularer Benachrichtigungsmechanismus, der mit allen neuen Warnungstypen (Metrik, Protokoll und Aktivitätsprotokoll) verwendet werden kann.
-  - Sie können auch neue Benachrichtigungsmechanismen wie SMS, Sprache und ITSM-Connector nutzen.
-- Die [einheitliche Oberfläche für Warnungen](alerts-overview.md) führt alle Warnungen für unterschiedliche Signale (Metrik, Aktivitätsprotokoll und Protokoll) an einem zentralen Ort zusammen.
+- Sie können Warnungen für eine Vielzahl mehrdimensionaler Metriken für [viele weitere Azure-Dienste](alerts-metric-near-real-time.md#metrics-and-dimensions-supported) ausgeben.
+- Die neuen Metrikwarnungen unterstützen [Warnungsregeln für mehrere Ressourcen](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor), sodass der erforderliche Aufwand zur Verwaltung vieler Regeln erheblich reduziert wird.
+- Einheitlicher Benachrichtigungsmechanismus, mit dem Folgendes unterstützt wird:
+  - [Aktionsgruppen](action-groups.md), ein modularer Benachrichtigungsmechanismus, der mit allen neuen Warnungstypen (Metrik, Protokoll und Aktivitätsprotokoll) verwendet werden kann.
+  - Neue Benachrichtigungsmechanismen wie SMS, Sprache und ITSM-Connector.
+- In der [einheitlichen Oberfläche für Warnungen](alerts-overview.md) werden alle Warnungen für unterschiedliche Signale (Metrik, Protokoll und Aktivitätsprotokoll) an einem zentralen Ort zusammengeführt.
 
 ## <a name="before-you-migrate"></a>Vor der Migration
 
-Im Rahmen der Migration werden klassische Warnungsregeln in entsprechende neue Warnungsregeln konvertiert und Aktionsgruppen werden erstellt.
+Im Migrationsprozess werden klassische Warnungsregeln in neue entsprechende Warnungsregeln umgewandelt und Aktionsgruppen erstellt. Bei der Vorbereitung sind folgende Punkte zu beachten:
 
-- Das Nutzlastformat für Benachrichtigungen sowie die APIs zum Erstellen und Verwalten neuer Warnungsregeln unterscheiden sich von denen der klassischen Warnungsregeln, da mehr Funktionen unterstützt werden. Lesen Sie Informationen zum [Vorbereiten der Migration](alerts-prepare-migration.md).
+- Das Format der Benachrichtigungsnutzlast sowie die APIs zum Erstellen und Verwalten neuer Warnungsregeln unterscheiden sich von denen der klassischen Warnungsregeln, da mehr Funktionen unterstützt werden. [Erfahren Sie, wie Sie die Migration vorbereiten](alerts-prepare-migration.md).
 
-- Einige klassische Warnungsregeln können mit dem Tool nicht migriert werden. [Informieren Sie sich, welche Regeln nicht migrierbar sind, und erfahren Sie, wie Sie diese migrieren können](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated).
+- Einige klassische Warnungsregeln können mit dem Tool nicht migriert werden. [Erfahren Sie, welche Regeln nicht migriert werden können und wie Sie mit diesen Regeln verfahren](alerts-understand-migration.md#which-classic-alert-rules-cannot-be-migrated).
 
     > [!NOTE]
-    > Der Migrationsprozess hat keine Auswirkung auf die Auswertung Ihrer klassischen Warnungsregeln. Diese werden weiterhin ausgeführt und senden Warnungen, bis sie migriert wurden und neue Warnungsregeln mit der Auswertung beginnen.
-
+    > Der Migrationsprozess hat keine Auswirkung auf die Auswertung Ihrer klassischen Warnungsregeln. Diese werden weiterhin ausgeführt und senden Warnungen, bis sie migriert werden und die neuen Warnungsregeln wirksam werden.
 
 ## <a name="how-to-use-the-migration-tool"></a>Verwenden des Migrationstools
 
-Das folgende Verfahren beschreibt, wie Sie die Migration Ihrer klassischen Warnungsregeln im Azure-Portal auslösen:
+Gehen Sie folgendermaßen vor, um die Migration Ihrer klassischen Warnungsregeln im Azure-Portal auszulösen:
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com) auf **Überwachen**.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com) die Option **Monitor** aus.
 
-2. Klicken Sie auf **Warnungen** und dann auf **Warnungsregeln verwalten** oder **Klassische Warnungen anzeigen**.
+1. Wählen Sie **Warnungen** und dann **Warnungsregeln verwalten** oder **Klassische Warnungen anzeigen** aus.
 
-3. Klicken Sie auf **Zu neuen Regeln migrieren**, um die Landing Page der Migration aufzurufen. Auf dieser Seite sind alle Ihre Abonnements und der jeweilige Migrationsstatus aufgelistet.
+1. Wählen Sie **Zu neuen Regeln migrieren** aus, um zur Zielseite der Migration zu wechseln. Auf dieser Seite werden alle Ihre Abonnements und der jeweilige Migrationsstatus angezeigt:
 
     ![Landing Page der Migration](media/alerts-migration/migration-landing.png "Regeln migrieren")
 
-4. Alle Abonnements, die mit dem Tool migriert werden können, sind als **Bereit zur Migration** gekennzeichnet.
+    Alle Abonnements, die mit dem Tool migriert werden können, sind als **Bereit zur Migration** gekennzeichnet.
 
     > [!NOTE]
-    > Der Rollout des Migrationstools erfolgt in mehreren Phasen für alle Abonnements, die klassische Warnungsregeln verwenden. In den frühen Phasen des Rollouts werden möglicherweise einige Abonnements als nicht bereit zur Migration angezeigt.
+    > Der Rollout des Migrationstools erfolgt in mehreren Phasen für alle Abonnements, die klassische Warnungsregeln verwenden. In den frühen Phasen des Rollouts werden einige Abonnements möglicherweise als nicht bereit zur Migration angezeigt.
 
-5. Wählen Sie ein oder mehrere Abonnements aus, und klicken Sie auf **Migrationsvorschau anzeigen**
+1. Wählen Sie ein oder mehrere Abonnements und dann **Migrationsvorschau anzeigen** aus.
 
-6. Auf dieser Seite werden die Details der klassischen Warnungsregeln angezeigt, die jeweils für ein Abonnement migriert werden. Sie können auch die **Migrationsdetails für dieses Abonnement herunterladen** (in einem CSV-Format).
+    Auf der dann geöffneten Seite werden die Details der klassischen Warnungsregeln angezeigt, die jeweils für ein Abonnement migriert werden. Sie können auch **Migrationsdetails für dieses Abonnement herunterladen** auswählen, um die Details im CSV-Format herunterzuladen.
 
     ![Migrationsvorschau](media/alerts-migration/migration-preview.png "Migrationsvorschau anzeigen")
 
-7. Geben Sie eine oder mehrere **E-Mail-Adressen** an, die über den Migrationsstatus benachrichtigt werden sollen. Wir senden eine E-Mail, wenn die Migration abgeschlossen oder eine Aktion von Ihnen erforderlich ist.
+1. Geben Sie eine oder mehrere E-Mail-Adressen an, an die Benachrichtigungen zum Migrationsstatus gesendet werden sollen. Sie erhalten eine E-Mail, wenn die Migration abgeschlossen oder eine Aktion von Ihnen erforderlich ist.
 
-8. Klicken Sie auf **Migration starten**. Lesen Sie die Informationen im Bestätigungsdialogfeld, und bestätigen Sie, wenn Sie zum Starten des Migrationsprozesses bereit sind.
+1. Wählen Sie **Migration starten** aus. Lesen Sie die Informationen im Bestätigungsdialogfeld, und bestätigen Sie, dass der Migrationsprozess gestartet werden kann.
 
-    >[!IMPORTANT]
-    > Sobald Sie den Migrationsprozess für ein Abonnement initiiert haben, können Sie keine klassischen Warnungsregeln mehr für das Abonnement bearbeiten/erstellen. Ihre klassischen Warnungsregeln werden jedoch weiter ausgeführt und stellen Warnungen bereit, bis sie vollständig migriert wurden. Dadurch wird die Übereinstimmung zwischen klassischen Warnungsregeln und den neuen Regeln, die während der Migration erstellt werden, gewährleistet. Sobald die Migration für Ihr Abonnement abgeschlossen ist, können Sie keine klassischen Warnungsregeln mehr verwenden.
+    > [!IMPORTANT]
+    > Nachdem Sie die Migration für ein Abonnement initiiert haben, können Sie für das Abonnement keine klassischen Warnungsregeln mehr bearbeiten oder erstellen. Durch diese Einschränkung wird sichergestellt, dass bei der Migration zu den neuen Regeln keine Änderungen an den klassischen Warnungsregeln verloren gehen. Obwohl Sie Ihre klassischen Warnungsregeln nicht ändern können, werden sie weiterhin ausgeführt und stellen Warnungen bereit, bis sie migriert wurden. Nachdem die Migration für Ihr Abonnement abgeschlossen ist, können Sie keine klassischen Warnungsregeln mehr verwenden.
 
     ![Migrationsbestätigung](media/alerts-migration/migration-confirm.png "Migrationsstart bestätigen")
 
-9. Wenn die Migration abgeschlossen oder eine Aktion von Ihnen erforderlich ist, wird eine E-Mail an die in Schritt 8 angegebenen E-Mail-Adressen gesendet. Sie können den Status auch regelmäßig auf der Landing Page der Migration im Portal überprüfen.
+1. Wenn die Migration abgeschlossen oder eine Aktion von Ihnen erforderlich ist, erhalten Sie eine E-Mail an die zuvor angegebenen E-Mail-Adressen. Sie können den Status auch regelmäßig auf der Zielseite der Migration im Portal überprüfen.
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-### <a name="why-is-my-subscriptions-listed-as-not-ready-for-migration"></a>**Warum sind meine Abonnements als nicht bereit zur Migration aufgeführt?**
+### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Warum ist mein Abonnement als nicht bereit zur Migration aufgeführt?
 
-Der Rollout des Migrationstools an alle Kunden erfolgt in mehreren Phasen. In den frühen Phasen sind möglicherweise die meisten oder alle Ihre Abonnements als **Nicht bereit zur Migration** gekennzeichnet. Bis Mitte April sollten jedoch alle Abonnements zur Migration bereit sein.
+Der Rollout des Migrationstools an Kunden erfolgt in mehreren Phasen. In den frühen Phasen sind die meisten oder alle Ihre Abonnements möglicherweise als **Nicht bereit zur Migration** gekennzeichnet. 
 
-Sobald ein Abonnement zur Migration bereit ist, werden Abonnementbesitzer per E-Mail über die Verfügbarkeit des Tools benachrichtigt. Achten Sie auf diese Benachrichtigung.
+Wenn ein Abonnement zur Migration bereit ist, wird der Abonnementbesitzer per E-Mail über die Verfügbarkeit des Tools benachrichtigt. Achten Sie auf diese E-Mail-Nachricht.
 
-### <a name="who-can-trigger-the-migration"></a>**Wer kann die Migration auslösen?**
+### <a name="who-can-trigger-the-migration"></a>Wer kann die Migration auslösen?
 
-Benutzer, denen die Rolle „Überwachungsmitwirkender“ auf Abonnementebene zugewiesen ist, können die Migration auslösen. Erfahren Sie mehr über die [rollenbasierte Zugriffssteuerung für den Migrationsprozess](alerts-understand-migration.md#who-can-trigger-the-migration).
+Benutzer, denen die Rolle „Überwachungsmitwirkender“ auf Abonnementebene zugewiesen ist, können die Migration auslösen. [Weitere Informationen zur rollenbasierten Zugriffssteuerung für den Migrationsprozess](alerts-understand-migration.md#who-can-trigger-the-migration).
 
-### <a name="how-long-is-the-migration-going-to-take"></a>**Wie lange dauert die Migration?**
+### <a name="how-long-will-the-migration-take"></a>Wie lange dauert die Migration?
 
-Bei den meisten Abonnements ist die Migration in der Regel nach weniger als einer Stunde abgeschlossen. Sie können den Migrationsfortschritt auf der Landing Page der Migration verfolgen.  Sie können sicher sein, dass während dieser Zeit Ihre Warnungen weiterhin entweder im klassischen Warnungssystem oder im neuen System ausgeführt werden.
+Bei den meisten Abonnements ist die Migration nach weniger als einer Stunde abgeschlossen. Sie können den Migrationsfortschritt auf der Zielseite der Migration verfolgen. Sie können sicher sein, dass Ihre Warnungen während der Migration entweder im klassischen Warnungssystem oder im neuen System weiterhin ausgeführt werden.
 
-### <a name="what-can-i-do-if-i-run-into-an-issue-during-migration"></a>**Was kann ich tun, wenn während der Migration ein Problem auftritt?**
+### <a name="what-can-i-do-if-i-run-into-a-problem-during-migration"></a>Was kann ich tun, wenn während der Migration ein Problem auftritt?
 
-Suchen Sie im [Leitfaden zur Problembehandlung nach Abhilfemaßnahmen für Probleme, die während der Migration auftreten können](alerts-understand-migration.md#common-issues-and-remediations). Wenn zum Abschließen der Migration eine Aktion von Ihnen erforderlich ist, werden Sie während der Migration über die angegebenen E-Mail-Adressen benachrichtigt.
+Im [Leitfaden zur Problembehandlung](alerts-understand-migration.md#common-problems-and-remedies) finden Sie Informationen zu Problemen, die während der Migration auftreten können. Wenn zum Abschließen der Migration eine Aktion von Ihnen erforderlich ist, werden Sie über die E-Mail-Adressen, die Sie beim Einrichten des Tools angegeben haben, darüber benachrichtigt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Vorbereiten der Migration](alerts-prepare-migration.md)
-- [Grundlegendes zur Funktionsweise des Migrationstools](alerts-understand-migration.md)
+- [Funktionsweise des Migrationstools](alerts-understand-migration.md)

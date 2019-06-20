@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 5a97a40ba48db9f73471d5fd778ceb5cb9070964
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60542644"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Verwenden der seriellen Konsole für SysRq- und NMI-Aufrufe
 

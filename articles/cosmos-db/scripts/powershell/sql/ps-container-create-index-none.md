@@ -7,10 +7,10 @@ ms.topic: samples
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4fc75eadd0f3ad87d313d10a9005997d46103666
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65080556"
 ---
 # <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Erstellen eines Containers mit deaktivierter Indizierung in einem Azure Cosmos-Konto mithilfe von PowerShell

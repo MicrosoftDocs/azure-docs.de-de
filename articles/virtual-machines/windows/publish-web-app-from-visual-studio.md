@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304096"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305932"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Veröffentlichen einer ASP.NET-Web-App auf einer Azure-VM aus Visual Studio
 
-Dieses Dokument beschreibt das Veröffentlichen einer ASP.NET-Webanwendung auf einem virtuellen Azure-Computer (VM) mithilfe des Veröffentlichungsfeatures **Microsoft Azure Virtual Machines** in Visual Studio 2017.  
+Dieses Dokument beschreibt das Veröffentlichen einer ASP.NET-Webanwendung auf einem virtuellen Azure-Computer (VM) mithilfe des Veröffentlichungsfeatures **Microsoft Azure Virtual Machines** in Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Damit Sie mit Visual Studio ein ASP.NET-Projekt auf einer Azure-VM veröffentlichen können, muss der virtuelle Computer ordnungsgemäß eingerichtet werden.
@@ -34,7 +34,7 @@ Damit Sie mit Visual Studio ein ASP.NET-Projekt auf einer Azure-VM veröffentlic
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Veröffentlichen der ASP.NET-Web-App auf der Azure-VM mit Visual Studio
 Der folgende Abschnitt beschreibt das Veröffentlichen einer vorhandenen ASP.NET-Webanwendung auf einem virtuellen Azure-Computer.
 
-1. Öffnen Sie Ihre Web-App-Projektmappe in Visual Studio 2017.
+1. Öffnen Sie Ihre Web-App-Projektmappe in Visual Studio 2019.
 2. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, und wählen Sie **Veröffentlichen** aus.
 3. Scrollen Sie mit dem Pfeil auf der rechten Seite durch die Veröffentlichungsoptionen bis **Microsoft Azure Virtual Machines**.  
 
@@ -58,7 +58,7 @@ Der folgende Abschnitt beschreibt das Veröffentlichen einer vorhandenen ASP.NET
 
 7. Klicken Sie auf „OK“, um mit der Veröffentlichung zu beginnen.
 
-8. Wenn Sie zum Eingeben von Anmeldeinformationen aufgefordert werden, geben Sie den Benutzernamen und das Kennwort eines Benutzerkontos auf der Ziel-VM an, das mit den erforderlichen Rechten für das Veröffentlichen konfiguriert ist (normalerweise der Administratorbenutzername und das zugehörige Kennwort, die beim Erstellen des virtuellen Computers verwendet wurden).  
+8. Wenn Sie zum Eingeben von Anmeldeinformationen aufgefordert werden, geben Sie den Benutzernamen und das Kennwort eines Benutzerkontos auf der Ziel-VM an, das mit den erforderlichen Rechten für das Veröffentlichen konfiguriert ist. Diese Anmeldeinformationen sind normalerweise der Administratorbenutzername und das zugehörige Kennwort, die beim Erstellen des virtuellen Computers verwendet wurden.  
 
    ![WebDeploy-Anmeldung]
 
@@ -99,7 +99,7 @@ Die Einstellungen sollten in etwa wie folgt aussehen:
 ![Veröffentlichungseinstellungen – Seite „Verbindung“]
 
 #### <a name="save-user-name-and-password"></a>Speichern von Benutzername und Kennwort
-- Damit Sie die Authentifizierungsinformationen nicht bei jeder Veröffentlichung angeben müssen, können Sie die Felder **Benutzername** und **Kennwort** ausfüllen und das Feld **Kennwort speichern** auswählen.
+- Vermeiden der Bereitstellung von Authentifizierungsinformationen bei jedem Mal, wenn Sie veröffentlichen. Füllen Sie zu diesem Zweck die Felder **Benutzernamen** und **Kennwort** aus, und aktivieren Sie das Feld **Kennwort speichern**.
 - Mit der Schaltfläche **Verbindung überprüfen** können Sie sich vergewissern, dass Sie die richtigen Informationen eingegeben haben.
 
 #### <a name="deploy-to-clean-web-server"></a>Bereitstellen auf einem bereinigten Webserver

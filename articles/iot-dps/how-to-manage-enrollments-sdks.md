@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60627268"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Gewusst wie: Verwalten von Geräteregistrierungen mit Azure Device Provisioning Service-SDKs
 Eine *Geräteregistrierung* erstellt einen Datensatz eines einzelnen Geräts oder einer Gruppe von Geräten, die sich jederzeit beim Device Provisioning-Dienst registrieren können. Der Registrierungsdatensatz enthält die erste gewünschte Konfiguration für die Geräte im Rahmen dieser Registrierung, einschließlich des gewünschten IoT Hubs. In diesem Artikel wird erläutert, wie Geräteregistrierungen für Ihren Bereitstellungsdienst programmgesteuert mithilfe von Azure IoT Provisioning Service-SDKs verwaltet werden.  Die SDKs sind auf GitHub im gleichen Repository wie Azure IoT-SDKs verfügbar.
@@ -21,7 +21,7 @@ Eine *Geräteregistrierung* erstellt einen Datensatz eines einzelnen Geräts ode
 ## <a name="prerequisites"></a>Voraussetzungen
 * Rufen Sie die Verbindungszeichenfolge für die Device Provisioning-Dienstinstanz ab.
 * Rufen Sie die Gerätesicherheitsartefakte für den [Nachweismechanismus](concepts-security.md#attestation-mechanism) ab:
-    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Trusted Platform Module (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Individuelle Registrierung: Registrierungs-ID und TPM Endorsement Key eines physischen Geräts oder TPM-Simulators.
         * Die Registrierungsgruppe gilt nicht als TPM-Nachweis.
     * [**X.509**](/azure/iot-dps/concepts-security):

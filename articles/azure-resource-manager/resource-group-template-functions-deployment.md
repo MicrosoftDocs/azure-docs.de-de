@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128663"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Bereitstellungsfunktionen für Azure Resource Manager-Vorlagen 
@@ -254,11 +254,11 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| stringOutput | Zeichenfolge | option 1 |
+| stringOutput | string | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | Zeichenfolge | option 1 |
+| crossOutput | string | option 1 |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
 
@@ -283,7 +283,7 @@ Gibt den Wert der Variablen zurück. Der angegebene Variablenname muss im Variab
 
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
-| variableName |Ja |Zeichenfolge |Der Name der zurückzugebenden Variable. |
+| variableName |Ja |string |Der Name der zurückzugebenden Variable. |
 
 ### <a name="return-value"></a>Rückgabewert
 
@@ -357,9 +357,9 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| exampleOutput1 | Zeichenfolge | myVariable |
+| exampleOutput1 | string | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | Zeichenfolge | myVariable |
+| exampleOutput3 | string | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:

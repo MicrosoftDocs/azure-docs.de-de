@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Schnelle Kubernetes-Entwicklung mit Containern und Microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, Helm, Service Mesh, Service Mesh-Routing, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 69f5bdd80e4cf10db6a530ddfa08a1f26cd42ca0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775641"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66754412"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Geschäftskontinuität und Notfallwiederherstellung in Azure Dev Spaces
 
@@ -27,7 +27,7 @@ Azure Dev Spaces ist ein Feature von Azure Kubernetes Service (AKS). Sie sollten
 
 Durch das Aktivieren von Dev Spaces für AKS-Cluster in verschiedenen Regionen können Sie Dev Spaces sofort nach dem Ausfall einer Azure-Region fortsetzen.
 
-Allgemeine Informationen zur Bereitstellung von AKS in mehreren Regionen finden Sie unter [Planen der Bereitstellung in mehreren Regionen](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment).
+Allgemeine Informationen zur Bereitstellung von AKS in mehreren Regionen finden Sie unter [Planen der Bereitstellung in mehreren Regionen](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment).
 
 Informationen zum Bereitstellen eines mit Azure Dev Spaces kompatiblen AKS-Clusters finden Sie unter [Erstellen eines Kubernetes-Clusters mit Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell).
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62122233"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>SSL-Richtlinienübersicht für Azure Application Gateway
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
 ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259736"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60679169"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Steuern des Azure CDN-Zwischenspeicherverhaltens mit Chacheregeln
 
@@ -103,7 +103,7 @@ Globale und benutzerdefinierte Cacheregeln werden in der folgenden Reihenfolge v
    - Verhalten beim Zwischenspeichern: **Bei Fehlen festlegen**
    - Dauer bis Cacheablauf: 3 Tage
 
-Wenn diese Regeln festgelegt sind, löst eine Anforderung für „_&lt;Endpunkthostname&gt;_.azureedge.net/home/index.html“ die benutzerdefinierte Cacheregel 2 aus, die auf **Bei Fehlen festlegen** und „3 Tage“ festgelegt ist. Enthält die Datei *index.html* daher den HTTP-Header `Cache-Control` oder `Expires`, werden sie berücksichtigt. Sind diese Header nicht festgelegt, wird die Datei drei Tage lang zwischengespeichert.
+Wenn diese Regeln festgelegt sind, löst eine Anforderung für „ _&lt;Endpunkthostname&gt;_ .azureedge.net/home/index.html“ die benutzerdefinierte Cacheregel 2 aus, die auf **Bei Fehlen festlegen** und „3 Tage“ festgelegt ist. Enthält die Datei *index.html* daher den HTTP-Header `Cache-Control` oder `Expires`, werden sie berücksichtigt. Sind diese Header nicht festgelegt, wird die Datei drei Tage lang zwischengespeichert.
 
 > [!NOTE] 
 > Bei Dateien, die vor einer Regeländerung zwischengespeichert werden, wird die Cachedauereinstellung des Ursprungs beibehalten. Um die Cachedauer zurückzusetzen, müssen Sie [die Datei bereinigen](cdn-purge-endpoint.md). 

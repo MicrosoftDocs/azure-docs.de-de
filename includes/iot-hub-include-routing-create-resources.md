@@ -9,11 +9,11 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 710bb8cba7fbbe4bc9b9fdc52b0767c96f97fe72
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631081"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162635"
 ---
 ## <a name="create-base-resources"></a>Erstellen der grundlegenden Ressourcen
 

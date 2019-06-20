@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
-ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 74146242ef4084e5990027117689bb1371c3f272
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005847"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832186"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Schnellstart: Steuern eines mit einer IoT Hub-Instanz verbundenen Geräts (Python)
 
@@ -37,7 +37,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Die beiden in dieser Schnellstartanleitung ausgeführten Beispielanwendungen sind in Python geschrieben. Derzeit unterstützen die Microsoft Azure IoT SDKs für Python nur bestimmte Python-Versionen für jede Plattform. Weitere Informationen finden Sie in der [Infodatei zum Python SDK](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-In dieser Schnellstartanleitung wird davon ausgegangen, dass Sie einen Windows-Entwicklungscomputer verwenden. Auf Windows-Systemen wird ausschließlich [Python 3.6.x](https://www.python.org/downloads/release/python-368/) unterstützt. Das von Ihnen gewählte Python-Installationsprogramm sollte auf der Architektur des Systems basieren, mit dem Sie arbeiten. Verwenden Sie eine CPU-Systemarchitektur mit 32 Bit, laden Sie das x86-Installationsprogramm herunter. Für die 64-Bit-Architektur müssen Sie das x86-64-Programm herunterladen. Stellen Sie darüber hinaus sicher, dass [Microsoft Visual C++ Redistributable für Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) für Ihre Architektur (x86 oder x64) installiert ist.
+In dieser Schnellstartanleitung wird davon ausgegangen, dass Sie einen Windows-Entwicklungscomputer verwenden. Auf Windows-Systemen wird ausschließlich [Python 3.6.x](https://www.python.org/downloads/release/python-368/) unterstützt. Das von Ihnen gewählte Python-Installationsprogramm sollte auf der Architektur des Systems basieren, mit dem Sie arbeiten. Verwenden Sie eine CPU-Systemarchitektur mit 32 Bit, laden Sie das x86-Installationsprogramm herunter. Für die 64-Bit-Architektur müssen Sie das x86-64-Programm herunterladen. Stellen Sie darüber hinaus sicher, dass [Microsoft Visual C++ Redistributable für Visual Studio 2015, 2017 und 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) für Ihre Architektur (x86 oder x64) installiert ist.
 
 Sie können Python für andere Plattformen von [Python.org](https://www.python.org/downloads/) herunterladen.
 

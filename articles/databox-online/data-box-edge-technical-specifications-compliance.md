@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449202"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60755133"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Technische Spezifikationen für Azure Data Box Edge
 
@@ -67,7 +67,7 @@ Die folgenden Tabellen enthalten die Abmessungen der Versandverpackung in Millim
 |-------------------|---------------------|----------------|
 |    Höhe         |    311,2            |    12,25 Zoll          |
 |    Breite          |    642,8          |    25,31 Zoll          |
-|    Länge          |   1.051,1          |    41,38 Zoll          |
+|    Länge          |   1\.051,1          |    41,38 Zoll          |
 
 ### <a name="enclosure-weight"></a>Gehäusegewicht
 
@@ -95,7 +95,7 @@ Dieser Abschnitt enthält die Spezifikationen im Zusammenhang mit der Gehäuseum
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Luftströmung                              |    Die Luftströmung im System verläuft von vorne nach hinten. Das System muss mit einem hinteren Luftstromauslass mit niedrigem Druck betrieben werden. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
 |    Maximale Betriebshöhe        |    3048 Meter (10.000 Fuß) mit einer maximalen Betriebstemperatur bei heruntergesetzter Leistung, die Sie der Tabelle unter [Spezifikationen für Betriebstemperatur bei heruntergesetzter Leistung](#operating-temperature-de-rating-specifications) entnehmen.                                                                                |
-|    Maximal Höhenlage, außerhalb des Betriebs    |    12.000 Meter (39.370 Fuß)                                                                                                                                                                                         |
+|    Maximal Höhenlage, außerhalb des Betriebs    |    12\.000 Meter (39.370 Fuß)                                                                                                                                                                                         |
 |    Stoßfestigkeit, bei Betrieb                   |    6 G für eine Dauer von 11 Millisekunden in sechs verschiedenen Ausrichtungen                                                                                                                                                                         |
 |    Stoßfestigkeit, außerhalb des Betriebs               |    71 G für eine Dauer von zwei Millisekunden in sechs verschiedenen Ausrichtungen                                                                                                                                                                           |
 |    Schwingungen, bei Betrieb               |    0,26 G<sub>QMW</sub> bei 5 Hertz bis 350 Hertz zufälliger Vibration                                                                                                                                                                                     |

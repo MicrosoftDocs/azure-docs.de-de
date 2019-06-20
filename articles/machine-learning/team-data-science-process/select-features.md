@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a74f2c21746deb16372174d4a769f9abb825a1cd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473307"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60809634"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Featureauswahl im Team Data Science-Prozess (TDSP)
 In diesem Artikel werden die Gründe zur Featureauswahl erläutert und Beispiele der Rolle im Datenaufbereitungsprozess für maschinelles Lernen vorgestellt. Diese Beispiele stammen aus Azure Machine Learning Studio. 
@@ -33,7 +33,7 @@ Normalerweise wird die **Featureentwicklung** zuerst ausgeführt, um zusätzlich
 ## <a name="filter-features-from-your-data---feature-selection"></a>Filtern von Features aus Ihren Daten – Featureauswahl
 Die Featureauswahl ist ein Prozess, der häufig für die Entwicklung von Trainingsdatasets für die Vorhersagemodellierung, wie z. B. Klassifizierung oder Regressionsaufgaben, angewendet wird. Das Ziel ist, eine Teilmenge der Features aus dem ursprünglichen Dataset auszuwählen, die dessen Dimensionen verringert, indem sie einen minimalen Satz von Features zur Darstellung der maximalen Abweichung in den Daten verwendet. Diese Teilmenge der Features wird zum Trainieren des Modells verwendet. Die Featureauswahl dient zwei wesentlichen Zwecken.
 
-* Zunächst steigert die Featureauswahl häufig die Klassifizierungsgenauigkeit durch Eliminieren irrelevanter, redundanter oder hochgradig korrelierter Features. 
+* Zunächst steigert die Featureauswahl häufig die Klassifizierungsgenauigkeit durch Eliminieren irrelevanter, redundanter oder hochgradig korrelierter Features.
 * Zweitens sinkt die Anzahl von Features, was den Modelltrainingsvorgang effizienter gestaltet. Effizienz ist besonders wichtig für Lernmodelle, deren Training teuer ist, wie z.B. Support Vector Machines.
 
 Obwohl die Featureauswahl die Anzahl von Features im Dataset reduzieren soll, die zum Trainieren des Modells verwendet werden, wird sie nicht als „Reduzierung der Anzahl von Dimensionen“ bezeichnet. Featureauswahlmethoden extrahieren eine Teilmenge der ursprünglichen Features in den Daten, ohne sie zu ändern.  Verfahren zur Reduktion der Anzahl von Dimensionen nutzen entwickelte Features, die die ursprünglichen Features transformieren können und sie so ändern. Beispiele für Verfahren zur Verringerung der Anzahl von Dimensionen sind zum Beispiel Principal Component Analysis, kanonische Korrelationsanalyse und Singular Value Decomposition.

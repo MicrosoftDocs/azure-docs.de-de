@@ -4,14 +4,14 @@ description: Informationen zur Verwaltung von Indizierungsrichtlinien in Azure C
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 05fd369cfebba03c814507f82755fa6cb6a89400
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068670"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386800"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Verwalten von Indizierungsrichtlinien in Azure Cosmos DB
 
@@ -22,6 +22,9 @@ In Azure Cosmos DB werden Daten gemäß [Indizierungsrichtlinien](index-policy.m
 - mit einem der SDKs
 
 Eine [Aktualisierung der Indizierungsrichtlinie](index-policy.md#modifying-the-indexing-policy) löst eine Indextransformation aus. Der Status dieser Transformation kann auch über die SDKs nachverfolgt werden.
+
+> [!NOTE]
+> Als Bestandteil des SDK- und Portal-Upgrades entwickeln wir die Indexrichtlinie weiter, um sie an ein neues Indexlayout anzupassen, das wir für neue Container eingeführt haben. Mit diesem neuen Layout werden alle primitiven Datentypen als Bereich mit vollständiger Genauigkeit (-1) indiziert. Daher werden die Indexarten und die Genauigkeit dem Benutzer nicht mehr verfügbar gemacht. Zukünftig müssen Benutzer lediglich Pfade zum Abschnitt „includedPaths“ hinzufügen und können „indexKinds“ und „precision“ ignorieren. Diese Änderung wirkt sich nicht auf die Leistung aus, und Sie können die Indizierungsrichtlinie weiterhin mit derselben Syntax aktualisieren. Sie können weiterhin alle Beispiele in der vorhandenen Dokumentation verwenden, um die Indexrichtlinie zu aktualisieren.
 
 ## <a name="use-the-azure-portal"></a>Verwenden des Azure-Portals
 
@@ -164,7 +167,7 @@ Hier sehen Sie einige Beispiele für Indizierungsrichtlinien im JSON-Format. So 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Deaktivierungsrichtlinie zum selektiven Ausschließen einiger Eigenschaftspfade
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -198,7 +201,7 @@ Hier sehen Sie einige Beispiele für Indizierungsrichtlinien im JSON-Format. So 
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Aktivierungsrichtlinie zum selektiven Einschließen einiger Eigenschaftspfade
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -232,7 +235,7 @@ Hinweis: Allgemein wird die Verwendung einer Indizierungsrichtlinie zur **Deakti
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Verwenden eines räumlichen Index nur für einen bestimmten Eigenschaftspfad
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -277,7 +280,7 @@ Diese Richtlinie kann in Situationen verwendet werden, in denen das [Feature „
 ### <a name="no-indexing"></a>Keine Indizierung
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 

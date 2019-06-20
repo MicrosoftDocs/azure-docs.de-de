@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758489"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60628996"
 ---
 # <a name="create-human-reviews"></a>Erstellen von Überprüfungen durch Personen
 

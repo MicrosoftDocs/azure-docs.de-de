@@ -15,11 +15,11 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60532955"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Verwalten des Zugriffs auf Azure-Ressourcen mit RBAC und dem Azure-Portal
 
@@ -69,7 +69,7 @@ Zunächst müssen Sie entscheiden, wo Sie das Blatt „Zugriffssteuerung (IAM)�
 
 1. Klicken Sie auf die gewünschte Ressource.
 
-1. Klicken Sie auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 
     Nachfolgend wird ein Beispiel für das Blatt „Zugriffssteuerung (IAM)“ für ein Abonnement gezeigt. Wenn Sie hier Änderungen an der Zugriffssteuerung vornehmen, gelten diese für das gesamte Abonnement.
 
@@ -161,7 +161,7 @@ Um einen Benutzer zum Administrator eines Azure-Abonnements zu machen, weisen Si
 
 1. Klicken Sie auf das Abonnement, für das Sie Zugriff erteilen möchten.
 
-1. Klicken Sie auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 
 1. Klicken Sie auf die Registerkarte **Rollenzuweisungen**, um alle Rollenzuweisungen für dieses Abonnement anzuzeigen.
 

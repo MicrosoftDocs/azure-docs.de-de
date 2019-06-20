@@ -1,5 +1,5 @@
 ---
-title: 'Schnellstart: Trainieren eines Modells und Extrahieren von Formulardaten mit cURL – Formularerkennung'
+title: 'Schnellstart: Trainieren eines Modells und Extrahieren von Formulardaten mit cURL: Formularerkennung'
 titleSuffix: Azure Cognitive Services
 description: In diesem Schnellstart verwenden Sie die Formularerkennungs-REST-API mit cURL, um ein Modell zu trainieren und Daten aus Formularen zu extrahieren.
 author: PatrickFarley
@@ -9,35 +9,51 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 36f98a8dea2a732a7f8504b160da895637366fc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471899"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475267"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Schnellstart: Trainieren eines Formularerkennungsmodells und Extrahieren von Formulardaten mithilfe der REST-API mit cURL
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Schnellstart: Trainieren eines Modells zur Formularerkennung und Extrahieren von Formulardaten unter Verwendung der REST-API mit cURL
 
-In dieser Schnellstartanleitung verwenden Sie die Formularerkennungs-REST-API mit cURL zum Trainieren und Bewerten von Formularen, um Schlüssel-Wert-Paare und Tabellen zu extrahieren.
+In diesem Schnellstart verwenden Sie die REST-API der Azure-Formularerkennung mit cURL, um Formulare zu trainieren und zu bewerten und um Schlüssel-Wert-Paare und Tabellen zu extrahieren.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
+Für diesen Schnellstart benötigen Sie Folgendes:
+- Zugriff auf die Vorschauversion der Formularerkennung mit eingeschränktem Zugriff. Um Zugriff auf die Vorschauversion zu erhalten, füllen Sie das [Formular zum Anfordern des Zugriffs auf die Formularerkennung](https://aka.ms/FormRecognizerRequestAccess) aus, und übermitteln Sie es.
+- [cURL](https://curl.haxx.se/windows/) muss installiert sein.
+- Einen Satz von mindestens fünf Formularen des gleichen Typs. Zum Trainieren des Modells verwenden Sie diese Daten. Für diesen Schnellstart können Sie ein [Beispieldataset](https://go.microsoft.com/fwlink/?linkid=2090451) verwenden. Laden Sie die Daten in das Stammverzeichnis des Azure Blob Storage-Kontos hoch.
 
-* Sie benötigen Zugriff auf die Vorschauversion der Formularerkennung mit eingeschränktem Zugriff. Um Zugriff auf die Vorschauversion zu erhalten, füllen Sie das [Formular zum Anfordern des Zugriffs auf die Cognitive Services-Formularerkennung](https://aka.ms/FormRecognizerRequestAccess) aus, und übermitteln Sie es. 
-* Sie benötigen [cURL](https://curl.haxx.se/windows/).
-* Sie benötigen einen Abonnementschlüssel für die Formularerkennung. Gehen Sie wie unter [Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) beschrieben vor, um die Formularerkennung zu abonnieren und Ihren Schlüssel zu erhalten.
-* Sie benötigen mindestens fünf Formulare desselben Typs. Für diesen Schnellstart können Sie ein [Beispieldataset](https://go.microsoft.com/fwlink/?linkid=2090451) verwenden.
+## <a name="create-a-form-recognizer-resource"></a>Erstellen einer Formularerkennungsressource
+
+Wenn Ihnen Zugriff auf die Formularerkennung gewährt wird, erhalten Sie eine Willkommens-E-Mail mit mehreren Links und Ressourcen. Verwenden Sie den Link „Azure-Portal“ in dieser Nachricht, um das Azure-Portal zu öffnen und eine Formularerkennungsressource zu erstellen. Geben Sie im Bereich **Erstellen** die folgenden Informationen an:
+
+|    |    |
+|--|--|
+| **Name** | Einen aussagekräftigen Namen für Ihre Ressource. Es wird empfohlen, einen aussagekräftigen Namen auszuwählen, z. B. *MyNameFormRecognizer*. |
+| **Abonnement** | Wählen Sie das Azure-Abonnement aus, dem Zugriff gewährt wurde. |
+| **Location** | Der Speicherort Ihrer Cognitive Services-Instanz. Verschiedene Speicherorte können Wartezeiten verursachen, haben aber keinen Einfluss auf die Laufzeitverfügbarkeit Ihrer Ressource. |
+| **Preisstufe** | Die Kosten für Ihre Ressource hängen vom ausgewählten Tarif und Ihrer Nutzung ab. Weitere Informationen finden Sie unter API-[Preise](https://azure.microsoft.com/pricing/details/cognitive-services/).
+| **Ressourcengruppe** | Die [Azure-Ressourcengruppe](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group), die Ihre Ressource enthält. Sie können eine neue Gruppe erstellen oder sie einer bereits bestehenden Gruppe hinzufügen. |
+
+> [!IMPORTANT]
+> Wenn Sie im Azure-Portal eine Cognitive Service-Ressource erstellen, können Sie normalerweise einen Abonnementschlüssel für mehrere Dienste (der für mehrere Cognitive Services verwendet wird) oder einen Abonnementschlüssel für einen einzelnen Dienst (der nur für den angegebenen Cognitive Service verwendet wird) erstellen. Da die Formularerkennung derzeit als Vorschauversion verfügbar ist, ist sie jedoch nicht im Abonnement für mehrere Dienste enthalten. Sie können daher nur dann ein Abonnement für einen einzelnen Dienst erstellen, wenn Sie den Link in der Willkommens-E-Mail verwenden.
+
+Nach Abschluss der Bereitstellung Ihrer Formularerkennungsressource suchen Sie sie im Portal in der Liste **Alle Ressourcen** und wählen sie aus. Wählen Sie dann die Registerkarte **Schlüssel** aus, um Ihre Abonnementschlüssel anzuzeigen. Beide Schlüssel gewähren Ihrer App Zugriff auf die Ressource. Kopieren Sie den Wert von **KEY 1**. Sie werden sie im nächsten Abschnitt verwenden.
 
 ## <a name="train-a-form-recognizer-model"></a>Trainieren eines Formularerkennungsmodells
 
-Zunächst benötigen Sie Trainingsdaten. Sie können Daten in einem Azure-Blob oder Ihre eigenen lokalen Trainingsdaten verwenden. Als Haupteingabedaten sollten Sie mindestens fünf Beispielformulare (PDF-Dokumente und/oder Bilder) desselben Typs/mit der gleichen Struktur haben. Alternativ können Sie ein einzelnes leeres Formular verwenden (der Dateiname des Formulars enthält das Wort „empty“).
+Zunächst benötigen Sie Trainingsdaten in einem Azure Storage-Blob. Als Haupteingabedaten sollten Sie mindestens fünf Beispielformulare (PDF-Dokumente und/oder Bilder) desselben Typs/mit der gleichen Struktur haben. Alternativ können Sie ein einzelnes leeres Formular mit zwei ausgefüllten Formularen verwenden. Der Dateiname des leeren Formulars muss das Wort „empty“ enthalten.
 
-Um ein Formularerkennungsmodell mit den Dokumenten in Ihrem Azure-Blobcontainer zu trainieren, rufen Sie die **Trainings**-API auf, indem Sie den folgenden cURL-Befehl ausführen. Nehmen Sie vor dem Ausführen des Befehls die folgenden Änderungen vor:
+Um ein Formularerkennungsmodell mit den Dokumenten in Ihrem Azure-Blobcontainer zu trainieren, rufen Sie die **Trainings**-API auf, indem Sie den folgenden cURL-Befehl ausführen. Nehmen Sie die folgenden Änderungen vor, bevor Sie den Befehl ausführen:
 
-* Ersetzen Sie `<Endpoint>` durch den Endpunkt, den Sie mit Ihrem Abonnementschlüssel für die Formularerkennung erhalten haben. Sie finden ihn auf der Registerkarte „Übersicht“ der Ressource „Formularerkennung“.
-* Ersetzen Sie `<SAS URL>` durch die SAS-URL (Shared Access Signature) des Azure Blob Storage-Containers, in dem sich die Trainingsdaten befinden.  
-* Ersetzen Sie `<subscription key>` durch Ihren Abonnementschlüssel.
+1. Ersetzen Sie `<Endpoint>` durch den Endpunkt, den Sie mit Ihrem Abonnementschlüssel für die Formularerkennung erhalten haben. Sie finden ihn auf der Registerkarte **Übersicht** der Formularerkennungsressource.
+1. Ersetzen Sie `<SAS URL>` durch die SAS-URL (Shared Access Signature) des Azure Blob Storage-Containers, in dem sich die Trainingsdaten befinden.  
+1. Ersetzen Sie `<subscription key>` durch den Abonnementschlüssel, den Sie im vorherigen Schritt kopiert haben.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -84,17 +100,18 @@ Sie erhalten die Antwort `200 (Success)` mit der folgenden JSON-Ausgabe:
 }
 ```
 
-Notieren Sie sich den Wert `"modelId"`. Sie benötigen ihn für die folgenden Schritte.
+Notieren Sie den Wert von `"modelId"`. Sie benötigen ihn in den folgenden Schritten.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extrahieren von Schlüssel-Wert-Paaren und Tabellen aus Formularen
 
-Als Nächstes analysieren Sie ein Dokument und extrahieren daraus Schlüssel-Werte-Paare und Tabellen. Rufen Sie die API **Modell – Analysieren** auf, indem Sie den folgenden cURL-Befehl ausführen. Nehmen Sie vor dem Ausführen des Befehls die folgenden Änderungen vor:
+Als Nächstes analysieren Sie ein Dokument und extrahieren daraus Schlüssel-Werte-Paare und Tabellen. Rufen Sie die API **Model – Analyze** auf, indem Sie den nachstehenden cURL-Befehl ausführen. Nehmen Sie die folgenden Änderungen vor, bevor Sie den Befehl ausführen:
 
-* Ersetzen Sie `<Endpoint>` durch den Endpunkt, den Sie mit Ihrem Abonnementschlüssel für die Formularerkennung erhalten haben. Sie finden ihn auf der Registerkarte **Übersicht** der Ressource „Formularerkennung“.
-* Ersetzen Sie `<modelID>` durch die Modell-ID, die Sie im vorherigen Schritt des Modelltrainings erhalten haben.
-* Ersetzen Sie `<path to your form>` durch den Dateipfad zu Ihrem Formular.
-* Ersetzen Sie `<subscription key>` durch Ihren Abonnementschlüssel.
-* Ersetzen Sie `<file type>` durch den Dateityp (unterstützte Typen sind „pdf“, „image/jpeg“ und „image/png“).
+1. Ersetzen Sie `<Endpoint>` durch den Endpunkt, den Sie mit Ihrem Abonnementschlüssel für die Formularerkennung erhalten haben. Sie finden ihn auf der Registerkarte **Übersicht** der Formularerkennungsressource.
+1. Ersetzen Sie `<modelID>` durch die Modell-ID, die Sie im vorherigen Abschnitt erhalten haben.
+1. Ersetzen Sie `<path to your form>` durch den Dateipfad zu Ihrem Formular. Beispiel: c:\temp\file.pdf. 
+1. Ersetzen Sie `<file type>` durch den Dateityp. Unterstützte Typen: „pdf“, „image/jpeg“, „image/png“.
+1. Ersetzen Sie `<subscription key>` durch Ihren Abonnementschlüssel.
+
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
@@ -102,7 +119,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<mode
 
 ### <a name="examine-the-response"></a>Untersuchen der Antwort
 
-Eine erfolgreiche Antwort wird im JSON-Format zurückgegeben und stellt die aus dem Formular extrahierten Schlüssel-Werte-Paare und Tabellen dar.
+Eine erfolgreiche Antwort wird im JSON-Format zurückgegeben. Sie enthält die Schlüssel-Wert-Paare und Tabellen, die aus dem Formular extrahiert wurden:
 
 ```bash
 {
@@ -427,7 +444,7 @@ Eine erfolgreiche Antwort wird im JSON-Format zurückgegeben und stellt die aus 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In dieser Anleitung haben Sie die Formularerkennungs-REST-APIs mit cURL verwendet, um ein Modell zu trainieren und in einem Beispielfall auszuführen. Lesen Sie als Nächstes die Referenzdokumentation, um die Formularerkennungs-API eingehender zu erkunden.
+In diesem Schnellstart haben Sie die REST-API der Formularerkennung mit cURL verwendet, um ein Modell zu trainieren und es in einem Beispielszenario auszuführen. Lesen Sie als Nächstes die Referenzdokumentation, um die Formularerkennungs-API eingehender zu erkunden.
 
 > [!div class="nextstepaction"]
 > [Referenzdokumentation zur Rest-API](https://aka.ms/form-recognizer/api)

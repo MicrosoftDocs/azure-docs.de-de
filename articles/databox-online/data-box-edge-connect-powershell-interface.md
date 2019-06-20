@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791574"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717505"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Verwalten eines Azure Data Box Edge-Geräts mittels Windows PowerShell
 
@@ -24,7 +24,6 @@ Der Schwerpunkt dieses Artikels liegt auf den Aufgaben, die mithilfe der PowerSh
 Dieser Artikel enthält die folgenden Verfahren:
 
 - Herstellen einer Verbindung mit der PowerShell-Schnittstelle
-- Starten einer Supportsitzung
 - Unterstützungspaket erstellen
 - Hochladen des Zertifikats
 - Zurücksetzen des Geräts
@@ -44,7 +43,7 @@ Dieser Artikel enthält die folgenden Verfahren:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Sie können auch IoT Edge-Zertifikate hochladen, um eine sichere Verbindung zwischen Ihrem IoT Edge-Gerät und den nachgeschalteten Geräten zu ermöglichen, die möglicherweise damit verbunden sind. Es gibt drei IoT Edge-Zertifikate (*.PEM*-Format), die Sie installieren müssen:
+Sie können auch IoT Edge-Zertifikate hochladen, um eine sichere Verbindung zwischen Ihrem IoT Edge-Gerät und den nachgeschalteten Geräten zu ermöglichen, die möglicherweise damit verbunden sind. Es gibt drei IoT Edge-Zertifikate ( *.PEM*-Format), die Sie installieren müssen:
 
 - Zertifikat der Stammzertifizierungsstelle oder der Zertifizierungsstelle des Besitzers
 - Zertifikat der Gerätezertifizierungsstelle
@@ -59,7 +58,6 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 Weitere Informationen zu Zertifikaten finden Sie unter [Zertifikate für Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) oder [Installieren von Zertifikaten auf einem Gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Anzeigen von Geräteinformationen
-
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -90,6 +88,9 @@ Wenn die Computerolle auf Ihrem Gerät konfiguriert ist, können Sie die Compute
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## <a name="exit-the-remote-session"></a>Beenden der Remotesitzung
+
+Schließen Sie das PowerShell-Fenster, um die PowerShell-Remotesitzung zu beenden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

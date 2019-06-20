@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 186bd272fdca20475686847dc4e86b8ad50e5e41
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c302b18e34533a564904562ed39879bbe37b82ca
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080963"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908199"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Erstellen und Bereitstellen eines simulierten TPM-Geräts mithilfe des Python-Geräte-SDK für den IoT Hub Device Provisioning-Dienst
 
@@ -35,7 +35,7 @@ In diesem Artikel werden individuelle Registrierungen veranschaulicht.
 
 ## <a name="prepare-the-environment"></a>Vorbereiten der Umgebung 
 
-1. Vergewissern Sie sich, dass auf Ihrem Computer entweder [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) oder [Visual Studio 2017](https://www.visualstudio.com/vs/) installiert ist. Für die Visual Studio-Installation muss die Workload „Desktopentwicklung mit C++“ aktiviert sein.
+1. Stellen Sie sicher, dass [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 oder höher installiert und die Workload „Desktopentwicklung mit C++“ für Ihre Visual Studio-Installation aktiviert ist.
 
 1. Laden Sie das [CMake-Buildsystem](https://cmake.org/download/) herunter, und installieren Sie es.
 

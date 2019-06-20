@@ -1,6 +1,6 @@
 ---
 title: 'Streamen von Videodateien mit Azure Media Services: Node.js | Microsoft-Dokumentation'
-description: Führen Sie die in diesem Schnellstart beschriebenen Schritte aus, um ein neues Azure Media Services-Konto zu erstellen, eine Datei zu codieren und in Azure Media Player zu streamen.
+description: Führen Sie die in diesem Tutorial beschriebenen Schritte aus, um ein neues Azure Media Services-Konto zu erstellen, eine Datei zu codieren und in Azure Media Player zu streamen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,24 @@ editor: ''
 keywords: azure media services, streamen
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 22b7f2380b509daa4cb9931d6fc57c1297628e3d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3e4172cd149726e28e0c7dff435ec1f7a59ee169
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522755"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550173"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Schnellstart: Streamen von Videodateien: Node.js
+# <a name="tutorial-stream-video-files---nodejs"></a>Tutorial: Streamen von Videodateien: Node.js
 
-Dieser Schnellstart zeigt, wie einfach es ist, zu Codieren und mit dem Streaming von Videos für eine Vielzahl von Browsern und Geräten mit Azure Media Services zu beginnen. Ein Eingabeinhalt kann über HTTPS-URLs, SAS-URLs oder Pfade zu Dateien in Azure Blob Storage angegeben werden.
-Das Beispiel in diesem Thema codiert Inhalte, die Sie über eine HTTPS-URL zugänglich machen. Beachten Sie, dass AMS v3 derzeit keine segmentierte Transfercodierung über HTTPS-URLs unterstützt.
+Dieses Tutorial zeigt, wie einfach es ist, Videos zu codieren und mit deren Streaming für eine Vielzahl von Browsern und Geräten mit Azure Media Services zu beginnen. Ein Eingabeinhalt kann über HTTPS-URLs, SAS-URLs oder Pfade zu Dateien in Azure Blob Storage angegeben werden.
 
-Am Ende des Schnellstarts sind Sie in der Lage, ein Video zu streamen.  
+Im Beispiel in diesem Artikel werden Inhalte codiert, die Sie über eine HTTPS-URL zugänglich machen. Beachten Sie, dass AMS v3 derzeit keine segmentierte Transfercodierung über HTTPS-URLs unterstützt.
+
+Am Ende des Tutorials sind Sie in der Lage, ein Video zu streamen.  
 
 ![Video abspielen](./media/stream-files-nodejs-quickstart/final-video.png)
 
@@ -90,7 +91,7 @@ Azure Media Player kann zum Testen verwendet werden, sollte jedoch nicht in eine
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn Sie die Ressourcen in der Ressourcengruppe einschließlich der in dieser Schnellstartanleitung erstellten Media Services- und Speicherkonten nicht mehr benötigen, löschen Sie die Ressourcengruppe.
+Wenn Sie die Ressourcen in der Ressourcengruppe einschließlich der in diesem Tutorial erstellten Media Services- und Speicherkonten nicht mehr benötigen, löschen Sie die Ressourcengruppe.
 
 Führen Sie den folgenden CLI-Befehl aus:
 

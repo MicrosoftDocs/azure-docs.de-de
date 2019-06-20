@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60545519"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services-Telemetrie  
 
@@ -78,7 +78,7 @@ Eigenschaft|Wert|Beispiele/Hinweise
 ---|---|---
 PartitionKey|{Konto-ID}_{Entitäts-ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Die Konto-ID ist im Partitionsschlüssel enthalten, um Workflows zu vereinfachen, in denen mehrere Media Services-Konten in das gleiche Speicherkonto schreiben.
 RowKey|{Sekunden bis Mitternacht}_{Zufallswert}|01688_00199<br/><br/>Der Zeilenschlüssel beginnt mit der Anzahl von Sekunden bis Mitternacht, um Abfragen nach den „oberen n“ innerhalb einer Partition zu ermöglichen. Weitere Informationen dazu finden Sie in [diesem Artikel](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
-Zeitstempel|Datum/Uhrzeit|Zeitstempel von Azure-Tabelle 2016-09-09T22:43:42.241Z
+Timestamp|Date/Time|Zeitstempel von Azure-Tabelle 2016-09-09T22:43:42.241Z
 Type|Der Typ der Entität, die Telemetriedaten liefert|Kanal/StreamingEndpoint/Archiv<br/><br/>Der Ereignistyp ist einfach ein Zeichenfolgenwert.
 NAME|Der Name des Telemetrieereignisses|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|Die Uhrzeit (UTC), zu der das Telemetrieereignis aufgetreten ist.|2016-09-09T22:42:36.924Z<br/><br/>Die beobachtete Zeit wird von der Entität gemeldet, die die Telemetriedaten sendet (z.B. ein Kanal). Da zwischen Komponenten Zeitsynchronisierungsprobleme auftreten können, ist dies ein ungefährer Wert.
@@ -99,7 +99,7 @@ Eigenschaft|Wert|Beispiele
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Zeitstempel|Zeitstempel|Automatischer Zeitstempel von Azure-Tabelle 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Automatischer Zeitstempel von Azure-Tabelle 2016-09-09T22:43:42.241Z
 Type|Type|StreamingEndpoint
 NAME|NAME|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
@@ -118,7 +118,7 @@ Eigenschaft|Wert|Beispiele/Hinweise
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Zeitstempel|Zeitstempel|Zeitstempel von Azure-Tabelle 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Zeitstempel von Azure-Tabelle 2016-09-09T22:43:42.241Z
 Type|Type|Kanal
 NAME|NAME|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
@@ -143,7 +143,7 @@ Eigenschaft|Wert|Beispiele/Hinweise
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Zeitstempel|Zeitstempel|Zeitstempel von Azure-Tabelle 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Zeitstempel von Azure-Tabelle 2016-09-09T22:43:42.241Z
 Type|Type|Archivieren
 NAME|NAME|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60545060"
 ---
 # <a name="azure-service-fabric-support-options"></a>Supportoptionen für Azure Service Fabric
 

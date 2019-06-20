@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62124002"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinden von virtuellen Netzwerken aus unterschiedlichen Bereitstellungsmodellen über das Portal
 
@@ -212,7 +212,7 @@ In den folgenden Schritten konfigurieren Sie mithilfe des Azure-Portals die Verb
 2. Klicken Sie auf **Konfiguration** und stellen Sie sicher, dass es sich beim IP-Adresswert um das VPN-Gateway für das klassische VNET handelt. Aktualisieren Sie diesen bei Bedarf und klicken Sie dann auf **Speichern**. Schließen Sie die Seite.
 3. Klicken Sie unter **Alle Ressourcen** auf das lokale Netzwerkgateway.
 4. Klicken Sie auf **Verbindungen**, um die Seite „Verbindungen“ zu öffnen.
-5. Klicken Sie auf der Seite **Verbindungen** auf **+**, um eine Verbindung hinzuzufügen.
+5. Klicken Sie auf der Seite **Verbindungen** auf **+** , um eine Verbindung hinzuzufügen.
 6. Geben Sie auf der Seite **Verbindung hinzufügen** einen Namen für die Verbindung ein. Beispiel: „RMtoClassic“.
 7. **Standort-zu-Standort-** ist bereits auf dieser Seite ausgewählt.
 8. Wählen Sie das Gateway des virtuellen Netzwerks aus, das Sie diesem Standort zuweisen möchten.

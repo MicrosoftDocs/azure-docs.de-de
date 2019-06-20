@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845000"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979642"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Rollenbasierte Zugriffssteuerung in Active Directory (Vorschau)
 
@@ -31,7 +31,14 @@ Eine Anwendung, die die rollenbasierte Zugriffssteuerung von Azure AD verwendet,
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-Rollen und -Berechtigungen
 
-In der ersten öffentlichen Vorschauversion können Sie Azure AD-Konten und -Dienstprinzipale nur zu den Rollen „Besitzer“ und „Mitwirkender“ eines Service Bus Messaging-Namespace hinzufügen. Damit erhält die Identität vollständige Kontrolle über alle Entitäten im Namespace. Verwaltungsvorgänge, bei denen die Namespacetopologie geändert wird, werden anfänglich nur über die Azure-Ressourcenverwaltung unterstützt, nicht über die native Service Bus-REST-Verwaltungsschnittstelle. Das bedeutet auch, dass das .NET Framework-Clientobjekt [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nicht mit einem Azure AD-Konto verwendet werden kann.
+Azure stellt die folgenden integrierten Rollen für die rollenbasierte Zugriffssteuerung zum Autorisieren des Zugriffs auf einen Service Bus-Namespace bereit:
+
+* [Service Bus-Datenbesitzer (Vorschau)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Ermöglicht den Datenzugriff auf einen Service Bus-Namespace und seine Entitäten (Warteschlangen, Themen, Abonnements und Filter).
+
+>[!IMPORTANT]
+> Früher haben wir das Hinzufügen einer verwalteten Identität zur Rolle **Besitzer** oder **Mitwirkender** unterstützt.
+>
+> Die Berechtigungen für den Datenzugriff für die Rolle **Besitzer** und **Mitwirkender** werden jedoch nicht mehr berücksichtigt. Wenn Sie die Rolle **Besitzer** oder **Mitwirkender** verwendet haben, müssen diese so angepasst werden, dass sie nun die Rolle **Service Bus-Datenbesitzer** verwenden.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Verwenden von Service Bus mit einem Azure AD-Domänenbenutzerkonto
 
@@ -47,7 +54,7 @@ Wenn Sie dennoch ein spezifisches Konto für dieses Szenario erstellen möchten,
 
 ### <a name="create-a-service-bus-namespace"></a>Erstellen eines Service Bus-Namespace
 
-Als Nächstes [erstellen Sie einen Service Bus Messaging-Namespace](service-bus-create-namespace-portal.md) in einer der Azure-Regionen, die Vorschauunterstützung für die rollenbasierte Zugriffssteuerung (RBAC) bieten: **USA, Osten**, **USA, Osten 2** oder **Europa, Westen**.
+Als Nächstes [erstellen Sie einen Service Bus Messaging-Namespace](service-bus-create-namespace-portal.md).
 
 Wenn der Namespace erstellt wurde, navigieren Sie im Portal zur Seite **Zugriffssteuerung (IAM)** des Namespace, und klicken Sie auf **Rollenzuweisung hinzufügen**, um das Azure AD-Benutzerkonto der Rolle „Besitzer“ hinzuzufügen. Wenn Sie Ihr eigenes Benutzerkonto verwenden und den Namespace selbst erstellt haben, befinden Sie sich bereits in der Rolle „Besitzer“. Um der Rolle ein anderes Konto hinzuzufügen, suchen Sie im Bereich **Berechtigungen hinzufügen** im Feld **Auswählen** nach dem Namen der Webanwendung, und klicken Sie auf den entsprechenden Eintrag. Klicken Sie anschließend auf **Speichern**.
 
@@ -67,7 +74,7 @@ Bevor Sie das Beispiel ausführen können, müssen Sie die Datei „App.config�
 
 - `tenantId`: Legen Sie diesen Parameter auf den Wert **TenantId** fest.
 - `clientId`: Legen Sie diesen Parameter auf den Wert **ApplicationId** fest.
-- `clientSecret`: Wenn Sie beim Anmelden das Clientgeheimnis verwenden möchten, erstellen Sie dieses in Azure AD. Verwenden Sie zudem eine Web-App oder eine API anstelle einer nativen App. Fügen Sie die App außerdem unter **Zugriffssteuerung (IAM)** zum zuvor erstellten Namespace hinzu.
+- `clientSecret`: Wenn Sie beim Anmelden einen geheimen Clientschlüssel verwenden möchten, erstellen Sie diesen in Azure AD. Verwenden Sie zudem eine Web-App oder eine API anstelle einer nativen App. Fügen Sie die App außerdem unter **Zugriffssteuerung (IAM)** zum zuvor erstellten Namespace hinzu.
 - `serviceBusNamespaceFQDN`: Legen Sie diesen Parameter auf den vollständigen DNS-Namen Ihres neu erstellten Service Bus-Namespace fest, z.B. `example.servicebus.windows.net`.
 - `queueName`: Legen Sie diesen Parameter auf die von Ihnen erstellte Warteschlange fest.
 - Der Umleitungs-URI, den Sie in den vorherigen Schritten in Ihrer App angegeben haben.

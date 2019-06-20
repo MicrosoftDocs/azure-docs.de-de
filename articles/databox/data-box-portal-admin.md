@@ -1,34 +1,34 @@
 ---
-title: Administratorhandbuch für das Azure Data Box-Portal | Microsoft-Dokumentation
-description: Beschreibt die Verwaltung von Azure Data Box über das Azure-Portal.
+title: Verwalten von Azure Data Box und Azure Data Box Heavy über das Azure-Portal | Microsoft-Dokumentation
+description: Beschreibt die Verwaltung von Azure Data Box und Azure Data Box Heavy über das Azure-Portal.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 04/15/2019
+ms.topic: article
+ms.date: 05/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607108"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427724"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>Verwalten Ihrer Data Box im Azure-Portal
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Verwalten von Azure Data Box und Azure Data Box Heavy über das Azure-Portal
 
-Dieser Artikel beschreibt einige der komplexen Workflows und Verwaltungsaufgaben, die auf der Data Box ausgeführt werden können. Sie können die Data Box im Azure-Portal oder auf der lokalen Webbenutzeroberfläche verwalten. 
+Dieser Artikel gilt sowohl für Azure Data Box als auch für Azure Data Box Heavy. Dieser Artikel beschreibt einige der komplexen Workflows und Verwaltungsaufgaben, die auf dem Azure Data Box-Gerät ausgeführt werden können. Sie können das Data Box-Gerät im Azure-Portal oder auf der lokalen Webbenutzeroberfläche verwalten.
 
-Der Schwerpunkt dieses Artikels liegt auf den Aufgaben, die mithilfe des Azure-Portals ausgeführt werden können. Verwenden Sie das Azure-Portal, um Aufträge und die Data Box zu verwalten sowie den Auftragsstatus bis zum Abschluss nachzuverfolgen.
+Der Schwerpunkt dieses Artikels liegt auf den Aufgaben, die mithilfe des Azure-Portals ausgeführt werden können. Verwenden Sie das Azure-Portal, um Aufträge und Data Box-Gerät zu verwalten sowie den Auftragsstatus bis zum Abschluss nachzuverfolgen.
 
 
 ## <a name="cancel-an-order"></a>Abbrechen eines Auftrags
 
-Das Abbrechen eines erteilten Auftrags kann aus verschiedenen Gründen erforderlich sein. Sie können den Auftrag nur stornieren, bevor er bearbeitet wird. Sobald der Auftrag bearbeitet und die Data Box vorbereitet ist, ist es nicht mehr möglich, den Auftrag zu stornieren. 
+Das Abbrechen eines erteilten Auftrags kann aus verschiedenen Gründen erforderlich sein. Sie können den Auftrag nur stornieren, bevor er bearbeitet wird. Sobald der Auftrag bearbeitet und das Data Box-Gerät vorbereitet ist, ist es nicht mehr möglich, den Auftrag zu stornieren.
 
 Führen Sie die folgenden Schritte aus, um einen Auftrag zu stornieren.
 
-1.  Navigieren Sie zu **Übersicht > Abbrechen**. 
+1.  Navigieren Sie zu **Übersicht > Abbrechen**.
 
     ![Abbrechen eines Auftrags (1)](media/data-box-portal-admin/cancel-order1.png)
 
@@ -36,11 +36,11 @@ Führen Sie die folgenden Schritte aus, um einen Auftrag zu stornieren.
 
     ![Abbrechen eines Auftrags (2)](media/data-box-portal-admin/cancel-order2.png)
 
-3.  Nach Abbruch des Auftrags aktualisiert das Portal den Status des Auftrags und zeigt **Abgebrochen** an. 
+3.  Nach Abbruch des Auftrags aktualisiert das Portal den Status des Auftrags und zeigt **Abgebrochen** an.
 
 ## <a name="clone-an-order"></a>Klonen eines Auftrags
 
-Klonen kann in bestimmten Situationen hilfreich sein. Angenommen, ein Benutzer hat mithilfe von Data Box einige Daten übertragen. Bei zunehmender Datenmenge ist eine weitere Data Box erforderlich, um die Daten in Azure zu übertragen. In diesem Fall kann der gleiche Auftrag einfach geklont werden.
+Klonen kann in bestimmten Situationen hilfreich sein. Angenommen, ein Benutzer hat mithilfe von Data Box einige Daten übertragen. Bei zunehmender Datenmenge ist ein weiteres Data Box-Gerät erforderlich, um die Daten in Azure zu übertragen. In diesem Fall kann der gleiche Auftrag einfach geklont werden.
 
 Führen Sie die folgenden Schritte aus, um einen Auftrag zu klonen.
 
@@ -69,7 +69,7 @@ Sie können nur Aufträge löschen, die abgeschlossen sind oder abgebrochen wurd
 
 ## <a name="download-shipping-label"></a>Versandetikett herunterladen
 
-Möglicherweise müssen Sie das Adressetikett herunterladen, wenn das E-Ink-Display Ihrer Data Box nicht funktioniert und das Rücksendeetikett nicht angezeigt wird. 
+Möglicherweise müssen Sie das Adressetikett herunterladen, wenn das E-Ink-Display Ihrer Data Box nicht funktioniert und das Rücksendeetikett nicht angezeigt wird. Da auf der Data Box Heavy kein E-Ink-Display vorhanden ist, gilt dieser Workflow nicht für Data Box Heavy.
 
 Führen Sie die folgenden Schritte aus, um ein Adressetikett herunterzuladen.
 
@@ -120,7 +120,7 @@ Führen Sie die folgenden Schritte aus, um den Auftragsverlauf herunterzuladen:
 
     ![Herunterladen des Auftragsverlaufs](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Klicken Sie auf **Bestellverlauf herunterladen**. Im heruntergeladenen Verlauf sehen Sie einen Eintrag für die Sendungsverfolgungsprotokolle des Zustelldiensts. Unten in diesem Protokoll finden Sie Links zu den folgenden Elementen:
+2. Klicken Sie auf **Bestellverlauf herunterladen**. Im heruntergeladenen Verlauf sehen Sie einen Eintrag für die Sendungsverfolgungsprotokolle des Zustelldiensts. Den zwei Knoten auf einer Data Box Heavy-Instanz entsprechend gibt es zwei Protokollgruppen. Unten in diesem Protokoll finden Sie Links zu den folgenden Elementen:
     
    - **Kopierprotokolle:** Diese Protokolle enthalten die Liste der Dateien, bei denen während des Kopierens von Daten von Data Box in Ihr Azure-Speicherkonto Fehler aufgetreten sind.
    - **Überwachungsprotokolle:** Diese Protokolle enthalten Informationen zum Einschalten und zum Zugriff auf Data Box, wenn sich der Dienst außerhalb des Azure-Rechenzentrums befindet.
@@ -215,4 +215,4 @@ Sobald sich der Gerätestatus im Portal ändert, werden Sie per E-Mail benachric
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Informieren Sie sich über das [Behandeln von Data Box-Problemen](data-box-faq.md).
+- Erfahren Sie mehr über das [Behandeln von Problemen mit Azure Data Box und Azure Data Box Heavy](data-box-troubleshoot.md).

@@ -3,8 +3,8 @@ title: Häufig gestellte Fragen zu Azure-Datenverkehrsanalysen | Microsoft-Dokum
 description: Hier finden Sie Antworten auf einige der am häufigsten gestellten Fragen zu Datenverkehrsanalysen.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.author: kumud
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149281"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939907"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Häufig gestellte Fragen zu Traffic Analytics
 
@@ -125,7 +125,7 @@ Ja, Ihr Azure Storage-Konto kann zu einem Abonnement und Ihr Log Analytics-Arbei
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Kann ich unformatierte Protokolle in einem anderen Abonnement speichern?
 
- Nein. Sie können unformatierte Protokolle in jedem Speicherkonto speichern, in dem eine NSG für Datenflussprotokolle aktiviert ist. Allerdings müssen sich sowohl das Speicherkonto als auch die unformatierten Protokolle im selben Abonnement und in derselben Region befinden.
+Nein. Sie können unformatierte Protokolle in jedem Speicherkonto speichern, in dem eine NSG für Datenflussprotokolle aktiviert ist. Allerdings müssen sich sowohl das Speicherkonto als auch die unformatierten Protokolle im selben Abonnement und in derselben Region befinden.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Was ist, wenn ich eine NSG aufgrund der Fehlermeldung „Nicht gefunden“ nicht für Traffic Analytics konfigurieren kann?
 
@@ -241,7 +241,7 @@ Beispiel für den [Tarif](https://azure.microsoft.com/pricing/details/network-wa
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Wie oft werden Daten von Traffic Analytics verarbeitet?
 
-Informationen hierzu finden Sie im [Abschnitt zur Datenaggregation](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) im Dokument „Schema und Datenaggregation in Traffic Analytics“.
+Informationen hierzu finden Sie im [Abschnitt zur Datenaggregation](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) im Dokument „Schema und Datenaggregation in Traffic Analytics“.
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Wie entscheidet Traffic Analytics, ob eine IP-Adresse schädlich ist? 
 
@@ -253,14 +253,14 @@ Traffic Analytics bietet keine integrierte Unterstützung für Benachrichtigung
 - Sie können den Kurzlink für Log Analytics in Traffic Analytics verwenden. 
 - Verwenden Sie das [hier dokumentierte Schema](traffic-analytics-schema.md) zum Schreiben Ihrer Abfragen. 
 - Klicken Sie auf „Neue Warnungsregel“, um die Benachrichtigung zu erstellen.
-- Informationen zum Erstellen der Benachrichtigung finden Sie in der [Dokumentation zu Protokollwarnungen ](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log).
+- Informationen zum Erstellen der Benachrichtigung finden Sie in der [Dokumentation zu Protokollwarnungen ](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Wie kann ich mit der Tastatur in der geografischen Kartenansicht navigieren?
 
 Die Seite mit der geografischen Karte enthält zwei Hauptbereiche:
     
-- **Banner:** Das Banner am oberen Rand der geografischen Karte enthält Schaltflächen zur Auswahl von Verteilungsfiltern für Datenverkehr (z.B. Bereitstellung, Datenverkehr aus Ländern und schädliche Daten). Wenn Sie auf eine Schaltfläche klicken, wird der entsprechende Filter auf die Karte angewendet. Wenn Sie beispielsweise auf die Schaltfläche „Aktiv“ klicken, werden die aktiven Rechenzentren in Ihrer Bereitstellung auf der Karte hervorgehoben.
-- **Karte:** Im Kartenbereich unter dem Banner wird die Verteilung des Datenverkehrs für Azure-Rechenzentren und Länder gezeigt.
+- **Banner:** Das Banner am oberen Rand der geografischen Karte enthält Schaltflächen zur Auswahl von Verteilungsfiltern für Datenverkehr (z. B. Bereitstellung, Datenverkehr aus Ländern/Regionen und schädliche Daten). Wenn Sie auf eine Schaltfläche klicken, wird der entsprechende Filter auf die Karte angewendet. Wenn Sie beispielsweise auf die Schaltfläche „Aktiv“ klicken, werden die aktiven Rechenzentren in Ihrer Bereitstellung auf der Karte hervorgehoben.
+- **Karte:** Im Kartenbereich unter dem Banner wird die Verteilung des Datenverkehrs für Azure-Rechenzentren und Länder/Regionen gezeigt.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Tastaturnavigation im Banner
     

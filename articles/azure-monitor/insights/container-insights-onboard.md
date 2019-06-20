@@ -1,6 +1,6 @@
 ---
-title: Onboardingmethoden für Azure Monitor für Container | Microsoft-Dokumentation
-description: In diesem Artikel wird beschrieben, wie Sie das Onboarding und die Konfiguration von Azure Monitor für Container durchführen, damit Sie erfahren können, wie gut die Leistung Ihrer Container ist und welche leistungsbezogenen Probleme erkannt wurden.
+title: Aktivieren von Azure Monitor für Container | Microsoft-Dokumentation
+description: In diesem Artikel wird beschrieben, wie Sie Azure Monitor für Container aktivieren und konfigurieren, damit Sie erfahren, wie gut die Leistung Ihrer Container ist und welche leistungsbezogenen Probleme erkannt wurden.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 10b80a9749c5698195ac5d3493ac3b07fd6e24e1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65521898"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>Onboardingmethoden für Azure Monitor für Container  
+# <a name="how-to-enable-azure-monitor-for-containers"></a>Aktivieren von Azure Monitor für Container  
 
 In diesem Artikel finden Sie eine Übersicht der verfügbaren Optionen für die Einrichtung von Azure Monitor für Container zum Überwachen der Leistung von Workloads, die in Kubernetes-Umgebungen bereitgestellt und von [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) gehostet werden.
 
@@ -36,7 +36,7 @@ Stellen Sie zunächst sicher, dass Sie über Folgendes verfügen:
 
 - **Einen Log Analytics-Arbeitsbereich.** Sie können ihn beim Aktivieren der Überwachung des neuen AKS-Clusters erstellen oder beim Onboarding einen Standardarbeitsbereich in der Standardressourcengruppe des AKS-Clusterabonnements erstellen lassen. Wenn Sie ihn selbst erstellen möchten, können Sie dies über den [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) oder das [Azure-Portal](../learn/quick-create-workspace.md) erledigen.
 - Sie müssen der **Rolle „Log Analytics-Mitwirkender“ angehören**, um die Containerüberwachung aktivieren zu können. Weitere Informationen zur Zugriffssteuerung auf einen Log Analytics-Arbeitsbereich finden Sie unter [Verwalten von Arbeitsbereichen](../platform/manage-access.md).
-- Sie sind ein Mitglied der **[Besitzer](../../role-based-access-control/built-in-roles.md#owner)**-Rolle für die AKS-Clusterressource. 
+- Sie sind ein Mitglied der **[Besitzer](../../role-based-access-control/built-in-roles.md#owner)** -Rolle für die AKS-Clusterressource. 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

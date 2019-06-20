@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f7d482b088003e3800debb2db9f6f26bda1672a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005850"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298185"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Protokollintegration – Häufig gestellte Fragen
 
 In diesem Artikel werden häufig gestellte Fragen zur Azure-Protokollintegration beantwortet.
 
 >[!IMPORTANT]
-> Das Feature Azure Log Integration gilt ab dem 01.06.2019 als veraltet. AzLog-Downloads wurden am 27. Juni 2018 deaktiviert. Um Unterstützung bei der künftigen Vorgehensweise zu erhalten, lesen Sie den Beitrag [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Verwenden von Azure Monitor für die Integration mit SIEM-Tools). 
+> Das Feature „Azure Log Integration“ wird ab dem 15.06.2019 als veraltet markiert. AzLog-Downloads wurden am 27. Juni 2018 deaktiviert. Um Unterstützung bei der künftigen Vorgehensweise zu erhalten, lesen Sie den Beitrag [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Verwenden von Azure Monitor für die Integration mit SIEM-Tools). 
 
 Die Azure-Protokollintegration ist ein Dienst des Windows-Betriebssystems, mit dem Sie nicht aufbereitete Protokolle aus Ihren Azure-Ressourcen in Ihre lokalen SIEM-Systeme (Security Information and Event Management, Sicherheitsinformationen und Ereignisverwaltung) integrieren können. Diese Integration bietet ein einheitliches Dashboard für alle Ihre Objekte, ob lokal oder in der Cloud. Sie können dann Sicherheitsereignisse für Ihre Anwendungen aggregieren, korrelieren, analysieren und entsprechende Warnungen ausgeben.
 
@@ -49,7 +49,7 @@ Führen Sie den Befehl **AzLog source list** aus.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Wie erkenne ich, aus welchem Abonnement die Protokolle der Azure-Protokollintegration stammen?
 
-Bei Überwachungsprotokollen, die sich in den **AzureResourcemanagerJson**-Verzeichnissen befinden, ist die Abonnement-ID im Namen der Protokolldatei enthalten. Dies gilt auch für Protokolle im Ordner **AzureSecurityCenterJson**. Beispiel: 
+Bei Überwachungsprotokollen, die sich in den **AzureResourcemanagerJson**-Verzeichnissen befinden, ist die Abonnement-ID im Namen der Protokolldatei enthalten. Dies gilt auch für Protokolle im Ordner **AzureSecurityCenterJson**. Beispiel:
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 

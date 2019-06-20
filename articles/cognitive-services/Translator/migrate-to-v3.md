@@ -3,26 +3,26 @@ title: Migrieren zu Version 3 – Textübersetzungs-API
 titlesuffix: Azure Cognitive Services
 description: Erfahren Sie, wie Sie von V2 zu V3 der Text-API von Microsoft Translator migrieren.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: v-pawal
+ms.openlocfilehash: 81b2e5c9c659a3811d7417d87b811a86f4350a52
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916715"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382915"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migration der Textübersetzungs-API von Version 2 zu Version 3
 
 > [!NOTE]
-> V2 gilt ab dem 30. April 2018 als veraltet und wird ab dem 30. April 2019 nicht mehr unterstützt.
+> V2 wurde am 30. April 2018 eingestellt. Migrieren Sie Ihre Anwendungen zu V3, um die Vorteile der neuen Funktionen zu nutzen, die ausschließlich in V3 verfügbar sind.
 > 
-> Der Microsoft Translator-Hub wird am 30. April 2019 eingestellt. [Anzeigen von wichtigen Migrationsinformationen und Datumsangaben](https://www.microsoft.com/translator/business/hub/).  
+> Der Microsoft Translator-Hub wurde am 17. Mai 2019 eingestellt. [Anzeigen von wichtigen Migrationsinformationen und Datumsangaben](https://www.microsoft.com/translator/business/hub/).  
 
 Das Microsoft Translator-Team hat Version 3 (V3) der Textübersetzungs-API veröffentlicht. Dieses Release enthält neue Features, veraltete Methoden und ein neues Format für das Senden und Empfangen von Daten an bzw. vom Microsoft Translator-Dienst. Dieses Dokument stellt Informationen für das Ändern von Anwendungen für die Verwendung von V3 bereit. 
 
@@ -110,7 +110,7 @@ Global
 
 > [!NOTE]
 > 
-> Der Microsoft Translator-Hub wird am 30. April 2019 eingestellt. [Anzeigen von wichtigen Migrationsinformationen und Datumsangaben](https://www.microsoft.com/translator/business/hub/).   
+> Der Microsoft Translator-Hub wurde am 17. Mai 2019 eingestellt. [Anzeigen von wichtigen Migrationsinformationen und Datumsangaben](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 verwendet standardmäßig eine neuronale maschinelle Übersetzung. Daher kann es nicht mit dem Microsoft Translator-Hub verwendet werden. Der Translator-Hub unterstützt nur ältere statistische maschinelle Übersetzungen. Die neuronale Übersetzung kann nun mithilfe des benutzerdefinierten Translators angepasst werden. [Weitere Informationen zum Anpassen von neuronaler maschineller Übersetzung](custom-translator/overview.md)
 
@@ -118,7 +118,7 @@ Die neuronale Übersetzung mit der Text-API von V3 unterstützt die Verwendung d
 
 | |Endpunkt|    DSGVO-konformer Datenverarbeiter|  Verwendung von Translator Hub| Verwendung von „Benutzerdefinierter Translator“ (Vorschau)|
 |:-----|:-----|:-----|:-----|:-----|
-|Textübersetzungs-API Version 2| api.microsofttranslator.com|    Nein   |Ja    |Nein |
+|Textübersetzungs-API Version 2| api.microsofttranslator.com|    Nein  |Ja    |Nein|
 |Textübersetzungs-API Version 3| api.cognitive.microsofttranslator.com|  Ja|    Nein| Ja|
 
 **Textübersetzungs-API Version 3**
@@ -130,7 +130,6 @@ Die neuronale Übersetzung mit der Text-API von V3 unterstützt die Verwendung d
 Sie verwenden Version 3 der Textübersetzungs-API, wenn Sie den Endpunkt „api.cognitive.microsofttranslator.com“ verwenden.
 
 **Textübersetzungs-API Version 2**
-* Ist veraltet. Diese Version wird am 30. April 2019 eingestellt. 
 * Sie erfüllt nicht alle ISO 20001-, ISO 20018- und SOC 3-Zertifizierungsanforderungen. 
 * Sie ermöglicht keinen Aufruf der neuronalen Netzwerkübersetzungssysteme, die Sie mit dem Anpassungsfeature von Translator angepasst haben.
 * Bietet Zugriff auf benutzerdefinierte Übersetzungssysteme, die mit Microsoft Translator Hub erstellt wurden.

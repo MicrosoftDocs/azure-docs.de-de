@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 286d8bbc01b5916e842c196aed5a49ef1c76bc3c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540692"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Aktualisieren auf die aktuelle Version der REST-API für den Azure-Suchdienst
 Wenn Sie eine frühere Version der [REST-API für den Azure Search-Dienst](https://docs.microsoft.com/rest/api/searchservice/) verwenden, unterstützt dieser Artikel Sie beim Upgrade Ihrer Anwendung auf die neueste allgemein verfügbare API-Version 2019-05-06.
@@ -72,7 +72,9 @@ Wenn diese Situationen für Sie zutreffen, müssen Sie den Code möglicherweise 
 
 Wenn Sie das Upgrade von einer API-Vorschauversion ausführen, gilt das oben Genannte ebenfalls. Sie müssen jedoch außerdem beachten, dass einige Previewfunktionen in Version 2019-05-06 nicht verfügbar sind:
 
-* [„moreLikeThis“-Abfragen](search-more-like-this.md) sind weiterhin nur in der Vorschauversion verfügbar.
+* [MLT-Abfragen (More Like This)](search-more-like-this.md)
+* [CSV-Blob-Indizierung](search-howto-index-csv-blobs.md)
+* [MongoDB-API-Unterstützung für Cosmos DB-Indexer](search-howto-index-cosmosdb.md)
 
 Wenn diese Funktionen im Code verwendet werden, können Sie erst ein Upgrade auf API-Version 2019-05-06 durchführen, wenn Sie sie nicht mehr nutzen.
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: cac17403425f53593d4f48692b4216a92c8624e3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884384"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61481750"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Öffnen von Ports zu einem virtuellen Computer mit dem Azure-Portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]

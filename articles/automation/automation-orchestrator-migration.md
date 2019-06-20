@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432896"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60738212"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrieren von Orchestrator zu Azure Automation (Beta)
 Runbooks in [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) basieren auf Aktivitäten der Integrationspakete, die speziell für Orchestrator geschrieben wurden, während Runbooks in Azure Automation auf Windows PowerShell basieren.  [Grafische Runbooks](automation-runbook-types.md#graphical-runbooks) in Azure Automation haben ein ähnliches Aussehen wie Orchestrator-Runbooks, die enthaltenen Aktivitäten repräsentieren PowerShell-Cmdlets, untergeordnete Runbooks und Objekte.

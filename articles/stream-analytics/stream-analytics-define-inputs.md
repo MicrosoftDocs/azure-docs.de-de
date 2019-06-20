@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.date: 05/30/2019
+ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694634"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455618"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Streamen von Daten als Eingabe in Stream Analytics
 
 Stream Analytics verfügt über eine erstklassige Integration in Azure-Datenströme als Eingaben aus drei Arten von Ressourcen:
+
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 
@@ -26,10 +26,12 @@ Stream Analytics verfügt über eine erstklassige Integration in Azure-Datenstr�
 Diese Eingaberessourcen können aus demselben Azure-Abonnement wie dem Ihres Stream Analytics-Auftrags oder aus einem anderen Abonnement stammen.
 
 ### <a name="compression"></a>Komprimierung
-Stream Analytics unterstützt die Komprimierung für alle Datenstrom-Eingabequellen. Derzeit werden diese Komprimierungstypen unterstützt: Keine, GZip- und Deflate-Komprimierung. Die Unterstützung der Komprimierung steht für Referenzdaten nicht zur Verfügung. Wenn das Eingabeformat komprimierte Avro-Daten sind, werden sie transparent behandelt. Sie müssen bei der Avro-Serialisierung keinen Komprimierungstyp angeben. 
+
+Stream Analytics unterstützt die Komprimierung für alle Datenstrom-Eingabequellen. Die folgenden Komprimierungstypen werden unterstützt: Keine, GZip- und Deflate-Komprimierung. Die Unterstützung der Komprimierung steht für Referenzdaten nicht zur Verfügung. Wenn das Eingabeformat komprimierte Avro-Daten sind, werden sie transparent behandelt. Sie müssen bei der Avro-Serialisierung keinen Komprimierungstyp angeben. 
 
 ## <a name="create-edit-or-test-inputs"></a>Erstellen, Bearbeiten oder Testen von Eingaben
-Sie können das [Azure-Portal](https://portal.azure.com) verwenden, um [neue Eingaben zu erstellen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) und vorhandene Eingaben für Ihren Streamingauftrag anzuzeigen oder zu bearbeiten. Außerdem können Sie anhand von Beispieldaten Eingabeverbindungen und [Abfragen testen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query). Beim Schreiben einer Abfrage listen Sie die Eingabe in der FROM-Klausel auf. Sie erhalten die Liste mit den verfügbaren Eingaben im Portal über die Seite **Abfrage**. Wenn Sie mehrere Eingaben verwenden möchten, können Sie sie per `JOIN` verknüpfen oder mehrere `SELECT`-Abfragen schreiben.
+
+Mit dem [Azure-Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) und [Visual Studio Code](quick-create-vs-code.md) können Sie Eingaben hinzufügen und anzeigen oder vorhandene Eingaben für Ihren Streamingauftrag bearbeiten. Sie können auch Tests für Eingabeverbindungen und [Abfragen](stream-analytics-manage-job.md#test-your-query) anhand von Beispieldaten über das Azure-Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) und [Visual Studio Code](vscode-local-run.md) ausführen. Beim Schreiben einer Abfrage listen Sie die Eingabe in der FROM-Klausel auf. Sie erhalten die Liste mit den verfügbaren Eingaben im Portal über die Seite **Abfrage**. Wenn Sie mehrere Eingaben verwenden möchten, können Sie sie per `JOIN` verknüpfen oder mehrere `SELECT`-Abfragen schreiben.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Streamen von Daten aus Event Hubs
@@ -38,10 +40,12 @@ Azure Event Hubs sind hoch skalierbare Ereigniserfasser zum Veröffentlichen/Abo
 
 `EventEnqueuedUtcTime` ist der Zeitstempel für die Ankunft eines Ereignisses in einem Event Hub und der Standardzeitstempel für Ereignisse aus Event Hubs für Stream Analytics. Zum Verarbeiten der Daten als Datenstrom mit einem Zeitstempel in der Ereignisnutzlast müssen Sie das Schlüsselwort [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) verwenden.
 
-### <a name="consumer-groups"></a>Verbrauchergruppen
-Sie sollten für jede Event Hub-Eingabe in Stream Analytics eine eigene Consumergruppe konfigurieren. Wenn ein Auftrag eine Selbstverknüpfung oder mehrere Eingaben enthält, können einige Eingaben unter Umständen von mehreren nachgeschalteten Lesern gelesen werden. Dies wirkt sich auf die Anzahl der Leser in einer einzelnen Consumergruppe aus. Zur Vermeidung der Überschreitung des Event Hub-Limits von fünf Lesern pro Consumergruppe pro Partition empfiehlt es sich, eine Consumergruppe für jeden Stream Analytics-Auftrag anzugeben. Darüber hinaus gilt ein Grenzwert von 20 Consumergruppen pro Event Hub. Weitere Informationen finden Sie unter [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) (Problembehandlung für Eingabeverbindungen).
+### <a name="event-hubs-consumer-groups"></a>Event Hubs-Consumergruppen
 
-### <a name="stream-data-from-event-hubs"></a>Streamen von Daten aus Event Hubs
+Sie sollten für jede Event Hub-Eingabe in Stream Analytics eine eigene Consumergruppe konfigurieren. Wenn ein Auftrag eine Selbstverknüpfung oder mehrere Eingaben enthält, können einige Eingaben unter Umständen von mehreren nachgeschalteten Lesern gelesen werden. Dies wirkt sich auf die Anzahl der Leser in einer einzelnen Consumergruppe aus. Zur Vermeidung der Überschreitung des Event Hub-Limits von fünf Lesern pro Consumergruppe pro Partition empfiehlt es sich, eine Consumergruppe für jeden Stream Analytics-Auftrag anzugeben. Darüber hinaus gilt ein Grenzwert von 20 Consumergruppen für einen Event Hub im Standard-Tarif. Weitere Informationen finden Sie unter [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) (Problembehandlung für Eingabeverbindungen).
+
+### <a name="create-an-input-from-event-hubs"></a>Erstellen einer Eingabe aus Event Hubs
+
 In der folgenden Tabelle wird jede Eigenschaft im Azure-Portal auf der Seite **Neue Eingabe** erläutert, um Dateneingaben aus einem Event Hub zu streamen:
 
 | Eigenschaft | BESCHREIBUNG |
@@ -79,14 +83,17 @@ FROM Input
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Streamen von Daten aus IoT Hub
+
 Azure IoT Hub ist ein hochgradig skalierbares Erfassungsmodul für das Veröffentlichen und Abonnieren von Ereignissen, das für IoT-Szenarien optimiert ist.
 
 Der Standardzeitstempel von Ereignissen, die von IoT Hub in Stream Analytics stammen, ist der Zeitstempel, an dem das Ereignis in IoT Hub eingeht, also `EventEnqueuedUtcTime`. Zum Verarbeiten der Daten als Datenstrom mit einem Zeitstempel in der Ereignisnutzlast müssen Sie das Schlüsselwort [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) verwenden.
 
-### <a name="consumer-groups"></a>Verbrauchergruppen
+### <a name="iot-hub-consumer-groups"></a>IoT Hub-Consumergruppen
+
 Sie sollten für jede IoT Hub-Eingabe in Stream Analytics eine eigene Consumergruppe konfigurieren. Wenn ein Auftrag eine Selbstverknüpfung oder mehrere Eingaben enthält, können einige Eingaben möglicherweise von mehreren nachgeschalteten Lesern gelesen werden. Dies wirkt sich auf die Anzahl der Leser in einer einzelnen Consumergruppe aus. Zur Vermeidung der Überschreitung des Azure IoT Hub-Limits von fünf Lesern pro Consumergruppe pro Partition empfiehlt es sich, eine Consumergruppe für jeden Stream Analytics-Auftrag anzugeben.
 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Konfigurieren von IoT Hub als Datenstromeingabe
+
 In der folgenden Tabelle wird jede Eigenschaft im Azure-Portal auf der Seite **Neue Eingabe** erläutert, wenn Sie IoT Hub als Datenstromeingabe konfigurieren.
 
 | Eigenschaft | BESCHREIBUNG |
@@ -124,13 +131,12 @@ Ein häufig verwendetes Szenario für Blob Storage-Eingaben bei Stream Analytics
 
 Der Standardzeitstempel von Blob Storage-Ereignissen in Stream Analytics ist der Zeitstempel, an dem das Blob zuletzt geändert wurde, also `BlobLastModifiedUtcTime`. Zum Verarbeiten der Daten als Datenstrom mit einem Zeitstempel in der Ereignisnutzlast müssen Sie das Schlüsselwort [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) verwenden. Bei einem Stream Analytics-Auftrag werden Daten jede Sekunde per Pullvorgang aus der Azure-Blobspeichereingabe abgerufen, wenn die Blobdatei verfügbar ist. Falls die Blobdatei nicht verfügbar ist, kommt es zu einem exponentiellen Backoff mit einer maximalen Zeitverzögerung von 90 Sekunden.
 
-Eingaben im CSV-Format *müssen* über eine Überschriftenzeile verfügen, um Felder für das Dataset zu definieren. Alle Felder der Überschriftenzeile müssen eindeutig sein.
-
-Stream Analytics unterstützt derzeit keine Deserialisierung von AVRO-Nachrichten, die durch die Event Hub-Erfassung oder benutzerdefinierte Endpunkte von IoT Hub Azure Storage-Containern generiert wurden.
+Eingaben im CSV-Format müssen über eine Überschriftenzeile verfügen, um Felder für das Dataset zu definieren. Alle Felder der Überschriftenzeile müssen eindeutig sein.
 
 > [!NOTE]
 > Stream Analytics unterstützt das Hinzufügen von Inhalten zu einer vorhandenen Blobdatei nicht. Stream Analytics zeigt jede Datei nur einmal an. Des Weiteren werden alle Änderungen, die in der Datei vorgenommen wurden, nachdem der Auftrag die Daten gelesen hat, nicht verarbeitet. Die Methode, alle Daten für eine Blobdatei auf einmal hochzuladen und dann zusätzliche neuere Ereignisse einer anderen, neuen Blobdatei hinzuzufügen, hat sich bewährt.
-> 
+
+Das gleichzeitige Hochladen einer sehr großen Anzahl von Blobs kann dazu führen, dass Stream Analytics in seltenen Fällen das Lesen einiger Blobs überspringt. Es wird empfohlen, Blobs in einem Abstand von mindestens 2 Sekunden in Blob Storage hochzuladen. Wenn diese Option nicht praktikabel ist, können Sie Event Hubs verwenden, um große Mengen von Ereignissen zu streamen. 
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Konfigurieren von Blob Storage als Datenstromeingabe 
 

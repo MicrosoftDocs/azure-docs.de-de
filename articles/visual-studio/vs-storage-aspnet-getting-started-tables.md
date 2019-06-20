@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010140"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62122977"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Erste Schritte mit Azure Table Storage und verbundenen Visual Studio-Diensten (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -711,4 +711,4 @@ Dieser Abschnitt zeigt das Löschen einer Entität aus einer Tabelle.
 Weitere Informationen zu zusätzlichen Optionen für das Speichern von Daten in Azure finden Sie in den anderen Featureleitfäden.
 
   * [Erste Schritte mit Azure Blob Storage und verbundenen Visual Studio-Diensten (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Erste Schritte mit Azure Queue Storage und verbundenen Visual Studio-Diensten (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [Erste Schritte mit Azure-Warteschlangenspeicher und verbundenen Visual Studio-Diensten](../storage/vs-storage-aspnet-getting-started-queues.md)

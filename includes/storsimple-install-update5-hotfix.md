@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171131"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178288"
 ---
 #### <a name="to-download-hotfixes"></a>So laden Sie Hotfixes herunter
 
@@ -93,7 +93,7 @@ Führen Sie zum Installieren und Überprüfen der Hotfixes für den normalen Mod
     > [!NOTE]
     > In manchen Fällen gibt das Cmdlet `False` zurück, wenn das Update noch ausgeführt wird. Um sicherzustellen, dass das Update abgeschlossen ist, warten Sie einige Minuten, führen Sie diesen Befehl erneut aus, und überprüfen Sie, ob `RunInProgress` gleich `False` ist. Wenn dies der Fall ist, wurde das Hotfix abgeschlossen.
 
-7. Überprüfen Sie nach dem Abschließen des Softwareupdates die Versionen der Systemsoftware. Geben Sie Folgendes ein: 
+7. Überprüfen Sie nach dem Abschließen des Softwareupdates die Versionen der Systemsoftware. Geben Sie Folgendes ein:
    
     `Get-HcsSystem`
    
@@ -175,7 +175,7 @@ Folgen Sie den Anweisungen unten, um die Datenträger-Firmwareupdates zu install
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Überwachen Sie den Installationsstatus mit dem Befehl `Get-HcsUpdateStatus` . Das Update ist abgeschlossen, wenn `RunInProgress` in `False` geändert wird.
-4. Nachdem die Installation abgeschlossen ist, wird der Controller, auf dem der Hotfix für den Wartungsmodus installiert wurde, neu gestartet. Verwenden Sie Option 1, **Anmeldung mit Vollzugriff**, und überprüfen Sie die Firmwareversion des Datenträgers. Geben Sie Folgendes ein: 
+4. Nachdem die Installation abgeschlossen ist, wird der Controller, auf dem der Hotfix für den Wartungsmodus installiert wurde, neu gestartet. Verwenden Sie Option 1, **Anmeldung mit Vollzugriff**, und überprüfen Sie die Firmwareversion des Datenträgers. Geben Sie Folgendes ein:
    
    `Get-HcsFirmwareVersion`
    

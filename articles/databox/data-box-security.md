@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095856"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799224"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box – Sicherheit und Schutz von Daten
 
@@ -34,6 +34,8 @@ Im folgenden Diagramm ist der Datenfluss durch die Azure Data Box-Lösung vom lo
 
 ![Data Box-Sicherheit](media/data-box-security/data-box-security-2.png)
 
+Während die Daten diese Lösung durchlaufen, werden Ereignisse protokolliert und Protokolle erstellt. Weitere Informationen finden Sie unter [Tracking and event logging for your Azure Data Box](data-box-logs.md) (Nachverfolgung und Ereignisprotokollierung für Azure Data Box).
+
 ## <a name="security-features"></a>Sicherheitsfeatures
 
 Data Box ist eine sichere Lösung für den Schutz der Daten, indem dafür gesorgt wird, dass nur autorisierte Entitäten Ihre Daten anzeigen, ändern oder löschen können. Die Sicherheitsfunktionen für diese Lösung gelten für den Datenträger und den zugeordneten Dienst, um sicherzustellen, dass die darauf gespeicherten Daten geschützt sind. 
@@ -48,24 +50,25 @@ Das Data Box-Gerät wird mithilfe der folgenden Merkmale geschützt:
 - Wird nur auf Data Box-spezifischer Software ausgeführt.
 - Startet im gesperrten Zustand.
 - Steuert den Gerätezugriff per Kennwort zum Entsperren des Geräts.
-- Anmeldeinformationen für den Zugriff zum Kopieren von Daten auf das und vom Gerät.
+- Anmeldeinformationen für den Zugriff zum Kopieren von Daten auf das und vom Gerät. Alle Zugriffe auf die Seite **Geräteanmeldeinformationen** im Azure-Portal werden in den [Aktivitätsprotokollen](data-box-logs.md#query-activity-logs-during-setup) protokolliert.
 
 ### <a name="data-box-data-protection"></a>Schutz von Data Box-Daten
 
 Die Daten, die in und aus Data Box übertragen werden, werden mithilfe der folgenden Merkmale geschützt:
 
-- AES-256-Bit-Verschlüsselung für ruhende Daten. 
+- AES-256-Bit-Verschlüsselung für ruhende Daten.
 - Während ihrer Übertragung können für Daten verschlüsselte Protokolle verwendet werden.
-- Sicheres Löschen von Daten vom Gerät nach dem Upload in Azure. Das Löschen der Daten wird gemäß NIST-Standards (800-88r1) durchgeführt.
+- Sicheres Löschen von Daten vom Gerät nach dem Upload in Azure. Das Löschen der Daten wird gemäß NIST-Standards (800-88r1) durchgeführt. Das Datenlöschereignis wird im [Auftragsverlauf](data-box-logs.md#download-order-history) aufgezeichnet.
 
 ### <a name="data-box-service-protection"></a>Schutz des Data Box-Diensts
 
 Der Data Box-Dienst wird mithilfe der folgenden Features geschützt.
 
 - Für den Zugriff auf den Data Box-Dienst muss Ihre Organisation über ein Azure-Abonnement verfügen, das Data Box umfasst. Ihr Abonnement bestimmt die Features, auf die Sie im Azure-Portal zugreifen können.
-- Da der Data Box-Dienst in Azure gehostet wird, ist er durch die Azure-Sicherheitsfeatures geschützt. Weitere Informationen zu den Sicherheitsfeatures von Microsoft Azure finden Sie im [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
-- Der Data Box-Dienst speichert das Entsperrkennwort, mit dem das Gerät im Dienst entsperrt wird. 
-- Beim Data Box-Dienst werden Auftragsdetails und Status im Dienst gespeichert. Diese Informationen werden später dann zusammen mit dem Auftrag gelöscht. 
+- Da der Data Box-Dienst in Azure gehostet wird, ist er durch die Azure-Sicherheitsfeatures geschützt. Weitere Informationen zu den Sicherheitsfeatures von Microsoft Azure finden Sie im [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx).
+- Der Zugriff auf die Data Box-Bestellung kann mithilfe von RBAC-Rollen (Rollenbasierte Zugriffssteuerung) gesteuert werden. Weitere Informationen finden Sie unter [Einrichten der Zugriffssteuerung für Data Box-Bestellungen](data-box-logs.md#set-up-access-control-on-the-order)
+- Der Data Box-Dienst speichert das Entsperrkennwort, mit dem das Gerät im Dienst entsperrt wird.
+- Beim Data Box-Dienst werden Auftragsdetails und Status im Dienst gespeichert. Diese Informationen werden später dann zusammen mit dem Auftrag gelöscht.
 
 ## <a name="managing-personal-data"></a>Verwalten von personenbezogenen Daten
 

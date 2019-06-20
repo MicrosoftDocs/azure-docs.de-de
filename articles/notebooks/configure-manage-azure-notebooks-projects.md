@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65596742"
 ---
 # <a name="manage-and-configure-projects"></a>Verwalten und Konfigurieren von Projekten
 
@@ -37,38 +37,7 @@ Azure Notebooks startet den zugrunde liegenden virtuellen Computer, wann immer S
 
 ## <a name="compute-tier"></a>Computeebene
 
-In der Dropdownliste **Ausführung** im Projektdashboard wählen Sie die Computeebene aus, auf der das Projekt ausgeführt wird. Standardmäßig werden Projekte auf der Ebene **Freies Compute** ausgeführt, die auf 4 GB Speicher und 1 GB Daten beschränkt ist, um Missbrauch zu verhindern:
-
-![Dropdownliste „Computeebene“ im Projektdashboard](media/project-compute-tier-list.png)
-
-Sie können diese Einschränkungen umgehen, indem Sie eine anderen virtuellen Computer verwenden, den Sie in einem Azure-Abonnement bereitgestellt haben. Sie müssen JupyterHub auf diesem virtuellen Computer installieren und ausführen. Die Data Science Virtual Machine-Images (beliebiges Betriebssystem) sind eine gute Wahl, da sie JupyterHub standardmäßig enthalten.
-
-Wenn Sie über einen entsprechend konfigurierten virtuellen Azure-Computer verfügen, wählen Sie in der Dropdownliste die Option **Direct Compute** (Compute direkt) aus. Sie werden nach einem Namen (für die Anzeige in der Liste), der IP-Adresse des virtuellen Computers mit dem zugehörigen Port (in der Regel 8000, der Standardport, an dem JupyterHub lauscht) und den VM-Anmeldeinformationen gefragt:
-
-![Aufforderung zum Sammeln von Serverinformationen für die Option „Direktes Computing“](media/project-compute-tier-direct.png)
-
-Wenn Sie die folgenden Bedingungen erfüllt sind, zeigt die Dropdownliste auch [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine)-Instanzen an. (Wenn eine dieser Bedingungen nicht erfüllt ist, können Sie sich trotzdem mit dem DSVM verbinden, indem Sie die Option für direktes Computing verwenden und die vom Azure-Portal erhaltenen Werte eingeben.)
-
-- Sie sind bei Azure Notebooks mit einem Konto angemeldet, das Azure Active Directory (AAD) verwendet, wie beispielsweise ein Firmenkonto.
-- Ihr Konto ist mit einem Azure-Abonnement verbunden.
-- Sie haben einen oder mehrere virtuelle Computer mit mindestens Lesezugriff in diesem Abonnement, die das Image „Data Science Virtual Machine for Linux (Ubuntu)“ verwenden.
-
-![Data Science Virtual Machine-Instanzen in der Dropdownliste im Projektdashboard](media/project-compute-tier-dsvm.png)
-
-Wenn Sie eine DSVM-Instanz auswählen, werden Sie möglicherweise von Azure Notebooks zur Eingabe der spezifischen Computer-Anmeldeinformationen aufgefordert, die beim Erstellen der VM verwendet wurden.
-
-Um eine neue DSVM-Instanz zu erstellen, befolgen Sie die Anweisungen in [Erstellen einer Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Verwenden Sie das Image **Data Science Virtual Machine for Linux (Ubuntu)**, wenn die DSVM in der Dropdownliste in Azure Notebooks angezeigt werden soll.  Wenn Sie aus anderen Gründen das Windows- oder CentOS-Image verwenden müssen, können Sie die Option **Direct Compute** (Compute direkt) verwenden, um eine manuelle Verbindung mit der DSVM herzustellen.
-
-> [!IMPORTANT]
-> Wenn Sie Direct Compute oder Data Science Virtual Machines verwenden, müssen die darauf ausgeführten Notebooks völlig eigenständig sein. Derzeit kopiert Azure Notebooks nur die *.ipynb*-Datei auf die VM, kopiert aber keine anderen Dateien in das Projekt. Deshalb können Notebooks, die auf anderen VMs ausgeführt werden, andere Projektdateien nicht finden.
->
-> Sie können dieses Verhalten auf zwei Arten umgehen:
->
-> 1. Kopieren Sie Projektdateien manuell auf die VM.
->
-> 2. Betten Sie die Dateien in einem Setup-Notebook ein, das Sie vor dem primären Notebook ausführen. Erstellen Sie im Setup-Notebook eine Codezelle für jede Datei, wobei die Zelle die Dateiinhalte enthält. Fügen Sie dann oben in jeder Zelle den Befehl `%%writefile <filename>` ein. `<filename>` ist der Name der Zieldatei für die Inhalte. Wenn Sie das Notebook ausführen, erstellt es alle diese Dateien auf der VM. Ein entsprechendes Beispiel finden Sie in der [Datei „setup.ipynb“ in der Demo zu Microsoft Pet Detector](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![Verwendung eines „%%writefile“-Befehls am Anfang einer Codezelle](media/setup-notebook-writefile-command.png)
+Standardmäßig werden Projekte auf der Ebene **Freies Compute** ausgeführt, die auf 4 GB Speicher und 1 GB Daten beschränkt ist, um Missbrauch zu verhindern. Sie können diese Einschränkungen umgehen und die Computeleistung erhöhen, indem Sie eine anderen virtuellen Computer verwenden, den Sie in einem Azure-Abonnement bereitgestellt haben. Weitere Informationen finden Sie unter [Verwenden von Data Science Virtual Machines](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Bearbeiten von Projektmetadaten
 

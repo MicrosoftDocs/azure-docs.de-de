@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232595"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159810"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Schnellstart: Erstellen einer Warteschlange in Azure Storage mithilfe von .NET
 
@@ -257,7 +257,9 @@ Für die .NET-Entwicklung mit Azure-Warteschlangen stehen folgende zusätzliche 
 
 ### <a name="binaries-and-source-code"></a>Binärdateien und Quellcode
 
-- Laden Sie das NuGet-Paket für die aktuelle Version der [.NET-Clientbibliothek](https://www.nuget.org/packages/WindowsAzure.Storage/) für Azure Storage herunter. 
+- Laden Sie die NuGet-Pakete für die aktuelle Version der [Azure Storage-Clientbibliothek für .NET](/dotnet/api/overview/azure/storage/client) herunter.
+    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [Warteschlangen](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Zeigen Sie den [Quellcode der .NET-Clientbibliothek](https://github.com/Azure/azure-storage-net) auf GitHub an.
 
 ### <a name="client-library-reference-and-samples"></a>Clientbibliothek – Referenz und Beispiele

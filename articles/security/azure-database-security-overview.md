@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60587603"
 ---
 # <a name="azure-database-security-overview"></a>Übersicht über die Sicherheit der Azure-Datenbank
 
@@ -164,7 +164,7 @@ Zum Schutz Ihrer Daten stellt SQL-Datenbank Funktionen für die *Überwachung* u
 
 ### <a name="auditing"></a>Überwachung
 
-Durch die [Azure SQL-Datenbanküberwachung](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) können Sie bessere Einblicke in Ereignisse und Änderungen in der Datenbank gewinnen. Beispiele hierfür sind Datenaktualisierungen und -abfragen.
+Durch die [Überwachung von Azure SQL-Datenbank](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) können Sie bessere Einblicke in Ereignisse und Änderungen in der Datenbank gewinnen. Beispiele hierfür sind Datenaktualisierungen und -abfragen.
 
 Die SQL-Datenbanküberwachung verfolgt Datenbankereignisse und schreibt diese in ein Überwachungsprotokoll in Ihrem Azure-Speicherkonto. Die Überwachung kann Sie dabei unterstützen, gesetzliche Bestimmungen einzuhalten, Datenbankaktivitäten nachzuvollziehen und Einblicke in Abweichungen und Anomalien zu erhalten, die auf geschäftliche Probleme oder mutmaßliche Sicherheitsverstöße hinweisen können. Die Überwachung ermöglicht und unterstützt die Einhaltung von Standards, garantiert diese aber nicht.
 
@@ -230,6 +230,6 @@ Der Azure Marketplace integriert die einzelnen Ökosysteme von Microsoft Azure-P
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Schützen der Azure SQL-Datenbank](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial)
-- [Azure Security Center und Azure SQL-Datenbankdienst](https://docs.microsoft.com/azure/security-center/security-center-sql-database)
+- [Azure Security Center und Azure SQL-Datenbank-Dienst](https://docs.microsoft.com/azure/security-center/security-center-sql-database)
 - [Bedrohungserkennung von SQL-Datenbank](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
 - [Optimieren der Leistung von SQL-Datenbank](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial)

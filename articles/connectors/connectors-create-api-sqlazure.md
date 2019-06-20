@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696419"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Herstellen einer Verbindung mit SQL Server oder Azure SQL-Datenbank über Azure Logic Apps
 
@@ -24,7 +24,7 @@ In diesem Artikel wird beschrieben, wie Sie über eine Logik-App mit dem SQL Ser
 
 Sie können Logik-Apps erstellen, deren Ausführung durch Ereignisse in Ihrer SQL-Datenbank oder in anderen Systemen (wie z. B. Dynamics CRM Online) ausgelöst wird. Ihre Logik-Apps können auch Daten abrufen, einfügen und löschen sowie SQL-Abfragen und gespeicherte Prozeduren ausführen. Sie können beispielsweise eine Logik-App erstellen, die Dynamics CRM Online automatisch auf neue Datensätze überprüft, Ihrer SQL-Datenbank Elemente für alle neuen Datensätze hinzufügt und dann E-Mail-Benachrichtigungen sendet.
 
-Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich <a href="https://azure.microsoft.com/free/" target="_blank">für ein kostenloses Azure-Konto registrieren</a>. Wenn Sie noch nicht mit Logik-Apps vertraut sind, lesen Sie [Was ist Azure Logic Apps?](../logic-apps/logic-apps-overview.md) und [Schnellstart: Erstellen Ihres ersten Logik-App-Workflows](../logic-apps/quickstart-create-first-logic-app-workflow.md). Connectorspezifische technische Informationen finden Sie in der <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server-Connector-Referenz</a>.
+Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich <a href="https://azure.microsoft.com/free/" target="_blank">für ein kostenloses Azure-Konto registrieren</a>. Falls Sie noch nicht mit Logik-Apps vertraut sind, finden Sie weitere Informationen unter [Was ist Azure Logic Apps?](../logic-apps/logic-apps-overview.md) und [Schnellstart: Erstellen Ihres ersten automatisierten Workflows mit Azure Logic Apps – Azure-Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md). Connectorspezifische technische Informationen finden Sie in der <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server-Connector-Referenz</a>.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -56,7 +56,7 @@ In Azure Logic Apps muss jede Logik-App mit einem [Trigger](../logic-apps/logic-
 
 2. Geben Sie im Suchfeld den Begriff „sql server“ als Filter ein. Wählen Sie in der Triggerliste den gewünschten SQL-Trigger aus. 
 
-   Wählen Sie in diesem Beispiel den folgenden Trigger aus: **SQL Server - Wenn ein Element erstellt wird**
+   Wählen Sie für dieses Beispiel den folgenden Trigger aus: **SQL Server – Wenn ein Element erstellt wird**
 
    ![Trigger „SQL Server - Wenn ein Element erstellt wird“ auswählen](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -90,11 +90,11 @@ In Azure Logic Apps handelt es sich bei einer [Aktion](../logic-apps/logic-apps-
    ![„Neuer Schritt“, „Aktion hinzufügen“ auswählen](./media/connectors-create-api-sqlazure/add-action.png)
    
    Um eine Aktion zwischen vorhandenen Schritten hinzuzufügen, bewegen Sie den Mauszeiger über den Verbindungspfeil. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) aus, und wählen Sie dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) aus, und wählen Sie dann **Aktion hinzufügen** aus.
 
 2. Geben Sie im Suchfeld den Begriff „sql server“ als Filter ein. Wählen Sie in der Liste der Aktionen die gewünschte SQL-Aktion aus. 
 
-   Wählen Sie in diesem Beispiel die folgende Aktion aus, die einen einzelnen Datensatz abruft: **SQL Server - Zeile abrufen**
+   Wählen Sie in diesem Beispiel die folgende Aktion aus, die einen einzelnen Datensatz abruft: **SQL Server – Zeile abrufen**
 
    ![„sql server“ eingeben, „SQL Server - Zeile abrufen“ auswählen](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
@@ -116,23 +116,26 @@ In Azure Logic Apps handelt es sich bei einer [Aktion](../logic-apps/logic-apps-
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>Verarbeiten von Daten in Massen
+## <a name="handle-bulk-data"></a>Verarbeiten von Massendaten
 
-Wenn Sie mit Resultsets arbeiten, die so groß sind, dass der Connector nicht alle Ergebnisse gleichzeitig zurückgibt, oder wenn Sie eine bessere Kontrolle über die Größe und Struktur Ihrer Resultsets haben möchten, können Sie die *Paginierung* verwenden, mit der Sie diese Ergebnisse als kleinere Sets verwalten können. 
+Gelegentlich müssen Sie möglicherweise mit Resultsets arbeiten, die so groß sind, dass der Connector nicht alle Ergebnisse gleichzeitig zurückgibt. Oder Sie wünschen sich eine bessere Kontrolle über die Größe und Struktur Ihrer Resultsets. Hier sind einige Möglichkeiten, wie Sie derartig große Resultsets verarbeiten können:
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* Aktivieren Sie *Paginierung*, um die Ergebnisse in kleineren Gruppen zu verwalten. Weitere Informationen finden Sie unter [Abrufen von Massendaten, Datensätzen und Elementen mithilfe der Paginierung](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>Erstellen einer gespeicherten Prozedur
+* Erstellen Sie eine gespeicherte Prozedur, die die Ergebnisse nach Ihren Vorstellungen organisiert.
 
-Beim Abrufen oder Einfügen mehrerer Zeilen kann Ihre Logik-App diese Elemente mithilfe einer [*Until-Schleife*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) innerhalb dieser [Grenzwerte](../logic-apps/logic-apps-limits-and-config.md) durchlaufen. Manchmal muss Ihre Logik-App jedoch mit so großen Datensatzgruppen arbeiten, die z. B. Tausende oder Millionen von Zeilen umfassen, dass Sie die Kosten für Aufrufe der Datenbank minimieren möchten. 
+  Beim Abrufen oder Einfügen mehrerer Zeilen kann Ihre Logik-App diese Zeilen mithilfe einer [*Until-Schleife*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) innerhalb dieser [Grenzwerte](../logic-apps/logic-apps-limits-and-config.md) durchlaufen. 
+  Wenn Ihre Logik-App jedoch mit so großen Datensatzgruppen arbeiten muss, die z. B. Tausende oder Millionen von Zeilen umfassen, dass Sie die Kosten für Aufrufe der Datenbank minimieren möchten.
 
-Stattdessen können Sie eine <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*gespeicherte Prozedur*</a> erstellen, die in Ihrer SQL-Instanz ausgeführt wird und die **SELECT - ORDER BY**-Anweisung verwendet, um die Ergebnisse in der von Ihnen gewünschten Weise zu organisieren. Diese Lösung bietet Ihnen mehr Kontrolle über die Größe und Struktur Ihrer Ergebnisse. Ihre Logik-App ruft die gespeicherte Prozedur mithilfe der Aktion **Gespeicherte Prozedur ausführen** des SQL Server-Connectors auf. 
+  Um die Ergebnisse in der von Ihnen gewünschten Weise zu organisieren, können Sie eine [*gespeicherte Prozedur*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) erstellen, die in Ihrer SQL-Instanz ausgeführt wird und die **SELECT - ORDER BY**-Anweisung verwendet. 
+  Diese Lösung bietet Ihnen mehr Kontrolle über die Größe und Struktur Ihrer Ergebnisse. 
+  Ihre Logik-App ruft die gespeicherte Prozedur mithilfe der Aktion **Gespeicherte Prozedur ausführen** des SQL Server-Connectors auf.
 
-Details dieser Lösung finden Sie in den folgenden Artikeln:
+  Details dieser Lösung finden Sie in den folgenden Artikeln:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL-Paginierung für die Massendatenübertragung mit Logic Apps</a>
+  * [SQL-Paginierung für die Massendatenübertragung mit Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY-Klausel</a>
+  * [SELECT - ORDER BY-Klausel](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>Connectorspezifische Details
 

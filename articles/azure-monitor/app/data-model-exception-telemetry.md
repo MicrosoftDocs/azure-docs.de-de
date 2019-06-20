@@ -13,11 +13,11 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: efd7ad43ee9a2206f474621612eca7dfe5079f99
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60908064"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetriedaten für Ausnahmen: Application Insights-Datenmodell
 

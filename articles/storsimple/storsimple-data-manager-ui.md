@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121501"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60631421"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Verwalten des StorSimple Data Manager-Diensts im Azure-Portal
 

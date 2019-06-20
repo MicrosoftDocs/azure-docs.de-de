@@ -10,11 +10,11 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60332651"
 ---
 # <a name="recommended-on-premises-encoders"></a>Empfohlene lokale Encoder
 Beim Livestreaming mit Azure Media Services können Sie angeben, wie der Kanal den Eingabedatenstrom empfangen soll. Wenn Sie sich für die Verwendung eines lokalen Encoders mit einem Livecodierkanal entscheiden, sollte der Encoder einen qualitativ hochwertigen Datenstrom mit Einzelbitrate als Ausgabe übertragen. Ziehen Sie dagegen einen lokalen Encoder mit Pass-Through-Kanal vor, dann muss Ihr Encoder einen Stream mit Mehrfachbitrate als Ausgabe übertragen. Weitere Informationen finden Sie unter [Livestreaming mit lokalen Encodern](media-services-live-streaming-with-onprem-encoders.md).

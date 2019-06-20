@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61481874"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Erstellen und Verwalten eines Unterstützungspakets für ein Gerät der StorSimple 8000-Serie
 
@@ -31,7 +31,7 @@ Dieses Tutorial enthält detaillierte Anleitungen für die Erstellung und Verwal
 
 ## <a name="create-a-support-package"></a>Unterstützungspaket erstellen
 
-In einigen Fällen müssen Sie das Unterstützungspaket über Windows PowerShell für StorSimple manuell erstellen. Beispiel: 
+In einigen Fällen müssen Sie das Unterstützungspaket über Windows PowerShell für StorSimple manuell erstellen. Beispiel:
 
 * Wenn Sie vertrauliche Informationen vor dem Freigeben für den Microsoft Support aus Ihren Protokolldateien entfernen müssen.
 * Wenn das Hochladen des Pakets aufgrund von Konnektivitätsproblemen schwierig ist.

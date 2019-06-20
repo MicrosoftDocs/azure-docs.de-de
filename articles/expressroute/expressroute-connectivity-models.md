@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: ef53f9d3cefa35624d6f94dc98db4ebe8b6646cd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60367444"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute-Konnektivitätsmodelle
 Sie können eine Verbindung zwischen Ihrem lokalen Netzwerk und der Microsoft-Cloud auf drei verschiedene Arten erstellen: [CloudExchange Zusammenstellung](#CloudExchange), [Point-to-Point-Ethernet-Verbindung](#Ethernet) und [Any-to-Any-Verbindung (IPVPN)](#IPVPN). Konnektivitätsanbieter können ein oder mehrere Konnektivitätsmodelle bereitstellen. Sie können zusammen mit Ihrem Konnektivitätsanbieter das Modell auswählen, das für Sie am besten geeignet ist.

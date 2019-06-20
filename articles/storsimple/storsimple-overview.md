@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326924"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60630188"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-Serie: eine Hybridcloud-Speicherlösung
 ## <a name="overview"></a>Übersicht
@@ -29,7 +29,7 @@ StorSimple verwendet zur Verwaltung von gespeicherten Daten auf verschiedenen Sp
 
 Zusätzlich zur Speicherverwaltung können Sie mithilfe der StorSimple-Funktionen zum Schutz von Daten bedarfsgesteuerte und geplante Sicherungen erstellen und anschließend lokal oder in der Cloud speichern. Sicherungen erfolgen in Form von inkrementellen Momentaufnahmen, sodass sie schnell erstellt und wiederhergestellt werden können. Cloud-Momentaufnahmen können bei Wiederherstellungen im Notfall extrem wichtig sein, da sie sekundäre Speichersystemen (z. B. Backup auf Bandlaufwerken) ersetzen und es Ihnen ermöglichen, Daten bei Bedarf in Ihrem Rechenzentrum oder an anderen Standorten wiederherzustellen.
 
-![Video-Symbol](./media/storsimple-overview/video_icon.png)  Sehen Sie sich das Video mit einer kurzen Einführung in Microsoft Azure StorSimple an.
+![Video-Symbol](./media/storsimple-overview/video_icon.png) Sehen Sie sich das Video mit einer kurzen Einführung in Microsoft Azure StorSimple an.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
@@ -238,7 +238,7 @@ Nachfolgend finden Sie eine Liste der von StorSimple unterstützten Infrastruktu
 | Allgemein |DataCore FC |Ja* |Unterstützt mit DataCore SANsymphony |Alle Versionen |
 | Allgemein |DFSR |Ja* |Nur mit lokalen Volumes unterstützt |Alle Versionen |
 | Allgemein |Indizierung |Ja* |Bei mehrstufigen Volumes wird nur die Indizierung der Metadaten unterstützt (nicht der Daten).<br>Bei lokalen Volumes wird eine vollständige Indizierung unterstützt. |Alle Versionen |
-| Allgemein |Virenschutz |Ja* |Bei mehrstufigen Volumes wird das Scannen nur beim Öffnen und Schließen unterstützt.<br>  Bei lokalen Volumes wird ein vollständiger Scan unterstützt. |Alle Versionen |
+| Allgemein |Virenschutz |Ja* |Bei mehrstufigen Volumes wird das Scannen nur beim Öffnen und Schließen unterstützt.<br> Bei lokalen Volumes wird ein vollständiger Scan unterstützt. |Alle Versionen |
 
 *Ja&#42; – Lösungsrichtlinien und -einschränkungen sollten angewendet werden.*
 

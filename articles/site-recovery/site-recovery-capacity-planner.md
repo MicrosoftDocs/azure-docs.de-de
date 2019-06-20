@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976714"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61036750"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planen der Kapazität für die Notfallwiederherstellung von Hyper-V-VMs 
 

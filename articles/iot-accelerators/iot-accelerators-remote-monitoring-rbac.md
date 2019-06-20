@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61443096"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurieren der rollenbasierten Zugriffssteuerung im Solution Accelerator der Remoteüberwachung
 
@@ -28,19 +28,19 @@ Benutzer mit der Rolle **Administrator** verfügen über Vollzugriff auf die Lö
 | Berechtigung            | Administrator | Nur Leseberechtigung |
 |----------------       |-------|-----------|
 | Anzeigen der Lösung         | Ja   | Ja       |
-| Aktualisieren von Alarmen         | Ja   | Nein         |
-| Löschen von Alarmen         | Ja   | Nein         |
-| Erstellen von Geräten        | Ja   | Nein         |
-| Aktualisieren von Geräten        | Ja   | Nein         |
-| Löschen von Geräten        | Ja   | Nein         |
-| Erstellen von Gerätegruppen  | Ja   | Nein         |
-| Aktualisieren von Gerätegruppen  | Ja   | Nein         |
-| Löschen von Gerätegruppen  | Ja   | Nein         |
-| Erstellen von Regeln          | Ja   | Nein         |
-| Aktualisieren von Regeln          | Ja   | Nein         |
-| Löschen von Regeln          | Ja   | Nein         |
-| Erstellen von Aufträgen           | Ja   | Nein         |
-| Aktualisieren der SIM-Verwaltung | Ja   | Nein         |
+| Aktualisieren von Alarmen         | Ja   | Nein        |
+| Löschen von Alarmen         | Ja   | Nein        |
+| Erstellen von Geräten        | Ja   | Nein        |
+| Aktualisieren von Geräten        | Ja   | Nein        |
+| Löschen von Geräten        | Ja   | Nein        |
+| Erstellen von Gerätegruppen  | Ja   | Nein        |
+| Aktualisieren von Gerätegruppen  | Ja   | Nein        |
+| Löschen von Gerätegruppen  | Ja   | Nein        |
+| Erstellen von Regeln          | Ja   | Nein        |
+| Aktualisieren von Regeln          | Ja   | Nein        |
+| Löschen von Regeln          | Ja   | Nein        |
+| Erstellen von Aufträgen           | Ja   | Nein        |
+| Aktualisieren der SIM-Verwaltung | Ja   | Nein        |
 
 Standardmäßig erhält der Benutzer, der die Lösung bereitgestellt hat, automatisch die Rolle **Administrator** und ist ein Azure Active Directory-Anwendungsbesitzer. Als Anwendungsbesitzer können Sie anderen Benutzern im Azure-Portal Rollen zuweisen. Wenn Sie möchten, dass ein anderer Benutzer Rollen in der Lösung zuweist, müssen Sie diesen im Azure-Portal als Anwendungsbesitzer bestimmen.
 

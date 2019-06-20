@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455733"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60731113"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions-Typen und -Features (Azure Functions)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3aca64c7b0f1ad04967782cb3349da302db557a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9525d18b51954f32fd819a2efdefca61b39bc185
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145087"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688482"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Ausführliche Anweisungen für Azure-Statusmonitor v2
 
@@ -180,7 +180,7 @@ Weitere Informationen finden Sie unter [Installieren eines PowerShell-Moduls](ht
 - Cmd: 
 
     ```
-    $pathToNupkg = "C:\az.applicationmonitor.0.2.1-alpha.nupkg"
+    $pathToNupkg = "C:\az.applicationmonitor.0.3.0-alpha.nupkg"
     $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
     $pathToNupkg | rename-item -newname $pathToZip
     $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\az.applicationmonitor"
@@ -239,12 +239,12 @@ Lesen Sie unsere [API-Referenz](status-monitor-v2-api-enable-monitoring.md) für
 - [Untersuchen Sie Metriken](../../azure-monitor/app/metrics-explorer.md) für die Überwachung von Leistung und Auslastung.
 - [Durchsuchen Sie Ereignisse und Protokolle](../../azure-monitor/app/diagnostic-search.md), um Probleme zu diagnostizieren.
 - [Verwenden Sie Analytics](../../azure-monitor/app/analytics.md) für erweiterte Abfragen.
-- [Erstellen Sie Dashboards.](../../azure-monitor/app/app-insights-dashboards.md)
+- [Erstellen Sie Dashboards.](../../azure-monitor/app/overview-dashboard.md)
 
  Hinzufügen weiterer Telemetrieelemente:
 
 - [Erstellen Sie Webtests](monitor-web-app-availability.md), um sicherzustellen, dass Ihre Website live bleibt.
-- [Fügen Sie Webclienttelemetrie hinzu](../../azure-monitor/app/javascript.md), um Ausnahmen von Webseitencode anzuzeigen und Ablaufverfolgungsaufrufe einfügen zu können.
+- [Fügen Sie Webclient-Telemetriedaten hinzu](../../azure-monitor/app/javascript.md), um Ausnahmen von Webseitencode anzuzeigen und Ablaufverfolgungsaufrufe einfügen zu können.
 - [Fügen Sie Ihrem Code das Application Insights SDK hinzu](../../azure-monitor/app/asp-net.md), um Ablaufverfolgungs- und Protokollaufrufe einfügen zu können.
 
 Weitere Möglichkeiten zur Verwendung von Statusmonitor v2:

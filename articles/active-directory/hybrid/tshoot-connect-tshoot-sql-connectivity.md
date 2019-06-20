@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dea88951682c24d2a470d5bd7646722481e4db2f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60381342"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Behandeln von Problemen mit der Konnektivität zwischen SQL und Azure AD Connect
 Dieser Artikel erklärt, wie Probleme mit der Konnektivität zwischen Azure AD Connect und SQL Server behoben werden können. 

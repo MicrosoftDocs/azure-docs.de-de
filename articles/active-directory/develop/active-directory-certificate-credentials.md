@@ -3,8 +3,8 @@ title: Zertifikatanmeldeinformationen in Azure AD | Microsoft-Dokumentation
 description: In diesem Artikel werden die Registrierung für die Anwendungsauthentifizierung und die Verwendung von Zertifikatanmeldeinformationen für diesen Zweck beschrieben.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4ee1ce56723e4a2c9ab80c12456bbc1b66f6d5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162797"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001232"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Zertifikatanmeldeinformationen für die Anwendungsauthentifizierung
 
@@ -98,11 +98,10 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ### <a name="uploading-the-certificate-file"></a>Hochladen der Zertifikatdatei
 
 In der Azure-App-Registrierung für die Clientanwendung:
-1. Wählen Sie **Einstellungen > Schlüssel** und dann **Öffentlichen Schlüssel hochladen** aus. 
-2. Wählen Sie die Zertifikatdatei aus, die Sie hochladen möchten.
-3. Wählen Sie **Speichern** aus. 
-   
-   Daraufhin wird das Zertifikat hochgeladen, und der Fingerabdruck, das Startdatum und der Ablaufzeitpunkt werden angezeigt. 
+1. Wählen Sie **Zertifikate & Geheimnisse** aus. 
+2. Klicken Sie auf **Zertifikat hochladen**, und wählen Sie die Zertifikatdatei zum Hochladen aus.
+3. Klicken Sie auf **Hinzufügen**.
+  Nachdem das Zertifikat hochgeladen wurde, werden der Fingerabdruck, das Startdatum und der Ablaufzeitpunkt angezeigt. 
 
 ### <a name="updating-the-application-manifest"></a>Aktualisieren des Anwendungsmanifests
 
@@ -114,7 +113,7 @@ Wenn Sie über ein Zertifikat verfügen, berechnen Sie Folgendes:
 Geben Sie außerdem eine GUID an, um den Schlüssel im Anwendungsmanifest (`$keyId`) zu identifizieren.
 
 In der Azure-App-Registrierung für die Clientanwendung:
-1. Öffnen Sie das Anwendungsmanifest.
+1. Wählen Sie **Manifest** aus, um das Anwendungsmanifest zu öffnen.
 2. Ersetzen Sie die Eigenschaft *keyCredentials* gemäß dem folgenden Schema durch Ihre neuen Zertifikatinformationen.
 
    ```

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4843828c89b04e36b0bcc73dcedf9c5735b73729
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60610859"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Sicherheitsrahmen: Überwachung und Protokollierung | Gegenmaßnahmen 
+
 | Produkt/Dienst | Artikel |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identifizieren von vertraulichen Entitäten in der Lösung und Implementieren der Änderungsüberwachung](#sensitive-entities)</li></ul> |

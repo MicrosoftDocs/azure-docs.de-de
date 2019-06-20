@@ -10,11 +10,11 @@ ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ms.openlocfilehash: 590d790939f2986570019122817444238a41bb7d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60780833"
 ---
 # <a name="migrate-analytics-resources-to-global-azure"></a>Migrieren von Analyseressourcen zu Azure weltweit
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372252"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987759"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Konfigurieren des Azure Multi-Factor Authentication-Servers zur Verwendung von AD FS 2.0
 
@@ -46,7 +46,7 @@ Wenn Sie AD FS 2.0 mit einem Proxy schützen möchten, müssen Sie den Azure Mul
 
     ![Hinzufügen einer formularbasierten Website zu MFA Server](./media/howto-mfaserver-adfs-2/manual.png)
 
-11. Klicken Sie auf **Erweitert...**, um die erweiterten Einstellungen anzuzeigen. Hier haben Sie unter anderem folgende Möglichkeiten:
+11. Klicken Sie auf **Erweitert...** , um die erweiterten Einstellungen anzuzeigen. Hier haben Sie unter anderem folgende Möglichkeiten:
 
     - Sie können eine Datei für eine benutzerdefinierte Verweigerungsseite auswählen.
     - Sie können erfolgreiche Authentifizierungen bei der Website mithilfe von Cookies speichern.
@@ -85,7 +85,7 @@ Sie haben zwar die IIS-Authentifizierung aktiviert, um die Vorauthentifizierung 
 3. Wenn Benutzer ihren Benutzernamen im Format „Domäne\Benutzername“ eingeben, muss der Server beim Erstellen der LDAP-Abfrage die Domäne vom Benutzernamen trennen können. Dazu kann eine Registrierungseinstellung verwendet werden.
 4. Öffnen Sie den Registrierungs-Editor auf einem 64-Bit-Server, und navigieren Sie zu "HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor". Auf einem 32-Bit-Server fehlt "Wow6432Node" im Pfad. Erstellen Sie einen DWORD-Registrierungsschlüssel namens „UsernameCxz_stripPrefixDomain“, und legen Sie den Wert auf „1“ fest. Der AD FS-Proxy wird nun durch Azure Multi-Factor Authentication geschützt.
 
-Stellen Sie sicher, dass Benutzer aus Active Directory in den Server importiert wurden. Wenn Sie eine Positivliste mit internen IP-Adressen verwenden möchten, sodass bei einer Websiteanmeldung über diese Orte keine zweistufige Überprüfung erforderlich ist, lesen Sie den Abschnitt [Vertrauenswürdige IP-Adressen](#trusted-ips).
+Stellen Sie sicher, dass Benutzer aus Active Directory in den Server importiert wurden. Wenn Sie interne IP-Adressen zulassen möchten, sodass bei einer Websiteanmeldung über diese Adressen keine zweistufige Überprüfung erforderlich ist, lesen Sie den Abschnitt [Vertrauenswürdige IP-Adressen](#trusted-ips).
 
 ![Registrierungs-Editor zum Konfigurieren von Unternehmenseinstellungen](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -109,15 +109,17 @@ AD FS kann auch ohne Verwendung des AD FS-Proxys geschützt werden. Installieren
 
 AD FS wird nun durch Azure Multi-Factor Authentication geschützt.
 
-Stellen Sie sicher, dass Benutzer aus Active Directory in den Server importiert wurden. Wenn Sie eine Positivliste mit internen IP-Adressen verwenden möchten, sodass bei einer Websiteanmeldung über diese Orte keine zweistufige Überprüfung erforderlich ist, lesen Sie den Abschnitt „Vertrauenswürdige IP-Adressen“.
+Stellen Sie sicher, dass Benutzer aus Active Directory in den Server importiert wurden. Wenn Sie interne IP-Adressen zulassen möchten, sodass bei einer Websiteanmeldung über diese Adressen keine zweistufige Überprüfung erforderlich ist, lesen Sie den Abschnitt „Vertrauenswürdige IP-Adressen“.
 
 ## <a name="trusted-ips"></a>Vertrauenswürdige IP-Adressen
+
 Über vertrauenswürdige IP-Adressen können Benutzer Azure Multi-Factor Authentication bei Websiteanforderungen von bestimmten IP-Adressen oder Subnetzen umgehen. So können Sie beispielsweise Benutzer, die sich vom Büro aus anmelden, von der zweistufigen Überprüfung ausschließen. Dazu geben Sie das Bürosubnetz als Eintrag unter „Vertrauenswürdige IPs“ an.
 
 ### <a name="to-configure-trusted-ips"></a>So konfigurieren Sie vertrauenswürdige IP-Adressen
+
 1. Klicken Sie im Abschnitt „IIS-Authentifizierung“ auf die Registerkarte **Vertrauenswürdige IPs**.
 2. Klicken Sie in der Eigenschaft **Hinzufügen…** .
 3. Wählen Sie im daraufhin angezeigten Dialogfeld „Vertrauenswürdige IP hinzufügen“ das Optionsfeld **Eine IP**, **IP-Bereich** oder **Subnetz** aus.
-4. Geben Sie die IP-Adresse, den IP-Adressbereich oder das Subnetz für die Positivliste ein. Wählen Sie im Falle eines Subnetzes die entsprechende Netzmaske aus, und klicken Sie auf die Schaltfläche **OK**. Die vertrauenswürdige IP wurde hinzugefügt.
+4. Geben Sie die IP-Adresse, den IP-Adressbereich oder das Subnetz ein, die zulässig sein sollen. Wählen Sie im Falle eines Subnetzes die entsprechende Netzmaske aus, und klicken Sie auf die Schaltfläche **OK**.
 
 ![Konfigurieren vertrauenswürdiger IP-Adressen für MFA Server](./media/howto-mfaserver-adfs-2/trusted.png)

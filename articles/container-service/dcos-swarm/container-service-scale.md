@@ -10,11 +10,11 @@ ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: 14184d6b60d18444910bedce9a30c47a9fd2a3ea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60509860"
 ---
 # <a name="deprecated-scale-agent-nodes-in-a-container-service-cluster"></a>(VERALTET) Skalieren von Agentknoten in einem Container Service-Cluster
 

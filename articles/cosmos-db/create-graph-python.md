@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: 5b76d7393e78b464227e93a4c7c8a3f22ccc169e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18f54e64498c7809e662ceb71d1e497a0f275ad6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092530"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480449"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Schnellstart: Erstellen einer Graphdatenbank in Azure Cosmos DB mit Python und dem Azure-Portal
 

@@ -3,16 +3,16 @@ title: Ermitteln der Ursachen für Nichtkonformität
 description: Wenn eine Ressource nicht konform ist, kann das viele mögliche Ursachen haben. Erfahren Sie, wie Sie die Ursache für die Nichtkonformität ermitteln können.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/30/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995004"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298924"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Ermitteln der Ursachen für Nichtkonformität
 
@@ -85,11 +85,15 @@ In den Details wird angegeben, warum eine Ressource nicht konform ist. Allerding
 
 In der folgenden Tabelle wird jeder mögliche _Grund_ der entsprechenden [Bedingung](../concepts/definition-structure.md#conditions) in der Richtliniendefinition zugeordnet:
 
-|Grund | Bedingung |
+|`Reason` | Bedingung |
 |-|-|
 |Der aktuelle Wert muss den Zielwert als Schlüssel enthalten. |containsKey oder **nicht** notContainsKey |
 |Der aktuelle Wert muss den Zielwert enthalten. |contains oder **nicht** notContains |
 |Der aktuelle Wert muss gleich dem Zielwert sein. |equals der **nicht** notEquals |
+|Der aktuelle Wert muss kleiner als der Zielwert sein. |less oder **nicht** greaterOrEquals |
+|Der aktuelle Wert muss größer oder gleich dem Zielwert sein. |greaterOrEquals oder **nicht** less |
+|Der aktuelle Wert muss größer als der Zielwert sein. |greater oder **nicht** lessOrEquals |
+|Der aktuelle Wert muss kleiner oder gleich dem Zielwert sein. |lessOrEquals oder **nicht** greater |
 |Der aktuelle Wert muss vorhanden sein. |exists |
 |Der aktuelle Wert muss im Zielwert enthalten sein. |in der **nicht** notIn |
 |Der aktuelle Wert muss dem Zielwert entsprechen. |like oder **nicht** notLike |
@@ -105,9 +109,107 @@ In der folgenden Tabelle wird jeder mögliche _Grund_ der entsprechenden [Beding
 |Der aktuelle Wert darf nicht mit dem Zielwert übereinstimmen (keine Berücksichtigung der Groß-/Kleinschreibung). |notMatchInsensitively oder **nicht** matchInsensitively |
 |Keine der zugehörigen Ressourcen entspricht den Effektdetails in der Richtliniendefinition. |Eine Ressource des in **then.details.type** definierten Typs, die mit der im **if**-Abschnitt der Richtlinienregel definierten Ressource verwandt ist, ist nicht vorhanden. |
 
-## <a name="change-history-preview"></a>Änderungsverlauf (Vorschau)
+## <a name="compliance-details-for-guest-configuration"></a>Details zur Konformität für die Gastkonfiguration
 
-Im Rahmen einer neuen **öffentlichen Vorschau** sind die letzten 14 Tage des Änderungsverlaufs für alle Azure-Ressourcen verfügbar, die die [Löschung im vollständigen Modus](../../../azure-resource-manager/complete-mode-deletion.md) unterstützen. Der Änderungsverlauf enthält Details dazu, wann eine Änderung erkannt wurde, und eine _Visual Diff_ jeder Änderung. Eine Änderungserkennung wird ausgelöst, wenn Resource Manager-Eigenschaften hinzugefügt, entfernt oder geändert werden.
+Für Überwachungsrichtlinien (_audit_) in der Kategorie _Gastkonfiguration_ können auf der VM mehrere Einstellungen ausgewertet werden, und Sie müssen die Details pro Einstellung anzeigen. Wenn Sie beispielsweise eine Überprüfung einer Liste mit installierten Anwendungen durchführen und der Zuweisungsstatus _Nicht konform_ lautet, müssen Sie genau wissen, welche Anwendungen fehlen.
+
+Unter Umständen haben Sie auch keinen Zugriff für die direkte Anmeldung auf der VM, müssen aber melden, warum die VM _nicht konform_ ist. Sie können beispielsweise überprüfen, ob die VMs in die richtige Domäne eingebunden sind und in den Berichtsdetails die aktuelle Domänenmitgliedschaft enthalten.
+
+### <a name="azure-portal"></a>Azure-Portal
+
+1. Starten Sie den Azure Policy-Dienst über das Azure-Portal, indem Sie auf **Alle Dienste** klicken und dann nach **Richtlinie** suchen und die entsprechende Option auswählen.
+
+1. Wählen Sie auf der Seite **Übersicht** oder **Kompatibilität** eine Richtlinienzuweisung für alle Initiativen aus, die für die Gastkonfiguration eine _nicht konforme_ Richtliniendefinition enthalten.
+
+1. Wählen Sie für die Initiative, die _nicht konform_ ist, eine _Überwachungsrichtlinie_ aus.
+
+   ![Anzeigen von Details zur Überwachungsdefinition](../media/determine-non-compliance/guestconfig-audit-compliance.png)
+
+1. Auf der Registerkarte **Ressourcenkonformität** sind die folgenden Informationen angegeben:
+
+   - **Name**: Der Name der Zuweisungen für die Gastkonfiguration.
+   - **Übergeordnete Ressource**: Der virtuelle Computer mit dem Status _Nicht konform_ für die ausgewählte Zuweisung für die Gastkonfiguration.
+   - **Ressourcentyp**: Der vollständige _guestConfigurationAssignments_-Name.
+   - **Letzte Auswertung**: Der letzte Zeitpunkt, zu dem der Dienst „Gastkonfiguration“ Azure Policy über den Status des virtuellen Zielcomputers informiert hat.
+
+   ![Anzeigen von Konformitätsdetails](../media/determine-non-compliance/guestconfig-assignment-view.png)
+
+1. Wählen Sie den Namen der Gastkonfigurationszuweisung in der Spalte **Name** aus, um die Seite **Ressourcenkonformität** zu öffnen.
+
+1. Wählen Sie oben auf der Seite die Schaltfläche **Ressource anzeigen**, um die Seite **Gastzuweisung** zu öffnen.
+
+Auf der Seite **Gastzuweisung** werden alle verfügbaren Konformitätsdetails angezeigt. Jede Zeile der Ansicht steht für eine Auswertung, die auf dem virtuellen Computer durchgeführt wurde. In der Spalte **Grund** wird eine Beschreibung angezeigt, mit der der Grund für den Status _Nicht konform_ für die Gastzuweisung angegeben wird. Falls die Überwachung beispielsweise ergibt, dass VMs in eine Domäne eingebunden werden sollten, wird in der Spalte **Grund** Text angezeigt, der auch die aktuelle Domänenmitgliedschaft enthält.
+
+![Anzeigen von Konformitätsdetails](../media/determine-non-compliance/guestconfig-compliance-details.png)
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Sie können Konformitätsdetails auch über Azure PowerShell anzeigen. Stellen Sie zuerst sicher, dass Sie das Modul „Gastkonfiguration“ installiert haben.
+
+```azurepowershell-interactive
+Install-Module Az.GuestConfiguration
+```
+
+Sie können den aktuellen Status aller Gastzuweisungen für eine VM anzeigen, indem Sie den folgenden Befehl verwenden:
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+```
+
+```output
+PolicyDisplayName                                                         ComplianceReasons
+-----------------                                                         -----------------
+Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
+Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
+```
+
+Geben Sie nur die untergeordnete Reason-Eigenschaft zurück, um nur den Text von _Grund_ anzuzeigen, mit dem der Grund für den Status _Nicht konform_ angegeben wird.
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+```
+
+```output
+The following applications are not installed: '<name>'.
+```
+
+Sie können auch einen Konformitätsverlauf für Gastzuweisungen des virtuellen Computers ausgeben. Die Ausgabe dieses Befehls enthält die Details aller Berichte für die VM.
+
+> [!NOTE]
+> Die Ausgabe kann eine große Datenmenge umfassen. Wir empfehlen Ihnen, die Ausgabe in einer Variablen zu speichern.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
+<truncated>
+```
+
+Verwenden Sie den Parameter **ShowChanged**, um diese Ansicht zu vereinfachen. Die Ausgabe dieses Befehls enthält nur die Berichte, die nach einer Änderung des Konformitätsstatus erstellt wurden.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
+Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
+```
+
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Änderungsverlauf (Vorschau)
+
+Im Rahmen einer neuen **öffentlichen Vorschau** sind die letzten 14 Tage des Änderungsverlaufs für alle Azure-Ressourcen verfügbar, die die [Löschung im vollständigen Modus](../../../azure-resource-manager/complete-mode-deletion.md) unterstützen. Der Änderungsverlauf enthält Details dazu, wann eine Änderung erkannt wurde, und eine _Visual Diff_ jeder Änderung. Eine Änderungserkennung wird ausgelöst, wenn Resource Manager-Eigenschaften hinzugefügt, entfernt oder geändert werden.
 
 1. Starten Sie den Azure Policy-Dienst über das Azure-Portal, indem Sie auf **Alle Dienste** klicken und dann nach **Richtlinie** suchen und die entsprechende Option auswählen.
 
@@ -117,11 +219,11 @@ Im Rahmen einer neuen **öffentlichen Vorschau** sind die letzten 14 Tage des Ä
 
 1. Wählen Sie auf der Seite **Ressourcenkonformität** die Registerkarte **Änderungsverlauf (Vorschau)** aus. Eine Liste der erkannten Änderungen, falls vorhanden, wird angezeigt.
 
-   ![Registerkarte „Richtlinien-Änderungsverlauf“ auf der Seite „Ressourcenkonformität“](../media/determine-non-compliance/change-history-tab.png)
+   ![Azure Policy-Registerkarte „Änderungsverlauf“ auf der Seite „Ressourcenkonformität“](../media/determine-non-compliance/change-history-tab.png)
 
 1. Wählen Sie eine der erkannten Änderungen aus. Die _Visual Diff_ für die Ressource wird auf der Seite **Änderungsverlauf** angezeigt.
 
-   ![Visual Diff des Richtlinien-Änderungsverlaufs auf der Seite „Änderungsverlauf“](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![„Visual Diff“ des Azure Policy-Änderungsverlaufs auf der Seite „Änderungsverlauf“](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Die _Visual Diff_ hilft, Änderungen an einer Ressource zu identifizieren. Die erkannten Änderungen müssen nicht zwangsläufig mit dem geänderten Konformitätsstatus der Ressource zusammenhängen.
 
@@ -129,10 +231,10 @@ Die Verlaufsdaten zu Änderungen werden von [Azure Resource Graph](../../resourc
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Unter [Azure Policy-Beispiele](../samples/index.md) finden Sie Beispiele
-- Befassen Sie sich mit der [Struktur von Azure Policy-Definitionen](../concepts/definition-structure.md).
+- Sehen Sie sich die Beispiele unter [Azure Policy-Beispiele](../samples/index.md) an.
+- Lesen Sie die Informationen unter [Struktur von Azure Policy-Definitionen](../concepts/definition-structure.md).
 - Lesen Sie [Grundlegendes zu Richtlinienauswirkungen](../concepts/effects.md).
-- Informieren Sie sich über das [programmgesteuerte Erstellen von Richtlinien](programmatically-create.md)
+- Informieren Sie sich über das [programmgesteuerte Erstellen von Richtlinien](programmatically-create.md).
 - Informieren Sie sich über das [Abrufen von Konformitätsdaten](getting-compliance-data.md).
 - Erfahren Sie, wie Sie [nicht konforme Ressourcen korrigieren](remediate-resources.md) können.
 - Weitere Informationen zu Verwaltungsgruppen finden Sie unter [Organisieren Ihrer Ressourcen mit Azure-Verwaltungsgruppen](../../management-groups/overview.md).

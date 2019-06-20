@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
 ms.openlocfilehash: 132909931291daf3aefddd5e1a44273050d98e06
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62120908"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Hinzufügen der Authentifizierung zu Ihrer Xamarin.iOS-App
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

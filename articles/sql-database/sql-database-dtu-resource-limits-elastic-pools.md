@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/14/2019
 ms.openlocfilehash: 6a2b3af4240a5c400bd1eaf4fd1e93b09fc702b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61075251"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Grenzwerte für Ressourcen für Pools für elastische Datenbanken, die das DTU-basierte Kaufmodell verwenden
 
@@ -72,7 +72,7 @@ Die folgenden Tabellen enthalten die verfügbaren Ressourcen für Pools für ela
 | Max. Speicherlösungen pro Pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
 | Max. In-Memory-OLTP-Speicher pro Pool (GB) | – | – | – | – | – |
 | Max. Anzahl Datenbanken pro Pool | 500 | 500 | 500 | 500 | 500 |
-| Max. gleichzeitige Worker (Anforderungen) pro Pool | 2400 | 3200 | 4000 | 5.000 | 6000 |
+| Max. gleichzeitige Worker (Anforderungen) pro Pool | 2400 | 3200 | 4000 | 5\.000 | 6000 |
 | Max. gleichzeitige Sitzungen pro Pool | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min. Anzahl von eDTU-Lösungen pro Datenbank | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Max. Anzahl von eDTU-Lösungen pro Datenbank | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
@@ -98,8 +98,8 @@ Die folgenden Tabellen enthalten die verfügbaren Ressourcen für Pools für ela
 
 | eDTUs pro Pool | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: |
-| Inbegriffener Speicher pro Pool (GB) | 2048 | 2.560 | 3072 | 3548 | 4096 |
-| Max. Speicherlösungen pro Pool (GB) | 2048 | 2.560 | 3072 | 3548 | 4096|
+| Inbegriffener Speicher pro Pool (GB) | 2048 | 2\.560 | 3072 | 3548 | 4096 |
+| Max. Speicherlösungen pro Pool (GB) | 2048 | 2\.560 | 3072 | 3548 | 4096|
 | Max. In-Memory-OLTP-Speicher pro Pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Max. Anzahl Datenbanken pro Pool | 100 | 100 | 100 | 100 | 100 |
 | Max. gleichzeitige Worker (Anforderungen) pro Pool | 3200 | 4000 | 4800 | 5600 | 6400 |

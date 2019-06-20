@@ -3,19 +3,19 @@ title: Verwenden von API-Aufrufe in einem Unterhaltungslernmodell – Microsoft 
 titleSuffix: Azure
 description: Erfahren Sie, wie Sie API-Aufrufe in einem Unterhaltungslernmodell verwenden.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: aba3c2eb925370704ea52364891502a7a09cc9ec
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: 1f7c7c72703d7c3134dd2acdcc466fc0182fa38a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212514"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389939"
 ---
 # <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Hinzufügen von API-Aufrufen zu einem Unterhaltungslernmodell
 

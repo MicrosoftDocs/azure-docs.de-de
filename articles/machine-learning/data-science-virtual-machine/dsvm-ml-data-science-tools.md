@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60502090"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine Learning- und Data Science-Tools
 Virtuelle Data Science-Computer in Azure verfügen über ein umfangreiches Angebot an Tools und Bibliotheken für Machine Learning (ML) in gängigen Sprachen wie Python, R und Julia. 

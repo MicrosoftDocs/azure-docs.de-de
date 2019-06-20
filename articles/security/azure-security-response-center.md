@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: bacfbae3e4c9750798b8df739706d9c9b9850d45
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 117df5b1b1a80d9e0a39c6f0114f97a4dae5ceda
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60610936"
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft Security Response Center
 

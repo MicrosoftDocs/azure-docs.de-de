@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754845"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60773263"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Abrufen von VM-Nutzungsmetriken mithilfe der REST-API
 
@@ -37,8 +37,8 @@ Die folgenden Header sind erforderlich:
 
 |Anforderungsheader|BESCHREIBUNG|  
 |--------------------|-----------------|  
-|*Inhaltstyp*:|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
-|*Autorisierung*:|Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |  
+|*Content-Type:*|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
+|*Authorization:*|Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |  
 
 ### <a name="uri-parameters"></a>URI-Parameter
 

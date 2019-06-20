@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60704553"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center und Azure SQL-Datenbank-Dienst
 Mit [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) können Sie Bedrohungen verhindern, erkennen und bekämpfen. Es bietet integrierte Sicherheitsüberwachung und Richtlinienverwaltung für Ihre Azure-Abonnements, hilft bei der Erkennung von Bedrohungen, die andernfalls möglicherweise unbemerkt bleiben, und kann gemeinsam mit einem breiten Spektrum an Sicherheitslösungen verwendet werden.
@@ -104,7 +104,7 @@ Weitere Informationen finden Sie unter [Verwalten von und Reagieren auf Sicherhe
 ## <a name="next-steps"></a>Nächste Schritte
 * [Security Center – Häufig gestellte Fragen:](security-center-faq.md) Hier finden Sie häufig gestellte Fragen zur Verwendung des Diensts.
 * [Planungs- und Betriebshandbuch für Security Center](security-center-planning-and-operations-guide.md) – Eine Reihe von Schritten und Aufgaben, mit denen Sie die Verwendung von Security Center auf Grundlage der Sicherheitsanforderungen und des Cloudverwaltungsmodells Ihres Unternehmens optimieren können.
-* [Azure Security Center-Datensicherheit](security-center-data-security.md) – Erfahren Sie, wie Security Center Daten zu Ihren Azure-Ressourcen (z.B. Konfigurationsinformationen, Metadaten, Ereignisprotokolle, Absturzabbilddateien und mehr) erfasst und verarbeitet.
+* [Azure Security Center-Datensicherheit](security-center-data-security.md) – Erfahren Sie, wie Security Center Daten zu Ihren Azure-Ressourcen (z. B. Konfigurationsinformationen, Metadaten, Ereignisprotokolle, Absturzabbilddateien und mehr) erfasst und verarbeitet.
 * [Behandeln von Sicherheitswarnungen](security-center-incident.md) – Erfahren Sie, wie Sie die Sicherheitswarnungsfunktionen in Security Center verwenden, um die Behandlung von Sicherheitsvorfällen zu unterstützen.
 
 <!--Image references-->

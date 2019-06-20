@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543541"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60827934"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Externe Inhalte und Community-Inhalte für die Textanalyse in Cognitive Service
 

@@ -64,9 +64,9 @@
 - name: Verweis
   items:
     - name: Bing-Videosuche-API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference'
     - name: Bing-Videosuche-API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v5-reference'
     - name: SDKs
       items:
         - name: .NET
@@ -102,3 +102,5 @@
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8'
     - name: Analyse für die Bing-Videosuche-API
       href: bing-video-stats.md
+    - name: Compliance
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

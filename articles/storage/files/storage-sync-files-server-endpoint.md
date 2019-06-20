@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 31bb71f016dd7f9dd37c766ece25caf8f300754b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686951"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Hinzufügen/Entfernen eines Azure-Dateisynchronisierungsserver-Endpunkts
@@ -38,7 +38,7 @@ Unter **Serverendpunkt hinzufügen** sind die folgenden Informationen erforderli
 
 - **Registrierter Server**: Der Name des Servers oder Clusters, auf bzw. in dem der Serverendpunkt erstellt werden soll.
 - **Pfad**: Der Pfad auf dem Windows-Server, der als Teil der Synchronisierungsgruppe synchronisiert werden soll.
-- **Cloudtiering**: Ein Schalter, mit dem Cloudtiering aktiviert oder deaktiviert wird. Wenn das Cloudtiering aktiviert ist, werden Dateien in Ihren Azure-Dateifreigaben *auf mehrere Speicherebenen aufgeteilt (Tiering)*. Hierbei werden lokale Dateifreigaben in einen Cache statt in eine vollständige Kopie des Datasets konvertiert, damit Sie die Speicherplatzeffizienz auf dem Server verwalten können.
+- **Cloudtiering**: Ein Schalter, mit dem Cloudtiering aktiviert oder deaktiviert wird. Wenn das Cloudtiering aktiviert ist, werden Dateien in Ihren Azure-Dateifreigaben *auf mehrere Speicherebenen aufgeteilt (Tiering)* . Hierbei werden lokale Dateifreigaben in einen Cache statt in eine vollständige Kopie des Datasets konvertiert, damit Sie die Speicherplatzeffizienz auf dem Server verwalten können.
 - **Freier Speicherplatz auf Volume:** Die Menge des freien Speicherplatzes auf dem Volume, auf dem sich der Serverendpunkt befindet. Wenn z.B. für ein Volume mit einem einzigen Serverendpunkt „Freier Speicherplatz auf Volume“ auf 50 % festgelegt ist, wird ungefähr die Hälfte der Daten in Azure Files ausgelagert. Die Azure-Dateifreigabe enthält immer eine vollständige Kopie der Daten in der Synchronisierungsgruppe, unabhängig davon, ob Cloudtiering aktiviert ist.
 
 Wählen Sie **Erstellen** aus, um den Serverendpunkt hinzuzufügen. Die Dateien im Namespace einer Synchronisierungsgruppe bleiben synchron. 

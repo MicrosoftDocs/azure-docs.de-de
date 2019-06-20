@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097970"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61479557"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics – benutzerdefinierte JavaScript-Aggregate (Vorschau)
  
@@ -175,7 +175,7 @@ Nun erstellen wir ein JavaScript-UDA unter einem vorhandenen ASA-Auftrag über d
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Aufrufen des JavaScript-UDA in einer ASA-Abfrage
 
-Öffnen Sie Ihren Auftrag im Azure-Portal, bearbeiten Sie die Abfrage, und rufen Sie die TWA()-Funktion mit dem obligatorischen Präfix „uda.“ auf. Beispiel: 
+Öffnen Sie Ihren Auftrag im Azure-Portal, bearbeiten Sie die Abfrage, und rufen Sie die TWA()-Funktion mit dem obligatorischen Präfix „uda.“ auf. Beispiel:
 
 ```SQL
 WITH value AS

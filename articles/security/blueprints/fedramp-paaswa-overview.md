@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
 ms.openlocfilehash: 46c72191ee17f63311b041d798cccec279e4b000
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244688"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60585980"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure-Blaupause für Sicherheit und Compliance: PaaS-Webanwendung für FedRAMP
 
@@ -83,7 +83,7 @@ Die Architektur definiert ein privates virtuelles Netzwerk mit dem Adressraum 10
 - 1 NSG für Azure SQL-Datenbank
 
 Jede der NSGs verfügt über bestimmte offene Ports und Protokolle, damit die Lösung sicher und richtig ausgeführt werden kann. Darüber hinaus werden die folgenden Konfigurationen für jede NSG aktiviert:
-  - [Diagnoseprotokolle und -ereignisse](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) werden aktiviert und in einem Speicherkonto gespeichert.
+  - [Diagnoseprotokolle und -ereignisse](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sind aktiviert und werden im Speicherkonto gespeichert.
   - Azure Monitor-Protokolle ist mit der [Diagnose der NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json) verbunden.
 
 **Subnetze**: Jedem Subnetz ist die entsprechende NSG zugeordnet.

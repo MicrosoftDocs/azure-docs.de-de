@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60557884"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressourcen von Azure API Management-Vorlagen
 Azure API Management enthält die folgenden Arten von Ressourcen zur Verwendung in Entwicklerportalvorlagen.  
@@ -49,7 +49,7 @@ Die folgenden lokalen Lokalisierungsoptionen werden unterstützt:
 
 | Gebietsschema    | Sprache               |
 |-----------|------------------------|
-| „en“      | „English“              |
+| „de“      | „English“              |
 | „cs“      | „Čeština“              |
 | „de“      | „Deutsch“              |
 | „es“      | „Español“              |

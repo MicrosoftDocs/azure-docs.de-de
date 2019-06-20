@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.openlocfilehash: b17647a09c88491e2486046b1ca99ee277f0cc28
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700212"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61473874"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Ändern des von einem virtuellen Azure-Computer verwendeten Betriebssystem-Datenträgers mithilfe der CLI
 

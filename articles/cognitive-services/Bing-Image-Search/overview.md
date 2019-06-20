@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c8213e7d725c7c06d40555176fff24be4cff7607
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237313"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388672"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Was ist die Bing-Bildersuche-API?
 
@@ -27,7 +27,7 @@ Die Bing-Bildersuche-API gibt als Suchergebnisse ausschließlich Bilder zurück.
 
 ## <a name="bing-image-search-features"></a>Features der Bing-Bildersuche
 
-| Feature                                                                                                                                                                                 | Beschreibung                                                                                                                                                            |
+| Feature                                                                                                                                                                                 | BESCHREIBUNG                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [In Echtzeit vorgeschlagene Suchbegriffe](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | Verwenden Sie die [Bing-Vorschlagssuche-API](../bing-autosuggest/get-suggested-search-terms.md), um während der Eingabe Suchvorschläge anzuzeigen und die Benutzerfreundlichkeit Ihrer App zu verbessern. |
 | [Filtern und Einschränken von Bildergebnissen](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Bearbeiten Sie Abfrageparameter, um die von Bing zurückgegebenen Bilder zu filtern.                                                                                                       |
@@ -59,7 +59,7 @@ Um schnell mit Ihrer ersten API-Anforderung zu beginnen, können Sie sich mit Fo
 
 * [Details zu den Preisen](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) für die Bing-Suche-APIs. 
 
-* Der Abschnitt [Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referenz für die Bing-Bildersuche-API v7) enthält Informationen zu den Endpunkten, Headern, API-Antworten und Abfrageparametern der API.
+* Der Abschnitt [Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referenz für die Bing-Bildersuche-API v7) enthält Informationen zu den Endpunkten, Headern, API-Antworten und Abfrageparametern der API.
 
 * In den [Verwendungs- und Anzeigeanforderungen für Bing](./useanddisplayrequirements.md) erfahren Sie, wie Inhalte und Informationen verwendet werden dürfen, die über die Bing-Suche-APIs gefunden wurden.
 

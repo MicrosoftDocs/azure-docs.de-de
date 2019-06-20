@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
 ms.openlocfilehash: 41cc1d6638871f26ae942e724a402e17f52150fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60811014"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importieren von Trainingsdaten aus verschiedenen Datenquellen in Azure Machine Learning Studio
 
@@ -64,10 +64,10 @@ Sie können die Überschriften und Datentypen für Spalten mit dem Modul [Edit M
 
 Die folgenden Datentypen werden von Studio erkannt:
 
-* Zeichenfolge
-* Ganze Zahl 
+* string
+* Integer
 * Double
-* Boolescher Wert
+* Boolean
 * DateTime
 * TimeSpan
 

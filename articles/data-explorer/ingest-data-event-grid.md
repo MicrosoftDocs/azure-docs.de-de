@@ -1,24 +1,24 @@
 ---
-title: 'Schnellstart: Erfassen von Azure-Blobs in Azure Data Explorer'
-description: In dieser Schnellstartanleitung erfahren Sie, wie Sie unter Verwendung eines Event Grid-Abonnements Speicherkontodaten an Azure Data Explorer senden.
+title: Erfassen von Azure-Blobs in Azure Data Explorer
+description: In diesem Artikel erfahren Sie, wie Sie Speicherkontodaten unter Verwendung eines Event Grid-Abonnements an Azure Data Explorer senden.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/30/2019
-ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051851"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494744"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Schnellstart: Erfassen von Blobs in Azure Data Explorer durch das Abonnieren von Event Grid-Benachrichtigungen
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Erfassen von Blobs in Azure Data Explorer durch das Abonnieren von Event Grid-Benachrichtigungen
 
 Azure Data Explorer ist ein schneller und skalierbarer Dienst zur Untersuchung von Daten (Protokoll- und Telemetriedaten). Er bietet eine kontinuierliche Erfassung (Laden von Daten) aus Blobs, die in Blobcontainer geschrieben werden. 
 
-In dieser Schnellstartanleitung wird beschrieben, wie Sie ein [Azure Event Grid](/azure/event-grid/overview)-Abonnement festlegen und Ereignisse per Event Hub an Azure Data Explorer leiten. Zunächst benötigen Sie ein Speicherkonto mit einem Event Grid-Abonnement, das Benachrichtigungen an Azure Event Hubs sendet. Anschließend erstellen Sie eine Event Grid-Datenverbindung und zeigen den Datenfluss im gesamten System an.
+In diesem Artikel wird beschrieben, wie Sie ein [Azure Event Grid](/azure/event-grid/overview)-Abonnement festlegen und Ereignisse per Event Hub an Azure Data Explorer leiten. Zunächst benötigen Sie ein Speicherkonto mit einem Event Grid-Abonnement, das Benachrichtigungen an Azure Event Hubs sendet. Anschließend erstellen Sie eine Event Grid-Datenverbindung und zeigen den Datenfluss im gesamten System an.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -50,7 +50,7 @@ In dieser Schnellstartanleitung wird beschrieben, wie Sie ein [Azure Event Grid]
 
 1. Wählen Sie die Registerkarte **Zusätzliche Features** aus, wenn Sie Dateien aus einem bestimmten Container nachverfolgen möchten. Legen Sie die Filter für die Benachrichtigungen wie folgt fest:
     * Das Feld **Betreff beginnt mit** ist das *Literalpräfix* des Blobcontainers. Da das angewendete Muster *startswith* ist, kann es mehrere Container umfassen. Platzhalter sind nicht zulässig.
-     Das Feld *muss* wie folgt festgelegt werden: *`/blobServices/default/containers/`*[Containerpräfix]
+     Das Feld *muss* wie folgt festgelegt werden: *`/blobServices/default/containers/`* [Containerpräfix]
     * Das Feld **Betreff endet auf** ist das *literale* Suffix des Blobs. Platzhalter sind nicht zulässig.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Erstellen einer Zieltabelle im Azure-Daten-Explorer
@@ -157,7 +157,7 @@ Speichern Sie die Daten in einer Datei, und laden Sie sie mit diesem Skript hoch
 > [!NOTE]
 > Azure Data Explorer verfügt über eine Aggregationsrichtlinie (Batching) für die Datenerfassung, die für die Optimierung des Erfassungsprozesses konzipiert ist.
 Die Richtlinie ist standardmäßig auf fünf Minuten festgelegt.
-Sie kann bei Bedarf zu einem späteren Zeitpunkt geändert werden. In dieser Schnellstartanleitung ist mit einer Wartezeit von wenigen Minuten zu rechnen.
+Sie kann bei Bedarf zu einem späteren Zeitpunkt geändert werden. In diesem Artikel ist mit einer Wartezeit von wenigen Minuten zu rechnen.
 
 1. Im Azure-Portal sehen Sie unter Ihrer Event Grid-Instanz den Anstieg der Aktivität während der App-Ausführung.
 
@@ -196,5 +196,4 @@ Wenn Sie Ihre Event Grid-Instanz nicht mehr benötigen, bereinigen Sie **test-hu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Schnellstart: Abfragen von Daten in Azure Data Explorer](web-query-data.md)
+* [Abfragen von Daten in Azure Data Explorer](web-query-data.md)

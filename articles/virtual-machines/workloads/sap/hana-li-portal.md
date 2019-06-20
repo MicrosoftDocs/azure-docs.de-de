@@ -17,11 +17,11 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61482225"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Steuerung von HANA in Azure (große Instanzen) über das Azure-Portal
 Dieses Dokument beschreibt, wie [HANA (große Instanzen)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) im [Azure-Portal](https://portal.azure.com) dargestellt wird und welche Aktivitäten Sie über das Azure-Portal mit den für Sie bereitgestellten Einheiten von HANA (große Instanzen) ausführen können. Die Sichtbarkeit von HANA (große Instanzen) im Azure-Portal wird über einen Azure-Ressourcenanbieter für HANA (große Instanzen) bereitgestellt. Diese Funktion befindet sich derzeit in der öffentlichen Vorschau.
@@ -80,7 +80,7 @@ Auf der Übersichtsseite erhalten Sie eine Darstellung der Einheit, die in etwa 
 Wenn Sie die verschiedenen dargestellten Attribute betrachten, unterscheiden sich diese Attribute nicht wesentlich von Azure-VM-Attributen. Auf der linken Seite des Headers werden die Ressourcengruppe, die Azure-Region, der Abonnementname und die ID sowie einige von Ihnen hinzugefügte Tags angezeigt. Standardmäßig ist den Einheiten von HANA (große Instanzen) kein Tag zugewiesen. Auf der rechten Seite des Headers wird der Name der Einheit so aufgeführt, wie er bei der Bereitstellung zugewiesen wurde. Außerdem werden das Betriebssystem und die IP-Adresse angezeigt. Wie bei VMs wird auch der Einheitentyp von HANA (große Instanzen) mit der Anzahl von CPU-Threads und dem Arbeitsspeicher aufgeführt. Weitere Informationen zu den verschiedenen Einheiten von HANA (große Instanzen) finden Sie hier:
 
 - [Verfügbare SKUs für HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [SAP HANA-Speicherarchitektur (große Instanzen)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [Speicherarchitektur von SAP HANA (große Instanzen)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
 Ein zusätzliches Feld in der rechten Spalte des Headers informiert Sie über den Energiezustand der Einheit von HANA (große Instanzen).
 
@@ -136,7 +136,7 @@ Damit der Dienst von SAP HANA (große Instanzen) im nächsten Bildschirm aufgef�
 
 ![Auswählen aller Dienste im Azure-Portal](./media/hana-li-portal/portal-create-service-request.png)
 
-In der Liste der Dienste finden Sie den Dienst **SAP HANA (große Instanzen)**. Wenn Sie diesen Dienst auswählen, können Sie, wie dargestellt, bestimmte Problemtypen auswählen:
+In der Liste der Dienste finden Sie den Dienst **SAP HANA (große Instanzen)** . Wenn Sie diesen Dienst auswählen, können Sie, wie dargestellt, bestimmte Problemtypen auswählen:
 
 
 ![Auswählen der Problemklasse im Azure-Portal](./media/hana-li-portal/portal-select-problem-class.png)

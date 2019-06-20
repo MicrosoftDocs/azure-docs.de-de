@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: fe08569937dc29ecbc66da1cb2c431cca11a8580
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 989f737add20e72d7952e7b322c11bea6277c982
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835102"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238890"
 ---
 # <a name="azure-serial-console-for-linux"></a>Die serielle Azure-Konsole für Linux
 
@@ -92,7 +92,7 @@ Ubuntu      | Der Zugriff auf die serielle Konsole ist standardmäßig aktiviert
 CoreOS      | Der Zugriff auf die serielle Konsole ist standardmäßig aktiviert.
 SUSE        | Für die neueren SLES-Images, die auf Azure verfügbar sind, ist der Zugriff auf die serielle Konsole standardmäßig aktiviert. Wenn Sie in Azure ältere Versionen von SLES (10 oder niedriger) verwenden, lesen Sie die Anweisungen in [diesem KB-Artikel](https://www.novell.com/support/kb/doc.php?id=3456486), um die serielle Konsole zu aktivieren.
 Oracle Linux        | Der Zugriff auf die serielle Konsole ist standardmäßig aktiviert.
-Benutzerdefinierte Linux-Images     | Um die serielle Konsole für Ihr benutzerdefiniertes Linux-VM-Image zu aktivieren, aktivieren Sie den Konsolenzugriff in der Datei */etc/inittab*, um ein Terminal auf `ttyS0` auszuführen. Beispiel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Weitere Informationen zur ordnungsgemäßen Erstellung von benutzerdefinierten Images finden Sie unter [Erstellen und Hochladen einer Linux-VHD in Azure](https://aka.ms/createuploadvhd). Wenn Sie einen benutzerdefinierten Kernel erstellen, sollten Sie die Aktivierung dieser Kernelflags in Erwägung ziehen: `CONFIG_SERIAL_8250=y` und `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Die Konfigurationsdatei befindet sich normalerweise im Pfad */boot/*.
+Benutzerdefinierte Linux-Images     | Um die serielle Konsole für Ihr benutzerdefiniertes Linux-VM-Image zu aktivieren, aktivieren Sie den Konsolenzugriff in der Datei */etc/inittab*, um ein Terminal auf `ttyS0` auszuführen. Beispiel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Weitere Informationen zur ordnungsgemäßen Erstellung von benutzerdefinierten Images finden Sie unter [Erstellen und Hochladen einer Linux-VHD in Azure](https://aka.ms/createuploadvhd). Wenn Sie einen benutzerdefinierten Kernel erstellen, sollten Sie die Aktivierung dieser Kernelflags in Erwägung ziehen: `CONFIG_SERIAL_8250=y` und `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Die Konfigurationsdatei befindet sich normalerweise im Pfad */boot/* .
 
 > [!NOTE]
 > Wenn in der seriellen Konsole nichts angezeigt wird, überprüfen Sie, ob die Startdiagnose auf Ihrer VM aktiviert ist. Das Drücken der **EINGABETASTE** kann häufig Probleme beheben, bei denen nichts in der seriellen Konsole angezeigt wird.
@@ -117,7 +117,9 @@ Die serielle Konsole kann für bestimmte VMs oder VM-Skalierungsgruppen deaktivi
 > Um die serielle Konsole für ein Abonnement zu aktivieren oder zu deaktivieren, müssen Sie über Schreibberechtigungen für das Abonnement verfügen. Diese Berechtigungen schließen Administrator- oder Besitzerrollen ein. Benutzerdefinierte Rollen können ebenfalls über Schreibberechtigungen verfügen.
 
 ### <a name="subscription-level-disable"></a>Deaktivieren auf Abonnementebene
-Die serielle Konsole kann über den [REST-API-Aufruf zum Deaktivieren der Konsole](/rest/api/serialconsole/console/disableconsole) für ein gesamtes Abonnement deaktiviert werden. Sie können die auf der Seite der API-Dokumentation verfügbare Funktion **Jetzt testen** verwenden, um die serielle Konsole für ein Abonnement zu deaktivieren und zu aktivieren. Geben Sie unter **subscriptionId** Ihre Abonnement-ID ein, geben Sie unter **default** **default** ein, und wählen Sie dann **Ausführen** aus. Azure CLI-Befehle sind noch nicht verfügbar.
+Die serielle Konsole kann über den [REST-API-Aufruf zum Deaktivieren der Konsole](/rest/api/serialconsole/console/disableconsole) für ein gesamtes Abonnement deaktiviert werden. Für diese Aktion ist die Zugriffsebene „Mitwirkender“ oder höher für das Abonnement erforderlich. Sie können die auf der Seite der API-Dokumentation verfügbare Funktion **Jetzt testen** verwenden, um die serielle Konsole für ein Abonnement zu deaktivieren und zu aktivieren. Geben Sie unter **subscriptionId** Ihre Abonnement-ID ein, geben Sie unter **default** **default** ein, und wählen Sie dann **Ausführen** aus. Azure CLI-Befehle sind noch nicht verfügbar.
+
+Um die serielle Konsole für ein Abonnement erneut zu aktivieren, verwenden Sie den [REST-API-Aufruf „Konsole aktivieren“](/rest/api/serialconsole/console/enableconsole).
 
 ![REST-API testen](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154571"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Grenzen für das LUIS-Modell und die Schlüssel
@@ -28,7 +28,7 @@ Wenn Ihre App die LUIS-Modellgrenzwerte und -grenzen überschreitet, sollten Sie
 
 |Bereich|Begrenzung|
 |--|:--|
-| [App-Name][luis-get-started-create-app] | * Standardzeichenlimit |
+| [App-Name][luis-get-started-create-app] | \* Standardzeichenlimit |
 | [Batchtests][batch-testing]| 10 Datasets, 1.000 Äußerungen pro Dataset|
 | Explizite Listen | 50 pro Anwendung|
 | Externe Entitäten | Keine Einschränkungen |
@@ -43,11 +43,11 @@ Wenn Ihre App die LUIS-Modellgrenzwerte und -grenzen überschreitet, sollten Sie
 | [RegEx-Entitäten](./luis-concept-entity-types.md)|20 Entitäten<br>max. 500 Zeichen pro RegEx-Entitätsmuster|
 | [Rollen](luis-concept-roles.md)|300 Rollen pro Anwendung. 10 Rollen pro Entität|
 | [Äußerung][utterances] | 500 Zeichen|
-| [Äußerungen][utterances] | 15.000 pro Anwendung – es gibt keine Beschränkung für die Anzahl von Äußerungen pro Absicht|
+| [Äußerungen][utterances] | 15\.000 pro Anwendung – es gibt keine Beschränkung für die Anzahl von Äußerungen pro Absicht|
 | [Versionen](luis-concept-version.md)| Keine Begrenzung |
 | [Versionsname][luis-how-to-manage-versions] | 10 Zeichen, ausschließlich alphanumerische Zeichen und Punkt (.) |
 
-* Das Standardzeichenlimit beträgt 50 Zeichen. 
+\* Das Standardzeichenlimit beträgt 50 Zeichen. 
 
 <a name="intent-and-entity-naming"></a>
 
@@ -71,8 +71,8 @@ Beim Erstellungsschlüssel gelten verschiedene Limits für die Verwendung beim E
 
 |Schlüssel|Erstellen|Endpunkt|Zweck|
 |--|--|--|--|
-|Language Understanding Erstellung/Starter|1 Mio./Monat, 5/Sekunde|1.000/Monat, 5/Sekunde|Erstellen Ihrer LUIS-App|
-|Language Understanding [Abonnement][pricing] – F0 – Free-Tarif |ungültig|10.000/Monat, 5/Sekunde|Abfragen Ihres LUIS-Endpunkts|
+|Language Understanding Erstellung/Starter|1 Mio./Monat, 5/Sekunde|1\.000/Monat, 5/Sekunde|Erstellen Ihrer LUIS-App|
+|Language Understanding [Abonnement][pricing] – F0 – Free-Tarif |ungültig|10\.000/Monat, 5/Sekunde|Abfragen Ihres LUIS-Endpunkts|
 |Language Understanding [Abonnement][pricing] – F0 – Basic-Tarif|ungültig|50/Sekunde|Abfragen Ihres LUIS-Endpunkts|
 |Cognitive Services [Abonnement][pricing] – S0 – Standard-Tarif|ungültig|50/Sekunde|Abfragen Ihres LUIS-Endpunkts|
 |[Integration der Standpunktanalyse](luis-how-to-publish-app.md#enable-sentiment-analysis)|ungültig|kostenlos|Hinzufügen von Informationen zur Stimmung, einschließlich Datenextraktion für Schlüsselausdrücke |

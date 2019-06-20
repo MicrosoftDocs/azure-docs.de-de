@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149141"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Festlegen von Umgebungsvariablen in Container Instances

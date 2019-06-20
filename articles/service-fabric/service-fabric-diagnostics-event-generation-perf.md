@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663076"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60392890"
 ---
 # <a name="performance-metrics"></a>Leistungsmetriken
 
@@ -36,9 +36,9 @@ Für die Computer in Ihrem Cluster sollten Sie das Erfassen der folgenden Leistu
 | PhysicalDisk (pro Datenträger) | Durchschn. Warteschlangenlänge der Datenträger-Schreibvorgänge |
 | PhysicalDisk (pro Datenträger) | Durchschn. Datenträger s/gelesen |
 | PhysicalDisk (pro Datenträger) | Durchschn. Datenträger s/geschrieben |
-| PhysicalDisk (pro Datenträger) | Lesevorgänge/s  |
-| PhysicalDisk (pro Datenträger) | Byte gelesen/s  |
-| PhysicalDisk (pro Datenträger) |  Schreibvorgänge/s |
+| PhysicalDisk (pro Datenträger) | Lesevorgänge/s |
+| PhysicalDisk (pro Datenträger) | Byte gelesen/s |
+| PhysicalDisk (pro Datenträger) | Schreibvorgänge/s |
 | PhysicalDisk (pro Datenträger) | Byte geschrieben/s |
 | Arbeitsspeicher | Verfügbare MB |
 | PagingFile | Prozent genutzt |

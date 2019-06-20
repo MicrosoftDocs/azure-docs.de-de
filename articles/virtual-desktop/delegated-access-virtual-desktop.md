@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400012"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60870505"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Delegierter Zugriff in Windows Virtual Desktop (Vorschauversion)
 
@@ -25,7 +25,7 @@ Beim delegierten Zugriff von Windows Virtual Desktop werden für jedes Element d
     * Dienstprinzipale
 * Rollendefinition
     * Integrierte Rollen
-* Bereich
+* `Scope`
     * Mandantengruppen
     * Mandanten
     * Hostpools

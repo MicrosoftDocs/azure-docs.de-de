@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 2684f89088854ecf05c547c77852155168baa38d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183411"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178326"
 ---
 ### <a name="create-a-console-application"></a>Erstellen einer Konsolenanwendung
 
-Erstellen Sie in Visual Studio ein neues Projekt vom Typ **Konsolen-App (.NET Framework)**.
+Erstellen Sie in Visual Studio ein neues Projekt vom Typ **Konsolen-App (.NET Framework)** .
 
 ### <a name="add-the-relay-nuget-package"></a>Hinzufügen des Relay-NuGet-Pakets
 

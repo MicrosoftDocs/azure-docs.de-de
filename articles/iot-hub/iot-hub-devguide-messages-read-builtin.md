@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61364003"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Lesen von Nachrichten, die von Geräten an die Cloud gesendet werden, vom integrierten Endpunkt
 

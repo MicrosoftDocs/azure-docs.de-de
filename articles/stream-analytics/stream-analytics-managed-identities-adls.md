@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148505"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authentifizieren von Stream Analytics bei Azure Data Lake Storage Gen1 mithilfe verwalteter Identitäten
@@ -180,7 +180,7 @@ Diese Funktion unterstützt die folgenden Punkte nicht:
 
 1. **Zugriff auf mehrere Mandanten**: Der für einen bestimmten Stream Analytics-Auftrag erstellte Dienstprinzipal wird in dem Azure Active Directory-Mandanten ausgeführt, in dem der Auftrag erstellt wurde, und kann nicht für eine Ressource verwendet werden, die sich in einem anderen Azure Active Directory-Mandanten befindet. Daher können Sie MSI nur für ADLS Gen 1-Ressourcen verwenden, die sich im gleichen Azure Active Directory-Mandanten wie Ihr Azure Stream Analytics-Auftrag befinden. 
 
-2. **[Vom Benutzer zugewiesene Identität](../active-directory/managed-identities-azure-resources/overview.md)**: wird nicht unterstützt. Das heißt, der Benutzer kann nicht seinen eigenen Dienstprinzipal eingeben, um ihn für seinen Stream Analytics-Auftrag zu verwenden. Der Dienstprinzipal wird von Azure Stream Analytics generiert.
+2. **[Vom Benutzer zugewiesene Identität](../active-directory/managed-identities-azure-resources/overview.md)** : wird nicht unterstützt. Das heißt, der Benutzer kann nicht seinen eigenen Dienstprinzipal eingeben, um ihn für seinen Stream Analytics-Auftrag zu verwenden. Der Dienstprinzipal wird von Azure Stream Analytics generiert.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

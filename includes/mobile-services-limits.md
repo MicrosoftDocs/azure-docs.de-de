@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 5e58429b6a3e2f7c7c39c13dc65af48b064f9771
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553565"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178480"
 ---
 | Tarif | Kostenlos | Basic | Standard |
 | --- | --- | --- | --- |

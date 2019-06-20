@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60550081"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Verwenden von Visual Studio-Vorlagen für den schnellen Einstieg in Batch-Lösungen
 

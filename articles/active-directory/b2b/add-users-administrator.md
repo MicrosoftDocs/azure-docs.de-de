@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799404"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812827"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Hinzufügen von Azure Active Directory B2B-Zusammenarbeitsbenutzern über das Azure-Portal
 
@@ -27,11 +27,15 @@ Nachdem Sie dem Verzeichnis einen Gastbenutzer hinzugefügt haben, können Sie d
 > [!IMPORTANT]
 > Sie sollten die Schritte in [ Hinzufügen der Datenschutzinformationen Ihrer Organisation in Azure Active Directory](https://aka.ms/adprivacystatement) ausführen. Im Rahmen der erstmaligen Annahme einer Einladung muss ein eingeladener Benutzer Ihren Datenschutzbestimmungen zustimmen, um fortfahren zu können. 
 
+## <a name="before-you-begin"></a>Voraussetzungen
+
+Stellen Sie sicher, dass die Einstellungen für externe Zusammenarbeit Ihrer Organisation so konfiguriert sind, dass Sie Gäste einladen dürfen. Standardmäßig können alle Benutzer und Administratoren Gäste einladen. Die Richtlinien für externe Zusammenarbeit Ihrer Organisation können jedoch so konfiguriert sein, dass bestimmte Benutzer oder Administratoren keine Gäste einladen dürfen. Informationen dazu, wie Sie diese Richtlinien anzeigen und festlegen, finden Sie unter [Delegieren von Einladungen zur Azure Active Directory B2B-Zusammenarbeit](delegate-invitations.md).
+
 ## <a name="add-guest-users-to-the-directory"></a>Hinzufügen von Gastbenutzern zum Verzeichnis
 
 Gehen Sie wie folgt vor, um B2B-Zusammenarbeitsbenutzer dem Verzeichnis hinzuzufügen:
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) als Benutzer an, dem eine der eingeschränkten Azure AD-Administratorrollen zugewiesen ist.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) als Benutzer an, dem eine eingeschränkte Azure AD-Administratorrolle oder die Rolle „Gasteinladender“ zugewiesen ist.
 2. Klicken Sie im Navigationsbereich auf **Azure Active Directory**.
 3. Wählen Sie unter **Verwalten** die Option **Benutzer** aus.
 4. Klicken Sie auf **Neuer Gastbenutzer**.
@@ -41,7 +45,7 @@ Gehen Sie wie folgt vor, um B2B-Zusammenarbeitsbenutzer dem Verzeichnis hinzuzuf
    > [!NOTE]
    > Die Option **Neuer Gastbenutzer** ist auch auf der Seite **Organisationsbeziehungen** verfügbar. Wählen Sie in **Azure Active Directory** unter **Verwalten** die Option **Organisationsbeziehungen** aus.
 
-5. Geben Sie unter **Benutzername** die E-Mail-Adresse des externen Benutzers ein. Geben Sie optional eine Begrüßungsnachricht ein. Beispiel: 
+5. Geben Sie unter **Benutzername** die E-Mail-Adresse des externen Benutzers ein. Geben Sie optional eine Begrüßungsnachricht ein. Beispiel:
 
    ![Position von „Neuer Gastbenutzer“ auf der Benutzeroberfläche](./media/add-users-administrator/InviteGuest.png) 
 
@@ -56,7 +60,7 @@ Nach dem Senden der Einladung wird das Benutzerkonto dem Verzeichnis automatisch
 ![B2B-Benutzer mit Benutzertyp „Gast“](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>Hinzufügen von Gastbenutzern zu einer Gruppe
-Wenn Sie als Azure AD-Administrator einer Gruppe manuell B2B-Zusammenarbeitsbenutzer hinzufügen müssen, gehen Sie wie folgt vor:
+Gehen Sie wie folgt vor, um einer Gruppe Benutzer für die B2B-Zusammenarbeit manuell hinzuzufügen:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) als Azure AD-Administrator an.
 2. Klicken Sie im Navigationsbereich auf **Azure Active Directory**.
@@ -73,7 +77,7 @@ Für Azure AD B2B-Zusammenarbeit können auch dynamische Gruppen verwendet werde
 
 ## <a name="add-guest-users-to-an-application"></a>Hinzufügen von Gastbenutzern zu einer Anwendung
 
-Gehen Sie als Azure AD-Administrator wie folgt vor, um B2B-Zusammenarbeitsbenutzer einer Anwendung hinzuzufügen:
+Gehen Sie wie folgt vor, um einer Anwendung Benutzer für die B2B-Zusammenarbeit hinzuzufügen:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) als Azure AD-Administrator an.
 2. Klicken Sie im Navigationsbereich auf **Azure Active Directory**.

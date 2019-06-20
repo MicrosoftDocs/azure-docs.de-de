@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 98934216c0860c79575874df26603b1187e35978
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149084"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239351"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sichern virtueller Azure-Computer in einem Recovery Services-Tresor
 
-In diesem Artikel wird beschrieben, wie virtuelle Azure-Computer mit dem [Azure Backup](backup-overview.md)-Dienst in einem Recovery Services-Tresor gesichert werden. 
+In diesem Artikel wird beschrieben, wie virtuelle Azure-Computer mit dem [Azure Backup](backup-overview.md)-Dienst in einem Recovery Services-Tresor gesichert werden.
 
 In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
@@ -47,29 +47,29 @@ Darüber hinaus gibt es einige Schritte, die Sie in bestimmten Fällen mögliche
 
 ## <a name="create-a-vault"></a>Erstellen eines Tresors
 
- Ein Tresor speichert Sicherungen und Wiederherstellungspunkte, die im Laufe der Zeit erstellt wurden, sowie Sicherungsrichtlinien, die zu gesicherten VMs gehören. Erstellen Sie wie folgt einen Tresor:    
+ Ein Tresor speichert Sicherungen und Wiederherstellungspunkte, die im Laufe der Zeit erstellt wurden, sowie Sicherungsrichtlinien, die zu gesicherten VMs gehören. Erstellen Sie wie folgt einen Tresor:
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.    
-2. Geben Sie in der Suche **Recovery Services** ein. Klicken Sie unter **Dienste** auf **Recovery Services-Tresore**.   
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
+2. Geben Sie in der Suche **Recovery Services** ein. Klicken Sie unter **Dienste** auf **Recovery Services-Tresore**.
 
-     ![Suchen nach Recovery Services-Tresoren](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/> 
+     ![Suchen nach Recovery Services-Tresoren](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-3. Klicken Sie im Menü **Recovery Services-Tresore** auf **+ Hinzufügen**.    
+3. Klicken Sie im Menü **Recovery Services-Tresore** auf **+ Hinzufügen**.
 
-     ![Erstellen eines Recovery Services-Tresors – Schritt 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)   
+     ![Erstellen eines Recovery Services-Tresors – Schritt 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
-4. Geben Sie unter **Recovery Services-Tresor** einen Anzeigenamen ein, über den der Tresor identifiziert wird.   
-    - Der Name muss für das Azure-Abonnement eindeutig sein.   
-    - Er kann zwischen 2 bis 50 Zeichen enthalten.    
-    - Er muss mit einem Buchstaben beginnen und darf nur Buchstaben, Zahlen und Bindestriche enthalten.   
-5. Wählen Sie das Azure-Abonnement, die Ressourcengruppe und die geografische Region, in der der Tresor erstellt werden soll. Klicken Sie dann auf **Erstellen**.    
-    - Es kann eine Weile dauern, bis der Tresor fertiggestellt wird.  
-    - Verfolgen Sie die Statusbenachrichtigungen rechts oben im Portal.   
+4. Geben Sie unter **Recovery Services-Tresor** einen Anzeigenamen ein, über den der Tresor identifiziert wird.
+    - Der Name muss für das Azure-Abonnement eindeutig sein.
+    - Er kann zwischen 2 bis 50 Zeichen enthalten.
+    - Er muss mit einem Buchstaben beginnen und darf nur Buchstaben, Zahlen und Bindestriche enthalten.
+5. Wählen Sie das Azure-Abonnement, die Ressourcengruppe und die geografische Region, in der der Tresor erstellt werden soll. Klicken Sie dann auf **Erstellen**.
+    - Es kann eine Weile dauern, bis der Tresor fertiggestellt wird.
+    - Verfolgen Sie die Statusbenachrichtigungen rechts oben im Portal.
 
 
  Nach Abschluss des Erstellungsvorgangs wird der Tresor in der Liste der Recovery Services-Tresore angezeigt. Sollte der Tresor nicht angezeigt werden, wählen Sie **Aktualisieren**.
- 
-![Liste der Sicherungstresore](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)    
+
+![Liste der Sicherungstresore](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 ### <a name="modify-storage-replication"></a>Ändern der Speicherreplikation
 
@@ -86,7 +86,7 @@ Passen Sie die Speicherreplikationstyp wie folgt an:
 
       ![Speicherkonfiguration für neuen Tresor festlegen](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 > [!NOTE]
-   > Sie können den Speichertyp für die Replikation nicht mehr ändern, nachdem der Tresor eingerichtet wurde und Sicherungselemente enthält. Dazu müssen Sie den Tresor neu erstellen. 
+   > Sie können den Speichertyp für die Replikation nicht mehr ändern, nachdem der Tresor eingerichtet wurde und Sicherungselemente enthält. Dazu müssen Sie den Tresor neu erstellen.
 
 ## <a name="apply-a-backup-policy"></a>Anwenden einer Sicherungsrichtlinie
 
@@ -101,7 +101,7 @@ Konfigurieren Sie eine Sicherungsrichtlinie für den Tresor.
 
    ![Bereiche „Sicherung“ und „Sicherungsziel“](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-3. Wählen Sie unter **Sicherungsrichtlinie** die Richtlinie aus, die dem Tresor zugeordnet werden soll. 
+3. Wählen Sie unter **Sicherungsrichtlinie** die Richtlinie aus, die dem Tresor zugeordnet werden soll.
     - Die Standardrichtlinie sichert den virtuellen Computer einmal täglich. Die täglichen Sicherungen werden 30 Tage lang aufbewahrt. Momentaufnahmen für die sofortige Wiederherstellung werden zwei Tage lang aufbewahrt.
     - Wenn Sie nicht die Standardrichtlinie verwenden möchten, wählen Sie **Neu erstellen** aus, und erstellen Sie eine benutzerdefinierte Richtlinie, wie im nächsten Verfahren beschrieben.
 
@@ -116,7 +116,7 @@ Konfigurieren Sie eine Sicherungsrichtlinie für den Tresor.
      ![Bereich „Virtuelle Computer auswählen“](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. Klicken Sie unter **Sicherung** auf **Sicherung aktivieren**. Damit wird die Richtlinie für den Tresor und die VMs bereitgestellt, und die Sicherungserweiterung wird auf dem VM-Agent auf der Azure-VM installiert.
-     
+
      ![Schaltfläche „Sicherung aktivieren“](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 Nach dem Aktivieren der Sicherung:
@@ -126,7 +126,7 @@ Nach dem Aktivieren der Sicherung:
 - Beachten Sie während der Ausführung von Sicherungen Folgendes:
     - Ein ausgeführter virtueller Computer bietet die größte Chance zum Erfassen eines anwendungskonsistenten Wiederherstellungspunkts.
     - Selbst wenn der virtuelle Computer ausgeschaltet ist, erfolgt jedoch eine Sicherung. Eine derartige VM wird als Offline-VM bezeichnet. In diesem Fall ist der Wiederherstellungspunkt absturzkonsistent.
-    
+
 
 ### <a name="create-a-custom-policy"></a>Erstellen einer benutzerdefinierten Richtlinie
 
@@ -138,7 +138,7 @@ Wenn Sie ausgewählt haben, eine neue Sicherungsrichtlinie zu erstellen, geben S
     - Bei der Wiederherstellung werden gesicherte Datenträger von virtuellen Computern aus dem Speicher über das Netzwerk an den Speicherort für die Wiederherstellung kopiert. Bei einer sofortigen Wiederherstellung können Sie lokal gespeicherte Momentaufnahmen, die bei einem Sicherungsauftrag erstellt wurden, nutzen, ohne warten zu müssen, bis die Sicherungsdaten in den Tresor übertragen werden.
     - Sie können Momentaufnahmen für die sofortige Wiederherstellung bis zu fünf Tage lang beibehalten. Die Standardeinstellung beträgt zwei Tage.
 3. Geben Sie unter **Beibehaltungsdauer** an, wie lange die täglichen oder wöchentlichen Sicherungspunkte beibehalten werden sollen.
-4. Geben Sie unter **Aufbewahrung für monatlichen Sicherungspunkt** an, ob eine monatliche Sicherung Ihrer täglichen oder wöchentlichen Sicherungen beibehalten werden soll. 
+4. Geben Sie unter **Aufbewahrung für monatlichen Sicherungspunkt** an, ob eine monatliche Sicherung Ihrer täglichen oder wöchentlichen Sicherungen beibehalten werden soll.
 5. Klicken Sie zum Speichern der Richtlinie auf **OK** .
 
     ![Neue Sicherungsrichtlinie](./media/backup-azure-arm-vms-prepare/new-policy.png)
@@ -156,6 +156,34 @@ Die erste Sicherung wird entsprechend dem festgelegten Zeitplan ausgeführt; Sie
 4. Klicken Sie auf **Jetzt sichern**.
 5. Verwenden Sie unter **Jetzt sichern** den Kalender, um den letzten Tag zur Beibehaltung des Wiederherstellungspunkts auszuwählen. Klicken Sie dann auf **OK**.
 6. Überwachen Sie die Portalbenachrichtigungen. Sie können den Auftragsstatus im Dashboard des Tresors unter **Sicherungsaufträge** > **In Bearbeitung** überwachen. Je nach Größe Ihrer VM kann das Erstellen der ersten Sicherung einige Zeit dauern.
+
+## <a name="verify-backup-job-status"></a>Überprüfen des Status des Sicherungsauftrags
+
+Die Sicherungsauftragsdetails jeder VM-Sicherung umfassen zwei Phasen: die Phase **Momentaufnahme** und die Phase **Daten in Tresor übertragen**.<br/>
+Die Momentaufnahmephase stellt sicher, dass ein Wiederherstellungspunkt vorhanden ist, der zusammen mit den Datenträgern für die **sofortige Wiederherstellung** gespeichert wird und maximal fünf Tage lang verfügbar ist (abhängig von der konfigurierten Aufbewahrungsdauer für Momentaufnahmen). In der Phase „Daten in Tresor übertragen“ wird zur langfristigen Aufbewahrung ein Wiederherstellungspunkt im Tresor erstellt. Die Übertragung von Daten in den Tresor beginnt erst nach Abschluss der Momentaufnahmephase.
+
+  ![Status des Sicherungsauftrags](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
+
+Am Back-End werden zwei **Teilvorgänge** ausgeführt – einer davon für den Front-End-Sicherungsauftrag. Dieser kann auf dem Detailblatt für den **Sicherungsauftrag** überprüft werden, wie hier zu sehen:
+
+  ![Status des Sicherungsauftrags](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+
+Die Phase **Daten in Tresor übertragen** kann je nach Datenträgergröße, Änderungen pro Datenträger und verschiedenen anderen Faktoren mehrere Tage dauern.
+
+Der Auftragsstatus kann abhängig von den folgenden Szenarien variieren:
+
+**Momentaufnahme** | **Daten in Tresor übertragen** | **Auftragsstatus**
+--- | --- | ---
+Abgeschlossen | In Bearbeitung | In Bearbeitung
+Abgeschlossen | Übersprungen | Abgeschlossen
+Abgeschlossen | Abgeschlossen | Abgeschlossen
+Abgeschlossen | Fehler | Mit Warnung abgeschlossen
+Fehler | Fehler | Fehler
+
+
+Mit dieser Funktion können nun zwei Sicherungen parallel für den gleichen virtuellen Computer ausgeführt werden. In jeder Phase („Momentaufnahme“ und „Daten in Tresor übertragen“) kann jedoch immer nur ein einzelner Teilvorgang ausgeführt werden. Durch diese Entkoppelung werden nun also Szenarien vermieden, in denen ein aktiver Sicherungsauftrag dazu führte, dass die Sicherung des Folgetags nicht erfolgreich war. Bei Sicherungen des Folgetags kann eine Momentaufnahme erstellt und **Daten in Tresor übertragen** übersprungen werden, falls ein Sicherungsauftrag des Vortags aktiv ist.
+Der inkrementelle, im Tresor erstellte Wiederherstellungspunkt erfasst sämtliche Änderungen seit dem letzten Wiederherstellungspunkt, der im Tresor erstellt wurde. Dies hat keine Auswirkungen auf die Kosten des Benutzers.
+
 
 ## <a name="optional-steps-install-agentallow-outbound"></a>Optionale Schritte (Installieren des Agents/Zulassen von ausgehendem Datenverkehr)
 ### <a name="install-the-vm-agent"></a>Installieren des VM-Agents
@@ -175,8 +203,8 @@ Die auf der VM ausgeführte Sicherungserweiterung erfordert ausgehenden Zugriff 
 - Wenn beim Verbinden von VMs Probleme auftreten oder beim Verbindungsaufbau der Fehler **ExtensionSnapshotFailedNoNetwork** ausgegeben wird, sollten Sie den Zugriff explizit zulassen, damit die Sicherungserweiterung für den Sicherungsdatenverkehr mit öffentlichen Azure-IP-Adressen kommunizieren kann. Die Zugriffsmethoden werden in der folgenden Tabelle zusammengefasst.
 
 
-**Option** | **Aktion** | **Details** 
---- | --- | --- 
+**Option** | **Aktion** | **Details**
+--- | --- | ---
 **NSG-Regeln einrichten** | Lassen Sie die [IP-Bereiche des Azure-Rechenzentrums](https://www.microsoft.com/download/details.aspx?id=41653) zu.<br/><br/> Sie können eine Regel hinzufügen, die den Zugriff auf den Azure Backup-Dienst mithilfe eines [Diensttags](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure) zulässt, anstatt jeden Adressbereich zuzulassen und zu verwalten. | [Erfahren Sie mehr](../virtual-network/security-overview.md#service-tags) über Diensttags.<br/><br/> Diensttags vereinfachen die Zugriffsverwaltung und verursachen keine zusätzlichen Kosten.
 **Proxy bereitstellen** | Stellen Sie einen HTTP-Proxyserver zum Weiterleiten des Datenverkehrs bereit. | Ermöglicht den Zugriff auf Azure insgesamt, nicht nur auf den Speicher.<br/><br/> Die Feinsteuerung über die Speicher-URLs ist möglich.<br/><br/> Zentraler Punkt für Internetzugriff auf virtuelle Computer.<br/><br/> Zusätzliche Kosten für den Proxy.
 **Azure Firewall einrichten** | Lassen Sie auf dem virtuellen Computer den Datenverkehr über Azure Firewall mithilfe eines FQDN-Tags für den Azure Backup-Dienst zu. | Einfach zu verwenden, wenn Azure Firewall in einem VNET-Subnetz eingerichtet ist.<br/><br/> Es können keine eigenen FQDN-Tags erstellt werden, und die FQDNs in einem Tag können nicht geändert werden.<br/><br/> Wenn Sie verwaltete Azure-Datenträger verwenden, müssen Sie in den Firewalls möglicherweise einen weiteren Port (8443) öffnen.
@@ -200,7 +228,7 @@ Wenn eine NSG den VM-Zugriff verwaltet, lassen Sie den ausgehenden Zugriff auf d
     - Für verwaltete VMs: 8443
 7. Wählen Sie für **Protokoll** die Option **TCP** aus.
 8. Geben Sie unter **Priorität** einen Prioritätswert an, der geringer als alle höheren Ablehnungsregeln ist.
-   
+
    Wenn Sie über eine Regel verfügen, die den Zugriff verweigert, muss die neue Zulassungsregel höhergestellt werden. Wenn Sie beispielsweise über eine **Deny_All**-Regel mit der Priorität 1.000 verfügen, muss für Ihre neue Regel ein Wert unter 1.000 festgelegt werden.
 9. Geben Sie einen Namen und eine Beschreibung für die Regel ein, und wählen Sie **OK** aus.
 
@@ -254,7 +282,7 @@ Lassen Sie eingehende Verbindungen in den Proxyeinstellungen zu.
    - Legen Sie für den Typ **TCP** fest.
    - Legen Sie für **Lokale Ports** die Option **Bestimmte Ports** fest.
    - Legen Sie **Remoteport** auf **Alle Ports** fest.
-  
+
 6. Beenden Sie den Assistenten, und legen Sie einen Namen für die Regel fest.
 
 ###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>Hinzufügen einer Ausnahmeregel zur NSG für den Proxy
@@ -282,4 +310,3 @@ Sie können Azure Firewall so konfigurieren, dass der ausgehende Zugriff für Ne
 
 - Beheben von Problemen mit [Azure-VM-Agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) oder [Azure-VM-Sicherungen](backup-azure-vms-troubleshoot.md).
 - [Wiederherstellen](backup-azure-arm-restore-vms.md) virtueller Azure-Computer.
-

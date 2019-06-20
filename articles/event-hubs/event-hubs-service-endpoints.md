@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887594"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080542"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Verwenden von Virtual Network-Dienstendpunkten mit Azure Event Hubs
 
@@ -41,7 +41,7 @@ Das Ergebnis ist eine private und isolierte Beziehung zwischen den Workloads, di
 > - Azure-Daten-Explorer
 >
 > Die folgenden Microsoft-Dienste müssen in einem virtuellen Netzwerk ausgeführt werden:
-> - Azure-Web-Apps 
+> - Azure-Web-Apps
 > - Azure-Funktionen
 
 > [!IMPORTANT]
@@ -71,7 +71,7 @@ Vorlagenparameter:
 
 * **namespaceName**: Event Hubs-Namespace
 * **vnetRuleName**: Name für die zu erstellende VNET-Regel
-* **virtualNetworkingSubnetId**: Vollqualifizierter Resource Manager-Pfad für das Subnetz des virtuellen Netzwerks, z. B. `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` für das Standardsubnetz eines virtuellen Netzwerks.
+* **virtualNetworkingSubnetId**: Vollqualifizierter Resource Manager-Pfad für das Subnetz des virtuellen Netzwerks, z. B. `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` für das Standardsubnetz eines virtuellen Netzwerks.
 
 > [!NOTE]
 > Obwohl keine Verweigerungsregeln möglich sind, ist in der Azure Resource Manager-Vorlage die Standardaktion auf **„Zulassen“** festgelegt. Dies schränkt die Verbindungen nicht ein.
@@ -191,7 +191,7 @@ Gehen Sie zum Bereitstellen der Vorlage gemäß der Anleitung für [Azure Resour
 
 Weitere Informationen zu virtuellen Netzwerken finden Sie unter den folgenden Links:
 
-- [Dienstendpunkte von virtuellen Netzwerken (Vorschauversion)][vnet-sep]
+- [Azure-VNET-Dienstendpunkte][vnet-sep]
 - [Azure Event Hubs IP filtering][ip-filtering] (Azure Event Hubs – IP-Filterung)
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md

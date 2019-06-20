@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: magattus
 ms.openlocfilehash: 3aefe2ff3891857ec3588e4b48f53876c5c90aa2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61069713"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Azure CDN DDoS Protection
 

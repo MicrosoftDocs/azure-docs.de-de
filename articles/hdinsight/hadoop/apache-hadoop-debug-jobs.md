@@ -1,7 +1,6 @@
 ---
 title: 'Debuggen von Apache Hadoop: Anzeigen von Protokollen und Verstehen von Fehlermeldungen – Azure HDInsight'
 description: Lernen Sie die Fehlermeldungen kennen, die Sie bei der Administration von HDInsight mit PowerShell erhalten können und Schritte zu deren Behebung.
-services: hdinsight
 ms.reviewer: jasonh
 author: ashishthaps
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449487"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720991"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analysieren von Apache Hadoop-Protokollen
 
@@ -33,7 +32,7 @@ Wenn Sie einen HDInsight-Cluster erstellen, werden für Linux-basierte Cluster i
 * ambariserverlog
 * ambariagentlog
 
-Die Tabellendateinamen lauten **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>**.
+Die Tabellendateinamen lauten **u\<Clustername>TTMinJJJJumHHMMSSsss\<Tabellenname>** .
 
 Diese Tabellen enthalten die folgenden Felder:
 
@@ -42,7 +41,7 @@ Diese Tabellen enthalten die folgenden Felder:
 * EventTimestamp
 * Host
 * MALoggingHash
-* Message
+* `Message`
 * N
 * PreciseTimeStamp
 * Rolle
@@ -90,7 +89,7 @@ Sie können jetzt Excel zum Filtern und Sortieren verwenden. Es kann ratsam sein
 3. Wählen Sie in **Cloud-Explorer** die Option **Ressourcentypen** aus.  Die andere verfügbare Option ist **Ressourcengruppen**.
 4. Erweitern Sie **Speicherkonten**, das Standardspeicherkonto für Ihren Cluster, und klicken Sie dann auf **Tabellen**.
 5. Doppelklicken Sie auf **hadoopservicelog**.
-6. Fügen Sie einen Filter hinzu. Beispiel: 
+6. Fügen Sie einen Filter hinzu. Beispiel:
    
         TraceLevel eq 'ERROR'
    

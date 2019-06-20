@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 668c380f38f410083ffe7d2cd6690be447f614dc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798337"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390046"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Erstellen einer Single-Page-Webanwendung mit der Bing-Websuche-API
 
@@ -80,7 +80,7 @@ Dieses Tutorial konzentriert sich auf `scripts.js` und die erforderliche Logik, 
 
 ## <a name="query-options"></a>Abfrageoptionen
 
-Das HTML-Formular enthält Optionen, die Abfrageparametern in der [Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters) zugeordnet sind. Diese Tabelle zeigt eine Aufschlüsselung, wie Benutzer Suchergebnisse mithilfe der Beispiel-App filtern können:
+Das HTML-Formular enthält Optionen, die Abfrageparametern in der [Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters) zugeordnet sind. Diese Tabelle zeigt eine Aufschlüsselung, wie Benutzer Suchergebnisse mithilfe der Beispiel-App filtern können:
 
 | Parameter | BESCHREIBUNG |
 |-----------|-------------|
@@ -93,7 +93,7 @@ Das HTML-Formular enthält Optionen, die Abfrageparametern in der [Bing-Websuche
 | `offset` | Verborgenes Feld. Der Offset für das erste Suchergebnis der Anforderung. Dieser wird zur Unterteilung der Suchergebnisse in mehrere Seiten verwendet. Der Offset wird für jede neue Anforderung auf `0` zurückgesetzt. |
 
 > [!NOTE]
-> Die Bing-Websuche-API bietet zusätzliche Abfrageparameter, mit denen Sie die Suchergebnisse verfeinern können. Dieses Beispiel verwendet nur einige davon. Eine vollständige Liste der verfügbaren Parameter finden Sie in der [Referenz für die Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
+> Die Bing-Websuche-API bietet zusätzliche Abfrageparameter, mit denen Sie die Suchergebnisse verfeinern können. Dieses Beispiel verwendet nur einige davon. Eine vollständige Liste der verfügbaren Parameter finden Sie in der [Referenz für die Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 Die Funktion `bingSearchOptions()` konvertiert diese Optionen in das für die Bing-Suche-API erforderliche Format.
 

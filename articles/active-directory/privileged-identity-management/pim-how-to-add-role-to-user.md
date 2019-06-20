@@ -14,11 +14,11 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60289401"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Zuweisen von Azure AD-Rollen in PIM
 
@@ -126,7 +126,7 @@ Gehen Sie wie folgt vor, um die Rolle „Benutzerzugriffsadministrator“ dem MS
 
 1. Wählen Sie Ihr Abonnement aus.
 
-1. Klicken Sie auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 
 1. Wählen Sie **Rollenzuweisungen** aus, um die aktuelle Liste der Rollenzuweisungen im Abonnementbereich anzuzeigen.
 

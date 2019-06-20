@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142366"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165943"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Unterstützte Dateiformate und Komprimierungscodecs in Azure Data Factory
 
@@ -29,7 +29,7 @@ Wenn Sie **Dateien unverändert zwischen dateibasierten Speichern kopieren** mö
 * [Avro-Format](#avro-format)
 
 > [!TIP]
-> Informationen dazu, wie die Kopieraktivität die Quelldaten der Senke zuordnet, finden Sie unter [Schemazuordnung in Kopieraktivität](copy-activity-schema-and-type-mapping.md). Darin enthalten ist auch das Bestimmen der Metadaten basierend auf Ihren Dateiformateinstellungen sowie Tipps, wann der Abschnitt [Dataset`structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema) anzugeben ist.
+> Erfahren Sie in [Schemazuordnung bei der Kopieraktivität](copy-activity-schema-and-type-mapping.md), wie die Kopieraktivität Ihre Quelldaten zur Senke zuordnet.
 
 ## <a name="text-format"></a>Textformat
 
@@ -40,15 +40,15 @@ Wenn Sie aus einer Textdatei lesen oder in eine Textdatei schreiben möchten, le
 
 | Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich |
 | --- | --- | --- | --- |
-| columnDelimiter |Das Zeichen, das in einer Datei zum Trennen von Spalten verwendet wird. Sie können ein selten vorkommendes nicht druckbares Zeichen verwenden, das ggf. nicht in Ihren Daten vorkommt. Geben Sie beispielsweise „\u0001“ an, das den Anfang der Überschrift (Start of Heading, SOH) bedeutet. |Es ist nur ein Zeichen zulässig. Der **Standardwert** ist das **Komma (,)**. <br/><br/>Wenn Sie ein Unicode-Zeichen verwenden möchten, finden Sie unter [Unicode-Zeichen](https://en.wikipedia.org/wiki/List_of_Unicode_characters) den zugehörigen Code. |Nein  |
-| rowDelimiter |Das Zeichen, das in einer Datei zum Trennen von Zeilen verwendet wird. |Es ist nur ein Zeichen zulässig. Der **Standardwert** ist einer der folgenden: **[„\r\n“, „\r“, „\n“]** beim Lesen und **„\r\n“** beim Schreiben. |Nein  |
-| escapeChar |Das Sonderzeichen, das als Escapezeichen für das Spaltentrennzeichen im Inhalt der Eingabedatei dient. <br/><br/>Sie können für eine Tabelle nicht gleichzeitig escapeChar und quoteChar verwenden. |Es ist nur ein Zeichen zulässig. Kein Standardwert. <br/><br/>Beispiel: Wenn Sie das Komma (,) als Spaltentrennzeichen gewählt haben, das Kommazeichen jedoch im Text verwenden möchten (Beispiel: "Hello, world"), können Sie „$“ als Escapezeichen definieren und die Zeichenfolge "Hello$, World" in der Quelle verwenden. |Nein  |
-| quoteChar |Das Zeichen, das verwendet wird, um einen Zeichenfolgenwert zu zitieren. Die Spalten- und Zeilentrennzeichen innerhalb der Anführungszeichen werden als Teil des Zeichenfolgenwerts behandelt. Diese Eigenschaft gilt für Eingabe- und Ausgabedatasets.<br/><br/>Sie können für eine Tabelle nicht gleichzeitig escapeChar und quoteChar verwenden. |Es ist nur ein Zeichen zulässig. Kein Standardwert. <br/><br/>Beispiel: Wenn Sie das Komma (,) als Spaltentrennzeichen gewählt haben, das Kommazeichen jedoch im Text (Beispiel: <Hello, world>) verwenden möchten, können Sie das doppelte gerade Anführungszeichen (") als Escapezeichen definieren und die Zeichenfolge "Hello, world" in der Quelle verwenden. |Nein  |
-| nullValue |Ein oder mehrere Zeichen, das/die verwendet wird/werden, um einen Null-Wert darzustellen. |Ein oder mehrere Zeichen. Die **Standardwerte** lauten **„\N“ und „NULL“** beim Lesen und **„\N“** beim Schreiben. |Nein  |
-| encodingName |Geben Sie den Codierungsnamen an. |Ein gültiger Codierungsname. Siehe [Encoding.EncodingName-Eigenschaft](https://msdn.microsoft.com/library/system.text.encoding.aspx). Beispiel: windows-1250 oder shift_jis. Der **Standardwert** lautet **UTF-8**. |Nein  |
-| firstRowAsHeader |Gibt an, ob die erste Zeile als Kopfzeile betrachtet werden soll. Bei einem Eingabedataset liest Data Factory die erste Zeile als Kopfzeile. Bei einem Ausgabedataset schreibt Data Factory die erste Zeile als Kopfzeile. <br/><br/>Beispielszenarien finden Sie unter [Szenarien für die Verwendung von `firstRowAsHeader` und `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>False (Standard)</b> |Nein  |
-| skipLineCount |Gibt an, wie viele **nicht leere** Zeilen beim Lesen von Daten aus Eingabedateien übersprungen werden sollen. Wenn sowohl skipLineCount und firstRowAsHeader angegeben sind, werden erst die Zeilen übersprungen und dann die Kopfzeileninformationen aus der Eingabedatei gelesen. <br/><br/>Beispielszenarien finden Sie unter [Szenarien für die Verwendung von `firstRowAsHeader` und `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Ganze Zahl  |Nein  |
-| treatEmptyAsNull |Gibt an, ob eine NULL- oder eine leere Zeichenfolge beim Lesen von Daten aus einer Eingabedatei als NULL-Wert behandelt werden sollen. |**True (Standard)**<br/>False |Nein  |
+| columnDelimiter |Das Zeichen, das in einer Datei zum Trennen von Spalten verwendet wird. Sie können ein selten vorkommendes nicht druckbares Zeichen verwenden, das ggf. nicht in Ihren Daten vorkommt. Geben Sie beispielsweise „\u0001“ an, das den Anfang der Überschrift (Start of Heading, SOH) bedeutet. |Es ist nur ein Zeichen zulässig. Der **Standardwert** ist das **Komma (,)** . <br/><br/>Wenn Sie ein Unicode-Zeichen verwenden möchten, finden Sie unter [Unicode-Zeichen](https://en.wikipedia.org/wiki/List_of_Unicode_characters) den zugehörigen Code. |Nein |
+| rowDelimiter |Das Zeichen, das in einer Datei zum Trennen von Zeilen verwendet wird. |Es ist nur ein Zeichen zulässig. Der **Standardwert** ist einer der folgenden: **[„\r\n“, „\r“, „\n“]** beim Lesen und **„\r\n“** beim Schreiben. |Nein |
+| escapeChar |Das Sonderzeichen, das als Escapezeichen für das Spaltentrennzeichen im Inhalt der Eingabedatei dient. <br/><br/>Sie können für eine Tabelle nicht gleichzeitig escapeChar und quoteChar verwenden. |Es ist nur ein Zeichen zulässig. Kein Standardwert. <br/><br/>Beispiel: Wenn Sie das Komma (,) als Spaltentrennzeichen gewählt haben, das Kommazeichen jedoch im Text verwenden möchten (Beispiel: "Hello, world"), können Sie „$“ als Escapezeichen definieren und die Zeichenfolge "Hello$, World" in der Quelle verwenden. |Nein |
+| quoteChar |Das Zeichen, das verwendet wird, um einen Zeichenfolgenwert zu zitieren. Die Spalten- und Zeilentrennzeichen innerhalb der Anführungszeichen werden als Teil des Zeichenfolgenwerts behandelt. Diese Eigenschaft gilt für Eingabe- und Ausgabedatasets.<br/><br/>Sie können für eine Tabelle nicht gleichzeitig escapeChar und quoteChar verwenden. |Es ist nur ein Zeichen zulässig. Kein Standardwert. <br/><br/>Beispiel: Wenn Sie das Komma (,) als Spaltentrennzeichen gewählt haben, das Kommazeichen jedoch im Text (Beispiel: <Hello, world>) verwenden möchten, können Sie das doppelte gerade Anführungszeichen (") als Escapezeichen definieren und die Zeichenfolge "Hello, world" in der Quelle verwenden. |Nein |
+| nullValue |Ein oder mehrere Zeichen, das/die verwendet wird/werden, um einen Null-Wert darzustellen. |Ein oder mehrere Zeichen. Die **Standardwerte** lauten **„\N“ und „NULL“** beim Lesen und **„\N“** beim Schreiben. |Nein |
+| encodingName |Geben Sie den Codierungsnamen an. |Ein gültiger Codierungsname. Siehe [Encoding.EncodingName-Eigenschaft](https://msdn.microsoft.com/library/system.text.encoding.aspx). Beispiel: windows-1250 oder shift_jis. Der **Standardwert** lautet **UTF-8**. |Nein |
+| firstRowAsHeader |Gibt an, ob die erste Zeile als Kopfzeile betrachtet werden soll. Bei einem Eingabedataset liest Data Factory die erste Zeile als Kopfzeile. Bei einem Ausgabedataset schreibt Data Factory die erste Zeile als Kopfzeile. <br/><br/>Beispielszenarien finden Sie unter [Szenarien für die Verwendung von `firstRowAsHeader` und `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>False (Standard)</b> |Nein |
+| skipLineCount |Gibt an, wie viele **nicht leere** Zeilen beim Lesen von Daten aus Eingabedateien übersprungen werden sollen. Wenn sowohl skipLineCount und firstRowAsHeader angegeben sind, werden erst die Zeilen übersprungen und dann die Kopfzeileninformationen aus der Eingabedatei gelesen. <br/><br/>Beispielszenarien finden Sie unter [Szenarien für die Verwendung von `firstRowAsHeader` und `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |Nein |
+| treatEmptyAsNull |Gibt an, ob eine NULL- oder eine leere Zeichenfolge beim Lesen von Daten aus einer Eingabedatei als NULL-Wert behandelt werden sollen. |**True (Standard)**<br/>False |Nein |
 
 ### <a name="textformat-example"></a>TextFormat-Beispiel
 
@@ -93,11 +93,11 @@ Wenn Sie JSON-Dateien analysieren oder die Daten im JSON-Format schreiben möcht
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 | --- | --- | --- |
-| filePattern |Geben Sie das Muster der in jeder JSON-Datei gespeicherten Daten an. Zulässige Werte sind **setOfObjects** und **arrayOfObjects**. Der **Standardwert** ist **setOfObjects**. Weitere Informationen zu diesen Mustern finden Sie im Abschnitt [JSON-Dateimuster](#json-file-patterns). |Nein  |
-| jsonNodeReference | Falls Sie Daten durchlaufen und aus den Objekten in einem Arrayfeld mit demselben Muster extrahieren möchten, legen Sie den JSON-Pfad dieses Arrays fest. Diese Eigenschaft wird nur beim Kopieren von Daten **aus** JSON-Dateien unterstützt. | Nein  |
-| jsonPathDefinition | Geben Sie den JSON-Pfadausdruck für jede Spaltenzuordnung mit einem benutzerdefinierten Spaltennamen (beginnend mit einem Kleinbuchstaben) an. Diese Eigenschaft wird nur beim Kopieren von Daten **aus** JSON-Dateien unterstützt. Sie können zudem Daten aus dem Objekt oder Array extrahieren. <br/><br/> Bei Feldern unter dem Stammobjekt beginnen Sie mit Stamm „$“. Bei Feldern innerhalb des Arrays, die anhand der `jsonNodeReference`-Eigenschaft ausgewählt werden, beginnen Sie mit dem Arrayelement. Informationen zum Konfigurieren finden Sie im Abschnitt [JsonFormat-Beispiel](#jsonformat-example). | Nein  |
-| encodingName |Geben Sie den Codierungsnamen an. Die Liste der gültigen Codierungsnamen finden Sie unter: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx)-Eigenschaft. Beispiel: Windows-1250 oder Shift-JIS. Der **Standardwert** lautet: **UTF-8**. |Nein  |
-| nestingSeparator |Zeichen, das zur Trennung der Schachtelungsebenen verwendet wird. Der Standardwert ist „.“ (Punkt). |Nein  |
+| filePattern |Geben Sie das Muster der in jeder JSON-Datei gespeicherten Daten an. Zulässige Werte sind **setOfObjects** und **arrayOfObjects**. Der **Standardwert** ist **setOfObjects**. Weitere Informationen zu diesen Mustern finden Sie im Abschnitt [JSON-Dateimuster](#json-file-patterns). |Nein |
+| jsonNodeReference | Falls Sie Daten durchlaufen und aus den Objekten in einem Arrayfeld mit demselben Muster extrahieren möchten, legen Sie den JSON-Pfad dieses Arrays fest. Diese Eigenschaft wird nur beim Kopieren von Daten **aus** JSON-Dateien unterstützt. | Nein |
+| jsonPathDefinition | Geben Sie den JSON-Pfadausdruck für jede Spaltenzuordnung mit einem benutzerdefinierten Spaltennamen (beginnend mit einem Kleinbuchstaben) an. Diese Eigenschaft wird nur beim Kopieren von Daten **aus** JSON-Dateien unterstützt. Sie können zudem Daten aus dem Objekt oder Array extrahieren. <br/><br/> Bei Feldern unter dem Stammobjekt beginnen Sie mit Stamm „$“. Bei Feldern innerhalb des Arrays, die anhand der `jsonNodeReference`-Eigenschaft ausgewählt werden, beginnen Sie mit dem Arrayelement. Informationen zum Konfigurieren finden Sie im Abschnitt [JsonFormat-Beispiel](#jsonformat-example). | Nein |
+| encodingName |Geben Sie den Codierungsnamen an. Die Liste der gültigen Codierungsnamen finden Sie unter: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx)-Eigenschaft. Beispiel: Windows-1250 oder Shift-JIS. Der **Standardwert** lautet: **UTF-8**. |Nein |
+| nestingSeparator |Zeichen, das zur Trennung der Schachtelungsebenen verwendet wird. Der Standardwert ist „.“ (Punkt). |Nein |
 
 >[!NOTE]
 >Für den Fall, dass anwendungsübergreifende Daten in Arrays in mehreren Zeilen vorliegen (Fall 1 -> Beispiel 2 in [JsonFormat-Beispielen](#jsonformat-example)), können Sie nur einzelne Arrays über die Eigenschaft `jsonNodeReference` erweitern.
@@ -459,14 +459,14 @@ Beispiel: Legen Sie für die Variable `_JAVA_OPTIONS` den Wert `-Xms256m -Xmx16g
 | UInt64 | Int64/binär | UInt64 | Decimal |
 | Single | Float | – | – |
 | Double | Double | – | – |
-| Decimal | Binär | Decimal | Decimal |
-| Zeichenfolge | Binär | Utf8 | Utf8 |
+| Decimal | Binary | Decimal | Decimal |
+| Zeichenfolge | Binary | Utf8 | Utf8 |
 | Datetime | Int96 | – | – |
 | TimeSpan | Int96 | – | – |
 | DateTimeOffset | Int96 | – | – |
-| ByteArray | Binär | – | – |
-| Guid | Binär | Utf8 | Utf8 |
-| Char | Binär | Utf8 | Utf8 |
+| ByteArray | Binary | – | – |
+| Guid | Binary | Utf8 | Utf8 |
+| Char | Binary | Utf8 | Utf8 |
 | CharArray | Nicht unterstützt | – | – |
 
 ## <a name="orc-format"></a>ORC-Format
@@ -514,7 +514,7 @@ Für Kopiervorgänge in der selbstgehosteten Integration Runtime mit Serialisier
 | Datetime | Zeitstempel |
 | DateTimeOffset | Zeitstempel |
 | TimeSpan | Zeitstempel |
-| ByteArray | Binär |
+| ByteArray | Binary |
 | Guid | Zeichenfolge |
 | Char | Char(1) |
 

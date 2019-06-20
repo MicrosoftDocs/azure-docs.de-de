@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Erste Schritte | Microsoft-Dokum
 description: Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867098"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234939"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals
 
@@ -44,7 +44,7 @@ Der Assistent erstellt automatisch die administrative Gruppe in Ihrem Azure AD-V
 
 ## <a name="configure-synchronization"></a>Konfigurieren der Synchronisierung
 
-Azure AD Domain Services ermöglicht entweder die vollständige Synchronisierung aller in Azure AD verfügbaren Benutzer und Gruppen, oder die bereichsbezogene Synchronisierung, um nur bestimmte Gruppen zu synchronisieren. Wenn Sie die vollständige Synchronisierung wählen, können Sie zu einem späteren Zeitpunkt **nicht** die bereichsbezogene Synchronisierung auswählen. Weitere Informationen zur bereichsbezogenen Synchronisierung finden Sie im Artikel [Bereichsbezogene Synchronisierung für Azure AD Domain Services](active-directory-ds-scoped-synchronization.md).
+Azure AD Domain Services ermöglicht entweder die vollständige Synchronisierung aller in Azure AD verfügbaren Benutzer und Gruppen, oder die bereichsbezogene Synchronisierung, um nur bestimmte Gruppen zu synchronisieren. Wenn Sie die vollständige Synchronisierung wählen, können Sie zu einem späteren Zeitpunkt **nicht** die bereichsbezogene Synchronisierung auswählen. Weitere Informationen zur bereichsbezogenen Synchronisierung finden Sie im Artikel [Bereichsbezogene Synchronisierung für Azure AD Domain Services](scoped-synchronization.md).
 
 ### <a name="full-synchronization"></a>Vollständige Synchronisierung
 
@@ -98,7 +98,7 @@ Der Prozess der Bereitstellung Ihrer verwalteten Domänen kann bis zu einer Stun
 
 ## <a name="need-help"></a>Sie brauchen Hilfe?
 
-Es dauert möglicherweise ein oder zwei Stunden, bis beide Domänencontroller für die verwaltete Domäne bereitgestellt werden. Wenn bei Ihrer Bereitstellung Fehler auftreten, oder sie im Status „Ausstehend“ steckenbleibt, [bitten Sie das Produktteam um Hilfe](active-directory-ds-contact-us.md).
+Es dauert möglicherweise ein oder zwei Stunden, bis beide Domänencontroller für die verwaltete Domäne bereitgestellt werden. Wenn bei Ihrer Bereitstellung Fehler auftreten, oder sie im Status „Ausstehend“ steckenbleibt, [bitten Sie das Produktteam um Hilfe](contact-us.md).
 
 ## <a name="next-step"></a>Nächster Schritt
 

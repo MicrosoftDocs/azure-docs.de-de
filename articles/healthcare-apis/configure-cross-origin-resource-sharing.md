@@ -7,10 +7,10 @@ ms.date: 3/11/2019
 ms.topic: reference
 ms.service: healthcare-apis
 ms.openlocfilehash: c6bb39508055926323dad3dd6b50f9d60fdecdab
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233712"
 ---
 # <a name="configure-cross-origin-resource-sharing-in-the-azure-api-for-fhir"></a>Konfigurieren der Ressourcenfreigabe zwischen verschiedenen Ursprüngen in Azure API for FHIR
@@ -21,15 +21,15 @@ CORS wird häufig in Single-Page-Apps verwendet, die eine RESTful-API für eine 
 
 Um eine CORS-Einstellung in Azure API for FHIR zu konfigurieren, geben Sie die folgenden Einstellungen an:
 
-- **Ursprünge (Access-Control-Allow-Origin)**. Eine Liste der Domänen, die Anforderungen zwischen verschiedenen Ursprüngen an Azure API for FHIR stellen dürfen. Jede Domäne (Ursprung) muss in einer separaten Zeile eingegeben werden. Sie können ein Sternchen (*) eingeben, um Aufrufe aus einer beliebigen Domäne zuzulassen, was wir aber nicht empfehlen, da es sich um ein Sicherheitsrisiko handelt.
+- **Ursprünge (Access-Control-Allow-Origin)** . Eine Liste der Domänen, die Anforderungen zwischen verschiedenen Ursprüngen an Azure API for FHIR stellen dürfen. Jede Domäne (Ursprung) muss in einer separaten Zeile eingegeben werden. Sie können ein Sternchen (*) eingeben, um Aufrufe aus einer beliebigen Domäne zuzulassen, was wir aber nicht empfehlen, da es sich um ein Sicherheitsrisiko handelt.
 
-- **Headers (Access-Control-Allow-Headers)**. Eine Liste der Header, die die Ursprungsanforderung enthalten soll. Um alle Header zuzulassen, geben Sie ein Sternchen (*) ein.
+- **Headers (Access-Control-Allow-Headers)** . Eine Liste der Header, die die Ursprungsanforderung enthalten soll. Um alle Header zuzulassen, geben Sie ein Sternchen (*) ein.
 
-- **Methoden (Access-Control-Allow-Methods)**. Die zulässigen Methoden (PUT, GET, POST usw.) in einem API-Aufruf. Wählen Sie **Alle auswählen** aus, um alle Methoden zu verwenden.
+- **Methoden (Access-Control-Allow-Methods)** . Die zulässigen Methoden (PUT, GET, POST usw.) in einem API-Aufruf. Wählen Sie **Alle auswählen** aus, um alle Methoden zu verwenden.
 
-- **Max. Alter (Access-Control-Max-Age)**. Der Wert in Sekunden, um die Ergebnisse der Preflight-Anforderung für „Access-Control-Allow-Headers“ und „Access-Control-Allow-Methods“ zwischenzuspeichern.
+- **Max. Alter (Access-Control-Max-Age)** . Der Wert in Sekunden, um die Ergebnisse der Preflight-Anforderung für „Access-Control-Allow-Headers“ und „Access-Control-Allow-Methods“ zwischenzuspeichern.
 
-- **Anmeldeinformationen zulassen (Access-Control-Allow-Credentials)**. CORS-Anforderungen enthalten normalerweise keine Cookies, um [CSRF-Angriffe (siteübergreifende Anforderungsfälschung)](https://en.wikipedia.org/wiki/Cross-site_request_forgery) zu verhindern. Wenn Sie diese Einstellung auswählen, kann die Anforderung so gestellt werden, dass sie Anmeldeinformationen (z. B. Cookies) enthält. Sie können diese Einstellung nicht konfigurieren, wenn Sie „Ursprünge“ bereits mit einem Sternchen (*) festgelegt haben.
+- **Anmeldeinformationen zulassen (Access-Control-Allow-Credentials)** . CORS-Anforderungen enthalten normalerweise keine Cookies, um [CSRF-Angriffe (siteübergreifende Anforderungsfälschung)](https://en.wikipedia.org/wiki/Cross-site_request_forgery) zu verhindern. Wenn Sie diese Einstellung auswählen, kann die Anforderung so gestellt werden, dass sie Anmeldeinformationen (z. B. Cookies) enthält. Sie können diese Einstellung nicht konfigurieren, wenn Sie „Ursprünge“ bereits mit einem Sternchen (*) festgelegt haben.
 
 ![CORS-Einstellungen (Ressourcenfreigabe zwischen verschiedenen Ursprüngen)](media/cors/cors.png)
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186620"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241752"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Anmeldeinformationen für den Zugriff auf die Clientbibliothek für elastische Datenbanken
 
@@ -73,12 +73,12 @@ In diesem Beispiel enthält **smmUserConnectionString** die Verbindungszeichenfo
 
 Genau wie bei den Administratoranmeldeinformationen sollten Sie keine Werte im Format „username@server“ verwenden. Verwenden Sie stattdessen einfach „Benutzername“.  Beachten Sie außerdem, dass die Verbindungszeichenfolge keinen Server- und Datenbanknamen enthält. Dies liegt daran, dass der **OpenConnectionForKey**-Aufruf die Verbindung basierend auf dem Schlüssel automatisch an den richtigen Shard leitet. Daher werden der Datenbankname und der Servername nicht bereitgestellt.
 
-## <a name="see-also"></a>Informationen finden Sie auch unter 
+## <a name="see-also"></a>Informationen finden Sie auch unter
 
 [Verwalten von Datenbanken und Anmeldungen in der Azure SQL-Datenbank](sql-database-manage-logins.md)
 
 [Sichern der SQL-Datenbank](sql-database-security-overview.md)
 
-[Erste Schritte mit Aufträgen für die elastische Datenbank](sql-database-elastic-jobs-getting-started.md)
+[Aufträge für die elastische Datenbank](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

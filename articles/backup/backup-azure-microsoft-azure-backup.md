@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
 ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075611"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62098861"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installieren und Durchführen eines Upgrades für Azure Backup Server
 > [!div class="op_single_selector"]
@@ -126,7 +126,7 @@ So bearbeiten Sie die Einstellung für die Speicherreplikation:
    >
    >
 
-    ![Ändern des Erste-Schritte-Assistenten ](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
+    ![Ändern des Erste-Schritte-Assistenten](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
 6. Klicken Sie auf dem Blatt **Infrastruktur vorbereiten**, das geöffnet wird, auf die **Downloadlinks**, um Azure Backup Server zu installieren und Tresoranmeldedaten herunterzuladen. Sie verwenden die Tresoranmeldedaten bei der Registrierung von Azure Backup Server beim Recovery Services-Tresor. Mit den Links gelangen Sie zum Download Center, in dem Sie das Softwarepaket herunterladen können.
 

@@ -4,14 +4,14 @@ description: Machen Sie sich mit Clientkonfigurationsoptionen zur Verbesserung d
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 81adf643541b5a4486694026acec49129ef8e5a6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66688805"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Leistungstipps für Azure Cosmos DB und .NET
 
@@ -57,7 +57,7 @@ Im Anschluss finden Sie einige Optionen zur Optimierung der Datenbankleistung:
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = new "your authKey from the Azure portal";
+     var authKey = "your authKey from the Azure portal";
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
@@ -137,13 +137,21 @@ Im Anschluss finden Sie einige Optionen zur Optimierung der Datenbankleistung:
    <a id="tune-page-size"></a>
 1. **Optimieren der Seitengröße für Abfragen/Lesefeeds, um die Leistung zu verbessern**
 
-    Wenn mehrere Dokumente mithilfe der Lesefeedfunktion (z. B. „ReadDocumentFeedAsync“) gleichzeitig gelesen werden oder eine SQL-Abfrage ausgegeben wird, werden die Ergebnisse bei der Rückgabe segmentiert, falls das Resultset zu groß ist. Ergebnisse werden standardmäßig in Blöcken mit je 100 Elementen oder 1 MB zurückgegeben (je nachdem, welcher Grenzwert zuerst erreicht wird).
+   Wenn mehrere Dokumente mithilfe der Lesefeedfunktion (z. B. „ReadDocumentFeedAsync“) gleichzeitig gelesen werden oder eine SQL-Abfrage ausgegeben wird, werden die Ergebnisse bei der Rückgabe segmentiert, falls das Resultset zu groß ist. Ergebnisse werden standardmäßig in Blöcken mit je 100 Elementen oder 1 MB zurückgegeben (je nachdem, welcher Grenzwert zuerst erreicht wird).
 
-    Mithilfe des Anforderungsheaders [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) können Sie die Seitengröße auf bis zu 1000 erhöhen und so die Anzahl von Netzwerkroundtrips verringern, die zum Abrufen aller entsprechenden Ergebnisse erforderlich sind. Falls nur einige wenige Ergebnisse angezeigt werden müssen (etwa, wenn von der Benutzeroberfläche oder Anwendungs-API lediglich zehn Ergebnisse zurückgegeben werden), können Sie die Seitengröße auch auf 10 verringern, um den durch Lese- und Abfragevorgänge beanspruchten Durchsatz zu reduzieren.
+   Mithilfe des Anforderungsheaders [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) können Sie die Seitengröße auf bis zu 1000 erhöhen und so die Anzahl von Netzwerkroundtrips verringern, die zum Abrufen aller entsprechenden Ergebnisse erforderlich sind. Falls nur einige wenige Ergebnisse angezeigt werden müssen (etwa, wenn von der Benutzeroberfläche oder Anwendungs-API lediglich zehn Ergebnisse zurückgegeben werden), können Sie die Seitengröße auch auf 10 verringern, um den durch Lese- und Abfragevorgänge beanspruchten Durchsatz zu reduzieren.
 
-    Die Seitengröße kann auch mithilfe der verfügbaren Azure Cosmos DB-SDKs festgelegt werden.  Beispiel: 
+   > [!NOTE] 
+   > Die „maxItemCount“-Eigenschaft sollte nicht nur für die Paginierung verwendet werden. Ihr Hauptverwendungszweck ist die Verbesserung der Leistung von Abfragen durch Reduzieren der maximalen Anzahl von Elementen, die auf einer einzigen Seite zurückgegeben werden.  
 
-        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   Sie können die Seitengröße auch mithilfe der verfügbaren Azure Cosmos DB-SDKs festlegen. Mit der [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet)-Eigenschaft in „FeedOptions“ können Sie die maximale Anzahl von Elementen festlegen, die beim Enumerationsvorgang zurückgegeben werden. Wenn `maxItemCount` auf „-1“ festgelegt ist, ermittelt das SDK automatisch den optimalen Wert abhängig von der Größe des Dokuments. Beispiel:
+    
+   ```csharp
+    IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   ```
+    
+   Beim Ausführen einer Abfrage werden die resultierenden Daten in einem TCP-Paket gesendet. Wenn Sie einen zu niedrigen Wert für `maxItemCount` angeben, ist die zum Senden der Daten im TCP-Paket erforderliche Anzahl der Roundtrips hoch, was sich auf die Leistung auswirkt. Wenn Sie nicht sicher sind, welchen Wert Sie für die `maxItemCount`-Eigenschaft festlegen sollen, empfiehlt es sich, den Wert auf „-1“ festzulegen und den Standardwert vom SDK auswählen zu lassen. 
+
 10. **Erhöhen der Anzahl von Threads/Aufgaben**
 
     Siehe [Erhöhen der Anzahl von Threads/Aufgaben](#increase-threads) im Abschnitt „Netzwerk“.
@@ -164,7 +172,7 @@ Im Anschluss finden Sie einige Optionen zur Optimierung der Datenbankleistung:
  
 1. **Beschleunigen von Schreibvorgängen durch Ausschließen nicht verwendeter Pfade von der Indizierung**
 
-    Die Indizierungsrichtlinie von Cosmos DB ermöglicht auch die Verwendung von Indizierungspfaden („IndexingPolicy.IncludedPaths“ und „IndexingPolicy.ExcludedPaths“), um anzugeben, welche Dokumentpfade in die Indizierung ein- bzw. von der Indizierung ausgeschlossen werden sollen.  Die Verwendung von Indizierungspfaden kann in Szenarien, in denen die Abfragemuster im Voraus bekannt sind, die Leistung bei Schreibvorgängen verbessern und den Indexspeicher verringern, da die Indizierungskosten direkt damit zusammenhängen, wie viele individuelle Pfade indiziert werden. Der folgende Code zeigt beispielsweise, wie Sie mithilfe des Platzhalterzeichens „*“ einen gesamten Abschnitt von Dokumenten (eine Unterstruktur) von der Indizierung ausschließen.
+    Die Indizierungsrichtlinie von Cosmos DB ermöglicht auch die Verwendung von Indizierungspfaden („IndexingPolicy.IncludedPaths“ und „IndexingPolicy.ExcludedPaths“), um anzugeben, welche Dokumentpfade in die Indizierung ein- bzw. von der Indizierung ausgeschlossen werden sollen.  Der folgenden Code zeigt beispielsweise, wie Sie einen gesamten Abschnitt der Dokumente (eine Unterstruktur) mit dem Platzhalter „*“ von der Indizierung ausschließen.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

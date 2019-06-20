@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895251"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61044637"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Benutzeroberflächenelement „Microsoft.Common.FileUpload“
 Ein Steuerelement, mit dem Benutzer hochzuladende Dateien angeben können.

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a8513344c35c14ebf06f3693da618ed20047d07b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f1eac83f2b5460bf56ddff1bf15d9180adb49a48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792053"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382280"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Schnellstartanleitungen: Azure SQL-Datenbank – Verbindungsherstellung und Abfragen
 
@@ -39,6 +39,7 @@ Das folgende Dokument enthält Links zu Azure-Beispielen, in denen veranschaulic
 |[PHP](sql-database-connect-query-php.md)|In dieser Schnellstartanleitung erfahren Sie, wie Sie unter Verwendung von PHP ein Programm erstellen, das eine Verbindung mit einer Azure SQL-Datenbank herstellt, und mithilfe von Transact-SQL-Anweisungen Daten abfragen.|
 |[Python](sql-database-connect-query-python.md)|In dieser Schnellstartanleitung erfahren Sie, wie Sie mithilfe von Python eine Verbindung mit einer Azure SQL-Datenbank herstellen und Daten mithilfe von Transact-SQL-Anweisungen abfragen. |
 |[Ruby](sql-database-connect-query-ruby.md)|In dieser Schnellstartanleitung erfahren Sie, wie Sie unter Verwendung von Ruby ein Programm erstellen, das eine Verbindung mit einer Azure SQL-Datenbank herstellt, und mithilfe von Transact-SQL-Anweisungen Daten abfragen.|
+|[R](sql-database-connect-query-r.md)|In dieser Schnellstartanleitung erfahren Sie, wie Sie unter Verwendung von R mit dem Machine Learning Services-Feature von Azure SQL-Datenbank eine Verbindung mit einer Azure SQL-Datenbank-Instanz herstellen und mithilfe von Transact-SQL-Anweisungen Daten abfragen.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>Überlegungen zu TLS für Verbindungen mit einer SQL-Datenbank

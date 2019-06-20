@@ -4,7 +4,7 @@ description: Erfahren Sie, wie Sie einen Event Hub erstellen und konfigurieren. 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406871"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237691"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Senden von Ereignissen an die Azure Time Series Insights-Umgebung mithilfe eines Event Hub
 
@@ -28,7 +28,7 @@ In diesem Artikel erfahren Sie, wie Sie einen Event Hub in Azure Event Hubs erst
 1. Weitere Informationen, wie Sie einen Event Hub erstellen, finden Sie unter [Event Hubs--Dokumentation](https://docs.microsoft.com/azure/event-hubs/).
 1. Suchen Sie im Suchfeld nach **Event Hubs**. Wählen Sie in der Liste mit den zurückgegebenen Ergebnissen **Event Hubs** aus.
 1. Wählen Sie Ihren Event Hub aus.
-1. Wenn Sie einen Event Hub erstellen, erstellen Sie tatsächlich einen Event Hub-Namespace. Wenn Sie noch keinen Event Hub innerhalb des Namespace erstellt haben, erstellen Sie in dem Menü unter **Entitäten**, einen Event Hub.  
+1. Wenn Sie einen Event Hub erstellen, erstellen Sie einen Event Hub-Namespace. Wenn Sie noch keinen Event Hub innerhalb des Namespace erstellt haben, erstellen Sie in dem Menü unter **Entitäten** einen Event Hub.  
 
     [![Liste der Event Hubs](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
@@ -42,7 +42,7 @@ In diesem Artikel erfahren Sie, wie Sie einen Event Hub in Azure Event Hubs erst
 1. Erstellen Sie eine Consumergruppe, die ausschließlich von Ihrer Time Series Insights-Ereignisquelle verwendet wird.
 
     > [!IMPORTANT]
-    > Achten Sie darauf, dass diese Consumergruppe nicht von einem anderen Dienst (beispielsweise durch einen Azure Stream Analytics-Auftrag oder durch eine andere Time Series Insights-Umgebung) verwendet wird. Wenn die Consumergruppe von den anderen Diensten verwendet wird, wirkt sich das negativ auf Lesevorgänge für diese Umgebung und für andere Dienste aus. Wenn Sie **$Default** als Consumergruppe verwenden, können andere Leser Ihre Consumergruppe möglicherweise wiederverwenden.
+    > Achten Sie darauf, dass diese Consumergruppe nicht von einem anderen Dienst, beispielsweise durch einen Azure Stream Analytics-Auftrag oder durch eine andere Time Series Insights-Umgebung, verwendet wird. Wenn die Consumergruppe von den anderen Diensten verwendet wird, wirkt sich das negativ auf Lesevorgänge für diese Umgebung und für andere Dienste aus. Wenn Sie **$Default** als Consumergruppe verwenden, können andere Leser Ihre Consumergruppe möglicherweise wiederverwenden.
 
 1. Wählen Sie in dem Menü unter **Einstellungen** die Option **SAS-Richtlinien** und anschließend **Hinzufügen** aus.
 
@@ -81,7 +81,7 @@ Das Time Series Insights-Update verwendet Instanzen, um eingehenden Telemetrieda
 
 1. Wählen Sie **Zum Starten klicken** aus. Der Simulator generiert Instanz-JSON, das Sie direkt verwenden können.
 
-1. Wechseln Sie zu Ihrem Event Hub im Azure-Portal zurück. Auf der Seite **Übersicht** sollten Sie jetzt die neuen Ereignisse verfolgen können, die vom Event Hub empfangen werden.
+1. Wechseln Sie zu Ihrem Event Hub im Azure-Portal zurück. Auf der Seite **Übersicht** können Sie jetzt die neuen Ereignisse verfolgen, die vom Event Hub empfangen werden.
 
     [![Eine Seite „Übersicht“ des Event Hubs, die Metriken für den Event Hub zeigt](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 

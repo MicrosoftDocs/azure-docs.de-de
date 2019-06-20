@@ -3,8 +3,8 @@ title: Azure Resource Manager-Vorlagenbeispiele für virtuelle Netzwerke | Micro
 description: Hier finden Sie Informationen zu verschiedenen verfügbaren Azure Resource Manager-Vorlagen, mit denen Sie virtuelle Azure-Netzwerke bereitstellen können.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/13/2018
-ms.author: jdial
-ms.openlocfilehash: a16feffea6ac64423398b995499f0e6a60182636
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 04/22/2019
+ms.author: kumud
+ms.openlocfilehash: c553e3f2de963abb4a3c23a4114eecfa33d0aa61
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039587"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735330"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Azure Resource Manager-Vorlagenbeispiele für virtuelle Netzwerke
 
@@ -29,10 +29,11 @@ Die folgende Tabelle enthält Links zu Azure Resource Manager-Vorlagenbeispielen
 Informationen zur JSON-Syntax und zu den Eigenschaften, die in Vorlagen verwendet werden sollen, finden Sie unter [Microsoft.Network resource types](/azure/templates/microsoft.network/allversions) (Microsoft.Network-Ressourcentypen).
 
 
-| | |
+| Aufgabe | BESCHREIBUNG |
 |----|----|
 |[Erstellen eines virtuellen Netzwerks mit zwei Subnetzen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| Erstellt ein virtuelles Netzwerk mit zwei Subnetzen.|
 |[Weiterleiten von Datenverkehr über ein virtuelles Netzwerkgerät](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| Erstellt ein virtuelles Netzwerk mit drei Subnetzen. Stellt in jedem der Subnetze einen virtuellen Computer bereit. Erstellt eine Routingtabelle mit Routen, um Datenverkehr aus einem Subnetz über den virtuellen Computer im dritten Subnetz an ein anderes Subnetz weiterzuleiten. Ordnet die Routingtabelle einem der Subnetze zu.|
-|[Erstellen eines VNet-Dienstendpunkts für Azure Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|Erstellt ein neues virtuelles Netzwerk mit zwei Subnetzen und jeweils eine Netzwerkschnittstelle in den Subnetzen. Aktiviert einen Dienstendpunkt für Azure Storage für eines der Subnetze und bindet ein neues Speicherkonto an dieses Subnetz.|
+|[Erstellen eines VNET-Dienstendpunkts für Azure Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|Erstellt ein neues virtuelles Netzwerk mit zwei Subnetzen und jeweils eine Netzwerkschnittstelle in den Subnetzen. Aktiviert einen Dienstendpunkt für Azure Storage für eines der Subnetze und bindet ein neues Speicherkonto an dieses Subnetz.|
 |[Verbinden zweier virtueller Netzwerke](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering)| Erstellt zwei virtuelle Netzwerke und ein Peering zwischen ihnen.|
 |[Erstellen eines virtuellen Computers mit mehreren IP-Adressen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig)| Erstellt einen virtuellen Windows- oder Linux-Computer mit mehreren IP-Adressen.|
+|[Konfigurieren eines virtuellen IPv4 + IPv6 Dual-Stack-Netzwerks](https://github.com/Azure/azure-quickstart-templates/tree/master/ipv6-in-vnet)|Stellt ein virtuelles Dual-Stack-Netzwerk (IPv4 + IPv6) mit zwei virtuellen Computern und einem Azure Load Balancer Basic mit öffentlichen IPv4- und IPv6-Adressen bereit. |

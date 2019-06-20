@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 9f67c8028f5142117a5e245c90622fa0b4920d4d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352476"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66236437"
 ---
 ## <a name="get-the-sample-images"></a>Abrufen der Beispielbilder
 

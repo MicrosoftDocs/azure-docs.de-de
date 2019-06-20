@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670419"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954519"
 ---
 # <a name="basic-concepts"></a>Grundlegende Konzepte
 
@@ -32,7 +32,7 @@ Wenn Sie hier zum ersten Mal eine sprachaktivierte Anwendung erstellen oder eine
 
 Der *Audiodatenstrom* steht bei den grundlegenden Konzepten der Sprache an erster Stelle. Im Gegensatz zu einem Tastendruck, der zu einem einzelnen Zeitpunkt auftritt und eine einzige Information enthält, ist eine gesprochene Anforderung über Hunderte von Millisekunden verteilt und enthält viele Kilobytes an Informationen. Die Dauer der gesprochenen Äußerungen stellt Entwickler, die in ihren Anwendungen eine optimierte und elegante Spracherfahrung bieten möchten, vor einige Probleme. Die heutigen Computer und Algorithmen führen eine Sprachtranskription in ungefähr der Hälfte der Dauer der Äußerung durch, d.h. eine Äußerung von 2 Sekunden Dauer kann in ungefähr 1 Sekunde transkribiert werden, aber jede Anwendung, bei der eine Verzögerung von 1 Sekunde bei der Verarbeitung auftritt, ist weder optimiert noch elegant.
 
-Glücklicherweise gibt es Möglichkeiten, die Transkriptionszeit zu „verstecken“, indem die Transkription an einem Teil der Äußerung durchgeführt wird, während der Benutzer einen anderen Teil spricht. Wenn z.B. eine 1-Sekunden-Äußerung in 10 Blöcke von 100 Millisekunden aufgeteilt und ein Block nach dem anderen transkribiert wird, können über 450 der insgesamt für die Transkription erforderlichen 500 Millisekunden „versteckt“ werden, sodass der Benutzer nicht bemerkt, dass die Transkription durchgeführt wird, während er spricht. Beachten Sie bei diesem Beispiel, dass der Dienst die vorherigen 100 Millisekunden der Audioaufzeichnung transkribiert, während der Benutzer die nächsten 100 spricht; wenn der Benutzer also aufhört zu sprechen, muss der Dienst nur ungefähr 100 Millisekunden der Audioaufzeichnung transkribieren, um ein Ergebnis zu erzeugen.
+Glücklicherweise gibt es Möglichkeiten, die Transkriptionszeit zu „verstecken“, indem die Transkription an einem Teil der Äußerung durchgeführt wird, während der Benutzer einen anderen Teil spricht. Wenn z. B. eine 1-Sekunden-Äußerung in 10 Blöcke von 100 Millisekunden aufgeteilt und ein Block nach dem anderen transkribiert wird, können über 450 der insgesamt für die Transkription erforderlichen 500 Millisekunden „versteckt“ werden, sodass der Benutzer nicht bemerkt, dass die Transkription durchgeführt wird, während er spricht. Beachten Sie bei diesem Beispiel, dass der Dienst die vorherigen 100 Millisekunden der Audioaufzeichnung transkribiert, während der Benutzer die nächsten 100 spricht; wenn der Benutzer also aufhört zu sprechen, muss der Dienst nur ungefähr 100 Millisekunden der Audioaufzeichnung transkribieren, um ein Ergebnis zu erzeugen.
 
 Um diese Benutzererfahrung zu realisieren, werden gesprochene Audioinformationen in Blöcken erfasst und transkribiert, während der Benutzer spricht. Diese Audioblöcke stammen aus dem *Audiodatenstrom*, und das Senden dieser Audioblöcke an den Dienst wird als *Audiostreaming* bezeichnet. Audiostreaming ist ein wichtiger Teil jeder sprachaktivierten Anwendung; das Abstimmen der Blockgröße und Optimieren der Streamingimplementierung gehören zu den wirkungsvollsten Maßnahmen zur Verbesserung der Benutzerfreundlichkeit Ihrer Anwendung.
 
@@ -82,9 +82,9 @@ Der Spracherkennungsdienst von Microsoft bietet Entwicklern zwei Möglichkeiten,
 | Anwendungsfälle | [REST-APIs](GetStarted/GetStartedREST.md) | [Clientbibliotheken](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | Konvertieren von kurzem gesprochenem Audio mit einer Länge von weniger als 15 Sekunden (beispielsweise Befehle) ohne Zwischenergebnisse | Ja | Ja |
-| Konvertieren von langem Audio (länger als 15 Sekunden) | Nein  | Ja |
-| Streamen von Audio mit Zwischenergebnissen | Nein  | Ja |
-| Verstehen des aus Audio konvertierten Texts mithilfe von LUIS | Nein  | Ja |
+| Konvertieren von langem Audio (länger als 15 Sekunden) | Nein | Ja |
+| Streamen von Audio mit Zwischenergebnissen | Nein | Ja |
+| Verstehen des aus Audio konvertierten Texts mithilfe von LUIS | Nein | Ja |
 
  Wenn Ihre Sprache oder Plattform nicht über ein SDK verfügt, können Sie eine eigene Implementierung auf Basis der [Protokolldokumentation](API-Reference-REST/websocketprotocol.md) erstellen.
 

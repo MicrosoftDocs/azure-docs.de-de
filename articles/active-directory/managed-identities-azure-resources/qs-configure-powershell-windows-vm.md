@@ -16,10 +16,10 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f76fef3d5e6515e9d546c709ace0a4a533c0a45
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112695"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Konfigurieren von verwalteten Identitäten für Azure-Ressourcen auf einem virtuellen Azure-Computer mithilfe von PowerShell
@@ -147,7 +147,7 @@ Für die Zuweisung einer benutzerseitig zugewiesenen Identität zu einem virtuel
 
 1. Verwenden Sie einen der folgenden Schnellstarts für virtuelle Azure-Computer, und setzen Sie nur die erforderlichen Abschnitte um („Anmelden bei Azure“, „Erstellen einer Ressourcengruppe“, „Erstellen einer Netzwerkgruppe“, „Erstellen des virtuellen Computers“). 
   
-    Wenn Sie zum Abschnitt zum Erstellen der VM gelangen, nehmen Sie eine kleine Änderung an der Syntax des Cmdlets [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) vor. Fügen Sie die Parameter `-IdentityType UserAssigned` und `-IdentityID` für die Bereitstellung des virtuellen Computers mit einer benutzerzugewiesenen Identität hinzu.  Ersetzen Sie `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` und `<USER ASSIGNED IDENTITY NAME>` durch Ihre eigenen Werte.  Beispiel: 
+    Wenn Sie zum Abschnitt zum Erstellen der VM gelangen, nehmen Sie eine kleine Änderung an der Syntax des Cmdlets [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) vor. Fügen Sie die Parameter `-IdentityType UserAssigned` und `-IdentityID` für die Bereitstellung des virtuellen Computers mit einer benutzerzugewiesenen Identität hinzu.  Ersetzen Sie `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` und `<USER ASSIGNED IDENTITY NAME>` durch Ihre eigenen Werte.  Beispiel:
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Data Factory-Mapping Data Flow: Auswahltransformation'
-description: 'Azure Data Factory-Mapping Data Flow: Auswahltransformation'
+title: 'Azure Data Factory Mapping Data Flow: Auswahltransformation'
+description: 'Azure Data Factory Mapping Data Flow: Auswahltransformation'
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.openlocfilehash: bc83b41067d587adce41658a2c4b3d68969750ba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61364465"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Azure Data Factory-Mapping Data Flow: Auswahltransformation
+# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Azure Data Factory Mapping Data Flow: Auswahltransformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,7 +24,7 @@ Mit der Auswahltransformation können Sie einem gesamten Datenstrom oder Spalten
 
 ![Selbstverknüpfung](media/data-flow/selfjoin.png "Selbstverknüpfung")
 
-Im obigen Diagramm befindet sich die Auswahltransformation ganz oben. Dem ursprünglichen Datenstrom wird der Alias „OrigSourceBatting“ zugewiesen. In der hervorgehobenen Jointransformation darunter sehen Sie, dass wir diesen Aliasdatenstrom der Auswahltransformation als rechten Join verwenden. Dies erlaubt es uns, sowohl auf der linken als auch auf der rechten Seite des inneren Joins auf denselben Schlüssel zu verweisen.
+Im obigen Diagramm befindet sich die Auswahltransformation ganz oben. Dem ursprünglichen Datenstrom wird der Alias „OrigSourceBatting“ zugewiesen. In der hervorgehobenen Verknüpfungstransformation darunter können Sie sehen, dass wir diesen Aliasdatenstrom der Auswahltransformation als rechte Verknüpfung verwenden, sodass wir sowohl auf der linken als auch auf der rechten Seite der inneren Verknüpfung (des inneren Join) auf den gleichen Schlüssel verweisen können.
 
 Die Auswahltransformation kann auch als Möglichkeit verwendet werden, die Auswahl von Spalten in Ihrem Datenfluss aufzuheben. Wenn in Ihrer Senke beispielsweise 6 Spalten definiert sind, Sie aber nur 3 bestimmte Spalten für die Transformation auswählen und dann zur Senke fließen lassen möchten, können Sie mit der Auswahltransformation nur diese 3 Spalten auswählen.
 

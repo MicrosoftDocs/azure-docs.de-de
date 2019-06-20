@@ -2,20 +2,20 @@
 title: 'Autorisierungscodeflow: Azure Active Directory B2C | Microsoft-Dokumentation'
 description: Erfahren Sie, wie Sie Web-Apps mithilfe von Azure AD B2C und dem Authentifizierungsprotokoll OpenID Connect erstellen.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72111bc54691b340bcb0d8af8ef52bf0bd103a21
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509239"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2.0-Autorisierungscodefluss in Azure Active Directory B2C
 

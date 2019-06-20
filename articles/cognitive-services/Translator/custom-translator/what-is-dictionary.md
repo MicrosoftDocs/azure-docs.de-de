@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: bfefb1fe44959bc7e5186a0f14813f41256cf2d5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4bf112974befd7063b3da8e2b1c1dcbb7ad55608
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775440"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385238"
 ---
 # <a name="what-is-a-dictionary"></a>Definition: Wörterbuch
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell, Runbook, JSON, Azure Automation
 ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446969"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61073745"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Bereitstellen einer Azure Resource Manager-Vorlage in einem Azure Automation-PowerShell-Runbook
 

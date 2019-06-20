@@ -10,10 +10,10 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: d9ef6f5056fdbd7187c92c98d1c884a5314c29a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153667"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Verwenden von Azure Storage mit einer Jenkins-Lösung für Continuous Integration
@@ -118,7 +118,7 @@ Die folgenden Schritte veranschaulichen das Konfigurieren eines Buildschritts zu
 1. Wählen Sie in der Auftragskonfiguration im Abschnitt **Build** die Option **Add build step** (Buildschritt hinzufügen) aus, und wählen Sie dann **Download from Azure Blob storage** (Aus Azure-Blobspeicher herunterladen).
 2. Wählen Sie unter **Storage account name**das zu verwendende Speicherkonto aus.
 3. Geben Sie für **Container name**den Namen des Containers an, der die herunterzuladenden Blobs enthält. Sie können Umgebungsvariablen verwenden.
-4. Geben Sie unter **Blob name** (Blobname) den Blobnamen ein. Sie können Umgebungsvariablen verwenden. Sie können auch ein Sternchen als einen Platzhalter verwenden, nachdem Sie den bzw. die Anfangsbuchstaben des Blobnamens angeben. Beispielsweise gibt **project\\*** alle Blobs an, deren Namen mit **project** beginnen.
+4. Geben Sie unter **Blob name** (Blobname) den Blobnamen ein. Sie können Umgebungsvariablen verwenden. Sie können auch ein Sternchen als einen Platzhalter verwenden, nachdem Sie den bzw. die Anfangsbuchstaben des Blobnamens angeben. Beispielsweise gibt **project\\** * alle Blobs an, deren Namen mit **project** beginnen.
 5. [Optional] Geben Sie für **Downloadpfad** den Pfad auf dem Jenkins-Computer an, in den die Dateien aus Azure Blob Storage heruntergeladen werden sollen. Es können auch Umgebungsvariablen verwendet werden. (Wenn Sie keinen Wert für **Downloadpfad**angeben, werden die Dateien aus Azure Blob Storage in den Arbeitsbereich des Auftrags heruntergeladen.)
 
 Wenn Sie zusätzliche Elemente aus Azure Blob Storage herunterladen möchten, können Sie zusätzliche Buildschritte erstellen.
@@ -137,7 +137,7 @@ In diesem Abschnitt erhalten Sie einen Überblick über die Komponenten des Blob
   
     (Das Format oben gilt für die globale Azure-Cloud. Wenn Sie mit einer anderen Azure-Cloud arbeiten, verwenden Sie den Endpunkt im [Azure-Portal](https://portal.azure.com) , um Ihren URL-Endpunkt zu bestimmen.)
   
-    Bei obigem Format steht `storageaccount` für den Namen Ihres Speicherkontos, `container_name` für den Namen des Containers und `blob_name` für den Namen des Blobs. Der Containername kann mehrere Pfade umfassen, die durch einen Schrägstrich (**/**) getrennt sind. Der Beispielcontainername in diesem Tutorial war **MyJob**, und **${BUILD\_ID}/${BUILD\_NUMBER}** wurde für den gemeinsamen virtuellen Pfad verwendet. Der Blob hat also eine URL in folgendem Format:
+    Bei obigem Format steht `storageaccount` für den Namen Ihres Speicherkontos, `container_name` für den Namen des Containers und `blob_name` für den Namen des Blobs. Der Containername kann mehrere Pfade umfassen, die durch einen Schrägstrich ( **/** ) getrennt sind. Der Beispielcontainername in diesem Tutorial war **MyJob**, und **${BUILD\_ID}/${BUILD\_NUMBER}** wurde für den gemeinsamen virtuellen Pfad verwendet. Der Blob hat also eine URL in folgendem Format:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

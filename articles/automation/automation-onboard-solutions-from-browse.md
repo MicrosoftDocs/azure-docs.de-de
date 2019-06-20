@@ -9,20 +9,20 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578491"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133138"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivieren von Lösungen für die Updateverwaltung, Änderungsnachverfolgung und den Bestand für mehrere VMs
 
 Azure Automation stellt Lösungen zum Verwalten der Sicherheitsupdates für das Betriebssystem, zum Nachverfolgen von Änderungen und für den Bestand bereit, der auf Ihren Computern installiert ist. Es gibt mehrere Möglichkeiten, Computer zu integrieren. Sie können die Lösung [über einen virtuellen Computer](automation-onboard-solutions-from-vm.md), über Ihr [Automation-Konto](automation-onboard-solutions-from-automation-account.md), durch Durchsuchen mehrerer Computer oder per [Runbook](automation-onboard-solutions.md) integrieren. Dieser Artikel behandelt das Integrieren dieser Lösungen durch Durchsuchen virtueller Computer in Azure.
 
-## <a name="log-in-to-azure"></a>Anmelden an Azure
+## <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
-Anmelden bei Azure unter https://portal.azure.com
+Melden Sie sich unter https://portal.azure.com bei Azure an.
 
 ## <a name="enable-solutions"></a>Aktivieren von Lösungen
 
@@ -59,27 +59,10 @@ Wenn der ausgewählte Arbeitsbereich nicht mit einem Automation-Konto verknüpft
 
 ![Kein Arbeitsbereich](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Wenn Sie Lösungen aktivieren, werden nur bestimmte Regionen zum Verknüpfen mit einem Log Analytics-Arbeitsbereich und einem Automation-Konto unterstützt.
-
-Die folgende Tabelle zeigt die unterstützten Zuordnungen:
-
-|**Log Analytics-Arbeitsbereichsregion**|**Azure Automation-Region**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|Europa, Westen|Europa, Westen|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP- und EastUS-Zuordnungen für Log Analytics-Arbeitsbereiche zu Automation-Konten sind keine exakten Region-zu-Region-Zuordnungen, jedoch handelt es sich um die richtige Zuordnung.
-
-<sup>2</sup> Aufgrund von Kapazitätseinschränkungen ist die Region nicht verfügbar, wenn neue Ressourcen erstellt werden. Dies umfasst auch Automation-Konten und Log Analytics-Arbeitsbereiche. Allerdings sollten bereits in der Region vorhandene verknüpfte Ressourcen weiterhin funktionieren.
+> [!NOTE]
+> Wenn Sie Lösungen aktivieren, werden nur bestimmte Regionen zum Verknüpfen mit einem Log Analytics-Arbeitsbereich und einem Automation-Konto unterstützt.
+>
+> Eine Liste der unterstützten Zuordnungspaare finden Sie unter [Regionszuordnung für Automation-Konto und Log Analytics-Arbeitsbereich](how-to/region-mappings.md).
 
 Deaktivieren Sie das Kontrollkästchen neben jedem virtuellen Computern, den Sie nicht aktivieren möchten. Die Auswahl für virtuelle Computer, die nicht aktiviert werden können, ist bereits aufgehoben.
 
@@ -121,6 +104,8 @@ Wenn Sie die Lösung „Starten und Beenden von VMs außerhalb der Kernzeit“ v
 * Starten und beenden Sie Zeitpläne für VM-Runbooks.
 * Starten und beenden Sie VM-Runbooks.
 * Variables
+
+Alternativ können Sie Ihren Arbeitsbereich auch von Ihrem Automation-Konto in Ihrem Log Analytics-Arbeitsbereich trennen. Wählen Sie in Ihrem Arbeitsbereich unter **Verwandte Ressourcen** die Option **Automation-Konto** aus. Klicken Sie auf der Seite **Automation-Konto** auf {0}Verknüpfung zu diesem Konto aufheben{0}.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 

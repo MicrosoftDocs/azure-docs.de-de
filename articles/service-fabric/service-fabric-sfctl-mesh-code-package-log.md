@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e7bc8491071946eaa2e322517e5d36d681a49130
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661070"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837639"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 Ruft die Protokolle für den Container des angegebenen Codepakets für das angegebene Dienstreplikat ab.

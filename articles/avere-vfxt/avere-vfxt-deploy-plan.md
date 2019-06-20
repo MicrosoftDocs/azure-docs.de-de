@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271066"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409878"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planen des Avere vFXT-Systems
 
@@ -42,7 +42,7 @@ Befolgen Sie die folgenden Richtlinien bei der Planung der Netzwerkinfrastruktur
 
 * Die Vorlage für die Clustererstellung kann den Großteil der erforderlichen Infrastruktur für den Cluster erstellen, einschließlich Ressourcengruppen, virtueller Netzwerke, Subnetze und Speicherkonten. Wenn Sie Ressourcen verwenden möchten, die bereits vorhanden sind, stellen Sie sicher, dass sie die Anforderungen in dieser Tabelle erfüllen. 
 
-  | Ressource | Vorhandene verwenden? | Requirements (Anforderungen) |
+  | Resource | Vorhandene verwenden? | Requirements (Anforderungen) |
   |----------|-----------|----------|
   | Ressourcengruppe | Ja, wenn leer. | Muss leer sein.| 
   | Speicherkonto | Ja, wenn ein Blob-Container nach der Erstellung des Clusters verbunden wird. <br/>  Nein, wenn ein Blob-Container während der Erstellung des Clusters erstellt. | Vorhandener Blob-Container muss leer sein. <br/> &nbsp; |
@@ -76,7 +76,7 @@ Die einzelnen vFXT-Knoten sind identisch. Das bedeutet, dass Sie beim Erstellen 
 
 | Instanztyp | vCPUs | Arbeitsspeicher  | Lokaler SSD-Speicher  | Max. Anzahl Datenträger | Durchsatz des Datenträgers ohne Cache | NIC (Anzahl) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E32s_v3 | 32  | 256 GiB | 512 GB  | 32 | 51.200 IOPS <br/> 768 MBit/s | 16.000 MBit/s (8)  |
+| Standard_E32s_v3 | 32  | 256 GiB | 512 GB  | 32 | 51\.200 IOPS <br/> 768 MBit/s | 16\.000 MBit/s (8)  |
 
 Der Datenträgercache pro Knoten ist konfigurierbar und kann zwischen 1000 GB und 8000 GB liegen. 4 TB pro Knoten ist die empfohlene Cachegröße für Standard_E32s_v3-Knoten.
 

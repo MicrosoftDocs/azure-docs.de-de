@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 245e5ca6e2d7d1f48951d63ba6539180a35f1358
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57250436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604137"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>Anzeigen der Steuerdokumente für Ihre Microsoft-Kundenvereinbarung
 
@@ -36,7 +36,7 @@ Sie müssen über die Rolle „Besitzer des Abrechnungsprofils“, „Mitwirkend
 3. Wählen Sie **Rechnungen** aus.
 4. Suchen Sie im Rechnungsraster nach der Zeile der Rechnung, die dem Steuerdokument entspricht, das Sie herunterladen möchten.
 5. Klicken Sie am Ende der Zeile auf die Auslassungspunkte (`...`).
-6. Wählen Sie **Steuerdokument** aus. Je nach Land Ihres Abrechnungsprofils werden möglicherweise mehrere Steuerdokumente pro Rechnung angezeigt.
+6. Wählen Sie **Steuerdokument** aus. Je nach Land/Region Ihres Abrechnungsprofils werden möglicherweise mehrere Steuerdokumente pro Rechnung angezeigt.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Überprüfen des Zugriffs auf eine Microsoft-Kundenvereinbarung
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

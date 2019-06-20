@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339946"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706681"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>Aktualisieren Ihrer Gruppeninformationen im Portal „Meine Apps“
 Sie können Ihr Geschäfts-, Schul- oder Unikonto mit dem webbasierten Portal **Meine Apps** verwenden, um viele der cloudbasierten Apps Ihrer Organisation anzuzeigen und zu starten, bestimmte Profil- und Kontoinformationen zu aktualisieren, Informationen zu Ihren **Gruppen** anzuzeigen und **Zugriffsüberprüfungen** für Ihre Apps und Gruppen durchzuführen. Sollten Sie keinen Zugriff auf das Portal **Meine Apps** haben, wenden Sie sich an Ihren Helpdesk.
@@ -39,9 +39,9 @@ Wenn Ihr Administrator Ihnen die Berechtigung zum Anzeigen der Kachel **Gruppen*
 
 1.  Melden Sie sich bei Ihrem Geschäfts-, Schul- oder Unikonto an.
 
-2.  Öffnen Sie Ihren Webbrowser, und wechseln Sie zu https://myapps.microsoft.com, oder verwenden Sie den von Ihrer Organisation bereitgestellten Link. So können Sie beispielsweise zu einer benutzerdefinierten Seite Ihrer Organisation geleitet werden, wie beispielsweise https://myapps.microsoft.com/contoso.com.
+2.  Öffnen Sie Ihren Webbrowser, und navigieren Sie zu https://myapps.microsoft.com, oder verwenden Sie den von Ihrer Organisation bereitgestellten Link. So können Sie beispielsweise zu einer benutzerdefinierten Seite Ihrer Organisation wie https://myapps.microsoft.com/contoso.com geleitet werden.
 
-    Die Seite **Apps** wird mit allen Cloud-Apps im Besitz Ihrer Organisation angezeigt, die Ihnen zur Verfügung stehen.
+    Die Seite **Apps** wird mit allen im Besitz Ihrer Organisation befindlichen Cloud-Apps angezeigt, die Ihnen zur Verfügung stehen.
 
     ![Seite „Apps“ im Portal „Meine Apps“](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
 
@@ -53,17 +53,19 @@ Wenn Ihr Administrator Ihnen die Berechtigung zum Anzeigen der Kachel **Gruppen*
 
     - **Überprüfen der Gruppen, deren Besitzer Sie sind.** Sie können im Bereich **Gruppen in meinem Besitz** Informationen zu allen Gruppen anzeigen, die Sie innerhalb Ihrer Organisation besitzen. Wenn Sie einen bestimmten Gruppennamen auswählen, erhalten Sie weitere Informationen zur Gruppe, einschließlich Gruppentyp, Anzahl der Mitglieder, Richtlinie für Beitritt und Liste der aktiven Mitglieder.
 
-    - **Erstellen einer neuen Gruppe.** Erstellen Sie im Bereich**Gruppen in meinem Besitz** eine neue Gruppe mit Ihnen als Besitzer. Die auszuführenden Schritte finden Sie im Abschnitt [Erstellen einer neuen Gruppe](#create-a-new-group) dieses Artikels.
+    - **Erstellen einer neuen Gruppe.** Erstellen Sie im Bereich**Gruppen in meinem Besitz** eine neue Gruppe mit Ihnen als Besitzer. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Erstellen einer neuen Gruppe](#create-a-new-group).
 
-    - **Bearbeiten einer vorhandenen Gruppe**. Bearbeiten Sie die Details Ihrer eigenen Gruppen. Die auszuführenden Schritte finden Sie im Abschnitt [Bearbeiten einer vorhandenen Gruppe](#edit-an-existing-group) dieses Artikels.
+    - **Bearbeiten einer vorhandenen Gruppe**. Bearbeiten Sie die Details Ihrer eigenen Gruppen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Bearbeiten einer vorhandenen Gruppe](#edit-an-existing-group).
 
-    - **Hinzufügen oder Entfernen von Mitgliedern**. Bei Gruppen in Ihrem Besitz können Sie Mitglieder hinzufügen und entfernen. Die auszuführenden Schritte finden Sie im Abschnitt [Hinzufügen oder Entfernen von Mitgliedern](#add-or-remove-a-member) dieses Artikels.
+    - **Hinzufügen oder Entfernen von Mitgliedern**. Bei Gruppen in Ihrem Besitz können Sie Mitglieder hinzufügen und entfernen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Hinzufügen oder Entfernen von Mitgliedern](#add-or-remove-a-member).
 
-    - **Löschen einer Gruppe**. Gruppen in Ihrem Besitz können Sie löschen. Die auszuführenden Schritte finden Sie im Abschnitt [Löschen einer Gruppe](#delete-a-group) dieses Artikels.
+    - **Verlängern einer Office 365-Gruppe**. Wenn Ihre Organisation dies zulässt, können Sie Ihre Office 365-Gruppen verlängern. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Verlängern einer Office 365-Gruppe](#renew-an-office-365-group). 
+
+    - **Löschen einer Gruppe**. Gruppen in Ihrem Besitz können Sie löschen. Die einzelnen Schritte finden Sie in diesem Artikel im Abschnitt [Löschen einer Gruppe](#delete-a-group).
 
     - **Überprüfen der Gruppen, deren Mitglied Sie sind.** Zeigen Sie im Bereich **Meine Gruppenmitgliedschaften** die Namen von Gruppen an, deren Mitglied Sie sind. Wenn Sie einen bestimmten Gruppennamen auswählen, erhalten Sie weitere Informationen zur Gruppe, einschließlich Gruppentyp, Anzahl der Mitglieder, Richtlinie für Beitritt und Liste der aktiven Mitglieder.
 
-    - **Beitreten zu einer Gruppe**. Im Bereich **Meine Gruppenmitgliedschaften** können Sie einer bestehenden Gruppe beitreten, deren Mitglied Sie noch nicht sind. Die auszuführenden Schritte finden Sie im Abschnitt [Beitreten zu einer Gruppe](#join-an-existing-group) dieses Artikels.
+    - **Beitreten zu einer Gruppe**. Im Bereich **Meine Gruppenmitgliedschaften** können Sie einer bestehenden Gruppe beitreten, deren Mitglied Sie noch nicht sind. Die einzelnen Schritte finden Sie unter [Beitreten zu einer vorhandenen Gruppe](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Erstellen einer neuen Gruppe
 1. Wählen Sie auf der Seite **Gruppen** im Bereich **Gruppen in meinem Besitz** den Befehl **Gruppe erstellen** aus.
@@ -104,7 +106,7 @@ Nachdem Sie eine Gruppe erstellt haben, können Sie ihre Details bearbeiten, d.h
 Bei Ihren eigenen Gruppen können Sie Mitglieder hinzufügen und entfernen.
 
 ### <a name="to-add-or-remove-a-member"></a>So können Sie ein Mitglied hinzufügen oder entfernen
-1. Wählen Sie die Gruppe aus, der Sie Mitglieder hinzufügen möchten, und klicken Sie anschließend auf der Seite *&lt;Gruppenname&gt;* auf **+**.
+1. Wählen Sie die Gruppe aus, der Sie Mitglieder hinzufügen möchten, und klicken Sie anschließend auf der Seite *&lt;Gruppenname&gt;* auf **+** .
 
     ![Hinzufügen eines Gruppenmitglieds mit hervorgehobenem Pluszeichen](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
@@ -117,6 +119,18 @@ Bei Ihren eigenen Gruppen können Sie Mitglieder hinzufügen und entfernen.
 3. Wenn Sie ein Mitglied versehentlich hinzugefügt haben oder ein Mitglied Ihre Organisation verlassen hat, können Sie das Mitglied entfernen, indem Sie auf der Seite *&lt;Gruppenname&gt;* neben dem Namen des Mitglieds auf **Mitglied entfernen** klicken.
 
     ![Entfernen eines Mitglieds mit hervorgehobenem Link zum Entfernen](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>Verlängern einer Office 365-Gruppe
+Wenn Ihre Organisation dies zulässt, können Sie eine Office 365-Gruppe erneuern und damit deren Ablaufdatum verlängern.
+
+### <a name="to-renew-a-group"></a>So verlängern Sie eine Gruppe
+1. Wählen Sie die Office 365-Gruppe aus, die Sie verlängern möchten, und wählen Sie dann **Gruppe verlängern** aus.
+
+    ![Verlängern einer Office 365-Gruppe und deren Ablaufdatum](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. Klicken Sie auf **OK**, um die Bestätigungsmeldung zu schließen.
+
+    Nachdem Sie die Seite aktualisiert haben, werden unter **Zuletzt erneuert** und **Gruppenablauf** die aktualisierten Datumsangaben angezeigt.
 
 ## <a name="delete-a-group"></a>Löschen einer Gruppe
 Sie können Ihre eigenen Gruppen jederzeit löschen. Wenn Sie eine Gruppe versehentlich gelöscht haben, müssen Sie jedoch neu erstellen und Mitglieder wieder hinzufügen.

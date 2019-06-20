@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878884"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Open Source-Big Data-Anwendungen, die mit Azure Data Lake Storage Gen1 verwendet werden können
 

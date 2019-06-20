@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a0c677e25be86e0f82b821a7931bda0af2b35127
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408655"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864794"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Schnellstart: Erstellen einer Azure-Funktion mit App Configuration
 
@@ -31,7 +31,7 @@ Für die Ausführung der Schritte dieser Schnellstartanleitung können Sie einen
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Installieren Sie [Visual Studio 2017](https://visualstudio.microsoft.com/vs), um diese Schnellstartanleitung auszuführen. Vergewissern Sie sich, dass auch die Workload **Azure-Entwicklung** installiert ist. Installieren Sie außerdem die [neuesten Azure Functions-Tools](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Installieren Sie [Visual Studio 2019](https://visualstudio.microsoft.com/vs), um diese Schnellstartanleitung auszuführen. Vergewissern Sie sich, dass auch die Workload **Azure-Entwicklung** installiert ist. Installieren Sie außerdem die [neuesten Azure Functions-Tools](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ Installieren Sie [Visual Studio 2017](https://visualstudio.microsoft.com/vs), um
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wählen Sie **Konfigurations-Explorer** > **+ Erstellen** aus, um die folgenden Schlüssel-Wert-Paare hinzuzufügen:
+6. Wählen Sie **Konfigurations-Explorer** >  **+ Erstellen** aus, um die folgenden Schlüssel-Wert-Paare hinzuzufügen:
 
     | Schlüssel | Wert |
     |---|---|
@@ -103,7 +103,7 @@ Installieren Sie [Visual Studio 2017](https://visualstudio.microsoft.com/vs), um
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Drücken Sie F5, um Ihre Funktion zu testen. Akzeptieren Sie die entsprechende Aufforderung von Visual Studio zum Herunterladen und Installieren der **Azure Functions Core (CLI)**-Tools. Sie müssen möglicherweise auch eine Firewallausnahme aktivieren, damit die Tools HTTP-Anforderungen verarbeiten können.
+2. Drücken Sie F5, um Ihre Funktion zu testen. Akzeptieren Sie die entsprechende Aufforderung von Visual Studio zum Herunterladen und Installieren der **Azure Functions Core (CLI)** -Tools. Sie müssen möglicherweise auch eine Firewallausnahme aktivieren, damit die Tools HTTP-Anforderungen verarbeiten können.
 
 3. Kopieren Sie die URL Ihrer Funktion aus der Azure Functions-Laufzeitausgabe.
 

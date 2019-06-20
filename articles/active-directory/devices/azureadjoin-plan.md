@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518931"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918832"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gewusst wie: Planen der Implementierung Ihrer Azure AD-Einbindung
 
@@ -137,13 +137,16 @@ Azure AD Join:
 
 Die Geräteverwaltung für in Azure AD eingebundene Geräte basiert auf einer MDM-Plattform (wie Intune) und MDM-CSPs. Windows 10 verfügt über einen integrierten MDM-Agent, der alle kompatiblen MDM-Lösungen unterstützt.
 
+> [!NOTE]
+> Gruppenrichtlinien werden für in Azure AD eingebundene Geräte nicht unterstützt, weil diese nicht mit der lokalen Active Directory-Instanz verbunden sind. Die Verwaltung von in Azure AD eingebundenen Geräten ist nur über MDM möglich.
+
+
 Es gibt zwei Ansätze für die Verwaltung von in Azure AD eingebundenen Geräten:
 
 - **Nur MDM**: Ein Gerät wird ausschließlich von einem MDM-Anbieter wie Intune verwaltet. Alle Richtlinien werden im Rahmen des MDM-Registrierungsprozesses bereitgestellt. Für Azure AD Premium- oder EMS-Kunden ist die MDM-Registrierung ein automatisierter Schritt, der Teil einer Azure AD-Einbindung ist.
 
 - **Co-Verwaltung**: Ein Gerät wird von einem MDM-Anbieter und SCCM verwaltet. Bei diesem Ansatz ist der SCCM-Agent auf einem MDM-verwalteten Gerät zur Verwaltung bestimmter Aspekte installiert.
 
-Weil in Azure AD eingebundene Geräte nicht mit dem lokalen Active Directory verbunden sind, werden Gruppenrichtlinien nicht unterstützt.
 
 
 Werten Sie bei Verwendung von Gruppenrichtlinien die MDM-Richtlinienparität mit dem [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT) aus. 
@@ -237,11 +240,11 @@ Hier finden Sie einen Vergleich dieser drei Methoden:
  
 ||Self-Service-Einrichtung|Windows Autopilot|Massenregistrierung|
 |---|---|---|---|
-|Benutzerinteraktion zum Einrichten erforderlich|Ja|Ja|Nein |
-|IT-Maßnahmen erforderlich|Nein |Ja|Ja|
+|Benutzerinteraktion zum Einrichten erforderlich|Ja|Ja|Nein|
+|IT-Maßnahmen erforderlich|Nein|Ja|Ja|
 |Zutreffende Abläufe|Windows-Willkommensseite & Einstellungen|Nur Windows-Willkommensseite|Nur Windows-Willkommensseite|
-|Lokale Administratorrechte für primären Benutzer|Ja, standardmäßig|Konfigurierbar|Nein |
-|OEM-Support erforderlich|Nein |Ja|Nein |
+|Lokale Administratorrechte für primären Benutzer|Ja, standardmäßig|Konfigurierbar|Nein|
+|OEM-Support erforderlich|Nein|Ja|Nein|
 |Unterstützte Versionen|1511+|1709+|1703+|
  
 Wählen Sie Ihre Bereitstellungsmethode(n), indem Sie die obige Tabelle durchgehen und die folgenden Aspekte für die Anwendung der jeweiligen Methode berücksichtigen:  

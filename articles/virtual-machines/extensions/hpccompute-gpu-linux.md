@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64683173"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA-GPU-Treibererweiterung für Linux
 
@@ -74,8 +74,8 @@ Der folgende JSON-Code zeigt das Schema für die Erweiterung.
 | NAME | Wert/Beispiel | Datentyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Herausgeber | Microsoft.HpcCompute | Zeichenfolge |
-| type | NvidiaGpuDriverLinux | Zeichenfolge |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Einstellungen
@@ -85,7 +85,7 @@ Alle Einstellungen sind optional. Das Standardverhalten ist, den Kernel nicht zu
 | NAME | BESCHREIBUNG | Standardwert | Gültige Werte | Datentyp |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Aktualisieren des Kernel, auch wenn nicht für die Treiberinstallation erforderlich ist | false | true, false | boolean |
-| driverVersion | NV: GRID-Treiberversion<br> NC/ND: CUDA-Toolkitversion. Die neuesten Treiber für den ausgewählten CUDA werden automatisch installiert. | neueste | GRID: „410.92“, „410.71“, „390.75“, „390.57“, „390.42“<br> CUDA: „10.0.130“, „9.2.88“, „9.1.85“ | Zeichenfolge |
+| driverVersion | NV: GRID-Treiberversion<br> NC/ND: CUDA-Toolkitversion. Die neuesten Treiber für den ausgewählten CUDA werden automatisch installiert. | neueste | GRID: „418.70“, „410.92“, „410.71“, „390.75“, „390.57“, „390.42“<br> CUDA: „10.0.130“, „9.2.88“, „9.1.85“ | string |
 | installCUDA | UDA-Toolkit installieren. Nur relevant für virtuelle Computer der NC-/ND-Serie. | true | true, false | boolean |
 
 

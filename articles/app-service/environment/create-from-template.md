@@ -15,11 +15,11 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66137080"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Erstellen einer ASE mit einer Azure Resource Manager-Vorlage
 
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 Die Erstellung einer ASE dauert etwa eine Stunde. Danach wird die ASE im Port in der Liste der ASEs für das Abonnement angezeigt, in dem die Bereitstellung ausgelöst wurde.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Hochladen und Konfigurieren des SSL-Standardzertifikats
-Der ASE muss ein SSL-Zertifikat als SSL-Standardzertifikat zugeordnet werden, das zum Herstellen von SSL-Verbindungen mit Apps verwendet wird. Wenn das DNS-Standardsuffix der ASE *internal-contoso.com* lautet, ist für eine Verbindung mit https://some-random-app.internal-contoso.com ein SSL-Zertifikat erforderlich, das für **.internal-contoso.com* gültig ist. 
+Der ASE muss ein SSL-Zertifikat als SSL-Standardzertifikat zugeordnet werden, das zum Herstellen von SSL-Verbindungen mit Apps verwendet wird. Wenn das DNS-Standardsuffix der ASE *internal-contoso.com* lautet, ist für eine Verbindung mit https://some-random-app.internal-contoso.com ein SSL-Zertifikat erforderlich, das für * *.internal-contoso.com* gültig ist. 
 
 Ein gültiges SSL-Zertifikat können Sie erhalten, indem Sie interne Zertifizierungsstellen verwenden, ein Zertifikat von einem externen Aussteller erwerben oder ein selbstsigniertes Zertifikat verwenden. Unabhängig von der Quelle des SSL-Zertifikats müssen die folgenden Zertifikatattribute ordnungsgemäß konfiguriert werden:
 
-* **Betreff**: Dieses Attribut muss auf **.your-root-domain-here.com* festgelegt werden.
-* **Alternativer Antragstellername**: Dieses Attribut muss sowohl **.your-root-domain-here.com* als auch **.scm.your-root-domain-here.com* enthalten. SSL-Verbindungen mit der SCM/Kudu-Website, die jeder App zugeordnet ist, verwenden eine Adresse im Format *your-app-name.scm.your-root-domain-here.com*.
+* **Betreff**: Dieses Attribut muss auf * *.your-root-domain-here.com* festgelegt werden.
+* **Alternativer Antragstellername**: Dieses Attribut muss sowohl * *.your-root-domain-here.com* als auch * *.scm.your-root-domain-here.com* enthalten. SSL-Verbindungen mit der SCM/Kudu-Website, die jeder App zugeordnet ist, verwenden eine Adresse im Format *your-app-name.scm.your-root-domain-here.com*.
 
 Wenn ein gültiges SSL-Zertifikat vorhanden ist, sind zwei weitere Vorbereitungsschritte erforderlich. Konvertieren Sie das SSL-Zertifikat in eine PFX-Datei, und speichern Sie es. Denken Sie daran, dass die PFX-Datei alle Zwischenzertifikate und Stammzertifikate enthalten muss. Sichern Sie es mit einem Kennwort.
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 Es dauert in jedem ASE-Front-End etwa 40 Minuten, bis die Änderungen angewendet wurden. Bei einer ASE mit Standardgröße, die zwei Front-Ends nutzt, dauert es beispielsweise ungefähr eine Stunde und 20 Minuten, bis der Vorgang für die Vorlage abgeschlossen ist. Während der Ausführung der Vorlage kann die ASE nicht skaliert werden.  
 
-Nachdem die Ausführung der Vorlage abgeschlossen ist, kann über HTTPS auf Apps in der ILB-ASE zugegriffen werden. Die Verbindungen werden mit dem SSL-Standardzertifikat gesichert. Das SSL-Standardzertifikat wird verwendet, wenn der Zugriff auf Apps in der ILB-ASE mit einer Kombination aus dem Anwendungsnamen und dem Standardhostnamen angefordert wird. Für https://mycustomapp.internal-contoso.com wird beispielsweise das SSL-Standardzertifikat für **.internal-contoso.com* verwendet.
+Nachdem die Ausführung der Vorlage abgeschlossen ist, kann über HTTPS auf Apps in der ILB-ASE zugegriffen werden. Die Verbindungen werden mit dem SSL-Standardzertifikat gesichert. Das SSL-Standardzertifikat wird verwendet, wenn der Zugriff auf Apps in der ILB-ASE mit einer Kombination aus dem Anwendungsnamen und dem Standardhostnamen angefordert wird. Für https://mycustomapp.internal-contoso.com wird beispielsweise das SSL-Standardzertifikat für * *.internal-contoso.com* verwendet.
 
 Entwickler können jedoch genau wie bei Apps, die im öffentlichen Mehrinstanzendienst ausgeführt werden, benutzerdefinierte Hostnamen für einzelne Apps konfigurieren. Sie können auch eindeutige SNI-SSL-Zertifikatbindungen für einzelne Apps konfigurieren.
 

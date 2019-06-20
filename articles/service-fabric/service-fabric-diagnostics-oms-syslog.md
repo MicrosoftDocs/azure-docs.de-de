@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62118371"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric-Linux-Clusterereignisse in Syslog
 
@@ -34,7 +34,7 @@ In Release 6.4 wurde SyslogConsumer eingeführt, um die Ereignisse der Service F
 Jedes Syslog-Ereignis besteht aus 4 Komponenten
 * Facility
 * Identity
-* Message
+* `Message`
 * Severity
 
 SyslogConsumer schreibt alle Plattformereignisse mithilfe von Facility `Local0`. Sie können ein Update auf jede gültige Facility ausführen, indem Sie die Konfiguration ändern. Die verwendete Identität ist `ServiceFabric`. Das Feld „Message“ enthält das gesamte Ereignis (im JSON-Format serialisiert), sodass es abgefragt und von einer Vielzahl von Tools genutzt werden kann. 

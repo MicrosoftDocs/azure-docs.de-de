@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57869811"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64727572"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Schnellstart: Erstellen eines Load Balancers im Tarif „Basic“ über das Azure-Portal
 
@@ -235,21 +235,27 @@ Installieren Sie Internetinformationsdienste (IIS) auf den virtuellen Computern,
    
    Der VM-Desktop wird in einem neuen Fenster geöffnet. 
    
-**Installieren Sie IIS wie folgt auf dem virtuellen Computer:**
+**So installieren Sie IIS:**
 
-1. Navigieren Sie zu **Windows-Verwaltungstools** > **Server-Manager**, wenn **Server-Manager** auf dem Serverdesktop noch nicht geöffnet ist.
-   
-1. Wählen Sie in **Server-Manager** die Option **Rollen und Features hinzufügen**.
-   
-   ![Hinzufügen der Server-Manager-Rolle](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. Im Assistenten **Hinzufügen von Rollen und Features**:
-   1. Wählen Sie auf der Seite **Installationstyp auswählen** die Option **Rollenbasierte oder featurebasierte Installation**.
-   1. Wählen Sie auf der Seite **Zielserver auswählen** die Option **MyVM1**.
-   1. Wählen Sie auf der Seite **Serverrolle auswählen** die Option **Webserver (IIS)**. 
-   1. Wählen Sie an der Eingabeaufforderung zum Installieren der erforderlichen Tools die Option **Features hinzufügen**. 
-   1. Übernehmen Sie die Standardeinstellungen, und wählen Sie **Installieren**. 
-   1. Wählen Sie **Schließen**, nachdem die Installation der Features abgeschlossen ist. 
+1. Wählen Sie im linken Menü **Alle Dienste** > **Alle Ressourcen** und anschließend in der Ressourcenliste den Eintrag **myVM1** (in der Ressourcengruppe *myResourceGroupSLB*) aus.
+2. Wählen Sie auf der Seite **Übersicht** die Option **Verbinden**, um eine RDP-Verbindung mit dem virtuellen Computer herzustellen.
+5. Melden Sie sich mit den Anmeldeinformationen, die Sie während der Erstellung dieses virtuellen Computers bereitgestellt haben, beim virtuellen Computer an. Dadurch wird eine Remotedesktopsitzung mit dem virtuellen Computer *myVM1* gestartet.
+6. Navigieren Sie auf dem Serverdesktop zu **Windows-Verwaltungsprogramme**>**Windows PowerShell**.
+7. Führen Sie im PowerShell-Fenster die folgenden Befehle aus, um den IIS-Server zu installieren, die Standarddatei „iisstart.htm“ zu entfernen und dann eine neue Datei „iisstart.htm“ hinzuzufügen, die den Namen des virtuellen Computers enthält:
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Schließen Sie die RDP-Sitzung mit *myVM1*.
+7. Wiederholen Sie die Schritte 1 bis 6, um IIS und die aktualisierte Datei „iisstart.htm“ auf *myVM2* zu installieren.
    
 1. Wiederholen Sie die Schritte für den virtuellen Computer **MyVM2**, aber legen Sie den Zielserver dieses Mal auf **MyVM2** fest.
 
@@ -257,9 +263,9 @@ Installieren Sie Internetinformationsdienste (IIS) auf den virtuellen Computern,
 
 Öffnen Sie einen Browser, und fügen Sie die öffentliche IP-Adresse Ihres Lastenausgleichs in die Adressleiste ein. Im Browser sollte die Standardseite des IIS-Webservers angezeigt werden.
 
-![IIS-Webserver](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![IIS-Webserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Sie können eine erzwungene Aktualisierung Ihres Webbrowsers durchführen, um zu verfolgen, wie der Load Balancer den Datenverkehr auf alle drei virtuellen Computer verteilt, auf denen Ihre App ausgeführt wird.
+Sie können eine erzwungene Aktualisierung Ihres Webbrowsers durchführen, um zu verfolgen, wie der Load Balancer den Datenverkehr auf die beiden virtuellen Computer verteilt, auf denen Ihre App ausgeführt wird.
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 Öffnen Sie die Ressourcengruppe **MyResourceGroupLB**, und wählen Sie die Option **Ressourcengruppe löschen**, um den Load Balancer und alle zugehörigen Ressourcen zu löschen, sofern Sie sie nicht mehr benötigen.

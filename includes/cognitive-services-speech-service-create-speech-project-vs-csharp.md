@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 7a028f65467c517be59be6f0c6d2c45ef9a7685e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285762"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145504"
 ---
 1. Starten Sie Visual Studio 2017.
 

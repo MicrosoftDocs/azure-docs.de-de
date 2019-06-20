@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
 ms.openlocfilehash: 1a375c438682c7afba2c65c049810d7d7234c808
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024872"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178504"
 ---
 * PDF
 * Microsoft Office-Formate: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook-E-Mails)  

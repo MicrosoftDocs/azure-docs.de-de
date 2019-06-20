@@ -33,7 +33,9 @@
               href: storage-quickstart-blobs-nodejs-v10.md
             - name: Python
               href: storage-quickstart-blobs-python.md
-            - name: JS/HTML
+            - name: JS/HTML mit dem v10 SDK
+              href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+            - name: JS/HTML mit dem v2 SDK
               href: storage-quickstart-blobs-javascript-client-libraries.md
             - name: Go
               href: storage-quickstart-blobs-go.md
@@ -275,6 +277,8 @@
           href: storage-blob-event-overview.md
         - name: Features für Seitenblobs
           href: storage-blob-pageblob-overview.md
+        - name: Statische Websites
+          href: storage-blob-static-website.md
     - name: Anleitung
       items:
         - name: Erstellen und Verwalten von Speicherkonten
@@ -353,7 +357,7 @@
         - name: Festlegen und Abrufen von Eigenschaften und Metadaten
           href: storage-properties-metadata.md
         - name: Hosten einer statischen Website
-          href: storage-blob-static-website.md
+          href: storage-blob-static-website-how-to.md
         - name: Zuordnen von Azure CDN zu einer benutzerdefinierten Domäne für den Zugriff über HTTPS
           href: storage-https-custom-domain-cdn.md
         - name: Konfigurieren einer benutzerdefinierten Domäne
@@ -364,13 +368,17 @@
           href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Übertragen von Daten
           items:
-            - name: AzCopy (v10)
-              href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: AzCopy unter Windows (v8)
-              href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: AzCopy unter Linux (v8)
-              href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Verwenden von Azure Data Factory
+            - name: AzCopy
+              items:
+                - name: Erste Schritte
+                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Verwenden mit Blobs
+                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Verwenden mit Amazon S3-Buckets
+                  href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Konfiguration, Optimierung, Problembehandlung'
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Einbinden eines Blobspeichers als Dateisystem unter Linux
               href: storage-how-to-mount-container-linux.md
@@ -571,6 +579,14 @@
       items:
         - name: Erfassen von Daten
           items:
+            - name: AzCopy
+              items:
+                - name: Erste Schritte
+                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Verwenden mit Data Lake Storage Gen2
+                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Konfiguration, Optimierung, Problembehandlung'
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Verwenden von Distcp
               href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Verwenden von Azure Data Factory

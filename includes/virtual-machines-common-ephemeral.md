@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66391406"
 ---
 Kurzlebige Betriebssystem-Datenträger werden auf dem lokalen Speicher des virtuellen Computers (VM) erstellt und nicht auf dem externen Azure Storage gespeichert. Kurzlebige Betriebssystem-Datenträger eignen sich gut für zustandslose Workloads, bei denen Anwendungen einzelne VM-Ausfälle tolerieren, aber mehr Wert auf die Zeit legen, die für umfangreiche Bereitstellung oder die Zeit für das Reimaging der einzelnen VM-Instanzen benötigt wird. Sie eignen sich auch für Anwendungen, die mit dem klassischen Bereitstellungsmodell bereitgestellt werden, um zum Resource Manager-Bereitstellungsmodell zu wechseln. Mit einem kurzlebigen Betriebssystem-Datenträger sind eine geringere Latenzzeit für das Lesen/Schreiben auf dem Betriebssystem-Datenträger und ein schnelleres VM-Reimaging festzustellen. Darüber hinaus ist der kurzlebige Betriebssystem-Datenträger kostenlos, es fallen keine Speicherkosten für den Betriebssystem-Datenträger an. 
  
@@ -35,41 +35,9 @@ Die Hauptunterschiede zwischen permanenten und kurzlebigen Betriebssystem-Datent
 | Unterstützung für Regionen              | Alle Regionen                                                                                  | Alle Regionen                              |
 | Datenpersistenz            | Auf Betriebssystem-Datenträger geschriebene Daten von einem Betriebssystem-Datenträger werden in Azure Storage gespeichert.                                  | Auf den Betriebssystem-Datenträger geschriebene Daten werden auf dem lokalen VM-Speicher gespeichert und nicht in Azure Storage gespeichert. |
 | Status „Zuordnung aufgehoben“      | Die Zuordnung von VMs und Skalierungsgruppeninstanzen kann aufgehoben und sie können aus diesem Zustand neu gestartet werden. | Die Zuordnung für VMS und Skalierungsgruppeninstanzen kann nicht aufgehoben werden.                                  |
-| Unterstützung der spezialisierte Betriebssystem-Datenträger | Ja                                                                                          | Nein                                                                                  |
+| Unterstützung der spezialisierte Betriebssystem-Datenträger | Ja                                                                                          | Nein                                                                                 |
 | Änderung der Betriebssystem-Datenträgergröße              | Wird während der VM-Erstellung und nach dem Aufheben der VM-Zuordnung unterstützt.                                | Wird nur während der VM-Erstellung unterstützt.                                                  |
 | Ändern der Größe auf eine neue VM-Größe   | Daten des Betriebssystem-Datenträgers werden beibehalten.                                                                    | Daten auf dem Betriebssystem-Datenträger werden gelöscht, Betriebssystem wird erneut bereitgestellt                                      |
-
-## <a name="register-for-the-preview"></a>Registrieren für die Vorschau
-
-
-Selbstregistrierung für die Vorschauversion von kurzlebigen Betriebssystem-Datenträgern mit der neuesten Version von Azure CLI oder Azure PowerShell.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-So überprüfen Sie, ob Sie für die Vorschauversion registriert sind:
-
-```azurepowershell-interactive
-Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="cli"></a>Befehlszeilenschnittstelle (CLI)
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
-```
-
-So überprüfen Sie, ob Sie für die Vorschauversion registriert sind:
- 
-```azurecli-interactive
-az provider show --namespace Microsoft.Compute
-```
-
 
 ## <a name="scale-set-deployment"></a>Bereitstellung der Skalierungsgruppe  
 Der Prozess zum Erstellen einer Skalierungsgruppe, die einen kurzlebigen Betriebssystem-Datenträger verwendet, besteht darin, die Eigenschaft `diffDiskSettings` zum Ressourcentyp `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` in der Vorlage hinzuzufügen. Außerdem muss die Cachingrichtlinie für den kurzlebigen Betriebssystem-Datenträger auf `ReadOnly` gesetzt werden. 

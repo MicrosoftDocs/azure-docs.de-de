@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471782"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Problembehandlung mit Azure-Diagnose
 Dieser Artikel enthält Informationen zur Problembehandlung, die für die Verwendung der Azure-Diagnose relevant sind. Weitere Informationen zur Azure-Diagnose finden Sie unter [Überblick über Azure-Diagnose](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Logische Komponenten
-**Startprogramm für Diagnose-Plug-In (DiagnosticsPluginLauncher.exe)**: Startet die Azure-Diagnoseerweiterung. Dient als Prozess für den Einstiegspunkt.
+**Startprogramm für Diagnose-Plug-In (DiagnosticsPluginLauncher.exe)** : Startet die Azure-Diagnoseerweiterung. Dient als Prozess für den Einstiegspunkt.
 
-**Diagnose-Plug-In (DiagnosticsPlugin.exe)**: Dient zum Konfigurieren, Starten und Verwalten der Lebensdauer des Überwachungs-Agent. Dies ist der Hauptprozess, der vom Startprogramm gestartet wird.
+**Diagnose-Plug-In (DiagnosticsPlugin.exe)** : Dient zum Konfigurieren, Starten und Verwalten der Lebensdauer des Überwachungs-Agent. Dies ist der Hauptprozess, der vom Startprogramm gestartet wird.
 
-**Überwachungs-Agent (MonAgent\*.exe-Prozesse)**: Überwacht, erfasst und überträgt die Diagnosedaten.  
+**Überwachungs-Agent (MonAgent\*.exe-Prozesse)** : Überwacht, erfasst und überträgt die Diagnosedaten.  
 
 ## <a name="logartifact-paths"></a>Protokoll-/Artefaktpfade
 Hier sind die Pfade zu einigen wichtigen Protokollen und Artefakten angegeben. Wir verweisen im weiteren Verlauf des Dokuments immer wieder auf diese Informationen.
@@ -167,7 +167,7 @@ Die Tabellen im Azure-Speicher, die ETW-Ereignisse enthalten, werden anhand des 
             tableName = "WAD" + eventDestination;
 ```
 
-Beispiel: 
+Beispiel:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">

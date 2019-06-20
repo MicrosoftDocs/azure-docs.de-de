@@ -2,20 +2,20 @@
 title: „Angemeldet bleiben“ in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie die Option „Angemeldet bleiben“ in Azure Active Directory B2C festlegen.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cd48f2c194cc643d131a7def4b96285cde0bcbf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ae6f19ea9a04aa6b2547fa031dbb09d03b887c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712538"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509430"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aktivieren von „Angemeldet bleiben“ in Azure Active Directory B2C
 

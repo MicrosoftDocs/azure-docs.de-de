@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33765d57f1a0e5788011b2d9d9c2f57d06713ddb
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680688"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001464"
 ---
-# <a name="common-security-attributes-for-azure-storage"></a>Häufig verwendete Sicherheitsattribute für Azure Storage
+# <a name="security-attributes-for-azure-storage"></a>Sicherheitsattribute für Azure Storage
 
-Sicherheit ist ein wesentlicher Bestandteil jedes Azure-Diensts. In diesem Artikel werden die allgemeinen in Azure Storage integrierten Sicherheitsattribute beschrieben. 
+In diesem Artikel werden die in Azure Storage integrierten Sicherheitsattribute beschrieben. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -37,9 +37,9 @@ Sicherheit ist ein wesentlicher Bestandteil jedes Azure-Diensts. In diesem Artik
 | Sicherheitsattribut | Ja/Nein | Notizen |
 |---|---|--|
 | Unterstützung des Dienstendpunkts| Ja |  |
-| vNET Injection-Unterstützung| – |  |
-| Netzwerkisolation/Firewallunterstützung| Ja | |
-| Unterstützung für Tunnelerzwingung | – |  |
+| Unterstützung der VNET-Einschleusung| – |  |
+| Unterstützung von Netzwerkisolation und Firewall| Ja | |
+| Unterstützung der Tunnelerzwingung| – |  |
 
 ## <a name="detection"></a>Erkennung
 
@@ -47,20 +47,20 @@ Sicherheit ist ein wesentlicher Bestandteil jedes Azure-Diensts. In diesem Artik
 |---|---|--|
 | Unterstützung der Azure-Überwachung (Log Analytics, Application Insights usw.)| Ja | Azure Monitor-Metriken bereits verfügbar, Azure Monitor-Protokolle in der Vorschauversion |
 
-## <a name="iam-support"></a>IAM-Unterstützung
+## <a name="identity-and-access-management"></a>Identitäts- und Zugriffsverwaltung
 
 | Sicherheitsattribut | Ja/Nein | Notizen|
 |---|---|--|
-| Zugriffsverwaltung – Authentifizierung| Ja | Azure Active Directory, gemeinsam verwendeter Schlüssel, SAS-Token. |
-| Zugriffsverwaltung – Autorisierung| Ja | Unterstützung für die Autorisierung über rollenbasierte Zugriffssteuerung (RBAC), POSIX-Zugriffssteuerungslisten (ACLs) und SAS-Token |
+| Authentication| Ja | Azure Active Directory, gemeinsam verwendeter Schlüssel, SAS-Token. |
+| Autorisierung| Ja | Unterstützung für die Autorisierung über rollenbasierte Zugriffssteuerung (RBAC), POSIX-Zugriffssteuerungslisten (ACLs) und SAS-Token |
 
 
 ## <a name="audit-trail"></a>Überwachungspfad
 
 | Sicherheitsattribut | Ja/Nein | Notizen|
 |---|---|--|
-| Steuerungs-/Verwaltungsebene – Protokollierung und Überwachung | Ja | Azure Resource Manager-Aktivitätsprotokoll |
-| Datenebene – Protokollierung und Überwachung| Ja | Diagnoseprotokolle des Diensts, Azure Monitor-Protokolle in der Vorschauversion  |
+| Steuerungs-/Verwaltungsebene: Protokollierung und Überwachung | Ja | Azure Resource Manager-Aktivitätsprotokoll |
+| Datenebene: Protokollierung und Überwachung| Ja | Diagnoseprotokolle des Diensts, Azure Monitor-Protokolle in der Vorschauversion  |
 
 ## <a name="configuration-management"></a>Konfigurationsverwaltung
 

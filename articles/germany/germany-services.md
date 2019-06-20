@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/20/2017
 ms.author: ralfwi
 ms.openlocfilehash: 4191edf9a690e6d4aa28d93cdc6c437ed20abaa2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529591"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60685619"
 ---
 # <a name="available-services-in-azure-germany"></a>Verfügbare Dienste in Azure Deutschland
 Azure Deutschland aktualisiert und erweitert seine Dienste fortlaufend nach dem Evergreeningkonzept. Die Dienste werden mit demselben Code bereitgestellt, der in der globalen Azure-Umgebung verwendet wird, und nach Prüfung auf lokale Implementierbarkeit in Azure Deutschland eingepflegt. In diesem Artikel werden die Dienste beschrieben, die zurzeit in Azure Deutschland verfügbar sind. 
@@ -58,7 +58,7 @@ Die in den folgenden Tabellen als Azure Resource Manager-fähig angegebenen Dien
 | Dienst | Ressourcen-Manager | Portal |
 | --- | --- | --- |
 | [Speicher](./germany-services-storage.md#storage) | Ja | Ja |
-| StorSimple | Nein  | Nein  |
+| StorSimple | Nein | Nein |
 | Backup | Ja | Ja |
 | Site Recovery | Ja | Ja |
 
@@ -90,7 +90,7 @@ Die in den folgenden Tabellen als Azure Resource Manager-fähig angegebenen Dien
 | Dienst | Ressourcen-Manager | Portal |
 | --- | --- | --- |
 | HDInsight | Ja | Ja |
-| Machine Learning | Ja | Nein  |
+| Machine Learning | Ja | Nein |
 
 
 ## <a name="internet-of-things-iotgermany-services-iotmd"></a>[Internet der Dinge (IoT)](./germany-services-iot.md)
@@ -99,7 +99,7 @@ Die in den folgenden Tabellen als Azure Resource Manager-fähig angegebenen Dien
 | --- | --- | --- |
 | Event Hubs | Ja | Ja |
 | IoT Hub | Ja | Ja |
-| Notification Hubs | Ja | Nein  |
+| Notification Hubs | Ja | Nein |
 | Stream Analytics | Ja | Ja |
 
 
@@ -108,7 +108,7 @@ Die in den folgenden Tabellen als Azure Resource Manager-fähig angegebenen Dien
 | Dienst | Ressourcen-Manager | Portal |
 | --- | --- | --- |
 | Service Bus | Ja | Ja |
-| StorSimple | Nein  | Nein  |
+| StorSimple | Nein | Nein |
 | SQL Server Stretch Database | Ja | Ja |
 
 
@@ -118,8 +118,8 @@ Die in den folgenden Tabellen als Azure Resource Manager-fähig angegebenen Dien
 | Dienst | Ressourcen-Manager | Portal |
 | --- | --- | --- |
 | Active Directory Free | Ja | Ja |
-| Active Directory Premium | Nein  | Nein  |
-|  [Schlüsseltresor](./germany-services-securityandidentity.md#key-vault)  | Ja | Nein  |
+| Active Directory Premium | Nein | Nein |
+|  [Schlüsseltresor](./germany-services-securityandidentity.md#key-vault)  | Ja | Nein |
 
 
 
@@ -127,9 +127,9 @@ Die in den folgenden Tabellen als Azure Resource Manager-fähig angegebenen Dien
 
 | Dienst | Ressourcen-Manager | Portal |
 | --- | --- | --- |
-| Automation | Nein  | Nein  |
+| Automation | Nein | Nein |
 | Backup | Ja | Ja |
-| Azure Monitor-Protokolle | Nein  | Nein  |
+| Azure Monitor-Protokolle | Nein | Nein |
 | Site Recovery | Ja | Ja |
 | Scheduler | Ja | Ja |
 

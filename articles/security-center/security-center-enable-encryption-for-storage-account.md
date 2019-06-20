@@ -1,5 +1,5 @@
 ---
-title: Aktivieren der Verschlüsselung für Speicherkonten in Azure Security Center | Microsoft Docs
+title: Verschlüsselung für Azure Storage-Konten in Azure Security Center | Microsoft-Dokumentation
 description: In diesem Dokument wird erläutert, wie Sie die Azure Security Center-Empfehlungen in **Aktivieren der Verschlüsselung für Azure Storage-Konten** umsetzen.
 services: security-center
 documentationcenter: na
@@ -14,47 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f8679e988513eecd778970ac796264b274a8088
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cadf375b541900600be82e76673637ff01a8ad96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111661"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696066"
 ---
-# <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Aktivieren der Verschlüsselung für Azure Storage-Konten in Azure Security Center
-Azure Security Center empfiehlt eventuell die Aktivierung der Azure Storage Service Encryption für ruhende Daten.
+# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Verschlüsselung für Azure Storage-Konten in Azure Security Center
 
-Storage Service Encryption (SSE) verschlüsselt die Daten, wenn diese in Azure Storage geschrieben werden, und entschlüsselt sie vor dem Abrufen.  SSE steht zurzeit nur für den Azure Blob-Dienst zur Verfügung und kann für Blockblobs, Seitenblobs und Anfügeblobs verwendet werden.  Weitere Informationen finden Sie unter [Storage Service Encryption für ruhende Daten](../storage/common/storage-service-encryption.md).
-
-
-> [!Note]
-> Nach der Aktivierung der Verschlüsselung werden nur neue Daten verschlüsselt. Alle vorhandenen Blobs in Ihrem Speicherkonto bleiben unverschlüsselt. Weitere Informationen zum Verschlüsseln vorhandener Blobs finden Sie unter [Storage Service Encryption – häufig gestellte Fragen](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
->
->
-
-Storage Service Encryption wird nur für Resource Manager-Speicherkonten unterstützt. Klassische Speicherkonten werden zurzeit nicht unterstützt. Weitere Informationen zum klassischen Bereitstellungsmodell und zum Resource Manager-Bereitstellungsmodell finden Sie unter [Azure-Bereitstellungsmodellen](../azure-classic-rm.md).
-
-> [!NOTE]
-> Der Dienst wird anhand einer Beispielbereitstellung vorgestellt.  Dieses Dokument ist keine Schritt-für-Schritt-Anleitung.
->
->
-
-## <a name="implement-the-recommendation"></a>Implementieren der Empfehlung
-1. Wählen Sie auf dem Blatt **Empfehlungen** die Option **Enable encryption for Azure Storage Account** (Verschlüsselung für Azure Storage-Konto aktivieren) aus.
-   ![Aktivieren der Verschlüsselung für das Speicherkonto][1]
-2. Das Blatt **Enable storage encryption** (Speicherverschlüsselung aktivieren) wird geöffnet. Auf diesem Blatt werden die Azure Storage-Konten aufgeführt, bei denen die Speicherverschlüsselung deaktiviert ist. Wählen Sie in diesem Beispiel **storageacct1** aus.
-   ![Aktivieren der Speicherverschlüsselung][2]
-3. Das Blatt **Verschlüsselung** für **storageacct1** wird geöffnet. Wählen Sie **Aktiviert**.
-   ![Blatt „Verschlüsselung“][3]
-4. Wählen Sie **Speichern** aus.
-
-Sie haben nun die Speicherverschlüsselung für **storageacct1** aktiviert.
-
-
-## <a name="see-also"></a>Weitere Informationen
-In diesem Dokument wird erläutert, wie Sie die Security Center-Empfehlungen in „Aktivieren der Verschlüsselung für Azure Storage-Konten“ umsetzen. Weitere Informationen zu Azure Storage Service Encryption finden Sie unter folgenden Ressourcen:
-
-* [Azure Storage Service Encryption für ruhende Daten](../storage/common/storage-service-encryption.md)
+Azure Storage-Verschlüsselung für ruhende Daten ist standardmäßig für alle Azure Storage-Konten aktiviert. In Azure Storage werden Daten verschlüsselt, wenn sie in Azure Storage geschrieben werden, und entschlüsselt, bevor sie abgerufen werden. Weitere Informationen finden Sie unter [Azure Storage-Verschlüsselung für ruhende Daten](../storage/common/storage-service-encryption.md).
 
 Weitere Informationen zu Security Center finden Sie in den folgenden Quellen:
 

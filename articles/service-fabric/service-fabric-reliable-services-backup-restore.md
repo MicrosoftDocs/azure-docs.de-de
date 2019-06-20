@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60723847"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Sichern und Wiederherstellen von Reliable Services und Reliable Actors
 Azure Service Fabric ist eine Plattform mit Hochverfügbarkeit, bei der der Status über mehrere Knoten repliziert wird, um diese Hochverfügbarkeit zu gewährleisten.  Auch wenn ein Knoten im Cluster ausfällt, bleiben die Dienste somit verfügbar. Diese von der Plattform bereitgestellte integrierte Redundanz reicht in manchen Fällen aus. In bestimmten Fällen wäre es jedoch wünschenswert, dass der Dienst Daten (auf einem externen Speicher) sichert.

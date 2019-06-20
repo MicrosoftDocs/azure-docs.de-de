@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880065"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65603209"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analysieren von Daten in Azure Data Lake Storage Gen1 mithilfe von Power BI
 In diesem Artikel erfahren Sie, wie Sie Power BI Desktop verwenden, um in Azure Data Lake Storage Gen1 gespeicherte Daten zu analysieren und zu visualisieren.
@@ -74,23 +74,23 @@ Bevor Sie mit diesem Tutorial beginnen können, benötigen Sie Folgendes:
 14. Sobald die Abfrage aktualisiert wurde, zeigt die Registerkarte **Felder** die neuen Felder, die zur Visualisierung verfügbar sind.
     
     ![Aktualisierte Felder](./media/data-lake-store-power-bi/updated-query-fields.png "Aktualisierte Felder")
-15. Erstellen wir nun ein Kreisdiagramm, um für ein bestimmtes Land die Fahrer in jeder Stadt darzustellen. Wählen Sie dazu folgende Optionen aus.
+15. Erstellen wir nun ein Kreisdiagramm, um für ein bestimmtes Land bzw. eine bestimmte Region die Fahrer in jeder Stadt darzustellen. Wählen Sie dazu folgende Optionen aus.
     
     1. Klicken Sie auf der Registerkarte „Visualisierungen“ auf das Symbol für ein Kreisdiagramm.
        
         ![Erstellen eines Kreisdiagramms](./media/data-lake-store-power-bi/create-pie-chart.png "Erstellen eines Kreisdiagramms")
-    2. Wir verwenden folgende Spalten: **Spalte 4** (Name der Stadt) und **Spalte 7** (Name des Landes). Ziehen Sie diese Spalten aus der Registerkarte **Felder** auf die Registerkarte **Visualisierungen**, wie unten gezeigt.
+    2. Wir verwenden folgende Spalten: **Spalte 4** (Name der Stadt) und **Spalte 7** (Name des Landes bzw. der Region). Ziehen Sie diese Spalten aus der Registerkarte **Felder** auf die Registerkarte **Visualisierungen**, wie unten gezeigt.
        
         ![Erstellen von Visualisierungen](./media/data-lake-store-power-bi/create-visualizations.png "Erstellen von Visualisierungen")
     3. Das Kreisdiagramm sollte nun wie das unten gezeigte aussehen.
        
         ![Kreisdiagramm](./media/data-lake-store-power-bi/pie-chart.png "Erstellen von Visualisierungen")
-16. Indem Sie aus den Filtern auf Seitenebene ein bestimmtes Land auswählen, können Sie die Anzahl von Fahrern in jeder Stadt des ausgewählten Landes anzeigen. Wählen Sie z.B. auf der Registerkarte **Visualisierungen** unter **Filter auf Seitenebene** als Land **Brasilien** aus.
+16. Indem Sie aus den Filtern auf Seitenebene ein bestimmtes Land bzw. eine bestimmte Region auswählen, können Sie die Anzahl von Fahrern in jeder Stadt des ausgewählten Landes bzw. der ausgewählten Region anzeigen. Wählen Sie z.B. auf der Registerkarte **Visualisierungen** unter **Filter auf Seitenebene** als Land **Brasilien** aus.
     
-    ![Auswählen eines Lands](./media/data-lake-store-power-bi/select-country.png "Auswählen eines Lands")
+    ![Auswählen eines Lands](./media/data-lake-store-power-bi/select-country.png "Auswählen eines Lands bzw. einer Region")
 17. Das Kreisdiagramm wird automatisch aktualisiert und zeigt die Fahrer in den brasilianischen Städten an.
     
-    ![Treiber in einem Land](./media/data-lake-store-power-bi/driver-per-country.png "Treiber pro Land")
+    ![Treiber in einem Land](./media/data-lake-store-power-bi/driver-per-country.png "Treiber pro Land/Region")
 18. Klicken Sie im Menü **Datei** auf **Speichern**, um die Visualisierung als Power BI Desktop-Datei zu speichern.
 
 ## <a name="publish-report-to-power-bi-service"></a>Veröffentlichen des Berichts im Power BI-Dienst

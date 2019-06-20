@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 2/1/2019
 ms.author: normesta
 ms.reviewer: seguler
-ms.openlocfilehash: 261fd9f820f3e5421d9d0f4f7c9220ec31003283
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148436"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473451"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Einbinden von Blob Storage als Dateisystem mit blobfuse
 
 ## <a name="overview"></a>Übersicht
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) ist ein virtueller Dateisystemtreiber für Azure Blob Storage. Sie können Blobfuse verwenden, um über das Linux-Dateisystem auf die vorhandenen Blockblobdaten in Ihrem Speicherkonto zuzugreifen. Azure Blob Storage ist ein Objektspeicherdienst und verfügt nicht über einen hierarchischen Namespace. Blobfuse stellt diesen Namespace mithilfe des Schemas für virtuelle Verzeichnisse bereit. Dabei wird als Trennzeichen ein Schrägstrich (/) verwendet.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) ist ein virtueller Dateisystemtreiber für Azure Blob Storage. Sie können Blobfuse verwenden, um über das Linux-Dateisystem auf die vorhandenen Blockblobdaten in Ihrem Speicherkonto zuzugreifen. Blobfuse verwendet das Schema für virtuelle Verzeichnisse mit einem Schrägstrich (/) als Trennzeichen.  
 
 In diesem Handbuch wird gezeigt, wie Sie blobfuse verwenden, einen Blobspeichercontainer unter Linux einbinden und auf Daten zugreifen. Weitere Informationen zu blobfuse finden Sie im [blobfuse-Repository](https://github.com/Azure/azure-storage-fuse).
 

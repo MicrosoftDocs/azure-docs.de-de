@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232538"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurieren von Azure-SSIS Integration Runtime für hohe Leistung

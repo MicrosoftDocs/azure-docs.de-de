@@ -4,15 +4,15 @@ description: In diesem Artikel wird beschrieben, wie Sie Azure Cosmos DB-Daten a
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c32c333de94d1ed0089323e00e6dbbaaebb36488
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996879"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241046"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Wiederherstellen von Daten aus einer Sicherung in Azure Cosmos DB 
 

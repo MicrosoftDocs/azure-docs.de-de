@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: c195d0c4250022102e735cf584370278e354bc41
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60545043"
 ---
 # <a name="sfctl"></a>sfctl
 Befehle zum Verwalten von Service Fabric-Clustern und -Entitäten. Diese Version ist mit der Service Fabric Runtime 6.4 kompatibel.

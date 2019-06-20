@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852490"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60311716"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Hinzufügen eines Git-Repositorys zum Speichern von benutzerdefinierten Artefakten und Resource Manager-Vorlagen
 
@@ -54,7 +54,7 @@ Bevor Sie Ihrem Lab ein Repository hinzufügen können, rufen Sie zunächst wich
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Abrufen der Klon-URL und des persönlichen Zugriffstokens für Azure Repos
 
-1. Wechseln Sie zur Startseite Ihrer Teamsammlung (z.B. https://contoso-web-team.visualstudio.com)), und wählen Sie dann das Projekt aus.
+1. Wechseln Sie zur Startseite Ihrer Teamsammlung (z.B. https://contoso-web-team.visualstudio.com) ), und wählen Sie dann das Projekt aus.
 2. Wählen Sie auf der Startseite des Projekts **Code**.
 3. Um die Klon-URL für das Projekt anzuzeigen, wählen Sie auf der Seite **Code** die Option **Klonen** aus.
 4. Speichern Sie die URL. Sie benötigen die URL später.
@@ -74,7 +74,7 @@ Bevor Sie Ihrem Lab ein Repository hinzufügen können, rufen Sie zunächst wich
 1. Melden Sie sich beim [Azure-Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) an.
 2. Wählen Sie **Weitere Dienste** und dann in der Liste der Dienste **DevTest Labs** aus.
 3. Wählen Sie in der Liste mit den Labs Ihr Lab aus. 
-4. Wählen Sie **Konfiguration und Richtlinien** > **Repositorys** > **+ Hinzufügen** aus.
+4. Wählen Sie **Konfiguration und Richtlinien** > **Repositorys** >  **+ Hinzufügen** aus.
 
     ![Schaltfläche zum Hinzufügen eines Repositorys](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Geben Sie auf der zweiten Seite **Repositorys** Folgendes an:

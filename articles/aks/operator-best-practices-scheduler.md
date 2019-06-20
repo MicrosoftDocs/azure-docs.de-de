@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65074122"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Best Practices für grundlegende Schedulerfunktionen in Azure Kubernetes Service (AKS)
 
@@ -94,7 +94,7 @@ spec:
       app: nginx-frontend
 ```
 
-Sie können auch einen Prozentsatz definieren, wie z.B. *60 %*, mit dem Sie automatisch die Erhöhung der Anzahl der Pods durch die Replikatgruppe kompensieren können.
+Sie können auch einen Prozentsatz definieren, wie z.B. *60 %* , mit dem Sie automatisch die Erhöhung der Anzahl der Pods durch die Replikatgruppe kompensieren können.
 
 Sie können eine maximale Anzahl von nicht verfügbaren Instanzen in einer Replikatgruppe definieren. Darüber hinaus kann ein Prozentsatz für die maximale Anzahl der nicht verfügbaren Pods definiert werden. Das folgende YAML-Manifest für das Budget für die Unterbrechung von Pods definiert, dass nicht mehr als zwei Pods in der Replikatgruppe nicht verfügbar sein dürfen:
 
@@ -126,6 +126,8 @@ Weitere Informationen zur Verwendung von Budgets für die Unterbrechung von Pods
 
 Das Tool [kube-advisor][kube-advisor] ist ein verwandtes Open-Source-Projekt für AKS, das einen Kubernetes-Cluster scannt und gefundene Probleme meldet. Eine nützliche Überprüfung ist die Identifizierung von Pods, bei denen keine Ressourcenanforderungen und -grenzwerte angegeben sind.
 
+Das kube-advisor-Tool kann Berichte zur Ressourcenanforderung und zu Grenzwerten erstellen, die in PodSpecs für Windows- und Linux-Anwendungen fehlen, das kube-advisor-Tool selbst muss jedoch auf einem Linux-Pod geplant werden. Sie können einen Pod mit einem [Knoten-Selektor][ k8s-node-selector] in der Konfiguration des Pods so planen, dass er auf einem Knotenpool mit einem bestimmten Betriebssystem ausgeführt wird.
+
 In einem AKS-Cluster, der mehrere Entwicklungsteams und Anwendungen hostet, kann es schwierig sein, Pods zu verfolgen, bei denen diese Ressourcenanforderungen und -grenzwerte nicht festgelegt wurden. Als Best Practice sollten Sie `kube-advisor` regelmäßig auf Ihren AKS-Clustern ausführen, insbesondere wenn Sie Namespaces keine Ressourcenkontingente zuweisen.
 
 ## <a name="next-steps"></a>Nächste Schritte
@@ -147,3 +149,4 @@ Dieser Artikel konzentriert sich auf grundlegende Funktionen des Kubernetes-Sche
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

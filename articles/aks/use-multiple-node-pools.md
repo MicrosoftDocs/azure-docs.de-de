@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 679d91da774b3e4d2c53c70cdc0abfd4da9c6953
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506905"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059631"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Vorschau – Erstellen und Verwalten mehrerer Knotenpools für einen Cluster in Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ Im Azure Kubernetes Service (AKS) werden Knoten derselben Konfiguration zu *Knot
 In diesem Artikel erfahren Sie, wie Sie mehrere Knotenpools in einem AKS-Cluster erstellen und verwalten. Diese Funktion steht derzeit als Vorschau zur Verfügung.
 
 > [!IMPORTANT]
-> AKS-Previewfunktionen stehen gemäß dem Self-Service- und Aktivierungsprinzip zur Verfügung. Vorschauversionen werden zum Sammeln von Feedback und Fehlern mithilfe unserer Community bereitgestellt. Allerdings werden sie vom technischen Support von Azure nicht unterstützt. Wenn Sie einen Cluster erstellen oder diese Features zu einem vorhandenen Cluster hinzufügen, wird der entsprechende Cluster erst dann unterstützt, wenn das Feature sich nicht mehr in der Vorschau befindet und in die allgemeine Verfügbarkeit übergegangen ist.
+> AKS-Previewfunktionen stehen gemäß dem Self-Service- und Aktivierungsprinzip zur Verfügung. Sie werden zum Sammeln von Feedback und Fehlern mithilfe unserer Community bereitgestellt. In der Vorschauversion sind diese Features nicht für den Einsatz in der Produktion vorgesehen. Features in der öffentlichen Vorschau unterliegen dem Prinzip des „bestmöglichen Supports“. Unterstützung durch die Teams für den technischen AKS-Support steht nur während der Geschäftszeiten in der Zeitzone „Pacific Standard Time“ (PST) zur Verfügung. Weitere Informationen hierzu finden Sie in den folgenden Supportartikeln:
 >
-> Wenn Sie Probleme mit Vorschaufunktionen haben, [eröffnen Sie ein Ticket im GitHub-Repository von AKS ][aks-github], und geben Sie den Namen des Vorschaufeatures im Fehlertitel an.
+> * [Unterstützungsrichtlinien für Azure Kubernetes Service][aks-support-policies]
+> * [Häufig gestellte Fragen zum Azure-Support][aks-faq]
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -72,6 +73,8 @@ Die folgenden Einschränkungen gelten für die Erstellung und Verwaltung von AKS
 * Mehrere Knotenpools sind nur für Cluster verfügbar, die nach der erfolgreichen Registrierung der Features *MultiAgentpoolPreview* und *VMSSPreview* für Ihr Abonnement erstellt wurden. Sie können keine Knotenpools mit einem bestehenden AKS-Cluster hinzufügen oder verwalten, die vor der erfolgreichen Registrierung dieser Features erstellt wurden.
 * Sie können den ersten Knotenpool nicht löschen.
 * Das Add-On für das HTTP-Anwendungsrouting kann nicht verwendet werden.
+* Sie können Knotenpools nicht mit einer vorhandenen Resource Manager-Vorlage hinzufügen/aktualisieren/löschen wie mit den meisten Vorgängen. Stattdessen [verwenden Sie eine gesonderte Resource Manager-Vorlage](#manage-node-pools-using-a-resource-manager-template), um Änderungen an Knotenpools in einem AKS-Cluster vorzunehmen.
+* Die automatische Skalierung des Clusters (zurzeit in der Vorschauphase in AKS) kann nicht verwendet werden.
 
 Während sich dieses Feature in der Vorschauversion befindet, gelten die folgenden zusätzlichen Einschränkungen:
 
@@ -220,7 +223,7 @@ Das Löschen der Knoten und des Knotenpools dauert einige Minuten.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Angeben einer VM-Größe für einen Knotenpool
 
-In den vorherigen Beispielen zur Erstellung eines Knotenpools wurde für die im Cluster erstellten Knoten eine VM-Standardgröße verwendet. Ein üblicheres Szenario ist es, Knotenpools mit unterschiedlichen VM-Größen und -Funktionen zu erstellen. Sie können z. B. einen Knotenpool erstellen, der Knoten mit einer großen Anzahl an CPUs oder mit viel Arbeitsspeicher enthält, oder einen Knotenpool, der GPU-Unterstützung bietet. Im nächsten Schritt teilen Sie dem Kubernetes-Planer durch [Verwenden von Taints und Toleranzen][#schedule-pods-using-taints-and-tolerations] mit, wie Sie den Zugriff auf Pods, die auf diesen Knoten ausgeführt werden können, einschränken können.
+In den vorherigen Beispielen zur Erstellung eines Knotenpools wurde für die im Cluster erstellten Knoten eine VM-Standardgröße verwendet. Ein üblicheres Szenario ist es, Knotenpools mit unterschiedlichen VM-Größen und -Funktionen zu erstellen. Sie können z. B. einen Knotenpool erstellen, der Knoten mit einer großen Anzahl an CPUs oder mit viel Arbeitsspeicher enthält, oder einen Knotenpool, der GPU-Unterstützung bietet. Im nächsten Schritt teilen Sie dem Kubernetes-Planer durch [Verwenden von Taints und Toleranzen](#schedule-pods-using-taints-and-tolerations) mit, wie Sie den Zugriff auf Pods, die auf diesen Knoten ausgeführt werden können, einschränken können.
 
 Erstellen Sie im folgenden Beispiel einen GPU-basierten Knotenpool, der die VM-Größe *Standard_NC6* verwendet. Diese virtuellen Computer werden von der NVIDIA Tesla K80-Karte unterstützt. Informationen zu den verfügbaren VM-Größen finden Sie unter [Größen für virtuelle Linux-Computer in Azure][vm-sizes].
 
@@ -328,6 +331,95 @@ Events:
 
 Nur Pods mit diesem Taint können auf Knoten in *gpunodepool* geplant werden. Alle anderen Pods werden im Knotenpool *nodepool1* geplant. Wenn Sie weitere Knotenpools erstellen, können Sie mit zusätzlichen Taints und Toleranzen einschränken, welche Pods für diese Knotenressourcen geplant werden können.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Verwalteten von Knotenpools mithilfe einer Resource Manager-Vorlage
+
+Wenn Sie eine Azure Resource Manager-Vorlage zum Erstellen und Verwalten von Ressourcen verwenden, können Sie die Einstellungen in Ihrer Vorlage normalerweise aktualisieren und neu bereitstellen, um die Ressource zu aktualisieren. Bei Knotenpools in AKS kann das Profil des Anfangsknotenpools nicht mehr aktualisiert werden, nachdem der AKS-Cluster erstellt wurde. Dieses Verhalten bedeutet, dass Sie eine vorhandene Resource Manager-Vorlage nicht aktualisieren können, um eine Änderung an den Knotenpools vorzunehmen und dann neu bereitzustellen. Stattdessen müssen Sie eine separate Resource Manager-Vorlage erstellen, die nur die Agent-Pools für einen vorhandenen AKS-Cluster aktualisiert.
+
+Erstellen Sie eine Vorlage wie `aks-agentpools.json`, und fügen Sie das folgende Beispielmanifest ein. Diese Beispielvorlage konfiguriert die folgenden Einstellungen:
+
+* Aktualisiert den *Linux*-Agent-Pool namens *myagentpool*, sodass dieser drei Knoten ausführt.
+* Legt die Knoten im Knotenpool auf die Ausführung von Kubernetes, Version *1.12.8*, fest.
+* Definiert die Knotengröße als *Standard_DS2_v2*.
+
+Bearbeiten Sie diese Werte nach Bedarf, um Knotenpools nach Bedarf zu aktualisieren, hinzuzufügen oder zu löschen:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Stellen Sie diese Vorlage mithilfe des Befehls [az group deployment create][az-group-deployment-create] bereit, wie im folgenden Beispiel gezeigt. Sie werden zur Eingabe des Namens und Speicherorts des vorhandenen AKS-Clusters aufgefordert:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+Es kann ein paar Minuten dauern, bis Ihr AKS-Cluster aktualisiert wird, abhängig von den Knoteneinstellungen und Vorgängen, die Sie in Ihrer Resource Manager-Vorlage definieren.
+
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 In diesem Artikel haben Sie einen AKS-Cluster erstellt, der GPU-basierte Knoten enthält. Um unnötige Kosten zu reduzieren, können Sie *gpunodepool* oder den gesamten AKS-Cluster löschen.
@@ -348,8 +440,9 @@ az group delete --name myResourceGroup --yes --no-wait
 
 In diesem Artikel haben Sie erfahren, wie Sie mehrere Knotenpools in einem AKS-Cluster erstellen und verwalten. Weitere Informationen zum knotenpoolübergreifenden Steuern von Pods finden Sie unter [Bewährte Methoden für erweiterte Planerfeatures in AKS][operator-best-practices-advanced-scheduler].
 
+Informationen zum Erstellen und Verwenden von Windows Server-Containerknotenpools finden Sie unter [Erstellen eines Windows Server-Containers in AKS][aks-windows].
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -364,11 +457,11 @@ In diesem Artikel haben Sie erfahren, wie Sie mehrere Knotenpools in einem AKS-C
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-list
-[az-aks-nodepool-upgrade]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-nodepool-delete
+[az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
+[az-aks-nodepool-list]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-list
+[az-aks-nodepool-upgrade]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-upgrade
+[az-aks-nodepool-scale]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-scale
+[az-aks-nodepool-delete]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-delete
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [gpu-cluster]: gpu-cluster.md
@@ -376,3 +469,7 @@ In diesem Artikel haben Sie erfahren, wie Sie mehrere Knotenpools in einem AKS-C
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

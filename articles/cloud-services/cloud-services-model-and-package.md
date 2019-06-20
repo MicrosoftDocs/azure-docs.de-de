@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917310"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080755"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Was ist das Clouddienstmodell, und wie kann es gepackt werden?
-Ein Clouddienst wird aus drei Komponenten erstellt: aus der Dienstdefinition *(.csdef)*, der Dienstkonfiguration *(.cscfg)* und einem Dienstpaket *(.cspkg)*. Die beiden Dateien **ServiceDefinition.csdef** und **ServiceConfig.cscfg** sind XML-basiert und beschreiben die Struktur und Konfiguration des Clouddiensts; zusammen werden sie als Modell bezeichnet. Die Datei **ServicePackage.cspkg** ist eine ZIP-Datei, die auf der Grundlage der Datei **ServiceDefinition.csdef** generiert wird und unter anderem alle erforderlichen binärbasierten Abhängigkeiten enthält. In Azure wird ein Clouddienst aus der Datei **ServicePackage.cspkg** sowie der Datei **ServiceConfig.cscfg** erstellt.
+Ein Clouddienst wird aus drei Komponenten erstellt: aus der Dienstdefinition *(.csdef)* , der Dienstkonfiguration *(.cscfg)* und einem Dienstpaket *(.cspkg)* . Die beiden Dateien **ServiceDefinition.csdef** und **ServiceConfig.cscfg** sind XML-basiert und beschreiben die Struktur und Konfiguration des Clouddiensts; zusammen werden sie als Modell bezeichnet. Die Datei **ServicePackage.cspkg** ist eine ZIP-Datei, die auf der Grundlage der Datei **ServiceDefinition.csdef** generiert wird und unter anderem alle erforderlichen binärbasierten Abhängigkeiten enthält. In Azure wird ein Clouddienst aus der Datei **ServicePackage.cspkg** sowie der Datei **ServiceConfig.cscfg** erstellt.
 
 Wenn der Clouddienst in Azure ausgeführt wird, können Sie ihn über die Datei **ServiceConfig.cscfg** neu konfigurieren, die Definition können Sie jedoch nicht ändern.
 
@@ -93,28 +93,28 @@ Die Datei **ServiceDefinition.csdef** gibt die Einstellungen an, mit denen ein C
 Ausführliche Informationen zu dem hier verwendeten XML-Schema finden Sie unter [Dienstdefinitionsschema](/previous-versions/azure/reference/ee758711(v=azure.100)). Im Anschluss werden einige Elemente kurz erläutert:
 
 **Sites**  
- enthält die Definitionen für Websites oder Webanwendungen, die in IIS7 gehostet werden.
+enthält die Definitionen für Websites oder Webanwendungen, die in IIS7 gehostet werden.
 
 **InputEndpoints**  
- enthält die Definitionen für Endpunkte, die für Verbindungen mit dem Clouddienst verwendet werden.
+enthält die Definitionen für Endpunkte, die für Verbindungen mit dem Clouddienst verwendet werden.
 
 **InternalEndpoints**  
- enthält die Definitionen für Endpunkte, die von Rolleninstanzen für die Kommunikation verwendet werden.
+enthält die Definitionen für Endpunkte, die von Rolleninstanzen für die Kommunikation verwendet werden.
 
 **ConfigurationSettings**  
- enthält die Einstellungsdefinitionen für Funktionen einer bestimmten Rolle.
+enthält die Einstellungsdefinitionen für Funktionen einer bestimmten Rolle.
 
 **Certificates**  
- enthält die Definitionen für Zertifikate, die für eine Rolle erforderlich sind. Das Codebeispiel oben enthält ein Zertifikat, das für die Konfiguration von Azure Connect verwendet wird.
+enthält die Definitionen für Zertifikate, die für eine Rolle erforderlich sind. Das Codebeispiel oben enthält ein Zertifikat, das für die Konfiguration von Azure Connect verwendet wird.
 
 **LocalResources**  
- enthält die Definitionen für lokale Speicherressourcen. Eine lokale Speicherressource ist ein reserviertes Verzeichnis im Dateisystem des virtuellen Computers, in dem eine Instanz einer Rolle ausgeführt wird.
+enthält die Definitionen für lokale Speicherressourcen. Eine lokale Speicherressource ist ein reserviertes Verzeichnis im Dateisystem des virtuellen Computers, in dem eine Instanz einer Rolle ausgeführt wird.
 
 **Imports**  
- enthält die Definitionen für importierte Module. Im Codebeispiel oben werden die Module für die Remotedesktopverbindung und Azure Connect verwendet.
+enthält die Definitionen für importierte Module. Im Codebeispiel oben werden die Module für die Remotedesktopverbindung und Azure Connect verwendet.
 
 **Startup**  
- enthält Aufgaben, die beim Starten der Rolle ausgeführt werden. Die Aufgaben werden in einer CMD-Datei oder einer ausführbaren Datei definiert.
+enthält Aufgaben, die beim Starten der Rolle ausgeführt werden. Die Aufgaben werden in einer CMD-Datei oder einer ausführbaren Datei definiert.
 
 <a name="cscfg"></a>
 
@@ -144,13 +144,13 @@ Die Dienstkonfigurationsdatei wird nicht mit der Anwendung gepackt, sondern als 
 Ausführliche Informationen zu dem hier verwendeten XML-Schema finden Sie unter [Dienstkonfigurationsschema](/previous-versions/azure/reference/ee758710(v=azure.100)). Im Folgenden werden die Elemente jedoch kurz erläutert:
 
 **Instances**  
- konfiguriert die Anzahl der ausgeführten Instanzen für die Rolle. Um zu verhindern, dass der Clouddienst während Aktualisierungen nicht verfügbar ist, empfiehlt es sich, mehrere Instanzen der Rollen mit Webzugriff bereitzustellen. Durch Bereitstellen mehrerer Instanzen erfüllen Sie die Richtlinien in der [Vereinbarung zum Servicelevel (SLA) für Azure Compute](https://azure.microsoft.com/support/legal/sla/), in der für Rollen mit Internetzugriff eine Verfügbarkeit der externen Verbindungen von 99,95 Prozent garantiert wird, wenn mindestens zwei Rolleninstanzen für einen Dienst bereitgestellt werden.
+konfiguriert die Anzahl der ausgeführten Instanzen für die Rolle. Um zu verhindern, dass der Clouddienst während Aktualisierungen nicht verfügbar ist, empfiehlt es sich, mehrere Instanzen der Rollen mit Webzugriff bereitzustellen. Durch Bereitstellen mehrerer Instanzen erfüllen Sie die Richtlinien in der [Vereinbarung zum Servicelevel (SLA) für Azure Compute](https://azure.microsoft.com/support/legal/sla/), in der für Rollen mit Internetzugriff eine Verfügbarkeit der externen Verbindungen von 99,95 Prozent garantiert wird, wenn mindestens zwei Rolleninstanzen für einen Dienst bereitgestellt werden.
 
 **ConfigurationSettings**  
- konfiguriert die Einstellungen für die ausgeführten Instanzen einer Rolle. Der Name der `<Setting>` -Elemente muss mit den Einstellungsdefinitionen in der Dienstdefinitionsdatei übereinstimmen.
+konfiguriert die Einstellungen für die ausgeführten Instanzen einer Rolle. Der Name der `<Setting>` -Elemente muss mit den Einstellungsdefinitionen in der Dienstdefinitionsdatei übereinstimmen.
 
 **Certificates**  
- konfiguriert die Zertifikate, die vom Dienst verwendet werden. Im Codebeispiel oben wird das Zertifikat für das RemoteAccess-Modul definiert. Der Wert des *thumbprint* -Attributs muss auf den Fingerabdruck des zu verwendenden Zertifikats festgelegt werden.
+konfiguriert die Zertifikate, die vom Dienst verwendet werden. Im Codebeispiel oben wird das Zertifikat für das RemoteAccess-Modul definiert. Der Wert des *thumbprint* -Attributs muss auf den Fingerabdruck des zu verwendenden Zertifikats festgelegt werden.
 
 <p/>
 
@@ -186,7 +186,7 @@ Im folgenden Beispiel ist die Konfiguration für eine Webrolle mit einer Website
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" hostHeader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -201,11 +201,11 @@ Im folgenden Beispiel ist die Konfiguration für eine Webrolle mit einer Website
 Sie können die Konfiguration des Clouddiensts aktualisieren, während er in Azure ausgeführt wird, ohne den Dienst offline zu schalten. Zum Ändern der Konfigurationsinformationen können Sie entweder eine neue Konfigurationsdatei hochladen oder die vorhandene Konfigurationsdatei bearbeiten und auf den ausgeführten Dienst anwenden. An der Konfiguration eines Diensts können die folgenden Änderungen vorgenommen werden:
 
 * **Ändern der Werte von Konfigurationseinstellungen:**  
-   Wenn sich eine Konfigurationseinstellung ändert, kann eine Rolleninstanz entweder die Änderung anwenden, während die Instanz online ist, oder die Instanz ordnungsgemäß neu starten und die Änderung anwenden, während die Instanz offline geschaltet ist.
+  Wenn sich eine Konfigurationseinstellung ändert, kann eine Rolleninstanz entweder die Änderung anwenden, während die Instanz online ist, oder die Instanz ordnungsgemäß neu starten und die Änderung anwenden, während die Instanz offline geschaltet ist.
 * **Ändern der Diensttopologie von Rolleninstanzen**  
   Topologieänderungen wirken sich nicht auf ausgeführte Instanzen aus, sofern keine Instanz entfernt wird. Alle verbleibenden Instanzen müssen im Allgemeinen nicht neu gestartet werden. Sie können jedoch festlegen, dass Rolleninstanzen als Reaktion auf eine Topologieänderung neu gestartet werden.
 * **Ändern des Zertifikatfingerabdrucks:**  
-   Sie können ein Zertifikat nur aktualisieren, wenn eine Rolleninstanz offline ist. Wenn ein Zertifikat hinzugefügt, gelöscht oder geändert wird, während eine Rolleninstanz online ist, schaltet Azure die Instanz ordnungsgemäß offline, um das Zertifikat zu aktualisieren, und schaltet sie nach der Änderung wieder online.
+  Sie können ein Zertifikat nur aktualisieren, wenn eine Rolleninstanz offline ist. Wenn ein Zertifikat hinzugefügt, gelöscht oder geändert wird, während eine Rolleninstanz online ist, schaltet Azure die Instanz ordnungsgemäß offline, um das Zertifikat zu aktualisieren, und schaltet sie nach der Änderung wieder online.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Behandeln von Konfigurationsänderungen mit Dienstlaufzeitereignissen
 Die [Azure-Laufzeitbibliothek](/previous-versions/azure/reference/mt419365(v=azure.100)) enthält den [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100))-Namespace, der Klassen für die rollenbasierte Interaktion mit der Azure-Umgebung bereitstellt. Die [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) -Klasse definiert die folgenden Ereignisse, die vor und nach einer Konfigurationsänderung ausgelöst werden:
@@ -213,7 +213,7 @@ Die [Azure-Laufzeitbibliothek](/previous-versions/azure/reference/mt419365(v=azu
 * **[Changing](/previous-versions/azure/reference/ee758134(v=azure.100))-Ereignis**  
   Dieses Ereignis wird ausgelöst, bevor die Konfigurationsänderung auf eine angegebene Instanz einer Rolle angewendet wird, sodass Sie die Möglichkeit haben, die Rolleninstanzen bei Bedarf offline zu schalten.
 * **[Changed](/previous-versions/azure/reference/ee758129(v=azure.100))-Ereignis**  
-   Wird ausgelöst, nachdem die Konfigurationsänderung auf eine angegebene Instanz einer Rolle angewendet wurde.
+  Wird ausgelöst, nachdem die Konfigurationsänderung auf eine angegebene Instanz einer Rolle angewendet wurde.
 
 > [!NOTE]
 > Da die Instanzen einer Rolle bei Zertifikatänderungen immer offline geschaltet werden, werden die RoleEnvironment.Changing- oder RoleEnvironment.Changed-Ereignisse nicht ausgelöst.

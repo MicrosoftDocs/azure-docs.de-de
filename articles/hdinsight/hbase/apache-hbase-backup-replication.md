@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
 ms.openlocfilehash: e60aef7b1848197f41f96a1b5f5414bb0c8f4a15
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696377"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Einrichten der Sicherung und Replikation für Apache HBase und Apache Phoenix in HDInsight

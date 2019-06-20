@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 54cf2924a94dda1d29baf048c866f019b82e1402
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256837"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67049977"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Zscaler Beta für die automatische Benutzerbereitstellung
 
@@ -106,7 +106,7 @@ In diesem Abschnitt werden die Schritte zum Konfigurieren des Azure AD-Bereitste
 
 5. Geben Sie im Abschnitt **Admin Credentials** (Administratoranmeldeinformationen) wie in Schritt 6 beschrieben die **Mandanten-URL** und das **geheime Token** Ihres Zscaler Beta-Kontos ein.
 
-6. Navigieren Sie in der Benutzeroberfläche des Zscaler Beta-Portals zu **Administration (Verwaltung) > Authentication Settings (Authentifizierungseinstellungen)**, und klicken Sie unter **Authentifizierungstyp** auf **SAML**, um die **Mandanten-URL** und das **geheime Token** abzurufen.
+6. Navigieren Sie in der Benutzeroberfläche des Zscaler Beta-Portals zu **Administration (Verwaltung) > Authentication Settings (Authentifizierungseinstellungen)** , und klicken Sie unter **Authentifizierungstyp** auf **SAML**, um die **Mandanten-URL** und das **geheime Token** abzurufen.
 
     ![Zscaler Beta-Bereitstellung](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
 

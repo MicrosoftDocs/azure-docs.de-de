@@ -3,17 +3,17 @@ title: Lokales Bereitstellen der Remoteüberwachungslösung (über Visual Studio
 description: In dieser Schrittanleitung wird gezeigt, wie der Solution Accelerator für die Remoteüberwachung zu Test- und Entwicklungszwecken mithilfe von Visual Studio auf Ihrem lokalen Computer bereitgestellt wird.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150968"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967512"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Lokales Bereitstellen des Solution Accelerators für die Remoteüberwachung – Visual Studio
 
@@ -60,9 +60,9 @@ Führen Sie den folgenden Befehl aus, um den Docker-Container für den Gerätesi
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Bereitstellen aller anderen Microservices auf dem lokalen Computer
 
-In den folgenden Schritten wird erläutert, wie Sie die Microservices für die Remoteüberwachung in Visual Studio 2017 ausführen:
+In den folgenden Schritten wird erläutert, wie Sie die Microservices für die Remoteüberwachung in Visual Studio ausführen:
 
-1. Starten Sie Visual Studio 2017.
+1. Starten Sie Visual Studio.
 1. Öffnen Sie die Projektmappe **remote-monitoring.sln** im Ordner **services** in der lokalen Kopie des Repositorys.
 1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf die Projektmappe, und klicken Sie dann auf **Eigenschaften**.
 1. Wählen Sie **Allgemeine Eigenschaften > Startprojekt** aus.

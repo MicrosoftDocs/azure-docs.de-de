@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: c18604a9f4b95f4b586efaf3201dd0a679d8d316
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60342609"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Videos zu Azure-Datenbank für MySQL
 

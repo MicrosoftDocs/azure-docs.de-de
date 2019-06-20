@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 883e81572218e39d84ad8793423b02468d49d00a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 06/10/2019
+ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055371"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Verstehen und Verwenden von Gerätezwillingen in IoT Hub
 
@@ -119,7 +119,7 @@ Im vorherigen Beispiel enthält der Gerätezwilling eine `batteryLevel`-Eigensch
 
 ### <a name="desired-property-example"></a>Beispiel für eine gewünschte Eigenschaft
 
-Im vorherigen Beispiel werden die gewünschten und gemeldeten Eigenschaften des `telemetryConfig`-Gerätezwillings vom Lösungs-Back-End und von der Geräte-App verwendet, um die Telemetriekonfiguration für dieses Gerät zu synchronisieren. Beispiel: 
+Im vorherigen Beispiel werden die gewünschten und gemeldeten Eigenschaften des `telemetryConfig`-Gerätezwillings vom Lösungs-Back-End und von der Geräte-App verwendet, um die Telemetriekonfiguration für dieses Gerät zu synchronisieren. Beispiel:
 
 1. Das Lösungs-Back-End legt die gewünschte Eigenschaft mit dem gewünschten Konfigurationswert fest. Hier sehen Sie den Teil des Dokuments mit der festgelegten gewünschten Eigenschaft:
 
@@ -285,7 +285,7 @@ IoT Hub gibt für alle Vorgänge, die die Größe dieser Dokumente über den Gre
 
 IoT Hub verwaltet den Zeitstempel der letzten Aktualisierung für jedes JSON-Objekt in den gewünschten und gemeldeten Eigenschaften des Gerätezwillings. Zeitstempel verwenden UTC und sind im [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)-Format codiert: `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Beispiel: 
+Beispiel:
 
 ```json
 {

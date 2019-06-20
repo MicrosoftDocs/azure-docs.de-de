@@ -1,6 +1,6 @@
 ---
 title: Erste Schritte mit WebSockets von Azure Relay Hybrid Connections in .NET | Microsoft-Dokumentation
-description: Schreiben einer C#-Konsolenanwendung für WebSockets von Azure Relay Hybrid Connections
+description: Schreiben Sie eine C#-Konsolenanwendung für WebSockets von Azure Relay Hybrid Connections.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878697"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428352"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Erste Schritte mit WebSockets von Relay Hybrid Connections in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ Schreiben Sie in Visual Studio eine C#-Konsolenanwendung, um Nachrichten an das 
 
     ![Ausführen von Anwendungen](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Glückwunsch! Sie haben eine Anwendung für End-to-End-Hybridverbindungen erstellt.
+Glückwunsch! Sie haben eine vollständige Hybrid Connections-Anwendung erstellt!
 
 ## <a name="next-steps"></a>Nächste Schritte
 In dieser Schnellstartanleitung haben Sie Client- und Serveranwendungen in .NET erstellt, die mithilfe von WebSockets Nachrichten senden und empfangen. Das Hybrid Connections-Feature von Azure Relay unterstützt auch die Verwendung von HTTP zum Senden und Empfangen von Nachrichten. Informationen zur Verwendung von HTTP mit Hybrid Connections von Azure Relay finden Sie unter [Erste Schritte mit HTTP-Anforderungen von Relay Hybrid Connections in .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md).

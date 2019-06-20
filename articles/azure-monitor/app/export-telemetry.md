@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60899369"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportieren von Telemetriedaten aus Application Insights
 Möchten Sie Ihre Telemetriedaten länger aufbewahren als von der standardmäßigen Beibehaltungsdauer vorgesehen? Oder möchten Sie sie in einer speziellen Art und Weise verarbeiten? Der fortlaufende Export eignet sich hierfür ideal. Die Ereignisse, die Sie im Application Insights-Portal sehen, können im JSON-Format in Microsoft Azure-Speicher exportiert werden. Sie können Ihre Daten anschließend herunterladen und den Code schreiben, den Sie zu ihrer Verarbeitung benötigen.  
@@ -128,7 +128,7 @@ Zeiten werden mithilfe von Teilstrichen dargestellt: 10.000 Teilstriche = 1 ms. 
 [Detaillierte Datenmodellreferenz für die Eigenschaftstypen und -werte.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Verarbeiten der Daten
-Im kleinen Rahmen können Sie Code zum Aufteilen Ihrer Daten schreiben, sie in eine Kalkulationstabelle einlesen usw. Beispiel: 
+Im kleinen Rahmen können Sie Code zum Aufteilen Ihrer Daten schreiben, sie in eine Kalkulationstabelle einlesen usw. Beispiel:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {

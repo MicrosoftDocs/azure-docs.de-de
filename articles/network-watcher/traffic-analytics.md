@@ -3,8 +3,8 @@ title: Azure-Datenverkehrsanalyse | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie Datenflussprotokolle von Azure-Netzwerksicherheitsgruppen mit der Datenverkehrsanalyse analysieren.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;jdial
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.author: yagup;kumud
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150012"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939895"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -42,8 +42,8 @@ Virtuelle Azure-Netzwerke bieten NSG-Datenflussprotokolle mit Informationen zum 
 
 ## <a name="key-components"></a>Wichtige Komponenten
 
-- **Netzwerksicherheitsgruppe (NSG)**: Enthält eine Liste mit Sicherheitsregeln, mit denen Netzwerkdatenverkehr für Ressourcen, die mit virtuellen Azure-Netzwerken verbunden sind, zugelassen oder abgelehnt wird. NSGs können Subnetzen, einzelnen VMs (klassisch) oder einzelnen Netzwerkschnittstellen (NICs), die mit VMs (Resource Manager) verbunden sind, zugeordnet werden. Weitere Informationen finden Sie unter [Übersicht über Netzwerksicherheit](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **NSG-Flussprotokolle (Netzwerksicherheitsgruppe)**: Ermöglichen das Anzeigen von Informationen zu ein- und ausgehendem IP-Datenverkehr über eine Netzwerksicherheitsgruppe. Die NSG-Flussprotokolle sind im JSON-Format geschrieben und zeigen aus- und eingehende Datenflüsse pro Regel, die NIC, auf die sich der Datenfluss bezieht, Fünf-Tupel-Informationen über den Datenfluss (Quell-/Ziel-IP-Adresse, Quell-/Zielport, Protokoll) und Informationen zu zugelassenem oder verweigertem Datenverkehr. Weitere Informationen zu NSG-Flussprotokollen finden Sie unter [Einführung in die Datenflussprotokollierung für Netzwerksicherheitsgruppen](network-watcher-nsg-flow-logging-overview.md).
+- **Netzwerksicherheitsgruppe (NSG)** : Enthält eine Liste mit Sicherheitsregeln, mit denen Netzwerkdatenverkehr für Ressourcen, die mit virtuellen Azure-Netzwerken verbunden sind, zugelassen oder abgelehnt wird. NSGs können Subnetzen, einzelnen VMs (klassisch) oder einzelnen Netzwerkschnittstellen (NICs), die mit VMs (Resource Manager) verbunden sind, zugeordnet werden. Weitere Informationen finden Sie unter [Übersicht über Netzwerksicherheit](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **NSG-Flussprotokolle (Netzwerksicherheitsgruppe)** : Ermöglichen das Anzeigen von Informationen zu ein- und ausgehendem IP-Datenverkehr über eine Netzwerksicherheitsgruppe. Die NSG-Flussprotokolle sind im JSON-Format geschrieben und zeigen aus- und eingehende Datenflüsse pro Regel, die NIC, auf die sich der Datenfluss bezieht, Fünf-Tupel-Informationen über den Datenfluss (Quell-/Ziel-IP-Adresse, Quell-/Zielport, Protokoll) und Informationen zu zugelassenem oder verweigertem Datenverkehr. Weitere Informationen zu NSG-Flussprotokollen finden Sie unter [Einführung in die Datenflussprotokollierung für Netzwerksicherheitsgruppen](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: Ein Azure-Dienst, der Überwachungsdaten sammelt und in einem zentralen Repository speichert. Bei diesen Daten kann es sich um Ereignisse, Leistungsdaten oder benutzerdefinierte Daten handeln, die über die Azure-API bereitgestellt wurden. Die gesammelten Daten können für Warnungen und Analysen genutzt und exportiert werden. Überwachungsanwendungen wie z.B. Netzwerkleistungsmonitor und Datenverkehrsanalyse werden auf der Grundlage von Azure Monitor-Protokollen erstellt. Weitere Informationen finden Sie unter [Azure Monitor-Protokolle](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Log Analytics-Arbeitsbereich**: Eine Instanz von Azure Monitor-Protokollen, in die der Daten zu einem Azure-Konto gespeichert werden. Weitere Informationen zu Log Analytics-Arbeitsbereichen finden Sie unter [Erstellen eines Log Analytics-Arbeitsbereichs](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher:** Ein regionaler Dienst, mit dem Sie Bedingungen auf der Ebene von Netzwerkszenarien in Azure überwachen und diagnostizieren können. Sie können die NSG-Flussprotokolle mit Network Watcher ein- und ausschalten. Weitere Informationen finden Sie unter [Network Watcher](network-watcher-monitoring-overview.md).
@@ -176,7 +176,7 @@ Wählen Sie die folgenden Optionen aus, wie in der Abbildung dargestellt:
 
     ![Auswählen von Speicherkonto, Log Analytics-Arbeitsbereich und Traffic Analytics-Aktivierung](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Wiederholen Sie die oben angegebenen Schritte für alle weiteren NSGs, für die Sie die Datenverkehrsanalyse aktivieren möchten. Die Daten aus den Flussprotokollen werden an den Arbeitsbereich gesendet, daher müssen Sie sicherstellen, dass die vor Ort geltenden Gesetze und Vorschriften in Ihrem Land eine Datenspeicherung in der Region, in der sich der Arbeitsbereich befindet, erlauben.
+Wiederholen Sie die oben angegebenen Schritte für alle weiteren NSGs, für die Sie die Datenverkehrsanalyse aktivieren möchten. Die Daten aus den Flussprotokollen werden an den Arbeitsbereich gesendet, daher müssen Sie sicherstellen, dass die vor Ort geltenden Gesetze und Vorschriften in Ihrem Land bzw. in Ihrer Region eine Datenspeicherung in der Region, in der sich der Arbeitsbereich befindet, erlauben.
 
 Sie können Datenverkehrsanalysen auch mit dem PowerShell-Cmdlet [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in Azure PowerShell konfigurieren. Führen Sie `Get-Module -ListAvailable Az` aus, um die installierte Version zu ermitteln. Wenn Sie ein Upgrade ausführen müssen, finden Sie unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-Az-ps) Informationen dazu.
 
@@ -270,13 +270,13 @@ Einige der Erkenntnisse, die Sie nach der vollständigen Konfiguration von Traff
 
     ![Dashboard mit Verteilung des Datenverkehrs](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- Sie können in der Geomap auf dem oberen Menüband Parameter, z.B. Rechenzentren (bereitgestellt/nicht bereitgestellt/aktiv/inaktiv/Traffic Analytics aktiviert/Traffic Analytics nicht aktiviert), und Länder, die gutartigen/bösartigen Datenverkehr mit der aktiven Bereitstellung haben, auswählen:
+- Sie können in der Geomap auf dem oberen Menüband Parameter, z. B. Rechenzentren (bereitgestellt/nicht bereitgestellt/aktiv/inaktiv/Traffic Analytics aktiviert/Traffic Analytics nicht aktiviert), und Länder/Regionen, die gutartigen/bösartigen Datenverkehr mit der aktiven Bereitstellung haben, auswählen:
 
     ![Geomap mit aktiver Bereitstellung](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- Die Geomap zeigt die Verteilung des Datenverkehrs in einem Rechenzentrum aus Ländern und Kontinenten mit blauen (gutartiger Datenverkehr) und roten (bösartiger Datenverkehr) Linien:
+- Die Geomap zeigt die Verteilung des Datenverkehrs in einem Rechenzentrum aus Ländern/Regionen und Kontinenten mit blauen (gutartiger Datenverkehr) und roten (bösartiger Datenverkehr) Linien:
 
-    ![Geomap mit Verteilung des Datenverkehrs auf Länder und Kontinente](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Geomap mit Verteilung des Datenverkehrs auf Länder/Regionen und Kontinente](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Details zum Datenfluss für die Verteilung des Datenverkehrs in der Protokollsuche](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 

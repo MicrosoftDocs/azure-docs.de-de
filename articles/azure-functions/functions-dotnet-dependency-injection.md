@@ -3,20 +3,20 @@ title: Verwenden der Abhängigkeitsinjektion in Azure Functions (.NET)
 description: Verwenden von Abhängigkeitsinjektionen für die Registrierung und Verwendung von Diensten in .NET-Funktionen
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure-Funktionen, Funktionen, serverlose Architektur
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
-ms.author: jehollan
-ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.author: jehollan, glenga, cshoe
+ms.openlocfilehash: 5aa3ebee251e51be19b2d260825226194b678159
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408444"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242221"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Verwenden der Abhängigkeitsinjektion in Azure Functions (.NET)
 
@@ -24,13 +24,14 @@ Azure Functions unterstützt das Softwareentwurfsmuster „Abhängigkeitsinjekti
 
 Azure Functions basiert auf den Abhängigkeitsinjektionsfunktionen von ASP.NET Core.  Sie sollten mit den Diensten, der Lebensdauer und den Entwurfsmustern der [ASP.NET Core-Abhängigkeitsinjektion](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) vertraut sein, bevor Sie diese in Funktionen verwenden.
 
-## <a name="installing-dependency-injection-packages"></a>Installieren von Abhängigkeitsinjektionspaketen
+## <a name="prerequisites"></a>Voraussetzungen
 
-Sie müssen das NuGet-Paket, das diese APIs verfügbar macht, einschließen, um die Abhängigkeitsinjektionsfunktionen verwenden zu können.
+Bevor Sie die Abhängigkeitsinjektion verwenden können, müssen Sie das NuGet-Paket [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) installieren. Sie können dieses Paket installieren, indem Sie den folgenden Befehl aus der Paketkonsole ausführen:
 
 ```powershell
 Install-Package Microsoft.Azure.Functions.Extensions
 ```
+Sie müssen außerdem Version 1.0.28 des [Microsoft.NET.SDK.Functions-Pakets](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) oder eine höhere Version verwenden.
 
 ## <a name="registering-services"></a>Registrieren von Diensten
 

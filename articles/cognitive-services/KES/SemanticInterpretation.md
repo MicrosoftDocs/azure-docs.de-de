@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814476"
 ---
 # <a name="semantic-interpretation"></a>Semantische Interpretation
 
@@ -35,7 +35,7 @@ Es folgt eine Liste der zurzeit unterstützten Datentypen:
 
 |Type|BESCHREIBUNG|Beispiele|
 |----|----|----|
-|Zeichenfolge|Abfolge von 0 oder mehr Zeichen|„Hallo Welt!“<br/>""|
+|string|Abfolge von 0 oder mehr Zeichen|„Hallo Welt!“<br/>""|
 |Bool|Boolescher Wert|true<br/>false|
 |Int32|Ganze 32-Bit-Zahl mit Vorzeichen:  -2.1e9 bis 2.1e9|123<br/>-321|
 |Int64|Ganze 64-Bit-Zahl mit Vorzeichen: -9.2e18 und 9.2e18|9876543210|

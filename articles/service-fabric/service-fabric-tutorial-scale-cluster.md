@@ -16,11 +16,11 @@ ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278699"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66157976"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Skalieren eines Service Fabric-Clusters in Azure
 

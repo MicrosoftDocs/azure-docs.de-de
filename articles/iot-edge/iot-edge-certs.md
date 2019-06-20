@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 91cde6965f3635d6d2acfaf581f570779020f8ff
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232225"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60445294"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Details zur Verwendung von Azure IoT Edge-Zertifikaten
 

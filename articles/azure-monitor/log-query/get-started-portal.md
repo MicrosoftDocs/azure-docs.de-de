@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750581"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255258"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Erste Schritte mit Azure Monitor Log Analytics
 
@@ -46,7 +46,7 @@ Event | search "error"
 
 Diese Abfrage durchsucht die _Event_-Tabelle nach Datensätzen, die die Benennung „error“ in einer Eigenschaft enthalten.
 
-Abfragen können entweder mit einem Tabellennamen oder einem **search**-Befehl beginnen. Das obige Beispiel beginnt mit dem Tabellennamen _Event_, der den Gültigkeitsbereich der Abfrage definiert. Der senkrechte Strich (|) trennt Befehle, d.h. die Ausgabe des ersten Befehls in der Eingabe vom folgenden Befehl. Sie können eine beliebige Anzahl von Befehlen zu einer einzelnen Abfrage hinzufügen.
+Abfragen können entweder mit einem Tabellennamen oder einem **search**-Befehl beginnen. Das obige Beispiel beginnt mit dem Tabellennamen _Event_, der den Gültigkeitsbereich der Abfrage definiert. Der senkrechte Strich (|) trennt Befehle, d.h. die Ausgabe des ersten Befehls dient als Eingabe für den folgenden Befehl. Sie können eine beliebige Anzahl von Befehlen zu einer einzelnen Abfrage hinzufügen.
 
 Eine andere Möglichkeit, die gleiche Abfrage zu schreiben, wäre Folgende:
 

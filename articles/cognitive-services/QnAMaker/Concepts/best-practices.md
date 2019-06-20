@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: b8507bdbf66dc003b6f54317eb526c0e468b9f2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621973"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064373"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Best Practices für eine QnA Maker-Wissensdatenbank
 Die Anleitungen zum [Entwicklungszyklus einer Wissensdatenbank](../Concepts/development-lifecycle-knowledge-base.md) helfen Ihnen bei sämtlichen Schritten der Verwaltung Ihrer Wissensdatenbank. Nutzen Sie diese bewährten Methoden, um Ihre Knowledge Base zu verbessern und bessere Ergebnisse für die Endbenutzer Ihrer Anwendung bzw. Ihres Chatbots zu liefern.
@@ -39,18 +39,20 @@ Fügen Sie so viele alternative Fragen hinzu, wie Sie benötigen, aber halten Si
 Die besten Antworten sind einfache Antworten, aber nicht so einfach wie Ja und Nein. Wenn Ihre Antwort auf andere Quellen verweisen oder eine umfassende Erfahrung mit Medien und Links bieten soll, verwenden Sie [Tags](../how-to/metadata-generateanswer-usage.md), um zu unterscheiden, welche Art von Antwort Sie erwarten, und senden Sie dann dieses Tag mit der Abfrage, um die richtige Antwortversion zu erhalten.
 
 ## <a name="chit-chat"></a>Geplauder
-Fügen Sie Ihrem Bot Geplauder hinzu, um ihn mit geringem Aufwand gesprächiger und ansprechender zu gestalten. Sie können beim Erstellen Ihrer Wissensdatenbank ganz einfach Geplauderdatasets für 3 vordefinierte Persönlichkeiten hinzufügen und diese jederzeit ändern. Weitere Informationen zum [Hinzufügen von Geplauder zur Wissensdatenbank](../How-To/chit-chat-knowledge-base.md). 
+Fügen Sie Ihrem Bot Geplauder hinzu, um ihn mit geringem Aufwand gesprächiger und ansprechender zu gestalten. Sie können beim Erstellen Ihrer Wissensdatenbank ganz einfach Geplauderdatasets von vordefinierten Persönlichkeiten hinzufügen und diese jederzeit ändern. Weitere Informationen zum [Hinzufügen von Geplauder zur Wissensdatenbank](../How-To/chit-chat-knowledge-base.md). 
 
 ### <a name="choosing-a-personality"></a>Auswählen einer Persönlichkeit
-Chit-Chat wird für 3 vordefinierte Persönlichkeiten unterstützt: 
+Geplauder wird für verschiedene vordefinierte Persönlichkeiten unterstützt: 
 
-|Persönlichkeiten|
-|--|
-|Der Sachliche|
-|Der Freund|
-|Der Komiker|
+|Persönlichkeit |QnA Maker-Datasetdatei |
+|---------|-----|
+|Professionell |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Freundlich |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Witzig |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Mitfühlend |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Begeistert |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-Die Antworten reichen von formell bis informell und irrelevant. Sie sollten die Persönlichkeit auswählen, die am besten zu dem Sprachstil passt, den Sie für Ihren Bot wünschen. Sie können die Datasets anzeigen und ein Dataset auswählen, das als Basis für Ihren Bot dient, und dann die Antworten anpassen. 
+Die Antworten reichen von formell bis informell und irrelevant. Sie sollten die Persönlichkeit auswählen, die am besten zu dem Sprachstil passt, den Sie für Ihren Bot wünschen. Sie können die [Datasets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) anzeigen und ein Dataset auswählen, das als Basis für Ihren Bot dient, und dann die Antworten anpassen. 
 
 ### <a name="edit-bot-specific-questions"></a>Bearbeiten von botspezifische Fragen
 Es sind einige botspezifische Fragen vorhanden, die Teil des Geplauderdatasets sind und mit generischen Antworten aufgefüllt wurden. Ändern Sie diese Antworten so, dass sie am besten zu den Details Ihres Bots passen. 
@@ -70,6 +72,9 @@ Nutzen Sie unbedingt auch die von QnA Maker unterstützten Rangfolgefeatures. Da
 ### <a name="choosing-a-threshold"></a>Auswählen eines Schwellenwerts
 Die standardmäßige Zuverlässigkeitsbewertung, die als Schwellenwert verwendet wird, ist 50. Sie können sie jedoch für Ihre Wissensdatenbank gemäß Ihren Bedürfnissen ändern. Da jede Wissensdatenbank anders ist, sollten Sie den Schwellenwert testen und einen Wert auswählen, der für Ihre Wissensdatenbank am besten geeignet ist. Erfahren Sie mehr über die [Zuverlässigkeitsbewertung](../Concepts/confidence-score.md). 
 
+### <a name="choosing-ranker-type"></a>Auswählen des Typs der Rangfolgefunktion
+Standardmäßig durchsucht QnA Maker Fragen und Antworten. Wenn Sie nur Fragen durchsuchen möchten, um eine Antwort zu generieren, verwenden Sie `RankerType=QuestionOnly` im POST-Text der GenerateAnswer-Anforderung.
+
 ### <a name="add-alternate-questions"></a>Hinzufügen alternativer Fragen
 [Alternative Fragen](../How-To/edit-knowledge-base.md) verbessern die Wahrscheinlichkeit einer Übereinstimmung mit einer Benutzerfrage. Alternative Fragen sind besonders dann nützlich, wenn es mehrere Möglichkeiten gibt, die gleiche Frage zu stellen. Dies können z.B. Änderungen in der Satzstruktur und in der Wortwahl sein.
 
@@ -85,7 +90,7 @@ Die standardmäßige Zuverlässigkeitsbewertung, die als Schwellenwert verwendet
 [Metadaten](../How-To/edit-knowledge-base.md) bieten eine zusätzliche Möglichkeit, die Ergebnisse einer Benutzerfrage basierend auf Metadatentags einzugrenzen. Die Antwort aus der Knowledge Base kann basierend auf Metadatentags variieren, selbst wenn die Frage identisch ist. So gibt es beispielsweise auf die Frage *„Wo ist der Parkplatz?“* eine andere Antwort, wenn ein anderer Standort für eine Filiale der Restaurantkette verwendet wird. Die Metadaten sind für *Standort: Seattle* anders als für *Standort: Redmond*.
 
 ### <a name="use-synonyms"></a>Verwenden von Synonymen
-Auch wenn für die englische Sprache Synonyme teilweise unterstützt werden, verwenden Sie [Wortvarianten](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) (ohne Berücksichtigung der Groß- und Kleinschreibung), um Synonyme für Schlüsselwörter hinzuzufügen, die unterschiedliche Formen aufweisen. Synonyme sollten auf QnA Maker-Dienstebene hinzugefügt und für alle Knowledge Bases im Dienst gemeinsam verwendet werden.
+Auch wenn für die englische Sprache Synonyme teilweise unterstützt werden, verwenden Sie [Wortvarianten](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) (ohne Berücksichtigung der Groß- und Kleinschreibung), um Synonyme für Schlüsselwörter hinzuzufügen, die unterschiedliche Formen aufweisen. Synonyme sollten auf QnA Maker-Dienstebene hinzugefügt und für alle Knowledge Bases im Dienst gemeinsam verwendet werden.
 
 |Ursprüngliches Wort|Synonyme|
 |--|--|
@@ -108,7 +113,7 @@ QnA Maker ermöglicht Benutzern das [Zusammenarbeiten](../How-to/collaborate-kno
 
 ## <a name="active-learning"></a>Aktives Lernen
 
-[Aktives Lernen](../How-to/improve-knowledge-base.md) leistet die beste Arbeit beim Vorschlagen alternativer Fragen, wenn ein breites Spektrum an Qualität und Quantität von benutzerbezogenen Abfragen zur Verfügung steht. Es ist wichtig, dass die Benutzerabfragen von Clientanwendungen ohne Zensur an der Feedbackschleife des aktiven Lernens teilnehmen können. Sobald Fragen im QnA Maker-Portal vorgeschlagen werden, können Sie **[nach Vorschlägen filtern](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** und diese Vorschläge dann überprüfen, um sie zu akzeptieren oder abzulehnen. 
+[Aktives Lernen](../How-to/improve-knowledge-base.md) leistet die beste Arbeit beim Vorschlagen alternativer Fragen, wenn ein breites Spektrum an Qualität und Quantität von benutzerbezogenen Abfragen zur Verfügung steht. Es ist wichtig, dass die Benutzerabfragen von Clientanwendungen ohne Zensur an der Feedbackschleife des aktiven Lernens teilnehmen können. Sobald Fragen im QnA Maker-Portal vorgeschlagen werden, können Sie **[nach Vorschlägen filtern](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** und diese Vorschläge dann überprüfen, um sie zu akzeptieren oder abzulehnen. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

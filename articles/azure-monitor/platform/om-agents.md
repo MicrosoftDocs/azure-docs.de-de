@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878354"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60255095"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Herstellen einer Verbindung zwischen Operations Manager und Azure Monitor
 
@@ -64,7 +64,7 @@ Bevor Sie beginnen, überprüfen Sie die folgenden Anforderungen.
 
 Die folgende Aufstellung enthält die Proxy- und Firewall-Konfigurationsinformationen, die der Operations Manager-Agent, der Verwaltungsserver und die Betriebskonsole benötigen, um mit Azure Monitor zu kommunizieren. Der Datenverkehr von jeder Komponente ist aus dem Netzwerk ausgehender Datenverkehr an Azure Monitor.   
 
-|Ressource | Portnummer| HTTP-Prüfung umgehen|  
+|Resource | Portnummer| HTTP-Prüfung umgehen|  
 |---------|------|-----------------------|  
 |**Agent**|||  
 |\*.ods.opinsights.azure.com| 443 |Ja|  
@@ -142,7 +142,7 @@ Führen Sie die folgenden Schritte aus, wenn sich zwischen Verwaltungsgruppe und
 1. Öffnen Sie die Operations Manager-Konsole, und wählen Sie den Arbeitsbereich **Administration** aus.
 1. Erweitern Sie „Operations Management Suite“, und klicken Sie auf **Verbindungen**.
 1. Klicken Sie in der Ansicht „OMS-Verbindung“ auf **Proxyserver konfigurieren**.
-1. Auf der Seite des **Assistenten für die Operations Management Suite: Proxyserver** wählen Sie die Option **Proxyserver für Zugriff auf Operations Management Suite verwenden** aus, geben Sie dann die URL mit der Portnummer ein (z. B. http://corpproxy:80), und klicken Sie anschließend auf **Fertig stellen**.
+1. Auf der Seite des **Assistenten für die Operations Management Suite: Proxyserver** wählen Sie die Option **Proxyserver für Zugriff auf Operations Management Suite verwenden** aus, geben Sie dann die URL mit der Portnummer ein (z. B. http://corpproxy:80 ), und klicken Sie anschließend auf **Fertig stellen**.
 
 Falls Ihr Proxyserver eine Authentifizierung erfordert, führen Sie die folgenden Schritte aus, um Anmeldeinformationen und Einstellungen zu konfigurieren, die an verwaltete Computer weitergegeben werden müssen, die in der Verwaltungsgruppe Daten an Azure Monitor melden.
 

@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a6ebfc86a2489910d23faa96550f34cc979c0435
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875289"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001763"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs-Messagingausnahmen
 
@@ -91,6 +91,12 @@ Dieser Fehler kann aus zwei Gründen auftreten:
 
 Dieser Fehler sollte kaum auftreten. Er tritt auf, wenn der Container, der Code für Ihren Namespace ausführt, nicht über ausreichend CPU-Kapazität verfügt – wenige Sekunden vor Beginn des Event Hubs-Lastenausgleichs.
 
+### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Grenzwert für Aufrufe der GetRuntimeInformation-Methode
+Azure Event Hubs unterstützt bis zu 50 Aufrufe der GetRuntimeInfo pro Sekunde. Sobald der Grenzwert erreicht wurde, erhalten Sie eventuell eine ähnliche Ausnahme wie die folgende:
+
+```
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+```
 
 ## <a name="next-steps"></a>Nächste Schritte
 

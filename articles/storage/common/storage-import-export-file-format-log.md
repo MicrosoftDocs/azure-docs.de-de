@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478605"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Format der Protokolldateien des Azure Import/Export-Diensts
 Wenn der Microsoft Azure Import/Export-Dienst als Teil eines Import- oder Exportauftrags eine Aktion auf einem Laufwerk durchführt, werden Protokolle in Blockblobs in dem Speicherkonto geschrieben, das dem Auftrag zugeordnet ist.  
@@ -33,8 +33,8 @@ In der folgenden Tabelle sind die möglichen Optionen dargestellt:
   
 |Authentifizierungsmethode|Wert des `ImportExportStatesPath`-Elements|Speicherort des Protokollblobs|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Speicherkontoschlüssel|Standardwert|Ein Container namens `waimportexport`, dies ist der Standardcontainer. Beispiel: <br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Speicherkontoschlüssel|Vom Benutzer angegebener Wert|Ein vom Benutzer benannter Container. Beispiel: <br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Speicherkontoschlüssel|Standardwert|Ein Container namens `waimportexport`, dies ist der Standardcontainer. Beispiel:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Speicherkontoschlüssel|Vom Benutzer angegebener Wert|Ein vom Benutzer benannter Container. Beispiel:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |Container-SAS|Standardwert|Ein virtuelles Verzeichnis namens `waimportexport` (der Standardname) unter dem Container, der in der SAS angegeben ist.<br /><br /> Beispiel: Wenn die für den Auftrag angegebene SAS `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` ist, wäre der Protokollspeicherort `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`.|  
 |Container-SAS|Vom Benutzer angegebener Wert|Ein virtuelles vom Benutzer benanntes Verzeichnis unter dem Container, der in der SAS angegeben ist.<br /><br /> Beispiel: Wenn die für den Auftrag angegebene SAS `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` ist und das angegebene virtuelle Verzeichnis `mylogblobs` heißt, wäre der Protokollspeicherort `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
@@ -105,15 +105,15 @@ Die folgende Tabelle beschreibt die Elemente der Protokolldatei.
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML-Element|Stellt ein Laufwerkprotokoll dar.|  
 |`Version`|Attribut, String|Die Version des Protokollformats.|  
-|`DriveId`|Zeichenfolge|Der Hardwareseriennummer des Laufwerks.|  
-|`Status`|Zeichenfolge|Status der Laufwerksverarbeitung. Weitere Informationen finden Sie weiter unten in der Tabelle `Drive Status Codes`.|  
+|`DriveId`|string|Der Hardwareseriennummer des Laufwerks.|  
+|`Status`|string|Status der Laufwerksverarbeitung. Weitere Informationen finden Sie weiter unten in der Tabelle `Drive Status Codes`.|  
 |`Blob`|Geschachteltes XML-Element|Stellt ein Blob dar.|  
-|`Blob/BlobPath`|Zeichenfolge|Der URI des Blobs.|  
-|`Blob/FilePath`|Zeichenfolge|Der relative Pfad zur Datei auf dem Laufwerk.|  
+|`Blob/BlobPath`|string|Der URI des Blobs.|  
+|`Blob/FilePath`|string|Der relative Pfad zur Datei auf dem Laufwerk.|  
 |`Blob/Snapshot`|DateTime|Die Momentaufnahmeversion des Blobs (nur für einen Exportauftrag).|  
-|`Blob/Length`|Ganze Zahl |Die Gesamtlänge des Blobs in Bytes.|  
+|`Blob/Length`|Integer|Die Gesamtlänge des Blobs in Bytes.|  
 |`Blob/LastModified`|DateTime|Datum/Uhrzeit der letzten Änderung des Blobs (nur für einen Exportauftrag).|  
-|`Blob/ImportDisposition`|Zeichenfolge|Die Importdisposition des Blobs (nur für einen Importauftrag).|  
+|`Blob/ImportDisposition`|string|Die Importdisposition des Blobs (nur für einen Importauftrag).|  
 |`Blob/ImportDisposition/@Status`|Attribut, String|Der Status der Importdisposition.|  
 |`PageRangeList`|Geschachteltes XML-Element|Stellt eine Liste von Seitenbereichen für ein Seitenblob dar.|  
 |`PageRange`|XML-Element|Stellt einen Seitenbereich dar.|  
@@ -130,17 +130,17 @@ Die folgende Tabelle beschreibt die Elemente der Protokolldatei.
 |`Block/@Status`|Attribut, String|Status der Verarbeitung des Blocks.|  
 |`Metadata`|Geschachteltes XML-Element|Stellt die Metadaten des Blobs dar.|  
 |`Metadata/@Status`|Attribut, Zeichenfolge|Status der Verarbeitung der Blobmetadaten.|  
-|`Metadata/GlobalPath`|Zeichenfolge|Relativer Pfad zur globalen Metadatendatei.|  
+|`Metadata/GlobalPath`|string|Relativer Pfad zur globalen Metadatendatei.|  
 |`Metadata/GlobalPath/@Hash`|Attribut, String|Base16-codierter MD5-Hash der globalen Metadatendatei.|  
-|`Metadata/Path`|Zeichenfolge|Relativer Pfad zur Metadatendatei.|  
+|`Metadata/Path`|string|Relativer Pfad zur Metadatendatei.|  
 |`Metadata/Path/@Hash`|Attribut, String|Base16-codierter MD5-Hash der Metadatendatei.|  
 |`Properties`|Geschachteltes XML-Element|Stellt die Blobeigenschaften dar.|  
 |`Properties/@Status`|Attribut, String|Status der Verarbeitung der Blobeigenschaften, z.B. Datei wurde nicht gefunden, abgeschlossen.|  
-|`Properties/GlobalPath`|Zeichenfolge|Relativer Pfad zur globalen Eigenschaftendatei.|  
+|`Properties/GlobalPath`|string|Relativer Pfad zur globalen Eigenschaftendatei.|  
 |`Properties/GlobalPath/@Hash`|Attribut, String|Base16-codierter MD5-Hash der globalen Eigenschaftendatei.|  
-|`Properties/Path`|Zeichenfolge|Relativer Pfad zur Eigenschaftendatei.|  
+|`Properties/Path`|string|Relativer Pfad zur Eigenschaftendatei.|  
 |`Properties/Path/@Hash`|Attribut, String|Base16-codierter MD5-Hash der Eigenschaftendatei.|  
-|`Blob/Status`|Zeichenfolge|Status der Verarbeitung des Blobs.|  
+|`Blob/Status`|string|Status der Verarbeitung des Blobs.|  
   
 ## <a name="drive-status-codes"></a>Statuscodes für Laufwerke  
 In der folgenden Tabelle sind die Statuscodes für die Verarbeitung eines Laufwerks aufgeführt.  

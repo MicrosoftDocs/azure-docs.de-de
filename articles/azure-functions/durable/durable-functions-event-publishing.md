@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60733779"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Veröffentlichungen von Durable Functions in Azure Event Grid (Vorschau)
 
@@ -250,19 +250,19 @@ Wenn Sie `Sample_HttpStart` mit Postman oder in Ihrem Browser aufrufen, beginnt 
 
 In der folgenden Liste wird das Schema für Lebenszyklusereignisse erläutert:
 
-* **`id`**: Eindeutiger Bezeichner für das Event Grid-Ereignis.
-* **`subject`**: Pfad zum Ereignisbetreff. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` kann `Running`, `Completed`, `Failed` und `Terminated` sein.  
-* **`data`**: Spezielle Durable Functions-Parameter.
-  * **`hubName`**: Name des [TaskHub](durable-functions-task-hubs.md).
-  * **`functionName`**: Name der Orchestratorfunktion.
-  * **`instanceId`**: ID der Durable Functions-Instanz.
-  * **`reason`**: Zusätzliche Daten zum Nachverfolgungsereignis. Weitere Informationen finden Sie unter [Diagnose in Durable Functions (Azure Functions)](durable-functions-diagnostics.md).
-  * **`runtimeStatus`**: Laufzeitstatus der Orchestrierung. „Running“, „Completed“, „Failed“, „Canceled“.
-* **`eventType`**: "orchestratorEvent"
-* **`eventTime`**: Ereigniszeit (UTC).
-* **`dataVersion`**: Version des Lebenszyklus-Ereignisschemas.
-* **`metadataVersion`**:  Version der Metadaten.
-* **`topic`**: Ressource des Event Grid-Themas.
+* **`id`** : Eindeutiger Bezeichner für das Event Grid-Ereignis.
+* **`subject`** : Pfad zum Ereignisbetreff. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` kann `Running`, `Completed`, `Failed` und `Terminated` sein.  
+* **`data`** : Spezielle Durable Functions-Parameter.
+  * **`hubName`** : Name des [TaskHub](durable-functions-task-hubs.md).
+  * **`functionName`** : Name der Orchestratorfunktion.
+  * **`instanceId`** : ID der Durable Functions-Instanz.
+  * **`reason`** : Zusätzliche Daten zum Nachverfolgungsereignis. Weitere Informationen finden Sie unter [Diagnose in Durable Functions (Azure Functions)](durable-functions-diagnostics.md).
+  * **`runtimeStatus`** : Laufzeitstatus der Orchestrierung. „Running“, „Completed“, „Failed“, „Canceled“.
+* **`eventType`** : "orchestratorEvent"
+* **`eventTime`** : Ereigniszeit (UTC).
+* **`dataVersion`** : Version des Lebenszyklus-Ereignisschemas.
+* **`metadataVersion`** :  Version der Metadaten.
+* **`topic`** : Ressource des Event Grid-Themas.
 
 ## <a name="how-to-test-locally"></a>Lokales Testen
 

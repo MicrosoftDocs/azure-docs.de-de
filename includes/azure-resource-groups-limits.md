@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012522"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178457"
 ---
-| Ressource | Standardlimit | Maximales Limit |
+| Resource | Standardlimit | Maximales Limit |
 | --- | --- | --- |
 | Ressourcen pro [Ressourcengruppe](../articles/azure-resource-manager/resource-group-overview.md#resource-groups), pro Ressourcentyp |800 |Variiert je nach Ressourcentyp |
 | Bereitstellungen pro Ressourcenverlauf im Bereitstellungsverlauf |800<sup>1</sup> |800 |

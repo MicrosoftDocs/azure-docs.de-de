@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 06/04/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cc9d0a951ac6f7ed18ad6558ae9edb2d1f9c8f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544647"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688753"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Wie und warum werden Anwendungen zu Azure AD hinzugefügt?
 
@@ -32,9 +32,9 @@ Es gibt zwei Darstellungen von Anwendungen in Azure AD:
 * [Dienstprinzipale](app-objects-and-service-principals.md#service-principal-object) können als eine Instanz einer Anwendung betrachtet werden. Dienstprinzipale verweisen in der Regel auf ein Anwendungsobjekt, und ein Anwendungsobjekt kann verzeichnisübergreifend von mehreren Dienstprinzipalen referenziert werden.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Was sind Anwendungsobjekte und woher stammen sie?
-[Anwendungsobjekte](app-objects-and-service-principals.md#application-object) können im Azure-Portal über die Oberfläche [App-Registrierungen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) verwaltet werden. Anwendungsobjekte stellen für Azure AD eine Beschreibung der Anwendung bereit und können als die Definition der Anwendung betrachtet werden. Sie teilen dem Dienst basierend auf den Einstellungen der Anwendung mit, wie Token für die Anwendung ausgestellt werden müssen. Das Anwendungsobjekt ist nur in seinem Stammverzeichnis vorhanden. Dies gilt auch dann, wenn es sich um eine mehrinstanzenfähige Anwendung handelt, die Dienstprinzipale in anderen Verzeichnissen unterstützt. Das Anwendungsobjekt kann Folgendes enthalten (sowie zusätzliche Informationen, die hier nicht erwähnt werden):
+[Anwendungsobjekte](app-objects-and-service-principals.md#application-object) können im Azure-Portal über die Oberfläche [App-Registrierungen](https://aka.ms/appregistrations) verwaltet werden. Anwendungsobjekte stellen für Azure AD eine Beschreibung der Anwendung bereit und können als die Definition der Anwendung betrachtet werden. Sie teilen dem Dienst basierend auf den Einstellungen der Anwendung mit, wie Token für die Anwendung ausgestellt werden müssen. Das Anwendungsobjekt ist nur in seinem Stammverzeichnis vorhanden. Dies gilt auch dann, wenn es sich um eine mehrinstanzenfähige Anwendung handelt, die Dienstprinzipale in anderen Verzeichnissen unterstützt. Das Anwendungsobjekt kann Folgendes enthalten (sowie zusätzliche Informationen, die hier nicht erwähnt werden):
 * Name, Logo und Herausgeber
-* Antwort-URLs
+* Umleitungs-URIs
 * Geheimnisse (symmetrische und/oder asymmetrische Schlüssel für die Authentifizierung der Anwendung)
 * API-Abhängigkeiten (OAuth)
 * Veröffentlichte APIs/Ressourcen/Bereiche (OAuth)
@@ -74,7 +74,7 @@ Der Dienstprinzipal kann Folgendes enthalten:
   * Wenn Sie Office 365 abonnieren oder ein Testabonnement starten, werden im Verzeichnis ein oder mehrere Dienstprinzipale erstellt, die die verschiedenen Dienste darstellen, mit denen die Funktionen von Office 365 bereitgestellt werden.
   * Manche Office 365-Dienste wie beispielsweise SharePoint erstellen fortlaufend neue Dienstprinzipale, um eine sichere Kommunikation zwischen den Komponenten (einschließlich Workflows) zu ermöglichen.
 * Hinzufügen einer Anwendung aus dem App-Katalog durch einen Administrator (dadurch wird ebenfalls ein zugrunde liegendes Anwendungsobjekt erstellt)
-* Hinzufügen einer Anwendung zur Verwendung des [Azure AD-Anwendungsproxys](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Hinzufügen einer Anwendung zur Verwendung des [Azure AD-Anwendungsproxys](/azure/active-directory/manage-apps/application-proxy)
 * Verbinden einer Anwendung für einmaliges Anmelden über SAML oder einmaliges Anmelden (SSO) per Kennwort
 * Programmgesteuert über die Azure AD Graph-API oder über PowerShell
 
@@ -101,8 +101,8 @@ Zu Anwendungen, die Sie selbst hinzufügen (dargestellt als **Ihre App** im Diag
   * Transformationsregeln für Ansprüche
   * Attributzuordnungen (Benutzerbereitstellung)
 * Ausführlichere Informationen zu Dienstprinzipalen und Anwendungsobjekten finden Sie in der Referenzdokumentation zur Azure AD Graph-REST-API:
-  * [Anwendung](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Dienstprinzipal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Anwendung](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Dienstprinzipal](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Weshalb werden Anwendung in Azure AD integriert?
 Anwendungen werden Azure AD hinzugefügt, damit sie die von Azure AD bereitgestellten Dienste nutzen können, beispielsweise:

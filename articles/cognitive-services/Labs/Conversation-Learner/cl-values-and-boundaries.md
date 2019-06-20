@@ -3,19 +3,19 @@ title: Standardkonfiguration des Unterhaltungslernmoduls – Microsoft Cognitive
 titleSuffix: Azure
 description: Weitere Informationen zur Standardkonfiguration des Unterhaltungslernmoduls
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 8050008bbae4a23f09b5fa94874a6315e798b448
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: ebdc1e1c100329e95bd19359408cb138d233b1c2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211286"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385440"
 ---
 # <a name="default-values-and-boundaries"></a>Standardwerte und Grenzen
 

@@ -9,18 +9,18 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d8ef24bfec541ec65c74f77a90aa9476a8b298b2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153282"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911923"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Clientseitige Verschlüsselung und Azure Key Vault für Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Übersicht
-Das [NuGet-Paket für die Azure Storage-Clientbibliothek für .NET](https://www.nuget.org/packages/WindowsAzure.Storage) unterstützt die Verschlüsselung von Daten innerhalb von Clientanwendungen vor dem Hochladen der Daten nach Azure Storage sowie die Entschlüsselung von Daten während des Herunterladens auf den Client. Um die Schlüsselverwaltung für Speicherkonten zu ermöglichen, unterstützt die Bibliothek zudem die Integration in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Die [Azure Storage-Clientbibliothek für .NET](/dotnet/api/overview/azure/storage/client) unterstützt die Verschlüsselung von Daten innerhalb von Clientanwendungen vor dem Hochladen der Daten nach Azure Storage sowie die Entschlüsselung von Daten während des Herunterladens auf den Client. Um die Schlüsselverwaltung für Speicherkonten zu ermöglichen, unterstützt die Bibliothek zudem die Integration in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Ein ausführliches Tutorial, das Sie Schritt für Schritt durch die Verschlüsselung von Blobs mittels clientseitiger Verschlüsselung und Azure Key Vault führt, finden Sie unter [Verschlüsseln und Entschlüsseln von Blobs in Microsoft Azure Storage per Azure-Schlüsseltresor](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 

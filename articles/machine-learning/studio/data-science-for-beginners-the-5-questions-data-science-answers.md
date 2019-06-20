@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751345"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Data Science für Einsteiger – Video 1: Die 5 Fragen, die Data Science beantwortet
 In den fünf kurzen Videos der Reihe *Data Science für Einsteiger* von einem Data Science-Experten erhalten Sie eine kurze Einführung in Data Science. In diesen Videos werden zwar nur die Grundlagen behandelt, sie sind aber hilfreich, wenn Sie sich selbst mit Data Science beschäftigen möchten oder mit Data Scientists arbeiten.
@@ -66,7 +66,7 @@ Diese Gruppe von Algorithmen wird als Klassifizierung mit zwei Klassen bezeichne
 
 Sie empfiehlt sich für Fragen, die nur zwei mögliche Antworten haben.
 
-Beispiel: 
+Beispiel:
 
 * Übersteht dieser Reifen die nächsten 1.600 km: Ja oder nein?
 * Was bringt mehr Kunden: ein 5-€-Gutschein oder ein Rabatt von 25 %?

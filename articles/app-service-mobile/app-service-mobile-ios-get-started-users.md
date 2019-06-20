@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
 ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445907"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128148"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Hinzufügen der Authentifizierung zu Ihrer iOS-App
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -212,8 +212,8 @@ Klicken Sie in Xcode auf **Run** , um die App zu starten. Eine Ausnahme wird aus
 
 5. Klicken Sie auf *Ausführen*, um die App zu starten, und melden Sie sich an. Nach der Anmeldung sollten Sie die Todo-Liste anzeigen und Änderungen vornehmen können.
 
-Die App Service-Authentifizierung verwendet Inter-App Communication von Apple.  Weitere Informationen zu diesem Thema finden Sie in der [Apple-Dokumentation][2]
-<!-- URLs. -->.
+Die App Service-Authentifizierung verwendet Inter-App Communication von Apple.  Weitere Informationen zu diesem Thema finden Sie in der [Apple-Dokumentation][2].
+<!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html

@@ -11,11 +11,11 @@ ms.author: garye
 ms.custom: seodc18
 ms.date: 03/04/2019
 ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751628"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Herunterladbare Infografik: Grundlagen von Machine Learning mit Algorithmusbeispielen
 
@@ -23,7 +23,7 @@ Laden Sie diese einfach verständliche Infografikübersicht über Grundlagen von
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Beliebte Algorithmen in Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) bietet eine große Bibliothek von Algorithmen für Predictive Analytics. Diese Infografik identifiziert vier beliebte Algorithmusfamilien (Regression, Anomalieerkennung, Clustering und Klassifizierung) und enthält Links zu funktionierenden Beispielen in der [Azure AI Gallery](https://gallery.azure.ai/). Der Katalog enthält Beispielexperimente und Tutorials, die veranschaulichen, wie diese Algorithmen in vielen realen Lösungen angewendet werden können.
+[Azure Machine Learning Studio](https://studio.azureml.net/) bietet eine große Bibliothek von Algorithmen für Predictive Analytics. Diese Infografik identifiziert vier beliebte Algorithmusfamilien (Regression, Anomalieerkennung, Clustering und Klassifizierung) und enthält Links zu funktionierenden Beispielen im [Azure KI-Katalog](https://gallery.azure.ai/). Der Katalog enthält Beispielexperimente und Tutorials, die veranschaulichen, wie diese Algorithmen in vielen realen Lösungen angewendet werden können.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Die Infografik mit Algorithmusbeispielen herunterladen
 
@@ -36,7 +36,7 @@ Laden Sie diese einfach verständliche Infografikübersicht über Grundlagen von
 * Eine ausführlichere Erläuterung der verschiedenen Typen von Algorithmen für maschinelles Lernen und ihrer Verwendung sowie zur Auswahl des richtigen Algorithmus für Ihre Lösung finden Sie unter [Auswählen von Algorithmen für Azure Machine Learning Studio](algorithm-choice.md).
 * Eine in Kategorien unterteilte Liste aller in Machine Learning Studio verfügbaren Algorithmen für maschinelles Lernen finden Sie in der Hilfe zu den Algorithmen und Modulen in Machine Learning unter [Modell initialisieren][initialize-model].
 * Eine vollständige alphabetische Liste aller in Machine Learning Studio verfügbaren Algorithmen und Module finden Sie in der Hilfe zu den Algorithmen und Modulen in Machine Learning Studio unter [Modulliste von A bis Z für Machine Learning Studio][a-z-list].
-* Eine Übersicht über den Azure AI-Katalog und die zahlreichen von der Community erstellten verfügbaren Ressourcen finden Sie unter [Freigeben und Entdecken von Ressourcen im Azure AI-Katalog](gallery-how-to-use-contribute-publish.md).
+* Eine Übersicht über den Azure KI-Katalog und die zahlreichen von der Community erstellten verfügbaren Ressourcen finden Sie unter [Freigeben und Entdecken von Ressourcen im Azure KI-Katalog](gallery-how-to-use-contribute-publish.md).
 
 
 <!-- Module References -->

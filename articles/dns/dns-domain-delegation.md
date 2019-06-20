@@ -8,11 +8,11 @@ ms.date: 2/19/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 70c1c1ab0dd5d1998054cf0c68325022803dff06
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791612"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60563143"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegieren von DNS-Zonen mit Azure DNS
 
@@ -22,7 +22,7 @@ Azure DNS ermöglicht es Ihnen, eine DNS-Zone zu hosten und die DNS-Einträge f�
 
 ### <a name="domains-and-zones"></a>Domänen und Zonen
 
-Das Domain Name System ist eine Hierarchie von Domänen. Die Hierarchie beginnt mit der Stammdomäne, deren Name einfach „**.**“ lautet.  Darunter befinden sich Domänen der obersten Ebene, z.B. „com“, „net“, „org“, „uk“ oder „jp“.  Unter diesen Domänen der obersten Ebene befinden sich die Domänen der zweiten Ebene (beispielsweise „org.uk“ oder „co.jp“).  Und so weiter. Die Domänen in der DNS-Hierarchie werden mithilfe von separaten DNS-Zonen gehostet. Diese Zonen sind global verteilt und werden von DNS-Namenservern in der ganzen Welt gehostet.
+Das Domain Name System ist eine Hierarchie von Domänen. Die Hierarchie beginnt mit der Stammdomäne, deren Name einfach „ **.** “ lautet.  Darunter befinden sich Domänen der obersten Ebene, z.B. „com“, „net“, „org“, „uk“ oder „jp“.  Unter diesen Domänen der obersten Ebene befinden sich die Domänen der zweiten Ebene (beispielsweise „org.uk“ oder „co.jp“).  Und so weiter. Die Domänen in der DNS-Hierarchie werden mithilfe von separaten DNS-Zonen gehostet. Diese Zonen sind global verteilt und werden von DNS-Namenservern in der ganzen Welt gehostet.
 
 **DNS-Zone:** Eine Domäne ist ein eindeutiger Name im Domain Name System (beispielsweise „contoso.com“). Eine DNS-Zone wird zum Hosten der DNS-Einträge für eine bestimmte Domäne verwendet. Beispiel: Die Domäne „contoso.com“ kann eine Reihe von DNS-Einträgen wie „mail.contoso.com“ (für einen E-Mail-Server) und „www.contoso.com“ (für eine Website) enthalten.
 

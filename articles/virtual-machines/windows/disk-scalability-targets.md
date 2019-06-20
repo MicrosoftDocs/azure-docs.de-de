@@ -10,11 +10,11 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
 ms.openlocfilehash: fed6b75833ea4283ef8f09ed4def3b083c388584
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770662"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60386318"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Skalierbarkeits- und Leistungsziele für VM-Datenträger unter Windows
 

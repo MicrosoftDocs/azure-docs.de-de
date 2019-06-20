@@ -4,15 +4,15 @@ description: Erfahren Sie, wie Sie Ihr Azure Cosmos DB-Konto anhand von Leistung
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 02bbde9a2d744c79cc8a7e95b0732b775c4dc695
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448237"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241624"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Überwachen von Leistungs- und Speichermetriken in Azure Cosmos DB
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 7a2cb110d5be74e23e8e782fc02873786e8813e9
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149715"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64924633"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Verbinden von IoT DevKit AZ3166 mit Azure IoT Hub
 
@@ -79,7 +79,9 @@ Ein Gerät muss bei Ihrer IoT Hub-Instanz registriert sein, um eine Verbindung h
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
+   > [!NOTE]
+   > Wenn bei der Ausführung von `device-identity` eine Fehlermeldung angezeigt wird, installieren Sie die [Azure IOT-Erweiterung für Azure-Befehlszeilenschnittstelle](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md), um mehr zu dem Fehler zu erfahren.
+  
 1. Führen Sie die folgenden Befehle in Azure Cloud Shell aus, um die _Geräteverbindungszeichenfolge_ für das soeben registrierte Gerät abzurufen:
 
    **YourIoTHubName**: Ersetzen Sie diesen Platzhalter unten durch den Namen, den Sie für Ihren IoT-Hub wählen.

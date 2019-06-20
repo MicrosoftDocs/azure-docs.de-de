@@ -12,11 +12,11 @@ ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: 663363d05c1875d22a0ecc0478abcf7e0ec89c99
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230368"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62105629"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Verwalten von Project Online-Projekten, -Aufgaben und -Ressourcen mithilfe von Azure Logic Apps
 

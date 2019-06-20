@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/12/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 379c7913f803c599865df080524da5c3fb1d0e52
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a53a62a7bc7a5c7f8d9bdabdf411588fdf7bd5e7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526339"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257067"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Verwenden des Azure Cosmos DB-Änderungsfeeds zum Visualisieren von Echtzeit-Datenanalysen
 
@@ -380,7 +380,7 @@ Sie werden nun sehen, wie Sie Ihr neues Datenanalyse-Tool nutzen können, um sic
 
    Geben Sie den **Produktsammlungsnamen**, **Kategoriensammlungsnamen** und den **Top Items-Sammlungsnamen** ein, wie angegeben. (Diese sollten **products, categories und topItems** lauten, sofern Sie sie nicht anders benennen möchten.)  
 
-8. Navigieren Sie zum **Auscheckordner** in **EcommerceWebApp.sln.**, und öffnen Sie ihn. Öffnen Sie dann die Datei **Web.config** in diesem Ordner.  
+8. Navigieren Sie zum **Auscheckordner** in **EcommerceWebApp.sln.** , und öffnen Sie ihn. Öffnen Sie dann die Datei **Web.config** in diesem Ordner.  
 
 9. Fügen Sie im `<appSettings>`-Block den zuvor gespeicherten **URI** und **PRIMÄRSCHLÜSSEL** an den entsprechenden Stellen ein. Geben Sie anschließend Ihren **Datenbanknamen** und **Sammlungsname** an. (Diese sollten **changefeedlabdatabase** und **changefeedlabcollection** lauten, sofern Sie sie nicht anders benennen möchten.)  
 

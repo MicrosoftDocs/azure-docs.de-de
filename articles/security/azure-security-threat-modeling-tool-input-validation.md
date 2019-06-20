@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 0803ade7613480621a0cd87f9944ee5f55bf432c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60586304"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Sicherheitsrahmen: Eingabeüberprüfung | Risikominderung 
 | Produkt/Dienst | Artikel |
@@ -182,7 +182,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>Beispiel
-Wenn Sie Inline-Entitäten, aber keine externen Entitäten auflösen müssen, legen Sie für die XmlReaderSettings.XmlResolver-Eigenschaft den Wert „null“ fest. Beispiel:  
+Wenn Sie Inline-Entitäten, aber keine externen Entitäten auflösen müssen, legen Sie für die XmlReaderSettings.XmlResolver-Eigenschaft den Wert „null“ fest. Beispiel: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();

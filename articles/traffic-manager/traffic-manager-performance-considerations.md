@@ -3,20 +3,20 @@ title: Leistungsüberlegungen zu Azure Traffic Manager | Microsoft Docs
 description: Grundlegendes zur Leistung von Traffic Manager und Testen der Leistung auf Websites bei Verwendung von Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: kumud
-ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: allensu
+ms.openlocfilehash: 315165677bd3186bb3bdc87ed688c426776569fc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071053"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Leistungsüberlegungen zu Traffic Manager
 

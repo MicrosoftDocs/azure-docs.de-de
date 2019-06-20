@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
 ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938086"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Aktivieren eines AppSource- und Marketplace-Eintrags mithilfe von Azure Active Directory
@@ -35,12 +35,12 @@ Die verschiedenen [Listenoptionen und Angebotsarten](https://docs.microsoft.com/
 | **Angebotstyp**    | **Azure AD-SSO erforderlich?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Kontaktformular | Testversion | Testversion | Transaktion |
-| Virtual Machine | – | Nein  | Nein  | Nein  |
+| Virtual Machine | – | Nein | Nein | Nein |
 | Azure-Apps (Lösungsvorlage)  | – | – | – | – |
-| Verwaltete Apps  | – | – | – | Nein  |
-| SaaS  | Nein  | Ja | Ja | Ja |
-| Container  | – | – | – | Nein  |
-| Beratungsdienste  | Nein  | – | – | – |
+| Verwaltete Apps  | – | – | – | Nein |
+| SaaS  | Nein | Ja | Ja | Ja |
+| Container  | – | – | – | Nein |
+| Beratungsdienste  | Nein | – | – | – |
 
 Weitere Informationen zu den technischen Anforderungen für SaaS finden Sie unter [SaaS-Anwendungen: Leitfaden für die Veröffentlichung von Angeboten](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 

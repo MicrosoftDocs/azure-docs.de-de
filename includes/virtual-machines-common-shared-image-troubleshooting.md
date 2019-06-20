@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149628"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178028"
 ---
 Wenn beim Ausführen von Vorgängen an Katalogen mit geteilten Images, Imagedefinitionen und Imageversionen Probleme auftreten, führen Sie den fehlgeschlagenen Befehl erneut im Debugmodus aus. Der Debugmodus wird aktiviert, indem Sie in der CLI den Parameter **-debug** übergeben und bei der PowerShell den Parameter **-Debug**. Nachdem Sie den Fehler lokalisiert haben, befolgen Sie dieses Dokument, um die Fehler zu behandeln.
 

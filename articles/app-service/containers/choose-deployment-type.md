@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549319"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64919976"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Benutzerdefiniertes Image, mehrere Container oder integriertes Plattformimage?
 
 [App Service unter Linux](app-service-linux-intro.md) bietet drei verschiedene Möglichkeiten für die Veröffentlichung Ihrer Anwendung im Web:
 
 - **Bereitstellung mit benutzerdefinierten Images:** Wandeln Sie Ihre App in ein Docker-Image um, das alle Dateien und Abhängigkeiten in einem ausführbaren Paket enthält.
-- **Bereitstellung mit mehreren Containern:** „Verpacken“ Sie Ihre App mit Docker Compose oder einer Kubernetes-Konfigurationsdatei in mehrere Docker-Container.
+- **Bereitstellung mit mehreren Containern:** „Verpacken“ Sie Ihre App mit einer Docker Compose-Konfigurationsdatei in mehrere Docker-Container.
 - **App-Bereitstellung mit einem integrierten Plattformimage:** Unsere integrierten Plattformimages enthalten allgemeine Web-App-Runtimes und Abhängigkeiten wie Node und PHP. Verwenden Sie eine der [Azure App Service-Bereitstellungsmethoden](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) zum Bereitstellen Ihrer App im Speicher Ihrer Web-App, und führen Sie sie dann mithilfe eines integrierten Plattformimages aus.
 
 ## <a name="which-method-is-right-for-your-app"></a>Welche Methode ist für Ihre App geeignet? 
@@ -43,3 +43,20 @@ Hauptsächlich sind folgende Faktoren zu berücksichtigen:
 - **Anforderungen für Lese-/Schreibzugriff auf den Datenträger:** Allen Web-Apps wird ein Speichervolume für Webinhalte zugewiesen. Dieses durch Azure Storage abgesicherte Volume wird im App-Dateisystem unter `/home` eingebunden. Im Gegensatz zu den Dateien im Containerdateisystem kann auf Dateien im Inhaltsvolume über alle Skalierungsinstanzen einer App zugegriffen werden, und Änderungen bleiben nach einem Neustart der App erhalten. Die Datenträgerlatenz des Inhaltsvolumes ist jedoch größer und variabler als die Latenz des lokalen Containerdateisystems, und der Zugriff kann durch Plattformupgrades, ungeplante Ausfallzeiten und Probleme mit der Netzwerkkonnektivität beeinträchtigt werden. Für Apps, die umfassenden Lesezugriff auf Inhaltsdateien erfordern, ist eine Bereitstellung über ein benutzerdefiniertes Images möglicherweise von Vorteil, da hierbei die Dateien im Imagedateisystem platziert werden und nicht auf dem Inhaltsvolume.
 - **Nutzung von Buildressourcen:** Wenn eine App aus dem Quellcode bereitgestellt wird, verwenden die von Kudu ausgeführten Bereitstellungsskripts dieselben Compute- und Speicherressourcen des App Service-Plans wie die laufende App. Große App-Bereitstellungen verbrauchen möglicherweise mehr Ressourcen oder Zeit als gewünscht. Insbesondere erzeugen viele Bereitstellungsworkflows starke Datenträgeraktivität auf dem App-Inhaltsvolume, das für Aktivitäten dieser Art nicht optimiert ist. Ein benutzerdefiniertes Image stellt alle Dateien und Abhängigkeiten Ihrer App in einem einzelnen Paket für Azure bereit, ohne dass weitere Dateiübertragungen oder Bereitstellungsaktionen erforderlich sind.
 - **Anforderung für schnelle Iteration:** Das Umwandeln einer App in ein Docker-Image erfordert zusätzliche Buildschritte. Damit die Änderungen wirksam werden, müssen Sie das neue Image bei jedem Update mithilfe von Push in ein Repository übertragen. Diese Updates werden dann per Pull in die Azure-Umgebung übernommen. Wenn einer der integrierten Container die Anforderungen Ihrer App erfüllt, kann die Bereitstellung aus dem Quellcode einen schnelleren Entwicklungsworkflow bieten.
+
+## <a name="next-steps"></a>Nächste Schritte
+
+Benutzerdefinierter Container:
+* [Ausführen eines benutzerdefinierten Containers](quickstart-docker-go.md)
+
+Mehrere Container:
+* [Erstellen einer App mit mehreren Containern](quickstart-multi-container.md)
+
+Die folgenden Artikel enthalten Informationen zu den ersten Schritten mit App Service für Linux mit einem integrierten Plattformimage:
+
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-php.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)

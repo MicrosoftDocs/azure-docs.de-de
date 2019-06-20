@@ -8,10 +8,10 @@ ms.topic: reference
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209402"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktionen für die Verwendung mit Azure Blueprints
@@ -110,10 +110,10 @@ Einige Beispiele für das Abrufen von Daten aus dem _myTemplateArtifact_-Beispie
 | Ausdruck | Type | Wert |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Zeichenfolge | "first" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Zeichenfolge | "my string value" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | string | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Zeichenfolge | "my value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "my value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
@@ -127,7 +127,7 @@ Kombiniert mehrere Zeichenfolgenwerte und gibt die verkettete Zeichenfolge zurü
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | string1 |Ja |Zeichenfolge |Der erste Wert für die Verkettung. |
-| zusätzliche Argumente |Nein  |Zeichenfolge |Weitere Werte in sequenzieller Reihenfolge für die Verkettung. |
+| zusätzliche Argumente |Nein |Zeichenfolge |Weitere Werte in sequenzieller Reihenfolge für die Verkettung. |
 
 ### <a name="return-value"></a>Rückgabewert
 

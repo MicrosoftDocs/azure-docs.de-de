@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: feefcf4f9f4448ab2b36c415cb745fd98277eb28
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939337"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Anleitung für die Leistungsoptimierung für Spark in HDInsight und Azure Data Lake Storage Gen2 Spark
@@ -54,9 +54,9 @@ Es gibt einige allgemeine Möglichkeiten, die Parallelität für E/A-intensive A
 
 **Schritt 1: Ermitteln, wie viele Apps im Cluster ausgeführt werden**: Sie sollten wissen, wie viele Apps einschließlich der aktuellen im Cluster ausgeführt werden.  Bei den Standardwerten für jede Spark-Einstellung wird davon ausgegangen, dass vier Apps gleichzeitig ausgeführt werden.  Daher stehen Ihnen nur 25% des Clusters für jede App zur Verfügung.  Um eine bessere Leistung zu erzielen, können Sie die Standardwerte außer Kraft setzen, indem Sie die Anzahl von Executors ändern.  
 
-**Schritt 2: Festlegen von „executor-memory“**: Die erste festzulegende Option ist der Arbeitsspeicher für die Executors.  Der Arbeitsspeicher hängt von dem Auftrag ab, den Sie ausführen möchten.  Sie können die Parallelität erhöhen, indem Sie weniger Arbeitsspeicher pro Executor zuweisen.  Wenn beim Ausführen des Auftrags Ausnahmen wegen unzureichenden Arbeitsspeichers angezeigt werden, sollten Sie den Wert für diesen Parameter erhöhen.  Eine Möglichkeit besteht darin, mehr Arbeitsspeicher zur Verfügung zu stellen, indem Sie einen Cluster verwenden, der über mehr Arbeitsspeicher verfügt, oder indem Sie Ihren Cluster vergrößern.  Eine größere Menge an Arbeitsspeicher ermöglicht die Verwendung einer größeren Anzahl von Executors, was wiederum mehr Parallelität bedeutet.
+**Schritt 2: Festlegen von „executor-memory“** : Die erste festzulegende Option ist der Arbeitsspeicher für die Executors.  Der Arbeitsspeicher hängt von dem Auftrag ab, den Sie ausführen möchten.  Sie können die Parallelität erhöhen, indem Sie weniger Arbeitsspeicher pro Executor zuweisen.  Wenn beim Ausführen des Auftrags Ausnahmen wegen unzureichenden Arbeitsspeichers angezeigt werden, sollten Sie den Wert für diesen Parameter erhöhen.  Eine Möglichkeit besteht darin, mehr Arbeitsspeicher zur Verfügung zu stellen, indem Sie einen Cluster verwenden, der über mehr Arbeitsspeicher verfügt, oder indem Sie Ihren Cluster vergrößern.  Eine größere Menge an Arbeitsspeicher ermöglicht die Verwendung einer größeren Anzahl von Executors, was wiederum mehr Parallelität bedeutet.
 
-**Schritt 3: Festlegen von „executor-cores“**: Für E/A-intensive Workloads ohne komplexe Vorgänge empfiehlt es sich, mit einer großen Anzahl von Executorkernen zu beginnen, um die Anzahl von parallelen Tasks pro Executor zu erhöhen.  Das Festlegen von vier Executorkernen ist ein guter Ausgangspunkt.   
+**Schritt 3: Festlegen von „executor-cores“** : Für E/A-intensive Workloads ohne komplexe Vorgänge empfiehlt es sich, mit einer großen Anzahl von Executorkernen zu beginnen, um die Anzahl von parallelen Tasks pro Executor zu erhöhen.  Das Festlegen von vier Executorkernen ist ein guter Ausgangspunkt.   
 
     executor-cores = 4
 Durch Erhöhen der Anzahl von Executorkernen steigt die Parallelität, sodass Sie mit verschiedenen Executorkernen experimentieren können.  Bei Aufträgen mit komplexeren Vorgängen sollten Sie die Anzahl von Kernen pro Executor reduzieren.  Wenn der Wert für „executor-cores“ höher als 4 ist, wird die Garbage Collection möglicherweise ineffizient und senkt die Leistung.
@@ -74,7 +74,7 @@ Beachten Sie, dass auch die Größe des YARN-Standardcontainers in diesem Fenste
 
     virtual cores = (nodes in cluster * # of physical cores in node * 2)
     CPU constraint = (total virtual cores / # of cores per executor) / # of apps
-**Festlegen von „num-executors“**: Der Parameter „num-executors“ wird durch die Mindestwerte für die Arbeitsspeicher- und CPU-Beschränkung bestimmt. 
+**Festlegen von „num-executors“** : Der Parameter „num-executors“ wird durch die Mindestwerte für die Arbeitsspeicher- und CPU-Beschränkung bestimmt. 
 
     num-executors = Min (total virtual Cores / # of cores per executor, available YARN memory / executor-memory)   
 Durch Festlegen eines höheren Werts für „num-executors“ wird die Leistung nicht unbedingt erhöht.  Denken Sie daran, dass beim Hinzufügen weiterer Executors auch zusätzlicher Overhead für jeden zusätzlichen Executor entsteht, wodurch die Leistung beeinträchtigt werden kann.  Der Wert für „num-executors“ ist durch die Clusterressourcen begrenzt.    
@@ -85,17 +85,17 @@ Annahme: Sie haben zurzeit einen Cluster aus acht D4v2-Knoten, in dem zwei Apps 
 
 **Schritt 1: Ermitteln, wie viele Apps im Cluster ausgeführt werden**: Sie wissen, dass im Cluster zwei Apps ausgeführt werden – einschließlich der App, die Sie ausführen möchten.  
 
-**Schritt 2: Festlegen von „executor-memory“**: Für dieses Beispiel legen wir fest, dass ein Wert von 6 GB für „executor-memory“ für einen E/A-intensiven Auftrag ausreichend ist.  
+**Schritt 2: Festlegen von „executor-memory“** : Für dieses Beispiel legen wir fest, dass ein Wert von 6 GB für „executor-memory“ für einen E/A-intensiven Auftrag ausreichend ist.  
 
     executor-memory = 6GB
-**Schritt 3: Festlegen von „executor-cores“**: Da es sich um einen E/A-intensiven Auftrag handelt, können wir die Anzahl von Kernen für jeden Executor auf 4 festlegen.  Wenn mehr als vier Kerne pro Executor festgelegt werden, können Probleme mit der Garbage Collection auftreten.  
+**Schritt 3: Festlegen von „executor-cores“** : Da es sich um einen E/A-intensiven Auftrag handelt, können wir die Anzahl von Kernen für jeden Executor auf 4 festlegen.  Wenn mehr als vier Kerne pro Executor festgelegt werden, können Probleme mit der Garbage Collection auftreten.  
 
     executor-cores = 4
 **Schritt 4: Ermitteln der YARN-Arbeitsspeichermenge im Cluster**: Wir wechseln zu Ambari und ermitteln, dass jeder D4v2-Knoten über 25 GB YARN-Arbeitsspeicher verfügt.  Da acht Knoten vorhanden sind, wird der verfügbare YARN-Arbeitsspeicher mit 8 multipliziert.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**Schritt 5: Berechnen von „num-executors“**: Der Parameter „num-executors“ wird ermittelt, indem die Mindestwerte für die Arbeitsspeicher- und CPU-Beschränkung dividiert durch die Anzahl von in Spark ausgeführten Apps verwendet werden.    
+**Schritt 5: Berechnen von „num-executors“** : Der Parameter „num-executors“ wird ermittelt, indem die Mindestwerte für die Arbeitsspeicher- und CPU-Beschränkung dividiert durch die Anzahl von in Spark ausgeführten Apps verwendet werden.    
 
 **Berechnen der Arbeitsspeicherbeschränkung**: Die Arbeitsspeicherbeschränkung wird als YARN-Gesamtarbeitsspeicher dividiert durch die Arbeitsspeichermenge pro Executor berechnet.
 

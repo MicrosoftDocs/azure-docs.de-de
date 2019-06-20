@@ -1,24 +1,22 @@
 ---
 title: APIs für die Automatisierung von Azure-Reservierungen | Microsoft-Dokumentation
 description: Erfahren Sie mehr über die Azure-APIs, mit denen Sie programmgesteuert Reservierungsinformationen abrufen können.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008210"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702623"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs für die Automatisierung von Azure-Reservierungen
 
@@ -32,7 +30,38 @@ Sie können auch Ihre Ressourcennutzung analysieren, indem Sie die Verbrauchs-AP
 
 ## <a name="buy-a-reservation"></a>Kaufen einer Reservierung
 
-Sie können derzeit keine Reservierung programmgesteuert erwerben. Weitere Informationen zum Erwerben einer Reservierungen finden Sie in den folgenden Artikeln:
+Sie können Azure-Reservierungen und Softwarepläne programmgesteuert über REST-APIs erwerben. Weitere Informationen finden Sie unter [Reservierungsauftrag – Kauf-API](/rest/api/reserved-vm-instances/reservationorder/purchase).
+
+Hier sehen Sie eine Beispielanforderung, mit der Sie einen Kauf über die REST-API tätigen können:
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+Anforderungstext:
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+Sie können eine Reservierung auch im Azure-Portal erwerben. Weitere Informationen finden Sie in den folgenden Artikeln:
 
 Servicepläne:
 - [Virtueller Computer](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

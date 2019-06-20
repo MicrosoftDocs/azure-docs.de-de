@@ -42,8 +42,10 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: Überwachen der Migrationsaktivität
       href: how-to-monitor-migration-activity.md
-    - name: Migrieren von SSIS-Paketen zu Azure
+    - name: Migrieren von SSIS-Paketen zu Azure SQL-Datenbank
       href: how-to-migrate-ssis-packages.md
+    - name: Migrieren von SSIS-Paketen zu einer verwalteten Azure SQL-Datenbank-Instanz
+      href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Ressourcen
   items:
     - name: Status des Datenbankmigrationsszenarios

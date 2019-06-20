@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
 ms.openlocfilehash: 9e801e0d7a26cd4d6c43118959aee1dec7216b1c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60750244"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-Add-In für Azure Machine Learning Studio-Webdienste
 Mit Excel können Webdienste auf einfache Weise direkt aufgerufen werden, ohne dafür Code erstellen zu müssen.

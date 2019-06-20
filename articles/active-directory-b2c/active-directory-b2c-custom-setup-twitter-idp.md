@@ -2,20 +2,20 @@
 title: Einrichten der Anmeldung mit einem Twitter-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Richten Sie die Anmeldung mit einem Twitter-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C ein.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 394e0185d7a09e54d3de7c8866a5ef51fca9c6d1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cc657e079949b8217031906efeb84049217d6493
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697970"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66510252"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Einrichten der Anmeldung mit einem Twitter-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C
 

@@ -29,6 +29,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Identitätsdatenspeicher für die EU
       href: active-directory-data-storage-eu.md
+    - name: Neuigkeiten in Microsoft 365 Government
+      href: whats-new-microsoft-365-government.md
 - name: Anleitungen
   expanded: true
   items:

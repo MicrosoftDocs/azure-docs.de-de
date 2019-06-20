@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 1935286d94b0d72a59fc5d478705e23a7f7425e9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 59e28591bda0bada24929fe95fba248d333833e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236605"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723364"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Ändern der Verfügbarkeitsgruppe für einen virtuellen Windows-Computer
 Die folgenden Schritte beschreiben, wie Sie die Verfügbarkeitsgruppe eines virtuellen Computers über Azure PowerShell ändern. Ein virtueller Computer kann nur zum Zeitpunkt der Erstellung zu einer Verfügbarkeitsgruppe hinzugefügt werden. Um die Verfügbarkeitsgruppe zu ändern, müssen Sie den virtuellen Computer löschen und neu erstellen. 
 
 Dieser Artikel wurde zuletzt am 12.02.2019 unter Verwendung von [Azure Cloud Shell](https://shell.azure.com/powershell) und Version 1.2.0 des [Az-PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps) geprüft.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="change-the-availability-set"></a>Ändern der Verfügbarkeitsgruppe 
 

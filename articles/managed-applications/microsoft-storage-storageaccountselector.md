@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5de536a562d234a4c463c862aedffc7c7ca5228d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c6d4ef50645902aecd57ceb9fc48b7d99bf22d53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62104859"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Benutzeroberflächenelement „Microsoft.Storage.StorageAccountSelector“
 Ein Steuerelement zum Auswählen eines neuen oder vorhandenen Speicherkontos.

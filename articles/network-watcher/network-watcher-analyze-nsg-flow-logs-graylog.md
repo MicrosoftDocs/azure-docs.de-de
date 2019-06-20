@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
 ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57879938"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60625205"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Verwalten und Analysieren von Datenflussprotokollen für Netzwerksicherheitsgruppen in Azure mithilfe von Network Watcher und Graylog
 
@@ -223,7 +223,7 @@ Nun, da Graylog eingerichtet ist und ausgeführt wird, können Sie einige der Fu
 
 ### <a name="add-widgets"></a>Hinzufügen von Widgets
 
-Sie können auf den Titel des Dashboards klicken, um ihn anzuzeigen. Im Moment ist er jedoch leer, da wir noch keine Widgets hinzugefügt haben. Ein einfacher und nützlicher Widgettyp, der zum Dashboard hinzugefügt werden kann, sind die Diagramme **Quick Vales (Kurze Werte)**, die eine Liste der Werte für das ausgewählte Feld und deren Verteilung anzeigen.
+Sie können auf den Titel des Dashboards klicken, um ihn anzuzeigen. Im Moment ist er jedoch leer, da wir noch keine Widgets hinzugefügt haben. Ein einfacher und nützlicher Widgettyp, der zum Dashboard hinzugefügt werden kann, sind die Diagramme **Quick Vales (Kurze Werte)** , die eine Liste der Werte für das ausgewählte Feld und deren Verteilung anzeigen.
 
 1. Navigieren Sie zurück zu den Suchergebnissen der UDP-Eingabe, die Datenflussprotokolle empfängt, indem Sie **Suche** in der oberen Navigationsleiste auswählen.
 

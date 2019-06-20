@@ -7,10 +7,10 @@ ms.topic: samples
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65080552"
 ---
 # <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Aktualisieren eines Azure Cosmos-Konto durch Hinzufügen einer Region mithilfe von PowerShell
@@ -39,7 +39,7 @@ Das Skript verwendet die folgenden Befehle. Jeder Befehl in der Tabelle ist mit 
 |---|---|
 |**Azure-Ressourcen**| |
 | [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Dient zum Abrufen einer Ressource. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Dient zum Aktualisieren einer Ressource. |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Aktualisieren Sie eine Ressource. |
 |**Azure-Ressourcengruppen**| |
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Erstellt eine Ressourcengruppe, in der alle Ressourcen gespeichert sind. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Löscht eine Ressourcengruppe einschließlich aller geschachtelten Ressourcen. |

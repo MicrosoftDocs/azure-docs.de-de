@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60498745"
 ---
 # <a name="conference-instance-entity"></a>Konferenzinstanzentität
 
@@ -24,18 +24,18 @@ ms.locfileid: "55879189"
 NAME    |BESCHREIBUNG                            |Type       | Vorgänge
 ------- | ------------------------------------- | --------- | ----------------------------
 id      |Entitäts-ID                              |Int64      |Equals
-CIN     |Normalisierter Name der Konferenzinstanz ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |Zeichenfolge     |Equals
-DCN     |Anzeigename der Konferenzinstanz ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})       |Zeichenfolge     |none
-CIL     |Speicherort der Konferenzinstanz    |Zeichenfolge     |Equals,<br/>StartsWith
-CISD    |Startdatum der Konferenzinstanz  |Datum       |Equals,<br/>IsBetween
-CIED    |Enddatum der Konferenzinstanz    |Datum       |Equals,<br/>IsBetween
-CIARD   |Fälligkeitsdatum für die Abstraktregistrierung der Konferenzinstanz  |Datum       |Equals,<br/>IsBetween
-CISDD   |Fälligkeitsdatum für die Übermittlung der Konferenzinstanz     |Datum       |Equals,<br/>IsBetween
-CIFVD   |Fälligkeitsdatum der endgültigen Version der Konferenzinstanz  |Datum       |Equals,<br/>IsBetween
-CINDD   |Benachrichtigungsdatum der Konferenzinstanz   |Datum       |Equals,<br/>IsBetween
-CD.T    |Titel des Konferenzinstanzereignisses   |Datum       |Equals,<br/>IsBetween
-CD.D    |Datum des Konferenzinstanzereignisses    |Datum       |Equals,<br/>IsBetween
-PCS.CN  |Name der Konferenzreihe der Instanz |Zeichenfolge     |Equals
+CIN     |Normalisierter Name der Konferenzinstanz ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |string     |Equals
+DCN     |Anzeigename der Konferenzinstanz ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})       |string     |none
+CIL     |Speicherort der Konferenzinstanz    |string     |Equals,<br/>StartsWith
+CISD    |Startdatum der Konferenzinstanz  |Date       |Equals,<br/>IsBetween
+CIED    |Enddatum der Konferenzinstanz    |Date       |Equals,<br/>IsBetween
+CIARD   |Fälligkeitsdatum für die Abstraktregistrierung der Konferenzinstanz  |Date       |Equals,<br/>IsBetween
+CISDD   |Fälligkeitsdatum für die Übermittlung der Konferenzinstanz     |Date       |Equals,<br/>IsBetween
+CIFVD   |Fälligkeitsdatum der endgültigen Version der Konferenzinstanz  |Date       |Equals,<br/>IsBetween
+CINDD   |Benachrichtigungsdatum der Konferenzinstanz   |Date       |Equals,<br/>IsBetween
+CD.T    |Titel des Konferenzinstanzereignisses   |Date       |Equals,<br/>IsBetween
+CD.D    |Datum des Konferenzinstanzereignisses    |Date       |Equals,<br/>IsBetween
+PCS.CN  |Name der Konferenzreihe der Instanz |string     |Equals
 PCS.CId |ID der Konferenzreihe der Instanz |Int64    |Equals
 CC      |Gesamtzitatanzahl der Konferenzinstanz           |Int32      |none  
 ECC     |Geschätzte Gesamtzitatanzahl der Konferenzinstanz |Int32      |none

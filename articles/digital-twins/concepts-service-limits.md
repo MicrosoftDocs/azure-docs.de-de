@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
 ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302424"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60927552"
 ---
 # <a name="public-preview-service-limits"></a>Diensteinschränkungen der öffentlichen Vorschauversion
 

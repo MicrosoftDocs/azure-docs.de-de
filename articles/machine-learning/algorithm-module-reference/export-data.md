@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: c3744803f172edf9fbf2556a12677e8faef370c2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027672"
 ---
 # <a name="export-data-module"></a>Modul „Export Data“ (Daten exportieren)
@@ -54,9 +54,9 @@ Dieses Modul unterstützt das Exportieren oder Speichern von Daten in folgenden 
 
     3. Wählen Sie für private Konten **Account** (Konto) aus, und geben Sie den Kontonamen und Kontoschlüssel an, damit das Experiment Schreibzugriff auf das Speicherkonto erhält.
 
-         - **Account name** (Kontoname): Geben oder fügen Sie den Namen des Kontos ein, unter dem Sie die Daten speichern möchten. Wenn die vollständige URL des Speicherkontos z.B. `http://myshared.blob.core.windows.net` lautet, geben Sie `myshared` ein.
+         - **Kontoname**: Geben oder fügen Sie den Namen des Kontos ein, unter dem Sie die Daten speichern möchten. Wenn die vollständige URL des Speicherkontos z.B. `http://myshared.blob.core.windows.net` lautet, geben Sie `myshared` ein.
 
-        - **Account key** (Kontoschlüssel): Fügen Sie den Speicherzugriffsschlüssel ein, der dem Konto zugeordnet ist.
+        - **Account key**: Fügen Sie den Speicherzugriffsschlüssel ein, der dem Konto zugeordnet ist.
 
         -  **Path to container, directory, or blob** (Pfad zum Container, Verzeichnis oder Blob): Geben Sie den Namen des Blobs ein, in dem die exportierten Daten gespeichert werden sollen. Wenn Sie die Ergebnisse Ihres Experiments in einem neuen Blob namens **results01.csv** im Container **predictions** unter einem Konto namens **mymldata** speichern möchten, lautet die vollständige URL des Blobs: `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
 

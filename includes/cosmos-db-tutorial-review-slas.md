@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: sngun
 ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546783"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151333"
 ---
 Im Azure-Portal werden Durchsatz, Speicher, Verfügbarkeit, Wartezeit und Konsistenz Ihres Cosmos DB-Kontos überwacht. Diagramme für Metriken einer [Azure Cosmos DB-SLA (Service Level Agreement, Vereinbarung zum Servicelevel)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) zeigen den SLA-Wert im Vergleich zur tatsächlichen Leistung. Diese Sammlung von Metriken macht die Überwachung Ihrer SLAs transparent.
 

@@ -11,11 +11,11 @@ ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
 ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61082795"
 ---
 # <a name="column-level-security"></a>Sicherheit auf Spaltenebene
 Mit der Sicherheit auf Spaltenebene (CLS) können Kunden den Zugriff auf Datentabellenspalten basierend auf dem Ausführungskontext oder der Gruppenmitgliedschaft des Benutzers steuern.

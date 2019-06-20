@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699323"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254727"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduzieren der Dienstkosten mithilfe von Azure Advisor
 
@@ -44,6 +44,13 @@ Advisor benachrichtigt Sie auch, wenn reservierte Instanzen in den nächsten 30�
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Löschen nicht zugeordneter öffentlicher IP-Adressen zum Einsparen von Kosten
 
 Advisor ermittelt öffentliche IP-Adressen, die derzeit keinen Azure-Ressourcen wie Load Balancers oder VMs zugeordnet sind. Für diese öffentliche IP-Adressen fällt eine Schutzgebühr an. Wenn Sie nicht planen, sie zu verwenden, können Sie Kosten sparen, indem Sie sie löschen.
+
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Löschen fehlerhafter Azure Data Factory-Pipelines
+
+Azure Advisor erkennt Azure Data Factory-Pipelines, bei denen wiederholt Fehler auftreten, und empfiehlt, die Probleme zu beheben oder die fehlerhaften Pipelines zu löschen, falls diese nicht mehr benötigt werden. Für diese Pipelines fallen auch dann Kosten an, wenn sie sich in einem Fehlerzustand befinden und nicht genutzt werden können. 
+
+## <a name="use-standard-snapshots-for-managed-disks"></a>Verwenden von Standardmomentaufnahmen für verwaltete Datenträger
+Es empfiehlt sich, Momentaufnahmen unabhängig vom Speichertyp des übergeordneten Datenträgers in Storage Standard zu speichern, um 60 Prozent der Kosten zu sparen. Dies ist die Standardoption für Managed Disks-Momentaufnahmen. Azure Advisor erkennt in Storage Premium gespeicherte Momentaufnahmen und empfiehlt, Ihre Momentaufnahme von Storage Premium zu Storage Standard zu migrieren. Weitere Informationen zu den Preisen für verwaltete Datenträger finden Sie [hier](https://aka.ms/aa_manageddisksnapshot_learnmore).
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Zugreifen auf Kostenempfehlungen im Azure Advisor
 

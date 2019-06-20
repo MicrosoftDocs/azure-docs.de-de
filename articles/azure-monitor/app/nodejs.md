@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013293"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255282"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Überwachen Ihrer Node.js-Dienste und -Apps mit Application Insights
 
-Mit [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) werden Ihre Back-End-Dienste und -Komponenten nach der Bereitstellung überwacht, damit Sie [Leistungsprobleme und andere Probleme erkennen und schnell diagnostizieren können](../../azure-monitor/app/detect-triage-diagnose.md). Sie können Application Insights für Node.js-Dienste verwenden, die in Ihrem Datencenter, auf Azure-VMs und in Web-Apps und sogar in anderen öffentlichen Clouds gehostet werden.
+Mit [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) werden Ihre Back-End-Dienste und -Komponenten nach der Bereitstellung überwacht, damit Sie Leistungsprobleme und andere Probleme erkennen und schnell diagnostizieren können. Sie können Application Insights für Node.js-Dienste verwenden, die in Ihrem Datencenter, auf Azure-VMs und in Web-Apps und sogar in anderen öffentlichen Clouds gehostet werden.
 
 Fügen Sie das SDK in Ihren Code ein, und richten Sie dann in Azure eine entsprechende Application Insights-Ressource ein, um Ihre Überwachungsdaten zu empfangen, zu speichern und zu untersuchen. Das SDK sendet Daten zur weiteren Analyse und Untersuchung an diese Ressource.
 
@@ -202,7 +202,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Überwachen Ihrer Telemetriedaten im Portal](../../azure-monitor/app/app-insights-dashboards.md)
+* [Überwachen Ihrer Telemetriedaten im Portal](../../azure-monitor/app/overview-dashboard.md)
 * [Schreiben von Analytics-Abfragen über Ihre Telemetriedaten](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

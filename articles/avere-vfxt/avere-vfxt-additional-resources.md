@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: v-erkell
 ms.openlocfilehash: 2efbe7ddc39b8bde76ee4a135f3f44af0864a374
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188571"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515596"
 ---
 # <a name="additional-documentation"></a>Zusätzliche Dokumentation
 

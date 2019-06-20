@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540143"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734486"
 ---
 # <a name="what-is-authentication"></a>Was ist Authentifizierung?
 
@@ -85,14 +85,11 @@ Die folgende Abbildung zeigt einen vereinfachten Microsoft Identity Platform-Ber
 
 In diesem Bereitstellungsablauf geschieht Folgendes:
 
-|   |   |
-|---|---|
-| 1 | Ein Benutzer von Mandant B versucht, sich mit der App anzumelden. |
-| 2 | Die Anmeldeinformationen des Benutzers werden abgerufen und überprüft. |
-| 3 | Der Benutzer wird aufgefordert, dem Zugriff auf den Mandanten B für die App zuzustimmen. |
-| 4 | Microsoft Identity Platform verwendet das Anwendungsobjekt in A als Blaupause für das Erstellen eines Dienstprinzipals in Mandant B. |
-| 5 | Der Benutzer erhält das angeforderte Token. |
-|   |   |
+1. Ein Benutzer von Mandant B versucht, sich mit der App anzumelden, und der Autorisierungsendpunkt fordert ein Token für die Anwendung an.
+1. Die Anmeldeinformationen des Benutzers werden abgerufen und für die Authentifizierung überprüft.
+1. Der Benutzer wird aufgefordert, dem Zugriff auf den Mandanten B für die App zuzustimmen.
+1. Microsoft Identity Platform verwendet das Anwendungsobjekt in Mandant A als Blaupause für das Erstellen eines Dienstprinzipals in Mandant B.
+1. Der Benutzer erhält das angeforderte Token.
 
 Sie können diesen Vorgang beliebig oft für andere Mandanten (C, D, usw.) wiederholen. Der Mandant A enthält die Blaupause für die App (Anwendungsobjekt). Benutzer und Administratoren aller anderen Mandanten, in denen der App die Zustimmung erteilt wird, behalten durch das entsprechende Dienstprinzipalobjekt in jedem Mandaten die Kontrolle darüber, welche Aktionen die Anwendung ausführen darf. Weitere Informationen finden Sie unter [Anwendungs- und Dienstprinzipalobjekte in Microsoft Identity Platform](app-objects-and-service-principals.md).
 

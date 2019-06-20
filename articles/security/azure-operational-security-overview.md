@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
 ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241084"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60586848"
 ---
 # <a name="azure-operational-security-overview"></a>Azure Operational Security – Übersicht
 
@@ -72,7 +72,7 @@ Azure AD enthält auch eine vollständige Suite mit [Funktionen zur Identitätsv
 - [Umfassende Überwachung](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Sicherheitsüberwachung und -warnungen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
 
-Mit Azure Active Directory können Sie für alle Anwendungen, die Sie für Ihre Partner und Kunden (Geschäftskunden oder Endverbraucher) veröffentlichen, dieselben Identitäts- und Zugriffsverwaltungsfunktionen verwenden.  Dadurch können Sie die Betriebskosten erheblich reduzieren.
+Mit Azure Active Directory können Sie für alle Anwendungen, die Sie für Ihre Partner und Kunden (Geschäftskunden oder Endverbraucher) veröffentlichen, dieselben Identitäts- und Zugriffsverwaltungsfunktionen verwenden. Dadurch können Sie die Betriebskosten erheblich reduzieren.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -117,7 +117,7 @@ Windows-Ereignissystemprotokolle sind eine Kategorie von Diagnoseprotokollen fü
 
 Diagnoseprotokolle unterscheiden sich vom [Aktivitätsprotokoll](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Das Aktivitätsprotokoll bietet Einblicke in Vorgänge, die für Ressourcen Ihres Abonnements durchgeführt wurden. Diagnoseprotokolle bieten Einblicke in Vorgänge, die Ihre Ressource selbst ausgeführt hat.
 
-### <a name="metrics"></a>Metriken
+### <a name="metrics"></a>metrics
 
 Azure Monitor stellt Telemetriedaten bereit, mit denen Sie sich einen Überblick über die Leistung und Integrität Ihrer Workloads in Azure verschaffen können. Die wichtigsten Arten von Azure-Telemetriedaten sind [Metriken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (auch Leistungsindikatoren genannt), die von den meisten Azure-Ressourcen gesendet werden. Azure Monitor bietet Ihnen verschiedene Möglichkeiten, diese Metriken für die Überwachung und Problembehandlung zu konfigurieren und zu nutzen.
 

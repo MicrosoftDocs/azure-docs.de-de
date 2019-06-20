@@ -10,10 +10,10 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919801"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilieren von DSC-Konfigurationen in Azure Automation DSC
@@ -41,7 +41,7 @@ Wenn Sie sich für eine Kompilierungsmethode entschieden haben, folgen Sie den u
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Kompilieren einer DSC-Konfiguration mit dem Azure-Portal
 
-1. Klicken Sie im Automation-Konto auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie im Automation-Konto auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf die Registerkarte **Konfigurationen** und dann auf den Namen der Konfiguration, die kompiliert werden soll.
 1. Klicken Sie auf **Kompilieren**.
 1. Wenn die Konfiguration keine Parameter enthält, werden Sie dazu aufgefordert, zu bestätigen, dass Sie die Konfiguration kompilieren möchten. Wenn die Konfiguration Parameter enthält, wird das Blatt **Konfiguration kompilieren** geöffnet, auf dem Sie Parameterwerte angeben können. Weitere Informationen zu Parametern finden Sie im Abschnitt [**Grundlegende Parameter**](#basic-parameters) weiter unten.
@@ -307,7 +307,7 @@ Weitere Informationen zum Signieren von Knotenkonfigurationen finden Sie unter [
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importieren von Knotenkonfigurationen im Azure-Portal
 
-1. Klicken Sie in Ihrem Automation-Konto unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie in Ihrem Automation-Konto unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Konfigurationen** und dann auf **Hinzufügen**.
 1. Klicken Sie auf der Seite **Importieren** auf das Ordnersymbol neben dem Textfeld **Knotenkonfigurationsdatei**, um eine Knotenkonfigurationsdatei (MOF) auf dem lokalen Computer zu suchen.
 

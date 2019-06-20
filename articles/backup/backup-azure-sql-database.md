@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2a6319565aa05f34ce31a14c5fc57e591248f4ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847295"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399694"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informationen zur SQL Server-Sicherung auf virtuellen Azure-Computern
 
@@ -23,7 +23,7 @@ SQL Server-Datenbanken sind kritische Workloads, die eine niedrige Recovery Poin
 
 Die Lösung nutzt die nativen SQL-APIs, um Sicherungen Ihrer SQL-Datenbankinstanzen zu erstellen.
 
-* Nachdem Sie die SQL Server-VM angegeben haben, die Sie schützen und deren Datenbanken Sie abfragen möchten, installiert der Azure Backup-Dienst eine Erweiterung zur Workloadsicherung mit dem Namen `AzureBackupWindowsWorkload` -Erweiterung auf dem virtuellen Computer.
+* Nachdem Sie die SQL Server-VM angegeben haben, die Sie schützen und deren Datenbanken Sie abfragen möchten, installiert der Azure Backup-Dienst eine Erweiterung zur Workloadsicherung mit dem Namen `AzureBackupWindowsWorkload` auf dem virtuellen Computer.
 * Diese Erweiterung besteht aus einem Koordinator und einem SQL-Plug-In. Während der Koordinator für das Auslösen von Workflows für verschiedene Vorgänge wie Konfigurieren der Sicherung, Sicherung und Wiederherstellung zuständig ist, ist das Plug-In für den tatsächlichen Datenfluss verantwortlich.
 * Um die Datenbanken auf diesem virtuellen Computer ermitteln zu können, erstellt Azure Backup das Konto `NT SERVICE\AzureWLBackupPluginSvc`. Dieses Konto wird zum Sichern und Wiederherstellen verwendet und erfordert SQL-Systemadministratorberechtigungen. Azure Backup verwendet das `NT AUTHORITY\SYSTEM` -Konto für die Ermittlung von Datenbanken und Anfragen an Datenbanken. Dieses Konto muss also über eine öffentliche Anmeldung in SQL verfügen. Wenn Sie den virtuellen SQL Server-Computer nicht in Azure Marketplace erstellt haben, erhalten Sie möglicherweise eine **UserErrorSQLNoSysadminMembership**-Fehlermeldung. Befolgen Sie in diesem Fall [diese Anweisungen](backup-azure-sql-database.md).
 * Sobald Sie die Konfiguration des Schutzes der ausgewählten Datenbanken auslösen, richtet der Sicherungsdienst den Koordinator mit den Sicherungszeitplänen und anderen Richtliniendetails ein, die die Erweiterung lokal auf dem virtuellen Computer zwischenspeichert. 
@@ -54,20 +54,27 @@ Die Lösung nutzt die nativen SQL-APIs, um Sicherungen Ihrer SQL-Datenbankinstan
 ## <a name="feature-consideration-and-limitations"></a>Funktionsaspekte und Einschränkungen
 
 - SQL Server-Sicherung kann im Azure-Portal oder mit **PowerShell** konfiguriert werden. CLI wird nicht unterstützt.
+- Die Lösung wird für beide Arten von [Bereitstellungen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) unterstützt: Azure Resource Manager-VMs und klassische VMs.
 - Der virtuelle Computer, auf dem SQL Server ausgeführt wird, benötigt eine Internetverbindung, um auf öffentliche IP-Adressen von Azure zuzugreifen.
 - Die **Failoverclusterinstanz (FCI)** für SQL Server und die Failoverclusterinstanz für SQL Server Always On werden nicht unterstützt.
 - Sicherungs- und Wiederherstellungsvorgänge für Spiegeldatenbanken und Datenbankmomentaufnahmen werden nicht unterstützt.
-- Die Verwendung mehrerer Sicherungslösungen zum Sichern Ihrer eigenständigen SQL Server-Instanz oder SQL Always On-Verfügbarkeitsgruppe kann zu Fehlern bei der Sicherung führen; sehen Sie davon ab.
-- Das Sichern von zwei Knoten einer Verfügbarkeitsgruppe mit derselben Lösung oder anderen Lösungen kann auch zu Fehlern bei der Sicherung führen. Azure Backup kann alle Knoten erkennen und schützen, die sich in der gleichen Region wie der Tresor befinden. Wenn Ihre SQL Server Always On-Verfügbarkeitsgruppe sich über mehrere Azure-Regionen erstreckt, richten Sie die Sicherung von der Region aus ein, die über den primären Knoten verfügt. Azure Backup kann alle Datenbanken in der Verfügbarkeitsgruppe gemäß Ihrer Sicherungseinstellung erkennen und schützen.  
+- Die Verwendung mehrerer Sicherungslösungen zum Sichern Ihrer eigenständigen SQL Server-Instanz oder SQL Always On-Verfügbarkeitsgruppe kann zu Fehlern bei der Sicherung führen. Es ist daher ratsam, von dieser Vorgehensweise abzusehen.
+- Das Sichern von zwei Knoten einer Verfügbarkeitsgruppe mit derselben Lösung oder anderen Lösungen kann auch zu Fehlern bei der Sicherung führen.
 - Azure Backup unterstützt für **schreibgeschützte** Datenbanken nur die Sicherungstypen „Vollständig“ und „Nur vollständig kopieren“.
 - Datenbanken mit einer großen Anzahl von Dateien können nicht geschützt werden. Die maximale Anzahl von unterstützten Dateien beträgt **~1.000**.  
 - Sie können bis zu **~2.000** SQL Server-Datenbanken in einem Tresor sichern. Sie können mehrere Tresore erstellen, falls Sie über eine größere Anzahl von Datenbanken verfügen.
 - Sie können die Sicherung für bis zu **50** Datenbanken auf einmal konfigurieren; diese Einschränkung trägt dazu bei, Sicherungslasten zu optimieren.
 - Wir unterstützen Datenbanken bis zu einer Größe von **2TB**; darüber könnten Leistungsprobleme auftreten.
-- Um einen Eindruck davon zu bekommen, wie viele Datenbanken pro Server geschützt werden können, müssen wir Faktoren wie z.B. Bandbreite, VM-Größe, Sicherungshäufigkeit, Datenbankgröße usw. berücksichtigen. Wir arbeiten an einem Planer, mit dem Sie diese Anzahl selbst berechnen können. Wir werden ihn bald veröffentlichen.
+- Um einen Eindruck davon zu bekommen, wie viele Datenbanken pro Server geschützt werden können, müssen wir Faktoren wie z.B. Bandbreite, VM-Größe, Sicherungshäufigkeit, Datenbankgröße usw. berücksichtigen. Wir arbeiten an einem Planer, mit dem Sie diese Anzahl jeweils selbst berechnen können. Wir werden ihn bald veröffentlichen.
 - Bei Verfügbarkeitsgruppen werden Sicherungen basierend auf einigen Faktoren auf den verschiedenen Knoten erstellt. Das Sicherungsverhalten für eine Verfügbarkeitsgruppe ist unten zusammengefasst.
 
-### <a name="backup-behavior-in-case-of-always-on-availability-groups"></a>Sicherungsverhalten im Falle von Always On-Verfügbarkeitsgruppen
+### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Sicherungsverhalten von Always On-Verfügbarkeitsgruppen
+
+Es wird empfohlen, die Sicherung nur auf einem Knoten der Verfügbarkeitsgruppe zu konfigurieren. Die Sicherung sollte immer in derselben Region wie der primäre Knoten konfiguriert werden. Anders ausgedrückt: Der primäre Knoten muss immer in der Region vorhanden sein, in der Sie die Sicherung konfigurieren. Wenn sich alle Knoten der Verfügbarkeitsgruppe in derselben Region befinden, in der die Sicherung konfiguriert ist, ist alles in Ordnung.
+
+**Für regionsübergreifende Verfügbarkeitsgruppe**
+- Unabhängig von der Sicherungseinstellung werden Sicherungen nicht für die Knoten durchgeführt, die sich nicht in derselben Region befinden, in der die Sicherung konfiguriert ist. Dies liegt daran, dass regionsübergreifende Sicherungen nicht unterstützt werden. Wenn Sie nur über zwei Knoten verfügen und sich der sekundäre Knoten in der anderen Region befindet: In diesem Fall werden die Sicherungen weiterhin über den primären Knoten durchgeführt (sofern Ihre Sicherungseinstellung nicht „Nur sekundär“ lautet).
+- Wenn ein Failover in einer anderen Region als der Region durchgeführt wird, in der die Sicherung konfiguriert ist, tritt für Sicherungen auf den Knoten in der Failoverregion ein Fehler auf.
 
 Abhängig von der Sicherungseinstellung und den Sicherungstypen (Vollständig/Differenziell/Protokoll/Nur vollständig kopieren) werden die Sicherungen von einem bestimmten Knoten (Primär/Sekundär) erstellt.
 
@@ -109,7 +116,7 @@ Nur vollständig kopieren |  Sekundär
 
 ## <a name="fix-sql-sysadmin-permissions"></a>Beheben von Problemen mit SQL-Systemadministratorberechtigungen
 
-  Wenn Sie Berechtigungen aufgrund des Fehlers **UserErrorSQLNoSysadminMembership** korrigieren müssen, gehen Sie folgendermaßen vor:
+  Führen Sie die folgenden Schritte aus, wenn Sie Berechtigungen aufgrund des Fehlers **UserErrorSQLNoSysadminMembership** korrigieren müssen:
 
   1. Verwenden Sie ein Konto mit SQL Server-Systemadministratorberechtigungen, um sich bei SQL Server Management Studio (SSMS) anzumelden. Wenn Sie keine speziellen Berechtigungen benötigen, sollte die Windows-Authentifizierung funktionieren.
   2. Öffnen Sie auf der SQL Server-Instanz den Ordner **Sicherheit/Anmeldungen**.
@@ -136,6 +143,8 @@ Nur vollständig kopieren |  Sekundär
 
       ![Meldung über erfolgreiche Bereitstellung](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
+> [!NOTE]
+> Sind auf Ihrem SQL-Server mehrere Instanzen von SQL Server installiert, müssen Sie allen SQL-Instanzen Systemadministratorberechtigungen für das Konto **NT Service\AzureWLBackupPluginSvc** hinzufügen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

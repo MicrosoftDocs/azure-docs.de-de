@@ -9,12 +9,12 @@ ms.service: germany
 ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: 9c24bd45e7a44b1ccbf651cda0e36c87a5d8f90c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c48c757a0c1a4ff0bf0bffbd49c50efbc2c9b93b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64707763"
 ---
 # <a name="migrate-compute-resources-to-global-azure"></a>Migrieren von Computeressourcen zu Azure weltweit
 
@@ -174,7 +174,7 @@ Weitere Informationen finden Sie unter:
 Ein Migrieren von Azure Functions-Ressourcen von Azure Deutschland zu Azure weltweit wird zurzeit nicht unterstützt. Die empfohlene Vorgehensweise ist, dass Sie die Resource Manager-Vorlage exportieren, den Standort ändern und dann in der Zielregion erneut bereitstellen.
 
 > [!IMPORTANT]
-> Ändern Sie den Standort, Key Vault-Geheimnisse, Zertifikate und andere GUIDs, damit diese konsistent mit der neuen Region sind.
+> Ändern Sie den Standort, Key Vault-Geheimnisse, Zertifikate, App-Einstellungen und andere GUIDs, damit diese konsistent mit der neuen Region sind.
 
 Weitere Informationen finden Sie unter:
 

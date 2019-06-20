@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,11 +9,11 @@ ms.date: 12/14/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "53444150"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177914"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Wird die benutzerdefinierte IPsec-/IKE-Richtlinie von allen Azure VPN Gateway-SKUs unterstützt?
 Die benutzerdefinierte IPsec-/IKE-Richtlinie wird von Azure-VPN-Gateways vom Typ **VpnGw1, VpnGw2, VpnGw3, Standard** und **HighPerformance** unterstützt. Die SKU **Basic** wird **nicht** unterstützt.
@@ -101,7 +101,7 @@ Ja. Sie können benutzerdefinierte Richtlinien sowohl für standortübergreifend
 Ja. Ein VNET-zu-VNET-Tunnel besteht aus zwei Verbindungsressourcen in Azure (je eine pro Richtung). Damit die VNET-zu-VNET-Verbindung hergestellt werden kann, müssen beide Verbindungsressourcen über die gleiche Richtlinie verfügen.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Können benutzerdefinierte IPsec-/IKE-Richtlinien für ExpressRoute-Verbindungen verwendet werden?
- Nein. IPsec-/IKE-Richtlinien können nur für S2S-VPN- und VNET-zu-VNET-Verbindungen über Azure-VPN-Gateways verwendet werden.
+Nein. IPsec-/IKE-Richtlinien können nur für S2S-VPN- und VNET-zu-VNET-Verbindungen über Azure-VPN-Gateways verwendet werden.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Wo finde ich weitere Informationen zur Konfiguration von IPsec?
 Lesen Sie [Konfigurieren der IPsec/IKE-Richtlinie für S2S- oder VNet-zu-VNet-Verbindungen](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

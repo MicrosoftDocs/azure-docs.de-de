@@ -16,11 +16,11 @@ ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127827"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Verwenden einer Azure-Dateifreigabe mit einem Batch-Pool
 

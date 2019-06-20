@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205620"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Bewährte Methoden zum Verwenden des Suchdiensts von Azure Maps

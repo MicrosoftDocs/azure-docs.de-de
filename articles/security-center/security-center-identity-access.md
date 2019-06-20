@@ -3,7 +3,7 @@ title: Überwachen von Identität und Zugriff in Azure Security Center | Microso
 description: Hier erfahren Sie, wie Sie mithilfe der Identitäts- und Zugriffsfunktion in Azure Security Center die Zugriffsaktivitäten der Benutzer sowie identitätsbezogene Probleme überwachen können.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/30/2018
+ms.author: monhaber
+ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098771"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428423"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Überwachen der Identität und des Zugriffs im Azure Security Center (Vorschauversion)
 In diesem Artikel erfahren Sie, wie Sie mithilfe von Azure Security Center die Identität und Zugriffsaktivitäten von Benutzern überwachen.
+
+> [!NOTE]
+> Der Link „Identität und Zugriff (*klassisch*) anzeigen“ wird am 31. Juli 2019 eingestellt. Klicken Sie [hier](security-center-features-retirement-july2019.md#menu_classicidentity), um Informationen zu alternativen Diensten zu erhalten.
 
 > [!NOTE]
 > Die Überwachung der Identität und des Zugriffs ist als Vorschauversion und im Standard-Tarif vom Security Center verfügbar. Weitere Informationen zu den Tarifen von Security Center finden Sie unter [Preise](security-center-pricing.md).
@@ -39,7 +42,6 @@ Durch die Überwachung von Identitätsaktivitäten können Sie proaktive Maßnah
 > [!NOTE]
 > Wenn Ihr Abonnement mehr als 600 Konten umfasst, kann das Security Center nicht die Identitätsempfehlungen für Ihr Abonnement ausführen. Empfehlungen, die nicht ausgeführt werden, werden wie nachfolgend gezeigt unter „Nicht verfügbare Bewertungen“ aufgeführt.
 Im Security Center können keine Identitätsempfehlungen für Administrator-Agents eines Cloud Solution Provider-Partners (CSP) ausgeführt werden.
->
 >
 
 Unter [Empfehlungen](security-center-identity-access.md#recommendations) finden Sie eine Liste der Identitäts- und Zugriffsempfehlungen, die vom Security Center bereitgestellt werden.
@@ -108,23 +110,20 @@ Der folgenden Tabelle können Sie entnehmen, welche Identitäts- und Zugriffsemp
 
 |Ressourcentyp|Sicherheitsbewertung|Empfehlung|BESCHREIBUNG|
 |----|----|----|----|
-|Abonnement|50|MFA für Azure-Verwaltungs-App-Konten mit Besitzerberechtigungen in Ihrem Abonnement aktivieren|Aktivieren Sie für alle Abonnementkonten mit Administratorrechten die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), um eine Sicherheitsverletzung von Konten oder Ressourcen zu verhindern.|
-|Abonnement|50|Security Center in Ihren Abonnements aktivieren |Aktivieren Sie Security Center in allen Ihren Abonnements, um erweiterte Bedrohungserkennung, JIT, Anwendungswhitelists und erweiterte Empfehlungen zu nutzen. |
-|Abonnement|50|Security Center mit Standard-Tarif in Ihren Abonnements aktivieren |Aktivieren Sie Security Center mit dem Standard-Tarif in allen Ihren Abonnements, um erweiterte Bedrohungserkennung, JIT, Anwendungswhitelists und erweiterte Empfehlungen zu nutzen.|
-|Abonnement|40|MFA für Azure-Verwaltungs-App-Konten mit Schreibberechtigungen in Ihrem Abonnement aktivieren|Aktivieren Sie für alle Abonnementkonten mit Schreibberechtigungen die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), um eine Sicherheitsverletzung von Konten oder Ressourcen zu verhindern.|
-|Abonnement|30|Externe Konten mit Besitzerberechtigungen aus Ihrem Abonnement entfernen|Entfernen Sie externe Konten mit Besitzerberechtigungen aus Ihrem Abonnement, um nicht überwachten Zugriff zu verhindern. |
-|Abonnement|30|MFA für Azure-Verwaltungs-App-Konten mit Leseberechtigungen in Ihrem Abonnement aktivieren|Aktivieren Sie für alle Abonnementkonten mit Leseberechtigungen die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), um eine Sicherheitsverletzung von Konten oder Ressourcen zu verhindern.|
-|Abonnement|25|Externe Konten mit Schreibberechtigungen aus Ihrem Abonnement entfernen|Entfernen Sie externe Konten mit Schreibberechtigungen aus Ihrem Abonnement, um nicht überwachten Zugriff zu verhindern. |
-|Abonnement|20|Veraltete Konten mit Besitzerberechtigungen aus Ihrem Abonnement entfernen|Entfernen Sie veraltete Konten mit Besitzerberechtigungen aus Ihrem Abonnement.|
-|Abonnement|5|Veraltete Konten aus Ihrem Abonnement entfernen|Entfernen Sie veraltete Konten aus Ihren Abonnements, um nur den Zugriff auf aktuelle Benutzer zuzulassen. |
-|Abonnement|5|Mehrere Besitzer für Ihr Abonnement festlegen|Legen Sie mehrere Abonnementbesitzer fest, um Redundanz beim Administratorzugriff zu gewährleisten.|
-|Abonnement|5|Bis zu drei Besitzer für Ihr Abonnement festlegen|Legen Sie höchstens drei Abonnementbesitzer fest, um die Möglichkeit einer Sicherheitsverletzung durch einen kompromittierten Besitzer zu verringern.|
-|Schlüsseltresor|5|Diagnoseprotokolle in Key Vault aktivieren|Aktivieren Sie Protokolle, und bewahren Sie sie bis zu einem Jahr lang auf. Auf diese Weise können Sie vergangene Aktivitäten nachvollziehen, wenn Sie Sicherheitsincidents untersuchen oder Ihr Netzwerk gefährdet ist. |
-|Abonnement|15|Externe Konten mit Leseberechtigungen aus Ihrem Abonnement entfernen|Entfernen Sie externe Konten mit Leseberechtigungen aus Ihrem Abonnement, um nicht überwachten Zugriff zu verhindern.|
-|Abonnement|1|Sicherheitskontaktinformationen bereitstellen|Stellen Sie Sicherheitskontaktinformationen für alle Ihre Abonnements bereit. Die Kontaktinformationen bestehen aus einer E-Mail-Adresse und einer Telefonnummer. Die Informationen werden verwendet, um mit Ihnen Kontakt aufzunehmen, sobald unser Sicherheitsteam feststellt, dass Ihre Ressourcen kompromittiert wurden.|
+|Abonnement|50|MFA sollte für Konten mit Besitzerberechtigungen in Ihrem Abonnement aktiviert sein.|Aktivieren Sie für alle Abonnementkonten mit Administratorrechten die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), um eine Sicherheitsverletzung von Konten oder Ressourcen zu verhindern.|
+|Abonnement|40|MFA sollte für Ihre Abonnementkonten mit Schreibberechtigungen aktiviert sein.|Aktivieren Sie für alle Abonnementkonten mit Schreibberechtigungen die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), um eine Sicherheitsverletzung von Konten oder Ressourcen zu verhindern.|
+|Abonnement|30|Externe Konten mit Besitzerberechtigungen sollten aus Ihrem Abonnement entfernt werden.|Entfernen Sie externe Konten mit Besitzerberechtigungen aus Ihrem Abonnement, um nicht überwachten Zugriff zu verhindern.|
+|Abonnement|30|MFA sollte für Ihre Abonnementkonten mit Leseberechtigungen aktiviert sein.|Aktivieren Sie für alle Abonnementkonten mit Leseberechtigungen die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), um eine Sicherheitsverletzung von Konten oder Ressourcen zu verhindern.|
+|Abonnement|25|Externe Konten mit Schreibberechtigungen sollten aus Ihrem Abonnement entfernt werden.|Entfernen Sie externe Konten mit Schreibberechtigungen aus Ihrem Abonnement, um nicht überwachten Zugriff zu verhindern. |
+|Abonnement|20|Veraltete Konten mit Besitzerberechtigungen sollten aus Ihrem Abonnement entfernt werden.|Entfernen Sie veraltete Konten mit Besitzerberechtigungen aus Ihrem Abonnement.|
+|Abonnement|5|Veraltete Konten sollten aus Ihrem Abonnement entfernt werden.|Entfernen Sie veraltete Konten aus Ihren Abonnements, um nur den Zugriff auf aktuelle Benutzer zuzulassen. |
+|Abonnement|5|Ihrem Abonnement sollte mehr als ein Besitzer zugewiesen sein.|Legen Sie mehrere Abonnementbesitzer fest, um Redundanz beim Administratorzugriff zu gewährleisten.|
+|Abonnement|5|Maximal 3 Besitzer sollten für Ihr Abonnement festgelegt sein.|Legen Sie höchstens drei Abonnementbesitzer fest, um die Möglichkeit einer Sicherheitsverletzung durch einen kompromittierten Besitzer zu verringern.|
+|Schlüsseltresor|5|Diagnoseprotokolle in Key Vault sollten aktiviert sein.|Aktivieren Sie Protokolle, und bewahren Sie sie bis zu ein Jahr lang auf. Auf diese Weise können Sie vergangene Aktivitäten nachvollziehen, wenn Sie Sicherheitsincidents untersuchen oder Ihr Netzwerk gefährdet ist. |
+|Abonnement|15|Externe Konten mit Leseberechtigungen sollten aus Ihrem Abonnement entfernt werden.|Entfernen Sie externe Konten mit Leseberechtigungen aus Ihrem Abonnement, um nicht überwachten Zugriff zu verhindern.| 
 
-> ![HINWEIS] Wenn Sie eine Richtlinie für bedingten Zugriff erstellt haben, die MFA erfordert, für die jedoch Ausschlüsse festgelegt sind, wird die Richtlinie beim Assessment der MFA-Empfehlung für Security Center als nicht kompatibel eingestuft, da sie zulässt, dass sich einige Benutzer in Azure ohne MFA anmelden.
->
+> [!NOTE]
+> Wenn Sie eine Richtlinie für bedingten Zugriff erstellt haben, die MFA erfordert, für die jedoch Ausschlüsse festgelegt sind, wird die Richtlinie beim Assessment der MFA-Empfehlung für Security Center als nicht kompatibel eingestuft, da sie zulässt, dass sich einige Benutzer in Azure ohne MFA anmelden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen zu Empfehlungen für andere Arten von Azure-Ressourcen finden Sie in den folgenden Themen:

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/19/2019
 ms.author: rkarlin
-ms.openlocfilehash: 965fef42a398180475050a7273a0142a45a32305
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fd04e380b0b5732db1e39ffc9b5aa6047c7ef777
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204423"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382986"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Herstellen einer Verbindung für Ihre Cisco ASA-Appliance 
 
@@ -99,24 +99,56 @@ Falls Sie nicht Azure verwenden, stellen Sie den auszuführenden Azure Sentinel
  
 ## <a name="step-2-forward-cisco-asa-logs-to-the-syslog-agent"></a>Schritt 2: Weiterleiten von Cisco ASA-Protokollen an den Syslog-Agent
 
-Konfigurieren Sie Cisco ASA für das Weiterleiten von Syslog-Nachrichten an Ihren Azure-Arbeitsbereich über den Syslog-Agent:
+Cisco ASA unterstützt kein CEF, weshalb die Protokolle als Syslog gesendet werden, sodass der Azure Sentinel-Agent weiß, wie sie zu analysieren sind, als ob sie CEF-Protokolle wären. Konfigurieren Sie Cisco ASA für das Weiterleiten von Syslog-Nachrichten an Ihren Azure-Arbeitsbereich über den Syslog-Agent:
 
 Navigieren Sie zu [Sending Syslog Messages to an External Syslog Server](https://aka.ms/asi-syslog-cisco-forwarding) (Senden von Syslog-Nachrichten an einen externen Syslog-Server), und befolgen Sie die Anleitung zum Einrichten der Verbindung. Verwenden Sie bei entsprechender Aufforderung diese Parameter:
 - Legen Sie **port** auf 514 oder den Port fest, den Sie im Agent angegeben haben.
 - Legen Sie **syslog_ip** auf die IP-Adresse des Agents fest.
 - Legen Sie **logging facility** auf die Protokollierungseinrichtung fest, die Sie im Agent angegeben haben. Standardmäßig wird die Einrichtung vom Agent auf „4“ festgelegt.
 
+Um das relevante Schema in Log Analytics für die Cisco-Ereignisse zu verwenden, suchen Sie nach `CommonSecurityLog`.
 
 ## <a name="step-3-validate-connectivity"></a>Schritt 3: Überprüfen der Konnektivität
 
 Es kann bis zu 20 Minuten dauern, bis Ihre Protokolle in Log Analytics angezeigt werden. 
 
-1. Stellen Sie sicher, dass für Ihre Protokolle der richtige Port im Syslog-Agent verwendet wird. Führen Sie den folgenden Befehl auf dem Syslog-Agent-Computer aus: `tcpdump -A -ni any  port 514 -vv` Mit diesem Befehl werden die Protokolle angezeigt, die per Stream vom Gerät an den Syslog-Computer gesendet werden. Stellen Sie sicher, dass Protokolle von der Quellappliance über den richtigen Port und die richtige Einrichtung empfangen werden.
-2. Stellen Sie sicher, dass der Syslog-Daemon und der Agent kommunizieren. Führen Sie auf dem Syslog-Agent-Computer den folgenden Befehl aus: `tcpdump -A -ni any  port 25226 -vv` Durch diesen Befehl werden Ihnen die Protokolle angezeigt, die vom Gerät an den Syslog-Computer übermittelt werden. Stellen Sie sicher, dass die Protokolle auch vom Agent empfangen werden.
-3. Wenn beide diese Befehle erfolgreiche Ergebnisse zurückgegeben haben, überprüfen Sie in Log Analytics, ob Ihre Protokolle eingehen. Alle Ereignisse, die von diesen Appliances übermittelt werden, werden in Log Analytics unformatiert unter dem Typ `CommonSecurityLog` angezeigt.
-1. In `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log` können Sie überprüfen, ob Fehler aufgetreten sind oder die Protokolle nicht eingehen.
-4. Vergewissern Sie sich, dass die Standardgröße der Syslog-Nachrichten auf 2.048 Bytes (2 KB) beschränkt ist. Wenn die Protokolle zu lang sind, aktualisieren Sie die Konfigurationsdatei „security_events.conf“ mithilfe des folgenden Befehls: `message_length_limit 4096`
-6. Um das relevante Schema in Log Analytics für die Cisco-Ereignisse zu verwenden, suchen Sie nach **CommonSecurityLog**.
+1. Stellen Sie sicher, dass Sie die richtige Einrichtung verwenden. Die Einrichtung muss in Ihrem Gerät und in Azure Sentinel identisch sein. Sie können überprüfen, welche Einrichtungsdatei Sie in Azure Sentinel verwenden, und sie in der Datei `security-config-omsagent.conf` ändern. 
+
+2. Stellen Sie sicher, dass für Ihre Protokolle der richtige Port im Syslog-Agent verwendet wird. Führen Sie diesen Befehl auf dem Syslog-Agent-Computer aus: `tcpdump -A -ni any  port 514 -vv` Durch diesen Befehl werden die Protokolle angezeigt, die vom Gerät an den Syslog-Computer übermittelt werden. Vergewissern Sie sich, dass Protokolle aus der Quellappliance am richtigen Port und bei der richtigen Umgebung eingehen.
+
+3. Stellen Sie sicher, dass die Protokolle, die Sie senden [RFC 5424](https://tools.ietf.org/html/rfc542) erfüllen.
+
+4. Auf dem Computer, auf dem der Syslog-Agent ausgeführt wird, stellen Sie sicher, dass die Ports 514 und 25226 geöffnet sind und lauschen, indem Sie den Befehl `netstat -a -n:` verwenden. Weitere Informationen zur Verwendung dieses Befehls finden Sie auf der [Linux-Manpage „netstat(8)“](https://linux.die.net/man/8/netstat). Wenn sie ordnungsgemäß lauschen, wird Folgendes angezeigt:
+
+   ![Azure Sentinel-Ports](./media/connect-cef/ports.png) 
+
+5. Stellen Sie sicher, dass der Daemon darauf eingestellt ist, an Port 514 zu lauschen, an dem Sie die Protokolle senden.
+    - Für rsyslog:<br>Stellen Sie sicher, dass die Datei `/etc/rsyslog.conf` diese Konfiguration enthält:
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      Weitere Informationen finden Sie unter [imudp: UDP-Syslog-Eingabemodul](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) und [imtcp: TCP-Syslog-Eingabemodul](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module).
+
+   - Für syslog-ng:<br>Stellen Sie sicher, dass die Datei `/etc/syslog-ng/syslog-ng.conf` diese Konfiguration enthält:
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     Weitere Informationen finden Sie unter [imudp: UDP-Syslog-Eingabe-Modul] (Weitere Informationen finden Sie im [syslog-ng Open Source-Edition 3.16 – Administratorhandbuch](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+
+1. Stellen Sie sicher, dass der Syslog-Daemon und der Agent kommunizieren. Führen Sie diesen Befehl auf dem Syslog-Agent-Computer aus: `tcpdump -A -ni any  port 25226 -vv` Durch diesen Befehl werden die Protokolle angezeigt, die vom Gerät an den Syslog-Computer übermittelt werden. Vergewissern Sie sich, dass die Protokolle auch vom Agent empfangen werden.
+
+6. Wenn beide diese Befehle erfolgreiche Ergebnisse zurückgegeben haben, überprüfen Sie in Log Analytics, ob Ihre Protokolle eingehen. Alle Ereignisse, die von diesen Appliances übermittelt werden, werden in Log Analytics unformatiert unter dem Typ `CommonSecurityLog` angezeigt.
+
+7. Hier können Sie überprüfen, ob Fehler aufgetreten sind oder die Protokolle nicht eingehen: `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Wenn dort Fehler wegen fehlender Protokollformatübereinstimmung aufgeführt werden, wechseln Sie zu `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`, und sehen Sie sich die Datei `security_events.conf` an, und stellen Sie sicher, dass Ihre Protokolle das in dieser Datei angezeigte reguläre Ausdrucksformat einhalten.
+
+8. Vergewissern Sie sich, dass die Standardgröße der Syslog-Nachrichten auf 2.048 Bytes (2 KB) beschränkt ist. Wenn die Protokolle zu lang sind, aktualisieren Sie die Konfigurationsdatei „security_events.conf“ mithilfe des folgenden Befehls: `message_length_limit 4096`
 
 
 

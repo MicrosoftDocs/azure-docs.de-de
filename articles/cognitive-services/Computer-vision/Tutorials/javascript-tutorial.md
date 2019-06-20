@@ -12,10 +12,10 @@ ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 91af70406590ab8e65a5d4a4b53835e9e4d4ed2a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231663"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Verwenden von Features des maschinellen Sehens mit der REST-API und JavaScript

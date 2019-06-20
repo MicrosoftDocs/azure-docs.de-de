@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61415761"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatische Optimierung in Azure SQL-Datenbank
 
@@ -68,8 +68,8 @@ In Azure SQL-Datenbank stehen folgende Optionen für die automatische Optimierun
 
 | Option für die automatische Optimierung | Unterstützung für Einzel- und Pooldatenbanken | Unterstützung der Instanzdatenbank |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX:** Identifiziert Indizes, die die Leistung Ihrer Workload verbessern können, erstellt Indizes und überprüft automatisch, ob die Leistung der Abfragen verbessert wurde. | Ja | Nein  | 
-| **DROP INDEX**: Identifiziert täglich redundante und doppelte Indizes (mit Ausnahme von eindeutigen Indizes) sowie Indizes, die über einen langen Zeitraum hinweg (über 90 Tage) nicht verwendet wurden. Beachten Sie, dass die Option zurzeit nicht kompatibel mit Anwendungen ist, die Partitionswechsel und Indexhinweise verwenden. | Ja | Nein  |
+| **CREATE INDEX:** Identifiziert Indizes, die die Leistung Ihrer Workload verbessern können, erstellt Indizes und überprüft automatisch, ob die Leistung der Abfragen verbessert wurde. | Ja | Nein | 
+| **DROP INDEX**: Identifiziert täglich redundante und doppelte Indizes (mit Ausnahme von eindeutigen Indizes) sowie Indizes, die über einen langen Zeitraum hinweg (über 90 Tage) nicht verwendet wurden. Beachten Sie, dass die Option zurzeit nicht kompatibel mit Anwendungen ist, die Partitionswechsel und Indexhinweise verwenden. | Ja | Nein |
 | **FORCE LAST GOOD PLAN** (automatische Plankorrektur): Identifiziert SQL-Abfragen mit einem Ausführungsplan, der langsamer als der vorherige gute Plan ist, und Abfragen, die den letzten bekannten guten Plan anstelle des zurückgestellten Plans verwenden. | Ja | Ja |
 
 Die automatische Optimierung identifiziert Empfehlungen von **CREATE INDEX**, **DROP INDEX** und **FORCE LAST GOOD PLAN**, die Ihre Datenbank optimieren können, zeigt sie im [Azure-Portal](sql-database-advisor-portal.md) an, und macht sie über [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) und die [REST-API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) verfügbar. Um mehr über FORCE LAST GOOD PLAN und die Konfiguration von automatischen Optimierungsoptionen über T-SQL zu erfahren, lesen Sie [Automatisches Optimieren führt zu einer automatischen Plankorrektur](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).

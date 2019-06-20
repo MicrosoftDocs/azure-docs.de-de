@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116335"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178472"
 ---
 >[!NOTE]
 >Erstellen Sie für Ressourcen ohne festes Limit ein Supportticket, um eine Erhöhung der Kontingente anzufordern. Erstellen Sie keine zusätzlichen Azure Media Services-Konten, um höhere Limits zu erhalten.
@@ -20,16 +20,16 @@ ms.locfileid: "66116335"
 | Reservierte Einheiten für Medien pro Media Services-Konto |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
 | Aufträge pro Media Services-Konto | 50.000<sup>2</sup> |
 | Verkettete Aufgaben pro Auftrag | 30 (feststehend) |
-| Medienobjekte pro Media Services-Konto | 1.000.000|
+| Medienobjekte pro Media Services-Konto | 1\.000.000|
 | Objekte pro Aufgabe | 50 |
 | Objekte pro Auftrag | 100 |
 | Eindeutige Locators, die einem Objekt gleichzeitig zugeordnet sind | 5<sup>4</sup> |
 | Livekanäle pro Media Services-Konto |5|
-| Programme im angehaltenen Zustand pro Kanal  |50|
-| Programme im ausgeführten Zustand pro Kanal  |3|
+| Programme im angehaltenen Zustand pro Kanal |50|
+| Programme im ausgeführten Zustand pro Kanal |3|
 | Streamingendpunkte (beendet oder ausgeführt) pro Media Services-Konto|2|
-| Streamingeinheiten pro Streamingendpunkt  |10 |
-| Speicherkonten | 1.000<sup>5</sup> (feststehend) |
+| Streamingeinheiten pro Streamingendpunkt |10 |
+| Speicherkonten | 1\.000<sup>5</sup> (feststehend) |
 | Richtlinien | 1,000,000<sup>6</sup> |
 | Dateigröße| In einigen Szenarien werden für die Verarbeitung in Media Services nur Dateien bis zu einer bestimmten Größe unterstützt.<sup>7</sup> |
 

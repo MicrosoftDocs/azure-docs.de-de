@@ -11,26 +11,27 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998650"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65072388"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Einrichten von Warnungen für Leistungsprobleme in Azure Monitor für Container
 Azure Monitor für Container überwacht die Leistung von Containerworkloads, die in Azure Container Instances oder in Managed Kubernetes-Clustern bereitgestellt sind, die im Azure Kubernetes Service (AKS) gehostet werden.
 
 In diesem Artikel wird beschrieben, wie Sie Warnungen für die folgenden Situationen aktivieren:
 
-* Wenn die CPU- oder Arbeitsspeicherauslastung auf Clusterknoten einen definierten Schwellenwert überschreitet
-* Wenn die CPU- oder Arbeitsspeicherauslastung auf einem Container innerhalb eines Controllers einen definierten Schwellenwert im Vergleich zu einem für die entsprechende Ressource festgelegten Grenzwert überschreitet
-* Knotenanzahl mit Status *NotReady*
-*  Podphasenanzahl mit Status *Failed*, *Pending*, *Unknown*, *Running* oder *Succeeded*
+- Wenn die CPU- oder Arbeitsspeicherauslastung für Clusterknoten einen Schwellenwert überschreitet
+- Wenn die CPU- oder Arbeitsspeicherauslastung für einen Container innerhalb eines Controllers einen Schwellenwert relativ zu einem für die entsprechende Ressource festgelegten Grenzwert überschreitet
+- Knotenanzahl mit Status *NotReady*
+- Podphasenanzahl mit Status *Failed*, *Pending*, *Unknown*, *Running* oder *Succeeded*
+- Wenn der freie Speicherplatz für Clusterknoten einen Schwellenwert überschreitet 
 
-Verwenden Sie zum Auslösen einer Warnung bei hoher CPU- oder Arbeitsspeicherauslastung auf Clusterknoten die bereitgestellten Abfragen, um eine Metrikwarnung oder eine Warnung aufgrund von metrischen Messungen zu erstellen. Bei Metrikwarnungen gibt es eine kürzere Wartezeit als bei Protokollwarnungen. Allerdings ermöglichen Protokollwarnungen erweiterte Abfragen und größere Professionalität. Protokollwarnungsabfragen vergleichen mithilfe des *now*-Operators einen „datetime“-Wert mit dem vorhandenen Wert und gehen um eine Stunde zurück. (Azure Monitor für Container speichert alle Datumsangaben im Format der koordinierten Weltzeit (Coordinated Universal Time, UTC).)
+Verwenden Sie zum Auslösen einer Warnung bei hoher CPU- oder Arbeitsspeicherauslastung oder wenig freiem Speicherplatz für Clusterknoten die bereitgestellten Abfragen, um eine Metrikwarnung oder eine Warnung aufgrund von metrischen Messungen zu erstellen. Bei Metrikwarnungen gibt es eine kürzere Wartezeit als bei Protokollwarnungen. Allerdings ermöglichen Protokollwarnungen erweiterte Abfragen und größere Professionalität. Protokollwarnungsabfragen vergleichen mithilfe des *now*-Operators einen „datetime“-Wert mit dem vorhandenen Wert und gehen um eine Stunde zurück. (Azure Monitor für Container speichert alle Datumsangaben im Format der koordinierten Weltzeit (Coordinated Universal Time, UTC).)
 
 Wenn Sie mit Azure Monitor-Warnungen nicht vertraut sind, lesen Sie zunächst den [Überblick über Warnungen in Microsoft Azure](../platform/alerts-overview.md). Weitere Informationen zu Warnungen, bei denen Protokollabfragen verwendet werden, finden Sie unter [Protokollwarnungen in Azure Monitor](../platform/alerts-unified-log.md). Weitere Informationen zu Metrikwarnungen finden Sie unter [Metrikwarnungen in Azure Monitor](../platform/alerts-metric-overview.md).
 
@@ -255,6 +256,33 @@ let endDateTime = now();
 >[!NOTE]
 >Ändern Sie zum Ausgeben von Warnungen bei bestimmten Podphasen (z.B. *Pending*, *Failed* oder *Unknown*) die letzte Zeile der Abfrage. Verwenden Sie beispielsweise zum Ausgeben einer Warnung für *FailedCount*: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
+Die folgende Abfrage gibt Clusterknotendatenträger mit einer Speicherplatzbelegung von über 90 Prozent zurück. Führen Sie zum Abrufen der Cluster-ID zunächst die folgende Abfrage aus, und kopieren Sie den Wert aus der Eigenschaft `ClusterId`:
+
+```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
+| project ClusterId = Tags['container.azm.ms/clusterId']   
+| distinct tostring(ClusterId)   
+``` 
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue >= 90
+```
+
 ## <a name="create-an-alert-rule"></a>Erstellen einer Warnungsregel
 Führen Sie die folgenden Schritte aus, um eine Protokollwarnung in Azure Monitor mit einer der zuvor angegebenen Regeln für die Protokollsuche zu erstellen.  
 
@@ -272,9 +300,9 @@ Führen Sie die folgenden Schritte aus, um eine Protokollwarnung in Azure Monito
 8. Konfigurieren Sie die Warnung folgendermaßen:
 
     1. Wählen Sie in der Dropdownliste **Basierend auf** die Option **Metrische Maßeinheit** aus. Mit „Metrische Maßeinheit“ wird eine Warnung für jedes Objekt in der Abfrage erstellt, dessen Wert über dem angegebenen Schwellenwert liegt.
-    1. Wählen Sie unter **Bedingung** den Eintrag **Größer als** aus, und geben Sie als **Schwellenwert** für die anfängliche Baseline **75** ein. Oder geben Sie einen anderen Wert ein, der Ihren Kriterien entspricht.
+    1. Wählen Sie unter **Bedingung** den Eintrag **Größer als** aus, und geben Sie als **Schwellenwert** der anfänglichen Baseline für die CPU- und Arbeitsspeicherauslastungswarnungen den Wert **75** ein. Geben Sie für die Warnung bei wenig freiem Speicherplatz den Wert **90** ein. Oder geben Sie einen anderen Wert ein, der Ihren Kriterien entspricht.
     1. Wählen Sie im Abschnitt **Warnung auslösen basierend auf** die Option **Aufeinanderfolgende Sicherheitsverletzungen** aus. Wählen Sie aus der Dropdown-Liste **Größer als** aus, und geben Sie **2** ein.
-    1. Wenn Sie eine Warnung für die CPU- oder Arbeitsspeicherauslastung des Containers konfigurieren möchten, wählen Sie unter **Aggregieren auf** die Option **ContainerName** aus. 
+    1. Wenn Sie eine Warnung für die CPU- oder Arbeitsspeicherauslastung des Containers konfigurieren möchten, wählen Sie unter **Aggregieren auf** die Option **ContainerName** aus. Wählen Sie **ClusterId** aus, um die Warnung bei wenig freiem Speicherplatz für den Clusterknoten zu konfigurieren.
     1. Legen Sie im Abschnitt **Auswertung basierend auf** den Wert **Zeitraum** auf **60 Minuten** fest. Die Regel wird alle 5 Minuten ausgeführt und gibt Datensätze zurück, die innerhalb der letzten Stunde aus dem aktuellen Zeitbereich erstellt wurden. Durch Festlegen des Zeitraums auf ein breites Zeitfenster wird eine potenzielle Datenlatenz berücksichtigt. Außerdem wird dadurch sichergestellt, dass die Abfrage Daten zurückgibt, und so ein falsch negatives Ergebnis vermieden, bei dem die Warnung nie ausgelöst wird.
 
 9. Wählen Sie **Fertig** aus, um die Warnungsregel fertig zu stellen.

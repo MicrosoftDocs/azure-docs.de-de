@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f540bc304920073bcd823adcf6c9dd47cb2cf93b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65157904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65541760"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-9"></a>Upgrade auf Version 9 des Azure Search .NET SDK
+# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Upgrade auf Version 9 des Azure Search .NET SDK
 
 Wenn Sie die Version 7.0-preview oder eine frühere Version des [Azure Search .NET SDK](https://aka.ms/search-sdk) verwenden, unterstützt dieser Artikel Sie beim Upgrade Ihrer Anwendung auf Version 9.
 
@@ -70,7 +70,7 @@ Version 9 enthält einige Breaking Changes, die neben der Neuerstellung der Anw
 > [!NOTE]
 > Die unten stehende Liste von Änderungen ist nicht vollständig. Einige Änderungen führen wahrscheinlich nicht zu Buildfehlern, sie sind aber technisch gesehen „breaking“, da sie die binäre Kompatibilität mit Assemblys verletzen, die von früheren Versionen der Azure Search .NET SDK-Assemblys abhängen. Solche Änderungen werden hier nicht aufgelistet. Erstellen Sie Ihre Anwendung neu, wenn Sie auf Version 9 upgraden, um binäre Kompatibilitätsprobleme zu vermeiden.
 
-### <a name="making-properties-immutable"></a>Unveränderliche Eigenschaften
+### <a name="immutable-properties"></a>Unveränderliche Eigenschaften
 
 Die öffentlichen Eigenschaften mehrerer Modellklassen sind jetzt unveränderlich. Wenn Sie zu Testzwecken benutzerdefinierte Instanzen dieser Klassen erstellen möchten, können Sie die neuen parametrisierten Konstruktoren verwenden:
 
@@ -103,7 +103,7 @@ Der Grund hierfür ist, dass diese Eigenschaften jetzt bei komplexen Felder `nul
 
 Der parameterlose Konstruktor von `Field` wurde in `internal` geändert. Von nun an erfordert jedes `Field` zum Zeitpunkt der Erstellung einen expliziten Namen und Datentyp.
 
-### <a name="simplification-of-batch-and-results-types"></a>Vereinfachung der Batch- und Ergebnistypen
+### <a name="simplified-batch-and-results-types"></a>Vereinfachte Batch- und Ergebnistypen
 
 In Versionen bis einschließlich 7.0-preview wurden die verschiedenen Klassen, die Gruppen von Dokumenten kapseln, in parallelen Klassenhierarchien gegliedert:
 
@@ -118,7 +118,7 @@ Die abgeleiteten Typen ohne einen generischen Typparameter waren für „dynamis
 
 Ab Version 8.0-preview wurden alle Basisklassen und nicht generischen abgeleiteten Klassen entfernt. Für Szenarien mit dynamischer Typisierung können Sie `IndexBatch<Document>`, `DocumentSearchResult<Document>` usw. verwenden.
  
-### <a name="removal-of-extensibleenum"></a>Entfernung von ExtensibleEnum
+### <a name="removed-extensibleenum"></a>ExtensibleEnum wurde entfernt
 
 Die Basisklasse `ExtensibleEnum` wurde entfernt. Alle Klassen, die davon abgeleitet wurden, sind jetzt Strukturen, z. B. `AnalyzerName`, `DataType` und `DataSourceType`. Ihre `Create`-Methoden wurden ebenfalls entfernt. Sie können Aufrufe von `Create` einfach entfernen, da diese Typen implizit aus Zeichenfolgen konvertierbar sind. Wenn dies zu Compilerfehlern führt, können Sie den Konvertierungsoperator über eine Umwandlung explizit aufrufen, um Typen zu unterscheiden. Sie können Code beispielsweise wie folgt ändern:
 
@@ -150,9 +150,9 @@ var index = new Index()
 
 Eigenschaften, die optionale Werte dieser Typen enthielten, werden nun explizit so typisiert, dass sie NULL-Werte zulassen – sie bleiben also weiterhin optional.
 
-### <a name="removal-of-facetresults-and-hithighlights"></a>Entfernung von FacetResults und HitHighlights
+### <a name="removed-facetresults-and-hithighlights"></a>FacetResults und HitHighlights wurden entfernt
 
-Die Klassen `FacetResults` und `HitHighlights` wurden entfernt. Facettenergebnisse werden jetzt als `IDictionary<string, IList<FacetResult>>` typisiert und Trefferhervorhebungen als `IDictionary<string, IList<string>>`. Eine schnelle Möglichkeit zur Behebung von Buildfehlern, die durch diese Änderung eingeführt wurden, besteht darin, `using`-Aliase am Anfang jeder Datei hinzuzufügen, in denen die entfernten Typen verwendet werden. Beispiel: 
+Die Klassen `FacetResults` und `HitHighlights` wurden entfernt. Facettenergebnisse werden jetzt als `IDictionary<string, IList<FacetResult>>` typisiert und Trefferhervorhebungen als `IDictionary<string, IList<string>>`. Eine schnelle Möglichkeit zur Behebung von Buildfehlern, die durch diese Änderung eingeführt wurden, besteht darin, `using`-Aliase am Anfang jeder Datei hinzuzufügen, in denen die entfernten Typen verwendet werden. Beispiel:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

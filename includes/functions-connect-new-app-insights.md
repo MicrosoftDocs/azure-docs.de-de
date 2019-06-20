@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: functions
 author: ggailey777
 ms.service: functions
@@ -9,11 +9,11 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131415"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177854"
 ---
 Mit Functions ist es einfach, die Application Insights-Integration über das [Azure-Portal] einer Funktionen-App hinzuzufügen.
 

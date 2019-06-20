@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60243547"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installieren von Azure AD Connect mit delegierten SQL-Administratorberechtigungen
 Vor dem neuesten Azure AD Connect-Build wurde das Delegieren von Administratorrechten bei der Bereitstellung von Konfigurationen, die SQL erforderten, nicht unterstützt.  Benutzer, die Azure AD Connect installieren wollten, benötigten Serveradministratorberechtigungen („SA“) auf dem SQL-Server.

@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011253"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60759323"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Datenerfassung im Azure-Daten-Explorer
 

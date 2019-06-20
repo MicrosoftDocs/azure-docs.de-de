@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66115503"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178309"
 ---
 Wenn Sie über eine URL für Shared Access Signature (SAS) verfügen, die den Zugriff auf Ressourcen in einem Speicherkonto ermöglicht, können Sie die SAS in einer Verbindungszeichenfolge verwenden. Da die SAS die zum Authentifizieren der Anforderung erforderlichen Informationen enthält, werden über eine Verbindungszeichenfolge mit einer SAS das Protokoll, der Dienstendpunkt und die erforderlichen Anmeldeinformationen zum Zugreifen auf die Ressource bereitgestellt.
 

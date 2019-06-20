@@ -9,11 +9,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60387067"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Verwalten von Azure Data Lake Analytics unter Verwendung der Azure-Befehlszeilenschnittstelle (CLI)
 

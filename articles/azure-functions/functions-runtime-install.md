@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547545"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61022864"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installieren der Vorschauversion 2 der Azure Functions-Laufzeit
 
@@ -118,7 +118,7 @@ So erstellen Sie Ihre erste Funktion in der Vorschauversion der Azure Functions-
 
     ![Portalabonnementplan und -name für die Vorschauversion der Azure Functions-Laufzeit][16]
 
-1. Ihre Funktions-Apps werden im linken Bereich des Portals aufgelistet.  Um eine neue Funktions-App zu erstellen, wählen Sie die Überschrift **Funktions-Apps** aus und klicken Sie auf die Option **+**.
+1. Ihre Funktions-Apps werden im linken Bereich des Portals aufgelistet.  Um eine neue Funktions-App zu erstellen, wählen Sie die Überschrift **Funktions-Apps** aus und klicken Sie auf die Option **+** .
 
 1. Geben Sie einen Namen für Ihre Funktions-App ein und wählen Sie das richtige Abonnement aus. Wählen Sie dann die Version der Azure Functions-Laufzeit aus, für die Sie programmieren möchten, und klicken Sie auf **Erstellen**.
 

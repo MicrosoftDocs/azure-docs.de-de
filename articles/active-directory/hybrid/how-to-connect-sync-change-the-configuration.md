@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60244331"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-Synchronisierung: Ändern der Standardkonfiguration
 In diesem Artikel wird Schritt für Schritt erläutert, wie Sie Änderungen an der Standardkonfiguration in der Azure AD Connect-Synchronisierung (Azure Active Directory) vornehmen. Es enthält Schrittanleitungen für einige allgemeinen Szenarien. Mit diesem Wissen sollten Sie in der Lage sein, basierend auf Ihren eigenen Geschäftsregeln einfache Änderungen an Ihrer eigenen Konfiguration vorzunehmen.
@@ -92,7 +92,7 @@ Nachdem Sie diese Änderung vorgenommen haben, möchten Sie sicherstellen, dass 
    2. Wählen Sie unter **Aktionen** die Option **Ausführen** aus.
    3. Wählen Sie **Vollständige Synchronisierung** und danach **OK** aus.
    ![Vollständige Synchronisierung](./media/how-to-connect-sync-change-the-configuration/fullsync.png)  
-    Die Objekte sind jetzt in der Metaverse aktualisiert. Überprüfen Sie Ihre Änderungen, indem Sie sich das Objekt in der Metaverse ansehen.
+   Die Objekte sind jetzt in der Metaverse aktualisiert. Überprüfen Sie Ihre Änderungen, indem Sie sich das Objekt in der Metaverse ansehen.
 
 **Vorschau und vollständige Synchronisierung eines einzelnen Objekts**  
 
@@ -101,7 +101,7 @@ Nachdem Sie diese Änderung vorgenommen haben, möchten Sie sicherstellen, dass 
    3. Verwenden Sie den **Bereich**, um nach einem Objekt zu suchen, das Sie zum Testen der Änderung verwenden möchten. Wählen Sie das Objekt aus, und klicken Sie auf **Vorschau**. 
    4. Wählen Sie auf dem neuen Bildschirm **Commitvorschau** aus.  
    ![Commit preview](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
-    Die Änderung wird jetzt an die Metaverse übergeben.
+   Die Änderung wird jetzt an die Metaverse übergeben.
 
 **Anzeigen des Objekts in der Metaverse**  
 
@@ -119,7 +119,7 @@ Im vorherigen Abschnitt wurde beschrieben, wie Sie Änderungen an einem Attribut
 ### <a name="use-an-attribute-other-than-the-default"></a>Verwenden eines vom Standardwert abweichenden Attributs
 In diesem Fabrikam-Szenario wird in einer Gesamtstruktur das lokale Alphabet für Vorname, Nachname und Anzeigename verwendet. Die lateinische Zeichenfolgendarstellung dieser Attribute ist in den Erweiterungsattributen zu finden. Zum Erstellen einer globalen Adressliste in Azure AD und Office 365 möchte die Organisation stattdessen diese Attribute verwenden.
 
-Mit einer Standardkonfiguration sieht ein Objekt aus der lokalen Gesamtstruktur wie folgt aus:   
+Mit einer Standardkonfiguration sieht ein Objekt aus der lokalen Gesamtstruktur wie folgt aus:  
 ![Attributfluss 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
 
 Führen Sie folgende Schritte aus, um eine Regel mit anderen Attributflüssen zu erstellen:
@@ -135,7 +135,7 @@ Führen Sie folgende Schritte aus, um eine Regel mit anderen Attributflüssen zu
 7. Klicken Sie auf **Hinzufügen** , um die Regel zu speichern.
 8. Wechseln Sie zu **Synchronization Service Manager**. Wählen Sie unter **Connectors**den Connector aus, für den Sie die Regel hinzugefügt haben. Wählen Sie **Ausführen** und danach **Vollständige Synchronisierung** aus. Bei einer vollständigen Synchronisierung werden alle Objekte anhand der aktuellen Regeln neu berechnet.
 
-Dies ist das Ergebnis für dasselbe Objekt mit dieser benutzerdefinierten Regel:   
+Dies ist das Ergebnis für dasselbe Objekt mit dieser benutzerdefinierten Regel:  
 ![Attributfluss 4](./media/how-to-connect-sync-change-the-configuration/attributeflowjp4.png)
 
 ### <a name="length-of-attributes"></a>Länge der Attribute
@@ -282,17 +282,17 @@ Die Synchronisierungsregel für eingehende Daten ermöglicht die Übertragung de
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Benutzer\_ |
 
-    Der Bereichsfilter legt fest, auf welche lokalen AD-Objekte diese Synchronisierungsregel für eingehende Daten angewendet wird. In diesem Beispiel verwenden wir denselben Bereichsfilter wie die Standardsynchronisierungsregel *Eingehend von AD – Benutzer „Common“*, die verhindert, dass die Synchronisierungsregel auf Benutzerobjekte angewendet wird, die über die Funktion zum Rückschreiben von Azure AD-Benutzern erstellt wurden. Möglicherweise müssen Sie den Bereichsfilter entsprechend Ihrer Azure AD Connect-Bereitstellung anpassen.
+    Der Bereichsfilter legt fest, auf welche lokalen AD-Objekte diese Synchronisierungsregel für eingehende Daten angewendet wird. In diesem Beispiel verwenden wir denselben Bereichsfilter wie die Standardsynchronisierungsregel *Eingehend von AD – Benutzer „Common“* , die verhindert, dass die Synchronisierungsregel auf Benutzerobjekte angewendet wird, die über die Funktion zum Rückschreiben von Azure AD-Benutzern erstellt wurden. Möglicherweise müssen Sie den Bereichsfilter entsprechend Ihrer Azure AD Connect-Bereitstellung anpassen.
 
 6. Navigieren Sie zur Registerkarte **Transformation**, und implementieren Sie die gewünschte Transformationsregel. Wenn Sie beispielsweise ein nicht verwendetes lokales AD-Attribut (z.B. „extensionAttribute1“) als Quellattribut für „UserType“ festgelegt haben, können Sie einen direkten Attributfluss implementieren:
 
-    | Attributflusstyp | Zielattribut | Quelle | Einmal anwenden | Mergetyp |
+    | Attributflusstyp | Zielattribut | `Source` | Einmal anwenden | Mergetyp |
     | --- | --- | --- | --- | --- |
     | Direkt | UserType | extensionAttribute1 | Deaktiviert | Aktualisieren |
 
     Ein weiteres Beispiel: Sie möchten den Wert für das UserType-Attribut aus anderen Eigenschaften ableiten. Angenommen, Sie möchten alle Benutzer als „Guest“ synchronisieren, wenn ihr lokales AD-Attribut „UserPrincipalName“ mit dem Domänenteil <em>@partners.fabrikam123.org</em> endet. Sie können einen Ausdruck wie den folgenden implementieren:
 
-    | Attributflusstyp | Zielattribut | Quelle | Einmal anwenden | Mergetyp |
+    | Attributflusstyp | Zielattribut | `Source` | Einmal anwenden | Mergetyp |
     | --- | --- | --- | --- | --- |
     | Ausdruck | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Deaktiviert | Aktualisieren |
 
@@ -329,7 +329,7 @@ Die Synchronisierungsregel für ausgehende Daten ermöglicht die Übertragung de
 
 6. Navigieren Sie zur Registerkarte **Transformation**, und implementieren Sie folgende Transformationsregel:
 
-    | Attributflusstyp | Zielattribut | Quelle | Einmal anwenden | Mergetyp |
+    | Attributflusstyp | Zielattribut | `Source` | Einmal anwenden | Mergetyp |
     | --- | --- | --- | --- | --- |
     | Direkt | UserType | UserType | Deaktiviert | Aktualisieren |
 

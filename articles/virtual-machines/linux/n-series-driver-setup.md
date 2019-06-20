@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c80b821d6bd0263473ba0178eea148f7a2d5773
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66479108"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installieren von NVIDIA GPU-Treibern für virtuelle Computer der Serie N mit Linux
 
@@ -168,7 +168,7 @@ Stellen Sie RDMA-fähige VMs der N-Serie über eines der Images aus dem Azure Ma
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **7.4 HPC (CentOS-basiert)**: Auf der VM sind RDMA-Treiber und Intel MPI 5.1 installiert.
+* **7.4 HPC (CentOS-basiert)** : Auf der VM sind RDMA-Treiber und Intel MPI 5.1 installiert.
 
 ## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>Installieren von GRID-Treibern für virtuelle Computer der NV- oder NVv2-Serie
 
@@ -187,8 +187,8 @@ Stellen Sie zum Installieren von NVIDIA GRID-Treibern auf virtuellen Computern d
 
    sudo apt-get dist-upgrade -y
 
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
+   sudo apt-get install build-essential ubuntu-desktop -y
+   ```
 3. Deaktivieren Sie den Nouveau-Kerneltreiber, da er nicht mit dem NVIDIA-Treiber kompatibel ist. (Verwenden Sie den NVIDIA-Treiber nur auf virtuellen NV- oder NVv2-Computern.) Erstellen Sie zu diesem Zweck eine Datei in `/etc/modprobe.d`, und nennen Sie sie `nouveau.conf`. Die Datei muss den folgenden Inhalt enthalten:
 
    ```

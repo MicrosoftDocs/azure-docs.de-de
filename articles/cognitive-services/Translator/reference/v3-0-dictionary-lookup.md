@@ -3,19 +3,19 @@ title: Textübersetzungs-API – Methode zur Wörterbuchsuche (Dictionary Lookup
 titlesuffix: Azure Cognitive Services
 description: Verwenden Sie die Methode zur Wörterbuchsuche der Textübersetzungs-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b844ac4018ef768527ca17bd68ca53baaf5d9552
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: v-pawal
+ms.openlocfilehash: 10ccdcf0fda424e67b993c7c9300f0b84c56121f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578338"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389790"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Textübersetzungs-API 3.0: Wörterbuchsuche
 

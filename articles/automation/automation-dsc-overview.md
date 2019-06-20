@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441057"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235938"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Übersicht über Azure Automation State Configuration
 
@@ -69,7 +69,7 @@ Ubuntu  | 18,04
 
 ### <a name="dsc-requirements"></a>DSC-Anforderungen
 
-Für alle Windows-Knoten, die in Azure ausgeführt werden, wird während des Onboardings [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) installiert.  Für Knoten, die unter Windows Server 2012 und Windows 7 ausgeführt werden, [wird WinRM aktiviert](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Für alle Windows-Knoten, die in Azure ausgeführt werden, wird während des Onboardings [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) installiert.  Für Knoten, die unter Windows Server 2012 und Windows 7 ausgeführt werden, [wird WinRM aktiviert](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Für alle Linux-Knoten, die in Azure ausgeführt werden, wird während des Onboardings [PowerShell DSC für Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) installiert.
 

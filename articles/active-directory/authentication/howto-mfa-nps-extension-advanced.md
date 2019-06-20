@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bfae3b3be7812ff50ed90a61d495877141bbc7e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b8ac0497b13dad6795e8dc7ffaf761fe887a9953
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309707"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988625"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Erweiterte Konfigurationsoptionen für die NPS-Erweiterung für Multi-Factor Authentication
 
@@ -40,15 +40,15 @@ Befolgen Sie zum Beheben von Problemen mit alternativen Anmelde-IDs die empfohle
 
 ## <a name="ip-exceptions"></a>IP-Ausnahmen
 
-Wenn Sie die Verfügbarkeit von Servern überwachen müssen, z.B. wenn durch Lastenausgleichsmodule vor dem Übermitteln von Workloads überprüft wird, welche Server ausgeführt werden, sollen diese Überprüfungen nicht durch Überprüfungsanfragen blockiert werden. Erstellen Sie stattdessen eine Liste von IP-Adressen, die von Dienstkonten verwendet werden, und deaktivieren Sie die Multi-Factor Authentication-Anforderungen für diese Liste. 
+Wenn Sie die Verfügbarkeit von Servern überwachen müssen, z.B. wenn durch Lastenausgleichsmodule vor dem Übermitteln von Workloads überprüft wird, welche Server ausgeführt werden, sollen diese Überprüfungen nicht durch Überprüfungsanfragen blockiert werden. Erstellen Sie stattdessen eine Liste von IP-Adressen, die von Dienstkonten verwendet werden, und deaktivieren Sie die Multi-Factor Authentication-Anforderungen für diese Liste.
 
-Navigieren Sie zum Konfigurieren einer IP-Whitelist zu `HKLM\SOFTWARE\Microsoft\AzureMfa`, und konfigurieren Sie den folgenden Registrierungswert: 
+Wechseln Sie zu `HKLM\SOFTWARE\Microsoft\AzureMfa`, um eine Liste zulässiger IP-Adressen zu konfigurieren, und konfigurieren Sie den folgenden Registrierungswert:
 
 | NAME | Type | Standardwert | BESCHREIBUNG |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | Zeichenfolge | Leer | Stellen Sie eine durch Semikolons getrennte Liste mit IP-Adressen bereit. Darunter sollten die IP-Adressen der Computer sein, von denen Serviceanforderungen stammen, wie der NAS/VPN-Server. IP-Adressbereiche und Subnetze werden nicht unterstützt. <br><br> Beispiel: *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Wenn eine Anforderung von einer IP-Adresse eingeht, die auf der Whitelist steht, wird die zweistufige Überprüfung übersprungen. Die IP-Whitelist wird mit der IP-Adresse verglichen, die im *ratNASIPAddress*-Attribut der RADIUS-Anforderung bereitgestellt wird. Wenn eine RADIUS-Anforderung ohne das Attribut ratNASIPAddress eingeht, wird die folgende Warnung protokolliert: „P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute.“ (P_WHITE_LIST_WARNING::IP-Whitelist wird ignoriert, da die Quell-IP in der RADIUS-Anforderung im NasIpAddress-Attribut fehlt.)
+Wenn eine Anforderung von einer IP-Adresse eingeht, die in `IP_WHITELIST` enthalten ist, wird die zweistufige Überprüfung übersprungen. Die IP-Liste wird mit der IP-Adresse verglichen, die im *ratNASIPAddress*-Attribut der RADIUS-Anforderung angegeben ist. Wenn eine RADIUS-Anforderung ohne das Attribut ratNASIPAddress eingeht, wird die folgende Warnung protokolliert: „P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute.“ (P_WHITE_LIST_WARNING::IP-Whitelist wird ignoriert, da die Quell-IP in der RADIUS-Anforderung im NasIpAddress-Attribut fehlt.)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

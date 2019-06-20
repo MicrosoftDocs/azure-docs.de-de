@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149477"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962917"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Zwischenspeicherung mit Azure Front Door Service
 In diesem Dokument wird das Verhalten von Azure Front Door Service für Routingregeln mit aktivierter Zwischenspeicherung erläutert.
@@ -101,7 +101,7 @@ Bei Cachebereinigungen in Azure Front Door Service muss die Groß-/Kleinschreibu
 ## <a name="cache-expiration"></a>Cacheablauf
 Die folgende Headerreihenfolge wird verwendet, um zu bestimmen, wie lange ein Element im Cache gespeichert wird:</br>
 1. Cache-Control: s-maxage=\<Sekunden>
-2. Cache-Control: maxage=\<Sekunden>
+2. Cache-Control: max-age=\<seconds>
 3. Expires: \<HTTP-Datum>
 
 Cache-Control-Antwortheader, die angeben, dass die Antwort nicht zwischengespeichert wird (z. B. „Cache-Control: private“, „Cache-Control: no-cache“ und „Cache-Control: no-store“), werden berücksichtigt. Wenn auf einem POP-Server mehrere Anforderungen für dieselbe URL ausgeführt werden, gilt die Antwort jedoch möglicherweise für alle dieser Anforderungen. Ist keine Angabe für „Cache-Control“ vorhanden, ist das Standardverhalten wie folgt: Azure Front Door Service speichert die Ressource für einen Zeitraum X zwischen. Für X wird dabei ein zufällig gewählter Wert von ein bis drei Tagen verwendet.

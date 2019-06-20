@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
 ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472439"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60995626"
 ---
 # <a name="limits-and-quotas"></a>Grenzen und Kontingente
 
@@ -26,8 +26,8 @@ Es wird erwartet, dass die Anzahl der Bilder pro Projekt und die Anzahl der Tags
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Projekte|2|100|
-|Trainingsbilder pro Projekt |5.000|100.000|
-|Vorhersagen pro Monat|10.000 |Unbegrenzt|
+|Trainingsbilder pro Projekt |5\.000|100\.000|
+|Vorhersagen pro Monat|10\.000 |Unbegrenzt|
 |Tags pro Projekt|50|500|
 |Iterationen |10|10|
 |Mindestanzahl der gekennzeichneten Bilder pro Tag, Klassifizierung (> 50 empfohlen) |5|5|

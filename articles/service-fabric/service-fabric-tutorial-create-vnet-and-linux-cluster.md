@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 00d7e510fa43865f1427092f2f20b9847f1afa9b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60863783"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Bereitstellen eines Service Fabric-Linux-Clusters in einem virtuellen Azure-Netzwerk
 

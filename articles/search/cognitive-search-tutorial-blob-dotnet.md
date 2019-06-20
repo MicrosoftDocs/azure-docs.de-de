@@ -1,6 +1,6 @@
 ---
 title: C#-Tutorial zum Aufrufen von Cognitive Services-APIs in einer Indizierungspipeline – Azure Search
-description: Dieses Tutorial führt Sie schrittweise durch ein Beispiel für das Extrahieren von Daten, natürliche Sprache und AI-Bildverarbeitung in der Azure Search-Indizierung für die Extrahierung und Transformation von Daten.
+description: Dieses Tutorial führt Sie schrittweise durch ein Beispiel für das Extrahieren von Daten, natürliche Sprache und KI-basierter Bildverarbeitung in der Azure Search-Indizierung für die Extrahierung und Transformation von Daten.
 manager: eladz
 author: MarkHeff
 services: search
@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7aab7f75e6489fcaea1ecafee34823ad546a6b48
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153207"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244375"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#-Tutorial: Aufrufen von Cognitive Services-APIs in einer Azure Search-Indizierungspipeline
 
@@ -44,13 +44,13 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 In diesem Tutorial werden die folgenden Dienste, Tools und Daten verwendet. 
 
-[Erstellen Sie einen Azure Search-Dienst](search-create-service-portal.md), oder suchen Sie in Ihrem aktuellen Abonnement [nach einem vorhandenen Dienst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). In diesem Tutorial können Sie einen kostenlosen Dienst verwenden.
++ [Erstellen Sie ein Azure-Speicherkonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) zum Speichern der Beispieldaten. Stellen Sie sicher, dass sich das Speicherkonto in der gleichen Region wie Azure Search befindet.
 
-[Erstellen Sie ein Azure-Speicherkonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) zum Speichern der Beispieldaten.
++ Die [Beispieldaten](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) bestehen aus einem kleinen Satz Dateien verschiedenen Typs. 
 
-Die [Beispieldaten](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) bestehen aus einem kleinen Satz Dateien verschiedenen Typs. 
++ [Installieren Sie Visual Studio](https://visualstudio.microsoft.com/) für die Verwendung als IDE.
 
-[Installieren Sie Visual Studio](https://visualstudio.microsoft.com/) für die Verwendung als IDE.
++ [Erstellen Sie einen Azure Search-Dienst](search-create-service-portal.md), oder suchen Sie in Ihrem aktuellen Abonnement [nach einem vorhandenen Dienst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). In diesem Tutorial können Sie einen kostenlosen Dienst verwenden.
 
 ## <a name="get-a-key-and-url"></a>Abrufen eines Schlüssels und einer URL
 
@@ -611,7 +611,7 @@ catch (Exception e)
 
 Warnungen sind bei bestimmten Kombinationen aus Quelldatei und Qualifikation häufig und weisen nicht immer auf ein Problem hin. Im Rahmen dieses Tutorials sind die Warnungen gutartig (z.B. keine Texteingaben aus den JPEG-Dateien).
  
-## <a name="verify-content"></a>Inhaltsüberprüfung
+## <a name="query-your-index"></a>Abfragen Ihres Index
 
 Sie können nach dem Abschluss der Indizierung Abfragen ausführen, die die Inhalte einzelner Felder zurückgeben. Standardmäßig gibt Azure Search die obersten 50 Ergebnisse zurück. Die Beispieldaten sind klein, so dass die Standardeinstellung gut funktioniert. Beim Arbeiten mit größeren Datensets müssen Sie jedoch möglicherweise Parameter in die Abfragezeichenfolge aufnehmen, um mehr Ergebnisse zurückzugeben. Anweisungen finden Sie unter [How to page results in Azure Search](search-pagination-page-layout.md) (Seitenweise Ausgabe von Ergebnissen in Azure Search).
 

@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b544bfcb59bf4c2b44e6b666fcd33e9fb493692
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330652"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256126"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Protokollbasierte und vorab aggregierte Metriken in Azure Application Insights
 
@@ -34,7 +34,7 @@ Gleichzeitig kann das Sammeln eines vollständigen Satzes von Ereignissen für A
 
 ## <a name="pre-aggregated-metrics"></a>Vorab aggregierte Metriken
 
-Zusätzlich zu den protokollbasierten Metriken lieferte das Application Insights-Team im Herbst 2018 eine öffentliche Vorschau von Metriken aus, die in einem speziellen, für Zeitreihen optimierten Repository gespeichert sind. Die neuen Metriken werden nicht mehr als einzelne Ereignisse mit vielen Eigenschaften, sondern als vorab aggregierte Zeitreihen und nur mit Schlüsseldimensionen gespeichert. Dadurch sind die neuen Metriken hinsichtlich der Abfragezeit überlegen: Der Datenabruf erfolgt viel schneller und erfordert weniger Rechenleistung. Dies ermöglicht neue Szenarien wie [Warnungen zu Metrikdimensionen nahezu in Echtzeit](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), reaktionsschnellere [Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards) und mehr.
+Zusätzlich zu den protokollbasierten Metriken lieferte das Application Insights-Team im Herbst 2018 eine öffentliche Vorschau von Metriken aus, die in einem speziellen, für Zeitreihen optimierten Repository gespeichert sind. Die neuen Metriken werden nicht mehr als einzelne Ereignisse mit vielen Eigenschaften, sondern als vorab aggregierte Zeitreihen und nur mit Schlüsseldimensionen gespeichert. Dadurch sind die neuen Metriken hinsichtlich der Abfragezeit überlegen: Der Datenabruf erfolgt viel schneller und erfordert weniger Rechenleistung. Dies ermöglicht neue Szenarien wie [Warnungen zu Metrikdimensionen nahezu in Echtzeit](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), reaktionsschnellere [Dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) und mehr.
 
 > [!IMPORTANT]
 > Protokollbasierte und vorab aggregierte Metriken können in Azure Application Insights parallel verwendet werden. Zur Unterscheidung werden in Application Insights UX die vorab aggregierten Metriken nun „Standardmetriken (Vorschau)“ genannt, während die traditionellen Metriken aus den Ereignissen in „protokollbasierte Metriken“ umbenannt wurden.
@@ -63,7 +63,7 @@ Die Sammlung von benutzerdefinierten Metrikdimensionen ist standardmäßig deakt
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Erstellen von Diagrammen und Erkunden von protokollbasierten und standardmäßig vorab aggregierten Metriken
 
-Verwenden Sie den Metrik-Explorer von Azure Monitor, um Diagramme aus vorab aggregierten und protokollbasierten Metriken darzustellen, und um Dashboards mit Diagrammen zu erstellen. Nachdem Sie die gewünschte Application Insights-Ressource ausgewählt haben, können Sie mit der Namespaceauswahl zwischen Standard- (Vorschau) und protokollbasierten Metriken wechseln oder einen benutzerdefinierten Metriknamespace auswählen:
+Verwenden Sie den [Metrik-Explorer von Azure Monitor](../platform/metrics-getting-started.md), um Diagramme aus vorab aggregierten und protokollbasierten Metriken darzustellen, und um Dashboards mit Diagrammen zu erstellen. Nachdem Sie die gewünschte Application Insights-Ressource ausgewählt haben, können Sie mit der Namespaceauswahl zwischen Standard- (Vorschau) und protokollbasierten Metriken wechseln oder einen benutzerdefinierten Metriknamespace auswählen:
 
 ![Metriknamespace](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

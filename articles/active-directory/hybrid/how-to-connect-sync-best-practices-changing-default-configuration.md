@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168645"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60242166"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect-Synchronisierung: Bewährte Methoden zum Ändern der Standardkonfiguration
 Dieses Thema dient zur Beschreibung der unterstützten und nicht unterstützten Änderungen der Azure AD Connect-Synchronisierung.
@@ -63,7 +63,7 @@ In der Abbildung oben wurde mit dem Installations-Assistenten ein altes Exchange
 ### <a name="change-an-out-of-box-rule"></a>Ändern einer standardmäßigen Regel
 Ändern Sie eine standardmäßige Regel nur dann, wenn Sie die Verknüpfungsregel ändern müssen. Wenn Sie einen Attributfluss ändern müssen, sollten Sie eine Synchronisierungsregel erstellen, die Vorrang vor den standardmäßigen Regeln hat. Die einzige Regel, die Sie im Grunde klonen müssen, ist die Regel **In from AD - User Join**. Alle anderen Regeln können Sie mit einer Regel mit höherer Priorität außer Kraft setzen.
 
-Wenn Sie Änderungen an einer standardmäßigen Regel vornehmen müssen, erstellen Sie eine Kopie der standardmäßigen Regel und deaktivieren Sie die ursprüngliche Regel. Nehmen Sie an der geklonten Regel dann die gewünschten Änderungen vor. Der Synchronisierungsregel-Editor unterstützt Sie bei diesen Schritten. Wenn Sie eine standardmäßige Regel öffnen, wird dieses Dialogfeld angezeigt:   
+Wenn Sie Änderungen an einer standardmäßigen Regel vornehmen müssen, erstellen Sie eine Kopie der standardmäßigen Regel und deaktivieren Sie die ursprüngliche Regel. Nehmen Sie an der geklonten Regel dann die gewünschten Änderungen vor. Der Synchronisierungsregel-Editor unterstützt Sie bei diesen Schritten. Wenn Sie eine standardmäßige Regel öffnen, wird dieses Dialogfeld angezeigt:  
 ![Warnung für standardmäßige Regel](./media/how-to-connect-sync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
 Wählen Sie **Ja** , um eine Kopie der Regel zu erstellen. Die geklonte Regel wird geöffnet.  

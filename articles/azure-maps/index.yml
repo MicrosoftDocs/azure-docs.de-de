@@ -13,7 +13,7 @@ metadata:
   ms.date: 02/14/2019
   ms.author: philmea
 abstract:
-  description: 'Azure Maps stellt Entwicklern aus allen Branchen leistungsstarke Geofunktionen mit umfassenden aktuellen Kartendaten zur Verfügung, um geografischen Kontext für Web- und Mobilanwendungen bereitzustellen. Bei Azure Maps handelt es sich um verschiedene, mit Azure One API konforme Azure-REST-APIs für Karten, Suche, Routing, Datenverkehr, Zeitzonen, Geolocation, Geofencing, Kartendaten und räumliche Vorgänge. Diese umfassen sowohl Web- als auch Android-SDKs, um die Entwicklung für verschiedene Plattformen einfach, flexibel und portabel zu gestalten.'
+  description: 'Azure Maps stellt Entwicklern aus allen Branchen leistungsstarke Geofunktionen mit umfassenden aktuellen Kartendaten zur Verfügung, um geografischen Kontext für Web- und Mobilanwendungen bereitzustellen. Bei Azure Maps handelt es sich um verschiedene, mit Azure One API konforme Azure-REST-APIs für Karten, Suche, Routing, Verkehr, Mobilität, Zeitzonen, Geolocation, Geofencing, Kartendaten und räumliche Operationen. Diese umfassen sowohl Web- als auch Android-SDKs, um die Entwicklung für verschiedene Plattformen einfach, flexibel und portabel zu gestalten.'
 sections:
   - title: Fünfminütige Schnellstarts
     items:
@@ -54,4 +54,4 @@ sections:
           - title: JavaScript
             html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Kartensteuerelement</a></p>'
           - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Datendienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geolocation-Dienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Renderingdienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routendienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Suchdienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Räumlicher Dienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Zeitzonendienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Verkehrsinfodienst</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Datendienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Geolocation-Dienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">Mobilitätsdienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Renderingdienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Routendienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Suchdienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Räumlicher Dienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Zeitzonendienst</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Verkehrsinfodienst</a></p>'

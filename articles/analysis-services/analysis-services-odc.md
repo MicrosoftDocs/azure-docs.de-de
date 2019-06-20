@@ -9,11 +9,11 @@ ms.date: 01/09/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 37f068be544f964f3aec63d85702098c8f382ab8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60785709"
 ---
 # <a name="create-an-office-data-connection-file"></a>Erstellen einer Office Data Connection-Datei
 

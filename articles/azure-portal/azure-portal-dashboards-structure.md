@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
 ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885692"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60551513"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struktur von Azure-Dashboards
 In diesem Dokument wird die Struktur eines Azure-Dashboards beschrieben. Dabei wird das folgende Dashboard als Beispiel verwendet:

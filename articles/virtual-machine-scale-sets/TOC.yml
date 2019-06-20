@@ -223,6 +223,14 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Mithilfe von Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Ändern einer Skalierungsgruppe
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Netzwerke für Skalierungsgruppen
+          href: virtual-machine-scale-sets-networking.md
+        - name: Automatische Betriebssystemupgrades
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Instanzschutz (Vorschauversion)
+          href: virtual-machine-scale-sets-instance-protection.md
         - name: Kataloge mit freigegebenen Images
           items:
             - name: Übersicht
@@ -237,14 +245,8 @@
               href: troubleshooting-shared-images.md
         - name: Vertikale Skalierung in einer Skalierungsgruppe
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Automatische Betriebssystemupgrades
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Ändern einer Skalierungsgruppe
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Verwenden von DSC und Skalierungsgruppen
           href: virtual-machine-scale-sets-dsc.md
-        - name: Netzwerke für Skalierungsgruppen
-          href: virtual-machine-scale-sets-networking.md
         - name: Konvertieren einer Vorlage in verwaltete Datenträger
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Geplante Wartung

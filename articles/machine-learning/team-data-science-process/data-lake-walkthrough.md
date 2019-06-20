@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835235"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60399956"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalierbare Data Science mit Azure Data Lake: lückenlose exemplarische Vorgehensweise
 Diese exemplarische Vorgehensweise veranschaulicht die Nutzung von Azure Data Lake zum Anwenden von Datenuntersuchungs- und binären Klassifizierungsaufgaben auf das Dataset „NYC Taxi Trip and Fare“, um vorherzusagen, ob neben dem Fahrpreis ein Trinkgeld gezahlt wird. Sie werden lückenlos durch die Schritte des [Data Science-Prozesses](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)begleitet – von der Datenerfassung über das Training des Modells bis zur Bereitstellung eines Webdiensts zum Veröffentlichen des Modells.

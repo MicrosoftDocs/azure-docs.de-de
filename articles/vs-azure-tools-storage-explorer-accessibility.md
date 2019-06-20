@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60457265"
 ---
 # <a name="storage-explorer-accessibility"></a>Barrierefreiheit des Storage-Explorers
 

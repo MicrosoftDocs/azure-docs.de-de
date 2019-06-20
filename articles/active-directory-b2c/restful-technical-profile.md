@@ -2,20 +2,20 @@
 title: Definieren eines technischen RESTful-Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein technisches RESTful-Profil in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C definieren.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705305"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66512745"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines technischen RESTful-Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -87,9 +87,9 @@ Das technische Profil gibt auch Ansprüche zurück, die vom Identitätsanbieter 
 | --------- | -------- | ----------- |
 | ServiceUrl | Ja | Die URL des REST-API-Endpunkts. | 
 | AuthenticationType | Ja | Der Typ der Authentifizierung, die vom RESTful-Anspruchsanbieter ausgeführt wird. Mögliche Werte: `None`, `Basic` oder `ClientCertificate`. Der Wert `None` gibt an, dass die REST-API nicht anonym ist. Der Wert `Basic` gibt an, dass die REST-API mit HTTP-Standardauthentifizierung geschützt ist. Nur verifizierte Benutzer, einschließlich Azure AD B2C, haben Zugriff auf Ihre API. Der (empfohlene) Wert `ClientCertificate` gibt an, dass die REST-API den Zugriff mithilfe der Authentifizierung mit Clientzertifikat beschränkt. Nur Dienste mit den richtigen Zertifikaten, z.B. Azure AD B2C, erhalten Zugriff auf Ihren Dienst. | 
-| SendClaimsIn | Nein  | Gibt an, wie Eingabeansprüche an den RESTful-Anspruchsanbieter gesendet werden. Mögliche Werte: `Body` (Standard), `Form`, `Header` oder `QueryString`. Der Wert `Body` ist der Eingabeanspruch, der im Anforderungstext im JSON-Format gesendet wird. Der Wert `Form` ist der Eingabeanspruch, der im Anforderungstext in einem durch kaufmännische Und-Zeichen (&) getrenntes Schlüssel-Wert-Format gesendet wird. Der Wert `Header` ist der Eingabeanspruch, der im Anforderungsheader gesendet wird. Der Wert `QueryString` ist der Eingabeanspruch, der in der Abfragezeichenfolge der Anforderung gesendet wird. | 
-| ClaimsFormat | Nein  | Gibt das Format für die Ausgabeansprüche an. Mögliche Werte: `Body` (Standard), `Form`, `Header` oder `QueryString`. Der Wert `Body` ist der Ausgabeanspruch, der im Anforderungstext im JSON-Format gesendet wird. Der Wert `Form` ist der Ausgabeanspruch, der im Anforderungstext in einem durch kaufmännische Und-Zeichen (&) getrenntes Schlüssel-Wert-Format gesendet wird. Der Wert `Header` ist der Ausgabeanspruch, der im Anforderungsheader gesendet wird. Der Wert `QueryString` ist der Ausgabeanspruch, der in der Abfragezeichenfolge der Anforderung gesendet wird. | 
-| DebugMode | Nein  | Führt das technische Profil im Debugmodus aus. Im Debugmodus kann die REST-API mehr Informationen zurückgeben. Sie finden diese im Abschnitt zur zurückgegebenen Fehlermeldung. | 
+| SendClaimsIn | Nein | Gibt an, wie Eingabeansprüche an den RESTful-Anspruchsanbieter gesendet werden. Mögliche Werte: `Body` (Standard), `Form`, `Header` oder `QueryString`. Der Wert `Body` ist der Eingabeanspruch, der im Anforderungstext im JSON-Format gesendet wird. Der Wert `Form` ist der Eingabeanspruch, der im Anforderungstext in einem durch kaufmännische Und-Zeichen (&) getrenntes Schlüssel-Wert-Format gesendet wird. Der Wert `Header` ist der Eingabeanspruch, der im Anforderungsheader gesendet wird. Der Wert `QueryString` ist der Eingabeanspruch, der in der Abfragezeichenfolge der Anforderung gesendet wird. | 
+| ClaimsFormat | Nein | Gibt das Format für die Ausgabeansprüche an. Mögliche Werte: `Body` (Standard), `Form`, `Header` oder `QueryString`. Der Wert `Body` ist der Ausgabeanspruch, der im Anforderungstext im JSON-Format gesendet wird. Der Wert `Form` ist der Ausgabeanspruch, der im Anforderungstext in einem durch kaufmännische Und-Zeichen (&) getrenntes Schlüssel-Wert-Format gesendet wird. Der Wert `Header` ist der Ausgabeanspruch, der im Anforderungsheader gesendet wird. Der Wert `QueryString` ist der Ausgabeanspruch, der in der Abfragezeichenfolge der Anforderung gesendet wird. | 
+| DebugMode | Nein | Führt das technische Profil im Debugmodus aus. Im Debugmodus kann die REST-API mehr Informationen zurückgeben. Sie finden diese im Abschnitt zur zurückgegebenen Fehlermeldung. | 
 
 ## <a name="cryptographic-keys"></a>Kryptografische Schlüssel
 
@@ -159,13 +159,13 @@ Ihre REST-API muss möglicherweise eine Fehlermeldung zurückgeben (z.B. „Der 
 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
-| Version | Ja | 1.0.0 | 
+| version | Ja | 1.0.0 | 
 | status | Ja | 409 | 
-| code | Nein  | Ein Fehlercode vom RESTful-Endpunktanbieter, der angezeigt wird, wenn `DebugMode` aktiviert ist. | 
-| requestId | Nein  | Eine Anforderungs-ID vom RESTful-Endpunktanbieter, die angezeigt wird, wenn `DebugMode` aktiviert ist. | 
+| code | Nein | Ein Fehlercode vom RESTful-Endpunktanbieter, der angezeigt wird, wenn `DebugMode` aktiviert ist. | 
+| requestId | Nein | Eine Anforderungs-ID vom RESTful-Endpunktanbieter, die angezeigt wird, wenn `DebugMode` aktiviert ist. | 
 | userMessage | Ja | Eine Fehlermeldung, die dem Benutzer angezeigt wird. | 
-| developerMessage | Nein  | Die ausführliche Beschreibung des Problems und Informationen zur Behebung, die angezeigt werden, wenn `DebugMode` aktiviert ist. | 
-| moreInfo | Nein  | Ein URI, der auf zusätzliche Informationen verweist, die angezeigt werden, wenn `DebugMode` aktiviert ist. | 
+| developerMessage | Nein | Die ausführliche Beschreibung des Problems und Informationen zur Behebung, die angezeigt werden, wenn `DebugMode` aktiviert ist. | 
+| moreInfo | Nein | Ein URI, der auf zusätzliche Informationen verweist, die angezeigt werden, wenn `DebugMode` aktiviert ist. | 
 
 Das folgende Beispiel zeigt eine REST-API, die eine JSON-formatierte Fehlermeldung zurückgibt:
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61337787"
 ---
 # <a name="lambda-search-syntax"></a>Lambda-Suchsyntax
 
-Jede *Lambda*-Suchabfragezeichenfolge beschreibt ein Diagrammmuster. Eine Abfrage muss mindestens einen Startknoten umfassen, der angibt, von welchen Diagrammknoten der Durchlauf gestartet wird. Um einen Startknoten anzugeben, rufen Sie die *MAG.StartFrom()*-Methode auf, und fügen Sie die ID(s) von einem oder mehreren Knoten oder einem Abfrageobjekt ein, um die Sucheinschränkungen anzugeben. Die *StartFrom()*-Methode hat drei Überladungen. Alle von ihnen haben zwei Argumente, wobei das zweite optional ist. Das erste Argument kann eine lange Ganzzahl, eine enumerierbare Sammlung von langen Ganzzahlen oder eine Zeichenfolge sein, die ein JSON-Objekt darstellt, mit der gleichen Semantik wie in *json*-Suche:
+Jede *Lambda*-Suchabfragezeichenfolge beschreibt ein Diagrammmuster. Eine Abfrage muss mindestens einen Startknoten umfassen, der angibt, von welchen Diagrammknoten der Durchlauf gestartet wird. Um einen Startknoten anzugeben, rufen Sie die *MAG.StartFrom()* -Methode auf, und fügen Sie die ID(s) von einem oder mehreren Knoten oder einem Abfrageobjekt ein, um die Sucheinschränkungen anzugeben. Die *StartFrom()* -Methode hat drei Überladungen. Alle von ihnen haben zwei Argumente, wobei das zweite optional ist. Das erste Argument kann eine lange Ganzzahl, eine enumerierbare Sammlung von langen Ganzzahlen oder eine Zeichenfolge sein, die ein JSON-Objekt darstellt, mit der gleichen Semantik wie in *json*-Suche:
 ```
 StartFrom(long cellid, IEnumerable<string> select = null)
 StartFrom(IEnumerable<long> cellid, IEnumerable<string> select = null)
@@ -33,7 +33,7 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > Wenn die zu verfolgenden Edge-Typen keine Rolle spielen, lassen Sie einfach *FollowEdge()* zwischen zwei Knoten weg: die Abfrage wird alle möglichen Edges zwischen diesen beiden Knoten durchlaufen.
 
-Über *VisitNode()* können wir die Durchlaufaktionen festlegen, die auf einem Knoten ausgeführt werden sollen, d.h. ob an diesem Knoten angehalten und der aktuelle Pfad als Ergebnis zurückgegeben werden soll oder ob das Diagramm weiter durchsucht werden soll.  Der Enumerationstyp *Action* definiert zwei Arten von Aktionen: *Action.Return* und *Action.Continue*. Wir können einen solchen Enum-Wert direkt in *VisitNode()* eingeben oder mit dem bitweisen AND-Operator „&“ kombinieren. Wenn zwei Aktion kombiniert werden, bedeutet dies, dass beide Aktionen ausgeführt werden. Hinweis: Verwenden Sie keinen bitweisen OR-Operator „|“ bei Aktionen. Anderenfalls wird die Abfrage beendet, ohne dass etwas zurückgegeben wird. Das Überspringen von *VisitNode()* zwischen zwei *FollowEdge()*-Aufrufen führt dazu, dass die Abfrage das Diagramm nach Ankunft an einem Knoten ohne Bedingung durchsucht.
+Über *VisitNode()* können wir die Durchlaufaktionen festlegen, die auf einem Knoten ausgeführt werden sollen, d.h. ob an diesem Knoten angehalten und der aktuelle Pfad als Ergebnis zurückgegeben werden soll oder ob das Diagramm weiter durchsucht werden soll.  Der Enumerationstyp *Action* definiert zwei Arten von Aktionen: *Action.Return* und *Action.Continue*. Wir können einen solchen Enum-Wert direkt in *VisitNode()* eingeben oder mit dem bitweisen AND-Operator „&“ kombinieren. Wenn zwei Aktion kombiniert werden, bedeutet dies, dass beide Aktionen ausgeführt werden. Hinweis: Verwenden Sie keinen bitweisen OR-Operator „|“ bei Aktionen. Anderenfalls wird die Abfrage beendet, ohne dass etwas zurückgegeben wird. Das Überspringen von *VisitNode()* zwischen zwei *FollowEdge()* -Aufrufen führt dazu, dass die Abfrage das Diagramm nach Ankunft an einem Knoten ohne Bedingung durchsucht.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
@@ -65,11 +65,11 @@ Gibt an, ob ein Feld mit dem angegebenen Namen im aktuellen Knoten vorhanden ist
 
 ##### <a name="string-getstring-fieldname"></a>string get(string fieldName)
 
-Funktioniert wie *GetField\<string\>(fieldName)*. Allerdings werden keine Ausnahmen ausgelöst, wenn das Feld nicht gefunden wird. Stattdessen wird eine leere Zeichenfolge ("") zurück.
+Funktioniert wie *GetField\<string\>(fieldName)* . Allerdings werden keine Ausnahmen ausgelöst, wenn das Feld nicht gefunden wird. Stattdessen wird eine leere Zeichenfolge ("") zurück.
 
 ##### <a name="bool-hasstring-fieldname"></a>bool has(string fieldName)
 
-Gibt an, ob die angegebene Eigenschaft im aktuellen Knoten vorhanden ist. Identisch mit *ContainsField(fieldName)*.
+Gibt an, ob die angegebene Eigenschaft im aktuellen Knoten vorhanden ist. Identisch mit *ContainsField(fieldName)* .
 
 ##### <a name="bool-hasstring-fieldname-string-value"></a>bool has(string fieldName, string value)
 

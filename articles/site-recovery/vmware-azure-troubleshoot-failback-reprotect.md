@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60565598"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Beheben von Fehlern beim Failback aus Azure auf lokale Umgebungen
 

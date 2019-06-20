@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65073023"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Entitätsrollen für kontextabhängige Untertypen
 
@@ -37,8 +37,8 @@ Rollen benennen diese Unterschiede:
 
 |Entitätstyp|Name der Entität|Rolle|Zweck|
 |--|--|--|--|
-|Einfach|Standort|origin|Start des Flugs|
-|Einfach|Standort|Ziel|Ziel des Flugs|
+|Einfach|Location|origin|Start des Flugs|
+|Einfach|Location|destination|Ziel des Flugs|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>Nicht durch maschinelles Lernen erworbenes Entitätsbeispiel für Rollen
 
@@ -79,12 +79,6 @@ Im folgenden Beispiel verwenden Äußerungen Entitäten und Rollen:
 |--|--|
 |Ich möchte mehr über **Seattle** erfahren.|Ich möchte mehr über {Location} erfahren.|
 |Kaufe ein Ticket von Seattle nach New York.|Kaufe ein Ticket von {Location:Origin} nach {Location:Destination}.|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>Wie beziehen sich Rollen auf hierarchische Entitäten?
-
-Rollen sind jetzt für alle Entitäten in Beispieläußerungen als auch für die vorherige Verwendung von Mustern verfügbar. Da sie überall verfügbar sind, ersetzen sie die Notwendigkeit hierarchischer Entitäten. Neue Entitäten sollten mit Rollen erstellt werden, anstatt hierarchische Entitäten zu verwenden. 
-
-Hierarchische Einheiten werden möglicherweise veraltet sein.
 
 ## <a name="how-are-roles-used-in-patterns"></a>Wie werden Rollen in Mustern verwendet?
 In der Äußerungsvorlage eines Musters werden Rollen innerhalb der Äußerung verwendet: 

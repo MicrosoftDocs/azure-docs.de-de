@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189460"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61217166"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services-Fehlercodes
 Wenn Sie Microsoft Azure Media Services verwenden, erhalten Sie möglicherweise HTTP-Fehlercodes vom Dienst, abhängig von Problemen wie dem Ablaufen von Authentifizierungstoken und Aktionen, die in Media Services nicht unterstützt werden. Im Folgenden werden die **HTTP-Fehlercodes** aufgelistet, die von Media Services zurückgegeben werden könnten, sowie mögliche Ursachen für diese Fehlercodes.  

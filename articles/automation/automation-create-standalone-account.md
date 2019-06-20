@@ -10,11 +10,11 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093176"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61076792"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Erstellen eines eigenständigen Azure Automation-Kontos
 
@@ -89,7 +89,7 @@ Führen Sie die folgenden Schritte aus, um ein Azure Automation-Konto über das 
 
 Nach der erfolgreichen Erstellung des Automation-Kontos werden automatisch verschiedene Ressourcen erstellt. Nachdem diese Ressourcen erstellt sind, können Runbooks gefahrlos gelöscht, wenn Sie diese nicht behalten möchten. Die ausführenden Konten können dazu verwendet werden, sich bei Ihrem Konto in einem Runbook zu authentifizieren, und sollten erhalten bleiben, es sei denn, Sie erstellen ein anderes oder benötigen sie nicht mehr. In der folgenden Tabelle sind die Ressourcen für das ausführende Konto zusammengefasst.
 
-| Ressource | BESCHREIBUNG |
+| Resource | BESCHREIBUNG |
 | --- | --- |
 | AzureAutomationTutorial-Runbook |Ein grafisches Beispielrunbook, das die Authentifizierung mithilfe des ausführenden Kontos veranschaulicht. Das Runbook ruft alle Resource Manager-Ressourcen ab. |
 | AzureAutomationTutorialScript-Runbook |Ein PowerShell-Beispielrunbook, das die Authentifizierung mithilfe des ausführenden Kontos veranschaulicht. Das Runbook ruft alle Resource Manager-Ressourcen ab. |
@@ -99,7 +99,7 @@ Nach der erfolgreichen Erstellung des Automation-Kontos werden automatisch versc
 
 In der folgenden Tabelle sind die Ressourcen für das klassische ausführende Konto zusammengefasst.
 
-| Ressource | BESCHREIBUNG |
+| Resource | BESCHREIBUNG |
 | --- | --- |
 | AzureClassicAutomationTutorial-Runbook |Ein grafisches Beispielrunbook. Das Runbook ruft alle klassischen virtuellen Computer in einem Abonnement mithilfe des klassischen ausführenden Kontos (Zertifikat) ab. Anschließend zeigt es die VM-Namen und den Status an. |
 | AzureClassicAutomationTutorialScript-Runbook |Ein PowerShell-Beispielrunbook. Das Runbook ruft alle klassischen virtuellen Computer in einem Abonnement mithilfe des klassischen ausführenden Kontos (Zertifikat) ab. Anschließend zeigt es die VM-Namen und den Status an. |

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 01/30/2019
-ms.openlocfilehash: 2d431659e46465bf16f6e597f3a49f7008432bb5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: 212a2ca89b91de518f07d097b00b31e785216cb0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722859"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304008"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Erstellen einer Scala Maven-Anwendung für Apache Spark in HDInsight mithilfe von IntelliJ
 
@@ -175,7 +175,7 @@ Führen Sie die folgenden Schritte aus, um das Scala-Plug-In zu installieren:
     
     1. Wählen Sie im Menü **File** (Datei) die Option **Project Structure...** (Projektstruktur...) aus.
 
-    2. Navigieren Sie im Fenster **Project Structure** (Projektstruktur) zu **Artifacts** > **+** > **JAR** > **From modules with dependencies...** („Artefakte“ > Plussymbol > „JAR“ > „Aus Modulen mit Abhängigkeiten...“).
+    2. Navigieren Sie im Fenster **Project Structure** (Projektstruktur) zu **Artifacts** >  **+**  > **JAR** > **From modules with dependencies...** („Artefakte“ > Plussymbol > „JAR“ > „Aus Modulen mit Abhängigkeiten...“).
        
         ![Erstellen einer JAR-Datei](./media/apache-spark-create-standalone-application/create-jar-1.png)
 

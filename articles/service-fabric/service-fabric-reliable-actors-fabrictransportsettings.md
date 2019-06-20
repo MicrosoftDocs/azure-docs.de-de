@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
 ms.openlocfilehash: b6cff24e5a7812a88673d80476819e51e6f5da35
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125067"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Konfigurieren von FabricTransport-Einstellungen für Reliable Actors
 

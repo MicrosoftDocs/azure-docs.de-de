@@ -11,18 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310555"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393385"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Verwenden von verwalteten Identitäten in Azure API Management
 
 In diesem Artikel erfahren Sie, wie Sie eine verwaltete Identität für eine API Management-Dienstinstanz erstellen und auf andere Ressourcen zugreifen. Mithilfe einer von Azure Active Directory (Azure AD) generierten verwalteten Identität kann Ihre API Management-Instanz einfach und sicher auf andere mit Azure AD geschützte Ressourcen wie Azure Key Vault zugreifen. Da die Identität von Azure verwaltet wird, müssen Sie keine Geheimnisse bereitstellen oder rotieren. Weitere Informationen zu verwalteten Identitäten finden Sie unter [Was sind verwaltete Identitäten für Azure-Ressourcen?](../active-directory/managed-identities-azure-resources/overview.md).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Erstellen einer verwalteten Identität für eine API Management-Instanz
 
@@ -242,3 +240,4 @@ Erfahren Sie mehr über verwaltete Identitäten für Azure-Ressourcen:
 
 * [Was sind verwaltete Identitäten für Azure-Ressourcen?](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure-Ressourcen-Manager-Vorlagen](https://github.com/Azure/azure-quickstart-templates)
+* [Authentifizieren mit einer verwalteten Identität in einer Richtlinie](./api-management-authentication-policies.md#ManagedIdentity)

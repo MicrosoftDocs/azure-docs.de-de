@@ -8,11 +8,11 @@ ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
 ms.openlocfilehash: 9180c27e64f26c05e6e16007b74f9aa8a98bcfe5
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61440300"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Verwalten von Konnektivität und zuverlässigem Messaging mithilfe von Azure IoT Hub-Geräte-SDKs
 

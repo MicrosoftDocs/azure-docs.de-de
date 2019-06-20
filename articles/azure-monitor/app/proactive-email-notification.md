@@ -10,11 +10,11 @@ ms.reviewer: mbullwin
 ms.date: 03/13/2019
 ms.author: harelbr
 ms.openlocfilehash: f984a34be1c5d5fdd18a00812107318df8f5d9bf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61299000"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Änderung an E-Mail-Benachrichtigungen der intelligenten Erkennung
 

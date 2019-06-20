@@ -1,25 +1,18 @@
 ---
-title: Cloud-Partnerportal-API-Referenz | Microsoft-Dokumentation
+title: Cloud-Partnerportal-API-Referenz | Azure Marketplace
 description: Beschreibung der, Voraussetzungen zum Verwenden der und die Liste der Marketplace-API-Vorgänge.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 116eb48330381c7560c55ea9535b3c1b7c6a6a70
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 9626fdb5dbdf720a65217421565fc559a0cee684
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935479"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Cloud-Partnerportal-API-Referenz
 ==================================

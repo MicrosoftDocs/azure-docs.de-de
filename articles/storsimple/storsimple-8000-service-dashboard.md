@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: d987a4ae170f21532a886552cbe1eb5a0d25fc3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60633152"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Verwenden des Dienstübersichtsblatt für Geräte der StorSimple 8000-Serie
 

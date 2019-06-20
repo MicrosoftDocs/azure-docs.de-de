@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263776"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237526"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Abrufen von Compliancedaten von Azure-Ressourcen
 
@@ -33,7 +33,7 @@ Bevor wir uns die Methoden zur Berichterstellung zur Konformität ansehen, besch
 
 ## <a name="evaluation-triggers"></a>Auswertungsauslöser
 
-Die Ergebnisse eines abgeschlossenen Auswertungszyklus stehen im Ressourcenanbieter `Microsoft.PolicyInsights` über die Vorgänge `PolicyStates` und `PolicyEvents` zur Verfügung. Weitere Informationen zu den Vorgängen der Policy Insights-REST-API finden Sie unter [Policy Insights](/rest/api/policy-insights/).
+Die Ergebnisse eines abgeschlossenen Auswertungszyklus stehen im Ressourcenanbieter `Microsoft.PolicyInsights` über die Vorgänge `PolicyStates` und `PolicyEvents` zur Verfügung. Weitere Informationen zu den Vorgängen der Azure Policy Insights-REST-API finden Sie unter [Policy Insights](/rest/api/policy-insights/).
 
 Auswertungen zugewiesener Richtlinien und Initiativen geschehen im Zuge unterschiedlicher Ereignisse:
 
@@ -88,7 +88,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Funktionsweise der Konformität
 
-In einer Zuweisung ist eine Ressource **nicht konform**, wenn dafür die Richtlinien- oder Initiativenregeln nicht eingehalten werden. Die folgende Tabelle gibt Aufschluss über das Zusammenspiel zwischen den verschiedenen Richtlinienauswirkungen, der Bedingungsauswertung und dem resultierenden Konformitätszustand:
+In einer Zuweisung ist eine Ressource **nicht konform**, wenn dafür die Richtlinien- oder Initiativenregeln nicht eingehalten werden.
+Die folgende Tabelle gibt Aufschluss über das Zusammenspiel zwischen den verschiedenen Richtlinienauswirkungen, der Bedingungsauswertung und dem resultierenden Konformitätszustand:
 
 | Ressourcenzustand | Wirkung | Richtlinienauswertung | Konformitätszustand |
 | --- | --- | --- | --- |
@@ -123,23 +124,22 @@ _Ressourcen gesamt_ ist als Summe der Ressourcen mit dem Zustand **Konform**, **
 
 ## <a name="portal"></a>Portal
 
-Im Azure-Portal ist eine grafische Benutzeroberfläche zum Anzeigen und Verstehen des Konformitätsstatus Ihrer Umgebung dargestellt. Auf der Seite **Richtlinie** stellt die Option **Übersicht** Details für verfügbare Bereiche zur Konformität für Richtlinien und Initiativen bereit. Neben dem Konformitätsstatus und der Anzahl pro Zuweisung ist ein Diagramm enthalten, das die Konformität der letzten sieben Tage anzeigt.
-Die Seite **Konformität** enthält im Grunde genommen die gleichen Informationen (mit Ausnahme des Diagramms), stellt jedoch zusätzliche Optionen zum Filtern und Sortieren bereit.
+Im Azure-Portal ist eine grafische Benutzeroberfläche zum Anzeigen und Verstehen des Konformitätsstatus Ihrer Umgebung dargestellt. Auf der Seite **Richtlinie** stellt die Option **Übersicht** Details für verfügbare Bereiche zur Konformität für Richtlinien und Initiativen bereit. Neben dem Konformitätsstatus und der Anzahl pro Zuweisung ist ein Diagramm enthalten, das die Konformität der letzten sieben Tage anzeigt. Die Seite **Konformität** enthält im Grunde genommen die gleichen Informationen (mit Ausnahme des Diagramms), stellt jedoch zusätzliche Optionen zum Filtern und Sortieren bereit.
 
-![Beispiel der Seite „Richtlinienkonformität“](../media/getting-compliance-data/compliance-page.png)
+![Beispiel der Azure-Seite für Richtlinienkonformität](../media/getting-compliance-data/compliance-page.png)
 
 Da eine Richtlinie oder Initiative unterschiedlichen Bereichen zugewiesen werden kann, finden Sie in der Tabelle den Bereich für jede Zuweisung und den Typ der Definition, die zugewiesen wurde. Die Anzahl der nicht konformen Ressourcen und Richtlinien für jede Zuweisung wird ebenfalls bereitgestellt. Wenn Sie auf eine Richtlinie oder Initiative in der Tabelle klicken, erhalten Sie weitere Informationen zur Konformität für eine bestimmte Zuweisung.
 
-![Beispiel der Seite „Konformitätsdetails“](../media/getting-compliance-data/compliance-details.png)
+![Beispiel der Azure-Seite für Konformitätsdetails](../media/getting-compliance-data/compliance-details.png)
 
 Die Liste der Ressourcen auf der Registerkarte **Ressourcenkonformität** zeigt den Bewertungsstatus der vorhandenen Ressourcen für die aktuelle Zuweisung. Die Registerkarte ist standardmäßig auf **Nicht konform** festgelegt, kann aber gefiltert werden.
 Ereignisse (Anfügung, Überwachung, Verweigerung, Bereitstellung), die durch die Anforderung zum Erstellen einer Ressource ausgelöst wurden, werden auf der Registerkarte **Ereignisse** angezeigt.
 
-![Beispiel von Richtlinienkonformitäts-Ereignissen](../media/getting-compliance-data/compliance-events.png)
+![Beispiel für Ereignisse auf der Azure-Seite für Richtlinienkonformität](../media/getting-compliance-data/compliance-events.png)
 
 Klicken Sie mit der rechten Maustaste auf die Zeile des Ereignisses, über das Sie gern mehr Details erhalten möchten, und wählen Sie **Aktivitätsprotokolle anzeigen** aus. Die Seite des Aktivitätsprotokolls wird geöffnet und wird durch die Suche gefiltert. Die Details für die Zuweisung und Ereignisse werden angezeigt. Das Aktivitätsprotokoll stellt zusätzlichen Kontext sowie Informationen über diese Ereignisse bereit.
 
-![Beispiel des Richtlinienkonformitäts-Aktivitätsprotokolls](../media/getting-compliance-data/compliance-activitylog.png)
+![Beispiel des Richtlinienkonformitäts-Aktivitätsprotokolls von Azure](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Grundlagen der Nichtkompatibilität
 
@@ -149,7 +149,7 @@ Wenn Ressourcen als **nicht kompatibel** bestimmt werden, kann das viele möglic
 
 ## <a name="command-line"></a>Befehlszeile
 
-Die gleichen Informationen, die im Portal verfügbar sind, können über die REST-API (u. a. mit [ARMClient](https://github.com/projectkudu/ARMClient)) oder Azure PowerShell abgerufen werden. Ausführliche Informationen zur REST-API finden Sie in der Referenz zu [Policy Insights](/rest/api/policy-insights/). Die Referenzseiten zur REST-API verfügen über eine grüne „Ausprobieren“-Schaltfläche, mit der Sie jeden Vorgang direkt im Browser testen können.
+Die gleichen Informationen, die im Portal verfügbar sind, können über die REST-API (u. a. mit [ARMClient](https://github.com/projectkudu/ARMClient)) oder Azure PowerShell abgerufen werden. Ausführliche Informationen zur REST-API finden Sie in der Referenz zu [Azure Policy Insights](/rest/api/policy-insights/). Die Referenzseiten zur REST-API verfügen über eine grüne „Ausprobieren“-Schaltfläche, mit der Sie jeden Vorgang direkt im Browser testen können.
 
 Um die folgenden Beispiele in Azure PowerShell zu verwenden, erstellen Sie ein Authentifizierungstoken mit folgendem Beispielcode. Ersetzen Sie dann „$restUri“ durch die gewünschten Zeichenfolge in den Beispielen, um ein JSON-Objekt abzurufen, das dann analysiert werden kann.
 
@@ -178,7 +178,7 @@ $response
 
 ### <a name="summarize-results"></a>Zusammenfassen der Ergebnisse
 
-Mithilfe der REST-API kann die Zusammenfassung nach Container, Definition oder Zuweisung erfolgen. Hier sehen Sie ein Beispiel der Zusammenfassung auf Abonnementebene mithilfe der Option [Summarize For Subscription (Für das Abonnement zusammenfassen)](/rest/api/policy-insights/policystates/summarizeforsubscription) von Policy Insight:
+Mithilfe der REST-API kann die Zusammenfassung nach Container, Definition oder Zuweisung erfolgen. Hier sehen Sie ein Beispiel der Zusammenfassung auf Abonnementebene mithilfe der Option [Summarize For Subscription](/rest/api/policy-insights/policystates/summarizeforsubscription) (Für Abonnement zusammenfassen) von Azure Policy Insights:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -288,11 +288,12 @@ Ihre Ergebnisse sollten in etwa wie im folgenden Beispiel aussehen:
 }
 ```
 
-Weitere Informationen zum Abfragen von Richtlinienereignissen finden Sie im Referenzartikel zu [Richtlinienereignissen](/rest/api/policy-insights/policyevents).
+Weitere Informationen zum Abfragen von Richtlinienereignissen finden Sie im Referenzartikel zu [Azure Policy-Ereignissen](/rest/api/policy-insights/policyevents).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Das Azure PowerShell-Modul für Policy ist im PowerShell-Katalog unter [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights) verfügbar. Mit PowerShellGet können Sie das Modul mit `Install-Module -Name Az.PolicyInsights` installieren (stellen Sie sicher, dass Sie die neueste Version von [Azure PowerShell](/powershell/azure/install-az-ps) installiert haben):
+Das Azure PowerShell-Modul für Azure Policy ist im PowerShell-Katalog unter [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights) verfügbar.
+Mit PowerShellGet können Sie das Modul mit `Install-Module -Name Az.PolicyInsights` installieren (stellen Sie sicher, dass Sie die neueste Version von [Azure PowerShell](/powershell/azure/install-az-ps) installiert haben):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -415,15 +416,16 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor-Protokolle
 
-Wenn Sie über einen [Log Analytics-Arbeitsbereich](../../../log-analytics/log-analytics-overview.md) mit `AzureActivity` aus der [Log Analytics-Aktivitätslösung](../../../azure-monitor/platform/collect-activity-logs.md) verfügen, die mit Ihrem Abonnement verknüpft ist, können Sie auch nicht kompatible Ergebnisse aus dem Auswertungszyklus mithilfe einfacher Kusto-Abfragen und über die Tabelle `AzureActivity` anzeigen. Mithilfe von Details in Azure Monitor-Protokollen können Warnmeldungen konfiguriert werden, um Verstöße gegen die Konformität zu überwachen.
+Wenn Sie über einen [Log Analytics-Arbeitsbereich](../../../log-analytics/log-analytics-overview.md) mit `AzureActivity` aus der [Log Analytics-Aktivitätslösung](../../../azure-monitor/platform/activity-log-collect.md) verfügen, die mit Ihrem Abonnement verknüpft ist, können Sie auch nicht kompatible Ergebnisse aus dem Auswertungszyklus mithilfe einfacher Kusto-Abfragen und über die Tabelle `AzureActivity` anzeigen. Mithilfe von Details in Azure Monitor-Protokollen können Warnmeldungen konfiguriert werden, um Verstöße gegen die Konformität zu überwachen.
 
-![Richtlinienkonformität mithilfe Azure Monitor-Protokollen](../media/getting-compliance-data/compliance-loganalytics.png)
+
+![Azure Policy-Konformität mithilfe von Azure Monitor-Protokollen](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Unter [Azure Policy-Beispiele](../samples/index.md) finden Sie Beispiele
-- Befassen Sie sich mit der [Struktur von Azure Policy-Definitionen](../concepts/definition-structure.md).
+- Sehen Sie sich die Beispiele unter [Azure Policy-Beispiele](../samples/index.md) an.
+- Lesen Sie die Informationen unter [Struktur von Azure Policy-Definitionen](../concepts/definition-structure.md).
 - Lesen Sie [Grundlegendes zu Richtlinienauswirkungen](../concepts/effects.md).
-- Informieren Sie sich über das [programmgesteuerte Erstellen von Richtlinien](programmatically-create.md)
+- Informieren Sie sich über das [programmgesteuerte Erstellen von Richtlinien](programmatically-create.md).
 - Erfahren Sie, wie Sie [nicht konforme Ressourcen korrigieren](remediate-resources.md) können.
 - Weitere Informationen zu Verwaltungsgruppen finden Sie unter [Organisieren Ihrer Ressourcen mit Azure-Verwaltungsgruppen](../../management-groups/overview.md).

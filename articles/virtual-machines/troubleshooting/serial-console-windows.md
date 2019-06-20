@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 6fd7f36510bdc7ed56ede6a5743a5f131149472e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 8fea35a0fc5469d030092e5440ff1f19aa08b2a4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834755"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238868"
 ---
 # <a name="azure-serial-console-for-windows"></a>Die serielle Azure-Konsole für Windows
 
@@ -122,7 +122,7 @@ Wenn Sie Windows-Startlade-Eingabeaufforderungen in der seriellen Konsole aktivi
 
 ### <a name="use-cmd-or-powershell-in-serial-console"></a>Verwenden von CMD oder PowerShell in der seriellen Konsole
 
-1. Stellen Sie eine Verbindung mit der seriellen Konsole her. Wenn Sie eine Verbindung hergestellt haben, lautet die Eingabeaufforderung **SAC>**:
+1. Stellen Sie eine Verbindung mit der seriellen Konsole her. Wenn Sie eine Verbindung hergestellt haben, lautet die Eingabeaufforderung **SAC>** :
 
     ![Herstellen einer Verbindung mit SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
@@ -170,7 +170,9 @@ Die serielle Konsole kann für bestimmte VMs oder VM-Skalierungsgruppen deaktivi
 > Um die serielle Konsole für ein Abonnement zu aktivieren oder zu deaktivieren, müssen Sie über Schreibberechtigungen für das Abonnement verfügen. Diese Berechtigungen umfassen beispielsweise die Rollen „Administrator“ oder „Besitzer“. Benutzerdefinierte Rollen können ebenfalls über Schreibberechtigungen verfügen.
 
 ### <a name="subscription-level-disable"></a>Deaktivieren auf Abonnementebene
-Die serielle Konsole kann über den [REST-API-Aufruf zum Deaktivieren der Konsole](/rest/api/serialconsole/console/disableconsole) für ein gesamtes Abonnement deaktiviert werden. Sie können die auf der Seite der API-Dokumentation verfügbare Funktion **Jetzt testen** verwenden, um die serielle Konsole für ein Abonnement zu deaktivieren und zu aktivieren. Geben Sie unter **subscriptionId** Ihre Abonnement-ID ein, geben Sie unter „default“ **default** ein, und wählen Sie dann **Ausführen** aus. Azure CLI-Befehle sind noch nicht verfügbar.
+Die serielle Konsole kann über den [REST-API-Aufruf zum Deaktivieren der Konsole](/rest/api/serialconsole/console/disableconsole) für ein gesamtes Abonnement deaktiviert werden. Für diese Aktion ist die Zugriffsebene „Mitwirkender“ oder höher für das Abonnement erforderlich. Sie können die auf der Seite der API-Dokumentation verfügbare Funktion **Jetzt testen** verwenden, um die serielle Konsole für ein Abonnement zu deaktivieren und zu aktivieren. Geben Sie unter **subscriptionId** Ihre Abonnement-ID ein, geben Sie unter „default“ **default** ein, und wählen Sie dann **Ausführen** aus. Azure CLI-Befehle sind noch nicht verfügbar.
+
+Um die serielle Konsole für ein Abonnement erneut zu aktivieren, verwenden Sie den [REST-API-Aufruf „Konsole aktivieren“](/rest/api/serialconsole/console/enableconsole).
 
 ![REST-API testen](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -262,7 +264,7 @@ Problem                             |   Lösung
 Das Drücken der **EINGABETASTE** nach dem Verbindungsbanner führt nicht zur Anzeige einer Anmeldeaufforderung. | Weitere Informationen finden Sie unter [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) (Das Drücken der Eingabetaste bewirkt nichts). Dieser Fehler kann auftreten, wenn Sie eine benutzerdefinierte VM, eine Appliance mit verstärkter Sicherheit oder eine Startkonfiguration ausführen, und Windows aufgrund dessen keine ordnungsgemäße Verbindung mit dem seriellen Port herstellen kann. Dieser Fehler geschieht auch dann, wenn Sie eine Windows 10-Client-VM ausführen, da nur Windows Server-VMs für EMS konfiguriert sind.
 Bei aktiviertem Kerneldebugging ist an der SAC-Eingabeaufforderung keine Eingabe möglich. | Stellen Sie eine RDP-Verbindung mit dem virtuellen Computer her, und führen Sie `bcdedit /debug {current} off` an einer Eingabeaufforderung mit erhöhten Rechten aus. Falls Sie keine RDP-Verbindung herstellen können, fügen Sie stattdessen den Betriebssystemdatenträger an eine andere Azure-VM an, bearbeiten Sie ihn durch Ausführung von `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, während er als Datenträger angefügt ist, und fügen Sie ihn anschließend wieder an die ursprüngliche VM an.
 Das Einfügen in PowerShell in der SAC führt zu einem dritten Zeichen, wenn der ursprüngliche Inhalt ein sich wiederholendes Zeichen enthielt. | Eine Problemumgehung besteht darin, `Remove-Module PSReadLine` zum Entladen des PSReadLine-Moduls aus der aktuellen Sitzung auszuführen. Durch diese Aktion wird das Modul nicht gelöscht oder deinstalliert.
-Einige Tastatureingaben erzeugen seltsame SAC-Ausgaben (z.B. **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences)-Escapesequenzen werden von der SAC-Eingabeaufforderung nicht unterstützt.
+Einige Tastatureingaben erzeugen seltsame SAC-Ausgaben (z.B. **[A**, **[3~** ). | [VT100](https://aka.ms/vtsequences)-Escapesequenzen werden von der SAC-Eingabeaufforderung nicht unterstützt.
 Das Einfügen von langen Zeichenfolgen funktioniert nicht. | Die serielle Konsole begrenzt die Länge der Zeichenfolgen, die in das Terminal eingefügt werden können, auf 2048 Zeichen, um die Bandbreite am seriellen Port nicht zu überlasten.
 Die serielle Konsole funktioniert nicht mit einer Speicherkontofirewall. | Die serielle Konsole kann programmbedingt nicht verwendet werden, wenn für das Speicherkonto mit Startdiagnose Speicherkontofirewalls aktiviert sind.
 

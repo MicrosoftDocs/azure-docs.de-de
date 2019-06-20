@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 6a798d0f33ba4d1960f07e670e6e71916f68eff1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 304ecda320e1fdd9573bc961fde74efe03400aa3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258269"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712953"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indizieren von Mediendateien mit Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Übersicht
@@ -87,7 +87,7 @@ Azure Media Indexer 2 Preview unterstützt Sprache in Text für die folgenden Sp
 * Japanisch [JaJp]
 * Russisch [RuRu]
 * Englisch (Britisch) [EnGb]
-* Mexiko (Spanisch) [EsMx] 
+* Spanisch (Mexiko) [EsMx] 
 
 ## <a name="supported-file-types"></a>Unterstützte Dateitypen
 

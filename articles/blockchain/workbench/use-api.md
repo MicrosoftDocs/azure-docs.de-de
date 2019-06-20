@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 7fa72ad62d7d11c795422a203d13a4dd45484c19
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578933"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60896039"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Verwenden der REST-API von Azure Blockchain Workbench
 

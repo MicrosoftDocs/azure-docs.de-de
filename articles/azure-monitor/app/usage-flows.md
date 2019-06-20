@@ -14,11 +14,11 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 91274fad4e56c69777333c81ea3b32dccdcf64ff
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60373307"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analysieren von Benutzernavigationsmustern mit Benutzerabläufen in Application Insights
 

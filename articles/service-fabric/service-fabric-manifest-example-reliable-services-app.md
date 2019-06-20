@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60719157"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services: Beispiele für Anwendungs- und Dienstmanifeste
 Im Folgenden finden Sie Beispiele für die Anwendungs- und Dienstmanifeste einer Service Fabric-Anwendung mit einem ASP.NET Core Web-Front-End und einem zustandsbehafteten Back-End. Der Zweck dieser Beispiele besteht darin, zu zeigen, welche Einstellungen verfügbar sind und wie sie verwendet werden. Diese Anwendungs- und Dienstmanifeste basieren auf den [Service Fabric .NET-Schnellstart](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)manifesten.

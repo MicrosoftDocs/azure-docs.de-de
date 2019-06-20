@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
 ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472765"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Upgrade und Update von Azure Service Fabric-Clustern

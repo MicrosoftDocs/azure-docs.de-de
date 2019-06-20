@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205501"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951309"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Entwerfen hochverfügbarer Anwendungen mithilfe von RA-GRS
 
@@ -54,7 +54,7 @@ Der Zweck dieses Artikels ist, zu veranschaulichen, wie Sie eine Anwendung entwe
 
 Die vorgeschlagene Lösung setzt voraus, dass es akzeptabel ist, möglicherweise veraltete Daten an die aufrufende Anwendung zurückzugeben. Da die Daten in der sekundären Region letztendlich konsistent sind, ist es möglich, dass erst dann auf die primäre Region zugegriffen werden kann, wenn die Replikation eines Updates in die sekundäre Region fertig gestellt ist.
 
-Nehmen Sie beispielsweise an, dass Ihr Kunde erfolgreich ein Update sendet, aber die primäre Region ausfällt, bevor das Update an die sekundäre Region weitergegeben wird. Wenn der Kunde dann das Zurücklesen der Daten anfordert, empfängt er in diesem Fall anstelle der aktualisierten Daten die veralteten Daten aus der sekundären Region. Beim Entwurf Ihrer Anwendung müssen Sie entscheiden, ob dies akzeptabel ist, und wenn ja, wie Sie den Kunden darüber informieren möchten. 
+Nehmen Sie beispielsweise an, dass Ihr Kunde erfolgreich ein Update sendet, aber die primäre Region ausfällt, bevor das Update an die sekundäre Region weitergegeben wird. Wenn der Kunde dann das Zurücklesen der Daten anfordert, empfängt er in diesem Fall statt der aktualisierten Daten die veralteten Daten aus der sekundären Region. Beim Entwurf Ihrer Anwendung müssen Sie entscheiden, ob dies akzeptabel ist, und wenn ja, wie Sie den Kunden darüber informieren möchten. 
 
 Weiter unten in diesem Artikel wird dargestellt, wie Sie den Zeitpunkt der letzten Synchronisierung der sekundären Daten überprüfen, um festzustellen, ob die sekundäre Region auf dem neuesten Stand ist.
 

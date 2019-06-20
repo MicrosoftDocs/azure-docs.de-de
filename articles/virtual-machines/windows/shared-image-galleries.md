@@ -1,5 +1,5 @@
 ---
-title: Freigeben von VM-Images mit dem Katalog mit freigegebenen Images in Azure | Microsoft-Dokumentation
+title: Azure-Katalog mit freigegebenen Images | Microsoft-Dokumentation
 description: Erfahren Sie, wie Kataloge mit freigegebenen Images verwendet werden, um VM-Images in Ihrer Organisation freizugeben.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 6c19f26cd382c89e7fdb90473581d256e762cf5e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 982a24cc47ff17c56b1d75e4dcdc01f15ebdea32
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236484"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418421"
 ---
 # <a name="shared-image-gallery-overview"></a>Übersicht über den Katalog mit freigegebenen Images
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 166452b052313397f1ec17adb59cad3c20fab1f9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780982"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497338"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurieren einer OpenID/OAuth-Anwendung aus dem Azure AD-App-Katalog
 
@@ -98,7 +98,25 @@ Die Graph-API bietet auch Zugriff auf Benutzer und Gruppen in Azure AD und ander
 
 Die folgenden Schritte beschreiben den Einwilligungsprozess für Anwendungsentwickler und Benutzer:
 
-1. Angenommen, Sie verfügen über eine Webclientanwendung, die für den Zugriff auf eine Ressource oder API bestimmte Berechtigungen anfordern muss. Das Azure-Portal wird verwendet, um zur Konfigurationszeit Berechtigungsanforderungen zu deklarieren. Wie andere Konfigurationseinstellungen auch, werden diese Teil der Azure AD-Registrierung der Anwendung:
+1. Angenommen, Sie verfügen über eine Webclientanwendung, die für den Zugriff auf eine Ressource oder API bestimmte Berechtigungen anfordern muss. Das Azure-Portal wird verwendet, um zur Konfigurationszeit Berechtigungsanforderungen zu deklarieren. Wie andere Konfigurationseinstellungen auch werden diese Teil der Azure AD-Registrierung der Anwendung. Für den Berechtigungsanforderungspfad müssen die folgenden Schritte ausgeführt werden:
+
+    a. Klicken Sie im linken Bereich des Menüs auf **App-Registrierungen**, und öffnen Sie Ihre Anwendung, indem Sie den Anwendungsnamen in das Suchfeld eingeben.
+
+    ![Graph-API](./media/openidoauth-tutorial/application.png)
+
+    b. Klicken Sie auf **API-Berechtigungen anzeigen**.
+
+    ![Graph-API](./media/openidoauth-tutorial/api-permission.png)
+
+    c. Klicken Sie auf **Berechtigung hinzufügen**.
+
+    ![Graph-API](./media/openidoauth-tutorial/add-permission.png)
+
+    d. Klicken Sie auf **Microsoft Graph**.
+
+    ![Graph-API](./media/openidoauth-tutorial/microsoft-graph.png)
+
+    e. Wählen Sie unter **Delegierte Berechtigungen** und **Anwendungsberechtigungen** die erforderlichen Optionen aus.
 
     ![Graph-API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -118,12 +136,12 @@ Ein normaler Benutzer kann einigen Berechtigungen zustimmen. Andere Berechtigung
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Unterschied: Administratoreinwilligung vs. Benutzereinwilligung
 
-Als Administrator können Sie auch für alle Benutzer in Ihrem Mandanten den delegierten Berechtigungen einer Anwendung zustimmen. Die Administratoreinwilligung verhindert, dass das Dialogfeld für die Einwilligung jedem Benutzer im Mandanten angezeigt wird. Benutzer mit der Administratorrolle können im Azure-Portal ihre Einwilligung erteilen. Wählen Sie auf der Seite **Einstellungen** für Ihre Anwendung **Erforderliche Berechtigungen** > **Berechtigungen erteilen** aus.
+Als Administrator können Sie auch für alle Benutzer in Ihrem Mandanten den delegierten Berechtigungen einer Anwendung zustimmen. Die Administratoreinwilligung verhindert, dass das Dialogfeld für die Einwilligung jedem Benutzer im Mandanten angezeigt wird. Benutzer mit der Administratorrolle können im Azure-Portal ihre Einwilligung erteilen. Wählen Sie auf der Seite **Einstellungen** für Ihre Anwendung **Erforderliche Berechtigungen** > **Administratoreinwilligung gewähren** aus.
 
 ![Schaltfläche „Berechtigungen erteilen“](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Das explizite Einwilligen über die Schaltfläche **Berechtigungen erteilen** ist nun für Single-Page-Webanwendungen (SPAs) erforderlich, die „ADAL.js“ nutzen. Andernfalls tritt für die Anwendung ein Fehler auf, wenn das Zugriffstoken angefordert wird.
+> Das explizite Einwilligen über die Schaltfläche **Administratoreinwilligung gewähren** ist nun für Single-Page-Webanwendungen (SPAs) erforderlich, die „ADAL.js“ nutzen. Andernfalls tritt für die Anwendung ein Fehler auf, wenn das Zugriffstoken angefordert wird.
 
 Nur für die App geltende Berechtigungen erfordern immer die Zustimmung eines Mandantenadministrators. Wenn die Anwendung eine nur für die App geltende Berechtigung anfordert und ein Benutzer versucht, sich bei der Anwendung anzumelden, wird eine Fehlermeldung angezeigt. Die Meldung besagt, dass der Benutzer nicht einwilligen kann.
 

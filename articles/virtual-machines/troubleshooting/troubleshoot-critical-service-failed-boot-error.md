@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010150"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60593222"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Unter Windows wird beim Starten eines virtuellen Azure-Computers der Bluescreenfehler „CRITICAL SERVICE FAILED“ (FEHLER BEIM KRITISCHEN DIENST) angezeigt.
 Dieser Artikel beschreibt den Fehler „CRITICAL SERVICE FAILED“ (FEHLER BEIM KRITISCHEN DIENST), der unter Umständen beim Starten eines virtuellen Windows-Computers in Microsoft Azure angezeigt wird. Er enthält Schritte zum Beheben des Problems. 

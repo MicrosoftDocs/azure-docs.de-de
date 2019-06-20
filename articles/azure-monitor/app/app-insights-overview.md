@@ -11,19 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8648042c114c514df2218249719faa3ff19df5ec
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669821"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496368"
 ---
 # <a name="what-is-application-insights"></a>Was ist Application Insights?
 Application Insights ist ein erweiterbarer, für Webentwickler konzipierter Dienst zur Verwaltung der Anwendungsleistung (Application Performance Management, APM) auf mehreren Plattformen. Verwenden Sie ihn, um Ihre aktiven Webanwendung zu überwachen. Der Dienst erkennt automatisch Leistungsanomalien. Er verfügt über leistungsstarke Analysetools, mit denen Sie Probleme diagnostizieren und nachvollziehen können, wie Ihre App von den Benutzern verwendet wird.  Der Dienst unterstützt Sie bei der kontinuierlichen Verbesserung der Leistung und Benutzerfreundlichkeit Ihrer App. Er lässt sich für Apps auf einer Vielzahl von Plattformen einsetzen. Dazu zählen unter anderem .NET, Node.js und Java EE (lokal gehostet, als Hybridmodell oder in einer öffentlichen Cloud). Der Dienst lässt sich in Ihren DevOps-Prozess integrieren und verfügt über Verbindungspunkte mit einer Vielzahl von Entwicklungstools. Sie können Telemetriedaten von mobilen Apps durch die Integration in Visual Studio App Center überwachen und analysieren.
-
-[Sehen Sie sich die Animation zur Einführung an](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## <a name="how-does-application-insights-work"></a>Funktionsweise von Application Insights
 Sie installieren ein kleines Instrumentierungspaket in Ihrer Anwendung und richten eine Application Insights-Ressource im Microsoft Azure-Portal ein. Die Instrumentierung überwacht Ihre App und sendet Telemetriedaten an das Portal. (Die Anwendung kann überall ausgeführt werden, sie muss nicht in Azure gehostet werden.)
@@ -66,8 +64,8 @@ Es gibt zahlreiche Möglichkeiten, Ihre Daten zu untersuchen. Informationen find
 | [**Profilerstellung**](../../azure-monitor/app/profiler.md)<br/>Untersuchen Sie die Ausführungsprofile von erfassten Anforderungen. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Nutzungsanalyse**](../../azure-monitor/app/usage-overview.md)<br/>Analysieren Sie Benutzersegmentierung und Vermerkdauer.|![Vermerkdauer-Tool](./media/app-insights-overview/retention.png) |
 | [**Diagnosesuche für Instanzdaten**](../../azure-monitor/app/diagnostic-search.md)<br/>Suchen und filtern Sie Ereignisse wie Anforderungen, Ausnahmen, Abhängigkeitsaufrufe, Protokollablaufverfolgungen und Seitenaufrufe.  |![Suchen von Telemetriedaten](./media/app-insights-overview/search-tn.png) |
-| [**Metrik-Explorer für aggregierte Daten**](../../azure-monitor/app/metrics-explorer.md)<br/>Durchsuchen, filtern und segmentieren Sie aggregierte Daten wie z.B. Anforderungs-, Fehler- und Ausnahmeraten, Antwortzeiten und Seitenladezeiten. |![Metriken](./media/app-insights-overview/metrics-tn.png) |
-| [**Dashboards**](../../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>Kombinieren Sie Daten aus mehreren Ressourcen, und geben Sie sie für andere frei. Dies ist sehr gut für Anwendungen mit mehreren Komponenten und für die kontinuierliche Anzeige im Teamraum geeignet. |![Beispiel für Dashboards](./media/app-insights-overview/dashboard-tn.png) |
+| [**Metrik-Explorer für aggregierte Daten**](../../azure-monitor/app/metrics-explorer.md)<br/>Durchsuchen, filtern und segmentieren Sie aggregierte Daten wie z.B. Anforderungs-, Fehler- und Ausnahmeraten, Antwortzeiten und Seitenladezeiten. |![metrics](./media/app-insights-overview/metrics-tn.png) |
+| [**Dashboards**](../../azure-monitor/app/overview-dashboard.md)<br/>Kombinieren Sie Daten aus mehreren Ressourcen, und geben Sie sie für andere frei. Dies ist sehr gut für Anwendungen mit mehreren Komponenten und für die kontinuierliche Anzeige im Teamraum geeignet. |![Beispiel für Dashboards](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](../../azure-monitor/app/live-stream.md)<br/>Wenn Sie einen neuen Build bereitstellen, sehen Sie sich diese beinahe in Echtzeit verfügbaren Leistungsindikatoren an, um sicherzustellen, dass alles wie erwartet funktioniert. |![Beispiel für Livemetriken](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analyse**](../../azure-monitor/app/analytics.md)<br/>Beantworten Sie schwierige Fragen zur Leistung und Nutzung Ihrer App mithilfe dieser leistungsstarken Abfragesprache. |![Beispiel für Analysen](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>Zeigen Sie Leistungsdaten im Code an. Wechseln Sie von Stapelüberwachungen zum Code.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
@@ -81,7 +79,7 @@ Es gibt zahlreiche Möglichkeiten, Ihre Daten zu untersuchen. Informationen find
 ### <a name="monitor"></a>Überwachen
 Installieren Sie Application Insights in Ihrer App, richten Sie [Webtests zur Verfügbarkeit](../../azure-monitor/app/monitor-web-app-availability.md) ein, und gehen Sie dann wie folgt vor:
 
-* Richten Sie ein [Dashboard](../../azure-monitor/app/app-insights-dashboards.md) für Ihren Teamraum ein, damit Aspekte wie die Auslastung, Reaktionsfähigkeit und Leistung Ihrer Abhängigkeiten, Seitenladevorgänge und AJAX-Aufrufe immer im Blick behalten werden können.
+* Sehen Sie sich das standardmäßige [Anwendungsdashboard](../../azure-monitor/app/overview-dashboard.md) für Ihren Teamraum an, damit Aspekte wie die Auslastung, Reaktionsfähigkeit und Leistung Ihrer Abhängigkeiten, Seitenladevorgänge und AJAX-Aufrufe immer im Blick behalten werden können.
 * Ermitteln Sie, welche Anforderungen am langsamsten sind und am häufigsten zu Ausfällen führen.
 * Verfolgen Sie den [Livestream](../../azure-monitor/app/live-stream.md), wenn Sie eine neue Version bereitstellen, damit Sie über Leistungsabfälle sofort informiert sind.
 
@@ -104,11 +102,13 @@ Application Insights ist einer der vielen in Microsoft Azure gehosteten Dienste,
 
 Es gibt mehrere Möglichkeiten für den Einstieg. Wählen Sie die Methode aus, die sich am besten für Sie eignet. Die anderen können später hinzugefügt werden.
 
-* **Zur Laufzeit: Instrumentieren Sie Ihre Web-App auf dem Server.**  Bei dieser Vorgehensweise sind keine Codeaktualisierungen erforderlich. Sie benötigen Administratorzugriff für Ihren Server.
-  * [**IIS (lokal oder auf einem virtuellen Computer)**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Azure-Web-App oder -VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **Bei der Entwicklung: Fügen Sie Ihrem Code Application Insights hinzu.**  Ermöglicht das Schreiben von benutzerdefinierter Telemetrie sowie das Instrumentieren von Back-End- und Desktop-Apps.
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013, Update 2 oder höher.
+* **Zur Laufzeit: Instrumentieren Sie Ihre Web-App auf dem Server.** Ideal für Anwendungen, die bereits bereitgestellt werden. Bei dieser Vorgehensweise sind keine Codeaktualisierungen erforderlich.
+  * [**ASP.NET-Anwendungen, die entweder lokal oder in einer VM in IIS gehostet werden**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**ASP.NET- oder ASP.NET Core-Anwendungen, die in Azure-Web-Apps gehostet werden**](../../azure-monitor/app/azure-web-apps.md)
+* **Bei der Entwicklung: Fügen Sie Ihrem Code Application Insights hinzu.** Ermöglicht Ihnen das Anpassen der Telemetriedatenerfassung und das Senden zusätzlicher Telemetriedaten.
+  * [ASP.NET-Anwendungen](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core-Anwendungen](../../azure-monitor/app/asp-net-core.md)
+  * [.NET-Konsolenanwendungen](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Andere Plattformen](../../azure-monitor/app/platforms.md)
@@ -120,10 +120,12 @@ Es gibt mehrere Möglichkeiten für den Einstieg. Wählen Sie die Methode aus, d
 Beginnen mit der Laufzeitmethode mit:
 
 * [IIS-Server](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure-Web-Apps](../../azure-monitor/app/azure-web-apps.md)
 
 Beginnen mit der Entwicklungszeitmethode mit:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
@@ -139,9 +141,9 @@ Beginnen mit der Entwicklungszeitmethode mit:
 
 ## <a name="videos"></a>Videos
 
-[![Animierte Einführung](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+- Externes Video: [Konfigurieren von Application Insights mit einer ASP.NET-Anwendung](https://www.youtube.com/watch?v=blnGAVgMAfA).
+- Externes Video: [Konfigurieren von Application Insights mit ASP.NET Core und Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Externes Video: [Konfigurieren von Application Insights mit ASP.NET Core und Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 
@@ -149,7 +151,6 @@ Beginnen mit der Entwicklungszeitmethode mit:
 [azure]: ../../insights-perf-analytics.md
 [client]: ../../azure-monitor/app/javascript.md
 [desktop]: ../../azure-monitor/app/windows-desktop.md
-[detect]: ../../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [ios]: ../../azure-monitor/learn/mobile-center-quickstart.md
 [java]: ../../azure-monitor/app/java-get-started.md

@@ -3,8 +3,8 @@ title: Azure PowerShell-Skriptbeispiel – Erstellen eines Netzwerks für Anwend
 description: Azure PowerShell-Skriptbeispiel – Erstellen eines virtuellen Netzwerks für Anwendungen mit mehreren Ebenen.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
-ms.openlocfilehash: efd496f2f69f243b958f4e780b9f3455d2ffece3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 2fad78db4fdc92f3dc9c0f320c36d12dea554a61
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648693"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725393"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Skriptbeispiel für das Erstellen eines Netzwerks für Anwendungen mit mehreren Ebenen
 
@@ -34,7 +34,8 @@ Sie können das Skript über Azure [Cloud Shell](https://shell.azure.com/powersh
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Eine Subnetz-ID wird zugewiesen, nachdem Sie ein virtuelles Netzwerk erstellt haben, insbesondere mit dem Cmdlet „New-AzVirtualNetwork“ mit der Option „-Subnet“. Wenn Sie das Subnetz mit dem Cmdlet „New-AzVirtualNetworkSubnetConfig“ vor dem Aufruf von „New-AzVirtualNetwork“ konfigurieren, wird die Subnetz-ID erst nach dem Aufruf von „New-AzVirtualNetwork“ angezeigt.
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
+Eine Subnetz-ID wird zugewiesen, nachdem Sie ein virtuelles Netzwerk erstellt haben, insbesondere mit dem Cmdlet „New-AzVirtualNetwork“ mit der Option „-Subnet“. Wenn Sie das Subnetz mit dem Cmdlet „New-AzVirtualNetworkSubnetConfig“ vor dem Aufruf von „New-AzVirtualNetwork“ konfigurieren, wird die Subnetz-ID erst nach dem Aufruf von „New-AzVirtualNetwork“ angezeigt.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733313"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003134"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Übersicht über Service Bus-Warteschlangen für unzustellbare Nachrichten
 
@@ -102,6 +102,17 @@ while(true)
     }
 }
 ```
+
+## <a name="path-to-the-dead-letter-queue"></a>Pfad zur Warteschlange für unzustellbare Nachrichten
+Sie können auf die Warteschlange für unzustellbare Nachrichten zugreifen, indem Sie die folgende Syntax verwenden:
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscription/<subscription path>/$deadletterqueue
+```
+
+Wenn Sie das .NET SDK verwenden, erhalten Sie den Pfad zur Warteschlange für unzustellbare Nachrichten, indem Sie die SubscriptionClient.FormatDeadLetterPath()-Methode verwenden. Diese Methode akzeptiert den Namen des Themas/Abonnements und fügt diesem das Suffix **/$DeadLetterQueue** an.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

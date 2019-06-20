@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a6474320fd8b1545d61320cd43e155ab077ba310
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64683530"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Verwalten einer VM-Skalierungsgruppe mit Azure PowerShell
 
@@ -28,7 +28,7 @@ Während des Lebenszyklus einer Skalierungsgruppe müssen unter Umständen versc
 
 Bei Bedarf können Sie [eine VM-Skalierungsgruppe mit Azure PowerShell erstellen](quick-create-powershell.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>Anzeigen von Informationen zu einer Skalierungsgruppe
 Verwenden Sie [Get-AzVmss](/powershell/module/az.compute/get-azvmss), um die allgemeinen Informationen zu einer Skalierungsgruppe anzuzeigen. Im folgenden Beispiel werden Informationen zur Skalierungsgruppe namens *myScaleSet* in der Ressourcengruppe *myResourceGroup* abgerufen. Geben Sie Ihre eigenen Namen wie folgt ein:

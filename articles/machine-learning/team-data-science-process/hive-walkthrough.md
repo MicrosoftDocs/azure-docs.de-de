@@ -12,11 +12,11 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524003"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60303904"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Der Team Data Science-Prozess in Aktion: Verwenden von Azure HDInsight Hadoop-Clustern
 In dieser exemplarischen Vorgehensweise wird der [Team Data Science-Prozess (TDSP)](overview.md) in einem durchgängigen Szenario verwendet. Es wird ein [Azure HDInsight Hadoop-Cluster](https://azure.microsoft.com/services/hdinsight/) verwendet, um Daten aus dem öffentlich zugänglichen [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/)-Dataset zu speichern, zu untersuchen und merkmalbezogen zu analysieren sowie ein Downsampling auf die Daten anzuwenden. Um eine binäre Klassifizierung und eine Multiklassenklassifizierung sowie Regressionsvorhersageaufgaben durchzuführen, werden Modelle der Daten mit Azure Machine Learning entwickelt. 
@@ -814,7 +814,7 @@ Sie können nun mit der Modellentwicklung und -bereitstellung in [Machine Learni
   Hier lautet der Bestimmungskoeffizient 0,709, was impliziert, dass etwa 71 Prozent der Varianz durch die Modellkoeffizienten erklärt werden.
 
 > [!IMPORTANT]
-> Weitere Informationen zu Machine Learning und dazu, wie Sie darauf zugreifen und es verwenden, finden Sie unter [Was ist Machine Learning?](../studio/what-is-machine-learning.md). Zudem umfasst der [Azure AI-Katalog](https://gallery.cortanaintelligence.com/) eine große Palette an Experimenten und bietet eine umfassende Einführung in die Möglichkeiten von Machine Learning.
+> Weitere Informationen zu Machine Learning und dazu, wie Sie darauf zugreifen und es verwenden, finden Sie unter [Was ist Machine Learning?](../studio/what-is-machine-learning.md). Zudem umfasst der [Azure KI-Katalog](https://gallery.cortanaintelligence.com/) eine große Palette an Experimenten und bietet eine umfassende Einführung in die Möglichkeiten von Machine Learning.
 > 
 > 
 

@@ -1,25 +1,24 @@
 ---
-title: Kontingente, SKU und regionale Verfügbarkeit in Azure Kubernetes Service (AKS)
+title: Kontingente, SKUs und regionale Verfügbarkeit von Azure Kubernetes Service (AKS)
 description: Erfahren Sie mehr über Standardkontingente, eingeschränkte SKU-Größen für Knoten-VMs und regionale Verfügbarkeit von Azure Kubernetes Service (AKS).
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 04/09/2019
-ms.date: 05/13/2019
-ms.author: v-yeche
-ms.openlocfilehash: abeb9ef6e467b62cf7332e01e1b77c710b9ba4f4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 04/09/2019
+ms.author: iainfou
+ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072874"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901457"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Kontingente, Größeneinschränkungen für virtuelle Computer und regionale Verfügbarkeit in Azure Kubernetes Service (AKS)
 
-Für die Ressourcen und Funktionen aller Azure-Dienste gelten bestimmte Standardlimits und Kontingente. Im Hinblick auf die Knotengröße ist die Verwendung bestimmter SKUs für virtuelle Computer (VM) eingeschränkt.
+Für die Ressourcen und Funktionen aller Azure-Dienste gelten festgelegte Standardlimits und -kontingente. Die Verwendung bestimmter SKUs für virtuelle Computer (VM) ist ebenfalls eingeschränkt.
 
-In diesem Artikel werden die Standardressourcenlimits für AKS-Ressourcen (Azure Kubernetes Service) sowie die Verfügbarkeit des AKS-Diensts in Azure-Regionen ausführlich erläutert.
+In diesem Artikel werden die Standardressourcenlimits für AKS-Ressourcen (Azure Kubernetes Service) und die Verfügbarkeit von AKS in Azure-Regionen ausführlich erläutert.
 
 ## <a name="service-quotas-and-limits"></a>Dienstkontingente und Limits
 
@@ -29,9 +28,12 @@ In diesem Artikel werden die Standardressourcenlimits für AKS-Ressourcen (Azure
 
 Alle anderen Netzwerk-, Compute- und Speichereinschränkungen gelten für die bereitgestellte Infrastruktur. Die relevanten Grenzwerte finden Sie unter [Einschränkungen für Azure-Abonnements und Dienste, Kontingente und Einschränkungen](../azure-subscription-service-limits.md).
 
+> [!IMPORTANT]
+> Wenn Sie für einen AKS-Cluster ein Upgrade vornehmen, werden vorübergehend zusätzliche Ressourcen genutzt. Diese Ressourcen umfassen verfügbare IP-Adressen in einem Subnetz eines virtuellen Netzwerks oder ein vCPU-Kontingent für virtuelle Computer. Wenn Sie Windows Server-Container verwenden (derzeit in der Vorschau in AKS), besteht der einzige unterstützte Ansatz zum Anwenden der neuesten Updates auf die Knoten darin, einen Upgradevorgang durchzuführen. Ein fehlgeschlagener Upgradevorgang für einen Cluster kann darauf hindeuten, dass Sie nicht über den verfügbaren IP-Adressraum oder das vCPU-Kontingent verfügen, um diese temporären Ressourcen zu verarbeiten. Weitere Informationen zum Upgradevorgang eines Windows Server-Knotens finden Sie unter [Durchführen eines Upgrades für einen Knotenpool in AKS][nodepool-upgrade].
+
 ## <a name="restricted-vm-sizes"></a>Eingeschränkte VM-Größen
 
-Jeder Knoten in einem AKS-Cluster umfasst eine feste Menge von Computeressourcen wie vCPU- und Arbeitsspeicher. Weist ein AKS-Knoten unzureichende Computeressourcen auf, werden Pods möglicherweise nicht ordnungsgemäß ausgeführt. Um sicherzustellen, dass die erforderlichen *kube-system*-Pods und Ihre Anwendungen zuverlässig geplant werden können, ist eine Verwendung der folgenden VM-SKUs in AKS nicht möglich:
+Jeder Knoten in einem AKS-Cluster umfasst eine feste Menge von Computeressourcen wie vCPU- und Arbeitsspeicher. Wenn ein AKS-Knoten unzureichende Computeressourcen aufweist, werden Pods möglicherweise nicht ordnungsgemäß ausgeführt. Um sicherzustellen, dass die erforderlichen *kube-system*-Pods und Ihre Anwendungen zuverlässig geplant werden können, verwenden Sie die folgenden VM-SKUs nicht in AKS:
 
 - Standard_A0
 - Standard_A1
@@ -49,11 +51,12 @@ Die aktuelle Liste der Regionen, in denen Sie Cluster bereitstellen und ausführ
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Bestimmte Standardlimits und Kontingente können erhöht werden. Wenn Sie eine Erhöhung von Ressourcen anfordern möchten, für die dies unterstützt wird, müssen Sie eine [Azure-Supportanfrage][azure-support] übermitteln und dabei als **Problemtyp** die Option „Kontingent“ auswählen.
+Bestimmte Standardlimits und Kontingente können erhöht werden. Wenn Ihre Ressource eine Erhöhung unterstützt, fordern Sie die Erhöhung über eine [Azure-Supportanfrage][azure-support] an (als**Problemtyp** wählen Sie **Kontingent**).
 
 <!-- LINKS - External -->
-[azure-support]: https://support.azure.cn/zh-cn/support/support-azure/
-[region-availability]: https://www.azure.cn/zh-cn/home/features/products-by-region
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/linux/sizes.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

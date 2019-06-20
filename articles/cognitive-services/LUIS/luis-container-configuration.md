@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: diberry
-ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: afd29c1689d6d467a42a7c3c60f9a1dccd1a66f0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678563"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242610"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurieren von Docker-Containern für Language Understanding 
 
@@ -29,12 +29,12 @@ Dieser Container hat die folgenden Konfigurationseinstellungen:
 |Erforderlich|Einstellung|Zweck|
 |--|--|--|
 |Ja|[ApiKey](#apikey-setting)|Wird zum Nachverfolgen von Abrechnungsinformationen verwendet.|
-|Nein |[ApplicationInsights](#applicationinsights-setting)|Ermöglicht das Hinzufügen von Unterstützung für [Azure Application Insights](https://docs.microsoft.com/azure/application-insights)-Telemetriedaten in Ihrem Container.|
+|Nein|[ApplicationInsights](#applicationinsights-setting)|Ermöglicht das Hinzufügen von Unterstützung für [Azure Application Insights](https://docs.microsoft.com/azure/application-insights)-Telemetriedaten in Ihrem Container.|
 |Ja|[Abrechnung](#billing-setting)|Gibt den Endpunkt-URI der Dienstressource in Azure an.|
 |Ja|[Eula](#eula-setting)| Gibt an, dass Sie die Lizenz für den Container akzeptiert haben.|
-|Nein |[Fluentd](#fluentd-settings)|Schreibt Protokoll- und optional auch Metrikdaten auf einen Fluentd-Server.|
-|Nein |[HTTP-Proxy](#http-proxy-credentials-settings)|Konfigurieren Sie einen HTTP-Proxy für ausgehende Anforderungen.|
-|Nein |[Protokollierung](#logging-settings)|Bietet Unterstützung für die ASP.NET Core-Protokollierung für Ihren Container. |
+|Nein|[Fluentd](#fluentd-settings)|Schreibt Protokoll- und optional auch Metrikdaten auf einen Fluentd-Server.|
+|Nein|[HTTP-Proxy](#http-proxy-credentials-settings)|Konfigurieren Sie einen HTTP-Proxy für ausgehende Anforderungen.|
+|Nein|[Protokollierung](#logging-settings)|Bietet Unterstützung für die ASP.NET Core-Protokollierung für Ihren Container. |
 |Ja|[Mounts](#mount-settings)|Liest und schreibt Daten vom Hostcomputer in den Container und umgekehrt.|
 
 > [!IMPORTANT]
@@ -102,15 +102,15 @@ In der folgenden Tabelle werden die unterstützten Einstellungen beschrieben.
 |Erforderlich| NAME | Datentyp | BESCHREIBUNG |
 |-------|------|-----------|-------------|
 |Ja| `Input` | Zeichenfolge | Das Ziel der Eingabeeinbindung. Standardwert: `/input`. Dies ist der Speicherort der LUIS-Paketdateien. <br><br>Beispiel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Nein | `Output` | Zeichenfolge | Das Ziel der Ausgabeeinbindung. Standardwert: `/output`. Dies ist der Speicherort der Protokolle. Dazu gehören auch LUIS-Abfrageprotokolle und -Containerprotokolle. <br><br>Beispiel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Nein| `Output` | Zeichenfolge | Das Ziel der Ausgabeeinbindung. Standardwert: `/output`. Dies ist der Speicherort der Protokolle. Dazu gehören auch LUIS-Abfrageprotokolle und -Containerprotokolle. <br><br>Beispiel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Beispiele für den Befehl „docker run“
 
 Die folgenden Beispiele verwenden die Konfigurationseinstellungen, um zu veranschaulichen, wie `docker run`-Befehle geschrieben und verwendet werden.  Nach dem Ausführen wird der Container so lange ausgeführt, bis Sie ihn [beenden](luis-container-howto.md#stop-the-container).
 
-
-* **Zeilenfortsetzungszeichen:** In den Docker-Befehlen in den folgenden Abschnitten wird der umgekehrte Schrägstrich (`\`) als Zeilenfortsetzungszeichen verwendet. Ersetzen oder entfernen Sie diesen je nach den Anforderungen des Hostbetriebssystems. 
-* **Argumentreihenfolge:** Ändern Sie die Reihenfolge der Argumente nur, wenn Sie mit Docker-Containern sehr gut vertraut sind.
+* In diesen Beispielen wird das Verzeichnis auf dem Laufwerk `c:` verwendet, um Berechtigungskonflikte in Windows zu vermeiden. Wenn Sie ein bestimmtes Verzeichnis als Eingabeverzeichnis verwenden möchten, müssen Sie dem Docker-Dienst möglicherweise die erforderliche Berechtigung gewähren. 
+* Ändern Sie die Reihenfolge der Argumente nur, wenn Sie mit Docker-Containern sehr gut vertraut sind.
+* Wenn Sie ein anderes Betriebssystem verwenden, verwenden Sie beim Einbinden die richtige Konsole/das richtige Terminal, die richtige Ordnersyntax und das richtige Zeilenfortsetzungszeichen für Ihr System. In diesen Beispielen wird von einer Windows-Konsole mit dem Zeilenfortsetzungszeichen `^` ausgegangen. Da der Container ein Linux-Betriebssystem ist, verwendet die Zieleinbindung eine linuxartige Ordnersyntax.
 
 Denken Sie daran, die `luis/v2.0`-Weiterleitung wie in der folgenden Tabelle dargestellt in die URL einzubeziehen.
 
@@ -129,32 +129,28 @@ Ersetzen Sie {_argument_name_} durch Ihre eigenen Werte:
 
 Das folgende Beispiel enthält die wenigsten Argumente, die zum Ausführen des Containers erforderlich sind:
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis:latest ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
-
-> [!Note] 
-> Der gezeigte Befehl verwendet das Verzeichnis auf dem Laufwerk `c:`, um Berechtigungskonflikte in Windows zu vermeiden. Wenn Sie ein bestimmtes Verzeichnis als Eingabeverzeichnis verwenden möchten, müssen Sie dem Docker-Dienst möglicherweise die erforderliche Berechtigung gewähren. Im obigen Docker-Befehl wird der umgekehrte Schrägstrich (`\`) als Zeilenfortsetzungszeichen verwendet. Ersetzen oder entfernen Sie diesen je nach den Anforderungen des Betriebssystems Ihres [Hostcomputers](luis-container-howto.md#the-host-computer). Ändern Sie die Reihenfolge der Argumente nur, wenn Sie mit Docker-Containern sehr gut vertraut sind.
-
 
 ### <a name="applicationinsights-example"></a>Beispiel für ApplicationInsights
 
 Im folgenden Beispiel wird das ApplicationInsights-Argument so festgelegt, dass während der Ausführung des Containers Telemetriedaten an Application Insights gesendet werden:
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={ENDPOINT_KEY}
+```console
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis:latest ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
+ApiKey={ENDPOINT_KEY} ^
 InstrumentationKey={INSTRUMENTATION_KEY}
 ```
 
@@ -162,14 +158,14 @@ InstrumentationKey={INSTRUMENTATION_KEY}
 
 Der folgende Befehl legt in `Logging:Console:LogLevel` die Protokollierungsstufe auf [`Information`](https://msdn.microsoft.com) fest. 
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={ENDPOINT_KEY} \
+```console
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis:latest ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
+ApiKey={ENDPOINT_KEY} ^
 Logging:Console:LogLevel:Default=Information
 ```
 

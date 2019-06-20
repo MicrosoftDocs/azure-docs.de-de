@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323743"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177958"
 ---
 Diese häufig gestellten Fragen beziehen sich auf P2S-Verbindungen, die das klassische Bereitstellungsmodell verwenden.
 
@@ -31,7 +31,7 @@ Folgende Clientbetriebssysteme werden unterstützt:
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>Kann ich für Point-to-Site-Verbindungen einen beliebigen VPN-Softwareclient mit SSTP-Unterstützung verwenden?
 
- Nein. Nur die aufgelisteten Windows-Betriebssystemversionen werden unterstützt.
+Nein. Nur die aufgelisteten Windows-Betriebssystemversionen werden unterstützt.
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Wie viele VPN-Clientendpunkte kann meine Point-to-Site-Konfiguration umfassen?
 
@@ -51,7 +51,7 @@ Standardmäßig wird die VPN-Verbindung des Clientcomputers nicht automatisch wi
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>Werden automatische Verbindungswiederherstellung und DDNS bei Point-to-Site-Verbindungen auf den VPN-Clients unterstützt?
 
- Nein. Automatische Verbindungswiederherstellung und DDNS werden in Point-to-Site-VPNs derzeit nicht unterstützt.
+Nein. Automatische Verbindungswiederherstellung und DDNS werden in Point-to-Site-VPNs derzeit nicht unterstützt.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>Kann ich im gleichen virtuellen Netzwerk sowohl Site-to-Site- als auch Point-to-Site-Konfigurationen verwenden?
 

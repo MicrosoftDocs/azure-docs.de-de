@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6f0a59d2b0954c9847219ad1ac8b2fa805767084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080725"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683428"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Analysieren Ihrer mobilen Apps mit App Center und Application Insights
 
@@ -67,7 +67,7 @@ Um sicherzustellen, dass Ihre benutzerdefinierten Ereignisse empfangen werden, w
 
 Sobald Ihre App benutzerdefinierte Ereignisse sendet und diese von App Center empfangen werden, müssen Sie eine Application Insights-Ressource für App Center im Azure-Portal erstellen:
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 2. Klicken Sie auf **Ressource erstellen** > **Verwaltungstools** > **Application Insights**.
 
     ![Hinzufügen einer Application Insights-Ressource](./media/mobile-center-quickstart/add-b.png)
@@ -87,7 +87,9 @@ Wenn Ihre App mehrere Plattformen unterstützt (iOS, Android usw.), ist es am si
 
 ## <a name="export-to-application-insights"></a>Exportieren in Application Insights
 
-Kopieren Sie den Instrumentierungsschlüssel für diese Ressource, den Sie in Ihrer neuen Application Insights-Ressource auf der Seite **Übersicht** im Bereich **Zusammenfassung** am oberen Rand finden.
+In Ihrer neuen Application Insights-Ressource auf der Seite **Übersicht**. Kopieren Sie den Instrumentierungsschlüssel aus Ihrer Ressource.
+
+   ![Schaltfläche „Analytics“ in Application Insights](./media/mobile-center-quickstart/overview-01.png)
 
 Führen Sie in der App Center-Instanz für Ihre App Folgendes durch:
 
@@ -108,7 +110,7 @@ Application Insights kann die Telemetriedaten zu benutzerdefinierten Ereignissen
 
 1. **Abfragen der Telemetriedaten zu benutzerdefinierten Ereignissen.** Klicken Sie auf der Seite **Übersicht** in Application Insights auf **Analytics**. 
 
-   ![Schaltfläche „Analytics“ in Application Insights](./media/mobile-center-quickstart/analytics.png)
+   ![Schaltfläche „Analytics“ in Application Insights](./media/mobile-center-quickstart/analytics-001.png)
 
    Das Analytics-Portal von Application Insights, das mit Ihrer Application Insights-Ressource verknüpft ist, wird geöffnet. Über das Analytics-Portal können Sie Ihre Daten direkt mit Ihrer Log Analytics-Abfragesprache abfragen, sodass Sie komplexe Fragen zu Ihrer App und deren Benutzern arbiträr stellen können.
    
@@ -121,7 +123,7 @@ Application Insights kann die Telemetriedaten zu benutzerdefinierten Ereignissen
    | order by dcount_user_Id desc 
    ```
 
-   ![Analytics-Portal](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Analytics-Portal](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Wählen Sie die Abfrage aus, indem Sie im Text-Editor an eine beliebige Stelle in der Abfrage klicken.
    2. Klicken Sie auf **Los**, um die Abfrage auszuführen. 
@@ -131,17 +133,17 @@ Application Insights kann die Telemetriedaten zu benutzerdefinierten Ereignissen
 
 2. **Segmentieren und filtern Sie die Telemetriedaten zu benutzerdefinierten Ereignissen.** Klicken Sie auf der Seite **Übersicht** in Application Insights im Inhaltsverzeichnis auf **Benutzer**.
 
-   ![Symbol des Benutzertools](./media/mobile-center-quickstart/users-icon.png)
+   ![Symbol des Benutzertools](./media/mobile-center-quickstart/users-icon-001.png)
 
    Das Tool „Benutzer“ zeigt an, wie viele Benutzer Ihrer App auf bestimmte Schaltflächen geklickt, bestimmte Seiten besucht oder bestimmte Aktionen ausgeführt haben, die Sie als Ereignis mit dem App Center-SDK nachverfolgen. Wenn Sie Ihre App Center-Ereignisse segmentieren und filtern möchten, ist das Benutzertool hervorragend geeignet.
 
-   ![Benutzertool](./media/mobile-center-quickstart/users.png) 
+   ![Benutzertool](./media/mobile-center-quickstart/users-001.png) 
 
    Segmentieren Sie Ihre Nutzung beispielsweise nach Region, indem Sie im Dropdownmenü **Trennen nach** **Land oder Region** auswählen.
 
 3. **Analysieren Sie Mustern bei Wechseln, der Vermerkdauer und der Navigation in Ihrer App.** Klicken Sie auf der Seite **Übersicht** in Application Insights im Inhaltsverzeichnis auf **Benutzerabläufe**.
 
-   ![Tool „Benutzerabläufe“](./media/mobile-center-quickstart/user-flows.png)
+   ![Tool „Benutzerabläufe“](./media/mobile-center-quickstart/user-flows-001.png)
 
    Das Tool „Benutzerabläufe“ visualisiert, welche Ereignisse Benutzer nach einem Startereignis senden. Dies ist nützlich, um sich einen Überblick darüber zu verschaffen, wie Benutzer durch Ihre App navigieren. Zudem werden so Stellen offen gelegt, an denen viele Benutzer Ihre App verlassen oder dieselbe Aktion wiederholt durchführen.
 

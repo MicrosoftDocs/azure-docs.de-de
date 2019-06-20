@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65073150"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Grundlegendes zu geeigneten Äußerungen für Ihre LUIS-App
 
@@ -74,13 +74,47 @@ LUIS erstellt effektive Modelle mit sorgfältig vom LUIS-Modellersteller ausgew�
 
 Es ist besser, mit nur wenigen Äußerungen anzufangen und anschließend die [Endpunktäußerungen zu überprüfen](luis-how-to-review-endpoint-utterances.md), um die richtige Vorhersage der Absicht und Extraktion der Entität zu gewährleisten.
 
-## <a name="punctuation-marks"></a>Interpunktion
+## <a name="utterance-normalization"></a>Äußerungsnormalisierung
 
-LUIS ignoriert Satzzeichen standardmäßig nicht, da einige Clientanwendungen diese unter Umständen als wichtig erachten. Stellen Sie sicher, dass Sie Beispieläußerungen mit und ohne Satzzeichen verwenden, damit beide Formate die gleichen relativen Ergebnisse zurückgeben. Wenn die Interpunktion in Ihrer Clientanwendung keine besondere Bedeutung hat, sollten Sie erwägen, [Satzzeichen zu ignorieren](#ignoring-words-and-punctuation), indem Sie Muster verwenden. 
+Äußerungsnormalisierung ist der Prozess, bei dem der Einfluss von Interpunktion und diakritischen Zeichen während des Trainings und Vorhersagen außer Kraft gesetzt wird.
 
-## <a name="ignoring-words-and-punctuation"></a>Ignorieren von Wörtern und Interpunktion
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Äußerungsnormalisierung für diakritische Zeichen und Interpunktion
 
-Wenn Sie bestimmte Wörter oder Satzzeichen in der Beispieläußerung ignorieren möchten, verwenden Sie ein [Muster](luis-concept-patterns.md#pattern-syntax) mit der Syntax zum _Ignorieren_. 
+Die Äußerungsnormalisierung wird definiert, wenn Sie die App erstellen oder importieren, da es sich um eine Einstellung in der JSON-Datei der App handelt. Standardmäßig sind die Äußerungsnormalisierungseinstellungen deaktiviert. 
+
+Diakritische Zeichen sind Markierungen oder Kennzeichnungen innerhalb des Texts, z. B.: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+Wenn die Normalisierung für Ihre App aktiviert ist, ändern sich Bewertungen im Bereich **Test**, Batchtests und Endpunktabfragen für alle Äußerungen, die diakritische Zeichen oder Interpunktion verwenden.
+
+Aktivieren Sie die Äußerungsnormalisierung für diakritische Zeichen oder Interpunktion für Ihre LUIS-JSON-App-Datei im `settings`-Parameter.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+**Interpunktion** zu normalisieren bedeutet, dass die Interpunktionszeichen aus den Äußerungen entfernt werden, bevor Ihre Modelle trainiert und bevor Ihre Endpunktabfragen vorhergesagt werden. 
+
+Bei der Normalisierung von **diakritischen Zeichen** werden die Elemente mit diakritischen Zeichen in Äußerungen durch reguläre Elemente ersetzt. Ein Beispiel: `Je parle français` wird zu `Je parle francais`. 
+
+Normalisierung bedeutet nicht, dass in Ihren Beispieläußerungen oder Vorhersageantworten keine Interpunktion oder diakritische Zeichen angezeigt werden, sondern nur, dass sie während des Trainings und Vorhersagen ignoriert werden.
+
+
+### <a name="punctuation-marks"></a>Interpunktion
+
+Wenn die Interpunktion nicht normalisiert wird, ignoriert LUIS Satzzeichen standardmäßig nicht, da diese für einige Clientanwendungen unter Umständen wichtig sind. Stellen Sie sicher, dass Sie Beispieläußerungen mit und ohne Satzzeichen verwenden, damit beide Formate die gleichen relativen Ergebnisse zurückgeben. 
+
+Wenn die Interpunktion in Ihrer Clientanwendung keine besondere Bedeutung hat, sollten Sie erwägen, [Satzzeichen zu ignorieren](#utterance-normalization), indem Sie die Interpunktion normalisieren. 
+
+### <a name="ignoring-words-and-punctuation"></a>Ignorieren von Wörtern und Interpunktion
+
+Wenn Sie bestimme Wörter oder Satzzeichen ignorieren möchten, können Sie [Muster](luis-concept-patterns.md#pattern-syntax) verwenden. Verwenden Sie in diesen zum _Ignorieren_ von Wörtern und Satzzeichen eine Syntax mit eckigen Klammern (`[]`). 
 
 ## <a name="training-utterances"></a>Trainieren von Äußerungen
 

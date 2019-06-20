@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60311475"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Posten einer Ankündigung in einem Lab in Azure DevTest Labs
 

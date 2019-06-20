@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878073"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242777"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Verwalten von Schemas in einer SaaS-Anwendung, die mehrinstanzenfähige SQL-Datenbanken mit Sharding verwendet
 
@@ -31,7 +31,7 @@ In diesem Tutorial werden die folgenden zwei Szenarien untersucht:
 - Bereitstellen der Aktualisierungen von Verweisdaten für alle Mandanten
 - Neuerstellen eines Index für die Tabelle mit den Verweisdaten
 
-Für die mandantendatenbankübergreifende Ausführung dieser Vorgänge wird das Feature [Elastische Aufträge](sql-database-elastic-jobs-overview.md) von Azure SQL-Datenbank verwendet. Die Aufträge gelten auch für die als Vorlage verwendete Mandantendatenbank. Bei der Wingtip Tickets-Beispielanwendung wird diese Vorlagendatenbank kopiert, um eine neue Mandantendatenbank bereitzustellen.
+Für die mandantendatenbankübergreifende Ausführung dieser Vorgänge wird das Feature [Elastische Aufträge](elastic-jobs-overview.md) von Azure SQL-Datenbank verwendet. Die Aufträge gelten auch für die als Vorlage verwendete Mandantendatenbank. Bei der Wingtip Tickets-Beispielanwendung wird diese Vorlagendatenbank kopiert, um eine neue Mandantendatenbank bereitzustellen.
 
 In diesem Tutorial lernen Sie Folgendes:
 
@@ -57,7 +57,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Einführung in SaaS-Schemaverwaltungsmuster
 
-Das in diesem Beispiel verwendete mehrinstanzenfähige Datenbankmodell mit Sharding ermöglicht, dass eine Mandantendatenbank einen oder mehrere Mandanten enthält. In diesem Beispiel wird untersucht, wie Sie eine Mischung aus einer Datenbank mit mehreren Mandanten und einer Datenbank mit nur einem Mandanten und damit ein *hybrides* Mandantenverwaltungsmodell verwenden können. Das Verwalten von Änderungen an diesen Datenbanken kann kompliziert sein. [Elastische Aufträge](sql-database-elastic-jobs-overview.md) erleichtern die Verwaltung einer großen Anzahl von Datenbanken. Aufträge ermöglichen es Ihnen, auf sichere und zuverlässige Weise Transact-SQL-Skripts als Aufgaben für eine Gruppe von Mandantendatenbanken auszuführen. Die Aufgaben sind unabhängig von Benutzerinteraktionen oder Eingaben. Mithilfe dieser Methode können Änderungen an Schemadaten oder an gemeinsamen Verweisdaten für alle Mandanten in einer Anwendung bereitgestellt werden. Elastische Aufträge können auch verwendet werden, um eine Gold-Version der Datenbank als Vorlage zu verwalten. Diese Vorlage dient zum Erstellen neuer Mandanten, wodurch immer sichergestellt wird, das die neuesten Schema- und Verweisdaten verwendet werden.
+Das in diesem Beispiel verwendete mehrinstanzenfähige Datenbankmodell mit Sharding ermöglicht, dass eine Mandantendatenbank einen oder mehrere Mandanten enthält. In diesem Beispiel wird untersucht, wie Sie eine Mischung aus einer Datenbank mit mehreren Mandanten und einer Datenbank mit nur einem Mandanten und damit ein *hybrides* Mandantenverwaltungsmodell verwenden können. Das Verwalten von Änderungen an diesen Datenbanken kann kompliziert sein. [Elastische Aufträge](elastic-jobs-overview.md) erleichtern die Verwaltung einer großen Anzahl von Datenbanken. Aufträge ermöglichen es Ihnen, auf sichere und zuverlässige Weise Transact-SQL-Skripts als Aufgaben für eine Gruppe von Mandantendatenbanken auszuführen. Die Aufgaben sind unabhängig von Benutzerinteraktionen oder Eingaben. Mithilfe dieser Methode können Änderungen an Schemadaten oder an gemeinsamen Verweisdaten für alle Mandanten in einer Anwendung bereitgestellt werden. Elastische Aufträge können auch verwendet werden, um eine Gold-Version der Datenbank als Vorlage zu verwalten. Diese Vorlage dient zum Erstellen neuer Mandanten, wodurch immer sichergestellt wird, das die neuesten Schema- und Verweisdaten verwendet werden.
 
 ![Bildschirm](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -89,7 +89,7 @@ Jede Mandantendatenbank enthält in der Tabelle **VenueTypes** eine Gruppe von V
 Prüfen Sie zunächst die in jeder Mandantendatenbank enthaltenen Veranstaltungsorttypen. Stellen Sie in SQL Server Management Studio (SSMS) eine Verbindung mit einer der Mandantendatenbanken her, und überprüfen Sie die Tabelle VenueTypes.  Sie können diese Tabelle auch im Azure-Portal im Abfrage-Editor abfragen, den Sie über die Seite „Datenbank“ aufrufen können.
 
 1. Öffnen Sie SSMS, und stellen Sie eine Verbindung mit dem Mandantenserver *tenants1-dpt-&lt;Benutzer&gt;.database.windows.net* her.
-1. Um sich zu vergewissern, dass *Motorcycle Racing* und *Swimming Club* **nicht** in der Ergebnisliste enthalten sind, navigieren Sie zur Datenbank *contosoconcerthall* auf dem Server *tenants1-dpt-&lt;Benutzer&gt;*, und fragen Sie die Tabelle *VenueTypes* ab.
+1. Um sich zu vergewissern, dass *Motorcycle Racing* und *Swimming Club* **nicht** in der Ergebnisliste enthalten sind, navigieren Sie zur Datenbank *contosoconcerthall* auf dem Server *tenants1-dpt-&lt;Benutzer&gt;* , und fragen Sie die Tabelle *VenueTypes* ab.
 
 
 
@@ -123,7 +123,7 @@ Beachten Sie die folgenden Elemente im Skript *DeployReferenceData.sql*:
 
 - **sp\_add\_target\_group\_member** fügt die folgenden Elemente hinzu:
     - Einen Zielmembertyp *server*
-        - Dies ist der Server *tenants1-mt-&lt;Benutzer&gt;*, der die Mandantendatenbanken enthält.
+        - Dies ist der Server *tenants1-mt-&lt;Benutzer&gt;* , der die Mandantendatenbanken enthält.
         - Durch das Einschließen des Servers werden auch die Mandantendatenbanken einbezogen, die zum Zeitpunkt der Auftragsausführung vorhanden sind.
     - Einen Zielmembertyp *database* für die Vorlagedatenbank (*basetenantdb*), die sich auf dem Server *catalog-mt-&lt;Benutzer&gt;* befindet
     - Einen Zielmembertyp *database*, der die in einem späteren Tutorial verwendete Datenbank *adhocreporting* enthält
@@ -134,7 +134,7 @@ Beachten Sie die folgenden Elemente im Skript *DeployReferenceData.sql*:
 
 - Die übrigen Ansichten im Skript zeigen das Vorhandensein der Objekte an und überwachen die Auftragsausführung. Verwenden Sie diese Abfragen, um den Statuswert in der Spalte **lifecycle** zu überprüfen und zu ermitteln, wann der Auftrag abgeschlossen wurde. Der Auftrag aktualisiert die Mandantendatenbank und die zwei weiteren Datenbanken mit der Verweistabelle.
 
-Wechseln Sie in SSMS zur Mandantendatenbank auf dem Server *tenants1-mt-&lt;Benutzer&gt;*. Fragen Sie die Tabelle *VenueTypes* ab, um sich zu überzeugen, dass *Motorcycle Racing* und *Swimming Club* jetzt der Tabelle hinzugefügt wurden. Die Gesamtzahl der Veranstaltungsorttypen sollte um zwei gestiegen sein.
+Wechseln Sie in SSMS zur Mandantendatenbank auf dem Server *tenants1-mt-&lt;Benutzer&gt;* . Fragen Sie die Tabelle *VenueTypes* ab, um sich zu überzeugen, dass *Motorcycle Racing* und *Swimming Club* jetzt der Tabelle hinzugefügt wurden. Die Gesamtzahl der Veranstaltungsorttypen sollte um zwei gestiegen sein.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Erstellen eines Auftrags zum Verwalten des Index der Verweistabelle
 
@@ -161,8 +161,7 @@ Beachten Sie folgende Elemente im Skript *OnlineReindex.sql*:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Verwalten horizontal hochskalierter Clouddatenbanken](sql-database-elastic-jobs-overview.md)
-* [Erstellen und Verwalten von horizontal hochskalierten Clouddatenbanken](sql-database-elastic-jobs-create-and-manage.md)
+* [Verwalten horizontal hochskalierter Clouddatenbanken](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

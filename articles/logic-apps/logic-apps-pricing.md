@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/22/2019
+ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805175"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299101"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Preismodell für Azure Logic Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "58805175"
 
 ## <a name="consumption-pricing-model"></a>Modell für nutzungsbasierte Preise
 
-Bei neuen Logik-Apps, die unter dem öffentlichen oder „globalen“ Azure Logic Apps-Dienst ausgeführt werden, bezahlen Sie nur für die tatsächliche Nutzung. Für diese Logik-Apps werden ein nutzungsbasierter Tarif und ein entsprechendes Preismodell verwendet. In Ihrer Logik-App-Definition ist jeder Schritt eine Aktion. Zu Aktionen gehören beispielsweise: 
+Bei neuen Logik-Apps, die unter dem öffentlichen oder „globalen“ Azure Logic Apps-Dienst ausgeführt werden, bezahlen Sie nur für die tatsächliche Nutzung. Für diese Logik-Apps werden ein nutzungsbasierter Tarif und ein entsprechendes Preismodell verwendet. In Ihrer Logik-App-Definition ist jeder Schritt eine Aktion. Zu Aktionen gehören beispielsweise:
 
 * Trigger, die spezielle Aktionen sind. Jede Logik-App erfordert einen Trigger als ersten Schritt.
 * „Integrierte oder native Aktionen wie HTTP, Aufrufe von Azure Functions und API Management usw.
@@ -38,12 +38,16 @@ Azure Logic Apps rechnet alle Aktionen ab, die in Ihrer Logik-App ausgeführt we
 
 ## <a name="fixed-pricing-model"></a>Feststehendes Preismodell
 
-Eine [*Integrationsdienstumgebung* (Integration Service Environment, ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) ermöglicht Ihnen privates, isoliertes und dediziertes Erstellen und Ausführen von Logik-Apps, die auf Ressourcen in einem virtuellen Azure-Netzwerk zugreifen können. Für neue Logik-Apps, die in einer ISE ausgeführt werden, zahlen Sie einen festen monatlichen Preis für integrierte Aktionen und Standardconnectors. Ihre ISE enthält auch einen kostenlosen Unternehmensconnector, der eine beliebige Anzahl von Verbindungen umfassen kann. Die Nutzung für weitere Unternehmensconnectors wird basierend auf dem Preis für die Unternehmensnutzung berechnet. 
+Eine [*Integrationsdienstumgebung* (Integration Service Environment, ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) ermöglicht Ihnen privates, isoliertes und dediziertes Erstellen und Ausführen von Logik-Apps, die auf Ressourcen in einem virtuellen Azure-Netzwerk zugreifen können. Für neue Logik-Apps, die in einer ISE ausgeführt werden, zahlen Sie einen [festen monatlichen Preis](https://azure.microsoft.com/pricing/details/logic-apps) für integrierte Aktionen und Trigger sowie für Standardconnectors.
 
-Ihre ISE-Basiseinheit hat eine feste Kapazität – wenn Sie mehr Durchsatz benötigen, können Sie entweder während der Erstellung oder danach [weitere Skalierungseinheiten hinzufügen](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity).
+Ihre ISE enthält auch einen kostenlosen Unternehmensconnector, der eine beliebige Anzahl von *Verbindungen* umfassen kann. Die Nutzung für weitere Unternehmensconnectors wird basierend auf dem [Preis für die Unternehmensnutzung](https://azure.microsoft.com/pricing/details/logic-apps) berechnet. Nur allgemein verfügbare Unternehmensconnectors werden basierend auf dem Preis für die Unternehmensnutzung berechnet. Unternehmensconnectors der öffentlichen Vorschau werden mit der [Standardconnectorrate](https://azure.microsoft.com/pricing/details/logic-apps) in Rechnung gestellt.
 
 > [!NOTE]
-> Die ISE befindet sich in der Phase der [*öffentlichen Vorschau*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Spezielle Preisinformationen finden Sie unter [Azure Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps).
+> In einer ISE wird für integrierte Trigger und Aktionen die Bezeichnung **Core** angezeigt, und diese Elemente werden in derselben ISE wie Ihre Logik-Apps ausgeführt. Standard- und Unternehmensconnectors, für die die Bezeichnung **ISE** angezeigt wird, werden in derselben ISE wie Ihre Logik-Apps ausgeführt. Connectors, für die die Bezeichnung ISE nicht angezeigt wird, werden im globalen Logic Apps-Dienst ausgeführt.
+
+Ihre ISE-Basiseinheit hat eine feste Kapazität – wenn Sie mehr Durchsatz benötigen, können Sie entweder während der Erstellung oder danach [weitere Skalierungseinheiten hinzufügen](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity). Für Logik-Apps, die in einer ISE ausgeführt werden, fallen keine Kosten für die Datenaufbewahrung an.
+
+Spezielle Preisinformationen finden Sie unter [Azure Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 
@@ -88,11 +92,15 @@ Nachdem Sie eine Logik-App deaktiviert haben, kann es einige Zeit dauern, bis di
 Nutzungspreise gelten für [Integrationskonten](logic-apps-enterprise-integration-create-integration-account.md), mit denen Sie die Features [B2B und EDI](logic-apps-enterprise-integration-b2b.md) und [XML-Verarbeitung](logic-apps-enterprise-integration-xml.md) in Azure Logic Apps ohne zusätzliche Kosten erkunden, entwickeln und testen können.
 Sie können ein Integrationskonto in jeder Azure-Region haben. Für jedes Integrationskonto kann eine bestimmte maximale [Anzahl von Artefakten](../logic-apps/logic-apps-limits-and-config.md) gespeichert werden, z.B. Handelspartner, Vereinbarungen, Karten, Schemas, Assemblys, Zertifikate, Batchkonfigurationen usw.
 
-Für Azure Logic Apps sind außerdem Basic- und Standard-Integrationskonten mit unterstützter Logic Apps-SLA verfügbar. Anhand folgender Kriterien können Sie entscheiden, ob Sie ein Basic- oder ein Standard-Integrationskonto verwenden sollten:
+Für Azure Logic Apps werden Integrationskonten vom Typ „Free“, „Basic“ und „Standard“ angeboten. Die Tarife „Basic“ und „Standard“ werden über die Vereinbarung zum Servicelevel (SLA) für Logic Apps unterstützt. Der Tarif „Free“ verfügt nicht über eine SLA-Unterstützung, und es gelten Grenzwerte für Durchsatz und Nutzung.
 
-* Verwenden Sie Basic-Integrationskonten, wenn Sie nur die Behandlung von Nachrichten nutzen oder als Partner für ein kleines Unternehmen fungieren möchten, das eine Handelspartnerbeziehung mit einem größeren Unternehmen eingegangen ist.
+Sie können zwischen einem Integrationskonto vom Typ „Free“, „Basic“ oder „Standard“ wählen:
 
-* Verwenden Sie Standard-Integrationskonten, wenn komplexere B2B-Beziehungen vorliegen und Sie die Anzahl von Entitäten erhöhen möchten, die Sie verwalten können.
+* **Free:** Ein Konto zum Ausprobieren von Testszenarien. Nicht für Produktionsszenarien geeignet.
+
+* **Basic**: Verwenden Sie ein Konto dieses Typs, wenn Sie nur die Behandlung von Nachrichten nutzen oder als Partner für ein kleines Unternehmen fungieren möchten, das eine Handelspartnerbeziehung mit einem größeren Unternehmen eingegangen ist.
+
+* **Standard**: Kontotyp für komplexere B2B-Beziehungen und eine höhere Anzahl von Entitäten, die Sie verwalten müssen.
 
 Spezielle Preisinformationen finden Sie unter [Azure Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps).
 
@@ -100,7 +108,7 @@ Spezielle Preisinformationen finden Sie unter [Azure Logic Apps – Preise](http
 
 ## <a name="data-retention"></a>Beibehaltung von Daten
 
-Alle Eingaben und Ausgaben, die während des Ausführens Ihrer Logik-App gespeichert wurden, werden entsprechend dem [Ausführungsaufbewahrungszeitraum](logic-apps-limits-and-config.md#run-duration-retention-limits) einer Logik-App in Rechnung gestellt. Spezielle Preisinformationen finden Sie unter [Azure Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps).
+Mit Ausnahme von Logik-Apps, die in einer ISE (Integration Service Environment) ausgeführt werden, werden alle Eingaben und Ausgaben, die während des Ausführens Ihrer Logik-App gespeichert wurden, entsprechend dem [Ausführungsaufbewahrungszeitraum](logic-apps-limits-and-config.md#run-duration-retention-limits) einer Logik-App in Rechnung gestellt. Für Logik-Apps, die in einer ISE ausgeführt werden, fallen keine Kosten für die Datenaufbewahrung an. Spezielle Preisinformationen finden Sie unter [Azure Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Für die Überwachung der Speichernutzung Ihrer Logik-App haben Sie folgende Möglichkeiten:
 

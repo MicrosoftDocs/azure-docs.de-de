@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
 ms.openlocfilehash: 060e647badcc3bad7b44d7cef3530c36b8ecdf57
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "23125178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60648676"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Kryptografische Anforderungen und Azure-VPN-Gateways
 

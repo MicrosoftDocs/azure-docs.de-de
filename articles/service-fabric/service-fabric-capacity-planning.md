@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ac8abbdbbe9125ea036d837c08e1089aa6d1e55d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d7ca566b86ed79aa773d7af2553223c79ed9944a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212856"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64701835"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Kapazitätsplanung für Service Fabric-Anwendungen
 In diesem Dokument erfahren Sie, wie Sie die Anzahl der Ressourcen (CPU, Arbeitsspeicher, Datenträgerspeicher) bestimmen, die Sie zum Ausführen von Azure Service Fabric-Anwendungen benötigen. Es ist üblich, dass sich die erforderlichen Ressourcen mit der Zeit ändern. In der Regel brauchen Sie für das Entwickeln und Testen Ihres Diensts ein bestimmtes Maß an Ressourcen, das Sie erhöhen müssen, sobald Sie zur Produktionsumgebung wechseln und die Beliebtheit Ihrer Anwendung zunimmt. Vergegenwärtigen Sie sich beim Entwurf einer Anwendung die langfristigen Anforderungen, und treffen Sie Entscheidungen, die Ihrem Dienst eine Skalierung zum Erfüllen einer hohen Kundennachfrage ermöglichen.

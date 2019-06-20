@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60723400"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Wiederherstellen eines StorSimple-Volumes aus einem Sicherungssatz
 

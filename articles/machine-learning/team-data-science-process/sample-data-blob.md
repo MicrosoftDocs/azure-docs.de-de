@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1c455106e5faa4aa20ec56f37788e0b8c324fee1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61042903"
 ---
 # <a name="heading"></a>Datenstichproben im Azure-Blob-Speicher
 
@@ -27,7 +27,7 @@ Wenn das zu analysierende Dataset groß ist, sollten Sie in der Regel eine Kompr
 
 Dieser Stichprobentask ist ein Schritt im [Team Data Science-Prozess (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="download-and-down-sample-data"></a>Download und Downsampling von Daten 
+## <a name="download-and-down-sample-data"></a>Download und Downsampling von Daten
 1. Laden Sie die Daten aus Azure Blob Storage mithilfe des Blobdiensts aus dem folgenden Python-Beispielcode herunter: 
    
         from azure.storage.blob import BlobService

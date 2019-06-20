@@ -10,11 +10,11 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61074445"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Erste Schritte mit Azure Automation State Configuration
 
@@ -69,7 +69,7 @@ Als Nächstes importieren Sie die Konfiguration in das Automation-Konto.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf der Seite **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf der Seite **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Konfigurationen** und dann auf **+ Hinzufügen**.
 1. Wechseln Sie auf der Seite **Konfiguration importieren** zur Datei `TestConfig.ps1` auf Ihrem Computer.
 
@@ -83,7 +83,7 @@ Nachdem Sie eine Konfiguration importiert haben, können Sie sie im Azure-Portal
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf der Seite **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf der Seite **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Konfigurationen** und anschließend auf **TestConfig** (Name der Konfiguration, die Sie zuvor importiert haben).
 1. Klicken Sie auf der Seite **TestConfig-Konfiguration** auf **Konfigurationsquelle anzeigen**.
 
@@ -98,7 +98,7 @@ Weitere Informationen zum Kompilieren von Konfigurationen finden Sie unter [DSC-
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf der Seite **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf der Seite **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Konfigurationen** und anschließend auf **TestConfig** (Name der zuvor importierten Konfiguration).
 1. Klicken Sie auf der Seite **TestConfig-Konfiguration** auf **Kompilieren** und dann auf **Ja**. Ein Kompilierungsauftrag wird gestartet.
 
@@ -113,7 +113,7 @@ Nachdem Sie eine Kompilierung gestartet haben, können Sie sie auf der Seite **K
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf der Seite **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf der Seite **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Konfigurationen** und anschließend auf **TestConfig** (Name der zuvor importierten Konfiguration).
 1. Wählen Sie unter **Kompilierungsaufträge** den Kompilierungsauftrag aus, den Sie anzeigen möchten. Eine Seite vom Typ **Kompilierungsauftrag** wird geöffnet, dessen Bezeichnung mit dem Startdatum des Kompilierungsauftrags versehen ist.
 
@@ -123,11 +123,11 @@ Nachdem Sie eine Kompilierung gestartet haben, können Sie sie auf der Seite **K
 
 ## <a name="viewing-node-configurations"></a>Anzeigen von Knotenkonfigurationen
 
-Bei erfolgreicher Erstellung eines Kompilierungsauftrags werden eine oder mehrere neue Knotenkonfigurationen erzeugt. Eine Knotenkonfiguration ist ein MOF-Dokument, das auf dem Pullserver bereitgestellt wird und per Pull abgerufen und auf Knoten angewendet werden kann. Die Knotenkonfigurationen finden Sie in Ihrem Automation-Konto auf der Seite **Zustandskonfiguration (DSC)**. Knotenkonfigurationen werden im Format *Konfigurationsname*.*Knotenname* benannt.
+Bei erfolgreicher Erstellung eines Kompilierungsauftrags werden eine oder mehrere neue Knotenkonfigurationen erzeugt. Eine Knotenkonfiguration ist ein MOF-Dokument, das auf dem Pullserver bereitgestellt wird und per Pull abgerufen und auf Knoten angewendet werden kann. Die Knotenkonfigurationen finden Sie in Ihrem Automation-Konto auf der Seite **Zustandskonfiguration (DSC)** . Knotenkonfigurationen werden im Format *Konfigurationsname*.*Knotenname* benannt.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte  **Kompilierte Konfigurationen**.
 
    ![Screenshot der Registerkarte „Kompilierte Konfigurationen“](./media/automation-dsc-getting-started/NodeConfigs.png)
@@ -140,7 +140,7 @@ Mit Azure Automation State Configuration können Sie virtuelle Azure-Computer (m
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf der Registerkarte **Knoten** auf **+ Hinzufügen**.
 
    ![Screenshot der Seite „DSC-Knoten“ mit hervorgehobener Schaltfläche „Azure-VM hinzufügen“](./media/automation-dsc-getting-started/OnboardVM.png)
@@ -166,7 +166,7 @@ Auf der Registerkarte **Knoten** der Seite **Zustandskonfiguration (DSC)** könn
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Knoten**.
 
 ## <a name="viewing-reports-for-managed-nodes"></a>Anzeigen von Berichten für verwaltete Knoten
@@ -175,7 +175,7 @@ Immer wenn Azure Automation State Configuration eine Konsistenzprüfung auf eine
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Knoten**. Hier ist eine Übersicht über den Konfigurationszustand und die Details für jeden Knoten:
 
    ![Screenshot der Seite mit den Knoten](./media/automation-dsc-getting-started/NodesTab.png)
@@ -205,7 +205,7 @@ Sie können einen Knoten einer anderen Knotenkonfiguration als der ursprünglich
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Knoten**.
 1. Klicken Sie auf der Registerkarte **Knoten** auf den Namen des Knotens, den Sie neu zuweisen möchten.
 1. Klicken Sie auf der Seite dieses Knotens auf **Knotenkonfiguration zuweisen**.
@@ -222,7 +222,7 @@ Wenn ein Knoten nicht mehr von Azure Automation DSC verwaltet werden soll, könn
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie links auf **Alle Ressourcen** und dann auf den Namen des Automation-Kontos.
-1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)**.
+1. Klicken Sie auf dem Blatt **Automation-Konto** unter **Konfigurationsverwaltung** auf **Zustandskonfiguration (DSC)** .
 1. Klicken Sie auf der Seite **Zustandskonfiguration (DSC)** auf die Registerkarte **Knoten**.
 1. Klicken Sie auf der Registerkarte **DSC-Knoten** auf den Namen des Knotens, dessen Registrierung Sie aufheben möchten.
 1. Klicken Sie auf der Seite dieses Knotens auf **Registrierung aufheben**.

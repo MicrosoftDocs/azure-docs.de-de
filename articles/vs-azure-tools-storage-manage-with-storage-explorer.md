@@ -2,24 +2,18 @@
 title: Erste Schritte mit dem Storage-Explorer | Microsoft-Dokumentation
 description: Verwalten von Azure Storage-Ressourcen mit dem Storage-Explorer
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4ee91a91a20cbffebf7453ba573266962aa35806
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64924734"
 ---
 # <a name="get-started-with-storage-explorer"></a>Erste Schritte mit dem Storage-Explorer
 
@@ -61,7 +55,7 @@ Der Azure Storage-Explorer wird in folgenden Linux-Verteilungen unterstützt:
 
 Der Azure Storage-Explorer funktioniert möglicherweise mit anderen Verteilungen, es werden jedoch nur die oben aufgeführten Versionen offiziell unterstützt.
 
-Weitere Informationen zum Installieren von Storage-Explorer unter Linux finden Sie im [Leitfaden zur Problembehandlung](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
+Weitere Informationen zum Installieren von Storage-Explorer unter Linux finden Sie im [Leitfaden zur Problembehandlung](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 Die [Versionshinweise](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) des Azure Storage-Explorers enthalten für einige Verteilungen spezielle Schritte.
 
@@ -99,7 +93,7 @@ Darüber hinaus können Sie mit Speicherkonten in Azure (global und national) ar
 
 2. Im linken Bereich werden jetzt alle Azure-Konten angezeigt, bei denen Sie angemeldet sind. Wählen Sie zum Herstellen der Verbindung mit einem anderen Konto die Option **Konto hinzufügen**.
 
-3. Wenn Sie sich bei einer nationalen Cloud oder Azure Stack anmelden möchten, klicken Sie auf die Dropdownliste **Azure-Umgebung**, um die gewünschte Azure-Cloud auszuwählen. Nachdem Sie Ihre Umgebung gewählt haben, klicken Sie auf die Schaltfläche **Anmelden...**. Weitere Informationen zur Anmeldung bei Azure Stack finden Sie unter [Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement](/azure-stack/user/azure-stack-storage-connect-se).
+3. Wenn Sie sich bei einer nationalen Cloud oder Azure Stack anmelden möchten, klicken Sie auf die Dropdownliste **Azure-Umgebung**, um die gewünschte Azure-Cloud auszuwählen. Nachdem Sie Ihre Umgebung gewählt haben, klicken Sie auf die Schaltfläche **Anmelden...** . Weitere Informationen zur Anmeldung bei Azure Stack finden Sie unter [Herstellen einer Verbindung von Storage-Explorer mit einem Azure Stack-Abonnement](/azure-stack/user/azure-stack-storage-connect-se).
 
     ![Anmeldeoption][2]
 
@@ -115,7 +109,9 @@ Darüber hinaus können Sie mit Speicherkonten in Azure (global und national) ar
 
 Mit dem Storage-Explorer können Sie unter Verwendung eines Emulators Schritte für den lokalen Speicher ausführen. Dadurch können Sie die Verwendung von Azure Storage simulieren, ohne dass unbedingt ein Speicherkonto in Azure bereitgestellt werden muss.
 
-Der lokale Speicheremulator wird ab Version 1.1.0 auf allen Plattformen unterstützt. Mit dem Storage-Explorer kann eine Verbindung mit einem beliebigen emulierten Dienst hergestellt werden, der auf zugehörige lokale standardmäßige Speicherendpunkte lauscht.
+Ab Version 1.1.0 unterstützt der Storage-Explorer die Verwendung eines lokalen Speicheremulators auf allen Plattformen. Mit dem Storage-Explorer kann eine Verbindung mit einem beliebigen emulierten Dienst hergestellt werden, der auf zugehörige lokale standardmäßige Speicherendpunkte lauscht.
+
+Der [Azure-Speicheremulator](storage/common/storage-use-emulator.md) wird derzeit nur unter Windows ausgeführt. Eine Option für diejenigen, die einen Speicheremulator für Linux in Betracht ziehen, ist der von der Community unterstützte Open Source-Standardemulator [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Die Unterstützung für Speicherdienste und -funktionen kann abhängig von Ihrer Auswahl eines Emulators stark variieren. Stellen Sie sicher, dass Ihr Emulator die Dienste und Funktionen unterstützt, mit denen Sie arbeiten möchten.
@@ -136,7 +132,7 @@ Der lokale Speicheremulator wird ab Version 1.1.0 auf allen Plattformen unterst�
 
 4. Geben Sie die Portnummern für die Dienste, die Sie oben konfiguriert haben (lassen Sie dies leer, wenn Sie nicht beabsichtigen, diesen Dienst zu nutzen). Klicken Sie auf **Weiter** und dann auf **Verbinden**, um die Verbindung zu erstellen.
 
-5. Erweitern Sie **Local & Attached (Lokal und angefügt)** > **Speicherkonten** > „Knoten“ und dann die Dienstknoten unter dem Knoten, der Ihrer Emulatorverbindung entspricht.
+5. Erweitern Sie **Local & Attached (Lokal und angefügt)**  > **Speicherkonten** > „Knoten“ und dann die Dienstknoten unter dem Knoten, der Ihrer Emulatorverbindung entspricht.
 
    Sie können mithilfe dieses Knotens lokale Blobs, Warteschlangen und Tabellen erstellen und mit diesen arbeiten. Weitere Informationen zur Verwendung der einzelnen Speicherkontotypen finden Sie in den folgenden Anleitungen:
 

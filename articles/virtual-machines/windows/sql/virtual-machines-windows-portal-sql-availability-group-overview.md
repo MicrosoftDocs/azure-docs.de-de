@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60325810"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Einführung in SQL Server Always On-Verfügbarkeitsgruppen auf virtuellen Azure-Computern #
 
@@ -38,9 +38,9 @@ Außerdem werden in einem Azure IaaS-VM-Gast-Failovercluster eine einzelne Netzw
 
 |  | Windows Server-Version | SQL Server-Version | SQL Server-Edition | WSFC-Quorumkonfiguration | Notfallwiederherstellung mit mehreren Regionen | Unterstützung mehrerer Subnetze | Unterstützung für ein vorhandenes AD | Notfallwiederherstellung mit mehreren Zonen in derselben Region | Dist-AG-Unterstützung ohne AD-Domäne | Dist-AG-Unterstützung ohne Cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [SQL-VM-Befehlszeilenschnittstelle](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Cloudzeuge | Nein  | Ja | Ja | Ja | Nein  | Nein  |
-| [Schnellstartvorlagen](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Cloudzeuge | Nein  | Ja | Ja | Ja | Nein  | Nein  |
-| [Vorlage im Portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Dateifreigabe | Nein  | Nein  | Nein  | Nein  | Nein  | Nein  |
+| [SQL-VM-Befehlszeilenschnittstelle](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Cloudzeuge | Nein | Ja | Ja | Ja | Nein | Nein |
+| [Schnellstartvorlagen](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Cloudzeuge | Nein | Ja | Ja | Ja | Nein | Nein |
+| [Vorlage im Portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Dateifreigabe | Nein | Nein | Nein | Nein | Nein | Nein |
 | [Manuell](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Alle | Alle | Alle | Alle | Ja | Ja | Ja | Ja | Ja | Ja |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 

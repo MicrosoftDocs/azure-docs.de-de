@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904490"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62122813"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Verwenden der automatischen Bereitstellung des Azure IoT Hub Device Provisioning Service zum Registrieren des MXChip IoT DevKit bei IoT Hub
 
@@ -110,7 +110,7 @@ Der von diesem Beispiel verwendete [Nachweismechanismus](/azure/iot-dps/concepts
 1. Öffnen Sie im Azure-Portal Ihren Gerätebereitstellungsdienst, navigieren Sie zum Abschnitt „Manage Enrollments“ (Registrierungen verwalten), und klicken Sie auf **Add individual enrollment** (Individuelle Registrierung hinzufügen).
   ![Individuelle Registrierung hinzufügen](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
 
-1. Klicken Sie auf das Dateisymbol neben **Primäres Zertifikat (PEM- oder CER-Datei)**, um die generierte `.pem`-Datei hochzuladen.
+1. Klicken Sie auf das Dateisymbol neben **Primäres Zertifikat (PEM- oder CER-Datei)** , um die generierte `.pem`-Datei hochzuladen.
   ![PEM hochladen](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
 
 ## <a name="verify-the-devkit-is-registered-with-azure-iot-hub"></a>Überprüfen der Registrierung des DevKits bei Azure IoT Hub

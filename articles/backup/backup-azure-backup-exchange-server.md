@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60647262"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sichern eines Exchange-Servers unter Azure Backup mit System Center 2012 R2 DPM
 In diesem Artikel wird beschrieben, wie Sie einen Server mit System Center 2012 R2 Data Protection Manager (DPM) konfigurieren, um einen Microsoft Exchange-Server in Azure Backup zu sichern.  
@@ -67,7 +67,7 @@ Führen Sie die folgenden Schritte aus, um den DPM-Schutz-Agent auf dem Exchange
     Nach dem Auswählen dieser Option wird für den DPM-Server die Backupkonsistenz überprüft, um den generierten E/A-Datenverkehr zu vermeiden, indem der Befehl **eseutil** auf dem Exchange-Server ausgeführt wird.
 
    > [!NOTE]
-   > Zum Verwenden dieser Option müssen Sie die Dateien „Ese.dll“ und „Eseutil.exe“ auf dem DPM-Server in das Verzeichnis „C:\Programme\Microsoft System Center 2012 R2\DPM\DPM\bin“ kopieren. Andernfalls wird der folgende Fehler ausgelöst:   
+   > Zum Verwenden dieser Option müssen Sie die Dateien „Ese.dll“ und „Eseutil.exe“ auf dem DPM-Server in das Verzeichnis „C:\Programme\Microsoft System Center 2012 R2\DPM\DPM\bin“ kopieren. Andernfalls wird der folgende Fehler ausgelöst:  
    > ![eseutil-Fehler](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -82,10 +82,10 @@ Führen Sie die folgenden Schritte aus, um den DPM-Schutz-Agent auf dem Exchange
 11. Überprüfen Sie den verfügbaren Speicherplatz, und klicken Sie auf **Weiter**.
 12. Wählen Sie den Zeitpunkt aus, an dem der DPM-Server die erste Replikation erstellt, und klicken Sie auf **Weiter**.
 13. Wählen Sie die Optionen für die Konsistenzüberprüfung aus, und klicken Sie auf **Weiter**.
-14. Wählen Sie die Datenbank aus, die Sie unter Azure sichern möchten, und klicken Sie auf **Weiter**. Beispiel: 
+14. Wählen Sie die Datenbank aus, die Sie unter Azure sichern möchten, und klicken Sie auf **Weiter**. Beispiel:
 
     ![Onlineschutzdaten angeben](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Definieren Sie den Zeitplan für **Azure Backup**, und klicken Sie auf **Weiter**. Beispiel: 
+15. Definieren Sie den Zeitplan für **Azure Backup**, und klicken Sie auf **Weiter**. Beispiel:
 
     ![Zeitplan für Onlinesicherung angeben](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

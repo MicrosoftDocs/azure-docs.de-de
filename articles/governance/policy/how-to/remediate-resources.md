@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ba015a1d5183fcf27cfcc05ef1d0cd838201e91e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077114"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Korrigieren nicht konformer Ressourcen mit Azure Policy
 
-Ressourcen, die mit der Richtlinie **deployIfNotExists** nicht konform sind, können über die **Wiederherstellung** in einen konformen Zustand versetzt werden. Die Wiederherstellung erfolgt durch die Anweisung von Azure Policy, den **deployIfNotExists**-Effekt der zugewiesenen Richtlinie auf Ihren vorhandenen Ressourcen auszuführen. Dieser Artikel zeigt die Schritte, die erforderlich sind, um die Korrektur mithilfe von Azure Policy zu verstehen und durchzuführen.
+Ressourcen, die mit der Richtlinie **deployIfNotExists** nicht konform sind, können über die **Wiederherstellung** in einen konformen Zustand versetzt werden. Die Wiederherstellung erfolgt durch die Anweisung an Azure Policy, den **deployIfNotExists**-Effekt der zugewiesenen Richtlinie auf Ihren vorhandenen Ressourcen auszuführen. Dieser Artikel zeigt die Schritte, die erforderlich sind, um die Korrektur mithilfe von Azure Policy zu verstehen und durchzuführen.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Sicherheit durch Wiederherstellung
 
 Wenn Azure Policy die Vorlage in der Richtliniendefinition **deployIfNotExists** ausführt, wird hierfür eine [Verwaltete Identität](../../../active-directory/managed-identities-azure-resources/overview.md) verwendet.
-Die Azure Policy-Instanz erstellt für jede Ihrer Zuweisungen eine verwaltete Identität, muss jedoch wissen, welchen Rollen die verwaltete Identität gewährt werden soll. Wenn der der verwalteten Identität Rollen fehlen, wird dieser Fehler während der Zuweisung der Richtlinie oder in einer Initiative angezeigt. Bei Verwendung des Portals gewährt die Azure Policy-Instanz der verwalteten Identität automatisch die aufgelisteten Rollen, sobald die Zuweisung ausgelöst wurde.
+Azure Policy erstellt für jede Ihrer Zuweisungen eine verwaltete Identität, muss jedoch wissen, welchen Rollen die verwaltete Identität gewährt werden soll. Wenn der der verwalteten Identität Rollen fehlen, wird dieser Fehler während der Zuweisung der Richtlinie oder in einer Initiative angezeigt. Bei Verwendung des Portals gewährt Azure Policy der verwalteten Identität automatisch die aufgelisteten Rollen, sobald die Zuweisung ausgelöst wurde.
 
 ![Verwaltete Identität – fehlende Rolle](../media/remediate-resources/missing-role.png)
 
@@ -39,7 +39,7 @@ Im ersten Schritt werden die Rollen definiert, die **deployIfNotExists** in der 
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -51,13 +51,9 @@ Im ersten Schritt werden die Rollen definiert, die **deployIfNotExists** in der 
 az role definition list --name 'Contributor'
 ```
 
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
-```
-
 ## <a name="manually-configure-the-managed-identity"></a>Manuelles Konfigurieren der verwalteten Identität
 
-Bei der Erstellung einer Zuweisung über das Portal generiert die Azure Policy-Instanz die verwaltete Identität und weist ihr die in **roleDefinitionIds** definierten Rollen zu. In den folgenden Bedingungen müssen die Schritte zum Erstellen der verwalteten Identität und zum Zuweisen von Berechtigungen manuell erfolgen:
+Bei der Erstellung einer Zuweisung über das Portal generiert Azure Policy die verwaltete Identität und weist ihr die in **roleDefinitionIds** definierten Rollen zu. In den folgenden Bedingungen müssen die Schritte zum Erstellen der verwalteten Identität und zum Zuweisen von Berechtigungen manuell erfolgen:
 
 - Bei der Verwendung des SDK (z.B. Azure PowerShell)
 - Wenn eine Ressource außerhalb des Zuweisungsbereichs von der Vorlage geändert wird
@@ -126,7 +122,8 @@ Führen Sie die folgenden Schritte aus, um eine Rolle zu der verwalteten Identit
 
 1. Klicken Sie auf der Seite „Ressourcen“ auf den Link **Zugriffssteuerung (IAM)** und anschließend oben auf der Seite „Zugriffssteuerung“ auf **+ Rollenzuweisung hinzufügen**.
 
-1. Wählen Sie die entsprechende Rolle, die **roleDefinitionIds** aus der Richtliniendefinition entspricht. Lassen Sie für **Zugriff zuweisen zu** den Standardwert „Azure AD-Benutzer, -Gruppe oder -Anwendung“ festgelegt. Fügen Sie im Feld **Auswählen** den zuvor lokalisierten Teil der Ressourcen-ID der Zuweisung ein oder geben Sie diesen ein. Klicken Sie nach Abschluss der Suche auf das Objekt mit dem gleichen Namen, um die ID auszuwählen, und anschließend auf **Speichern**.
+1. Wählen Sie die entsprechende Rolle, die **roleDefinitionIds** aus der Richtliniendefinition entspricht.
+   Lassen Sie für **Zugriff zuweisen zu** den Standardwert „Azure AD-Benutzer, -Gruppe oder -Anwendung“ festgelegt. Fügen Sie im Feld **Auswählen** den zuvor lokalisierten Teil der Ressourcen-ID der Zuweisung ein oder geben Sie diesen ein. Klicken Sie nach Abschluss der Suche auf das Objekt mit dem gleichen Namen, um die ID auszuwählen, und anschließend auf **Speichern**.
 
 ## <a name="create-a-remediation-task"></a>Erstellen eines Wartungstask
 
@@ -193,9 +190,9 @@ Andere Cmdlets zur Wartung und Beispiele finden Sie im [Az.PolicyInsights](/powe
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Unter [Azure Policy-Beispiele](../samples/index.md) finden Sie Beispiele
-- Befassen Sie sich mit der [Struktur von Azure Policy-Definitionen](../concepts/definition-structure.md).
+- Sehen Sie sich die Beispiele unter [Azure Policy-Beispiele](../samples/index.md) an.
+- Lesen Sie die Informationen unter [Struktur von Azure Policy-Definitionen](../concepts/definition-structure.md).
 - Lesen Sie [Grundlegendes zu Richtlinienauswirkungen](../concepts/effects.md).
-- Informieren Sie sich über das [programmgesteuerte Erstellen von Richtlinien](programmatically-create.md)
+- Informieren Sie sich über das [programmgesteuerte Erstellen von Richtlinien](programmatically-create.md).
 - Informieren Sie sich über das [Abrufen von Konformitätsdaten](getting-compliance-data.md).
 - Weitere Informationen zu Verwaltungsgruppen finden Sie unter [Organisieren Ihrer Ressourcen mit Azure-Verwaltungsgruppen](../../management-groups/overview.md).

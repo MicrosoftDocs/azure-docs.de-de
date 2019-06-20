@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143072"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496570"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Erstellen einer durch HTTP ausgelösten Funktion in Azure
 
@@ -108,7 +108,7 @@ Es wird ein Unterordner mit dem Namen _HttpTrigger_ erstellt, der die folgenden 
 
   Für jede Bindung sind eine Richtung, ein Typ und ein eindeutiger Name erforderlich. Der HTTP-Trigger weist eine Eingabebindung vom Typ [`httpTrigger`](functions-bindings-http-webhook.md#trigger) und eine Ausgabebindung vom Typ [`http`](functions-bindings-http-webhook.md#output) auf.
 
-* **__Init__py**: Skriptdatei, die Ihre per HTTP ausgelöste Funktion darstellt. Überprüfen Sie dieses Skript, und beachten Sie, dass es eine `main()`-Standardfunktion enthält. HTTP-Daten aus dem Trigger werden mithilfe des benannten Bindungsparameters `req` an diese Funktion übergeben. `req` ist in function.json definiert und stellt eine Instanz der [azure.functions.HttpRequest-Klasse](/python/api/azure-functions/azure.functions.httprequest) dar. 
+* **\_\_Init\_\_.py**: Skriptdatei, die Ihre per HTTP ausgelöste Funktion darstellt. Überprüfen Sie dieses Skript, und beachten Sie, dass es eine `main()`-Standardfunktion enthält. HTTP-Daten aus dem Trigger werden mithilfe des benannten Bindungsparameters `req` an diese Funktion übergeben. `req` ist in function.json definiert und stellt eine Instanz der [azure.functions.HttpRequest-Klasse](/python/api/azure-functions/azure.functions.httprequest) dar. 
 
     Das Rückgabeobjekt, das in function.json als `$return` definiert ist, ist eine Instanz der [azure.functions.HttpResponse-Klasse](/python/api/azure-functions/azure.functions.httpresponse). Weitere Informationen finden Sie unter [HTTP-Trigger und -Bindungen in Azure Functions](functions-bindings-http-webhook.md).
 
@@ -175,7 +175,7 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 ```
 
 > [!NOTE]
-> Linux- und Windows-Apps können nicht in derselben Ressourcengruppe gehostet werden. Wenn Sie über eine bestehende Ressourcengruppe mit dem Namen `myResourceGroup` und einer Windows-Funktions-App oder -Web-App verfügen, müssen Sie eine andere Ressourcengruppe verwenden.
+> Azure Functions: Der Verbrauchsplan für Linux befindet sich derzeit in der Vorschau und steht nur in folgenden Regionen zur Verfügung: „USA, Westen“, „USA, Osten“, „Europa, Westen“, „Asien, Osten“. Linux- und Windows-Apps können zudem nicht in derselben Ressourcengruppe gehostet werden. Wenn Sie über eine bestehende Ressourcengruppe mit dem Namen `myResourceGroup` und einer Windows-Funktions-App oder -Web-App verfügen, müssen Sie eine andere Ressourcengruppe verwenden.
 
 Nun können Sie Ihr lokales Funktions-Projekt in der Funktions-App in Azure veröffentlichen.
 

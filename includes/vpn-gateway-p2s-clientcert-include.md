@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66157212"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177953"
 ---
 Auf jedem Clientcomputer, für den Sie eine Point-to-Site-Verbindung mit einem VNet herstellen, muss ein Clientzertifikat installiert sein. Sie generieren es aus dem Stammzertifikat und installieren es auf jedem Clientcomputer. Wenn Sie kein gültiges Clientzertifikat installieren, und der Client versucht, eine Verbindung mit dem VNET herzustellen, tritt bei der Authentifizierung ein Fehler auf.
 

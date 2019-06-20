@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: faa93b75bde3a14e48baa7d27a3eb6439a137e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65081400"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482309"
 ---
-1. Starten Sie Visual Studio 2017.
+1. Starten Sie Visual Studio 2019.
 
 1. Stellen Sie sicher, dass die Workload **Entwicklung für die universelle Windows-Plattform** verfügbar ist. Wählen Sie **Tools** > **Tools und Features abrufen** in der Visual Studio-Menüleiste aus, um den Visual Studio-Installer zu öffnen. Wenn diese Workload bereits aktiviert ist, schließen Sie das Dialogfeld.
 
@@ -19,11 +19,11 @@ ms.locfileid: "65081400"
 
     Aktivieren Sie andernfalls das Kontrollkästchen neben **Plattformübergreifende .NET-Entwicklung**, und wählen Sie **Ändern** in der unteren rechten Ecke des Dialogfelds aus. Die Installation des neuen Features nimmt etwas Zeit in Anspruch.
 
-1. Erstellen Sie eine leere universelle Visual C#-Windows-App. Wählen Sie zunächst **Datei** > **Neu** > **Projekt** aus dem Menü aus. Erweitern Sie im Dialogfeld **Neues Projekt** die Option **Installiert** > **Visual C#** > **Windows universell** im linken Bereich. Wählen Sie dann **Leere App (universelles Windows)** aus. Geben Sie als Projektnamen *helloworld* ein.
+1. Erstellen Sie eine leere universelle Visual C#-Windows-App. Wählen Sie zunächst **Datei** > **Neu** > **Projekt** aus dem Menü aus. Erweitern Sie im Dialogfeld **Neues Projekt** die Option **Installiert** > **Visual C#**  > **Windows universell** im linken Bereich. Wählen Sie dann **Leere App (universelles Windows)** aus. Geben Sie als Projektnamen *helloworld* ein.
 
     ![Screenshot: Dialogfeld „Neues Projekt“](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Die Speech SDK erfordert, dass Ihre Anwendung für das Windows 10 Fall Creators Update oder höher erstellt wird. Wählen Sie im Fenster **Neues UWP-Projekt (Universelle Windows-Plattform)**, das angezeigt wird, **Windows 10 Fall Creators Update (10.0, Build 16299)** als **Mindestversion** aus. Wählen Sie im Feld **Zielversion** diese oder eine spätere Version aus, und klicken Sie dann auf **OK**.
+1. Die Speech SDK erfordert, dass Ihre Anwendung für das Windows 10 Fall Creators Update oder höher erstellt wird. Wählen Sie im Fenster **Neues UWP-Projekt (Universelle Windows-Plattform)** , das angezeigt wird, **Windows 10 Fall Creators Update (10.0, Build 16299)** als **Mindestversion** aus. Wählen Sie im Feld **Zielversion** diese oder eine spätere Version aus, und klicken Sie dann auf **OK**.
 
     ![Screenshot des Fensters „Neues UWP-Projekt (Universelle Windows-Plattform)“](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

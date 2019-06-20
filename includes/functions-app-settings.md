@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 08/15/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 0e865465b6566e290dd59d061385510e7c0a2d46
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a8ef570674e2abea3337e5278810d583c7b721a6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669754"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177853"
 ---
 Es gibt mehrere Möglichkeiten zum Hinzufügen, Aktualisieren und Löschen von Funktionen-App-Einstellungen:
 

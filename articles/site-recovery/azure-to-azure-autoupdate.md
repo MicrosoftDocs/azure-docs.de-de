@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792927"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922101"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische Updates von Mobility Service bei der Replikation zwischen Azure-Regionen
 
@@ -31,9 +31,10 @@ Wenn Site Recovery Ihre Updates verwaltet, wird ein globales Runbook (das von Az
 Standardmäßig führt das Runbook dies jeden Tag um 0:00 Uhr in der Zeitzone des geografischen Raums der replizierten VM durch. Sie können diese Zeit über das Automatisierungskonto anpassen.
 
 > [!NOTE]
+> Ab dem Updaterollup 35 können Sie ein vorhandenes Automatisierungskonto auswählen, um es für Updates zu verwenden. Vor diesem Update wurde dieses Konto standardmäßig von Site Recovery erstellt. Diese Option ist verfügbar, wenn Sie die Replikation für einen virtuellen Computer aktivieren. Wenn Sie die Einstellung ändern, gilt sie für alle Azure-VMs, die in demselben Tresor geschützt werden.
+ 
 > Das Aktivieren automatischer Updates erfordert keinen Neustart der Azure-VMs und hat keinen Einfluss auf eine laufende Replikation.
 
-> [!NOTE]
 > Die Abrechnung des Automatisierungskontos erfolgt auf Grundlage der Gesamtzahl an Minuten, die pro Monat zur Auftragsausführung verwendet wurden. Standardmäßig verfügt jedes Automatisierungskonto über 500 kostenlose Minuten. Die Auftragsausführung kann jeden Tag zwischen wenigen Sekunden und einer Minute in Anspruch nehmen und ist in den kostenlosen Einheiten enthalten.
 
 | Inbegriffenen kostenlosen Einheiten (pro Monat) | Preis |
@@ -63,7 +64,7 @@ Wenn Sie die Replikation für einen virtuellen Computer aktivieren, indem Sie en
 
 
 > [!Note]
-> Bei beiden Optionen werden Sie über das Automatisierungskonto informiert, das zum Verwalten der Updates verwendet wird. Wenn Sie dieses Feature zum ersten Mal in einem Tresor verwenden, wird ein neues Automatisierungskonto erstellt. Alle nachfolgend im selben Tresor aktivierten Replikationen verwenden das zuvor erstellte Konto.
+> Bei beiden Optionen werden Sie über das Automatisierungskonto informiert, das zum Verwalten der Updates verwendet wird. Wenn Sie dieses Feature zum ersten Mal in einem Tresor verwenden, wird standardmäßig ein neues Automatisierungskonto erstellt. Alternativ können Sie die Einstellung anpassen und ein vorhandenes Automatisierungskonto auswählen. Alle nachfolgend im selben Tresor aktivierten Replikationen verwenden das zuvor erstellte Konto.
 
 Für ein benutzerdefiniertes Automatisierungskonto können Sie das folgende Skript verwenden:
 
@@ -534,3 +535,14 @@ Wenn Sie keine automatischen Updates aktivieren konnten, finden Sie in den häuf
 - **Fehler**: Das ausführende Konto wurde nicht gefunden. Eine der folgenden Komponenten wurde gelöscht oder nicht erstellt – Azure Active Directory-Anwendung, Dienstprinzipal, Rolle, Automation-Zertifikatasset, Automation-Verbindungsasset – oder der Fingerabdruck im Zertifikat ist nicht identisch mit dem der Verbindung. 
 
     **Empfohlene Maßnahme:** Löschen Sie das Konto, und [erstellen Sie das ausführende Konto neu](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+
+-  **Fehler**: Das vom Automatisierungskonto verwendete Zertifikat für das ausführende Azure-Konto wird bald ablaufen. 
+
+    Das für das ausführende Konto erstellte selbstsignierte Zertifikat läuft ein Jahr nach dem Datum seiner Erstellung ab. Sie können es vor dem Ablaufdatum jederzeit erneuern. Wenn Sie sich für E-Mail-Benachrichtigungen registriert haben, erhalten Sie außerdem E-Mails, wenn Ihrerseits eine Maßnahme erforderlich ist. Dieser Fehler wird 2 Monate vor dem Ablaufdatum angezeigt und in einen kritischen Fehler geändert, wenn das Zertifikat abgelaufen ist. Nachdem das Zertifikat abgelaufen ist, funktioniert die automatische Aktualisierung so lange nicht mehr, bis sie es erneuert haben.
+
+   **Empfohlene Maßnahme:** Klicken Sie auf „Reparieren“ und dann auf „Zertifikat erneuern“, um dieses Problem zu beheben.
+    
+   ![Zertifikat erneuern](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> Nachdem Sie das Zertifikat erneuert haben, aktualisieren Sie bitte die Seite, damit der aktuelle Status aktualisiert wird.

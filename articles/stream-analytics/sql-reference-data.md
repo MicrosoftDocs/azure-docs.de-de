@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084309"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304967"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Verwenden von Verweisdaten aus einer SQL-Datenbank für einen Azure Stream Analytics-Auftrag (Vorschauversion)
 
@@ -59,16 +59,14 @@ Fügen Sie mit den folgenden Schritten die Azure SQL-Datenbank-Instanz als Verwe
 
 ### <a name="visual-studio-prerequisites"></a>Voraussetzungen für Visual Studio
 
-1. Wenn Sie Visual Studio 2017 verwenden, aktualisieren Sie auf 15.8.2 oder höher. Beachten Sie, dass 16.0 und höher an diesem Punkt nicht unterstützt werden.
-
-2. [Installieren Sie die Stream Analytics-Tools für Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Die folgenden Versionen von Visual Studio werden unterstützt:
+1. [Installieren Sie die Stream Analytics-Tools für Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Die folgenden Versionen von Visual Studio werden unterstützt:
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. Machen Sie sich mit dem Schnellstart der [Stream Analytics-Tools für Visual Studio](stream-analytics-quick-create-vs.md) vertraut.
+2. Machen Sie sich mit dem Schnellstart der [Stream Analytics-Tools für Visual Studio](stream-analytics-quick-create-vs.md) vertraut.
 
-4. Erstellen Sie ein Speicherkonto.
+3. Erstellen Sie ein Speicherkonto.
 
 ### <a name="create-a-sql-database-table"></a>Erstellen einer SQL-Datenbanktabelle
 
@@ -118,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Öffnen Sie die SQL-Datei im Editor, und schreiben Sie die SQL-Abfrage.
 
-5. Wenn Sie Visual Studio 2017 verwenden und SQL Server Data Tools installiert haben, können Sie die Abfrage testen, indem Sie auf **Ausführen** klicken. Ein Assistentenfenster wird eingeblendet, das Sie beim Herstellen der Verbindung mit der SQL-Datenbank-Instanz unterstützt, und das Abfrageergebnis wird am unteren Rand des Fensters angezeigt.
+5. Wenn Sie Visual Studio 2019 verwenden und SQL Server Data Tools installiert haben, können Sie die Abfrage testen, indem Sie auf **Ausführen** klicken. Ein Assistentenfenster wird eingeblendet, das Sie beim Herstellen der Verbindung mit der SQL-Datenbank-Instanz unterstützt, und das Abfrageergebnis wird am unteren Rand des Fensters angezeigt.
 
 ### <a name="specify-storage-account"></a>Festlegen eines Speicherkontos
 
@@ -159,7 +157,7 @@ Wenn Sie die Deltaabfrage verwenden, werden [temporale Tabellen in der Azure SQL
  
 2. Erstellen Sie die Deltaabfrage. 
    
-   Diese Abfrage ruft alle Zeilen in der SQL-Datenbank-Instanz ab, die zwischen der Startzeit **\@deltaStartTime** und der Endzeit **\@deltaEndTime** eingefügt oder gelöscht wurden. Die Deltaabfrage muss die gleichen Spalten wie die Momentaufnahmenabfrage zurückgeben, sowie die Spalte  **_operation_**. Diese Spalte definiert, ob die Zeile zwischen **\@deltaStartTime** und **\@deltaEndTime** eingefügt oder gelöscht wird. Die sich ergebenden Zeilen werden mit **1** gekennzeichnet, wenn die Datensätze eingefügt wurden, oder **2**, wenn sie gelöscht wurden. 
+   Diese Abfrage ruft alle Zeilen in der SQL-Datenbank-Instanz ab, die zwischen der Startzeit **\@deltaStartTime** und der Endzeit **\@deltaEndTime** eingefügt oder gelöscht wurden. Die Deltaabfrage muss die gleichen Spalten wie die Momentaufnahmenabfrage zurückgeben, sowie die Spalte  **_operation_** . Diese Spalte definiert, ob die Zeile zwischen **\@deltaStartTime** und **\@deltaEndTime** eingefügt oder gelöscht wird. Die sich ergebenden Zeilen werden mit **1** gekennzeichnet, wenn die Datensätze eingefügt wurden, oder **2**, wenn sie gelöscht wurden. 
 
    Für Datensätze, die aktualisiert wurden, übernimmt die temporale Tabelle die Buchführung durch Erfassen eines Einfüge- und Löschvorgangs. Die Stream Analytics-Runtime wendet dann die Ergebnisse auf die an die vorhergehende Momentaufnahme gerichtete Deltaabfrage an, um die Verweisdaten auf dem neuesten Stand zu halten. Ein Beispiel der Deltaabfrage wird unten gezeigt:
 
@@ -174,6 +172,9 @@ Wenn Sie die Deltaabfrage verwenden, werden [temporale Tabellen in der Azure SQL
    ```
  
    Beachten Sie, dass die Stream Analytics-Runtime die Momentaufnahmenabfrage neben der Deltaabfrage in regelmäßigen Abständen ausführen kann, um Prüfpunkte zu speichern.
+
+## <a name="test-your-query"></a>Testen Ihrer Abfrage
+   Es ist wichtig, dass Sie sicherstellen, dass Ihre Abfrage das erwartete Dataset zurückgibt, das der Stream Analytics-Auftrag als Referenzdaten verwendet. Um Ihre Abfrage zu testen, wechseln Sie zur Eingabe im Auftragstopologieabschnitt des Portals. Sie können dann in der Eingabe Ihrer SQL-Datenbankreferenzeingabe Beispieldaten auswählen. Nachdem das Beispiel verfügbar ist, können Sie die Datei herunterladen und überprüfen, um festzustellen, ob die zurückgegebenen Daten wie erwartet sind. Wenn Sie Ihre Entwicklungs- und Testiterationen optimieren möchten, wird empfohlen, die [Stream Analytics-Tools für Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) zu verwenden. Sie können auch ein beliebiges anderes Tool Ihrer Wahl verwenden, um zuerst sicherzustellen, dass die Abfrage die richtigen Ergebnisse aus Ihrer Azure SQL-Datenbank zurückgibt, und diese dann in Ihrem Stream Analytics-Auftrag verwenden. 
 
 ## <a name="faqs"></a>Häufig gestellte Fragen
 
@@ -193,10 +194,6 @@ Mithilfe der Kombination dieser beiden Metriken kann ermittelt werden, ob der Au
 **Benötige ich eine besondere Art der Azure SQL-Datenbank-Instanz?**
 
 Azure Stream Analytics funktioniert mit jeder Art von Azure SQL-Datenbank-Instanz. Allerdings müssen Sie berücksichtigen, dass die für Ihre Verweisdateneingabe festgelegte Aktualisierungsrate sich auf Ihre Abfragelast auswirken kann. Um die Deltaabfrageoption zu verwenden, sollten Sie temporale Tabellen in Azure SQL-Datenbank verwenden.
-
-**Kann ich Eingaben aus der SQL-Datenbank-Verweisdateneingabe als Stichprobe verwenden?**
-
-Dieses Feature ist nicht verfügbar.
 
 **Warum speichert Azure Stream Analytics Momentaufnahmen im Azure Storage-Konto?**
 

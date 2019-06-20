@@ -16,11 +16,11 @@ ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62118883"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Verwalten von Batch-Ressourcen mit PowerShell-Cmdlets
 
@@ -50,13 +50,13 @@ Dieser Artikel basiert auf Cmdlets im Az Batch-Modul 1.0.0. Es empfiehlt sich, d
 
 ### <a name="create-a-batch-account"></a>Erstellen eines Batch-Kontos
 
-**New-AzBatchAccount** erstellt ein Batch-Konto in einer angegebenen Ressourcengruppe. Falls Sie noch nicht über eine Ressourcengruppe verfügen, können Sie eine erstellen, indem Sie das Cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) ausführen. Geben Sie eine Azure-Region im Parameter **Standort** an, z.B. „USA, Mitte“. Beispiel: 
+**New-AzBatchAccount** erstellt ein Batch-Konto in einer angegebenen Ressourcengruppe. Falls Sie noch nicht über eine Ressourcengruppe verfügen, können Sie eine erstellen, indem Sie das Cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) ausführen. Geben Sie eine Azure-Region im Parameter **Standort** an, z.B. „USA, Mitte“. Beispiel:
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Erstellen Sie anschließend ein Batch-Konto in der Ressourcengruppe. Geben Sie einen Namen für das Konto in <*account_name*> und den Speicherort und Namen der Ressourcengruppe an. Die Erstellung des Batch-Kontos kann einige Zeit dauern. Beispiel: 
+Erstellen Sie anschließend ein Batch-Konto in der Ressourcengruppe. Geben Sie einen Namen für das Konto in <*account_name*> und den Speicherort und Namen der Ressourcengruppe an. Die Erstellung des Batch-Kontos kann einige Zeit dauern. Beispiel:
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Löschen eines Batch-Kontos
 
-**Remove-AzBatchAccount** löscht ein Batch-Konto. Beispiel: 
+**Remove-AzBatchAccount** löscht ein Batch-Konto. Beispiel:
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -119,7 +119,7 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 ## <a name="create-and-modify-batch-resources"></a>Erstellen und Ändern von Batch-Ressourcen
 
-Verwenden Sie Cmdlets wie **New-AzBatchPool**, **New-AzBatchJob** und **New-AzBatchTask**, um unter einem Batch-Konto Ressourcen zu erstellen. Die entsprechenden Cmdlets **Get-** und **Set-** zum Aktualisieren der Eigenschaften vorhandener Ressourcen sind vorhanden, sowie auch Cmdlets vom Typ **Remove-**, um unter einem Batch-Konto Ressourcen zu entfernen.
+Verwenden Sie Cmdlets wie **New-AzBatchPool**, **New-AzBatchJob** und **New-AzBatchTask**, um unter einem Batch-Konto Ressourcen zu erstellen. Die entsprechenden Cmdlets **Get-** und **Set-** zum Aktualisieren der Eigenschaften vorhandener Ressourcen sind vorhanden, sowie auch Cmdlets vom Typ **Remove-** , um unter einem Batch-Konto Ressourcen zu entfernen.
 
 Bei der Verwendung von vielen dieser Cmdlets müssen Sie zusätzlich zum Übergeben eines BatchContext-Objekts auch Objekte erstellen oder übergeben, die ausführliche Ressourceneinstellungen enthalten. Dies wird im folgenden Beispiel veranschaulicht. In der detaillierten Hilfe für die einzelnen Cmdlets finden Sie weitere Beispiele.
 
@@ -175,7 +175,7 @@ Der **Id**-Parameter unterstützt ausschließlich die Suche nach der vollständi
 
 ### <a name="use-the-maxcount-parameter"></a>Verwenden des MaxCount-Parameters
 
-Jedes Cmdlet gibt standardmäßig bis zu 1.000 Objekte zurück. Wenn dieser Grenzwert erreicht ist, können Sie entweder den Filter weiter eingrenzen, sodass weniger Objekte zurückgegeben werden, oder mit dem **MaxCount** -Parameter explizit einen maximalen Wert festlegen. Beispiel: 
+Jedes Cmdlet gibt standardmäßig bis zu 1.000 Objekte zurück. Wenn dieser Grenzwert erreicht ist, können Sie entweder den Filter weiter eingrenzen, sodass weniger Objekte zurückgegeben werden, oder mit dem **MaxCount** -Parameter explizit einen maximalen Wert festlegen. Beispiel:
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context

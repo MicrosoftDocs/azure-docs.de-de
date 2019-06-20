@@ -1,54 +1,105 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/25/2018
+ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 1d3bfb7bc8a5432392dba3b0c5019902b3e59773
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39513778"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66455130"
 ---
-1. Klicken Sie auf die Schaltfläche **App Services**, wählen Sie Ihr Mobile Apps-Back-End aus, wählen Sie **Schnellstart** aus, und wählen Sie anschließend Ihre Clientplattform (iOS, Android, Xamarin oder Cordova) aus.
+1. Laden Sie die Client-SDK-Schnellstarts für die folgenden Plattformen herunter:
+    
+    [iOS (Objective-C)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS)  
+    [iOS (Swift)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/iOS-Swift)  
+    [Android (Java)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/android)  
+    [Xamarin.iOS](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.iOS)  
+    [Xamarin.Android](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.android)  
+    [Xamarin.Forms](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.forms)  
+    [Cordova](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/cordova)  
+    [Windows (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)  
 
-    ![Azure-Portal mit hervorgehobenem Mobile Apps-Schnellstart][quickstart]
+    > [!NOTE]
+    > Wenn Sie das iOS-Projekt verwenden, müssen Sie „azuresdk-iOS-\*.zip“ aus dem [neuesten GitHub-Release](https://github.com/Azure/azure-mobile-apps-ios-client/releases/latest) herunterladen. Entzippen Sie die Datei, und fügen Sie die Datei `MicrosoftAzureMobile.framework` dem Stamm des Projekts hinzu.
+    >
 
-1. Ist keine Datenbankverbindung konfiguriert, gehen Sie wie folgt vor, um eine zu erstellen:
+2. Sie müssen eine Datenbankverbindung hinzufügen oder eine Verbindung mit einer vorhandenen Verbindung herstellen. Legen Sie zunächst fest, ob Sie einen Datenspeicher erstellen oder einen bereits vorhandenen verwenden möchten.
 
-    ![Azure-Portal mit Mobile Apps – Herstellen der Datenbankverbindung][connect]
+    - **Erstellen eines neuen Datenspeichers**: Wenn Sie vorhaben, einen Datenspeicher zu erstellen, verwenden Sie den folgenden Schnellstart:
 
-    a. Erstellen Sie eine neue SQL-Datenbank und einen Server. Sie müssen für das Feld mit dem Namen der Verbindungszeichenfolge unter Umständen den Standardwert „MS_TableConnectionString“ übernehmen, um Schritt 3 weiter unten ausführen zu können.
+        [Schnellstart: Erste Schritte mit Einzeldatenbanken in Azure SQL-Datenbank](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
 
-    ![Azure-Portal mit Mobile Apps – Erstellen einer neuen Datenbank und eines Servers][server]
+    - **Vorhandene Datenquelle**: Befolgen Sie die nachstehenden Anweisungen, wenn Sie eine vorhandene Verbindung verwenden möchten.
 
-    b. Warten Sie, bis die Erstellung der Datenverbindung erfolgreich abgeschlossen wurde.
+        1. Format der SQL-Datenbank-Verbindungszeichenfolge: `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
 
-    ![Azure-Portal Benachrichtigung bei erfolgreicher Erstellung der Datenverbindung][notification]
+           **{your_SQLServer}** : Name des Servers. Diesen finden Sie auf der Übersichtsseite für Ihre Datenbank, in der Regel im Format „server_name.database.windows.net“.
+            **{port}** : Normalerweise 1433.
+            **{your_catalogue}** : Name der Datenbank.
+            **{your_username}** : Benutzername für den Zugriff auf Ihre Datenbank.
+            **{your_password}** : Kennwort für den Zugriff auf Ihre Datenbank.
 
-    c. Die Herstellung der Datenverbindung muss erfolgreich sein.
+            [Weitere Informationen zum Format der SQL-Verbindungszeichenfolge](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax#sqlclient-connection-strings)
 
-    ![Azure Portal-Benachrichtigung: „Sie verfügen bereits über eine Datenverbindung.“][already-connection]
+        2. Fügen Sie die Verbindungszeichenfolge Ihrer **mobilen App** hinzu. In App Service können Sie Verbindungszeichenfolgen für Ihre Anwendung über die Option **Konfiguration** im Menü verwalten.
 
-1. Wählen Sie unter **2. Tabellen-API erstellen** als **Back-End-Sprache** die Option „Node.js“ aus.
+            So fügen Sie eine Verbindungszeichenfolge hinzu:
 
-1. Akzeptieren Sie die Bestätigung, und wählen Sie dann **TodoItem-Tabelle erstellen** aus.
-    Dadurch wird in Ihrer Datenbank eine neue Aufgabenlistentabelle erstellt.
+            1. Klicken Sie auf die Registerkarte **Anwendungseinstellungen**.
 
-    >[!IMPORTANT]
-    > Bei der Umstellung eines vorhandenen Back-Ends auf Node.js werden sämtliche Inhalte überschrieben. Wenn Sie stattdessen ein .NET-Back-End erstellen möchten, lesen Sie [Vorgehensweise: Erstellen eines .NET Mobile App-Back-Ends][instructions].
+            2. Klicken Sie auf **[+] Neue Verbindungszeichenfolge**.
 
-<!-- Images. -->
-[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
-[connect]: ./media/app-service-mobile-configure-new-backend/connect-to-bd.png
-[notification]: ./media/app-service-mobile-configure-new-backend/notification-data-connection-create.png
-[server]: ./media/app-service-mobile-configure-new-backend/create-new-server.png
-[already-connection]: ./media/app-service-mobile-configure-new-backend/already-connection.png
+            3. Sie müssen den **Namen**, **Wert** und **Typ** Ihrer Verbindungszeichenfolge angeben.
 
-<!-- URLs -->
-[instructions]: ../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app
+            4. Geben Sie als **Name** `MS_TableConnectionString` ein.
+
+            5. Der Wert muss der Verbindungszeichenfolge entsprechen, die Sie im vorherigen Schritt zusammengestellt haben.
+
+            6. Wenn Sie eine Verbindungszeichenfolge einer SQL Azure-Datenbank hinzufügen, wählen Sie unter **Typ** die Option **SQLAzure**.
+
+3. Azure Mobile Apps umfasst SDKs für .NET- und Node.js-Back-Ends.
+
+   - **Node.js-Back-End**
+    
+     Wenn Sie die Node.js-Schnellstart-App verwenden möchten, befolgen Sie die nachstehenden Anweisungen.
+
+     1. Wechseln Sie im Azure-Portal zu **Einfache Tabellen**. Der folgende Bildschirm wird angezeigt.
+      
+        ![Node: Einfache Tabellen](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
+
+     2. Stellen Sie auf der Registerkarte **Konfiguration** sicher, dass die SQL-Verbindungszeichenfolge bereits hinzugefügt wurde. Aktivieren Sie dann das Kontrollkästchen **Ich bestätige, dass durch diese Aktion alle Websiteinhalte überschrieben werden**, und klicken Sie auf die Schaltfläche **TodoItem-Tabelle erstellen**.
+     
+        ![Node: Konfiguration einfacher Tabellen](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
+
+     3. Klicken Sie in **Einfache Tabellen** auf die Schaltfläche **+ Hinzufügen**.
+    
+        ![Node: Schaltfläche „Hinzufügen“ für einfache Tabellen](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
+
+     4. Erstellen Sie eine `TodoItem`-Tabelle mit anonymem Zugriff.
+      
+        ![Node: Einfache Tabelle hinzufügen](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
+
+   - **.NET-Back-End**
+    
+        Wenn Sie die .NET-Schnellstart-App verwenden möchten, befolgen Sie die nachstehenden Anweisungen.
+
+        1. Laden Sie das .NET-Serverprojekt für Azure Mobile Apps aus dem Repository [azure-mobile-apps-quickstarts](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet/Quickstart) herunter.
+
+        2. Erstellen Sie das .NET-Serverprojekt lokal in Visual Studio.
+
+        3. Öffnen Sie in Visual Studio den Projektmappen-Explorer, klicken Sie mit der rechten Maustaste auf das Projekt `ZUMOAPPNAMEService`, und klicken Sie auf **Veröffentlichen**. Das Fenster `Publish to App Service` wird angezeigt. Wenn Sie an einem Mac arbeiten, finden Sie [hier](https://docs.microsoft.com/azure/app-service/deploy-local-git) andere Möglichkeiten zum Bereitstellen der App.
+        
+           ![Visual Studio-Veröffentlichung](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
+
+        4. Wählen Sie **App Service** als Ziel für die Veröffentlichung aus, klicken Sie auf **Vorhandene auswählen**, und klicken Sie dann im unteren Fensterbereich auf **Veröffentlichen**.
+
+        5. Sie müssen sich zuerst mit Ihrem Azure-Abonnement bei Visual Studio anmelden. Wählen Sie `Subscription`, `Resource Group` und dann den Namen Ihrer App aus. Klicken Sie schließlich auf **OK**. Dadurch wird das lokale .NET-Serverprojekt im App Service-Back-End bereitgestellt. Nach Abschluss der Bereitstellung werden Sie im Browser an `http://{zumoappname}.azurewebsites.net/` umgeleitet.
+        
+           ![Das Back-End ist aktiv.](./media/app-service-mobile-configure-new-backend/backend-is-up.png)

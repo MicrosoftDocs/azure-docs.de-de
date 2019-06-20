@@ -8,19 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 2a7af59495966c76a47ea84311ab073eb594f82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b00630354834897793bbf357be378051bcf74698
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707573"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059379"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informationen zur Verwendung von HDInsight unter Linux
 
 Azure HDInsight-Cluster stellen Apache Hadoop in einer vertrauten Linux-Umgebung bereit, die in der Azure-Cloud ausgeführt wird. Die Lösung sollte sich größtenteils genauso wie jede andere Installation von Hadoop unter Linux verhalten. In diesem Dokument werden bestimmte Unterschiede aufgeführt, die Sie kennen sollten.
-
-> [!IMPORTANT]  
-> Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. Weitere Informationen finden Sie unter [Welche Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -55,7 +52,7 @@ Mit diesem Befehl wird ein JSON-Dokument mit einer Beschreibung des Diensts zur�
 
 ## <a name="remote-access-to-services"></a>Remotezugriff auf Dienste
 
-* **Ambari (Web)** - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (Web)**  - https://CLUSTERNAME.azurehdinsight.net
 
     Authentifizieren Sie sich mit dem Benutzernamen und Kennwort des Clusteradministrators, und melden Sie sich anschließend bei Ambari an.
 
@@ -66,14 +63,14 @@ Mit diesem Befehl wird ein JSON-Dokument mit einer Beschreibung des Diensts zur�
     >
     > Damit Sie die Funktionalität der Ambari-Webbenutzeroberfläche vollständig nutzen können, verwenden Sie einen SSH-Tunnel, um den Webdatenverkehr per Proxy an den Clusterhauptknoten weiterzuleiten. Weitere Informationen finden Sie unter [Verwenden von SSH-Tunneling zum Zugriff auf die Apache Ambari-Webbenutzeroberfläche, ResourceManager, JobHistory, NameNode, Oozie und andere Webbenutzeroberflächen](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > Authentifizieren Sie sich mit dem Benutzernamen und Kennwort des Clusteradministrators.
     >
     > Die Authentifizierung erfolgt unverschlüsselt. Verwenden Sie immer HTTPS, um eine sichere Verbindung zu gewährleisten.
 
-* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > Authentifizieren Sie sich mit dem Benutzernamen und Kennwort des Clusteradministrators.
@@ -251,7 +248,7 @@ Folgende Clustertypen sind von der Skalierung betroffen:
 Detaillierte Informationen zum Skalieren von HDInsight-Clustern finden Sie hier:
 
 * [Verwalten von Apache Hadoop-Clustern in HDInsight mit dem Azure-Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Verwalten von Apache Hadoop-Clustern in HDInsight mit Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Verwalten von Apache Hadoop-Clustern in HDInsight mit der Azure-Befehlszeilenschnittstelle](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Wie installiere ich Hue (oder eine andere Hadoop-Komponente)?
 
@@ -288,7 +285,6 @@ Um eine andere Version einer Komponente zu verwenden, laden Sie die benötigte V
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Migrieren von Windows-basiertem HDInsight zum Linux-basierten](hdinsight-migrate-from-windows-to-linux.md)
 * [Verwalten von HDInsight-Clustern mithilfe der Apache Ambari-REST-API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Verwenden von Apache Hive mit HDInsight](hadoop/hdinsight-use-hive.md)
 * [Verwenden von Apache Pig mit HDInsight](hadoop/hdinsight-use-pig.md)

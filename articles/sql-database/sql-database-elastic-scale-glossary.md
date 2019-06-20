@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561432"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60585580"
 ---
 # <a name="elastic-database-tools-glossary"></a>Tools für elastische Datenbanken – Glossar
 
@@ -29,7 +29,7 @@ Diese Begriffe werden in [Hinzufügen eines Shards mithilfe der Tools für elast
 
 **Datenbank**: Eine Azure SQL-Datenbank. 
 
-**Datenabhängiges Routing**: Die Funktion, die es einer Anwendung ermöglicht, unter Verwendung eines bestimmten Shardschlüssels eine Verbindung mit einem Shard herzustellen. Siehe [Datenabhängiges Routing](sql-database-elastic-scale-data-dependent-routing.md). Vgl. **[Abfragen mehrerer Shards](sql-database-elastic-scale-multishard-querying.md)**.
+**Datenabhängiges Routing**: Die Funktion, die es einer Anwendung ermöglicht, unter Verwendung eines bestimmten Shardschlüssels eine Verbindung mit einem Shard herzustellen. Siehe [Datenabhängiges Routing](sql-database-elastic-scale-data-dependent-routing.md). Vgl. **[Abfragen mehrerer Shards](sql-database-elastic-scale-multishard-querying.md)** .
 
 **Globale Shardzuordnung**: Die Zuordnung zwischen Shardschlüsseln und den zugehörigen Shards in einer **Shardgruppe**. Die globale Shardzuordnung wird im **Shardzuordnungs-Manager** gespeichert. Vgl. **lokale Shardzuordnung**.
 

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443988"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60362236"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Behandeln von Problemen mit geänderten Gerätenamen von Linux-VMs
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/04/2019
 ms.author: tulasim
 ms.openlocfilehash: 09369e760c654e7e56067e6da02bb772bffa7400
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61372595"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Abrufen von Analysen zu Ihrer Wissensdatenbank
 

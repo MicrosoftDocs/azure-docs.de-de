@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128875"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Erstellen einer App Service-Umgebung v1 
 
@@ -34,7 +34,7 @@ Die App Service-Umgebung (ASE) ist eine Premium-Dienstoption von Azure App Servi
 ### <a name="before-you-create-your-ase"></a>Bevor Sie Ihre ASE erstellen
 Es ist wichtig, die Aspekte zu berücksichtigen, die Sie ändern können. Die folgenden Aspekte Ihrer ASE können Sie nicht ändern, nachdem sie erstellt wurde:
 
-* Standort
+* Location
 * Abonnement
 * Ressourcengruppe
 * Verwendetes VNET

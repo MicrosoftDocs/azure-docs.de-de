@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60615894"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure-Nutzungs-API: Übersicht 
 
@@ -109,7 +109,7 @@ Die API umfasst:
 
 -   **Rollenbasierte Zugriffssteuerung für Azure**: Sie können Zugriffsrichtlinien im [Azure-Portal](https://portal.azure.com), mithilfe der [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) oder von [Azure PowerShell-Cmdlets](https://docs.microsoft.com/powershell/azure/overview) konfigurieren, um festzulegen, welche Benutzer oder Anwendungen Zugriff auf die Nutzungsdaten eines Abonnements erhalten. Aufrufer müssen zur Authentifizierung standardmäßige Azure Active Directory-Token verwenden. Ordnen Sie dem Aufrufer die Rolle „Abrechnungsleser“, „Leser“, „Besitzer“ oder „Mitwirkender“ zu, um Zugriff auf die Nutzungsdaten für ein bestimmtes Azure-Abonnement zu erhalten. 
 -   **Filterung**: Passen Sie Ihre Empfehlungsergebnisse mit den folgenden Filtern an:
-    - Bereich
+    - `Scope`
     - Rückblickperiode
 -   **Reservierungsinformationen für verschiedene Angebotstypen**: Reservierungsinformationen sind zurzeit für Enterprise Agreement- und Web Direct-Kunden verfügbar.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: ec2ee8fa9c374b5870cfcfd325925322c49aa0ca
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ba772ddfa0d3c29e2d4631d1c4a23555cba36556
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60729839"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Eingeschränkte vCPU-fähige VM-Größen
 

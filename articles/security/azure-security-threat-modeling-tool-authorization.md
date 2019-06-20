@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935884"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Sicherheitskonzept: Autorisierung | Risikominderung 
 | Produkt/Dienst | Artikel |
@@ -280,7 +280,7 @@ RLS ist als vorgefertigtes Datenbankfeature nur für SQL Server ab Version 2016 
 | **Zutreffende Technologien** | Allgemein |
 | **Attribute**              | StorageType: Tabelle |
 | **Referenzen**              | [Delegieren des Zugriffs auf Objekte in Ihrem Konto mithilfe von SAS und gespeicherter Zugriffsrichtlinien](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Schritte** | In bestimmten Geschäftsszenarien müssen in Azure Table Storage unter Umständen sensible Daten für unterschiedliche Parteien gespeichert werden. Ein Beispiel wären etwa sensible Daten für verschiedene Länder. In solchen Fällen können SAS-Signaturen unter Angabe der Partition und Zeilenschlüsselbereiche erstellt werden, sodass ein Benutzer auf spezifische Daten für ein bestimmtes Land zugreifen kann.| 
+| **Schritte** | In bestimmten Geschäftsszenarien müssen in Azure Table Storage unter Umständen sensible Daten für unterschiedliche Parteien gespeichert werden. Ein Beispiel wären etwa sensible Daten für verschiedene Länder/Regionen. In solchen Fällen können SAS-Signaturen unter Angabe der Partition und Zeilenschlüsselbereiche erstellt werden, sodass ein Benutzer auf spezifische Daten für ein bestimmtes Land bzw. eine bestimmte Region zugreifen kann.| 
 
 ## <a id="rbac-azure-manager"></a>Aktivieren Sie mithilfe von Azure Resource Manager die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) für das Azure-Speicherkonto.
 

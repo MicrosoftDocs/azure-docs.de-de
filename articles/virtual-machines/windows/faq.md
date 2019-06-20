@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466345"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Häufig gestellte Fragen zu virtuellen Windows-Computern

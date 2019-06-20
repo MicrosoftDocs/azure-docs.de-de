@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548634"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65791899"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Protokollierung von Metriken und Diagnosen für Azure SQL-Datenbank
 
@@ -64,15 +64,15 @@ Sie können Azure SQL-Datenbanken und Instanzdatenbanken zur Erfassung der folg
 
 | Überwachen von Telemetriedaten für Datenbanken | Unterstützung für Einzel- und Pooldatenbanken | Unterstützung der Instanzdatenbank |
 | :------------------- | ----- | ----- |
-| [AllMetrics](#all-metrics): Enthält DTU-/CPU-Prozentsatz, DTU/CPU-Limit, gelesene physische Daten in Prozent, Protokollschreibvorgänge in Prozent, Verbindungen mit dem Status „Erfolgreich“, „Fehler“ und „Durch Firewall blockiert“, Sitzungen in Prozent, Worker in Prozent, Speicher, Speicher in Prozent und XTP-Speicher in Prozent. | Ja | Nein  |
+| [Grundlegende Metriken](#basic-metrics): Enthält DTU-/CPU-Prozentsatz, DTU/CPU-Limit, gelesene physische Daten in Prozent, Protokollschreibvorgänge in Prozent, Verbindungen mit dem Status „Erfolgreich“, „Fehler“ und „Durch Firewall blockiert“, Sitzungen in Prozent, Worker in Prozent, Speicher, Speicher in Prozent und XTP-Speicher in Prozent. | Ja | Nein |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Enthält Informationen zur Laufzeitstatistik der Abfrage, z. B. CPU-Nutzung und Abfragedauer. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Enthält Informationen zur Wartestatistik der Abfrage (worauf Ihre Abfragen gewartet haben), z.B. CPU, LOG und LOCKING. | Ja | Ja |
 | [Fehler:](#errors-dataset) Enthält Informationen zu SQL-Fehlern für eine Datenbank. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Enthält Informationen zur Wartezeit einer Datenbank für die verschiedenen Wartezeittypen. | Ja | Nein  |
-| [Timeouts](#time-outs-dataset): Enthält Informationen zu SQL-Timeouts für eine Datenbank. | Ja | Nein  |
-| [Blocks](#blockings-dataset): Enthält Informationen zu blockierenden Ereignissen für eine Datenbank. | Ja | Nein  |
-| [Deadlocks](#deadlocks-dataset): Enthält Informationen zu Deadlockereignissen für eine Datenbank. | Ja | Nein  |
-| [AutomaticTuning](#automatic-tuning-dataset): Enthält Informationen zu automatischen Optimierungsempfehlungen für eine Datenbank. | Ja | Nein  |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Enthält Informationen zur Wartezeit einer Datenbank für die verschiedenen Wartezeittypen. | Ja | Nein |
+| [Timeouts](#time-outs-dataset): Enthält Informationen zu SQL-Timeouts für eine Datenbank. | Ja | Nein |
+| [Blocks](#blockings-dataset): Enthält Informationen zu blockierenden Ereignissen für eine Datenbank. | Ja | Nein |
+| [Deadlocks](#deadlocks-dataset): Enthält Informationen zu Deadlockereignissen für eine Datenbank. | Ja | Nein |
+| [AutomaticTuning](#automatic-tuning-dataset): Enthält Informationen zu automatischen Optimierungsempfehlungen für eine Datenbank. | Ja | Nein |
 | [SQLInsights](#intelligent-insights-dataset): Enthält Intelligent Insights-Informationen zur Leistung für eine Datenbank. Weitere Informationen finden Sie unter [Intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
 
 > [!IMPORTANT]
@@ -91,9 +91,9 @@ Das Menü **Diagnoseeinstellungen** kann für jede Einzel-, Pool- oder Instanzda
 
 Sie können eine Ressource des Pools für elastische Datenbanken zum Erfassen der folgenden Diagnosetelemetriedaten einrichten:
 
-| Ressource | Überwachte Telemetriedaten |
+| Resource | Überwachte Telemetriedaten |
 | :------------------- | ------------------- |
-| **Pool für elastische Datenbanken** | [Alle Metriken](sql-database-metrics-diag-logging.md#all-metrics) enthält eDTU-/CPU-Prozentsatz, eDTU-/CPU-Limit, Prozentsatz der gelesenen physischen Daten, Prozentsatz für Protokollschreibvorgang, Sitzungen in Prozent, Worker in Prozent, Speicher, Speicher in Prozent, Speicherbegrenzung, XTP-Speicher in Prozent. |
+| **Pool für elastische Datenbanken** | [Grundlegende Metriken](sql-database-metrics-diag-logging.md#basic-metrics) enthält eDTU-/CPU-Prozentsatz, eDTU-/CPU-Limit, Prozentsatz der gelesenen physischen Daten, Prozentsatz für Protokollschreibvorgang, Sitzungen in Prozent, Worker in Prozent, Speicher, Speicher in Prozent, Speicherbegrenzung und XTP-Speicher in Prozent. |
 
 Um das Streaming der Diagnosetelemetrie für Pools für elastische Datenbanken und Datenbanken Pools für elastische Datenbanken zu konfigurieren, müssen Sie die **beiden** folgenden Vorgänge separat konfigurieren:
 
@@ -113,7 +113,7 @@ Um das Streaming von Diagnosetelemetriedaten für eine Ressource des Pools für 
 1. Geben Sie einen Einstellungsnamen zu Referenzzwecken ein.
 1. Wählen Sie eine Zielressource für das Streaming von Diagnosedaten aus: **In einem Speicherkonto archivieren**, **An einen Event Hub streamen** oder **An Log Analytics senden**.
 1. Wählen Sie für die Protokollanalyse **Konfigurieren** aus, und erstellen Sie einen neuen Arbeitsbereich, indem Sie auf **+ Neuen Arbeitsbereich erstellen** klicken, oder wählen Sie einen vorhandenen Arbeitsbereich aus.
-1. Aktivieren Sie das Kontrollkästchen für Diagnosetelemetrie des Pools für elastische Datenbanken: **AllMetrics**.
+1. Aktivieren Sie das Kontrollkästchen für Diagnosetelemetrie des Pools für elastische Datenbanken: **Grundlegende** Metriken.
    ![Konfigurieren der Diagnose für Pools für elastische Datenbanken](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Wählen Sie **Speichern** aus.
 1. Konfigurieren Sie außerdem das Streaming der Diagnosetelemetrie für jede Datenbank innerhalb des Pools für elastische Datenbanken, den Sie überwachen möchten, indem Sie die im nächsten Abschnitt beschriebenen Schritte ausführen.
@@ -137,7 +137,7 @@ Führen Sie zum Aktivieren des Streamings von Diagnosetelemetriedaten für einze
 1. Geben Sie einen Einstellungsnamen zu Referenzzwecken ein.
 1. Wählen Sie eine Zielressource für das Streaming von Diagnosedaten aus: **In einem Speicherkonto archivieren**, **An einen Event Hub streamen** oder **An Log Analytics senden**.
 1. Aktivieren Sie für die standardmäßige, ereignisbasierte Überwachungsoberfläche die folgenden Kontrollkästchen für Datenbankdiagnoseprotokoll-Telemetrie: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks** und **Deadlocks**.
-1. Aktivieren Sie für eine erweiterte Überwachungsoberfläche mit einem Aktualisierungsintervall von einer Minute das Kontrollkästchen für **AllMetrics**.
+1. Aktivieren Sie für eine erweiterte Überwachungsoberfläche mit einem Aktualisierungsintervall von einer Minute das Kontrollkästchen für **grundlegende** Metriken.
    ![Konfigurieren der Diagnose für einzelne Datenbanken, in einem Pool zusammengefasste Datenbanken oder Instanzdatenbanken](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Wählen Sie **Speichern** aus.
 1. Wiederholen Sie diese Schritte für jede Datenbank, die überwacht werden soll.
@@ -153,7 +153,7 @@ Führen Sie zum Aktivieren des Streamings von Diagnosetelemetriedaten für einze
 
 Sie können eine Ressource der verwalteten Instanz zum Erfassen der folgenden Diagnosetelemetriedaten einrichten:
 
-| Ressource | Überwachte Telemetriedaten |
+| Resource | Überwachte Telemetriedaten |
 | :------------------- | ------------------- |
 | **Verwaltete Instanz** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) enthält die Anzahl virtueller Kerne, den durchschnittlichen CPU-Prozentsatz, E/A-Anforderungen, gelesene/geschriebene Bytes, den reservierten und genutzten Speicherplatz. |
 
@@ -385,7 +385,7 @@ Einfacher ausgedrückt:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Ein Blobname für alle Metriken kann beispielsweise wie folgt lauten:
+Ein Blobname für grundlegende Metriken kann beispielsweise wie folgt lauten:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Wenn Sie die Azure SQL-Analyse verwenden, können Sie Ihre Datenerfassungsnutzun
 
 Die Überwachung der Telemetrie, die für die Azure SQL-Datenbank, Pool für elastische Datenbanken und verwaltete Instanzen verfügbar ist, ist im Folgenden dokumentiert. Mit der [Protokollabfragesprache von Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) können Sie die in SQL Analytics gesammelten Überwachungstelemetriedaten für Ihre eigene benutzerdefinierte Analyse und Anwendungsentwicklung verwenden.
 
-## <a name="all-metrics"></a>Alle Metriken
+## <a name="basic-metrics"></a>Grundlegende Metriken
 
-In den folgenden Tabellen finden Sie Details zu allen Metriken für die verschiedenen Ressourcen.
+In den folgenden Tabellen finden Sie Details zu „Grundlegende Metriken“ für die verschiedenen Ressourcen.
 
-### <a name="all-metrics-for-elastic-pools"></a>Alle Metriken für Pools für elastische Datenbanken
+> [!NOTE]
+> Die Option „Grundlegende Metriken“ wurde früher als „Alle Metriken“ bezeichnet. Die jetzt vorgenommene Änderung betraf nur den Namen und nicht die überwachten Metriken. Sie wurde initiiert, um die zukünftige Einführung weiterer Metrikkategorien zu ermöglichen.
+
+### <a name="basic-metrics-for-elastic-pools"></a>Grundlegende Metriken für Pools für elastische Datenbanken
 
 |**Ressource**|**Metriken**|
 |---|---|
 |Pool für elastische Datenbanken|eDTU-Prozentsatz, eDTU-Verwendung, eDTU-Limit, CPU-Prozentsatz, Prozentsatz der gelesen physischen Daten, Prozentsatz für Protokollschreibvorgang, Sitzungen in Prozent, Worker in Prozent, Speicher, Speicher in Prozent, Speicherbegrenzung, XTP-Speicher in Prozent |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Alle Metriken für Azure SQL-Datenbanken
+### <a name="basic-metrics-for-azure-sql-databases"></a>Grundlegende Metriken für Azure SQL-Datenbanken
 
 |**Ressource**|**Metriken**|
 |---|---|
 |Azure SQL-Datenbank|DTU-Prozentsatz, DTU-Verwendung, DTU-Limit, CPU-Prozentsatz, Prozentsatz der gelesen physischen Daten, Prozentsatz für Protokollschreibvorgang, Verbindungen mit Status Erfolgreich/Fehlgeschlagen/Durch Firewall blockiert, Sitzungen in Prozent, Worker in Prozent, Speicher, Speicher in Prozent, XTP-Speicher in Prozent und Deadlocks |
 
-## <a name="all-logs"></a>Alle Protokolle
+## <a name="basic-logs"></a>Grundlegende-Protokolle
 
 Die folgenden Tabellen enthalten Details zu Telemetriedaten, die für alle Protokolle verfügbar sind. Unter [Unterstützte Diagnoseprotokollierung](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) erfahren Sie, welche Protokolle für eine bestimmte Datenbankvariante (Azure SQL-Einzeldatenbank, -Pooldatenbank oder -Instanzdatenbank) unterstützt werden.
 
@@ -441,12 +444,12 @@ Die folgenden Tabellen enthalten Details zu Telemetriedaten, die für alle Proto
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQL |
 |Category (Kategorie)|Name der Kategorie Immer: ResourceUsageStats |
-|Ressource|Name der Ressource |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: MANAGEDINSTANCES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
 |LogicalServerName_s|Name der verwalteten Instanz |
-|ResourceId|Ressourcen-URI |
+|resourceId|Ressourcen-URI |
 |SKU_s|Produkt-SKU der verwalteten Instanz |
 |virtual_core_count_s|Anzahl verfügbarer virtueller Kerne |
 |avg_cpu_percent_s|Durchschnittlicher CPU-Prozentsatz |
@@ -466,15 +469,15 @@ Die folgenden Tabellen enthalten Details zu Telemetriedaten, die für alle Proto
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQL |
 |Category (Kategorie)|Name der Kategorie Immer: QueryStoreRuntimeStatistics |
-|NameVorgang|Name des Vorgangs. Immer: QueryStoreRuntimeStatisticsEvent |
-|Ressource|Name der Ressource |
+|OperationName|Name des Vorgangs. Immer: QueryStoreRuntimeStatisticsEvent |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
 |LogicalServerName_s|Name des Servers für die Datenbank |
 |ElasticPoolName_s|Name des Pools für elastische Datenbanken für die Datenbank (sofern vorhanden) |
 |DatabaseName_s|Name der Datenbank |
-|ResourceId|Ressourcen-URI |
+|resourceId|Ressourcen-URI |
 |query_hash_s|Abfragehash |
 |query_plan_hash_s|Hash des Abfrageplans |
 |statement_sql_handle_s|SQL-Anweisungshandle |
@@ -517,15 +520,15 @@ Weitere Informationen zu [Laufzeitstatistikdaten des Abfragespeichers](https://d
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQL |
 |Category (Kategorie)|Name der Kategorie Immer: QueryStoreWaitStatistics |
-|NameVorgang|Name des Vorgangs. Immer: QueryStoreWaitStatisticsEvent |
-|Ressource|Name der Ressource |
+|OperationName|Name des Vorgangs. Immer: QueryStoreWaitStatisticsEvent |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
 |LogicalServerName_s|Name des Servers für die Datenbank |
 |ElasticPoolName_s|Name des Pools für elastische Datenbanken für die Datenbank (sofern vorhanden) |
 |DatabaseName_s|Name der Datenbank |
-|ResourceId|Ressourcen-URI |
+|resourceId|Ressourcen-URI |
 |wait_category_s|Kategorie des Wartevorgangs |
 |is_parameterizable_s|Parametrisierbarkeit der Abfrage |
 |statement_type_s|Anweisungstyp |
@@ -555,16 +558,16 @@ Weitere Informationen zu [Wartestatistikdaten des Abfragespeichers](https://docs
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQ |
 |Category (Kategorie)|Name der Kategorie Immer: Errors |
-|NameVorgang|Name des Vorgangs. Immer: ErrorEvent |
-|Ressource|Name der Ressource |
+|OperationName|Name des Vorgangs. Immer: ErrorEvent |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
 |LogicalServerName_s|Name des Servers für die Datenbank |
 |ElasticPoolName_s|Name des Pools für elastische Datenbanken für die Datenbank (sofern vorhanden) |
 |DatabaseName_s|Name der Datenbank |
-|ResourceId|Ressourcen-URI |
-|Message|Fehlermeldungen in Nur-Text |
+|resourceId|Ressourcen-URI |
+|`Message`|Fehlermeldungen in Nur-Text |
 |user_defined_b|Benutzerdefiniertes Fehlerbit |
 |error_number_d|Fehlercode |
 |Severity|Schweregrad des Fehlers |
@@ -584,15 +587,15 @@ Weitere Informationen zu [SQL Server-Fehlermeldungen](https://msdn.microsoft.com
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQL |
 |Category (Kategorie)|Name der Kategorie Immer: DatabaseWaitStatistics |
-|NameVorgang|Name des Vorgangs. Immer: DatabaseWaitStatisticsEvent |
-|Ressource|Name der Ressource |
+|OperationName|Name des Vorgangs. Immer: DatabaseWaitStatisticsEvent |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
 |LogicalServerName_s|Name des Servers für die Datenbank |
 |ElasticPoolName_s|Name des Pools für elastische Datenbanken für die Datenbank (sofern vorhanden) |
 |DatabaseName_s|Name der Datenbank |
-|ResourceId|Ressourcen-URI |
+|resourceId|Ressourcen-URI |
 |wait_type_s|Name des Wartetyps |
 |start_utc_date_t [UTC]|Startzeit des gemessenen Zeitraums |
 |end_utc_date_t [UTC]|Endzeit des gemessenen Zeitraums |
@@ -613,15 +616,15 @@ Weitere Informationen zu [Datenbankwartestatistiken](https://docs.microsoft.com/
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQL |
 |Category (Kategorie)|Name der Kategorie Immer: Zeitlimits |
-|NameVorgang|Name des Vorgangs. Immer: TimeoutEvent |
-|Ressource|Name der Ressource |
+|OperationName|Name des Vorgangs. Immer: TimeoutEvent |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
 |LogicalServerName_s|Name des Servers für die Datenbank |
 |ElasticPoolName_s|Name des Pools für elastische Datenbanken für die Datenbank (sofern vorhanden) |
 |DatabaseName_s|Name der Datenbank |
-|ResourceId|Ressourcen-URI |
+|resourceId|Ressourcen-URI |
 |error_state_d|Fehlerstatuscode |
 |query_hash_s|Abfragehash (falls verfügbar) |
 |query_plan_hash_s|Hash des Abfrageplans (falls verfügbar) |
@@ -636,15 +639,15 @@ Weitere Informationen zu [Datenbankwartestatistiken](https://docs.microsoft.com/
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQL |
 |Category (Kategorie)|Name der Kategorie Immer: Blöcke |
-|NameVorgang|Name des Vorgangs. Immer: BlockEvent |
-|Ressource|Name der Ressource |
+|OperationName|Name des Vorgangs. Immer: BlockEvent |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
 |LogicalServerName_s|Name des Servers für die Datenbank |
 |ElasticPoolName_s|Name des Pools für elastische Datenbanken für die Datenbank (sofern vorhanden) |
 |DatabaseName_s|Name der Datenbank |
-|ResourceId|Ressourcen-URI |
+|resourceId|Ressourcen-URI |
 |lock_mode_s|Von der Abfrage verwendeter Sperrmodus |
 |resource_owner_type_s|Besitzer der Sperre |
 |blocked_process_filtered_s|XML-Bericht über blockierte Prozesse |
@@ -660,15 +663,15 @@ Weitere Informationen zu [Datenbankwartestatistiken](https://docs.microsoft.com/
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQL |
 |Category (Kategorie)|Name der Kategorie Immer: Deadlocks |
-|NameVorgang|Name des Vorgangs. Immer: DeadlockEvent |
-|Ressource|Name der Ressource |
+|OperationName|Name des Vorgangs. Immer: DeadlockEvent |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
 |LogicalServerName_s|Name des Servers für die Datenbank |
 |ElasticPoolName_s|Name des Pools für elastische Datenbanken für die Datenbank (sofern vorhanden) |
 |DatabaseName_s|Name der Datenbank |
-|ResourceId|Ressourcen-URI |
+|resourceId|Ressourcen-URI |
 |deadlock_xml_s|XML-Deadlockbericht |
 
 ### <a name="automatic-tuning-dataset"></a>Dataset zur automatischen Optimierung
@@ -681,7 +684,7 @@ Weitere Informationen zu [Datenbankwartestatistiken](https://docs.microsoft.com/
 |Type|Immer: AzureDiagnostics |
 |ResourceProvider|Name des Ressourcenanbieters Immer: MICROSOFT.SQL |
 |Category (Kategorie)|Name der Kategorie Immer: AutomaticTuning |
-|Ressource|Name der Ressource |
+|Resource|Name der Ressource |
 |ResourceType|Name des Ressourcentyps Immer: SERVERS/DATABASES |
 |SubscriptionId|Abonnement-GUID für die Datenbank |
 |ResourceGroup|Name der Ressourcengruppe für die Datenbank |
@@ -689,7 +692,7 @@ Weitere Informationen zu [Datenbankwartestatistiken](https://docs.microsoft.com/
 |LogicalDatabaseName_s|Name der Datenbank |
 |ElasticPoolName_s|Name des Pools für elastische Datenbanken für die Datenbank (sofern vorhanden) |
 |DatabaseName_s|Name der Datenbank |
-|ResourceId|Ressourcen-URI |
+|resourceId|Ressourcen-URI |
 |RecommendationHash_s|Eindeutiger Hash der Empfehlung zur automatischen Optimierung |
 |OptionName_s|Vorgang der automatischen Optimierung |
 |Schema_s|Datenbankschema |

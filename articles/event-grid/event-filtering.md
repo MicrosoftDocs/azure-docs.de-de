@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187654"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305053"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Grundlegendes zur Ereignisfilterung für Event Grid-Abonnements
 
@@ -140,8 +140,6 @@ Für die erweiterte Filterung gelten folgende Einschränkungen:
 * Fünf erweiterte Filter pro Event Grid-Abonnement
 * 512 Zeichen pro Zeichenfolgenwert
 * Fünf Werte für **in**- und **not in**-Operatoren
-* Der Schlüssel darf nur eine Schachtelungsebene aufweisen (z.B. data.key1).
-* Benutzerdefinierte Ereignisschemas können nur nach Feldern der obersten Ebene gefiltert werden.
 
 Der gleiche Schlüssel kann in mehr als einem Filter verwendet werden.
 

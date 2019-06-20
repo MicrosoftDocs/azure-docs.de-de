@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518710"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001193"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Anleitung: Planen der Bereitstellung von bedingtem Zugriff in Azure Active Directory
 
@@ -55,9 +55,9 @@ Verwenden Sie die folgende Beispielvorlage, um Richtlinien für bedingten Zugrif
 
 |*Ereignis*:|*Auszuführende* Aktion:|
 |-|-|
-|Zugriffsversuch:<br>- Auf eine Cloud-App*<br>- Durch Benutzer und Gruppen*<br>Unter Verwendung von:<br>- Bedingung 1 (beispielsweise außerhalb des Unternehmensnetzwerks)<br>- Bedingung 2 (beispielsweise Geräteplattformen)|Zugriff auf die Anwendung blockieren|
-|Zugriffsversuch:<br>- Auf eine Cloud-App*<br>- Durch Benutzer und Gruppen*<br>Unter Verwendung von:<br>- Bedingung 1 (beispielsweise außerhalb des Unternehmensnetzwerks)<br>- Bedingung 2 (beispielsweise Geräteplattformen)|Zugriff gewähren mit (UND):<br>- Anforderung 1 (beispielsweise MFA)<br>- Anforderung 2 (beispielsweise Gerätekonformität)|
-|Zugriffsversuch:<br>- Auf eine Cloud-App*<br>- Durch Benutzer und Gruppen*<br>Unter Verwendung von:<br>- Bedingung 1 (beispielsweise außerhalb des Unternehmensnetzwerks)<br>- Bedingung 2 (beispielsweise Geräteplattformen)|Zugriff gewähren mit (ODER):<br>- Anforderung 1 (beispielsweise MFA)<br>- Anforderung 2 (beispielsweise Gerätekonformität)|
+|Zugriffsversuch:<br>- Auf eine Cloud-App *<br>- Durch Benutzer und Gruppen*<br>Unter Verwendung von:<br>- Bedingung 1 (beispielsweise außerhalb des Unternehmensnetzwerks)<br>- Bedingung 2 (beispielsweise Geräteplattformen)|Zugriff auf die Anwendung blockieren|
+|Zugriffsversuch:<br>- Auf eine Cloud-App *<br>- Durch Benutzer und Gruppen*<br>Unter Verwendung von:<br>- Bedingung 1 (beispielsweise außerhalb des Unternehmensnetzwerks)<br>- Bedingung 2 (beispielsweise Geräteplattformen)|Zugriff gewähren mit (UND):<br>- Anforderung 1 (beispielsweise MFA)<br>- Anforderung 2 (beispielsweise Gerätekonformität)|
+|Zugriffsversuch:<br>- Auf eine Cloud-App *<br>- Durch Benutzer und Gruppen*<br>Unter Verwendung von:<br>- Bedingung 1 (beispielsweise außerhalb des Unternehmensnetzwerks)<br>- Bedingung 2 (beispielsweise Geräteplattformen)|Zugriff gewähren mit (ODER):<br>- Anforderung 1 (beispielsweise MFA)<br>- Anforderung 2 (beispielsweise Gerätekonformität)|
 
 **Ereignis** definiert mindestens den Prinzipal (**wer**), der versucht, auf eine Cloud-App (**was**) zuzugreifen. Bei Bedarf können Sie auch mit einschließen, **wie** ein Zugriffsversuch erfolgt. Im Zusammenhang mit bedingtem Zugriff werden die Elemente, die das „Wer?“, „Was?“ und „Wie?“ definieren, als Bedingungen bezeichnet. Weitere Informationen finden Sie unter [Was sind Bedingungen beim bedingten Zugriff in Azure Active Directory?](conditions.md). 
 
@@ -131,7 +131,7 @@ Um den Anmeldevorgang für Ihre Benutzer einfacher zu gestalten, möchten Sie ih
 
 Gängige Anwendungsfälle für die MFA-Anforderung sind:
 
-- [Zugriff durch Administratoren](baseline-protection.md#require-mfa-for-admins)
+- [Zugriff durch Administratoren](howto-baseline-protect-administrators.md)
 - [Zugriff auf bestimmte Apps](app-based-mfa.md) 
 - [Zugriff über nicht vertrauenswürdige Netzwerkadressen](untrusted-networks.md)
 

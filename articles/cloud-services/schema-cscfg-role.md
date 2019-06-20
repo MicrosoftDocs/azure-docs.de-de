@@ -13,12 +13,12 @@ caps.latest.revision: 12
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 20f4186426152d2dc9b445981a69881c35587eb6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa6f8a821edea6261d64bb411154e82fdf212a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62130244"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Rollenschema der Azure Cloud Services-Konfiguration
 

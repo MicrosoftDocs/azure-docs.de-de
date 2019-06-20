@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61285398"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurieren des Prüfungstools
 
@@ -64,7 +64,7 @@ Wenn Sie Mitglied mehrerer untergeordneter Teams sind, können Sie zwischen dies
 
 ![Zwischen untergeordneten Teams wechseln](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>`Tags`
 
 Auf der Registerkarte **Tags** können Sie zusätzlich zu den beiden Standardmoderationstags – &mdash;**isadult** (**a**) and **isracy** (**r**) – benutzerdefinierte Moderationstags definieren. Wenn Sie ein benutzerdefiniertes Tag erstellen, wird es in Überprüfungen neben den Standardtags verfügbar. Sie können ändern, welche Tags in Überprüfungen angezeigt werden, indem Sie deren Sichtbarkeitseinstellungen ändern.
 

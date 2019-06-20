@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: 857d747fa691d1ec2b386d5931a7edea08b7e609
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522774"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60517206"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Gruppieren mehrerer Aktionen für die Ausführung über eine oder mehrere Regeln
 

@@ -9,11 +9,11 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 3881a6d0ee1139fa481908f09b6e96efda24a5cd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60542542"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Ausführen von Skripts in Ihrer Linux-VM
 

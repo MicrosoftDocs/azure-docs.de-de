@@ -9,11 +9,11 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: b640a3cb9382ad72bb48e06c6a7074c96409e2e4
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631072"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162581"
 ---
 <!-- description of message routing used in the Azure CLI, PowerShell, and RM routing articles.-->
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9f07c5bf9ba1f1880fa142beb52455522425e68d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 88ab13329a719ba1e1b8a7b5fba2f7a2d381eca2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64700855"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Benutzeroberflächenelement „Microsoft.Compute.UserNameTextBox“
 Ein Textfeldsteuerelement mit integrierter Überprüfung für Windows- und Linux-Benutzernamen.

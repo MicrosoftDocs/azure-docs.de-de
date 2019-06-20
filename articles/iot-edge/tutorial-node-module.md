@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Erstellen eines benutzerdefinierten Node.js-Moduls – Azure IoT Edge | Microsoft-Dokumentation'
+title: 'Tutorial: Entwickeln eines Node.js-Moduls für Linux – Azure IoT Edge | Microsoft-Dokumentation'
 description: In diesem Tutorial wird gezeigt, wie Sie ein IoT Edge-Modul mit Node.js-Code erstellen und dieses Modul auf einem Edge-Gerät bereitstellen.
 services: iot-edge
 author: shizn
@@ -9,14 +9,16 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3b79c75b9846a4f8966a113c6e06fabc25bcf011
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c94ca3a82095736ef7d242987d1fbf66a825950
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792606"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306502"
 ---
-# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Entwickeln und Bereitstellen eines Node.js-IoT Edge-Moduls für Ihr simuliertes Gerät
+# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutorial: Entwickeln und Bereitstellen eines Node.js-IoT Edge-Moduls für Linux-Geräte
+
+Verwenden Sie Visual Studio Code zum Entwickeln von Node.js-Code, und stellen Sie ihn auf einem Linux-Gerät bereit, auf dem Azure IoT Edge ausgeführt wird. 
 
 Mithilfe von IoT Edge-Modulen können Sie Code bereitstellen, mit dem Ihre Geschäftslogik direkt auf Ihren IoT Edge-Geräten implementiert wird. In diesem Tutorial wird beschrieben, wie Sie ein IoT Edge-Modul, mit dem Sensordaten gefiltert werden, erstellen und bereitstellen. Sie verwenden das simulierte IoT Edge-Gerät, das Sie in den Schnellstartanleitungen erstellt haben. In diesem Tutorial lernen Sie Folgendes:    
 
@@ -31,56 +33,35 @@ Das IoT Edge-Modul, das Sie in diesem Tutorial erstellen, filtert die von Ihrem 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="solution-scope"></a>Projektmappenbereich
+
+In diesem Tutorial wird gezeigt, wie Sie ein Modul in **Node.js** mit **Visual Studio Code** entwickeln und auf einem **Linux-Gerät** bereitstellen. IoT Edge unterstützt keine Node.js-Module für Windows-Geräte.
+
+Informieren Sie sich anhand der nachstehenden Tabelle über Ihre Optionen zum Entwickeln und Bereitstellen von Node.js-Modulen: 
+
+| Node.js | Visual Studio Code | Visual Studio 2017/2019 | 
+| - | ------------------ | ------------------ |
+| **Linux AMD64** | ![Verwenden von VS Code für Node.js-Module unter Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Verwenden von VS Code für Node.js-Module unter Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Ein Azure IoT Edge-Gerät:
+Bevor Sie mit diesem Tutorial beginnen, sollten Sie das vorhergehende Tutorial durchgearbeitet haben, um Ihre Entwicklungsumgebung für die Entwicklung von Linux-Containern einzurichten: [Entwickeln von IoT Edge-Modulen für Linux-Geräte](tutorial-develop-for-linux.md) Nach Abschluss eines dieser Tutorials sollten Sie die folgenden Komponenten besitzen: 
 
-* Sie können Ihren Entwicklungscomputer oder einen virtuellen Computer als Edge-Gerät verwenden, indem Sie die Schritte in der Schnellstartanleitung für [Linux](quickstart-linux.md) ausführen.
-* Node.js-Module für IoT Edge unterstützen keine Windows-Container. 
+* Eine [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-Instanz in Azure im Tarif „Free“ oder „Standard“.
+* Ein [Linux-Gerät, auf dem Azure IoT Edge ausgeführt wird](quickstart-linux.md)
+* Eine Containerregistrierung wie [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)
+* [Visual Studio Code](https://code.visualstudio.com/), mit [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) konfiguriert
+* [Docker CE](https://docs.docker.com/install/), zur Ausführung von Linux-Containern konfiguriert
 
-Cloudressourcen:
+Um ein IoT Edge-Modul in Node.js zu entwickeln, installieren Sie die folgenden zusätzlichen Komponenten auf Ihrem Entwicklungscomputer: 
 
-* Eine [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-Instanz in Azure im Tarif „Free“ oder „Standard“. 
-
-Entwicklungsressourcen:
-
-* [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT-Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) für Visual Studio Code. 
-* [Docker CE](https://docs.docker.com/engine/installation/). 
-   * Stellen Sie bei der Entwicklung auf einem Windows-Gerät sicher, dass Docker [zur Verwendung von Linux-Containern konfiguriert ist](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 * [Node.js und npm](https://nodejs.org). Das npm-Paket wird mit Node.js verteilt. Das bedeutet, dass npm beim Download von Node.js automatisch auf Ihrem Computer installiert wird.
 
-## <a name="create-a-container-registry"></a>Erstellen einer Containerregistrierung
-
-In diesem Tutorial verwenden Sie die Azure IoT-Tools für Visual Studio Code zum Entwickeln eines Moduls und Erstellen eines **Containerimages** aus den Dateien. Danach pushen Sie dieses Image in ein **Repository**, in dem Ihre Images gespeichert und verwaltet werden. Abschließend stellen Sie Ihr Image aus der Registrierung zur Ausführung auf dem IoT Edge-Gerät bereit.  
-
-Sie können eine beliebige Docker-kompatible Registrierung zum Speichern Ihrer Containerimages verwenden. Zwei beliebte Docker-Registrierungsdienste sind [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) und [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In diesem Tutorial wird Azure Container Registry verwendet. 
-
-Sollten Sie noch keine Containerregistrierung besitzen, führen Sie die folgenden Schritte aus, um eine neue Containerregistrierung in Azure zu erstellen:
-
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com) die Optionen **Ressource erstellen** > **Container** > **Container Registry** aus.
-
-2. Geben Sie die folgenden Werte an, um Ihre Containerregistrierung zu erstellen:
-
-   | Feld | Wert |
-   | ----- | ----- |
-   | Registrierungsname | Geben Sie einen eindeutigen Namen an. |
-   | Abonnement | Wählen Sie ein Abonnement aus der Dropdownliste aus. |
-   | Ressourcengruppe | Es wird empfohlen, die gleiche Ressourcengruppe für alle Testressourcen zu verwenden, die Sie während der IoT Edge-Schnellstarts und -Tutorials erstellen. Beispielsweise **IoTEdgeResources**. |
-   | Standort | Wählen Sie einen Standort in Ihrer Nähe aus. |
-   | Administratorbenutzer | Legen Sie **Aktivieren** fest. |
-   | SKU | Wählen Sie **Basic** aus. |
-
-5. Klicken Sie auf **Erstellen**.
-
-6. Navigieren Sie nach der Erstellung der Containerregistrierung zu dieser Registrierung, und klicken Sie anschließend auf **Zugriffsschlüssel**. 
-
-7. Kopieren Sie die Werte für **Anmeldeserver**, **Benutzername** und **Kennwort**. Sie verwenden diese Werte an späterer Stelle des Tutorials, um Zugriff auf die Containerregistrierung zu gewähren. 
-
-## <a name="create-an-iot-edge-module-project"></a>Erstellen eines IoT Edge-Modulprojekts
+## <a name="create-a-module-project"></a>Erstellen eines Modulprojekts
 Die folgenden Schritte zeigen, wie Sie mithilfe von Visual Studio Code und der Azure IoT-Tools ein IoT Edge-Node.js-Modul erstellen.
 
-### <a name="create-a-new-solution"></a>Erstellen einer neuen Lösung
+### <a name="create-a-new-project"></a>Erstellen eines neuen Projekts
 
 Verwenden Sie **npm** zum Erstellen einer Node.js-Lösungsvorlage, auf die Sie aufbauen können. 
 
@@ -108,13 +89,6 @@ Verwenden Sie **npm** zum Erstellen einer Node.js-Lösungsvorlage, auf die Sie a
  
    ![Bereitstellen eines Docker-Imagerepositorys](./media/tutorial-node-module/repository.png)
 
-Das VS Code-Fenster lädt den Arbeitsbereich für Ihre IoT Edge-Projektmappe. Der Arbeitsbereich der Projektmappe enthält fünf Komponenten auf oberster Ebene. Der Ordner **Module** enthält den Node.js-Code für Ihre Module sowie Dockerfiles für die Erstellung Ihres Moduls als Containerimage. In der Datei **\.env** werden Ihre Anmeldeinformationen für die Containerregistrierung gespeichert. Die Datei **deployment.template.json** enthält die Informationen, die die IoT Edge-Runtime zum Bereitstellen von Modulen auf einem Gerät verwendet, und die Datei **deployment.debug.template.json** enthält die Debugversion von Modulen. In diesem Tutorial wird nicht der Ordner **\.vscode** oder die Datei **\.gitignore** bearbeitet. 
-
-Wenn Sie beim Erstellen Ihrer Lösung keine Containerregistrierung angegeben, aber den Standardwert „localhost:5000“ übernommen haben, besitzen Sie keine Datei vom Typ „\.env“. 
-
-<!--
-   ![Node.js solution workspace](./media/tutorial-node-module/workspace.png)
--->
 
 ### <a name="add-your-registry-credentials"></a>Hinzufügen von Registrierungsanmeldeinformationen
 
@@ -124,19 +98,27 @@ Die Umgebungsdatei speichert die Anmeldeinformationen für Ihr Containerreposito
 2. Aktualisieren Sie die Felder mit den Werten für **Benutzername** und **Kennwort**, die Sie aus der Azure-Containerregistrierung kopiert haben. 
 3. Speichern Sie diese Datei. 
 
+### <a name="select-your-target-architecture"></a>Auswählen Ihrer Zielarchitektur
+
+Mit Visual Studio Code können derzeit Node.js-Module für Linux AMD64- und Linux ARM32v7-Geräte entwickelt werden. Sie müssen bei jeder Projektmappe die Zielarchitektur auswählen, da der Container für jeden Architekturtyp unterschiedlich erstellt und ausgeführt wird. Die Standardeinstellung ist „Linux AMD64“. 
+
+1. Öffnen Sie die Befehlspalette, und suchen Sie nach **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Azure IoT Edge: Standardzielplattform für Edge-Projektmappe festlegen), oder wählen Sie das Verknüpfungssymbol auf der Seitenleiste unten im Fenster aus. 
+
+2. Wählen Sie in der Befehlspalette die Zielarchitektur in der Liste mit den Optionen aus. Weil in diesem Tutorial ein virtueller Ubuntu-Computer als IoT Edge-Gerät verwendet wird, behalten wir den Standardwert **amd64** bei.
+
 ### <a name="update-the-module-with-custom-code"></a>Aktualisieren des Moduls mit benutzerdefiniertem Code
 
 Jede Vorlage enthält Beispielcode, der simulierte Sensordaten aus dem Modul **tempSensor** abruft und an IoT Hub weiterleitet. In diesem Abschnitt fügen Sie Code hinzu, damit NodeModule die Nachrichten vor dem Senden analysiert. 
 
 1. Öffnen Sie im VS Code-Explorer **Module** > **NodeModule** > **app.js**.
 
-5. Fügen Sie unterhalb der erforderlichen Knotenmodule eine Variable für einen Temperaturschwellenwert hinzu. Der Temperaturschwellenwert legt den Wert fest, den die gemessene Temperatur übersteigen muss, damit die Daten an IoT Hub gesendet werden.
+2. Fügen Sie unterhalb der erforderlichen Knotenmodule eine Variable für einen Temperaturschwellenwert hinzu. Der Temperaturschwellenwert legt den Wert fest, den die gemessene Temperatur übersteigen muss, damit die Daten an IoT Hub gesendet werden.
 
     ```javascript
     var temperatureThreshold = 25;
     ```
 
-6. Ersetzen Sie die gesamte Funktion `PipeMessage` durch die Funktion `FilterMessage`.
+3. Ersetzen Sie die gesamte Funktion `PipeMessage` durch die Funktion `FilterMessage`.
     
     ```javascript
     // This function filters out messages that report temperatures below the temperature threshold.
@@ -157,7 +139,7 @@ Jede Vorlage enthält Beispielcode, der simulierte Sensordaten aus dem Modul **t
 
     ```
 
-7. Ersetzen Sie in der Funktion `client.on()` den Funktionsnamen `pipeMessage` durch `filterMessage`.
+4. Ersetzen Sie in der Funktion `client.on()` den Funktionsnamen `pipeMessage` durch `filterMessage`.
 
     ```javascript
     client.on('inputMessage', function (inputName, msg) {
@@ -165,7 +147,7 @@ Jede Vorlage enthält Beispielcode, der simulierte Sensordaten aus dem Modul **t
         });
     ```
 
-8. Kopieren Sie den folgenden Codeausschnitt in den Funktionsrückruf `client.open()` (nach `client.on()` in der `else`-Anweisung). Diese Funktion wird aufgerufen, wenn die gewünschten Eigenschaften aktualisiert werden.
+5. Kopieren Sie den folgenden Codeausschnitt in den Funktionsrückruf `client.open()` (nach `client.on()` in der `else`-Anweisung). Diese Funktion wird aufgerufen, wenn die gewünschten Eigenschaften aktualisiert werden.
 
     ```javascript
     client.getTwin(function (err, twin) {
@@ -181,21 +163,11 @@ Jede Vorlage enthält Beispielcode, der simulierte Sensordaten aus dem Modul **t
     });
     ```
 
-9. Speichern Sie die Datei „app.js“.
+6. Speichern Sie die Datei „app.js“.
 
-10. Öffnen Sie im VS Code-Explorer die Datei **deployment.template.json** im Arbeitsbereich für Ihre IoT Edge-Projektmappe. Über diese Datei erhält der IoT Edge-Agent die Informationen dazu, welche Module bereitgestellt werden sollen (hier: **tempSensor** und **NodeModule**). Außerdem wird der IoT Edge-Hub angewiesen, wie die Nachrichten weitergeleitet werden sollen. Die Visual Studio Code-Erweiterung fügt zwar automatisch die meisten Informationen ein, die Sie für die Bereitstellungsvorlage benötigen, aber Sie sollten überprüfen, ob alle Angaben für Ihre Lösung stimmen: 
+7. Öffnen Sie im VS Code-Explorer die Datei **deployment.template.json** im Arbeitsbereich für Ihre IoT Edge-Projektmappe.
 
-   1. Die Standardplattform Ihrer IoT Edge-Instanz ist auf Ihrer VS Code-Statusleiste auf **amd64** festgelegt. Das bedeutet, dass **NodeModule** auf die Linux-amd64-Version des Images festgelegt ist. Ändern Sie die Standardplattform auf der Statusleiste von **amd64** in **arm32v7**, sofern es sich dabei um die Architektur Ihres IoT Edge-Geräts handelt. 
-
-      ![Aktualisieren der Modulimageplattform](./media/tutorial-node-module/image-platform.png)
-
-   2. Stellen Sie sicher, dass die Vorlage den richtigen Modulnamen und nicht den Standardnamen **SampleModule** besitzt, den Sie beim Erstellen der IoT Edge-Lösung geändert haben.
-
-   3. Im Abschnitt **registryCredentials** werden Ihre Anmeldeinformationen für die Docker-Registrierung gespeichert, damit der IoT Edge-Agent Ihr Modulimage per Pullvorgang abrufen kann. Die tatsächlichen Benutzername-/Kennwortpaare werden in der ENV-Datei gespeichert. Diese Datei wird von Git ignoriert. Fügen Sie Ihre Anmeldeinformationen der ENV-Datei hinzu, falls Sie dies noch nicht durchgeführt haben.  
-
-   4. Weitere Informationen zu Bereitstellungsmanifesten finden Sie unter [Bereitstellen von Modulen und Einrichten von Routen in IoT Edge](module-composition.md).
-
-11. Fügen Sie den Modulzwilling „NodeModule“ zum Bereitstellungsmanifest hinzu. Fügen Sie am Ende des Abschnitts `moduleContent` nach dem Modulzwilling `$edgeHub` den folgenden JSON-Inhalt ein: 
+8. Fügen Sie den Modulzwilling „NodeModule“ zum Bereitstellungsmanifest hinzu. Fügen Sie am Ende des Abschnitts `moduleContent` nach dem Modulzwilling `$edgeHub` den folgenden JSON-Inhalt ein: 
 
    ```json
      "NodeModule": {
@@ -207,69 +179,66 @@ Jede Vorlage enthält Beispielcode, der simulierte Sensordaten aus dem Modul **t
 
    ![Hinzufügen des Modulzwillings zur Bereitstellungsvorlage](./media/tutorial-node-module/module-twin.png)
 
-12. Speichern Sie die Datei „deployment.template.json“.
+9. Speichern Sie die Datei „deployment.template.json“.
 
 
-## <a name="build-your-iot-edge-solution"></a>Erstellen Ihrer IoT Edge-Projektmappe
+## <a name="build-and-push-your-module"></a>Erstellen und Pushen Ihres Moduls
 
-Im vorherigen Abschnitt haben Sie eine IoT Edge-Projektmappe erstellt und NodeModule Code hinzugefügt, der Nachrichten herausfiltert, deren gemeldete Computertemperatur unter dem zulässigen Schwellenwert liegt. Nun müssen Sie die Projektmappe als Containerimage erstellen und per Push an die Containerregistrierung übertragen. 
+Im vorherigen Abschnitt haben Sie eine IoT Edge-Projektmappe erstellt und dem Node-Modul Code hinzugefügt, der Nachrichten herausfiltert, bei denen die gemeldete Computertemperatur innerhalb der zulässigen Grenzwerte liegt. Nun müssen Sie die Projektmappe als Containerimage erstellen und per Push an die Containerregistrierung übertragen.
 
-1. Melden Sie sich durch Eingabe des folgenden Befehls im integrierten Visual Studio Code-Terminal bei Docker an, um das Modulimage per Push an ACR zu übertragen: 
+1. Öffnen Sie das in VS Code integrierte Terminal über **Ansicht** > **Terminal**.
+
+1. Melden Sie sich bei Docker an. Geben Sie dazu den nachstehenden Befehl im Terminal ein. Melden Sie sich mit dem Benutzernamen, Kennwort und Anmeldeserver aus Ihrer Azure-Containerregistrierung an. Diese Werte finden Sie im Azure-Portal im Abschnitt **Zugriffsschlüssel** Ihrer Registrierung.
      
-   ```csh/sh
+   ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Verwenden Sie den Benutzernamen, das Kennwort und den Anmeldeserver, die Sie im ersten Abschnitt aus Azure Container Registry kopiert haben. Oder rufen Sie sie erneut über den Abschnitt **Zugriffsschlüssel** der Registrierung im Azure-Portal ab.
 
-2. Klicken Sie im VS Code-Explorer mit der rechten Maustaste auf die Datei **deployment.template.json**, und klicken Sie anschließend auf **Build and Push IoT Edge solution** (IoT Edge-Projektmappe erstellen und übertragen). 
+   Möglicherweise wird Ihnen in einem Sicherheitshinweis die Verwendung von `--password-stdin` empfohlen. Diese bewährte Methode wird für Produktionsszenarien empfohlen, aber sie ist nicht Gegenstand dieses Tutorials. Weitere Informationen finden Sie in der [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)-Referenz.
 
-Wenn Sie Visual Studio Code anweisen, die Projektmappe zu erstellen, wird zuerst basierend auf den Informationen in der Bereitstellungsvorlage eine `deployment.json`-Datei in einem neuen Konfigurationsordner (**config**) generiert. Anschließend werden zwei Befehle im integrierten Terminal ausgeführt: `docker build` und `docker push`. Diese beiden Befehle erstellen den Code, packen Ihren Node.js-Code in Container und führen dann eine Pushübertragung an die Containerregistrierung durch, die Sie beim Initialisieren der Projektmappe angegeben haben. 
+2. Klicken Sie im VS Code-Explorer mit der rechten Maustaste auf die Datei **deployment.template.json**, und klicken Sie anschließend auf **Build and Push IoT Edge solution** (IoT Edge-Projektmappe erstellen und übertragen).
 
-Sie können die vollständige Adresse des Containerimages mit Tag im Befehl `docker build` anzeigen, der im integrierten VS Code-Terminal ausgeführt wird. Die Imageadresse wird auf der Grundlage der Informationen in der Datei `module.json` erstellt und hat folgendes Format: **\<Repository\>:\<Version\>-\<Plattform\>**. In diesem Tutorial sollte sie wie folgt aussehen: **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
+   Mit dem Befehl zum Erstellen und Übertragen per Pushvorgang werden drei Vorgänge gestartet. Zuerst wird in der Projektmappe ein neuer Ordner mit dem Namen **config** erstellt. Darin ist das vollständige Bereitstellungsmanifest gespeichert, das aus Informationen in der Bereitstellungsvorlage und anderen Projektmappendateien erstellt wurde. Danach führt er `docker build` zum Erstellen des Containerimages aus, das auf der entsprechenden Dockerfile-Datei für Ihre Zielarchitektur basiert. Und schließlich führt er `docker push` aus, um das Imagerepository per Push in Ihre Containerregistrierung zu übertragen.
 
->[!TIP]
->Wenn beim Versuch, Ihr Modul zu erstellen und zu pushen ein Fehler auftritt, führen Sie die folgenden Überprüfungen durch:
->* Haben Sie sich mit den Anmeldeinformationen aus Ihrer Containerregistrierung bei Docker in Visual Studio Code angemeldet? Dabei handelt es sich um andere Anmeldeinformationen, als Sie zur Anmeldung beim Azure-Portal verwenden.
->* Ist Ihr Containerrepository richtig? Öffnen Sie **modules** > **nodemodule** > **module.json**, und suchen Sie nach dem Feld **Repository**. Das Imagerepository sollte wie folgt aussehen: **\<Registrierungsname\>.azurecr.io/nodemodule**. 
->* Erstellen Sie die gleiche Art von Containern, die von Ihrem Entwicklungscomputer ausgeführt wird? Visual Studio Code ist standardmäßig auf Container vom Typ „Linux amd64“ festgelegt. Wenn auf Ihrem Entwicklungscomputer Container vom Typ „Linux arm32v7“ ausgeführt werden, aktualisieren Sie die Plattform auf der blauen Statusleiste am unteren Rand des VS Code-Fensters so, dass sie Ihrer Containerplattform entspricht.
->* Node.js-Module für IoT Edge unterstützen keine Windows-Container.
+## <a name="deploy-modules-to-device"></a>Bereitstellen von Modulen auf dem Gerät
 
-## <a name="deploy-and-run-the-solution"></a>Bereitstellen und Ausführen der Projektmappe
+Verwenden Sie den Visual Studio Code-Explorer und die Azure IoT Tools-Erweiterung, um das Modulprojekt auf Ihrem IoT Edge-Gerät bereitzustellen. Sie haben bereits ein Bereitstellungsmanifest für Ihr Szenario vorbereitet: die Datei **deployment.json** im Ordner „config“. Nun müssen Sie nur noch ein Gerät auswählen, um die Bereitstellung zu empfangen.
 
-Im Schnellstartartikel, anhand dessen Sie Ihr IoT Edge-Gerät eingerichtet haben, haben Sie ein Modul über das Azure-Portal bereitgestellt. Sie können Module auch mithilfe der Azure IoT Hub-Toolkit-Erweiterung (bisher als Azure IoT-Toolkit-Erweiterung bekannt) für Visual Studio Code bereitstellen. Sie haben bereits ein Bereitstellungsmanifest für Ihr Szenario vorbereitet: die Datei **deployment.json**. Nun müssen Sie nur noch ein Gerät auswählen, um die Bereitstellung zu empfangen.
+Sorgen Sie dafür, dass Ihr IoT Edge-Gerät korrekt ausgeführt wird.
 
-1. Führen Sie in der Befehlspalette von VS Code den Befehl **Azure IoT Hub: Select IoT Hub** aus. 
+1. Erweitern Sie im Visual Studio Code-Explorer den Abschnitt **Azure IoT Hub Devices** (Azure IoT Hub-Geräte), um Ihre Liste mit IoT-Geräten anzuzeigen.
 
-2. Wählen Sie das Abonnement und den IoT-Hub aus, die das zu konfigurierende IoT Edge-Gerät enthalten. 
+2. Klicken Sie mit der rechten Maustaste auf den Namen Ihres IoT Edge-Geräts, und klicken Sie dann auf **Create Deployment for Single Device** (Bereitstellung für einzelnes Gerät erstellen).
 
-3. Erweitern Sie im VS Code-Explorer den Abschnitt **Azure IoT Hub-Geräte**. 
+3. Wählen Sie im Konfigurationsordner (**config**) die Datei **deployment.json** aus, und klicken Sie auf **Select Edge Deployment Manifest** (Edge-Bereitstellungsmanifest auswählen). Verwenden Sie nicht die Datei „deployment.template.json“.
 
-4. Klicken Sie mit der rechten Maustaste auf den Namen Ihres IoT Edge-Geräts, und klicken Sie dann auf **Create Deployment for Single Device** (Bereitstellung für einzelnes Gerät erstellen). 
-
-   ![Erstellen einer Bereitstellung für ein einzelnes Gerät](./media/tutorial-node-module/create-deployment.png)
-
-5. Wählen Sie im Konfigurationsordner (**config**) die Datei **deployment.json** aus, und klicken Sie auf **Select Edge Deployment Manifest** (Edge-Bereitstellungsmanifest auswählen). Verwenden Sie nicht die Datei „deployment.template.json“. 
-
-6. Klicken Sie auf die Schaltfläche „Aktualisieren“. Nun sollte das neue **NodeModule**-Modul zusammen mit dem **TempSensor**-Modul sowie **$edgeAgent** und **$edgeHub** ausgeführt werden. 
-
+4. Klicken Sie auf die Schaltfläche „Aktualisieren“. Nun sollte das neue **NodeModule**-Modul zusammen mit dem **TempSensor**-Modul sowie **$edgeAgent** und **$edgeHub** ausgeführt werden.
 
 ## <a name="view-generated-data"></a>Anzeigen generierter Daten
 
-Sobald Sie das Bereitstellungsmanifest auf Ihr IoT Edge-Gerät angewendet haben, erfasst die IoT Edge-Runtime auf dem Gerät die neuen Bereitstellungsinformationen und verwendet sie bei der Ausführung. Alle auf dem Gerät ausgeführten Module, die nicht im Bereitstellungsmanifest enthalten sind, werden beendet. Module, die auf dem Gerät fehlen, werden gestartet. 
+Sobald Sie das Bereitstellungsmanifest auf Ihr IoT Edge-Gerät angewendet haben, erfasst die IoT Edge-Runtime auf dem Gerät die neuen Bereitstellungsinformationen und verwendet sie bei der Ausführung. Alle auf dem Gerät ausgeführten Module, die nicht im Bereitstellungsmanifest enthalten sind, werden beendet. Module, die auf dem Gerät fehlen, werden gestartet.
 
-Der Status Ihres IoT Edge-Geräts wird im Abschnitt **Azure IoT Hub Devices** (Azure IoT Hub-Geräte) des Visual Studio Code-Explorers angezeigt. Erweitern Sie die Details Ihres Geräts, um eine Liste mit den bereitgestellten und ausgeführten Modulen anzuzeigen. 
+Der Status Ihres IoT Edge-Geräts wird im Abschnitt **Azure IoT Hub Devices** (Azure IoT Hub-Geräte) des Visual Studio Code-Explorers angezeigt. Erweitern Sie die Details Ihres Geräts, um eine Liste mit den bereitgestellten und ausgeführten Modulen anzuzeigen.
 
-Auf dem IoT Edge-Gerät selbst können Sie den Status Ihrer Bereitstellungsmodule mithilfe des Befehls `iotedge list` anzeigen. Es sollten vier Module angezeigt werden: die beiden IoT Edge-Runtime-Module, „tempSensor“ und das benutzerdefinierte Modul, das Sie in diesem Tutorial erstellt haben. Es kann einige Minuten dauern, bis alle Module gestartet wurden. Führen Sie den Befehl daher erneut aus, falls nicht gleich alle Module angezeigt werden. 
+1. Klicken Sie im Visual Studio Code-Explorer mit der rechten Maustaste auf den Namen Ihres IoT Edge-Geräts, und wählen Sie **Start Monitoring Built-in Event Endpoint** (Überwachung des integrierten Ereignisendpunkts starten) aus.
 
-Mit dem Befehl `iotedge logs <module name>` können Sie die Nachrichten anzeigen, die von einem Modul generiert werden. 
+2. Zeigen Sie die Nachrichten an, die in Ihrer IoT Hub-Instanz eingehen. Möglicherweise dauert es eine Weile, bis die Nachrichten eintreffen, weil das IoT Edge-Gerät erst seine neue Bereitstellung empfangen und alle Module starten muss. Danach wird bei den am Code von „NodeModule“ vorgenommenen Änderungen gewartet, bis die Maschinentemperatur 25 Grad erreicht hat, bevor Nachrichten gesendet werden. Außerdem fügt das Gerät allen Nachrichten, die diesen Temperaturschwellenwert erreichen, den Nachrichtentyp **Alert** (Warnung) hinzu. 
 
-Mithilfe von Visual Studio Code können Sie die bei Ihrem IoT-Hub eingehenden Nachrichten anzeigen. 
+## <a name="edit-the-module-twin"></a>Bearbeiten des Modulzwillings
 
-1. Klicken Sie zum Überwachen der bei IoT Hub eingehenden Daten auf **...** und dann auf **Start Monitoring D2C Messages** (Überwachung von D2C-Nachrichten starten).
-2. Wenn Sie die D2C-Nachrichten für ein bestimmtes Gerät überwachen möchten, klicken Sie mit der rechten Maustaste auf das Gerät in der Liste, und klicken Sie dann auf **Start Monitoring D2C Messages** (Überwachung von D2C-Nachrichten starten).
-3. Wenn Sie die Datenüberwachung beenden möchten, führen Sie in der Befehlspalette den Befehl **Azure IoT Hub: Stop monitoring D2C message** aus. 
-4. Klicken Sie zum Anzeigen oder Aktualisieren des Modulzwillings mit der rechten Maustaste auf das Modul in der Liste, und klicken Sie auf **Edit module twin** (Modulzwilling bearbeiten). Speichern Sie zum Aktualisieren des Modulzwillings die JSON-Datei des Zwillings, klicken Sie mit der rechten Maustaste auf den Editorbereich, und wählen Sie **Update Module Twin** (Modulzwilling aktualisieren).
-5. Zum Anzeigen von Docker-Protokollen können Sie [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) für VS Code installieren und Ihre ausgeführten Module lokal im Docker-Explorer suchen. Klicken Sie zum Anzeigen im integrierten Terminal im Kontextmenü auf **Protokolle anzeigen**. 
+Sie haben den Modulzwilling „NodeModule“ im Bereitstellungsmanifest verwendet, um den Temperaturschwellenwert auf 25 Grad festzulegen. Mithilfe des Modulzwillings können Sie die Funktionalität ändern, ohne den Modulcode aktualisieren zu müssen.
+
+1. Erweitern Sie in Visual Studio Code die Details unter Ihrem IoT Edge-Gerät, um die derzeit ausgeführten Module anzuzeigen. 
+
+2. Klicken Sie mit der rechten Maustaste auf **NodeModule**, und wählen Sie **Modulzwilling bearbeiten** aus. 
+
+3. Suchen Sie in den gewünschten Eigenschaften nach **TemperatureThreshold**. Ändern Sie den Wert auf eine neue Temperatur, die fünf bis zehn Grad über der zuletzt gemeldeten Temperatur liegt. 
+
+4. Speichern Sie die Modulzwillingsdatei.
+
+5. Klicken Sie mit der rechten Maustaste auf eine beliebige Stelle im Bearbeitungsbereich für Modulzwillinge, und wählen Sie **Modulzwilling aktualisieren** aus. 
+
+6. Überwachen Sie die eingehenden D2C-Nachrichten (Device-to-Cloud, Gerät-zu-Cloud). Jetzt sollten die Nachrichten so lange gestoppt werden, bis der neue Temperaturschwellenwert erreicht wird. 
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen 
 
@@ -279,14 +248,12 @@ Andernfalls können Sie die in diesem Artikel erstellten lokalen Konfigurationen
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
-
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Tutorial haben Sie ein IoT Edge-Modul erstellt, das Code zum Filtern von Rohdaten enthält, die von Ihrem IoT Edge-Gerät generiert wurden. Sie können mit einem der nachfolgenden Tutorials fortfahren, um andere Möglichkeiten kennenzulernen, wie Azure IoT Edge Ihnen beim Umwandeln von Daten in geschäftliche Erkenntnisse auf Edge-Ebene helfen kann.
+In diesem Tutorial haben Sie ein IoT Edge-Modul erstellt, das Code zum Filtern von Rohdaten enthält, die von Ihrem IoT Edge-Gerät generiert wurden. Wenn Sie jetzt Ihre eigenen Module entwickeln möchten, können Sie sich ausführlicher über das [Entwickeln Ihrer eigenen IoT Edge-Module](module-development.md) oder das [Entwickeln von Modulen mit Visual Studio Code](how-to-vs-code-develop-module.md) informieren. Sie können die nächsten Tutorials durcharbeiten, um zu erfahren, wie Ihnen Azure IoT Edge bei der Bereitstellung von Azure-Clouddiensten helfen kann, um Daten auf Edge-Ebene zu verarbeiten und zu analysieren.
 
 > [!div class="nextstepaction"]
-> [Bereitstellen einer Azure-Funktion als Modul](tutorial-deploy-function.md)
-> [Bereitstellen von Azure Stream Analytics als Modul](tutorial-deploy-stream-analytics.md)
-
+> [Funktionen](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

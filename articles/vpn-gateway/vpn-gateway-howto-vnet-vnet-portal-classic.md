@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60407910"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurieren einer VNet-zu-VNet-Verbindung (klassisch)
 
@@ -33,8 +33,8 @@ Dieser Artikel hilft Ihnen beim Erstellen einer VPN-Gatewayverbindung zwischen v
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure-Befehlszeilenschnittstelle](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure-Portal (klassisch)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Azure-Portal: Verbinden verschiedener Bereitstellungsmodelle](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [PowerShell: Verbinden verschiedener Bereitstellungsmodelle](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Verbinden von verschiedenen Bereitstellungsmodellen – Azure-Portal](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Verbinden von verschiedenen Bereitstellungsmodellen – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
@@ -118,13 +118,13 @@ Ressourcengruppe: ClassicRG<br>
 Standort: USA (Westen)<br>
 Gatewaysubnetz: 10.41.1.0/27
 
-**Berücksichtigen Sie bei der Erstellung der VNETs die folgenden Einstellungen:**
+**Berücksichtigen Sie bei der Erstellung der VNETs folgende Einstellungen:**
 
 * **Adressräume von Virtual Network** – Geben Sie auf der Seite „Adressräume von Virtual Network“ den Adressbereich an, der für das virtuelle Netzwerk verwendet werden soll. Dies sind die dynamischen IP-Adressen, die den VMs und anderen Rolleninstanzen zugewiesen werden, die Sie für dieses virtuelle Netzwerk bereitstellen.<br>Die Adressräume, die Sie auswählen, dürfen nicht die Adressräume von anderen VNETs oder lokalen Standorten überlappen, zu denen dieses VNET eine Verbindung herstellt.
 
 * **Standort**: Wenn Sie ein virtuelles Netzwerk erstellen, ordnen Sie dieses einem Azure-Standort (einer Region) zu. Wenn Sie z. B. wünschen, dass Ihre virtuellen Computer, die Sie für Ihr virtuelles Netzwerk bereitgestellt haben, physisch in "USA West" vorhanden sind, wählen Sie diesen Standort aus. Sie können den Ihrem virtuellen Netzwerk zugeordnete Standort nach dem Erstellen nicht mehr ändern.
 
-**Nach der Erstellung der VNETs können Sie die folgenden Einstellungen hinzufügen:**
+**Nach der Erstellung der VNETs können Sie folgende Einstellungen hinzufügen:**
 
 * **Adressraum** – Für diese Konfiguration ist kein zusätzlicher Adressraum erforderlich, Sie können jedoch nach der Erstellung des VNET zusätzliche Adressräume hinzufügen.
 

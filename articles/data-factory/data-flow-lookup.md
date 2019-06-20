@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64868122"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory Mapping Data Flow: Suchtransformation
 
@@ -25,6 +25,10 @@ Verwenden Sie die Transformation für die Suche, um Ihrem Datenfluss Verweisdate
 Wählen Sie die Schlüsselfelder aus, die zwischen den Feldern für den eingehenden Datenstrom und den Feldern der Referenzquelle abgeglichen werden sollen. Zuerst muss auf dem Datenfluss-Entwurfscanvas eine neue Quelle erstellt worden sein, die als rechte Seite für die Suche verwendet wird.
 
 Werden Übereinstimmungen gefunden, werden Ihrem Datenfluss die resultierenden Zeilen und Spalten der Referenzquelle hinzugefügt. Sie können die relevanten Felder auswählen, die Sie in Ihre Senke am Ende des Datenflusses einschließen möchten.
+
+## <a name="match--no-match"></a>Übereinstimmung/Keine Übereinstimmung
+
+Nach Ihrer Lookup-Transformation können Sie nachfolgende Transformationen verwenden, um die Ergebnisse der einzelnen übereinstimmenden Zeilen zu überprüfen, indem Sie die Ausdrucksfunktion `isMatch()` verwenden, um weitere Entscheidungen in Ihrer Logik zu treffen, je nachdem, ob der Lookup-Vorgang zu einer Übereinstimmung in einer Zeile führte.
 
 ## <a name="optimizations"></a>Optimierungen
 

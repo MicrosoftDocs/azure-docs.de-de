@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 467e09f9bd46df6d888d82f2961c5aed9cca4ab5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133761"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177892"
 ---
 Dieses Beispiel beinhaltet die Verwendung des [Twilio](https://www.twilio.com/)-Diensts zum Senden von SMS-Nachrichten an ein Mobiltelefon. Azure Functions bietet über die [Twilio-Bindung](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio) bereits Unterstützung für Twilio an. Dieses Feature wird in dem Beispiel verwendet.
 

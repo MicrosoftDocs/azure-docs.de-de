@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482799"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60363556"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testergebnisse für die Hyper-V-Replikation an einen sekundären Standort
 
@@ -108,7 +108,7 @@ Die Ergebnisse zeigen deutlich, dass Site Recovery in Kombination mit Hyper-V Re
 
 | Server | RAM | Modell | Prozessor | Anzahl der Prozessoren | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-Server im Cluster:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128 MB (ESTLAB-HOST25: 256 MB) |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 mit \@ 2,20 GHz |4 |1 GBit/s (4x) |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-Rolle |
+| Hyper-V-Server im Cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128 MB (ESTLAB-HOST25: 256 MB) |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 mit \@ 2,20 GHz |4 |1 GBit/s (4x) |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-Rolle |
 | VMM-Server |2 | | |2 |1 GBit/s |Windows Server Datacenter 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Sekundärer Standort
@@ -120,7 +120,7 @@ Die Ergebnisse zeigen deutlich, dass Site Recovery in Kombination mit Hyper-V Re
 
 | Server | RAM | Modell | Prozessor | Anzahl der Prozessoren | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-Server im Cluster:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 mit \@ 2,30 GHz |2 |1 GBit/s (4x) |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-Rolle |
+| Hyper-V-Server im Cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 mit \@ 2,30 GHz |2 |1 GBit/s (4x) |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-Rolle |
 | ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 mit \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-Rolle |
 | ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 mit \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-Rolle |
 | VMM-Server |2 | | |2 |1 GBit/s |Windows Server Datacenter 2012 R2 (x64) + VMM 2012 R2 |

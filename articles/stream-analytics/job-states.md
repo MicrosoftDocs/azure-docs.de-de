@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.openlocfilehash: 28e0e69d3a6a4d3a38146cbf2c49426b3b16c784
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60789450"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Zustände von Azure Stream Analytics-Aufträgen
 
 Ein Stream Analytics-Auftrag kann zu einem beliebigen Zeitpunkt einen von vier Zuständen haben. Den Zustand Ihres Stream Analytics-Auftrags können Sie im Azure-Portal auf der zugehörigen Seite „Übersicht“ bestimmen. 
 
-| Zustand | Beschreibung | Empfohlene Aktionen |
+| Zustand | BESCHREIBUNG | Empfohlene Aktionen |
 | --- | --- | --- |
 | **Wird ausgeführt** | Ihr in Azure ausgeführter Auftrag liest Ereignisse aus den definierten Eingabequellen, verarbeitet sie und schreibt die Ergebnisse in die konfigurierten Ausgabesenken. | Es ist eine bewährte Methode, die Leistung Ihres Auftrags durch Überwachung [wichtiger Metriken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) zu verfolgen. |
 | **Beendet** | Ihr Auftrag wurde beendet und verarbeitet keine Ereignisse mehr. | Nicht verfügbar | 

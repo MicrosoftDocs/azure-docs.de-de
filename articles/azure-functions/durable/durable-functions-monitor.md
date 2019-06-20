@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607278"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387093"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Überwachungsszenario in Durable Functions – Beispiel einer Wetterbeobachtungsstation
 
@@ -42,7 +42,7 @@ Dieses Beispiel überwacht die aktuellen Wetterbedingungen an einem bestimmten O
 
 In diesem Beispiel wird die Weather Underground-API verwenden, um die Wetterbedingungen an einem Standort zu beobachten.
 
-Als Erstes benötigen Sie ein Weather Underground-Konto. Unter [https://www.wunderground.com/signup](https://www.wunderground.com/signup) können Sie kostenlos eines erstellen. Sobald Sie über das Konto verfügen, müssen Sie einen API-Schlüssel abrufen. Öffnen Sie dazu die Website [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api), und wählen Sie „Key Settings“ (Schlüsseleinstellungen) aus. Der Stratus Developer-Plan ist kostenlos und für dieses Beispiel ausreichend.
+Als Erstes benötigen Sie ein Weather Underground-Konto. Unter [https://www.wunderground.com/signup](https://www.wunderground.com/signup) können Sie kostenlos eines erstellen. Sobald Sie über das Konto verfügen, müssen Sie einen API-Schlüssel abrufen. Öffnen Sie dazu die Website [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), und wählen Sie „Key Settings“ (Schlüsseleinstellungen) aus. Der Stratus Developer-Plan ist kostenlos und für dieses Beispiel ausreichend.
 
 Wenn Sie den API-Schlüssel haben, fügen Sie die folgenden **App-Einstellungen** zu Ihrer Funktions-App hinzu.
 
@@ -89,7 +89,8 @@ Durch Senden mehrerer **MonitorRequests** können mehrere Orchestratorinstanzen 
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Stark typisierte Datenübertragung (nur .NET)
 
-Der Orchestrator erfordert eine Vielzahl von Daten, daher werden [freigegebene POCO-Objekte](../functions-reference-csharp.md#reusing-csx-code) für eine stark typisierte Datenübertragung in C# und C#-Skripts verwendet: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+Der Orchestrator erfordert eine Vielzahl von Daten, daher werden [freigegebene POCO-Objekte](../functions-reference-csharp.md#reusing-csx-code) für eine stark typisierte Datenübertragung in C# und C#-Skripts verwendet:  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 

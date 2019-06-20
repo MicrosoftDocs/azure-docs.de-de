@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604285"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Häufig gestellte Fragen
 
@@ -132,7 +132,7 @@ Ja, auf dem Server können Sie Folgendes schreiben:
 
 Weitere Informationen über [ASP.NET](api-filtering-sampling.md) und [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Wie werden Daten zu Ort, Land und andere Geolocation-Daten berechnet?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Wie werden Daten zu Ort, Land/Region und andere Geolocation-Daten berechnet?
 
 Mit [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) wird die IP-Adresse (IPv4 oder IPv6) des Webclients gesucht.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000044"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61245101"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-Community  
 

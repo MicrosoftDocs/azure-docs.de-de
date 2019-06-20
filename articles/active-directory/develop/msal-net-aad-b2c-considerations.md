@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8240a487bdb01cdbe9017ddc7cb95ce4fc0e1503
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544073"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052368"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Verwenden von MSAL.NET zur Anmeldung von Benutzern mit Identitäten sozialer Netzwerke
 
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
 durch:
 
 - `policy` ist eine der vorherigen Zeichenfolgen (z. B. `PolicySignUpSignIn`).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` ist eine Methode, die ein Konto für eine bestimmte Richtlinie findet. Beispiel: 
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` ist eine Methode, die ein Konto für eine bestimmte Richtlinie findet. Beispiel:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -177,7 +177,7 @@ Zur Umgehung dieses Problems sollten Sie das [Zwischenspeichern nach Richtlinie]
 Alternativ können Sie den `tid`-Anspruch verwenden, wenn Sie die [benutzerdefinierten B2C-Richtlinien](https://aka.ms/ief) verwenden, da er die Möglichkeit bietet, zusätzliche Ansprüche an die Anwendung zurückzugeben. Erfahren Sie mehr über die [Transformation von Ansprüchen](/azure/active-directory-b2c/claims-transformation-technical-profile).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Problemumgehung für „Fehlt in der Tokenantwort“
-Eine Möglichkeit ist es, den „Name“-Anspruch als bevorzugten Benutzernamen zu verwenden. Die Vorgehensweise wird in diesem [B2C-Dokument](/azure/active-directory-b2c/active-directory-b2c-reference-policies#frequently-asked-questions) wie folgt beschrieben: „Wählen Sie in der Spalte mit den zurückgegebenen Ansprüchen diejenigen aus, die nach einer erfolgreichen Profilbearbeitung in den Autorisierungstoken an die Anwendung zurückgegeben werden sollen. Wählen Sie z. B. den Anzeigenamen oder die Postleitzahl aus.“
+Eine Möglichkeit ist es, den „Name“-Anspruch als bevorzugten Benutzernamen zu verwenden. Die Vorgehensweise wird in diesem [B2C-Dokument](../../active-directory-b2c/active-directory-b2c-reference-policies.md) wie folgt beschrieben: „Wählen Sie in der Spalte mit den zurückgegebenen Ansprüchen diejenigen aus, die nach einer erfolgreichen Profilbearbeitung in den Autorisierungstoken an die Anwendung zurückgegeben werden sollen. Wählen Sie z. B. den Anzeigenamen oder die Postleitzahl aus.“
 
 ## <a name="next-steps"></a>Nächste Schritte 
 

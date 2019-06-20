@@ -40,7 +40,7 @@ Es ist keine Programmierung erforderlich, sondern einfach nur das visuelle Verbi
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Herunterladen des Machine Learning Studio-Übersichtsdiagramms
 Laden Sie das Diagramm **Übersicht der Microsoft Azure Machine Learning Studio-Funktionen** herunter, und verschaffen Sie sich einen allgemeinen Überblick über die Funktionen von Machine Learning Studio. Drucken Sie das Diagramm in Tabloid-Größe (28 x 43 cm, 11 x 17 Zoll) aus, um schnell darauf zugreifen zu können.
 
-**Laden Sie das Diagramm hier herunter: [Übersicht der Microsoft Azure Machine Learning Studio-Funktionen](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Laden Sie das Diagramm hier herunter: [Übersicht der Microsoft Azure Machine Learning Studio-Funktionen](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
 ![Übersicht der Microsoft Azure Machine Learning Studio-Funktionen](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Erste Schritte mit Machine Learning Studio
@@ -61,9 +61,9 @@ Klicken Sie auf **Studio**, um zu **Azure Machine Learning Studio** zu gelangen.
 * **EINSTELLUNGEN** – eine Sammlung von Einstellungen, mit denen Sie Ihr Konto und Ihre Ressourcen konfigurieren
 
 ### <a name="gallery"></a>Gallery
-Wenn Sie auf **Katalog** klicken, gelangen Sie zum **[Azure AI-Katalog](https://gallery.azure.ai/)**. In diesem Katalog teilt eine Community von Datenwissenschaftlern und Entwicklern Lösungen, die mithilfe von Komponenten der Cortana Intelligence Suite erstellt wurden.
+Wenn Sie auf **Katalog** klicken, gelangen Sie zum **[Azure KI-Katalog](https://gallery.azure.ai/)** . In diesem Katalog teilt eine Community von Datenwissenschaftlern und Entwicklern Lösungen, die mithilfe von Komponenten der Cortana Intelligence Suite erstellt wurden.
 
-Weitere Informationen zum Katalog finden Sie unter [Teilen und Entdecken von Lösungen im Azure AI-Katalog](gallery-how-to-use-contribute-publish.md).
+Weitere Informationen zum Katalog finden Sie unter [Teilen und Entdecken von Lösungen im Azure KI-Katalog](gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Komponenten eines Experiments
 Ein Experiment besteht auf Datasets, die Daten für Analysemodule bereitstellen, die Sie miteinander verbinden und so ein Vorhersagemodell konstruieren. Ein gültiges Experiment hat spezifisch folgende Eigenschaften:
@@ -121,7 +121,7 @@ Hier ist ein kurzer Vergleich:
 |Module für Schnittstellen| Mehrere | Anfänglicher Satz von beliebten Modulen|
 |Trainieren von Computezielen| Proprietäres Computeziel, nur CPU-Unterstützung| Unterstützt Azure Machine Learning-Compute, -GPU oder -CPU.<br/>(Weitere Computes in SDK unterstützt)|
 |Computeziele für die Bereitstellung| Proprietäres Webdienstformat, nicht anpassbar | Unternehmenssicherheitsoptionen und Azure Kubernetes Service <br/>([Weitere Computes](../service/how-to-deploy-and-where.md) in SDK unterstützt) |
-|Automatisiertes Modelltraining und Optimieren von Hyperparametern | Nein  | Noch nicht auf der grafischen Benutzeroberfläche. <br/> (Im SDK und Azure-Portal unterstützt.) | 
+|Automatisiertes Modelltraining und Optimieren von Hyperparametern | Nein | Noch nicht auf der grafischen Benutzeroberfläche. <br/> (Im SDK und Azure-Portal unterstützt.) | 
 
 Testen Sie die grafische Benutzeroberfläche (Vorschauversion) mit [Schnellstart: Vorbereiten und Visualisieren von Daten, ohne Code zu schreiben](../service/ui-quickstart-run-experiment.md)
 

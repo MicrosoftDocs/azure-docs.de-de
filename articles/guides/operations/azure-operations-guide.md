@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051169"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570607"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Erste Schritte für Azure-IT-Operatoren
 
@@ -145,7 +145,7 @@ Eine ausführliche Dokumentation zu Azure-Diensten finden Sie in der [Dokumentat
 
 Azure ist eine globale Cloudplattform, die in vielen Regionen auf der ganzen Welt allgemein verfügbar ist. Beim Bereitstellen eines Diensts, einer Anwendung oder einer VM in Azure werden Sie aufgefordert, eine Region auszuwählen. Die ausgewählte Region steht für ein bestimmtes Datencenter, in dem Ihre Anwendung ausgeführt wird. Weitere Informationen finden Sie unter [Azure-Regionen](https://azure.microsoft.com/regions/).
 
-Einer der Vorteile der Verwendung von Azure ist, dass Sie Ihre Anwendungen in verschiedenen Datencentern auf der ganzen Welt bereitstellen können. Die Region, die Sie auswählen, kann sich auf die Leistung Ihrer Anwendung auswirken. Es ist optimal, eine Region auszuwählen, die für den Großteil Ihrer Kunden in der Nähe liegt, um die Wartezeit bei Netzwerkanforderungen zu reduzieren. Es kann auch ratsam sein, die Region so auszuwählen, dass sie die rechtlichen Anforderungen für den Vertrieb Ihrer App in bestimmten Ländern erfüllt.
+Einer der Vorteile der Verwendung von Azure ist, dass Sie Ihre Anwendungen in verschiedenen Datencentern auf der ganzen Welt bereitstellen können. Die Region, die Sie auswählen, kann sich auf die Leistung Ihrer Anwendung auswirken. Es ist optimal, eine Region auszuwählen, die für den Großteil Ihrer Kunden in der Nähe liegt, um die Wartezeit bei Netzwerkanforderungen zu reduzieren. Es kann auch ratsam sein, die Region so auszuwählen, dass sie die rechtlichen Anforderungen für den Vertrieb Ihrer App in bestimmten Ländern/Regionen erfüllt.
 
 ### <a name="azure-portal"></a>Azure-Portal
 

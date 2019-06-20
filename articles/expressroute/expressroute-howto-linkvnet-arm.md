@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: b0ae3d5b2c60badfb9b59820b1e0b85383e524ca
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406314"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950374"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Verbinden eines virtuellen Netzwerks mit einer ExpressRoute-Verbindung
 > [!div class="op_single_selector"]
@@ -175,6 +175,20 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ```
 
 Der Bereich von *RoutingWeight* liegt zwischen 0 und 32.000. Der Standardwert ist 0.
+
+## <a name="configure-expressroute-fastpath"></a>Konfigurieren von ExpressRoute FastPath 
+Sie können [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) aktivieren, wenn Ihre ExpressRoute-Leitung auf [ExpressRoute Direct](expressroute-erdirect-about.md) festgelegt ist und Ihr virtuelles Netzwerkgateway den Typ „Höchstleistung“ oder „ErGw3AZ“ hat. FastPath verbessert die Leistung von Datenpfaden (Pakete pro Sekunde und Verbindungen pro Sekunde) zwischen Ihrem lokalen und Ihrem virtuellen Netzwerk. 
+
+> [!NOTE] 
+> Wenn Sie bereits eine virtuelle Netzwerkverbindung haben, aber FastPath noch nicht aktiviert ist, müssen Sie die virtuelle Netzwerkverbindung löschen und eine neue erstellen. 
+> 
+>  
+
+```azurepowershell-interactive 
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
+$gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
+$connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen über ExpressRoute finden Sie unter [ExpressRoute – FAQ](expressroute-faqs.md).

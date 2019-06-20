@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145131"
 ---
 # <a name="algorithm--module-reference-overview"></a>Algorithmen und Module: Referenzübersicht

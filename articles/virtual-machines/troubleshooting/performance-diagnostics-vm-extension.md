@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60307902"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azure-VM-Erweiterung für die Leistungsdiagnose unter Windows
 
@@ -70,7 +70,7 @@ Der folgende JSON-Code zeigt das Schema für die Azure-VM-Erweiterung für die L
 |   **Name**   |**Wert/Beispiel**|       **Beschreibung**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Die Version der API.
-|Herausgeber|Microsoft.Azure.Performance.Diagnostics|Der Herausgebernamespace für die Erweiterung.
+|publisher|Microsoft.Azure.Performance.Diagnostics|Der Herausgebernamespace für die Erweiterung.
 |type|AzurePerformanceDiagnostics|Der Typ der VM-Erweiterung.
 |typeHandlerVersion|1.0|Die Version des Erweiterungshandlers.
 |performanceScenario|basic|Das Leistungsszenario für die Erfassung von Daten. Gültige Werte sind: **basic**, **vmslow**, **azurefiles** und **custom**.
@@ -81,7 +81,7 @@ Der folgende JSON-Code zeigt das Schema für die Azure-VM-Erweiterung für die L
 |storPortTrace|s|Option zum Aktivieren der StorPort-Ablaufverfolgung. Gültige Werte sind **s** oder ein leerer Wert. Lassen Sie den Wert leer, wenn Sie diese Ablaufverfolgung nicht erfassen möchten.
 |srNumber|123452016365929|Die Supportticketnummer, sofern verfügbar. Lassen Sie den Wert andernfalls leer.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Aktueller Wert für Datum und Uhrzeit in UTC. Sie müssen diesen Wert nicht angeben, wenn Sie das Portal verwenden, um diese Erweiterung zu installieren.
-|Ressourcen-ID|/subscriptions/{Abonnement-ID}/resourceGroups/{Ressourcengruppenname}/providers/{Ressourcenanbieter-Namespace}/{Ressourcentyp}/{Ressourcenname}|Der eindeutige Bezeichner einer VM.
+|resourceId|/subscriptions/{Abonnement-ID}/resourceGroups/{Ressourcengruppenname}/providers/{Ressourcenanbieter-Namespace}/{Ressourcentyp}/{Ressourcenname}|Der eindeutige Bezeichner einer VM.
 |storageAccountName|mystorageaccount|Der Name des Speicherkontos zum Speichern der Diagnoseprotokolle und Ergebnisse.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Der Schlüssel für das Speicherkonto.
 
@@ -113,7 +113,7 @@ Führen Sie die folgenden Anweisungen aus, um die Erweiterung auf virtuellen Win
 Um die Erweiterung von einem virtuellen Computer zu entfernen, führen Sie die folgenden Schritte aus:
 
 1. Melden Sie sich am [Azure-Portal](https://portal.azure.com) an, und wählen Sie den virtuellen Computer, von dem Sie diese Erweiterung entfernen möchten, und dann das Blatt **Erweiterungen** aus. 
-2. Wählen Sie in der Liste für den Eintrag der Erweiterung für die Leistungsdiagnose die Option (**…**) und dann **Deinstallieren**.
+2. Wählen Sie in der Liste für den Eintrag der Erweiterung für die Leistungsdiagnose die Option ( **…** ) und dann **Deinstallieren**.
 
     ![Screenshot: Blatt „Erweiterungen“ mit Hervorhebung der Option „Deinstallieren“](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -234,7 +234,7 @@ Das Tool PerfInsights erfasst abhängig vom ausgewählten Szenario verschiedene 
 
 ## <a name="view-and-share-the-results"></a>Anzeigen und Freigeben der Ergebnisse
 
-Die Ausgabe von der Erweiterung kann in einer ZIP-Datei gefunden werden, die in das während der Installation angegebene Speicherkonto hochgeladen wird und für 30 Tage über [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) freigegeben ist. Diese ZIP-Datei enthält Diagnoseprotokolle und einen Bericht mit Ergebnissen und Empfehlungen. Ein SAS-Link zur Ausgabe-ZIP-Datei befindet sich in einer Textdatei namens *Zipdateiname*_saslink.txt im Ordner **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<Version>**. Jede Person kann mit diesem Link die ZIP-Datei herunterladen.
+Die Ausgabe von der Erweiterung kann in einer ZIP-Datei gefunden werden, die in das während der Installation angegebene Speicherkonto hochgeladen wird und für 30 Tage über [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) freigegeben ist. Diese ZIP-Datei enthält Diagnoseprotokolle und einen Bericht mit Ergebnissen und Empfehlungen. Ein SAS-Link zur Ausgabe-ZIP-Datei befindet sich in einer Textdatei namens *Zipdateiname*_saslink.txt im Ordner **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<Version>** . Jede Person kann mit diesem Link die ZIP-Datei herunterladen.
 
 Zur Unterstützung des Supporttechnikers, der Ihr Supportticket bearbeitet, verwendet Microsoft diesen SAS-Link unter Umständen zum Herunterladen der Diagnosedaten.
 

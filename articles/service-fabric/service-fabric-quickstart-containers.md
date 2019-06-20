@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4795952faa91d62b76f267795660db5ab4075e79
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110372"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734500"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Schnellstart: Bereitstellen von Windows-Containern in Service Fabric
 
 Azure Service Fabric ist eine Plattform für verteilte Systeme zum Bereitstellen und Verwalten von skalierbaren und zuverlässigen Microservices und Containern.
 
-Zum Ausführen einer vorhandenen Anwendung eines Windows-Containers in einem Service Fabric-Cluster sind keine Änderungen an Ihrer Anwendung erforderlich. In dieser Schnellstartanleitung erfahren Sie, wie Sie ein vorgefertigtes Docker-Containerimage in einer Service Fabric-Anwendung bereitstellen. Nach Abschluss des Vorgangs verfügen Sie über einen aktiven Container für Windows Server Core 2016 Server und IIS. Diese Schnellstartanleitung enthält Informationen zum Bereitstellen eines Windows-Containers. Informationen zum Bereitstellen eines Linux-Containers finden Sie in [dieser Schnellstartanleitung](service-fabric-quickstart-containers-linux.md).
+Zum Ausführen einer vorhandenen Anwendung eines Windows-Containers in einem Service Fabric-Cluster sind keine Änderungen an Ihrer Anwendung erforderlich. In dieser Schnellstartanleitung erfahren Sie, wie Sie ein vorgefertigtes Docker-Containerimage in einer Service Fabric-Anwendung bereitstellen. Nach Abschluss des Vorgangs verfügen Sie über einen aktiven Container für Windows Server Core 2016 Server und IIS. In dieser Schnellstartanleitung wird die Bereitstellung eines Windows-Containers beschrieben. Lesen Sie [diese Schnellstartanleitung](service-fabric-quickstart-containers-linux.md), um einen Linux-Container bereitzustellen.
 
 ![IIS-Standardwebseite][iis-default]
 
@@ -44,7 +44,7 @@ In dieser Schnellstartanleitung wird Folgendes vermittelt:
 
 * Ein Azure-Abonnement. (Sie können ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen.)
 * Ein Entwicklungscomputer, auf dem Folgendes ausgeführt wird:
-  * Visual Studio 2015 oder Visual Studio 2017
+  * Visual Studio 2015 oder Windows 2019.
   * [Service Fabric-SDK und -Tools](service-fabric-get-started.md)
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Packen eines Docker-Imagecontainers mit Visual Studio
@@ -57,7 +57,7 @@ Wählen Sie **Service Fabric-Anwendung**, benennen Sie sie „MyFirstContainer�
 
 Wählen Sie unter **Gehostete Container und Anwendungen** die Vorlage **Container**.
 
-Geben Sie unter **Imagename** die Zeichenfolge „mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016“ ([Basisimage für Windows Server Core und IIS](https://hub.docker.com/r/microsoft-windows-servercore-iis)) ein.
+Geben Sie unter **Imagename** die Zeichenfolge „mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016“ ([Basisimage für Windows Server Core und IIS](https://hub.docker.com/_/microsoft-windows-servercore-iis)) ein.
 
 Konfigurieren Sie die Zuordnung von Containerport zu Hostport, sodass an Port 80 eingehende Anforderungen für den Dienst dem Port 80 des Containers zugeordnet werden.  Legen Sie **Containerport** auf „80“ und **hostPort** auf „80“ fest.  
 
@@ -77,14 +77,14 @@ Microsoft veröffentlicht verschiedene Images für IIS-Versionen, die auf unters
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-Das Dienstmanifest gibt weiterhin nur ein Image für den Nanoserver `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016` an.
+Das Dienstmanifest gibt weiterhin nur ein Image für den Nanoserver `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016` an.
 
 Ändern Sie außerdem in der Datei *ApplicationManifest.xml* den Wert von **PasswordEncrypted** in **false**. Konto und Kennwort sind für das öffentliche Containerimage im Docker-Hub leer. Da die Verschlüsselung eines leeren Kennworts einen Buildfehler zur Folge hätte, deaktivieren wir die Verschlüsselung.
 
@@ -106,7 +106,7 @@ Kopieren Sie das folgende Skript in die Zwischenablage, und öffnen Sie **Window
 
 Nachdem Sie Ihre Werte für die Variablen angegeben haben, drücken Sie **F5**, um das Skript auszuführen.
 
-Warten Sie, bis das Skript ausgeführt und der Cluster erstellt wurde, und suchen Sie dann in der Ausgabe nach `ClusterEndpoint`. Beispiel: 
+Warten Sie, bis das Skript ausgeführt und der Cluster erstellt wurde, und suchen Sie dann in der Ausgabe nach `ClusterEndpoint`. Beispiel:
 
 ```powershell
 ...

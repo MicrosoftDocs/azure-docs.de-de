@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61217192"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Livestreaming mit Azure Media Services zum Erstellen von Multi-Bitrate-Datenströmen
 
@@ -72,7 +72,7 @@ In der folgenden Tabelle ist die Zuordnung der Kanalstatus mit den Abrechnungsmo
 | Wird gestartet |Wird gestartet |Nein (Übergangsstatus) |
 | Wird ausgeführt |Bereit (keine ausgeführten Programme)<br/>oder<br/>Streaming (mindestens ein ausgeführtes Programm) |JA |
 | Wird beendet |Wird beendet |Nein (Übergangsstatus) |
-| Beendet |Beendet |Nein  |
+| Beendet |Beendet |Nein |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatisches Abschalten nicht verwendeter Kanäle
 Seit dem 25. Januar 2016 stellt Media Services ein Update bereit, das einen Kanal (mit aktiviertem Live Encoding) automatisch beendet, nachdem er für einen längeren Zeitraum nicht verwendet wurde. Dies gilt für Kanäle ohne aktive Programme, die seit längerer Zeit keine Eingabe erhalten haben.
@@ -315,7 +315,7 @@ In der folgenden Tabelle ist die Zuordnung der Kanalstatus mit den Abrechnungsmo
 | Wird gestartet |Wird gestartet |Nein (Übergangsstatus) |
 | Wird ausgeführt |Bereit (keine ausgeführten Programme)<br/>oder<br/>Streaming (mindestens ein ausgeführtes Programm) |JA |
 | Wird beendet |Wird beendet |Nein (Übergangsstatus) |
-| Beendet |Beendet |Nein  |
+| Beendet |Beendet |Nein |
 
 > [!NOTE]
 > Derzeit beträgt die durchschnittliche Dauer bis zum Start des Kanals ca. 2 Minuten, aber in Einzelfällen kann dies auch mehr als 20 Minuten dauern. Das Zurücksetzen des Kanals kann bis zu 5 Minuten dauern.

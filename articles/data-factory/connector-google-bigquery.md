@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60808890"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopieren von Daten aus Google BigQuery mithilfe von Azure Data Factory
 
@@ -44,11 +44,11 @@ Folgende Eigenschaften werden für den mit Google BigQuery verknüpften Dienst u
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die „type“-Eigenschaft muss auf **GoogleBigQuery** festgelegt werden. | JA |
-| project | Das Projekt-ID des BigQuery-Standardprojekts, das abgefragt werden soll.  | JA |
-| additionalProjects | Eine durch Trennzeichen getrennte Liste mit Projekt-IDs öffentlicher BigQuery-Projekte, auf die zugegriffen werden soll.  | Nein  |
-| requestGoogleDriveScope | Ob Zugriff auf Google Drive angefordert werden soll. Das Zulassen des Zugriffs auf Google Drive ermöglicht die Unterstützung von Verbundtabellen, die BigQuery-Daten mit Daten auf Google Drive kombinieren. Der Standardwert ist **false**.  | Nein  |
-| authenticationType | Der OAuth 2.0-Authentifizierungsmechanismus, der für die Authentifizierung verwendet wird. „ServiceAuthentication“ kann nur für eine selbstgehostete Integration Runtime verwendet werden. <br/>Zulässige Werte sind **UserAuthentication** und **ServiceAuthentication**. Weitere Eigenschaften und JSON-Beispiele für diese Authentifizierungstypen finden Sie in den Abschnitten nach dieser Tabelle. | JA |
+| type | Die „type“-Eigenschaft muss auf **GoogleBigQuery** festgelegt werden. | Ja |
+| project | Das Projekt-ID des BigQuery-Standardprojekts, das abgefragt werden soll.  | Ja |
+| additionalProjects | Eine durch Trennzeichen getrennte Liste mit Projekt-IDs öffentlicher BigQuery-Projekte, auf die zugegriffen werden soll.  | Nein |
+| requestGoogleDriveScope | Ob Zugriff auf Google Drive angefordert werden soll. Das Zulassen des Zugriffs auf Google Drive ermöglicht die Unterstützung von Verbundtabellen, die BigQuery-Daten mit Daten auf Google Drive kombinieren. Der Standardwert ist **false**.  | Nein |
+| authenticationType | Der OAuth 2.0-Authentifizierungsmechanismus, der für die Authentifizierung verwendet wird. „ServiceAuthentication“ kann nur für eine selbstgehostete Integration Runtime verwendet werden. <br/>Zulässige Werte sind **UserAuthentication** und **ServiceAuthentication**. Weitere Eigenschaften und JSON-Beispiele für diese Authentifizierungstypen finden Sie in den Abschnitten nach dieser Tabelle. | Ja |
 
 ### <a name="using-user-authentication"></a>Verwenden der Benutzerauthentifizierung
 
@@ -56,9 +56,9 @@ Legen Sie die Eigenschaft „authenticationType“ auf **UserAuthentication** fe
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| clientId | Die ID der Anwendung, die verwendet wird, um das Aktualisierungstoken zu generieren. | Nein  |
-| clientSecret | Das Geheimnis der Anwendung, das verwendet wird, um das Aktualisierungstoken zu generieren. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein  |
-| refreshToken | Das Aktualisierungstoken, das von Google für die Autorisierung des Zugriffs auf BigQuery abgerufen wird. Informationen dazu, wie Sie ein Token erhalten, finden Sie unter [Abrufen von OAuth 2.0-Zugriffstoken](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) und in [diesem Communityblog](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein  |
+| clientId | Die ID der Anwendung, die verwendet wird, um das Aktualisierungstoken zu generieren. | Nein |
+| clientSecret | Das Geheimnis der Anwendung, das verwendet wird, um das Aktualisierungstoken zu generieren. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein |
+| refreshToken | Das Aktualisierungstoken, das von Google für die Autorisierung des Zugriffs auf BigQuery abgerufen wird. Informationen dazu, wie Sie ein Token erhalten, finden Sie unter [Abrufen von OAuth 2.0-Zugriffstoken](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) und in [diesem Communityblog](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein |
 
 **Beispiel:**
 
@@ -92,10 +92,10 @@ Legen Sie die Eigenschaft „authenticationType“ auf **ServiceAuthentication**
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| email | Die E-Mail-ID des Dienstkontos, die für „ServiceAuthentication“ verwendet wird. Diese kann nur für die selbstgehostete Integration Runtime verwendet werden.  | Nein  |
-| keyFilePath | Der vollständige Pfad zur P12-Schlüsseldatei, die zur Authentifizierung der E-Mail-Adresse des Dienstkontos verwendet wird. | Nein  |
-| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn Sie SSL für die selbstgehostete Integration Runtime verwenden. Der Standardwert ist die Datei „cacerts.pem“, die mit der Integration Runtime installiert wird.  | Nein  |
-| useSystemTrustStore | Gibt an, ob ein Zertifizierungsstellenzertifikat aus dem Vertrauensspeicher des Systems oder aus einer angegebenen PEM-Datei verwendet werden soll. Der Standardwert ist **false**.  | Nein  |
+| email | Die E-Mail-ID des Dienstkontos, die für „ServiceAuthentication“ verwendet wird. Diese kann nur für die selbstgehostete Integration Runtime verwendet werden.  | Nein |
+| keyFilePath | Der vollständige Pfad zur P12-Schlüsseldatei, die zur Authentifizierung der E-Mail-Adresse des Dienstkontos verwendet wird. | Nein |
+| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn Sie SSL für die selbstgehostete Integration Runtime verwenden. Der Standardwert ist die Datei „cacerts.pem“, die mit der Integration Runtime installiert wird.  | Nein |
+| useSystemTrustStore | Gibt an, ob ein Zertifizierungsstellenzertifikat aus dem Vertrauensspeicher des Systems oder aus einer angegebenen PEM-Datei verwendet werden soll. Der Standardwert ist **false**.  | Nein |
 
 **Beispiel:**
 
@@ -127,7 +127,7 @@ Legen Sie zum Kopieren von Daten aus Google BigQuery die „type“-Eigenschaft 
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **GoogleBigQueryObject** | JA |
+| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **GoogleBigQueryObject** | Ja |
 | tableName | Name der Tabelle. | Nein (wenn „query“ in der Aktivitätsquelle angegeben ist) |
 
 **Beispiel**
@@ -156,7 +156,7 @@ Legen Sie zum Kopieren von Daten aus Google BigQuery den Quelltyp in der Kopiera
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die „type“-Eigenschaft der Quelle der Kopieraktivität muss auf **GoogleBigQuerySource** festgelegt werden. | JA |
+| type | Die „type“-Eigenschaft der Quelle der Kopieraktivität muss auf **GoogleBigQuerySource** festgelegt werden. | Ja |
 | query | Verwendet die benutzerdefinierte SQL-Abfrage zum Lesen von Daten. Ein Beispiel ist `"SELECT * FROM MyTable"`. | Nein (wenn „tableName“ im Dataset angegeben ist) |
 
 **Beispiel:**

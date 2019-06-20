@@ -16,11 +16,11 @@ ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188321"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62130720"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geografisch verteilte Skalierung mit App Service-Umgebungen
 ## <a name="overview"></a>Übersicht

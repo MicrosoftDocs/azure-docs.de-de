@@ -2,20 +2,20 @@
 title: Unterstützung für Azure Active Directory B2C | Microsoft-Dokumentation
 description: Senden von Supportanfragen für Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2016
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4311f7001e2cd5a05b3a383925dc759acb8b8a05
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 698526cfcb598901032bc00015a8e6faeddba9c6
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64680852"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508285"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Dateisupportanforderungen
 Führen Sie die folgenden Schritte aus, um Supportanfragen für Azure Active Directory (Azure AD) B2C im Azure-Portal zu senden:

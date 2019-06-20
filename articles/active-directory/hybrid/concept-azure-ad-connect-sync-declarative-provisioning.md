@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60246320"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-Synchronisierung: Grundlegendes zur deklarativen Bereitstellung
 In diesem Thema wird das Konfigurationsmodell in Azure AD Connect beschrieben. Dieses Modell, die „deklarative Bereitstellung“, ermöglicht es Ihnen, Konfigurationsänderungen einfach vorzunehmen. In diesem Thema sind auch viele Punkte für fortgeschrittene Benutzer beschrieben, die für die meisten Benutzerszenarien nicht erforderlich sind.
@@ -42,14 +42,14 @@ Die Pipeline enthält mehrere unterschiedliche Module. Jede ist für ein Konzept
 * [Rangfolge](#precedence): Löst in Konflikt stehende Attributbeiträge
 * Ziel: das Zielobjekt
 
-## <a name="scope"></a>Bereich
+## <a name="scope"></a>`Scope`
 Das Bereichsmodul wertet ein Objekt aus und bestimmt die Regeln, die sich innerhalb des Bereichs befinden und verarbeitet werden sollen. Abhängig von den Attributwerten des Objekts werden verschiedene Synchronisierungsregeln für den Bereich ausgewertet. Beispielsweise verfügt ein deaktivierter Benutzer ohne Exchange-Postfach über andere Regeln als ein aktivierter Benutzer mit einem Postfach.  
-![Bereich](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![`Scope`](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 Der Bereich wird als Gruppen und Klauseln definiert. Die Klauseln liegen innerhalb einer Gruppe. Ein logisches AND wird zwischen allen Klauseln in einer Gruppe verwendet. Zum Beispiel (department =IT AND country = Denmark). Ein logisches OR wird zwischen Gruppen verwendet.
 
-![Bereich](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
- Der Bereich in der folgenden Abbildung wird gelesen als (department = IT AND country = Denmark) OR (country=Sweden). Wenn entweder Gruppe 1 oder Gruppe 2 wahr ist, befindet sich die Regel im Geltungsbereich.
+![`Scope`](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+Der Bereich in der folgenden Abbildung wird gelesen als (department = IT AND country = Denmark) OR (country=Sweden). Wenn entweder Gruppe 1 oder Gruppe 2 wahr ist, befindet sich die Regel im Geltungsbereich.
 
 Das Bereichsmodul unterstützt die folgenden Vorgänge.
 
@@ -75,7 +75,7 @@ Verbindungen werden meistens für eingehende Regeln verwendet, um die Objekte de
 
 Verbindungen werden als eine oder mehrere Gruppen definiert. Innerhalb einer Gruppe haben Sie Klauseln. Ein logisches AND wird zwischen allen Klauseln in einer Gruppe verwendet. Ein logisches OR wird zwischen Gruppen verwendet. Die Gruppen werden in der Reihenfolge von oben nach unten verarbeitet. Wenn eine Gruppe genau eine Übereinstimmung mit einem Objekt im Ziel gefunden hat, werden keine anderen Verbindungsregeln ausgewertet. Wenn keine oder mehrere Objekte gefunden werden, wird die Verarbeitung bis zur nächsten Regelgruppe fortgesetzt. Aus diesem Grund müssen die Regeln so erstellt werden, dass die expliziten Regel zuerst und die ungenauen Regeln zuletzt kommen.  
 ![Verbindungsdefinition](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
- Die Verbindungen in diesem Bild werden von oben nach unten verarbeitet. Zuerst prüft die Synchronisierungspipeline, ob eine Übereinstimmung für eine EmployeeID vorliegt. Andernfalls prüft die zweite Regel, ob die Objekte mithilfe des Kontonamens verbunden werden können. Liegt hier ebenfalls keine Übereinstimmung vor, prüft die dritte und letzte Regel eine etwas ungenauere Übereinstimmung unter Verwendung des Benutzernamens.
+Die Verbindungen in diesem Bild werden von oben nach unten verarbeitet. Zuerst prüft die Synchronisierungspipeline, ob eine Übereinstimmung für eine EmployeeID vorliegt. Andernfalls prüft die zweite Regel, ob die Objekte mithilfe des Kontonamens verbunden werden können. Liegt hier ebenfalls keine Übereinstimmung vor, prüft die dritte und letzte Regel eine etwas ungenauere Übereinstimmung unter Verwendung des Benutzernamens.
 
 Wenn alle Verbindungsregeln ausgewertet wurden und keine Übereinstimmung vorliegt, wird der **Verknüpfungstyp** auf der Seite **Beschreibung** verwendet. Wenn für diese Einstellung **Bereitstellen**festgelegt ist, wird im Ziel ein neues Objekt erstellt.  
 ![Bereitstellen oder verbinden](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -120,19 +120,19 @@ Das Literal **AuthoritativeNull** ähnelt **NULL**, jedoch mit dem Unterschied, 
 
 Ein Attributfluss kann auch **IgnoreThisFlow**verwenden. Dieses Literal ähnelt NULL, da es angibt, dass kein beizutragender Wert vorhanden ist. Der Unterschied besteht darin, dass ein bereits vorhandener Wert im Ziel nicht entfernt wird. Es ist, als hätte es den Attributfluss nie gegeben.
 
-Beispiel: 
+Beispiel:
 
 In *Out to AD - User Exchange hybrid* (Ausgehend nach AD – Benutzer Exchange Hybrid) finden Sie folgenden Fluss:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
- Dieser Ausdruck ist wie folgt zu lesen: Wenn sich das Postfach des Benutzers in Azure AD befindet, fließt das Attribut von Azure AD nach AD. Andernfalls fließt nichts zurück nach Active Directory. In diesem Fall wird der vorhandene Wert in AD beibehalten.
+Dieser Ausdruck ist wie folgt zu lesen: Wenn sich das Postfach des Benutzers in Azure AD befindet, fließt das Attribut von Azure AD nach AD. Andernfalls fließt nichts zurück nach Active Directory. In diesem Fall wird der vorhandene Wert in AD beibehalten.
 
 ### <a name="importedvalue"></a>ImportedValue
-Die Funktion „ImportedValue“ unterscheidet sich von allen anderen Funktionen, da der Attributname in Anführungszeichen statt in eckige Klammern eingeschlossen werden muss:   
+Die Funktion „ImportedValue“ unterscheidet sich von allen anderen Funktionen, da der Attributname in Anführungszeichen statt in eckige Klammern eingeschlossen werden muss:  
 `ImportedValue("proxyAddresses")`.
 
 Üblicherweise verwendet ein Attribut während der Synchronisierung den erwarteten Wert, selbst wenn er noch nicht exportiert wurde oder während des Exports ein Fehler empfangen wurde („top of the tower“). Bei einer eingehenden Synchronisierung wird vorausgesetzt, dass ein Attribut, das ein verbundenes Verzeichnis noch nicht erreicht hat, dieses schließlich erreicht. In einigen Fällen ist es wichtig, nur Werte zu synchronisieren, die vom verbundenen Verzeichnis bestätigt wurden („hologram and delta import tower“).
 
-Ein Beispiel für diese Funktion finden Sie in der vordefinierten Synchronisierungsregel *In from AD – User Common from Exchange*(Eingehend von AD – Benutzer allgemein aus Exchange). In Hybrid Exchange sollte der von Exchange Online hinzugefügte Wert nur synchronisiert werden, wenn der erfolgreiche Export des Werts bestätigt wurde:   
+Ein Beispiel für diese Funktion finden Sie in der vordefinierten Synchronisierungsregel *In from AD – User Common from Exchange*(Eingehend von AD – Benutzer allgemein aus Exchange). In Hybrid Exchange sollte der von Exchange Online hinzugefügte Wert nur synchronisiert werden, wenn der erfolgreiche Export des Werts bestätigt wurde:  
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 ## <a name="precedence"></a>Rangfolge

@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: Azure Cosmos DB-API für MongoDB
-          - href: /azure/cosmos-db/table-introduction/
-            html: '<p>Verwenden Sie die Tabelle-API, wenn Sie Daten aus Azure Table Storage zum Premium-Tabellenangebot von Azure Cosmos DB migrieren.</p>'
-            image:
-              src: media/index/table-api.svg
-            title: Tabelle-API
           - href: /azure/cosmos-db/cassandra-introduction/
             html: '<p>Verwenden Sie die Cassandra-API, wenn Sie Daten von Cassandra zum vollständig verwalteten Dienst von Azure Cosmos DB migrieren.</p>'
             image:
               src: media/index/cassandra-api.png
             title: Cassandra-API
+          - href: /azure/cosmos-db/table-introduction/
+            html: '<p>Verwenden Sie die Tabelle-API, wenn Sie Daten aus Azure Table Storage zum Premium-Tabellenangebot von Azure Cosmos DB migrieren.</p>'
+            image:
+              src: media/index/table-api.svg
+            title: Tabelle-API
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: "<p>Verwenden Sie die integrierte Unterstützung für Apache Spark zum Ausführen von Analysen für die in einem Azure\_Cosmos-Konto gespeicherten Daten. </p>"
+            image:
+              src: media/index/spark-logo.png
+            title: Integrierte Analysen mit Apache Spark
+          - href: /azure/cosmos-db/change-feed/
+            html: '<p>Führen Sie Echtzeitanalysen mit einem Änderungsfeed aus, und lesen Sie dabei die sortierte Dokumentenliste in einem Azure Cosmos DB-Container in der Reihenfolge, in der die Dokumente geändert wurden. </p>'
+            image:
+              src: media/index/change-feed-logo.png
+            title: Änderungsfeed
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: <p> Dank der etcd-API können Sie Azure Cosmos DB als Back-End-Speicher für Azure Kubernetes verwenden.</p>
+            image:
+              src: media/index/etcd-logo.png
+            title: etcd-API
   - title: Fünfminütige Schnellstarts
     items:
       - type: paragraph

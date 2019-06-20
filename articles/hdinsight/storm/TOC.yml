@@ -4,6 +4,11 @@
   items:
     - name: Worum handelt es sich bei Apache Storm in Azure HDInsight?
       href: apache-storm-overview.md
+- name: Schnellstarts
+  expanded: true
+  items:
+    - name: Erstellen einer Apache Storm-Topologie in HDInsight
+      href: ./apache-storm-quickstart.md
 - name: Erste Schritte
   items:
     - name: Erstellen eines Apache Storm-Clusters
@@ -213,6 +218,10 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Netzwerkzugriff
       items:
+        - name: Architektur des virtuellen HDInsight-Netzwerks
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Verwenden einer Firewall zum Einschränken des ausgehenden Datenverkehrs
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight in Azure VNET
           href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Verbinden von HDInsight mit dem lokalen Netzwerk
@@ -229,7 +238,5 @@
   items:
     - name: Windows-Cluster
       items:
-        - name: Migrieren von Windows-Clustern zu Linux-Clustern
-          href: ../hdinsight-migrate-from-windows-to-linux.md
         - name: Migrieren von .NET-Lösungen zu Linux-Clustern
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

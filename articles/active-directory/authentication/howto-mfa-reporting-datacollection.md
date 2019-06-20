@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436660"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60359040"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication – Erfassen von Benutzerdaten
 
@@ -30,7 +30,7 @@ Der MFA-Server, die NPS-Erweiterung und der Windows Server 2016 Azure MFA AD FS-
 
 Authentifizierungsversuche (für Berichterstellung und Problembehandlung):
 
-- Zeitstempel
+- Timestamp
 - Username
 - First Name (Vorname)
 - Last Name (Nachname)
@@ -71,7 +71,7 @@ Authentifizierungsversuche (für Berichterstellung und Problembehandlung):
 Aktivierungen (Versuch, ein Konto in der mobilen Microsoft Authenticator-App zu aktivieren):
 - Username
 - Kontoname
-- Zeitstempel
+- Timestamp
 - Abrufen des Aktivierungcodeergebnisses
 - Aktivierung erfolgreich
 - Fehler beim Aktivieren

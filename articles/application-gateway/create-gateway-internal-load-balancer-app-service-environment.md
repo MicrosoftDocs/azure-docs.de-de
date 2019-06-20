@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: ad52d2b1df458d04a1ca9bd52a99bab38ddabef1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60831094"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Back-End-Serverzertifikat nicht in der Whitelist für ein Anwendungsgateway enthalten (bei Verwendung eines internen Lastenausgleichs mit einer App Service-Umgebung)
 
@@ -38,7 +38,7 @@ Wenn Sie ein Anwendungsgateway unter Verwendung eines ILB mit einer ASE am Back-
 - **Back-End-Pool:** IP-Adresse oder FQDN
 - **IP-Adresse:** 10.1.5.11
 - **HTTP-Einstellungen:** HTTPS
-- **Port:**: 443
+- **Port:** : 443
 - **Benutzerdefinierter Test:** Hostname: test.appgwtestase.com
 - **Authentifizierungszertifikat:** CER-Datei von „test.appgwtestase.com“
 - **Back-End-Integrität:** Fehlerhaft (Back-End-Serverzertifikat nicht in Whitelist für Application Gateway enthalten)

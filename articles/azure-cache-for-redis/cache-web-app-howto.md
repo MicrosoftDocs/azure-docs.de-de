@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886368"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864818"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Schnellstart: Erstellen einer ASP.NET-Web-App 
 
 ## <a name="introduction"></a>Einführung
 
-In dieser Schnellstartanleitung wird erörtert, wie Sie mit Visual Studio 2017 eine ASP.NET-Webanwendung erstellen und für Azure App Service bereitstellen. Die Beispielanwendung stellt eine Verbindung mit Azure Cache for Redis her, um Daten aus dem Cache abzurufen und zu speichern. Nach der Ausführung der in dieser Schnellstartanleitung beschriebenen Schritte verfügen Sie über eine funktionsfähige, in Azure gehostete Web-App, die Lese- und Schreibvorgänge in Azure Cache for Redis ausführt.
+In dieser Schnellstartanleitung wird erörtert, wie Sie mit Visual Studio 2019 eine ASP.NET-Webanwendung erstellen und für Azure App Service bereitstellen. Die Beispielanwendung stellt eine Verbindung mit Azure Cache for Redis her, um Daten aus dem Cache abzurufen und zu speichern. Nach der Ausführung der in dieser Schnellstartanleitung beschriebenen Schritte verfügen Sie über eine funktionsfähige, in Azure gehostete Web-App, die Lese- und Schreibvorgänge in Azure Cache for Redis ausführt.
 
 ![Einfacher abgeschlossener Azure-Test](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -34,7 +34,7 @@ In dieser Schnellstartanleitung wird erörtert, wie Sie mit Visual Studio 2017 e
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Installieren Sie [Visual Studio 2017](https://www.visualstudio.com/downloads/) mit den folgenden Umgebungen, um diesen Schnellstart durchzuführen:
+Installieren Sie [Visual Studio 2019](https://www.visualstudio.com/downloads/) mit den folgenden Umgebungen, um diesen Schnellstart durchzuführen:
 * ASP.NET und Webentwicklung
 * Azure-Entwicklung
 
@@ -46,7 +46,7 @@ Installieren Sie [Visual Studio 2017](https://www.visualstudio.com/downloads/) m
 
     ![Projekt erstellen](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. Erweitern Sie in der Liste **Vorlagen** den Knoten **Visual C#**.
+    a. Erweitern Sie in der Liste **Vorlagen** den Knoten **Visual C#** .
 
     b. Wählen Sie **Cloud** aus.
 

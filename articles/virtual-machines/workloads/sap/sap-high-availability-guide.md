@@ -18,19 +18,19 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204936"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Hochverfügbarkeit von Azure Virtual Machines für SAP NetWeaver
 
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -901,7 +901,7 @@ Das Konfigurieren eines Cluster-Dateifreigabenzeugen umfasst die folgenden Aufga
 
    _**Abbildung 30:** Zuweisen der Berechtigungen für die Freigabe für das Clusternamenobjekt_
 
-   Vergewissern Sie sich, dass die Berechtigungen das Ändern von Daten auf der Freigabe für das Clusternamenobjekt zulassen (im Beispiel **pr1-ascs-vir$**).
+   Vergewissern Sie sich, dass die Berechtigungen das Ändern von Daten auf der Freigabe für das Clusternamenobjekt zulassen (im Beispiel **pr1-ascs-vir$** ).
 
 3. Wählen Sie **Hinzufügen** aus, um das Clusternamenobjekt der Liste hinzuzufügen. Ändern Sie den Filter, um zusätzlich zu den in Abbildung 31 dargestellten Objekten auch Computerobjekte einzuschließen.
 
@@ -1133,7 +1133,7 @@ Das Installieren von SAP mit einer ASCS/SCS-Instanz mit hoher Verfügbarkeit umf
 1. Erstellen Sie im Windows-DNS-Manager einen DNS-Eintrag für den virtuellen Hostnamen der ASCS/SCS-Instanz.
 
    > [!IMPORTANT]
-   > Die IP-Adresse, die Sie dem virtuellen Hostnamen der ASCS/SCS-Instanz zuweisen, muss mit der IP-Adresse identisch sein, die Sie dem Azure Load Balancer zugeordnet haben (**<*SID*>-lb-ascs**).  
+   > Die IP-Adresse, die Sie dem virtuellen Hostnamen der ASCS/SCS-Instanz zuweisen, muss mit der IP-Adresse identisch sein, die Sie dem Azure Load Balancer zugeordnet haben ( **<*SID*>-lb-ascs**).  
    >
    >
 
@@ -1305,7 +1305,7 @@ Führen Sie zum Installieren des zweiten Clusterknotens die Schritte im SAP-Inst
 
 ### <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Ändern des Starttyps der Windows-Dienstinstanz für SAP ERS
 
-Ändern Sie den Starttyp der Windows-Dienste für SAP ERS auf beiden Clusterknoten in **Automatisch (Verzögerter Start)**.
+Ändern Sie den Starttyp der Windows-Dienste für SAP ERS auf beiden Clusterknoten in **Automatisch (Verzögerter Start)** .
 
 ![Abbildung 60: Ändern des Starttyps der SAP ERS-Instanz in „Automatisch (Verzögerter Start)“][sap-ha-guide-figure-3050]
 
@@ -1335,7 +1335,7 @@ Die Clustergruppe **SAP PR1** wird auf dem Clusterknoten A ausgeführt, z.B. auf
 
 _**Abbildung 61:** Failovercluster-Manager: Die SAP-Clustergruppe <*SID*> wird auf Clusterknoten A ausgeführt._
 
-Im SIOS DataKeeper-Tool für die Verwaltung und Konfiguration erkennen Sie, dass die Daten auf dem freigegebenen Datenträger synchron vom Quellvolume S auf Clusterknoten A auf das Zielvolume S auf Clusterknoten B repliziert werden, also z.B. von **pr1-ascs-0 [10.0.0.40]** nach **pr1-ascs-1 [10.0.0.41]**.
+Im SIOS DataKeeper-Tool für die Verwaltung und Konfiguration erkennen Sie, dass die Daten auf dem freigegebenen Datenträger synchron vom Quellvolume S auf Clusterknoten A auf das Zielvolume S auf Clusterknoten B repliziert werden, also z.B. von **pr1-ascs-0 [10.0.0.40]** nach **pr1-ascs-1 [10.0.0.41]** .
 
 ![Abbildung 62: Replizieren des lokalen Volumes von Clusterknoten A auf Clusterknoten B in SIOS DataKeeper][sap-ha-guide-figure-5001]
 
@@ -1364,7 +1364,7 @@ _**Abbildung 62:** Replizieren des lokalen Volumes von Clusterknoten A auf Clust
 
    _**Abbildung 63**: Failovercluster-Manager: Die SAP-Clustergruppe <*SID*> wird auf Clusterknoten B ausgeführt._
 
-   Der freigegebene Datenträger wird jetzt auf Clusterknoten B bereitgestellt. SIOS DataKeeper repliziert Daten vom Quellvolume S auf Clusterknoten B auf das Zielvolume S auf Clusterknoten A, also z.B. von **pr1-ascs-1 [10.0.0.41]** nach **pr1-ascs-0 [10.0.0.40]**.
+   Der freigegebene Datenträger wird jetzt auf Clusterknoten B bereitgestellt. SIOS DataKeeper repliziert Daten vom Quellvolume S auf Clusterknoten B auf das Zielvolume S auf Clusterknoten A, also z.B. von **pr1-ascs-1 [10.0.0.41]** nach **pr1-ascs-0 [10.0.0.40]** .
 
    ![Abbildung 64: SIOS DataKeeper repliziert das lokale Volume von Clusterknoten B auf Clusterknoten A.][sap-ha-guide-figure-5003]
 

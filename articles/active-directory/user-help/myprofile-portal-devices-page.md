@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729102"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60475860"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Verwalten Ihrer verbundenen Geräte im Portal „Mein Profil“ (Vorschauversion)
 Auf der Seite **Geräte** im Portal **Mein Profil** können Sie die Geräte, mit denen Sie verbunden sind, über Ihr Geschäfts-, Schul- oder Unikonto verwalten und alle Geräte deaktivieren, die sich nicht mehr in Ihrem Besitz befinden.

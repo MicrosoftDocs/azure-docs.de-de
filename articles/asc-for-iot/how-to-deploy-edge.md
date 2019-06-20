@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 5d56c878eab92a7152bc0b248cab5c2ebf7e6dde
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198413"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254293"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Bereitstellen eines Sicherheitsmoduls auf Ihrem IoT Edge-Gerät
 
@@ -158,7 +158,7 @@ Falls ein Problem auftritt, sind Containerprotokolle die beste Möglichkeit, um 
    
    | NAME | IMAGE |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
    | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    

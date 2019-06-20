@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407589"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003096"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurieren einer PHP-App für Azure App Service
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Zugreifen auf Umgebungsvariablen
 
-In App Service können Sie [App-Einstellungen außerhalb Ihres App-Codes festlegen](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings). Anschließend können Sie darauf unter Verwendung des Standardmusters [getenv()](https://secure.php.net/manual/function.getenv.php) zugreifen. Verwenden Sie beispielsweise den folgenden Code, um auf eine App-Einstellung namens `DB_HOST` zuzugreifen:
+In App Service können Sie [App-Einstellungen außerhalb Ihres App-Codes festlegen](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings). Anschließend können Sie darauf unter Verwendung des Standardmusters [getenv()](https://secure.php.net/manual/function.getenv.php) zugreifen. Verwenden Sie beispielsweise den folgenden Code, um auf eine App-Einstellung namens `DB_HOST` zuzugreifen:
 
 ```php
 getenv("DB_HOST")
@@ -147,11 +147,11 @@ Wenn Sie Änderungen an Ihrer PHP-Installation vornehmen müssen, können Sie je
 > Die beste Möglichkeit zum Anzeigen der PHP-Version und der aktuellen *php.ini*-Konfiguration besteht darin, [phpinfo()](https://php.net/manual/function.phpinfo.php) in Ihrer App aufzurufen.
 >
 
-### <a name="customize-non-phpinisystem-directives"></a>Anpassen von Nicht-PHP_INI_SYSTEM-Anweisungen
+### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Anpassen von Nicht-PHP_INI_SYSTEM-Anweisungen
 
 Zum Anpassen der Anweisungen PHP_INI_USER PHP_INI_PERDIR und PHP_INI_ALL (siehe [php.ini-Anweisungen](https://www.php.net/manual/ini.list.php)), fügen Sie im Stammverzeichnis Ihrer App eine *.htaccess*-Datei hinzu.
 
-Fügen Sie in der *.htaccess*-Datei die Anweisungen hinzu, indem Sie die `php_value <directive-name> <value>`-Syntax verwenden. Beispiel: 
+Fügen Sie in der *.htaccess*-Datei die Anweisungen hinzu, indem Sie die `php_value <directive-name> <value>`-Syntax verwenden. Beispiel:
 
 ```
 php_value upload_max_filesize 1000M
@@ -233,11 +233,11 @@ Damit die Änderungen wirksam werden, starten Sie die App neu.
 Wenn sich eine funktionierende PHP-App in App Service anders verhält oder Fehler aufweist, versuchen Sie Folgendes:
 
 - [Greifen Sie auf den Protokolldatenstrom zu](#access-diagnostic-logs).
-- Testen Sie die App lokal im Produktionsmodus. App Service führt Ihre Node.js-Apps im Produktionsmodus aus, daher müssen Sie sicherstellen, dass Ihr Projekt lokal wie erwartet im Produktionsmodus funktioniert. Beispiel: 
+- Testen Sie die App lokal im Produktionsmodus. App Service führt Ihre Node.js-Apps im Produktionsmodus aus, daher müssen Sie sicherstellen, dass Ihr Projekt lokal wie erwartet im Produktionsmodus funktioniert. Beispiel:
     - Abhängig von Ihrer *composer.json* können verschiedene Pakete für den Produktionsmodus installiert sein (`require` oder `require-dev`).
     - Bestimmte Webframeworks können statische Dateien im Produktionsmodus unterschiedlich bereitstellen.
     - Bestimmte Webframeworks können benutzerdefinierte Startskripts verwenden, wenn sie im Produktionsmodus ausgeführt werden.
-- Führen Sie Ihre App in App Service im Debugmodus aus. Z. B. können Sie in [Laravel](https://meanjs.org/) Ihre App so konfigurieren, dass sie in der Produktion Debugmeldungen ausgibt, indem Sie [die App-Einstellung `APP_DEBUG` auf `true`](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) festlegen.
+- Führen Sie Ihre App in App Service im Debugmodus aus. Z. B. können Sie in [Laravel](https://meanjs.org/) Ihre App so konfigurieren, dass sie in der Produktion Debugmeldungen ausgibt, indem Sie [die App-Einstellung `APP_DEBUG` auf `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) festlegen.
 
 ### <a name="robots933456"></a>robots933456
 

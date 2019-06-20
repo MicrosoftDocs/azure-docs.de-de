@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: storage
 author: roygara
 ms.service: storage
@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114796"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178299"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Blockblobspeicher mit Premium-Leistung
 
@@ -21,15 +21,15 @@ Ein Blockblob-Speicherkonto mit Premium-Leistung ist für Anwendungen optimiert,
 
 ### <a name="premium-performance-filestorage-preview"></a>Premiumleistung von FileStorage (Vorschau)
 
-Premiumdateien verwenden ein eindeutiges Speicherkonto namens **FileStorage (Vorschau)**. Dieser Kontotyp ist für Workloads mit hohem IOPS und hohem Durchsatz bei gleichbleibend kurzer Wartezeit konzipiert. Der Speicher für die Premiumdateien skaliert mit der bereitgestellten Freigabegröße.
+Premiumdateien verwenden ein eindeutiges Speicherkonto namens **FileStorage (Vorschau)** . Dieser Kontotyp ist für Workloads mit hohem IOPS und hohem Durchsatz bei gleichbleibend kurzer Wartezeit konzipiert. Der Speicher für die Premiumdateien skaliert mit der bereitgestellten Freigabegröße.
 
 |Bereich  |Ziel  |
 |---------|---------|
 |Bereitgestellte maximale Größe     |ca. 100 TiB     |
 |Freigaben   |Unbegrenzt  |
 |IOPS     |100.000    |
-|Eingehende Daten|4.136 MiB/s     |
-|Ausgehende Daten|6.204 MiB/s |
+|Eingehende Daten|4\.136 MiB/s     |
+|Ausgehende Daten|6\.204 MiB/s |
 
  Weitere Informationen zu Skalierbarkeitsziele für die Freigabe von Premiumdateien finden Sie im Abschnitt [Premium files scale targets (Skalierbarkeitsziele für Premiumdateien)](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets).
 

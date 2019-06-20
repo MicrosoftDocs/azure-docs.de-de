@@ -1,25 +1,18 @@
 ---
-title: Löschen von Marketplace-Angeboten – Azure Marketplace | Microsoft-Dokumentation
+title: Löschen von Marketplace-Angeboten | Azure Marketplace
 description: Löschen von Angeboten in Azure Marketplace und AppSource über das Cloud-Partnerportal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.author: pabutler
+ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540005"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942135"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Löschen von Azure Marketplace- und AppSource-Angeboten oder -SKUs
 
@@ -28,7 +21,7 @@ Aus verschiedenen Gründen können Sie sich dafür entscheiden, Ihr Angebot vom 
 - Durch das *Entfernen eines Angebots* wird sichergestellt, dass Ihr Angebot nicht mehr durch neue Kunden erworben oder bereitgestellt werden kann. Dies wirkt sich jedoch nicht auf bestehende Kunden aus, denen Sie weiterhin Support entsprechend Ihrem Lizenzvertrag und gemäß geltenden Gesetzen bereitstellen müssen. 
 - Durch *Beenden des Angebots* wird der Dienst und/oder der Lizenzvertrag zwischen Ihnen und Ihren bestehenden Kunden beendet. 
 
-Eine Anleitung und Richtlinien zur Entfernung und Beendigung von Angeboten finden Sie im [Microsoft Marketplace-Herausgebervertrag](https://go.microsoft.com/fwlink/?LinkID=699560) und in den [Teilnahmerichtlinien](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (Abschnitt [Aussetzen und Entfernen von Angeboten](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Eine Anleitung und Richtlinien zur Entfernung und Beendigung von Angeboten finden Sie im [Microsoft Marketplace-Herausgebervertrag](https://go.microsoft.com/fwlink/?LinkID=699560) und in den [Teilnahmerichtlinien](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (Abschnitt [Aussetzen und Entfernen von Angeboten](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 In diesem Artikel werden die unterschiedlichen unterstützten Szenarien zum Löschen und die dazu ausgeführten Schritte behandelt.  
 

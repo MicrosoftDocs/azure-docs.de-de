@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
 ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472049"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Untersuchen von .NET/.NET Core-Ablaufverfolgungsprotokollen in Application Insights
@@ -24,7 +24,7 @@ ms.locfileid: "65472049"
 Senden Sie Protokolle für die Diagnoseablaufverfolgung für Ihre ASP.NET/ASP.NET-Core-Anwendung von ILogger, NLog, log4Net oder System.Diagnostics.Trace an [Azure Application Insights][start]. Sie können Sie anschließend untersuchen und nach ihnen suchen. Diese Protokolle werden mit den anderen Protokolldateien Ihrer Anwendung zusammengeführt, sodass Sie Ablaufverfolgungen identifizieren können, die jeder Benutzeranforderung zugeordnet sind, und sie mit anderen Ereignissen und Ausnahmeberichten in Beziehung setzen können.
 
 > [!NOTE]
-> Benötigen ich das Protokollerfassungsmodul? Dabei handelt es sich um einen nützlichen Adapter für die Protokollierung von Drittanbietern. Falls Sie nicht bereits NLog, log4Net oder „System.Diagnostics.Trace“ verwenden, können Sie auch einfach direkt [**Application Insights TrackTrace()**](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) aufrufen.
+> Benötigen ich das Protokollerfassungsmodul? Dabei handelt es sich um einen nützlichen Adapter für die Protokollierung von Drittanbietern. Falls Sie nicht bereits NLog, log4Net oder „System.Diagnostics.Trace“ verwenden, können Sie auch einfach direkt [**Application Insights TrackTrace()** ](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) aufrufen.
 >
 >
 ## <a name="install-logging-on-your-app"></a>Installieren der Protokollierung in Ihrer App
@@ -140,14 +140,14 @@ Für jede Datenquelle können Sie die folgenden Parameter festlegen:
 ## <a name="use-the-trace-api-directly"></a>Direktes Verwenden der Ablaufverfolgungs-API
 Sie können die API zur Application Insights-Ablaufverfolgung direkt aufrufen. Die Protokollierungsadapter verwenden diese API.
 
-Beispiel: 
+Beispiel:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 Ein Vorteil von TrackTrace ist, dass relativ lange Daten in die Nachricht eingefügt werden können. Sie können dort beispielsweise POST-Daten codieren.
 
-Sie können Ihrer Nachricht auch einen Schweregrad hinzufügen. Wie bei anderen Telemetriedaten auch können Sie Eigenschaftswerte hinzufügen, um zu filtern oder nach verschiedenen Ablaufverfolgungen zu suchen. Beispiel: 
+Sie können Ihrer Nachricht auch einen Schweregrad hinzufügen. Wie bei anderen Telemetriedaten auch können Sie Eigenschaftswerte hinzufügen, um zu filtern oder nach verschiedenen Ablaufverfolgungen zu suchen. Beispiel:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",

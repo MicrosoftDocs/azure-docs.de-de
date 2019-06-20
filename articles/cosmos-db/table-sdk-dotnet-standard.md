@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/18/2018
-ms.openlocfilehash: 38b283ed666b39b4e090bd95051a4454a9b47e62
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/18/2019
+ms.openlocfilehash: 1c9894772f440a568cbc08890feb961471d84137
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57975660"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480216"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>.NET Standard-API für Azure Cosmos DB-Tabellen: Download und Versionshinweise
 > [!div class="op_single_selector"]
@@ -33,6 +33,9 @@ ms.locfileid: "57975660"
 |**Aktuelles unterstütztes Framework**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Versionshinweise
+
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* Fehlerbehebungen
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Release zur allgemeinen Verfügbarkeit
@@ -60,8 +63,11 @@ ms.locfileid: "57975660"
 ## <a name="release-and-retirement-dates"></a>Veröffentlichungs- und Deaktivierungstermine
 Wenn Microsoft ein SDK deaktiviert, werden Sie mindestens **12 Monate** vorher benachrichtigt, um einen reibungslosen Übergang zu einer neueren/unterstützten Version zu gewährleisten.
 
+Die plattformübergreifende .NET Standard-Bibiliothek [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) ersetzt die .NET Framework-Bibliothek [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
+
 | Version | Herausgabedatum | Deaktivierungstermine |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |19. April 2019 |--- |
 | [1.0.0](#1.0.0) |13. März 2019 |--- |
 | [0.11.0-preview](#0.11.0-preview) |5. März 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |22. Januar 2019 |--- |

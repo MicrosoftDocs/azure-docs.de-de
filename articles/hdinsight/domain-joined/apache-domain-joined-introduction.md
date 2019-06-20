@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: deff2aa3cd475a3ed37adc4408a133ed1fd0757e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716661"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243953"
 ---
-# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Einführung in die Apache Hadoop-Sicherheit mit dem Enterprise-Sicherheitspaket
+# <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Worum handelt es sich beim Enterprise-Sicherheitspaket in Azure HDInsight?
 
 Azure HDInsight unterstützte bislang nur einen einzelnen lokalen Administratorbenutzer. Für kleinere Anwendungsteams oder Abteilungen hat das hervorragend funktioniert. Mit der zunehmenden Verbreitung von Apache Hadoop-basierten Workloads im Unternehmenssektor gewinnen jedoch professionelle Funktionen wie Active Directory-basierte Authentifizierung, Unterstützung mehrerer Benutzer und rollenbasierte Zugriffssteuerung immer mehr an Bedeutung. 
 
@@ -36,7 +36,7 @@ Die Umgebungssicherheit in HDInsight wird mithilfe von virtuellen Netzwerken und
 Durch die Verwendung eines VPN Gateway-Diensts lässt sich die Umgebungssicherheit weiter verbessern. Das Gateway fungiert als erste Verteidigungslinie für eingehende, an den HDInsight-Cluster gerichtete Anforderungen. Es nimmt die Anforderung an, überprüft diese und gibt sie erst dann an die anderen Knoten im Cluster weiter. Auf diese Weise ermöglicht das Gateway Umgebungssicherheit an andere Namens- und Datenknoten im Cluster.
 
 ## <a name="authentication"></a>Authentication
-Ein Unternehmensadministrator kann einen HDInsight-Cluster mit Enterprise-Sicherheitspaket in einem [virtuellen Netzwerk](https://azure.microsoft.com/services/virtual-network/) bereitstellen. Alle Knoten des HDInsight-Clusters werden in die vom Unternehmen verwaltete Domäne eingebunden. Hierzu wird [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) verwendet. 
+Ein Unternehmensadministrator kann einen HDInsight-Cluster mit Enterprise-Sicherheitspaket in einem [virtuellen Netzwerk](https://azure.microsoft.com/services/virtual-network/) bereitstellen. Alle Knoten des HDInsight-Clusters werden in die vom Unternehmen verwaltete Domäne eingebunden. Hierzu wird [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) verwendet. 
 
 In dieser Konfiguration können sich Mitarbeiter des Unternehmens mit ihren Domänenanmeldeinformationen bei den Clusterknoten anmelden. Darüber hinaus können sie sich mit ihren Domänenanmeldeinformationen auch bei anderen genehmigten Endpunkten wie Apache Ambari Views, ODBC, JDBC, PowerShell und REST-APIs authentifizieren, um mit dem Cluster zu interagieren. Der Administrator hat uneingeschränkte Kontrolle über die Begrenzung der Anzahl von Benutzern, die über diese Endpunkte mit dem Cluster interagieren.
 

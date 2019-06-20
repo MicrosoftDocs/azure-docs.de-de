@@ -1,25 +1,18 @@
 ---
-title: API für das Abrufen von Vorgängen | Microsoft-Dokumentation
+title: Abrufen der Operations-API | Azure Marketplace
 description: Ruft alle Vorgänge im Angebot oder einen bestimmten Vorgang für die angegebene Vorgangs-ID ab.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.author: pabutler
+ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935777"
 ---
 <a name="retrieve-operations"></a>Abrufen von Vorgängen
 ===================
@@ -40,11 +33,11 @@ Ruft alle Vorgänge im Angebot oder einen bestimmten Vorgang für die angegebene
 
 |  **Name**          |      **Beschreibung**                                                                                           | **Datentyp** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Herausgeber-ID, z.B. `Contoso`                                                                   |  Zeichenfolge       |
-|  offerId           |  Angebots-ID                                                                                              |  Zeichenfolge       |
+|  publisherId       |  Herausgeber-ID, z.B. `Contoso`                                                                   |  string       |
+|  offerId           |  Angebots-ID                                                                                              |  string       |
 |  operationId       |  GUID, die den Vorgang im Angebot eindeutig identifiziert. Die Vorgangs-ID kann mithilfe dieser API abgerufen werden. Sie wird auch im HTTP-Header der Antwort für lang ausgeführte Vorgänge zurückgegeben, wie z.B. bei der [API zum Veröffentlichen von Angeboten](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Optionaler Abfrageparameter zum Filtern nach dem Status (z.B. `running`) in der von dieser API zurückgegebenen Sammlung.  |   Zeichenfolge |
-|  api-version       | Neueste Version der API                                                                                           |    Datum      |
+|  filteredStatus    | Optionaler Abfrageparameter zum Filtern nach dem Status (z.B. `running`) in der von dieser API zurückgegebenen Sammlung.  |   string |
+|  api-version       | Neueste Version der API                                                                                           |    Date      |
 |  |  |  |
 
 

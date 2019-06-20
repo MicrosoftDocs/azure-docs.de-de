@@ -3,17 +3,17 @@ title: Grundlegendes zur Abfragesprache
 description: Beschreibt die verfügbaren Kusto-Operatoren und Funktionen, die mit Azure Resource Graph verwendet werden können.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/11/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276676"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65800505"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Grundlegendes zur Azure Resource Graph-Abfragesprache
 
@@ -32,7 +32,7 @@ Die folgenden tabellarischen Operatoren werden in Resource Graph unterstützt:
 - [order by](/azure/kusto/query/orderoperator)
 - [project](/azure/kusto/query/projectoperator)
 - [project-away](/azure/kusto/query/projectawayoperator)
-- [Beispiel](/azure/kusto/query/sampleoperator)
+- [sample](/azure/kusto/query/sampleoperator)
 - [sample-distinct](/azure/kusto/query/sampledistinctoperator)
 - [sort by](/azure/kusto/query/sortoperator)
 - [summarize](/azure/kusto/query/summarizeoperator)
@@ -40,7 +40,7 @@ Die folgenden tabellarischen Operatoren werden in Resource Graph unterstützt:
 - [top](/azure/kusto/query/topoperator)
 - [top-nested](/azure/kusto/query/topnestedoperator)
 - [top-hitters](/azure/kusto/query/tophittersoperator)
-- [Hierbei gilt:](/azure/kusto/query/whereoperator)
+- [where](/azure/kusto/query/whereoperator)
 
 ## <a name="supported-functions"></a>Unterstützte Funktionen
 
@@ -52,6 +52,38 @@ Die folgenden Funktionen werden in Resource Graph unterstützt:
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
+
+## <a name="escape-characters"></a>Escape-Zeichen
+
+Einige Eigenschaftennamen, etwa diejenigen, die einen `.` oder ein `$` enthalten, müssen in einer Abfrage umhüllt oder mit Escapezeichen versehen sein. Andernfalls wird der jeweilige Eigenschaftenname falsch interpretiert, sodass nicht die erwarteten Ergebnisse bereitgestellt werden.
+
+- `.` – Umhüllen Sie den Namen der jeweiligen Eigenschaft: `['propertyname.withaperiod']`
+  
+  Beispielabfrage, in der die Eigenschaft _odata.type_ umhüllt ist:
+
+  ```kusto
+  where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
+  ```
+
+- `$` – Versehen Sie den Namen der jeweiligen Eigenschaft mit einem Escapezeichen. Welches Escapezeichen verwendet wird, hängt von der Shell, in der Ressource Graph ausgeführt wird.
+
+  - **Bash** - `\`
+
+    Beispielabfrage, in der die Eigenschaft _\$type_ in Bash mit einem Escapezeichen versehen ist:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
+    ```
+
+  - **cmd** – Versehen Sie das `$`-Zeichen nicht mit einem Escapezeichen.
+
+  - **PowerShell** - ``` ` ```
+
+    Beispielabfrage, in der die Eigenschaft _\$type_ in PowerShell mit einem Escapezeichen versehen ist:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
+    ```
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -6,17 +6,16 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: digimobile
-origin.date: 05/08/2019
-ms.date: 05/20/2019
+manager: craigg
+ms.date: 05/08/2019
 ms.openlocfilehash: f06677b66c8f6586fec8cc5dfe97b1515b741e9c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470307"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Sicheres Verwenden einer verwalteten Azure SQL-Datenbank-Instanz mit öffentlichen Endpunkten

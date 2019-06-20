@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65790054"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-Verschlüsselung für ruhende Daten
 
@@ -51,6 +51,9 @@ In den folgenden Artikeln erhalten Sie Informationen zum Verwenden von Kunden ve
 - [Configure customer-managed keys for Azure Storage encryption from the Azure portal (Konfigurieren von Kunden verwalteter Schlüssel für die Azure Storage-Verschlüsselung mithilfe des Azure-Portals)](storage-encryption-keys-portal.md)
 - [Configure customer-managed keys for Azure Storage encryption from PowerShell (Konfigurieren von Kunden verwalteter Schlüssel für die Azure Storage-Verschlüsselung mithilfe von Azure PowerShell)](storage-encryption-keys-powershell.md)
 - [Use customer-managed keys with Azure Storage encryption from Azure CLI (Verwenden von Kunden verwalteter Schlüssel mit der Azure Storage-Verschlüsselung mithilfe der Azure CLI)](storage-encryption-keys-cli.md)
+
+> [!IMPORTANT]
+> Von Kunden verwaltete Schlüssel basieren auf verwalteten Identitäten für Azure-Ressourcen, einem Feature von Azure Active Directory (Azure AD). Wenn Sie ein Abonnement aus einem Azure AD-Verzeichnis in ein anderes übertragen, werden verwaltete Identitäten nicht aktualisiert, und von Kunden verwaltete Schlüssel funktionieren möglicherweise nicht mehr. Weitere Informationen finden Sie in [Häufig gestellte Fragen und bekannte Probleme mit verwalteten Identitäten für Azure-Ressourcen](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories) unter **Übertragen eines Abonnements zwischen Azure AD-Verzeichnissen**.  
 
 > [!NOTE]  
 > Von Kunden verwaltete Schlüssel werden nicht für [verwaltete Azure-Datenträger](../../virtual-machines/windows/managed-disks-overview.md) unterstützt.

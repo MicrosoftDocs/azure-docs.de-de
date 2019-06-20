@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233791"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Code des Ereignisdateiziels für erweiterte Ereignisse in SQL-Datenbank
@@ -62,7 +62,7 @@ Das Skript beginnt mit Befehlen zum Bereinigen nach einer möglichen vorherigen 
 
 1. Fügen Sie das PowerShell-Skript in einem einfachen Texteditor (z.B. Editor) ein, und speichern Sie es als Datei mit der Erweiterung **.ps1**.
 2. Starten Sie PowerShell ISE als Administrator.
-3. Geben Sie an der Eingabeaufforderung <br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>ein, und drücken Sie dann die EINGABETASTE.
+3. Geben Sie an der Eingabeaufforderung<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>ein, und drücken Sie dann die EINGABETASTE.
 4. Öffnen Sie in PowerShell ISE Ihre Datei mit der Erweiterung **.ps1** . Führen Sie das Skript aus.
 5. Mit dem Skript wird zunächst ein Fenster geöffnet, in dem Sie sich bei Azure anmelden.
    
@@ -464,9 +464,9 @@ GO
 
 ## <a name="output"></a>Output
 
-Klicken Sie auf eine Zelle unter der Spaltenüberschrift **event_data_XML**, nachdem das Transact-SQL-Skript abgeschlossen ist. Es wird ein einziges **\<Ereignis>**-Element mit einer einzigen UPDATE-Anweisung angezeigt.
+Klicken Sie auf eine Zelle unter der Spaltenüberschrift **event_data_XML**, nachdem das Transact-SQL-Skript abgeschlossen ist. Es wird ein einziges **\<Ereignis>** -Element mit einer einzigen UPDATE-Anweisung angezeigt.
 
-Hier sehen Sie ein **\<Ereignis>**-Element, das beim Testen generiert wurde:
+Hier sehen Sie ein **\<Ereignis>** -Element, das beim Testen generiert wurde:
 
 
 ```xml

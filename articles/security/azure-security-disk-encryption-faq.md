@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926283"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730703"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption für virtuelle IaaS-Computer – FAQ
 
@@ -48,29 +48,24 @@ Nicht von Azure zugelassene Linux-Serverdistributionen unterstützen Azure Disk 
 | Ubuntu | 18,04| Betriebssystem- und andere Datenträger |
 | Ubuntu | 16.04| Betriebssystem- und andere Datenträger |
 | Ubuntu | 14.04.5</br>[für Azure optimierter Kernel aktualisiert auf 4.15 oder eine höhere Version](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Betriebssystem- und andere Datenträger |
-| RHEL | 7.6 | Betriebssystem- und andere Datenträger* |
-| RHEL | 7,5 | Betriebssystem- und andere Datenträger* |
-| RHEL | 7.4 | Betriebssystem- und andere Datenträger* |
-| RHEL | 7.3 | Betriebssystem- und andere Datenträger* |
-| RHEL | 7.2 | Betriebssystem- und andere Datenträger* |
-| RHEL | 6,8 | Datenträger* |
-| RHEL | 6.7 | Datenträger* |
+| RHEL | 7.6 | Betriebssystem- und andere Datenträger (siehe der Hinweis unten) |
+| RHEL | 7,5 | Betriebssystem- und andere Datenträger (siehe der Hinweis unten) |
+| RHEL | 7.4 | Betriebssystem- und andere Datenträger (siehe der Hinweis unten) |
+| RHEL | 7.3 | Betriebssystem- und andere Datenträger (siehe der Hinweis unten) |
+| RHEL | 7.2 | Betriebssystem- und andere Datenträger (siehe der Hinweis unten) |
+| RHEL | 6,8 | Datenträger für Daten (siehe der Hinweis unten) |
+| RHEL | 6.7 | Datenträger für Daten (siehe der Hinweis unten) |
 | CentOS | 7,5 | Betriebssystem- und andere Datenträger |
 | CentOS | 7.4 | Betriebssystem- und andere Datenträger |
 | CentOS | 7.3 | Betriebssystem- und andere Datenträger |
 | CentOS | 7.2n | Betriebssystem- und andere Datenträger |
-| CentOS | 6,8 | Betriebssystem- und andere Datenträger |
-| CentOS | 7.1 | Datenträger |
-| CentOS | 7.0 | Datenträger |
-| CentOS | 6.7 | Datenträger |
-| CentOS | 6.6 | Datenträger |
-| CentOS | 6,5 | Datenträger |
+| CentOS | 6,8 | Datenträger |
 | openSUSE | 42.3 | Datenträger |
 | SLES | 12-SP4 | Datenträger |
 | SLES | 12-SP3 | Datenträger |
 
 > [!NOTE]
-> Eine neue ADE-Implementierung wird für Betriebssystem- und andere Datenträger für RHEL7-Images mit nutzungsbasierter Bezahlung unterstützt. ADE wird derzeit nicht für RHEL-BYOS-Images (Bring-Your-Own-Subscription) unterstützt. Weitere Informationen finden Sie unter [Azure Disk Encryption für Linux](azure-security-disk-encryption-linux.md).
+> Die neue ADE-Implementierung wird für Betriebssystem- und andere Datenträger für RHEL7-Images mit nutzungsbasierter Bezahlung unterstützt. ADE wird derzeit nicht für RHEL-BYOS-Images (Bring-Your-Own-Subscription) unterstützt. Weitere Informationen finden Sie unter [Azure Disk Encryption für Linux](azure-security-disk-encryption-linux.md).
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Wie sehen die ersten Schritte mit Azure Disk Encryption aus?
 
@@ -87,6 +82,9 @@ Nein, Azure Disk Encryption verschlüsselt nur bereitgestellte Volumes.
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Wie rotiere ich geheime oder Verschlüsselungsschlüssel?
 
 Zum Rotieren geheimer Schlüssel rufen Sie einfach den gleichen Befehl auf, den Sie ursprünglich zur Aktivierung der Datenträgerverschlüsselung verwendet haben, und geben Sie einen anderen Key Vault an. Zum Rotieren des Schlüssels für die Verschlüsselung anderer Schlüssel (Key Encryption Key, KEK) rufen Sie den gleichen Befehl auf, den Sie ursprünglich zum Aktivieren der Datenträgerverschlüsselung verwendet haben, und geben die neue Schlüsselverschlüsselung an. 
+
+>[!WARNING]
+> - Wenn Sie zuvor [Azure Disk Encryption mit Azure AD-App](azure-security-disk-encryption-prerequisites-aad.md) durch Angabe von Azure AD-Anmeldeinformationen zum Verschlüsseln dieses virtuellen Computers verwendet haben, müssen Sie diese Verschlüsselungsoption auch weiterhin für Ihren virtuellen Computer verwenden. Sie können [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) auf dieser verschlüsselten VM nicht verwenden, da dies kein unterstütztes Szenario ist. Das bedeutet, das Verlassen der AAD-Anwendung für diese verschlüsselte VM wird noch nicht unterstützt.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Wie füge ich einen Schlüssels für die Verschlüsselung anderer Schlüssel (Key Encryption Key, KEK) hinzu oder entferne ihn, wenn ich ursprünglich keinen verwendet habe?
 
@@ -158,7 +156,7 @@ Unter Windows verwendet ADE das BitLocker-AES256-Verschlüsselungsverfahren (AES
 Nein, Daten werden nicht von Datenträgern für Daten gelöscht, die bereits mit Azure Disk Encryption verschlüsselt wurden. Ebenso wie EncryptFormatAll das Betriebssystemlaufwerk nicht erneut verschlüsselte, werden auch bereits verschlüsselte Laufwerke für Daten nicht erneut verschlüsselt. Weitere Informationen finden Sie unter den [Kriterien für EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Wird das XFS-Dateisystem unterstützt?
-XFS-Volumes werden für die Datenträgerverschlüsselung nur mit „EncryptFormalAll“ unterstützt. Das Volume wird hierbei neu formatiert, und alle zuvor vorhandenen Daten werden gelöscht. Weitere Informationen finden Sie unter den [Kriterien für EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+XFS-Volumes werden für die Datenträgerverschlüsselung nur mit „EncryptFormatAll“ unterstützt. Das Volume wird hierbei neu formatiert, und alle zuvor vorhandenen Daten werden gelöscht. Weitere Informationen finden Sie unter den [Kriterien für EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kann ich einen verschlüsselten virtuellen Computer sichern und wiederherstellen? 
 

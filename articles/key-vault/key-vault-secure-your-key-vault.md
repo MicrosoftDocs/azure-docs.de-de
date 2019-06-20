@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: a88451403f242c39212c80e3c7425a901c6819cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67925f2123f2a4f2524002eb075754c38fad4b42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118980"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sicherer Zugriff auf einen Schlüsseltresor
 
@@ -53,7 +53,7 @@ Die folgende Tabelle zeigt die Endpunkte für die Verwaltungs- und Datenebene.
 
 | Zugriffs&nbsp;ebene | Zugriffsendpunkte | Vorgänge | Zugriffs&nbsp;steuerungsmechanismus |
 | --- | --- | --- | --- |
-| Verwaltungsebene | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Deutschland:**<br>  management.microsoftazure.de:443 | Erstellen, Lesen, Aktualisieren und Löschen von Schlüsseltresoren<br><br>Festlegen von Zugriffsrichtlinien für den Schlüsseltresor<br><br>Festlegen der Schlüsseltresortags | Rollenbasierte Zugriffssteuerung für Azure Resource Manager |
+| Verwaltungsebene | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Deutschland:**<br> management.microsoftazure.de:443 | Erstellen, Lesen, Aktualisieren und Löschen von Schlüsseltresoren<br><br>Festlegen von Zugriffsrichtlinien für den Schlüsseltresor<br><br>Festlegen der Schlüsseltresortags | Rollenbasierte Zugriffssteuerung für Azure Resource Manager |
 | Datenebene | **Global:**<br> &lt;Tresorname&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;Tresorname&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;Tresorname&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Deutschland:**<br> &lt;Tresorname&gt;.vault.microsoftazure.de:443 | Schlüssel: decrypt, encrypt,<br> unwrap, wrap, verify, sign,<br> get, list, update, create,<br> import, delete, backup, restore<br><br> Geheimnisse: get, list, set, delete | Key Vault-Zugriffsrichtlinie |
 
 ## <a name="management-plane-and-rbac"></a>Verwaltungsebene und rollenbasierte Zugriffssteuerung (RBAC)
@@ -125,7 +125,7 @@ Die folgende Tabelle fasst die Zugriffsberechtigungen für unsere Rollen und die
 
 | Rolle | Berechtigungen auf Verwaltungsebene | Berechtigungen auf Datenebene |
 | --- | --- | --- |
-| Sicherheitsteam | Key Vault-Mitwirkender | Schlüssel: back up, create, delete, get, import, list, restore<br>Geheimnisse: alle Vorgänge |
+| Sicherheitsteam | Key Vault-Mitwirkender | Schlüssel: Sichern, Erstellen, Löschen, Abrufen, Importieren, Auflisten, Wiederherstellen<br>Geheimnisse: alle Vorgänge |
 | Entwickler und&nbsp;Operatoren | Berechtigung zum Bereitstellen von Schlüsseltresoren<br><br> **Hinweis**: Mit dieser Berechtigung können die bereitgestellten VMs Geheimnisse aus einem Schlüsseltresor abrufen. | Keine |
 | Prüfer | Keine | Schlüssel: Auflisten<br>Geheimnisse: Auflisten<br><br> **Hinweis**: Diese Berechtigung ermöglicht es den Prüfern, Attribute (Tags, Aktivierungsdaten, Verfallsdaten) auf Schlüssel und Geheimnisse zu überprüfen, die nicht in den Protokollen ausgegeben werden. |
 | Anwendung | Keine | Schlüssel: Signieren<br>Geheimnisse: Abrufen |

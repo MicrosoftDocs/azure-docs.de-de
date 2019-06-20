@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 91e9fe1eb6b3df0b64d05f2b1e300403a9e01db9
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60762280"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>Übersicht über BGP mit Azure VPN Gateway
 Dieser Artikel enthält eine Übersicht über die Unterstützung von BGP (Border Gateway Protocol) in Azure VPN Gateway.

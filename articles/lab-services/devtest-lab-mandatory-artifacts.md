@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60562210"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Festlegen verbindlicher Artefakte für Ihr Lab in Azure DevTest Labs
 Als Besitzer eines Labs können Sie die verbindlichen Elemente festlegen, die auf jeden Computer im Lab angewendet werden. Stellen Sie sich ein Szenario vor, in dem jeder Computer in Ihrem Lab mit dem Unternehmensnetzwerk verbunden werden soll. In diesem Fall müsste jeder Lab-Benutzer beim Erstellen eines virtuellen Computers ein Artefakt für den Domänenbeitritt erstellen, um sicherzustellen, dass ihr Computer mit der Domäne des Unternehmens verbunden ist. Lab-Benutzer müssten also einen Computer neu erstellen, wenn sie vergessen, erforderliche Artefakte auf ihrem Computer anzuwenden. Als Besitzer eines Labs legen Sie das Artefakt für den-Domänenbeitritt als obligatorisches Artefakt in Ihrem Lab fest. So wird sichergestellt, dass jeder Computer mit dem Unternehmensnetzwerk verbunden ist und Ihre Lab-Benutzer Zeit und Aufwand sparen.

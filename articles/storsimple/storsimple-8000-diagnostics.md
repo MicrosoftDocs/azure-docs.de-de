@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60576185"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Verwenden des StorSimple-Diagnosetools für die Behandlung von Problemen mit Geräten der 8000-Serie
 
@@ -378,7 +378,7 @@ Führen Sie die folgenden Schritte aus, um dieses Tool zu verwenden:
 
 1.  Erstellen Sie zunächst eine Mischung aus mehrstufigen Volumes und mehrstufigen Volumes mit aktivierter Archivierungsoption. Mit dieser Aktion wird sichergestellt, dass das Tool die Tests für die Blobgrößen 64 KB und 512 KB durchführt.
 
-2. Führen Sie das Cmdlet aus, nachdem Sie die Volumes erstellt und konfiguriert haben. Geben Sie Folgendes ein: 
+2. Führen Sie das Cmdlet aus, nachdem Sie die Volumes erstellt und konfiguriert haben. Geben Sie Folgendes ein:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 

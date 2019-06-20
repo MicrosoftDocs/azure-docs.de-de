@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d69bd931f2f8c72fd1e6fc79c16662ea367617d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802013"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60248195"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Wiederherstellen oder Entfernen eines kürzlich gelöschten Benutzers mit Azure Active Directory
 Nachdem Sie einen Benutzer gelöscht haben, verbleibt das Konto 30 Tage lang im angehaltenen Zustand. Während dieses Zeitfensters von 30 Tagen kann das Benutzerkonto mit allen zugehörigen Eigenschaften wiederhergestellt werden. Nachdem die 30 Tage verstrichen sind, wird der Benutzer automatisch und endgültig gelöscht.

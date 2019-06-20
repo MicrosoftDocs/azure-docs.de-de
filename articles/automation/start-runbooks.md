@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918449"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60880182"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starten eines Runbooks in Azure Automation
 
@@ -84,7 +84,7 @@ Der Azure Automation-Webdienst bietet spezielle Funktionen für Parameter, die b
 
 ### <a name="named-values"></a>Benannte Werte
 
-Wenn der Parameter den Datentyp „[object]“ enthält, können Sie das folgende JSON-Format verwenden, um eine Liste benannter Werte an den Parameter zu senden: *{Name1:Wert1, Name2:Wert2, Name3:Wert3}*. Bei den Werten muss es sich um einfache Typen handeln. Das Runbook empfängt den Parameter als [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) mit Eigenschaften, die den einzelnen benannten Werten entsprechen.
+Wenn der Parameter den Datentyp „[object]“ enthält, können Sie das folgende JSON-Format verwenden, um eine Liste benannter Werte an den Parameter zu senden: *{Name1:Wert1, Name2:Wert2, Name3:Wert3}* . Bei den Werten muss es sich um einfache Typen handeln. Das Runbook empfängt den Parameter als [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) mit Eigenschaften, die den einzelnen benannten Werten entsprechen.
 
 Betrachten Sie das folgende Testrunbook, das einen Parameter namens "user" akzeptiert.
 
@@ -121,7 +121,7 @@ Smith
 
 ### <a name="arrays"></a>Arrays
 
-Wenn es sich bei dem Parameter um ein Array wie beispielsweise [array] oder [string[]] handelt, können Sie das folgende JSON-Format verwenden, um eine Liste von Werten an den Parameter zu senden: *[Wert1,Wert2,Wert3]*. Bei den Werten muss es sich um einfache Typen handeln.
+Wenn es sich bei dem Parameter um ein Array wie beispielsweise [array] oder [string[]] handelt, können Sie das folgende JSON-Format verwenden, um eine Liste von Werten an den Parameter zu senden: *[Wert1,Wert2,Wert3]* . Bei den Werten muss es sich um einfache Typen handeln.
 
 Betrachten Sie das folgende Testrunbook, das einen Parameter namens *user*akzeptiert.
 

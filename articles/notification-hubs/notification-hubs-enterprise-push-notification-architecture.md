@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60873344"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Anleitung für eine unternehmensbezogene Pusharchitektur
 
@@ -51,7 +51,7 @@ Kernstück dieses Architekturdiagramms ist der Dienst Azure Service Bus, der ein
 
 ### <a name="benefits"></a>Vorteile
 
-1. Die Entkopplung von Empfänger (mobile App/mobiler Dienst über Benachrichtigungshub) und Sender (Back-End-Systeme) ermöglicht es, zusätzliche Back-End-Systeme bei minimalen Änderungen zu integrieren.
+1. Die Entkopplung von Empfänger (mobile App/mobiler Dienst über Benachrichtigunghub) und Sender (Back-End-Systeme) ermöglicht es, zusätzliche Back-End-Systeme bei minimalen Änderungen zu integrieren.
 1. Hiermit lassen sich auch Szenarios umsetzen, in denen mehrere mobile Apps in der Lage sind, Ereignisse von mehreren Back-End-Systemen zu empfangen.  
 
 ## <a name="sample"></a>Beispiel

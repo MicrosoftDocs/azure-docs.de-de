@@ -3,33 +3,23 @@ title: 'Aktivieren von Web Application Firewall: Azure CLI'
 description: Erfahren Sie, wie Sie mit Azure CLI Webdatenverkehr mit einer Web Application Firewall für ein Anwendungsgateway einschränken.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443625"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955492"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Einschränken des Webdatenverkehrs mit einer Web Application Firewall mit Azure CLI
 
-> [!div class="op_single_selector"]
->
-> - [Azure-Portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure-Befehlszeilenschnittstelle](tutorial-restrict-web-traffic-cli.md)
->
-> 
+Sie können den Datenverkehr mit einer [Web Application Firewall](waf-overview.md) (WAF) für ein [Anwendungsgateway](overview.md) einschränken. Die WAF verwendet [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-Regeln, um Ihre Anwendung zu schützen. Diese Regeln beinhalten den Schutz vor Angriffen z.B. durch Einschleusung von SQL-Befehlen, siteübergreifendes Scripting und Sitzungsübernahmen.
 
-Sie können den Datenverkehr mit einer [Web Application Firewall](waf-overview.md) (WAF) für ein [Anwendungsgateway](overview.md) einschränken. Die WAF verwendet [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-Regeln, um Ihre Anwendung zu schützen. Diese Regeln beinhalten den Schutz vor Angriffen z.B. durch Einschleusung von SQL-Befehlen, siteübergreifendes Scripting und Sitzungsübernahmen. 
-
-In diesem Tutorial lernen Sie Folgendes:
+In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 > [!div class="checklist"]
 > * Einrichten des Netzwerks
@@ -39,13 +29,13 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ![Web Application Firewall – Beispiel](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Sie können dieses Tutorial auch mit [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) durcharbeiten.
+Sie können für dieses Verfahren auch [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) verwenden.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI]( /cli/azure/install-azure-cli).
+Wenn Sie die Befehlszeilenschnittstelle (CLI) lokal installieren und verwenden möchten, müssen Sie für diesen Artikel mindestens die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 
@@ -148,7 +138,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Erstellen eines Speicherkontos und Konfigurieren der Diagnose
 
-In diesem Tutorial verwendet das Anwendungsgateway ein Speicherkonto, um Daten zum Zweck der Erkennung und Prävention zu speichern. Sie können auch Azure Monitor-Protokolle oder Event Hub verwenden, um Daten aufzuzeichnen. 
+In diesem Artikel verwendet das Anwendungsgateway ein Speicherkonto, um Daten zum Zweck der Erkennung und Prävention zu speichern. Sie können auch Azure Monitor-Protokolle oder Event Hub verwenden, um Daten aufzuzeichnen. 
 
 ### <a name="create-a-storage-account"></a>Speicherkonto erstellen
 
@@ -196,18 +186,9 @@ az network public-ip show \
 Entfernen Sie die Ressourcengruppe, das Anwendungsgateway und alle dazugehörigen Ressourcen, wenn Sie sie nicht mehr benötigen.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG 
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Tutorial haben Sie Folgendes gelernt:
-
-> [!div class="checklist"]
-> * Einrichten des Netzwerks
-> * Erstellen eines Anwendungsgateways mit aktivierter WAF
-> * Erstellen einer Skalierungsgruppe für virtuelle Computer
-> * Erstellen eines Speicherkontos und Konfigurieren der Diagnose
-
-> [!div class="nextstepaction"]
-> [Erstellen eines Anwendungsgateways mit SSL-Beendigung](./tutorial-ssl-cli.md)
+* [Erstellen eines Anwendungsgateways mit SSL-Beendigung](./tutorial-ssl-cli.md)

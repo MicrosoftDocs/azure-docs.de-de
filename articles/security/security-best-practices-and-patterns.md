@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: ff6a09f75a46eee0d95b9a995c4986a981f25b9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150103"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Sicherheit in Azure – bewährte Methoden und Muster

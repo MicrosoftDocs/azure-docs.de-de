@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: 486cf2e3bcf851f23011bb2fb8d91691d6190698
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61431920"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Abrufen beliebter Videos mit der Bing-Videosuche-API 
 

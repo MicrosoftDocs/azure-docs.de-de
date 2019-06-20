@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65794867"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrieren einer Knowledge Base durch Exportieren und Importieren
 
@@ -56,7 +56,7 @@ Die Migration einer Wissensdatenbank erfordert den Export aus einer Wissensdaten
     Nun wird der gesamte Inhalt der Knowledge Base – Fragen, Antworten und Metadaten sowie die Namen der Quelldateien und der URLs – in die neue Knowledge Base importiert. 
 
 ## <a name="chat-logs-and-alterations"></a>Chatprotokolle und Varianten
-Varianten (Synonyme) ohne Berücksichtigung von Groß-/Kleinbuchstaben werden nicht automatisch importiert. Verwenden Sie die [V2-APIs](https://aka.ms/qnamaker-v2-apis), um die Varianten aus der alten Wissensdatenbank zu exportieren, und die [V4-APIs](https://aka.ms/qnamaker-v4-apis), um die Varianten in die neue Wissensdatenbank zu verschieben.
+Varianten (Synonyme) ohne Berücksichtigung von Groß-/Kleinbuchstaben werden nicht automatisch importiert. Verwenden Sie die [V4-APIs](https://go.microsoft.com/fwlink/?linkid=2092179), um die Änderungen in die neue Wissensdatenbank zu verschieben.
 
 Die Migration von Chatprotokollen ist nicht möglich, da die neue Wissensdatenbank Application Insights zum Speichern von Chatprotokollen verwendet. 
 

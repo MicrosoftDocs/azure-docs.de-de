@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267231"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66478332"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights für Azure Cloud Services
 [Application Insights][start] kann [Azure Cloud Services-Apps](https://azure.microsoft.com/services/cloud-services/) auf Verfügbarkeit, Leistung, Fehler und Verwendung überwachen. Dabei werden Daten aus den Application Insights-SDKs mit Daten der [Azure-Diagnose](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) aus Cloud Services kombiniert. Mit dem Feedback zur Leistung und Effektivität der App in der Praxis können Sie in jedem Entwicklungslebenszyklus eine fundierte Entscheidung für die Richtung des Entwurfs treffen.
@@ -41,7 +41,7 @@ Mit dieser Option wird die App zur Laufzeit instrumentiert, sodass Sie alle erfo
 
 Wenn Sie nur diese Option benötigen, sind Sie fertig. 
 
-Die nächsten Schritte sind: [Anzeigen von Metriken aus der App](../../azure-monitor/app/metrics-explorer.md), [Abfragen von Daten mit Analytics](../../azure-monitor/app/analytics.md) und eventuell Einrichten eines [Dashboards](../../azure-monitor/app/app-insights-dashboards.md). 
+Die nächsten Schritte sind: [Anzeigen von Metriken aus der App](../../azure-monitor/app/metrics-explorer.md) und [Abfragen von Daten mit Analytics](../../azure-monitor/app/analytics.md). 
 
 Zur Überwachung der Leistung im Browser sollten Sie [Verfügbarkeitstests](../../azure-monitor/app/monitor-web-app-availability.md) einrichten und [Ihren Webseiten Code hinzufügen](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ Die Telemetriedaten aus Ihrer App werden in einer Azure-Ressource vom Typ Applic
 Jede Ressource gehört jeweils zu einer Ressourcengruppe. Ressourcengruppen werden zum Verwalten von Kosten, zum Gewähren des Zugriffs für Teammitglieder und zum Bereitstellen von Updates in einer koordinierten Transaktion verwendet. Beispielsweise können Sie [ein Skript zum Bereitstellen](../../azure-resource-manager/resource-group-template-deploy.md) eines Azure-Clouddiensts und der zugehörigen Application Insights-Überwachungsressourcen in einem kombinierten Vorgang schreiben.
 
 ### <a name="resources-for-components"></a>Ressourcen für Komponenten
-Es wird empfohlen, für jede Komponente Ihrer App eine separate Ressource zu erstellen. D.h. Sie erstellen eine Ressource für jede Web- und Workerrolle. Sie können jede Komponente einzeln analysieren, können jedoch auch ein [Dashboard](../../azure-monitor/app/app-insights-dashboards.md) erstellen, das die wichtigsten Diagramme aus allen Komponenten vereint, sodass Sie diese in einer zentralen Ansicht vergleichen und zusammen überwachen können. 
+Es wird empfohlen, für jede Komponente Ihrer App eine separate Ressource zu erstellen. D.h. Sie erstellen eine Ressource für jede Web- und Workerrolle. Sie können jede Komponente einzeln analysieren, können jedoch auch ein [Dashboard](../../azure-monitor/app/overview-dashboard.md) erstellen, das die wichtigsten Diagramme aus allen Komponenten vereint, sodass Sie diese in einer zentralen Ansicht vergleichen und zusammen überwachen können. 
 
 Ein alternativer Ansatz besteht darin, die Telemetriedaten von mehreren Rollen an dieselbe Ressource zu senden, jedoch [jedem Telemetriedatenelement eine Dimensionseigenschaft hinzuzufügen](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer), mit der die jeweilige Quellrolle identifiziert wird. In diesem Ansatz wird in Metrikdiagrammen (z.B. Ausnahmen) normalerweise eine Aggregation der Zählungen aus den unterschiedlichen Rollen angezeigt. Sie können jedoch das Diagramm bei Bedarf nach Rollenbezeichnern segmentieren. Suchvorgänge können auch nach der gleichen Dimension gefiltert werden. Mit dieser Alternative können alle Daten etwas einfacher gleichzeitig angezeigt werden, es kann jedoch zu einer gewissen Verwirrung im Hinblick auf die Rollen führen.
 
@@ -91,7 +91,7 @@ Wenn Sie eine separate Ressource für die einzelnen Rollen und eventuell eine se
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Einrichten von Azure-Diagnose für die einzelnen Rollen
 Legen Sie diese Option zum Überwachen Ihrer App mit Application Insights fest. Für Webrollen umfasst diese Option die Leistungsüberwachung, Warnungen, Diagnose und die Verwendungsanalyse. Für andere Rollen können Sie Azure-Diagnose durchsuchen und überwachen, z.B. Neustarten, Leistungsindikatoren und Aufrufe von „System.Diagnostics.Trace“. 
 
-1. Öffnen Sie im Visual Studio-Projektmappen-Explorer unter **\<YourCloudService>** > **Rollen** die Eigenschaften der einzelnen Rollen.
+1. Öffnen Sie im Visual Studio-Projektmappen-Explorer unter **\<YourCloudService>**  > **Rollen** die Eigenschaften der einzelnen Rollen.
 
 1. Aktivieren Sie unter **Konfiguration** das Kontrollkästchen **Diagnosedaten an Application Insights senden**, und wählen Sie dann die entsprechende Application Insights-Ressource aus, die Sie zuvor erstellt haben.
 
@@ -194,18 +194,18 @@ Für Workerrollen gibt es zwei Möglichkeiten zum Nachverfolgen von Ausnahmen:
 ## <a name="performance-counters"></a>Leistungsindikatoren
 Die folgenden Leistungsindikatoren werden standardmäßig erfasst:
 
-    * \Process(??APP_WIN32_PROC??)\% Prozessorzeit
-    * \Memory\Verfügbare Bytes
-    * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
-    * \Process(??APP_WIN32_PROC??)\Private Bytes
-    * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * \Processor(_Total)\%Prozessorzeit
+* \Process(??APP_WIN32_PROC??)\% Prozessorzeit
+* \Memory\Verfügbare Bytes
+* \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
+* \Process(??APP_WIN32_PROC??)\Private Bytes
+* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
+* \Processor(_Total)\%Prozessorzeit
 
 Für Webrollen werden auch diese Leistungsindikatoren erfasst:
 
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 Sie können zusätzliche benutzerdefinierte oder andere Windows-Leistungsindikatoren angeben, indem Sie die Datei *ApplicationInsights.config* [wie in diesem Beispiel gezeigt](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14) bearbeiten.
 
@@ -229,7 +229,7 @@ Informationen zum Abrufen von browserbasierten Telemetriedaten wie Anzahl der Se
 [Richten Sie Webtests ein][availability], um sicherzustellen, dass die App online und reaktionsfähig bleibt.
 
 ## <a name="display-everything-together"></a>Anzeigen aller Daten
-Für eine allgemeine Übersicht über Ihr System können Sie die wichtigsten Überwachungsdiagramme in einem [Dashboard](../../azure-monitor/app/app-insights-dashboards.md) anzeigen. Beispielsweise können Sie die Anforderungs- und Fehleranzahl der einzelnen Rollen anheften. 
+Für eine allgemeine Übersicht über Ihr System können Sie die wichtigsten Überwachungsdiagramme in einem [Dashboard](../../azure-monitor/app/overview-dashboard.md) anzeigen. Beispielsweise können Sie die Anforderungs- und Fehleranzahl der einzelnen Rollen anheften. 
 
 Wenn in Ihrem System andere Azure-Dienste, z.B. Stream Analytics, verwendet werden, können Sie die entsprechenden Überwachungsdiagramme auch einfügen. 
 

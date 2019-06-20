@@ -6,6 +6,11 @@
   href: create-manage-support-requests-using-access-control.md
 - name: Anfordern einer Kontingenterhöhung
   href: resource-manager-core-quotas-request.md
+  items:
+    - name: Erhöhung des vCPU-Grenzwerts für die VM-Serie
+      href: per-vm-quota-requests.md
+    - name: Erhöhung des Grenzwerts der gesamten regionalen vCPUs
+      href: regional-quota-requests.md
 - name: Beheben von Abonnementproblemen im Zusammenhang mit Region oder SKU
   href: sku-series-unavailable.md
 - name: Verweis

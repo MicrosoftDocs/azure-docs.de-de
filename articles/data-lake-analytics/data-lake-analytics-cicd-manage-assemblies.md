@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
 ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60334188"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Best Practices für die Verwaltung von U-SQL-Assemblys in einer CI/CD-Pipeline
 

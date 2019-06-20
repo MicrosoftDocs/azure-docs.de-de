@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65603111"
 ---
 # <a name="what-is-azure-importexport-service"></a>Was ist der Azure Import/Export-Dienst?
 
@@ -74,9 +74,9 @@ Ein Importauftrag umfasst im Allgemeinen die folgenden Schritte:
 8. Die Festplatten werden über Ihr Kurierdienstkonto an die Rücksendeadresse zurückgeschickt, die im Importauftrag angegeben ist.
 
 > [!NOTE]
-> Geben Sie für nationale Lieferungen (innerhalb des Landes, in dem sich das Rechenzentrum befindet) ein inländisches Spediteurkonto an. 
+> Geben Sie für nationale Lieferungen (innerhalb des Landes/der Region, in dem/der sich das Rechenzentrum befindet) ein inländisches Spediteurkonto an. 
 >
-> Geben Sie für internationale Lieferungen (außerhalb des Lands, in dem sich das Rechenzentrum befindet) ein internationales Spediteurkonto an.
+> Geben Sie für internationale Lieferungen (außerhalb des Lands/der Region, in dem/der sich das Rechenzentrum befindet) ein internationales Spediteurkonto an.
 
  ![Abbildung 1: Ablauf eines Importauftrags](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ Ein Exportauftrag umfasst im Allgemeinen die folgenden Schritte:
 10. Die Festplatten werden über Ihr Kurierdienstkonto an die Rücksendeadresse zurückgeschickt, die im Importauftrag angegeben ist.
 
 > [!NOTE]
-> Geben Sie für nationale Lieferungen (innerhalb des Landes, in dem sich das Rechenzentrum befindet) ein inländisches Spediteurkonto an. 
+> Geben Sie für nationale Lieferungen (innerhalb des Landes/der Region, in dem/der sich das Rechenzentrum befindet) ein inländisches Spediteurkonto an. 
 >
-> Geben Sie für internationale Lieferungen (außerhalb des Lands, in dem sich das Rechenzentrum befindet) ein internationales Spediteurkonto an.
+> Geben Sie für internationale Lieferungen (außerhalb des Lands/der Region, in dem/der sich das Rechenzentrum befindet) ein internationales Spediteurkonto an.
   
  ![Abbildung 2: Ablauf eines Exportauftrags](./media/storage-import-export-service/exportjob.png)
 
@@ -119,7 +119,7 @@ Der Azure Import/Export-Dienst unterstützt das Kopieren von Daten von bzw. in a
 ### <a name="supported-shipping-locations"></a>Unterstützte Versandstandorte
 
 
-|Country  |Country  |Country  |Country  |
+|Land/Region  |Land/Region  |Land/Region  |Land/Region  |
 |---------|---------|---------|---------|
 |USA (Ost)    | Nordeuropa        | Indien, Mitte        |US Gov Iowa         |
 |USA (Westen)     |Europa, Westen         | Indien (Süden)        | US DoD, Osten        |

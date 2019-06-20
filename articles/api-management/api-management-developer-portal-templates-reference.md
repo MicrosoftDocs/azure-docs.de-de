@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60657644"
 ---
 # <a name="developer-portal-templates"></a>Entwicklerportal: Vorlagen
 

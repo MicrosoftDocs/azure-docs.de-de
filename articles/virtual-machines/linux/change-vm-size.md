@@ -17,11 +17,11 @@ ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8bd8136c61a277e730c07c8789afd1bf3214bd7c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127071"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Ändern der Größe eines virtuellen Linux-Computers über die Azure CLI 
 

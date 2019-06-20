@@ -11,11 +11,11 @@ ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838934"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60310424"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Wiederherstellen von Azure SQL Data Warehouse 
 In diesem Artikel erfahren Sie, wie Sie die folgenden Aufgaben im Azure-Portal und mithilfe von PowerShell ausführen:
@@ -216,7 +216,7 @@ Für die wiederhergestellte Datenbank ist TDE aktiviert, wenn für die Quelldate
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Erstellen eines benutzerdefinierten Wiederherstellungspunkts im Azure-Portal
 1. Melden Sie sich beim [Azure-Portal][Azure portal] an.
 
-2. Navigieren Sie zu der SQL Data Warehouse-Instanz, für die Sie einen Wiederherstellungspunkt erstellen möchten. 
+2. Navigieren Sie zu der SQL Data Warehouse-Instanz, für die Sie einen Wiederherstellungspunkt erstellen möchten.
 
 3. Wählen Sie oben im Blatt „Übersicht“ die Option **Neuer Wiederherstellungspunkt** aus.
 

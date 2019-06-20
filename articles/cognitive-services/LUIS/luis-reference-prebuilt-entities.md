@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 729d5d1c9ad21654fbd5923b9f3ffacc3b709ef0
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261421"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388788"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entitäten nach Kultur in Ihrem LUIS-Modell
 
@@ -65,7 +65,7 @@ Die folgenden Entitäten werden unterstützt:
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Währung (Geld)](luis-reference-prebuilt-currency.md):<br>Dollar<br>Untereinheit (z.B. „penny“)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>Volume<br>area<br>weight<br>information (Beispiel: bit/byte)<br>length (Beispiel: meter)<br>speed (Beispiel: mile per hour)  |    ✔   | 
 [E-Mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -170,7 +170,7 @@ Die folgenden Entitäten werden unterstützt:
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Währung (Geld)](luis-reference-prebuilt-currency.md):<br>Dollar<br>Untereinheit (z.B. „penny“)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>Volume<br>area<br>weight<br>information (Beispiel: bit/byte)<br>length (Beispiel: meter)<br>speed (Beispiel: mile per hour)  |    ✔   | 
 [E-Mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -191,7 +191,7 @@ Die folgenden Entitäten werden unterstützt:
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Währung (Geld)](luis-reference-prebuilt-currency.md):<br>Dollar<br>Untereinheit (z.B. „penny“)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>Volume<br>area<br>weight<br>information (Beispiel: bit/byte)<br>length (Beispiel: meter)<br>speed (Beispiel: mile per hour)  |    ✔   | 
 [E-Mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -212,7 +212,7 @@ Die folgenden Entitäten werden unterstützt:
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Währung (Geld)](luis-reference-prebuilt-currency.md):<br>Dollar<br>Untereinheit (z.B. „penny“)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>Volume<br>area<br>weight<br>information (Beispiel: bit/byte)<br>length (Beispiel: meter)<br>speed (Beispiel: mile per hour)  |    -   | 
 [E-Mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 

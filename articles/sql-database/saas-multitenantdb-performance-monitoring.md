@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61485605"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Überwachen und Verwalten der Leistung mehrinstanzenfähiger Azure SQL-Datenbanken mit Shards in einer mehrinstanzenfähigen SaaS-App
 
@@ -98,7 +98,7 @@ Bei Wingtip Tickets SaaS Multi-tenant Database handelt es sich um eine SaaS-App,
 
 Um den aus der angewendeten Last resultierenden Ressourcenverbrauch zu überwachen, öffnen Sie das Portal der mehrinstanzenfähigen Datenbank **tenants1**, die die Mandanten enthält:
 
-1. Öffnen Sie das [Azure-Portal](https://portal.azure.com), und navigieren Sie zum Server *tenants1-mt-&lt;BENUTZER&gt;*.
+1. Öffnen Sie das [Azure-Portal](https://portal.azure.com), und navigieren Sie zum Server *tenants1-mt-&lt;BENUTZER&gt;* .
 1. Scrollen Sie nach unten, suchen Sie die Datenbanken, und klicken Sie auf **tenants1**. Diese mehrinstanzenfähige Datenbank mit Shards enthält alle bisher erstellten Mandanten.
 
 ![Datenbankdiagramm](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
@@ -109,7 +109,7 @@ Sehen Sie sich das Diagramm **DTU** an.
 
 Gehen Sie folgendermaßen vor, um eine Benachrichtigung für die Datenbank festzulegen, die ausgelöst wird, wenn eine Auslastung von \>75 % vorliegt:
 
-1. Öffnen Sie die Datenbank *tenants1* (auf dem Server *tenants1-mt-&lt;BENUTZER&gt;*) im [Azure-Portal](https://portal.azure.com).
+1. Öffnen Sie die Datenbank *tenants1* (auf dem Server *tenants1-mt-&lt;BENUTZER&gt;* ) im [Azure-Portal](https://portal.azure.com).
 1. Klicken Sie auf **Benachrichtigungsregeln** und dann auf **+ Benachrichtigung hinzufügen**:
 
    ![Benachrichtigung hinzufügen](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -140,7 +140,7 @@ Sie können eine ausgelastete Datenbank simulieren, indem Sie die vom Generator 
 
 Überwachen Sie die erhöhte DTU-Nutzung der Datenbank im oberen Diagramm. Es dauert einige Minuten, bis die neue, höhere Last zum Tragen kommt, aber Sie sollten schnell erkennen können, dass die Datenbank die maximale Auslastung erreicht, sich die Auslastung in einem neuen Muster stabilisiert und die Datenbank schnell überlastet ist.
 
-1. Zum zentralen Hochskalieren der Datenbank klicken Sie auf dem Einstellungsblatt auf **Tarif (DTUs skalieren)**.
+1. Zum zentralen Hochskalieren der Datenbank klicken Sie auf dem Einstellungsblatt auf **Tarif (DTUs skalieren)** .
 1. Ändern Sie die Einstellung **DTU** in **100**. 
 1. Klicken Sie auf **Anwenden**, um die Anforderung zum Skalieren der Datenbank zu senden.
 
@@ -155,7 +155,7 @@ Das mehrinstanzenfähige Modell mit Shards erlaubt zwei Optionen: Sie können ei
 Wenn Sie bereits einen neuen Mandanten in einer eigenen Datenbank bereitgestellt haben, überspringen Sie die nächsten Schritte.
 
 1. Öffnen Sie „…\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*“ in der **PowerShell ISE**. 
-1. Ändern Sie **$TenantName = "Salix Salsa"** und **$VenueType = "dance"**.
+1. Ändern Sie **$TenantName = "Salix Salsa"** und **$VenueType = "dance"** .
 1. Legen Sie **$Scenario** = **2**, _Bereitstellen eines Mandanten in einer neuen Datenbank mit nur einem Mandanten_ fest.
 1. Drücken Sie **F5** , um das Skript auszuführen.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: db289e5b5be23176e8589f408a86734181129ebe
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276948"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978491"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Aktivieren von Azure Disk Encryption für virtuelle Linux-IaaS-Computer 
 
@@ -133,7 +133,7 @@ Die folgende Tabelle enthält Resource Manager-Vorlagenparameter für vorhandene
 | Parameter | BESCHREIBUNG |
 | --- | --- |
 | vmName | Der Name des virtuellen Computers, der den Verschlüsselungsvorgang ausführt. |
-| keyVaultName | Der Name des Schlüsseltresors, in den der BitLocker-Schlüssel hochgeladen werden soll. Sie können ihn mit dem Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` oder dem Azure CLI-Befehl abrufen. `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`|
+| keyVaultName | Der Name des Schlüsseltresors, in den der BitLocker-Schlüssel hochgeladen werden soll. Sie können ihn abrufen, indem Sie das Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` oder den Azure CLI-Befehl `az keyvault list --resource-group "MyKeyVaultResourceGroupName"` verwenden.|
 | keyVaultResourceGroup | Der Name der Ressourcengruppe mit dem Schlüsseltresor|
 |  keyEncryptionKeyURL | Die URL des KEK, der zum Verschlüsseln des generierten BitLocker-Schlüssels verwendet wird. Dieser Parameter ist optional, wenn Sie in der Dropdownliste „UseExistingKek“ die Option **nokek** auswählen. Wenn Sie in der Dropdownliste „UseExistingKek“ die Option **kek** auswählen, müssen Sie den Wert _keyEncryptionKeyURL_ eingeben. |
 | volumeType | Der Typ des Volumes, auf dem der Verschlüsselungsvorgang durchgeführt wird. Gültige Werte sind _OS_, _Data_ und _All_. 
@@ -398,7 +398,7 @@ Sie können die Verschlüsselung mit Azure PowerShell, der Azure CLI oder einer 
 
 - **Deaktivieren der Datenträgerverschlüsselung mit Azure PowerShell:** Verwenden Sie das Cmdlet [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption), um die Verschlüsselung zu deaktivieren. 
      ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
+     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType {ALL, DATA, OS}]
      ```
 
 - **Deaktivieren der Verschlüsselung mit der Azure CLI:** Verwenden Sie den Befehl [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable), um die Verschlüsselung zu deaktivieren. 
@@ -413,4 +413,4 @@ Sie können die Verschlüsselung mit Azure PowerShell, der Azure CLI oder einer 
 
 ## <a name="next-steps"></a>Nächste Schritte
 > [!div class="nextstepaction"]
-> [Aktivieren von Azure Disk Encryption für virtuelle Windows-IaaS-Computer](azure-security-disk-encryption-windows.md)
+> [Aktivieren von Azure Disk Encryption für Windows](azure-security-disk-encryption-windows.md)

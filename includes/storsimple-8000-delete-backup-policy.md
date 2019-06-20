@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b7a86963c657524fa91c4eb824ced1a495391f3f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888906"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178285"
 ---
 #### <a name="to-delete-a-storsimple-backup-policy"></a>So löschen Sie eine StorSimple-Sicherungsrichtlinie
 

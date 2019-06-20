@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cea0d091620d53892f3334306a341b196765879d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106014"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575880"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Bereitstellen von Azure Stream Analytics als IoT Edge-Modul
 
@@ -44,7 +44,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 Ein Azure IoT Edge-Gerät:
 
-* Sie können Ihren Entwicklungscomputer oder einen virtuellen Computer als Edge-Gerät verwenden, indem Sie die Schritte ausführen, die in der Schnellstartanleitung für [Linux](quickstart-linux.md)- oder [Windows](quickstart.md)-Geräte beschrieben sind.
+* Sie können einen virtuellen Azure-Computer als IoT Edge-Gerät verwenden, indem Sie die Schritte der Schnellstartanleitung für [Linux-](quickstart-linux.md) oder [Windows-Geräte](quickstart.md) ausführen.
 
 Cloudressourcen:
 
@@ -66,7 +66,7 @@ Wenn Sie einen Azure Stream Analytics-Auftrag zur Ausführung auf einem IoT Edge
    | Feld | Wert |
    | ----- | ----- |
    | NAME | Geben Sie einen eindeutigen Namen für Ihr Speicherkonto an. | 
-   | Standort | Wählen Sie einen Standort in Ihrer Nähe aus. |
+   | Location | Wählen Sie einen Standort in Ihrer Nähe aus. |
    | Abonnement | Wählen Sie das gleiche Abonnement wie für Ihren IoT Hub. |
    | Ressourcengruppe | Es wird empfohlen, die gleiche Ressourcengruppe für alle Testressourcen zu verwenden, die Sie während der IoT Edge-Schnellstarts und -Tutorials erstellen. Beispielsweise **IoTEdgeResources**. |
 
@@ -83,7 +83,7 @@ Wenn Sie einen Azure Stream Analytics-Auftrag zur Ausführung auf einem IoT Edge
    | Auftragsname | Geben Sie einen Namen für Ihren Auftrag an. Beispielsweise **IoTEdgeJob** | 
    | Abonnement | Wählen Sie das gleiche Abonnement wie für Ihren IoT Hub. |
    | Ressourcengruppe | Es wird empfohlen, die gleiche Ressourcengruppe für alle Testressourcen zu verwenden, die Sie während der IoT Edge-Schnellstarts und -Tutorials erstellen. Beispielsweise **IoTEdgeResources**. |
-   | Standort | Wählen Sie einen Standort in Ihrer Nähe aus. | 
+   | Location | Wählen Sie einen Standort in Ihrer Nähe aus. | 
    | Hosting-Umgebung | Wählen Sie **Edge** aus. |
  
 1. Klicken Sie auf **Erstellen**.
@@ -233,11 +233,9 @@ Sie sollten beobachten können, wie die Temperatur des Computers allmählich ste
 
 Falls Sie mit dem nächsten empfohlenen Artikel fortfahren möchten, können Sie die erstellten Ressourcen und Konfigurationen beibehalten und wiederverwenden. Sie können auch dasselbe IoT Edge-Gerät als Testgerät weiter nutzen. 
 
-Andernfalls können Sie die in diesem Artikel erstellten lokalen Konfigurationen und Azure-Ressourcen löschen, um Kosten zu vermeiden. 
+Andernfalls können Sie die in diesem Artikel verwendeten lokalen Konfigurationen und die Azure-Ressourcen löschen, um Kosten zu vermeiden. 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -8,10 +8,10 @@ ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
 ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924446"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health – FAQ
@@ -80,7 +80,7 @@ Bitte beachten Sie: Um Ihnen einen vollständigen Überblick über Ereignisse zu
 Nein, Integritätsinformationen sind über Resource Health für alle Ressourcentypen verfügbar. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>Müssen wir Resource Health für meine Organisation aktivieren?
- Nein.  Der Zugriff auf Azure Resource Health im Azure-Portal setzt keine Einrichtung voraus.
+Nein.  Der Zugriff auf Azure Resource Health im Azure-Portal setzt keine Einrichtung voraus.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>Ist Resource Health kostenlos verfügbar?
 Ja.  Azure Resource Health ist kostenlos.

@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6a332ce265a4bb41a9ad3c0c3a29683187a0f0d4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62098404"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategien für die Notfallwiederherstellung für Anwendungen mit Pools für elastische SQL-Datenbank-Instanzen
 

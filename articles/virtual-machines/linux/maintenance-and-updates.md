@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: shants
 ms.openlocfilehash: a0f2c2ccc9634e1354c1b740e50b65b217aa996b
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64992848"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Wartung für VMs in Azure 

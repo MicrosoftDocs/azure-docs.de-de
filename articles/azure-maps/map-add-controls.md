@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: c1f5dd329f34d64478d605c21d229d8c75a99300
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62108718"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Hinzufügen von Kartensteuerelementen zu Azure Maps
 

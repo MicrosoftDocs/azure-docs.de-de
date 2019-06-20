@@ -1,23 +1,17 @@
 ---
 title: Verschieben von Azure-Ressourcen in ein neues Abonnement oder eine neue Ressourcengruppe | Microsoft-Dokumentation
 description: Verwenden Sie Azure Resource Manager, um Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement verschieben.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 06/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004056"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083540"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement
 
@@ -94,7 +88,6 @@ Die folgende Liste enthält eine allgemeine Zusammenfassung von Azure-Diensten, 
 * Logic Apps
 * Machine Learning – Machine Learning Studio-Webdienste können in eine Ressourcengruppe im gleichen Abonnement verschoben werden, aber nicht in ein anderes Abonnement. Andere Machine Learning-Ressourcen können über Abonnements hinweg verschoben werden.
 * Verwaltete Datenträger – Verwaltete Datenträger in Verfügbarkeitszonen können nicht in ein anderes Abonnement verschoben werden.
-* Verwaltete Identität – vom Benutzer zugewiesen
 * Media Services
 * Überwachen: Stellen Sie sicher, dass das Verschieben in neue Abonnements nicht die [Abonnementkontingente](../azure-subscription-service-limits.md#monitor-limits) überschreitet.
 * Notification Hubs
@@ -113,8 +106,9 @@ Die folgende Liste enthält eine allgemeine Zusammenfassung von Azure-Diensten, 
 * SignalR Service
 * Storage – Speicherkonten in verschiedenen Regionen können nicht im selben Vorgang verschoben werden. Stattdessen müssen Sie für jede Region einen separaten Vorgang durchführen.
 * Speicher (klassisch) – siehe [Einschränkungen bei der klassischen Bereitstellung](#classic-deployment-limitations)
+* Speichersynchronisierungsdienst
 * Stream Analytics – Stream Analytics-Aufträge können nicht verschoben werden, wenn sie ausgeführt werden.
-* SQL-Datenbankserver – die Datenbank und der Server müssen sich in derselben Ressourcengruppe befinden. Wenn Sie eine SQL Server-Instanz verschieben, werden auch alle ihre Datenbanken verschoben. Dieses Verhalten gilt für Azure SQL-Datenbank und Azure SQL Data Warehouse-Datenbanken.
+* SQL-Datenbank-Server – die Datenbank und der Server müssen sich in derselben Ressourcengruppe befinden. Wenn Sie eine SQL Server-Instanz verschieben, werden auch alle ihre Datenbanken verschoben. Dieses Verhalten gilt für Azure SQL-Datenbank und Azure SQL Data Warehouse-Datenbanken.
 * Time Series Insights
 * Traffic Manager
 * Virtual Machines – siehe [Einschränkungen von virtuellen Computern](#virtual-machines-limitations)
@@ -146,6 +140,7 @@ Die folgende Liste enthält eine allgemeine Zusammenfassung von Azure-Diensten, 
 * ExpressRoute
 * Lab-Dienst – Classroom-Labs können nicht in eine neue Ressourcengruppe oder ein neues Abonnement verschoben werden.rschoben werden. DevTest-Labs können in eine neue Ressourcengruppe im gleichen Abonnement verschoben werden, das abonnementübergreifende Verschieben ist jedoch nicht möglich.
 * Verwaltete Anwendungen
+* Verwaltete Identität – vom Benutzer zugewiesen
 * Microsoft Genomics
 * Sicherheit
 * Site Recovery
@@ -173,6 +168,7 @@ Folgende Szenarios werden noch nicht unterstützt:
 * Virtuelle Computer mit in Key Vault gespeichertem Zertifikat können in eine neue Ressourcengruppe im gleichen Abonnement verschoben werden, das abonnementübergreifende Verschieben ist jedoch nicht möglich.
 * Eine Virtual Machine Scale Sets-Instanz mit Load Balancer der Standard-SKU oder einer öffentlichen IP-Adresse der Standard-SKU kann nicht verschoben werden.
 * Von Marketplace-Ressourcen erstellte virtuelle Computer, an die Pläne angefügt sind, können nicht ressourcengruppen- oder abonnementübergreifend verschoben werden. Heben Sie die Bereitstellung des virtuellen Computers im aktuellen Abonnement auf, und stellen Sie ihn im neuen Abonnement erneut bereit.
+* Virtuelle Computer in einem vorhandenen virtuellen Netzwerk, in dem der Benutzer nicht beabsichtigt, alle Ressourcen im virtuellen Netzwerk zu verschieben.
 
 Verwenden Sie die folgende Problemumgehung, um mit Azure Backup konfigurierte virtuelle Computer zu verschieben:
 
@@ -221,6 +217,22 @@ Beim Verschieben einer Web-App _zwischen Abonnements_ gelten die folgenden Einsc
     - App Service-Umgebungen
 - Alle App Service-Ressourcen in der Ressourcengruppe müssen zusammen verschoben werden.
 - App Service-Ressourcen können nur aus der Ressourcengruppe verschoben werden, in der sie ursprünglich erstellt wurden. Wenn eine App Service-Ressource sich nicht mehr in ihrer ursprünglichen Ressourcengruppe befindet, muss sie erst zurück in die ursprüngliche Ressourcengruppe verschoben werden, bevor sie zwischen Abonnements verschoben werden kann.
+
+Wenn Sie sich nicht an die ursprüngliche Ressourcengruppe erinnern, können Sie diese mithilfe der Diagnosefunktion finden. Wählen Sie für Ihre Web-App **Diagnose und Problembehandlung** aus. Wählen Sie dann **Konfiguration und Verwaltung** aus.
+
+![„Diagnose“ auswählen](./media/resource-group-move-resources/select-diagnostics.png)
+
+Wählen Sie **Migrationsoptionen** aus.
+
+![Migrationsoptionen auswählen](./media/resource-group-move-resources/select-migration.png)
+
+Wählen Sie die Option für empfohlene Schritte, um die Web-App zu verschieben.
+
+![„Empfohlene Schritte“ auswählen](./media/resource-group-move-resources/recommended-steps.png)
+
+Sie sehen die empfohlenen Maßnahmen, die Sie ergreifen sollten, bevor Sie die Ressourcen verschieben. Die Informationen enthalten die ursprüngliche Ressourcengruppe für die Web-App.
+
+![Empfehlungen](./media/resource-group-move-resources/recommendations.png)
 
 ### <a name="app-service-certificate-limitations"></a>Einschränkungen von App Service Certificate
 
@@ -312,7 +324,7 @@ Dieser Vorgang kann einige Minuten dauern.
 
 ### <a name="recovery-services-limitations"></a>Einschränkungen von Recovery Services
 
- Zum Verschieben eines Recovery Services-Tresors müssen Sie sich für eine [eingeschränkte öffentliche Vorschauversion](../backup/backup-azure-move-recovery-services-vault.md) registrieren.
+ Führen Sie die folgenden Schritte aus, um einen Recovery Services-Tresor zu verschieben: [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](../backup/backup-azure-move-recovery-services-vault.md).
 
 Derzeit können Sie jeweils einen Recovery Services-Tresor pro Region verschieben. Tresore, die Azure Files, die Azure-Dateisynchronisierung oder SQL auf IaaS-VMs sichern, können nicht verschoben werden.
 

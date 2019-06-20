@@ -1,7 +1,7 @@
 ---
 title: Erstellen, Ausführen und Nachverfolgen von ML-Pipelines
 titleSuffix: Azure Machine Learning service
-description: Erstellen Sie eine Machine Learning-Pipeline mit dem Azure Machine Learning SDK für Python, und führen Sie sie aus. Pipelines werden zum Erstellen und Verwalten von Workflows verwendet, die Machine Learning-Phasen (ML) zusammenfügen. Zu diesen Phasen gehören beispielsweise Datenaufbereitung, Modelltraining, Modellimplementierung und Rückschluss.
+description: Erstellen Sie eine Machine Learning-Pipeline mit dem Azure Machine Learning SDK für Python, und führen Sie sie aus. Pipelines werden zum Erstellen und Verwalten von Workflows verwendet, die Machine Learning-Phasen (ML) zusammenfügen. Zu diesen Phasen gehören beispielsweise Datenaufbereitung, Modelltraining, Modellimplementierung und Rückschluss/Bewertung.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059242"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Erstellen und Ausführen einer Machine Learning-Pipeline mit dem Azure Machine Learning SDK
 
@@ -53,7 +53,7 @@ Erstellen Sie die Ressourcen, die zum Ausführen einer Pipeline erforderlich sin
 
 * Konfigurieren Sie ein `DataReference`-Objekt, um auf Daten zu verweisen, die sich in einem Datenspeicher befinden oder dort zugänglich sind.
 
-* Richten Sie die [Computeziele](concept-azure-machine-learning-architecture.md#compute-target) ein, auf denen Ihre Pipelineschritte ausgeführt werden.
+* Richten Sie die [Computeziele](concept-azure-machine-learning-architecture.md#compute-targets) ein, auf denen Ihre Pipelineschritte ausgeführt werden.
 
 ### <a name="set-up-a-datastore"></a>Einrichten eines Datenspeichers
 Ein Datenspeicher speichert die Daten für den Zugriff durch die Pipeline. Jeder Arbeitsbereich verfügt über einen Standarddatenspeicher. Sie können weitere Datenspeicher registrieren. 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Die Wiederverwendung von vorherigen Ergebnissen (`allow_reuse`) ist entscheidend, wenn Pipelines in einer Umgebung für die Zusammenarbeit verwendet werden, weil die Beseitigung von nicht benötigten erneuten Ausführungen zu einer höheren Flexibilität führt. Dies ist das Standardverhalten, wenn „script_name“, Eingaben und die Parameter eines Schritts gleich bleiben. Wenn die Ausgabe des Schritts wiederverwendet wird, wird der Auftrag nicht an den Computevorgang übermittelt, sondern die Ergebnisse aus der vorherigen Ausführung sind sofort für die Ausführung des nächsten Schritts verfügbar. Bei der Einstellung auf „false“ wird für diesen Schritt während der Pipelineausführung immer eine neue Ausführung generiert. 
+
 Nachdem Sie die Schritte definiert haben, erstellen Sie die Pipeline mit einigen oder allen dieser Schritte.
 
 > [!NOTE]
@@ -294,7 +296,7 @@ Wenn Sie die Pipeline übermitteln, prüft Azure Machine Learning Service die Ab
 > [!IMPORTANT]
 > Wenn Sie verhindern möchten, dass Dateien von der Momentaufnahme erfasst werden, müssen Sie eine [GITIGNORE](https://git-scm.com/docs/gitignore)- oder `.amlignore`-Datei im Verzeichnis erstellen und diesem die Dateien hinzufügen. Für die `.amlignore`-Datei werden die gleiche Syntax und die gleichen Muster wie für die [GITIGNORE](https://git-scm.com/docs/gitignore)-Datei verwendet. Wenn beide Dateien vorhanden sind, hat die `.amlignore`-Datei Vorrang.
 >
-> Weitere Informationen finden Sie unter [Momentaufnahmen](concept-azure-machine-learning-architecture.md#snapshot).
+> Weitere Informationen finden Sie unter [Momentaufnahmen](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run
@@ -314,6 +316,10 @@ Wenn Sie eine Pipeline erstmals ausführen, geht Azure Machine Learning folgende
 ![Diagramm zum Ausführen eines Experiments als Pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 Weitere Informationen finden Sie in der Referenz zur [Experiment-Klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py).
+
+## <a name="github-tracking-and-integration"></a>GitHub-Nachverfolgung und -Integration
+
+Wenn Sie eine Trainingsausführung starten, bei der das Quellverzeichnis ein lokales Git-Repository ist, werden Informationen über das Repository im Ausführungsverlauf gespeichert. Zum Beispiel wird die aktuelle Commit-ID für das Repository als Teil des Verlaufs protokolliert.
 
 ## <a name="publish-a-pipeline"></a>Veröffentlichen einer Pipeline
 
@@ -359,6 +365,7 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## <a name="view-results"></a>Anzeigen der Ergebnisse
 
 Hier finden Sie die Liste aller Ihrer Pipelines und deren Ausführungsdetails:
@@ -368,6 +375,25 @@ Hier finden Sie die Liste aller Ihrer Pipelines und deren Ausführungsdetails:
  ![Liste der Machine Learning-Pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Wählen Sie eine bestimmte Pipeline aus, um die Ausführungsergebnisse anzuzeigen.
+
+## <a name="caching--reuse"></a>Zwischenspeichern und Wiederverwenden  
+
+Zur Optimierung und Anpassung des Verhaltens Ihrer Pipelines können Sie einige Optionen für die Zwischenspeicherung und Wiederverwendung nutzen. Sie haben beispielsweise folgende Optionen:
++ **Deaktivieren Sie die standardmäßige Wiederverwendung der Ausgabe nach Ausführung des Schritts**, indem Sie bei der [Schrittdefinition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) `allow_reuse=False` festlegen. Die Wiederverwendung ist entscheidend, wenn Pipelines in einer Umgebung für die Zusammenarbeit verwendet werden, weil die Beseitigung von nicht benötigten Ausführungen zu einer höheren Flexibilität führt. Sie können dies aber auch deaktivieren.
++ **Erweitern Sie das Hashing über das Skript hinaus**, um in das Quellverzeichnis auch einen absoluten Pfad oder relative Pfade zu anderen Dateien und Verzeichnissen einzufügen, indem Sie `hash_paths=['<file or directory']` verwenden. 
++ **Erzwingen Sie die erneute Generierung der Ausgabe für alle Schritte einer Ausführung** mit `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`.
+
+Standardmäßig ist `allow-reuse` für die Schritte aktiviert, und nur die Hauptskriptdatei verfügt über einen Hashwert. Wenn das Skript für einen Schritt unverändert bleibt (`script_name`, Eingaben und Parameter), wird also die Ausgabe eines vorherigen Schritts wiederverwendet, der Auftrag wird nicht an den Computevorgang übermittelt, und die Ergebnisse der vorherigen Ausführung sind stattdessen sofort für den nächsten Schritt verfügbar.  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## <a name="next-steps"></a>Nächste Schritte
 - Verwenden Sie [diese Jupyter-Notebooks auf GitHub](https://aka.ms/aml-pipeline-readme), um die Pipelines für maschinelles Lernen eingehender zu erkunden.

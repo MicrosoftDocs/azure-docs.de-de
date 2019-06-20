@@ -2,16 +2,16 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b54b6b369e15ca0a712efefec5c7817e88d9065
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3a7cc1ac3940104993e6643e92da923ad1c6a14a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66120481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66248794"
 ---
-| Category (Kategorie) | Datenspeicher | Als Quelle unterstützt | Als Senke unterstützt | Von [Azure-Integrationslaufzeit](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) unterstützt | Von [selbstgehosteter Integrationslaufzeit](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) unterstützt | Unterstützt von [Datenfluss](../articles/data-factory/concepts-data-flow-overview.md)
+| Category (Kategorie) | Datenspeicher | Unterstützt als Quelle für eine [Kopieraktivität](../articles/data-factory/copy-activity-overview.md) | Unterstützt als Senke für eine [Kopieraktivität](../articles/data-factory/copy-activity-overview.md) | Von [Azure-Integrationslaufzeit](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) unterstützt | Von [selbstgehosteter Integrationslaufzeit](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) unterstützt | Unterstützt von [Datenfluss](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>Unterstützte Formate: Text mit Trennzeichen, Parquet</small> |
 | &nbsp; |[Azure Cosmos DB (SQL-API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
@@ -48,6 +48,7 @@ ms.locfileid: "66120481"
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  ||
 | &nbsp; |[SAP Business Warehouse über MDX](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  ||
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  ||
+| &nbsp; |[SAP-Tabelle](../articles/data-factory/connector-sap-table.md) |✓ |✓ | |✓  ||
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |✓ | |✓ |✓  ||
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  ||

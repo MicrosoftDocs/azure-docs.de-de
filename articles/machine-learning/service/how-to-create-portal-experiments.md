@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035447"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990149"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Erstellen und Untersuchen automatisierter Machine Learning-Experimente im Azure-Portal (Vorschau)
 
@@ -40,7 +40,7 @@ Navigieren Sie zum linken Bereich des Arbeitsbereichs. Wählen Sie „Automated 
 
 ![Startseite für Experimente im Azure-Portal](media/how-to-create-portal-experiments/landing-page.png)
 
-Andernfalls wird das Automated Machine Learning-Dashboard mit einer Übersicht über alle Ihre automatisierten Machine Learning-Experimente angezeigt, einschließlich derjenigen, die mit dem SDK ausgeführt werden. Hier können Sie Ihre Ausführungen nach Datum, Experimentname und Ausführungsstatus filtern und untersuchen.
+Andernfalls wird das Automated Machine Learning-Dashboard mit einer Übersicht über alle Ihre automatisierten Machine Learning-Experimente angezeigt, einschließlich derjenigen, die mit dem SDK erstellt wurden. Hier können Sie Ihre Ausführungen nach Datum, Experimentname und Ausführungsstatus filtern und untersuchen.
 
 ![Experimentdashboard im Azure-Portal](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -184,6 +184,63 @@ Führen Sie einen Drilldown der Ausgabemodelle aus, um Details zur Trainingsausf
 
 ![Details zur Iteration](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>Bereitstellen des Modells
+
+Sobald Ihnen das beste Modell vorliegt, ist es an der Zeit, das Modell als Webdienst bereitzustellen, um Vorhersagen für neue Daten zu erstellen.
+
+Automatisiertes maschinelles Lernen unterstützt Sie dabei, das Modell bereitzustellen, ohne Code zu schreiben:
+
+1. Sie haben einige Optionen für die Bereitstellung. 
+    1. Wenn Sie das beste Modell entsprechend den Metrikkriterien bereitstellen möchten, die Sie für das Experiment festgelegt haben, wählen Sie **Deploy Best Model** (Bestes Modell bereitstellen) auf der Seite **Run Detail** (Ausführungsdetails) aus.
+
+        ![Schaltfläche für Bereitstellen eines Modells](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. Wenn Sie eine bestimmte Modelliteration bereitstellen möchten, führen Sie einen Drilldown für das Modell aus, um dessen spezielle Seite mit Ausführungsdetails zu öffnen, und wählen Sie **Deploy Model** (Modell bereitstellen) aus.
+
+        ![Schaltfläche für Bereitstellen eines Modells](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. Der erste Schritt besteht darin, das Modell im Dienst zu registrieren. Wählen Sie „Register Model“ (Modell registrieren) aus, und warten Sie, bis der Registrierungsprozess abgeschlossen ist.
+
+    ![Blatt „Modell bereitstellen“](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. Sobald das Modell registriert ist, können Sie das Bewertungsskript (scoring.py) und das Umgebungsskript (condaEnv.yml) herunterladen, die während der Bereitstellung verwendet werden sollen.
+
+1. Sobald das Bewertungsskript und das Umgebungsskript heruntergeladen sind, wechseln Sie zum Blatt **Assets** (Objekte) im linken Navigationsbereich, und wählen Sie **Models** (Modelle) aus.
+
+    ![„Modelle“ im Navigationsbereich](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Wählen Sie das Modell aus, das Sie registriert haben, und wählen Sie „Create image“ (Image erstellen) aus.
+
+    Sie können das Modell anhand seiner Beschreibung erkennen, die die Ausführungs-ID und die Iterationsnummer im folgenden Format enthält: *<Ausführung_ID>_<Iterationsnummer>_Model*.
+
+    ![Modelle: Image erstellen](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Geben Sie einen Namen für das Image ein. 
+1. Wählen Sie die Schaltfläche **Durchsuchen** neben dem Feld „Bewertungsdatei“ aus, um die Bewertungsdatei (scoring.py) hochzuladen, Sie zuvor heruntergeladen haben.
+
+1. Wählen Sie die Schaltfläche **Durchsuchen** neben dem Feld „Conda-Datei“ aus, um die Umgebungsdatei (condaEnv.yml) hochzuladen, Sie zuvor heruntergeladen haben.
+
+    Sie können Ihr eigenes Bewertungsskript und Ihre eigene Conda-Datei verwenden, und Sie können weitere Dateien hochladen. [Hier finden Sie weitere Informationen über Bewertungsskripts](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+      >[!Important]
+      > Ein Dateiname muss weniger als 32 Zeichen haben und muss mit einem alphanumerischen Zeichen beginnen und enden. Dazwischen darf ein Name Bindestriche, Unterstriche, Punkte und alphanumerische Zeichen enthalten. Leerzeichen sind nicht zulässig.
+
+    ![Image erstellen](media/how-to-create-portal-experiments/create-image.png)
+
+1. Wählen Sie die Schaltfläche „Erstellen“ aus, um die Imageerstellung zu starten. Dieser Vorgang wird einige Minuten dauern. Sobald er abgeschlossen ist, wird in der oberen Leiste eine Meldung angezeigt.
+1. Wechseln Sie zur Registerkarte „Images“, aktivieren Sie das Kontrollkästchen neben dem Image, das Sie bereitstellen möchten, und wählen Sie „Bereitstellung erstellen“ aus. [Hier finden Sie weitere Informationen über Bereitstellungen](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+
+    Es gibt zwei Optionen für eine Bereitstellung.
+     + Azure Container Instances (ACI): Diese Option wird überwiegend für Testzwecke statt für eine einsatzfähige skalierbare Bereitstellung verwendet. Geben Sie unbedingt die Werte für mindestens einen Kern für _CPU-Reservekapazität_ und mindestens einen GB-Wert für _Arbeitsspeicher-Reservekapazität_ ein.
+     + Azure Kubernetes Service (AKS): Diese Option ist für eine skalierbare Bereitstellung vorgesehen. Sie benötigen einen vorbereiteten AKS-basierten Compute.
+
+     ![Images: Bereitstellung erstellen](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. Wählen Sie abschließend die Option **Erstellen**. Eine Bereitstellung des Modells kann für jede Pipeline einige Minuten beanspruchen, bis die Ausführung abgeschlossen ist.
+
+1. Das ist alles! Sie haben einen einsatzfähigen Webdienst, mit dem Vorhersagen generiert werden können.
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Weitere Informationen zu automatisiertem Machine Learning](concept-automated-ml.md) und Azure Machine Learning.
+* [Informationen zum Nutzen eines Webdiensts](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service)

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65157994"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65602120"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Hinzufügen und Ausführen von Codeausschnitten mit Inlinecode in Azure Logic Apps
 
@@ -23,7 +23,10 @@ Wenn Sie einen Codeausschnitt in Ihrer Logik-App ausführen möchten, können Si
 * Ausführung in JavaScript. Weitere Sprachen in Kürze verfügbar.
 * Ausführung wird in höchstens fünf Sekunden abgeschlossen.
 * Verarbeitet Daten mit einer Größe von bis zu 50 MB.
-* Verwendung von Node.js-Version 8.11.1. Weitere Informationen finden Sie unter [Integrierte Standardobjekte](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Verwendung von Node.js-Version 8.11.1. Weitere Informationen finden Sie unter [Integrierte Standardobjekte](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+  > [!NOTE]
+  > Die require()-Funktion wird von der **Inlinecode**-Aktion zur Ausführung von JavaScript nicht unterstützt.
 
 Diese Aktion führt den Codeausschnitt aus und gibt die Ausgabe des Ausschnitts als Token mit dem Namen **Ergebnis** zurück; dieses Token kann in nachfolgenden Aktionen in der Logik-App verwendet werden. Wenn Sie in anderen Szenarien eine Funktion für Ihren Code erstellen möchten, versuchen Sie, in der Logik-App [eine Azure-Funktion zu erstellen und aufzurufen](../logic-apps/logic-apps-azure-functions.md).
 
@@ -49,7 +52,7 @@ In diesem Artikel wird die Beispiel-Logik-App ausgelöst, wenn eine neue E-Mail 
 
    * Wenn Sie die Aktion am Ende des Workflows hinzufügen möchten, wählen Sie **Neuer Schritt** aus.
 
-   * Wenn die Aktion zwischen vorhandenen Schritten hinzugefügt werden soll, bewegen Sie den Mauszeiger über den Pfeil, der die betreffenden Schritte verbindet. Wählen Sie das Pluszeichen (**+**) und anschließend **Aktion hinzufügen** aus.
+   * Wenn die Aktion zwischen vorhandenen Schritten hinzugefügt werden soll, bewegen Sie den Mauszeiger über den Pfeil, der die betreffenden Schritte verbindet. Wählen Sie das Pluszeichen ( **+** ) und anschließend **Aktion hinzufügen** aus.
 
    In diesem Beispiel wird die Aktion **Inline Code** unter dem Office 365 Outlook-Trigger hinzugefügt.
 

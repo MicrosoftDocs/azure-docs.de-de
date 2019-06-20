@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496895"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835164"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>Bereitstellen eines OPC-Tresors von Grund auf
 
@@ -45,7 +45,7 @@ Die Konfigurationsdatei im Repository verweist auf einige Umgebungsvariablen, di
 
 Mit Visual Studio können Sie die Anwendung schnell und ohne Eingabeaufforderung öffnen, ohne etwas außerhalb der integrierten Entwicklungsumgebung zu konfigurieren.
 
-Schritte mit Visual Studio 2017:
+Dies sind die erforderlichen Schritte zum Ausführen und Debuggen der Anwendung mit Visual Studio:
 
 1. Öffnen Sie die Projektmappe mit der Datei `iot-opc-gds-service.sln`.
 

@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58804529"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949991"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Grundlegendes zu Rollendefinitionen für Azure-Ressourcen
 

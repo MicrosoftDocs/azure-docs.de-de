@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 2f4d26702443ef3113dad98cde1d13b292fe657a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60306698"
 ---
 # <a name="implement-x-csrf-pattern"></a>Implementieren von X-CSRF-Mustern
 

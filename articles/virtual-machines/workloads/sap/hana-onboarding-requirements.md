@@ -15,11 +15,11 @@ ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880694"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60679050"
 ---
 # <a name="onboarding-requirements"></a>Onboardinganforderungen
 

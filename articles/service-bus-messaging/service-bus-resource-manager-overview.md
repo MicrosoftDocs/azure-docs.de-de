@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66111138"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Erstellen von Service Bus-Ressourcen mithilfe von Azure Resource Manager-Vorlagen
 
@@ -36,11 +36,11 @@ Azure Resource Manager-Vorlagen helfen Ihnen dabei, die für eine Lösung bereit
 
 Diese Azure Resource Manager-Vorlagen für Service Bus sind zum Download und zur Bereitstellung verfügbar. Klicken Sie auf die folgenden Links, um Details zu jeder Vorlage abzurufen (auf jeder Seite finden Sie Links zu den Vorlagen in GitHub):
 
-* [Erstellen eines Service Bus-Namespace](service-bus-resource-manager-namespace.md)
-* [Erstellen eines Service Bus-Namespace und einer Warteschlange](service-bus-resource-manager-namespace-queue.md)
-* [Erstellen eines Service Bus-Namespace mit einem Thema und einem Abonnement](service-bus-resource-manager-namespace-topic.md)
-* [Erstellen eines Service Bus-Namespace mit einer Warteschlange und einer Autorisierungsregel](service-bus-resource-manager-namespace-auth-rule.md)
-* [Erstellen eines Service Bus-Namespace mit einem Thema, einem Abonnement und einer Regel](service-bus-resource-manager-namespace-topic-with-rule.md)
+* [Erstellen eines Service Bus-Namespaces](service-bus-resource-manager-namespace.md)
+* [Create a Service Bus namespace and a queue using an Azure Resource Manager template (Erstellen eines Service Bus-Namespace und einer Warteschlange mit einer Azure Resource Manager-Vorlage)](service-bus-resource-manager-namespace-queue.md)
+* [Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template (Erstellen eines Service Bus-Namespace mit Thema und Abonnement mit einer Azure Resource Manager-Vorlage)](service-bus-resource-manager-namespace-topic.md)
+* [Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template](service-bus-resource-manager-namespace-auth-rule.md)
+* [Create a Service Bus namespace with topic, subscription, and rule (Erstellen eines Service Bus-Namespace mit Thema, Abonnement und Regel)](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## <a name="deploy-with-powershell"></a>Bereitstellen mit PowerShell
 
@@ -181,7 +181,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Festlegen der Ressourcengruppe
 
-Wenn noch keine Ressourcengruppe vorhanden ist, erstellen Sie mit dem Befehl **New-AzResourceGroup** eine neue Ressourcengruppe. Geben Sie den Namen der gewünschten Ressourcengruppe und den gewünschten Speicherort ein. Beispiel: 
+Wenn noch keine Ressourcengruppe vorhanden ist, erstellen Sie mit dem Befehl **New-AzResourceGroup** eine neue Ressourcengruppe. Geben Sie den Namen der gewünschten Ressourcengruppe und den gewünschten Speicherort ein. Beispiel:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -257,7 +257,7 @@ Sie haben nun den grundlegenden Workflow und die grundlegenden Befehle für die 
 
 * [Übersicht über den Azure Resource Manager][Azure Resource Manager overview]
 * [Bereitstellen von Ressourcen mit Resource Manager-Vorlagen und Azure PowerShell][Deploy resources with Azure Resource Manager templates]
-* [Erstellen von Azure Resource Manager-Vorlagen](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Erstellen von Azure-Ressourcen-Manager-Vorlagen](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Microsoft.ServiceBus-Ressourcentypen](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md

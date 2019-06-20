@@ -1,25 +1,19 @@
 ---
-title: Kriterien für die Überprüfung von Marketplace-Inhalten – Azure | Microsoft-Dokumentation
+title: Kriterien für die Überprüfung von Marketplace-Inhalten | Azure Marketplace
 description: Dieser Artikel beschreibt, wie Sie Herausgeber im Marketplace werden.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000403"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937826"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Richtlinien für die Azure Marketplace-Auflistung
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
 ms.openlocfilehash: ba469c038f04a31a57e798b97b5120bec573feae
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65414043"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Konfigurieren von Labkonten in Azure Lab Services 
@@ -89,14 +89,14 @@ Als Lab-Kontobesitzer können Sie die Marketplace-Images festlegen, die Lab-Erst
     - Verwendet den Azure Resource Manager zum Bereitstellen von virtuellen Computern
     - Erfordert nicht den Erwerb eines zusätzlichen Lizenzplans
 2. Um ein aktiviertes Marketplace-Image zu **deaktivieren**, führen Sie eine der folgenden Aktionen aus: 
-    1. Klicken Sie in der letzten Spalte auf die Ellipse (**...**) und dann auf **Disable image** (Image deaktivieren). 
+    1. Klicken Sie in der letzten Spalte auf die Ellipse ( **...** ) und dann auf **Disable image** (Image deaktivieren). 
 
         ![Deaktivieren eines Images](../media/tutorial-setup-lab-account/disable-one-image.png) 
     2. Wählen Sie mindestens ein Image in der Liste aus, indem Sie die Kontrollkästchen vor den Imagenamen in der Liste aktivieren, und wählen Sie **Ausgewählte Images deaktivieren** aus. 
 
         ![Deaktivieren mehrerer Images](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
 1. Ebenso führen Sie zum **Aktivieren** eines Marketplace-Images eine der folgenden Aktionen aus: 
-    1. Klicken Sie in der letzten Spalte auf die Ellipse (**...**) und dann auf **Enable image** (Image aktivieren). 
+    1. Klicken Sie in der letzten Spalte auf die Ellipse ( **...** ) und dann auf **Enable image** (Image aktivieren). 
     2. Wählen Sie mindestens ein Image in der Liste aus, indem Sie die Kontrollkästchen vor den Imagenamen in der Liste aktivieren, und wählen Sie **Ausgewählte Images aktivieren** aus. 
 
 

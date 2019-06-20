@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu;anilmur
 ms.openlocfilehash: 0ade52d3ae9714f2b370308253e455bcde7ac7a5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60825131"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Erstellen von erweiterten Codierungsworkflows mit Workflow-Designer  
 ## <a name="overview"></a>Übersicht

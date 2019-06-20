@@ -15,11 +15,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60247638"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Zuweisen oder Entfernen von Lizenzen im Azure Active Directory-Portal
 Viele Azure Active Directory (Azure AD)-Dienste erfordern, dass Sie ein Azure AD-Produkt aktivieren und jeden Ihrer Benutzer oder Gruppen (und zugehörige Mitglieder) für dieses Produkt lizenzieren. Nur Benutzer mit aktiven Lizenzen können auf die lizenzierten Azure AD-Dienste zugreifen und diese nutzen.

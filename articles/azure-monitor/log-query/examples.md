@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416648"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60759910"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Beispiele für Protokollabfragen in Azure Monitor
 Dieser Artikel enthält mehrere Beispiele für [Abfragen](log-query-overview.md) unter Verwendung der [Abfragesprache Kusto](/azure/kusto/query/), mit denen verschiedene Arten von Protokolldaten aus Azure Monitor abgerufen werden. Da Daten auf unterschiedliche Weise konsolidiert und analysiert werden, können Sie anhand dieser Beispiele verschiedene Strategien ermitteln, die ggf. für Ihre eigenen Anforderungen geeignet sind.  
 
 Ausführliche Informationen zu den Schlüsselwörtern aus diesen Beispielen finden Sie in der [Kusto-Sprachreferenz](https://docs.microsoft.com/azure/kusto/query/). Sollten Sie noch keine Erfahrung mit Azure Monitor haben, machen Sie sich anhand [dieser Lektion](get-started-queries.md) mit dem Erstellen von Abfragen vertraut.
 
-## <a name="events"></a>Ereignisse
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Suchen nach Ereignissen auf Anwendungsebene, die als „kryptographisch“ beschrieben werden
 In diesem Beispiel wird die Tabelle **Events** nach Datensätzen durchsucht, in denen **EventLog** den Wert _Application_ besitzt und **RenderedDescription** die Zeichenfolge _cryptographic_ enthält. Dabei werden Datensätze der letzten 24 Stunden berücksichtigt.

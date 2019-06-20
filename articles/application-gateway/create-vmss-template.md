@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
 ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66134102"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Erstellen eines Anwendungsgateways mit der Azure-Ressourcen-Manager-Vorlage
@@ -167,9 +167,9 @@ Führen Sie die folgenden Schritte aus, um die heruntergeladene Azure Resource M
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (oder --name)**. Name für die neue Ressourcengruppe. In unserem Fall ist dies *appgatewayRG*.
+    **-n (oder --name)** . Name für die neue Ressourcengruppe. In unserem Fall ist dies *appgatewayRG*.
     
-    **-l (oder --location)**. Azure-Region, in der die neue Ressourcengruppe erstellt wird. In unserem Szenario ist dies *westus*.
+    **-l (oder --location)** . Azure-Region, in der die neue Ressourcengruppe erstellt wird. In unserem Szenario ist dies *westus*.
 
 1. Führen Sie das Cmdlet `az group deployment create` aus, um das neue virtuelle Netzwerk mithilfe der im vorherigen Schritt heruntergeladenen und geänderten Vorlage und Parameterdateien bereitzustellen. In der nach der Ausgabe angezeigten Liste werden die verwendeten Parameter erläutert.
 

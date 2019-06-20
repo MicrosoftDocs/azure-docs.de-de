@@ -9,11 +9,11 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60320566"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Beispielworkflow für die Vorbereitung von Festplatten für einen Importauftrag
 
@@ -23,7 +23,7 @@ Dieser Artikel führt Sie durch den vollständigen Prozess zur Vorbereitung von 
 
 In diesem Beispiel werden die folgenden Daten in ein Azure-Speicherkonto namens `mystorageaccount` importiert:
 
-|Standort|BESCHREIBUNG|Datengröße|
+|Location|BESCHREIBUNG|Datengröße|
 |--------------|-----------------|-----|
 |H:\Video\ |Eine Sammlung von Videos|12TB|
 |H:\Photo\ |Eine Sammlung von Fotos|30 GB|
@@ -34,7 +34,7 @@ In diesem Beispiel werden die folgenden Daten in ein Azure-Speicherkonto namens 
 
 Der Importauftrag importiert diese Daten in die folgenden Ziele im Speicherkonto:
 
-|Quelle|Virtuelles Zielverzeichnis oder Blob|
+|`Source`|Virtuelles Zielverzeichnis oder Blob|
 |------------|-------------------------------------------|
 |H:\Video\ |video/|
 |H:\Photo\ |photo/|

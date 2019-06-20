@@ -11,11 +11,11 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60898844"
 ---
 # <a name="what-is-distributed-tracing"></a>Was ist die verteilte Ablaufverfolgung?
 

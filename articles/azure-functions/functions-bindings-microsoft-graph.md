@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
 ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511813"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-Bindungen für Azure Functions
 
@@ -361,7 +361,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 
 Diese Bindung erfordert folgende Azure AD-Berechtigungen:
 
-|Ressource|Berechtigung|
+|Resource|Berechtigung|
 |--------|--------|
 |Microsoft Graph|Benutzerdateien lesen|
 
@@ -524,7 +524,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 
 Diese Bindung erfordert folgende Azure AD-Berechtigungen:
 
-|Ressource|Berechtigung|
+|Resource|Berechtigung|
 |--------|--------|
 |Microsoft Graph|Vollzugriff auf Benutzerdateien|
 
@@ -667,7 +667,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 
 Diese Bindung erfordert folgende Azure AD-Berechtigungen:
 
-|Ressource|Berechtigung|
+|Resource|Berechtigung|
 |--------|--------|
 |Microsoft Graph|Benutzerdateien lesen|
 
@@ -815,7 +815,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 
 Diese Bindung erfordert folgende Azure AD-Berechtigungen:
 
-|Ressource|Berechtigung|
+|Resource|Berechtigung|
 |--------|--------|
 |Microsoft Graph|Vollzugriff auf Benutzerdateien|
 
@@ -965,7 +965,7 @@ Die folgende Tabelle gibt Aufschluss über die Bindungskonfigurationseigenschaft
 
 Diese Bindung erfordert folgende Azure AD-Berechtigungen:
 
-|Ressource|Berechtigung|
+|Resource|Berechtigung|
 |--------|--------|
 |Microsoft Graph|E-Mail als Benutzer senden|
 

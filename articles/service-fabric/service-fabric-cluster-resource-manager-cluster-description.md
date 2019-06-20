@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7cd4a54a62d7304587c55338f088c504e40a74af
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65561211"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Beschreiben eines Service Fabric-Clusters
 Der Service Fabric-Cluster-Ressourcen-Manager stellt verschiedene Methoden zum Beschreiben eines Clusters bereit. Zur Laufzeit nutzt der Clusterressourcen-Manager diese Informationen, um die Hochverfügbarkeit der Dienste sicherzustellen, die im Cluster ausgeführt werden. Beim Erzwingen dieser wichtigen Regeln wird auch versucht, den Ressourcenverbrauch innerhalb des Clusters zu optimieren.
@@ -95,13 +95,17 @@ Es gibt keine tatsächliche Beschränkung bei der Gesamtzahl der Fehler- oder Up
 ![Layouts von Fehler- und Upgradedomänen][Image4]
 </center>
 
-Es gibt keine allgemeingültige Empfehlung für die Auswahl des Layouts, da jedes Layout seine Vor- und Nachteile hat. Das 1FD:1U-Modell ist beispielsweise einfach einzurichten. Das Modell „Eine Upgradedomäne pro Knoten“ ist wahrscheinlich das gängigste Modell. Während eines Upgradevorgangs wird jeder Knoten unabhängig aktualisiert. Dies ähnelt früheren Situationen, in denen für kleine Gruppen von Computern manuell ein Upgrade ausgeführt wurde. 
+Es gibt keine allgemeingültige Empfehlung für die Auswahl des Layouts, da jedes Layout seine Vor- und Nachteile hat. Das 1FD:1U-Modell ist beispielsweise einfach einzurichten. Das Modell „Eine Upgradedomäne pro Knoten“ ist wahrscheinlich das gängigste Modell. Während eines Upgradevorgangs wird jeder Knoten unabhängig aktualisiert. Dies ähnelt früheren Situationen, in denen für kleine Gruppen von Computern manuell ein Upgrade ausgeführt wurde.
 
 Das häufigste Modell ist die FD/UD-Matrix, bei der die FDs und UDs eine Tabelle bilden und die Knoten am Anfang der Diagonalen angeordnet sind. Dies ist das Modell, das in Service Fabric-Clustern in Azure standardmäßig verwendet wird. Bei Clustern mit vielen Knoten entspricht das Gesamtbild anschließend dem obigen dichten Matrixmuster.
 
+> [!NOTE]
+> In Azure gehostete Service Fabric-Cluster unterstützten keine Änderung der Standardstrategie. Nur eigenständige Cluster bieten diese Anpassung.
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Einschränkungen und daraus resultierendes Verhalten von Fehler- und Upgradedomänen
 ### <a name="default-approach"></a>*Standardansatz*
-Standardmäßig behält der Clusterressourcen-Manager die ausgewogene Verteilung der Dienste auf Fehler- und Upgradedomänen bei. Dies wird als [Einschränkung](service-fabric-cluster-resource-manager-management-integration.md) simuliert. In den Einschränkungen für Fehler- und Upgradedomänen heißt es: „Für jede Dienstpartition sollte der Unterschied zwischen der Anzahl von Dienstobjekten (zustandslose Dienstinstanzen oder zustandsbehaftete Dienstreplikate) zwischen zwei Domänen auf derselben Hierarchieebene nie mehr als 1 betragen.“ Nehmen wir an, dass diese Einschränkung eine „maximale Differenz“ garantiert. Die Fehler- und Upgradedomäneneinschränkung verhindert bestimmte Verschiebungen oder Anordnungen, die die oben genannte Regel verletzen. 
+Standardmäßig behält der Clusterressourcen-Manager die ausgewogene Verteilung der Dienste auf Fehler- und Upgradedomänen bei. Dies wird als [Einschränkung](service-fabric-cluster-resource-manager-management-integration.md) simuliert. In den Einschränkungen für Fehler- und Upgradedomänen heißt es: „Für jede Dienstpartition sollte der Unterschied zwischen der Anzahl von Dienstobjekten (zustandslose Dienstinstanzen oder zustandsbehaftete Dienstreplikate) zwischen zwei Domänen auf derselben Hierarchieebene nie mehr als 1 betragen.“ Nehmen wir an, dass diese Einschränkung eine „maximale Differenz“ garantiert. Die Fehler- und Upgradedomäneneinschränkung verhindert bestimmte Verschiebungen oder Anordnungen, die die oben genannte Regel verletzen.
 
 Wir sehen uns nun ein Beispiel an. Angenommen, wir verwenden einen Cluster mit sechs Knoten, für die fünf Fehlerdomänen und fünf Upgradedomänen konfiguriert wurden.
 
@@ -339,7 +343,7 @@ ClusterManifest.xml
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Knoteneigenschaften und Platzierungseinschränkungen
-Manchmal (eigentlich in den meisten Fällen) möchten Sie sicherstellen, dass bestimmte Workloads nur auf bestimmten Knotentypen im Cluster ausgeführt werden. Für einige Workloads sind beispielsweise GPUs oder SSDs erforderlich, für andere hingegen nicht. Ein gutes Beispiel für die Ausrichtung von Hardware auf bestimmte Workloads ist nahezu jede vorstellbare N-Tier-Architektur. Bestimmte Computer fungieren als Front-End oder API-Seite der Anwendung und sind für die Clients oder das Internet verfügbar. Unterschiedliche Computer (häufig mit unterschiedlichen Hardwareressourcen) verarbeiten die Workload der Compute- oder Speicherebenen. Diese sind normalerweise _nicht_ direkt für Clients oder das Internet verfügbar. Service Fabric erwartet, dass Situationen eintreten, in denen bestimmte Workloads in bestimmten Hardwarekonfigurationen ausgeführt werden müssen. Beispiel: 
+Manchmal (eigentlich in den meisten Fällen) möchten Sie sicherstellen, dass bestimmte Workloads nur auf bestimmten Knotentypen im Cluster ausgeführt werden. Für einige Workloads sind beispielsweise GPUs oder SSDs erforderlich, für andere hingegen nicht. Ein gutes Beispiel für die Ausrichtung von Hardware auf bestimmte Workloads ist nahezu jede vorstellbare N-Tier-Architektur. Bestimmte Computer fungieren als Front-End oder API-Seite der Anwendung und sind für die Clients oder das Internet verfügbar. Unterschiedliche Computer (häufig mit unterschiedlichen Hardwareressourcen) verarbeiten die Workload der Compute- oder Speicherebenen. Diese sind normalerweise _nicht_ direkt für Clients oder das Internet verfügbar. Service Fabric erwartet, dass Situationen eintreten, in denen bestimmte Workloads in bestimmten Hardwarekonfigurationen ausgeführt werden müssen. Beispiel:
 
 * Eine vorhandene n-Ebenen-Anwendung wurde in eine Service Fabric-Umgebung verschoben.
 * Eine Workload soll aus Leistungs-, Skalierbarkeits- oder Sicherheitsisolationsgründen auf bestimmter Hardware ausgeführt werden.

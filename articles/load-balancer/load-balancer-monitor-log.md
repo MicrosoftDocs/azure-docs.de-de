@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
 ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60861176"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor-Protokolle für öffentlichen Load Balancer vom Typ „Basic“
 
@@ -145,8 +145,8 @@ Sie müssen eine Verbindung mit Ihrem Speicherkonto herstellen und die JSON-Prot
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Visualize your Azure Audit Logs with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) .
-* [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) .
+* Blogbeitrag [Visualize your Azure Audit Logs with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualisieren Ihrer Azure-Überwachungsprotokolle mit Power BI).
+* Blogbeitrag [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Anzeigen und Analysieren von Azure-Überwachungsprotokollen in Power BI und mehr).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

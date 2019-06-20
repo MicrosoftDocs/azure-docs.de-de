@@ -5,21 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b10be061e015686c68684723fd2d73c1431c7266
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65518166"
 ---
 # <a name="automation-with-service-principals"></a>Automatisierung mit Dienstprinzipalen
 
 Dienstprinzipale sind eine Azure Active Directory-Anwendungsressource, die Sie in Ihrem Mandanten erstellen, um unbeaufsichtigte Ressourcen- und Servicelevelvorgänge auszuführen. Es handelt sich dabei um einen eindeutigen Typ von *Benutzeridentität* mit einer Anwendungs-ID und einem Kennwort oder Zertifikat. Ein Dienstprinzipal verfügt nur über die Berechtigungen, die zum Ausführen der Aufgaben erforderlich sind, die durch die ihm zugewiesenen Rollen und Berechtigungen definiert sind. 
 
 In Analysis Services werden Dienstprinzipale mit Azure Automation, PowerShell im unbeaufsichtigten Modus, benutzerdefinierten Clientanwendungen und Web-Apps zum Automatisieren von allgemeinen Aufgaben verwendet. So können beispielsweise Aufgaben wie das Bereitstellen von Servern, das Bereitstellen von Modellen, das Aktualisieren von Daten, das zentrale Hoch-/Herunterskalieren sowie Anhalten/Fortsetzen mithilfe von Dienstprinzipalen automatisiert werden. Berechtigungen werden Dienstprinzipalen über Rollenmitgliedschaften zugewiesen, ähnlich wie bei Azure AD-UPN-Standardkonten.
+
+Analysis Services unterstützt außerdem Vorgänge, die von verwalteten Identitäten unter Verwendung von Dienstprinzipalen ausgeführt werden. Weitere Informationen finden Sie unter [Verwaltete Identitäten für Azure-Ressourcen](../active-directory/managed-identities-azure-resources/overview.md) und [Azure-Dienste, die Azure AD-Authentifizierung unterstützen](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Erstellen von Dienstprinzipalen
  
@@ -47,13 +49,37 @@ Dienstprinzipal-AppID und ein Kennwort oder Zertifikat können in Verbindungszei
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Wenn Sie einen Dienstprinzipal für Ressourcenverwaltungsvorgänge mit dem [Az.AnalysisServices](/powershell/module/az.analysisservices)-Modul nutzen, verwenden Sie das Cmdlet `Connect-AzAccount`. Wenn Sie einen Dienstprinzipal für Servervorgänge mit dem [SQLServer](https://www.powershellgallery.com/packages/SqlServer)-Modul nutzen, verwenden Sie das Cmdlet `Add-AzAnalysisServicesAccount`. 
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Verwenden des „Az.AnalysisServices“-Moduls
+
+Wenn Sie einen Dienstprinzipal für Ressourcenverwaltungsvorgänge mit dem [Az.AnalysisServices](/powershell/module/az.analysisservices)-Modul nutzen, verwenden Sie das Cmdlet `Connect-AzAccount`. 
+
+Im folgenden Beispiel werden appID und ein Kennwort verwendet, um Vorgänge auf Steuerungsebene für die Synchronisierung in schreibgeschützte Replikate und für zentrales/horizontales Hochskalieren durchzuführen:
+
+```powershell
+Param (
+        [Parameter(Mandatory=$true)] [String] $AppId,
+        [Parameter(Mandatory=$true)] [String] $PlainPWord,
+        [Parameter(Mandatory=$true)] [String] $TenantId
+       )
+$PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
+$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
+
+# Connect using Az module
+Connect-AzAccount -Credential $Credential -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx"
+
+# Syncronize a database for query scale out
+Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/testsvr" -Database "testdb"
+
+# Scale up the server to an S1, set 2 read-only replicas, and remove the primary from the query pool. The new replicas will hydrate from the synchronized data.
+Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
+```
+
+#### <a name="using-sqlserver-module"></a>Verwenden des SqlServer-Moduls
 
 Im folgenden Beispiel werden AppID und ein Kennwort verwendet, um einen Aktualisierungsvorgang für eine Modelldatenbank auszuführen:
 
 ```powershell
 Param (
-
         [Parameter(Mandatory=$true)] [String] $AppId,
         [Parameter(Mandatory=$true)] [String] $PlainPWord,
         [Parameter(Mandatory=$true)] [String] $TenantId

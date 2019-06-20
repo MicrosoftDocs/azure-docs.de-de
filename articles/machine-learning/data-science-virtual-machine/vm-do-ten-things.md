@@ -18,11 +18,11 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60365980"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Zehn Dinge, die Sie mit der Windows Data Science Virtual Machine machen können
 
@@ -38,7 +38,7 @@ In diesem Artikel wird beschrieben, wie Sie Ihre DSVM nutzen können, um verschi
 6. Freigeben von Code für Ihr Team über GitHub und Zugriff auf Ihr Repository mit den vorinstallierten Git Clients – Git Bash, Git GUI.
 7. Zugriff auf verschiedene Azure Daten und Analysedienste wie Azure Blob Storage, Azure Data Lake, Azure, HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse und Datenbanken
 8. Erstellen von Berichten und Dashboard mit Power BI Desktop – auf der DSVM vorinstalliert – und deren Bereitstellung in der Cloud
-9. Dynamische Skalierung Ihrer DSVM gemäß Ihren Projektanforderungen 
+9. Dynamische Skalierung Ihrer DSVM gemäß Ihren Projektanforderungen
 10. Installieren zusätzlicher Tools auf Ihrem virtuellen Computer   
 
 > [!NOTE]
@@ -286,7 +286,7 @@ Azure Blob ist ein zuverlässiger, wirtschaftlicher Cloudspeicher für große un
 
 ![Screenshot des Azure Storage-Explorers mit Zugriff auf ein Speicherkonto](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**Verschieben von Daten vom virtuellen Computer in Azure Blob Storage: AzCopy**
+**Verschieben von Daten vom virtuellen Computer in Azure Blob: AzCopy**
 
 Zum Verschieben von Daten zwischen Ihren lokalen Dateien und dem Blobspeicher können Sie AzCopy in der Befehlszeile oder PowerShell verwenden:
 
@@ -311,20 +311,20 @@ Kurz nachdem Sie den AzCopy-Befehl zum Kopieren in ein Azure-Blob ausgeführt ha
 
 ![Screenshot des Speicherkontos, das die hochgeladene CSV-Datei anzeigt](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Verschieben von Daten vom virtuellen Computer in Azure Blob Storage: Azure Storage-Explorer**
+**Verschieben von Daten vom virtuellen Computer in Azure Blob: Azure Storage-Explorer**
 
 Außerdem können Sie Daten aus der lokalen Datei auf Ihrem virtuellen Computer mit dem Azure Storage-Explorer hochladen:
 
-* Wählen Sie den Zielcontainer aus, und klicken Sie auf **Hochladen**, um Daten in einen Container hochzuladen. ![Screenshot: Schaltfläche zum Hochladen im Azure Storage-Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Klicken Sie rechts neben dem Feld **Dateien** auf die Schaltfläche **...**, wählen Sie im Dateisystem mindestens eine Datei zum Hochladen aus, und klicken Sie auf **Hochladen**, um mit dem Hochladen der Dateien zu beginnen. ![Screenshot: Dialogfeld „Dateien hochladen“](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Um Daten in einen Container hochzuladen, wählen Sie den Zielcontainer aus und klicken Sie dann auf die Schaltfläche **Hochladen**.![Screenshot der Schaltfläche „Hochladen“ in Azure Storage-Explorer](./media/vm-do-ten-things/storage-accounts.png).
+* Klicken Sie rechts neben dem Feld **Dateien** auf die Schaltfläche **...** , wählen Sie im Dateisystem eine oder mehrere Dateien zum Hochladen aus, und klicken Sie auf **Hochladen**, um mit dem Hochladen der Dateien zu beginnen.![Screenshot des Dialogfelds „Dateien hochladen“](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Lesen von Daten aus Azure Blob Storage: Machine Learning-Readermodul**
+**Lesen von Daten aus Azure Blob: Machine Learning-Readermodul**
 
 In Azure Machine Learning Studio können Sie mit einem **„Import Data“-Modul** Daten aus Ihrem Blob lesen.
 
 ![Screenshot des Moduls „Daten importieren“ in Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Lesen von Daten aus Azure Blob Storage: Python ODBC**
+**Lesen von Daten aus Azure Blob: Python ODBC**
 
 Sie können die **BlobService** -Bibliothek verwenden, um Daten direkt aus dem Blob in einem Jupyter Notebook- oder Python-Programm zu lesen.
 
@@ -397,13 +397,13 @@ Sie können **Azure Data Lake Explorer** zum Hochladen von Daten aus den lokalen
 
 Sie können auch eine Datenpipeline erstellen, um die Datenverschiebung zu oder von Azure Data Lake mithilfe der [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/) zu operationalisieren. In [diesem Artikel](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) finden Sie eine Anleitung zum Erstellen einer Datenpipeline.
 
-**Lesen von Daten aus Azure Blob Storage in Data Lake: U-SQL**
+**Lesen von Daten aus Azure Blob in Data Lake: U-SQL**
 
 Wenn Ihre Daten sich in Azure Blob Storage befinden, können Sie die Daten mit einer U-SQL-Abfrage direkt aus Azure Blob Storage lesen. Stellen Sie vor dem Formulieren der U-SQL-Abfrage sicher, dass Ihr Blobspeicherkonto mit Azure Data Lake verknüpft ist. Rufen Sie das **Azure-Portal** auf, klicken Sie auf Ihrem Azure Data Lake Analytics-Dashboard auf **Datenquelle hinzufügen**, wählen Sie als Speichertyp **Azure Storage** aus, und geben Sie den Namen und den Schlüssel Ihres Azure Storage-Kontos an. Anschließend können Sie auf die auf dem Speicherkonto gespeicherten Daten verweisen.
 
 ![Screenshot des Dialogfelds „Datenquelle hinzufügen“](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-In Visual Studio können Sie Daten aus dem Blobspeicher lesen, einige Datenmanipulationen ausführen, Features entwickeln und die resultierenden Daten entweder in Azure Data Lake oder in Azure Blob Storage ausgeben. Wenn Sie auf die Daten im Blobspeicher verweisen, verwenden Sie **wasb://**; wenn Sie auf die Daten in Azure Data Lake verweisen, verwenden Sie **swbhdfs://**.
+In Visual Studio können Sie Daten aus dem Blobspeicher lesen, einige Datenmanipulationen ausführen, Features entwickeln und die resultierenden Daten entweder in Azure Data Lake oder in Azure Blob Storage ausgeben. Wenn Sie auf die Daten im Blobspeicher verweisen, verwenden Sie **wasb://** ; wenn Sie auf die Daten in Azure Data Lake verweisen, verwenden Sie **swbhdfs://** .
 
 ![Screenshot der Abfrage mit hervorgehobenem WASB-Eintrag](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -592,7 +592,7 @@ for i in range(1,13):
 
 Nachdem die Daten in den HDI-Cluster geladen wurden, können Sie Ihre Daten im Azure Storage-Explorer überprüfen. Und Sie besitzen eine im HDI-Cluster erstellte Datenbank „nyctaxidb“.
 
-**Untersuchen von Daten: Hive-Abfragen in Python**
+**Datenuntersuchung: Hive-Abfragen in Python**
 
 Da sich die Daten im Hadoop-Cluster befinden, können Sie das Paket „pyodbc“ verwenden, um Verbindungen mit Hadoop-Clustern herzustellen und die Datenbank mit Hive abzufragen, um Durchsuchungsvorgänge und Funktionsverarbeitungen durchzuführen. Sie können die vorhandenen Tabellen anzeigen, die wir im erforderlichen Schritt erstellt haben.
 
@@ -879,7 +879,7 @@ Sie können beginnen, Berichte und Visualisierungen mit dem Datenmodell zu erste
 
 ![Power BI Desktop-Berichtsansicht – Power BI-Connector](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
-## <a name="9-dynamically-scale-your-dsvm-to-meet-your-project-needs"></a>9. Dynamische Skalierung Ihrer DSVM gemäß Ihren Projektanforderungen 
+## <a name="9-dynamically-scale-your-dsvm-to-meet-your-project-needs"></a>9. Dynamische Skalierung Ihrer DSVM gemäß Ihren Projektanforderungen
 Sie können die DSVM gemäß Ihren Projektanforderungen herauf- oder herabskalieren. Wenn Sie die VM abends oder am Wochenende nicht benötigen, können Sie sie einfach vom [Azure-Portal](https://portal.azure.com)aus herunterfahren.
 
 > [!NOTE]
@@ -896,7 +896,7 @@ Auch wenn Ihr Bedarf an VM-Verarbeitungskapazität sinkt (wenn Sie z.B. eine erh
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Installieren zusätzlicher Tools auf Ihrem virtuellen Computer
 In die DSVM sind mehrere Tools vorab integriert, mit denen viele häufige Anforderungen an die Datenanalyse erfüllt werden können. So sparen Sie nicht nur Zeit, weil Sie Ihre Umgebungen nicht einzeln installieren und konfigurieren müssen, sondern auch Kosten, da Sie nur für genutzte Ressourcen zahlen.
 
-Sie können andere in diesem Artikel dargestellte Azure-Datendienste und -Analysedienste nutzen, um Ihre Analyseumgebung zu verbessern. In einigen Fällen können für Ihre Anforderungen ggf. zusätzliche Tools, einschließlich geschützter Drittanbietertools, erforderlich sein. Sie haben vollen administrativen Zugriff auf den virtuellen Computer, um neue Tools zu installieren, die Sie benötigen. Sie können auch zusätzliche Pakete in Python und R installieren, die nicht vorinstalliert sind. Für Python können Sie entweder ```conda``` oder ```pip``` verwenden. Für R können Sie ```install.packages()``` in der R-Konsole verwenden, oder Sie verwenden die IDE und wählen „**Packages** -> **Install Packages...**“ aus.
+Sie können andere in diesem Artikel dargestellte Azure-Datendienste und -Analysedienste nutzen, um Ihre Analyseumgebung zu verbessern. In einigen Fällen können für Ihre Anforderungen ggf. zusätzliche Tools, einschließlich geschützter Drittanbietertools, erforderlich sein. Sie haben vollen administrativen Zugriff auf den virtuellen Computer, um neue Tools zu installieren, die Sie benötigen. Sie können auch zusätzliche Pakete in Python und R installieren, die nicht vorinstalliert sind. Für Python können Sie entweder ```conda``` oder ```pip``` verwenden. Für R können Sie ```install.packages()``` in der R-Konsole verwenden, oder Sie verwenden die IDE und wählen „**Packages** -> **Install Packages...** “ aus.
 
 ## <a name="summary"></a>Zusammenfassung
 Dies sind nur einige Dinge, die mit der Microsoft Data Science Virtual Machine möglich sind. Sie können viele weitere Dinge tun, um sie als wirksame Analyseumgebung zu nutzen.

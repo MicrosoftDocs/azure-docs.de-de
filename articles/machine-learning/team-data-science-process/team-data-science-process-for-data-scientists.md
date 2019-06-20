@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ba40a9d62e809079c2fa2d347d3231b2bf39988d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880856"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61045035"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Team Data Science-Prozess für Datenanalysten
 

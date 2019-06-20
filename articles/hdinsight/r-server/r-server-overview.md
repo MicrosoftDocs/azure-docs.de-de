@@ -7,18 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/29/2019
+ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683753"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393835"
 ---
-# <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Einführung in ML Services und Open-Source-R-Funktionen in HDInsight
-
-> [!NOTE]  
-> Im September 2017 wurde Microsoft R Server unter dem neuen Namen **Microsoft Machine Learning Server** oder ML Server veröffentlicht. R Server-Cluster in HDInsight heißen daher jetzt **Machine Learning Services** oder **ML Services**-Cluster in HDInsight. Weitere Informationen zur Änderung des Namens von R Server finden Sie unter [Microsoft R Server is now Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server) (Microsoft R Server ist jetzt Microsoft Machine Learning Server).
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>Worum handelt es sich bei ML Services in Azure HDInsight?
 
 Microsoft Machine Learning Server ist als Bereitstellungsoption bei der Erstellung von HDInsight-Clustern in Azure verfügbar. Der Clustertyp, der diese Option bietet, heißt **ML Services**. Diese Funktion ermöglicht Datenanalysten, Statistikern und R-Programmierern bei Bedarf den Zugriff auf skalierbare, verteilte Analysemethoden in HDInsight.
 
@@ -38,11 +35,11 @@ Um in Azure HDInsight einen ML Services-Cluster zu erstellen, wählen Sie beim E
 
 ML Services in HDInsight bietet folgende Vorteile:
 
-### <a name="ai-innovation-from-microsoft-and-open-source"></a>AI-Innovation von Microsoft und Open-Source
+### <a name="ai-innovation-from-microsoft-and-open-source"></a>KI-Innovation von Microsoft und Open-Source
 
   ML Services beinhaltet hochgradig skalierbare, verteilte Algorithmen, etwa [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package) und [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package), die auf Datenvolumen oberhalb der Größe des Arbeitsspeichers angewandt werden können und sich in verteilter Form auf einer Vielzahl von Plattformen ausführen lassen. Erfahren Sie mehr über die Sammlung der angepassten [R-Pakete](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) und [Python-Pakete](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) von Microsoft, die im Lieferumfang des Produkts enthalten sind.
   
-  ML Services verbindet diese Microsoft-Innovationen mit Beiträgen aus der Open-Source-Community (R-, Python- und AI-Toolkits) auf einer einzelnen Plattform auf Unternehmensniveau. Jedes Open-Source-Paket für maschinelles Lernen in R oder Python funktioniert parallel mit jeder proprietären Innovation von Microsoft.
+  ML Services verbindet diese Microsoft-Innovationen mit Beiträgen aus der Open-Source-Community (R-, Python- und KI-Toolkits) auf einer einzelnen Plattform auf Unternehmensniveau. Jedes Open-Source-Paket für maschinelles Lernen in R oder Python funktioniert parallel mit jeder proprietären Innovation von Microsoft.
 
 ### <a name="simple-secure-and-high-scale-operationalization-and-administration"></a>Einfache, sichere und hochgradig skalierbare Operationalisierung und Verwaltung
 

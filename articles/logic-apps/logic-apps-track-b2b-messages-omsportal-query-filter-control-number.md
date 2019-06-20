@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194910"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60846511"
 ---
 # <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Erstellen von Nachverfolgungsabfragen für B2B-Nachrichten in Azure Monitor-Protokolle für Azure Logic Apps
 
@@ -48,7 +48,7 @@ Um Nachrichten basierend auf bestimmten Eigenschaften oder Werten zu suchen, kö
 1. Wählen Sie in Ihrem Arbeitsbereichsmenü unter **Allgemein** entweder **Protokolle (klassisch)** oder **Protokolle** aus. 
 
    In diesem Beispiel wird die Verwendung der Ansicht für klassische Protokolle veranschaulicht. 
-   Wenn Sie im Abschnitt **Schöpfen Sie das Potenzial von Log Analytics voll aus** unter **Protokolle durchsuchen und analysieren** die Option **Protokolle anzeigen** auswählen, gelangen Sie zur Ansicht **Protokolle (klassisch)**. 
+   Wenn Sie im Abschnitt **Schöpfen Sie das Potenzial von Log Analytics voll aus** unter **Protokolle durchsuchen und analysieren** die Option **Protokolle anzeigen** auswählen, gelangen Sie zur Ansicht **Protokolle (klassisch)** . 
 
    ![Anzeigen klassischer Protokolle](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 

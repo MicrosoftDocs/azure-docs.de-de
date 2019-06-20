@@ -1,25 +1,18 @@
 ---
-title: Herstellen einer Verbindung mit Ihrem Microsoft Azure-basierten virtuellen Computer | Microsoft-Dokumentation
+title: Herstellen einer Verbindung mit Ihrem Microsoft Azure-basierten virtuellen Computer | Azure Marketplace
 description: Es wird beschrieben, wie Sie eine Verbindung mit dem neuen virtuellen Computer herstellen, der in Azure erstellt wurde.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: fd68846b9144c3efcc71dec369d64119427758a3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: pabutler
+ms.openlocfilehash: ca002a77fd7252466f604b995af949b54694bc8c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639091"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938578"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Herstellen einer Verbindung mit Ihrem Azure-basierten virtuellen Computer
 

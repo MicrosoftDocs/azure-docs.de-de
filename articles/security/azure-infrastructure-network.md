@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60587144"
 ---
 # <a name="azure-network-architecture"></a>Azure-Netzwerkarchitektur
 Die Netzwerkarchitektur von Azure beruht auf einer geänderten Version des als Branchenstandard geltenden Kern-, Verteilungs- und Zugriffsmodells und verfügt über unterschiedliche Hardwareschichten (Layer). Zu diesen Layern zählen:
@@ -75,7 +75,7 @@ Azure-Rechenzentren basieren auf stark redundanten und gut bereitgestellten Netz
 Filterungsrouter auf dem Edge- und Accesslayer des Azure-Netzwerks bieten anerkannte Sicherheit auf Paketebene und tragen dazu bei, nicht autorisierte Versuche zum Herstellen einer Verbindung mit Azure zu verhindern. Die Router sorgen dafür, dass die Pakete auch tatsächlich Daten im erwarteten Format enthalten und das Client-/Server-Kommunikationsschema erfüllen. Azure implementiert eine mehrstufige Architektur, die aus den folgenden Netzwerkisolierungs- und Zugriffssteuerungskomponenten besteht:
 
 - **Edgerouter**: Diese isolieren die Anwendungsumgebung vom Internet. Edgerouter bieten Spoofingschutz und beschränken den Zugriff mithilfe von ACLs.
-- **Verteilungsrouter (Access)**: Diese lassen nur durch Microsoft genehmigte IP-Adressen zu, bieten Spoofingschutz und anerkannte Verbindungen mithilfe von ACLs.
+- **Verteilungsrouter (Access)** : Diese lassen nur durch Microsoft genehmigte IP-Adressen zu, bieten Spoofingschutz und anerkannte Verbindungen mithilfe von ACLs.
 
 ### <a name="ddos-mitigation"></a>DDoS-Entschärfung
 Verteilte Denial-of-Service-Angriffe (Distributed Denial Of Service, DDoS) stellen weiterhin ein echtes Risiko für die Zuverlässigkeit der Onlinedienste dar. Angesichts immer gezielterer und ausgefeilterer Angriffe sowie der zunehmenden geografischen Diversifizierung der von Microsoft bereitgestellten Dienste hat die Identifizierung von Angriffen und die Reduzierung ihrer Auswirkungen oberste Priorität.

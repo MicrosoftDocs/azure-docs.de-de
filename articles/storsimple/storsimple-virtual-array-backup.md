@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60581298"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Sichern von Freigaben oder Volumes in Ihrem StorSimple Virtual Array
 
@@ -66,7 +66,7 @@ Neben geplanten Sicherungen können Sie jederzeit eine manuelle (bedarfsgesteuer
 
 #### <a name="to-create-a-manual-backup"></a>So erstellen Sie eine manuelle Sicherung
 
-1. Wechseln Sie zu **Geräte**. Wählen Sie Ihr Gerät aus, und klicken Sie mit der rechten Maustaste auf der rechten Seite der ausgewählten Reihe auf **...**. Wählen Sie im Kontextmenü **Sicherung anlegen** aus.
+1. Wechseln Sie zu **Geräte**. Wählen Sie Ihr Gerät aus, und klicken Sie mit der rechten Maustaste auf der rechten Seite der ausgewählten Reihe auf **...** . Wählen Sie im Kontextmenü **Sicherung anlegen** aus.
    
     ![Navigieren zu Sicherung anlegen](./media/storsimple-virtual-array-backup/takebackup1m.png)
 

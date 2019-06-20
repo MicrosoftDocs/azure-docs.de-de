@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: dcc54b0f67b9bf08df602c3eb9a4bcb0ea699ee7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023429"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60405884"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Kopieren von Daten aus PayPal mithilfe von Azure Data Factory (Vorschau)
 
@@ -44,13 +44,13 @@ Folgende Eigenschaften werden für den mit PayPal verknüpften Dienst unterstüt
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **PayPal** | JA |
-| host | Die URL der PayPal-Instanz. (api.sandbox.paypal.com)  | JA |
-| clientId | Die Client-ID, die Ihrer PayPal-Anwendung zugeordnet ist.  | JA |
-| clientSecret | Der geheime Clientschlüssel, der Ihrer PayPal-Anwendung zugeordnet ist. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | JA |
-| useEncryptedEndpoints | Gibt an, ob die Endpunkte der Datenquelle mit HTTPS verschlüsselt sind. Der Standardwert lautet „true“.  | Nein  |
-| useHostVerification | Gibt an, ob der Hostname im Zertifikat des Servers mit dem Hostnamen des Servers übereinstimmen muss, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert lautet „true“.  | Nein  |
-| usePeerVerification | Gibt an, ob die Identität des Servers bei Verbindung über SSL überprüft werden soll. Der Standardwert lautet „true“.  | Nein  |
+| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **PayPal** | Ja |
+| host | Die URL der PayPal-Instanz. (api.sandbox.paypal.com)  | Ja |
+| clientId | Die Client-ID, die Ihrer PayPal-Anwendung zugeordnet ist.  | Ja |
+| clientSecret | Der geheime Clientschlüssel, der Ihrer PayPal-Anwendung zugeordnet ist. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Ja |
+| useEncryptedEndpoints | Gibt an, ob die Endpunkte der Datenquelle mit HTTPS verschlüsselt sind. Der Standardwert lautet „true“.  | Nein |
+| useHostVerification | Gibt an, ob der Hostname im Zertifikat des Servers mit dem Hostnamen des Servers übereinstimmen muss, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert lautet „true“.  | Nein |
+| usePeerVerification | Gibt an, ob die Identität des Servers bei Verbindung über SSL überprüft werden soll. Der Standardwert lautet „true“.  | Nein |
 
 **Beispiel:**
 
@@ -79,7 +79,7 @@ Legen Sie zum Kopieren von Daten aus PayPal die „type“-Eigenschaft des Datas
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **PayPalObject** | JA |
+| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **PayPalObject** | Ja |
 | tableName | Name der Tabelle. | Nein (wenn „query“ in der Aktivitätsquelle angegeben ist) |
 
 **Beispiel**
@@ -108,7 +108,7 @@ Legen Sie zum Kopieren von Daten aus PayPal den Quelltyp in der Kopieraktivität
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **PayPalSource** | JA |
+| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **PayPalSource** | Ja |
 | query | Verwendet die benutzerdefinierte SQL-Abfrage zum Lesen von Daten. Beispiel: `"SELECT * FROM Payment_Experience"`. | Nein (wenn „tableName“ im Dataset angegeben ist) |
 
 **Beispiel:**

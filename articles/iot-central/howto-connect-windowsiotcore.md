@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510324"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Herstellen einer Verbindung zwischen einem Windows IoT Core-Gerät und Ihrer Azure IoT Central-Anwendung
@@ -74,7 +74,7 @@ Nach ein paar Minuten können Sie in Ihrer IoT Central-Anwendung die Telemetried
 Das [Windows-Geräteportal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) enthält Tools, die Sie für die Problembehandlung auf Ihrem Gerät verwenden können:
 
 - Über die Seite **Apps Manager** können Sie die auf Ihrem Gerät ausgeführten Apps steuern.
-- Wenn Sie keinen Monitor mit dem Gerät verbunden haben, können Sie über die Seite **Geräteeinstellungen** Screenshots von Ihrem Gerät erfassen. Beispiel: 
+- Wenn Sie keinen Monitor mit dem Gerät verbunden haben, können Sie über die Seite **Geräteeinstellungen** Screenshots von Ihrem Gerät erfassen. Beispiel:
 
     ![Screenshot der App](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 

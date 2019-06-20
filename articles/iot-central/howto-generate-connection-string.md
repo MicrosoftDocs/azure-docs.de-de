@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f302cbfa7152ae30be434f560c0c39056d40f9f4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615760"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60885617"
 ---
 # <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Generieren einer Geräte-Verbindungszeichenfolge für die Verbindung mit einer Azure IoT Central-Anwendung
 

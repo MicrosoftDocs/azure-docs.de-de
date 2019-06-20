@@ -16,11 +16,11 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247842"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61419160"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Bereitstellen des StorSimple Virtual Array – Bereitstellen in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)

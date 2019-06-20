@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 293dcaadfc20116455983b3fc0069f9e9df3f843
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 7cd81a937a3fe24e16e3f77e38686378aa28e10a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010547"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382676"
 ---
 # <a name="suggesting-query-terms"></a>Vorschlagen von Abfrageausdrücken
 
@@ -23,7 +23,7 @@ In der Regel rufen Sie die Bing-Vorschlagssuche-API jedes Mal auf, wenn ein Benu
 
 ## <a name="example-request"></a>Beispielanforderung
 
-Im folgenden Beispiel wird eine Anforderung gezeigt, die die vorgeschlagene Abfragezeichenfolgen für *sail* zurückgibt. Denken Sie daran, für den Teilabfragebegriff des Benutzers eine URL-Codierung durchzuführen, wenn Sie den Abfrageparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query) festlegen. Wenn der Benutzer also beispielsweise *sailing les* eingibt, legen Sie `q` auf `sailing+les` oder `sailing%20les` fest.
+Im folgenden Beispiel wird eine Anforderung gezeigt, die die vorgeschlagene Abfragezeichenfolgen für *sail* zurückgibt. Denken Sie daran, für den Teilabfragebegriff des Benutzers eine URL-Codierung durchzuführen, wenn Sie den Abfrageparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query) festlegen. Wenn der Benutzer also beispielsweise *sailing les* eingibt, legen Sie `q` auf `sailing+les` oder `sailing%20les` fest.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -34,7 +34,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Die folgende Antwort enthält eine Liste mit [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction)-Objekten, in denen die vorgeschlagenen Abfragebegriffe enthalten sind.
+Die folgende Antwort enthält eine Liste mit [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction)-Objekten, in denen die vorgeschlagenen Abfragebegriffe enthalten sind.
 
 ```json
 {

@@ -4,20 +4,20 @@ description: Verwenden Sie Azure Resource Manager-Vorlagen zum Erstellen und Kon
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: d1928606a22eba180ebd3f1e979362e75edaf2d7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f62399e3a1ef2a4ceaa8bdf64196bdb634fb4b6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080486"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968889"
 ---
-# <a name="create-azure-cosmos-db-gremlin-api-resources-from-a-resource-manager-template"></a>Erstellen von Ressourcen für die Gremlin-API von Azure Cosmos DB anhand einer Resource Manager-Vorlage
+# <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Verwalten von Ressourcen für die Gremlin-API von Azure Cosmos DB mithilfe von Azure Resource Manager-Vorlagen
 
-Erfahren Sie, wie Sie mit einer Azure Resource Manager-Vorlage Ressourcen für die Gremlin-API von Azure Cosmos DB erstellen. Im folgenden Beispiel wird eine Gremlin-API für Azure Cosmos DB anhand einer [Azure-Schnellstartvorlage](https://aka.ms/gremlin-arm-qs) erstellt. Mit dieser Vorlage wird ein Azure Cosmos-Konto für die Gremlin-API mit zwei Graphen erstellt, die sich auf Datenbankebene einen Durchsatz von 400 RU/s teilen.
+## Erstellen der Azure Cosmos DB-API für MongoDB-Konto, -Datenbank und -Sammlung <a id="create-resource"></a>
 
-Hier ist eine Kopie der Vorlage angegeben:
+Erstellen Sie Azure Cosmos DB-Ressourcen mithilfe einer Azure Resource Manager-Vorlage. Mit dieser Vorlage wird ein Azure Cosmos-Konto für die Gremlin-API mit zwei Graphen erstellt, die sich auf Datenbankebene einen Durchsatz von 400 RU/s teilen. Kopieren Sie die Vorlage, und stellen Sie sie wie unten gezeigt bereit, oder besuchen Sie den [Azure-Schnellstartkatalog](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/), und führen Sie die Bereitstellung über das Azure-Portal durch. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
@@ -47,7 +47,48 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 Der Befehl `az cosmosdb show` zeigt das neu erstellte Azure Cosmos-Konto, nachdem es bereitgestellt wurde. Wenn Sie eine lokal installierte Version von Azure CLI anstelle von CloudShell verwenden möchten, lesen Sie den Artikel [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/).
 
-Im vorherigen Beispiel haben Sie auf eine Vorlage verwiesen, die auf GitHub gespeichert ist. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
+## Aktualisieren des Durchsatzes (RU/s) für eine Datenbank <a id="database-ru-update"></a>
+
+Mit der folgenden Vorlage wird der Durchsatz einer Datenbank aktualisiert. Kopieren Sie die Vorlage, und stellen Sie sie wie unten gezeigt bereit, oder besuchen Sie den [Azure-Schnellstartkatalog](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/), und führen Sie die Bereitstellung über das Azure-Portal durch. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
+
+[!code-json[cosmosdb-gremlin-database-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json)]
+
+### <a name="deploy-database-template-via-azure-cli"></a>Bereitstellen einer Datenbankvorlage über die Azure CLI
+
+Um die Resource Manager-Vorlage mit der Azure CLI bereitzustellen, kopieren Sie das Skript, und klicken Sie auf **Ausprobieren**, um Azure Cloud-Shell zu öffnen. Klicken Sie zum Einfügen des Skripts mit der rechten Maustaste auf die Shell, und wählen Sie **Einfügen** aus:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
+```
+
+## Aktualisieren des Durchsatzes (RU/s) für einen Graphen <a id="graph-ru-update"></a>
+
+Mit der folgenden Vorlage wird der Durchsatz eines Graphen aktualisiert. Kopieren Sie die Vorlage, und stellen Sie sie wie unten gezeigt bereit, oder besuchen Sie den [Azure-Schnellstartkatalog](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/), und führen Sie die Bereitstellung über das Azure-Portal durch. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
+
+[!code-json[cosmosdb-gremlin-graph-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json)]
+
+### <a name="deploy-graph-template-via-azure-cli"></a>Bereitstellen einer Graphenvorlage über die Azure CLI
+
+Um die Resource Manager-Vorlage mit der Azure CLI bereitzustellen, kopieren Sie das Skript, und klicken Sie auf **Ausprobieren**, um Azure Cloud-Shell zu öffnen. Klicken Sie zum Einfügen des Skripts mit der rechten Maustaste auf die Shell, und wählen Sie **Einfügen** aus:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the graph name: ' graphName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName graphName=$graphName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Nächste Schritte
 

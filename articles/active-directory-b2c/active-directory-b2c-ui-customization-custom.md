@@ -2,20 +2,20 @@
 title: Anpassen der Benutzeroberfläche einer Anwendung mithilfe einer benutzerdefinierten Richtlinie in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie eine Benutzeroberfläche mithilfe einer benutzerdefinierten Richtlinie in Azure Active Directory B2C angepasst werden kann.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dc60c1fbdbd04653160db4d7794f8887305859d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696887"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507669"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassen der Benutzeroberfläche einer Anwendung mithilfe einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Dies funktioniert folgendermaßen: Azure AD B2C führt den Code im Browser Ihres
 
 Erstellen Sie den HTML-Inhalt mit dem Markennamen Ihres Produkts im Titel.
 
-1. Kopieren Sie den folgenden HTML-Codeausschnitt. Es handelt sich um wohlgeformten HTML5-Code mit dem leeren Element *\<div id="api"\>\</div\>*, das in *\<body\>*-Tags enthalten ist. Dieses Element gibt an, wo Azure AD B2C-Inhalt eingefügt werden soll.
+1. Kopieren Sie den folgenden HTML-Codeausschnitt. Es handelt sich um wohlgeformten HTML5-Code mit dem leeren Element *\<div id="api"\>\</div\>* , das in *\<body\>* -Tags enthalten ist. Dieses Element gibt an, wo Azure AD B2C-Inhalt eingefügt werden soll.
 
    ```html
    <!DOCTYPE html>
@@ -182,10 +182,10 @@ Im Abschnitt „Ändern von benutzerdefinierten Registrierungs- oder Anmelderich
 | *api.error* | **Fehlerseite**: Diese Seite wird angezeigt, wenn eine Ausnahme oder ein Fehler auftreten. |
 | *api.idpselections* | **Seite zur Auswahl des Identitätsanbieters**: Diese Seite enthält eine Liste mit den Identitätsanbietern, unter denen der Benutzer bei der Anmeldung wählen kann. Bei diesen Optionen handelt es sich um Unternehmensidentitätsanbieter, Identitätsanbieter in Form von sozialen Netzwerken wie Facebook und Google+ oder lokale Konten. |
 | *api.idpselections.signup* | **Seite zur Auswahl des Identitätsanbieters für die Registrierung**: Diese Seite enthält eine Liste mit den Identitätsanbietern, aus denen der Benutzer bei der Registrierung auswählen kann. Bei diesen Optionen handelt es sich um Unternehmensidentitätsanbieter, Identitätsanbieter in Form von sozialen Netzwerken wie Facebook und Google+ oder lokale Konten. |
-| *api.localaccountpasswordreset* | **Seite „Kennwort vergessen“**: Diese Seite enthält ein Formular, das vom Benutzer ausgefüllt werden muss, um eine Kennwortzurücksetzung zu initiieren.  |
+| *api.localaccountpasswordreset* | **Seite „Kennwort vergessen“** : Diese Seite enthält ein Formular, das vom Benutzer ausgefüllt werden muss, um eine Kennwortzurücksetzung zu initiieren.  |
 | *api.localaccountsignin* | **Seite für Anmeldung mit lokalem Konto**: Diese Seite enthält ein Anmeldeformular für die Anmeldung mit einem lokalen Konto, das auf einer E-Mail-Adresse oder einem Benutzernamen basiert. Das Formular kann ein Texteingabefeld und ein Kennworteingabefeld enthalten. |
 | *api.localaccountsignup* | **Seite für Registrierung mit lokalem Konto**: Diese Seite enthält ein Registrierungsformular für die Registrierung für ein lokales Konto, das auf einer E-Mail-Adresse oder einem Benutzernamen basiert. Das Formular kann verschiedene Eingabesteuerelemente enthalten, z.B. ein Texteingabefeld, ein Kennworteingabefeld, ein Optionsfeld, Dropdownfelder mit einer Auswahlmöglichkeit und Kontrollkästchen mit mehreren Optionen. |
-| *api.phonefactor* | **Seite „Multi-Factor Authentication“**: Auf dieser Seite können Benutzer während der Registrierung oder Anmeldung ihre Telefonnummern verifizieren (per SMS oder Sprachnachricht). |
+| *api.phonefactor* | **Seite „Multi-Factor Authentication“** : Auf dieser Seite können Benutzer während der Registrierung oder Anmeldung ihre Telefonnummern verifizieren (per SMS oder Sprachnachricht). |
 | *api.selfasserted* | **Seite zur Registrierung über Konto für soziales Netzwerk**: Diese Seite enthält ein Registrierungsformular, das Benutzer ausfüllen müssen, wenn die Registrierung mit einem vorhandenen Konto bei einem sozialen Netzwerk wie Facebook oder Google+ als Identitätsanbieter erfolgt. Diese Seite ähnelt der vorherigen Seite für die Registrierung bei einem Konto für ein soziales Netzwerk, mit Ausnahme der Felder für die Kennworteingabe. |
 | *api.selfasserted.profileupdate* | **Seite für Profilaktualisierung**: Diese Seite enthält ein Formular, das von Benutzern zum Aktualisieren des Profils verwendet werden kann. Diese Seite ähnelt der Seite für die Registrierung bei einem Konto für ein soziales Netzwerk, mit Ausnahme der Felder für die Kennworteingabe. |
 | *api.signuporsignin* | **Einheitliche Seite für Registrierung oder Anmeldung**: Auf dieser Seite wird sowohl die Registrierung als auch die Anmeldung von Benutzern verarbeitet, die dafür Unternehmensidentitätsanbieter, Identitätsanbieter sozialer Netzwerke, z.B. Facebook oder Google+, oder lokale Konten verwenden können.  |

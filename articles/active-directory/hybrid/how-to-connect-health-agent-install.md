@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2be8455a3fb0a60cea056e9bda1f41b076dfec9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784814"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installieren des Azure AD Connect Health-Agents
 
@@ -45,7 +45,7 @@ Die folgende Tabelle enthält eine Liste mit Anforderungen für die Verwendung v
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Ausgehende Verbindungen zu den Azure-Dienstendpunkten
 
- Während der Installation und der Laufzeit erfordert der Agent Verbindungen mit den Endpunkten des Azure AD Connect Health-Diensts. Falls ausgehende Verbindungen durch Firewalls blockiert werden, müssen Sie sicherstellen, dass die folgenden URLs nicht standardmäßig gesperrt sind. Deaktivieren Sie nicht die Sicherheitsüberwachung oder Überprüfung für diese URLs, aber erlauben Sie den Internetverkehr wie üblich. Diese URLs ermöglichen die Kommunikation mit den Endpunkten des Azure AD Connect Health-Diensts. Weitere Informationen zum [Überprüfen ausgehender Verbindungen](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ Während der Installation und der Laufzeit erfordert der Agent Verbindungen mit den Endpunkten des Azure AD Connect Health-Diensts. Falls ausgehende Verbindungen durch Firewalls blockiert werden, müssen Sie sicherstellen, dass die folgenden URLs nicht standardmäßig gesperrt sind. Deaktivieren Sie nicht die Sicherheitsüberwachung oder Überprüfung für diese URLs, aber erlauben Sie den Internetverkehr wie üblich. Diese URLs ermöglichen die Kommunikation mit den Endpunkten des Azure AD Connect Health-Diensts. Erfahren Sie, wie Sie [ausgehende Verbindungen mit Test-AzureADConnectHealthConnectivity überprüfen](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
 
 | Domänenumgebung | Erforderliche Azure-Dienstendpunkte |
 | --- | --- |

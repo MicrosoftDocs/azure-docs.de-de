@@ -10,11 +10,11 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
 ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60468271"
 ---
 # <a name="get-started-with-azure-advisor"></a>Erste Schritte mit Azure Advisor
 

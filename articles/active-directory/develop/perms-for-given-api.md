@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42d5ce8a890f6f02e03a16b60f358d9430a09f88
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545834"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Auswählen von Berechtigungen für eine bestimmte API 

@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d0d40ca0ae6ccd4f709d7d94d52764d4affcc215
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455801"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244696"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformieren von XML mit Zuordnungen in Azure Logic Apps mithilfe von Enterprise Integration Pack
 
@@ -28,11 +28,11 @@ Grenzwerte für Integrationskonten und Artefakte wie Zuordnungen finden Sie unte
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Ein Azure-Abonnement. Falls Sie kein Abonnement besitzen, können Sie sich <a href="https://azure.microsoft.com/free/" target="_blank">für ein kostenloses Azure-Konto registrieren</a>.
+* Ein Azure-Abonnement. Falls Sie kein Abonnement besitzen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/).
 
 * Ein [Integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), in dem Sie Ihre Zuordnungen und andere Artefakte für Enterprise Integration- und B2B (Business-to-Business)-Lösungen speichern.
 
-* Wenn Ihre Zuordnung auf eine externe Assembly verweist, müssen Sie *sowohl die Assembly als auch die Zuordnung* in Ihr Integrationskonto hochladen. Sie müssen die *Assembly zuerst hochladen*, bevor Sie den Upload für die Zuordnung durchführen, in der auf die Assembly verwiesen wird.
+* Wenn Ihre Zuordnung auf eine externe Assembly verweist, müssen Sie *sowohl die Assembly als auch die Zuordnung* in Ihr Integrationskonto hochladen. Sie müssen die [*Assembly zuerst hochladen*](#add-assembly), bevor Sie den Upload für die Zuordnung durchführen, in der auf die Assembly verwiesen wird.
 
   Wenn Ihre Assembly 2 MB oder kleiner ist, können Sie Ihre Assembly dem Integrationskonto *direkt* über das Azure-Portal hinzufügen. Ist Ihre Assembly oder Zuordnung jedoch größer als 2 MB, ohne jedoch das [Größenlimit für Assemblys oder Zuordnungen](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) zu überschreiten, haben Sie die folgenden Optionen:
 
@@ -50,9 +50,11 @@ Grenzwerte für Integrationskonten und Artefakte wie Zuordnungen finden Sie unte
 
 Zum Erstellen und Hinzufügen von Zuordnungen benötigen Sie keine Logik-App. Damit Sie eine Zuordnung verwenden können, muss Ihre Logik-App jedoch mit einem Integrationskonto verknüpft sein, in dem diese Zuordnung gespeichert ist. Erfahren Sie, wie Sie [Logik-Apps mit Integrationskonten verknüpfen](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Wenn Sie noch nicht über eine Logik-App verfügen, lesen Sie den Artikel zum [Erstellen von Logik-Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## <a name="add-referenced-assemblies"></a>Hinzufügen referenzierter Assemblys
 
-1. Melden Sie sich mit den Anmeldeinformationen Ihres Azure-Kontos beim <a href="https://portal.azure.com" target="_blank">Azure-Portal</a> an.
+1. Melden Sie sich mit den Anmeldeinformationen Ihres Azure-Kontos beim [Azure-Portal](https://portal.azure.com) an.
 
 1. Wählen Sie im Azure-Hauptmenü **Alle Dienste** aus, um Ihr Integrationskonto zu suchen und zu öffnen. 
    Geben Sie im Suchfeld „Integrationskonto“ ein. 
@@ -74,6 +76,9 @@ Zum Erstellen und Hinzufügen von Zuordnungen benötigen Sie keine Logik-App. Da
 
 Je nach Größe Ihrer Assemblydatei führen Sie die Schritte zum Upload einer Assembly aus, die entweder [maximal 2 MB](#smaller-assembly) groß oder [größer als 2 MB (maximal 8 MB)](#larger-assembly) ist.
 Die Grenzwerte für die Anzahl von Assemblys in Integrationskonten finden Sie unter [Grenzwerte und Konfiguration für Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> Wenn Sie Ihre Assembly ändern, müssen Sie auch Ihre Zuordnung aktualisieren, und zwar unabhängig davon, ob die Zuordnung Änderungen enthält.
 
 <a name="smaller-assembly"></a>
 
@@ -170,7 +175,7 @@ Die Grenzwerte für die Anzahl von Zuordnungen in Integrationskonten finden Sie 
 
 Nachdem Sie alle Assemblys hochgeladen haben, auf die in Ihrer Zuordnung verwiesen wird, können Sie nun Ihre Zuordnung hochladen.
 
-1. Falls Sie noch nicht angemeldet sind, melden Sie sich jetzt mit Ihrem Azure-Kontoanmeldeinformationen beim <a href="https://portal.azure.com" target="_blank">Azure-Portal</a> an. 
+1. Falls Sie noch nicht angemeldet sind, melden Sie sich jetzt mit Ihrem Azure-Kontoanmeldeinformationen beim [Azure-Portal](https://portal.azure.com) an. 
 
 1. Wenn Ihr Integrationskonto noch nicht geöffnet ist, wählen Sie im Azure-Hauptmenü **Alle Dienste** aus. 
    Geben Sie im Suchfeld „Integrationskonto“ ein. 
@@ -310,7 +315,7 @@ the map appears in the **Maps** list.
 
 Wenn Sie eine vorhandene Zuordnung aktualisieren möchten, müssen Sie eine neue Zuordnungsdatei hochladen, die über die gewünschten Änderungen verfügt. Allerdings können Sie zuerst die vorhandene Zuordnung zum Bearbeiten herunterladen.
 
-1. Suchen Sie im <a href="https://portal.azure.com" target="_blank">Azure-Portal</a> Ihr Integrationskonto, und öffnen Sie es, falls es noch nicht geöffnet ist.
+1. Suchen Sie im [Azure-Portal](https://portal.azure.com) Ihr Integrationskonto, und öffnen Sie es, falls es noch nicht geöffnet ist.
 
 1. Wählen Sie im Azure-Hauptmenü die Option **Alle Dienste** aus. Geben Sie im Suchfeld „Integrationskonto“ ein. Wählen Sie **Integrationskonten** aus.
 
@@ -328,7 +333,7 @@ Wenn Sie eine vorhandene Zuordnung aktualisieren möchten, müssen Sie eine neue
 
 ## <a name="delete-maps"></a>Löschen von Zuordnungen
 
-1. Suchen Sie im <a href="https://portal.azure.com" target="_blank">Azure-Portal</a> Ihr Integrationskonto, und öffnen Sie es, falls es noch nicht geöffnet ist.
+1. Suchen Sie im [Azure-Portal](https://portal.azure.com) Ihr Integrationskonto, und öffnen Sie es, falls es noch nicht geöffnet ist.
 
 1. Wählen Sie im Azure-Hauptmenü die Option **Alle Dienste** aus. 
    Geben Sie im Suchfeld „Integrationskonto“ ein. 

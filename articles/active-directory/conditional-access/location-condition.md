@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227926"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305680"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Was sind Standortbedingungen beim bedingten Zugriff in Azure Active Directory? 
 
@@ -56,7 +56,7 @@ Ein benannter Standort besteht aus den folgenden Komponenten:
 - **Länder/Regionen:** Mithilfe dieser Option können Sie Länder oder Regionen auswählen, um einen benannten Ort zu definieren.
 - **Unbekannte Bereiche einschließen** – Einige IP-Adressen sind keinem bestimmten Land oder einer bestimmten Region zugeordnet. Mithilfe dieser Option können Sie auswählen, ob der benannte Standort diese IP-Adressen umfassen soll. Verwenden Sie diese Einstellung, wenn die Richtlinie für den benannten Standort auch für unbekannte Standorte gelten soll.
 
-Die Anzahl von benannten Orten, die Sie konfigurieren können, wird durch die Größe des zugehörigen Objekts in Azure AD eingeschränkt. Organisationen können bis zu 90 benannte Standorte jeweils mit bis zu 12.000 IP-Adressbereichen konfigurieren.
+Die Anzahl von benannten Orten, die Sie konfigurieren können, wird durch die Größe des zugehörigen Objekts in Azure AD eingeschränkt. Organisationen können bis zu 90 benannte Standorte jeweils mit bis zu 1200 IP-Adressbereichen konfigurieren.
 
 Die Richtlinie für bedingten Zugriff gilt für IPv4- und IPv6-Datenverkehr. Derzeit können für benannte Standorte keine IPv6-Adressbereiche konfiguriert werden. Diese Einschränkung führt zu den folgenden Situationen:
 

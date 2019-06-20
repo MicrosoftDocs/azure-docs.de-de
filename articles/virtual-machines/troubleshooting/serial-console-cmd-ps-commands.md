@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60306882"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-Befehle – CMD und PowerShell
 

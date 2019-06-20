@@ -2,20 +2,20 @@
 title: Überprüfen von Traffic Manager-Einstellungen
 description: In diesem Artikel erfahren Sie, wie Sie Ihre Traffic Manager-Einstellungen überprüfen.
 services: traffic-manager
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: kumud
-ms.openlocfilehash: 1e954e3c4ebba245d91cfb84ab583b314150e5b2
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: allensu
+ms.openlocfilehash: 19ef08a40d0a84aecb070e71bbb8c9b6a88ae059
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200784"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070925"
 ---
 # <a name="verify-traffic-manager-settings"></a>Überprüfen von Traffic Manager-Einstellungen
 

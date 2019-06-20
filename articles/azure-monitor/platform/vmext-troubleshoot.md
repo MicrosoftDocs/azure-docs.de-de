@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dd5e0749116ef335887ea634b9d2790c63bf171d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883671"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66751925"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Problembehandlung für die Log Analytics-VM-Erweiterung in Azure Monitor
 Dieser Artikel enthält Hilfe zur Problembehandlung von Fehlern, die im Zusammenhang mit der Log Analytics-VM-Erweiterung für virtuelle Windows- und Linux-Computer mit Microsoft Azure auftreten können, sowie Vorschläge für mögliche Problemlösungen.
@@ -45,16 +45,11 @@ Wenn die VM-Erweiterung *MicrosoftMonitoringAgent* nicht installiert ist oder ke
    * Sie können auch die Protokolldatei `C:\WindowsAzure\logs\WaAppAgent.log` des VM-Agents überprüfen.
    * Wenn das Protokoll nicht vorhanden ist, wurde der VM-Agent nicht installiert.
    * [Installieren des Azure-VM-Agents](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. Vergewissern Sie sich anhand der folgenden Schritte, dass die Taktaufgabe der Microsoft Monitoring Agent-Erweiterung ausgeführt wird:
-   * Melden Sie sich beim virtuellen Computer an.
-   * Öffnen Sie den Taskplaner, und suchen Sie die Aufgabe `update_azureoperationalinsight_agent_heartbeat`.
-   * Vergewissern Sie sich, dass die Aufgabe aktiviert ist und jede Minute ausgeführt wird.
-   * Überprüfen Sie die Taktprotokolldatei in `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`.
-3. Überprüfen Sie die Protokolldateien der Microsoft Monitoring Agent-VM-Erweiterung in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
-4. Stellen Sie sicher, dass der virtuelle Computer PowerShell-Skripts ausführen kann.
-5. Vergewissern Sie sich, dass die Berechtigungen für „C:\Windows\temp“ nicht geändert wurden.
-6. Zeigen Sie den Status des Microsoft Monitoring Agents an, indem Sie Folgendes in einem PowerShell-Fenster mit erhöhten Rechten auf dem virtuellen Computer eingeben: `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
-7. Überprüfen Sie die Setupprotokolldateien des Microsoft Monitoring Agents in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
+2. Überprüfen Sie die Protokolldateien der Microsoft Monitoring Agent-VM-Erweiterung in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
+3. Stellen Sie sicher, dass der virtuelle Computer PowerShell-Skripts ausführen kann.
+4. Vergewissern Sie sich, dass die Berechtigungen für „C:\Windows\temp“ nicht geändert wurden.
+5. Zeigen Sie den Status des Microsoft Monitoring Agents an, indem Sie Folgendes in einem PowerShell-Fenster mit erhöhten Rechten auf dem virtuellen Computer eingeben: `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
+6. Überprüfen Sie die Setupprotokolldateien des Microsoft Monitoring Agents in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
 Weitere Informationen finden Sie unter [Behandeln von Problemen bei Windows-Erweiterungen](../../virtual-machines/extensions/oms-windows.md).
 

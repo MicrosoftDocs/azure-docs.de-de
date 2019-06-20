@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64728306"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Verwalten von Nebenläufigkeit Microsoft Azure Storage
 ## <a name="overview"></a>Übersicht
 Moderne Internet-basierte Anwendungen haben in der Regel mehrere Benutzer, die Daten gleichzeitig anzeigen und aktualisieren. Dies zwingt Anwendungsentwickler dazu, sorgfältig zu überlegen, wie sie ihren Endbenutzern ein vorhersagbares Erlebnis gewährleisten können, insbesondere in Situationen, in denen mehrere Benutzer die gleichen Daten aktualisieren können. Von Entwicklern werden für gewöhnlich die drei folgenden Hauptstrategien für die Datenparallelität in Betracht gezogen:  
 
 1. Optimistische Nebenläufigkeit – Eine Anwendung, die eine Aktualisierung ausführt, prüft während dieses Vorgangs, ob die Daten sich geändert haben, seitdem sie das letzte Mal gelesen wurden. Wenn z. B. zwei Benutzer eine Wiki-Seite aufrufen und dieselbe Seite aktualisieren, muss die Wiki-Plattform sicherstellen, dass die erste Aktualisierung nicht von der zweiten Aktualisierung überschrieben wird und dass beide Benutzer wissen, ob ihre Aktualisierung erfolgreich war oder nicht. Diese Strategie wird in Webanwendung sehr häufig verwendet.
-2. Pessimistische Nebenläufigkeit – Eine Anwendung, die eine Aktualisierung ausführt, sperrt ein Objekt, sodass andere Benutzer die Daten erst aktualisieren können, wenn die Sperre aufgehoben wird. Bei einer Master/Slave-Datenreplikation beispielsweise, bei der nur der Master Aktualisierungen vornimmt, richtet der Master in der Regel für einen bestimmten Zeitraum eine exklusive Sperre der Daten ein, damit sie von keinem anderen Benutzer aktualisiert werden können.
+2. Pessimistische Nebenläufigkeit – Eine Anwendung, die eine Aktualisierung ausführt, sperrt ein Objekt, sodass andere Benutzer die Daten erst aktualisieren können, wenn die Sperre aufgehoben wird. Bei einer Datenreplikation zwischen Master und untergeordnetem Gerät beispielsweise, bei der nur das Master Aktualisierungen vornimmt, richtet dieser in der Regel für einen bestimmten Zeitraum eine exklusive Sperre der Daten ein, damit sie von keinem anderen Benutzer aktualisiert werden können.
 3. Letzter Schreiber gewinnt – Ein Verfahren, bei dem Aktualisierungsoperationen ausgeführt werden können, ohne dass geprüft wird, ob eine andere Anwendung die Daten aktualisiert hat, nachdem sie von der Anwendung erstmals gelesen wurden. Diese Strategie (oder das Fehlen einer formellen Strategie) wird in der Regel verwendet, wenn die Daten so partitioniert sind, dass der gleichzeitige Zugriff mehrerer Benutzer auf dieselben Daten unwahrscheinlich ist. Diese Strategie kann auch bei der Verarbeitung kurzlebiger Datenströme sinnvoll sein.  
 
 Dieser Artikel gibt eine Übersicht darüber, wie die Azure Storage-Plattform Entwicklungsprozesse durch die ausgezeichnete Unterstützung aller drei Nebenläufigkeitsstrategien vereinfacht.  
@@ -86,15 +86,15 @@ Die folgende Tabelle gibt eine Übersicht über die Containervorgänge, die bedi
 
 | Vorgang | Gibt Container-ETag-Wert zurück | Akzeptiert bedingte Header |
 |:--- |:--- |:--- |
-| Create Container |Ja |Nein  |
-| Get Container Properties |Ja |Nein  |
-| Get Container Metadata |Ja |Nein  |
+| Create Container |Ja |Nein |
+| Get Container Properties |Ja |Nein |
+| Get Container Metadata |Ja |Nein |
 | Set Container Metadata |Ja |Ja |
-| Get Container ACL |Ja |Nein  |
+| Get Container ACL |Ja |Nein |
 | Set Container ACL |Ja |Ja (*) |
-| Delete Container |Nein  |Ja |
+| Delete Container |Nein |Ja |
 | Lease Container |Ja |Ja |
-| List Blobs |Nein  |Nein  |
+| List Blobs |Nein |Nein |
 
 (*) Die von SetContainerACL definierten Berechtigungen werden zwischengespeichert, und die Verteilung der Aktualisierungen dieser Berechtigungen dauert 30 Sekunden. Während dieser Zeitspanne kann die Konsistenz der Aktualisierungen nicht garantiert werden.  
 
@@ -111,11 +111,11 @@ Die folgende Tabelle gibt einen Überblick über die Blob-Vorgänge, die bedingt
 | Lease Blob (*) |Ja |Ja |
 | Snapshot Blob |Ja |Ja |
 | Kopieren von Blobs |Ja |Ja (für Quell- und Ziel-Blob) |
-| Abort Copy Blob |Nein  |Nein  |
-| Delete Blob |Nein  |Ja |
-| Put Block |Nein  |Nein  |
+| Abort Copy Blob |Nein |Nein |
+| Delete Blob |Nein |Ja |
+| Put Block |Nein |Nein |
 | Put Block List |Ja |Ja |
-| Get Block List |Ja |Nein  |
+| Get Block List |Ja |Nein |
 | Put Page |Ja |Ja |
 | Get Page Ranges |Ja |Ja |
 
@@ -237,13 +237,13 @@ Die folgende Tabelle gibt eine Übersicht darüber, wie ETag-Werte in den Tabell
 
 | Vorgang | Gibt ETag-Wert zurück | Erfordert If-Match-Anforderungsheader |
 |:--- |:--- |:--- |
-| Entitäten abfragen |Ja |Nein  |
-| Entität einfügen |Ja |Nein  |
+| Entitäten abfragen |Ja |Nein |
+| Entität einfügen |Ja |Nein |
 | Entität aktualisieren |Ja |Ja |
 | Entität zusammenführen |Ja |Ja |
-| Entität löschen |Nein  |Ja |
-| Entität einfügen oder ersetzen |Ja |Nein  |
-| Entität einfügen oder zusammenführen |Ja |Nein  |
+| Entität löschen |Nein |Ja |
+| Entität einfügen oder ersetzen |Ja |Nein |
+| Entität einfügen oder zusammenführen |Ja |Nein |
 
 Bei den Vorgängen **Entität einfügen oder ersetzen** und **Entität einfügen oder zusammenführen** werden *keine* Nebenläufigkeitsprüfungen durchgeführt, da hierbei kein ETag-Wert an den Tabellenspeicherdienst gesendet wird.  
 

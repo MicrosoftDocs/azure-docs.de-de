@@ -17,11 +17,11 @@ ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e26ec4d268b9bd8852ef8cd2c522995902e15923
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992387"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62108009"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Konfigurieren eines virtuellen Netzwerks (klassisch) mithilfe einer Netzwerkkonfigurationsdatei
 > [!IMPORTANT]

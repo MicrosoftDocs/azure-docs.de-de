@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855485"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427514"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Auf der Data Science-VM verfügbare Tools zum Durchsuchen und Visualisieren von Daten
 
@@ -56,12 +56,12 @@ Bei Data Science geht es unter anderem darum, Daten zu verstehen. Hierbei helfen
 | Links zu Beispielen      | [Rattle](https://togaware.com/onepager/) |
 | Verwandte Tools auf der DSVM      |LightGBM, Weka, XGBoost   |
 
-## <a name="powerbi-desktop"></a>Power BI Desktop 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Was ist das?   | Interaktives Tool für Datenvisualisierung und BI    |
 | Unterstützte DSVM-Versionen      | Windows  |
 | Typische Verwendung      |  Datenvisualisierung und Dashboarderstellung   |
 | Verwendung/Ausführung      | Desktopverknüpfung (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Verwandte Tools auf der DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Verwandte Tools auf der DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148723"
 ---
 # <a name="create-entities-without-utterances"></a>Erstellen von Entitäten ohne Äußerungen
@@ -114,7 +114,7 @@ In der Äußerung `Where is Request relocation from employee new to the company 
 
 Eine Rolle ist ein benannter Untertyp, der auf Kontext basiert. Er ist in allen Entitäten verfügbar, einschließlich vorkonfigurierter und nicht durch maschinelles Lernen erworbener Entitäten. 
 
-Die Syntax für eine Rolle ist **`{Entityname:Rolename}`**, wobei auf den Entitätsnamen ein Doppelpunkt und dann der Rollenname folgt. Beispiel: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+Die Syntax für eine Rolle ist **`{Entityname:Rolename}`** , wobei auf den Entitätsnamen ein Doppelpunkt und dann der Rollenname folgt. Beispiel: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Wählen Sie im Abschnitt **Erstellen** im linken Bereich die Option **Entitäten**.
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997664"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864467"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Berichte zu Anmeldeaktivitäten im Azure Active Directory-Portal
 
@@ -100,7 +100,7 @@ Sie können die Anmeldungsdaten mit den folgenden Standardfeldern filtern, um di
 - Anwendung
 - Anmeldestatus
 - Bedingter Zugriff
-- Datum
+- Date
 
 ![Anmeldeaktivität](./media/concept-sign-ins/04.png "Anmeldeaktivität")
 
@@ -131,21 +131,28 @@ Mögliche Werte:
 
 Beim Auswählen eines benutzerdefinierten Zeitraums können Sie eine Startzeit und eine Endzeit konfigurieren.
 
-Wenn Sie der Anmeldungsansicht zusätzliche Felder hinzufügen, werden diese automatisch in die Filterliste aufgenommen. Wenn Sie Ihrer Liste also beispielsweise das Feld **Client-App** hinzufügen, erhalten Sie auch eine weitere Filteroption, mit der Sie folgende Filter festlegen können:
-
-- "Browser"      
-- Exchange ActiveSync (unterstützt)               
-- Exchange ActiveSync (nicht unterstützt)
-- Andere Clients               
-    - IMAP
-    - MAPI
-    - Ältere Office-Clients
-    - POP
-    - SMTP
-
-
+Wenn Sie der Anmeldungsansicht zusätzliche Felder hinzufügen, werden diese automatisch in die Filterliste aufgenommen. Wenn Sie Ihrer Liste also beispielsweise das Feld **Client-App** hinzufügen, erhalten Sie auch eine weitere Filteroption, mit der Sie folgende Filter festlegen können:  
 ![Anmeldeaktivität](./media/concept-sign-ins/12.png "Anmeldeaktivität")
 
+- **Browser**  
+    Dieser Filter zeigt alle Ereignisse, bei denen Anmeldeversuche mithilfe von Browserflows ausgeführt wurden.
+- **Exchange ActiveSync (unterstützt)**  
+    Dieser Filter zeigt alle Anmeldeversuche mit dem Exchange ActiveSync (EAS)-Protokoll von unterstützten Plattformen wie iOS, Android und Windows Phone.
+- **Exchange ActiveSync (nicht unterstützt)**  
+    Dieser Filter zeigt alle Anmeldeversuche mit dem EAS-Protokoll von nicht unterstützten Plattformen wie Linux-Distributionen.
+- **Mobile Apps und Desktopclients** Dieser Filter zeigt alle Anmeldeversuche, die keine Browserflows verwendet haben. Dabei kann es sich um mobile Apps von einer beliebigen Plattform (mithilfe eines beliebigen Protokolls) oder um Apps auf Desktopclients wie Office unter Windows oder MacOS handeln.
+  
+- **Andere Clients**
+    - **IMAP**  
+        Älterer E-Mail-Client, der IMAP zum Abrufen von E-Mails verwendet.
+    - **MAPI**  
+        Office 2013 mit aktivierter ADAL und Verwendung von MAPI.
+    - **Ältere Office-Clients**  
+        Office 2013 in der Standardkonfiguration, bei der MAPI verwendet wird und ADAL nicht aktiviert ist, oder Office 2016 mit deaktivierter ADAL.
+    - **POP**  
+        Älterer E-Mail-Client, der POP3 zum Abrufen von E-Mails verwendet.
+    - **SMTP**  
+        Älterer E-Mail-Client, der SMTP zum Senden von E-Mails verwendet.
 
 ## <a name="download-sign-in-activities"></a>Herunterladen von Anmeldeaktivitäten
 
@@ -189,9 +196,9 @@ Durch Klicken auf ein Element können Sie ausführlichere Informationen zum ents
 - Anwendungs-ID
 - Anwendung
 - Client
-- Standort
+- Location
 - IP-Adresse
-- Datum
+- Date
 - MFA erforderlich
 - Anmeldestatus
 

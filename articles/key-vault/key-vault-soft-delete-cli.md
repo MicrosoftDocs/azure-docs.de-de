@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
 ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336070"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60640479"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Verwenden des vorläufigen Löschens in Key Vault mit der CLI
 

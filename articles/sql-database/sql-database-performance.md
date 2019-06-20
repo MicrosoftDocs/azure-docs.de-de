@@ -12,11 +12,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60584799"
 ---
 # <a name="monitor-and-improve-performance"></a>Überwachen und Verbessern der Leistung
 
@@ -32,7 +32,7 @@ Im Abschnitt „Support und Problembehandlung“ können Sie die folgenden Seite
 1. [Leistungsübersicht](#performance-overview) zum Überwachen der Leistung Ihrer Datenbank. 
 2. [Empfehlungen zur Leistung](#performance-recommendations) zum Suchen von Empfehlungen, die die Leistung Ihrer Workload verbessern können.
 3. [Statistik zur Abfrageleistung](#query-performance-insight) zum Identifizieren der Abfragen mit dem größten Ressourcenverbrauch.
-4. [Automatische Optimierung](#automatic-tuning) zum Aktivieren der automatischen Optimierung Ihrer Datenbank durch Azure SQL.
+4. [Automatische Optimierung](#automatic-tuning) zum Aktivieren der automatischen Optimierung Ihrer Datenbank durch Azure SQL-Datenbank.
 
 ## <a name="performance-overview"></a>Leistungsübersicht
 
@@ -40,10 +40,10 @@ Diese Ansicht bietet eine Übersicht über die Leistung der Datenbank und unters
 
 ![Leistung](./media/sql-database-performance/performance.png)
 
-* Die Kachel **Empfehlungen** bietet eine Aufschlüsselung der Optimierungsempfehlungen für Ihre Datenbank (bei mehreren Empfehlungen werden die wichtigsten drei angezeigt). Durch Klicken auf diese Kachel gelangen Sie zu **[Empfehlungen zur Leistung](#performance-recommendations)**. 
+* Die Kachel **Empfehlungen** bietet eine Aufschlüsselung der Optimierungsempfehlungen für Ihre Datenbank (bei mehreren Empfehlungen werden die wichtigsten drei angezeigt). Durch Klicken auf diese Kachel gelangen Sie zu **[Empfehlungen zur Leistung](#performance-recommendations)** . 
 * Die Kachel **Optimierungsaktivität** bietet eine Zusammenfassung der laufenden und abgeschlossenen Optimierungsaktionen für die Datenbank, sodass Sie einen schnellen Überblick über den Verlauf der Optimierungsaktivitäten erhalten. Wenn Sie auf diese Kachel klicken, gelangen Sie zur Ansicht des vollständigen Optimierungsverlaufs für Ihre Datenbank.
 * Die Kachel **Automatische Optimierung** zeigt die Konfiguration der [automatischen Optimierung für Ihre Datenbank](sql-database-automatic-tuning-enable.md) an (die Optimierungsaktionen, die automatisch auf die Datenbank angewendet werden). Durch Klicken auf diese Kachel öffnen Sie das Dialogfeld zur Automatisierungskonfiguration.
-* Die Kachel **Datenbankabfragen** zeigt die Zusammenfassung der Abfrageleistung für Ihre Datenbank (DTU-Nutzung insgesamt und die Abfragen mit dem größten Ressourcenverbrauch). Durch Klicken auf diese Kachel gelangen Sie zur **[Statistik zur Abfrageleistung](#query-performance-insight)**.
+* Die Kachel **Datenbankabfragen** zeigt die Zusammenfassung der Abfrageleistung für Ihre Datenbank (DTU-Nutzung insgesamt und die Abfragen mit dem größten Ressourcenverbrauch). Durch Klicken auf diese Kachel gelangen Sie zur **[Statistik zur Abfrageleistung](#query-performance-insight)** .
 
 ## <a name="performance-recommendations"></a>Empfehlungen zur Leistung
 
@@ -73,7 +73,7 @@ Mithilfe von [Query Performance Insight](sql-database-query-performance.md) kön
 
   ![Leistungsdashboard](./media/sql-database-query-performance/performance.png)
 
-Weitere Informationen zu dieser Seite finden Sie im Artikel **[How to use Query Performance Insight (Anleitung zur Verwendung der Statistik zur Abfrageleistung)](sql-database-query-performance.md)**.
+Weitere Informationen zu dieser Seite finden Sie im Artikel **[How to use Query Performance Insight (Anleitung zur Verwendung der Statistik zur Abfrageleistung)](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

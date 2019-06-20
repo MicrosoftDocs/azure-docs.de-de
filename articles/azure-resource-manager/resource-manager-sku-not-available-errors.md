@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/19/2018
 ms.author: tomfitz
 ms.openlocfilehash: 1dd0532452c3558e53f0236998953d2055ed328c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60390745"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Beheben des Fehlers vom Typ „SKU nicht verfügbar“
 

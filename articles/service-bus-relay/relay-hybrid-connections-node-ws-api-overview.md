@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: bf0173f9c9802be689f7f3a893d381a251a2b16a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701135"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699389"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Node-API für Relay Hybrid Connections – Übersicht
 
@@ -131,7 +131,7 @@ Konstruktorargumente:
 - `server` (erforderlich) – der vollqualifizierte URI für einen Hybrid Connection-Name, auf den gelauscht werden soll, in der Regel mit der Hilfsmethode WebSocket.createRelayListenUri() erstellt
 - `token` (erforderlich) – dieses Argument enthält eine zuvor ausgegebene Token-Zeichenfolge oder eine Rückruffunktion, die zum Abrufen einer solchen Token-Zeichenfolge aufgerufen werden kann Die Rückrufoption wird empfohlen, da sie die Token-Verlängerung ermöglicht.
 
-#### <a name="events"></a>Ereignisse
+#### <a name="events"></a>Events
 
 Instanzen vom Typ `RelayedServer` geben drei Ereignisse aus, mit denen Sie eingehende Anforderungen behandeln, Verbindungen herstellen und Fehlerzustände aufzeigen können. Sie müssen das Ereignis `connect` abonnieren, um Meldungen zu verarbeiten. 
 

@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
 ms.openlocfilehash: 26d34f0473dec5e0767041df400b84887a0d1778
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664819"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60725583"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Schützen der WFC-basierten Kommunikation für einen Dienst
 Sicherheit ist einer der wichtigsten Aspekte der Kommunikation. Das Reliable Services-Anwendungsframework stellt einige fertige Kommunikationsstapel und Tools bereit, die Sie verwenden können, um die Sicherheit zu verbessern. In diesem Artikel erfahren Sie, wie Sie die Sicherheit bei Verwendung von Dienstremoting verbessern können.

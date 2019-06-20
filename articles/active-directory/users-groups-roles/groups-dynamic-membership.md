@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192430"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397877"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regeln für eine dynamische Mitgliedschaft für Gruppen in Azure Active Directory
 
@@ -353,7 +353,6 @@ Die folgenden Geräteattribute können verwendet werden.
  deviceManufacturer | Jeder string-Wert. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Jeder string-Wert. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Unternehmen, Unbekannt | (device.deviceOwnership -eq "Company")
- domainName | Jeder string-Wert. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Profilname für Apple-Geräteregistrierung oder für Windows AutoPilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (bei mobilen Geräten)<br>PC (bei Computern, die vom Intune-PC-Agent verwaltet werden) | (device.managementType -eq "MDM")
@@ -372,4 +371,4 @@ Diese Artikel enthalten zusätzliche Informationen zu Gruppen in Azure Active Di
 * [Erstellen einer neuen Gruppe und Hinzufügen von Mitgliedern](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Verwalten der Einstellungen einer Gruppe](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Verwalten der Mitgliedschaften einer Gruppe](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Verwalten dynamischer Regeln für Benutzer in einer Gruppe](groups-dynamic-membership.md)
+* [Verwalten dynamischer Regeln für Benutzer in einer Gruppe](groups-create-rule.md)

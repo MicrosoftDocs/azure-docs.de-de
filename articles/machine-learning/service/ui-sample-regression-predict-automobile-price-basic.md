@@ -1,7 +1,7 @@
 ---
 title: 'Regression: Preisprognose'
 titleSuffix: Azure Machine Learning service
-description: Dieses Beispielexperiment für eine grafische Benutzeroberfläche zeigt das Erstellen eines Regressionsmodells zur Vorhersage des Preises eines Autos. Der Prozess umfasst das Trainieren, Testen und Auswerten des Modells anhand des Datasets für Automobilpreisdaten (Rohdaten).
+description: Erfahren Sie, wie Sie, ohne eine einzige Codezeile zu schreiben, ein Machine Learning-Modell erstellen, um den-Preises eines Fahrzeugs vorherzusagen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,30 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: fa9b9179cda767d69d08dcd357a03123bde901cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027730"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787842"
 ---
 # <a name="sample-1---regression-predict-price"></a>Beispiel 1 – Regression: Preisprognose
 
-Dieses Beispielexperiment für eine grafische Benutzeroberfläche zeigt das Erstellen eines Regressionsmodells zur Vorhersage des Preises eines Autos. Der Prozess umfasst das Trainieren, Testen und Auswerten des Modells anhand des Datasets für **Automobilpreisdaten (Rohdaten)**.
+Erfahren Sie, wie Sie über die grafische Benutzeroberfläche ein Machine Learning-Regressionsmodell erstellen, ohne eine einzige Codezeile zu schreiben.
+
+In diesem Experiment wird ein **Entscheidungswaldregressor** trainiert, um den Preis eines Fahrzeugs anhand technischer Merkmale wie Marke, Modell, Leistung und Größe vorherzusagen. Weil wir versuchen, die Frage „Wie viel?“ zu beantworten, wird dies als Regressionsproblem bezeichnet. Sie können jedoch die gleichen elementaren Schritte aus diesem Experiment anwenden, um jede Art von Problem für maschinelles Lernen zu bewältigen, sei es Regression, Klassifizierung, Clustering usw.
+
+Die elementaren Schritte des Trainings eines Machine Learning-Modells sind:
+
+1. Abrufen von Daten
+1. Vorverarbeiten der Daten
+1. Modelltraining
+1. Auswerten des Modells
+
+Das endgültige, vollständige Diagramm des Experiments, an dem wir arbeiten sieht wie folgt aus. Es werden die Gründe für alle Module bereitgestellt, sodass Sie ähnliche Entscheidungen selbst treffen können.
+
+![Diagramm des Experiments](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -28,23 +41,6 @@ Dieses Beispielexperiment für eine grafische Benutzeroberfläche zeigt das Erst
 4. Wählen Sie die Schaltfläche **Öffnen** für das Experiment „Beispiel 1“ aus:
 
     ![Öffnen des Experiments](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
-
-## <a name="related-sample"></a>Ähnliches Beispiel
-
-[Beispiel 2 – Regression: Vorhersagen des Preises und Vergleichen von Algorithmen](ui-sample-regression-predict-automobile-price-compare-algorithms.md) bietet ein etwas komplizierteres Beispielexperiment, das das gleiche Problem wie dieses Experiment mit zwei unterschiedlichen Regressionsmodellen löst. Es zeigt den schnellen Vergleich verschiedener Algorithmen. Sehen Sie es sich an, wenn Sie ein fortgeschritteneres Beispiel suchen.
-
-## <a name="experiment-summary"></a>Experimentzusammenfassung
-
-Wir verwenden die folgenden Schritte, um das Experiment zu erstellen:
-
-1. Abrufen der Daten.
-1. Vorverarbeiten der Daten.
-1. Trainieren des Modells.
-1. Testen, Auswerten und Vergleichen der Modelle.
-
-So sieht das vollständige Diagramm des Experiments aus:
-
-![Diagramm des Experiments](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="get-the-data"></a>Abrufen von Daten
 
@@ -59,6 +55,7 @@ Wir verwenden das Modul **Select Columns in Dataset** (Spalten in Dataset auswä
 ![Datenvorverarbeitung](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Modelltraining
+
 Machine Learning-Probleme sind vielfältig. Machine Learning-Aufgaben sind z.B. Klassifizierung, Clustering, Regression und Empfehlungssysteme, die möglicherweise jeweils einen anderen Algorithmus erfordern. Die Auswahl des Algorithmus hängt häufig von den Anforderungen des Anwendungsfalls ab. Nachdem Sie einen Algorithmus ausgewählt haben, müssen Sie seine Parameter optimieren, um ein genaueres Modell zu trainieren. Sie müssen alle Modelle basierend auf Metriken wie Genauigkeit, Verständlichkeit und Effizienz auswerten.
 
 Da das Ziel dieses Experiments darin besteht, Automobilpreise vorherzusagen, und die Bezeichnungsspalte (Preis) reelle Zahlen enthält, ist ein Regressionsmodell eine gute Wahl. In Anbetracht der Tatsache, dass die Anzahl der Features relativ klein ist (weniger als 100) und diese Features nicht spärlich sind, ist es wahrscheinlich, dass die Entscheidungsgrenze nichtlinear ist. Daher verwenden wir die **Entscheidungswaldregression** für dieses Experiment.

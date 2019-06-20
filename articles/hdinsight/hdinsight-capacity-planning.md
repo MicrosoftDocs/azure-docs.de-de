@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 81be4d5809fe8a3f36f7364b15e19d0046a8b5cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713962"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237149"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapazitätsplanung für HDInsight-Cluster
 
@@ -104,9 +104,9 @@ Um das Problem auf einem lokalen Cluster mit einzelnem Knoten zu identifizieren,
 
 Überprüfen Sie nach der Bestimmung von Größe, Skalierung und Typ der Zielcluster-VM die aktuellen Kontingentkapazitätsgrenzen Ihres Abonnements. Wenn Sie eine Kontingentgrenze erreichen, können Sie möglicherweise nicht neue Cluster bereitstellen oder vorhandene Cluster durch Hinzufügen weiterer Workerknoten horizontal hochskalieren. Die einzige Kontingentgrenze ist das Kontingent für CPU-Kerne, das auf Regionsebene für jedes Abonnement vorhanden ist. Ihr Abonnement kann z. B. den Grenzwert von 30 Kernen in der Region „USA, Osten“ aufweisen. Wenn Sie eine Kontingenterhöhung anfordern müssen, gehen Sie wie folgt vor:
 
-1. Navigieren Sie zum Azure-Portal.
-1. Klicken Sie unten links auf der Seite auf **Hilfe und Support**.
-1. Klicken Sie auf **Neue Supportanfrage**.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
+1. Wählen Sie unten links auf der Seite **Hilfe und Support** aus.
+1. Wählen Sie **Neue Supportanfrage** aus.
 1. Wählen Sie auf der Seite **Neue Supportanfrage** unter der Registerkarte **Grundlagen** die folgenden Optionen aus:
    - **Problemtyp**: **Grenzwerte für Dienste und Abonnements (Kontingente)**
    - **Abonnement**: Das zu ändernde Abonnement.
@@ -114,10 +114,10 @@ Um das Problem auf einem lokalen Cluster mit einzelnem Knoten zu identifizieren,
     
      ![Erstellen einer Supportanfrage zur Erhöhung des HDInsight-Kernkontingents](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Klicken Sie auf **Weiter**.
-1. Geben Sie auf der Seite **Details** eine Beschreibung des Problems ein, wählen Sie den Schweregrad des Problems und dann Ihre bevorzugte Kontaktmethode aus.
-1. Klicken Sie auf **Weiter: Überprüfen + erstellen**.
-1. Klicken Sie auf der Registerkarte **Überprüfen + erstellen** auf **Erstellen**.
+1. Klicken Sie auf **Weiter: Lösungen >>** .
+1. Geben Sie auf der Seite **Details** eine Beschreibung des Problems ein, wählen Sie den Schweregrad des Problems, Ihre bevorzugte Kontaktmethode und weitere Pflichtfelder aus.
+1. Klicken Sie auf **Weiter: Bewerten + erstellen >>** .
+1. Wählen Sie auf der Registerkarte **Überprüfen + erstellen** die Option **Erstellen** aus.
 
 > [!NOTE]  
 > Wenn Sie das HDInsight-Kernkontingent in einer privaten Region erhöhen müssen, [senden Sie eine Whitelist-Anforderung](https://aka.ms/canaryintwhitelist).

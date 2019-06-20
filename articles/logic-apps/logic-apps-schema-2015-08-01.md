@@ -11,11 +11,11 @@ ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
 ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904540"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60553758"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Schemaaktualisierungen für Azure Logic Apps – 1. August 2015 (Vorschau)
 
@@ -419,7 +419,7 @@ Mit diesen Änderungen ersetzt Logic Apps die Funktion `@accessKeys()` durch die
 
 ## <a name="call-child-workflows"></a>Aufrufen von untergeordneten Workflows
 
-Zuvor mussten Sie zum Aufrufen von untergeordneten Workflows den gewünschten Workflow aufrufen, das Zugriffstoken abrufen und dieses Token in die Definition der Logik-App einfügen, die den untergeordneten Workflow aufrufen sollte. Mit diesem Schema generiert die Logic Apps-Engine zur Laufzeit automatisch eine SAS für den untergeordneten Workflow, sodass Sie keine geheimen Schlüssel in die Definition einfügen müssen. Beispiel: 
+Zuvor mussten Sie zum Aufrufen von untergeordneten Workflows den gewünschten Workflow aufrufen, das Zugriffstoken abrufen und dieses Token in die Definition der Logik-App einfügen, die den untergeordneten Workflow aufrufen sollte. Mit diesem Schema generiert die Logic Apps-Engine zur Laufzeit automatisch eine SAS für den untergeordneten Workflow, sodass Sie keine geheimen Schlüssel in die Definition einfügen müssen. Beispiel:
 
 ``` json
 "myNestedWorkflow": {

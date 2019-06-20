@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/10/2018
 ms.author: kumud
 ms.openlocfilehash: cf4e0346a93961df14afe48ec767e383f92eab3b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60507554"
 ---
 # <a name="azure-powershell-samples-for-load-balancer"></a>Azure PowerShell-Beispiele für Load Balancer
 

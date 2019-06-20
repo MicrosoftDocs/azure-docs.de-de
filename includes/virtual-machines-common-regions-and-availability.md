@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: zr-msft
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333983"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178058"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regionen und Verfügbarkeit für virtuelle Computer in Azure
 Azure wird in mehreren Rechenzentren weltweit betrieben. Diese Rechenzentren sind in geografische Regionen unterteilt, sodass Sie auswählen können, wo Sie Ihre Anwendungen erstellen möchten. Es ist wichtig zu verstehen, wie und wo Ihre virtuellen Computer (VMs) in Azure betrieben werden. Dies gilt auch für die Optionen zum Verbessern der Leistung, Verfügbarkeit und Redundanz. Dieser Artikel enthält eine Übersicht über die Verfügbarkeits- und Redundanzfunktionen von Azure.
@@ -72,8 +72,8 @@ Die folgende Tabelle bietet einen schnellen Überblick über die Unterschiede zw
 
 | Replikationsstrategie | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Daten werden in mehreren Datencentern repliziert. |Nein  |Ja |Ja |Ja |
-| Daten können vom sekundären Standort und vom primären Standort aus gelesen werden. |Nein  |Nein  |Nein  |Ja |
+| Daten werden in mehreren Datencentern repliziert. |Nein |Ja |Ja |Ja |
+| Daten können vom sekundären Standort und vom primären Standort aus gelesen werden. |Nein |Nein |Nein |Ja |
 | Anzahl von Datenkopien, die auf separaten Knoten aufbewahrt werden. |3 |3 |6 |6 |
 
 Sie erhalten weitere Informationen über [Azure Storage-Replikationsoptionen hier](../articles/storage/common/storage-redundancy.md). Weitere Informationen zu verwalteten Datenträgern finden Sie in der [Übersicht über Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -95,6 +95,8 @@ Informationen zu den Preisen für die verschiedenen Speichertypen und Verfügbar
 Eine Verfügbarkeitsgruppe ist eine logische Gruppierung von virtuellen Computern in einem Datencenter, über die Azure erkennen kann, wie Ihre Anwendung erstellt wurde, um für Redundanz und Verfügbarkeit zu sorgen. Es empfiehlt sich, mindestens zwei virtuelle Computer in einer Verfügbarkeitsgruppe zu erstellen, um eine Anwendung mit hoher Verfügbarkeit zu erhalten und die [Azure-SLA von 99,95 Prozent](https://azure.microsoft.com/support/legal/sla/virtual-machines/) zu erfüllen. Für die Verfügbarkeitsgruppe selbst entstehen keine Kosten. Sie bezahlen nur für die einzelnen VM-Instanzen, die Sie erstellen. Wenn ein einzelner virtuelle Computer [Azure Premium SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd) verwendet, gilt die Azure-SLA für ungeplante Wartungsereignisse.
 
 Eine Verfügbarkeitsgruppe besteht aus zwei zusätzlichen Gruppierungen, die vor Hardwareausfällen schützen und die sichere Anwendung von Updates ermöglichen: Fehlerdomänen (FDs) und Updatedomänen (UDs). Erfahren Sie mehr über das Verwalten der Verfügbarkeit von [virtuellen Linux-Computern](../articles/virtual-machines/linux/manage-availability.md) oder [virtuellen Windows-Computern](../articles/virtual-machines/windows/manage-availability.md).
+
+Bei der Zuweisung mehrerer Computeressourcen, die nicht die Hochverfügbarkeitskonstrukte von Fehlerdomänen nutzen, besteht eine hohe Wahrscheinlichkeit der Antiaffinität. Diese wird jedoch nicht gewährleistet.
 
 ### <a name="fault-domains"></a>Fehlerdomänen
 Eine Fehlerdomäne ist eine logische Gruppe von zugrunde liegender Hardware mit einer gemeinsamen Stromquelle und einem Netzwerkswitch, ähnlich einem Rack in einem lokalen Rechenzentrum. Wenn Sie VMs in einer Verfügbarkeitsgruppe erstellen, werden Ihre VMs von der Azure-Plattform automatisch auf diese Fehlerdomänen verteilt. Bei diesem Ansatz werden die Auswirkungen von potenziellen Hardwareausfällen, Netzwerkausfällen oder Stromausfällen beschränkt.

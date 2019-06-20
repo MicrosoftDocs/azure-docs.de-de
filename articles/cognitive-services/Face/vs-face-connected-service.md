@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 492161a9a47627db8a06686daf953e99ca652e02
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435225"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827663"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Herstellen einer Verbindung mit der Gesichtserkennungs-API von Cognitive Services mithilfe der verbundenen Dienste in Visual Studio
 
@@ -25,8 +25,8 @@ Dieser Artikel und die Begleitartikel enthalten Details zur Verwendung des Featu
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- **Ein Azure-Abonnement**. Falls Sie über kein Abonnement verfügen, können Sie sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/)registrieren.
-- **Visual Studio 2017, Version 15.7** mit installierter Workload **Webentwicklung**. [Jetzt herunterladen](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Ein Azure-Abonnement. Falls Sie über kein Abonnement verfügen, können Sie sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/)registrieren.
+- Eine Installation von Visual Studio 2017 (Version 15.7 oder höher) mit der Workload für **Webentwicklung**. [Jetzt herunterladen](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

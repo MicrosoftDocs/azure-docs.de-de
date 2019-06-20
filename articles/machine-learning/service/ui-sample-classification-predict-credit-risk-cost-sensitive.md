@@ -1,7 +1,7 @@
 ---
 title: 'Klassifizierung: Vorhersagen des Kreditrisikos (kostensensibel)'
 titleSuffix: Azure Machine Learning service
-description: Dieses Beispielexperiment der grafischen Benutzeroberfläche zeigt, wie Sie mit einem angepassten Python-Skript kostensensible Binärklassifikationen durchführen können. Es sagt das Kreditrisiko basierend auf Informationen voraus, die in einem Kreditantrag bereitgestellt werden.
+description: In diesem Artikel wird gezeigt, wie über die grafische Benutzeroberfläche ein komplexes Experiment für maschinelles Lernen erstellt werden kann. Sie erfahren, wie benutzerdefinierte Python-Skripts implementiert und mehrere Modelle verglichen werden, um die beste Option auszuwählen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440963"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787819"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Beispiel 4 – Klassifizierung: Vorhersagen des Kreditrisikos (kostensensibel)
 
-Dieses Beispielexperiment der grafischen Benutzeroberfläche zeigt, wie Sie mit einem angepassten Python-Skript kostensensible Binärklassifikationen durchführen können. Die Kosten für die Fehlklassifizierung der positiven Stichproben sind fünf Mal so hoch wie die Kosten für die Fehlklassifizierung der negativen Stichproben.
+In diesem Artikel wird gezeigt, wie über die grafische Benutzeroberfläche ein komplexes Experiment für maschinelles Lernen erstellt werden kann. Sie erfahren, wie benutzerdefinierte Logik mit Python-Skripts implementiert wird und mehrere Modelle verglichen werden, um die beste Option auszuwählen.
 
-Dieses Beispiel sagt das Kreditrisiko auf der Grundlage der in einem Kreditantrag gemachten Angaben unter Berücksichtigung der Fehlklassifizierungskosten voraus.
+In diesem Beispiel wird eine Klassifizierung trainiert, um das Kreditrisiko anhand von Kreditantragsinformationen wie Kreditgeschichte, Alter und Anzahl der Kreditkarten vorherzusagen. Sie können die Konzepte in diesem Artikel aber auch anwenden, um Ihre eigenen Probleme durch maschinelles Lernen zu lösen.
 
-In diesem Experiment vergleichen wir zwei verschiedene Ansätze für die Generierung von Modellen zur Lösung dieses Problems:
+Wenn Sie gerade erst mit dem Thema „Maschinelles Lernen“ beginnen, sollten Sie sich zuerst das [Basisbeispiel für Klassifizierung](ui-sample-classification-predict-credit-risk-basic.md) ansehen.
 
-- Training mit dem Originaldataset.
-- Training mit einem replizierten Dataset.
+Das vollständige Diagramm für dieses Experiment sieht wie folgt aus:
 
-Bei beiden Ansätzen werten wir die Modelle aus, indem wir das Testdataset mit Replikation verwenden, um sicherzustellen, dass die Ergebnisse auf die Kostenfunktion abgestimmt sind. Wir testen zwei Klassifizierer mit beiden Ansätzen: **Two-Class Support Vector Machine** und **Two-Class Boosted Decision Tree**.
+[![Graph des Experiments](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -38,15 +37,18 @@ Bei beiden Ansätzen werten wir die Modelle aus, indem wir das Testdataset mit R
 
     ![Öffnen des Experiments](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>Ähnliches Beispiel
-
-[Beispiel 3 – Klassifizierung: Kreditrisikovorhersage (einfach)](ui-sample-classification-predict-churn.md) stellt ein Basisexperiment dar, das das gleiche Problem wie dieses Experiment löst, aber Fehlklassifizierungskosten nicht berücksichtigt.
-
 ## <a name="data"></a>Daten
 
 Wir verwenden das Dataset „German Credit Card“ aus dem UC Irvine-Repository. Dieses Dataset enthält 1.000 Stichproben mit 20 Features und 1 Bezeichnung. Jede Stichprobe stellt eine Person dar. Die 20 Features enthalten numerische und kategorische Features. Weitere Informationen zu diesem Dataset finden Sie auf der [UCI-Website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). Die letzte Spalte ist der Bezeichnung, die das Kreditrisiko bezeichnet und nur über zwei mögliche Werte verfügt: hohes Kreditrisiko = 2 und niedriges Kreditrisiko = 1.
 
 ## <a name="experiment-summary"></a>Experimentzusammenfassung
+
+In diesem Experiment vergleichen wir zwei verschiedene Ansätze für die Generierung von Modellen zur Lösung dieses Problems:
+
+- Training mit dem Originaldataset.
+- Training mit einem replizierten Dataset.
+
+Bei beiden Ansätzen werten wir die Modelle aus, indem wir das Testdataset mit Replikation verwenden, um sicherzustellen, dass die Ergebnisse auf die Kostenfunktion abgestimmt sind. Wir testen zwei Klassifizierer mit beiden Ansätzen: **Two-Class Support Vector Machine** und **Two-Class Boosted Decision Tree**.
 
 Die Kosten für die Fehlklassifizierung einer Stichprobe mit geringem Risiko betragen 1, die Kosten für die Fehlklassifizierung einer Stichprobe mit hohem Risiko betragen 5. Wir verwenden ein Modul **Execute Python Script** (Python-Skript ausführen), um diese Fehlklassifizierungskosten zu berücksichtigen.
 
@@ -71,7 +73,7 @@ Um diese Kostenfunktion abzubilden, generieren wir ein neues Dataset. Im neuen D
 
 Um die Hochrisikodaten zu replizieren, fügen wir diesen Python-Code in ein Modul **Execute Python Script** (Python-Skript ausführen) ein:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ Wir verwenden den experimentellen Standardworkflow, um die Modelle zu erstellen,
 
 1. Initialisieren Sie die Lernalgorithmen mit **Two-Class Support Vector Machine** und **Two-Class Boosted Decision Tree**.
 1. Verwenden Sie **Train Model** (Modell trainieren), um den Algorithmus auf die Daten anzuwenden und das eigentliche Modell zu erstellen.
-3. Verwenden Sie **Score Model** (Modell bewerten), um Bewertungen anhand der Testbeispiele zu generieren.
+1. Verwenden Sie **Score Model** (Modell bewerten), um Bewertungen anhand der Testbeispiele zu generieren.
 
 Die folgende Abbildung zeigt einen Ausschnitt aus diesem Experiment, in dem die ursprünglichen und replizierten Trainingsdatasets zum Trainieren von zwei verschiedenen SVM-Modellen verwendet werden. **Train Model** ist mit dem Trainingsdataset verbunden, **Score Model** mit dem Testdataset.
 
 ![Abbildung des Experiments](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 In der Auswertungsphase des Experiments berechnen wir die Genauigkeit jedes der vier Modelle. Für diese Experiment verwenden wir **Evaluate Model**, um Stichproben zu vergleichen, die die gleichen Fehlklassifizierungskosten aufweisen.
 
@@ -121,7 +122,7 @@ Beachten Sie, dass das replizierte Testdataset als Eingabe für **Score Model** 
 
 Das Modul **Evaluate Model** generiert eine Tabelle mit einer einzelnen Zeile, die verschiedene Metriken enthält. Um einen einzigen Satz von Genauigkeitsergebnissen zu erstellen, verwenden wir zunächst **Add Rows**, um die Ergebnisse in einer einzigen Tabelle zu kombinieren. Wir verwenden dann das folgende Python-Skript im Modul **Execute Python Script**, um den Modellnamen und den Trainingsansatz für jede Zeile in der Ergebnistabelle hinzuzufügen:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>Ergebnisse
 

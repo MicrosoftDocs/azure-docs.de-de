@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550280"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150746"
 ---
 Konfigurieren Sie die Partnersoftware für die Verbindungsherstellung mit dem Client. Für die Verbindungsherstellung mit der Partnersoftware benötigen Sie normalerweise die folgenden Informationen (Abweichungen möglich), die Sie im vorherigen Schritt auf der lokalen Webbenutzeroberfläche über die Seite **Verbindung herstellen und Daten kopieren** erfasst haben:
 

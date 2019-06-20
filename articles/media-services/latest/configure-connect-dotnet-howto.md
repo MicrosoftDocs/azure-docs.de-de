@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361244"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428486"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Verbinden mit der Media Services v3-API – .NET
 
@@ -27,7 +27,7 @@ Dieser Artikel zeigt Ihnen, wie Sie mit der Methode der Dienstprinzipalanmeldung
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - [Erstellen Sie ein Media Services-Konto.](create-account-cli-how-to.md) Merken Sie sich den Namen der Ressourcengruppe und den Namen des Media Services-Kontos.
-- Installieren Sie ein Tool, das Sie für die .NET-Entwicklung verwenden möchten. Die Schritte in diesem Artikel zeigen, wie Sie die [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) verwenden. Informationen zu Visual Studio Code finden Sie unter [Arbeiten mit C# ](https://code.visualstudio.com/docs/languages/csharp). Sie können auch einen anderen Code-Editor verwenden.
+- Installieren Sie ein Tool, das Sie für die .NET-Entwicklung verwenden möchten. Die Schritte in diesem Artikel zeigen, wie Sie die [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) verwenden. Informationen zu Visual Studio Code finden Sie unter [Arbeiten mit C# ](https://code.visualstudio.com/docs/languages/csharp). Sie können auch einen anderen Code-Editor verwenden.
 
 ## <a name="create-a-console-application"></a>Erstellen einer Konsolenanwendung
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: 971e36b600a2c6be516e39ce84ca5780a2f23bbd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699994"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60733095"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Verbinden mit der Media Services v3-API – Python
 

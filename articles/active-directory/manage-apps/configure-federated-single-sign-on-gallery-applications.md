@@ -3,8 +3,8 @@ title: Konfigurieren der einmaligen Verbundanmeldung für eine Azure AD-Kataloga
 description: So konfigurieren Sie die einmalige Verbundanmeldung für eine vorhandene Azure AD-Kataloganwendung und verwenden Tutorials für einen schnellen Einstieg
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03eed19336a67f3a1cbacc5f1ae033a6ea5be545
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b692c593dc134d9b24faeb9de8d3cd2e9a3521b6
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097302"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190206"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Konfigurieren von einmaligem Anmelden im Verbund für eine Azure AD-Kataloganwendung
 

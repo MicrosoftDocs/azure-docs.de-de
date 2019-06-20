@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622211"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244933"
 ---
 # <a name="azure-activity-log-event-schema"></a>Ereignisschema des Azure-Aktivitätsprotokolls
-Das **Azure-Aktivitätsprotokoll** ist ein Protokoll, das einen Einblick in alle Ereignisse auf Abonnementebene ermöglicht, die in Azure aufgetreten sind. Dieser Artikel beschreibt das Ereignisschema pro Datenkategorie. Das Schema der Daten unterscheidet sich, je nachdem, ob Sie die Daten im Portal, in PowerShell, auf der Befehlszeilenschnittstelle oder direkt über die REST-API lesen, im Gegensatz zum [Streamen der Daten in den Speicher oder zu Event Hubs mithilfe eines Protokollprofils](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Im Beispiel unten ist zu sehen, in welcher Weise das Schema über das Portal, PowerShell, die Befehlszeilenschnittstelle und REST-API zur Verfügung gestellt wird. Eine Zuordnung dieser Eigenschaften zum [Azure-Diagnoseprotokollschema](./diagnostic-logs-schema.md) findet sich am Ende dieses Artikels.
+Das **Azure-Aktivitätsprotokoll** ist ein Protokoll, das einen Einblick in alle Ereignisse auf Abonnementebene ermöglicht, die in Azure aufgetreten sind. Dieser Artikel beschreibt das Ereignisschema pro Datenkategorie. Das Schema der Daten unterscheidet sich, je nachdem, ob Sie die Daten im Portal, in PowerShell, auf der Befehlszeilenschnittstelle oder direkt über die REST-API lesen, im Gegensatz zum [Streamen der Daten in den Speicher oder zu Event Hubs mithilfe eines Protokollprofils](activity-log-export.md). Im Beispiel unten ist zu sehen, in welcher Weise das Schema über das Portal, PowerShell, die Befehlszeilenschnittstelle und REST-API zur Verfügung gestellt wird. Eine Zuordnung dieser Eigenschaften zum [Azure-Diagnoseprotokollschema](diagnostic-logs-schema.md) findet sich am Ende dieses Artikels.
 
 ## <a name="administrative"></a>Administrative
 Diese Kategorie enthält die Datensätze aller Erstellungs-, Aktualisierungs-, Lösch- und Aktionsvorgänge, die über Resource Manager ausgeführt wurden. Zu den Ereignissen in dieser Kategorie gehört das Erstellen eines virtuellen Computers und das Löschen einer Netzwerksicherheitsgruppe. Jede Aktion, die von einem Benutzer oder einer Anwendung mithilfe von Resource Manager ausgeführt wird, wird als Vorgang für einen bestimmten Ressourcentyp modelliert. Wenn der Vorgangstyp „Schreiben“, „Löschen“ oder „Aktion“ ist, werden die Datensätze zum Start und zum Erfolg oder Fehler dieses Vorgangs in der Kategorie „Administration“ aufgezeichnet. Die Kategorie „Administration“ enthält außerdem alle Änderungen an der rollenbasierten Zugriffssteuerung in einem Abonnement.
@@ -117,7 +117,7 @@ Diese Kategorie enthält die Datensätze aller Erstellungs-, Aktualisierungs-, L
 | channels |Einer der folgenden Werte: „Admin“, „Operation“ |
 | claims |Das JWT-Token, das von Active Directory zum Authentifizieren des Benutzers oder der Anwendung zur Ausführung dieses Vorgangs in Resource Manager verwendet wird. |
 | correlationId |Normalerweise eine GUID im Zeichenfolgenformat. Ereignisse, die über die gleiche correlationId verfügen, gehören zu derselben übergeordneten Aktion. |
-| Beschreibung |Statische Beschreibung eines Ereignisses in Textform. |
+| description |Statische Beschreibung eines Ereignisses in Textform. |
 | eventDataId |Eindeutiger Bezeichner eines Ereignisses. |
 | eventName | Anzeigename des Administrative-Ereignisses. |
 | category | Immer „Administrative“ |
@@ -126,10 +126,10 @@ Diese Kategorie enthält die Datensätze aller Erstellungs-, Aktualisierungs-, L
 | resourceGroupName |Name der Ressourcengruppe für die betroffene Ressource. |
 | resourceProviderName |Name des Ressourcenanbieters für die betroffene Ressource. |
 | resourceType | Der Typ der Ressource, die von einem Administrative-Ereignis betroffen war. |
-| Ressourcen-ID |Ressourcen-ID der betroffenen Ressource. |
+| resourceId |Ressourcen-ID der betroffenen Ressource. |
 | operationId |Eine GUID, die von den Ereignissen eines einzelnen Vorgangs gemeinsam genutzt wird. |
 | operationName |Name des Vorgangs. |
-| Eigenschaften |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben. |
+| properties |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben. |
 | status |Zeichenfolge, die den Status des Vorgangs beschreibt. Gängige Werte: „Started“, „In Progress“, „Succeeded“, „Failed“, „Active“, „Resolved“. |
 | subStatus |Üblicherweise der HTTP-Statuscode des entsprechenden REST-Aufrufs, kann aber auch weitere Zeichenfolgen zur Beschreibung eines untergeordneten Status enthalten, z. B. die folgenden gängigen Werte: OK (HTTP-Statuscode: 200), Erstellt (HTTP-Statuscode: 201), Akzeptiert (HTTP-Statuscode: 202), Kein Inhalt (HTTP-Statuscode: 204), Ungültige Anforderung (HTTP-Statuscode: 400), Nicht gefunden (HTTP-Statuscode: 404), Konflikt (HTTP-Statuscode: 409), Interner Serverfehler (HTTP-Statuscode: 500), Dienst nicht verfügbar (HTTP-Statuscode: 503), Gatewaytimeout (HTTP-Statuscode: 504) |
 | eventTimestamp |Zeitstempel der Ereignisgenerierung durch den Azure-Dienst, der die zum Ereignis gehörende Anforderung verarbeitet hat. |
@@ -216,7 +216,7 @@ Diese Kategorie enthält Datensätze zu allen Ereignissen im Zusammenhang mit de
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ Diese Kategorie enthält Datensätze zu allen Ereignissen im Zusammenhang mit de
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ Diese Kategorie enthält Datensätze zu allen Ereignissen im Zusammenhang mit de
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -261,7 +261,7 @@ Diese Kategorie enthält Datensätze zu allen Ereignissen im Zusammenhang mit de
 | --- | --- |
 | channels | Immer „Admin, Operation“ |
 | correlationId | Eine GUID im Zeichenfolgenformat. |
-| Beschreibung |Statische Beschreibung des Warnungsereignisses. |
+| description |Statische Beschreibung des Warnungsereignisses. |
 | eventDataId |Eindeutiger Bezeichner des Warnungsereignisses. |
 | category | Immer „ResourceHealth“ |
 | eventTimestamp |Zeitstempel der Ereignisgenerierung durch den Azure-Dienst, der die zum Ereignis gehörende Anforderung verarbeitet hat. |
@@ -271,12 +271,12 @@ Diese Kategorie enthält Datensätze zu allen Ereignissen im Zusammenhang mit de
 | resourceGroupName |Der Name der Ressourcengruppe, die die Ressource enthält. |
 | resourceProviderName |Immer „Microsoft.Resourcehealth/healthevent/action“. |
 | resourceType | Der Typ der Ressource, die von einem Resource Health-Ereignis betroffen war. |
-| Ressourcen-ID | Der Name der Ressourcen-ID für die betroffene Ressource. |
+| resourceId | Der Name der Ressourcen-ID für die betroffene Ressource. |
 | status |Zeichenfolge, die den Status des Integritätsereignisses beschreibt. Mögliche Werte: „Active“, „Resolved“, „InProgress“, „Updated“. |
 | subStatus | In der Regel für Warnungen null. |
 | submissionTimestamp |Zeitstempel des Zeitpunkts, ab dem das Ereignis für Abfragen verfügbar war. |
-| subscriptionId |Azure-Abonnement-ID |
-| Eigenschaften |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben.|
+| subscriptionId |Die Azure-Abonnement-ID. |
+| properties |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben.|
 | properties.title | Eine benutzerfreundliche Zeichenfolge, die den Integritätsstatus der Ressource beschreibt. |
 | properties.details | Eine benutzerfreundliche Zeichenfolge, die weitere Details zum Ereignis beschreibt. |
 | properties.currentHealthStatus | Der aktuelle Integritätsstatus der Ressource. Einer der folgenden Werte: „Available“, „Unavailable“, „Degraded“ und „Unknown“. |
@@ -356,16 +356,16 @@ Diese Kategorie enthält die Datensätze zu allen Aktivierungen von Azure-Warnun
 | channels | Immer „Admin, Operation“ |
 | claims | JSON-Blob mit dem Dienstprinzipalnamen (Service Principal Name, SPN) oder dem Ressourcentyp der Warnungs-Engine. |
 | correlationId | Eine GUID im Zeichenfolgenformat. |
-| Beschreibung |Statische Beschreibung des Warnungsereignisses. |
+| description |Statische Beschreibung des Warnungsereignisses. |
 | eventDataId |Eindeutiger Bezeichner des Warnungsereignisses. |
 | category | Immer „Alert“ |
 | level |Ebene des Ereignisses. Einer der folgenden Werte: „Critical“, „Error“, „Warning“ und „Informational“ |
 | resourceGroupName |Bei einer Metrikwarnung der Name der Ressourcengruppe für die betroffene Ressource. Bei anderen Warnungstypen der Name der Ressourcengruppe, die die Warnung selbst enthält. |
 | resourceProviderName |Bei einer Metrikwarnung der Name des Ressourcenanbieters für die betroffene Ressource. Bei anderen Warnungstypen der Name des Ressourcenanbieters für die Warnung selbst. |
-| Ressourcen-ID | Bei einer Metrikwarnung der Name der Ressourcen-ID für die betroffene Ressource. Bei anderen Warnungstypen die Ressourcen-ID der Warnungsressource selbst. |
+| resourceId | Bei einer Metrikwarnung der Name der Ressourcen-ID für die betroffene Ressource. Bei anderen Warnungstypen die Ressourcen-ID der Warnungsressource selbst. |
 | operationId |Eine GUID, die von den Ereignissen eines einzelnen Vorgangs gemeinsam genutzt wird. |
 | operationName |Name des Vorgangs. |
-| Eigenschaften |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben. |
+| properties |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben. |
 | status |Zeichenfolge, die den Status des Vorgangs beschreibt. Gängige Werte: „Started“, „In Progress“, „Succeeded“, „Failed“, „Active“, „Resolved“. |
 | subStatus | In der Regel für Warnungen null. |
 | eventTimestamp |Zeitstempel der Ereignisgenerierung durch den Azure-Dienst, der die zum Ereignis gehörende Anforderung verarbeitet hat. |
@@ -466,15 +466,15 @@ Diese Kategorie enthält Datensätze zu Ereignissen im Zusammenhang mit der Engi
 | channels | Immer „Admin, Operation“ |
 | claims | JSON-Blob mit dem Dienstprinzipalnamen (Service Principal Name, SPN) oder dem Ressourcentyp der Engine für die automatische Skalierung. |
 | correlationId | Eine GUID im Zeichenfolgenformat. |
-| Beschreibung |Statische Beschreibung des Ereignisses der automatischen Skalierung. |
+| description |Statische Beschreibung des Ereignisses der automatischen Skalierung. |
 | eventDataId |Eindeutiger Bezeichner des Ereignisses der automatischen Skalierung. |
 | level |Ebene des Ereignisses. Einer der folgenden Werte: „Critical“, „Error“, „Warning“ und „Informational“ |
 | resourceGroupName |Name der Ressourcengruppe der Einstellung für die automatische Skalierung. |
 | resourceProviderName |Name des Ressourcenanbieters der Einstellung für die automatische Skalierung. |
-| Ressourcen-ID |Ressourcen-ID der Einstellung für die automatische Skalierung. |
+| resourceId |Ressourcen-ID der Einstellung für die automatische Skalierung. |
 | operationId |Eine GUID, die von den Ereignissen eines einzelnen Vorgangs gemeinsam genutzt wird. |
 | operationName |Name des Vorgangs. |
-| Eigenschaften |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben. |
+| properties |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben. |
 | properties.Description | Detaillierte Beschreibung des Vorgangs der Engine für die automatische Skalierung. |
 | properties.ResourceName | Ressourcen-ID der betroffenen Ressource (die Ressource, für die die Skalierungsaktion ausgeführt wurde) |
 | properties.OldInstancesCount | Die Anzahl von Instanzen, bevor die automatische Skalierung wirksam war. |
@@ -554,7 +554,7 @@ Diese Kategorie enthält den Datensatz, der von Warnungen in Azure Security Cent
 | --- | --- |
 | channels | Immer „Vorgang“ |
 | correlationId | Eine GUID im Zeichenfolgenformat. |
-| Beschreibung |Statische Beschreibung des Sicherheitsereignisses. |
+| description |Statische Beschreibung des Sicherheitsereignisses. |
 | eventDataId |Eindeutiger Bezeichner des Sicherheitsereignisses. |
 | eventName |Anzeigename des Sicherheitsereignisses. |
 | category | Immer „Security“ |
@@ -563,10 +563,10 @@ Diese Kategorie enthält den Datensatz, der von Warnungen in Azure Security Cent
 | resourceGroupName |Name der Ressourcengruppe für die Ressource. |
 | resourceProviderName |Name des Ressourcenanbieters für die Azure Security Center. Immer „Microsoft.Security“. |
 | resourceType |Der Typ der Ressource, die das Sicherheitsereignis generiert hat, z. B. „Microsoft.Security/locations/alerts“. |
-| Ressourcen-ID |Ressourcen-ID der Sicherheitswarnung. |
+| resourceId |Ressourcen-ID der Sicherheitswarnung. |
 | operationId |Eine GUID, die von den Ereignissen eines einzelnen Vorgangs gemeinsam genutzt wird. |
 | operationName |Name des Vorgangs. |
-| Eigenschaften |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben. Diese Eigenschaften variieren je nach Typ der Sicherheitswarnung. Eine Beschreibung der Warnungstypen, die aus Security Center stammen, finden Sie [auf dieser Seite](../../security-center/security-center-alerts-type.md). |
+| properties |Satz mit `<Key, Value>`-Paaren (Wörterbuch), die Details des Ereignisses beschreiben. Diese Eigenschaften variieren je nach Typ der Sicherheitswarnung. Eine Beschreibung der Warnungstypen, die aus Security Center stammen, finden Sie [auf dieser Seite](../../security-center/security-center-alerts-type.md). |
 | properties.Severity |Der Schweregrad. Mögliche Werte sind „Hoch“, „Mittel“ oder „Niedrig“. |
 | status |Zeichenfolge, die den Status des Vorgangs beschreibt. Gängige Werte: „Started“, „In Progress“, „Succeeded“, „Failed“, „Active“, „Resolved“. |
 | subStatus | Für Sicherheitsereignisse in der Regel NULL. |
@@ -635,7 +635,7 @@ Diese Kategorie enthält den Datensatz mit den neuen Empfehlungen, die für Ihre
 | --- | --- |
 | channels | Immer „Vorgang“ |
 | correlationId | Eine GUID im Zeichenfolgenformat. |
-| Beschreibung |Statische Beschreibung des Empfehlungsereignisses. |
+| description |Statische Beschreibung des Empfehlungsereignisses. |
 | eventDataId | Eindeutiger Bezeichner des Empfehlungsereignisses. |
 | category | Immer „Empfehlung“ |
 | id |Eindeutiger Ressourcenbezeichner des Empfehlungsereignisses. |
@@ -644,11 +644,11 @@ Diese Kategorie enthält den Datensatz mit den neuen Empfehlungen, die für Ihre
 | resourceGroupName |Name der Ressourcengruppe für die Ressource. |
 | resourceProviderName |Name des Ressourcenanbieters für die Ressource, für die diese Empfehlung gilt, z.B. „MICROSOFT.COMPUTE“. |
 | resourceType |Name des Ressourcentyps für die Ressource, für die diese Empfehlung gilt, z.B. „MICROSOFT.COMPUTE/virtualmachines“. |
-| Ressourcen-ID |Ressourcen-ID der Ressource, für die die Empfehlung gilt. |
+| resourceId |Ressourcen-ID der Ressource, für die die Empfehlung gilt. |
 | status | Immer „Aktiv“ |
 | submissionTimestamp |Zeitstempel des Zeitpunkts, ab dem das Ereignis für Abfragen verfügbar war. |
 | subscriptionId |Die Azure-Abonnement-ID. |
-| Eigenschaften |Satz mit `<Key, Value>`-Paaren (also ein Wörterbuch), die die Details der Empfehlung beschreiben.|
+| properties |Satz mit `<Key, Value>`-Paaren (also ein Wörterbuch), die die Details der Empfehlung beschreiben.|
 | properties.recommendationSchemaVersion| Schemaversion der Empfehlungseigenschaften, die im Aktivitätsprotokolleintrag veröffentlicht werden. |
 | properties.recommendationCategory | Kategorie der Empfehlung. Mögliche Werte sind „Hochverfügbarkeit“, „Leistung“, „Sicherheit“ und „Kosten“. |
 | properties.recommendationImpact| Auswirkung der Empfehlung. Mögliche Werte sind „Hoch“, „Mittel“ oder „Niedrig“. |
@@ -748,7 +748,7 @@ Diese Kategorie enthält Datensätze aller Aktionsvorgänge für Auswirkungen, d
 | channels | Richtlinienereignisse verwenden nur den Kanal „Operation“. |
 | claims | Das JWT-Token, das von Active Directory zum Authentifizieren des Benutzers oder der Anwendung zur Ausführung dieses Vorgangs in Resource Manager verwendet wird. |
 | correlationId | Normalerweise eine GUID im Zeichenfolgenformat. Ereignisse, die über die gleiche correlationId verfügen, gehören zu derselben übergeordneten Aktion. |
-| Beschreibung | Dieses Feld ist bei Richtlinienereignissen leer. |
+| description | Dieses Feld ist bei Richtlinienereignissen leer. |
 | eventDataId | Eindeutiger Bezeichner eines Ereignisses. |
 | eventName | Entweder „BeginRequest“ oder „EndRequest“. „BeginRequest“ wird für verzögerte Auswertungen des Typs „AuditIfNotExists“ und „DeployIfNotExists“ verwendet und wenn eine „DeployIfNotExists“-Auswirkung eine Vorlagenbereitstellung startet. Alle anderen Vorgänge geben „EndRequest“ zurück. |
 | category | Deklariert das Aktivitätsprotokollereignis als zu „Policy“ gehörend. |
@@ -760,7 +760,7 @@ Diese Kategorie enthält Datensätze aller Aktionsvorgänge für Auswirkungen, d
 | resourceGroupName | Der Name der Ressourcengruppe für die ausgewertete Ressource. |
 | resourceProviderName | Der Name des Ressourcenanbieters für die ausgewertete Ressource. |
 | resourceType | Bei neuen Ressourcen ist dies der Typ, der ausgewertet wird. Bei vorhandenen Ressourcen wird „Microsoft.Resources/checkPolicyCompliance“ zurückgegeben. |
-| Ressourcen-ID | Die Ressourcen-ID der ausgewerteten Ressource. |
+| resourceId | Die Ressourcen-ID der ausgewerteten Ressource. |
 | status | Eine Zeichenfolge, die den Status des Ergebnisses der Richtlinienauswertung beschreibt. Die meisten Richtlinienauswertungen geben „Succeeded“ zurück, doch wird bei einer „Deny“-Auswirkung „Failed“ zurückgegeben. Fehler in „AuditIfNotExists“ oder „DeployIfNotExists“ geben ebenfalls „Failed“ zurück. |
 | subStatus | Das Feld ist bei Richtlinienereignissen leer. |
 | submissionTimestamp | Zeitstempel des Zeitpunkts, ab dem das Ereignis für Abfragen verfügbar war. |
@@ -778,26 +778,26 @@ Beim Streamen des Azure-Aktivitätsprotokolls an ein Speicherkonto oder den Even
 | Eigenschaft im Diagnoseprotokollschema | Eigenschaft im REST-API-Schema des Aktivitätsprotokolls | Notizen |
 | --- | --- | --- |
 | time | eventTimestamp |  |
-| Ressourcen-ID | Ressourcen-ID | „subscriptionId“, „resourceType“ und „resourceGroupName“ werden alle aus der „resourceId“ abgeleitet. |
+| resourceId | resourceId | „subscriptionId“, „resourceType“ und „resourceGroupName“ werden alle aus der „resourceId“ abgeleitet. |
 | operationName | operationName.value |  |
 | category | Teil des Vorgangsnamens | Entnahme des Vorgangstyps – „Write“/„Delete“/„Action“ |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | Beschreibung |  |
+| resultDescription | description |  |
 | durationMs | – | Immer 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | Ansprüche und Autorisierungseigenschaften |  |
-| Ebene | Ebene |  |
+| Level | Level |  |
 | location | – | Ort, an dem das Ereignis verarbeitet wurde. *Dies ist nicht der Speicherort der Ressource, sondern der Ort, an dem das Ereignis verarbeitet wurde. Diese Eigenschaft wird in einem kommenden Update entfernt.* |
 | Eigenschaften | properties.eventProperties |  |
 | properties.eventCategory | category | Wenn „properties.eventCategory“ nicht vorhanden ist, ist die Kategorie „Administrative“ |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |
-| properties.eventProperties | Eigenschaften |  |
+| properties.eventProperties | properties |  |
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Weitere Informationen zum Aktivitätsprotokoll (bisher „Überwachungsprotokolle“)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream the Azure Activity Log to Event Hubs (Streamen des Azure-Aktivitätsprotokolls auf Event Hubs)](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Weitere Informationen zum Aktivitätsprotokoll](activity-logs-overview.md)
+* [Exportieren des Aktivitätsprotokolls in Azure Storage oder Event Hubs](activity-log-export.md)
 

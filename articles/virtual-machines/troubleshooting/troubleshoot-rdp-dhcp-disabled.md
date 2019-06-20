@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60362287"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Eine RDP-Verbindung mit Azure Virtual Machines ist nicht möglich, da der DHCP-Clientdienst deaktiviert ist
 
@@ -89,7 +89,7 @@ Verwenden Sie zum Beheben dieses Problems die serielle Steuerung, um DHCP zu akt
     | 1070 – ERROR_SERVICE_START_HANG  | Weitere Informationen finden Sie unter [DHCP-Clientdienst stürzt ab oder reagiert nicht](#dhcp-client-service-crashes-or-hangs).  |
     | 1077 – ERROR_SERVICE_NEVER_STARTED  | Siehe [DHCP-Clientdienst ist deaktiviert](#dhcp-client-service-is-disabled).  |
     |1079 – ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), um das Problem schnell zu beheben.  |
-    |1.053 | [Wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), um das Problem schnell zu beheben.  |
+    |1\.053 | [Wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), um das Problem schnell zu beheben.  |
 
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP-Clientdienst wird aufgrund eines „Zugriff verweigert“-Fehlers beendet

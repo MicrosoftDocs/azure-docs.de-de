@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 3/12/2019
 ms.author: mayg
 ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771808"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60482930"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Erneutes Schützen und Ausführen eines Failbacks für Computer auf einen lokalen Standort nach einem Failover auf Azure
 

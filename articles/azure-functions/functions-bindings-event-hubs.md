@@ -13,11 +13,11 @@ ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
 ms.openlocfilehash: 7ca3ab8e3becf884fdba460f1981430e0c66ef99
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511780"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-Bindungen für Azure Functions
 

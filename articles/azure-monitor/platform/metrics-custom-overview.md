@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287263"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60254058"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Benutzerdefinierte Metriken in Azure Monitor
 
@@ -38,7 +38,7 @@ Azure Monitor überprüft das Anwendungstoken mithilfe von öffentlichen Azure A
 > [!NOTE]  
 > Wenn Sie ein Azure AD-Token zum Ausgeben von benutzerdefinierten Metriken anfordern, stellen Sie sicher, dass die Zielgruppe oder Ressource, für die das Token angefordert wird, https://monitoring.azure.com/ ist. Fügen Sie auch unbedingt den nachgestellten Schrägstrich (/) hinzu.
 
-### <a name="subject"></a>Antragsteller
+### <a name="subject"></a>Subject
 Diese Eigenschaft erfasst, für welche Azure-Ressourcen-ID die benutzerdefinierte Metrik gemeldet wird. Diese Informationen werden in der URL des jeweiligen API-Aufrufs codiert. Jede API kann nur metrische Werte für eine einzelne Azure-Ressource übermitteln.
 
 > [!NOTE]  
@@ -54,7 +54,7 @@ Diese Eigenschaft erfasst, in welcher Azure-Region die Ressource, für die Sie M
 >
 >
 
-### <a name="timestamp"></a>Zeitstempel
+### <a name="timestamp"></a>Timestamp
 Jeder Datenpunkt, der an Azure Monitor gesendet wird, muss mit einem Zeitstempel gekennzeichnet sein. Dieser Zeitstempel erfasst den Zeitpunkt (Datum/Uhrzeit), zu dem der Metrikwert gemessen oder erfasst wurde. Azure Monitor akzeptiert metrische Daten mit Zeitstempeln, die bis zu 20 Minuten in der Vergangenheit und bis zu 5 Minuten in der Zukunft liegen. Der Zeitstempel muss im ISO 8601-Format vorliegen.
 
 ### <a name="namespace"></a>Namespace
@@ -183,7 +183,7 @@ Azure Monitor erzwingt die folgenden Nutzungslimits für benutzerdefinierte Metr
 
 |Category (Kategorie)|Begrenzung|
 |---|---|
-|Aktive Zeitreihen/Abonnements/Region|50.000|
+|Aktive Zeitreihen/Abonnements/Region|50\.000|
 |Dimensionsschlüssel pro Metrik|10|
 |Zeichenkettenlänge für metrische Namespaces, metrische Namen, Dimensionsschlüssel und Dimensionswerte|256 Zeichen|
 

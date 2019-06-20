@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407735"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736665"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Häufig gestellte Fragen zu Azure Front Door Service
 

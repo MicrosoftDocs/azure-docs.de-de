@@ -3,8 +3,8 @@ title: 'Übersicht über Microsoft Identity Platform (v2.0): Azure'
 description: 'Informationen zu Microsoft Identity Platform (v2.0): Endpunkt und Plattform'
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231080"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833051"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Übersicht über Microsoft Identity Platform (v2.0)
 
-Microsoft Identity Platform ist eine Weiterentwicklung des Azure AD-Identitätsdiensts (Azure Active Directory) und der zugehörigen Entwicklerplattform. Sie ermöglicht Entwicklern das Erstellen von Anwendungen, mit denen alle Microsoft-Identitäten angemeldet werden, sowie das Abrufen von Token zum Aufrufen von Microsoft-APIs, etwa Microsoft Graph oder von Entwicklern erstellte APIs. Microsoft Identity Platform umfasst folgende Komponenten:
+Microsoft Identity Platform ist eine Weiterentwicklung der Azure AD-Entwicklerplattform (Azure Active Directory). Sie ermöglicht Entwicklern das Erstellen von Anwendungen, mit denen alle Microsoft-Identitäten angemeldet werden, sowie das Abrufen von Token zum Aufrufen von Microsoft-APIs, etwa Microsoft Graph oder von Entwicklern erstellte APIs. Microsoft Identity Platform umfasst folgende Komponenten:
 
 - **Standardkonformer OAuth 2.0- und OpenID Connect-Authentifizierungsdienst**, der Entwicklern die Authentifizierung einer beliebigen Microsoft-Identität ermöglicht, einschließlich:
   - Geschäfts-, Schul- oder Unikonten (über Azure AD bereitgestellt)
@@ -79,4 +79,4 @@ Wenn Sie zum Starten Ihrer App in einer **Produktionsumgebung** bereit sind, bea
 
 ## <a name="learn-more"></a>Weitere Informationen
 
-Wenn Sie die Entwicklung einer kundenorientierte Anwendung planen, die Social Media-Identitäten und lokale Identitäten anmeldet, werfen Sie einen Blick auf die [Azure AD B2C-Übersicht](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+Wenn Sie die Erstellung einer kundenorientierten Anwendung planen, die Social Media-Identitäten und lokale Identitäten anmeldet, lesen Sie die [Azure AD B2C-Übersicht](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

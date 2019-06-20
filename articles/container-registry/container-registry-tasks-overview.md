@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789108"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977201"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatisieren von Betriebssystem- und Frameworkpatches mit ACR Tasks
 
@@ -94,6 +94,16 @@ Beispielsweise können Sie eine mehrstufige Aufgaben erstellen, die die folgende
 Mit mehrstufigen Aufgaben können Sie das Erstellen, Ausführen und Testen eines Images in mehrere individuelle Schritte aufteilen, wobei Abhängigkeiten zwischen den Schritten unterstützt werden. Mit mehrstufigen Aufgaben in ACR Tasks erhalten Sie eine bessere Kontrolle über die Workflows zur Erstellung von Images, Tests, Betriebssystem- und Frameworkpatches.
 
 Weitere Informationen zu mehrstufigen Aufgaben finden Sie unter [Ausführen von mehrstufigen Build-, Test- und Patchaufgaben in ACR Tasks](container-registry-tasks-multi-step.md).
+
+## <a name="view-task-logs"></a>Anzeigen von Taskprotokollen
+
+Bei jeder Aufgabenausführung wird eine Protokollausgabe erzeugt, die Sie überprüfen können, um festzustellen, ob die Aufgabenschritte erfolgreich ausgeführt wurden. Wenn Sie den Befehl [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run) oder [az acr task run](/cli/azure/acr/task#az-acr-task-run) verwenden, um die Aufgabe auszulösen, wird die Protokollausgabe für die Ausführung der Aufgabe an die Konsole gestreamt und auch für einen späteren Abruf gespeichert. Zeigen Sie die Protokolle für eine Aufgabenausführung im Azure-Portal an, oder verwenden Sie den Befehl [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
+
+Ab Juli 2019 werden Daten und Protokolle für Aufgabenausführungen standardmäßig 30 Tage in einer Registrierung aufbewahrt und danach automatisch bereinigt. Wenn Sie die Daten für eine Aufgabenausführung archivieren möchten, aktivieren Sie die Archivierung mit dem Befehl [az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run). Das folgende Beispiel aktiviert die Archivierung der Aufgabenausführung *cf11* in der Registrierung *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>Nächste Schritte
 

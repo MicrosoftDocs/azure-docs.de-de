@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/26/2017
+ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 2fcd5f9e68d7f8bfa15cd596407c78af7fc8976b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 2a5cfc417f75e5bb08e416b3243903badcf572e1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587258"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480487"
 ---
 # <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Schnellstart: Erstellen einer Web-App mit der API für MongoDB von Azure Cosmos DB und dem Java SDK
 
@@ -33,7 +33,7 @@ In diesem Schnellstart wird veranschaulicht, wie ein Cosmos-Konto mit der [API f
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Bevor Sie dieses Beispiel ausführen können, müssen folgende Voraussetzungen erfüllt sein:
-* JDK 1.7 und höher (Führen Sie `apt-get install default-jdk` aus, wenn Sie nicht über JDK verfügen)
+* [Installieren des JDK für Azure und Azure Stack, JDK-Version 8] (https://aka.ms/azure-jdks)
 * Maven (Führen Sie `apt-get install maven` aus, wenn Sie nicht über Maven verfügen)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

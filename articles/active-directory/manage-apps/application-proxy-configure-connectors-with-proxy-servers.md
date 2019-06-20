@@ -2,22 +2,22 @@
 title: Verwenden von vorhandenen lokalen Proxyservern und Azure AD | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie vorhandene lokale Proxyserver verwenden.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4cb1f6cc3da5230f510f57a56c7297341f82f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175573"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015477"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Verwenden von vorhandenen lokalen Proxyservern
 
@@ -112,7 +112,7 @@ Lassen Sie den Zugriff auf die folgenden URLs zu:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure verwendet diese URLs, um Zertifikate zu überprüfen. |
 | login.windows.net<br>login.microsoftonline.com | Der Connector verwendet diese URLs während der Registrierung. |
 
-Wenn Ihre Firewall oder Ihr Proxy DNS-Whitelisting zulässt, können Sie Verbindungen mit „\*.msappproxy.net“ und „\*.servicebus.windows.net“ per Whitelist verwalten. Andernfalls müssen Sie den Zugriff auf die [IP-Adressbereiche für das Azure-Rechenzentrum](https://www.microsoft.com/download/details.aspx?id=41653) zulassen. Die IP-Adressbereiche werden wöchentlich aktualisiert.
+Wenn für Ihre Firewall oder Ihren Proxy die Konfiguration von DNS-Zulassungslisten möglich ist, können Sie Verbindungen mit „\*.msappproxy.net“ und „\*.servicebus.windows.net“ zulassen. Andernfalls müssen Sie den Zugriff auf die [IP-Adressbereiche für das Azure-Rechenzentrum](https://www.microsoft.com/download/details.aspx?id=41653) zulassen. Die IP-Adressbereiche werden wöchentlich aktualisiert.
 
 
 Wenn Sie die Konnektivität nicht über den FQDN zulassen können und stattdessen IP-Adressbereiche angeben müssen, verwenden Sie diese Optionen:

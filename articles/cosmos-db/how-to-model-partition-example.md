@@ -4,14 +4,14 @@ description: Erfahren Sie anhand eines praktischen Beispiels, wie Sie Daten mith
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 3/27/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58919893"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240998"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Modellieren und Partitionieren von Daten in Azure Cosmos DB anhand eines praktischen Beispiels
 
@@ -42,16 +42,16 @@ Um die Verfolgung des Prozesses zu erleichtern, kategorisieren wir die verschied
 
 Hier sehen Sie die Liste der Anforderungen, die die Plattform verfügbar machen muss:
 
-- **[C1]**: Einen Benutzer erstellen/bearbeiten
-- **[Q1]**: Einen Benutzer abrufen
-- **[C2]**: Einen Beitrag erstellen/bearbeiten
-- **[Q2]**: Einen Beitrag abrufen
-- **[Q3]**: Beiträge eines Benutzers in Kurzform auflisten
-- **[C3]**: Einen Kommentar erstellen
-- **[Q4]**: Kommentare für einen Beitrag auflisten
-- **[C4]**: Einen Beitrag mit „Gefällt mir“ markieren
-- **[Q5]**: „Gefällt mir“-Markierungen eines Beitrags auflisten
-- **[Q6]**: Die *x* neuesten Beiträge in Kurzform auflisten (Feed)
+- **[C1]** : Einen Benutzer erstellen/bearbeiten
+- **[Q1]** : Einen Benutzer abrufen
+- **[C2]** : Einen Beitrag erstellen/bearbeiten
+- **[Q2]** : Einen Beitrag abrufen
+- **[Q3]** : Beiträge eines Benutzers in Kurzform auflisten
+- **[C3]** : Einen Kommentar erstellen
+- **[Q4]** : Kommentare für einen Beitrag auflisten
+- **[C4]** : Einen Beitrag mit „Gefällt mir“ markieren
+- **[Q5]** : „Gefällt mir“-Markierungen eines Beitrags auflisten
+- **[Q6]** : Die *x* neuesten Beiträge in Kurzform auflisten (Feed)
 
 Zu diesem Zeitpunkt haben wir uns noch keine Gedanken über die Details gemacht, die die einzelnen Entitäten (Benutzer, Beitrag usw.) enthalten. In der Regel ist dies einer der ersten Schritte beim Entwerfen eines relationalen Speichers, da wir ermitteln müssen, welchen Tabellen, Spalten, Fremdschlüsseln usw. diese Entitäten entsprechen. Bei einer Dokumentdatenbank, die bei Schreibvorgängen kein Schema erzwingt, ist dies weniger problematisch.
 
@@ -282,7 +282,7 @@ Außerdem ändern wir die Kommentar- und „Gefällt mir“-Markierungselemente
 
 Wir möchten erreichen, dass bei jeder Hinzufügung eines Kommentars oder einer „Gefällt mir“-Markierung die Anzahl `commentCount` oder `likeCount` im zugehörigen Beitrag erhöht wird. Da unser Container `posts` nach `postId` partitioniert ist, befinden sich das neue Element (Kommentar oder „Gefällt mir“-Markierung) und der dazugehörige Beitrag in der gleichen logischen Partition. Wir können daher eine [gespeicherte Prozedur](stored-procedures-triggers-udfs.md) zum Ausführen des Vorgangs verwenden.
 
-Anstatt lediglich ein neues Element im Container `posts` hinzuzufügen, rufen wir jetzt beim Erstellen eines Kommentars (**[C3]**) die folgende gespeicherte Prozedur für den Container auf:
+Anstatt lediglich ein neues Element im Container `posts` hinzuzufügen, rufen wir jetzt beim Erstellen eines Kommentars ( **[C3]** ) die folgende gespeicherte Prozedur für den Container auf:
 
 ```javascript
 function createComment(postId, comment) {
@@ -396,7 +396,7 @@ Beim Auflisten der „Gefällt mir“-Markierungen haben wir die gleiche Situat
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>Version 3: Sicherstellen der Skalierbarkeit aller Anforderungen
 
-Wenn wir uns die Verbesserungen der Gesamtleistung ansehen, fällt auf, dass wir zwei Anforderungen nicht vollständig optimiert haben: **[Q3]** und **[Q6]**. Dies sind die Anforderungen mit Abfragen, die nicht nach dem Partitionsschlüssel der jeweiligen Container filtern.
+Wenn wir uns die Verbesserungen der Gesamtleistung ansehen, fällt auf, dass wir zwei Anforderungen nicht vollständig optimiert haben: **[Q3]** und **[Q6]** . Dies sind die Anforderungen mit Abfragen, die nicht nach dem Partitionsschlüssel der jeweiligen Container filtern.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3]: Beiträge eines Benutzers in Kurzform auflisten
 

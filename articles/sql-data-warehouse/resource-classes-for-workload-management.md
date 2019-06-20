@@ -1,5 +1,5 @@
 ---
-title: Ressourcenklassen für die Workloadverwaltung – Azure SQL Data Warehouse | Microsoft-Dokumentation
+title: Ressourcenklassen für die Workloadverwaltung in Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Enthält eine Anleitung für die Verwendung von Ressourcenklassen zum Verwalten der Parallelität und von Computeressourcen für Abfragen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/15/2019
+ms.date: 05/22/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520053"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244522"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Workloadverwaltung mit Ressourcenklassen in Azure SQL Data Warehouse
 
@@ -79,11 +79,12 @@ Die dynamischen Ressourcenklassen werden mit diesen vordefinierten Datenbankroll
 
 Bei näherer Betrachtung der Details dynamischer Gen1-Ressourcenklassen fallen einige Details auf, die das Verständnis des Verhaltens zusätzlich verkomplizieren:
 
-- Die smallrc-Ressourcenklasse arbeitet mit einem festen Speichermodell wie eine statische Ressourcenklasse.  smallrc-Abfragen erhalten dynamisch nicht mehr Arbeitsspeicher, wenn der Servicelevel erhöht wird.
+**In Gen 1**
+- Die smallrc-Ressourcenklasse arbeitet mit einem festen Speichermodell wie eine statische Ressourcenklasse.  smallrc-Abfragen erhalten dynamisch nicht mehr Arbeitsspeicher, wenn der Servicelevel erhöht wird. 
 - Mit Änderung des Servicelevels kann die verfügbare Abfrageparallelität steigen oder sinken.
 - Die Servicelevelskalierung bringt keine proportionale Änderung der Arbeitsspeichermenge mit sich, die denselben Ressourcenklassen zugewiesen ist.
 
-**Nur bei Gen2** adressieren dynamische Ressourcenklassen wirklich dynamisch die oben genannten Punkte.  Die neue Regel lautet 3-10-22-70 für prozentuale Speicherbelegungen für kleine, mittlere, große und besonders große Ressourcenklassen **unabhängig vom Servicelevel**.  Die folgende Tabelle enthält die konsolidierten Details der Speicherbelegungsprozentsätze und die minimale Anzahl gleichzeitig ausgeführter Abfragen – unabhängig vom Servicelevel.
+**In Gen2** adressieren dynamische Ressourcenklassen wirklich dynamisch die oben genannten Punkte.  Die neue Regel lautet 3-10-22-70 für prozentuale Speicherbelegungen für kleine, mittlere, große und besonders große Ressourcenklassen **unabhängig vom Servicelevel**.  Die folgende Tabelle enthält die konsolidierten Details der Speicherbelegungsprozentsätze und die minimale Anzahl gleichzeitig ausgeführter Abfragen – unabhängig vom Servicelevel.
 
 | Ressourcenklasse | Arbeitsspeicher in Prozent | Minimale gleichzeitige Abfragen |
 |:--------------:|:-----------------:|:----------------------:|

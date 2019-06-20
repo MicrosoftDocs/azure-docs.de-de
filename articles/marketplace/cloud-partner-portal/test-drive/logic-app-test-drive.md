@@ -1,25 +1,18 @@
 ---
-title: Testversion für Logik-Apps | Microsoft-Dokumentation
+title: Testversion für Logik-Apps | Azure Marketplace
 description: In diesem Artikel wird erläutert, wie eine Testversion erstellt wird, die mit einer Dynamics AX/CRM-Instanz oder einer anderen Ressource über Azure hinaus verbunden wird.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.author: pabutler
+ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64940002"
 ---
 <a name="logic-app-test-drive"></a>Testversion für Logik-Apps
 ====================
@@ -68,7 +61,7 @@ Im nächsten Abschnitt konfigurieren Sie die Testversion für die Logik-App und 
 
 ![Technische Konfiguration der Testversion](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Region:** *[Pflichtfeld]* Hier wählen Sie die Region aus, in der die Ressourcen der Testversion für die Logik-App bereitgestellt werden.
+- **Region:**  -  *[Pflichtfeld]* Hier wählen Sie die Region aus, in der die Ressourcen der Testversion für die Logik-App bereitgestellt werden.
 
     *Hinweis:* Wenn die Logik-App benutzerdefinierte Ressourcen umfasst, die in einer Region gespeichert sind, müssen Sie diese Region hier auswählen. Dazu empfiehlt es sich, **die Logik-App lokal in Ihrem Azure-Abonnement im Portal vollständig bereitzustellen und zu überprüfen, ob sie ausgeführt wird**, bevor Sie sie hier eingeben.
 
@@ -84,7 +77,7 @@ Im nächsten Abschnitt konfigurieren Sie die Testversion für die Logik-App und 
 
 - **Deprovision Logic App Name** (Logik-App-Name für Aufhebung der Bereitstellung): *[Pflichtfeld]* Geben Sie den Logik-App-Namen für die Aufhebung der Bereitstellung aller in der Testversion erstellten Ressourcen ein. Stellen Sie sicher, dass diese Datei in der oben angegebenen Ressourcengruppe gespeichert wird.
 
-- **Zugriffsinformationen:** *[Pflichtfeld]* Nachdem ein Kunde seine Testversion erhalten hat, erhält er auch die Zugriffsinformationen. In diesen Anweisungen können die nützlichen Ausgabeparameter aus der Resource Manager-Vorlage für die Testversion angegeben werden. Verwenden Sie zum Einfügen von Ausgabeparametern doppelte geschweifte Klammern (z.B. **{{Ausgabename}}**). So werden sie am Speicherort korrekt eingefügt. (Zur Darstellung im Front-End wird die HTML-Formatierung von Zeichenfolgen empfohlen.)
+- **Zugriffsinformationen:** *[Pflichtfeld]* Nachdem ein Kunde seine Testversion erhalten hat, erhält er auch die Zugriffsinformationen. In diesen Anweisungen können die nützlichen Ausgabeparameter aus der Resource Manager-Vorlage für die Testversion angegeben werden. Verwenden Sie zum Einfügen von Ausgabeparametern doppelte geschweifte Klammern (z.B. **{{Ausgabename}}** ). So werden sie am Speicherort korrekt eingefügt. (Zur Darstellung im Front-End wird die HTML-Formatierung von Zeichenfolgen empfohlen.)
 
 ### <a name="test-drive-deployment-subscription-details"></a>Abonnementdetails für Bereitstellung der Testversion
 
@@ -126,7 +119,7 @@ Klicken Sie auf Speichern. Im letzten Schritt wird die Anwendungs-ID für diese 
 Wenn die Anwendung zum Durchführen der Bereitstellung im Abonnement verwendet wird, muss die Anwendung im Abonnement als Mitwirkender hinzugefügt werden. Dazu müssen folgende Schritte ausgeführt werden:
 
 1. Navigieren Sie zum Blatt „Abonnements“, und wählen Sie das entsprechende Abonnement aus, das nur für die Testversion verwendet wird.
-1. Klicken Sie auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 1. Klicken Sie auf die Registerkarte **Rollenzuweisungen**.  ![Azure Active Directory, Hinzufügen eines neuen Zugriffssteuerungsprinzipals](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Klicken Sie auf **Rollenzuweisung hinzufügen**.
 1. Legen Sie die Rolle als **Mitwirkender** fest.

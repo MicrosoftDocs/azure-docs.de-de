@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129632"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Senden von Gastbetriebssystemmetriken an den Metrikspeicher von Azure Monitor unter Verwendung einer Azure Resource Manager-Vorlage für eine VM-Skalierungsgruppe von Windows
@@ -232,7 +232,7 @@ Speichern und schließen Sie beide Dateien.
 ## <a name="deploy-the-resource-manager-template"></a>Bereitstellen der Resource Manager-Vorlage 
 
 > [!NOTE]  
-> Sie müssen die Azure-Diagnoseerweiterung Version 1.5 oder höher ausführen **und** die **autoUpgradeMinorVersion:**-Eigenschaft in Ihrer Resource Manager-Vorlage auf **TRUE** festgelegt haben. Azure lädt dann die richtige Erweiterung, wenn die VM gestartet wird. Wenn diese Einstellungen in Ihrer Vorlage nicht vorhanden sind, ändern Sie sie, und stellen Sie die Vorlage erneut bereit. 
+> Sie müssen die Azure-Diagnoseerweiterung Version 1.5 oder höher ausführen **und** die **autoUpgradeMinorVersion:** -Eigenschaft in Ihrer Resource Manager-Vorlage auf **TRUE** festgelegt haben. Azure lädt dann die richtige Erweiterung, wenn die VM gestartet wird. Wenn diese Einstellungen in Ihrer Vorlage nicht vorhanden sind, ändern Sie sie, und stellen Sie die Vorlage erneut bereit. 
 
 
 Für die Bereitstellung der Resource Manager-Vorlage wird Azure PowerShell verwendet:  

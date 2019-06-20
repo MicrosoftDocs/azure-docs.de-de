@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
 ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65463996"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportieren von Daten in Azure IoT Central
@@ -83,7 +83,7 @@ Nachdem Sie nun ein Event Hubs-/Service Bus-Ziel für den Export von Daten haben
 
     ![Erstellen eines neun Event Hubs für kontinuierlichen Datenexport](media/howto-export-data/export_create1.png)
 
-5. (Optional) Wenn Sie **Verbindungszeichenfolge eingeben** ausgewählt haben, wird ein neues Feld angezeigt, in das Sie Ihre Verbindungszeichenfolge einfügen können. Um die Verbindungszeichenfolge für 
+5. (Optional) Wenn Sie **Verbindungszeichenfolge eingeben** ausgewählt haben, wird ein neues Feld angezeigt, in das Sie Ihre Verbindungszeichenfolge einfügen können. Um die Verbindungszeichenfolge für
     - Ihren Event Hubs oder Service Bus abzurufen, wechseln Sie im Azure-Portal zu dem Namespace.
         - Wählen Sie unter **Einstellungen** die Option **Freigegebene Zugriffsrichtlinien** aus.
         - Wählen Sie die Standardrichtlinie **RootManageSharedAccessKey** aus, oder erstellen Sie eine neue.

@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse-Klassifizierung | Microsoft-Dokumentation
+title: Azure SQL Data Warehouse-Klassifizierung | Microsoft-Dokumentation
 description: Leitfaden zur Verwendung der Klassifizierung, um Parallelität, Priorität und Computeressourcen für Abfragen in Azure SQL Data Warehouse zu verwalten
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3edae23183896651efcbf7f867204a618a10c85d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154206"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236903"
 ---
-# <a name="sql-data-warehouse-workload-classification"></a>SQL Data Warehouse-Workloadklassifizierung
+# <a name="azure-sql-data-warehouse-workload-classification"></a>Azure SQL Data Warehouse-Workloadklassifizierung
 
 In diesem Artikel wird der SQL Data Warehouse-Workloadklassifizierungsprozess beschrieben, in dem eingehenden Anforderungen eine Ressourcenklasse und eine Priorität zugewiesen wird.
 
@@ -81,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Die ersten Schritte für das Erstellen einer Klassifizierung werden unter [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql) beschrieben.  Weitere Informationen zu Workloadklassifizierungen und Prioritäten in SQL Data Warehouse finden Sie unter [Create a workload classifier (Erstellen einer Workloadklassifizierung)](quickstart-create-a-workload-classifier-tsql.md) und [SQL Data Warehouse-Priorität](sql-data-warehouse-workload-importance.md). Sie können die Abfragen und die zugewiesene Wichtigkeit unter [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) anzeigen.
+- Weitere Informationen zum Erstellen einer Klassifizierung finden Sie unter [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Beachten Sie für die Erstellung eines Workloadklassifizierers die folgende Schnellstartanleitung: [Erstellen eines Workloadklassifizierers](quickstart-create-a-workload-classifier-tsql.md).
+- Lesen Sie die Anleitungsartikel zum [Konfigurieren der Workloadpriorität](sql-data-warehouse-how-to-configure-workload-importance.md) und zum [Verwalten und Überwachen der Workloadpriorität](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Sie können die Abfragen und die zugewiesene Wichtigkeit unter [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) anzeigen.

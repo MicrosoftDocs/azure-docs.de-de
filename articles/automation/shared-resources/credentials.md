@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6465fd069e73a571e0671d528f5d0b4da4602dc7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: bb34c3f04302e6a2b5cc307b98bafe93e09fcf2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66734708"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Anmeldeinformationsobjekte in Azure Automation
 
@@ -47,11 +47,11 @@ Die Cmdlets in der folgenden Tabelle werden für AzureRM zum Erstellen und Verwa
 | [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Entfernt ein Anmeldeinformationsobjekt. |
 | [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Legt die Eigenschaften für ein vorhandenes Anmeldeinformationsobjekt fest. |
 
-## <a name="activities"></a>Aktivitäten
+## <a name="activities"></a>activities
 
 Die Aktivitäten in der folgenden Tabelle werden für den Zugriff auf Anmeldeinformationen in einem Runbook und DSC-Konfigurationen verwendet.
 
-| Aktivitäten | BESCHREIBUNG |
+| activities | BESCHREIBUNG |
 |:--- |:--- |
 | Get-AutomationPSCredential |Ruft Anmeldeinformationen zur Verwendung in einem Runbook oder einer DSC-Konfiguration ab. Gibt ein [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) -Objekt zurück. |
 
@@ -112,7 +112,7 @@ $password = $myCredential.GetNetworkCredential().Password
 Sie können Anmeldeinformationen auch zum Authentifizieren mit [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) in Azure verwenden. In den meisten Fällen sollten Sie ein [ausführendes Konto](../manage-runas-account.md) verwenden und mit [Get-AutomationConnection](../automation-connections.md) abrufen.
 
 ```azurepowershell
-$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password

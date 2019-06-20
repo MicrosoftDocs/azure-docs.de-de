@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9368abe7d3b6ad6cf6e86b503dca4fca4f18739c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66388461"
 ---
 # <a name="page-through-the-images-results"></a>Durchblättern der Ergebnisse der Bildersuche
 
-Wenn Sie die Bildersuche-API aufrufen, gibt Bing eine Liste mit Ergebnissen zurück. Bei der Liste handelt es sich um eine Teilmenge der gesamten Ergebnisse, die für die Abfrage relevant sind. Um die geschätzte Gesamtzahl der verfügbaren Ergebnisse aufzurufen, greifen Sie auf das Feld [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) des Antwortobjekts zu.  
+Wenn Sie die Bildersuche-API aufrufen, gibt Bing eine Liste mit Ergebnissen zurück. Bei der Liste handelt es sich um eine Teilmenge der gesamten Ergebnisse, die für die Abfrage relevant sind. Um die geschätzte Gesamtzahl der verfügbaren Ergebnisse aufzurufen, greifen Sie auf das Feld [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#totalestimatedmatches) des Antwortobjekts zu.  
 
 Das folgende Beispiel zeigt das `totalEstimatedMatches`-Feld mit einer Bilderantwort.  
 
@@ -34,7 +34,7 @@ Das folgende Beispiel zeigt das `totalEstimatedMatches`-Feld mit einer Bilderant
 }  
 ```  
 
-Wenn Sie die verfügbaren Bilder durchblättern möchten, verwenden Sie die Abfrageparameter [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#count) und [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset).  
+Wenn Sie die verfügbaren Bilder durchblättern möchten, verwenden Sie die Abfrageparameter [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#count) und [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset).  
 
 Der `count`-Parameter gibt die Anzahl der Ergebnisse an, die in der Antwort zurückgegeben werden sollen. Die maximale Anzahl an Ergebnissen, die Sie in der Antwort anfordern können, ist 150. Der Standardwert ist 35. Die tatsächlich gelieferte Anzahl kann geringer sein als angefordert.
 
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 Sie gehen vielleicht davon aus, dass Sie, wenn Sie 35 Bilder gleichzeitig durchblättern, den Abfrageparameter `offset` bei Ihrer ersten Anforderung auf 0 setzen und `offset` dann bei jeder weiteren Anfragen um 35 erhöhen würden. Einige der Ergebnisse in der folgenden Antwort können jedoch Duplikate der vorherigen Antwort sein. Beispielsweise können die ersten beiden Bilder in der Antwort die gleichen sein wie die letzten beiden Bilder der vorherigen Antwort.
 
-Um doppelte Ergebnisse zu eliminieren, verwenden Sie das [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset)-Feld des `Images`-Objekts. Das `nextOffset`-Feld gibt an, welchen `offset` Sie für die nächste Anforderung verwenden sollen. Wenn Sie beispielsweise 30 Bilder gleichzeitig durchblättern möchten, setzen Sie `count` in Ihrer ersten Anforderung auf 30 und `offset` auf 0. In Ihrer nächsten Anforderung legen Sie `count` auf 30 und `offset` auf den Wert von `nextOffset` aus der vorherigen Antwort fest. Für die Rückwärtspaginierung wird empfohlen, einen Stapel mit den vorherigen Offsets beizubehalten und die und letzten per Pop zu entfernen.
+Um doppelte Ergebnisse zu eliminieren, verwenden Sie das [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#nextoffset)-Feld des `Images`-Objekts. Das `nextOffset`-Feld gibt an, welchen `offset` Sie für die nächste Anforderung verwenden sollen. Wenn Sie beispielsweise 30 Bilder gleichzeitig durchblättern möchten, setzen Sie `count` in Ihrer ersten Anforderung auf 30 und `offset` auf 0. In Ihrer nächsten Anforderung legen Sie `count` auf 30 und `offset` auf den Wert von `nextOffset` aus der vorherigen Antwort fest. Für die Rückwärtspaginierung wird empfohlen, einen Stapel mit den vorherigen Offsets beizubehalten und die und letzten per Pop zu entfernen.
 
 > [!NOTE]
 > Das Durchblättern gilt nur für die Bildsuche (/images/search) und nicht für Bildeinblicke oder beliebte Bilder (/images/trending).

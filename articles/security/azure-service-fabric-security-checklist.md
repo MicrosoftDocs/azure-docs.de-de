@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 06a1903e5e27d748310c1b7846105b8069b73437
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60611540"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Checkliste für die Azure Service Fabric-Sicherheit
 Dieser Artikel enthält eine einfach zu verwendende Checkliste, die Sie zum Sichern Ihrer Azure Service Fabric-Umgebung nutzen können.

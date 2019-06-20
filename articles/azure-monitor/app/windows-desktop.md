@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077605"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255722"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Überwachen der Nutzung und Leistung von klassischen Windows-Desktop-Apps
 
@@ -37,7 +37,7 @@ Lokal, in Azure oder in anderen Clouds gehostete Anwendungen können Application
    
     Wenn Sie die Datei „ApplicationInsights.config“ verwenden, stellen Sie sicher, dass ihre Eigenschaften im Projektmappen-Explorer auf **Buildvorgang = Inhalt, In Ausgabeverzeichnis kopieren = Kopieren**festgelegt sind.
 5. [Verwenden Sie die API](../../azure-monitor/app/api-custom-events-metrics.md) , um Telemetriedaten zu senden.
-6. Führen Sie die App aus, und schauen Sie sich die Telemetriedaten in der Ressource an, die Sie im Azure-Portal erstellt haben.
+6. Führen Sie die App aus, und sehen Sie sich die Telemetriedaten in der Ressource an, die Sie im Azure-Portal erstellt haben.
 
 ## <a name="telemetry"></a>Beispielcode
 ```csharp
@@ -77,7 +77,7 @@ Lokal, in Azure oder in anderen Clouds gehostete Anwendungen können Application
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Erstellen eines Dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+* [Erstellen eines Dashboards](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnosesuche](../../azure-monitor/app/diagnostic-search.md)
 * [Untersuchen von Metriken](../../azure-monitor/app/metrics-explorer.md)
 * [Schreiben von Analytics-Abfragen](../../azure-monitor/app/analytics.md)

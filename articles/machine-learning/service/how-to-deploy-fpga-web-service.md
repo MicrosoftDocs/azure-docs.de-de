@@ -1,7 +1,7 @@
 ---
 title: Bereitstellen von Modellen auf FPGAs
 titleSuffix: Azure Machine Learning service
-description: Erfahren Sie, wie ein Webdienst mit einem Modell bereitgestellt wird, das auf einem FPGA mit Azure Machine Learning Service für extrem geringe Latenzzeiten ausgeführt wird.
+description: Erfahren Sie, wie ein Webdienst mit einem Modell bereitgestellt wird, das auf einem FPGA mit Azure Machine Learning Service für Rückschlüsse mit extrem geringen Latenzzeiten ausgeführt wird.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 511333342371e18f75b48b60486705571353ee13
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149611"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735067"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Bereitstellen eines Modells als Webdienst auf einem FPGA mit Azure Machine Learning Service
 
-Sie können ein Modell als Webdienst auf [FPGAs (Field Programmable Gate Arrays)](concept-accelerate-with-fpgas.md) mit hardwarebeschleunigten Azure Machine Learning-Modellen bereitstellen. FPGAs bieten extrem geringe Latenzstörungen, sogar mit einer einzelnen Batchgröße.
+Sie können ein Modell als Webdienst auf [FPGAs (Field Programmable Gate Arrays)](concept-accelerate-with-fpgas.md) mit hardwarebeschleunigten Azure Machine Learning-Modellen bereitstellen. Verwenden von FPGAs bietet Rückschlüsse mit extrem geringen Latenzzeiten, sogar mit einer einzigen Batchgröße. Rückschlüsse oder Modellbewertungen bilden die Phase, in der das bereitgestellte Modell für die Vorhersage verwendet wird, meist für Produktionsdaten.
 
 Diese Modelle sind derzeit verfügbar:
   - ResNet 50
@@ -162,7 +162,7 @@ print(output_tensors)
 > [!IMPORTANT]
 > Speichern Sie die Eingabe- und Ausgabetensoren. Sie benötigen sie für Modellkonvertierungs- und Modellrückschlussanforderungen.
 
-Die verfügbaren Modelle und die entsprechenden standardmäßigen Klassifizierungsausgabetensoren sind nachfolgend aufgeführt. Haben Sie die Standardklassifizierung verwendet, nutzen Sie diese für Rückschlüsse.
+Die verfügbaren Modelle und die entsprechenden standardmäßigen Klassifizierungsausgabetensoren sind nachfolgend aufgeführt. Diese verwenden Sie für Rückschlüsse, wenn Sie die Standardklassifizierung verwendet haben.
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
@@ -304,7 +304,7 @@ Wenn Sie TensorFlow Serving verwenden möchten, können Sie [einen Beispielclien
 
 ```python
 # Using the grpc client in Azure ML Accelerated Models SDK package
-from azureml.accel.client import PredictionClient
+from azureml.accel import PredictionClient
 
 address = aks_service.scoring_uri
 ssl_enabled = address.startswith("https")

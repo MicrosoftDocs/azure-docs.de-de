@@ -1,25 +1,18 @@
 ---
-title: 'Erstellen eines Power BI-App-Angebots: Azure Marketplace | Microsoft-Dokumentation'
+title: Erstellen eines Power BI-App-Angebots | Azure Marketplace
 description: Informationen zum Erstellen eines Power BI-App-Angebots im Marketplace von Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 6a4f7daa337618278c3652fad3053c20557a9e28
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.author: pabutler
+ms.openlocfilehash: 702be34a5be69c050b809713a5742c2189892a27
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943321"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Erstellen eines Power BI-App-Angebots
 

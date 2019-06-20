@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442204"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64713813"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Aufrufen von HTTP- oder HTTPS-Endpunkten mit Azure Logic Apps
 
-Mit Azure Logic Apps und dem HTTP-Connector (Hypertext Transfer Protocol) können Sie durch Erstellung von Logik-Apps Workflows automatisieren, die mit HTTP- oder HTTPS-Endpunkten kommunizieren. Sie können beispielsweise den Dienstendpunkt für Ihre Website überwachen. Wenn ein Ereignis (beispielsweise ein Ausfall Ihrer Website) an diesem Endpunkt auftritt, löst das Ereignis den Workflow Ihrer Logik-App aus und führt die angegebenen Aktionen aus. 
+Mit Azure Logic Apps und dem HTTP-Connector (Hypertext Transfer Protocol) können Sie durch Erstellung von Logik-Apps Workflows automatisieren, die mit HTTP- oder HTTPS-Endpunkten kommunizieren. Sie können beispielsweise den Dienstendpunkt für Ihre Website überwachen. Wenn ein Ereignis (beispielsweise ein Ausfall Ihrer Website) an diesem Endpunkt auftritt, löst das Ereignis den Workflow Ihrer Logik-App aus und führt die angegebenen Aktionen aus.
 
 Sie können den HTTP-Trigger als ersten Schritt in Ihrem Workflow verwenden, um einen Endpunkt gemäß einem Zeitplan zu überprüfen oder *abzurufen*. Bei jeder Überprüfung sendet der Trigger einen Aufruf oder eine *Anforderung* an den Endpunkt. Die Antwort des Endpunkts bestimmt, ob der Workflow der Logik-App ausgeführt wird. Der Trigger übergibt alle Inhalte aus der Antwort an die Aktionen in Ihrer Logik-App. 
 
-Sie können die HTTP-Aktion wie jeden anderen Schritt in Ihrem Workflow zum Abrufen des Endpunkts zum gewünschten Zeitpunkt verwenden. Die Antwort des Endpunkts bestimmt, wie die restlichen Aktionen des Workflows ausgeführt werden.
+Sie können die HTTP-Aktion wie jeden anderen Schritt in Ihrem Workflow zum Abrufen des Endpunkts zum gewünschten Zeitpunkt verwenden. Die Antwort des Endpunkts bestimmt, wie die restlichen Aktionen des Workflows ausgeführt werden. 
+
+Basierend auf den Fähigkeiten des Zielendpunkts unterstützt dieser Connector die TLS-Versionen (Transport Layer Security ) 1.0, 1.1 und 1.2. Logik-Apps handeln mit dem Endpunkt die Verwendung der höchstmöglich unterstützten Version aus. Wenn der Endpunkt also z. B. 1.2 unterstützt, verwendet der Connector zuerst 1.2. Andernfalls verwendet der Connector die nächsthöhere unterstützte Version.
 
 Falls Sie noch nicht mit Logik-Apps vertraut sind, finden Sie weitere Informationen unter [Was ist Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Ein Azure-Abonnement. Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich <a href="https://azure.microsoft.com/free/" target="_blank">für ein kostenloses Azure-Konto registrieren</a>. 
+* Ein Azure-Abonnement. Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/). 
 
 * Die URL für den Zielendpunkt, den Sie aufrufen möchten 
 
@@ -69,7 +71,7 @@ Falls Sie noch nicht mit Logik-Apps vertraut sind, finden Sie weitere Informatio
    ![Auswählen der HTTP-Aktion](./media/connectors-native-http/select-http-action.png)
 
    Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
 
 1. Geben Sie die [Parameter und Werte der HTTP-Aktion](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) ein, die Sie in den Aufruf des Zielendpunkts aufnehmen möchten. 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure-Sicherheitsfeatures, die für virtuelle Azure-Computer verwendet werden | Microsoft-Dokumentation
+title: Sicherheitsfeatures, die für virtuelle Azure-Computer verwendet werden – Azure-Sicherheit | Microsoft-Dokumentation
 description: Dieser Artikel bietet eine Übersicht über die wichtigsten Sicherheitsfunktionen von Azure, die mit Azure Virtual Machines verwendet werden können.
 services: security
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 15ac70891f23d95709d1998bca1ce29ad735cb87
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109077"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64872027"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Virtuelle Azure-Computer – Sicherheitsübersicht
+Dieser Artikel bietet eine Übersicht über die wichtigsten Sicherheitsfunktionen von Azure, die mit virtuellen Computern verwendet werden können.
 
 Mit Azure Virtual Machines können Sie sehr flexibel eine Vielzahl unterschiedlicher Computinglösungen bereitstellen. Der Dienst unterstützt Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP und Azure BizTalk Services. Daher können Sie jede Workload und jede Sprache für nahezu alle Betriebssysteme bereitstellen.
 
@@ -33,9 +34,7 @@ Mit Azure können Sie richtlinienkonforme Lösungen mit erweiterter Sicherheit e
 * Ihre sensiblen Daten verschlüsseln.
 * Netzwerkdatenverkehr absichern.
 * Bedrohungen erkennen.
-* Konformitätsvorgaben einhalten.
-
-Das Ziel dieses Artikels ist, eine Übersicht über die wichtigsten Azure-Sicherheitsfunktionen zu bieten, die mit virtuellen Computern verwendet werden können. Links zu Artikeln bieten weitere Informationen zu den einzelnen Features.  
+* Konformitätsvorgaben einhalten.  
 
 ## <a name="antimalware"></a>Antimalware
 
@@ -77,14 +76,14 @@ Für einen noch leistungsfähigeren Schutz verwenden Sie [Windows Defender Advan
 * [Verwaltung und APIs](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Weitere Informationen: 
+Weitere Informationen:
 
 * [Erste Schritte mit Windows Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [Übersicht über Windows Defender ATP-Funktionen](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>Hardwaresicherheitsmodul
 
-Verschlüsselungs- und Authentifizierungsschutzmaßnahmen können durch eine höhere Sicherheit verbessert werden. Sie können die Verwaltung und Sicherheit Ihrer geschäftskritischen geheimen Daten und Schlüssel vereinfachen, indem Sie diese in Azure Key Vault speichern. 
+Verschlüsselungs- und Authentifizierungsschutzmaßnahmen können durch eine höhere Sicherheit verbessert werden. Sie können die Verwaltung und Sicherheit Ihrer geschäftskritischen geheimen Daten und Schlüssel vereinfachen, indem Sie diese in Azure Key Vault speichern.
 
 Mit Key Vault können Sie Ihre Schlüssel in Hardwaresicherheitsmodulen (Hardware Security Modules, HSMs) speichern, die gemäß FIPS 140-2 Level 2-Standards zertifiziert sind. Sie können Ihre SQL Server-Verschlüsselungsschlüssel für Sicherungen oder [transparente Datenverschlüsselung](https://msdn.microsoft.com/library/bb934049.aspx) gemeinsam mit den Schlüsseln oder geheimen Daten Ihrer Anwendungen in Key Vault speichern. Der Zugriff auf diese geschützten Elemente sowie die zugehörigen Berechtigungen werden über [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)verwaltet.
 
@@ -133,7 +132,7 @@ Weitere Informationen:
 
 ## <a name="virtual-networking"></a>Virtuelle Netzwerke
 
-Virtuelle Computer benötigen Netzwerkkonnektivität. Azure erfordert von einem virtuellen Computer eine Verbindung mit einem virtuellen Azure-Netzwerk, damit die Konnektivitätsanforderung unterstützt wird. 
+Virtuelle Computer benötigen Netzwerkkonnektivität. Azure erfordert von einem virtuellen Computer eine Verbindung mit einem virtuellen Azure-Netzwerk, damit die Konnektivitätsanforderung unterstützt wird.
 
 Ein virtuelles Azure-Netzwerk ist ein logisches Konstrukt, das auf dem physischen Azure-Netzwerkfabric basiert. Jedes logische virtuelle Azure-Netzwerk ist von allen anderen virtuellen Azure-Netzwerken isoliert. Mit dieser Isolierung wird sichergestellt, dass der Netzwerkverkehr in Ihren Bereitstellungen nicht für andere Microsoft Azure-Kunden zugänglich ist.
 
@@ -169,14 +168,13 @@ Weitere Informationen:
 
 ## <a name="confidential-computing"></a>Confidential Computing
 
-Confidential Computing gehört technisch betrachtet zwar nicht zum Thema „Sicherheit virtueller Computer“, doch die Sicherheit von VMs ist Teil des übergeordneten Themas Computesicherheit. Confidential Computing fällt in die Kategorie der Computesicherheit. 
+Confidential Computing gehört technisch betrachtet zwar nicht zum Thema „Sicherheit virtueller Computer“, doch die Sicherheit von VMs ist Teil des übergeordneten Themas Computesicherheit. Confidential Computing fällt in die Kategorie der Computesicherheit.
 
-Confidential Computing stellt sicher, dass Daten im unverschlüsselten Zustand, der zur effizienten Verarbeitung erforderlich ist, in einer Trusted Execution Environment (TEE, auch Enclave) geschützt werden (s. https://en.wikipedia.org/wiki/Trusted_execution_environment). Ein Beispiel finden Sie in der Abbildung unten.  
+Confidential Computing stellt sicher, dass Daten im unverschlüsselten Zustand, der zur effizienten Verarbeitung erforderlich ist, in einer Trusted Execution Environment (TEE, auch Enclave) geschützt werden (s. https://en.wikipedia.org/wiki/Trusted_execution_environment ). Ein Beispiel finden Sie in der Abbildung unten.  
 
-Wenn Sie TEEs verwenden, können externe Benutzer interne Daten und Vorgänge auch nicht mit einem Debugger anzeigen. TEEs gewährleisten sogar, dass nur autorisierter Code für den Zugriff auf Daten zugelassen wird. Wenn der Code geändert oder manipuliert wird, werden die Vorgänge verweigert, und die Umgebung wird deaktiviert. Die TEE erzwingt diese Schutzmaßnahmen, während der Code in der Umgebung ausgeführt wird. 
+Wenn Sie TEEs verwenden, können externe Benutzer interne Daten und Vorgänge auch nicht mit einem Debugger anzeigen. TEEs gewährleisten sogar, dass nur autorisierter Code für den Zugriff auf Daten zugelassen wird. Wenn der Code geändert oder manipuliert wird, werden die Vorgänge verweigert, und die Umgebung wird deaktiviert. Die TEE erzwingt diese Schutzmaßnahmen, während der Code in der Umgebung ausgeführt wird.
 
 Weitere Informationen:
 
 * [Einführung in Confidential Computing in Azure](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Confidential Computing in Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
-

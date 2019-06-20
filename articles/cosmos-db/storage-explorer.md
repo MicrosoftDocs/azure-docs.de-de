@@ -4,15 +4,15 @@ description: Erfahren Sie, wie Sie eine Verbindung mit Azure Cosmos DB herstelle
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 8700d0988927b221ace82a492e9902f1f36a562b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6c3c8aee51a4484013126a5959d3d275a88aa1cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731369"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242643"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Arbeiten mit Daten unter Verwendung von Azure Storage-Explorer
 
@@ -223,7 +223,7 @@ Wenn Storage-Explorer eines dieser „selbstsignierten Zertifikate“ erkennt, k
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (alle Light-Versionen sind geeignet)
      - Mac und Linux: Sollte im Betriebssystem enthalten sein.
 2. Führen Sie OpenSSL aus.
-    - Windows: Navigieren Sie zum Installationsverzeichnis und dann zu **/bin/**, und doppelklicken Sie anschließend auf **openssl.exe**.
+    - Windows: Navigieren Sie zum Installationsverzeichnis und dann zu **/bin/** , und doppelklicken Sie anschließend auf **openssl.exe**.
     - Mac und Linux: Führen Sie **openssl** über ein Terminal aus.
 3. Führen Sie `s_client -showcerts -connect microsoft.com:443` aus.
 4. Suchen Sie nach selbstsignierten Zertifikaten. Wenn Sie nicht sicher sind, welche Zertifikate selbstsigniert sind, sollten Sie nach Stellen suchen, an denen der Antragsteller („s:“) und der Zertifikataussteller („i:“) identisch sind.

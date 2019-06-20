@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: roiyz
 ms.openlocfilehash: f56cfeeede393dbdb9632ea4120d3a81e89f3f7c
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61484029"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportieren von Ressourcengruppen, die VM-Erweiterungen enthalten
 

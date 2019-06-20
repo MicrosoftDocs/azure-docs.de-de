@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787285"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-APIs in Durable Functions (Azure Functions)
 
@@ -146,11 +146,11 @@ Anforderungsparameter für diese API enthalten den bereits erwähnten Standardsa
 
 Es können mehrere mögliche Statuscodewerte zurückgegeben werden.
 
-* **HTTP 200 (OK)**: Die angegebene Instanz befindet sich im Status „Completed“ (Abgeschlossen).
-* **HTTP 202 (Akzeptiert)**: Die angegebene Instanz befindet sich in Bearbeitung.
-* **HTTP 400 (Ungültige Anforderung)**: Bei der angegebenen Instanz ist ein Fehler aufgetreten, oder sie wurde beendet.
-* **HTTP 404 (Nicht gefunden)**: Die angegebene Instanz ist nicht vorhanden, oder die Ausführung wurde noch nicht gestartet.
-* **HTTP 500 (Interner Serverfehler)**: Bei der angegebenen Instanz ist ein Ausnahmefehler aufgetreten.
+* **HTTP 200 (OK)** : Die angegebene Instanz befindet sich im Status „Completed“ (Abgeschlossen).
+* **HTTP 202 (Akzeptiert)** : Die angegebene Instanz befindet sich in Bearbeitung.
+* **HTTP 400 (Ungültige Anforderung)** : Bei der angegebenen Instanz ist ein Fehler aufgetreten, oder sie wurde beendet.
+* **HTTP 404 (Nicht gefunden)** : Die angegebene Instanz ist nicht vorhanden, oder die Ausführung wurde noch nicht gestartet.
+* **HTTP 500 (Interner Serverfehler)** : Bei der angegebenen Instanz ist ein Ausnahmefehler aufgetreten.
 
 Die Antwortnutzlast für die Fälle **HTTP 200** und **HTTP 202** ist ein JSON-Objekt mit den folgenden Feldern:
 
@@ -366,8 +366,8 @@ Anforderungsparameter für diese API enthalten den bereits erwähnten Standardsa
 
 Die folgenden HTTP-Statuscodewerte können zurückgegeben werden:
 
-* **HTTP 200 (OK)**: Der Instanzverlauf wurde erfolgreich gelöscht.
-* **HTTP 404 (Nicht gefunden)**: Die angegebene Instanz ist nicht vorhanden.
+* **HTTP 200 (OK)** : Der Instanzverlauf wurde erfolgreich gelöscht.
+* **HTTP 404 (Nicht gefunden)** : Die angegebene Instanz ist nicht vorhanden.
 
 Die Antwortnutzlast für den Fall **HTTP 200** ist ein JSON-Objekt mit dem folgenden Feld:
 
@@ -417,11 +417,9 @@ Anforderungsparameter für diese API enthalten den bereits erwähnten Standardsa
 
 | Feld                 | Parametertyp  | BESCHREIBUNG |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Abfragezeichenfolge    | Dieser Parameter ist optional. Filtert, wenn er angegeben wird, die Liste der gelöschten Instanzen, die am oder nach dem angegebenen ISO8601-Zeitstempel erstellt wurden.|
+| **`createdTimeFrom`** | Abfragezeichenfolge    | Filtert die Liste der gelöschten Instanzen, die am oder nach dem angegebenen ISO8601-Zeitstempel erstellt wurden.|
 | **`createdTimeTo`**   | Abfragezeichenfolge    | Dieser Parameter ist optional. Filtert, wenn er angegeben wird, die Liste der gelöschten Instanzen, die am oder vor dem angegebenen ISO8601-Zeitstempel erstellt wurden.|
 | **`runtimeStatus`**   | Abfragezeichenfolge    | Dieser Parameter ist optional. Filtert, wenn er angegeben wird, die Liste der gelöschten Instanzen auf der Grundlage ihres Laufzeitstatus. Die Liste der möglichen Werte für den Laufzeitstatus finden Sie im Thema [Abfragen von Instanzen](durable-functions-instance-management.md). |
-
-Wenn keine Parameter angegeben sind, werden alle Instanzen im Aufgabenhub gelöscht.
 
 > [!NOTE]
 > Dieser Vorgang kann in Bezug auf Azure Storage-E/A-Vorgänge sehr teuer sein, wenn die Instanztabelle viele Zeilen und/oder Verlaufstabellen umfasst. Weitere Informationen zu diesen Tabellen finden Sie in der Dokumentation [Leistung und Skalierbarkeit in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
@@ -430,8 +428,8 @@ Wenn keine Parameter angegeben sind, werden alle Instanzen im Aufgabenhub gelös
 
 Die folgenden HTTP-Statuscodewerte können zurückgegeben werden:
 
-* **HTTP 200 (OK)**: Der Instanzverlauf wurde erfolgreich gelöscht.
-* **HTTP 404 (Nicht gefunden)**: Es wurden keine Instanzen gefunden, die dem Filterausdruck entsprechen.
+* **HTTP 200 (OK)** : Der Instanzverlauf wurde erfolgreich gelöscht.
+* **HTTP 404 (Nicht gefunden)** : Es wurden keine Instanzen gefunden, die dem Filterausdruck entsprechen.
 
 Die Antwortnutzlast für den Fall **HTTP 200** ist ein JSON-Objekt mit dem folgenden Feld:
 
@@ -483,10 +481,10 @@ Anforderungsparameter für diese API enthalten den bereits erwähnten Standardsa
 
 Es können mehrere mögliche Statuscodewerte zurückgegeben werden.
 
-* **HTTP 202 (Akzeptiert)**: Das ausgelöste Ereignis wurde zur Verarbeitung akzeptiert.
-* **HTTP 400 (Ungültige Anforderung)**: Der Anforderungsinhalt war nicht vom Typ `application/json` oder war kein gültiger JSON-Code.
-* **HTTP 404 (Nicht gefunden)**: Die angegebene Instanz wurde nicht gefunden.
-* **HTTP 410 (Fehlend)**: Die angegebene Instanz wurde abgeschlossen, oder es ist ein Fehler aufgetreten, sodass sie keine ausgelösten Ereignisse verarbeiten kann.
+* **HTTP 202 (Akzeptiert)** : Das ausgelöste Ereignis wurde zur Verarbeitung akzeptiert.
+* **HTTP 400 (Ungültige Anforderung)** : Der Anforderungsinhalt war nicht vom Typ `application/json` oder war kein gültiger JSON-Code.
+* **HTTP 404 (Nicht gefunden)** : Die angegebene Instanz wurde nicht gefunden.
+* **HTTP 410 (Fehlend)** : Die angegebene Instanz wurde abgeschlossen, oder es ist ein Fehler aufgetreten, sodass sie keine ausgelösten Ereignisse verarbeiten kann.
 
 Hier ist eine Beispielanforderung angegeben, bei der die JSON-Zeichenfolge `"incr"` an eine Instanz gesendet wird, die auf ein Ereignis mit dem Namen **operation** wartet:
 
@@ -537,9 +535,9 @@ Anforderungsparameter für diese API enthalten den bereits erwähnten Standardsa
 
 Es können mehrere mögliche Statuscodewerte zurückgegeben werden.
 
-* **HTTP 202 (Akzeptiert)**: Die Beendigungsanforderung wurde zur Verarbeitung akzeptiert.
-* **HTTP 404 (Nicht gefunden)**: Die angegebene Instanz wurde nicht gefunden.
-* **HTTP 410 (Fehlend)**: Die angegebene Instanz wurde abgeschlossen, oder es ist ein Fehler aufgetreten.
+* **HTTP 202 (Akzeptiert)** : Die Beendigungsanforderung wurde zur Verarbeitung akzeptiert.
+* **HTTP 404 (Nicht gefunden)** : Die angegebene Instanz wurde nicht gefunden.
+* **HTTP 410 (Fehlend)** : Die angegebene Instanz wurde abgeschlossen, oder es ist ein Fehler aufgetreten.
 
 Hier ist eine Beispielanforderung angegeben, mit der eine ausgeführte Instanz beendet und als Grund **buggy** (fehlerhaft) angegeben wird:
 
@@ -586,9 +584,9 @@ Anforderungsparameter für diese API enthalten den bereits erwähnten Standardsa
 
 Es können mehrere mögliche Statuscodewerte zurückgegeben werden.
 
-* **HTTP 202 (Akzeptiert)**: Die Anforderung zum Zurückspulen wurde zur Verarbeitung akzeptiert.
-* **HTTP 404 (Nicht gefunden)**: Die angegebene Instanz wurde nicht gefunden.
-* **HTTP 410 (Fehlend)**: Die angegebene Instanz wurde abgeschlossen oder beendet.
+* **HTTP 202 (Akzeptiert)** : Die Anforderung zum Zurückspulen wurde zur Verarbeitung akzeptiert.
+* **HTTP 404 (Nicht gefunden)** : Die angegebene Instanz wurde nicht gefunden.
+* **HTTP 410 (Fehlend)** : Die angegebene Instanz wurde abgeschlossen oder beendet.
 
 Hier ist eine Beispielanforderung angegeben, die eine fehlerhafte Instanz zurückspult und einen Grund für **fixed** (behoben) angibt:
 

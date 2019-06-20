@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230351"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62105648"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Überwachen und Verwalten von Slack mit Azure Logic Apps
 
@@ -56,7 +56,7 @@ Sie können Trigger verwenden, die Antworten von Ihrem Slack-Konto erhalten und 
    Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 
    Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
 
 1. Wenn Sie aufgefordert werden, sich bei Slack anzumelden, melden Sie sich bei Ihrem Slack-Arbeitsbereich an. 
 

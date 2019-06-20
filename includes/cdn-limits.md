@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: magattus
 ms.openlocfilehash: 0c989aa32c4f4defc9d22a2e510d85d7583ed1c8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951526"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178479"
 ---
 | Resource | Standardlimit |
 | --- | --- |

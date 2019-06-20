@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: e393eb92e11dc8dc296f1dc5f1c0036566c285c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60616019"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Problembehandlung bei Anwendungsupgrades
 

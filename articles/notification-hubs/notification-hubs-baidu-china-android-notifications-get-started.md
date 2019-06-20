@@ -15,11 +15,11 @@ ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848676"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61460808"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Erste Schritte mit Notification Hubs mit Baidu
 
@@ -101,7 +101,7 @@ Wenn Sie ein Baidu-Cloud-Push-Projekt erstellen, erhalten Sie Ihre App-ID, einen
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. Klicken Sie in Ihrem Notification Hub auf **Notification Services** und anschließend auf **Baidu (Android China)**.
+&emsp;&emsp;6. Klicken Sie in Ihrem Notification Hub auf **Notification Services** und anschließend auf **Baidu (Android China)** .
 
 &emsp;&emsp;&emsp;&emsp;![Azure Notification Hubs – Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 

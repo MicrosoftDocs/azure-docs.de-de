@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267071"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Azure Active Directory-Integration mit Vodeclic
 
@@ -76,12 +76,12 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD mit Vodeclic müssen Sie die folgenden Schritte ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für Vodeclic](#configure-vodeclic-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines Vodeclic-Testbenutzers](#create-vodeclic-test-user)**, um ein Pendant von Britta Simon in Vodeclic zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für Vodeclic](#configure-vodeclic-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines Vodeclic-Testbenutzers](#create-vodeclic-test-user)** , um ein Pendant von Britta Simon in Vodeclic zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -191,7 +191,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 In diesem Abschnitt erstellen Sie in Vodeclic einen Benutzer namens Britta Simon. Wenden Sie sich an das  [Vodeclic-Supportteam](mailto:hotline@vodeclic.com), um die Benutzer auf der Vodeclic-Plattform hinzuzufügen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
 
 > [!NOTE]
-> Wenn die Anwendung dies erfordert, müssen Sie Ihren Computer der Whitelist hinzufügen. Dazu müssen Sie dem [Vodeclic-Supportteam](mailto:hotline@vodeclic.com) Ihre öffentliche IP-Adresse mitteilen.
+> Wenn die Anwendung dies erfordert, müssen Sie Ihren Computer einer Zulassungsliste hinzufügen. Dazu müssen Sie dem [Vodeclic-Supportteam](mailto:hotline@vodeclic.com) Ihre öffentliche IP-Adresse mitteilen.
 
 ### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: damaerte
 ms.openlocfilehash: 7cadaaf67f9c6923ee9e9eb2596941aa8e1f0c9b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60199481"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Verwenden verwalteter Identitäten für Azure-Ressourcen in Azure Cloud Shell
 

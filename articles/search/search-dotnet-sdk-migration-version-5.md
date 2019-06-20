@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 8382884b4ce2965dee4acf191f82eb012b670713
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147489"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Upgrade auf Version 5 des Azure Search .NET SDK

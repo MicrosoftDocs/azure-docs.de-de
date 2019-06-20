@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e180192ed8375e00464ed9ec96080cde10295e5c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265150"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754037"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Schnellstart: Klonen eines Notebooks
 

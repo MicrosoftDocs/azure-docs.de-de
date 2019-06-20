@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60825531"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Verwenden von Azure Media Video Thumbnails zum Erstellen einer Videozusammenfassung  
 ## <a name="overview"></a>Übersicht
@@ -51,7 +51,7 @@ Beim Erstellen eines Video-Miniaturansichten-Tasks mit **Azure Media Video Thumb
     }
 ```
 
-Derzeit können Sie die folgenden Parameter ändern: 
+Derzeit können Sie die folgenden Parameter ändern:
 
 | Param | BESCHREIBUNG |
 | --- | --- |

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: d1751c47ad4507260d9f8d6ea44fcb32ed0e7338
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0b41850c149ff7095333cf77b780dec1f03b882
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864727"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234410"
 ---
-# <a name="azure-data-factoryfilter-transformation"></a>Azure Data Factory: Filtertransformation
+# <a name="azure-data-factory-filter-transformation"></a>Azure Data Factory: Filtertransformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

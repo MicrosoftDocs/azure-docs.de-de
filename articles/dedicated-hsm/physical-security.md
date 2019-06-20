@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: e7a7e1d27f230bc5f38080abfbe3aeeb077e557b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6fe0557aa90ec3345d4ca0c3d9292cab3435bb2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107887"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62118057"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Azure-Dienst für dedizierte HSMs – physische Sicherheit
 

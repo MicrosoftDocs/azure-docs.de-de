@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550087"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60868451"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Erstellen eines benutzerdefinierten Images von einem virtuellen Computer
 
@@ -39,7 +39,7 @@ Sie können ein benutzerdefiniertes Image aus einem bereitgestellten virtuellen 
  
 1. Wählen Sie im Bereich **Meine virtuellen Computer** den virtuellen Computer aus, von dem Sie das benutzerdefinierte Image erstellen möchten.
 
-1. Wählen Sie im Verwaltungsbereich des virtuellen Computers die Option **Benutzerdefiniertes Image erstellen (VHD)**.
+1. Wählen Sie im Verwaltungsbereich des virtuellen Computers die Option **Benutzerdefiniertes Image erstellen (VHD)** .
 
     ![Menüelement: Benutzerdefiniertes Bild erstellen](./media/devtest-lab-create-template/create-custom-image.png)
 

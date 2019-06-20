@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60577242"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Failover auf ein physisches Gerät der StorSimple 8000-Serie
 

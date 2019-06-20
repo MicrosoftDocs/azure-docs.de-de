@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: e9d6badf76efd03c0520a728af7b3e47b25f200a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61339584"
 ---
 # <a name="field-of-study-entity"></a>Forschungsbereichsentität
 
@@ -24,12 +24,12 @@ ms.locfileid: "55878951"
 NAME    |BESCHREIBUNG                            |Type       | Vorgänge
 ------- | ------------------------------------- | --------- | ----------------------------
 id      |Entitäts-ID                              |Int64      |Equals
-FN      |Normalisierter Name des Forschungsbereichs         |Zeichenfolge     |Equals
-DFN     |Anzeigename des Forschungsbereichs            |Zeichenfolge     |none
+FN      |Normalisierter Name des Forschungsbereichs         |string     |Equals
+DFN     |Anzeigename des Forschungsbereichs            |string     |none
 CC      |Gesamtzitatanzahl des Forschungsbereichs    |Int32      |none  
 ECC     |Geschätzte Gesamtzitatanzahl des Forschungsbereichs|Int32      |none
 FL      |Ebene in der Hierarchie des Forschungsbereichs     |Int32      |Equals, <br/>IsBetween
-FP.FN   |Name für übergeordneten Forschungsbereich             |Zeichenfolge     |Equals
+FP.FN   |Name für übergeordneten Forschungsbereich             |string     |Equals
 FP.FId  |ID für übergeordneten Forschungsbereich               |Int64      |Equals
-FC.FN   |Name für untergeordneten Forschungsbereich              |Zeichenfolge     |Equals
+FC.FN   |Name für untergeordneten Forschungsbereich              |string     |Equals
 FC.FId  |ID für untergeordneten Forschungsbereich                |Int64      |Equals

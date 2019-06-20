@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 28720098206c7afdefacbd47de283b2ef8d5a606
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833410"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243236"
 ---
 # <a name="api-management-transformation-policies"></a>Azure API Management-Transformationsrichtlinien
 Dieses Thema enthält eine Referenz für die folgenden API Management-Richtlinien. Weitere Informationen zum Hinzufügen und Konfigurieren von Richtlinien finden Sie unter [Richtlinien in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -215,7 +215,7 @@ oder
 ```
 
 > [!NOTE]
-> Back-End-Entitäten können über die Verwaltungs-[API](https://docs.microsoft.com/rest/api/apimanagement/backend) oder [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) verwaltet werden.
+> Back-End-Entitäten können über die Verwaltungs-[API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) oder [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) verwaltet werden.
 
 ### <a name="example"></a>Beispiel
 
@@ -270,7 +270,7 @@ In diesem Beispiel leitet die Richtlinie die Anforderung an das Service Fabric-B
 |NAME|BESCHREIBUNG|Erforderlich|Standard|
 |----------|-----------------|--------------|-------------|
 |base-url|Neue Basis-URL für den Back-End-Dienst.|Entweder `base-url` oder `backend-id` muss vorhanden sein.|–|
-|backend-id|Der Bezeichner des Back-Ends, an den die Weiterleitung stattfinden soll (Back-End-Entitäten werden über die [API](https://docs.microsoft.com/rest/api/apimanagement/backend) und in [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) verwaltet.)|Entweder `base-url` oder `backend-id` muss vorhanden sein.|–|
+|backend-id|Der Bezeichner des Back-Ends, an den die Weiterleitung stattfinden soll (Back-End-Entitäten werden über die [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) und in [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) verwaltet.)|Entweder `base-url` oder `backend-id` muss vorhanden sein.|–|
 |sf-partition-key|Nur gültig, wenn es sich bei dem Back-End um einen Service Fabric-Dienst handelt, der über „backend-id“ angegeben wurde. Wird verwendet, um eine bestimmte Partition aus dem Namensauflösungsdienst aufzulösen.|Nein |–|
 |sf-replica-type|Nur gültig, wenn es sich bei dem Back-End um einen Service Fabric-Dienst handelt, der über „backend-id“ angegeben wurde. Steuert, ob die Anforderung das primäre oder sekundäre Replikat einer Partition betreffen soll. |Nein |–|
 |sf-resolve-condition|Nur gültig, wenn es sich bei dem Back-End um einen Service Fabric-Dienst handelt. Bedingung, die angibt, ob der Aufruf des Service Fabric-Back-Ends mit einer neuen Auflösung wiederholt werden muss.|Nein |–|

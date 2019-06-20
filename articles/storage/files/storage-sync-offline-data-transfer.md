@@ -9,10 +9,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d1ec5168b898d0aa75c12e6eb435e20c09de1929
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700271"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrieren von Massendaten in die Azure-Dateisynchronisierung
@@ -51,7 +51,7 @@ Im Folgenden erfahren Sie, wie Sie die Azure-Dateisynchronisierung so einrichten
 
 | Schritt | Detail |
 |---|---------------------------------------------------------------------------------------|
-| ![Schritt 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Bestellen Sie Ihre Data Box-Datenträger.](../../databox/data-box-deploy-ordered.md) Die Data Box-Familie bietet zur Erfüllung Ihrer Anforderungen [mehrere Produkte](https://azure.microsoft.com/services/storage/databox/data). Wenn Sie Ihre Data Box erhalten, befolgen Sie die zugehörige [Dokumentation zum Kopieren Ihrer Daten](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) in diesen UNC-Pfad auf der Data Box: *\\<Geräte-IP-Adresse\>\<Speicherkontoname_AzFile\>\<Freigabename\>*. *Freigabename* ist hier der Name der Stagingfreigabe. Senden Sie die Data Box zurück an Azure. |
+| ![Schritt 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Bestellen Sie Ihre Data Box-Datenträger.](../../databox/data-box-deploy-ordered.md) Die Data Box-Familie bietet zur Erfüllung Ihrer Anforderungen [mehrere Produkte](https://azure.microsoft.com/services/storage/databox/data). Wenn Sie Ihre Data Box erhalten, befolgen Sie die zugehörige [Dokumentation zum Kopieren Ihrer Daten](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) in diesen UNC-Pfad auf der Data Box: *\\<Geräte-IP-Adresse\>\<Speicherkontoname_AzFile\>\<Freigabename\>* . *Freigabename* ist hier der Name der Stagingfreigabe. Senden Sie die Data Box zurück an Azure. |
 | ![Schritt 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Warten Sie, bis die Dateien in den Azure-Dateifreigaben angezeigt werden, die Sie als temporäre Stagingfreigaben gewählt haben. *Aktivieren Sie nicht die Synchronisierung mit diesen Freigaben.* |
 | ![Schritt 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Erstellen Sie eine neue leere Freigabe für jede Dateifreigabe, die Data Box für Sie erstellt hat. Diese neue Freigabe muss sich im gleichen Speicherkonto wie die Data Box-Freigabe befinden. [Erstellen einer Dateifreigabe in Azure Files](storage-how-to-create-file-share.md). |
 | ![Schritt 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Erstellen Sie eine Synchronisierungsgruppe](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in einem Speichersynchronisierungsdienst. Verweisen Sie auf die leere Freigabe als Cloudendpunkt. Wiederholen Sie diesen Schritt für jede Data Box-Dateifreigabe. [Richten Sie die Azure-Dateisynchronisierung ein](storage-sync-files-deployment-guide.md). |

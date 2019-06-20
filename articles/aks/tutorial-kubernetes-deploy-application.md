@@ -2,18 +2,18 @@
 title: 'Tutorial zu Kubernetes in Azure: Bereitstellen einer Anwendung'
 description: In diesem Azure Kubernetes Service-Tutorial (AKS) stellen Sie mithilfe eines in Azure Container Registry gespeicherten benutzerdefinierten Images eine Anwendung mit mehreren Containern in Ihrem Cluster bereit.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: dc3d4f0b2658c82a50f58d976a47607dead1abce
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: c579aed1acb555a82d5a04308ab4e68f4bfecb8c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149528"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305275"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Ausführen von Anwendungen in Azure Kubernetes Service (AKS)
 

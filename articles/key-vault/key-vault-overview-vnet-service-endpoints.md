@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700974"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416427"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>VNET-Dienstendpunkte für Azure Key Vault
 
@@ -53,7 +53,7 @@ Weitere Informationen finden Sie unter [Konfigurieren von Azure Key Vault-Firewa
 > Bedenken Sie dabei folgende Konfigurationseinschränkungen:
 > * Maximal 127 VNET-Regeln und 127 IPv4-Regeln sind zulässig. 
 > * Kleine Adressbereiche, die die Präfixgrößen „/ 31“ oder „/ 32“ verwenden, werden nicht unterstützt. Konfigurieren Sie stattdessen diese Bereiche mit einzelnen IP-Adressregeln.
-> * IP-Netzwerkregeln sind nur für öffentliche IP-Adressen zulässig. Für private Netzwerke reservierte IP-Adressbereiche (gemäß RFC 1918) sind in IP-Adressregeln nicht zulässig. Private Netzwerke enthalten Adressen, die mit **10.**, **172.16-31** und **192.168.** beginnen. 
+> * IP-Netzwerkregeln sind nur für öffentliche IP-Adressen zulässig. Für private Netzwerke reservierte IP-Adressbereiche (gemäß RFC 1918) sind in IP-Adressregeln nicht zulässig. Private Netzwerke enthalten Adressen, die mit **10.** , **172.16-31** und **192.168.** beginnen. 
 > * Derzeit werden nur IPv4-Adressen unterstützt.
 
 ## <a name="trusted-services"></a>Vertrauenswürdige Dienste
@@ -68,7 +68,7 @@ Es folgt eine Liste der vertrauenswürdigen Dienste, denen Zugriff auf einen Sch
 |Azure Backup|Zulassen der Sicherung und Wiederherstellung von relevanten Schlüsseln und Geheimnissen während der Azure Virtual Machines-Sicherung mithilfe von [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online und SharePoint Online|Zulassen des Zugriffs auf den Kundenschlüssel für die Azure Storage Service-Dienstverschlüsselung mit [Kundenschlüssel](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Zulassen des Zugriffs auf den Mandantenschlüssel für [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Azure App Service|[Bereitstellen eines Azure-Web-App-Zertifikats über Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Azure App Service|[Bereitstellen eines Azure-Web-App-Zertifikats über Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL-Datenbank|[Transparent Data Encryption mit BYOK-Unterstützung (Bring Your Own Key) für Azure SQL-Datenbank und Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Storage Service Encryption mit von Kunden verwalteten Schlüsseln in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Datenverschlüsselung in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) mit von Kunden verwalteten Schlüsseln.|

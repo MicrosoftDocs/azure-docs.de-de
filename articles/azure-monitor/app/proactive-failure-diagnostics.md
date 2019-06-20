@@ -14,11 +14,11 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61299056"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart Detection – ungewöhnliche fehlgeschlagene Anforderungen
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) benachrichtigt Sie automatisch und nahezu in Echtzeit, wenn es bei Ihrer Web-App zu einer ungewöhnlichen Zunahme der fehlgeschlagenen Anforderungen kommt. Die Lösung erkennt eine ungewöhnliche Zunahme der Rate fehlerhafter HTTP-Anforderungen oder Abhängigkeitsaufrufen. Bei fehlgeschlagenen Anforderungen handelt es sich in der Regel um Anforderungen mit Antwortcodes von 400 oder höher. Um Sie bei der Selektierung und Diagnose des Problems zu unterstützen, wird in der Benachrichtigung eine Analyse der Merkmale der Fehler und der verknüpften Telemetriedaten angegeben. Außerdem werden Links zum Application Insights-Portal zur weiteren Diagnose bereitgestellt. Diese Funktion muss nicht eingerichtet oder konfiguriert werden, da sie Machine Learning-Algorithmen verwendet, um die normale Fehlerrate zu bestimmen.
@@ -131,11 +131,11 @@ Smart Detection für ungewöhnliche fehlgeschlagene Anforderungen ergänzt ander
 
 *Meine Daten werden also angesehen?*
 
-*  Nein. Der Dienst ist vollständig automatisch. Nur Sie erhalten die Benachrichtigungen. Ihre Daten sind [privat](../../azure-monitor/app/data-retention-privacy.md).
+* Nein. Der Dienst ist vollständig automatisch. Nur Sie erhalten die Benachrichtigungen. Ihre Daten sind [privat](../../azure-monitor/app/data-retention-privacy.md).
 
 *Muss ich diese Benachrichtigung abonnieren?*
 
-*  Nein. Jeder Anwendung, die Telemetrieanforderungen sendet, verfügt über die Smart Detection-Warnungsregel.
+* Nein. Jeder Anwendung, die Telemetrieanforderungen sendet, verfügt über die Smart Detection-Warnungsregel.
 
 *Kann ich das Abonnement abbestellen oder die Benachrichtigungen stattdessen an meine Kollegen senden lassen?*
 

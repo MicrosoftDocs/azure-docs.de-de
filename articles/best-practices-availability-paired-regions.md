@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918967"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427119"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Business Continuity & Disaster Recovery (BCDR): Azure-Regionspaare
 
@@ -35,7 +35,7 @@ Abbildung 1: Azure-Regionspaare
 | Kanada |Kanada, Mitte |Kanada, Osten |
 | China |China, Norden |China, Osten|
 | China |China, Norden 2 |China, Osten 2|
-| Europa |Nordeuropa |Europa, Westen |
+| Europa |Europa, Norden (Irland) |Europa, Westen (Niederlande) |
 | Frankreich |Frankreich, Mitte|Frankreich, Süden|
 | Deutschland |Deutschland, Mitte |Deutschland, Nordosten |
 | Indien |Indien, Mitte |Indien (Süden) |
@@ -48,7 +48,7 @@ Abbildung 1: Azure-Regionspaare
 | Nordamerika |USA, Westen 2 |USA, Westen-Mitte 
 | Südafrika | Südafrika, Norden | Südafrika, Westen
 | UK |UK, Westen |UK, Süden |
-| Vereinigte Arabische Emirate | Vereinigte Arabische Emirate, Norden | Vereinigte Arabische Emirate, Mitte
+| Vereinigte Arabische Emirate | Vereinigte Arabische Emirate, Norden | VAE, Mitte
 | US-Verteidigungsministerium |US DoD, Osten |US DoD, Mitte |
 | US Government |US Gov Arizona |US Gov Texas |
 | US Government |US Gov Iowa |US Government, Virginia |
@@ -81,7 +81,7 @@ Wie in Abbildung 2 dargestellt.
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Datenbank** – Mit der Georeplikation von Azure SQL-Datenbank können Sie die asynchrone Replikation von Transaktionen in jede Region der Welt konfigurieren. Es wird jedoch empfohlen, diese Ressourcen für die meisten Notfallwiederherstellungsszenarien in einem Regionspaar bereitzustellen. Weitere Informationen finden Sie unter [Georeplikation in Azure SQL-Datenbank](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager (ARM)**: ARM bietet grundsätzlich eine regionsübergreifende logische Isolierung von Dienstverwaltungskomponenten. Dies bedeutet, dass sich logische Fehler in einer Region weniger wahrscheinlich auf eine andere auswirken.
+![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager (ARM)** : ARM bietet grundsätzlich eine regionsübergreifende logische Isolierung von Dienstverwaltungskomponenten. Dies bedeutet, dass sich logische Fehler in einer Region weniger wahrscheinlich auf eine andere auswirken.
 
 ## <a name="benefits-of-paired-regions"></a>Vorteile eines Regionspaars
 Wie in Abbildung 2 dargestellt.  

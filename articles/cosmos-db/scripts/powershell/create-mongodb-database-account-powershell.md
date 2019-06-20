@@ -7,14 +7,14 @@ ms.author: sngun
 ms.devlang: PowerShell
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/29/2018
+ms.date: 05/29/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 040bb309feceaf9c2cff8206c486a7c65c4717c6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 1fc66a7933b5642e29a6f8ddfba86357b397bd2d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079525"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474868"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-powershell"></a>Erstellen eines Azure Cosmos DB-Kontos mit der API für MongoDB von Azure Cosmos DB mithilfe PowerShell
 

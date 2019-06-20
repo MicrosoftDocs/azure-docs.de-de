@@ -1,25 +1,18 @@
 ---
-title: Azure-VHD-Bereitstellungsvorlage | Microsoft-Dokumentation
+title: Azure VHD-Bereitstellungsvorlage | Azure Marketplace
 description: Listet die Azure Resource Manager-Vorlage auf, die erforderlich ist, um einen neuen virtuellen Computers aus einer virtuellen Festplatte des Benutzers bereitzustellen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b122d12394fe39990e359a3192e1ec5b68f17515
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 73f53f72d4db88bc0487999165d25fc952cf4a20
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938273"
 ---
 # <a name="virtual-hard-disk-deployment-template"></a>Bereitstellungsvorlage für eine virtuelle Festplatte 
 

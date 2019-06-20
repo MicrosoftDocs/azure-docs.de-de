@@ -11,11 +11,11 @@ ms.service: azure-portal
 ms.custom: accessibility
 manager: mtillman
 ms.openlocfilehash: 59824c4a10c50265ea0a15be69755748b87d4a3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60690389"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Aktivieren von hohem Kontrast oder Ändern des Designs im Azure-Portal
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701580"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Häufig gestellte Fragen zu Power BI-Arbeitsbereichssammlungen
@@ -72,7 +72,7 @@ Ja. Sie können den Dienst Power BI-Arbeitsbereichssammlungen mit Ihrem vorhande
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>Benötigt ein Endbenutzer meiner Anwendung eine Power BI-Lizenz?
 
- Nein. Benutzer Ihrer Anwendung müssen kein eigenes Power BI-Abonnement erwerben, um auf die In-App-Datenvisualisierungen zuzugreifen. Im Modell Power BI-Arbeitsbereichssammlungen wird der Dienst dem Anwendungsanbieter über den Azure-Verbrauchszähler in Rechnung gestellt. Weitere Informationen finden Sie auf der [Seite mit Preis- und Lizenzierungsinformationen](https://go.microsoft.com/fwlink/?LinkId=760527).
+Nein. Benutzer Ihrer Anwendung müssen kein eigenes Power BI-Abonnement erwerben, um auf die In-App-Datenvisualisierungen zuzugreifen. Im Modell Power BI-Arbeitsbereichssammlungen wird der Dienst dem Anwendungsanbieter über den Azure-Verbrauchszähler in Rechnung gestellt. Weitere Informationen finden Sie auf der [Seite mit Preis- und Lizenzierungsinformationen](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Wie funktioniert die Benutzerauthentifizierung bei Power BI-Arbeitsbereichssammlungen?
 

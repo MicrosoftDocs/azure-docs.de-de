@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833912"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706103"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrieren des Zertifikats einer durch TDE geschützten Datenbank zu einer verwalteten Azure SQL-Datenbank-Instanz
 
@@ -31,7 +31,7 @@ Beim Migrieren einer durch die [Transparente Datenverschlüsselung (TDE)](https:
 Eine alternative Option, einen vollständig verwalteten Dienst für die nahtlose Migration der durch TDE geschützten Datenbank und des entsprechenden Zertifikats zu verwenden, finden Sie unter [Migrieren Ihrer lokale Datenbank zu einer verwalteten Instanz mit Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Die transparente Datenverschlüsselung (TDE) für die verwaltete Azure SQL-Datenbank-Instanz funktioniert im dienstverwalteten Modus. Das migrierte Zertifikat wird nur für die Wiederherstellung der durch TDE geschützten Datenbank verwendet. Kurz nach dem Abschluss der Wiederherstellung wird das migrierte Zertifikat durch ein anderes, vom System verwaltetes Zertifikat ersetzt.
+> Das migrierte Zertifikat wird nur für die Wiederherstellung der durch TDE geschützten Datenbank verwendet. Kurz nach Abschluss der Wiederherstellung wird das migrierte Zertifikat durch eine andere Schutzvorrichtung ersetzt – entweder ein vom Dienst verwaltetes Zertifikat oder einen asymmetrischen Schlüssel aus dem Schlüsseltresor – je nach dem Typ der transparenten Datenverschlüsselung, die Sie für die Instanz festlegen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

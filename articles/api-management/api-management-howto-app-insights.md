@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3bbab82831fba389cd4bf172e7ea762d5971579b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262760"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241843"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Vorgehensweise beim Integrieren von Azure API Management in Azure Application Insights
 
@@ -51,7 +51,7 @@ Bevor Sie Azure Application Insights verwenden können, müssen Sie zunächst ei
     ![Application Insights-Protokollierung](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Im Hintergrund wird eine [Protokollierungsentität](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) in der API Management-Instanz erstellt, die den Instrumentierungsschlüssel der Application Insights-Instanz enthält.
+> Im Hintergrund wird eine [Protokollierungsentität](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) in der API Management-Instanz erstellt, die den Instrumentierungsschlüssel der Application Insights-Instanz enthält.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Aktivieren der Application Insights-Protokollierung für Ihre API
 
@@ -70,7 +70,7 @@ Bevor Sie Azure Application Insights verwenden können, müssen Sie zunächst ei
 > Überschreiben des Standardwerts **0** im Feld **Erste Bytes des Texts** kann die Leistung Ihrer APIs erheblich beeinträchtigen.
 
 > [!NOTE]
-> Im Hintergrund wird eine [Diagnoseentität](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) namens „applicationinsights“ auf API-Ebene erstellt.
+> Im Hintergrund wird eine [Diagnoseentität](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) namens „applicationinsights“ auf API-Ebene erstellt.
 
 | Einstellungsname                        | Werttyp                        | BESCHREIBUNG                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

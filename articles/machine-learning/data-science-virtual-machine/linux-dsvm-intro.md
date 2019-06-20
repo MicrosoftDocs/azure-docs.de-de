@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835746"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60502322"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Bereitstellen einer Linux CentOS Data Science-VM in Azure
 
@@ -121,7 +121,7 @@ Die Linux-VM wird mit X2Go-Server bereits bereitgestellt und ist zum Akzeptieren
      * **Anmeldung**: Der Benutzername für die Linux-VM.
      * **SSH-Port**: Übernehmen Sie den Standardwert 22.
      * **Sitzungstyp**: Ändern Sie den Wert in XFCE. Derzeit unterstützt die Linux-VM nur den XFCE-Desktop.
-   * **Registerkarte „Medien“**: Sie können die Soundunterstützung und die Clientausgabe deaktivieren, wenn Sie diese Funktionen nicht benötigen.
+   * **Registerkarte „Medien“** : Sie können die Soundunterstützung und die Clientausgabe deaktivieren, wenn Sie diese Funktionen nicht benötigen.
    * **Freigegebene Ordner**: Wenn Verzeichnisse von Ihren Clientcomputern auf der Linux-VM bereitgestellt werden sollen, fügen Sie auf dieser Registerkarte die Clientcomputerverzeichnisse hinzu, die Sie für die VM freigeben möchten.
 
 Nachdem Sie sich bei der VM angemeldet haben, indem Sie entweder den SSH-Client oder den grafischen XFCE-Desktop über den X2Go-Client nutzen, können Sie die Tools verwenden, die auf der VM installiert und konfiguriert sind. Auf dem XFCE-Desktop können Sie Anwendungsmenü-Tastenkombinationen und Desktopsymbole für viele Tools anzeigen.
@@ -154,7 +154,7 @@ Python 3.5 wird unter */anaconda/envs/py35/bin*installiert.
 
 Geben Sie zum Aufrufen einer interaktiven Python-Sitzung in der Shell einfach **python** ein. Wenn Sie sich in einer grafischen Benutzeroberfläche befinden oder die X11-Weiterleitung eingerichtet haben, können Sie **pycharm** eingeben, um die PyCharm Python-IDE zu starten.
 
-Um weitere Python-Bibliotheken zu installieren, müssen Sie den Befehl ```conda``` oder ```pip``` unter sudo ausführen und den vollständigen Pfad des Python-Paket-Managers (conda oder pip) bereitstellen, um die richtige Python-Umgebung zu installieren. Beispiel: 
+Um weitere Python-Bibliotheken zu installieren, müssen Sie den Befehl ```conda``` oder ```pip``` unter sudo ausführen und den vollständigen Pfad des Python-Paket-Managers (conda oder pip) bereitstellen, um die richtige Python-Umgebung zu installieren. Beispiel:
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -366,7 +366,7 @@ Eine grafische Benutzeroberfläche mit einer Reihe von Registerkarten wird geöf
 1. Klicken Sie auf die Registerkarte **Evaluate** .
 1. Klicken Sie auf das Optionsfeld **Risk**, und klicken Sie auf **Execute**, um zwei Leistungsdarstellungen (Risk [Cumulative]) anzuzeigen.
 1. Klicken Sie auf die Registerkarte **Log** , um den generierten R-Code für die obigen Vorgänge anzuzeigen.
-   (Aufgrund eines Fehlers in der aktuellen Version von Rattle müssen Sie im Text des Protokolls vor *Export this log ...* ein *#*-Zeichen eingeben.)
+   (Aufgrund eines Fehlers in der aktuellen Version von Rattle müssen Sie im Text des Protokolls vor *Export this log ...* ein *#* -Zeichen eingeben.)
 1. Klicken Sie auf die Schaltfläche **Export**, um die R-Skriptdatei *weather_script.R* im Basisordner zu speichern.
 
 Sie können Rattle und R jetzt beenden. Als Nächstes können Sie das generierte R-Skript ändern, oder Sie können es unverändert verwenden und bei Bedarf ausführen, um die auf der Rattle-Benutzeroberfläche ausgeführten Schritte zu wiederholen. Dies ist besonders für R-Anfänger eine einfache Möglichkeit, auf einer einfachen grafischen Benutzeroberfläche schnell Analysen und Machine Learning-Vorgänge durchzuführen, während automatisch Code in R zum Ändern bzw. Lernen generiert wird.

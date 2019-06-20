@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024943"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65523071"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indizieren von JSON-Blobs mit dem Azure Search-Blobindexer
 In diesem Artikel wird beschrieben, wie Sie einen Azure Search-[Blobindexer](search-indexer-overview.md) konfigurieren, um strukturierten Inhalt aus JSON-Dokumenten in Azure Blob Storage zu extrahieren und so vorzubereiten, dass er ihn Azure Search durchsucht werden kann. Dieser Workflow erstellt einen Azure Search-Index und lädt ihn mit vorhandenem, aus JSON-Blobs extrahiertem Text. 
@@ -37,7 +37,7 @@ Die einfachste Methode zum Indizieren von JSON-Dokumenten ist die Verwendung ein
 
 Sie sollten für Azure Search und Azure Storage dasselbe Azure-Abonnement verwenden, vorzugsweise in derselben Region.
 
-### <a name="1---prepare-source-data"></a>1. Vorbereiten von Quelldaten
+### <a name="1---prepare-source-data"></a>1\. Vorbereiten von Quelldaten
 
 1. [Melden Sie sich beim Azure-Portal an](https://portal.azure.com/).
 
@@ -45,13 +45,13 @@ Sie sollten für Azure Search und Azure Storage dasselbe Azure-Abonnement verwen
 
 Sie benötigen den Namen des Speicherkontos, den Containernamen und einen Zugriffsschlüssel zum Abrufen Ihrer Daten im **Datenimport**-Assistenten.
 
-### <a name="2---start-import-data-wizard"></a>2. Starten des Datenimport-Assistenten
+### <a name="2---start-import-data-wizard"></a>2\. Starten des Datenimport-Assistenten
 
 Auf der Seite „Übersicht“ Ihres Azure Search-Diensts können Sie [den Assistenten über die Befehlsleiste starten](search-import-data-portal.md). Alternativ können Sie im Abschnitt **Blob-Dienst**, der sich im linken Navigationsbereich Ihres Speicherkontos befindet, auf **Azure Search hinzufügen** klicken.
 
    ![Befehl „Daten importieren“ im Portal](./media/search-import-data-portal/import-data-cmd2.png "Starten des Datenimport-Assistenten")
 
-### <a name="3---set-the-data-source"></a>3. Einrichten der Datenquelle
+### <a name="3---set-the-data-source"></a>3\. Einrichten der Datenquelle
 
 Auf der Seite **Datenquelle** muss die Quelle **Azure Blob Storage** lauten und folgende Spezifikationen aufweisen:
 
@@ -69,7 +69,7 @@ Auf der Seite **Datenquelle** muss die Quelle **Azure Blob Storage** lauten und 
 
    ![Definition der Blobdatenquelle](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4. Überspringen der Seite „Kognitive Suche hinzufügen“ im Assistenten
+### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4\. Überspringen der Seite „Kognitive Suche hinzufügen“ im Assistenten
 
 Das Hinzufügen kognitiver Qualifikationen ist für den Import eines JSON-Dokuments nicht erforderlich. Wenn Sie nicht unbedingt [Cognitive Services-APIs und Transformationen](cognitive-search-concept-intro.md) zu Ihrer Indizierungspipeline hinzufügen müssen, können Sie diesen Schritt überspringen.
 
@@ -81,7 +81,7 @@ Von dieser Seite aus können Sie zur Indexanpassung springen.
 
    ![Überspringen des Schritts zu kognitiven Qualifikationen](media/search-get-started-portal/skip-cog-skill-step.png)
 
-### <a name="5---set-index-attributes"></a>5. Festlegen von Indexattributen
+### <a name="5---set-index-attributes"></a>5\. Festlegen von Indexattributen
 
 Auf der **Indexseite** sollte eine Liste von Feldern mit einem Datentyp sowie mehrere Kontrollkästchen zum Festlegen von Indexattributen aufgeführt sein. Der Assistent kann basierend auf Metadaten und durch Sampling der Quelldaten eine Felderliste erstellen. 
 

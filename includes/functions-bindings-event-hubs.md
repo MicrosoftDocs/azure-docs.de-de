@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 1957fa4310a22a162ee2a621d1e0349e253badb3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456566"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177887"
 ---
 ## <a name="trigger"></a>Trigger
 
@@ -22,7 +22,7 @@ Jede Instanz einer durch ein Ereignis ausgelösten Funktion wird durch eine einz
 Stellen Sie sich einen Event Hub wie folgt vor:
 
 * 10 Partitionen
-* 1.000 gleichmäßig auf alle Partitionen verteilte Ereignisse mit 100 Nachrichten in jeder Partition
+* 1\.000 gleichmäßig auf alle Partitionen verteilte Ereignisse mit 100 Nachrichten in jeder Partition
 
 Wenn Ihre Funktion zuerst aktiviert wird, gibt es nur eine Instanz der Funktion. Wir nennen die erste Funktionsinstanz `Function_0`. Die `Function_0`-Funktion umfasst eine einzelne Instanz von [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) mit einer Lease auf allen zehn Partitionen. Diese Instanz beginnt mit dem Lesen von Ereignissen von den Partitionen 0-9. Von diesem Punkt an wird eines der folgenden Ereignisse eintreten:
 
@@ -446,6 +446,26 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     return $"{DateTime.Now}";
+}
+```
+
+Das folgende Beispiel zeigt, wie Sie die `IAsyncCollector`-Schnittstelle verwenden, um einen Batch von Nachrichten zu senden. Dieses Szenario kommt häufig vor, wenn Sie Nachrichten verarbeiten, die von einem Event Hub kommen, und das Ergebnis an einen anderen Event Hub senden.
+
+```csharp
+[FunctionName("EH2EH")]
+public static async Task Run(
+    [EventHubTrigger("source", Connection = "EventHubConnectionAppSetting")] EventData[] events,
+    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<string> outputEvents,
+    ILogger log)
+{
+    foreach (EventData eventData in events)
+    {
+        // do some processing:
+        var myProcessedEvent = DoSomething(eventData);
+
+        // then send the message
+        await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+    }
 }
 ```
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: jowargo
 ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61457803"
 ---
 # <a name="routing-and-tag-expressions"></a>Weiterleitung und Tagausdrücke
 
@@ -35,7 +35,7 @@ Die einzige Möglichkeit zum Verwenden bestimmter Benachrichtigungsregistrierung
 2. **Tag:** Alle Registrierungen, die das angegebene Tag enthalten, empfangen die Benachrichtigung.
 3. **Tagausdruck:** Alle Registrierungen, deren Satz von Tags mit dem angegebenen Ausdruck übereinstimmt, empfangen die Benachrichtigung.
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>`Tags`
 
 Ein Tag kann eine beliebige bis zu 120 Zeichen umfassende Zeichenfolge mit alphanumerischen und den folgenden nicht-alphanumerischen Zeichen sein: „_“, „@“ „#“, „.“, „:“, „-“. Das folgende Beispiel zeigt eine Anwendung, von der Sie Popupbenachrichtigungen zu bestimmten Musikgruppen empfangen können. In diesem Szenario besteht eine einfache Möglichkeit zum Weiterleiten von Benachrichtigungen im Kennzeichnen von Registrierungen mit Tags, die die verschiedenen Gruppen angeben. Dies ist in der folgenden Abbildung dargestellt:
 

@@ -1,10 +1,10 @@
 ---
 title: Informationen zu Vorlagen für VM-Skalierungsgruppen | Microsoft-Dokumentation
-description: Informationen zum Erstellen einer Vorlage für eine kleinstmögliche Skalierungsgruppe für VM-Skalierungsgruppen
+description: Informationen zum Erstellen einer Vorlage für eine grundlegende Skalierungsgruppe für VM-Skalierungsgruppen
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64868922"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informationen zu Vorlagen für VM-Skalierungsgruppen
-[Azure Resource Manager-Vorlagen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sind eine hervorragende Möglichkeit, Gruppen aufeinander bezogener Ressourcen bereitzustellen. In dieser Reihe von Tutorials wird gezeigt, wie Sie eine Vorlage für eine kleinstmögliche Skalierungsgruppe erstellen und für verschiedene Szenarios anpassen. Alle Beispiele stammen aus diesem [GitHub-Repository](https://github.com/gatneil/mvss). 
+[Azure Resource Manager-Vorlagen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sind eine hervorragende Möglichkeit, Gruppen aufeinander bezogener Ressourcen bereitzustellen. In dieser Reihe von Tutorials wird gezeigt, wie Sie eine Vorlage für eine grundlegende Skalierungsgruppe erstellen und für verschiedene Szenarien anpassen. Alle Beispiele stammen aus diesem [GitHub-Repository](https://github.com/gatneil/mvss).
 
 Hier wird eine einfache Vorlage verwendet. Umfassendere Beispiele für Skalierungsgruppenvorlagen finden Sie, indem Sie im [GitHub-Repository mit Azure-Schnellstartvorlagen](https://github.com/Azure/azure-quickstart-templates) nach Ordnern suchen, die die Zeichenfolge `vmss` enthalten.
 
 Wenn Sie bereits mit dem Erstellen von Vorlagen vertraut sind, können Sie gleich mit dem Abschnitt „Nächste Schritte“ fortfahren, um zu erfahren, wie diese Vorlage geändert wird.
-
-## <a name="review-the-template"></a>Überprüfen der Vorlage
-
-Verwenden Sie GitHub, um die Vorlage für eine kleinstmögliche Skalierungsgruppe [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) zu überprüfen.
-
-In diesem Tutorial untersuchen Sie den Diff (`git diff master minimum-viable-scale-set`), um Schritt für Schritt die Vorlage für eine kleinstmögliche Skalierungsgruppe zu erstellen.
 
 ## <a name="define-schema-and-contentversion"></a>Definieren von $schema und contentVersion
 Definieren Sie zuerst `$schema` und `contentVersion` in der Vorlage. Das Element `$schema` definiert die Version der Vorlagensprache und wird für die Visual Studio-Syntaxhervorhebung und ähnliche Validierungsfunktionen verwendet. Das Element `contentVersion` wird nicht von Azure verwendet. Stattdessen können Sie damit die Vorlagenversion verfolgen.
@@ -43,6 +37,7 @@ Definieren Sie zuerst `$schema` und `contentVersion` in der Vorlage. Das Element
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>Definieren von Parametern
 Definieren Sie als Nächstes die beiden Parameter `adminUsername` und `adminPassword`. Parameter sind Werte, die Sie zum Zeitpunkt der Bereitstellung angeben. Der Parameter `adminUsername` weist den Typ `string` auf, aber da `adminPassword` ein Geheimnis ist, erhält er den Typ `securestring`. Später werden diese Parameter in die Skalierungsgruppenkonfiguration übergeben.
 
@@ -70,13 +65,13 @@ Als Nächstes wird der Ressourcenabschnitt der Vorlage bearbeitet. Hier definier
    "resources": [
 ```
 
-Alle Ressourcen erfordern die Eigenschaften `type`, `name`, `apiVersion` und `location`. Die erste Ressource dieses Beispiels hat den Typ [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), den Namen `myVnet` und die API-Version `2016-03-30`. (Die neueste API-Version für einen Ressourcentyp finden Sie in der [Azure Resource Manager-Vorlagenreferenz](/azure/templates/).)
+Alle Ressourcen erfordern die Eigenschaften `type`, `name`, `apiVersion` und `location`. Die erste Ressource dieses Beispiels hat den Typ [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), den Namen `myVnet` und die API-Version `2018-11-01`. (Die neueste API-Version für einen Ressourcentyp finden Sie in der [Azure Resource Manager-Vorlagenreferenz](/azure/templates/).)
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>Angeben des Speicherorts
@@ -117,7 +112,7 @@ In diesem Fall gibt es nur ein Element in der Liste: das virtuelle Netzwerk aus 
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ Für die Skalierungsgruppe muss festgelegt werden, welche Größe der virtuelle 
 ```
 
 ### <a name="choose-type-of-updates"></a>Auswählen des Updatetyps
-Für die Skalierungsgruppe muss auch festgelegt werden, wie mit Updates für die Skalierungsgruppe umgegangen werden soll. Derzeit gibt es die beiden Optionen `Manual` und `Automatic`. Weitere Informationen zu den Unterschieden zwischen den beiden Optionen finden Sie in der Dokumentation zum [Upgraden einer VM-Skalierungsgruppe](./virtual-machine-scale-sets-upgrade-scale-set.md).
+Für die Skalierungsgruppe muss auch festgelegt werden, wie mit Updates für die Skalierungsgruppe umgegangen werden soll. Zurzeit gibt es die drei Optionen: `Manual`, `Rolling` und `Automatic`. Weitere Informationen zu den Unterschieden zwischen den beiden Optionen finden Sie in der Dokumentation zum [Upgraden einer VM-Skalierungsgruppe](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

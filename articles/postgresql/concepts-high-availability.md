@@ -1,19 +1,19 @@
 ---
-title: Hochverfügbarkeitskonzepte von Azure Database for PostgreSQL
-description: Dieser Artikel enthält Informationen zur Hochverfügbarkeit bei der Verwendung von Azure Database for PostgreSQL.
+title: Hochverfügbarkeitskonzepte von Azure Database for PostgreSQL – Einzelserver
+description: Dieser Artikel enthält Informationen zur Hochverfügbarkeit bei der Verwendung von Azure Database for PostgreSQL – Einzelserver.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: d43647b57469efa4581dc1c74a842a51e9d54ad7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.date: 5/6/2019
+ms.openlocfilehash: f54c83099957b4d8795c4049be52d70e8a0e2a61
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699815"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65073449"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Hochverfügbarkeitskonzepte von Azure Database for PostgreSQL
+# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Hochverfügbarkeitskonzepte von Azure Database for PostgreSQL – Einzelserver
 Der Dienst „Azure Database for PostgreSQL“ bietet eine garantiert hohes Verfügbarkeitsniveau. Die finanziell abgesicherte Vereinbarung zum Servicelevel (SLA) beträgt 99,99 % bei allgemeiner Verfügbarkeit. Es gibt praktisch keine Ausfallzeiten bei der Nutzung dieses Diensts.
 
 ## <a name="high-availability"></a>Hochverfügbarkeit

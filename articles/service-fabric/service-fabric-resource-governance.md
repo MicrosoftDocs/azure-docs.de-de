@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: aljo, subramar
 ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669247"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772534"
 ---
 # <a name="resource-governance"></a>Ressourcenkontrolle
 

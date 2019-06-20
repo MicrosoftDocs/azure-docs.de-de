@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857554"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345634"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Aktivieren der Protokollierung für Azure Machine Learning Studio-Webdienste
 Dieses Dokument enthält Informationen zur Protokollierungsfunktion von Machine Learning Studio-Webdiensten. Durch die Protokollierung erhalten Sie zusätzliche Informationen, die über die Fehlernummer und eine Meldung hinausgehen und die Ihnen helfen können, Probleme beim Aufrufen der Machine Learning Studio-APIs zu beheben.  

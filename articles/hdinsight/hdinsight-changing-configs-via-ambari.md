@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60698827"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Verwenden von Apache Ambari zum Optimieren von HDInsight-Clusterkonfigurationen
 
@@ -178,10 +178,10 @@ Die verfügbaren Komprimierungstypen sind:
 
 | Format | Tool | Algorithmus | Dateierweiterung | Teilbar? |
 | -- | -- | -- | -- | -- |
-| GZip | GZip | VERKLEINERN | .gz | Nein  |
+| GZip | GZip | VERKLEINERN | .gz | Nein |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ja |
 | LZO | Lzop | LZO | .lzo | Ja, wenn indiziert |
-| Snappy | – | Snappy | Snappy | Nein  |
+| Snappy | – | Snappy | Snappy | Nein |
 
 Hier gilt die folgende allgemeine Regel: Es ist wichtig, dass die Komprimierungsmethode teilbar ist, da andernfalls nur sehr wenige Mapper erstellt werden. Wenn es sich bei den Eingabedaten um Text handelt, ist `bzip2` die beste Option. Für das ORC-Format ist Snappy die schnellste Komprimierungsoption.
 
@@ -284,8 +284,8 @@ Weitere Empfehlungen zum Optimieren des Hive-Ausführungsmoduls:
 | `hive.mapjoin.hybridgrace.hashtable` | true = sicherer, langsamer; false = schneller | false |
 | `tez.am.resource.memory.mb` | Oberer Grenzwert von 4 GB für die meisten Fälle geeignet | Automatisch optimiert |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
-| `tez.am.container.idle.release-timeout-min.millis` | 20.000+ | 10000 |
-| `tez.am.container.idle.release-timeout-max.millis` | 40.000+ | 20000 |
+| `tez.am.container.idle.release-timeout-min.millis` | 20\.000+ | 10000 |
+| `tez.am.container.idle.release-timeout-max.millis` | 40\.000+ | 20000 |
 
 ## <a name="apache-pig-optimization"></a>Apache Pig-Optimierung
 

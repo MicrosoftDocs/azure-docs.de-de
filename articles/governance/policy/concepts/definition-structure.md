@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506697"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979549"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktur von Azure Policy-Definitionen
 
@@ -100,7 +100,8 @@ Ein Parameter hat die folgenden Eigenschaften, die in der Richtliniendefinition 
   - `displayName`: Der Anzeigename des Parameters im Portal.
   - `strongType`: (Optional) Wird verwendet, wenn die Richtliniendefinition über das Portal zugewiesen wird. Bietet eine kontextbezogene Liste. Weitere Informationen finden Sie unter [strongType](#strongtype).
   - `assignPermissions`: (Optional) Legen Sie diesen Wert auf _true_ fest, damit das Azure-Portal während der Richtlinienzuweisung Rollenzuweisungen erstellt. Diese Eigenschaft ist hilfreich, wenn Sie Berechtigungen außerhalb des Zuweisungsbereichs zuweisen möchten. Es gibt eine Rollenzuordnung pro Rollendefinition in der Richtlinie (oder pro Rollendefinition in allen Richtlinien der Initiative). Der Parameterwert muss eine gültige Ressource oder ein gültiger Bereich sein.
-- `defaultValue`: (Optional) Legt den Wert des Parameters in einer Zuweisung fest, wenn kein Wert angegeben ist. Erforderlich, wenn eine vorhandene zugewiesene Richtliniendefinition aktualisiert wird.
+- `defaultValue`: (Optional) Legt den Wert des Parameters in einer Zuweisung fest, wenn kein Wert angegeben ist.
+  Erforderlich, wenn eine vorhandene zugewiesene Richtliniendefinition aktualisiert wird.
 - `allowedValues`: (Optional) Stellt ein Array von Werten bereit, die der Parameter bei der Zuweisung akzeptiert.
 
 Beispielsweise können Sie eine Richtliniendefinition verwenden, um die Speicherorte einzuschränken, an denen Ressourcen bereitgestellt werden können. Ein Parameter für diese Richtliniendefinition kann **allowedLocations** heißen. Dieser Parameter kann bei jeder Zuweisung der Richtliniendefinition verwendet werden, um die akzeptierten Werte zu begrenzen. Die Verwendung von **strongType** bietet erweiterte Möglichkeiten, wenn die Zuweisung über das Portal erfolgt:
@@ -238,7 +239,7 @@ Eine Bedingung prüft, ob ein **Feld** oder der Accessor **Wert** bestimmte Krit
 Bei Verwendung der Bedingungen **like** und **notLike** können Sie im Wert den Platzhalter `*` angeben.
 Der Wert darf maximal einen Platzhalter des Typs `*` enthalten.
 
-Geben Sie bei Verwendung der Bedingungen **match** und **notMatch** für eine Ziffer `#`, für einen Buchstaben `?`, für alle Zeichen `.` und für ein Zeichen das gewünschte Zeichen ein.
+Geben Sie bei Verwendung der Bedingungen **match** und **notMatch** für eine Ziffer `#`, für einen Buchstaben `?`, für irgendein Zeichen `.` und für ein Zeichen das gewünschte Zeichen ein.
 Bei **match** und **notMatch** muss die Groß-/Kleinschreibung beachtet werden. Als Alternativen, bei denen die Groß-/Kleinschreibung nicht beachtet werden muss, stehen **matchInsensitively** und **notMatchInsensitively** zur Verfügung. Beispiele finden Sie unter [Zulassen mehrerer Namensmuster](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Felder
@@ -268,8 +269,7 @@ Folgende Felder werden unterstützt:
 - Eigenschaftenaliase – Eine Liste finden Sie unter [Aliase](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]` und `tags[tag.with.dots]` werden weiterhin als Möglichkeiten zum Deklarieren eines Felds für Tags akzeptiert.
-> Die oben aufgeführten Ausdrücke werden jedoch bevorzugt.
+> `tags.<tagName>`, `tags[tagName]` und `tags[tag.with.dots]` werden weiterhin als Möglichkeiten zum Deklarieren eines Felds für Tags akzeptiert. Die oben aufgeführten Ausdrücke werden jedoch bevorzugt.
 
 #### <a name="use-tags-with-parameters"></a>Verwenden von Tags mit Parametern
 
@@ -498,7 +498,7 @@ Die Liste der Aliase wächst ständig. Um zu ermitteln, welche Aliase derzeit vo
 
 ### <a name="understanding-the--alias"></a>Grundlegendes zum [*]-Alias
 
-Einige der verfügbaren Aliase weisen eine Version auf, die als „normaler“ Name angezeigt wird, an andere wird **[\*]** angefügt. Beispiel: 
+Einige der verfügbaren Aliase weisen eine Version auf, die als „normaler“ Name angezeigt wird, an andere wird **[\*]** angefügt. Beispiel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

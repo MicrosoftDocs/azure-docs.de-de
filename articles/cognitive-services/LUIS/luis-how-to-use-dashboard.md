@@ -1,7 +1,7 @@
 ---
 title: Language Understanding-Dashboard
 titleSuffix: Azure Cognitive Services
-description: Verbessern Sie Absichten mit dem Analyse- und Zusammenfassungsdashboard, einem grafischen Berichterstellungstool.
+description: Verbessern Sie Absichten mit dem Analysedashboard, einem grafischen Berichterstellungstool.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072464"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236942"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Verwenden des Dashboards zum Verbessern Ihrer App
 
-Finden und beheben Sie Probleme mit Absichten Ihrer trainierten App beim Verwenden von Beispieläußerungen. Auf dem Zusammenfassungsdashboard werden allgemeine App-Informationen angezeigt und die wichtigsten Absichten aufgeführt, die verbessert werden sollten. 
+Finden und beheben Sie Probleme mit Absichten Ihrer trainierten App beim Verwenden von Beispieläußerungen. Auf dem Dashboard werden allgemeine App-Informationen angezeigt und die wichtigsten Absichten aufgeführt, die verbessert werden sollten. 
 
 Das Überprüfen von Dashboardanalysen ist ein iterativer Prozess, der immer dann erforderlich ist, wenn Sie Ihr Modell ändern und verbessern.
 
@@ -38,11 +38,11 @@ Mit dem Dashboard können Sie die folgenden drei Probleme behandeln:
 
 Richtige Vorhersagen werden blau dargestellt.
 
-Auf dem Zusammenfassungsdashboard werden diese Probleme aufgeführt. Dort wird auch angezeigt, welche Absichten betroffen sind, und es werden Vorschläge zur Verbesserung der App gemacht. 
+Auf dem Dashboard werden diese Probleme aufgeführt. Dort wird auch angezeigt, welche Absichten betroffen sind, und es werden Vorschläge zur Verbesserung der App gemacht. 
 
 ## <a name="before-app-is-trained"></a>Status vor dem Trainieren der App 
 
-Das Zusammenfassungsdashboard enthält vor dem Trainieren der App keine Verbesserungsvorschläge. Diese werden erst nach dem Training angezeigt.  
+Das Dashboard enthält vor dem Trainieren der App keine Verbesserungsvorschläge. Diese werden erst nach dem Training angezeigt.  
 
 ## <a name="check-your-publishing-status"></a>Überprüfen des Veröffentlichungsstatus
 
@@ -50,7 +50,7 @@ Die Karte **Publishing status** (Veröffentlichungsstatus) enthält Informatione
 
 Überprüfen Sie, ob die aktive Version diejenige ist, die Sie verbessern möchten. 
 
-![Auf dem Zusammenfassungsdashboard werden die externen Dienste und veröffentlichten Regionen sowie die aggregierte Endpunkttrefferanzahl der App angezeigt.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Auf dem Dashboard werden die externen Dienste und veröffentlichten Regionen sowie die aggregierte Endpunkttrefferanzahl der App angezeigt.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 Hier werden außerdem die externen Dienste und veröffentlichten Regionen sowie die aggregierte Endpunkttrefferanzahl angezeigt. 
 
@@ -96,7 +96,7 @@ Die Liste **data imbalance** (Unausgeglichene Daten) enthält Absichten, für di
 
 * Fügen Sie der Absicht mehr Äußerungen hinzu, und führen Sie den Trainingsvorgang erneut aus. 
 
-Falls nicht anders auf dem Zusammenfassungsdashboard angegeben, sollten Sie der Absicht „None“ (Keine) keine Äußerungen hinzufügen.
+Falls nicht anders auf dem Dashboard angegeben, sollten Sie der Absicht „None“ (Keine) keine Äußerungen hinzufügen.
 
 > [!Tip]
 > Auf der Seite finden Sie im dritten Bereich **Utterances per intent** (Äußerungen pro Absicht) die Einstellung **Utterances (number)** (Äußerungen (Anzahl)). Hier erhalten Sie einen Überblick darüber, für welche Absichten weitere Äußerungen erforderlich sind.  

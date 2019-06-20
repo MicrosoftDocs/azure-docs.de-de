@@ -1,25 +1,18 @@
 ---
-title: Marketplace – häufig gestellte Fragen | Azure
+title: Azure Marketplace – häufig gestellte Fragen
 description: Antworten zu häufig gestellten Fragen zum Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 34b9fadc976d3f37612f59a7fc8520c48b178f5c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009028"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964047"
 ---
 # <a name="marketplace-faqs"></a>Häufig gestellte Fragen zum Marketplace
 
@@ -92,9 +85,9 @@ Abhängigkeiten werden für Azure Marketplace-Angebote nicht automatisch verwalt
 
 Wenn der Herausgeber das Angebot so konfiguriert hat, dass es über den CSP-Kanal verfügbar ist, ist es über Ihren Reseller verfügbar.
 
-**Welche Länder werden für den Kauf von Anwendungen und Diensten unterstützt, die im Azure Marketplace verkauft/bereitgestellt werden?**
+**Welche Länder/Regionen werden für den Kauf von Anwendungen und Diensten unterstützt, die im Azure Marketplace verkauft/bereitgestellt werden?**
 
-Der Azure Marketplace ist für Microsoft Azure-Kunden in den Ländern verfügbar, die in den [Teilnahmerichtlinien](https://docs.microsoft.com/legal/marketplace/participation-policy) aufgelistet sind.
+Der Azure Marketplace ist für Microsoft Azure-Kunden in den Länder/Regionen verfügbar, die in den [Teilnahmerichtlinien](https://docs.microsoft.com/legal/marketplace/participation-policy) aufgelistet sind.
 
 **Welche Währungen werden vom Azure Marketplace unterstützt?**
 
@@ -134,7 +127,7 @@ Das Azure-Abonnement ist im ISV-Lösungspreis (Independent Software Vendors, Una
 
 *Monatliche Gebühr:* Für ein Abonnement des Angebots wird ein monatlicher Festbetrag in Rechnung gestellt (ab Startdatum des Abonnements für diesen Tarif). Bei Kündigungen in der Monatsmitte bzw. für nicht genutzte Dienste erfolgt eventuell eine anteilige Verrechnung der Gebühren.
 
-Die für die jeweiligen Angebote geltenden Preisdetails finden Sie auf der Detailseite der Lösung unter [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/) oder im [Microsoft Azure Azure-Verwaltungsportal](https://portal.azure.com/).
+Die für die jeweiligen Angebote geltenden Preisdetails finden Sie auf der Detailseite der Lösung unter [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) oder im [Microsoft Azure Azure-Verwaltungsportal](https://portal.azure.com/).
 
 >[!Note]
 > Mit Ausnahme der monatlichen Gebühren gelten Azure-Nutzungsgebühren für alle Preismodelle, sofern nicht anders angegeben.
@@ -163,7 +156,7 @@ Die „Kostenlose Testversion“ eines Abonnementangebots ist unbefristet kosten
 
 **Benötige ich ein registriertes Zahlungsinstrument (z. B. eine Kreditkarte), um Angebote im Tarif „Free“ oder als BYOL-Version (Bring Your Own License) bereitzustellen?**
 
- Nein. Zur Bereitstellung von Angeboten im Free-Tarif oder als BYOL-Version ist kein Zahlungsinstrument erforderlich. Für kostenlose Testangebote ist hingegen ein Zahlungsinstrument erforderlich. Listings, die die Schaltflächen **Jetzt anfordern** oder **Kostenlose Testversion** enthalten, werden in dem ausgewählten Azure-Abonnement bereitgestellt.  Diese Listings werden über die registrierte Zahlungsmethode des ausgewählten Kontos abgerechnet. Azure-Nutzungsgebühren werden getrennt von den Softwarelizenzgebühren abgerechnet.
+Nein. Zur Bereitstellung von Angeboten im Free-Tarif oder als BYOL-Version ist kein Zahlungsinstrument erforderlich. Für kostenlose Testangebote ist hingegen ein Zahlungsinstrument erforderlich. Listings, die die Schaltflächen **Jetzt anfordern** oder **Kostenlose Testversion** enthalten, werden in dem ausgewählten Azure-Abonnement bereitgestellt.  Diese Listings werden über die registrierte Zahlungsmethode des ausgewählten Kontos abgerechnet. Azure-Nutzungsgebühren werden getrennt von den Softwarelizenzgebühren abgerechnet.
 
 **An wen können sich indirekte Kunden mit Enterprise Agreement wenden, wenn sie Fragen zu Preisen und Angeboten im Azure Marketplace haben?**
 
@@ -179,7 +172,7 @@ Bestimmte Azure Marketplace-Angebote können per Azure-Abonnementguthaben oder Z
 
 **Gelten Volumenlizenzrabatte auch für Käufe im Azure Marketplace?**
 
- Nein. Der Herausgeber, der Lösungen im Azure Marketplace besitzt, kann die Preise festlegen.  Die üblichen Rabatte für Microsoft-Volumenlizenzen gelten nicht für Käufe im Azure Marketplace.
+Nein. Der Herausgeber, der Lösungen im Azure Marketplace besitzt, kann die Preise festlegen.  Die üblichen Rabatte für Microsoft-Volumenlizenzen gelten nicht für Käufe im Azure Marketplace.
 
 **Wie kann ich diese Abonnements bezahlen? Erscheinen meine Azure Marketplace-Käufe auf meiner Azure-Rechnung, oder gibt es eine andere Rechnung?**
 
@@ -317,7 +310,7 @@ Weitere Informationen und die jeweiligen Vorteile von Azure Marketplace und AppS
 
 **Wie starte ich die Veröffentlichung im Azure Marketplace?**
 
-Bevor Sie Ihre Lösungen und Dienste im Azure Marketplace listen, lesen Sie den [Herausgeberleitfaden für Azure Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) und darin besonders den Abschnitt [Weg zum Herausgeber](https://docs.microsoft.com/azure/marketplace/become-publisher). Danach übermitteln Sie Ihre Anwendung, indem Sie das [Antragsformular für Azure Marketplace](https://azuremarketplace.microsoft.com/sell/signup) ausfüllen.
+Bevor Sie Ihre Lösungen und Dienste im Azure Marketplace listen, lesen Sie den [Herausgeberleitfaden für Azure Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) und darin besonders den Abschnitt [Weg zum Herausgeber](https://docs.microsoft.com/azure/marketplace/become-publisher). Als nächstes übermitteln Sie Ihren Antrag, indem Sie [Ihr Angebot einreichen](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Weitere Informationen finden Sie unter [Erstellen eines Partner Center-Kontos](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
 **Muss ich Mitglied des Microsoft Partner Network (MPN) sein, um meine Anwendungen und Dienste im Azure Marketplace zu listen?**
 
@@ -381,7 +374,7 @@ Nach Fertigstellung des Angebots und der Einrichtung eines Leadziels kann das Li
 
 **In welchen Ländern bzw. Regionen ist der Azure Marketplace für Herausgeber zum Verkaufen ihrer Lösungen verfügbar?**
 
-Herausgeber aus den folgenden Ländern können zurzeit im Azure Marketplace verkaufen: Afghanistan, Albanien, Algerien, Angola, Antigua und Barbuda, Argentinien, Armenien, Australien, Österreich, Aserbaidschan, Bahrain, Bangladesch, Belarus, Belgien, Benin, Bolivien, Bosnien und Herzegowina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodscha, Kamerun, Kanada, Zentralafrikanische Republik, Tschad, Chile, Kolumbien, Komoren, Kongo (Republik), Kongo (DRK), Costa Rica, Côte d'Ivoire, Kroatien, Zypern, Tschechische Republik, Dänemark, Dominica, Dominikanische Republik, Ecuador, Ägypten, El Salvador, Eritrea, Estland, Äthiopien, Fidschi, Finnland, Frankreich, Georgien, Deutschland, Ghana, Griechenland, Guatemala, Guinea, Haiti, Honduras, Hongkong (SAR), Ungarn, Island, Indien, Indonesien, Irak, Irland, Israel, Italien, Jamaika, Japan, Jordanien, Kasachstan, Kenia, Südkorea, Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongolei, Montenegro, Marokko, Mosambik, Nepal, Niederlande, Neuseeland, Nicaragua, Niger, Nigeria, Norwegen, Oman, Pakistan, Panama, Paraguay, Peru, Philippinen, Polen, Portugal, Katar, Rumänien, Russland, Ruanda, Saudi-Arabien, Senegal, Serbien, Sierra Leone, Singapur, Slowakei, Slowenien, Somalia, Südafrika, Spanien, Sri Lanka, Schweden, Schweiz, Tadschikistan, Tansania, Thailand, Timor-Leste, Togo, Tonga, Trinidad und Tobago, Tunesien, Türkei, Turkmenistan, Uganda, Ukraine, Vereinigte Arabische Emirate, Vereinigtes Königreich, Vereinigte Staaten, Uruguay, Usbekistan, Venezuela, Vietnam, Sambia und Simbabwe.
+Herausgeber aus den folgenden Ländern/Regionen können zurzeit im Azure Marketplace verkaufen: Afghanistan, Albanien, Algerien, Angola, Antigua und Barbuda, Argentinien, Armenien, Australien, Österreich, Aserbaidschan, Bahrain, Bangladesch, Belarus, Belgien, Benin, Bolivien, Bosnien und Herzegowina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodscha, Kamerun, Kanada, Zentralafrikanische Republik, Tschad, Chile, Kolumbien, Komoren, Kongo (Republik), Kongo (DRK), Costa Rica, Côte d'Ivoire, Kroatien, Zypern, Tschechische Republik, Dänemark, Dominica, Dominikanische Republik, Ecuador, Ägypten, El Salvador, Eritrea, Estland, Äthiopien, Fidschi, Finnland, Frankreich, Georgien, Deutschland, Ghana, Griechenland, Guatemala, Guinea, Haiti, Honduras, Hongkong (SAR), Ungarn, Island, Indien, Indonesien, Irak, Irland, Israel, Italien, Jamaika, Japan, Jordanien, Kasachstan, Kenia, Südkorea, Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongolei, Montenegro, Marokko, Mosambik, Nepal, Niederlande, Neuseeland, Nicaragua, Niger, Nigeria, Norwegen, Oman, Pakistan, Panama, Paraguay, Peru, Philippinen, Polen, Portugal, Katar, Rumänien, Russland, Ruanda, Saudi-Arabien, Senegal, Serbien, Sierra Leone, Singapur, Slowakei, Slowenien, Somalia, Südafrika, Spanien, Sri Lanka, Schweden, Schweiz, Tadschikistan, Tansania, Thailand, Timor-Leste, Togo, Tonga, Trinidad und Tobago, Tunesien, Türkei, Turkmenistan, Uganda, Ukraine, Vereinigte Arabische Emirate, Vereinigtes Königreich, Vereinigte Staaten, Uruguay, Usbekistan, Venezuela, Vietnam, Sambia und Simbabwe.
 
 **Wie lösche ich ein Listing im Azure Marketplace?**
 
@@ -486,19 +479,19 @@ Abhängigkeiten werden für Azure Marketplace-Angebote nicht automatisch verwalt
 
 **Wer kann Anwendungen und Dienste kaufen, die im Azure Marketplace verkauft/bereitgestellt werden?**
 
-Der Azure Marketplace ist in den folgenden Ländern für Microsoft Azure-Kunden verfügbar:
+Der Azure Marketplace ist in den folgenden Ländern/Regionen für Microsoft Azure-Kunden verfügbar:
 
 Algerien, Argentinien, Australien, Österreich, Bahrain, Belarus, Belgien, Brasilien, Bulgarien, Kanada, Chile, Kolumbien, Costa Rica, Kroatien, Zypern, Tschechische Republik, Dänemark, Dominikanische Republik, Ecuador, Ägypten, El Salvador, Estland, Finnland, Frankreich, Deutschland, Griechenland, Guatemala, Hongkong, Ungarn, Island, Indien, Indonesien, Irland, Israel, Italien, Japan, Jordanien, Kasachstan, Kenia, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, Nordmazedonien (ehemalige jugoslawische Republik), Malaysia, Malta, Mexiko, Montenegro, Marokko, Niederlande, Neuseeland, Nigeria, Norwegen, Oman, Pakistan, Panama, Paraguay, Peru, Philippinen, Polen, Portugal, Puerto Rico, Katar, Rumänien, Russland, Saudi-Arabien, Serbien, Singapur, Slowakei, Slowenien, Südafrika, Südkorea, Spanien, Sri Lanka, Schweden, Schweiz, Taiwan, Thailand, Trinidad und Tobago, Tunesien, Türkei, Ukraine, Vereinigte Arabische Emirate, Vereinigtes Königreich, USA, Uruguay, Venezuela.
 
-**Wie definiere ich meine geografische Verfügbarkeit, um den Verkauf in verschiedenen Ländern zu aktivieren?**
+**Wie definiere ich meine geografische Verfügbarkeit, um den Verkauf in verschiedenen Ländern/Regionen zu aktivieren?**
 
-1.  Navigieren Sie im Cloud-Partnerportal zu der SKU, zu der Sie neue Länder hinzufügen möchten.  Klicken Sie unter „SKU-Details“ > „Verfügbarkeit in Land/Region“ auf „Regionen auswählen“.
+1.  Navigieren Sie im Cloud-Partnerportal zu der SKU, zu der Sie neue Länder/Regionen hinzufügen möchten.  Klicken Sie unter „SKU-Details“ > „Verfügbarkeit in Land/Region“ auf „Regionen auswählen“.
 
     ![Regionen auswählen](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  Eine Liste mit allen für den Verkauf verfügbaren Ländern wird eingeblendet.  Klicken Sie auf das Kontrollkästchen neben jedem Land, für das diese SKU verfügbar sein soll. Klicken Sie auf „OK“.
+1.  Eine Liste mit allen für den Verkauf verfügbaren Ländern/Regionen wird eingeblendet.  Klicken Sie auf das Kontrollkästchen neben allen Ländern/Regionen, die diese SKU verfügbar sein soll. Klicken Sie auf „OK“.
 
-    ![Länderliste auswählen](media/marketplace-publishers-guide/FAQ-select-countries.png)
+    ![Liste der Ländern/Regionen auswählen](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
 1.  Klicken Sie abschließend auf „Veröffentlichen“, damit die Änderungen auf Ihr Liveangebot angewendet werden.  
 
@@ -509,11 +502,11 @@ Algerien, Argentinien, Australien, Österreich, Bahrain, Belarus, Belgien, Brasi
 
 **Wie kann ein Herausgeber die geografische Verfügbarkeit für ein vorhandenes Angebot ändern?**
 
-Der Herausgeber kann ein vorhandenes Angebot bearbeiten, die neuen Länder auswählen und zum Festlegen von Preisen die Download/Upload-Funktion für Tabellen verwenden.
+Der Herausgeber kann ein vorhandenes Angebot bearbeiten, die neuen Länder/Regionen auswählen und zum Festlegen von Preisen die Download/Upload-Funktion für Tabellen verwenden.
 
-**In welchen Ländern können Kunden im Azure Marketplace Käufe tätigen?**
+**In welchen Ländern/Regionen können Kunden im Azure Marketplace Käufe tätigen?**
 
-Azure Marketplace unterstützt 141 geografische Verkaufsgebiete („Einkauf von“), die durch die Rechnungsadresse des Kunden definiert sind. Eine Liste der Länder finden Sie unter [Teilnahmerichtlinien](https://docs.microsoft.com/legal/marketplace/participation-policy).
+Azure Marketplace unterstützt 141 geografische Verkaufsgebiete („Einkauf von“), die durch die Rechnungsadresse des Kunden definiert sind. Eine Liste der Länder/Regionen finden Sie unter [Teilnahmerichtlinien](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
 **Welche Währungen werden vom Azure Marketplace unterstützt?**
 
@@ -545,7 +538,7 @@ Die Preise variieren je nach Produkttyp und Angaben der Herausgeber. Softwareliz
 
 * **Monatliche Gebühr**: Ihnen wird für ein Abonnement des Angebots ein monatlicher Festbetrag in Rechnung gestellt, beginnend mit dem Start dieses speziellen Tarifs. Bei Kündigungen in der Monatsmitte bzw. für nicht genutzte Dienste erfolgt eventuell eine anteilige Verrechnung der Gebühren.
 
-Die Preisdetails finden Sie auf der Detailseite der Lösung unter [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/) oder im Microsoft Azure-Verwaltungsportal.
+Die Preisdetails finden Sie auf der Detailseite der Lösung unter [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) oder im Microsoft Azure-Verwaltungsportal.
 
 >[!Note]
 >Mit Ausnahme der monatlichen Gebühren gelten Azure-Nutzungsgebühren für alle Preismodelle, sofern nicht anders angegeben.
@@ -556,7 +549,7 @@ Ein Abonnement im Free-Tarif ist unbefristet kostenlos.  Ein Angebot als „Kost
 
 **Benötige ich ein registriertes Zahlungsinstrument (z. B. eine Kreditkarte), um Angebote im Tarif „Free“ oder als BYOL-Version (Bring Your Own License) bereitzustellen?**
 
- Nein. Zur Bereitstellung von Angeboten im Free-Tarif oder als BYOL-Version ist kein Zahlungsinstrument erforderlich. Für kostenlose Testangebote ist hingegen ein Zahlungsinstrument erforderlich.
+Nein. Zur Bereitstellung von Angeboten im Free-Tarif oder als BYOL-Version ist kein Zahlungsinstrument erforderlich. Für kostenlose Testangebote ist hingegen ein Zahlungsinstrument erforderlich.
 
 Listings, die über die Schaltflächen „Jetzt herunterladen“ oder „Kostenlose Softwaretestversion“ verfügen, werden in Ihrem Azure-Abonnement bereitgestellt und mit der für Ihr Konto registrierten Zahlungsmethode abgerechnet. Azure-Nutzungsgebühren werden getrennt von den Softwarelizenzgebühren abgerechnet.
 
@@ -578,7 +571,7 @@ Bestimmte Azure Marketplace-Angebote können per Azure-Abonnementguthaben oder Z
 
 **Gelten Volumenlizenzrabatte auch für Käufe im Azure Marketplace?**
 
- Nein. Unabhängige Softwarehersteller, die Lösungen im Azure Marketplace besitzen, können die Preise festlegen. Die üblichen Rabatte für Microsoft-Volumenlizenzen gelten nicht für Käufe im Azure Marketplace.
+Nein. Unabhängige Softwarehersteller, die Lösungen im Azure Marketplace besitzen, können die Preise festlegen. Die üblichen Rabatte für Microsoft-Volumenlizenzen gelten nicht für Käufe im Azure Marketplace.
 
 **Wie kann ich diese Abonnements bezahlen? Erscheinen meine Azure Marketplace-Käufe auf meiner Azure-Rechnung, oder gibt es eine andere Rechnung?**
 

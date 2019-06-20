@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6469e3b35357867b6b38b00c8b11637ba30b2960
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 6a2e065466ab4426a6472b64fae19d264ff8dd81
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66734220"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Sichern und Wiederherstellen von SQL-Datenbanken auf virtuellen Azure-Computern mit PowerShell
 
@@ -25,7 +25,7 @@ In diesem Tutorial werden folgende Punkte erläutert:
 
 > [!div class="checklist"]
 > * Einrichten von PowerShell und Registrieren des Azure Recovery Services-Anbieters
-> * Erstellen eines Recovery Services-Tresors
+> * Erstellen Sie einen Recovery Services-Tresor.
 > * Konfigurieren der Sicherung für eine SQL-Datenbank auf einem virtuellen Azure-Computer
 > * Ausführen eines Sicherungsauftrags
 > * Wiederherstellen einer gesicherten SQL-Datenbank
@@ -110,7 +110,7 @@ Der Recovery Services-Tresor ist eine Resource Manager-Ressource. Deshalb müsse
 3. Geben Sie den für den Tresorspeicher zu verwendenden Redundanztyp an.
 
     * Sie können [lokal redundanten Speicher](../storage/common/storage-redundancy-lrs.md) oder [georedundanten Speicher](../storage/common/storage-redundancy-grs.md) verwenden.
-    * Im folgenden Beispiel wird die Option **-BackupStorageRedundancy** für den Befehl [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) für **testvault** auf den Wert **GeoRedundant** festgelegt.
+    * Im folgenden Beispiel wird die Option **-BackupStorageRedundancy** für den Befehl [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) für **testvault** auf den Wert **GeoRedundant** festgelegt.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -281,7 +281,7 @@ Mit [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/power
 
 ````powershell
 $startDate = (Get-Date).AddDays(-7).ToUniversalTime()
-$endDate = Get-Date.ToUniversalTime()
+$endDate = (Get-Date).ToUniversalTime()
 Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $targetVault.ID -StartDate $startdate -EndDate $endDate
 ````
 
@@ -477,7 +477,19 @@ WorkloadName     Operation            Status               StartTime            
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-### <a name="stop-protection"></a>Beenden des Schutzes
+### <a name="re-register-sql-vms"></a>Erneutes Registrieren von virtuellen SQL-Computern
+
+> [!WARNING]
+> Lesen Sie vor dem Versuch einer erneuten Registrierung unbedingt dieses [Dokument](backup-sql-server-azure-troubleshoot.md#re-registration-failures), um die Symptome und Ursachen von Fehlern zu verstehen.
+
+Um die erneute Registrierung des virtuellen SQL-Computers auszulösen, rufen Sie den relevanten Sicherungscontainer ab, und übergeben Sie ihn an das Cmdlet „Register“.
+
+````powershell
+$SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
+Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID
+````
+
+### <a name="stop-protection"></a>Schutz beenden
 
 #### <a name="retain-data"></a>Beibehalten von Daten
 
@@ -518,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Es ist wichtig zu beachten, dass Azure Backup nur vom Benutzer ausgelöste Aufträge in der SQL-Sicherung nachverfolgt. Geplante Sicherungen (einschließlich Protokollsicherungen) werden nicht im Portal/PowerShell angezeigt. Wenn jedoch Fehler bei geplanten Aufträgen auftreten, wird eine [Sicherungswarnung](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) generiert und im Portal angezeigt. [Verwenden Sie Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) zum Nachverfolgen aller geplanten Aufträge und anderer relevanter Informationen.
 
-Benutzer können Ad-hoc- und vom Benutzer ausgelöste Vorgänge anhand der Auftrags-ID nachverfolgen, die in der [Ausgabe](#on-demand-backup) asynchroner Aufträge (z.B. einer Sicherung) zurückgegeben wird. Mit dem PS-Cmdlet [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) können Sie einen Auftrag und seine Details nachverfolgen.
+Benutzer können Ad-hoc- und vom Benutzer ausgelöste Vorgänge anhand der Auftrags-ID nachverfolgen, die in der [Ausgabe](#on-demand-backup) asynchroner Aufträge (z.B. einer Sicherung) zurückgegeben wird. Mit dem PS-Cmdlet [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) können Sie einen Auftrag und seine Details nachverfolgen.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

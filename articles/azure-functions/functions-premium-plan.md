@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543743"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492702"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Premium-Plan (Premium-Tarif) für Azure Functions (Vorschau)
 
@@ -44,7 +44,7 @@ Wenn heute keine Ereignisse und Ausführungen im Verbrauchsplan ausgeführt werd
 
 Im Premium-Plan können Sie Ihre App in einem „vorab aufgewärmten“ Zustand für eine angegebene Anzahl von Instanzen vorhalten, bis zur Größe Ihres Mindestplans.  Mit vorab aufgewärmten Instanzen können Sie eine App auch vor hoher Last vorab skalieren. Erfolgt eine Erweiterung für die App, wird die App zunächst in die vorab aufgewärmten Instanzen skaliert. In Vorbereitung auf den nächsten Skalierungsvorgang werden sofort weitere Instanzen gepuffert und aufgewärmt. Dadurch, dass es einen Puffer mit vorab aufgewärmten Instanzen gibt, können Sie Kaltstartwartezeiten effektiv vermeiden.  Vorab aufgewärmte Instanzen ist ein Feature für den Premium-Plan, und Sie müssen während der gesamten Zeit, in der der Plan aktiv ist, mindestens eine Instanz aktiv und verfügbar halten.
 
-Sie können die Anzahl der vorab aufgewärmten Instanzen im Azure-Portal konfigurieren, indem Sie **Horizontal skalieren** auf der Registerkarte **Plattformfeatures** auswählen.
+Sie können die Anzahl der vorab aufgewärmten Instanzen im Azure-Portal konfigurieren, indem Sie Ihre **Funktions-App** auswählen, zur Registerkarte **Plattformfeatures** wechseln und die **Horizontal skalieren**-Optionen auswählen. Im Bearbeitungsfenster für eine Funktions-App gelten vorab aufgewärmte Instanzen speziell für diese App, aber die Mindestanzahl und die maximale Anzahl von Instanzen gelten für Ihren gesamten Plan.
 
 ![Einstellungen für elastisches Skalieren](./media/functions-premium-plan/scale-out.png)
 
@@ -56,7 +56,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>Private Netzwerkkonnektivität
 
-Für Azure Functions, bereitgestellt in einem Premium-Plan, wird die [neue VNET-Integration für Web-Apps](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration) genutzt.  Ist diese Integration konfiguriert, kann Ihre App mit Ressourcen in Ihrem VNET oder geschützt über Dienstendpunkte kommunizieren.  IP-Einschränkungen sind ebenfalls für die App verfügbar, um eingehenden Datenverkehr zu beschränken.
+Für Azure Functions, bereitgestellt in einem Premium-Plan, wird die [neue VNET-Integration für Web-Apps](../app-service/web-sites-integrate-with-vnet.md) genutzt.  Ist diese Integration konfiguriert, kann Ihre App mit Ressourcen in Ihrem VNET oder geschützt über Dienstendpunkte kommunizieren.  IP-Einschränkungen sind ebenfalls für die App verfügbar, um eingehenden Datenverkehr zu beschränken.
 
 Wenn Sie Ihrer Funktions-App in einem Premium-Plan ein Subnetz zuweisen, benötigen Sie ein Subnetz mit genügend IP-Adressen für jede mögliche-Instanz. Obwohl die maximale Anzahl von Instanzen in der Vorschauphase variieren kann, ist ein IP-Adressblock mit mindestens 100 verfügbaren Adressen erforderlich.
 
@@ -91,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>Verfügbare Instanz-SKUs
 
-Wenn Sie Ihren Plan erstellen oder horizontal skalieren, können Sie zwischen drei Instanzgrößen wählen.  Ihnen werden die Gesamtanzahl von Kernen und der Arbeitsspeicher in Rechnung gestellt, die pro Sekunde genutzt werden.  Ihre App kann automatisch nach Bedarf auf mehrere Instanzen hochskaliert werden.  
+Wenn Sie Ihren Plan erstellen oder skalieren, können Sie zwischen drei Instanzgrößen wählen.  Ihnen werden die Gesamtanzahl von Kernen und der Arbeitsspeicher in Rechnung gestellt, die pro Sekunde genutzt werden.  Ihre App kann automatisch nach Bedarf auf mehrere Instanzen hochskaliert werden.  
 
 |SKU|Kerne|Arbeitsspeicher|Storage|
 |--|--|--|--|
@@ -114,6 +114,7 @@ Nachstehend sind die derzeit unterstützten Regionen für die öffentliche Vorsc
 |Frankreich, Mitte|
 |Japan, Westen|
 |Korea, Mitte|
+|USA Nord Mitte|
 |Nordeuropa|
 |USA Süd Mitte|
 |Indien (Süden)|

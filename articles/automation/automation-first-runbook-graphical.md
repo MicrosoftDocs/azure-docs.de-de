@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61077911"
 ---
 # <a name="my-first-graphical-runbook"></a>Mein erstes grafisches Runbook
 
@@ -142,7 +142,7 @@ Nachdem Sie nun über eine Variable für Ihre Abonnement-ID verfügen, können S
 1. Wählen Sie auf der Seite „Parameterwert“ für die **Datenquelle** die Option **Variablenasset** und in der Liste die Option **AzureSubscriptionId** aus. Klicken Sie anschließend zweimal auf **OK**.
 1. Zeigen Sie auf **Login to Azure** , bis am unteren Rand der Form ein Kreis erscheint. Klicken Sie auf den Kreis, und ziehen Sie den Pfeil auf **Specify Subscription Id**.
 
-Ihr Runbook sollte nun wie folgt aussehen:  <br>![Konfiguration der Runbook-Authentifizierung](media/automation-first-runbook-graphical/runbook-auth-config.png)
+Ihr Runbook sollte nun wie folgt aussehen: <br>![Konfiguration der Runbook-Authentifizierung](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
 ## <a name="add-activity-to-start-a-vm"></a>Hinzufügen einer Aktivität zum Starten eines virtuellen Computers
 
@@ -157,7 +157,7 @@ In diesem Schritt fügen Sie eine Aktivität vom Typ **Start-AzureRmVM** hinzu, 
 1. Klicken Sie auf den Testbereich, um das Runbook zu testen.
 1. Klicken Sie auf **Starten** , um den Test zu starten. Vergewissern Sie sich nach Abschluss des Tests, dass der virtuelle Computer gestartet wurde.
 
-Ihr Runbook sollte nun wie folgt aussehen:  <br>![Konfiguration der Runbook-Authentifizierung](media/automation-first-runbook-graphical/runbook-startvm.png)
+Ihr Runbook sollte nun wie folgt aussehen: <br>![Konfiguration der Runbook-Authentifizierung](media/automation-first-runbook-graphical/runbook-startvm.png)
 
 ## <a name="add-additional-input-parameters"></a>Hinzufügen zusätzlicher Eingabeparameter
 
@@ -209,7 +209,7 @@ In diesem Schritt passen Sie das Runbook so an, dass nur dann versucht wird, den
 
 1. Erstellen Sie eine Verknüpfung zwischen **Get Status** und **Start-AzureRmVM**.<br> ![Runbook mit Codemodul](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
 1. Wählen Sie die Verknüpfung aus, und legen Sie **Bedingung anwenden** im Konfigurationsbereich auf **Ja** fest. Beachten Sie, dass die Verknüpfung nun als gestrichelte Linie dargestellt wird. Das bedeutet, dass die Aktivität nur ausgeführt wird, wenn die Bedingung erfüllt ist.  
-1. Geben Sie für den **Bedingungsausdruck** Folgendes ein: *$ActivityOutput['Get Status'] -eq "Stopped"*. Nun wird **Start-AzureRmVM** nur dann ausgeführt, wenn der virtuelle Computer beendet ist.
+1. Geben Sie für den **Bedingungsausdruck** Folgendes ein: *$ActivityOutput['Get Status'] -eq "Stopped"* . Nun wird **Start-AzureRmVM** nur dann ausgeführt, wenn der virtuelle Computer beendet ist.
 1. Erweitern Sie im Bibliotheksteuerelement den Knoten **Cmdlets** und anschließend **Microsoft.PowerShell.Utility**.
 1. Fügen Sie dem Zeichenbereich zweimal **Write-Output** hinzu.
 1. Klicken Sie im ersten Steuerelement vom Typ **Write-Output** auf **Parameter**, und legen Sie die **Bezeichnung** auf *Notify VM Started* fest.

@@ -3,19 +3,19 @@ title: 'Demo: Unterhaltungslernmodell, Kennwortzurücksetzung – Microsoft Cogn
 titleSuffix: Azure
 description: Erfahren Sie, wie Sie eine Demo in einem Unterhaltungslernmodell erstellen.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: 15aa3a8346087908cf77f1f68db916cc2c184448
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227334"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389877"
 ---
 # <a name="demo-password-reset"></a>Demo: Zurücksetzen des Kennworts
 Dieses Tutorial veranschaulicht einen einfachen technischen Support-Bot, der von Conversation Learner unterstützt wird und bei Kennwortzurücksetzungen helfen kann. Das Modell des Bots kann schwierige Dialogabläufe und Sequenzen aus mehreren Aktionen (einschließlich domänenexterner Klasse) erlernen. Die Aufgabe kann ohne Code oder Entitäten abgeschlossen werden.

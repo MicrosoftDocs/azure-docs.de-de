@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441065"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60308118"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Leistungsdiagnose für virtuelle Azure-Computer
 

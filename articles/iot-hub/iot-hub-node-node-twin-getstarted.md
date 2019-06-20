@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: f93abac563d47f6505f42d29e882698ef31174bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795884"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65597422"
 ---
 # <a name="get-started-with-device-twins-node"></a>Erste Schritte mit Gerätezwillingen (Node)
 
@@ -31,7 +31,7 @@ Am Ende dieses Tutorials verfügen Sie über zwei Node.js-Konsolen-Apps:
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Node.js Version 4.0.x oder höher
+* Node.js, Version 10.0.x oder höher.
 
 * Ein aktives Azure-Konto. (Wenn Sie nicht über ein Konto verfügen, können Sie in nur wenigen Minuten ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) erstellen.)
 

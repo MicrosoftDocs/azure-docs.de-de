@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60554846"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Aktivität „Filter“ in Azure Data Factory
 Sie können eine Filter-Aktivität in einer Pipeline verwenden, um einen Filterausdruck auf ein Eingabearray anzuwenden. 
@@ -39,10 +39,10 @@ Sie können eine Filter-Aktivität in einer Pipeline verwenden, um einen Filtera
 
 Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich
 -------- | ----------- | -------------- | --------
-name | Der Name der `Filter`-Aktivität. | Zeichenfolge | JA
-type | Muss auf **filter** festgelegt sein. | Zeichenfolge | JA
-condition | Die Bedingung zum Filtern der Eingaben. | Ausdruck | JA
-items | Das Eingabearray, auf das der Filter angewendet werden soll. | Ausdruck | JA
+name | Der Name der `Filter`-Aktivität. | string | Ja
+type | Muss auf **filter** festgelegt sein. | string | Ja
+condition | Die Bedingung zum Filtern der Eingaben. | Ausdruck | Ja
+items | Das Eingabearray, auf das der Filter angewendet werden soll. | Ausdruck | Ja
 
 ## <a name="example"></a>Beispiel
 

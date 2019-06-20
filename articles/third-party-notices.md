@@ -3,11 +3,11 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.openlocfilehash: 2b1fc99fe179187c6431d9a999628db76885e553
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57789672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60884273"
 ---
 # <a name="legal-notices"></a>Rechtliche Hinweise
 

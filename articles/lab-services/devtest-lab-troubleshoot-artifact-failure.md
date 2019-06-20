@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 29af70a2713e7b4aebf611d8f2b547e38c6c5d3d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60623105"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnostizieren von Artefaktfehlern im Lab 
 Nachdem Sie ein Artefakt erstellt haben, können Sie überprüfen, ob es erfolgreich war oder nicht. Artefaktprotokolle in Azure DevTest Labs bieten Informationen, die Ihnen beim Diagnostizieren eines Artefaktfehlers helfen. Zum Anzeigen der Artefaktprotokollinformationen für eine Windows-VM stehen Ihnen eine Reihe von Optionen zur Verfügung:

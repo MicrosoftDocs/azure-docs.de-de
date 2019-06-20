@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64723573"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing von GeoJSON-Daten
@@ -32,8 +32,8 @@ Die Daten für einen Geofence oder eine Reihe von Geofences werden durch das `Fe
 
 | NAME | Type | Erforderlich  | BESCHREIBUNG |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | Datetime  | true | Das Anfangsdatum und die Anfangsuhrzeit der Gültigkeitsdauer. |
-| endTime   | Datetime  | true |  Das Enddatum und die Enduhrzeit der Gültigkeitsdauer. |
+| startTime | DateTime  | true | Das Anfangsdatum und die Anfangsuhrzeit der Gültigkeitsdauer. |
+| endTime   | DateTime  | true |  Das Enddatum und die Enduhrzeit der Gültigkeitsdauer. |
 | recurrenceType | Zeichenfolge | false |   Der Wiederholungstyp des Zeitraums. Der Wert kann `Daily`, `Weekly`, `Monthly` oder `Yearly` lauten. Der Standardwert ist `Daily`.|
 | businessDayOnly | Boolean | false |  Gibt an, ob die Daten nur an Werktagen gültig sind. Der Standardwert ist `false`.|
 

@@ -1,23 +1,17 @@
 ---
 title: Sperren von Azure-Ressourcen zum Verhindern von Änderungen | Microsoft-Dokumentation
 description: Verhindern Sie, dass Benutzer kritische Azure-Ressourcen aktualisieren oder löschen, indem Sie eine Sperre für alle Benutzer und Rollen anwenden.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360445"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813389"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Sperren von Ressourcen, um unerwartete Änderungen zu verhindern 
 
@@ -36,7 +30,13 @@ Im Gegensatz zur rollenbasierten Zugriffssteuerung verwenden Sie Verwaltungssper
 
 Resource Manager-Sperren gelten nur für Vorgänge auf der Verwaltungsebene (also für Vorgänge, die an `https://management.azure.com` gesendet werden). Die Ausführung ressourceneigener Funktionen wird durch die Sperren nicht eingeschränkt. Die Ressourcenänderungen sind eingeschränkt, die Ressourcenvorgänge jedoch nicht. Beispielsweise verhindert eine ReadOnly-Sperre für eine SQL-Datenbank das Löschen oder Ändern der Datenbank. Sie verhindert jedoch nicht das Erstellen, Aktualisieren oder Löschen von Daten in der Datenbank. Datentransaktionen sind zulässig, da diese Vorgänge nicht an `https://management.azure.com` gesendet werden.
 
-Die Anwendung von **ReadOnly** kann zu unerwarteten Ergebnissen führen, da einige Vorgänge, bei denen es sich scheinbar um Lesevorgänge handelt, zusätzliche Aktionen erfordern. Das Festlegen von **ReadOnly** für ein Speicherkonto hindert beispielsweise alle Benutzer am Auflisten der Schlüssel. Der Vorgang zum Auflisten von Schlüsseln wird über eine POST-Anforderung behandelt, da die zurückgegebenen Schlüssel für Schreibvorgänge zur Verfügung stehen. Weiteres Beispiel: Das Festlegen von **ReadOnly** für eine App Service-Ressource verhindert, dass der Server-Explorer von Visual Studio Dateien für die Ressource anzeigen kann, da für diese Interaktion Schreibzugriff erforderlich ist.
+Das Aktivieren von **ReadOnly** kann zu unerwarteten Ergebnissen führen, da einige Vorgänge, die die Ressource nicht zu ändern scheinen, tatsächlich Aktionen erfordern, die von der Sperre blockiert werden. Die Sperre **ReadOnly** kann auf die Ressource oder auf die Ressourcengruppe angewendet werden, die die Ressource enthält. Einige gängige Beispiele für die Vorgänge, die durch eine **ReadOnly**-Sperre blockiert werden, sind:
+
+* Eine **ReadOnly**-Sperre für ein Speicherkonto hindert alle Benutzer am Auflisten der Schlüssel. Der Vorgang zum Auflisten von Schlüsseln wird über eine POST-Anforderung behandelt, da die zurückgegebenen Schlüssel für Schreibvorgänge zur Verfügung stehen.
+
+* Das Festlegen einer **ReadOnly**-Sperre für eine App Service-Ressource verhindert, dass der Server-Explorer von Visual Studio Dateien für die Ressource anzeigen kann, da für diese Interaktion Schreibzugriff erforderlich ist.
+
+* Eine **ReadOnly**-Sperre für eine Ressourcengruppe, die einen virtuellen Computer enthält, hindert alle Benutzer am Starten bzw. Neustarten des virtuellen Computers. Diese Vorgänge erfordern eine POST-Anforderung.
 
 ## <a name="who-can-create-or-delete-locks"></a>Voraussetzungen für das Erstellen oder Löschen von Sperren
 Zum Erstellen oder Löschen von Verwaltungssperren benötigen Sie Zugriff auf `Microsoft.Authorization/*`- oder `Microsoft.Authorization/locks/*`-Aktionen. Unter den integrierten Rollen können nur **Besitzer** und **Benutzerzugriffsadministrator** diese Aktionen ausführen.
@@ -70,13 +70,13 @@ Wenn Sie eine Sperre mithilfe einer Resource Manager-Vorlage bereitstellen, verw
 
 Beim Anwenden einer Sperre für eine **Ressource** verwenden Sie die folgenden Formate:
 
-* name - `{resourceName}/Microsoft.Authorization/{lockName}`
-* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* Name: `{resourceName}/Microsoft.Authorization/{lockName}`
+* Typ: `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Beim Anwenden einer Sperre für eine **Ressourcengruppe** oder ein **Abonnement** verwenden Sie die folgenden Formate:
 
-* name - `{lockName}`
-* type - `Microsoft.Authorization/locks`
+* Name: `{lockName}`
+* Typ: `Microsoft.Authorization/locks`
 
 Das folgende Beispiel zeigt eine Vorlage, die einen App Service-Plan, eine Website und eine Sperre für die Website erstellt. Der Ressourcentyp der Sperre ist der Ressourcentyp der zu sperrenden Ressource und **/providers/locks**. Der Name der Sperre wird erstellt, indem der Ressourcenname mit **/Microsoft.Authorization/** und dem Namen der Sperre verkettet wird.
 

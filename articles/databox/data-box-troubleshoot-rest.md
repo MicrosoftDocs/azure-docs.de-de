@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204219"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Erfahren Sie mehr über das Behandeln von Problemen mit Azure Data Box-Blobspeicher.
@@ -55,7 +55,7 @@ In diesem Abschnitt werden einige der wichtigsten Probleme bei der Bereitstellun
 |Fehlermeldung  |Empfohlene Maßnahme |
 |---------|---------|
 |Der Wert eines der HTTP-Header weist nicht das richtige Format auf. |Die installierte Version der Microsoft Azure Storage-Bibliothek für Python wird von Data Box nicht unterstützt. Unterstützte Versionen finden Sie in den Azure Data Box-Blobspeicheranforderungen.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Legen Sie vor dem Ausführen von Python die Umgebungsvariable REQUESTS_CA_BUNDLE auf den Pfad der Base64-codierten SSL-Zertifikatsdatei fest. (Weitere Informationen zum [Herunterladen des Zertifikats](data-box-deploy-copy-data-via-rest.md#download-certificate).) <br>Beispiel: <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternativ können Sie das Zertifikat dem Zertifikatspeicher des Systems hinzufügen und dann diese Umgebungsvariable auf den Pfad dieses Speichers festlegen. <br> Beispiel für Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Legen Sie vor dem Ausführen von Python die Umgebungsvariable REQUESTS_CA_BUNDLE auf den Pfad der Base64-codierten SSL-Zertifikatsdatei fest. (Weitere Informationen zum [Herunterladen des Zertifikats](data-box-deploy-copy-data-via-rest.md#download-certificate).) <br>Beispiel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternativ können Sie das Zertifikat dem Zertifikatspeicher des Systems hinzufügen und dann diese Umgebungsvariable auf den Pfad dieses Speichers festlegen. <br> Beispiel für Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Häufige Fehler

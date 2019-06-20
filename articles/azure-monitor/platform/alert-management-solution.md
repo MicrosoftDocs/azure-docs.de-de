@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382953"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60777014"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Warnungsverwaltungslösung in Azure Log Analytics
 
@@ -54,9 +54,9 @@ In der folgenden Tabelle sind die verbundenen Quellen beschrieben, die von der L
 
 | Verbundene Quelle | Support | BESCHREIBUNG |
 |:--- |:--- |:--- |
-| [Windows-Agents](agent-windows.md) | Nein  |Direkte Windows-Agents generieren keine Warnungen.  Log Analytics-Warnungen können aus Ereignissen und Leistungsdaten erstellt werden, die von Windows-Agents gesammelt wurden. |
-| [Linux-Agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nein  |Direkte Linux-Agents generieren keine Warnungen.  Log Analytics-Warnungen können aus Ereignissen und Leistungsdaten erstellt werden, die von Linux-Agents gesammelt wurden.  Nagios- und Zabbix-Warnungen werden von Servern gesammelt, die den Linux-Agent erfordern. |
-| [System Center Operations Manager-Verwaltungsgruppe](../../azure-monitor/platform/om-agents.md) |JA |Warnungen, die auf Operations Manager-Agents generiert werden, werden an die Verwaltungsgruppe übermittelt und dann an Log Analytics weitergeleitet.<br><br>Es ist keine direkte Verbindung von Operations Manager-Agents mit Log Analytics erforderlich. Warnungsdaten werden von der Verwaltungsgruppe an das Log Analytics-Repository weitergeleitet. |
+| [Windows-Agents](agent-windows.md) | Nein |Direkte Windows-Agents generieren keine Warnungen.  Log Analytics-Warnungen können aus Ereignissen und Leistungsdaten erstellt werden, die von Windows-Agents gesammelt wurden. |
+| [Linux-Agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nein |Direkte Linux-Agents generieren keine Warnungen.  Log Analytics-Warnungen können aus Ereignissen und Leistungsdaten erstellt werden, die von Linux-Agents gesammelt wurden.  Nagios- und Zabbix-Warnungen werden von Servern gesammelt, die den Linux-Agent erfordern. |
+| [System Center Operations Manager-Verwaltungsgruppe](../../azure-monitor/platform/om-agents.md) |Ja |Warnungen, die auf Operations Manager-Agents generiert werden, werden an die Verwaltungsgruppe übermittelt und dann an Log Analytics weitergeleitet.<br><br>Es ist keine direkte Verbindung von Operations Manager-Agents mit Log Analytics erforderlich. Warnungsdaten werden von der Verwaltungsgruppe an das Log Analytics-Repository weitergeleitet. |
 
 
 ### <a name="collection-frequency"></a>Sammlungshäufigkeit
@@ -87,9 +87,9 @@ Mit der Alert Management-Lösung werden alle Datensätze vom Typ **Warnung**anal
 
 Die Lösung importiert Warnungen aus System Center Operations Manager, und es werden jeweils ein entsprechender Datensatz vom Typ **Warnung** und der SourceSystem-Eintrag **OpsManager** erstellt.  Die Eigenschaften der Datensätze sind in der folgenden Tabelle aufgeführt:  
 
-| Eigenschaft | BESCHREIBUNG |
+| Eigenschaft | Description |
 |:--- |:--- |
-| Typ |*Warnung* |
+| Type |*Warnung* |
 | SourceSystem |*OpsManager* |
 | AlertContext |Details des Datenelements, durch das die Warnung verursacht wurde, im XML-Format. |
 | AlertDescription |Detaillierte Beschreibung der Warnung. |

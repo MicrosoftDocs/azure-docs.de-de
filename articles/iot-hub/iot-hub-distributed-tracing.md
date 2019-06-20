@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501363"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60400783"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Überwachen von Gerät-zu-Cloud-Nachrichten in Azure IoT mit der verteilten Ablaufverfolgung (Vorschau)
 
@@ -242,8 +242,8 @@ Verwenden Sie zum Aktualisieren der Samplingkonfiguration der verteilten Ablaufv
 
 | Elementname | Erforderlich | Typ | BESCHREIBUNG |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Ja | Ganze Zahl  | Derzeit werden zum Aktivieren und Deaktivieren des Samplings zwei Moduswerte unterstützt. `1` steht für „Aktiviert“ und `2` für „Deaktiviert“. |
-| `sampling_rate` | Ja | Ganze Zahl  | Dieser Wert ist ein Prozentsatz. Es sind nur Werte von `0` bis (einschließlich) `100` zulässig.  |
+| `sampling_mode` | Ja | Integer | Derzeit werden zum Aktivieren und Deaktivieren des Samplings zwei Moduswerte unterstützt. `1` steht für „Aktiviert“ und `2` für „Deaktiviert“. |
+| `sampling_rate` | Ja | Integer | Dieser Wert ist ein Prozentsatz. Es sind nur Werte von `0` bis (einschließlich) `100` zulässig.  |
 
 ## <a name="query-and-visualize"></a>Abfragen und Visualisieren
 
@@ -263,7 +263,7 @@ AzureDiagnostics
 
 Beispiel für in Log Analytics angezeigte Protokolle:
 
-| TimeGenerated | NameVorgang | Category (Kategorie) | Ebene | CorrelationId | DurationMs | Eigenschaften |
+| TimeGenerated | OperationName | Category (Kategorie) | Level | CorrelationId | DurationMs | Eigenschaften |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |

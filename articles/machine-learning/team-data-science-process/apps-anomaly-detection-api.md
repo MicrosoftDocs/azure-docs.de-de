@@ -12,10 +12,10 @@ ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926188"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning Anomaly Detection-API
@@ -46,7 +46,7 @@ Das Anomaly Detection-Angebot verfügt über nützliche Tools für die ersten Sc
 -->
 
 ## <a name="api-deployment"></a>API-Bereitstellung
-Um die API zu verwenden, müssen Sie sie für Ihr Azure-Abonnement bereitstellen, wo sie als Azure Machine Learning-Webdienst gehostet wird.  Sie können dies aus dem [Azure AI-Katalog](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) vornehmen.  Hiermit werden Ihrem Azure-Abonnement zwei Azure Machine Learning Studio-Webdienste (und die mit ihnen verknüpften Ressourcen) bereitgestellt – einer für die Erkennung von Anomalien mit Saisonabhängigkeitserkennung und ein weiterer ohne Saisonabhängigkeitserkennung.  Sobald die Bereitstellung abgeschlossen ist, können Sie die APIs von der Seite [Azure Machine Learning Studio-Webdienste](https://services.azureml.net/webservices/) aus verwalten.  Von dieser Seite aus finden Sie Ihre Endpunkt-Speicherorte und API-Schlüssel sowie Beispielcodes für den API-Aufruf.  Ausführlichere Anweisungen finden Sie [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Um die API zu verwenden, müssen Sie sie für Ihr Azure-Abonnement bereitstellen, wo sie als Azure Machine Learning-Webdienst gehostet wird.  Sie können dies über den [Azure KI-Katalog](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) vornehmen.  Hiermit werden Ihrem Azure-Abonnement zwei Azure Machine Learning Studio-Webdienste (und die mit ihnen verknüpften Ressourcen) bereitgestellt – einer für die Erkennung von Anomalien mit Saisonabhängigkeitserkennung und ein weiterer ohne Saisonabhängigkeitserkennung.  Sobald die Bereitstellung abgeschlossen ist, können Sie die APIs von der Seite [Azure Machine Learning Studio-Webdienste](https://services.azureml.net/webservices/) aus verwalten.  Von dieser Seite aus finden Sie Ihre Endpunkt-Speicherorte und API-Schlüssel sowie Beispielcodes für den API-Aufruf.  Ausführlichere Anweisungen finden Sie [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Skalieren der API
 Standardmäßig enthält der kostenlose Dev/Test-Abrechnungsplan Ihrer Bereitstellung 1.000 Transaktionen/Monat und 2 Computestunden/Monat.  Sie können nach Ihren Bedürfnissen auf einen anderen Plan aktualisieren.  Informationen zu den Preisen verschiedener Pläne finden Sie [hier](https://azure.microsoft.com/pricing/details/machine-learning/) unter „Produktions-Web-API-Preise“.
@@ -181,7 +181,7 @@ Die API führt alle Erkennungsmodule für Ihre Zeitreihendaten aus und gibt für
 | --- | --- |
 | Time |Zeitstempel aus Rohdaten oder aggregierte (und/oder) zugeordnete Daten, wenn Aggregation (und/oder) die Zuordnung fehlender Daten angewendet wird |
 | OriginalData |Werte aus Rohdaten, oder aggregierte (und/oder) zugeordnete Daten, wenn Aggregation (und/oder) die Zuordnung fehlender Daten angewendet wird |
-| ProcessedData |Eine der folgenden Möglichkeiten:  <ul><li>Saisonabhängig angepasste Zeitreihen, wenn eine signifikante Saisonabhängigkeit erkannt und die Option „deseason“ gewählt wurde.</li><li>Saisonabhängig angepasste und trendbereinigte Zeitreihen, wenn eine signifikante Saisonabhängigkeit erkannt und die Option „deseasontrend“ gewählt wurde</li><li>Andernfalls identisch mit „OriginalData“</li> |
+| ProcessedData |Eine der folgenden Möglichkeiten: <ul><li>Saisonabhängig angepasste Zeitreihen, wenn eine signifikante Saisonabhängigkeit erkannt und die Option „deseason“ gewählt wurde.</li><li>Saisonabhängig angepasste und trendbereinigte Zeitreihen, wenn eine signifikante Saisonabhängigkeit erkannt und die Option „deseasontrend“ gewählt wurde</li><li>Andernfalls identisch mit „OriginalData“</li> |
 | TSpike |Binärer Indikator, um anzugeben, ob eine Spitze vom TSpike-Erkennungsmodul erkannt wird |
 | ZSpike |Binärer Indikator, um anzugeben, ob eine Spitze vom ZSpike-Erkennungsmodul erkannt wird |
 | BiLevelChangeScore |Gleitzahl, die für die Anomaliebewertung von Pegeländerungen steht |

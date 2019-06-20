@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550104"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61296056"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Erstellen eines benutzerdefinierten Images aus einer VHD-Datei
 

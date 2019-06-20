@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544479"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installieren des lokalen Datengateways für Azure Logic Apps
@@ -430,7 +430,7 @@ Nachfolgend sehen Sie weitere Speicherorte mit verschiedenen Protokollen:
 Führen Sie die folgenden Schritte aus, um zu den Ereignisprotokollen für das Gateway zu navigieren:
 
 1. Öffnen Sie auf dem Computer mit der Gatewayinstallation die **Ereignisanzeige**. 
-2. Erweitern Sie **Ereignisanzeige (lokal)** > **Anwendungs- und Dienstprotokolle**. 
+2. Erweitern Sie **Ereignisanzeige (lokal)**  > **Anwendungs- und Dienstprotokolle**. 
 3. Wählen Sie **On-premises data gateway service** (Dienst „Lokales Datengateway“) aus.
 
    ![Anzeigen von Ereignisprotokollen für das Gateway](./media/logic-apps-gateway-install/event-viewer.png)

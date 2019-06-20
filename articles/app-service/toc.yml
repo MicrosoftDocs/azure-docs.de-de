@@ -70,16 +70,23 @@
     - name: Betriebssystemfunktionalität
       href: operating-system-functionality.md
     - name: Sicherheit
-      href: overview-security.md
       items:
+        - name: Empfehlungen
+          href: security-recommendations.md
         - name: Authentifizierung und Autorisierung
           href: overview-authentication-authorization.md
         - name: Betriebssystem- und Runtimepatching
           href: overview-patch-os-runtime.md
         - name: Sicherheitsattribute
           href: app-service-security-attributes.md
+        - name: Sicherheitsübersicht
+          href: overview-security.md
+    - name: Netzwerkfeatures
+      href: networking-features.md
     - name: Eingehende und ausgehende IPs
       href: overview-inbound-outbound-ips.md
+    - name: Virtual Network-Integration
+      href: web-sites-integrate-with-vnet.md
     - name: Hybridverbindungen
       href: app-service-hybrid-connections.md
     - name: Traffic Manager-Integration
@@ -98,8 +105,6 @@
           href: web-sites-php-configure.md
         - name: Konfigurieren von Java
           href: configure-language-java.md
-        - name: Verbindungsherstellung mit lokalen Ressourcen
-          href: web-sites-integrate-with-vnet.md
     - name: Bereitstellen in Azure
       items:
         - name: Bereitstellen der App

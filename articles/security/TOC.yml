@@ -54,8 +54,14 @@
               href: azure-security-disk-encryption-overview.md
             - name: Schnellstarts
               items:
-                - name: 'Verschlüsseln eines virtuellen Computers: Azure PowerShell'
-                  href: quick-encrypt-vm-powershell.md
+                - name: Verschlüsseln eines virtuellen Linux-Computers mit der Azure-Befehlszeilenschnittstelle
+                  href: azure-disk-encryption-linux-cli-quickstart.md
+                - name: Verschlüsseln eines virtuellen Linux-Computers mit Azure PowerShell
+                  href: azure-disk-encryption-linux-powershell-quickstart.md
+                - name: Verschlüsseln eines virtuellen Windows-Computers mit der Azure-Befehlszeilenschnittstelle
+                  href: azure-disk-encryption-windows-cli-quickstart.md
+                - name: Verschlüsseln eines virtuellen Windows-Computers mit Azure PowerShell
+                  href: azure-disk-encryption-windows-powershell-quickstart.md
             - name: Azure Disk Encryption
               items:
                 - name: Voraussetzungen für die Datenträgerverschlüsselung
@@ -226,6 +232,8 @@
     - name: FedRAMP
       displayName: 'blueprint, privacy, certifications'
       items:
+        - name: Azure-Dienste nach Prüfumfang
+          href: ./compliance/azure-services-in-fedramp-auditscope.md
         - name: Datenanalysen
           href: ./blueprints/fedramp-analytics-overview.md
         - name: Data Warehouse

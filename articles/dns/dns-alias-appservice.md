@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790741"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hosten von Azure Web-Apps mit Lastenausgleich im Zonen-Apex
 
@@ -43,7 +43,7 @@ Erstellen Sie eine Ressourcengruppe für die in diesem Artikel verwendeten Resso
 Erstellen Sie zwei Web App Service-Pläne in Ihrer Ressourcengruppe anhand der folgenden Tabelle für Konfigurationsinformationen. Weitere Informationen zum Erstellen eines App Service-Plans finden Sie unter [Verwalten eines App Service-Plans in Azure](../app-service/app-service-plan-manage.md).
 
 
-|NAME  |Betriebssystem  |Standort  |Preisstufe  |
+|NAME  |Betriebssystem  |Location  |Preisstufe  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|USA (Ost)|Dev/Test D1-Freigegeben|
 |ASP-02     |Windows|USA (Mitte)|Dev/Test D1-Freigegeben|
@@ -87,7 +87,7 @@ Jetzt können Sie die Endpunkte für die beiden Web-Apps erstellen.
 3. Klicken Sie auf **Hinzufügen**.
 4. Verwenden Sie die folgende Tabelle zum Konfigurieren der Endpunkte:
 
-   |Type  |NAME  |Ziel  |Standort  |Benutzerdefinierte Headereinstellungen|
+   |Type  |NAME  |Ziel  |Location  |Benutzerdefinierte Headereinstellungen|
    |---------|---------|---------|---------|---------|
    |Externer Endpunkt     |End-01|IP-Adresse, die Sie für App-01 notiert haben|USA (Ost)|host:\<die URL, die Sie für App-01 notiert haben\><br>Beispiel: **host:app-01.azurewebsites.net**|
    |Externer Endpunkt     |End-02|IP-Adresse, die Sie für App-02 notiert haben|USA (Mitte)|host:\<die URL, die Sie für App-02 notiert haben\><br>Beispiel: **host:app-02.azurewebsites.net**

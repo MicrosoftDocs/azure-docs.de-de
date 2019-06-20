@@ -17,11 +17,11 @@ ms.date: 08/22/2017
 ms.author: aelnably
 ms.custom: seodec18
 ms.openlocfilehash: 21f6963fbaada4524f27602454d38e7252a5e8b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720384"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60850083"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Verwalten von Web-App für Container mithilfe der Azure CLI
 

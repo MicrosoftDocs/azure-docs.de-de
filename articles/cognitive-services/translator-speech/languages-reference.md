@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60827900"
 ---
 # <a name="translator-speech-api-languages"></a>Sprachübersetzungs-API: Languages
 
@@ -147,9 +147,9 @@ X-RequestId|Ein Wert, der vom Server generiert wird, um die Anforderung zu ident
 
 ### <a name="response-messages"></a>Antwortnachrichten
 
-|HTTP-Statuscode|Grund|
+|HTTP-Statuscode|`Reason`|
 |:--|:--|
 |400|Ungültige Anforderung. Überprüfen Sie die Eingabeparameter, und stellen Sie sicher, dass sie gültig sind. Das Antwortobjekt enthält eine ausführlichere Beschreibung des Fehlers.|
 |429|Too many requests. (Zu viele Anforderungen.)|
 |500|Ein Fehler ist aufgetreten. Wenn der Fehler weiterhin besteht, melden Sie ihn mit dem Ablaufverfolgungsbezeichner des Clients (X-ClientTraceId) oder dem Anforderungsbezeichner (X-RequestId).|
-|503|Der Server ist vorübergehend nicht verfügbar.  Versuchen Sie die Anforderung erneut. Wenn der Fehler weiterhin besteht, melden Sie ihn mit dem Ablaufverfolgungsbezeichner des Clients (X-ClientTraceId) oder dem Anforderungsbezeichner (X-RequestId).|
+|503|Der Server ist vorübergehend nicht verfügbar. Versuchen Sie die Anforderung erneut. Wenn der Fehler weiterhin besteht, melden Sie ihn mit dem Ablaufverfolgungsbezeichner des Clients (X-ClientTraceId) oder dem Anforderungsbezeichner (X-RequestId).|

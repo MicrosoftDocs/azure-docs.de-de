@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: ba561cba21b0b83b6a19fffc2fdfebe8ec8b8ed9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351234"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61042145"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Hochverfügbarkeitskonzepte in Azure Database for MariaDB
 Der Dienst Azure Database for MariaDB garantiert eine hohe Verfügbarkeit. Die finanziell abgesicherte Vereinbarung zum Servicelevel (SLA) beträgt 99,99 % bei allgemeiner Verfügbarkeit. Es gibt praktisch keine Ausfallzeiten bei der Nutzung dieses Diensts.

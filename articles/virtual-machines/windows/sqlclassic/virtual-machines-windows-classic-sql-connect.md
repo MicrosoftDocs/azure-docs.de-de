@@ -17,11 +17,11 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: b8994d4c1eabf4381bf8364c76f7328d225f7e1a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62111526"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Herstellen einer Verbindung mit einem virtuellen SQL Server-Computer in Azure (Klassische Bereitstellung)
 > [!div class="op_single_selector"]

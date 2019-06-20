@@ -10,11 +10,11 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: d7370fc14a5ede23744e04ac9d35140f2368e21f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60711785"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(VERALTET) Überwachen eines Azure Container Service-Clusters mit Log Analytics
 

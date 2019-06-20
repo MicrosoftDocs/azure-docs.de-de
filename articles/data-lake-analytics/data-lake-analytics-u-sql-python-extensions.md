@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: b2179f9d81a2dad877c8ae58471f7440eb9edbe7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813401"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Erweitern von U-SQL-Skripts mit Python-Code in Azure Data Lake Analytics
 

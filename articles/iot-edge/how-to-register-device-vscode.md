@@ -4,23 +4,23 @@ description: Verwenden von Visual Studio Code zum Erstellen eines neuen IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 06/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2b851e7f2ebdbff08fa09002765fbd7d7927deba
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c8fce104d48acc3a562599c65eb15cb0a66657b7
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051168"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495266"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registrieren eines neuen Azure IoT Edge-Geräts über Visual Studio Code
 
-Bevor Sie Ihre IoT-Geräte mit Azure IoT Edge verwenden können, müssen Sie sie bei Ihrem IoT Hub registrieren. Nachdem Sie ein Gerät registriert haben, erhalten Sie eine Verbindungszeichenfolge, die zum Einrichten Ihres Geräts für Edge-Workloads verwendet werden kann.
+Bevor Sie Ihre IoT-Geräte mit Azure IoT Edge verwenden können, müssen Sie sie bei Ihrem IoT Hub registrieren. Nachdem Sie ein Gerät registriert haben, erhalten Sie eine Verbindungszeichenfolge, die zum Einrichten Ihres Geräts für IoT Edge-Workloads verwendet werden kann.
 
-Dieser Artikel zeigt die Registrierung eines neuen IoT Edge-Geräts mithilfe von Visual Studio Code. Es gibt mehrere Möglichkeiten zum Durchführen der meisten Vorgänge in Visual Studio Code. In diesem Artikel wird der Explorer verwendet, Sie können aber auch die Befehlspalette verwenden, um die meisten Schritte auszuführen.
+Dieser Artikel zeigt die Registrierung eines neuen IoT Edge-Geräts mithilfe von Visual Studio Code. Es gibt mehrere Möglichkeiten zum Durchführen der meisten Vorgänge in Visual Studio Code. In diesem Artikel wird der Explorer verwendet, Sie können aber auch die Befehlspalette verwenden, um die Schritte auszuführen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -30,15 +30,15 @@ Dieser Artikel zeigt die Registrierung eines neuen IoT Edge-Geräts mithilfe von
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Anmeldung zum Zugreifen auf Ihren IoT Hub
 
-Sie können die Azure IoT-Erweiterungen für Visual Studio Code verwenden, um Vorgänge mit Ihren IoT Hub auszuführen. Damit diese Vorgänge funktionieren, müssen Sie sich bei Ihrem Azure-Konto anmelden und den IoT Hub, auf dem Sie arbeiten, auswählen.
+Sie können die Azure IoT-Erweiterungen für Visual Studio Code verwenden, um Vorgänge mit Ihren IoT Hub auszuführen. Damit diese Vorgänge funktionieren, müssen Sie sich bei Ihrem Azure-Konto anmelden und Ihren IoT Hub auswählen.
 
 1. Öffnen Sie in Visual Studio Code die **Explorer**-Ansicht.
 
-1. Erweitern Sie im unteren Bereich des Explorers den Abschnitt **Azure IoT Hub Devices** (Azure IoT Hub-Geräte).
+1. Erweitern Sie im unteren Bereich des Explorers den Abschnitt **Azure IoT Hub**.
 
    ![Erweitern des Abschnitts „Azure IoT Hub Devices“ (Azure IoT Hub-Geräte)](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-1. Klicken Sie auf **...** in der Überschrift des Abschnitts **Azure IoT Hub Devices** (Azure IoT Hub-Geräte). Wenn die Ellipse nicht angezeigt wird, zeigen Sie auf den Header, oder klicken Sie darauf.
+1. Klicken Sie auf **...** in der Kopfzeile des Abschnitts **Azure IoT Hub**. Wenn die Ellipse nicht angezeigt wird, zeigen Sie auf den Header, oder klicken Sie darauf.
 
 1. Wählen Sie **Select IoT Hub** (IoT Hub auswählen) aus.
 
@@ -62,7 +62,7 @@ Auf dem Ausgabebildschirm wird das Ergebnis des Befehls angezeigt. Die Gerätein
 
 ## <a name="view-all-devices"></a>Anzeigen aller Geräte
 
-Alle Geräte, die Verbindungen mit Ihrem IoT Hub herstellen, werden im Abschnitt **Azure IoT Hub Devices** (Azure IoT Hub-Geräte) des Visual Studio Code-Explorers aufgeführt. IoT Edge-Geräte können von Nicht-Edge-Geräten unterschieden werden, da sie ein anderes Symbol aufweisen und erweitert werden können, um die auf jedem Gerät bereitgestellten Module anzuzeigen.
+Alle Geräte, die Verbindungen mit Ihrem IoT Hub herstellen, werden im Abschnitt **Azure IoT Hub** des Visual Studio Code-Explorers aufgeführt. IoT Edge-Geräte können von Nicht-Edge-Geräten unterschieden werden, da sie ein anderes Symbol aufweisen, und aufgrund der Tatsache, dass die Module **$edgeAgent** und **$edgeHub** auf jedem IoT Edge-Gerät bereitgestellt sind.
 
    ![Anzeigen aller IoT Edge-Geräte in Ihrem IoT-Hub](./media/how-to-register-device-vscode/view-devices.png)
 
@@ -70,7 +70,7 @@ Alle Geräte, die Verbindungen mit Ihrem IoT Hub herstellen, werden im Abschnitt
 
 Wenn Sie bereit für die Einrichtung Ihres Geräts sind, benötigen Sie die Verbindungszeichenfolge, die Ihr physisches Gerät mit seiner Identität in IoT Hub verknüpft.
 
-1. Klicken Sie mit der rechten Maustaste auf die ID des Geräts im Abschnitt **Azure IoT Hub Devices** (Azure IoT Hub-Geräte).
+1. Klicken Sie mit der rechten Maustaste auf die ID des Geräts im Abschnitt **Azure IoT Hub**.
 
 1. Wählen Sie **Copy Device Connection String** (Verbindungszeichenfolge des Geräts kopieren) aus.
 

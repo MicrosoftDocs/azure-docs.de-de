@@ -43,8 +43,6 @@
       items:
         - name: Funktionsweise von MFA
           href: concept-mfa-howitworks.md
-        - name: Welche Version ist die richtige?
-          href: concept-mfa-whichversion.md
         - name: Lizenzieren Ihrer Benutzer
           href: concept-mfa-licensing.md
         - name: Verwalten eines Authentifizierungsanbieters
@@ -144,10 +142,6 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: CBA auf iOS-Geräten
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Entwickeln
-      items:
-        - name: Integrieren von MFA in benutzerdefinierte Apps
-          href: howto-mfa-sdk.md
     - name: Berichterstellung
       items:
         - name: SSPR-Berichte

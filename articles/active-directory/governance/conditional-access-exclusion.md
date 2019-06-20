@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577130"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571357"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Verwenden von Azure AD-Zugriffsüberprüfungen zum Verwalten von Benutzern, die aus Richtlinien für den bedingten Zugriff ausgeschlossen sind
 
@@ -38,7 +38,7 @@ Ein weiteres Beispiel: Unter Umständen nutzen Sie im Rahmen des bedingten Zugri
 
 ![Benannte Orte](./media/conditional-access-exclusion/named-locations.png)
 
-In einigen Fällen kann es aber sein, dass Benutzer einen guten Grund für die Anmeldung aus diesen blockierten Ländern haben. Beispielsweise können Benutzer aus geschäftlichen oder persönlichen Gründen unterwegs sein. In diesem Beispiel kann die Richtlinie für bedingten Zugriff, mit der diese Länder blockiert werden, über eine dedizierte Cloudsicherheitsgruppe für die Benutzer verfügen, die aus der Richtlinie ausgeschlossen sind. Benutzer, die unterwegs Zugriff benötigen, können sich der Gruppe durch das [Einrichten von Azure Active Directory für die Self-Service-Gruppenverwaltung](../users-groups-roles/groups-self-service-management.md) selbst hinzufügen.
+In einigen Fällen kann es aber sein, dass Benutzer einen guten Grund für die Anmeldung aus diesen blockierten Ländern/Regionen haben. Beispielsweise können Benutzer aus geschäftlichen oder persönlichen Gründen unterwegs sein. In diesem Beispiel kann die Richtlinie für bedingten Zugriff, mit der diese Länder/Regionen blockiert werden, über eine dedizierte Cloudsicherheitsgruppe für die Benutzer verfügen, die aus der Richtlinie ausgeschlossen sind. Benutzer, die unterwegs Zugriff benötigen, können sich der Gruppe durch das [Einrichten von Azure Active Directory für die Self-Service-Gruppenverwaltung](../users-groups-roles/groups-self-service-management.md) selbst hinzufügen.
 
 In einem weiteren Beispiel wird ggf. eine Richtlinie für bedingten Zugriff verwendet, mit der die [Legacyauthentifizierung für den Großteil Ihrer Benutzer blockiert wird](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft empfiehlt dringend, dass Sie die Nutzung von Legacyprotokollen in Ihrem Mandanten blockieren, um Ihren Sicherheitsstatus zu verbessern. Es kann auch sein, dass Sie über einige Benutzer verfügen, die die Methoden der Legacyauthentifizierung unbedingt benötigen, um über Office 2010 oder IMAP/SMTP/POP-basierte Clients auf Ihre Ressourcen zuzugreifen. In diesem Fall können Sie diese Benutzer aus der Richtlinie ausschließen, mit der die Methoden der Legacyauthentifizierung blockiert werden.
 
@@ -97,9 +97,9 @@ Sie können jetzt eine Richtlinie für bedingten Zugriff erstellen, für die die
 
 Im Folgenden werden zwei Beispiele beschrieben, in denen Sie Zugriffsüberprüfungen nutzen können, um Ausschlüsse in Richtlinien für bedingten Zugriff zu verwalten.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Beispiel 1: Zugriffsüberprüfung für Benutzer, die aus blockierten Ländern zugreifen
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Beispiel 1: Zugriffsüberprüfung für Benutzer, die aus blockierten Ländern/Regionen zugreifen
 
-Angenommen, Sie verfügen über eine Richtlinie für bedingten Zugriff, mit der der Zugriff auf bestimmte Länder blockiert wird. Sie enthält eine Gruppe, die von der Richtlinie ausgeschlossen ist. Hier ist eine empfohlene Zugriffsüberprüfung angegeben, mit der die Mitglieder der Gruppe überprüft werden.
+Angenommen, Sie verfügen über eine Richtlinie für bedingten Zugriff, die den Zugriff aus bestimmten Ländern/Regionen blockiert. Sie enthält eine Gruppe, die von der Richtlinie ausgeschlossen ist. Hier ist eine empfohlene Zugriffsüberprüfung angegeben, mit der die Mitglieder der Gruppe überprüft werden.
 
 > [!NOTE]
 > Für die Erstellung von Zugriffsüberprüfungen ist die Rolle „Globaler Administrator“ oder „Benutzeradministrator“ erforderlich.
@@ -110,9 +110,9 @@ Angenommen, Sie verfügen über eine Richtlinie für bedingten Zugriff, mit der 
 
 3. Alle Mitglieder dieser Gruppe werden in die Überprüfung einbezogen.
 
-4. Jeder Benutzer muss selbst nachweisen, dass er weiterhin Zugriff aus diesen blockierten Ländern benötigt und deshalb Mitglied der Gruppe sein muss.
+4. Jeder Benutzer muss selbst nachweisen, dass er weiterhin Zugriff aus diesen blockierten Ländern/Regionen benötigt und deshalb ein Mitglied der Gruppe bleiben muss.
 
-5. Falls der Benutzer nicht auf die geforderte Überprüfung reagiert, wird er automatisch aus der Gruppe entfernt und kann nicht mehr auf den Mandanten zugreifen, wenn er in diesen Ländern unterwegs ist.
+5. Wenn der Benutzer nicht auf die Überprüfungsanforderung reagiert, wird er automatisch aus der Gruppe entfernt und kann nicht mehr auf den Mandanten zugreifen, wenn er in diesen Ländern/Regionen unterwegs ist.
 
 6. Aktivieren Sie E-Mail-Benachrichtigungen, damit die Benutzer über den Beginn und den Abschluss der Zugriffsüberprüfung informiert sind.
 

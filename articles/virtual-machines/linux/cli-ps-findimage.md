@@ -17,11 +17,11 @@ ms.date: 01/25/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 453628dca04fbc3c48564f15b6cf61802165b0cf
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499691"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60880555"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Suchen nach Linux-VM-Images im Azure Marketplace mit der Azure CLI
 
@@ -337,7 +337,7 @@ Ausgabe:
 
 ### <a name="accept-the-terms"></a>Akzeptieren der Bedingungen
 
-Verwenden Sie zum Anzeigen und Akzeptieren der Lizenzbedingungen den Befehl [az vm image accept-terms](/cli/azure/vm/image?). Wenn Sie die Bedingungen akzeptieren, ermöglichen Sie die programmgesteuerte Bereitstellung in Ihrem Abonnement. Sie müssen für das Image die Bedingungen nur einmal pro Abonnement akzeptieren. Beispiel: 
+Verwenden Sie zum Anzeigen und Akzeptieren der Lizenzbedingungen den Befehl [az vm image accept-terms](/cli/azure/vm/image?). Wenn Sie die Bedingungen akzeptieren, ermöglichen Sie die programmgesteuerte Bereitstellung in Ihrem Abonnement. Sie müssen für das Image die Bedingungen nur einmal pro Abonnement akzeptieren. Beispiel:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

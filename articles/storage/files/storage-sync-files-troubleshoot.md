@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510842"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65555943"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problembehandlung für Azure-Dateisynchronisierung
 Mit der Azure-Dateisynchronisierung können Sie die Dateifreigaben Ihrer Organisation in Azure Files zentralisieren, ohne auf die Flexibilität, Leistung und Kompatibilität eines lokalen Dateiservers verzichten zu müssen. Mit der Azure-Dateisynchronisierung werden Ihre Windows Server-Computer zu einem schnellen Cache für Ihre Azure-Dateifreigabe. Sie können ein beliebiges Protokoll verwenden, das unter Windows Server verfügbar ist, um lokal auf Ihre Daten zuzugreifen, z.B. SMB, NFS und FTPS. Sie können weltweit so viele Caches wie nötig nutzen.
@@ -105,7 +105,7 @@ So bestimmen Sie, ob Ihr Benutzerkonto über die erforderlichen Berechtigungen v
 <a id="server-endpoint-createjobfailed"></a>**Fehler beim Erstellen des Serverendpunkts: „MgmtServerJobFailed“ (Fehlercode: -2134375898)**  
 Dieses Problem tritt auf, wenn sich der Serverendpunktpfad auf dem Systemvolume befindet und Cloudtiering aktiviert ist. Das Cloudtiering wird auf dem Systemvolume nicht unterstützt. Um einen Serverendpunkt auf dem Systemvolume zu erstellen, deaktivieren Sie Cloudtiering, wenn Sie den Serverendpunkt erstellen.
 
-<a id="server-endpoint-deletejobexpired"></a>**Fehler beim Löschen des Serverendpunkts: „MgmtServerJobExpired“**                
+<a id="server-endpoint-deletejobexpired"></a>**Fehler beim Löschen des Serverendpunkts: „MgmtServerJobExpired“**                 
 Dieses Problem tritt auf, wenn der Server offline ist oder keine Netzwerkkonnektivität aufweist. Ist der Server nicht mehr verfügbar, heben Sie die Registrierung des Servers im Portal auf, wodurch die Serverendpunkte gelöscht werden. Um die Serverendpunkte zu löschen, führen Sie die Schritte aus, die unter [Aufheben der Registrierung eines Servers mit der Azure-Dateisynchronisierung](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service) beschrieben sind.
 
 <a id="server-endpoint-provisioningfailed"></a>**Die Seite „Eigenschaften des Serverendpunkts“ kann nicht geöffnet werden, oder die Cloudtiering-Richtlinie kann nicht aktualisiert werden.**  
@@ -275,7 +275,7 @@ Die folgende Tabelle enthält alle Unicode-Zeichen, die die Azure-Dateisynchroni
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (dezimal)** | -2147023673 | 
 | **Fehlerzeichenfolge** | ERROR_CANCELLED |
-| **Korrektur erforderlich** | Nein  |
+| **Korrektur erforderlich** | Nein |
 
 Bei Synchronisierungssitzungen kann aus verschiedenen Gründen ein Fehler auftreten, z.B. aufgrund eines Serverneustarts oder einer Serveraktualisierung oder aufgrund von VSS-Momentaufnahmen. Auch wenn dieser Fehler den Anschein erweckt, als ob eine Nachverfolgung erforderlich wäre, kann dieser ignoriert werden, es sei denn, er bleibt über einen Zeitraum von mehreren Stunden bestehen.
 
@@ -297,9 +297,20 @@ Bei Synchronisierungssitzungen kann aus verschiedenen Gründen ein Fehler auftre
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (dezimal)** | -2134376372 |
 | **Fehlerzeichenfolge** | ECS_E_USER_REQUEST_THROTTLED |
-| **Korrektur erforderlich** | Nein  |
+| **Korrektur erforderlich** | Nein |
 
 Es ist keine Aktion erforderlich. Der Server wiederholt den Vorgang. Erstellen Sie nur dann eine Supportanfrage, wenn dieser Fehler länger als ein paar Stunden anhält.
+
+<a id="-2134364043"></a>**Synchronisierung wird blockiert, bis die Änderungserkennung nach der Wiederherstellung abgeschlossen ist**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (dezimal)** | -2134364043 |
+| **Fehlerzeichenfolge** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Korrektur erforderlich** | Nein |
+
+Es ist keine Aktion erforderlich. Wenn eine Datei oder Dateifreigabe (Cloudendpunkt) mithilfe von Azure Backup wiederhergestellt wird, wird die Synchronisierung so lange blockiert, bis die Änderungserkennung auf der Azure-Dateifreigabe abgeschlossen ist. Unmittelbar nach Abschluss der Wiederherstellung wird die Änderungserkennung ausgeführt, deren Dauer auf der Anzahl der Dateien in der Dateifreigabe basiert.
 
 <a id="-2134364065"></a>**Die Synchronisierung kann nicht auf die im Cloudendpunkt angegebene Azure-Dateifreigabe zugreifen.**  
 
@@ -432,7 +443,7 @@ Entfernen Sie diese Regeln, um dieses Problem zu beheben.
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (dezimal)** | -2134375911 |
 | **Fehlerzeichenfolge** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Korrektur erforderlich** | Nein  |
+| **Korrektur erforderlich** | Nein |
 
 Dieser Fehler löst sich im Allgemeinen von selbst und kann folgende Ursachen haben:
 
@@ -527,7 +538,7 @@ Dieser Fehler tritt auf, da sich das Volume gefüllt hat. Dieser Fehler tritt h�
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (dezimal)** | -2134364145 |
 | **Fehlerzeichenfolge** | ECS_E_REPLICA_NOT_READY |
-| **Korrektur erforderlich** | Nein  |
+| **Korrektur erforderlich** | Nein |
 
 Dieser Fehler tritt auf, weil direkt Änderungen an der Azure-Dateifreigabe vorgenommen wurden und die Erkennung von Änderungen momentan ausgeführt wird. Die Synchronisierung beginnt nach Abschluss der Änderungserkennung.
 
@@ -586,7 +597,7 @@ Dieser Fehler tritt auf, da die geladene Version des Cloudtiering-Filtertreibers
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (dezimal)** | -2134376373 |
 | **Fehlerzeichenfolge** | ECS_E_SERVICE_UNAVAILABLE |
-| **Korrektur erforderlich** | Nein  |
+| **Korrektur erforderlich** | Nein |
 
 Dieser Fehler tritt auf, da der Azure-Dateisynchronisierungsdienst nicht verfügbar ist. Dieser Fehler wird automatisch aufgelöst, wenn der Azure-Dateisynchronisierungsdienst wieder verfügbar ist.
 
@@ -597,7 +608,7 @@ Dieser Fehler tritt auf, da der Azure-Dateisynchronisierungsdienst nicht verfüg
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (dezimal)** | -2134375922 |
 | **Fehlerzeichenfolge** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Korrektur erforderlich** | Nein  |
+| **Korrektur erforderlich** | Nein |
 
 Dieser Fehler tritt aufgrund eines internen Problems mit der Synchronisierungsdatenbank auf. Dieser Fehler wird automatisch aufgelöst, wenn die Azure-Dateisynchronisierung die Synchronisierung wiederholt. Wenn dieser Fehler für einen längeren Zeitraum anhält, erstellen Sie eine Supportanfrage, und wir kontaktieren Sie, um Sie bei der Problemlösung zu unterstützen.
 
@@ -722,7 +733,7 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Stellen Sie sicher, dass die Azure-Dateisynchronisierung über Zugriff auf das Speicherkonto verfügt.**  
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-1. Klicken Sie links im Inhaltsverzeichnis auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie links im Inhaltsverzeichnis auf **Zugriffssteuerung (IAM)** .
 1. Klicken Sie auf die Registerkarte **Rollenzuweisungen**, um die Liste der Benutzer und Anwendungen (*Dienstprinzipale*) anzuzeigen, die Zugriff auf Ihr Speicherkonto besitzen.
 1. Stellen Sie sicher, dass der **hybride Dateisynchronisierungsdienst** in der Liste mit der Rolle **Lese- und Datenzugriff** angezeigt wird. 
 

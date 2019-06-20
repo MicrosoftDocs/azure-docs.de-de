@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 7aaf4be23c806dda621430c4d1b0c142f41feb1f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 51fcb1e504f853973d9772bcece7e893a2d94e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090381"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472135"
 ---
-# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Zugreifen auf Speicherblobs unter Verwendung einer benutzerdefinierten Azure CDN-Domäne über HTTPS
+# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Zugreifen auf Speicherblobs unter Verwendung einer benutzerdefinierten Azure CDN-Domäne über HTTPS
 
 Nachdem Sie Ihr Azure-Speicherkonto in das Azure Content Delivery Network (CDN) integriert haben, können Sie eine benutzerdefinierte Domäne hinzufügen und HTTPS in dieser Domäne für Ihren benutzerdefinierten Blobspeicher-Endpunkt aktivieren. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Damit Sie die Schritte in diesem Tutorial ausführen können, müssen Sie zuerst Ihr Azure-Speicherkonto im Azure CDN integrieren. Weitere Informationen hierzu finden Sie unter [Schnellstart: Integrieren eines Azure-Speicherkontos in Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+Damit Sie die Schritte in diesem Tutorial ausführen können, müssen Sie zuerst Ihr Azure-Speicherkonto im Azure CDN integrieren. Weitere Informationen finden Sie unter [Quickstart: Integrieren eines Azure-Speicherkontos in Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="add-a-custom-domain"></a>Hinzufügen einer benutzerdefinierten Domäne
 Wenn Sie einen CDN-Endpunkt in Ihrem Profil erstellen, wird der Endpunktname, bei dem es sich um eine Unterdomäne von „azureedge.net“ handelt, standardmäßig in die URL für die Bereitstellung von CDN-Inhalten eingefügt. Außerdem haben Sie die Möglichkeit, eine benutzerdefinierte Domäne einem CDN-Endpunkt zuzuordnen. Bei dieser Option stellen Sie Ihren Inhalt über eine benutzerdefinierte Domäne in Ihrer URL und nicht über einen Endpunktnamen bereit. Um Ihrem Endpunkt eine benutzerdefinierte Domäne hinzuzufügen, befolgen Sie die Anweisungen in diesem Tutorial: [Hinzufügen einer benutzerdefinierten Domäne zum Azure CDN-Endpunkt](cdn-map-content-to-custom-domain.md).
@@ -44,7 +44,7 @@ Zum SAS-Token hinzugefügte Einschränkungen werden von Azure CDN ignoriert. Bei
 Wenn Sie für denselben Blobendpunkt mehrere SAS-URLs erstellen, sollten Sie das Aktivieren der Zwischenspeicherung von Abfragezeichenfolge in Betracht ziehen. Dadurch wird sichergestellt, dass jede URL als eindeutige Entität behandelt wird. Weitere Informationen finden Sie unter [Steuern des Azure CDN-Zwischenspeicherverhaltens mit Abfragezeichenfolgen](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>HTTP-zu-HTTPS-Umleitung
-Sie können das Umleiten von HTTP-Datenverkehr an HTTPS festlegen, indem Sie bei der [Azure CDN-Regel-Engine](cdn-rules-engine.md) eine [URL-Umleitungsregel](cdn-rules-engine-reference-features.md#url-redirect) erstellen. Für diese Option ist ein **Azure CDN Premium von Verizon**-Profil erforderlich. 
+Sie können das Umleiten von HTTP-Datenverkehr an HTTPS festlegen, indem Sie bei der [Azure CDN-Regel-Engine](cdn-verizon-premium-rules-engine.md) eine [URL-Umleitungsregel](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) erstellen. Für diese Option ist ein **Azure CDN Premium von Verizon**-Profil erforderlich.
 
 ![URL-Umleitungsregel](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 

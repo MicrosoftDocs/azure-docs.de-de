@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: ee2ce03fccc3e6556f9d261687edb050c8cfa1cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661444"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60628148"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Schützen eines eigenständigen Windows-Clusters mithilfe von X.509-Zertifikaten
 In diesem Artikel wird beschrieben, wie Sie die Kommunikation zwischen verschiedenen Knoten eines eigenständigen Windows-Clusters sichern. Außerdem wird beschrieben, wie Sie mithilfe von X.509-Zertifikaten Clients authentifizieren, die sich mit diesem Cluster verbinden. Mit der Authentifizierung wird sichergestellt, dass nur autorisierte Benutzer auf den Cluster und bereitgestellte Anwendungen zugreifen und Verwaltungsaufgaben ausführen können. Die Zertifikatsicherheit sollte auf dem Cluster aktiviert werden, wenn der Cluster erstellt wird.  
@@ -347,7 +347,7 @@ Nach dem Konfigurieren des Abschnitts „security“ der Datei „ClusterConfig.
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Sobald der gesicherte eigenständige Windows-Cluster ausgeführt wird und Sie die authentifizierten Clients für die Verbindungsherstellung eingerichtet haben, führen Sie die Schritte im Abschnitt [Herstellen einer Verbindung mit einem Cluster mit PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) aus, um die Verbindung herzustellen. Beispiel: 
+Sobald der gesicherte eigenständige Windows-Cluster ausgeführt wird und Sie die authentifizierten Clients für die Verbindungsherstellung eingerichtet haben, führen Sie die Schritte im Abschnitt [Herstellen einer Verbindung mit einem Cluster mit PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) aus, um die Verbindung herzustellen. Beispiel:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

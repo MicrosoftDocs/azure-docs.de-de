@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: fc303a0ab53c80c91bb29c36a1a7e0f04c4a89e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03c7da3e17e8e606b46c5c5e104a1271e8fbfd33
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006873"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873116"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Schnellstart: Senden von Telemetriedaten von einem Gerät an einen IoT-Hub und Lesen der Telemetriedaten mit einer Back-End-Anwendung (Python)
 
@@ -33,7 +33,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Die in dieser Schnellstartanleitung ausgeführte Beispielanwendung ist in Python geschrieben. Derzeit unterstützen die Microsoft Azure IoT SDKs für Python nur bestimmte Python-Versionen für jede Plattform. Weitere Informationen finden Sie in der [Infodatei zum Python SDK](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-In dieser Schnellstartanleitung wird davon ausgegangen, dass Sie einen Windows-Entwicklungscomputer verwenden. Auf Windows-Systemen wird ausschließlich [Python 3.6.x](https://www.python.org/downloads/release/python-368/) unterstützt. Das von Ihnen gewählte Python-Installationsprogramm sollte auf der Architektur des Systems basieren, mit dem Sie arbeiten. Verwenden Sie eine CPU-Systemarchitektur mit 32 Bit, laden Sie das x86-Installationsprogramm herunter. Für die 64-Bit-Architektur müssen Sie das x86-64-Programm herunterladen. Stellen Sie darüber hinaus sicher, dass [Microsoft Visual C++ Redistributable für Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) für Ihre Architektur (x86 oder x64) installiert ist.
+In dieser Schnellstartanleitung wird davon ausgegangen, dass Sie einen Windows-Entwicklungscomputer verwenden. Auf Windows-Systemen wird ausschließlich [Python 3.6.x](https://www.python.org/downloads/release/python-368/) unterstützt. Das von Ihnen gewählte Python-Installationsprogramm sollte auf der Architektur des Systems basieren, mit dem Sie arbeiten. Wenn Sie eine CPU-Systemarchitektur mit 32 Bit verwenden, laden Sie das x86-Installationsprogramm herunter. Laden Sie für eine 64-Bit-Architektur das x86-64-Installationsprogramm herunter. Stellen Sie darüber hinaus sicher, dass [Microsoft Visual C++ Redistributable für Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) für Ihre Architektur (x86 oder x64) installiert ist.
 
 Sie können Python für andere Plattformen von [Python.org](https://www.python.org/downloads/) herunterladen.
 
@@ -67,13 +67,13 @@ Ein Gerät muss bei Ihrer IoT Hub-Instanz registriert sein, um eine Verbindung h
 
     **YourIoTHubName**: Ersetzen Sie diesen Platzhalter unten durch den Namen, den Sie für Ihren IoT-Hub wählen.
 
-    **MyPythonDevice**: Der für das registrierte Gerät angegebene Name. Verwenden Sie „MyPythonDevice“ wie gezeigt. Wenn Sie für Ihr Gerät einen anderen Namen wählen, müssen Sie diesen innerhalb des gesamten Artikels verwenden und den Gerätenamen in den Beispielanwendungen aktualisieren, bevor Sie sie ausführen.
+    **MyPythonDevice:** Der für das registrierte Gerät angegebene Name. Verwenden Sie „MyPythonDevice“ wie gezeigt. Wenn Sie für Ihr Gerät einen anderen Namen wählen, müssen Sie diesen innerhalb des gesamten Artikels verwenden und den Gerätenamen in den Beispielanwendungen aktualisieren, bevor Sie sie ausführen.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
-1. Führen Sie die folgenden Befehle in Azure Cloud Shell aus, um die _Geräteverbindungszeichenfolge_ für das soeben registrierte Gerät abzurufen:
+1. Führen Sie die folgenden Befehle in Azure Cloud Shell aus, um die _Geräteverbindungszeichenfolge_ für das registrierte Gerät abzurufen:
 
     **YourIoTHubName**: Ersetzen Sie diesen Platzhalter unten durch den Namen, den Sie für Ihren IoT-Hub wählen.
 

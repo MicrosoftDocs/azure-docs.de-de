@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/06/2019
 ms.author: alinast
-ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994819"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071462"
 ---
 # <a name="egress-and-endpoints"></a>Ausgang und Endpunkte
 
@@ -23,7 +23,7 @@ Ereignisse werden entsprechend den vordefinierten Routingeinstellungen an Endpun
 
 Weitere Informationen zu Ereignissen, Routing und Ereignistypen finden Sie unter [Routing events and messages in Azure Digital Twins (Weiterleiten von Ereignissen und Nachrichten)](./concepts-events-routing.md).
 
-## <a name="events"></a>Ereignisse
+## <a name="events"></a>Events
 
 Ereignisse werden von IoT-Objekten wie Geräte und Sensoren zur Verarbeitung durch Azure-Nachrichtenbroker und -Ereignisbroker gesendet. Ereignisse werden durch das folgende [Azure Event Grid-Ereignisschema](../event-grid/event-schema.md) definiert.
 
@@ -47,7 +47,7 @@ Ereignisse werden von IoT-Objekten wie Geräte und Sensoren zur Verarbeitung dur
 }
 ```
 
-| Attribut | Typ | BESCHREIBUNG |
+| Attribut | Type | BESCHREIBUNG |
 | --- | --- | --- |
 | id | Zeichenfolge | Eindeutiger Bezeichner für das Ereignis. |
 | subject | Zeichenfolge | Vom Herausgeber definierter Pfad zum Ereignisbetreff |
@@ -56,7 +56,7 @@ Ereignisse werden von IoT-Objekten wie Geräte und Sensoren zur Verarbeitung dur
 | eventTime | Zeichenfolge | Die Zeit, in der das Ereignis generiert wird, basierend auf der UTC-Zeit des Anbieters. |
 | dataVersion | Zeichenfolge | Die Schemaversion des Datenobjekts. Der Herausgeber definiert die Schemaversion. |
 | metadataVersion | Zeichenfolge | Die Schemaversion der Ereignismetadaten. Event Grid definiert das Schema der Eigenschaften der obersten Ebene. Dieser Wert wird von Event Grid bereitgestellt. |
-| Thema | Zeichenfolge | Vollständiger Ressourcenpfad zu der Ereignisquelle. Dieses Feld ist nicht beschreibbar. Dieser Wert wird von Event Grid bereitgestellt. |
+| topic | Zeichenfolge | Vollständiger Ressourcenpfaf zur Ereignisquelle. Dieses Feld ist nicht beschreibbar. Dieser Wert wird von Event Grid bereitgestellt. |
 
 Weitere Informationen zum Event Grid-Ereignisschema:
 

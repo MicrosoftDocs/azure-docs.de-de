@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60322232"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure Event Grid-Schemas für Media Services-Ereignisse
 
@@ -669,7 +669,7 @@ Ein Ereignis weist die folgenden Daten auf oberster Ebene aus:
 
 | Eigenschaft | Typ | BESCHREIBUNG |
 | -------- | ---- | ----------- |
-| Thema | Zeichenfolge | Das EventGrid-Thema. Diese Eigenschaft enthält die Ressourcen-ID für das Media Services-Konto. |
+| topic | Zeichenfolge | Das EventGrid-Thema. Diese Eigenschaft enthält die Ressourcen-ID für das Media Services-Konto. |
 | subject | Zeichenfolge | Ressourcenpfad für den Media Services-Kanal unter dem Media Services-Konto. Durch Verketten von topic und subject erhalten Sie die Ressourcen-ID für den Auftrag. |
 | eventType | Zeichenfolge | Einer der registrierten Ereignistypen für die Ereignisquelle. Beispiel: “Microsoft.Media.JobStateChange“. |
 | eventTime | Zeichenfolge | Die Zeit, in der das Ereignis generiert wird, basierend auf der UTC-Zeit des Anbieters. |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61466322"
 ---
 # <a name="widevine-license-template-overview"></a>Übersicht über die Widevine-Lizenzvorlage 
 

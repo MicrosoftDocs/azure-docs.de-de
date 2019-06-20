@@ -10,11 +10,11 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61458196"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(VERALTET) Canary-Release-Microservices mit VAMP in einem Azure Container Service-DC/OS-Cluster
 

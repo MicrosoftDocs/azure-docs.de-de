@@ -3,8 +3,8 @@ title: Übersetzen von Links und URLs – Azure AD-Anwendungsproxy | Microsoft-D
 description: Hier finden Sie grundlegende Informationen zu Azure AD-Anwendungsproxy-Connectors.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262549"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956903"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Umleiten von hartcodierten Links für Apps, die mit Azure AD-Anwendungsproxy veröffentlicht wurden
 
@@ -59,13 +59,14 @@ Mit der MyApps-Browsererweiterung werden alle internen mit dem Anwendungsproxy v
 
 Zur Verwendung dieses Features muss der Benutzer die Erweiterung herunterladen und angemeldet sein. Administratoren oder Benutzer müssen keine weitere Konfiguration vornehmen. 
 
- 
+Weitere Informationen, auch zum Konfigurieren dieser Option, finden Sie in der Dokumentation [MyApps-Browsererweiterung](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ### <a name="option-3-link-translation-setting"></a>Option 3: Einstellung für die Linkübersetzung 
 
-Wenn die Linkübersetzung aktiviert ist, durchsucht der Anwendungsproxydienst HTML- und CSS-Tags nach veröffentlichten internen Links und übersetzt sie, sodass bei Benutzern keine Unterbrechung stattfindet. 
+Wenn die Linkübersetzung aktiviert ist, durchsucht der Anwendungsproxydienst HTML- und CSS-Tags nach veröffentlichten internen Links und übersetzt sie, sodass bei Benutzern keine Unterbrechung stattfindet. Die MyApps-Browsererweiterung wird gegenüber der Einstellung für die Linkübersetzung bevorzugt verwendet, da sie dem Benutzer eine leistungsstärkere Erfahrung bietet.
 
-
+> [!NOTE]
+> Wenn Sie Option 2 oder 3 verwenden, sollte jeweils nur eine dieser Optionen aktiviert werden.
 
 ## <a name="how-link-translation-works"></a>Funktionsweise der Linkübersetzung
 
@@ -101,7 +102,7 @@ In der vollständigen Liste der HTML-Codetags, für die der Anwendungsproxy die 
 * meta
 * object
 * script
-* Quelle
+* source
 * track
 * video
 
@@ -148,4 +149,4 @@ Wir sind auf Ihre Hilfe angewiesen, damit dieses Feature für alle Ihre Apps fun
 ## <a name="next-steps"></a>Nächste Schritte
 [Verwenden von benutzerdefinierten Domänen mit Azure AD-Anwendungsproxy](application-proxy-configure-custom-domain.md), damit diese dieselbe interne und externe URL aufweisen
 
-[Configure alternate access mappings for SharePoint 2013 (Konfigurieren alternativer Zugriffszuordnungen für SharePoint 2013)](https://technet.microsoft.com/library/cc263208.aspx)
+[Konfigurieren alternativer Zugriffszuordnungen für SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
 ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200699"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60418862"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installieren und Konfigurieren von Terraform zum Bereitstellen von VMs und sonstiger Infrastruktur in Azure
  

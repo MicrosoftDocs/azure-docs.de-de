@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65605706"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Durchführen der Erkennung von Netzwerkangriffen mit Network Watcher und Open Source-Tools
 
@@ -255,7 +255,7 @@ Sie können auch eigene Visualisierungen und Dashboards erstellen, die auf die f
 
 Das Beispieldashboard enthält mehrere Visualisierungen der Suricata-Warnungsprotokolle:
 
-1. Alerts by GeoIP (Warnungen nach GeoIP): Karte zur Verteilung von Warnungen nach Ursprungsland basierend auf dem geografischen Standort (anhand der IP-Adresse).
+1. Alerts by GeoIP (Warnungen nach GeoIP): Karte zur Verteilung von Warnungen nach Ursprungsland/Ursprungsregion basierend auf dem geografischen Standort (anhand der IP-Adresse).
 
     ![GeoIP][3]
 

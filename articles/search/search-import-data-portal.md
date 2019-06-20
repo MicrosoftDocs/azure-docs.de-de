@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024781"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Datenimport-Assistent für Azure Search
@@ -46,7 +46,7 @@ In diesem Abschnitt erhalten Sie Informationen zum Starten des Assistenten sowie
 
    ![Datenimport-Assistent im Portal](./media/search-import-data-portal/import-data-wizard-startup.png "Datenimport-Assistent für Azure Search")
 
-4. Als Nächstes folgt **Kognitive Suche hinzufügen (Optional)**, falls Sie die optische Zeichenerkennung (Optical Character Recognition, OCR) für Text in Bilddateien oder die Textanalyse für unstrukturierte Daten einschließen möchten. Für diese Aufgabe werden KI-Algorithmen aus Cognitive Services verwendet. Dieser Schritt besteht aus zwei Teilen:
+4. Als Nächstes folgt **Kognitive Suche hinzufügen (Optional)** , falls Sie die optische Zeichenerkennung (Optical Character Recognition, OCR) für Text in Bilddateien oder die Textanalyse für unstrukturierte Daten einschließen möchten. Für diese Aufgabe werden KI-Algorithmen aus Cognitive Services verwendet. Dieser Schritt besteht aus zwei Teilen:
   
    Erstens: [Anfügen einer Cognitive Services-Ressource](cognitive-search-attach-cognitive-services.md) an eine Azure Search-Qualifikationsgruppe
   

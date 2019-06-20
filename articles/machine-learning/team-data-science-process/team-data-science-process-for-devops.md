@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a339b0a063312e7f68c8b88d63d83621b9402ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60253068"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Team Data Science-Prozess für Entwicklervorgänge
 

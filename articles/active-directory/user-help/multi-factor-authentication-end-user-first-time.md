@@ -15,10 +15,10 @@ ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230044"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Einrichten meines Kontos für die zweistufige Überprüfung
@@ -57,7 +57,7 @@ Für diese Methode müssen Sie auf Ihrem Smartphone oder Tablet eine Authenticat
 
    ![Zusätzliche Sicherheitsüberprüfung, Bildschirm](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
 
-3. Öffnen Sie auf dem Smartphone oder Tablet die App, und tippen Sie auf **+**, um ein Konto hinzuzufügen. (Wählen Sie auf Android-Geräten die drei Punkte und dann **Konto hinzufügen** aus.)
+3. Öffnen Sie auf dem Smartphone oder Tablet die App, und tippen Sie auf **+** , um ein Konto hinzuzufügen. (Wählen Sie auf Android-Geräten die drei Punkte und dann **Konto hinzufügen** aus.)
 4. Geben Sie dann an, dass Sie ein Geschäfts-, Schul- oder Unikonto hinzufügen möchten. Der QR-Codescanner auf Ihrem Smartphone wird geöffnet. Wenn die Kamera nicht ordnungsgemäß funktioniert, können Sie die Informationen zu Ihrem Unternehmen manuell eingeben. Weitere Informationen finden Sie unter [Manuelles Hinzufügen eines Kontos](#add-an-account-manually).  
 5. Scannen Sie das Bild mit dem QR-Code, das auf dem Bildschirm zum Konfigurieren der mobilen App angezeigt wird.  Klicken Sie auf **Fertig** , um den Bildschirm mit dem QR-Code zu schließen.  
 

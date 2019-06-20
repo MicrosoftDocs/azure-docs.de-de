@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60247746"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Hinzufügen oder Löschen von Benutzern in Azure Active Directory
 Sie können Ihrer Azure Active Directory-Organisation neue Benutzer hinzufügen oder vorhandene Benutzer aus der Azure AD-Organisation löschen.

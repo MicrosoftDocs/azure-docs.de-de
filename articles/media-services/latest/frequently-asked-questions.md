@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 98e8c0ccd150776341e644f7565696e8fbd63e99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544176"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65556266"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Häufig gestellte Fragen zu Azure Media Services v3
 
@@ -41,6 +41,10 @@ Verwenden Sie [Transformationen](https://docs.microsoft.com/rest/api/media/trans
 ### <a name="how-does-pagination-work"></a>Wie funktioniert die Paginierung?
 
 Bei Verwendung der Paginierung sollten Sie immer den Link „Weiter“ verwenden, um die Sammlung zu enumerieren, und sich nicht auf eine bestimmte Seitengröße verlassen. Weitere Informationen und Beispiele finden Sie unter [Filterung, Sortierung, Paginierung](entities-overview.md).
+
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Welche Features sind noch nicht in Azure Media Services v3 verfügbar?
+
+Details finden Sie unter [Featurelücken in Bezug auf v2-APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="live-streaming"></a>Livestreaming 
 
@@ -77,7 +81,7 @@ Weitere Informationen finden Sie unter
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Kann ich v3-Ressourcen im Azure-Portal verwalten?
 
-Derzeit können Sie das Azure-Portal nicht für die Verwaltung von v3-Ressourcen verwenden. Verwenden Sie die [REST-API](https://aka.ms/ams-v3-rest-ref), die [Befehlszeilenschnittstelle](https://aka.ms/ams-v3-cli-ref) oder eines der unterstützten [SDKs](developers-guide.md).
+Derzeit können Sie das Azure-Portal nicht für die Verwaltung von v3-Ressourcen verwenden. Verwenden Sie die [REST-API](https://aka.ms/ams-v3-rest-ref), die [Befehlszeilenschnittstelle](https://aka.ms/ams-v3-cli-ref) oder eines der unterstützten [SDKs](media-services-apis-overview.md#sdks).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Gibt es in v3 ein AssetFile-Konzept?
 

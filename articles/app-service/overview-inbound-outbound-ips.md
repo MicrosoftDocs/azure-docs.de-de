@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66742934"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Ein- und ausgehende IP-Adressen in Azure App Service
 
@@ -35,9 +35,17 @@ Unabhängig von der Anzahl horizontal skalierter Instanzen besitzt jede App eine
 - Sie löschen die letzte App in einer Kombination aus Ressourcengruppe _und_ Region und erstellen sie neu.
 - Sie löschen eine vorhandene SSL-Bindung, beispielsweise während der Zertifikaterneuerung (siehe [Erneuern von Zertifikaten](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-## <a name="get-static-inbound-ip"></a>Abrufen statischer eingehender IP-Adressen
+## <a name="find-the-inbound-ip"></a>Auffinden der eingehenden IP-Adresse
 
-Mitunter benötigen Sie eine dedizierte, statische IP-Adresse für Ihre App. Um eine statische eingehende IP-Adresse abzurufen, müssen Sie eine [IP-basierte SSL-Bindung](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate) konfigurieren. Wenn Sie die SSL-Funktion eigentlich nicht zum Schutz Ihrer App benötigen, können Sie auch ein selbstsigniertes Zertifikat für diese Bindung hochladen. Bei einer IP-basierten SSL-Bindung ist das Zertifikat an die IP-Adresse selbst gebunden. Daher stellt App Service zu diesem Zweck eine statische IP-Adresse bereit. 
+Führen Sie einfach den folgenden Befehl in einem lokalen Terminal aus:
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## <a name="get-a-static-inbound-ip"></a>Abrufen einer statischen eingehenden IP-Adresse
+
+Mitunter benötigen Sie eine dedizierte, statische IP-Adresse für Ihre App. Um eine statische eingehende IP-Adresse abzurufen, müssen Sie eine [IP-basierte SSL-Bindung](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain) konfigurieren. Wenn Sie die SSL-Funktion eigentlich nicht zum Schutz Ihrer App benötigen, können Sie auch ein selbstsigniertes Zertifikat für diese Bindung hochladen. Bei einer IP-basierten SSL-Bindung ist das Zertifikat an die IP-Adresse selbst gebunden. Daher stellt App Service zu diesem Zweck eine statische IP-Adresse bereit. 
 
 ## <a name="when-outbound-ips-change"></a>Situationen, in denen sich ausgehende IP-Adressen ändern
 

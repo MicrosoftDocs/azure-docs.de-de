@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: a973d8dbab18e9ea66afb5ffff83f47c3ad98f93
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cb7172fb529d8f0cd8650db7c06a78176ef342d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64729553"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisieren der Bereitstellung virtueller Azure-Computer mit Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -134,7 +134,9 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 
 Fügen Sie der Datei „knife.rb“ die folgenden Informationen:
 
-validation_client_name   "myorg-validator" validation_key           ""#{current_dir}/myorg.pem"
+validation_client_name   "myorg-validator"
+
+validation_key           "#{current_dir}/myorg.pem"
 
 Fügen Sie zudem die folgende Zeile hinzu, die den Namen Ihrer Azure-Datei für die Veröffentlichungseinstellungen widerspiegelt.
 
@@ -190,7 +192,7 @@ Chef Workstation: 0.2.29
 ```
 
 > [!NOTE]
-> Die Reihenfolge der Pfade ist wichtig!  Wenn die "opscode"-Pfade nicht in der richtigen Reihenfolge angegeben sind, können Probleme auftreten.
+> Die Reihenfolge der Pfade ist wichtig! Wenn die "opscode"-Pfade nicht in der richtigen Reihenfolge angegeben sind, können Probleme auftreten.
 >
 
 Starten Sie die Arbeitsstation neu, bevor Sie fortfahren.

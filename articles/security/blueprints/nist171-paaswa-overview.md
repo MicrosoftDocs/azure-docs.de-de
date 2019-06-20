@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244620"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127326"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Vorlage für Azure Security and Compliance: PaaS-Webanwendungen gemäß NIST Special Publication 800-171
 
@@ -66,7 +66,7 @@ Diese Lösung verwendet die folgenden Azure-Dienste. Weitere Informationen finde
 - Azure SQL-Datenbank
 - Azure Storage
 - Azure-Automatisierung
-- Azure-Web-Apps 
+- Azure-Web-Apps
 
 ## <a name="deployment-architecture"></a>Bereitstellungsarchitektur
 Im folgenden Abschnitt werden die Elemente für Entwicklung und Implementierung beschrieben.

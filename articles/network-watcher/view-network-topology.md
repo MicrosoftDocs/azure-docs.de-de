@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
 ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682052"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Anzeigen der Topologie eines virtuellen Azure-Netzwerks

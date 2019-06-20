@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490636"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65518753"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Ermitteln und Bewerten einer umfangreichen VMware-Umgebung
 
@@ -52,15 +52,15 @@ Basierend auf der Anzahl von VMs, die Sie ermitteln möchten, können Sie mehrer
 Bei einmaliger Ermittlung (jetzt veraltet) gilt für die Ermittlung das Prinzip eines Fire-and-Forget-Modells, d. h., nach Abschluss einer Ermittlung kann derselbe Collector verwendet werden, um Daten einer anderen vCenter Server-Instanz zu sammeln oder sie an ein anderes Migrationsprojekt zu senden.
 
 > [!NOTE]
-> Die Appliance zur einmaligen Ermittlung ist inzwischen veraltet, da diese Methode bei der Verfügbarkeit der Leistungsdatenpunkte von den Statistikeinstellungen von vCenter Server abhängig war und durchschnittliche Leistungsindikatoren erfasst hat, was zu unterdimensionierten virtuellen Computern für die Migration zu Azure führte. Es wird empfohlen, zur Appliance mit einmaliger Ermittlung zu wechseln.
+> Die Appliance zur einmaligen Ermittlung ist inzwischen veraltet, da diese Methode bei der Verfügbarkeit der Leistungsdatenpunkte von den Statistikeinstellungen von vCenter Server abhängig war und durchschnittliche Leistungsindikatoren erfasst hat, was zu unterdimensionierten virtuellen Computern für die Migration zu Azure führte. Es wird empfohlen, zur Appliance mit kontinuierlicher Ermittlung zu wechseln.
 
 Planen Sie Ihre Ermittlungen und Bewertungen basierend auf den folgenden Limits:
 
 | **Entität** | **Limit für Computer** |
 | ---------- | ----------------- |
-| Project    | 1.500             |
-| Ermittlung  | 1.500             |
-| Bewertung | 1.500             |
+| Project    | 1\.500             |
+| Ermittlung  | 1\.500             |
+| Bewertung | 1\.500             |
 
 Berücksichtigen Sie bei der Planung Folgendes:
 

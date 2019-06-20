@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60861113"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrieren von Analysen aus Excel zu Azure Machine Learning Studio
 
@@ -25,7 +25,7 @@ ms.locfileid: "57864829"
 
 Unser Projekt begann zunächst mit zwei Zielsetzungen: 
 
-1. Durch den Einsatz von Vorhersageanalysen die Genauigkeit der Umsatzprognosen unserer Organisation zu verbessern  
+1. Durch den Einsatz von Vorhersageanalysen die Genauigkeit der Umsatzprognosen unserer Organisation zu verbessern 
 2. Mithilfe von Azure Machine Learning Studio eine Bestätigung, Optimierung, Beschleunigung und Skalierung unserer Ergebnisse herbeizuführen. 
 
 Wie viele andere Unternehmen durchläuft auch unsere Organisation einen monatlichen Prozess zur Erlösprognose. Unser kleines Analystenteam wurde beauftragt, diesen Prozess mithilfe von Azure Machine Learning Studio zu unterstützen und die Prognosegenauigkeit zu verbessern. Das Team sammelte im Verlauf einiger Monate Daten aus mehreren Quellen und ermittelte in dieser Zeit mit statistischen Hilfsmitteln die wichtigsten Attribute für Vertriebsprognosen im Bereich Services. Im nächsten Schritt wurden verschiedene Prototypen für die Regressionsmodelle in Excel erstellt und mit den vorhandenen Daten getestet. Innerhalb einiger Wochen hatten wir ein Regressionsmodell in Excel erstellt, das besser war als unsere derzeitigen Prognoseverfahren aus dem Finanzbereich. Dieses Modell wurde unser Prognose-Benchmark. 

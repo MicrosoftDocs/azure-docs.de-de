@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
 ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60823894"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS – Handbuch zur Problembehandlung
 

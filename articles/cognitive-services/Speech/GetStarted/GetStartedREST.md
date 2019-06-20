@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515136"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Schnellstart: Verwenden der REST-API der Bing-Spracheingabe-API
 

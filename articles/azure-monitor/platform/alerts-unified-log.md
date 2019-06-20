@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 5/31/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: ae35c735cffeb8cd85af1f32bb2d14ede6dc6b69
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452881"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427417"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Protokollwarnungen in Azure Monitor
 
@@ -27,13 +27,13 @@ Protokollwarnungen bestehen aus Regeln für die Protokollsuche, die für [Azure 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Warnungsregel für Protokollsuche – Definition und Typen
 
-Regeln für die Protokollsuche werden von Azure-Warnungen erstellt, um in regelmäßigen Abständen automatisch angegebene Protokollabfragen auszuführen.  Wenn die Ergebnisse der Protokollabfrage bestimmte Kriterien erfüllen, wird ein Warnungsdatensatz erstellt. Die Regel kann mithilfe von [Aktionsgruppen](../../azure-monitor/platform/action-groups.md) dann automatisch eine oder mehrere Aktionen durchführen. Gegebenenfalls ist die Rolle [Mitwirkender der Azure-Überwachung](../../azure-monitor/platform/roles-permissions-security.md) zum Erstellen, Ändern und Aktualisieren von Protokollwarnungen in Azure Monitor erforderlich – zusammen mit Zugriffs- und Abfrageausführungsrechte für die Analyseziele in der Warnungsregel oder Warnungsabfrage. Wenn der erstellende Benutzer nicht Zugriff auf alle Analyseziele in der Warnungsregel oder Warnungsabfrage hat, kann bei der Regelerstellung ein Fehler auftreten oder die Protokollwarnungsregel wird mit Teilergebnissen ausgeführt.
+Regeln für die Protokollsuche werden von Azure-Warnungen erstellt, um in regelmäßigen Abständen automatisch angegebene Protokollabfragen auszuführen.  Wenn die Ergebnisse der Protokollabfrage bestimmte Kriterien erfüllen, wird ein Warnungsdatensatz erstellt. Die Regel kann mithilfe von [Aktionsgruppen](../../azure-monitor/platform/action-groups.md) dann automatisch eine oder mehrere Aktionen durchführen. Gegebenenfalls ist die Rolle [Mitwirkender der Azure-Überwachung](../../azure-monitor/platform/roles-permissions-security.md) zum Erstellen, Ändern und Aktualisieren von Protokollwarnungen in Azure Monitor erforderlich – zusammen mit Zugriffs- und Abfrageausführungsrechte für die Analyseziele in der Warnungsregel oder Warnungsabfrage. Sollte der erstellende Benutzer nicht auf alle Analyseziele in der Warnungsregel oder Warnungsabfrage zugreifen können, tritt bei der Regelerstellung unter Umständen ein Fehler auf, oder die Protokollwarnungsregel wird mit Teilergebnissen ausgeführt.
 
 Regeln für die Protokollsuche werden anhand der folgenden Details definiert:
 
 - **Protokollabfrage**:  Die Abfrage, die bei jeder Auslösung der Warnungsregel ausgeführt wird.  Mit den von dieser Abfrage zurückgegebenen Datensätzen wird ermittelt, ob eine Warnung ausgelöst werden muss. Eine Analytics-Abfrage kann für einen bestimmten Log Analytics-Arbeitsbereich oder für eine Application Insights-App ausgeführt werden und sogar [mehrere Log Analytics- und Application Insights-Ressourcen](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) umfassen, sofern der Benutzer über Zugriffs- und Abfragerechte für alle Ressourcen verfügt. 
     > [!IMPORTANT]
-    > In Protokollwarnungen können aus Sicherheitsgründen **keine** [Funktionen](../log-query/functions.md) verwendet werden. Auch die Unterstützung für [ressourcenübergreifende Abfragen](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) ist nur in Protokollwarnungen für Application Insights und in Protokollwarnungen für [Log Analytics (konfiguriert mit der scheduledQueryRules-API)](../../azure-monitor/platform/alerts-log-api-switch.md) verfügbar.
+    > Die Unterstützung [ressourcenübergreifender Abfragen](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) ist nur in Protokollwarnungen für Application Insights und in Protokollwarnungen für [Log Analytics (konfiguriert mit der scheduledQueryRules-API)](../../azure-monitor/platform/alerts-log-api-switch.md) verfügbar.
 
     Einige Analysebefehle und Kombinationen können nicht in Protokollwarnungen verwendet werden. Ausführlichere Informationen finden Sie unter [Abfragen von Protokollwarnungen in Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
 
@@ -45,8 +45,8 @@ Regeln für die Protokollsuche werden anhand der folgenden Details definiert:
 
 Regeln für die Protokollsuche – sowohl für [Azure Monitor-Protokolle](../../azure-monitor/learn/tutorial-viewdata.md) als auch für [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events) – können einen von zwei Typen aufweisen. Diese Typen werden in den nachstehenden Abschnitten ausführlich beschrieben.
 
-- **[Anzahl von Ergebnissen](#number-of-results-alert-rules)**. Einzelne Warnung, die generiert wird, wenn die Anzahl der von der Protokollsuche zurückgegebenen Datensätze einen angegebenen Wert überschreitet.
-- **[Metrische Maßeinheit](#metric-measurement-alert-rules)**.  Warnung, die für jedes Objekt in den Ergebnissen der Protokollsuche bei Werten generiert wird, die den angegebenen Schwellenwert überschreiten.
+- **[Anzahl von Ergebnissen](#number-of-results-alert-rules)** . Einzelne Warnung, die generiert wird, wenn die Anzahl der von der Protokollsuche zurückgegebenen Datensätze einen angegebenen Wert überschreitet.
+- **[Metrische Maßeinheit](#metric-measurement-alert-rules)** .  Warnung, die für jedes Objekt in den Ergebnissen der Protokollsuche bei Werten generiert wird, die den angegebenen Schwellenwert überschreiten.
 
 Die Unterschiede zwischen den Warnungsregeltypen sind wie folgt.
 
@@ -76,7 +76,7 @@ In diesem Fall wird die Abfrage alle fünf Minuten mit Daten für 30 Minuten aus
 
 ### <a name="metric-measurement-alert-rules"></a>Warnungsregeln des Typs „Metrische Maßeinheit“
 
-Warnungsregeln des Typs **Metrische Maßeinheit** erzeugen eine Warnung für jedes Objekt in einer Abfrage mit einem Wert, der einen angegebenen Schwellenwert überschreitet.  Sie weisen gegenüber Warnungsregeln des Typs **Anzahl von Ergebnissen** die folgenden Unterschiede auf.
+Warnungsregeln des Typs **Metrische Maßeinheit** erzeugen eine Warnung für jedes Objekt in einer Abfrage mit einem Wert, der einen angegebenen Schwellenwert und eine angegebene Auslöserbedingung überschreitet. Im Gegensatz zu Warnungsregeln vom Typ **Anzahl von Ergebnissen** funktionieren Warnungsregeln vom Typ **Metrische Maßeinheit**, wenn das Analyseergebnis eine Zeitreihe liefert. Sie weisen gegenüber Warnungsregeln des Typs **Anzahl von Ergebnissen** die folgenden Unterschiede auf.
 
 - **Aggregatfunktion**: Bestimmt die zu erfolgende Berechnung und möglicherweise ein numerisches zu aggregierendes Feld.  Beispielsweise gibt **count()** die Anzahl der Datensätze in der Abfrage zurück, während **avg(CounterValue)** den Durchschnitt des Felds „CounterValue“ in diesem Intervall zurückgibt. Die Aggregatfunktion in der Abfrage muss benannt/aufgerufen werden: AggregatedValue, und einen numerischen Wert bereitstellen. 
 
@@ -127,16 +127,16 @@ Da die Warnung so konfiguriert ist, dass sie basierend auf einer Gesamtanzahl vo
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Warnungsregel für die Protokollsuche – Auslösung und Zustand
 
-Die Warnungsregel für die Protokollsuche funktioniert nach der Logik, die vom Benutzer gemäß der Konfiguration und der verwendeten benutzerdefinierten Analyseabfrage festgelegt wurde. Da die Logik der genauen Bedingung, warum die Warnungsregel ausgelöst werden soll, in einer Analytics-Abfrage gekapselt ist – diese kann in jeder Protokollwarnungsregel unterschiedlich sein. Azure-Warnungen verfügt über wenige Informationen über die spezifische zugrunde liegende Ursache innerhalb der Protokollergebnisse, wenn die Schwellenwertbedingung der Warnungsregel der Protokollsuche erfüllt oder überschritten wird. Daher werden Protokollwarnungen als zustandslos bezeichnet und jedes Mal ausgelöst, wenn das Protokollsuchergebnis ausreicht, um den in den Protokollwarnungen angegebenen Schwellenwert der Bedingungsart *Anzahl der Ergebnisse* oder *metrische Maßeinheit* zu überschreiten. Und die Protokollwarnungsregeln werden kontinuierlich weiter ausgelöst, solange die Warnungsbedingung durch das Ergebnis der bereitgestellten benutzerdefinierten Analytics-Abfrage erfüllt wird; ohne dass die Warnung aufgelöst wird. Da die Logik der genauen Grundursache für den Überwachungsfehler innerhalb der vom Benutzer bereitgestellten Analytics-Abfrage maskiert wird, gibt es keine Möglichkeit, mit der Azure-Warnungen abschließend feststellen kann, ob die Lösung des Problems dadurch angezeigt wird, dass das Protokollsuchergebnis den Schwellenwert nicht erreicht.
+Die Warnungsregel für die Protokollsuche funktioniert nach der Logik, die vom Benutzer gemäß der Konfiguration und der verwendeten benutzerdefinierten Analyseabfrage festgelegt wurde. Die Überwachungslogik einschließlich der genauen Bedingung oder des Grunds für die Auslösung der Warnungsregel ist in einer Analytics-Abfrage gekapselt und kann somit in jeder Protokollwarnungsregel unterschiedlich sein. Azure-Warnungen verfügen nur über wenige Informationen zur spezifischen Ursache oder zum auszuwertenden Szenario, wenn die Schwellenwertbedingung der Warnungsregel der Protokollsuche erfüllt oder überschritten wird. Protokollwarnungen werden daher als zustandslos bezeichnet. Protokollwarnungsregeln werden weiterhin ausgelöst, solange das Ergebnis der angegebenen benutzerdefinierten Analytics-Abfrage die Warnungsbedingung erfüllt. Dabei wird die Warnung niemals aufgelöst, da die Logik der genauen Ursache für den Überwachungsfehler innerhalb der vom Benutzer angegebenen Analytics-Abfrage maskiert ist. Derzeit gibt es keinen Mechanismus, mit dem Azure Monitor-Warnungen eindeutig feststellen können, ob die Ursache behoben wurde.
 
-Nehmen Sie jetzt an, es gibt eine Protokollwarnungsregel namens *Contoso-Log-Alert*, wie in der Konfiguration im bereitgestellten [Beispiel für den Protokollwarnungstyp „Anzahl von Ergebnissen“](#example-of-number-of-records-type-log-alert) angegeben. 
-- Um 13:05 Uhr, als „Contoso-Log-Alert“ von Azure-Warnungen ausgeführt wurde, lieferte das Protokollsuchergebnis 0 Datensätze. Dies liegt unterhalb des Schwellenwerts und daher wurde die Warnung nicht ausgelöst. 
-- Bei der nächsten Ausführung um 13:10 Uhr, als „Contoso-Log-Alert“ von Azure-Warnungen ausgeführt wurde, lieferte das Protokollsuchergebnis 5 Datensätze. Dadurch wurde der Schwellenwert überschritten und kurz danach die Warnung ausgelöst, indem die zugehörige [Aktionsgruppe](../../azure-monitor/platform/action-groups.md) ausgelöst wurde. 
-- Um 13:15 Uhr, als „Contoso-Log-Alert“ von Azure-Warnungen ausgeführt wurde, lieferte das Protokollsuchergebnis 2 Datensätze. Dadurch wurde der Schwellenwert überschritten und kurz danach die Warnung ausgelöst, indem die zugehörige [Aktionsgruppe](../../azure-monitor/platform/action-groups.md) ausgelöst wurde.
-- Bei der nächsten Ausführung um 13:20 Uhr, als „Contoso-Log-Alert“ von Azure-Warnungen ausgeführt wurde, lieferte das Protokollsuchergebnis erneut 0 Datensätze. Dies liegt unterhalb des Schwellenwerts und daher wurde die Warnung nicht ausgelöst.
+Sehen wir uns das einmal anhand eines Beispiels aus der Praxis an. Angenommen, es gibt eine Protokollwarnungsregel namens *Contoso-Log-Alert*, wie in der Konfiguration im bereitgestellten [Beispiel für den Protokollwarnungstyp „Anzahl von Ergebnissen“](#example-of-number-of-records-type-log-alert) angegeben, und die benutzerdefinierte Warnungsabfrage durchsucht Protokolle nach dem Ergebniscode 500.
 
-Aber im oben genannten Fall kann Azure-Warnungen um 13:15 Uhr nicht feststellen, dass die zugrundeliegenden Probleme, die um 13:10 Uhr erkannt wurden, bestehen bleiben und ob neue Fehler auftreten. Da die vom Benutzer bereitgestellte Abfrage möglicherweise frühere Datensätze berücksichtigt – kann Azure-Warnungen sicher sein. Um also auf Nummer sicher zu gehen, wird bei der Ausführung von „Contoso-Log-Alert“ um 13:15 Uhr die konfigurierte [Aktionsgruppe](../../azure-monitor/platform/action-groups.md) erneut ausgelöst. Wenn jetzt um 13:20 Uhr keine Datensätze mehr angezeigt werden, kann Azure-Warnungen sicher sein, dass die Ursache der Datensätze behoben wurde. Daher wechselt „Contoso-Log-Alert“ im Azure Alert-Dashboard nicht zu „Gelöst“ und/oder es werden Benachrichtigungen gesendet, um die Lösung einer Warnung anzuzeigen.
+- Als „Contoso-Log-Alert“ um 13:05 Uhr von Azure-Warnungen ausgeführt wurde, enthielt das Protokollsuchergebnis null Datensätze mit dem Ergebniscode 500. Da Null unter dem Schwellenwert liegt, wird die Warnung nicht ausgelöst.
+- Als „Contoso-Log-Alert“ bei der nächsten Iteration um 13:10 Uhr von Azure-Warnungen ausgeführt wurde, enthielt das Protokollsuchergebnis fünf Datensätze mit dem Ergebniscode 500. Da Fünf über dem Schwellenwert liegt, wird die Warnung zusammen mit den zugeordneten Aktionen ausgelöst.
+- Als „Contoso-Log-Alert“ um 13:15 Uhr von Azure-Warnungen ausgeführt wurde, enthielt das Protokollsuchergebnis zwei Datensätze mit dem Ergebniscode 500. Da Zwei über dem Schwellenwert liegt, wird die Warnung zusammen mit den zugeordneten Aktionen ausgelöst.
+- Als „Contoso-Log-Alert“ bei der nächsten Iteration um 13:20 Uhr von einer Azure-Warnung ausgeführt wurde, enthielt das Protokollsuchergebnis erneut null Datensätze mit dem Ergebniscode 500. Da Null unter dem Schwellenwert liegt, wird die Warnung nicht ausgelöst.
 
+Im obigen Fall um 13:15 Uhr können Azure-Warnungen jedoch nicht ermitteln, ob die zugrunde liegenden Probleme, die um 13:10 Uhr festgestellt wurden, weiterhin bestehen und ob neue Fehler hinzugekommen sind. Da die vom Benutzer angegebene Abfrage ggf. frühere Datensätze berücksichtigt, können Azure-Warnungen zu einem eindeutigen Ergebnis gelangen. Weil die Logik für die Warnung in der Warnungsabfrage gekapselt ist, kann nicht mit Sicherheit bestimmt werden, ob die beiden Datensätze mit dem Ergebniscode 500, die um 13:15 Uhr erkannt wurden, auch schon um 13:10 Uhr vorhanden waren. Um also auf Nummer sicher zu gehen, wird bei der Ausführung von „Contoso-Log-Alert“ um 13:15 Uhr die konfigurierte Aktion erneut ausgelöst. Bei den null Datensätzen mit dem Ergebniscode 500 um 13:20 Uhr können Azure-Warnungen nicht eindeutig feststellen, ob die Ursache für den Ergebniscode 500 um 13:10 Uhr und 13:15 Uhr inzwischen behoben wurde und ob von Azure Monitor-Warnungen zuverlässig ermittelt werden kann, dass die Probleme im Zusammenhang mit dem Fehler vom Typ 500 nicht erneut aus den gleichen Gründen auftreten. Daher wird „Contoso-Log-Alert“ auf dem Azure-Warnungsdashboard nicht in „Aufgelöst“ geändert, und/oder es werden keine Benachrichtigungen gesendet, um die Auflösung der Warnung anzugeben. Stattdessen kann der Benutzer, der mit dem genauen Zustand oder Grund für die in die Analytics-Abfrage eingebettete Logik vertraut ist, ggf. die [Warnung als geschlossen markieren](alerts-managing-alert-states.md).
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preise und Abrechnung von Protokollwarnungen
 
@@ -154,6 +154,8 @@ Um die verborgenen, für die Abrechnung von Warnungsregeln über die [ältere Lo
 
 - Der Benutzer kann die [API-Einstellung für die Warnungsregeln im Log Analytics-Arbeitsbereich umstellen](../../azure-monitor/platform/alerts-log-api-switch.md) und zur Azure Resource Manager-konformen [ScheduledQueryRules-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) wechseln, ohne Warnungsregeln oder Überwachungseinstellungen zu verlieren. Dadurch entfällt die Notwendigkeit, für die Abrechnung verborgene Pseudowarnungsregeln zu erstellen.
 - Wenn der Benutzer die API-Einstellung nicht ändern möchte, muss er den ursprünglichen Zeitplan und die Warnungsaktion in der [älteren Log Analytics-API](api-alerts.md) oder [die ursprüngliche Protokollwarnungsregel im Azure-Portal](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal) **löschen**.
+
+Darüber hinaus tritt für die verborgenen scheduleQueryRules-Ressourcen, die für die Abrechnung von Warnungsregeln über die [ältere Log Analytics-API](api-alerts.md) erstellt wurden, bei sämtlichen Änderungsvorgängen (beispielsweise PUT) ein Fehler auf. Der Grund: Die Pseudoregeln vom Typ `microsoft.insights/scheduledqueryrules` sind für die Abrechnung der Warnungsregeln vorgesehen, die über die [ältere Log Analytics-API](api-alerts.md) erstellt wurden. Warnungsregeländerungen müssen über die [ältere Log Analytics-API](api-alerts.md) vorgenommen werden. Alternativ kann der Benutzer die [API-Präferenz für die Warnungsregeln](../../azure-monitor/platform/alerts-log-api-switch.md) auf die [scheduledQueryRules-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) umstellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

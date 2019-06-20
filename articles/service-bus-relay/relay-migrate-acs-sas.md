@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 39764ce2dce8e00d1b41179e7285a0cea1c808bf
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7f71b6884413309e6806658f25313c22e074a71b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698943"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64686395"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrieren vom Azure Active Directory-Access Control Service zur SAS-Autorisierung
 

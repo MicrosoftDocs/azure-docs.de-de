@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.openlocfilehash: ad4f10b3b59e71ca31f1b27879c4b60157f0a46c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881357"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61374900"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Erstellen eines Geschäftskontinuitätsplans für Ihren QnA Maker-Dienst
 

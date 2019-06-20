@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259455"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979157"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Übersicht über den Azure Policy-Dienst
 
@@ -28,7 +28,7 @@ Azure Policy ist ein Dienst in Azure, mit dem Sie Richtlinien erstellen, zuweise
 
 ## <a name="how-is-it-different-from-rbac"></a>Worin unterscheidet sich dies von der rollenbasierten Zugriffssteuerung (RBAC)?
 
-Zwischen Policy und der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) gibt es einige entscheidende Unterschiede. Bei RBAC stehen Benutzeraktionen in verschiedenen Bereichen im Mittelpunkt. Sie können der Rolle „Mitwirkender“ für eine Ressourcengruppe hinzugefügt werden, damit Sie für die Ressourcengruppe Änderungen vornehmen können. Bei einer Richtlinie stehen Ressourceneigenschaften während der Bereitstellung und für bereits bestehende Ressourcen im Mittelpunkt. Policy steuert Eigenschaften, z.B. die Typen oder Speicherorte von Ressourcen. Im Gegensatz zu RBAC stellt Policy ein Standardsystem für das Zulassen und explizite Ablehnen dar.
+Zwischen Azure Policy und der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) gibt es einige entscheidende Unterschiede. Bei RBAC stehen Benutzeraktionen in verschiedenen Bereichen im Mittelpunkt. Sie können der Rolle „Mitwirkender“ für eine Ressourcengruppe hinzugefügt werden, damit Sie für die Ressourcengruppe Änderungen vornehmen können. Bei Azure Policy stehen Ressourceneigenschaften während der Bereitstellung und für bereits bestehende Ressourcen im Mittelpunkt. Azure Policy steuert Eigenschaften wie die Typen oder Speicherorte von Ressourcen. Im Gegensatz zu RBAC stellt Azure Policy ein System zum standardmäßigen Zulassen und expliziten Ablehnen dar.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>RBAC-Berechtigungen in Azure Policy
 
@@ -37,7 +37,7 @@ Azure Policy verfügt über verschiedene Berechtigungen (als Vorgänge bezeichne
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Zahlreiche integrierte Rollen erteilen Berechtigungen für Azure Policy-Ressourcen. Die Rolle **Mitwirkender an Ressourcenrichtlinien (Vorschau)** umfasst die meisten Policy-Vorgänge. Die Rolle **Besitzer** verfügt über die vollständigen Berechtigungen. Sowohl für **Mitwirkender** als auch für **Leser** können alle Policy-Lesevorgänge genutzt werden, aber mit **Mitwirkender** kann zusätzlich die Bereinigung ausgelöst werden.
+Zahlreiche integrierte Rollen erteilen Berechtigungen für Azure Policy-Ressourcen. Die Rolle **Mitwirkender an Ressourcenrichtlinien (Vorschau)** umfasst die meisten Vorgänge in Azure Policy. Die Rolle **Besitzer** verfügt über die vollständigen Berechtigungen. Sowohl für **Mitwirkender** als auch für **Leser** können alle Azure Policy-Lesevorgänge genutzt werden, aber mit **Mitwirkender** kann zusätzlich eine Bereinigung ausgelöst werden.
 
 Wenn keine der integrierten Rollen über die erforderlichen Berechtigungen verfügt, erstellen Sie eine [benutzerdefinierte Rolle](../../role-based-access-control/custom-roles.md).
 
@@ -68,7 +68,7 @@ Eine Richtlinienzuweisung ist eine zugewiesene Richtliniendefinition, die innerh
 
 Im Abonnementbereich können Sie beispielsweise eine Richtlinie zuweisen, die die Erstellung von Netzwerkressourcen verhindert. Sie können eine Ressourcengruppe in diesem Abonnement ausschließen, die für die Netzwerkinfrastruktur vorgesehen ist. Sie gewähren Benutzern, denen Sie in Bezug auf das Erstellen von Netzwerkressourcen vertrauen, dann Zugriff auf diese Netzwerkressourcengruppe.
 
-In einem anderen Beispiel möchten Sie möglicherweise eine Ressourcentyp-Whitelist-Richtlinie auf der Verwaltungsgruppenebene zuweisen. Außerdem möchten Sie einer untergeordneten Verwaltungsgruppe (oder sogar Abonnements direkt) eine weniger restriktive Richtlinie zuweisen, die mehr Ressourcentypen zulässt. Dieses Beispiel funktioniert jedoch nicht, da es sich bei einer Richtlinie um ein explizites Verbotssystem handelt. Stattdessen müssen Sie die untergeordnete Verwaltungsgruppe oder das Abonnement aus der Richtlinienzuweisung auf der Verwaltungsgruppenebene ausschließen. Anschließend müssen Sie die weniger restriktive Richtlinie auf der Ebene der untergeordneten Verwaltungsgruppe oder des Abonnements zuweisen. Falls eine Ressource aufgrund einer Richtlinie abgelehnt wird, muss zum Zulassen der Ressource die ablehnende Richtlinie geändert werden.
+Als weiteres Beispiel möchten Sie möglicherweise eine Richtlinie für eine Ressourcentyp-Zulassungsliste auf der Verwaltungsgruppenebene zuweisen. Außerdem möchten Sie einer untergeordneten Verwaltungsgruppe (oder sogar Abonnements direkt) eine weniger restriktive Richtlinie zuweisen, die mehr Ressourcentypen zulässt. Dieses Beispiel funktioniert jedoch nicht, da es sich bei einer Richtlinie um ein explizites Verbotssystem handelt. Stattdessen müssen Sie die untergeordnete Verwaltungsgruppe oder das Abonnement aus der Richtlinienzuweisung auf der Verwaltungsgruppenebene ausschließen. Anschließend müssen Sie die weniger restriktive Richtlinie auf der Ebene der untergeordneten Verwaltungsgruppe oder des Abonnements zuweisen. Falls eine Ressource aufgrund einer Richtlinie abgelehnt wird, muss zum Zulassen der Ressource die ablehnende Richtlinie geändert werden.
 
 Weitere Informationen zum Einrichten von Richtliniendefinitionen und Zuweisungen über das Portal finden Sie unter [Erstellen einer Richtlinienzuweisung zum Identifizieren nicht konformer Ressourcen in Ihrer Azure-Umgebung](assign-policy-portal.md). Schritte für [PowerShell](assign-policy-powershell.md) und die [Azure-Befehlszeilenschnittstelle](assign-policy-azurecli.md) sind ebenfalls verfügbar.
 
@@ -115,7 +115,7 @@ In diesem Szenario haben Sie bei der Definition der Initiativparameter für **in
 
 Beim Erstellen von Wertoptionen in einer Initiativdefinition können Sie während der Initiativenzuweisung keinen anderen Wert eingeben, da er nicht Teil der Liste ist.
 
-## <a name="maximum-count-of-policy-objects"></a>Maximale Anzahl von Richtlinienobjekten
+## <a name="maximum-count-of-azure-policy-objects"></a>Maximale Anzahl von Azure Policy-Objekten
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -145,7 +145,7 @@ Die folgende Übersicht über Azure Policy stammt von der Build 2018. Folien und
 Nachdem Sie nun einen Überblick über Azure Policy erhalten und einige Schlüsselbegriffe kennengelernt haben, geht es mit den nächsten empfohlenen Schritten weiter:
 
 - [Zuweisen einer Richtliniendefinition mit dem Portal](assign-policy-portal.md)
-- [Zuweisen einer Richtliniendefinition mit der Azure CLI](assign-policy-azurecli.md)
+- [Zuweisen einer Richtliniendefinition mit der Azure-Befehlszeilenschnittstelle](assign-policy-azurecli.md)
 - [Zuweisen einer Richtliniendefinition mit PowerShell](assign-policy-powershell.md)
 - Weitere Informationen zu Verwaltungsgruppen finden Sie unter [Organisieren Ihrer Ressourcen mit Azure-Verwaltungsgruppen](..//management-groups/overview.md).
-- Sehen Sie sich [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Steuern Ihrer Azure-Umgebung per Azure Policy) auf Channel 9 an.
+- Sehen Sie sich [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Steuern Ihrer Azure-Umgebung über Azure Policy) auf Channel 9 an.

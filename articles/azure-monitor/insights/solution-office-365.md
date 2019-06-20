@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58794018"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357576"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-Verwaltungslösung in Azure (Vorschau)
 
 ![Office 365-Logo](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> Die empfohlene Methode zum Installieren und Konfigurieren der Office 365-Lösung ist das Aktivieren des [Office 365-Connectors](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md), statt die Schritte in diesem Artikel auszuführen. Dies ist eine aktualisierte Version der Office 365-Lösung mit einer verbesserten Konfigurationsumgebung. Verwenden Sie zum Herstellen einer Verbindung mit Azure AD-Protokollen den [Azure AD-Connector von Azure Sentinel](../../sentinel/connect-azure-active-directory.md), mit dem umfangreichere Protokolldaten als bei den Office 365-Verwaltungsprotokollen bereitgestellt werden. 
+>
+> Beim [Integrieren von Azure Sentinel](../../sentinel/quickstart-onboard.md) geben Sie den Log Analytics-Arbeitsbereich an, in dem die Office 365-Lösung installiert werden soll. Nachdem Sie den Connector aktiviert haben, ist die Lösung im Arbeitsbereich verfügbar und wird auf genau die gleiche Weise wie alle anderen installierten Überwachungslösungen verwendet.
+>
+> Benutzer der Azure Government-Cloud müssen Office 365 anhand der Schritte in diesem Artikel installieren, da Azure Sentinel in der Government-Cloud noch nicht verfügbar ist.
 
 Mit der Office 365-Verwaltungslösung können Sie Ihre Office 365-Umgebung in Azure Monitor überwachen.
 
@@ -30,6 +38,7 @@ Mit der Office 365-Verwaltungslösung können Sie Ihre Office 365-Umgebung in Az
 - Ermitteln und untersuchen Sie unerwünschtes Benutzerverhalten. Dies kann an die Anforderungen Ihrer Organisation angepasst werden.
 - Demonstrieren Sie Überwachung und Compliance. Beispielsweise können Sie Dateizugriffe auf vertrauliche Dateien überwachen und so den Überwachungs- und Complianceprozess unterstützen.
 - Führen Sie eine operative Problembehandlung mithilfe der [Protokollabfragen](../log-query/log-query-overview.md) in den Office 365-Aktivitätsdaten Ihrer Organisation durch.
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -530,7 +539,7 @@ Alle im Log Analytics-Arbeitsbereich in Azure Monitor von der Office 365-Lösung
 
 Die folgenden Eigenschaften gelten für alle Office 365-Datensätze.
 
-| Eigenschaft | BESCHREIBUNG |
+| Eigenschaft | Description |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | Die IP-Adresse des Geräts, das verwendet wurde, als die Aktivität protokolliert wurde. Die IP-Adresse wird im IPv4- oder IPv6-Adressformat angezeigt. |
@@ -541,7 +550,7 @@ Die folgenden Eigenschaften gelten für alle Office 365-Datensätze.
 | ResultStatus | Gibt an, ob die Aktion (angegeben in der Eigenschaft „Operation“) erfolgreich war oder nicht. Mögliche Werte sind „Succeeded“, „PartiallySucceeded“ oder „Failed“. Bei Exchange-Administratoraktivitäten ist der Wert entweder „True“ oder „False“. |
 | UserId | Der Benutzerprinzipalname (User Principal Name, UPN) des Benutzers, der die Aktion ausgeführt hat, die zum Protokollieren des Datensatzes geführt hat, beispielsweise my_name@my_domain_name. Beachten Sie, dass auch Datensätze für die von Systemkonten ausgeführten Aktivitäten (z.B. „SHAREPOINT\system“ oder „NTAUTHORITY\SYSTEM“) enthalten sind. | 
 | UserKey | Eine alternative ID für den Benutzer, der in der Eigenschaft „UserId“ identifiziert wird.  Beispiel: Diese Eigenschaft wird für Ereignisse, die von Benutzern in SharePoint, OneDrive for Business und Exchange ausgeführt werden, mit der eindeutigen Passport-ID (PUID) aufgefüllt. Diese Eigenschaft kann für Ereignisse, die in anderen Diensten und Ereignissen von Systemkonten ausgeführt werden, auch den gleichen Wert wie die Eigenschaft „UserID“ angeben.|
-| UserType | Der Typ des Benutzers, der den Vorgang ausgeführt hat.<br><br>Administrator<br>Anwendung<br>DcAdmin<br>Regulär <br>Reserved<br>ServicePrincipal<br>System |
+| UserType | Der Typ des Benutzers, der den Vorgang ausgeführt hat.<br><br>Administrator<br>Anwendung<br>DcAdmin<br>Regulär<br>Reserved<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-Basis

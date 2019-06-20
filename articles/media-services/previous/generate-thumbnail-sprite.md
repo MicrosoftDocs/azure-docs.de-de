@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61229049"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>Generieren eines Miniaturbild-Sprites  
 
@@ -33,7 +33,7 @@ Um mit dem Media Encoder Standard Miniaturbild-Sprites zu generieren, muss Folge
 
     1. Wenn „SpriteColumn“ auf M >= 1 festgelegt ist, entspricht das Ausgabebild einem Rechteck mit M-Spalten. Wenn die Anzahl der Miniaturbilder, die über Schritt 2 generiert wurden, nicht genau einem Vielfachen von M entspricht, ist die letzte Zeile unvollständig und mit schwarzen Pixeln versehen.  
 
-Beispiel: 
+Beispiel:
 
 ```json
 {

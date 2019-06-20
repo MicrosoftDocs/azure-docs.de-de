@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/26/2019
 ms.author: msfussell
 ms.openlocfilehash: 55f043effc7cdb102acea856e89c58f660d0cde5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65238116"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Bewährte Methoden für den Azure Service Fabric-Anwendungsentwurf

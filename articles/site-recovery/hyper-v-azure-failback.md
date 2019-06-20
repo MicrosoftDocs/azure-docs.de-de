@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541046"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60552415"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Durchführen eines Failbacks für virtuelle Hyper-V-Computer
 
@@ -29,11 +29,11 @@ Nach dem Failover vom primären zum sekundären Standort sind die virtuellen Rep
 1. Wählen Sie **Wiederherstellungspläne** > *Name des Wiederherstellungsplans* aus. Klicken Sie auf **Failover** > **Planned Failover**veröffentlichen.
 2. Wählen Sie auf der Seite **Geplantes Failover bestätigen** den Quell- und Zielort aus. Beachten Sie die Failover-Richtung. Wenn das Failover vom primären Standort erwartungsgemäß funktioniert hat und sich alle virtuellen Computer am sekundären Standort befinden, dient diese Angabe nur zu Informationszwecken.
 3. Wählen Sie bei einem Failback von Azure Einstellungen unter **Datensynchronisierung**aus:
-    - **Daten vor dem Failover synchronisieren (nur Deltaänderungen synchronisieren)**: Diese Option minimiert die Ausfallzeiten der virtuellen Computer, da diese für die Synchronisierung nicht heruntergefahren werden. Die folgenden Schritte werden ausgeführt:
+    - **Daten vor dem Failover synchronisieren (nur Deltaänderungen synchronisieren)** : Diese Option minimiert die Ausfallzeiten der virtuellen Computer, da diese für die Synchronisierung nicht heruntergefahren werden. Die folgenden Schritte werden ausgeführt:
         - Phase 1: Es wird eine Momentaufnahme der VM in Azure erstellt und auf den lokalen Hyper-V-Host kopiert. Der Computer wird weiterhin in Azure ausgeführt.
         - Phase 2: Die VM wird in Azure heruntergefahren, damit keine neuen Änderungen vorgenommen werden. Die letzten Deltaänderungen werden an den lokalen Server übertragen, und der lokale virtuelle Computer wird gestartet.
 
-    - **Daten nur während Failover synchronisieren (vollständiger Download)**: Diese Option ist schneller.
+    - **Daten nur während Failover synchronisieren (vollständiger Download)** : Diese Option ist schneller.
         - Diese Option ist schneller, da erwartet wird, dass die meisten Daten auf dem Datenträger geändert wurden, und keine Zeit mit der Prüfsummenberechnung verschwendet werden soll. Mit der Option wird ein Download des Datenträgers durchgeführt. Sie ist auch nützlich, wenn der lokale virtuelle Computer gelöscht wurde.
         - Es wird empfohlen, diese Option zu verwenden, wenn Sie Azure bereits seit einer Weile nutzen (mindestens einen Monat) oder wenn der lokale virtuelle Computer gelöscht wurde. Mit dieser Option werden keine Prüfsummenberechnungen durchgeführt.
 

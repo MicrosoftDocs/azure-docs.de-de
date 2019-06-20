@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094223"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475284"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>HTTP-Header „X-EC-Debug“ für Azure CDN-Regel-Engine
 Der Debugcache-Anforderungsheader (`X-EC-Debug`) stellt zusätzliche Informationen zur Cacherichtlinie bereit, die auf das angeforderte Objekt angewendet wird. Diese Header sind spezifisch für **Azure CDN Premium-Produkte von Verizon**.
@@ -27,7 +27,7 @@ Der Debugcache-Anforderungsheader (`X-EC-Debug`) stellt zusätzliche Information
 ## <a name="usage"></a>Verwendung
 Die an einen Benutzer von den POP-Servern gesendete Antwort enthält die `X-EC-Debug`-Header nur, wenn die folgenden Bedingungen erfüllt sind:
 
-- Das Feature [Debug Cache Response Headers](cdn-rules-engine-reference-features.md#debug-cache-response-headers) wurde für die Regel-Engine für die angegebene Anforderung aktiviert.
+- Das Feature [Debug Cache Response Headers](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) wurde für die Regel-Engine für die angegebene Anforderung aktiviert.
 - Die angegebene Anforderung definiert den Satz der Debugcache-Antwortheader, die in die Antwort einbezogen werden.
 
 ## <a name="requesting-debug-cache-information"></a>Anfordern von Debugcacheinformationen
@@ -72,7 +72,7 @@ Die oben in der Antwortheadersyntax verwendeten Begriffe sind folgendermaßen de
     
     Der Statuscode TCP_DENIED kann anstelle von NONE gemeldet werden, wenn eine nicht autorisierte Anforderung aufgrund von tokenbasierter Authentifizierung verweigert wird. Allerdings wird der Statuscode NONE weiterhin verwendet, wenn Cachestatusberichte oder Protokollrohdaten angezeigt werden.
 
-- Platform: Gibt die Plattform an, auf der der Inhalt angefordert wurde. Die folgenden Codes sind für dieses Feld gültig:
+- Plattform: Gibt die Plattform an, auf der der Inhalt angefordert wurde. Die folgenden Codes sind für dieses Feld gültig:
 
     Code  | Plattform
     ------| --------
@@ -80,7 +80,7 @@ Die oben in der Antwortheadersyntax verwendeten Begriffe sind folgendermaßen de
     ECS   | HTTP klein
     ECD   | Application Delivery Network (ADN)
 
-- POP: Gibt den [POP](cdn-pop-abbreviations.md) an, der die Anforderung verarbeitet hat. 
+- POP: Gibt den [POP](cdn-pop-abbreviations.md)-Standort an, der die Anforderung verarbeitet hat. 
 
 ### <a name="sample-response-headers"></a>Beispielantwortheader
 
@@ -106,7 +106,7 @@ Der oben in der Antwortheadersyntax verwendete Begriff ist folgendermaßen defin
 Wert  | BESCHREIBUNG
 -------| --------
 JA    | Gibt an, dass der angeforderte Inhalt für das Zwischenspeichern geeignet war.
-NO     | Gibt an, dass der angeforderte Inhalt für das Zwischenspeichern nicht geeignet war. Dieses Status ergibt sich möglicherweise aufgrund einer der folgenden Ursachen: <br /> – Kundenspezifische Konfiguration: Eine für Ihr Konto spezifische Konfiguration kann verhindern, dass die POP-Server ein Objekt zwischenspeichern. Beispielsweise kann die Regel-Engine verhindern, dass ein Objekt zwischengespeichert wird, indem sie das Feature „Cache umgehen“ für die betreffenden Anforderungen aktiviert.<br /> – Cacheantwortheader: Die angeforderten Header „Cache-Control“ und „Expires“ des Objekts können verhindern, dass POP-Server es zwischenspeichern.
+NO     | Gibt an, dass der angeforderte Inhalt für das Zwischenspeichern nicht geeignet war. Dieses Status ergibt sich möglicherweise aufgrund einer der folgenden Ursachen: <br /> – Kundenspezifische Konfiguration: Eine für Ihr Konto spezifische Konfiguration kann verhindern, dass die POP-Server ein Objekt zwischenspeichern. Beispielsweise kann die Regel-Engine verhindern, dass ein Objekt zwischengespeichert wird, indem sie das Feature „Cache umgehen“ für die betreffenden Anforderungen aktiviert.<br /> – Cacheantwortheader: Die Header „Cache-Control“ und „Expires“ des angeforderten Objekts können verhindern, dass POP-Server das Objekt zwischenspeichern.
 UNKNOWN | Gibt an, dass die Server nicht beurteilen konnten, ob das angeforderte Objekt zwischenspeicherbar war. Dieser Status tritt normalerweise auf, wenn die Anforderung aufgrund von tokenbasierter Authentifizierung abgelehnt wird.
 
 ### <a name="sample-response-header"></a>Beispielantwortheader
@@ -118,7 +118,7 @@ Der folgende Beispielantwortheader gibt an, ob der angeforderte Inhalt hätte zw
 ## <a name="cache-key-response-header"></a>Cache-Key-Antwortheader
 Der `X-EC-Debug: x-ec-cache-key`-Antwortheader gibt den physischen cache-key an, der dem angeforderten Inhalt zugeordnet ist. Ein physischer cache-key besteht aus dem relativen Pfad, der ein Objekt zum Zweck der Zwischenspeicherung identifiziert. Die Server suchen also in dem Pfad, der durch den zugehörigen Cacheschlüssel definiert wird, nach einer zwischengespeicherten Version eines Objekts.
 
-Dieser physische cache-key beginnt mit einem doppelten Schrägstrich (//), gefolgt vom Protokoll, das zum Anfordern des Inhalts (HTTP oder HTTPS) verwendet wurde. Auf dieses Protokoll folgt der relative Pfad zum angeforderten Objekt, der mit dem Inhaltszugriffspunkt beginnt (z.B. _/000001/_).
+Dieser physische cache-key beginnt mit einem doppelten Schrägstrich (//), gefolgt vom Protokoll, das zum Anfordern des Inhalts (HTTP oder HTTPS) verwendet wurde. Auf dieses Protokoll folgt der relative Pfad zum angeforderten Objekt, der mit dem Inhaltszugriffspunkt beginnt (z.B. _/000001/_ ).
 
 Standardmäßig sind HTTP-Plattformen für die Verwendung von *standard-cache* konfiguriert, was bedeutet, dass Abfragezeichenfolgen vom Zwischenspeichermechanismus ignoriert werden. Dieser Art der Konfiguration verhindert, dass der cache-key Daten der Abfragezeichenfolge umfasst.
 
@@ -147,23 +147,23 @@ Der `X-EC-Debug`-Antwortheader meldet Cachestatusinformationen im folgenden Form
 
 Die oben in der Antwortheadersyntax verwendeten Begriffe sind folgendermaßen definiert:
 
-- MASeconds: Gibt das max-age (in Sekunden) an, wie durch die Cache-Control-Header des angeforderten Inhalts definiert.
+- MASeconds: Gibt den max-age-Wert (in Sekunden) an, wie durch die Cache-Control-Header des angeforderten Inhalts definiert.
 
 - MATimePeriod: Konvertiert den max-age-Wert (d.h. MASeconds) in das ungefähre Äquivalent einer größeren Einheit (z.B. Tage). 
 
 - UnixTime: Gibt den Cachezeitstempel des angeforderten Inhalts in Unix-Zeit an (auch als POSIX-Zeit oder Unix-Epoche bezeichnet). Der Cachezeitstempel gibt Datum/Uhrzeit des Starts an. Aus diesen Angaben wird die Gültigkeitsdauer (TTL) eines Objekts berechnet. 
 
-    Wenn der Ursprungsserver keinen HTTP-Cacheserver eines Drittanbieters verwendet oder dieser Server den Age-Antwortheader nicht zurückgibt, ist der Cachezeitstempel immer das Datum/Uhrzeit, an dem/der das Objekt abgerufen oder erneut validiert wurde. Die POP-Server verwenden andernfalls das Feld „Age“, um die Gültigkeitsdauer (TTL) des Objekts wie folgt zu berechnen: Retrieval/RevalidateDateTime - Age.
+    Wenn der Ursprungsserver keinen HTTP-Cacheserver eines Drittanbieters verwendet oder dieser Server den Age-Antwortheader nicht zurückgibt, ist der Cachezeitstempel immer das Datum/Uhrzeit, an dem/der das Objekt abgerufen oder erneut validiert wurde. Andernfalls verwenden die POP-Server das Feld „Age“, um die Gültigkeitsdauer (TTL) des Objekts wie folgt zu berechnen: Retrieval/RevalidateDateTime – Age.
 
 - ttt, tt MMM jjjj HH:mm:ss GMT: Gibt den Cachezeitstempel des angeforderten Inhalts an. Weitere Informationen finden Sie weiter oben unter dem Begriff „UnixTime“.
 
-- CASeconds: Gibt die Anzahl der Sekunden an, die seit dem Cachezeitstempel vergangen sind.
+- CASeconds: Gibt die Anzahl von Sekunden an, die seit dem Cachezeitstempel vergangen sind.
 
-- RTSeconds: Gibt die Anzahl der verbleibenden Sekunden an, für die der zwischengespeicherte Inhalt als aktuell betrachtet wird. Dieser Wert wird wie folgt berechnet: RTSeconds = max-age - cache age.
+- RTSeconds: Gibt die Anzahl der verbleibenden Sekunden an, für die der zwischengespeicherte Inhalt als aktuell betrachtet wird. Dieser Wert wird wie folgt berechnet: RTSeconds = max-age – cache age.
 
 - RTTimePeriod: Konvertiert den verbleibenden TTL-Wert (d.h. RTSeconds) in das ungefähre Äquivalent einer größeren Einheit (z.B. Tage).
 
-- ExpiresSeconds: Gibt die Anzahl der Sekunden an, die vor dem im `Expires`-Antwortheader angegebenen Datum/Uhrzeit verbleiben. Wenn der `Expires`-Antwortheader nicht in der Antwort enthalten war, ist der Wert dieses Ausdrucks *none*.
+- ExpiresSeconds: Gibt die Anzahl von Sekunden an, die vor dem im `Expires`-Antwortheader angegebenen Datums-/Uhrzeitwert verbleiben. Wenn der `Expires`-Antwortheader nicht in der Antwort enthalten war, ist der Wert dieses Ausdrucks *none*.
 
 ### <a name="sample-response-header"></a>Beispielantwortheader
 

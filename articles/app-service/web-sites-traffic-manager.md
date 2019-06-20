@@ -17,11 +17,11 @@ ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 79fe3bce558a8315f5fbf7dbc82a4979e8e24238
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60831978"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Steuern des Azure App Service-Datenverkehrs mit Azure Traffic Manager
 > [!NOTE]

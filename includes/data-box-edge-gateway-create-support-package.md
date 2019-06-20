@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556792"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178550"
 ---
 Wenn Sie Geräteprobleme haben, können Sie anhand der Systemprotokolle ein Protokollpaket erstellen. Der Microsoft-Support nutzt dieses Paket, um die Probleme zu beheben. Um ein Protokollpaket erstellen, gehen Sie wie folgt vor:
 

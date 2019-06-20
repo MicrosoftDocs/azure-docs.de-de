@@ -12,11 +12,11 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895446"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368322"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Erkennen von Bildtypen mit maschinellem Sehen
 

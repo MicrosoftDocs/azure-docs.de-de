@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357395"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61318385"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrieren von Umgebungen in Ihre Azure DevOps-CI/CD-Pipelines
 Mithilfe der in Azure DevOps Services (ehemals Visual Studio Team Services) installierten Erweiterung „Azure DevTest Labs Tasks“ können Sie Ihre Build- und Releasepipeline mit Continuous Integration (CI)/Continuous Delivery (CD) problemlos in Azure DevTest Labs integrieren. Diese Erweiterungen vereinfachen beispielsweise die schnelle Bereitstellung einer [Umgebung](devtest-lab-test-env.md) für eine bestimmte Testaufgabe und die anschließende Löschung der Umgebung nach Abschluss des Tests. 
@@ -44,7 +44,7 @@ So erstellen Sie die Releasedefinition
 1.  Wählen Sie im Hub **Build und Release** auf der Registerkarte **Releases** die Schaltfläche **mit dem Pluszeichen (+)** aus.
 2.  Wählen Sie im Fenster **Releasedefinition erstellen** die Vorlage **Leer** aus, und klicken Sie dann auf **Weiter**.
 3.  Klicken Sie auf **Später auswählen** und dann auf **Erstellen**, um eine neue Releasedefinition mit einer Standardumgebung ohne verknüpfte Artefakte zu erstellen.
-4.  Klicken Sie zum Öffnen des Kontextmenüs in der neuen Releasedefinition auf die Auslassungspunkte (**...**) neben dem Umgebungsnamen, und wählen Sie dann **Variablen konfigurieren** aus.
+4.  Klicken Sie zum Öffnen des Kontextmenüs in der neuen Releasedefinition auf die Auslassungspunkte ( **...** ) neben dem Umgebungsnamen, und wählen Sie dann **Variablen konfigurieren** aus.
 5.  Geben Sie im Fenster **Konfigurieren – Umgebung** die folgenden Werte für die Variablen ein, die Sie in den Releasedefinitionsaufgaben verwenden:
 1.  Geben Sie für **administratorLogin** den Anmeldenamen des SQL-Administrators ein.
 2.  Geben Sie für **administratorLoginPassword** das gewünschte Kennwort für die SQL-Administratoranmeldung ein. Verwenden Sie das Schlosssymbol, um das Kennwort auszublenden und zu schützen.

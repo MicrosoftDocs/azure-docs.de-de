@@ -1,25 +1,18 @@
 ---
-title: Erstellen eines Benutzer-VM-Images für den Azure Marketplace | Microsoft-Dokumentation
+title: Erstellen eines Benutzer-VM-Images für den Azure Marketplace
 description: Listet die Schritte und Referenzen auf, die zum Erstellen eines Benutzer-VM-Images erforderlich sind.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: bf87856dc28e83fb1308f20613338b9bbfd8f896
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: pabutler
+ms.openlocfilehash: 0005ab517d38903b87889b67449569495e396265
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938332"
 ---
 # <a name="create-a-user-vm-image"></a>Erstellen eines Benutzer-VM-Images
 

@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947923"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702893"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Hochverfügbarkeit und Zuverlässigkeit für Azure Scheduler
 
@@ -72,7 +72,7 @@ Weitere Informationen zum Einrichten eines alternativen Endpunkts finden Sie unt
 
 ## <a name="see-also"></a>Weitere Informationen
 
-* [Was ist Azure Scheduler?](scheduler-intro.md)
+* [Was ist der Azure Scheduler?](scheduler-intro.md)
 * [Konzepte, Terminologie und Entitätshierarchie](scheduler-concepts-terms.md)
-* [Erstellen komplexer Zeitpläne und fortgeschrittener Serien](scheduler-advanced-complexity.md)
+* [Erstellen komplexer Zeitpläne und erweiterter Serien](scheduler-advanced-complexity.md)
 * [Grenzwerte, Kontingente, Standardwerte und Fehlercodes](scheduler-limits-defaults-errors.md)

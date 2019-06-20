@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
 ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60902058"
 ---
 # <a name="how-do-i--in-application-insights"></a>Gewusst wie – in Application Insights
 ## <a name="get-an-email-when-"></a>Wie erhalte ich eine E-Mail-Nachricht, wenn...

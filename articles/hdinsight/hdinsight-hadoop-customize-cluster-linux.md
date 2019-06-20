@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545330"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479466"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassen von Azure HDInsight-Clustern mithilfe von Skriptaktionen
 
@@ -45,23 +45,21 @@ Weitere Informationen zur Verwendung der Zugriffsverwaltung finden Sie hier:
 Eine Skriptaktion ist ein Bash-Skript, das auf den Knoten in einem HDInsight-Cluster ausgeführt wird. Skriptaktionen verfügen über folgende Merkmale und Features:
 
 * Sie müssen als URI gespeichert werden, der für den HDInsight-Cluster zugänglich ist. Dies sind zwei mögliche Speicherorte:
+    
+    * Für normale Cluster:
+    
+      * ADLS Gen1: Der Dienstprinzipal, der von HDInsight zum Zugreifen auf Data Lake Storage genutzt wird, muss über Lesezugriff auf das Skript verfügen. Für in Data Lake Storage Gen1 gespeicherte Skripts wird das folgende URI-Format verwendet: `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      
+      * Ein Blob in einem Azure Storage-Konto, das entweder das primäre oder ein zusätzliches Speicherkonto für den HDInsight-Cluster darstellt. HDInsight wird während der Clustererstellung Zugriff auf beide Typen von Speicherkonten gewährt.
 
-    * Ein Azure Data Lake Storage-Konto, auf das der HDInsight-Cluster zugreifen kann. Weitere Informationen zur Verwendung von Azure Data Lake Storage mit HDInsight finden Sie unter [Quickstart: Set up clusters in HDInsight (Schnellstart: Einrichten von Clustern in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
-
-        Für in Data Lake Storage Gen1 gespeicherte Skripts wird das folgende URI-Format verwendet: `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-        > [!NOTE]  
-        > Der Dienstprinzipal, der von HDInsight zum Zugreifen auf Data Lake Storage genutzt wird, muss über Lesezugriff auf das Skript verfügen.
-
-    * Ein Blob in einem Azure Storage-Konto, das entweder das primäre oder ein zusätzliches Speicherkonto für den HDInsight-Cluster darstellt. HDInsight wird während der Clustererstellung Zugriff auf beide Typen von Speicherkonten gewährt.
-
-    * Ein öffentlicher Dateifreigabedienst. Beispiele wären etwa Azure Blob, GitHub, OneDrive und Dropbox.
+      * Ein öffentlicher Dateifreigabedienst, auf den über „http://“-Pfade zugegriffen werden kann. Beispiele sind Azure Blob, GitHub und OneDrive.
 
         Beispiel-URIs finden Sie unter [Beispielskripts für Skriptaktionen](#example-script-action-scripts).
 
-        > [!WARNING]  
-        > HDInsight unterstützt nur Blobs in Azure Storage-Konten mit einer Standardleistungsstufe. 
-
+     * Für Cluster mit ESP:
+         
+         * URIs vom Typ „wasb://“ oder „wasbs://“ oder „http[s]://“ werden unterstützt.
+            
 * Die Ausführung kann auf bestimmte Knotentypen beschränkt werden. Beispiele wären etwa Hauptknoten und Workerknoten.
 
 * Sie können permanent oder ad-hoc sein.
@@ -354,7 +352,7 @@ Ein Beispiel für die Anwendung von Skripts auf einen Cluster mithilfe des .NET 
 
     ![Skriptaktionen, Eigenschaften](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. Sie können im Abschnitt mit den Skriptaktionen auch die Auslassungspunkte (**...**) rechts neben den Einträgen auswählen, um Aktionen auszuführen.
+6. Sie können im Abschnitt mit den Skriptaktionen auch die Auslassungspunkte ( **...** ) rechts neben den Einträgen auswählen, um Aktionen auszuführen.
 
     ![Skriptaktionen, Auslassungspunkte](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 

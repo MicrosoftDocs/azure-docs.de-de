@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894358"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61466477"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Entwerfen eines Inhaltsschutzsystems mit Zugriffssteuerung über Azure Media Services 
 

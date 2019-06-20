@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7b7a286bb3f38982f6c55e37e186c524a8a92266
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515268"
 ---
 # <a name="get-started-with-bing-speech"></a>Erste Schritte mit der Bing-Spracheingabe
 

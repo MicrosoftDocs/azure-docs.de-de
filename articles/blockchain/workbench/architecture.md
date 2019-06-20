@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 05/20/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 8dc8304e97ff66356a8874a146231f0042e5f509
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 5333f02edd6a4ff888e28ed36c2b78f75309f4d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060908"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench-Architektur
 
@@ -45,7 +45,7 @@ In der Webanwendung haben autorisierte Benutzer die Möglichkeit, auf die Admini
 * Hochladen und Bereitstellen eigener intelligenter Verträge.
 * Zuordnen eines Benutzerzugriffs zu dem intelligenten Vertrag im Rahmen einer bestimmten Rolle.
 
-Weitere Informationen finden Sie im Artikel über [Azure Blockchain Workbench-Beispielclientanwendungen auf GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client).
+Weitere Informationen finden Sie im Artikel über [Azure Blockchain Workbench-Beispielclientanwendungen auf GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
 
 ## <a name="gateway-service-api"></a>Gatewaydienst-API
 

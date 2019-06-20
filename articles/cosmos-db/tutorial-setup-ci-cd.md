@@ -4,15 +4,15 @@ description: Tutorial zum Einrichten des Build- und Releaseworkflows in Azure De
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: d6250b778cdaec47ccbe2f45d35adea0b676a20a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882009"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242562"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Einrichten einer CI/CD-Pipeline mit dem Buildtask des Azure Cosmos DB-Emulators in Azure DevOps
 

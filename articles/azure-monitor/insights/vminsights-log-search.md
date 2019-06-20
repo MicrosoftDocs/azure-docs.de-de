@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492087"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472575"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Abfragen von Protokollen aus Azure Monitor für VMs (Vorschauversion)
 Azure Monitor für VMs erfasst Leistungs- und Verbindungsmetriken, Inventurdaten von Computern und Prozessen sowie Informationen zum Integritätsstatus und leitet diese an den Log Analytics-Arbeitsbereich in Azure Monitor weiter.  Diese Daten stehen in Azure Monitor für [Abfragen](../../azure-monitor/log-query/log-query-overview.md) zur Verfügung. Diese Daten können in verschiedenen Szenarios von Nutzen sein, z.B. bei der Migrationsplanung, Kapazitätsanalyse, Ermittlung und Ad-hoc-Behebung von Leistungsproblemen.
@@ -43,8 +43,8 @@ Die folgenden Felder und Konventionen gelten sowohl für VMConnection als auch f
 
 - Computer: Vollqualifizierter Domänenname des berichtenden Computers 
 - AgentID: Eindeutiger Bezeichner für einen Computer mit dem Log Analytics-Agent  
-- Machine: Name der Azure Resource Manager-Ressource für den Computer, die von ServiceMap bereitgestellt wird. Das Format lautet *m-{GUID}*, wobei *GUID* der gleichen GUID wie AgentID entspricht.  
-- Prozess: Name der Azure Resource Manager-Ressource für den Prozess, die von ServiceMap bereitgestellt wird. Das Format lautet *p-{Hexadezimalzeichenfolge}*. Das Feld „Process“ ist innerhalb eines Computerbereichs eindeutig. Zum Erstellen einer eindeutigen Prozess-ID für mehrere Computer können Sie die Felder „Machine“ und „Process“ kombinieren. 
+- Machine: Name der Azure Resource Manager-Ressource für den Computer, die von ServiceMap bereitgestellt wird. Das Format lautet *m-{GUID}* , wobei *GUID* der gleichen GUID wie AgentID entspricht.  
+- Prozess: Name der Azure Resource Manager-Ressource für den Prozess, die von ServiceMap bereitgestellt wird. Das Format lautet *p-{Hexadezimalzeichenfolge}* . Das Feld „Process“ ist innerhalb eines Computerbereichs eindeutig. Zum Erstellen einer eindeutigen Prozess-ID für mehrere Computer können Sie die Felder „Machine“ und „Process“ kombinieren. 
 - ProcessName: Name der ausführbaren Datei für den Berichtsprozess
 - Alle IP-Adressen sind Zeichenfolgen im kanonischen IPv4-Format, z. B. *13.107.3.160* 
 
@@ -69,7 +69,7 @@ Um dem Einfluss der Gruppierung Rechnung zu tragen, werden Informationen über d
 |LinksFailed |Die Anzahl der physischen Netzwerkverbindungen, die während des Berichtszeitraums für ungültig erklärt wurden. Diese Informationen sind derzeit nur für ausgehende Verbindungen verfügbar. |
 |LinksLive |Die Anzahl der physischen Netzwerkverbindungen, die am Ende des Berichtszeitraums offen waren|
 
-#### <a name="metrics"></a>Metriken
+#### <a name="metrics"></a>metrics
 
 Über Metriken zur Verbindungsanzahl hinaus sind in den folgenden Eigenschaften des Datensatzes auch Informationen über das Volumen der gesendeten und empfangenen Daten für eine bestimmte logische Verbindung oder einen bestimmten Netzwerkport enthalten:
 
@@ -101,7 +101,7 @@ Der Einfachheit halber ist die IP-Adresse des Remoteendes einer Verbindung in de
 
 | Eigenschaft | Description |
 |:--|:--|
-|RemoteCountry |Der Name des Landes, in dem „RemoteIp“ gehostet ist.  Beispielsweise *USA* |
+|RemoteCountry |Der Name des Landes oder der Region, in dem bzw. der „RemoteIp“ gehostet ist.  Beispielsweise *USA* |
 |RemoteLatitude |Der Breitengrad der Geolocation. Beispielsweise *47,68* |
 |RemoteLongitude |Der Längengrad der Geolocation. Beispielsweise *-122,12* |
 
@@ -125,13 +125,6 @@ Jede RemoteIp-Eigenschaft in der Tabelle *VMConnection* wird anhand einer Sammlu
 ### <a name="ports"></a>Ports 
 Ports auf einem Computer, die aktiv eingehenden Datenverkehr akzeptieren oder Datenverkehr akzeptieren können und sich während des Berichtszeitraums im Leerlauf befinden, werden in die Tabelle „VMBoundPort“ eingetragen.  
 
->[!NOTE]
->Azure Monitor für VMs unterstützt in den folgenden Regionen nicht das Sammeln und Erfassen von Portdaten in einem Log Analytics-Arbeitsbereich:  
->- USA (Ost)  
->- Europa, Westen
->
-> Das Sammeln dieser Daten ist in den anderen [unterstützten Regionen](vminsights-onboard.md#log-analytics) für Azure Monitor für VMs aktiviert. 
-
 Jeder Datensatz in der Tabelle „VMBoundPort“ wird mit den folgenden Feldern definiert: 
 
 | Eigenschaft | Description |
@@ -143,7 +136,7 @@ Jeder Datensatz in der Tabelle „VMBoundPort“ wird mit den folgenden Feldern 
  
 Die Identität eines Ports ergibt aus den obigen fünf Feldern und wird in der Eigenschaft „PortId“ gespeichert. Diese Eigenschaft kann dazu verwendet werden, Datensätze für einen bestimmten Port für einen Zeitraum schnell zu finden. 
 
-#### <a name="metrics"></a>Metriken 
+#### <a name="metrics"></a>metrics 
 Portdatensätze umfassen Metriken, die die zugeordneten Verbindungen darstellen. Derzeit werden die folgenden Metriken gemeldet (die Details zu den einzelnen Metriken finden Sie im vorherigen Abschnitt): 
 
 - BytesSent und BytesReceived 
@@ -202,7 +195,7 @@ Datensätze des Typs *ServiceMapProcess_CL* enthalten Bestandsdaten für über T
 | ProductVersion_s | Die Produktversion |
 | FileVersion_s | Die Dateiversion |
 | CommandLine_s | Die Befehlszeile |
-| ExecutablePath _s | Der Pfad zur ausführbaren Datei |
+| ExecutablePath_s | Der Pfad zur ausführbaren Datei |
 | WorkingDirectory_s | Das Arbeitsverzeichnis |
 | UserName | Das Konto, unter dem der Prozess ausgeführt wird |
 | UserDomain | Die Domäne, unter der der Prozess ausgeführt wird |

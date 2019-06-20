@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 5d5dd7bc3f6b60c2f9d7c2179f2bd356ca101dc4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61471753"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Verwalten von Netzwerkschnittstellen auf virtuellen Computern für die lokale Notfallwiederherstellung in Azure
 An einen virtuellen Computer (VM) in Azure muss mindestens eine Netzwerkschnittstelle angefügt sein. Es können so viele Netzwerkschnittstellen angefügt sein, wie die VM-Größe unterstützt.

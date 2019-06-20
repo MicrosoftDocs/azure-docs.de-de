@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 5c76cce5a3d9add8a1dcd8acc439a70c4a8655a9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200566"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Auswählen und Bereitstellen eines Sicherheits-Agents auf Ihrem IoT-Gerät
@@ -48,7 +48,7 @@ Der C-basierte Sicherheits-Agent hat einen geringeren Speicherbedarf und ist die
 | --- | ----------- | --------- |
 | Open Source | Verfügbar unter der [MIT-Lizenz](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) | Verfügbar unter der [MIT-Lizenz](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) |
 | Programmier-/Entwicklungssprache    | C | C# |
-| Unterstützte Windows-Plattformen? | Nein  | Ja |
+| Unterstützte Windows-Plattformen? | Nein | Ja |
 | Windows-Voraussetzungen | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Unterstützte Linux-Plattformen? | Ja, x64 und x86 | Ja, nur x64 |
 | Linux-Voraussetzungen | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |

@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/15/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 322be1e13662d92a3cb0a805a9ccaacd05928f7d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 16d7691d59e0805c7f8cf565a599ca5e6a78a7cf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328094"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053046"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualisieren und Analysieren der Azure IoT Central-Daten in einem Power BI-Dashboard
 

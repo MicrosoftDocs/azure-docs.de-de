@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033586"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60626739"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js-SDK für SQL-API: Versionshinweise und Ressourcen
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54033586"
 > * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
-|Ressource  |Link  |
+|Resource  |Link  |
 |---------|---------|
 |Herunterladen des SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API-Dokumentation  |  [Referenzdokumentation zum JavaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
@@ -214,41 +214,41 @@ Anforderungen an Cosmos DB mithilfe eines deaktivierten SDK werden vom Dienst ab
 
 | Version | Herausgabedatum | Deaktivierungstermine |
 | --- | --- | --- |
-| [2.0.0-3 (RC)](#2.0.0-3) |2. August 2018 |--- |
-| [1.14.4](#1.14.4) |3.Mai 2018 |--- |
-| [1.14.3](#1.14.3) |3.Mai 2018 |--- |
-| [1.14.2](#1.14.2) |21. Dezember 2017 |--- |
-| [1.14.1](#1.14.1) |10. November 2017 |--- |
-| [1.14.0](#1.14.0) |09. November 2017 |--- |
-| [1.13.0](#1.13.0) |11. Oktober 2017 |--- |
-| [1.12.2](#1.12.2) |10. August 2017 |--- |
-| [1.12.1](#1.12.1) |10. August 2017 |--- |
-| [1.12.0](#1.12.0) |10. Mai 2017 |--- |
-| [1.11.0](#1.11.0) |16. März 2017 |--- |
-| [1.10.2](#1.10.2) |27. Januar 2017 |--- |
-| [1.10.1](#1.10.1) |22. Dezember 2016 |--- |
-| [1.10.0](#1.10.0) |3. Oktober 2016 |--- |
-| [1.9.0](#1.9.0) |7. Juli 2016 |--- |
-| [1.8.0](#1.8.0) |14. Juni 2016 |--- |
-| [1.7.0](#1.7.0) |26. April 2016 |--- |
-| [1.6.0](#1.6.0) |29. März 2016 |--- |
-| [1.5.6](#1.5.6) |8. März 2016 |--- |
-| [1.5.5](#1.5.5) |2. Februar 2016 |--- |
-| [1.5.4](#1.5.4) |1. Februar 2016 |--- |
-| [1.5.2](#1.5.2) |26. Januar 2016 |--- |
-| [1.5.2](#1.5.2) |22. Januar 2016 |--- |
-| [1.5.1](#1.5.1) |4. Januar 2016 |--- |
-| [1.5.0](#1.5.0) |31. Dezember 2015 |--- |
-| [1.4.0](#1.4.0) |06. Oktober 2015 |--- |
-| [1.3.0](#1.3.0) |6. Oktober 2015 |--- |
-| [1.2.2](#1.2.2) |10. September 2015 |--- |
-| [1.2.1](#1.2.1) |15. August 2015 |--- |
-| [1.2.0](#1.2.0) |5. August 2015 |--- |
-| [1.1.0](#1.1.0) |9. Juli 2015 |--- |
-| [1.0.3](#1.0.3) |4. Juni 2015 |--- |
-| [1.0.2](#1.0.2) |23. Mai 2015 |--- |
-| [1.0.1](#1.0.1) |15. Mai 2015 |--- |
-| [1.0.0](#1.0.0) |8. April 2015 |--- |
+| [2.0.0-3 (RC)](#2.0.0-3) |2\. August 2018 |--- |
+| [1.14.4](#1.14.4) |3\.Mai 2018 |--- |
+| [1.14.3](#1.14.3) |3\.Mai 2018 |--- |
+| [1.14.2](#1.14.2) |21\. Dezember 2017 |--- |
+| [1.14.1](#1.14.1) |10\. November 2017 |--- |
+| [1.14.0](#1.14.0) |09\. November 2017 |--- |
+| [1.13.0](#1.13.0) |11\. Oktober 2017 |--- |
+| [1.12.2](#1.12.2) |10\. August 2017 |--- |
+| [1.12.1](#1.12.1) |10\. August 2017 |--- |
+| [1.12.0](#1.12.0) |10\. Mai 2017 |--- |
+| [1.11.0](#1.11.0) |16\. März 2017 |--- |
+| [1.10.2](#1.10.2) |27\. Januar 2017 |--- |
+| [1.10.1](#1.10.1) |22\. Dezember 2016 |--- |
+| [1.10.0](#1.10.0) |3\. Oktober 2016 |--- |
+| [1.9.0](#1.9.0) |7\. Juli 2016 |--- |
+| [1.8.0](#1.8.0) |14\. Juni 2016 |--- |
+| [1.7.0](#1.7.0) |26\. April 2016 |--- |
+| [1.6.0](#1.6.0) |29\. März 2016 |--- |
+| [1.5.6](#1.5.6) |8\. März 2016 |--- |
+| [1.5.5](#1.5.5) |2\. Februar 2016 |--- |
+| [1.5.4](#1.5.4) |1\. Februar 2016 |--- |
+| [1.5.2](#1.5.2) |26\. Januar 2016 |--- |
+| [1.5.2](#1.5.2) |22\. Januar 2016 |--- |
+| [1.5.1](#1.5.1) |4\. Januar 2016 |--- |
+| [1.5.0](#1.5.0) |31\. Dezember 2015 |--- |
+| [1.4.0](#1.4.0) |06\. Oktober 2015 |--- |
+| [1.3.0](#1.3.0) |6\. Oktober 2015 |--- |
+| [1.2.2](#1.2.2) |10\. September 2015 |--- |
+| [1.2.1](#1.2.1) |15\. August 2015 |--- |
+| [1.2.0](#1.2.0) |5\. August 2015 |--- |
+| [1.1.0](#1.1.0) |9\. Juli 2015 |--- |
+| [1.0.3](#1.0.3) |4\. Juni 2015 |--- |
+| [1.0.2](#1.0.2) |23\. Mai 2015 |--- |
+| [1.0.1](#1.0.1) |15\. Mai 2015 |--- |
+| [1.0.0](#1.0.0) |8\. April 2015 |--- |
 
 ## <a name="faq"></a>Häufig gestellte Fragen
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

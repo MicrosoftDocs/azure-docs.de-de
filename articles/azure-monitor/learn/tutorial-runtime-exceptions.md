@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095567"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595604"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Suchen und Diagnostizieren von Laufzeitausnahmen mit Azure Application Insights
 
@@ -34,7 +34,7 @@ Azure Application Insights erfasst Telemetriedaten Ihrer Anwendung, um Laufzeita
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-- Installieren Sie [Visual Studio 2017](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
+- [Installieren Sie Visual Studio 2019](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
     - ASP.NET und Webentwicklung
     - Azure-Entwicklung
 - Laden Sie den [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger) herunter, und installieren Sie diesen.
@@ -75,7 +75,7 @@ Application Insights erfasst alle Fehler in Ihrer Anwendung und ermöglicht Ihne
     ![Ausnahmedetails](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Fehlerhaften Code identifizieren
-Der Momentaufnahmedebugger erfasst Momentaufnahmen der häufigsten Ausnahmen in Ihrer Anwendung, um Sie beim Diagnostizieren der Ursache in der Produktion zu unterstützen.  Sie können Debugmomentaufnahmen im Portal anzeigen, um die Aufrufliste anzuzeigen und die Variablen in jedem Aufruflistenrahmen zu überprüfen. Danach können Sie den Quellcode debuggen, indem Sie die Momentaufnahme herunterladen und in Visual Studio 2017 Enterprise öffnen.
+Der Momentaufnahmedebugger erfasst Momentaufnahmen der häufigsten Ausnahmen in Ihrer Anwendung, um Sie beim Diagnostizieren der Ursache in der Produktion zu unterstützen.  Sie können Debugmomentaufnahmen im Portal anzeigen, um die Aufrufliste anzuzeigen und die Variablen in jedem Aufruflistenrahmen zu überprüfen. Danach können Sie den Quellcode debuggen, indem Sie die Momentaufnahme herunterladen und in Visual Studio 2019 Enterprise öffnen.
 
 1. Klicken Sie in den Eigenschaften der Ausnahme auf **Debugmomentaufnahme öffnen**.
 2. Der Bereich **Momentaufnahme debuggen** Bereich wird mit der Aufrufliste für die Anforderung geöffnet.  Klicken Sie auf eine beliebige Methode, um die Werte aller lokalen Variablen zum Zeitpunkt der Anforderung anzuzeigen.  Beginnend mit der ersten Methode in diesem Beispiel sehen wir lokale Variablen, die keinen Wert aufweisen.

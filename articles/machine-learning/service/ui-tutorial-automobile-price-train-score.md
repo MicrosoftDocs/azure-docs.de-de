@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66019837"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515635"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: Prognostizieren von Automobilpreisen mithilfe der grafischen Benutzeroberfläche
 
@@ -78,9 +78,9 @@ Wenn Sie das Schnellstartexperiment erfolgreich wiederverwendet haben, überspri
 
 Wenn Sie den Schnellstart nicht abgeschlossen haben, führen Sie die folgenden Schritte aus, um schnell ein neues Experiment zu erstellen, das das Automobildataset importiert und bereinigt.
 
-1. Erstellen Sie ein neues Experiment, indem Sie unten im Fenster der grafischen Benutzeroberfläche die Option **+NEU** auswählen.
+1. Erstellen Sie ein neues Experiment, indem Sie unten im Fenster der grafischen Benutzeroberfläche die Option **+Neu** auswählen.
 
-1. Wählen Sie **EXPERIMENT** >  **Blank Experiment** (Leeres Experiment).
+1. Wählen Sie **Experimente** >  **Blank Experiment** (Leeres Experiment) aus.
 
 1. Wählen Sie oben im Canvas-Panel den Standardexperimentnamen **Experimented Created on ...** (Experiment erstellt am ...) aus, und geben Sie einen aussagekräftigen Namen ein. Beispielsweise **Automobile price prediction** (Automobilpreisvorhersage). Der Name muss nicht eindeutig sein.
 

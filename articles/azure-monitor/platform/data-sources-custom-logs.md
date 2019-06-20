@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60996352"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Benutzerdefinierte Protokolle in Azure Monitor
 Mithilfe der Datenquelle „Benutzerdefinierte Protokolle“ in Azure Monitor können Ereignisse aus Textdateien auf Windows- und Linux-Computern erfasst werden. Viele Anwendungen protokollieren Informationen nicht in standardmäßigen Protokollierungsdiensten wie Windows-Ereignisprotokoll oder Syslog, sondern in Textdateien. Die erfassten Daten können entweder in Ihren Abfragen zu einzelnen Feldern aufgeschlüsselt oder während der Erfassung in einzelne Felder extrahiert werden.
@@ -29,7 +29,7 @@ Die zu sammelnden Protokolldateien müssen folgende Kriterien erfüllen:
 
 - Das Protokoll muss entweder pro Zeile einen einzelnen Eintrag enthalten, oder die Einträge müssen jeweils mit einem Zeitstempel in einem der folgenden Formate beginnen:
 
-    JJJJ-MM-TT HH:MM:SS <br>M/T/JJJJ HH:MM:SS AM/PM<br>Mon TT, JJJJ HH:MM:SS<br />jjMMtt HH:mm:ss<br />ttMMjj HH:mm:ss<br />MMM t hh:mm:ss<br />tt/MMM/jjjj:HH:mm:ss zzz<br />jjjj-MM-ttTHH:mm:ssK
+    JJJJ-MM-TT HH:MM:SS<br>M/T/JJJJ HH:MM:SS AM/PM<br>Mon TT, JJJJ HH:MM:SS<br />jjMMtt HH:mm:ss<br />ttMMjj HH:mm:ss<br />MMM t hh:mm:ss<br />tt/MMM/jjjj:HH:mm:ss zzz<br />jjjj-MM-ttTHH:mm:ssK
 
 - Die Protokolldatei darf keine zirkuläre Protokollierung oder Protokollrotation zulassen, bei der die Datei mit neuen Einträgen überschrieben wird.
 - Die Protokolldatei muss ASCII- oder UTF-8-Codierung verwenden.  Andere Formate wie UTF-16 werden nicht unterstützt.
@@ -86,7 +86,7 @@ Ein Beispiel: Angenommen, eine Anwendung erstellt jeden Tag eine Protokolldatei,
 
 Die folgende Tabelle enthält Musterbeispiele für die Angabe verschiedener Protokolldateien:
 
-| BESCHREIBUNG | path |
+| BESCHREIBUNG | `Path` |
 |:--- |:--- |
 | Alle Dateien auf dem Windows-Agent im Verzeichnis *C:\Logs* mit der Erweiterung „.txt“ |C:\Logs\\\*.txt |
 | Alle Dateien auf dem Windows-Agent im Verzeichnis *C:\Logs* mit einem Namen, der mit „log“ beginnt und die Erweiterung „.txt“ besitzt |C:\Logs\log\*.txt |
@@ -134,7 +134,7 @@ Benutzerdefinierte Protokolldatensätze besitzen einen Typ mit dem von Ihnen ang
 | Eigenschaft | BESCHREIBUNG |
 |:--- |:--- |
 | TimeGenerated |Der Zeitpunkt (Datum und Uhrzeit), zu dem der Datensatz von Azure Monitor erfasst wurde.  Wenn das Protokoll ein zeitbasiertes Trennzeichen verwendet, handelt es sich hierbei um die Zeitangabe aus dem Eintrag. |
-| SourceSystem |Die Art des Agents, auf dem das Ereignis gesammelt wurde. <br> OpsManager: Windows-Agent (Direktverbindung oder System Center Operations Manager) <br>  Linux: Alle Linux-Agents |
+| SourceSystem |Die Art des Agents, auf dem das Ereignis gesammelt wurde. <br> OpsManager: Windows-Agent (Direktverbindung oder System Center Operations Manager) <br> Linux: Alle Linux-Agents |
 | RawData |Der vollständige Text des gesammelten Eintrags. Wahrscheinlich möchten Sie [diese Daten in einzelne Eigenschaften aufschlüsseln](../log-query/parse-text.md). |
 | ManagementGroupName |Name der Verwaltungsgruppe für System Center Operations Manager-Agents.  Bei anderen Agents lautet dieser „AOI-\<Arbeitsbereich-ID\>“. |
 

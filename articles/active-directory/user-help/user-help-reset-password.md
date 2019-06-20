@@ -13,11 +13,11 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106476"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60473316"
 ---
 # <a name="reset-your-work-or-school-password"></a>Zurücksetzen des Kennworts eines Geschäfts-, Schul- oder Unikontos
 
@@ -151,7 +151,7 @@ Wenn Ihr Administrator diese Funktion aktiviert hat, sehen Sie auf dem Anmeldebi
 
     Sollten Sie weiterhin nicht auf Ihr Konto zugreifen können, wenden Sie sich an den Administrator Ihrer Organisation, um weitere Hilfe zu erhalten.
 
-## <a name="common-problems-and-their-solutions"></a>häufige Probleme und Lösungen
+## <a name="common-problems-and-their-solutions"></a>Häufige Probleme und Lösungen
 
 Hier finden Sie einige häufige Fehler und die passenden Lösungen:
 

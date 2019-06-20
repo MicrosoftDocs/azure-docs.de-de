@@ -9,11 +9,11 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60519358"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Erstellen und Ausführen von Aufträgen in Ihrer Azure IoT Central-Anwendung
 
@@ -33,7 +33,7 @@ In diesem Abschnitt erfahren Sie, wie Sie einen Auftrag erstellen und ausführen
 
 1. Wählen Sie die Gerätegruppe aus, auf die Ihr Auftrag angewendet werden soll. Nachdem Sie die Gerätegruppe ausgewählt haben, werden auf der rechten Seite die in der Gerätegruppe enthaltenen Geräte aufgeführt. Wenn Sie eine fehlerhafte Gerätegruppe auswählen, werden keine Geräte, stattdessen jedoch eine Meldung angezeigt, dass Ihre Gerätegruppe fehlerhaft ist.
 
-1. Wählen Sie anschließend den zu definierenden Auftragstyp (Einstellung, Eigenschaft oder Befehl) aus. Klicken Sie neben dem ausgewählten Auftragstyp auf **+**, und fügen Sie die Vorgänge hinzu.
+1. Wählen Sie anschließend den zu definierenden Auftragstyp (Einstellung, Eigenschaft oder Befehl) aus. Klicken Sie neben dem ausgewählten Auftragstyp auf **+** , und fügen Sie die Vorgänge hinzu.
 
     ![Auftrag konfigurieren](./media/howto-run-a-job/configurejob.png)
 

@@ -1,25 +1,18 @@
 ---
-title: Veröffentlichen eines Power BI-App-Angebots – Azure Marketplace | Microsoft-Dokumentation
+title: Veröffentlichen eines Power BI-App-Angebots | Azure Marketplace
 description: Veröffentlichen eines Power BI-App-Angebots im Microsoft AppSource-Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 0e82041dab1932ed7c129b598740b2441aa59315
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.author: pabutler
+ms.openlocfilehash: aae23feaf1cc5887de061414af985ef16070546b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943197"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Veröffentlichen eines Power BI-App-Angebots
 
@@ -34,7 +27,7 @@ Im Veröffentlichungsprozess gibt es folgende Hauptschritte:
 
 In dieser Tabelle sind die einzelnen Schritte und die geschätzte Zeit bis zum Abschluss beschrieben:
 
-|   Veröffentlichungsschritt            |   Zeit     |   Beschreibung                                                                  |
+|   Veröffentlichungsschritt            |   Time     |   BESCHREIBUNG                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | Überprüfen der Voraussetzungen       | 15 Minuten     | Die Angebotsinformationen und -einstellungen werden überprüft.                            |
 | Zertifizierung                | 1–7 Tage   | Das Power BI-Zertifizierungsteam analysiert Ihr Angebot. Das Team unterzieht Ihre Power BI-App einem manuellen Prüfungstest. Dazu wird die App über die angegebene Installations-URL installiert. Die primären Prüfungen erfolgen als Teil des App-Zertifizierungsprozesses (weiter unten beschrieben).         |

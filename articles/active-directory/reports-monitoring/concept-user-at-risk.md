@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 463f5c2d03cd96089342aa9b22ef85ebc05aa909
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60438128"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Bericht „Benutzer mit Risikomarkierung“ im Azure-Portal
 

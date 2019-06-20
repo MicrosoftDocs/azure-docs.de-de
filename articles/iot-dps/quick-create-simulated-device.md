@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500191"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908674"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Schnellstart: Bereitstellen eines simulierten TPM-Geräts mithilfe des Azure IoT C SDK
 
@@ -34,7 +34,7 @@ In diesem Artikel werden individuelle Registrierungen veranschaulicht.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Visual Studio 2015 oder [Visual Studio 2017](https://www.visualstudio.com/vs/) mit der aktivierten Workload ["Desktopentwicklung mit C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/).
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 oder höher mit aktivierter Workload [Desktopentwicklung mit C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/).
 * Die neueste Version von [Git](https://git-scm.com/download/) ist installiert.
 
 
@@ -145,7 +145,7 @@ In diesem Abschnitt werden Sie ein Beispiel erstellen und ausführen, das den En
 
 In diesem Abschnitt Konfigurieren Sie Beispielcode zum Verwenden von [Advanced Message Queuing Protocol (AMQP)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol), um die Startsequenz des Geräts an Ihre Instanz des Device Provisioning-Diensts zu senden. Diese Startsequenz bewirkt, dass das Gerät, die erkannt und einem mit der Instanz des Device Provisioning-Diensts verknüpften IoT Hub zugewiesen wird.
 
-1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning-Dienst, und kopieren Sie den Wert unter **_ID-Bereich_**.
+1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning-Dienst, und kopieren Sie den Wert unter **_ID-Bereich_** .
 
     ![Extrahieren von Informationen zum Device Provisioning Service-Endpunkt aus dem Portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 60cf37e5f6375d08e73241f6e357ac39ea665e9b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192534"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492752"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Speichern unternehmenskritischer Daten in Azure-Blobspeicher
 
@@ -34,9 +34,9 @@ Beispiele für typische Anwendungen:
 
 Für unveränderlichen Speicher wird Folgendes unterstützt:
 
-- **[Unterstützung einer zeitbasierten Aufbewahrungsrichtlinie](#time-based-retention)**: Benutzer können Richtlinien für die Speicherung von Daten für einen bestimmten Zeitraum festlegen. Wenn eine zeitbasierte Aufbewahrungsrichtlinie festgelegt wird, können Blobs erstellt und gelesen, aber nicht geändert oder gelöscht werden. Nach Ablauf des Aufbewahrungszeitraums können Blobs gelöscht, aber nicht überschrieben werden.
+- **[Unterstützung einer zeitbasierten Aufbewahrungsrichtlinie](#time-based-retention)** : Benutzer können Richtlinien für die Speicherung von Daten für einen bestimmten Zeitraum festlegen. Wenn eine zeitbasierte Aufbewahrungsrichtlinie festgelegt wird, können Blobs erstellt und gelesen, aber nicht geändert oder gelöscht werden. Nach Ablauf des Aufbewahrungszeitraums können Blobs gelöscht, aber nicht überschrieben werden.
 
-- **[Unterstützung einer Richtlinie zur gesetzlichen Aufbewahrungspflicht](#legal-holds)**: Wenn der Aufbewahrungszeitraum nicht bekannt ist, können Benutzer Zeiträume für die gesetzliche Aufbewahrungspflicht festlegen, um Daten auf unveränderliche Weise zu speichern, bis die Aufbewahrungspflicht nicht mehr gilt.  Wenn eine Richtlinie für die gesetzliche Aufbewahrungspflicht festgelegt wird, können Blobs erstellt und gelesen, aber nicht geändert oder gelöscht werden. Jeder gesetzlichen Aufbewahrungspflicht ist ein benutzerdefiniertes alphanumerisches Tag zugeordnet (z. B. Fall-ID, Ereignisname usw.), das als Bezeichnerzeichenfolge verwendet wird. 
+- **[Unterstützung einer Richtlinie zur gesetzlichen Aufbewahrungspflicht](#legal-holds)** : Wenn der Aufbewahrungszeitraum nicht bekannt ist, können Benutzer Zeiträume für die gesetzliche Aufbewahrungspflicht festlegen, um Daten auf unveränderliche Weise zu speichern, bis die Aufbewahrungspflicht nicht mehr gilt.  Wenn eine Richtlinie für die gesetzliche Aufbewahrungspflicht festgelegt wird, können Blobs erstellt und gelesen, aber nicht geändert oder gelöscht werden. Jeder gesetzlichen Aufbewahrungspflicht ist ein benutzerdefiniertes alphanumerisches Tag zugeordnet (z. B. Fall-ID, Ereignisname usw.), das als Bezeichnerzeichenfolge verwendet wird. 
 
 - **Unterstützung für alle Blobebenen**: WORM-Richtlinien sind unabhängig von der Azure-Blobspeicherebene und gelten für alle Ebenen: „Heiß“, „Kalt“ und „Archiv“. Benutzer können Daten in die Ebene überführen, für die die Workloadkosten bestmöglich optimiert sind, während gleichzeitig die Unveränderlichkeit der Daten sichergestellt ist.
 
@@ -53,7 +53,7 @@ Das Löschen von Containern und Konten ist ebenfalls nicht zulässig, wenn Blobs
 ### <a name="time-based-retention"></a>Zeitbasierte Aufbewahrung
 
 > [!IMPORTANT]
-> Eine zeitbasierte Aufbewahrungsrichtlinie muss *gesperrt* sein, damit das Blob für die Konformität mit SEC 17a-4(f) und anderen gesetzlichen Bestimmungen in einem unveränderlichen Zustand ist (Schreib- und Löschschutz). Sie sollten die Richtlinie in einem ausreichenden Zeitraum sperren, in der Regel innerhalb von 24 Stunden. Den *entsperrten* Zustand sollten Sie nur für kurzzeitige Funktionstests verwenden.
+> Eine zeitbasierte Aufbewahrungsrichtlinie muss *gesperrt* sein, damit das Blob zur Erzielung von Konformität mit SEC 17a-4(f) und anderen gesetzlichen Bestimmungen in einem konformen unveränderlichen Zustand ist (Schreib- und Löschschutz). Sie sollten die Richtlinie in einem angemessenen Zeitraum sperren – in der Regel weniger als 24 Stunden. Der ursprüngliche Zustand einer angewendeten zeitbasierten Aufbewahrungsrichtlinie lautet *Entsperrt*, damit Sie das Feature testen und Änderungen an der Richtlinie vornehmen können, bevor Sie das Sperren durchführen. Der Zustand *Entsperrt* bietet zwar Unveränderlichkeitsschutz, aber wir empfehlen Ihnen, *Entsperrt* nicht für andere Zwecke als für kurzfristige Featuretests zu verwenden. 
 
 Wenn eine zeitbasierte Aufbewahrungsrichtlinie auf einen Container angewendet wird, bleiben alle Blobs im Container so lange im unveränderlichen Zustand, wie der Aufbewahrungszeitraum *gilt*. Die Gültigkeit des Aufbewahrungszeitraums für vorhandene Blobs entspricht der Differenz zwischen dem Zeitpunkt der Blobänderung und dem vom Benutzer angegebenen Aufbewahrungszeitraum.
 
@@ -65,6 +65,8 @@ Für neue Blobs entspricht die Gültigkeit des Aufbewahrungszeitraums dem vom Be
 > Das vorhandene Blob in diesem Container (_testblob1_) wurde vor einem Jahr erstellt. Für _testblob1_ gilt ein Aufbewahrungszeitraum von vier Jahren.
 >
 > Das neue Blob _testblob2_ wird jetzt in den Container hochgeladen. Der effektive Aufbewahrungszeitraum für dieses neue Blob beträgt fünf Jahre.
+
+Eine zeitbasierte Aufbewahrungsrichtlinie im Zustand „Entsperrt“ wird nur für Featuretests empfohlen, und eine Richtlinie muss gesperrt sein, um mit SEC 17a-4(f) konform zu sein und andere gesetzliche Bestimmungen zu erfüllen. Nachdem eine zeitbasierte Aufbewahrungsrichtlinie gesperrt wurde, kann die Richtlinie nicht entfernt werden, und maximal fünf Erhöhungen des geltenden Aufbewahrungszeitraums sind zulässig. Weitere Informationen zum Festlegen und Sperren von zeitbasierten Aufbewahrungsrichtlinien finden Sie im Abschnitt [Erste Schritte](#getting-started).
 
 ### <a name="legal-holds"></a>Gesetzliche Aufbewahrungspflichten
 
@@ -124,7 +126,7 @@ Die aktuellen Releases von [Azure-Portal](https://portal.azure.com), [Azure CLI]
 
     Der ursprüngliche Zustand der Richtlinie lautet „Entsperrt“, damit Sie das Feature testen und Änderungen an der Richtlinie vornehmen können, bevor Sie das Sperren durchführen. Das Sperren der Richtlinie ist entscheidend für die Einhaltung von Vorschriften wie SEC 17a-4.
 
-5. Sperren Sie die Richtlinie. Wenn Sie mit der rechten Maustaste auf die Auslassungspunkte (**...**) klicken, wird das folgende Menü mit zusätzlichen Aktionen angezeigt:
+5. Sperren Sie die Richtlinie. Wenn Sie mit der rechten Maustaste auf die Auslassungspunkte ( **...** ) klicken, wird das folgende Menü mit zusätzlichen Aktionen angezeigt:
 
     ![„Richtlinie sperren“ im Menü](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
@@ -169,7 +171,7 @@ Die folgenden Clientbibliotheken unterstützen unveränderlichen Speicher für A
 
 **Kann Dokumentation zum Thema WORM-Konformität bereitgestellt werden?**
 
-Ja. Für die Dokumentation der Konformität hat Microsoft ein führendes Unternehmen für unabhängige Bewertungen (Cohasset Associates) beauftragt, das auf Datensatzverwaltung und Information Governance spezialisiert ist. Der Auftrag bestand darin, für unveränderlichen Azure-Blobspeicher die Konformität mit den spezifischen Anforderungen der Finanzdienstleistungsbranche auszuwerten. Cohasset hat bestätigt, dass unveränderlicher Azure-Blobspeicher bei Verwendung zur Aufbewahrung von zeitbasierten Blobs im WORM-Zustand die relevanten Speicheranforderungen der CFTC-Regel 1.31(c)-(d), FINRA-Regel 4511 und SEC-Regel 17a-4 erfüllt. Microsoft hat die Einhaltung dieser Regeln angestrebt, da sie die weltweit strikteste Anleitung zur Aufbewahrung von Datensätzen für Finanzinstitute darstellen. Der Cohasset-Bericht ist im [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage) verfügbar.
+Ja. Für die Dokumentation der Konformität hat Microsoft ein führendes Unternehmen für unabhängige Bewertungen (Cohasset Associates) beauftragt, das auf Datensatzverwaltung und Information Governance spezialisiert ist. Der Auftrag bestand darin, für unveränderlichen Azure-Blobspeicher die Konformität mit den spezifischen Anforderungen der Finanzdienstleistungsbranche auszuwerten. Cohasset hat bestätigt, dass unveränderlicher Azure-Blobspeicher bei Verwendung zur Aufbewahrung von zeitbasierten Blobs im WORM-Zustand die relevanten Speicheranforderungen der CFTC-Regel 1.31(c)-(d), FINRA-Regel 4511 und SEC-Regel 17a-4 erfüllt. Microsoft hat die Einhaltung dieser Regeln angestrebt, da sie die weltweit strikteste Anleitung zur Aufbewahrung von Datensätzen für Finanzinstitute darstellen. Der Cohasset-Bericht ist im [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage) verfügbar. Wenden Sie sich an den Azure-Support, um von Microsoft einen Nachweis der WORM-Konformität anzufordern.
 
 **Gilt die Funktion nur für Blockblobs oder auch für Seiten- und Anfügeblobs?**
 
@@ -186,6 +188,10 @@ Ja, für einen Container können gleichzeitig eine gesetzliche Aufbewahrungspfli
 **Gelten Richtlinien für die gesetzliche Aufbewahrungspflicht nur für rechtliche Abläufe, oder gibt es auch andere Nutzungsszenarien?**
 
 Nein. „Gesetzliche Aufbewahrungspflicht“ ist nur der allgemeine Ausdruck, der für eine nicht zeitbasierte Aufbewahrungsrichtlinie verwendet wird. Er bezieht sich nicht ausschließlich auf Vorgänge im Zusammenhang mit Rechtsstreitigkeiten. Richtlinien zur gesetzlichen Aufbewahrungspflicht sind nützlich, um Überschreibungen und Löschungen zum Schützen von wichtigen WORM-Unternehmensdaten zu deaktivieren, wenn der Aufbewahrungszeitraum unbekannt ist. Sie können sie als Unternehmensrichtlinie zum Schützen Ihrer unternehmenskritischen WORM-Workloads oder als Stagingrichtlinie verwenden, bevor für einen benutzerdefinierten Ereignisauslöser eine zeitbasierte Aufbewahrungsrichtlinie erforderlich ist. 
+
+**Kann ich eine zeitbasierte Aufbewahrungsrichtlinie im Zustand *Gesperrt* oder eine gesetzliche Aufbewahrungspflicht entfernen?**
+
+Nur entsperrte zeitbasierte Aufbewahrungsrichtlinien können aus einem Container entfernt werden. Nachdem eine zeitbasierte Aufbewahrungsrichtlinie gesperrt wurde, kann sie nicht mehr entfernt werden. Es sind nur Verlängerungen des geltenden Aufbewahrungszeitraums zulässig. Tags für die gesetzliche Aufbewahrungspflicht können gelöscht werden. Wenn alle Tags für die gesetzliche Aufbewahrungspflicht gelöscht werden, kann die gesetzliche Aufbewahrungspflicht entfernt werden.
 
 **Was passiert, wenn ich versuche, einen Container mit einer *gesperrten* zeitbasierten Aufbewahrungsrichtlinie oder gesetzlichen Aufbewahrungspflicht zu löschen?**
 
@@ -375,12 +381,12 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
-Entfernen einer Unveränderlichkeitsrichtlinie („-Force“ hinzufügen, um die Aufforderung zu schließen):
+Entfernen einer entsperrten Unveränderlichkeitsrichtlinie („-Force“ hinzufügen, um die Aufforderung zu schließen):
 ```powershell
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `

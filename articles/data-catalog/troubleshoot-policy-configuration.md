@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
 ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996440"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62116600"
 ---
 # <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory-Richtlinienkonfiguration
 
@@ -29,4 +29,4 @@ Weitere Informationen finden Sie unter [Konfigurieren von Authentifizierungsrich
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Schnellstart: Erstellen einer Azure Data Catalog-Instanz](data-catalog-get-started.md)
+* [Erstellen einer Azure Data Catalog-Instanz](data-catalog-get-started.md)

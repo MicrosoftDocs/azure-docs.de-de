@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: edf4a3e9d9e9b51ac44f839cababa9d14bc0d17a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 05/29/2019
+ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66688839"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderieren von Text über die API-Konsole
 
-Verwenden Sie die [Textmoderations-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator, um Ihren Textinhalt zu scannen. Der Vorgang scannt Ihre Inhalte auf anstößige Ausdrücke und vergleicht den Inhalt mit benutzerdefinierten und freigegebenen Blacklists.
+Verwenden Sie die [Textmoderations-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator, um Ihren Textinhalt auf Obszönitäten zu überprüfen und ihn mit benutzerdefinierten und geteilten Listen abzugleichen.
 
 ## <a name="get-your-api-key"></a>Abrufen Ihres API-Schlüssels
 
@@ -72,7 +72,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Analysieren der Antwort
 
-In der folgenden Antwort sind die verschiedenen Erkenntnisse dargestellt, die über die API gewonnen werden können. Diese umfassen potenzielle Obszönitäten, personenbezogene Informationen, Klassifizierungen (Vorschauversion) und die automatisch korrigierte Version.
+In der folgenden Antwort sind die verschiedenen Erkenntnisse dargestellt, die über die API gewonnen werden können. Diese umfassen potenzielle Obszönitäten, personenbezogene Daten, Klassifizierungen (Vorschauversion) und die automatisch korrigierte Version.
 
 > [!NOTE]
 > Das computergestützte Feature „Klassifizierung“ befindet sich in der Vorschauphase und unterstützt nur Englisch.

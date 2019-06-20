@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: f57c2cacca9bb3e4526ec6261b8aa0ff6c18448a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333914"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178068"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Grundlegendes zu VM-Neustarts – Gegenüberstellung von Wartung und Ausfallzeit
 Drei Szenarien können zu einer Beeinträchtigung virtueller Computer in Azure führen: eine ungeplante Hardwarewartung, eine unerwartete Ausfallzeit und eine geplante Wartung.
 
-* **Ungeplante Hardwarewartung:** Tritt auf, wenn die Azure-Plattform den Ausfall einer Hardware- oder Plattformkomponente für einen physischen Computer prognostiziert. Daraufhin wird ein Ereignis für eine ungeplante Hardwarewartung initiiert, um die Auswirkungen auf virtuelle Computer, die die betroffene Hardware nutzen, möglichst gering zu halten. Die virtuellen Computer werden von Azure unter Verwendung von Livemigrationstechnologie von der fehlerhaften Hardware an einen fehlerfreien physischen Computer migriert. Bei der Livemigration wird der virtuelle Computer lediglich kurzzeitig angehalten. Arbeitsspeicher, geöffnete Dateien und bestehende Netzwerkverbindungen bleiben erhalten, die Leistung kann jedoch vor und/oder nach dem Ereignis beeinträchtigt sein. Falls die Livemigration nicht verwendet werden kann, kommt es bei dem virtuellen Computer wie unten beschrieben zu unerwarteter Ausfallzeit.
+* **Ungeplante Hardwarewartung:** Tritt auf, wenn die Azure-Plattform den Ausfall einer Hardware- oder Plattformkomponente für einen physischen Computer prognostiziert. Daraufhin wird ein Ereignis für eine ungeplante Hardwarewartung initiiert, um die Auswirkungen auf virtuelle Computer, die die betroffene Hardware nutzen, möglichst gering zu halten. Die virtuellen Computer werden von Azure unter Verwendung von [Livemigrationstechnologie](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) von der fehlerhaften Hardware zu einem fehlerfreien physischen Computer migriert. Bei der Livemigration wird der virtuelle Computer lediglich kurzzeitig angehalten. Arbeitsspeicher, geöffnete Dateien und bestehende Netzwerkverbindungen bleiben erhalten, die Leistung kann jedoch vor und/oder nach dem Ereignis beeinträchtigt sein. Falls die Livemigration nicht verwendet werden kann, kommt es bei dem virtuellen Computer wie unten beschrieben zu unerwarteter Ausfallzeit.
 
 
 * **Unerwartete Ausfallzeiten** treten auf, wenn die Hardware oder die physische Infrastruktur für den virtuellen Computer unvorhergesehen ausfällt. Dies kann Ausfälle des lokalen Netzwerks, des lokalen Datenträgers oder andere Fehler auf Rackebene umfassen. Bei Erkennung solcher Probleme migriert die Azure-Plattform Ihren virtuellen Computer automatisch zu einem fehlerfreien physischen Computer im selben Rechenzentrum. Dieser Vorgang ist mit einer gewissen Ausfallzeit (Neustart) und in manchen Fällen mit dem Verlust des temporären Laufwerks verbunden. Die angefügten (Betriebssystem-)Datenträger bleiben in jedem Fall erhalten. 
@@ -47,7 +47,8 @@ Jeder virtuelle Computer in der Verfügbarkeitsgruppe wird einer **Updatedomäne
 
 Mit Fehlerdomänen wird die Gruppe der virtuellen Computer definiert, die eine Stromquelle und einen Netzwerkswitch gemeinsam nutzen. Standardmäßig sind die innerhalb Ihrer Verfügbarkeitsgruppe konfigurierten virtuellen Computer auf bis zu drei Fehlerdomänen bei Resource Manager-Bereitstellungen verteilt (zwei Fehlerdomänen bei klassischen Bereitstellungen). Auch wenn Verfügbarkeitsgruppen Ihre Anwendung nicht gänzlich vor Fehlern des Betriebssystems oder der Anwendung selbst schützen können, verringern sie doch die Auswirkungen von potenziellen Hardwarefehlern, Netzwerkausfällen oder Stromunterbrechungen.
 
-<!--Image reference--> ![Schematische Darstellung der Konfiguration mit Updatedomäne und Fehlerdomäne](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+<!--Image reference-->
+   ![Schematische Darstellung der Konfiguration mit Updatedomäne und Fehlerdomäne](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Verwenden von verwalteten Datenträgern für virtuelle Computer in einer Verfügbarkeitsgruppe
 Falls Sie derzeit VMs mit nicht verwalteten Datenträgern verwenden, empfehlen wir Ihnen dringend, [VMs in der Verfügbarkeitsgruppe für die Verwendung von Managed Disks zu konvertieren](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
@@ -75,7 +76,8 @@ Wenn Ihre virtuellen Computer fast alle identisch sind und die Anwendung auf die
 
 Beispielsweise können Sie alle virtuellen Computer aus dem Front-End der Anwendung, auf denen IIS, Apache und Nginx ausgeführt werden, einer einzelnen Verfügbarkeitsgruppe zuordnen. Stellen Sie sicher, dass derselben Verfügbarkeitsgruppe nur virtuelle Front-End-Computer zugeordnet werden. Stellen Sie analog dazu sicher, dass sich virtuelle Computer der Datenebene in einer eigenen Verfügbarkeitsgruppe befinden. Dazu gehören beispielsweise virtuelle SQL Server-Computer oder virtuelle MySQL-Computer.
 
-<!--Image reference--> ![Anwendungsebenen](./media/virtual-machines-common-manage-availability/application-tiers.png)
+<!--Image reference-->
+   ![Anwendungsebenen](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>Kombinieren des Lastenausgleichs mit Verfügbarkeitsgruppen
 Kombinieren Sie den Azure-Lastenausgleich ( [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) ) mit einer Verfügbarkeitsgruppe, um höchste Anwendungsresilienz zu erzielen. Der Azure-Lastenausgleich verteilt den Datenverkehr auf mehrere virtuelle Computer. In die virtuellen Computer der Standardebene ist der Azure-Lastenausgleich bereits integriert. Der Azure Load Balancer ist aber nicht auf allen Ebenen des virtuellen Computers verfügbar. Weitere Informationen zum Lastenausgleich zwischen virtuellen Computern finden Sie unter [Lastenausgleich zwischen virtuellen Computern](../articles/virtual-machines/virtual-machines-linux-load-balance.md).

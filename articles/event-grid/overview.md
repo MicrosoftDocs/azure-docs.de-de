@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: bfc8b62c61e2b9d01ffa0c582468b6236c92cccc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578406"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257941"
 ---
 # <a name="what-is-azure-event-grid"></a>Was ist Azure Event Grid?
 
@@ -22,7 +22,7 @@ Mit Azure Event Grid können Sie mühelos Anwendungen mit ereignisbasierten Arch
 
 Sie können Filter zum Weiterleiten bestimmter Ereignisse an verschiedene Endpunkte verwenden, Multicasts zu mehreren Endpunkten ausführen und sicherstellen, dass Ihre Ereignisse zuverlässig übermittelt werden.
 
-Azure Event Grid ist derzeit in allen öffentlichen Regionen verfügbar. In den Clouds „Azure Deutschland“, „Azure China 21Vianet“ und „Azure Government“ ist es noch nicht verfügbar.
+Azure Event Grid wird zum Maximieren der Verfügbarkeit durch eine native Verteilung auf mehrere Fehlerdomänen in jeder Region sowie auf Verfügbarkeitszonen (in Regionen, in denen diese unterstützt werden) bereitgestellt. Azure Event Grid ist derzeit in allen öffentlichen Regionen verfügbar. In den Clouds „Azure Deutschland“, „Azure China 21Vianet“ und „Azure Government“ ist es noch nicht verfügbar.
 
 Dieser Artikel enthält eine Übersicht zu Azure Event Grid. Wenn Sie in die Verwendung von Event Grid einsteigen möchten, lesen Sie [Erstellen und Weiterleiten benutzerdefinierter Ereignisse mit Azure Event Grid](custom-event-quickstart.md). 
 

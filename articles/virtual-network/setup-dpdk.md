@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60731599"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Einrichten des DPDK auf einem virtuellen Linux-Computer
 
@@ -33,7 +33,7 @@ DPDK kann auf Azure-VMs ausgeführt werden, die mehrere Betriebssystemverteilung
 
 ## <a name="benefit"></a>Vorteil
 
-**Mehr Pakete pro Sekunde (pps)**: Das Umgehen des Kernels und das Steuern der Pakete auf Benutzerseite verringern die Zyklen, da keine Kontextwechsel notwendig sind. Zudem wird die Rate der pro Sekunde verarbeiteten Pakete auf Linux-VMs in Azure verbessert.
+**Mehr Pakete pro Sekunde (pps)** : Das Umgehen des Kernels und das Steuern der Pakete auf Benutzerseite verringern die Zyklen, da keine Kontextwechsel notwendig sind. Zudem wird die Rate der pro Sekunde verarbeiteten Pakete auf Linux-VMs in Azure verbessert.
 
 
 ## <a name="supported-operating-systems"></a>Unterstützte Betriebssysteme

@@ -14,11 +14,11 @@ ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
 ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60901479"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Korrelieren von Application Insights-Daten mit benutzerdefinierten Datenquellen
 

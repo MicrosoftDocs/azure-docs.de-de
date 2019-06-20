@@ -11,11 +11,11 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60738756"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollenbasierte Zugriffssteuerung in Azure Automation
 
@@ -276,7 +276,7 @@ Der folgende Abschnitt veranschaulicht das Konfigurieren der rollenbasierten Zug
 ### <a name="configure-rbac-using-the-azure-portal"></a>Konfigurieren der rollenbasierten Zugriffssteuerung über das Azure-Portal
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an, und öffnen Sie auf der Seite „Automation-Konten“ Ihr Automation-Konto.
-2. Klicken Sie oben links auf das Steuerelement **Zugriffssteuerung (IAM)**. Dadurch wird die Seite **Zugriffssteuerung (IAM)** geöffnet. Hier können Sie neue Benutzer, Gruppen und Anwendungen zur Verwaltung Ihres Automation-Kontos hinzufügen. Des Weiteren können Sie vorhandene Rollen anzeigen, die für das Automation-Konto konfiguriert werden können.
+2. Klicken Sie oben links auf das Steuerelement **Zugriffssteuerung (IAM)** . Dadurch wird die Seite **Zugriffssteuerung (IAM)** geöffnet. Hier können Sie neue Benutzer, Gruppen und Anwendungen zur Verwaltung Ihres Automation-Kontos hinzufügen. Des Weiteren können Sie vorhandene Rollen anzeigen, die für das Automation-Konto konfiguriert werden können.
 3. Klicken Sie auf die Registerkarte **Rollenzuweisungen**.
 
    ![Zugriffsschaltfläche](media/automation-role-based-access-control/automation-01-access-button.png)

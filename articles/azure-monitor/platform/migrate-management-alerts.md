@@ -1,26 +1,26 @@
 ---
 title: Migrieren von Azure-Warnungen für Verwaltungsereignisse zu Aktivitätsprotokollwarnungen
 description: Warnungen für Verwaltungsereignisse werden am 1. Oktober entfernt. Bereiten Sie sich darauf vor, indem Sie vorhandene Warnungen migrieren.
-author: johnkemnetz
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/14/2017
-ms.author: johnkem
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794115"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388714"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrieren von Azure-Warnungen für Verwaltungsereignisse zu Aktivitätsprotokollwarnungen
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> Warnungen für Verwaltungsereignisse werden am oder nach dem 1. Oktober deaktiviert. Befolgen Sie die nachstehenden Anweisungen, um herauszufinden, ob Sie über solche Warnungen verfügen, und diese gegebenenfalls zu migrieren.
+> Warnungen für Verwaltungsereignisse werden am oder nach dem 01. Oktober 2017 deaktiviert. Befolgen Sie die nachstehenden Anweisungen, um herauszufinden, ob Sie über solche Warnungen verfügen, und diese gegebenenfalls zu migrieren.
 
 ## <a name="what-is-changing"></a>Was ändert sich?
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727364"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Verwenden von C# mit MapReduce-Streaming auf Apache Hadoop in HDInsight
@@ -152,11 +152,11 @@ Nach dem Erstellen der Anwendung erzeugen Sie mit ihrer Hilfe die Datei `/bin/De
 
 4. Erweitern Sie den HDInsight-Cluster, in dem Sie diese Anwendung bereitstellen möchten. Ein Eintrag mit dem Text __(Standardspeicherkonto)__ ist aufgeführt.
 
-    ![Anzeige des Speicherkontos für den Cluster im Server-Explorer ](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
+    ![Anzeige des Speicherkontos für den Cluster im Server-Explorer](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * Wenn dieser Eintrag erweitert werden kann, verwenden Sie ein __Azure Storage-Konto__ als Standardspeicher für den Cluster. Um die Dateien im Standardspeicher für den Cluster anzuzeigen, erweitern Sie den Eintrag, und doppelklicken Sie dann auf den __(Standardcontainer)__.
+    * Wenn dieser Eintrag erweitert werden kann, verwenden Sie ein __Azure Storage-Konto__ als Standardspeicher für den Cluster. Um die Dateien im Standardspeicher für den Cluster anzuzeigen, erweitern Sie den Eintrag, und doppelklicken Sie dann auf den __(Standardcontainer)__ .
 
-    * Wenn dieser Eintrag nicht erweitert werden kann, verwenden Sie __Azure Data Lake Storage__ als Standardspeicher für den Cluster. Um die Dateien im Standardspeicher für den Cluster anzuzeigen, doppelklicken Sie auf den Eintrag __(Standardspeicherkonto)__.
+    * Wenn dieser Eintrag nicht erweitert werden kann, verwenden Sie __Azure Data Lake Storage__ als Standardspeicher für den Cluster. Um die Dateien im Standardspeicher für den Cluster anzuzeigen, doppelklicken Sie auf den Eintrag __(Standardspeicherkonto)__ .
 
 5. Laden Sie die EXE-Dateien mithilfe einer der folgenden Methoden hoch:
 

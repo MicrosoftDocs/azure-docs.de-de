@@ -2,22 +2,22 @@
 title: Einmaliges Anmelden bei Anwendungen – Azure Active Directory | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie beim Konfigurieren von Anwendungen in Azure Active Directory (Azure AD) eine Methode für einmaliges Anmelden auswählen. Verwenden Sie einmaliges Anmelden, damit Benutzer sich nicht die Kennwörter für jede Anwendung merken müssen, und um die Kontoverwaltung zu vereinfachen.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.author: celested
+ms.date: 05/15/2019
+ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618174"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190269"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Einmaliges Anmelden bei Anwendungen in Azure Active Directory
 
@@ -45,7 +45,7 @@ In der folgenden Tabelle werden die Methoden für einmaliges Anmelden zusammenge
 | [OpenID Connect und OAuth](#openid-connect-and-oauth) | Nur Cloud | Verwenden Sie OpenID Connect und OAuth, wenn Sie eine neue Anwendung entwickeln. Dieses Protokoll vereinfacht die Anwendungskonfiguration, verfügt über leicht zu verwendende SDKs und ermöglicht für Ihre Anwendung die Nutzung von MS Graph.
 | [SAML](#saml-sso) | Cloud und lokal | Wählen Sie SAML nach Möglichkeit immer für vorhandene Anwendungen, für die nicht OpenID Connect oder OAuth genutzt wird. SAML funktioniert für Anwendungen, bei denen die Authentifizierung mit einem der SAML-Protokolle durchgeführt wird.|
 | [Kennwortbasiert](#password-based-sso) | Cloud und lokal | Wählen Sie die kennwortbasierte Methode, wenn die Anwendung die Authentifizierung mit Benutzername und Kennwort vornimmt. Das kennwortbasierte einmalige Anmelden ermöglicht die sichere Speicherung des Anwendungskennworts und dessen Wiedergabe mit einer Webbrowsererweiterung oder einer mobilen App. Mit dieser Methode wird der von der Anwendung bereitgestellte vorhandene Anmeldevorgang genutzt, die Kennwortverwaltung kann jedoch der Administrator übernehmen. |
-| [Verknüpft](#linked-sso) | Cloud und lokal | Wählen Sie das verknüpfte einmalige Anmelden, wenn die Anwendung für einmaliges Anmelden bei einem anderen Identitätsanbieterdienst konfiguriert ist. Mit dieser Option wird der Anwendung kein einmaliges Anmelden hinzugefügt. Die Anwendung kann das einmalige Anmelden jedoch möglicherweise bereits über einen anderen Dienst implementiert haben, z.B. Active Directory-Verbunddienste.|
+| [Verknüpft](#linked-sign-on) | Cloud und lokal | Wählen Sie das verknüpfte Anmelden aus, wenn die Anwendung für einmaliges Anmelden bei einem anderen Identitätsanbieterdienst konfiguriert ist. Mit dieser Option wird der Anwendung kein einmaliges Anmelden hinzugefügt. Die Anwendung kann das einmalige Anmelden jedoch möglicherweise bereits über einen anderen Dienst implementiert haben, z.B. Active Directory-Verbunddienste.|
 | [Disabled](#disabled-sso) | Cloud und lokal | Wählen Sie das deaktivierte einmalige Anmelden, wenn die App nicht für einmaliges Anmelden konfiguriert werden kann. Benutzer müssen bei jedem Start dieser Anwendung ihren Benutzernamen und ihr Kennwort eingeben.|
 | [Integrierte Windows-Authentifizierung (IWA)](#integrated-windows-authentication-iwa-sso) | Nur lokal | Wählen Sie einmaliges Anmelden vom Typ IWA für Anwendungen, die die [integrierte Windows-Authentifizierung (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) verwenden oder Ansprüche unterstützen. Bei IWA verwenden die Anwendungsproxyconnectors die eingeschränkte Kerberos-Delegierung (Kerberos Constrained Delegation, KCD), um Benutzer für die Anwendung zu authentifizieren. | 
 | [Headerbasiert](#header-based-sso) | Nur lokal | Verwenden Sie das headerbasierte einmalige Anmelden, wenn die Anwendung für die Authentifizierung Header verwendet. Headerbasiertes einmaliges Anmelden erfordert PingAccess für Azure AD. Der Anwendungsproxy verwendet Azure AD, um den Benutzer zu authentifizieren, und leitet Datenverkehr dann über den Connectordienst weiter.  | 
@@ -95,7 +95,7 @@ Das kennwortbasierte einmalige Anmelden wird für jede cloudbasierte Anwendung u
 - Chrome unter Windows 7 oder höher und macOS X oder höher
 - Firefox 26.0 oder höher unter Windows XP SP2 oder höher und Mac OS X 10.6 oder höher
 
-Informationen zum Konfigurieren einer Cloudanwendung für kennwortbasiertes einmaliges Anmelden finden Sie unter [Konfigurieren der Anwendung für das einmalige Anmelden per Kennwort](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
+Informationen zum Konfigurieren einer Cloudanwendung für kennwortbasiertes einmaliges Anmelden finden Sie unter [Konfigurieren der Anwendung für das einmalige Anmelden per Kennwort](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
 
 Informationen zum Konfigurieren einer lokalen Anwendung für einmaliges Anmelden über den Anwendungsproxy finden Sie unter [Kennworttresore (Password Vaulting) für einmaliges Anmelden mit Anwendungsproxy](application-proxy-configure-single-sign-on-password-vaulting.md).
 
@@ -122,12 +122,12 @@ Wenn der Endbenutzer die Anmeldeinformationen verwaltet, gilt Folgendes:
 - Administratoren können weiterhin neue Anmeldeinformationen für die Anwendung festlegen.
 
 
-## <a name="linked-sso"></a>Verknüpftes einmaliges Anmelden
+## <a name="linked-sign-on"></a>Verknüpfte Anmeldung
 Über das verknüpfte einmalige Anmelden kann Azure AD einmaliges Anmelden bei einer Anwendung, die bereits in einem anderen Dienst für einmaliges Anmelden konfiguriert ist, bereitstellen. Die verknüpfte Anwendung kann Endbenutzern im Office 365-Portal oder im Azure AD-MyApps-Portal angezeigt werden. Beispielsweise kann ein Benutzer eine Anwendung, die für einmaliges Anmelden in Active Directory-Verbunddienste 2.0 (AD FS) konfiguriert ist, über das Office 365-Portal starten. Für verknüpfte Anwendungen, die über das Office 365-Portal oder das Azure AD-MyApps-Portal gestartet werden, steht außerdem eine zusätzliche Berichterstellung zur Verfügung. 
 
-### <a name="linked-sso-for-application-migration"></a>Verknüpftes einmaliges Anmelden für die Migration von Anwendungen
+### <a name="linked-sign-on-for-application-migration"></a>Verknüpftes Anmelden für die Migration von Anwendungen
 
-Das verknüpfte einmalige Anmelden sorgt während der Migration von Anwendungen über einen längeren Zeitraum für eine einheitliche Benutzererfahrung. Wenn Sie Anwendungen in Azure Active Directory migrieren, können Sie mithilfe des verknüpften einmaligen Anmeldens schnell Links für alle Anwendungen veröffentlichen, die Sie migrieren möchten.  Benutzer können alle Links im [MyApps-Portal](../user-help/active-directory-saas-access-panel-introduction.md) und im [Office 365-Anwendungsstarter](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) finden. Benutzer erkennen nicht, dass sie auf eine verknüpfte Anwendung bzw. eine migrierte Anwendung zugreifen.  
+Das verknüpfte Anmelden sorgt während der Migration von Anwendungen über einen längeren Zeitraum für eine einheitliche Benutzererfahrung. Wenn Sie Anwendungen in Azure Active Directory migrieren, können Sie mithilfe des verknüpften Anmeldens schnell Links für alle Anwendungen veröffentlichen, die Sie migrieren möchten.  Benutzer können alle Links im [MyApps-Portal](../user-help/active-directory-saas-access-panel-introduction.md) und im [Office 365-Anwendungsstarter](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) finden. Benutzer erkennen nicht, dass sie auf eine verknüpfte Anwendung bzw. eine migrierte Anwendung zugreifen.  
 
 Nachdem ein Benutzer sich mit einer verknüpften Anwendung authentifiziert hat, muss ein Kontodatensatz erstellt werden, bevor der Endbenutzer Zugriff durch das einmalige Anmelden erhält. Die Bereitstellung dieses Kontodatensatzes kann automatisch oder manuell durch einen Administrator erfolgen.
 

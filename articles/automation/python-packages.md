@@ -10,11 +10,11 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b53e07d6086f2a02fd1bbd158ffc09dc95b0c377
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60500123"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Verwalten von Python 2-Paketen in Azure Automation
 

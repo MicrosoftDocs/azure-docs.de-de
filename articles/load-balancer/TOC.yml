@@ -18,6 +18,9 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Erstellen eines Lastenausgleichs im Standard-Tarif – Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
+    - name: 'Erstellen einer Load Balancer Standard-Instanz: Azure Resource Manager-Vorlage'
+      displayName: ARM
+      href: quickstart-load-balancer-standard-public-template.md
 - name: Lernprogramme
   items:
     - name: Vornehmen eines Lastausgleichs für Internetdatenverkehr virtueller Computer

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799435"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952860"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Authentifizierung mit Einmalkennung per E-Mail (Vorschauversion)
 

@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04-04-2019
-ms.author: barbaraselden
+ms.date: 04/04/2019
+ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000707"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388306"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planen der Bereitstellung eines Azure AD-Anwendungsproxys
 
-Der Azure AD-Anwendungsproxy (Azure Active Directory) ist eine sichere und kostengünstige Lösung für den Remotezugriff auf lokale Anwendungen. „Cloud First“-Organisationen erhalten hiermit einen direkten Weg zur Verwaltung des Zugriffs auf lokale Legacyanwendungen, für die noch keine modernen Protokolle verwendet werden können. Zusätzliche einführende Informationen finden Sie unter [Was ist der Anwendungsproxy?](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) und [Funktionsweise des Anwendungsproxys](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+Der Azure AD-Anwendungsproxy (Azure Active Directory) ist eine sichere und kostengünstige Lösung für den Remotezugriff auf lokale Anwendungen. „Cloud First“-Organisationen erhalten hiermit einen direkten Weg zur Verwaltung des Zugriffs auf lokale Legacyanwendungen, für die noch keine modernen Protokolle verwendet werden können. Zusätzliche einführende Informationen finden Sie unter [Was ist der Anwendungsproxy?](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+
+Der Anwendungsproxy wird empfohlen, um Remotebenutzern Zugriff auf interne Ressourcen zu gewähren. Durch den Anwendungsproxy entfällt die Notwendigkeit eines VPN oder Reverseproxys für solche Anwendungsfälle mit Remotezugriff. Er ist nicht für Benutzer im Unternehmensnetzwerk bestimmt. Wenn Benutzer den Anwendungsproxy für den Zugriff auf das Intranet verwenden, können Leistungsprobleme auftreten.
 
 Dieser Artikel enthält die Ressourcen, die Sie zum Planen, Betreiben und Verwalten des Azure AD-Anwendungsproxys benötigen. 
 
@@ -41,25 +43,30 @@ Sie müssen die folgenden Voraussetzungen erfüllen, bevor Sie mit der Implement
    * In einer Hypervisor-Lösung gehostete VM
    * In Azure gehostete VM für die ausgehende Verbindung zum Anwendungsproxydienst
 
-Eine ausführlichere Übersicht finden Sie unter [Grundlegendes zu Azure AD-Anwendungsproxyconnectors](application-proxy-connectors.md).
+* Eine ausführlichere Übersicht finden Sie unter [Grundlegendes zu Azure AD-Anwendungsproxyconnectors](application-proxy-connectors.md).
 
-   * Connectorhosts müssen [TLS 1.2-fähig](application-proxy-add-on-premises-application.md) sein, bevor die Connectors installiert werden.
+     * Auf den Connectorcomputern muss [TLS 1.2 aktiviert](application-proxy-add-on-premises-application.md) werden, bevor die Connectors installiert werden.
 
-   * Stellen Sie die Connectors nach Möglichkeit in [demselben Netzwerk](application-proxy-network-topology.md) bereit, und führen Sie eine Segmentierung nach Back-End-Webanwendungsservern durch. Die beste Vorgehensweise besteht darin, Connectorhosts bereitzustellen, nachdem Sie eine Ermittlung von Anwendungen durchgeführt haben.
+     * Stellen Sie die Connectors nach Möglichkeit in [demselben Netzwerk](application-proxy-network-topology.md) bereit, und führen Sie eine Segmentierung nach Back-End-Webanwendungsservern durch. Es empfiehlt sich, vor dem Bereitstellen der Connectors eine Anwendungsermittlung durchzuführen.
+     * Um Hochverfügbarkeit und Skalierung zu gewährleisten, sollten jeder Connectorgruppe mindestens zwei Connectors zugewiesen werden. Mit drei Connectors sind Sie in dem Fall, dass Sie einen Computer warten müssen, optimal aufgestellt. Orientieren Sie sich bei der Auswahl des Computertyps, auf dem Sie Connectors installieren, an der [Tabelle zur Connectorkapazität](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning). Je größer der Computer ist, desto mehr Pufferkapazität und Leistung bietet der Connector.
 
-* **Einstellungen für Netzwerkzugriff**: Azure AD-Anwendungsproxyconnectors [versuchen, per HTTPS (TCP-Port 443) und HTTP (TCP-Port 80) eine Verbindung mit Azure herzustellen](application-proxy-add-on-premises-application.md). 
+* **Einstellungen für Netzwerkzugriff**: Azure AD-Anwendungsproxyconnectors [stellen per HTTPS (TCP-Port 443) und HTTP (TCP-Port 80) eine Verbindung mit Azure her](application-proxy-add-on-premises-application.md). 
 
    * Die Beendigung von TLS-Datenverkehr für Connectors wird nicht unterstützt. Hierdurch wird für Connectors verhindert, dass diese einen sicheren Kanal zu ihren entsprechenden Azure-Anwendungsproxy-Endpunkten einrichten.
 
    * Vermeiden Sie alle Arten von Inline-Untersuchungen der ausgehenden TLS-Kommunikation zwischen Connectors und Azure. Die interne Untersuchung zwischen einem Connector und Back-End-Anwendungen ist möglich, aber dies kann zu einer Beeinträchtigung der Benutzerfreundlichkeit führen. Aus diesem Grund wird diese Vorgehensweise nicht empfohlen.
 
-   * Ein Lastenausgleich der eigentlichen Proxyconnectors wird ebenfalls nicht unterstützt und ist auch nicht erforderlich.
+   * Ein Lastenausgleich der Connectors selbst wird ebenfalls nicht unterstützt und ist auch nicht erforderlich.
 
 ### <a name="important-considerations-before-configuring-azure-ad-application-proxy"></a>Wichtige Aspekte vor der Konfiguration des Azure AD-Anwendungsproxys
 
 Die folgenden grundlegenden Anforderungen müssen erfüllt sein, um den Azure AD-Anwendungsproxy konfigurieren und implementieren zu können.
 
 *  **Azure-Onboarding**: Vor dem Bereitstellen des Anwendungsproxys müssen Benutzeridentitäten aus einem lokalen Verzeichnis synchronisiert oder direkt auf Ihren Azure AD-Mandanten erstellt werden. Mithilfe der Identitätssynchronisierung können Benutzer von Azure AD vorab authentifiziert werden, bevor ihnen Zugriff auf per Anwendungsproxy veröffentlichte Anwendungen gewährt wird. Außerdem können die benötigten Benutzer-ID-Informationen für einmaliges Anmelden (Single Sign-On, SSO) bereitgestellt werden.
+
+* **Anforderungen für bedingten Zugriff**: Die Verwendung des Anwendungsproxys für den Zugriff auf das Intranet wird nicht empfohlen, da dies die Wartezeit erhöht und sich nachteilig für die Benutzer auswirkt. Wir empfehlen, den Anwendungsproxy mit Vorauthentifizierung und Richtlinien für bedingten Zugriff für den Remotezugriff über das Internet zu verwenden.  Wenn Sie bedingten Zugriff für das Intranet bereitstellen möchten, können Sie Ihre Anwendungen modernisieren, sodass sie die Authentifizierung direkt mit Azure Active Directory (AAD) durchführen können. Weitere Informationen finden Sie unter [Ressourcen zum Migrieren von Anwendungen zu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources). 
+
+* **Diensteinschränkungen**: Zum Schutz vor übermäßigem Ressourcenverbrauch durch einzelne Mandanten gelten bestimmte Drosselungsgrenzwerte pro Anwendung und Mandant. Die Grenzwerte finden Sie unter [Dienst- und andere Einschränkungen für Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Die Drosselungsgrenzwerte basieren auf einem Richtwert, der weit über dem typischen Nutzungsvolumen liegt und für die meisten Bereitstellungen ausreichend Puffer bietet.
 
 * **Öffentliches Zertifikat**: Wenn Sie benutzerdefinierte Domänennamen verwenden, müssen Sie ein öffentliches Zertifikat beschaffen, das von einer anderen vertrauenswürdigen Zertifizierungsstelle als Microsoft ausgestellt wurde. Je nach den Anforderungen Ihrer Organisation kann die Beschaffung eines Zertifikats einige Zeit dauern. Wir empfehlen Ihnen daher, sich so früh wie möglich darum zu kümmern. Für den Azure-Anwendungsproxy werden Zertifikate vom Typ „Standard“, [„Platzhalter“](application-proxy-wildcard.md) oder „SAN-basiert“ unterstützt.
 
@@ -73,13 +80,11 @@ Die folgenden grundlegenden Anforderungen müssen erfüllt sein, um den Azure AD
 
 * **Administratorrechte und -rollen**
 
-   * Für die **Connectorinstallation** werden lokale Administratorrechte für den Windows-Server benötigt, auf dem die Installation durchgeführt wird. Darüber hinaus ist auch eine Administratorrolle für die Anwendung erforderlich, die zumindest das Authentifizieren und Registrieren der Connectorinstanz für Ihren Azure AD-Mandanten ermöglicht. 
+   * Für die **Connectorinstallation** werden lokale Administratorrechte für den Windows-Server benötigt, auf dem die Installation durchgeführt wird. Darüber hinaus ist für die Authentifizierung und Registrierung der Connectorinstanz bei Ihrem Azure AD-Mandanten mindestens die Rolle *Anwendungsadministrator* erforderlich. 
 
    * Für die **Anwendungsveröffentlichung und -verwaltung** wird die Rolle *Anwendungsadministrator* benötigt. Anwendungsadministratoren können alle Anwendungen im Verzeichnis verwalten, z. B. für Registrierungen, SSO-Einstellungen, Zuweisungen und Lizenzierung für Benutzer und Gruppen, Anwendungsproxyeinstellungen und die Einwilligung. Mit dieser Rolle kann der bedingte Zugriff nicht verwaltet werden. Die Rolle *Cloudanwendungsadministrator* verfügt über alle Berechtigungen des Anwendungsadministrators, mit Ausnahme der Verwaltung von Anwendungsproxyeinstellungen.
 
-* **Lizenzierung**: Der Anwendungsproxy ist über das Azure AD Basic-Abonnement verfügbar. Eine vollständige Liste mit Lizenzierungsoptionen und -funktionen finden Sie auf der [Seite mit den Azure Active Directory-Preisen](https://azure.microsoft.com/pricing/details/active-directory/). 
-
-* Unter Umständen ist eine Erweiterung der Rolle erforderlich, um über [Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (PIM) Anwendungsadministratorrechte zu erhalten. Stellen Sie also sicher, dass Ihr Konto über die benötigten Berechtigungen verfügt. 
+* **Lizenzierung**: Der Anwendungsproxy ist über das Azure AD Basic-Abonnement verfügbar. Eine vollständige Liste mit Lizenzierungsoptionen und -funktionen finden Sie auf der [Seite mit den Azure Active Directory-Preisen](https://azure.microsoft.com/pricing/details/active-directory/).  
 
 ### <a name="application-discovery"></a>Anwendungsermittlung
 
@@ -107,9 +112,9 @@ Für die folgenden Bereiche sollten Sie die geschäftlichen Anforderungen Ihrer 
 
  **zugreifen**
 
-* Domänen- und Azure AD-Benutzer können auf veröffentlichte Anwendungen sicher per nahtlosem einmaligem Anmelden zugreifen, wenn sie Geräte nutzen, die in die Domäne oder in Azure AD eingebunden sind.
+* Remotebenutzer mit in Domänen oder in Azure AD eingebundenen Geräten können sicher per nahtlosem einmaligen Anmelden auf veröffentlichte Anwendungen zugreifen.
 
-* Benutzer mit genehmigten persönlichen Geräten können auf sichere Weise auf veröffentlichte Anwendungen zugreifen, sofern sie für MFA registriert sind und die Microsoft Authenticator-App auf ihrem Mobiltelefon als Authentifizierungsmethode registriert haben.
+* Remotebenutzer mit genehmigten persönlichen Geräten können sicher auf veröffentlichte Anwendungen zugreifen, sofern sie für die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) registriert sind und die Microsoft Authenticator-App auf ihrem Mobiltelefon als Authentifizierungsmethode registriert haben.
 
 **Governance** 
 
@@ -121,7 +126,7 @@ Für die folgenden Bereiche sollten Sie die geschäftlichen Anforderungen Ihrer 
 
 **Leistung**
 
-* Im Vergleich mit dem Zugriff auf die Anwendung über das interne Netzwerk kommt es nicht zu einem Abfall der Anwendungsleistung.
+* Im Vergleich mit dem Zugriff auf die Anwendung über das interne Netzwerk kommt es nicht zu einer Verschlechterung der Anwendungsleistung.
 
 **Benutzerfreundlichkeit**
 
@@ -164,7 +169,7 @@ Mit den folgenden Entwurfselementen erhöhen sich die Erfolgschancen Ihrer direk
 
 ### <a name="deploy-application-proxy"></a>Bereitstellen des Anwendungsproxys
 
-Die Schritte zum Bereitstellen Ihres Anwendungsproxys sind in [diesem Tutorial zum Hinzufügen einer lokalen Anwendung für den Remotezugriff](application-proxy-add-on-premises-application.md) beschrieben. Gehen Sie wie folgt vor, falls die Installation nicht erfolgreich ist: Wählen Sie im Portal die Option für die **Problembehandlung für den Anwendungsproxy**, oder verwenden Sie den Leitfaden [für Probleme mit der Installation des Anwendungsproxy-Agent-Connectors](application-proxy-connector-installation-problem.md).
+Die Schritte zum Bereitstellen Ihres Anwendungsproxys sind in [diesem Tutorial zum Hinzufügen einer lokalen Anwendung für den Remotezugriff](application-proxy-add-on-premises-application.md) beschrieben. Falls die Installation nicht erfolgreich ist, wählen Sie im Portal die Option für die **Problembehandlung für den Anwendungsproxy** aus, oder verwenden Sie den Leitfaden für [Probleme beim Installieren des Anwendungsproxy-Agent-Connectors](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Veröffentlichen von Anwendungen mit dem Anwendungsproxy
 
@@ -174,7 +179,7 @@ Sie können Anwendungen auch mit [PowerShell](https://docs.microsoft.com/powersh
 
 Unten sind einige bewährte Methoden angegeben, an die Sie sich beim Veröffentlichen einer Anwendung halten sollten:
 
-* **Verwenden von Connectorgruppen**: Weisen Sie eine Connectorgruppe zu, die für die Veröffentlichung der einzelnen Anwendungen angegeben wurde.
+* **Verwenden von Connectorgruppen**: Weisen Sie eine Connectorgruppe zu, die für die Veröffentlichung der einzelnen Anwendungen angegeben wurde. Um Hochverfügbarkeit und Skalierung zu gewährleisten, sollten jeder Connectorgruppe mindestens zwei Connectors zugewiesen werden. Mit drei Connectors sind Sie in dem Fall, dass Sie einen Computer warten müssen, optimal aufgestellt. Lesen Sie auch den Artikel [Veröffentlichen von Anwendungen in getrennten Netzwerken und an getrennten Standorten mithilfe von Connectorgruppen](application-proxy-connector-groups.md). Dort wird beschrieben, wie Sie Ihre Connectors mithilfe von Connectorgruppen nach Netzwerk oder Standort segmentieren.
 
 * **Festlegen des Timeouts für die Back-End-Anwendung**: Diese Einstellung ist in Szenarien hilfreich, in denen die Anwendung für die Verarbeitung einer Clienttransaktion ggf. mehr als 75 Sekunden benötigt. Ein Beispiel hierfür ist der Fall, in dem ein Client eine Abfrage an eine Webanwendung sendet, die als Front-End für eine Datenbank fungiert. Das Front-End sendet diese Abfrage an seinen Back-End-Datenbankserver und wartet auf eine Antwort. Wenn die Antwort eingeht, ist für die Konversation auf Clientseite bereits ein Timeout aufgetreten. Wenn Sie die Timeouteinstellung auf „Lang“ festlegen, beträgt der Zeitraum 180 Sekunden, damit auch längere Transaktionen abgeschlossen werden können.
 
@@ -190,7 +195,7 @@ Unten sind einige bewährte Methoden angegeben, an die Sie sich beim Veröffentl
 
 * **URLs übersetzen in Anwendungstext:** Aktivieren Sie für eine App die Option zum Übersetzen von Links im Anwendungstext, wenn Sie möchten, dass Links dieser App in Antworten an den Client übersetzt werden. Wenn diese Funktion aktiviert ist, werden alle internen Links, die vom Anwendungsproxy in HTML- und CSS-Antworten an Clients gefunden werden, bestmöglich übersetzt. Dies ist hilfreich bei der Veröffentlichung von Apps, die im Inhalt entweder hartcodierte absolute Links oder NetBIOS-Kurznamenlinks aufweisen, oder von Apps mit Inhalten, die Links zu anderen lokalen Anwendungen enthalten.
 
-Aktivieren Sie in Szenarien, in denen eine veröffentlichte App Links zu anderen veröffentlichten Apps enthält, die Linkübersetzung für jede Anwendung, damit Sie die Benutzerfreundlichkeit auf App-Ebene steuern können.
+Aktivieren Sie in Szenarien, in denen eine veröffentlichte App Links zu anderen veröffentlichten Apps enthält, die Linkübersetzung für jede Anwendung, damit Sie die Benutzeroberfläche auf App-Ebene steuern können.
 
 Beispiel: Angenommen, drei Ihrer Anwendungen werden über Anwendungsproxy veröffentlicht und verweisen mit Links aufeinander: Vorteile, Ausgaben und Reisen und eine vierte App für Feedback, die nicht über den Anwendungsproxy veröffentlicht wird.
 
@@ -225,7 +230,7 @@ Nachdem Ihre Anwendung veröffentlicht wurde, sollte der Zugriff darauf möglich
 
 ### <a name="enable-pre-authentication"></a>Aktivieren der Vorauthentifizierung
 
-Vergewissern Sie sich, dass auf Ihre Anwendung über den Anwendungsproxy zugegriffen werden kann. 
+Vergewissern Sie sich, dass anhand der externen URL über den Anwendungsproxy auf Ihre Anwendung zugegriffen werden kann. 
 
 1. Navigieren Sie zu **Azure Active Directory** > **Unternehmensanwendungen** > **Alle Anwendungen**, und wählen Sie die App aus, die Sie verwalten möchten.
 
@@ -233,7 +238,7 @@ Vergewissern Sie sich, dass auf Ihre Anwendung über den Anwendungsproxy zugegri
 
 3. Wählen Sie im Feld **Vorauthentifizierung** in der Dropdownliste die Option **Azure Active Directory** und dann **Speichern**.
 
-Bei aktivierter Vorauthentifizierung werden Sie von Azure AD zur Authentifizierung aufgefordert. Dies erfolgt dann auch für die Back-End-Anwendung, falls hierfür eine Authentifizierung erforderlich ist. Wenn Sie die Vorauthentifizierung von „Passthrough“ in „Azure AD“ ändern, wird auch für die externe URL HTTPS konfiguriert. Alle Anwendungen, für die ursprünglich HTTP konfiguriert wurde, sind dann also per HTTPS geschützt.
+Wenn die Vorauthentifizierung aktiviert ist, fordert Azure AD Benutzer zuerst zur Authentifizierung auf. Ist einmaliges Anmelden konfiguriert, wird der Benutzer anschließend auch von der Back-End-Anwendung überprüft, bevor der Zugriff auf die Anwendung gewährt wird. Wenn Sie den Vorauthentifizierungsmodus von „Passthrough“ in „Azure AD“ ändern, wird auch die externe URL mit HTTPS konfiguriert. Alle Anwendungen, für die ursprünglich HTTP konfiguriert wurde, sind dann also per HTTPS geschützt.
 
 ### <a name="enable-single-sign-on"></a>Aktivieren der einmaligen Anmeldung
 
@@ -241,7 +246,7 @@ Mit einmaligem Anmelden (SSO) erzielen Sie die bestmögliche Benutzerfreundlichk
 
 Bei Auswahl der Option **Passthrough** können Benutzer auf die veröffentlichte Anwendung zugreifen, ohne sich gegenüber Azure AD authentifizieren zu müssen.
 
-Die Durchführung von einmaligem Anmelden ist nur möglich, wenn der Benutzer, der den Zugriff auf eine Ressource anfordert, von Azure AD identifiziert werden kann. Ihre Anwendung muss also so konfiguriert sein, dass für Benutzer beim Zugreifen eine Vorauthentifizierung erfolgt, damit einmaliges Anmelden funktioniert. Andernfalls sind die SSO-Optionen deaktiviert.
+Einmaliges Anmelden ist nur möglich, wenn der Benutzer, der den Zugriff auf eine Ressource anfordert, von Azure AD identifiziert werden kann. Ihre Anwendung muss also zur Vorauthentifizierung von Benutzern mit Azure AD konfiguriert sein, damit einmaliges Anmelden funktioniert. Andernfalls sind die SSO-Optionen deaktiviert.
 
 Lesen Sie [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](what-is-single-sign-on.md), damit Sie beim Konfigurieren Ihrer Anwendungen die am besten geeignete SSO-Methode wählen können.
 
@@ -265,7 +270,7 @@ Die folgenden Funktionen können verwendet werden, um den Azure AD-Anwendungspro
 
 * Risikobasierter bedingter Zugriff: Schützen Sie Ihre Daten vor böswilligen Hackern, indem Sie eine [risikobasierte Richtlinie für bedingten Zugriff](https://www.microsoft.com/cloud-platform/conditional-access) verwenden, die auf alle Apps und Benutzer angewendet werden kann – lokal und in der Cloud.
 
-* Azure AD-Anwendungsbereich: Nachdem Sie Ihren Anwendungsproxydienst bereitgestellt und die Anwendungen sicher veröffentlicht haben, können Sie für Ihre Benutzer einen einfachen Hub einrichten, über den sie alle Anwendungen ermitteln und darauf zugreifen können. Steigern Sie über den [Zugriffsbereich](https://aka.ms/AccessPanelDPDownload) mit Self-Service-Funktionen die Produktivität, z. B. der Möglichkeit zum Anfordern des Zugriffs auf neue Apps und Gruppen oder zum Verwalten des Zugriffs auf diese Ressourcen im Namen von anderen Personen.
+* Azure AD-Zugriffsbereich: Nachdem Sie Ihren Anwendungsproxydienst bereitgestellt und die Anwendungen sicher veröffentlicht haben, können Sie für Ihre Benutzer einen einfachen Hub einrichten, über den sie alle Anwendungen ermitteln und darauf zugreifen können. Steigern Sie über den [Zugriffsbereich](https://aka.ms/AccessPanelDPDownload) mit Self-Service-Funktionen die Produktivität, z. B. der Möglichkeit zum Anfordern des Zugriffs auf neue Apps und Gruppen oder zum Verwalten des Zugriffs auf diese Ressourcen im Namen von anderen Personen.
 
 ## <a name="manage-your-implementation"></a>Verwalten Ihrer Implementierung
 
@@ -290,7 +295,7 @@ Azure AD kann für Ihre Organisation zusätzliche Erkenntnisse zur Benutzerberei
 
 #### <a name="application-audit-logs"></a>Überwachungsprotokolle für Anwendungen
 
-Diese Protokolle enthalten ausführliche Informationen zur Anmeldung an Anwendungen, die per Anwendungsproxy konfiguriert wurden, sowie Informationen zum Gerät und zum Benutzer, der auf die Anwendung zugreift. Sie sind im Azure-Portal und über die Audit-API zugänglich.
+Diese Protokolle enthalten ausführliche Informationen zu Anmeldungen bei Anwendungen, die mit einem Anwendungsproxy konfiguriert sind, sowie zum Gerät und Benutzer, das bzw. der auf die Anwendung zugreift. Überwachungsprotokolle können im Azure-Portal und über die Überwachungs-API exportiert werden.
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Windows-Ereignisprotokolle und -Leistungsindikatoren
 
@@ -300,7 +305,7 @@ Connectors verfügen über Administrator- und Sitzungsprotokolle. Die Administra
 
 Erfahren Sie mehr zu häufigen Problemen und ihrer Lösung, indem Sie unseren Leitfaden zur [Problembehandlung](application-proxy-troubleshoot.md) für Fehlermeldungen verwenden. 
 
-In diesen Artikeln werden allgemeine Szenarien behandelt, aber Sie können für Ihren Support auch eigene Leitfäden zur Problembehandlung erstellen. 
+In den folgenden Artikeln werden allgemeine Szenarien behandelt, die Sie auch zum Erstellen eigener Problembehandlungsleitfäden für Ihren Support verwenden können. 
 
 * [Problem beim Anzeigen der App-Seite](application-proxy-page-appearance-broken-problem.md)
 * [Laden der Anwendung dauert zu lange.](application-proxy-page-load-speed-problem.md)

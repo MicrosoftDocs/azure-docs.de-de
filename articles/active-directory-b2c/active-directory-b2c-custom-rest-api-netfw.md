@@ -2,20 +2,20 @@
 title: Integrieren von REST-API-Anspruchsaustauschvorgängen in Ihre User Journey für Azure Active Directory B2C | Microsoft-Dokumentation
 description: Integrieren Sie REST-API-Anspruchsaustauschvorgänge in Ihre Azure AD B2C-User Journey zum Validieren der Benutzereingabe.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717290"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510724"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrieren von REST-API-Anspruchsaustauschvorgängen in Ihre Azure AD B2C-User Journey als Validierung der Benutzereingabe
 
@@ -60,7 +60,7 @@ Führen Sie die Schritte im Artikel [Erste Schritte mit benutzerdefinierten Rich
 
 1. Erstellen Sie in Visual Studio ein Projekt durch Auswählen von **Datei** > **Neu** > **Projekt**.
 
-2. Wählen Sie im Fenster **Neues Projekt** die Optionen **Visual C#** > **Web** > **ASP.NET-Webanwendung (.NET Framework)** aus.
+2. Wählen Sie im Fenster **Neues Projekt** die Optionen **Visual C#**  > **Web** > **ASP.NET-Webanwendung (.NET Framework)** aus.
 
 3. Geben Sie im Feld **Name** einen Namen für die Anwendung an (beispielsweise *Contoso.AADB2C.API*), und wählen Sie dann **OK** aus.
 
@@ -248,13 +248,13 @@ Ein Anspruchsanbieter kann aus verschiedenen Gründen über mehrere technische P
 
 Der folgende XML-Ausschnitt enthält einen Anspruchsanbieterknoten mit zwei technischen Profilen:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: Definiert Ihren RESTful-Dienst.
+* **TechnicalProfile Id="REST-API-SignUp"** : Definiert Ihren RESTful-Dienst.
   * `Proprietary` wird als das Protokoll für einen RESTful-basierten Anbieter beschrieben.
   * `InputClaims` definiert die Ansprüche, die von Azure AD B2C an den REST-Dienst gesendet werden.
 
     In diesem Beispiel werden der Inhalt des Anspruchs `givenName` als `firstName` und der Inhalt des Anspruchs `surname` als `lastName` an den REST-Dienst gesendet, während `email` unverändert gesendet wird. Mit dem `OutputClaims`-Element werden die Ansprüche definiert, die vom RESTful-Dienst abgerufen werden, um zurück an Azure AD B2C gesendet zu werden.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Fügt das technische Validierungsprofil einem vorhandenen technischen Profil (in der Basisrichtlinie definiert) hinzu. Während des Anmeldeablaufs ruft das technische Validierungsprofil das obige technische Profil auf. Wenn der RESTful-Dienst einen HTTP-Fehler 409 (Konfliktfehler) zurückgibt, wird die Fehlermeldung dem Benutzer angezeigt.
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : Fügt das technische Validierungsprofil einem vorhandenen technischen Profil (in der Basisrichtlinie definiert) hinzu. Während des Anmeldeablaufs ruft das technische Validierungsprofil das obige technische Profil auf. Wenn der RESTful-Dienst einen HTTP-Fehler 409 (Konfliktfehler) zurückgibt, wird die Fehlermeldung dem Benutzer angezeigt.
 
 Suchen Sie nach dem Knoten `<ClaimsProviders>`, und fügen Sie dann unter dem Knoten `<ClaimsProviders>` den folgenden XML-Codeausschnitt hinzu:
 

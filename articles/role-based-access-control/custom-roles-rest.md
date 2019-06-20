@@ -16,17 +16,17 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60596690"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Erstellen von benutzerdefinierten Rollen für Azure-Ressourcen mithilfe der REST-API
 
 Wenn die [integrierten Rollen für Azure-Ressourcen](built-in-roles.md) den Ansprüchen Ihrer Organisation nicht entsprechen, können Sie Ihre eigenen benutzerdefinierten Rollen erstellen. In diesem Artikel wird das Erstellen und Verwalten benutzerdefinierter Rollen mithilfe der REST-API beschrieben.
 
-## <a name="list-custom-roles"></a>Auflisten benutzerdefinierter Rollen 
+## <a name="list-custom-roles"></a>Auflisten benutzerdefinierter Rollen
 
 Verwenden Sie zum Auflisten aller benutzerdefinierten Rollen in einem Verzeichnis die [Rollendefinitionen – Liste](/rest/api/authorization/roledefinitions/list)-REST-API.
 
@@ -54,11 +54,11 @@ Verwenden Sie zum Auflisten benutzerdefinierter Rollen in einem Bereich die [Rol
 
 1. Ersetzen Sie innerhalb des URIs *{scope}* mit dem Bereich, für den Sie die Rollen auflisten möchten.
 
-    | Bereich | Type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Ressourcengruppe |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersetzen Sie *{Filter}* mit dem Rollentyp.
 
@@ -78,11 +78,11 @@ Verwenden Sie die [Rollendefinitionen – Abrufen](/rest/api/authorization/roled
 
 1. Ersetzen Sie innerhalb des URIs *{scope}* mit dem Bereich, für den Sie die Rollen auflisten möchten.
 
-    | Bereich | Type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Ressourcengruppe |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersetzen Sie *{Filter}* mit dem Anzeigenamen für die Rolle.
 
@@ -104,11 +104,11 @@ Verwenden Sie die [Rollendefinitionen – Abrufen](/rest/api/authorization/roled
 
 1. Ersetzen Sie innerhalb des URIs *{scope}* mit dem Bereich, für den Sie die Rollen auflisten möchten.
 
-    | Bereich | Type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Ressourcengruppe |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersetzen Sie *{roledefinitionid}* durch den GUID-Bezeichner der Rollendefinition.
 
@@ -152,11 +152,11 @@ Um eine benutzerdefinierte Rolle zu erstellen, verwenden Sie die [Rollendefiniti
 
 1. Ersetzen Sie im URI *{scope}* durch die ersten `assignableScopes` der benutzerdefinierten Rolle.
 
-    | Bereich | Type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Ressourcengruppe |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersetzen Sie *{roleDefinitionId}* durch den GUID-Bezeichner der benutzerdefinierten Rolle.
 
@@ -217,11 +217,11 @@ Um eine benutzerdefinierte Rolle zu aktualisieren, verwenden Sie die [Rollendefi
 
 1. Ersetzen Sie im URI *{scope}* durch die ersten `assignableScopes` der benutzerdefinierten Rolle.
 
-    | Bereich | Type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Ressourcengruppe |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersetzen Sie *{roleDefinitionId}* durch den GUID-Bezeichner der benutzerdefinierten Rolle.
 
@@ -301,11 +301,11 @@ Verwenden Sie zum Löschen einer benutzerdefinierten Rolle die [Rollendefinition
 
 1. Ersetzen Sie innerhalb des URIs *{scope}* mit dem Bereich, in dem Sie die benutzerdefinierte Rolle löschen möchten.
 
-    | Bereich | Type |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Ressourcengruppe |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Ersetzen Sie *{roleDefinitionId}* durch den GUID-Bezeichner der benutzerdefinierten Rolle.
 

@@ -4,15 +4,15 @@ description: Dieser Artikel enthält eine Übersicht über die Web Application F
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518183"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991400"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Web Application Firewall für Azure Application Gateway
 
@@ -38,7 +38,7 @@ Dieser Abschnitt beschreibt die wichtigsten Vorteile, die Application Gateway un
 
 * Schützen Sie Ihre Webanwendungen vor Sicherheitsrisiken und Angriffen im Web, ohne den Back-End-Code zu verändern.
 
-* Schützen Sie mehrere Webanwendungen gleichzeitig. Eine Instanz von Application Gateway kann bis zu 20 Websites hosten, die von einer Web Application Firewall geschützt sind.
+* Schützen Sie mehrere Webanwendungen gleichzeitig. Eine Instanz von Application Gateway kann bis zu 100 Websites hosten, die von einer Web Application Firewall geschützt sind.
 
 ### <a name="monitoring"></a>Überwachung
 
@@ -121,12 +121,19 @@ Die Application Gateway-WAF kann für die Ausführung in den folgenden beiden Mo
 * **Schutzmodus**: Blockiert Eindringversuche und Angriffe, die die Regeln erkennen. Der Angreifer erhält eine „403 nicht autorisierter Zugriff“-Ausnahmemeldung, und die Verbindung wird beendet. Der Schutzmodus hält solche Angriffe weiterhin in den WAF-Protokollen fest.
 
 ### <a name="anomaly-scoring-mode"></a>Anomaliebewertungsmodus
- 
+
 OWASP kann in zwei Modi entscheiden, ob Datenverkehr blockiert wird: herkömmlicher Modus und Anomaliebewertungsmodus.
 
 Im herkömmlichen Modus wird Datenverkehr, der einer Regel entspricht, unabhängig davon berücksichtigt, ob er mit einer anderen Regel übereinstimmt. Dieser Modus ist leicht verständlich. Doch der Mangel an Informationen darüber, wie viele Regeln mit einer bestimmten Anforderung übereinstimmen, ist eine Einschränkung. Darum wurde der Anomaliebewertungsmodus eingeführt. Er ist die Standardeinstellung für OWASP 3.*x*.
 
 Im Anomaliebewertungsmodus wird Datenverkehr, der einer beliebigen Regel entspricht, nicht sofort blockiert, wenn die Firewall sich im Schutzmodus befindet. Regeln haben einen bestimmten Schweregrad: *Kritisch*, *Fehler*, *Warnung* oder *Hinweis*. Dieser Schweregrad wirkt sich auf einen numerischen Wert für die Anforderung aus, der als „Anomaliebewertung“ bezeichnet wird. So trägt eine Übereinstimmung mit einer *Warnungsregel* mit 3 zum Ergebnis bei. Eine Übereinstimmung mit einer *kritischen* Regel trägt mit 5 zum Ergebnis bei.
+
+|Severity  |Wert  |
+|---------|---------|
+|Kritisch     |5|
+|Error        |4|
+|Warnung      |3|
+|Hinweis       |2|
 
 Ab einem Schwellenwert von 5 blockiert die Anomaliebewertung den Datenverkehr. Eine Übereinstimmung mit einer einzelnen *kritischen* Regel reicht also aus, damit die Application Gateway-WAF auch im Schutzmodus eine Anforderung blockiert. Aber eine Übereinstimmung mit einer *Warnungsregel* setzt die Anomaliebewertung nur um 3 herauf, was allein nicht ausreicht, um den Datenverkehr zu blockieren.
 

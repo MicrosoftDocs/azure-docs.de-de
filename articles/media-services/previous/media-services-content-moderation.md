@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899562"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61465676"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Verwenden von Azure Media Content Moderator, um nicht jugendfreie und rassistische Inhalte zu erkennen 
 
@@ -46,7 +46,7 @@ Die JSON-Ausgabe enthält die folgenden Elemente:
 
 | Element | BESCHREIBUNG |
 | --- | --- |
-| Version |Die Version von Content Moderator. |
+| version |Die Version von Content Moderator. |
 | timescale |„Ticks“ pro Sekunde des Videos. |
 | offset |Der Zeitoffset für Zeitstempel. In Version 1.0 von Video-APIs lautet dieser Wert immer 0. Dieser Wert kann sich in der Zukunft ändern. |
 | framerate |Frames des Videos pro Sekunde. |
@@ -59,7 +59,7 @@ Die JSON-Ausgabe enthält die folgenden Elemente:
 
 |Element|BESCHREIBUNG|
 |---|---|
-| Start |Die Startzeit des ersten Ereignisses in „Ticks“. |
+| start |Die Startzeit des ersten Ereignisses in „Ticks“. |
 | duration |Die Länge des Fragments in „Ticks“. |
 | interval |Das Intervall jedes Ereigniseintrags innerhalb des Fragments in „Ticks“. |
 | [events](#events-json-elements) |Jedes Ereignis stellt einen Clip dar, und jeder Clip enthält Keyframes, die innerhalb dieser Zeitspanne entdeckt und nachverfolgt werden. Es ist ein Array von Ereignissen. Das äußere Array stellt ein Zeitintervall dar. Das innere Array besteht aus 0 oder mehr Ereignissen, die zu diesem Zeitpunkt aufgetreten sind.|

@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 3a773c24993d229f20df698113ff7535fea634ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60769225"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Hinzufügen einer Kachelebene zu einer Karte
 

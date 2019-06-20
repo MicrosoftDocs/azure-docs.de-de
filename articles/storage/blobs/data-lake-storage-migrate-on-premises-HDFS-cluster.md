@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998293"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939265"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Verwenden von Azure Data Box zum Migrieren von Daten aus einem lokalen Hadoop Distributed File System-Speicher zu Azure Storage
 
@@ -53,7 +53,7 @@ Wenn die Menge der Daten, die Sie kopieren, die Kapazität eines einzelnen Data 
 Führen Sie diese Schritte aus, um Daten über die REST-APIs des Blob-/Objektspeichers auf Ihr Data Box-Gerät zu kopieren. Über die REST-API-Schnittstelle wird das Data Box-Gerät als HDFS-Speicher für Ihren Cluster angezeigt. 
 
 
-1. Bevor Sie die Daten per REST kopieren, sollten Sie die Sicherheits- und Verbindungsprimitive zum Herstellen einer Verbindung mit der REST-Schnittstelle auf dem Data Box-Gerät identifizieren. Melden Sie sich an der lokalen Webbenutzeroberfläche von Data Box an, und navigieren Sie zur Seite **Verbindung herstellen und Daten kopieren**. Suchen Sie für das Azure-Speicherkonto für Ihr Data Box-Gerät unter **Zugriffseinstellungen** nach **REST (Vorschau)**, und wählen Sie die Option aus.
+1. Bevor Sie die Daten per REST kopieren, sollten Sie die Sicherheits- und Verbindungsprimitive zum Herstellen einer Verbindung mit der REST-Schnittstelle auf dem Data Box-Gerät identifizieren. Melden Sie sich an der lokalen Webbenutzeroberfläche von Data Box an, und navigieren Sie zur Seite **Verbindung herstellen und Daten kopieren**. Suchen Sie für das Azure-Speicherkonto für Ihr Data Box-Gerät unter **Zugriffseinstellungen** nach **REST (Vorschau)** , und wählen Sie die Option aus.
 
     ![Seite „Verbindung herstellen und Daten kopieren“](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -70,14 +70,32 @@ Führen Sie diese Schritte aus, um Daten über die REST-APIs des Blob-/Objektspe
     ```
     Falls Sie für DNS einen anderen Mechanismus verwenden, sollten Sie sicherstellen, dass der Data Box-Endpunkt aufgelöst werden kann.
     
-3. Legen Sie die Shellvariable `azjars` so fest, dass sie auf die JAR-Dateien `hadoop-azure` und `microsoft-windowsazure-storage-sdk` verweist. Diese Dateien befinden sich unter dem Hadoop-Installationsverzeichnis. (Sie können das Vorhandensein dieser Dateien überprüfen, indem Sie den Befehl `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` verwenden, wobei `<hadoop_install_dir>` das Verzeichnis ist, in dem Sie Hadoop installiert haben.) Verwenden Sie die vollständigen Pfade. 
+4. Legen Sie die Shellvariable `azjars` so fest, dass sie auf die JAR-Dateien `hadoop-azure` und `microsoft-windowsazure-storage-sdk` verweist. Diese Dateien befinden sich unter dem Hadoop-Installationsverzeichnis. (Sie können das Vorhandensein dieser Dateien überprüfen, indem Sie den Befehl `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` verwenden, wobei `<hadoop_install_dir>` das Verzeichnis ist, in dem Sie Hadoop installiert haben.) Verwenden Sie die vollständigen Pfade. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
     # azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar
     ```
 
-4. Kopieren Sie Daten aus dem Hadoop-HDFS-Speicher in den Data Box-Blobspeicher.
+5. Erstellen Sie den Speichercontainer, den Sie beim Kopieren von Daten verwenden möchten. Sie sollten auch einen Zielordner als Teil des Befehls angeben. Dies könnte zu diesem Zeitpunkt ein Dummyzielordner sein.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -mkdir -p  wasb://[container_name]@[blob_service_endpoint]/[destination_folder]
+    ```
+
+6. Führen Sie einen „List“-Befehl aus, um sicherzustellen, dass Ihr Container und Ordner erstellt wurden.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -ls -R  wasb://[container_name]@[blob_service_endpoint]/
+    ```
+
+7. Kopieren Sie Daten aus dem Hadoop-HDFS zum Data Box-Blobspeicher in den zuvor erstellten Container. Wenn der Ordner, in den Sie kopieren möchten, nicht gefunden wurde, wird er vom Befehl automatisch erstellt.
 
     ```
     # hadoop distcp \

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837782"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Ausführen eines Dienststartskripts als lokales Benutzerkonto oder Systemkonto
 Bevor eine ausführbare Service Fabric-Dienstdatei startet, können Konfigurations- oder Setupeinstellungen erforderlich sein.  Beispiel: Konfiguration von Umgebungsvariablen. Sie können angeben, dass ein Skript ausgeführt wird, bevor die ausführbare Dienstdatei im Dienstmanifest für den Dienst startet. Durch Konfigurieren einer RunAs-Richtlinie für den Setupeinstiegspunkt des Diensts können Sie das Konto ändern, unter dem die Setupdatei ausgeführt wird.  Mit einem separaten Setupeinstiegspunkt können Sie für einen kurzen Zeitraum eine Konfiguration mit hohen Berechtigungen ausführen, damit die ausführbare Diensthostdatei nicht für längere Zeiträume mit hohen Berechtigungen ausgeführt werden muss.

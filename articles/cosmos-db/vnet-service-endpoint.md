@@ -4,15 +4,15 @@ description: Dieses Dokument beschreibt die Zugangssteuerung für virtuelle Netz
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894934"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242471"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Zugreifen auf Azure Cosmos DB über virtuelle Netzwerke (VNET)
 

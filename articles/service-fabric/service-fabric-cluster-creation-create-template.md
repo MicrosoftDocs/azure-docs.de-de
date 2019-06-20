@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
 ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60386879"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Erstellen einer Resource Manager-Vorlage für Service Fabric-Cluster
 

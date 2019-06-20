@@ -9,14 +9,14 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 01/09/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8081be7f411b38d2418d893654a5691bd1ad7cc1
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 18b5f3877538d26e55bf0550a995ca0c50699de5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470629"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914136"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Was ist mit der Azure Machine Learning Workbench geschehen?
 
@@ -40,7 +40,7 @@ Die neueste Version von Azure Machine Learning Service umfasst folgende Funktion
 + Ein neues, umfangreicheres Python-<a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + Die neue, erweiterte [Azure CLI-Erweiterung](reference-azure-machine-learning-cli.md) für Machine Learning.
 
-Die [Architektur](concept-azure-machine-learning-architecture.md) wurde im Hinblick auf leichte Bedienbarkeit umgestaltet. Anstelle von mehreren Azure-Ressourcen und -Konten benötigen Sie nur einen [Arbeitsbereich für den Azure Machine Learning-Dienst](concept-azure-machine-learning-architecture.md#workspace). Arbeitsbereiche können schnell im [Azure-Portal]((setup-create-workspace.md#portal) erstellt werden. Durch die Verwendung eines Arbeitsbereichs können mehrere Benutzer Computeziele für Training und Bereitstellung, Modellexperimente, Docker-Images, bereitgestellte Modelle usw. speichern.
+Die [Architektur](concept-azure-machine-learning-architecture.md) wurde im Hinblick auf leichte Bedienbarkeit umgestaltet. Anstelle von mehreren Azure-Ressourcen und -Konten benötigen Sie nur einen [Arbeitsbereich für den Azure Machine Learning-Dienst](concept-workspace.md). Arbeitsbereiche können schnell im [Azure-Portal]((setup-create-workspace.md#portal) erstellt werden. Durch die Verwendung eines Arbeitsbereichs können mehrere Benutzer Computeziele für Training und Bereitstellung, Modellexperimente, Docker-Images, bereitgestellte Modelle usw. speichern.
 
 Zwar gibt es in der aktuellen Version neue, verbesserte CLI- und SDK-Clients, die eigentliche Workbench-Desktopanwendung wurde aber eingestellt. Experimente können im [Arbeitsbereich-Dashboard im Azure-Portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal) verwaltet werden. Verwenden Sie das Dashboard, um Ihren Experimentverlauf abzurufen, die an Ihren Arbeitsbereich angefügten Computeziele zu verwalten, Ihre Modelle und Docker-Images zu verwalten und sogar Webdienste bereitzustellen.
 
@@ -76,7 +76,7 @@ Weitere Informationen zur Verwendung des Azure Machine Learning Data Prep SDK fi
 
 Sie verlieren weder Code noch Arbeit. In der älteren Version stellen Projekte Cloudentitäten mit einem lokalen Verzeichnis dar. In der aktuellen Version fügen Sie lokale Verzeichnisse mithilfe einer lokalen Konfigurationsdatei an den Arbeitsbereich des Azure Machine Learning Service an. Hier finden Sie ein [Diagramm der aktuellen Architektur](concept-azure-machine-learning-architecture.md).
 
-Ein großer Teil des Projektinhalts befindet sich bereits auf Ihrem lokalen Computer. Daher müssen Sie lediglich eine Konfigurationsdatei im betreffenden Verzeichnis erstellen und in Ihrem Code auf sie verweisen, um ihn mit Ihrem Arbeitsbereich zu verbinden. Um das lokale Verzeichnis, das Ihre Dateien und Skripts enthält, weiterhin zu verwenden, geben Sie den Namen des Verzeichnisses im Python-Befehl ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ein. Alternativ hierzu können Sie auch den CLI-Befehl `az ml project attach` verwenden.  Beispiel: 
+Ein großer Teil des Projektinhalts befindet sich bereits auf Ihrem lokalen Computer. Daher müssen Sie lediglich eine Konfigurationsdatei im betreffenden Verzeichnis erstellen und in Ihrem Code auf sie verweisen, um ihn mit Ihrem Arbeitsbereich zu verbinden. Um das lokale Verzeichnis, das Ihre Dateien und Skripts enthält, weiterhin zu verwenden, geben Sie den Namen des Verzeichnisses im Python-Befehl ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ein. Alternativ hierzu können Sie auch den CLI-Befehl `az ml project attach` verwenden.  Beispiel:
 ```python
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
@@ -105,7 +105,7 @@ Ja, sie werden noch bis Januar funktionieren. Siehe den vorigen Abschnitt [Zeitp
 
 Wenn Sie das neue Python SDK in der neuesten Version verwenden, können Sie mit dem Azure Machine Learning Service in beliebigen Python-Umgebungen interagieren. Informationen zur Installation des aktuellen <a href="https://aka.ms/aml-sdk" target="_blank">SDKs</a>. Sie können auch die aktualisierte [Azure Machine Learning CLI-Erweiterung](reference-azure-machine-learning-cli.md) mit dem umfassenden Satz an `az ml`-Befehlen verwenden, um mit dem Dienst in einer beliebigen Befehlszeilenumgebung zu interagieren, einschließlich der Azure Cloud Shell.
 
-## <a name="what-about-visual-studio-code-tools-for-ai"></a>Wie sieht es mit Visual Studio Code Tools for AI aus?
+## <a name="what-about-visual-studio-code-tools-for-ai"></a>Wie sieht es mit Visual Studio Code Tools für KI aus?
 
 In dieser aktuellen Version wurde die Erweiterung in Azure Machine Learning für Visual Studio Code umbenannt sowie erweitert und verbessert, um die zuvor genannten neuen Features zu unterstützen.
 

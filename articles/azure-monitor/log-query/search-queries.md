@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267682"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65560839"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Suchabfragen in Azure Monitor-Protokollen
 
@@ -64,7 +64,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Wenn Sie `==` anstelle von `:` verwenden, würden die Ergebnisse Datensätze enthalten, bei denen die Spalte *Quelle* exakt den Wert „error“ mit genau dieser Schreibweise aufweist. Mit „:“ werden Datensätze, bei denen *Quelle* Werte wie „error code 404“ oder „Error“ aufweist, nicht miteinbezogen.
+> Wenn Sie `==` anstelle von `:` verwenden, würden die Ergebnisse Datensätze enthalten, bei denen die Spalte *Quelle* exakt den Wert „error“ mit genau dieser Schreibweise aufweist. Mit „:“ werden Datensätze, bei denen *Quelle* Werte wie „error code 404“ oder „Error“ aufweist, miteinbezogen.
 
 ## <a name="case-sensitivity"></a>Groß-/Kleinschreibung
 Standardmäßig wird die Groß-/Kleinschreibung bei der Suche nach Benennungen nicht berücksichtigt, damit z.B. die Suche nach „dns“ Ergebnisse wie „DNS“, „dns“ oder „Dns“ zurückgibt. Damit die Groß-/Kleinschreibung bei der Suche berücksichtigt wird, verwenden Sie die Option `kind`:

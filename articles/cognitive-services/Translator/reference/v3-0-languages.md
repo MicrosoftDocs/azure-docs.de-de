@@ -3,19 +3,19 @@ title: Verwenden der Languages-Methode der Textübersetzungs-API
 titlesuffix: Azure Cognitive Services
 description: Verwenden Sie die Languages-Methode der Textübersetzungs-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: v-pawal
+ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915763"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389730"
 ---
 # <a name="translator-text-api-30-languages"></a>Textübersetzungs-API 3.0: Languages
 
@@ -263,7 +263,7 @@ Im Folgenden finden Sie die möglichen HTTP-Statuscodes, die eine Anforderung zu
   </tr>
   <tr>
     <td>429</td>
-    <td>Der Aufrufer sendet zu viele Anforderungen.</td>
+    <td>Der Server hat die Anforderung abgelehnt, da der Client die Anforderungsgrenzwerte überschritten hat.</td>
   </tr>
   <tr>
     <td>500</td>

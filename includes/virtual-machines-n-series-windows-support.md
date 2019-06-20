@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5fb92c95463a5c1766b543dfc7b08a49250beda7
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 0dda467c3906c217c18e1340f7dc2a464dcbccae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56078553"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154851"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Unterstützte Betriebssysteme und Treiber
 
@@ -36,5 +36,5 @@ Microsoft vertreibt Installationsprogramme für NVIDIA GRID-Treiber für virtuel
 
 | Betriebssystem | Treiber |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 (bis zu Version 1803) | [GRID 7.1 (412.16)](https://go.microsoft.com/fwlink/?linkid=874181) (EXE-Datei) |
-| Windows Server 2012 R2 | [GRID 7.1 (412.16)](https://go.microsoft.com/fwlink/?linkid=874184) (EXE-Datei)  |
+| Windows Server 2016<br/><br/>Windows 10 (bis zu Version 1803) | [GRID 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874181) (EXE-Datei) |
+| Windows Server 2012 R2 | [GRID 8.0 (425.31)](https://go.microsoft.com/fwlink/?linkid=874184) (EXE-Datei)  |

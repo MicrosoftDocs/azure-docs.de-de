@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 0466265ad5a24e8ea6dc5079e2b4006d74e7dde0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452531"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62097688"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Konfigurieren eines ILB-Listeners für AlwaysOn-Verfügbarkeitsgruppen in Azure
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "38452531"
 ## <a name="overview"></a>Übersicht
 
 > [!IMPORTANT]
-> Azure bietet zwei Bereitstellungsmodelle für das Erstellen und Verwenden von Ressourcen: [Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md) und klassisch. Dieser Artikel gilt für das klassische Bereitstellungsmodell. Wir empfehlen für die meisten Neubereitstellungen das Resource Manager-Modell.
+> Azure verfügt über zwei verschiedene Bereitstellungsmodelle für das Erstellen und Verwenden von Ressourcen: [Azure Resource Manager und klassische Bereitstellung](../../../azure-resource-manager/resource-manager-deployment-model.md). Dieser Artikel gilt für das klassische Bereitstellungsmodell. Wir empfehlen für die meisten Neubereitstellungen das Resource Manager-Modell.
 
 Informationen zum Konfigurieren eines Listeners für eine AlwaysOn-Verfügbarkeitsgruppe im Resource Manager-Modell finden Sie unter [Konfigurieren eines Load Balancers für eine AlwaysOn-Verfügbarkeitsgruppe in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 

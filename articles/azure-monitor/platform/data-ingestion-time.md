@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000045"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65605603"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Protokolldatenerfassungszeit in Azure Monitor
 Azure Monitor ist ein Hochleistungs-Datendienst, der Tausende Kunden bedient, die mit zunehmender Tendenz jeden Monat Terabytes von Daten senden. Häufig werden Fragen nach dem Zeitbedarf gestellt, der nach dem Sammeln der Protokolldaten bis zu ihrer Verfügbarkeit zu veranschlagen ist. Dieser Artikel erläutert die verschiedenen Faktoren, die sich auf diese Wartezeit auswirken.
@@ -104,7 +104,7 @@ Heartbeat
 | render timechart  
 ```
  
-Mit der folgenden Abfrage können Sie die Erfassungszeit von Computern nach dem Land anzeigen, in dem sich diese basierend auf der IP-Adresse befinden: 
+Mit der folgenden Abfrage können Sie die Erfassungszeit von Computern nach dem Land oder der Region anzeigen, in dem bzw. der sich diese basierend auf der IP-Adresse befinden: 
 
 ``` Kusto
 Heartbeat 

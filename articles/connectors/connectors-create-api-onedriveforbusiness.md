@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 63cb02c52b5def12675ccca4f2cd292a8ad4bb66
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295641"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62104917"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Erste Schritte mit dem OneDrive for Business-Connector
 Stellen Sie eine Verbindung mit OneDrive for Business her und verwalten Sie dort Ihre Dateien. Sie mit den Dateien verschiedene Aktionen ausführen, z.B. Hochladen, Aktualisieren, Abrufen und Löschen.

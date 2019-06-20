@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 91c58507d8758a65772110afba71354deecd3b12
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024284"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65523903"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>REST-API für den Azure Search-Dienst: Version 2019-05-06-Preview
 Dieser Artikel beschreibt die Version `api-version=2019-05-06-Preview` der Azure Search-Dienst-REST-API, welche die folgenden experimentellen Features bietet, die noch nicht allgemein verfügbar sind.
@@ -37,6 +37,8 @@ Auch die [**von Kunden verwalteten Verschlüsselungsschlüssel**](search-securit
 In früheren Vorschauversionen angekündigte Features befinden sich immer noch in der öffentlichen Vorschau. Wenn Sie eine API mit einer früheren API-Vorschauversion aufrufen, können Sie weiterhin diese Version verwenden oder zu `2019-05-06-Preview` wechseln, ohne Änderungen am erwarteten Verhalten feststellen zu müssen.
 
 + [moreLikeThis-Abfrageparameter](search-more-like-this.md) sucht Dokumente, die für ein bestimmtes Dokument relevant sind. Dieses Feature war in früheren Vorschauversionen enthalten. 
+* [CSV-Blobindizierung](search-howto-index-csv-blobs.md) erstellt ein Dokument pro Zeile, statt einem Dokument pro Textblob.
+* Die [MongoDB-API-Unterstützung für Cosmos DB-Indexer](search-howto-index-cosmosdb.md) befindet sich in der Vorschau.
 
 
 ## <a name="how-to-call-a-preview-api"></a>Aufrufen einer Vorschau-API

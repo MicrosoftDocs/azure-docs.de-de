@@ -12,11 +12,11 @@ ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 342db6cc7c6c9f50345d7e72b7d68d5f116c87f9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473255"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60589098"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Exemplarische Vorgehensweisen zu Data Science in SQL Server unter Verwendung von R, Python und T-SQL
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
 ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60900607"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Überwachen von Abhängigkeiten, abgefangene Ausnahmen und Methodenausführungszeiten in Java-Web-Apps
 

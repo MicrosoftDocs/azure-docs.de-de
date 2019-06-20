@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: e150b1321f2fbd348e737222c752203281503643
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60605899"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definieren und Verwenden von Moderationsworkflows (REST)
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154412"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Einrichten von Oracle ASM auf einem virtuellen Azure Linux-Computer  

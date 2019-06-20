@@ -18,11 +18,11 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008696"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60936218"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architektur und Szenarien für die Hochverfügbarkeit von SAP NetWeaver
 
@@ -250,7 +250,7 @@ Hochverfügbarkeit von SAP in Azure kann in drei Typen unterteilt werden:
 
 * **Hochverfügbarkeit von SAP-Anwendungen:** 
 
-    Für eine vollständige Hochverfügbarkeit von SAP-Systemen müssen Sie alle kritischen SAP-Systemkomponenten schützen. Beispiel: 
+    Für eine vollständige Hochverfügbarkeit von SAP-Systemen müssen Sie alle kritischen SAP-Systemkomponenten schützen. Beispiel:
     * Redundante SAP-Anwendungsserver
     * Einmalig auftretende Komponenten. Beispiel: eine Single Point of Failure-Komponente (SPOF) wie z.B. eine SAP ASCS/SCS-Instanz oder ein Datenbank-Managementsystem (DBMS).
 
@@ -268,7 +268,7 @@ Als Grundlage für die Berechnung werden 30 Tage pro Monat bzw. 43.200 Minuten v
 
 (Verfügbarkeitsdienst Nr. 1/100) × (Verfügbarkeitsdienst Nr. 2/100) × (Verfügbarkeitsdienst Nr. 3/100) \*…
 
-Beispiel: 
+Beispiel:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 bzw. eine allgemeine Verfügbarkeit von 99,75 Prozent.
 
@@ -335,7 +335,7 @@ Weitere Informationen zu diesem Ansatz finden Sie unter [Verwenden der Neustartf
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Hochverfügbarkeit von SAP-Anwendungen in Azure IaaS
 
-Für eine vollständige Hochverfügbarkeit von SAP-Systemen müssen Sie alle kritischen SAP-Systemkomponenten schützen. Beispiel: 
+Für eine vollständige Hochverfügbarkeit von SAP-Systemen müssen Sie alle kritischen SAP-Systemkomponenten schützen. Beispiel:
   * Redundante SAP-Anwendungsserver
   * Einmalig auftretende Komponenten. Beispiel: eine Single Point of Failure-Komponente (SPOF) wie z.B. eine SAP ASCS/SCS-Instanz oder ein Datenbank-Managementsystem (DBMS).
 
@@ -369,7 +369,7 @@ Die Anzahl der von einer Azure-Verfügbarkeitsgruppe innerhalb einer Azure-Skali
 Wenn Sie mehrere SAP-Anwendungsserverinstanzen auf eigenen dedizierten virtuellen Computern bereitstellen, entsteht bei fünf Updatedomänen das folgende Bild. Die aktuelle maximale Anzahl von Update- und Fehlerdomänen innerhalb einer Verfügbarkeitsgruppe kann sich zukünftig ändern:
 
 ![Abbildung 2: Hochverfügbarkeit von SAP-Anwendungsservern in einer Azure-Verfügbarkeitsgruppe][planning-guide-figure-3000]
-_**Abbildung 2:** Hochverfügbarkeit von SAP-Anwendungsservern in einer Azure-Verfügbarkeitsgruppe_
+ _**Abbildung 2:** Hochverfügbarkeit von SAP-Anwendungsservern in einer Azure-Verfügbarkeitsgruppe_
 
 Weitere Informationen finden Sie unter [Verwalten der Verfügbarkeit virtueller Windows-Computer in Azure][azure-virtual-machines-manage-availability].
 

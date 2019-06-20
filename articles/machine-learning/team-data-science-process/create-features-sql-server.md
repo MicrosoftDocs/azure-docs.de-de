@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854890"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65602941"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Erstellen von Features für Daten in SQL Server mithilfe von SQL und Python
 Dieses Dokument veranschaulicht das Generieren von Features für Daten auf einem virtuellen SQL Server-Computer in Azure, die dazu beitragen, dass Algorithmen effizienter aus den Daten lernen können. Für diese Aufgabe können Sie SQL oder eine Programmiersprache wie Python verwenden. Beide Herangehensweisen werden hier vorgestellt.
@@ -68,7 +68,7 @@ Es folgt eine kurze Einführung in Positionsdaten mit Längen- und Breitengrad (
 * Das Vorzeichen gibt an, ob sich die Position im Norden, Süden, Osten oder Westen auf dem Globus befindet.
 * Eine vor dem Komma dreistellige Zahl ungleich Null gibt den Längengrad an. Breitengrade werden nicht verwendet.
 * Die Zehnerstelle gibt eine Position auf ca. 1.000 km Genauigkeit an. Damit wissen Sie, welcher Kontinent oder welcher Ozean gemeint ist.
-* Die Einheitenstelle (ein Dezimalzeichen) gibt die Position auf etwa 111 km (60 nautische Meilen, etwa 69 Meilen) genau an. Damit wissen Sie ungefähr das Land.
+* Die Einheitenstelle (ein Dezimalzeichen) gibt die Position auf etwa 111 km (60 nautische Meilen, etwa 69 Meilen) genau an. Damit wissen Sie ungefähr das Land/die Region.
 * Die erste Dezimalstelle gibt einen Wert von etwa 11,1 km Genauigkeit an: Sie können damit die Position von einer großen Stadt von der einer benachbarten großen Stadt unterscheiden.
 * Die zweite Dezimalstelle bietet eine Genauigkeit von ca. 1,1 km: Damit können Sie Dörfer voneinander trennen.
 * Die dritte Dezimalstelle ist auf etwa 110 m genau: Sie können so große landwirtschaftliche Felder oder Industriegebiete identifizieren.

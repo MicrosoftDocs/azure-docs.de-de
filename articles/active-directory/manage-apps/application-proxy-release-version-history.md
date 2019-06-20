@@ -17,10 +17,10 @@ ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783283"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-Anwendungsproxy: Verlauf der Versionsveröffentlichungen
@@ -38,7 +38,7 @@ Herunterladen des Azure AD-Anwendungsproxyconnectors |  [Laden Sie den aktuellen
 
 ### <a name="release-status"></a>Releasestatus
 
-20. September 2018: Für den Download veröffentlicht
+20\. September 2018: Für den Download veröffentlicht
 
 ### <a name="new-features-and-improvements"></a>Neue Features und Verbesserungen
 
@@ -56,7 +56,7 @@ Herunterladen des Azure AD-Anwendungsproxyconnectors |  [Laden Sie den aktuellen
 
 ### <a name="release-status"></a>Releasestatus
 
-19. Januar 2018: Für den Download veröffentlicht
+19\. Januar 2018: Für den Download veröffentlicht
 
 ### <a name="fixed-issues"></a>Behobene Probleme
 
@@ -66,7 +66,7 @@ Herunterladen des Azure AD-Anwendungsproxyconnectors |  [Laden Sie den aktuellen
 
 ### <a name="release-status"></a>Releasestatus 
 
-25. Mai 2017: Für den Download veröffentlicht 
+25\. Mai 2017: Für den Download veröffentlicht 
 
 ### <a name="new-features-and-improvements"></a>Neue Features und Verbesserungen 
 
@@ -76,7 +76,7 @@ Verbesserte Kontrolle über die Beschränkungen für ausgehende Verbindungen von
 
 ### <a name="release-status"></a>Releasestatus
 
-15. April 2017: Für den Download veröffentlicht
+15\. April 2017: Für den Download veröffentlicht
 
 ### <a name="new-features-and-improvements"></a>Neue Features und Verbesserungen
 

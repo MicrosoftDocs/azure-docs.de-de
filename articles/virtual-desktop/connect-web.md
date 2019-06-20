@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142447"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834013"
 ---
 # <a name="connect-from-a-web-browser"></a>Herstellen einer Verbindung über einen Webbrowser
 
@@ -38,6 +38,6 @@ Es sollten alle HTML5-fähigen Browser funktionieren, aber hier sind die Betrieb
 Navigieren Sie in einem Browser zum [Windows Virtual Desktop-Webclient](https://rdweb.wvd.microsoft.com/webclient), und melden Sie sich mit Ihrem Benutzerkonto an.
 
 >[!NOTE]
->Falls Sie sich bereits mit einem Azure AD-Konto angemeldet haben, das sich von dem gewünschten Konto für Windows Virtual Desktop unterscheidet, müssen Sie sich ggf. abmelden oder ein privates Browserfenster verwenden.
+>Wenn Sie sich bereits mit einem anderen Azure Active Directory-Konto angemeldet haben als dem, das Sie für Windows Virtual Desktop verwenden möchten, sollten Sie sich entweder abmelden oder ein privates Browserfenster verwenden.
 
 Nach dem Anmelden sollte eine Liste mit Ressourcen angezeigt werden. Sie können Ressourcen starten, indem Sie sie auf der Registerkarte **Alle Ressourcen** wie eine normale App auswählen.

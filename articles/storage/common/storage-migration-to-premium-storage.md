@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
 ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153761"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrieren zu Azure Storage Premium (Nicht verwaltete Datenträger)
@@ -58,7 +58,7 @@ Es gibt fünf Datenträgertypen, die Sie mit Ihrem virtuellen Computer verwenden
 | Premium-Datenträgertyp  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
 | Datenträgergröße           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
-| IOPS pro Datenträger       | 500   | 2.300  | 5.000           | 7.500           | 7.500           | 
+| IOPS pro Datenträger       | 500   | 2\.300  | 5\.000           | 7\.500           | 7\.500           | 
 | Durchsatz pro Datenträger | 100 MB pro Sekunde | 150 MB pro Sekunde | 200 MB pro Sekunde | 250 MB pro Sekunde | 250 MB pro Sekunde |
 
 Legen Sie je nach Workload fest, ob zusätzliche Datenträger für Ihren virtuellen Computer erforderlich sind. Sie können mehrere Datenträger für permanente Daten auf Ihrem virtuellen Computer anfügen. Bei Bedarf können Sie Daten über die Datenträger verteilen, um die Kapazität und die Leistung des Volumens zu erhöhen. ([Hier](../../virtual-machines/windows/premium-storage-performance.md#disk-striping) erfahren Sie, was Datenträgerstriping ist.) Wenn Sie Daten über Storage Premium-Datenträger mithilfe von [Speicherplätzen][4] verteilen, sollten Sie sie für jeden verwendeten Datenträger eine Spalte konfigurieren. Andernfalls kann die Gesamtleistung des Stripesetvolumes aufgrund ungleicher Verteilung des Datenverkehrs auf die Datenträger niedriger sein als erwartet. Für Linux-VMs können Sie dazu das Hilfsprogramm *mdadm* verwenden. Weitere Informationen finden Sie im Artikel [Konfigurieren von Software-RAID unter Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
@@ -180,11 +180,11 @@ Mit AzCopy können Sie die VHD auf einfache Weise über das Internet hochladen. 
 
     Es folgt die Beschreibung der im AzCopy-Befehl verwendeten Parameter:
 
-   * **/Source: *&lt;Quelle&gt;:*** Speicherort der Ordner- oder Speichercontainer-URL, die die VHD enthält.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** Speicherkontoschlüssel des Quellspeicherkontos.
-   * **/Dest: *&lt;Ziel&gt;:*** Speichercontainer-URL, in die die VHD kopiert werden soll.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** Speicherkontoschlüssel des Zielspeicherkontos.
-   * **/Pattern: *&lt;file-name&gt;:*** Geben Sie den Dateinamen der zu kopierenden VHD-Datei an.
+   * **/Source: *&lt;Quelle&gt;:* ** Speicherort der Ordner- oder Speichercontainer-URL, die die VHD enthält.
+   * **/SourceKey: *&lt;source-account-key&gt;:* ** Speicherkontoschlüssel des Quellspeicherkontos.
+   * **/Dest: *&lt;Ziel&gt;:* ** Speichercontainer-URL, in die die VHD kopiert werden soll.
+   * **/DestKey: *&lt;dest-account-key&gt;:* ** Speicherkontoschlüssel des Zielspeicherkontos.
+   * **/Pattern: *&lt;file-name&gt;:* ** Geben Sie den Dateinamen der zu kopierenden VHD-Datei an.
 
 Details zur Verwendung des Tools AzCopy finden Sie unter [Übertragen von Daten mit dem Befehlszeilenprogramm AzCopy](storage-use-azcopy.md).
 
@@ -277,12 +277,12 @@ Mit AzCopy können Sie die VHD auf einfache Weise über das Internet hochladen. 
 
     Es folgt die Beschreibung der im AzCopy-Befehl verwendeten Parameter:
 
-   * **/Source: *&lt;Quelle&gt;:*** Speicherort der Ordner- oder Speichercontainer-URL, die die VHD enthält.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** Speicherkontoschlüssel des Quellspeicherkontos.
-   * **/Dest: *&lt;Ziel&gt;:*** Speichercontainer-URL, in die die VHD kopiert werden soll.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** Speicherkontoschlüssel des Zielspeicherkontos.
+   * **/Source: *&lt;Quelle&gt;:* ** Speicherort der Ordner- oder Speichercontainer-URL, die die VHD enthält.
+   * **/SourceKey: *&lt;source-account-key&gt;:* ** Speicherkontoschlüssel des Quellspeicherkontos.
+   * **/Dest: *&lt;Ziel&gt;:* ** Speichercontainer-URL, in die die VHD kopiert werden soll.
+   * **/DestKey: *&lt;dest-account-key&gt;:* ** Speicherkontoschlüssel des Zielspeicherkontos.
    * **/BlobType: page:** Gibt an, dass das Ziel ein Seitenblob ist.
-   * **/Pattern: *&lt;file-name&gt;:*** Geben Sie den Dateinamen der zu kopierenden VHD-Datei an.
+   * **/Pattern: *&lt;file-name&gt;:* ** Geben Sie den Dateinamen der zu kopierenden VHD-Datei an.
 
 Details zur Verwendung des Tools AzCopy finden Sie unter [Übertragen von Daten mit dem Befehlszeilenprogramm AzCopy](storage-use-azcopy.md).
 

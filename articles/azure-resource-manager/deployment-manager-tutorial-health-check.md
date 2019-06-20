@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790126"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479175"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Verwenden der Integritätsprüfung im Azure-Bereitstellungs-Manager (Public Preview)
 
@@ -50,18 +50,18 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie Folgendes:
 
 * Absolvieren Sie das Tutorial [Verwenden des Azure-Bereitstellungs-Managers mit Resource Manager-Vorlagen (private Vorschau)](./deployment-manager-tutorial.md).
-* Laden Sie die [Vorlagen und Artefakte](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) herunter, die in diesem Tutorial verwendet werden. 
+* Laden Sie die [Vorlagen und Artefakte](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) herunter, die in diesem Tutorial verwendet werden.
 
 ## <a name="create-a-health-check-service-simulator"></a>Erstellen eines Integritätsprüfungsdienst-Simulators
 
-In der Produktion nutzen Sie üblicherweise einen oder mehrere Überwachungsanbieter. Um die Integritätsintegration so einfach wie möglich zu gestalten, hat Microsoft mit einigen der führenden Unternehmen für Dienstintegritätsüberwachung zusammengearbeitet, um Ihnen eine einfache Copy&Paste-Lösung zu bieten, mit der Sie Integritätsprüfungen in Ihre Bereitstellungen integrieren können. Eine Liste mit diesen Unternehmen finden Sie unter [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers) (Integritätsüberwachungsanbieter). Im Rahmen dieses Tutorials erstellen Sie eine [Azure-Funktion](/azure/azure-functions/), um einen Integritätsüberwachungsdienst zu simulieren. Diese Funktion akzeptiert einen Statuscode und gibt den gleichen Code zurück. Ihre Azure-Bereitstellungs-Manager-Vorlage ermittelt anhand des Statuscodes, wie mit der Bereitstellung verfahren werden soll. 
+In der Produktion nutzen Sie üblicherweise einen oder mehrere Überwachungsanbieter. Um die Integritätsintegration so einfach wie möglich zu gestalten, hat Microsoft mit einigen der führenden Unternehmen für Dienstintegritätsüberwachung zusammengearbeitet, um Ihnen eine einfache Copy&Paste-Lösung zu bieten, mit der Sie Integritätsprüfungen in Ihre Bereitstellungen integrieren können. Eine Liste mit diesen Unternehmen finden Sie unter [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers) (Integritätsüberwachungsanbieter). Im Rahmen dieses Tutorials erstellen Sie eine [Azure-Funktion](/azure/azure-functions/), um einen Integritätsüberwachungsdienst zu simulieren. Diese Funktion akzeptiert einen Statuscode und gibt den gleichen Code zurück. Ihre Azure-Bereitstellungs-Manager-Vorlage ermittelt anhand des Statuscodes, wie mit der Bereitstellung verfahren werden soll.
 
 Die beiden folgenden Dateien dienen zum Bereitstellen der Azure-Funktion. Sie müssen diese Dateien für das Tutorial nicht herunterladen.
 
-* Eine Resource Manager-Vorlage unter [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Diese Vorlage wird zum Erstellen einer Azure-Funktion bereitgestellt.  
-* Eine ZIP-Datei mit dem Quellcode der Azure-Funktion: [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Diese ZIP-Datei wird von der Resource Manager-Vorlage aufgerufen.
+* Eine Resource Manager-Vorlage unter [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Diese Vorlage wird zum Erstellen einer Azure-Funktion bereitgestellt.
+* Eine ZIP-Datei mit dem Quellcode der Azure-Funktion: [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Diese ZIP-Datei wird von der Resource Manager-Vorlage aufgerufen.
 
-Wählen Sie zum Bereitstellen der Azure-Funktion **Jetzt testen** aus, um Azure Cloud Shell zu öffnen, und fügen Sie anschließend das folgende Skript in das Shell-Fenster ein.  Klicken Sie zum Einfügen des Codes mit der rechten Maustaste auf das Shell-Fenster, und wählen Sie **Einfügen** aus. 
+Wählen Sie zum Bereitstellen der Azure-Funktion **Jetzt testen** aus, um Azure Cloud Shell zu öffnen, und fügen Sie anschließend das folgende Skript in das Shell-Fenster ein.  Klicken Sie zum Einfügen des Codes mit der rechten Maustaste auf das Shell-Fenster, und wählen Sie **Einfügen** aus.
 
 > [!IMPORTANT]
 > **projectName** im PowerShell-Skript dient zum Generieren von Namen für die Azure-Dienste, die in diesem Tutorial bereitgestellt werden. Die verschiedenen Azure-Dienste haben jeweils unterschiedliche Namensanforderungen. Um sicherzustellen, dass die Bereitstellung erfolgreich ist, wählen Sie einen Namen mit weniger als 12 Zeichen, der ausschließlich aus Kleinbuchstaben und Zahlen besteht.
@@ -81,7 +81,7 @@ So überprüfen und testen Sie die Azure-Funktion:
 1. Öffnen Sie das [Azure-Portal](https://portal.azure.com).
 1. Öffnen Sie die Ressourcengruppe.  Der Standardname ist der Projektname mit dem Zusatz **rg**.
 1. Wählen Sie den App-Dienst aus der Ressourcengruppe aus.  Der Standardname des App-Diensts ist der Projektname mit dem Zusatz **webapp**.
-1. Erweitern Sie **Funktionen**, und wählen Sie dann **HttpTrigger1** aus. 
+1. Erweitern Sie **Funktionen**, und wählen Sie dann **HttpTrigger1** aus.
 
     ![Integritätsprüfung des Azure-Bereitstellungs-Managers (Azure-Funktion)](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
@@ -178,7 +178,7 @@ In diesem Abschnitt erfahren Sie, wie Sie einen Integritätsprüfungsschritt in 
     },
     ```
 
-    Auf der Grundlage der Definition wird der Rollout fortgesetzt, wenn der Integritätsstatus entweder *healthy* (fehlerfrei) oder *warning* (Warnung) lautet. 
+    Auf der Grundlage der Definition wird der Rollout fortgesetzt, wenn der Integritätsstatus entweder *healthy* (fehlerfrei) oder *warning* (Warnung) lautet.
 
 1. Aktualisieren Sie **dependsOn** in der Rolloutdefinition, um den neu definierten Integritätsprüfungsschritt einzuschließen:
 
@@ -189,7 +189,7 @@ In diesem Abschnitt erfahren Sie, wie Sie einen Integritätsprüfungsschritt in 
     ],
     ```
 
-1. Aktualisieren Sie **stepGroups**, um den Integritätsprüfungsschritt einzuschließen. **healthCheckStep** wird in **postDeploymentSteps** von **stepGroup2** aufgerufen. **stepGroup3** und **stepGroup4** werden nur bereitgestellt, wenn der fehlerfreie Status entweder *healthy* (fehlerfrei) oder *warning* (Warnung) lautet. 
+1. Aktualisieren Sie **stepGroups**, um den Integritätsprüfungsschritt einzuschließen. **healthCheckStep** wird in **postDeploymentSteps** von **stepGroup2** aufgerufen. **stepGroup3** und **stepGroup4** werden nur bereitgestellt, wenn der fehlerfreie Status entweder *healthy* (fehlerfrei) oder *warning* (Warnung) lautet.
 
     ```json
     "stepGroups": [
@@ -265,7 +265,7 @@ Vergewissern Sie sich im Azure-Portal, dass die Diensttopologie und die zugrunde
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Bereitstellen des Rollouts mit Fehlerstatus
 
-Zur Vereinfachung des Tutorials steht die überarbeitete Rolloutvorlage am folgenden Ort zur Verfügung, damit Sie keine eigene Kopie vorbereiten müssen. Falls Sie eine eigene Kopie verwenden möchten, gehen Sie wie unter [Tutorial: Verwenden des Azure-Bereitstellungs-Managers mit Resource Manager-Vorlagen (private Vorschau)](./deployment-manager-tutorial.md) beschrieben vor.
+Zur Vereinfachung des Tutorials steht die überarbeitete Rolloutvorlage an den folgenden Orten zur Verfügung, damit Sie keine eigene Kopie vorbereiten müssen. Falls Sie eine eigene Kopie verwenden möchten, gehen Sie wie unter [Tutorial: Verwenden des Azure-Bereitstellungs-Managers mit Resource Manager-Vorlagen (private Vorschau)](./deployment-manager-tutorial.md) beschrieben vor.
 
 * Topologievorlage: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
 * Artefaktspeicher: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
@@ -394,7 +394,7 @@ Wenn Sie die Azure-Ressourcen nicht mehr benötigen, löschen Sie die Ressourcen
     * **&lt;Namenspräfix>ServiceWUSrg**: Enthält die durch „ServiceWUS“ definierten Ressourcen.
     * **&lt;Namenspräfix>ServiceEUSrg**: Enthält die durch „ServiceEUS“ definierten Ressourcen.
     * Die Ressourcengruppe für die benutzerdefinierte verwaltete Identität.
-3. Klicken Sie auf den Namen der Ressourcengruppe.  
+3. Klicken Sie auf den Namen der Ressourcengruppe.
 4. Wählen Sie **Ressourcengruppe löschen** aus dem Menü ganz oben aus.
 5. Wiederholen Sie die letzten beiden Schritte, um die anderen Ressourcengruppen zu löschen, die in diesem Tutorial erstellt wurden.
 

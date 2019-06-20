@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 9165e51d07cf97756408c7f73720931abe067bb2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371746"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751578"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Vorhersagen einer Antwort mit einem einfachen Modell
 ## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Reihe „Data Science für Einsteiger“

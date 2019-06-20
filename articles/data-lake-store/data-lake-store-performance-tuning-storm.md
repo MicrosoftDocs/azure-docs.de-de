@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61436476"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Anleitung für die Leistungsoptimierung für Storm in HDInsight und Azure Data Lake Storage Gen1
 
@@ -132,7 +132,7 @@ Wenn Sie die Data Lake Storage Gen1-Grenzwerte für die Bandbreite erreichen, ko
 
 Um zu prüfen, ob eine Drosselung vorliegt, müssen Sie die Debugprotokollierung auf Clientseite aktivieren:
 
-1. Ändern Sie unter **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j** den Eintrag **&lt;root level="info"&gt;** in **&lt;root level="debug"&gt;**. Starten Sie alle Knoten und Dienste neu, damit die Konfiguration wirksam wird.
+1. Ändern Sie unter **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j** den Eintrag **&lt;root level="info"&gt;** in **&lt;root level="debug"&gt;** . Starten Sie alle Knoten und Dienste neu, damit die Konfiguration wirksam wird.
 2. Überwachen Sie die Protokolle der Storm-Topologie auf Workerknoten (unter „/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log“) auf Data Lake Storage Gen1-Einschränkungsausnahmen.
 
 ## <a name="next-steps"></a>Nächste Schritte

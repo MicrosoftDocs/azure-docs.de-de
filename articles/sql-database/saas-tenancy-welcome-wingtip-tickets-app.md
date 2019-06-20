@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a21b9f45d70151c2a2c2ae8ac6328a3eeb609b29
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 963d7d44ef3ef77604fc5a9faac479a9e4c91ee6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61487364"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Die Wingtip Tickets SaaS-Anwendung
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: rloutlaw
 ms.openlocfilehash: 67ae9eec4e6cd4fc7697e54dfd74c5e0c8f1f59c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540950"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Verwenden von Node.js-Modulen mit Azure-Anwendungen

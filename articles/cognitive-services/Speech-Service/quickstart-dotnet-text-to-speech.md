@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5ae63b1738824095073ac6b9e1071f6b4a3e5ae1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 5db2a1eebd5b2184ceff8793cb51f4e95b9dea38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518846"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067585"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Schnellstart: Konvertieren von Text in Sprache mit .NET Core
 
@@ -48,7 +48,7 @@ Für diese Schnellstartanleitung wird C# 7.1 oder höher benötigt. Es gibt vers
 
 Öffnen Sie Ihr Projekt und anschließend `tts-sample.csproj`. Stellen Sie sicher, dass `LangVersion` auf 7.1 oder höher festgelegt ist. Wenn keine Eigenschaftengruppe für die Sprachversion vorhanden ist, fügen Sie diese Zeilen hinzu:
 
-```csharp
+```xml
 <PropertyGroup>
    <LangVersion>7.1</LangVersion>
 </PropertyGroup>

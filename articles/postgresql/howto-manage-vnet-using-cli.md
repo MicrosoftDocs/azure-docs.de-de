@@ -1,20 +1,20 @@
 ---
-title: Erstellen und Verwalten von VNET-Dienstendpunkten und -regeln für Azure Database for PostgreSQL mithilfe der Azure CLI
-description: In diesem Artikel wird beschrieben, wie Sie mithilfe der Azure CLI-Befehlszeile VNet-Dienstendpunkte und -regeln für Azure Database for PostgreSQL erstellen und verwalten.
+title: Erstellen und Verwalten von VNET-Dienstendpunkten und -Regeln für Azure Database for PostgreSQL (Einzelserver) mithilfe der Azure-Befehlszeilenschnittstelle
+description: In diesem Artikel wird beschrieben, wie Sie mithilfe der Azure CLI-Befehlszeile VNET-Dienstendpunkte und -Regeln für Azure Database for PostgreSQL erstellen und verwalten.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.openlocfilehash: 7dc5a49e8b27d1a4e4126bef1cce638373e056fb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 5/6/2019
+ms.openlocfilehash: df2af0240852b23203e504d8233de4af48475438
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067564"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Erstellen und Verwalten von VNet-Dienstendpunkten für Azure Database for PostgreSQL mithilfe der Azure CLI
+# <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Erstellen und Verwalten von VNET-Dienstendpunkten für Azure Database for PostgreSQL (Einzelserver) mithilfe der Azure-Befehlszeilenschnittstelle
 VNet-Dienstendpunkte und -regeln (Virtual Network) erweitern den privaten Adressraum eines virtuellen Netzwerks auf Ihren Azure Database for PostgreSQL-Server. Dank praktischer Azure Command Line Interface-Befehle (CLI) können Sie zum Verwalten Ihres Servers VNet-Dienstendpunkte und -regeln erstellen, aktualisieren, löschen, auflisten und anzeigen. Eine Übersicht über die VNet-Dienstendpunkte für Azure Database for PostgreSQL, einschließlich Einschränkungen, finden Sie unter [Azure Database for PostgreSQL Server VNet service endpoints (VNet-Dienstendpunkte für Azure Database for PostgreSQL Server)](concepts-data-access-and-security-vnet.md). VNET-Dienstendpunkte sind in allen unterstützten Regionen für Azure Database for PostgreSQL verfügbar.
 
 ## <a name="prerequisites"></a>Voraussetzungen

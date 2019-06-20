@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192271"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954475"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referenz zu ACR Tasks: YAML
 
@@ -81,7 +81,7 @@ Aufgabeneigenschaften werden in der Regel am Anfang einer Datei vom Typ `acr-tas
 
 | Eigenschaft | Type | Optional | BESCHREIBUNG | Außerkraftsetzung unterstützt | Standardwert |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | Zeichenfolge | Ja | Die Version der Datei `acr-task.yaml`, die vom ACR Tasks-Dienst analysiert wird. ACR Tasks versucht, die Abwärtskompatibilität zu gewährleisten. Dieser Wert ermöglicht es ACR Tasks jedoch, die Kompatibilität innerhalb einer definierten Version sicherzustellen. Ohne Angabe wird standardmäßig die neueste Version verwendet. | Nein  | Keine |
+| `version` | Zeichenfolge | Ja | Die Version der Datei `acr-task.yaml`, die vom ACR Tasks-Dienst analysiert wird. ACR Tasks versucht, die Abwärtskompatibilität zu gewährleisten. Dieser Wert ermöglicht es ACR Tasks jedoch, die Kompatibilität innerhalb einer definierten Version sicherzustellen. Ohne Angabe wird standardmäßig die neueste Version verwendet. | Nein | Keine |
 | `stepTimeout` | int (Sekunden) | Ja | Die maximale Anzahl von Sekunden, für die ein Schritt ausgeführt werden kann. Wenn die Eigenschaft für eine Aufgabe angegeben wird, legt sie die `timeout`-Standardeigenschaft für alle Schritte fest. Wird die Eigenschaft `timeout` für einen Schritt angegeben, überschreibt sie die für die Aufgabe angegebene Eigenschaft. | Ja | 600 (10 Minuten) |
 | `workingDirectory` | Zeichenfolge | Ja | Das Arbeitsverzeichnis des Containers während der Laufzeit. Wenn die Eigenschaft für eine Aufgabe angegeben wird, legt sie die `workingDirectory`-Standardeigenschaft für alle Schritte fest. Wird die Eigenschaft für einen Schritt angegeben, überschreibt sie die für die Aufgabe angegebene Eigenschaft. | Ja | `$HOME` |
 | `env` | [string, string, ...] | Ja |  Ein Array von Zeichenfolgen im Format `key=value`, die die Umgebungsvariablen für die Aufgabe definieren. Wenn die Eigenschaft für eine Aufgabe angegeben wird, legt sie die `env`-Standardeigenschaft für alle Schritte fest. Wird die Eigenschaft für einen Schritt angegeben, überschreibt sie sämtliche von der Aufgabe geerbten Umgebungsvariablen. | Keine |
@@ -94,8 +94,8 @@ Das Geheimnisobjekt hat folgende Eigenschaften:
 
 | Eigenschaft | Type | Optional | BESCHREIBUNG | Standardwert |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | Zeichenfolge | Nein  | Der Bezeichner des Geheimnisses. | Keine |
-| `akv` | Zeichenfolge | Ja | Die Geheimnis-URL von Azure Key Vault (AKV). | Keine |
+| `id` | Zeichenfolge | Nein | Der Bezeichner des Geheimnisses. | Keine |
+| `keyvault` | Zeichenfolge | Ja | Die Geheimnis-URL von Azure Key Vault. | Keine |
 | `clientID` | Zeichenfolge | Ja | Die Client-ID der benutzerseitig zugewiesenen verwalteten Identität für Azure-Ressourcen. | Keine |
 
 ### <a name="network"></a>Netzwerk
@@ -104,7 +104,7 @@ Das Netzwerkobjekt hat folgende Eigenschaften:
 
 | Eigenschaft | Type | Optional | BESCHREIBUNG | Standardwert |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | Zeichenfolge | Nein  | Der Name des Netzwerks. | Keine |
+| `name` | Zeichenfolge | Nein | Der Name des Netzwerks. | Keine |
 | `driver` | Zeichenfolge | Ja | Der Treiber für die Netzwerkverwaltung. | Keine |
 | `ipv6` | bool | Ja | Aktivierungsstatus der IPv6-Netzwerkfunktionen. | `false` |
 | `skipCreation` | bool | Ja | Gibt an, ob die Netzwerkerstellung übersprungen werden soll. | `false` |
@@ -139,7 +139,7 @@ Der Schritttyp `build` unterstützt die Parameter in der folgenden Tabelle. Dar�
 | --------- | ----------- | :-------: |
 | `-t` &#124; `--image` | Definiert das vollständig qualifizierte `image:tag` des erstellten Images.<br /><br />Da Images für interne Aufgabenprüfungen verwendet werden können (z. B. Funktionstests), erfordern nicht alle Images einen `push` in eine Registrierung. Um ein Image innerhalb einer Aufgabenausführung anzugeben, erfordert das Image jedoch einen Namen, auf den verwiesen werden kann.<br /><br />Im Gegensatz zu `az acr build` bietet die Ausführung von ACR Tasks kein Standardverhalten für Pushvorgänge. Das Standardszenario bei ACR Tasks setzt voraus, dass ein Image erstellt, überprüft und anschließend gepusht werden kann. Informationen zum optionalen Pushen von erstellten Images finden Sie im Abschnitt zu [push](#push). | Ja |
 | `-f` &#124; `--file` | Gibt die Dockerfile-Datei an, die an `docker build` übergeben wird. Ist keine Datei angegeben, wird die Dockerfile-Standarddatei im Stamm des Kontexts verwendet. Wenn Sie ein Dockerfile angeben möchten, übergeben Sie den Dateinamen relativ zum Stamm des Kontexts. | Ja |
-| `context` | Das an `docker build` übergebene Stammverzeichnis. Das Stammverzeichnis jeder Aufgabe wird auf ein freigegebenes Arbeitsverzeichnis ([WorkingDirectory](#task-step-properties)) festgelegt und enthält den Stamm des zugehörigen geklonten Git-Verzeichnisses. | Nein  |
+| `context` | Das an `docker build` übergebene Stammverzeichnis. Das Stammverzeichnis jeder Aufgabe wird auf ein freigegebenes Arbeitsverzeichnis ([WorkingDirectory](#task-step-properties)) festgelegt und enthält den Stamm des zugehörigen geklonten Git-Verzeichnisses. | Nein |
 
 ### <a name="properties-build"></a>Eigenschaften: build
 

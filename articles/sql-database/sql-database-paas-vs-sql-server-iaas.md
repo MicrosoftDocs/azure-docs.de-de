@@ -14,11 +14,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360822"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60584851"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Auswählen der richtigen SQL Server-Option in Azure
 
@@ -62,7 +62,7 @@ In den folgenden Abschnitten erfahren Sie mehr über SQL Server in der öffentli
 
 Im Allgemeinen sind diese beiden SQL-Optionen für unterschiedliche Zwecke optimiert:
 
-- **Azure SQL-Datenbank**
+- **Azure SQL-Datenbank**
 
 Wurde zur Senkung der Gesamtverwaltungskosten für die Bereitstellung und Verwaltung vieler Datenbanken auf ein absolutes Mindestmaß optimiert. Die laufenden Administrationskosten werden reduziert, weil Sie keine virtuellen Computer, Betriebssysteme oder Datenbanksoftware verwalten müssen. Sie müssen sich nicht um Upgrades, Hochverfügbarkeit oder [Sicherungen](sql-database-automated-backups.md)kümmern. Im Allgemeinen lässt sich mit Azure SQL-Datenbank sich die Anzahl der Datenbanken, die von einer einzelnen IT- oder Entwicklungsressource verwaltet werden können, drastisch steigern. [Pools für elastische Datenbanken](sql-database-elastic-pool.md) unterstützen auch SaaS-Anwendungsarchitekturen mit mehreren Mandanten durch Funktionen wie Mandantenisolation und die Skalierbarkeit zur Kostensenkung durch datenbankübergreifende Ressourcennutzung. [Verwaltete Instanzen](sql-database-managed-instance.md) bieten Unterstützung für instanzbezogene Funktionen, die eine einfache Migration bestehender Anwendungen sowie eine datenbankübergreifende Ressourcennutzung ermöglichen.
 
@@ -126,7 +126,7 @@ Wenn Sie erstmals eine Cloud-Plattform verwenden, enthalten die Kosten der Anwen
 - Kosten für SQL-Datenbank-Dienst
 - Keine Anschaffungskosten für Hardware
 
-**Bei Verwendung von SQL Server auf virtuellen Azure-Computern:**
+**Bei Verwendung von SQL Server auf Azure Virtual Machines:**
 
 - Höhere Verwaltungskosten
 - Begrenzte oder sogar keine Entwicklungskosten für migrierte Anwendungen

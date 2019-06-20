@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 1caed6aa859b780648ac58e425ab52a030e9cc65
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c713215001c65c4bf735817f2e15caad0ae7eb8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783469"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61084847"
 ---
 # <a name="azure-cli-samples-for-azure-lab-services"></a>Azure CLI-Beispiele für Azure Lab Services
 

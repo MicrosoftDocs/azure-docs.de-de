@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: be579b631fd910c56f2c360d6aace5b8d35c22e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412788"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235981"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Erstellen einer Windows-App mit einem Azure-Back-End
 
@@ -39,7 +39,7 @@ Für dieses Tutorial benötigen Sie Folgendes:
 
 * Ein aktives Azure-Konto. Falls Sie kein Konto besitzen, können Sie sich für eine Azure-Testversion registrieren. So erhalten Sie bis zu 10 kostenlose mobile Apps, die Sie auch nach Ablauf der Testversion weiter nutzen können. Ausführliche Informationen finden Sie unter [Kostenlose Azure-Testversion](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10
-* [Visual Studio Community].
+* Visual Studio Community 2017.
 * Kenntnisse in der Entwicklung von UWP-Apps. In der [UWP-Dokumentation](https://docs.microsoft.com/windows/uwp/) finden Sie Informationen zu den [ersten Schritten](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) beim Erstellen von UWP-Apps.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Erstellen eines neuen Azure Mobile App-Back-Ends
@@ -48,42 +48,29 @@ Führen Sie die folgenden Schritte aus, um ein neues mobiles App-Back-End zu ers
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Sie haben nun ein Azure-Back-End für mobile Apps bereitgestellt, das von Ihren mobilen Clientanwendungen verwendet werden kann. Als Nächstes laden Sie ein Serverprojekt für ein einfaches "Aufgabenlisten"-Back-End herunter und veröffentlichen es in Azure.
-
-## <a name="configure-the-server-project"></a>Konfigurieren des Serverprojekts
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Erstellen einer Datenbankverbindung und Konfigurieren des Client- und Serverprojekts
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-client-project"></a>Herunterladen und Ausführen des Clientprojekts
+## <a name="run-the-client-project"></a>Ausführen des Clientprojekts
 
-Sobald Sie Ihr Back-End für mobile Apps konfiguriert haben, können Sie eine neue Client-App erstellen oder eine vorhandene App so ändern, dass eine Verbindung mit Azure hergestellt wird. In diesem Abschnitt laden Sie ein Projekt für eine UWP-Beispiel-App herunter, das zum Herstellen einer Verbindung mit dem Mobile App-Back-End angepasst wird.
+1. Öffnen Sie das UWP-Projekt.
 
-1. Klicken Sie im Blatt **Schnellstart** für Ihr Back-End für mobile Apps auf **Neue App erstellen** > **Herunterladen**, und entpacken Sie die komprimierten Projektdateien auf Ihrem lokalen Computer.
+2. Wechseln Sie zum [Azure-Portal](https://portal.azure.com/), und navigieren Sie zu der mobilen App, die Sie erstellt haben. Suchen Sie auf dem Blatt `Overview` nach der URL, die der öffentliche Endpunkt für Ihre mobile App ist. Beispiel: der Sitename für meinen App-Namen „test123“ wird https://test123.azurewebsites.net.
 
-    ![Windows-Schnellstartprojekt herunterladen](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
+3. Öffnen Sie die Datei `App.xaml.cs` in diesem Ordner: „windows-uwp-cs/ZUMOAPPNAME/“. Der Anwendungsname lautet `ZUMOAPPNAME`.
 
-2. Öffnen Sie das UWP-Projekt, und drücken Sie F5, um die App bereitzustellen und auszuführen.
-3. Geben Sie in der App unter **TodoItem** einfügen einen beschreibenden Text ein, zum Beispiel *Abschließen des Tutorials*. Klicken Sie dann auf **Speichern**.
+4. Ersetzen Sie in der `App`-Klasse den Parameter `ZUMOAPPURL` durch den oben stehenden öffentlichen Endpunkt.
+
+    `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
+
+    wird zu
+    
+    `public static MobileServiceClient MobileService = new MobileServiceClient("https://test123.azurewebsites.net");`
+
+5. Drücken Sie die Taste F5, um die App bereitzustellen und auszuführen.
+
+6. Geben Sie in der App unter **TodoItem** einfügen einen beschreibenden Text ein, zum Beispiel *Abschließen des Tutorials*. Klicken Sie dann auf **Speichern**.
 
     ![Windows-Schnellstart – Vollständig für Desktop](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
     Dadurch wird eine POST-Anforderung an das neue in Azure gehostete mobile App-Back-End gesendet.
-
-> [!TIP]
-> Sie können das UWP-App-Projekt der gleichen Projektmappe hinzufügen wie das Serverprojekt, falls Sie das .NET-Back-End nutzen. Dies erleichtert das Debuggen und Testen der App und des Back-Ends in der gleichen Visual Studio-Projektmappe. Wenn Sie der Back-End-Projektmappe ein UWP-App-Projekt hinzufügen möchten, müssen Sie Visual Studio 2017 oder höher verwenden.
-
-## <a name="next-steps"></a>Nächste Schritte
-
-* [Hinzufügen von Authentifizierung zur App](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-   Enthält Informationen über die Authentifizierung von Benutzern der App mit einem Identitätsanbieter.
-* [Hinzufügen von Pushbenachrichtigungen zur App](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-   Hier erfahren Sie, wie Sie Ihrer App die Unterstützung von Pushbenachrichtigungen hinzufügen und Ihr Mobile App-Back-End für die Verwendung von Azure Notification Hubs zum Senden von Pushbenachrichtigungen konfigurieren.
-* [Aktivieren der Offlinesynchronisierung für Ihre App](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Erfahren Sie, wie Sie mithilfe eines Mobile App-Back-Ends Ihrer App Offlineunterstützung hinzufügen. Die Offlinesynchronisierung ermöglicht Endbenutzern die Interaktion mit einer mobilen App (also das Anzeigen, Hinzufügen oder Ändern von Daten), auch wenn keine Netzwerkverbindung besteht.
-
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
-[Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure portal]: https://portal.azure.com/
-[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

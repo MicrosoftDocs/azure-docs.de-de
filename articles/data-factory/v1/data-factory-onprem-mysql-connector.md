@@ -71,9 +71,9 @@ Die folgende Tabelle enthält eine Beschreibung der JSON-Elemente, die für den 
 | type |Die type-Eigenschaft muss auf Folgendes festgelegt werden: **OnPremisesMySql**. |JA |
 | server |Name des MySQL-Servers. |JA |
 | database |Name der MySQL-Datenbank. |JA |
-| schema |Name des Schemas in der Datenbank. |Nein  |
+| schema |Name des Schemas in der Datenbank. |Nein |
 | authenticationType |Typ der Authentifizierung für die Verbindung mit der MySQL-Datenbank. Mögliche Werte: `Basic`. |JA |
-| username |Geben Sie einen Benutzernamen für das Herstellen der Verbindung mit der MySQL-Datenbank an. |JA |
+| userName |Geben Sie einen Benutzernamen für das Herstellen der Verbindung mit der MySQL-Datenbank an. |JA |
 | password |Geben Sie das Kennwort für das angegebene Benutzerkonto an. |JA |
 | gatewayName |Name des Gateways, das der Data Factory-Dienst zum Herstellen einer Verbindung mit der lokalen MySQL-Datenbank verwenden soll. |JA |
 
@@ -313,7 +313,7 @@ Beim Verschieben von Daten in MySQL werden die folgenden Zuordnungen zwischen My
 | double precision |Double |
 | Double |Double |
 | enum |Zeichenfolge |
-| Gleitkommawert |Single |
+| float |Single |
 | int (ohne Vorzeichen) |Int64 |
 | int |Int32 |
 | integer (ohne Vorzeichen) |Int64 |

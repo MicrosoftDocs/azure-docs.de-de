@@ -1,6 +1,6 @@
 ---
 title: Für Azure Data Box Edge geltende Einschränkungen | Microsoft-Dokumentation
-description: Beschreibt für das System geltende Einschränkungen und empfohlene Größen für Microsoft Azure Data Box Edge.
+description: Beschreibt für das System geltende Einschränkungen und empfohlene Größen für Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: a687398032adffe5e787ef1469abe0b2627a38fe
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b454b563cdb870ca8f07a45b796dc6b1e272502d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403542"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64924597"
 ---
 # <a name="azure-data-box-edge-limits"></a>Für Azure Data Box Edge geltende Einschränkungen
 
@@ -29,9 +29,9 @@ In der folgenden Tabelle werden die für ein Data Box Edge-Gerät geltenden Eins
 
 | BESCHREIBUNG | Wert |
 |---|---|
-| Nein. der Dateien pro Gerät |100 Mio. |
-| Nein. der Freigaben pro Gerät |24 |
-| Nein. Freigaben pro Container |1 |
+|Nein. der Dateien pro Gerät |100 Mio. |
+|Nein. der Freigaben pro Gerät |24 |
+|Nein. Freigaben pro Container |1 |
 |Maximale in eine Freigabe geschriebene Dateigröße| 5 TB |
 
 ## <a name="azure-storage-limits"></a>Speichergrenzwerte für Azure

@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 360674514aff79908dcab8c8b93095ca2feb5d51
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199090"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178086"
 ---
 Einige Datenbankworkloads wie SQL Server oder Oracle erfordern hohe Werte für Arbeitsspeicher, Speicherplatz und E/A-Bandbreite, aber keine hohe Anzahl von Kernen. Viele Datenbankworkloads sind nicht CPU-intensiv. Azure bietet bestimmte VM-Größen an, bei denen Sie die Anzahl der VM vCPUs einschränken können, um die Kosten für die Softwarelizenzierung zu reduzieren, während Arbeitsspeicher, Speicherplatz und E/A-Bandbreite gleich bleiben.
 
@@ -21,7 +21,7 @@ Die Anzahl der vCPUs kann auf die Hälfte oder ein Viertel der ursprünglichen V
 
 Beispielsweise verfügt die aktuelle VM-Größe „Standard_GS5“ über 32 vCPUs, 448 GB RAM, 64 Festplatten (bis zu 256 TB) und 80.000 IOPs oder 2 GB/s für die E/A-Bandbreite. Die neuen VM-Größen „Standard_GS5-16“ und „Standard_GS5-8“ verfügen über 16 bzw. 8 aktive vCPUs, wobei die restlichen Spezifikationen von „Standard_GS5“ für Arbeitsspeicher, Speicherplatz und E/A-Bandbreite beibehalten werden.
 
-Die Lizenzgebühren für SQL Server oder Oracle sind auf die neue vCPU-Anzahl beschränkt, und andere Produkte sollten auf der Grundlage der neuen vCPU-Anzahl berechnet werden. Dies führt zu einer Erhöhung des Verhältnisses zwischen VM-Spezifikationen und aktiven (abrechenbaren) vCPUs um 50 % bis 75 %. Diese neuen VM-Größen, die nur in Azure verfügbar sind, ermöglichen es Workloads, eine höhere CPU-Auslastung zu einem Bruchteil der Lizenzkosten (pro Kern) zu erreichen. Zu diesem Zeitpunkt bleiben die Computekosten (einschließlich der Betriebssystemlizenzierung) gleich wie bei der ursprünglichen Größe. Weitere Informationen finden Sie unter [Azure VM-Größen für kostengünstigere Datenbankworkloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+Die Lizenzgebühren für SQL Server oder Oracle sind auf die neue vCPU-Anzahl beschränkt, und andere Produkte sollten auf der Grundlage der neuen vCPU-Anzahl berechnet werden. Dies führt zu einer Erhöhung des Verhältnisses zwischen VM-Spezifikationen und aktiven (abrechenbaren) vCPUs um 50 % bis 75 %. Mit diesen neuen VM-Größen können Kunden für ihre Workloads dieselben Arbeitsspeicher- und Speicherkapazität sowie E/A-Bandbreite verwenden und gleichzeitig ihre Kosten für die Softwarelizenzierung senken. Zu diesem Zeitpunkt bleiben die Computekosten (einschließlich der Betriebssystemlizenzierung) gleich wie bei der ursprünglichen Größe. Weitere Informationen finden Sie unter [Azure VM-Größen für kostengünstigere Datenbankworkloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
 | NAME                | vCPU | Spezifikationen           |

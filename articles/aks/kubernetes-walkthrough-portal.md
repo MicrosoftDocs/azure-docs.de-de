@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ad93df6d628c91cddcf8e0a51c6ea11991e7b024
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684122"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688107"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Schnellstart: Bereitstellen eines AKS-Clusters (Azure Kubernetes Service) über das Azure-Portal
 
@@ -31,27 +31,28 @@ Melden Sie sich unter https://portal.azure.com beim Azure-Portal an.
 
 ## <a name="create-an-aks-cluster"></a>Erstellen eines AKS-Clusters
 
-Klicken Sie im Azure-Portal oben links auf **+ Ressource erstellen** > **Kubernetes Service**.
+Klicken Sie im Azure-Portal oben links auf **+ Ressource erstellen** > **Container** >  **Kubernetes Service**.
 
 Führen Sie zum Erstellen eines AKS-Clusters die folgenden Schritte aus:
 
-1. **Grundlagen**: Konfigurieren Sie die folgenden Optionen:
+1. Konfigurieren Sie auf der Seite **Grundlagen** die folgenden Optionen:
    - *PROJEKTDETAILS*: Wählen Sie ein Azure-Abonnement und dann eine Azure-Ressourcengruppe aus, bzw. erstellen Sie eine Ressourcengruppe, z.B. *myResourceGroup*. Geben Sie unter **Kubernetes cluster name** (Name des Kubernetes-Clusters) einen Namen ein, etwa *myAKSCluster*.
    - *CLUSTERDETAILS*: Wählen Sie eine Region, eine Kubernetes-Version und ein DNS-Namenspräfix für den AKS-Cluster aus.
-   - *SKALIERUNG*: Wählen Sie eine VM-Größe für die AKS-Knoten aus. Die VM-Größe kann **nicht** geändert werden, sobald ein AKS-Cluster bereitgestellt wurde.
+   - **PRIMÄRER KNOTENPOOL:** Wählen Sie eine VM-Größe für die AKS-Knoten aus. Die VM-Größe kann **nicht** geändert werden, sobald ein AKS-Cluster bereitgestellt wurde. 
        - Wählen Sie die Anzahl von Knoten für die Bereitstellung im Cluster aus. Legen Sie für diese Schnellstartanleitung für **Anzahl von Knoten** die Option *1* fest. Die Knotenanzahl **kann** nach der Clusterbereitstellung angepasst werden.
     
      ![Erstellen eines AKS-Clusters – Angeben grundlegender Informationen](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Klicken Sie auf **Weiter: Authentifizierung**, wenn der Vorgang abgeschlossen ist.
+     Klicken Sie auf **Weiter: Skalieren**, wenn der Vorgang abgeschlossen ist.
 
-1. **Authentifizierung**: Konfigurieren Sie die folgenden Optionen:
-   - Erstellen Sie einen neuen Dienstprinzipal, oder *konfigurieren* Sie einen vorhandenen. Bei der Verwendung eines vorhandenen Dienstprinzipalnamens müssen Sie die SPN-Client-ID und das Geheimnis angeben.
-   - Aktivieren Sie die Option für die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) für Kubernetes. Diese RBAC-Funktionen ermöglichen eine präzisere Steuerung des Zugriffs auf die im AKS-Cluster bereitgestellten Kubernetes-Ressourcen.
+2. Behalten Sie auf der Seite **Skalieren** die Standardoptionen bei. Klicken Sie am unteren Bildschirmrand auf **Weiter: Authentifizierung**.
+3. Konfigurieren Sie auf der Seite **Authentifizierung** die folgenden Optionen:
+   - Erstellen Sie einen neuen Dienstprinzipal, indem Sie das Feld **Dienstprinzipal** in der Einstellung **(neu) Standarddienstprinzipal** belassen. Alternativ dazu können Sie *Dienstprinzipal konfigurieren* auswählen, um einen vorhandenen zu verwenden. Bei Verwendung eines vorhandenen Dienstprinzipals müssen Sie die SPN-Client-ID und das Geheimnis angeben.
+   - Aktivieren Sie die Option für die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) für Kubernetes. So wird eine präzisere Steuerung des Zugriffs auf die im AKS-Cluster bereitgestellten Kubernetes-Ressourcen ermöglicht.
 
-     Standardmäßig werden *Basis*-Netzwerke verwendet, und Azure Monitor für Container ist aktiviert. Wählen Sie **Überprüfen + erstellen** und danach **Erstellen**.
+    Standardmäßig werden *Basis*-Netzwerke verwendet, und Azure Monitor für Container ist aktiviert. Klicken Sie auf **Überprüfen + erstellen** und danach auf **Erstellen**, wenn die Überprüfung abgeschlossen ist.
 
-Es dauert einige Minuten, bis der AKS-Clusters erstellt wurde und für die Verwendung bereit ist. Ist dieser Vorgang abgeschlossen, navigieren Sie zur Ressourcengruppe für den AKS-Cluster (etwa *myResourceGroup*), und wählen Sie die AKS-Ressource aus, beispielsweise *myAKSCluster*. Das AKS-Clusterdashboard wird wie im folgenden Beispielscreenshot angezeigt:
+Die Erstellung des AKS-Clusters dauert einige Minuten. Ist Ihre Bereitstellung abgeschlossen, klicken Sie auf **Zu Ressource wechseln**, oder wechseln Sie zur Ressourcengruppe für den AKS-Cluster (etwa *myResourceGroup*), und wählen Sie die AKS-Ressource aus, beispielsweise *myAKSCluster*. Das AKS-Clusterdashboard wird wie in diesem Beispiel angezeigt:
 
 ![Beispiel für ein AKS-Dashboard im Azure-Portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -59,7 +60,7 @@ Es dauert einige Minuten, bis der AKS-Clusters erstellt wurde und für die Verwe
 
 Verwenden Sie zum Verwalten eines Kubernetes-Clusters den Kubernetes-Befehlszeilenclient [kubectl][kubectl]. Der `kubectl`-Client ist in Azure Cloud Shell vorinstalliert.
 
-Öffnen Sie die Cloud Shell mit der Schaltfläche oben rechts im Azure-Portal.
+Öffnen Sie Cloud Shell über die Schaltfläche `>_` oben im Azure-Portal.
 
 ![Öffnen von Azure Cloud Shell im Portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 

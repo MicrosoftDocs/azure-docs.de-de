@@ -13,11 +13,11 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884119"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60900514"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Anforderungstelemetrie: Application Insights-Datenmodell
 
@@ -39,13 +39,13 @@ Bezeichner einer Anforderungsaufrufinstanz. Wird für die Korrelation zwischen d
 
 Max. Länge: 128 Zeichen
 
-## <a name="url"></a>Url
+## <a name="url"></a>url
 
 Anforderungs-URL mit allen Abfragezeichenfolgen-Parametern.
 
 Max. Länge: 2.048 Zeichen
 
-## <a name="source"></a>Quelle
+## <a name="source"></a>`Source`
 
 Die Quelle der Anforderung. Beispiele sind der Instrumentierungsschlüssel des Aufrufers oder die IP-Adresse des Aufrufers. Weitere Informationen hierzu finden Sie auf der Seite [Korrelation](../../azure-monitor/app/correlation.md).
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
 ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753469"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60730265"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Aufgabenhubs in Durable Functions (Azure Functions)
 

@@ -1,81 +1,135 @@
 ---
-title: Verwenden von Apache Phoenix und SQLLine mit HBase in Azure HDInsight
+title: 'Schnellstart: Abfragen von Apache HBase in Azure HDInsight – Apache Phoenix'
 description: Informationen zum Verwenden von Apache Phoenix in HDInsight. Darüber hinaus erhalten Sie Informationen zum Installieren und Einrichten von SQLLine für die Verbindung mit einem HBase-Cluster in HDInsight auf Ihrem Computer.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 01/03/2018
+ms.topic: quickstart
+ms.date: 05/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0bef586540635ee1bada3475f6316c84dea4308c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 46606a991ce878a3335c2c605a4040c9520d5128
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722688"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596204"
 ---
-# <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Verwenden von Apache Phoenix mit Linux-basierten Apache HBase-Clustern in HDInsight
-Erfahren Sie, wie Sie [Apache Phoenix](https://phoenix.apache.org/) in Azure HDInsight und wie Sie SQLLine verwenden können. Weitere Informationen zu Phoenix finden Sie unter [Phoenix in 15 minutes or less](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) (Phoenix in 15 Minuten oder weniger). Eine Beschreibung der Phoenix-Grammatik finden Sie unter [Apache Phoenix-Grammatik](https://phoenix.apache.org/language/index.html).
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Schnellstart: Abfragen von Apache HBase in Azure HDInsight mit Apache Phoenix
 
-> [!NOTE]  
-> Versionshinweise für Phoenix in HDInsight finden Sie unter [Welche Apache Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](../hdinsight-component-versioning.md).
->
->
+In diesem Schnellstart erfahren Sie, wie Sie mit Apache Phoenix HBase-Abfragen in Azure HDInsight ausführen können. Apache Phoenix ist eine SQL-Abfrage-Engine für Apache HBase. Der Zugriff erfolgt als JDBC-Treiber. So können Sie HBase-Tabellen mit SQL abfragen und verwalten. [SQLLine](http://sqlline.sourceforge.net/) ist ein Befehlszeilenprogramm zum Ausführen von SQL.
 
-## <a name="use-sqlline"></a>Verwendung von SQLLine
-[SQLLine](http://sqlline.sourceforge.net/) ist ein Befehlszeilenprogramm zum Ausführen von SQL.
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-### <a name="prerequisites"></a>Voraussetzungen
-Bevor Sie SQLLine verwenden können, benötigen Sie folgende Elemente:
+## <a name="prerequisites"></a>Voraussetzungen
 
-* **Einen Apache HBase-Cluster in HDInsight**. Eine Beschreibung der Erstellung finden Sie unter [Erste Schritte mit Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
+* Ein Apache HBase-Cluster. Weitere Informationen zum Erstellen eines HDInsight-Clusters finden Sie unter [Erstellen von Clustern](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).  Stellen Sie sicher, dass Sie den Clustertyp **HBase** auswählen.
 
-Beim Herstellen der Verbindung mit einem HBase-Cluster müssen Sie die Verbindung mit einer der [Apache ZooKeeper](https://zookeeper.apache.org/)-VMs herstellen. Jeder HDInsight-Cluster verfügt über drei Zookeeper-VMs.
+* Einen SSH-Client. Weitere Informationen finden Sie unter [Herstellen einer Verbindung mit HDInsight (Hadoop) per SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-**So rufen Sie den Hostnamen des Zookeepers ab**
+## <a name="identify-a-zookeeper-node"></a>Identifizieren eines ZooKeeper-Knotens
 
-1. Öffnen Sie [Apache Ambari](https://ambari.apache.org/), indem Sie zu **https://\<Clustername\>.azurehdinsight.net** navigieren.
-2. Geben Sie zum Anmelden den HTTP-Benutzernamen (Clusternamen) und das Kennwort ein.
-3. Wählen Sie im Menü auf der linken Seite die Option **Zookeeper** aus. Drei **Zookeeper Server**-Instanzen sind aufgeführt.
-4. Wählen Sie eine der **Zookeeper Server**-Instanzen aus. Suchen Sie im Bereich **Summary** (Zusammenfassung) den **Hostname** (Hostnamen). Er entspricht *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+Beim Herstellen der Verbindung mit einem HBase-Cluster müssen Sie eine Verbindung mit einem der Apache ZooKeeper-Knoten herstellen. Jeder HDInsight-Cluster verfügt über drei ZooKeeper-Knoten. Mit cURL kann ein ZooKeeper-Knoten schnell identifiziert werden. Bearbeiten Sie den folgenden cURL-Befehl, indem Sie `PASSWORD` und `CLUSTERNAME` durch die entsprechenden Werte ersetzen, und geben Sie den Befehl dann an einer Eingabeaufforderung ein:
 
-**Verwendung von SQLLine**
+```cmd
+curl -u admin:PASSWORD -sS -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER
+```
 
-1. Die Verbindungsherstellung mit dem Cluster erfolgt über SSH. Weitere Informationen finden Sie unter [Verwenden von SSH mit Linux-basiertem Hadoop in HDInsight unter Linux, Unix oder OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Ein Teil der Ausgabe ähnelt der folgenden:
 
-2. Führen Sie in SSH die folgenden Befehle aus, um SQLLine auszuführen:
+```output
+    {
+      "href" : "http://hn1-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net:8080/api/v1/clusters/myCluster/hosts/zk0-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net/host_components/ZOOKEEPER_SERVER",
+      "HostRoles" : {
+        "cluster_name" : "myCluster",
+        "component_name" : "ZOOKEEPER_SERVER",
+        "host_name" : "zk0-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net"
+      }
+```
 
-        cd /usr/hdp/current/phoenix-client/bin
-        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
-3. Um eine HBase-Tabelle zu erstellen und Daten einzufügen, führen Sie die folgenden Befehle aus:
+Notieren Sie den Wert für `host_name`, den Sie später benötigen.
 
-        CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+## <a name="create-a-table-and-manipulate-data"></a>Erstellen einer Tabelle und Bearbeiten von Daten
 
-        !tables
+Sie können SSH verwenden, um eine Verbindung mit HBase-Clustern herzustellen, und dann mithilfe von Apache Phoenix HBase-Tabellen erstellen, Daten einfügen und Daten abfragen.
 
-        UPSERT INTO Company VALUES(1, 'Microsoft');
+1. Verwenden Sie zum Herstellen der Verbindung mit Ihrem HBase-Cluster `ssh`. Bearbeiten Sie den unten angegebenen Befehl, indem Sie `CLUSTERNAME` durch den Namen Ihres Clusters ersetzen, und geben Sie den Befehl dann ein:
 
-        SELECT * FROM Company;
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-        !quit
+2. Wechseln Sie in das Verzeichnis des Phoenix-Clients. Geben Sie den folgenden Befehl ein:
 
-Weitere Informationen finden Sie im [SQLLine-Handbuch](http://sqlline.sourceforge.net/#manual) sowie unter [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html) (Apache Phoenix-Grammatik).
+    ```bash
+    cd /usr/hdp/current/phoenix-client/bin
+    ```
+
+3. Starten Sie [SQLLine](http://sqlline.sourceforge.net/). Bearbeiten Sie den unten angegebenen Befehl, indem Sie `ZOOKEEPER` durch den weiter oben identifizierten ZooKeeper-Knoten ersetzen, und geben Sie den Befehl dann ein:
+
+    ```bash
+    ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure
+    ```
+
+4. Erstellen Sie eine HBase-Tabelle. Geben Sie den folgenden Befehl ein:
+
+    ```sql
+    CREATE TABLE Company (company_id INTEGER PRIMARY KEY, name VARCHAR(225));
+    ```
+
+5. Verwenden Sie den SQLLine-Befehl `!tables`, um alle Tabellen in HBase aufzulisten. Geben Sie den folgenden Befehl ein:
+
+    ```sqlline
+    !tables
+    ```
+
+6. Fügen Sie Werte in die Tabelle ein. Geben Sie den folgenden Befehl ein:
+
+    ```sql
+    UPSERT INTO Company VALUES(1, 'Microsoft');
+    UPSERT INTO Company VALUES(2, 'Apache');
+    ```
+
+7. Fragen Sie die Tabelle ab. Geben Sie den folgenden Befehl ein:
+
+    ```sql
+    SELECT * FROM Company;
+    ```
+
+8. Löschen Sie einen Datensatz. Geben Sie den folgenden Befehl ein:
+
+    ```sql
+    DELETE FROM Company WHERE COMPANY_ID=1;
+    ```
+
+9. Löschen Sie die Tabelle. Geben Sie den folgenden Befehl ein:
+
+    ```hbase
+    DROP TABLE Company;
+    ```
+
+10. Verwenden Sie den SQLLine-Befehl `!quit`, um SQLLine zu beenden. Geben Sie den folgenden Befehl ein:
+
+    ```sqlline
+    !quit
+    ```
+
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+Nachdem Sie den Schnellstart abgeschlossen haben, können Sie den Cluster löschen. Mit HDInsight werden Ihre Daten im Azure-Speicher gespeichert, sodass Sie einen Cluster problemlos löschen können, wenn er nicht verwendet wird. Für einen HDInsight-Cluster fallen auch dann Gebühren an, wenn er nicht verwendet wird. Da die Gebühren für den Cluster erheblich höher sind als die Kosten für den Speicher, ist es sinnvoll, nicht verwendete Cluster zu löschen.
+
+Informationen zum Löschen eines Clusters finden Sie unter [Löschen eines HDInsight-Clusters mit Ihrem Browser, PowerShell oder der Azure CLI](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
-In diesem Artikel haben Sie erfahren, wie Sie Apache Phoenix in HDInsight verwenden. Weitere Informationen finden Sie in diesen Artikeln:
 
-* [Übersicht über HDInsight HBase][hdinsight-hbase-overview].
-  Apache HBase ist eine Open-Source-NoSQL-Datenbank von Apache, die auf Apache Hadoop basiert und wahlfreien Zugriff und starke Konsistenz für große Mengen unstrukturierter und teilstrukturierter Daten bietet.
-* [Bereitstellen von Apache HBase-Clustern in Azure Virtual Network][hdinsight-hbase-provision-vnet].
-  Mit der Integration in virtuelle Netzwerke können Apache HBase-Cluster in demselben virtuellen Netzwerk bereitgestellt werden wie Ihre Anwendungen, sodass Anwendungen direkt mit HBase kommunizieren können.
-* [Konfigurieren der Apache HBase-Replikation in HDInsight](apache-hbase-replication.md). Erfahren Sie, wie Sie Apache HBase-Replikation zwischen zwei Azure-Rechenzentren einrichten.
+In diesem Schnellstart haben Sie erfahren, wie Sie mit Apache Phoenix HBase-Abfragen in Azure HDInsight ausführen. Weitere Informationen zu Apache Phoenix finden Sie im nächsten Artikel, der eine ausführlichere Untersuchung bietet.
 
+> [!div class="nextstepaction"]
+> [Apache Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 
-[azure-portal]: https://portal.azure.com
-[vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
+## <a name="see-also"></a>Siehe auch
 
-[hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
-[hdinsight-hbase-overview]:apache-hbase-overview.md
-
-
+* [SQLLine-Handbuch](http://sqlline.sourceforge.net/#manual).
+* [Apache Phoenix-Grammatik](https://phoenix.apache.org/language/index.html).
+* [Apache Phoenix in 15 minutes or less](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) (Apache Phoenix in höchstens 15 Minuten)
+* [HDInsight HBase overview (Übersicht über HDInsight HBase)](./apache-hbase-overview.md)

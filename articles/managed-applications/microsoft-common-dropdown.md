@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: f953e1dc15e12c37c30a86ebd7536b1126bf18f7
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e78fa419b067c0bad48229dcfd8d4e986fc16903
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061999"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62117300"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Benutzeroberflächenelement „Microsoft.Common.DropDown“
 Ein Auswahlsteuerelement mit einer Dropdownliste.

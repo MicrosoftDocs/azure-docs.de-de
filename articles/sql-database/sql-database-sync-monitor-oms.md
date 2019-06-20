@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 6e94aac47ce5b45e700e2413d2e86d5f36596348
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482435"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60614954"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Überwachen der SQL-Datensynchronisierung mit Azure Monitor-Protokollen 
 
@@ -136,7 +136,7 @@ Gehen Sie wie im Anschluss beschrieben vor, um eine auf Azure Monitor-Protokolle
 
 1.  Wählen Sie im Azure-Portal die Option **Protokollsuche**.
 
-2.  Erstellen Sie eine Abfrage, um die Fehler und Warnungen innerhalb des gewählten Intervalls nach Synchronisierungsgruppe auszuwählen. Beispiel: 
+2.  Erstellen Sie eine Abfrage, um die Fehler und Warnungen innerhalb des gewählten Intervalls nach Synchronisierungsgruppe auszuwählen. Beispiel:
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 

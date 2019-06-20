@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65080080"
 ---
 # <a name="web-api-that-calls-web-apis---call-an-api"></a>Web-API, die Web-APIs aufruft – Aufrufen einer API
@@ -61,4 +61,4 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Move to production (Übergang in die Produktion)](scenario-web-api-call-api-production.md)
+> [Übergang in die Produktion](scenario-web-api-call-api-production.md)

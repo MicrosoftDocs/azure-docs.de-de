@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f3e8ca4f9736dffe4928fc8920b0890dff87367b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893349"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236028"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Erstellen einer Xamarin.Android-App
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -46,15 +46,27 @@ Führen Sie die folgenden Schritte aus, um ein Mobile App-Back-End zu erstellen.
 
 Sie haben nun ein Azure-Back-End für mobile Apps bereitgestellt, das von Ihren mobilen Clientanwendungen verwendet werden kann. Als Nächstes laden Sie ein Serverprojekt für ein einfaches Back-End für „Aufgabenlisten“ herunter und veröffentlichen es in Azure.
 
-## <a name="configure-the-server-project"></a>Konfigurieren des Serverprojekts
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Erstellen einer Datenbankverbindung und Konfigurieren des Client- und Serverprojekts
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinandroid-app"></a>Herunterladen und Ausführen der Xamarin.Android-App
-1. Klicken Sie unter **Herunterladen und Xamarin.Android-Projekt ausführen** auf die Schaltfläche **Herunterladen**.
+## <a name="run-the-xamarinandroid-app"></a>Ausführen der Xamarin.Android-App
+1. Öffnen Sie das Projekt „Xamarin.Android“.
 
-      Speichern Sie die komprimierte Projektdatei auf dem lokalen Computer und merken Sie sich, wo Sie sie gespeichert haben.
-2. Drücken Sie die **F5** -Taste, um das Projekt zu erstellen und die App zu starten.
-3. Geben Sie in der App einen sinnvollen Text wie z.B. *Tutorial fertigstellen* ein, und klicken Sie dann auf die Schaltfläche **Hinzufügen**.
+2. Wechseln Sie zum [Azure-Portal](https://portal.azure.com/), und navigieren Sie zu der mobilen App, die Sie erstellt haben. Suchen Sie auf dem Blatt `Overview` nach der URL, die der öffentliche Endpunkt für Ihre mobile App ist. Beispiel: der Sitename für meinen App-Namen „test123“ wird https://test123.azurewebsites.net.
+
+3. Öffnen Sie die Datei `ToDoActivity.cs` in diesem Ordner: „xamarin.android/ZUMOAPPNAME/ToDoActivity.cs“. Der Anwendungsname lautet `ZUMOAPPNAME`.
+
+4. Ersetzen Sie in der `ToDoActivity`-Klasse die Variable `ZUMOAPPURL` durch den oben stehenden öffentlichen Endpunkt.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    wird zu
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. Drücken Sie die Taste F5, um die App bereitzustellen und auszuführen.
+
+6. Geben Sie in der App einen sinnvollen Text wie z.B. *Tutorial fertigstellen* ein, und klicken Sie dann auf die Schaltfläche **Hinzufügen**.
 
     ![][10]
 
@@ -62,27 +74,14 @@ Sie haben nun ein Azure-Back-End für mobile Apps bereitgestellt, das von Ihren 
 
    > [!NOTE]
    > Sie können den Code überprüfen, der zum Abfragen und Einfügen von Daten auf das mobile App-Back-End zugreift. Der Code befindet sich in der C#-Datei "ToDoActivity.cs".
-   >
-   >
-
+   
 ## <a name="troubleshooting"></a>Problembehandlung
 Sollten beim Erstellen der Lösung Probleme auftreten, führen Sie den NuGet-Paket-Manager aus, und aktualisieren Sie auf die `Xamarin.Android`-Unterstützungspakete. Schnellstartprojekte enthalten unter Umständen nicht immer die neuesten Versionen.
 
-Beachten Sie, dass alle Unterstützungspakete, auf die in Ihrem Projekt verwiesen wird, die gleiche Version aufweisen müssen. Das [Azure Mobile Apps-NuGet-Paket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) hat eine `Xamarin.Android.Support.CustomTabs`-Abhängigkeit für die Android-Plattform. Wenn also das Projekt neuere Unterstützungspakete verwendet, müssen Sie dieses Paket direkt mit der erforderlichen Version installieren, um Konflikte zu vermeiden.
-
-## <a name="next-steps"></a>Nächste Schritte
-* [Hinzufügen der Offlinesynchronisierung zu Ihrer App](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Hinzufügen von Authentifizierung zur App](app-service-mobile-xamarin-android-get-started-users.md)
-* [Hinzufügen von Pushbenachrichtigungen zu Ihrer Xamarin.Android-App](app-service-mobile-xamarin-android-get-started-push.md)
-* [Verwenden des verwalteten Clients für Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
+Beachten Sie, dass alle Unterstützungspakete, auf die in Ihrem Projekt verwiesen wird, die gleiche Version aufweisen müssen. Das [Azure Mobile Apps-NuGet-Paket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) hat eine `Xamarin.Android.Support.CustomTabs`-Abhängigkeit für die Android-Plattform – wenn also das Projekt neuere Unterstützungspakete verwendet, müssen Sie dieses Paket direkt mit der erforderlichen Version installieren, um Konflikte zu vermeiden.
 
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/app-service-mobile-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
-[8]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
-[9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
-
 <!-- URLs. -->
-[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203

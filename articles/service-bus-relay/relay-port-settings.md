@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ef08cfc94a029f97250578e9b0366a18770c809
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9d11179a8518ebf48f68f8607f94e0253d4edb80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60789925"
 ---
 # <a name="azure-relay-port-settings"></a>Azure Relay-Porteinstellungen
 
@@ -33,21 +33,21 @@ Hybrid Connections verwendet WebSockets an Port 443 mit SSL als zugrunde liegend
   
 |Bindung|Transportsicherheit|Port|  
 |-------------|------------------------|----------|  
-|[BasicHttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (Client)|JA|HTTPS| 
-|" |Nein |HTTP|  
+|[BasicHttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (Client)|Ja|HTTPS| 
+|" |Nein|HTTP|  
 |[BasicHttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (Dienste)|Sie können das|9351/HTTP|  
-|[NetEventRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (Client)|JA|9351/HTTPS|  
-|" |Nein |9350/HTTP|  
+|[NetEventRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (Client)|Ja|9351/HTTPS|  
+|" |Nein|9350/HTTP|  
 |[NetEventRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (Dienst)|Sie können das|9351/HTTP|  
 |[NetTcpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (Client/Dienst)|Sie können das|5671/9352/HTTP (9352/9353, wenn eine Hybridverbindung verwendet)|  
-|[NetOnewayRelayBinding Class](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (Client)|JA|9351/HTTPS|  
-|" |Nein |9350/HTTP|  
+|[NetOnewayRelayBinding Class](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (Client)|Ja|9351/HTTPS|  
+|" |Nein|9350/HTTP|  
 |[NetOnewayRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (Dienst)|Sie können das|9351/HTTP|  
-|[WebHttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (Client)|JA|HTTPS|  
-|" |Nein |HTTP|  
+|[WebHttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (Client)|Ja|HTTPS|  
+|" |Nein|HTTP|  
 |[WebHttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (Client)|Sie können das|9351/HTTP|  
-|[WS2007HttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (Client)|JA|HTTPS|  
-|" |Nein |HTTP|  
+|[WS2007HttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (Client)|Ja|HTTPS|  
+|" |Nein|HTTP|  
 |[WS2007HttpRelayBinding-Klasse](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (Dienst)|Sie können das|9351/HTTP|
 
 ## <a name="next-steps"></a>Nächste Schritte

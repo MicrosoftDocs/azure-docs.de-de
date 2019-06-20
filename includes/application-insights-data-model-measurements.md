@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728981"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177849"
 ---
 Auflistung von benutzerdefinierten Messungen. Verwenden Sie diese Auflistung, um benannte, dem Telemetrieelement zugeordnete Messungen zu melden. Typische Anwendungsfälle:
 - Größe der Nutzlast der Abhängigkeitstelemetrie

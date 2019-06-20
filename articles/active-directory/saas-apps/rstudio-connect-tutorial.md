@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bda20d9ce06f756913e6dfb3e980399ac7e0a6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 32aa7a531de2e236e3941bbe8afd84d845f80f99
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565448"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Azure Active Directory-Integration mit RStudio Connect
 
@@ -40,7 +40,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 Um die Azure AD-Integration mit RStudio Connect konfigurieren zu können, benötigen Sie Folgendes:
 
 * Ein Azure AD-Abonnement Sollten Sie über keine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
-* SSO-fähiges RStudio Connect-Abonnement
+* RStudio Connect. Wir bieten eine [kostenlose 45-tägige Evaluierungsversion](https://www.rstudio.com/products/connect/).
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
@@ -79,12 +79,12 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD mit RStudio Connect zu konfigurieren und zu testen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für RStudio Connect](#configure-rstudio-connect-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines RStudio Connect-Testbenutzers](#create-rstudio-connect-test-user)**, um in RStudio Connect eine Entsprechung von Britta Simon zu erhalten, die mit der Benutzerdarstellung in Azure AD verknüpft ist.
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für RStudio Connect](#configure-rstudio-connect-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines RStudio Connect-Testbenutzers](#create-rstudio-connect-test-user)** , um in RStudio Connect eine Entsprechung von Britta Simon zu erhalten, die mit der Benutzerdarstellung in Azure AD verknüpft ist.
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -104,22 +104,22 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD 
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
-4. Führen Sie im Abschnitt **Grundlegende SAML-Konfiguration** die folgenden Schritte aus, wenn Sie die Anwendung im **IDP-initiierten** Modus konfigurieren möchten:
+4. Führen Sie im Abschnitt **Grundlegende SAML-Konfiguration** die folgenden Schritte aus, wenn Sie die Anwendung im **IDP**-initiierten Modus konfigurieren möchten, und ersetzen Sie dabei `<example.com>` durch die Serveradresse und den Port von RStudio Connect:
 
     ![SSO-Informationen zur Domäne und zu den URLs für RStudio Connect](common/idp-intiated.png)
 
-    a. Geben Sie im Textfeld **Bezeichner** eine URL im folgenden Format ein: `https://connect.<example>.com/__login__/saml`
+    a. Geben Sie im Textfeld **Bezeichner** eine URL im folgenden Format ein: `https://<example.com>/__login__/saml`
 
-    b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://connect.<example>.com/__login__/saml/acs`
+    b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://<example.com>/__login__/saml/acs`
 
 5. Klicken Sie auf **Zusätzliche URLs festlegen**, und führen Sie den folgenden Schritt aus, wenn Sie die Anwendung im **SP-initiierten Modus** konfigurieren möchten:
 
     ![SSO-Informationen zur Domäne und zu den URLs für RStudio Connect](common/metadata-upload-additional-signon.png)
 
-    Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://connect.<example>.com/`
+    Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://<example.com>/`
 
     > [!NOTE]
-    > Hierbei handelt es sich um Beispielwerte. Sie müssen diese Werte mit dem tatsächlichen Bezeichner, der Antwort-URL und der Anmelde-URL aktualisieren. Wenden Sie sich an das [Supportteam von RStudio Connect](mailto:support@rstudio.com), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
+    > Hierbei handelt es sich um Beispielwerte. Sie müssen diese Werte mit dem tatsächlichen Bezeichner, der Antwort-URL und der Anmelde-URL aktualisieren. Sie werden durch die Serveradresse von RStudio Connect (in den Beispielen oben `https://example.com`) bestimmt. Wenden Sie sich bei Problemen an das [RStudio Connect-Supportteam](mailto:support@rstudio.com). Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
 6. Die RStudio Connect-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. **nameidentifier** ist hier **user.userprincipalname** zugeordnet. Die RStudio Connect-Anwendung erwartet, dass **nameidentifier** der Wert **user.mail** zugeordnet ist. Sie müssen die Attributzuordnung daher entsprechend ändern, indem Sie auf das Symbol **Bearbeiten** klicken.
 
@@ -131,7 +131,36 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD 
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für RStudio Connect
 
-Zum Konfigurieren des einmaligen Anmeldens aufseiten von **RStudio Connect** müssen Sie die **App-Verbundmetadaten-URL** an das [Supportteam von RStudio Connect](mailto:support@rstudio.com) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+Um das einmalige Anmelden für **RStudio Connect** zu konfigurieren, müssen Sie die **Verbundmetadaten-URL der App** und die **Serveradresse** verwenden, die oben bereits verwendet wurden. Dazu nutzen Sie die Konfigurationsdatei von RStudio Connect unter `/etc/rstudio-connect.rstudio-connect.gcfg`.
+
+Im Folgenden eine Beispielkonfigurationsdatei:
+
+```
+[Server]
+SenderEmail =
+
+; Important! The user-facing URL of your RStudio Connect server.
+Address = 
+
+[Http]
+Listen = :3939
+
+[Authentication]
+Provider = saml
+
+[SAML]
+Logging = true
+
+; Important! The URL where your IdP hosts the SAML metadata or the path to a local copy of it placed in the RStudio Connect server.
+IdPMetaData = 
+
+IdPAttributeProfile = azure
+SSOInitiated = IdPAndSP
+```
+
+Speichern Sie die **Serveradresse** im `Server.Address`-Wert und die **Verbundmetadaten-URL der App** im `SAML.IdPMetaData`-Wert.
+
+Falls Probleme bei der Konfiguration auftreten, können Sie das [Administratorhandbuch zu RStudio Connect](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) lesen oder das [RStudio-Supportteam](mailto:support@rstudio.com) per E-Mail um Unterstützung bitten.
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers 
 

@@ -48,6 +48,8 @@
           href: data-lake-analytics-diagnostic-logs.md
         - name: Anpassen der Kontingentgrenzen
           href: data-lake-analytics-quota-limits.md
+        - name: Planen der Notfallwiederherstellung
+          href: data-lake-analytics-disaster-recovery.md
     - name: Entwickeln von U-SQL-Programmen
       items:
         - name: U-SQL-Sprache

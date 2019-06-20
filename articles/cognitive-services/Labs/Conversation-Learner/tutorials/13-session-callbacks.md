@@ -3,19 +3,19 @@ title: Sitzungsrückrufe in einem Unterhaltungslernmodell – Microsoft Cognitiv
 titleSuffix: Azure
 description: Erfahren Sie, wie Sie Sitzungsrückrufe in einem Unterhaltungslernmodell verwenden.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 246b87e46029c2bf4d7361540939181b3b209acc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: eeed0718a1feb170dbbaa783ec0a840c7829c02e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219116"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390014"
 ---
 # <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Verwenden von Sitzungsrückrufen in einem Unterhaltungslernmodell
 

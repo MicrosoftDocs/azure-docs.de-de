@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60319486"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>RDP-Verbindung mit einem virtuellen Computer kann nicht hergestellt werden, weil die VM im abgesicherten Modus gestartet wird
 

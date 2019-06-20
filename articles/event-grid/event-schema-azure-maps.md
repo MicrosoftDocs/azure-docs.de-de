@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007658"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60861853"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Event Grid-Ereignisschema für Azure Maps
 
@@ -104,7 +104,7 @@ Ein Ereignis weist die folgenden Daten auf oberster Ebene aus:
 
 | Eigenschaft | Typ | BESCHREIBUNG |
 | -------- | ---- | ----------- |
-| Thema | Zeichenfolge | Vollständiger Ressourcenpfad zu der Ereignisquelle. Dieses Feld ist nicht beschreibbar. Dieser Wert wird von Event Grid bereitgestellt. |
+| topic | Zeichenfolge | Vollständiger Ressourcenpfaf zur Ereignisquelle. Dieses Feld ist nicht beschreibbar. Dieser Wert wird von Event Grid bereitgestellt. |
 | subject | Zeichenfolge | Vom Herausgeber definierter Pfad zum Ereignisbetreff |
 | eventType | Zeichenfolge | Einer der registrierten Ereignistypen für die Ereignisquelle. |
 | eventTime | Zeichenfolge | Die Zeit, in der das Ereignis generiert wird, basierend auf der UTC-Zeit des Anbieters. |
@@ -134,7 +134,7 @@ Das ErrorDetails-Objekt wird zurückgegeben, wenn in der Maps-API ein Fehler auf
 | Eigenschaft | Typ | BESCHREIBUNG |
 | -------- | ---- | ----------- |
 | code | Zeichenfolge | Der HTTP-Statuscode. |
-| Message: | Zeichenfolge | Sofern verfügbar eine lesbare Beschreibung des Fehlers. |
+| message | Zeichenfolge | Sofern verfügbar eine lesbare Beschreibung des Fehlers. |
 | innererror | InnerError | Sofern verfügbar ein Objekt, das dienstspezifische Informationen zum Fehler enthält. |
 
 InnerError ist ein Objekt, das dienstspezifische Informationen zum Fehler enthält. Das InnerError-Objekt weist die folgenden Eigenschaften auf: 

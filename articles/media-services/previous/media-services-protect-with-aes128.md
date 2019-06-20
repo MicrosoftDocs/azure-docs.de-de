@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60557177"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Verwenden der dynamischen AES-128-Verschlüsselung und des Schlüsselübermittlungsdiensts
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ Konfigurieren Sie die Übermittlungsrichtlinie für Medienobjekte. Die Konfigura
 * URL für den Schlüsselerwerb. 
 * Initialisierungsvektor (IV) für die Umschlagverschlüsselung. AES-128 erfordert denselben IV für die Ver- und Entschlüsselung. 
 * Das Übermittlungsprotokoll für Medienobjekte (z. B. „MPEG-DASH“, „HLS“, „Smooth Streaming“ oder „Alle“).
-* Typ der dynamischen Verschlüsselung (z. B. AES-Umschlag) oder keine dynamische Verschlüsselung.  
+* Typ der dynamischen Verschlüsselung (z. B. AES-Umschlag) oder keine dynamische Verschlüsselung. 
 
 Weitere Informationen finden Sie unter [Konfigurieren von Übermittlungsrichtlinien für Medienobjekte mit .NET SDK](media-services-dotnet-configure-asset-delivery-policy.md).
 

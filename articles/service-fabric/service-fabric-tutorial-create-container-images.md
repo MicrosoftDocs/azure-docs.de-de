@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662548"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306779"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Erstellen von Containerimages für einen Linux-Service Fabric-Cluster
 
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 Im weiteren Verlauf des Tutorials verwenden wir „acrName“ als Platzhalter für den von Ihnen gewählten Namen der Containerregistrierung. Bitte notieren Sie sich diesen Wert.
 
-## <a name="log-in-to-your-container-registry"></a>Anmelden bei Ihrer Containerregistrierung
+## <a name="sign-in-to-your-container-registry"></a>Anmelden bei Ihrer Containerregistrierung
 
-Melden Sie sich zunächst bei Ihrer ACR-Instanz an, bevor Sie Images in diese pushen. Verwenden Sie den Befehl **az acr login**, um den Vorgang abzuschließen. Geben Sie den eindeutigen Namen an, den die Containerregistrierung bei ihrer Erstellung erhalten hat.
+Melden Sie sich zunächst bei Ihrer ACR-Instanz an, bevor Sie Images per Push in sie übertragen. Verwenden Sie den Befehl **az acr login**, um den Vorgang abzuschließen. Geben Sie den eindeutigen Namen an, den die Containerregistrierung bei ihrer Erstellung erhalten hat.
 
 ```bash
 az acr login --name <acrName>

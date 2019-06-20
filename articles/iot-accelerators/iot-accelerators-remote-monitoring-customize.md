@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66143489"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassen des Solution Accelerators für die Remoteüberwachung
@@ -31,7 +31,7 @@ Die folgenden Schritte beschreiben den Prozess zum Einrichten einer lokalen Umge
 
 1. Bereitstellen einer **grundlegenden** Instanz des Solution Accelerators mit der **pcs**-CLI. Notieren Sie den Namen der Bereitstellung und die Anmeldeinformationen, die Sie für die VM angegeben haben. Weitere Informationen finden Sie unter [Bereitstellen der vorkonfigurierten Remoteüberwachungslösung über die Befehlszeilenschnittstelle](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Um den SSH-Zugriff auf den virtuelle Computer zu ermöglichen, der die Microservices in Ihrer Lösung hostet, verwenden Sie das Azure-Portal oder die Azure Cloud Shell. Beispiel: 
+1. Um den SSH-Zugriff auf den virtuelle Computer zu ermöglichen, der die Microservices in Ihrer Lösung hostet, verwenden Sie das Azure-Portal oder die Azure Cloud Shell. Beispiel:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,7 +39,7 @@ Die folgenden Schritte beschreiben den Prozess zum Einrichten einer lokalen Umge
 
     Aktivieren Sie SSH-Zugriff nur während der Test- und Entwicklungsphase. Wenn Sie SSH aktivieren, [sollten Sie wieder deaktivieren, sobald Sie fertig sind](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Suchen Sie über das Azure-Portal oder Azure Cloud Shell den Namen und die öffentliche IP-Adresse des virtuellen Computers. Beispiel: 
+1. Suchen Sie über das Azure-Portal oder Azure Cloud Shell den Namen und die öffentliche IP-Adresse des virtuellen Computers. Beispiel:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table

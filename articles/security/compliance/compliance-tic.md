@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341714"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60608089"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Leitfaden für eine vertrauenswürdige Internetverbindung
 
@@ -125,7 +125,7 @@ Azure-PaaS-Dienste wie Azure Storage sind über eine im Internet erreichbare URL
 Wenn Azure-PaaS-Dienste in ein virtuelles Netzwerk integriert sind, kann von diesem virtuellen Netzwerk privat auf den Dienst zugegriffen werden. Sie können das benutzerdefinierte Routing für 0.0.0.0/0 über benutzerdefinierte Routen oder BGP anwenden. Durch benutzerdefiniertes Routing wird sichergestellt, dass der gesamte Datenverkehr für das Internet lokal weiterleitet wird, um die vertrauenswürdige Internetverbindung zu durchlaufen. Integrieren Sie Azure-Dienste mit den folgenden Mustern in virtuelle Netzwerke:
 
 - **Bereitstellen einer dedizierten Instanz eines Diensts:** Immer mehr PaaS-Dienste können als dedizierte Instanzen bereitgestellt werden, deren Endpunkte mit virtuellen Netzwerken verbunden sind. Sie können eine App Service-Umgebung für PowerApps im Modus „Isoliert“ bereitstellen, damit der Netzwerkendpunkt auf ein virtuelles Netzwerk beschränkt wird. Die App Service-Umgebung kann dann viele Azure-PaaS-Dienste hosten, z.B. Azure-Web-Apps, Azure API Management und Azure Functions.
-- **Verwenden von Dienstendpunkten im virtuellen Netzwerk:** Immer mehr PaaS-Dienste bieten die Möglichkeit, ihren Endpunkt zu einer privaten IP-Adresse des virtuellen Netzwerks zu verschieben, anstatt eine öffentliche Adresse zu verwenden.
+- **Verwenden von VNET-Dienstendpunkten:** Immer mehr PaaS-Dienste bieten die Möglichkeit, ihren Endpunkt zu einer privaten IP-Adresse des virtuellen Netzwerks zu verschieben, anstatt eine öffentliche Adresse zu verwenden.
 
 Dienste, die seit Mai 2018 die Bereitstellung dedizierter Instanzen in einem virtuellen Netzwerk oder die Verwendung von Dienstendpunkten unterstützen, sind in den folgenden Tabellen aufgeführt.
 

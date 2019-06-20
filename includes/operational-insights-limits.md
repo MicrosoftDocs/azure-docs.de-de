@@ -9,15 +9,15 @@ ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553692"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238233"
 ---
 Für Azure Log Analytics-Ressourcen gelten pro Abonnement die folgenden Einschränkungen.
 
-| Ressource | Standardlimit | Kommentare
+| Resource | Standardlimit | Kommentare
 | --- | --- | --- |
 | Anzahl von kostenlosen Arbeitsbereichen pro Abonnement | 10 | Dieser Grenzwert kann nicht erhöht werden. |
 | Anzahl von kostenpflichtigen Arbeitsbereichen pro Abonnement | – | Sie sind durch die Anzahl der Ressourcen innerhalb einer Ressourcengruppe und die Anzahl der Ressourcengruppen pro Abonnement eingeschränkt. | 

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008626"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62101913"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planen der Kapazität des virtuellen Hyper-V-Computers mit der Lösung „Kapazität und Leistung“ (veraltet)
 
@@ -49,9 +49,9 @@ In der folgenden Tabelle sind die verbundenen Quellen beschrieben, die von der L
 | Verbundene Quelle | Support | BESCHREIBUNG |
 |---|---|---|
 | [Windows-Agents](../../azure-monitor/platform/agent-windows.md) | Ja | Mit der Lösung werden Informationen zu den Kapazitäts- und Leistungsdaten von Windows-Agents gesammelt. |
-| [Linux-Agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nein     | Die Lösung sammelt keine Informationen zu den Kapazitäts- und Leistungsdaten von direkten Linux-Agents.|
+| [Linux-Agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nein    | Die Lösung sammelt keine Informationen zu den Kapazitäts- und Leistungsdaten von direkten Linux-Agents.|
 | [SCOM-Verwaltungsgruppe](../../azure-monitor/platform/om-agents.md) | Ja |Die Lösung sammelt Informationen zu den Kapazitäts- und Leistungsdaten von Agents in einer verbundenen SCOM-Verwaltungsgruppe. Es ist keine direkte Verbindung vom SCOM-Agent mit Log Analytics erforderlich.|
-| [Azure-Speicherkonto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nein  | Der Azure-Speicher enthält keine Daten zur Kapazität und Leistung.|
+| [Azure-Speicherkonto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nein | Der Azure-Speicher enthält keine Daten zur Kapazität und Leistung.|
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

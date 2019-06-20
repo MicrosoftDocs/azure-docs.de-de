@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.openlocfilehash: dfb34f8c0fca792618860e0a8d5a1bf1736f3611
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65416049"
 ---
 # <a name="machine-learning-integration-in-stream-analytics-preview"></a>Machine Learning-Integration in Stream Analytics (Vorschau)

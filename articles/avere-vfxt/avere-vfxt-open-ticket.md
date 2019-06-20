@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: d621511cbb6983f8ad57ea8305823039475f40d0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669547"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409634"
 ---
 # <a name="get-help-with-your-system"></a>Abrufen von Hilfe zu Ihrem System
 

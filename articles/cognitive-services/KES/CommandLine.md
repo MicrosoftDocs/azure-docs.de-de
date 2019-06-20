@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860115"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60815141"
 ---
 # <a name="command-line-interface"></a>Befehlszeilenschnittstelle
 
@@ -82,7 +82,7 @@ Der Befehl **host_service** hostet eine Instanz des KES-Dienstes auf dem lokalen
 | `<indexFile>`   | Eingabepfad des Binärindex           |
 | `--port <port>` | Lokale Portnummer.  Standardwert: 8.000 |
 
-Diese Dateien können durch lokale Datei- oder URL-Pfade zu Azure-Blobs angegeben werden.  Ein Webdienst wird unter http://localhost:&lt;port&gt;/ gehostet.  Eine Liste der unterstützten Vorgänge finden Sie unter [Web-APIs](WebAPI.md).
+Diese Dateien können durch lokale Datei- oder URL-Pfade zu Azure-Blobs angegeben werden.  Ein Webdienst wird unter http://localhost:&lt ;port&gt; / gehostet.  Eine Liste der unterstützten Vorgänge finden Sie unter [Web-APIs](WebAPI.md).
 
 Außerhalb der Azure-Umgebung sind lokal gehostete Dienste auf Indexdateien mit einer Größe von bis zu 1 MB, 10 Anforderungen pro Sekunde und insgesamt 1000 Aufrufe beschränkt.  Um diese Einschränkungen zu umgehen, führen Sie **host_service** auf einer Azure-VM aus, oder stellen Sie sie mit **deploy_service** für einen Azure-Clouddienst bereit.
 

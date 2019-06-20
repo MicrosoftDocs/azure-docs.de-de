@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468459"
 ---
 # <a name="return-your-azure-data-box-edge-device"></a>Rückgabe Ihres Azure Data Box Edge-Geräts
@@ -61,7 +61,7 @@ Beginnen Sie den Rückgabeprozess mit den folgenden Schritten.
     ![Öffnen eines Supporttickets](media/data-box-edge-return-device/open-support-ticket-1.png)  
 
 2. Sie werden durch einen Microsoft-Supporttechniker kontaktiert. Halten Sie die Versanddetails bereit.
-3. Wenn Sie einen Karton für die Rückgabe benötigen, können Sie ihn anfordern. Antworten Sie mit **Ja** auf die Frage **Benötigen Sie einen leeren Karton für die Rückgabe?**.
+3. Wenn Sie einen Karton für die Rückgabe benötigen, können Sie ihn anfordern. Antworten Sie mit **Ja** auf die Frage **Benötigen Sie einen leeren Karton für die Rückgabe?** .
 
 
 ## <a name="schedule-a-pickup"></a>Planen der Abholung

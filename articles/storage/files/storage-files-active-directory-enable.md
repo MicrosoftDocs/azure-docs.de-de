@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602020"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237789"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Aktivieren der Azure Active Directory-Authentifizierung über SMB für Azure Files (Vorschau)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -47,13 +47,13 @@ Bevor Sie Azure AD über SMB für Azure Files aktivieren, sollten Sie sicherstel
 
 2.  **Aktivieren Sie Azure AD Domain Services auf dem Azure AD-Mandanten.**
 
-    Zur Unterstützung der Authentifizierung mit Azure AD-Anmeldeinformationen müssen Sie Azure AD Domain Services für Ihren Azure AD-Mandanten aktivieren. Wenn Sie nicht der Administrator des Azure AD-Mandanten sind, wenden Sie sich an den Administrator und folgen Sie der schrittweisen Anleitung zum [Aktivieren von Azure Active Directory Domain Services über das Azure-Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    Zur Unterstützung der Authentifizierung mit Azure AD-Anmeldeinformationen müssen Sie Azure AD Domain Services für Ihren Azure AD-Mandanten aktivieren. Wenn Sie nicht der Administrator des Azure AD-Mandanten sind, wenden Sie sich an den Administrator und folgen Sie der schrittweisen Anleitung zum [Aktivieren von Azure Active Directory Domain Services über das Azure-Portal](../../active-directory-domain-services/create-instance.md).
 
     Es dauert in der Regel etwa 15 Minuten, bis eine Bereitstellung von Azure AD Domain Services abgeschlossen ist. Vergewissern Sie sich, dass der Integritätsstatus Ihrer Azure AD Domain Services bei aktivierter Kennworthashsynchronisierung **Wird ausgeführt** anzeigt, bevor Sie mit dem nächsten Schritt fortfahren.
 
 3.  **Domänenbeitritt einer Azure VM mit Azure AD Domain Services.**
 
-    Damit Sie mit Azure AD-Anmeldeinformationen von einem virtuellen Computer auf eine Dateifreigabe zugreifen können, muss Ihr virtueller Computer in Azure AD Domain Services-Domäne eingebunden sein. Weitere Informationen zum Einbinden in die Domäne eines virtuellen Computers finden Sie unter [Einbinden eines virtuellen Windows Server-Computers in eine verwaltete Domäne](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
+    Damit Sie mit Azure AD-Anmeldeinformationen von einem virtuellen Computer auf eine Dateifreigabe zugreifen können, muss Ihr virtueller Computer in Azure AD Domain Services-Domäne eingebunden sein. Weitere Informationen zum Einbinden in die Domäne eines virtuellen Computers finden Sie unter [Einbinden eines virtuellen Windows Server-Computers in eine verwaltete Domäne](../../active-directory-domain-services/join-windows-vm.md).
 
     > [!NOTE]
     > Die Azure AD-Authentifizierung über SMB mit Azure Files wird nur auf virtuellen Azure-Computern unterstützt, die auf Betriebssystemversionen über Windows 7 oder Windows Server 2008 R2 ausgeführt werden.
@@ -79,7 +79,7 @@ Führen Sie diese Schritte aus, um die Azure AD-Authentifizierung über SMB mit 
 
 1. Navigieren Sie im Azure-Portal zu Ihrem vorhandenen Speicherkonto, oder [erstellen Sie ein Speicherkonto](../common/storage-quickstart-create-account.md).
 2. Wählen Sie im Abschnitt **Einstellungen** die Option **Konfiguration**.
-3. Aktivieren Sie **Azure Active Directory-Authentifizierung für Azure Files (Vorschau)**.
+3. Aktivieren Sie **Azure Active Directory-Authentifizierung für Azure Files (Vorschau)** .
 
 In der folgenden Abbildung ist dargestellt, wie Sie die Azure AD-Authentifizierung über SMB für Ihr Speicherkonto aktivieren.
 

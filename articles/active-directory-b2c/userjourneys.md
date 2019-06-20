@@ -2,20 +2,20 @@
 title: UserJourneys | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie das UserJourneys-Element einer benutzerdefinierten Richtlinie in Azure Active Directory B2C angeben.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e09435b09811ef31057f4dc257fc55fa72909d83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714905"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512029"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -23,7 +23,7 @@ ms.locfileid: "64714905"
 
 User Journeys geben explizite Pfade an, über die eine Richtlinie einer Anwendung der vertrauenden Seite die gewünschten Ansprüche für einen Benutzer abrufen kann. Der Benutzer wird über diese Pfade weitergeleitet, um die Ansprüche abzurufen, die an die vertrauenden Seite übermittelt werden sollen. Das heißt, User Journeys definieren die Geschäftslogik, die ein Endbenutzer durchläuft, während das Framework für die Identitätsfunktion von Azure AD B2C die Anforderung verarbeitet.
 
-Diese User Journeys können als Vorlagen gesehen werden, die verfügbar sind, um die Grundbedürfnisse der verschiedenen antwortenden Seiten der Community abzudecken. User Journeys unterstützen die Definition des Teils der vertrauenden Seite einer Richtlinie. Eine Richtlinie kann mehrere User Journeys definieren. Jede User Journey besteht aus einer Sequenz von Orchestrierungsschritten.
+Diese User Journeys können als Vorlagen gesehen werden, die verfügbar sind, um die Grundbedürfnisse der verschiedenen vertrauenden Seiten der Interessengemeinschaft abzudecken. User Journeys unterstützen die Definition des Teils der vertrauenden Seite einer Richtlinie. Eine Richtlinie kann mehrere User Journeys definieren. Jede User Journey besteht aus einer Sequenz von Orchestrierungsschritten.
 
 Ein **UserJourneys**-Element wird unter dem allgemeinsten Element der Richtliniendatei hinzugefügt, um die von der Richtlinie unterstützten User Journeys zu definieren. 
 
@@ -49,7 +49,7 @@ Das **UserJourney**-Element enthält die folgenden Elemente:
 
 Eine User Journey wird als Orchestrierungssequenz dargestellt, die für eine erfolgreiche Transaktion durchlaufen werden muss. Wenn ein Schritt fehlschlägt, schlägt die Transaktion fehl. Diese Orchestrierungsschritte verweisen sowohl auf die Bausteine als auch auf die Anspruchsanbieter, die in der Richtliniendatei zugelassen werden. Jeder Orchestrierungsschritt, der für das Anzeigen oder Rendern einer Benutzeroberfläche verantwortlich ist, verfügt auch über einen Verweis auf den Bezeichner für die entsprechende Inhaltsdefinition.
 
-Orchestrierungsschritte können – basierend auf Voraussetzungen, die im OrchestrationStep-Element definiert werden, – bedingungsabhängig ausgeführt werden. Beispielsweise können Sie konfigurieren, dass ein Orchestrierungsschritt nur ausgeführt wird, wenn spezifische Ansprüche vorhanden sind oder aber ein Anspruch einem angegebenen Wert gleich oder ungleich ist. 
+Orchestrierungsschritte können anhand von Voraussetzungen, die im OrchestrationSteps-Element definiert werden, bedingungsabhängig ausgeführt werden. Beispielsweise können Sie konfigurieren, dass ein Orchestrierungsschritt nur ausgeführt wird, wenn bestimmte Ansprüche vorhanden sind oder aber ein Anspruch dem angegebenen Wert entspricht oder nicht. 
 
 Ein **OrchestrationSteps**-Element wird als Teil der Richtlinie hinzugefügt, um die geordnete Liste der Orchestrierungsschritte festzulegen. Dieses Element ist erforderlich.
 
@@ -65,8 +65,8 @@ Das **OrchestrationStep**-Element enthält die folgenden Attribute:
 | --------- | -------- | ----------- |
 | `Order` | Ja | Die Reihenfolge der Orchestrierungsschritte. | 
 | `Type` | Ja | Der Typ des Orchestrierungsschritts. Mögliche Werte: <ul><li>**ClaimsProviderSelection:** Gibt an, dass der Orchestrierungsschritt verschiedene Anspruchsanbieter darstellt, von denen der Benutzer einen auswählen kann.</li><li>**CombinedSignInAndSignUp:** Gibt an, dass der Orchestrierungsschritt eine kombinierte Seite für die Anmeldung eines Social Media-Anbieters und die Registrierung eines lokalen Kontos darstellt.</li><li>**ClaimsExchange:** Gibt an, dass der Orchestrierungsschritt Ansprüche mit einem Anspruchsanbieter austauscht.</li><li>**SendClaims:** Gibt an, dass der Orchestrierungsschritt die Ansprüche an die vertrauende Seite mit einem Token übermittelt, das von einem Anspruchsaussteller ausgestellt wurde.</li></ul> | 
-| ContentDefinitionReferenceId | Nein  | Der Bezeichner der [Inhaltsdefinition](contentdefinitions.md), die diesem Orchestrierungsschritt zugeordnet ist. In der Regel wird der Bezeichner für den Verweis auf die Inhaltsdefinition im selbstbestätigten technischen Profil definiert. Jedoch gibt es einige Fälle, in denen Azure AD B2C etwas ohne technisches Profil anzeigen muss. Dafür gibt es zwei Beispiele, wenn der Orchestrierungsschritt einen der folgenden Typen aufweist: `ClaimsProviderSelection` oder `CombinedSignInAndSignUp`. Azure AD B2C muss die Auswahl des Identitätsanbieters anzeigen, ohne über ein technisches Profil zu verfügen. | 
-| CpimIssuerTechnicalProfileReferenceId | Nein  | Der Typ des Orchestrierungsschritts ist `SendClaims`. Diese Eigenschaft definiert den Bezeichner für das technische Profil des Anspruchsanbieters, der das Token für die vertrauende Seite ausstellt.  Wenn sie nicht vorhanden ist, wird kein Token für die vertrauende Seite erstellt. |
+| ContentDefinitionReferenceId | Nein | Der Bezeichner der [Inhaltsdefinition](contentdefinitions.md), die diesem Orchestrierungsschritt zugeordnet ist. In der Regel wird der Bezeichner für den Verweis auf die Inhaltsdefinition im selbstbestätigten technischen Profil definiert. Jedoch gibt es einige Fälle, in denen Azure AD B2C etwas ohne technisches Profil anzeigen muss. Hier sind zwei Beispiele: Wenn der Orchestrierungsschritt vom Typ `ClaimsProviderSelection` oder `CombinedSignInAndSignUp` ist, muss Azure AD B2C die Auswahl des Identitätsanbieters auch ohne technisches Profil anzeigen. | 
+| CpimIssuerTechnicalProfileReferenceId | Nein | Der Typ des Orchestrierungsschritts ist `SendClaims`. Diese Eigenschaft definiert den Bezeichner für das technische Profil des Anspruchsanbieters, der das Token für die vertrauende Seite ausstellt.  Wenn sie nicht vorhanden ist, wird kein Token für die vertrauende Seite erstellt. |
 
 
 Das **OrchestrationStep**-Element kann die folgenden Elemente enthalten:
@@ -88,7 +88,7 @@ Das **Preconditions**-Element enthält das folgende Element:
 
 #### <a name="precondition"></a>Precondition
 
-Das **Precondition**-Element enthält das folgende Attribut:
+Das **Precondition**-Element enthält die folgenden Attribute:
 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
@@ -121,7 +121,7 @@ Die folgenden Voraussetzungen überprüfen, ob der objectId-Wert des Benutzers v
 </OrchestrationStep>
 ```
 
-Die folgenden Voraussetzungen überprüfen, ob der Benutzer sich mit einem Social Media-Konto angemeldet hat. Es wird versucht, das Benutzerkonto im Verzeichnis zu finden. Überspringen Sie diesen Schritt, wenn der Benutzer sich mit einem lokalen Konto anmeldet oder registriert.
+Die folgenden Voraussetzungen überprüfen, ob der Benutzer sich mit einem Social Media-Konto angemeldet hat. Es wird versucht, das Benutzerkonto im Verzeichnis zu finden. Überspringen Sie diesen Orchestrierungsschritt, wenn sich der Benutzer mit einem lokalen Konto anmeldet oder registriert.
 
 ```XML
 <OrchestrationStep Order="3" Type="ClaimsExchange">
@@ -138,7 +138,7 @@ Die folgenden Voraussetzungen überprüfen, ob der Benutzer sich mit einem Socia
 </OrchestrationStep>
 ```
 
-Mit einem Preconditions-Element können mehrere Voraussetzungen überprüft werden. Im folgenden Beispiel wird überprüft, ob die Werte „objectId“ und „email“ vorhanden sind. Wenn die erste Bedingung TRUE ergibt, überspringt die User Journey zum nächsten Orchestrierungsschritt.
+Mit einem Preconditions-Element können mehrere Voraussetzungen überprüft werden. Im folgenden Beispiel wird überprüft, ob die Werte „objectId“ und „email“ vorhanden sind. Wenn die erste Bedingung TRUE lautet, springt die User Journey zum nächsten Orchestrierungsschritt.
 
 ```XML
 <OrchestrationStep Order="4" Type="ClaimsExchange">
@@ -172,8 +172,8 @@ Das **ClaimsProviderSelection**-Element enthält die folgenden Attribute:
 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Nein  | Der Bezeichner des Anspruchsaustauschs, der im nächsten Orchestrierungsschritt der Auswahl des Anspruchsanbieters ausgeführt wird. Dieses oder das ValidationClaimsExchangeId-Attribut muss angegeben werden, aber nicht beide. | 
-| ValidationClaimsExchangeId | Nein  | Der Bezeichner des Anspruchsaustauschs, der im aktuellen Orchestrierungsschritt zur Validierung der Auswahl des Anspruchsanbieters ausgeführt wird. Dieses oder das TargetClaimsExchangeId-Attribut muss angegeben werden, aber nicht beide. |
+| TargetClaimsExchangeId | Nein | Der Bezeichner des Anspruchsaustauschs, der im nächsten Orchestrierungsschritt der Auswahl des Anspruchsanbieters ausgeführt wird. Dieses oder das ValidationClaimsExchangeId-Attribut muss angegeben werden, aber nicht beide. | 
+| ValidationClaimsExchangeId | Nein | Der Bezeichner des Anspruchsaustauschs, der im aktuellen Orchestrierungsschritt zur Validierung der Auswahl des Anspruchsanbieters ausgeführt wird. Dieses oder das TargetClaimsExchangeId-Attribut muss angegeben werden, aber nicht beide. |
 
 ### <a name="claimsproviderselection-example"></a>Beispiel für das ClaimsProviderSelection-Element
 

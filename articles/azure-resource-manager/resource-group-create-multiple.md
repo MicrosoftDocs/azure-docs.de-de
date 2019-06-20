@@ -2,35 +2,60 @@
 title: Bereitstellen mehrerer Instanzen von Azure-Ressourcen | Microsoft-Dokumentation
 description: Verwenden Sie den copy-Vorgang und Arrays in einer Azure-Ressourcen-Manager-Vorlage, um sie beim Bereitstellen von Ressourcen mehrere Male zu durchlaufen.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205970"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807369"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bereitstellen mehrerer Instanzen einer Ressource oder Eigenschaft in Azure Resource Manager-Vorlagen
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Iteration von Ressourcen, Eigenschaften oder Variablen in Azure Resource Manager-Vorlagen
 
-In diesem Artikel erfahren Sie, wie Sie die Azure Resource Manager-Vorlage durchlaufen können, um mehrere Instanzen einer Ressource zu erstellen. Wenn Sie angeben müssen, ob eine Ressource überhaupt bereitgestellt wird, finden Sie die erforderlichen Informationen unter [Element „condition“](resource-group-authoring-templates.md#condition).
+In diesem Artikel erfahren Sie, wie Sie in Ihrer Azure Resource Manager-Vorlage mehrere Instanzen einer Ressource, Variablen oder Eigenschaft erstellen. Um mehrere Instanzen zu erstellen, fügen Sie das `copy`-Objekt zur Vorlage hinzu.
 
-Ein Tutorial finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit Resource Manager-Vorlagen](./resource-manager-tutorial-create-multiple-instances.md).
+Bei Verwendung mit einer Ressource weist das copy-Objekt das folgende Format auf:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Bei Verwendung mit einer Variablen oder Eigenschaft weist das copy-Objekt das folgende Format auf:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Beide Verwendungen werden in diesem Artikel ausführlicher beschrieben. Ein Tutorial finden Sie unter [Tutorial: Erstellen mehrerer Ressourceninstanzen mit Resource Manager-Vorlagen](./resource-manager-tutorial-create-multiple-instances.md).
+
+Wenn Sie angeben müssen, ob eine Ressource überhaupt bereitgestellt wird, finden Sie die erforderlichen Informationen unter [Element „condition“](resource-group-authoring-templates.md#condition).
+
+## <a name="copy-limits"></a>Einschränkungen für „copy“
+
+Um die Anzahl der Iterationen festzulegen, geben Sie einen Wert für die count-Eigenschaft an. Der Wert von „count“ darf 800 nicht überschreiten.
+
+Der Wert von „count“ darf nicht negativ sein. Wenn Sie eine Vorlage mit der REST-API-Version **2019-05-10** oder höher bereitstellen, können Sie „count“ auf „0“ (null) festlegen. Frühere Versionen der REST-API unterstützen den Wert „0“ (null) für „count“ nicht. Die Azure-Befehlszeilenschnittstelle oder PowerShell unterstützen den Wert „0“ (null) für „count“ derzeit nicht, aber die Unterstützung wird in einer zukünftigen Version hinzugefügt.
+
+Die Einschränkungen für „count“ sind für Ressourcen, Variablen und Eigenschaften gleich.
 
 ## <a name="resource-iteration"></a>Ressourceniteration
 
-Wenn Sie sich während der Bereitstellung entscheiden müssen, eine oder mehrere Instanzen einer Ressource zu erstellen, fügen Sie dem Ressourcentyp ein `copy`-Element hinzu. Im copy-Element geben Sie die Anzahl von Iterationen und einen Namen für diese Schleife an. Der count-Wert muss eine positive ganze Zahl sein und darf 800 nicht überschreiten. 
+Wenn Sie sich während der Bereitstellung entscheiden müssen, eine oder mehrere Instanzen einer Ressource zu erstellen, fügen Sie dem Ressourcentyp ein `copy`-Element hinzu. Geben Sie im copy-Element die Anzahl von Iterationen und einen Namen für diese Schleife an.
 
 Die Ressource zum mehrfachen Erstellen übernimmt das folgende Format:
 
@@ -71,7 +96,7 @@ Namen:
 * storage1
 * storage2
 
-Zum Versetzen des Indexwerts können Sie einen Wert in der copyIndex()-Funktion übergeben. Die Anzahl von durchzuführenden Durchläufen wird weiterhin im copy-Element angegeben, aber der Wert von copyIndex wird um den angegebenen Wert versetzt. Im folgenden Beispiel werden die unten aufgeführten Namen erstellt:
+Zum Versetzen des Indexwerts können Sie einen Wert in der copyIndex()-Funktion übergeben. Die Anzahl von Iterationen wird weiterhin im copy-Element angegeben, aber der Wert von „copyIndex“ wird um den angegebenen Wert versetzt. Im folgenden Beispiel werden die unten aufgeführten Namen erstellt:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -156,7 +181,7 @@ Informationen zur Verwendung des „copy“-Elementes mit geschachtelten Vorlage
 Wenn Sie mehrere Werte für eine Eigenschaft einer Ressource erstellen möchten, fügen Sie im properties-Element ein `copy`-Array hinzu. Dieses Array enthält Objekte, und jedes Objekt weist die folgenden Eigenschaften auf:
 
 * „name“ – der Name der Eigenschaft, für die mehrere Werte erstellt werden sollen
-* „count“ – die Anzahl der zu erstellenden Werte. Der count-Wert muss eine positive ganze Zahl sein und darf 800 nicht überschreiten.
+* „count“ – die Anzahl der zu erstellenden Werte.
 * „input“ – ein Objekt, das die Werte enthält, die der Eigenschaft zugewiesen werden sollen  
 
 Im folgenden Beispiel wird veranschaulicht, wie `copy` auf die dataDisks-Eigenschaft auf einem virtuellen Computer angewendet wird:

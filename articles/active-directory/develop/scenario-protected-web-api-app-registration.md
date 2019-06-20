@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d8c8fcf84cd008957fcdb7cd14c4a07d9f3643
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 59af4e20c7fe838f7c725b47e45968941fa85cb7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080104"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254053"
 ---
 # <a name="protected-web-api---app-registration"></a>Geschützte Web-API – App-Registrierung
 
@@ -34,7 +34,7 @@ Weitere Informationen finden Sie unter [Schnellstart: Registrieren einer Anwendu
 Der Microsoft Identity Platform-Endpunkt kann zwei Arten von Token ausgeben: v1.0-Token und v2.0-Token. Weitere Informationen zu diesen Token finden Sie unter [Zugriffstoken](access-tokens.md). Die akzeptierte Tokenversion hängt von den **unterstützten Kontotypen** ab, die Sie bei Erstellung Ihrer Anwendung ausgewählt haben:
 
 - Wenn der Wert von **Unterstützte Kontotypen** auf **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten (z.B. Skype, Xbox, Outlook.com)** festgelegt ist, wird v2.0 als Tokenversion akzeptiert.
-- Andernfalls wird v2.0 als Tokenversion akzeptiert.
+- Andernfalls wird v1.0 als Tokenversion akzeptiert.
 
 Nachdem Sie die Anwendung erstellt haben, können Sie die akzeptierte Tokenversion anhand der folgenden Schritte ändern:
 

@@ -13,10 +13,10 @@ ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: 03e5540e34cd99d2b201bc763f13b42c7fa20bf7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785319"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Verwenden von In-Memory-OLTP zur Verbesserung der Anwendungsleistung in SQL-Datenbank
@@ -94,7 +94,7 @@ So verwenden Sie diese Migrationsoption:
 2. Rufen Sie das vollständige T-SQL-Skript für die Tabelle und ihre Indizes ab.
    
    * Klicken Sie in SSMS mit der rechten Maustaste auf Ihren Tabellenknoten.
-   * Klicken Sie auf **Skript für Tabelle als** > **CREATE in** > **Fenster 'Neue Abfrage'**.
+   * Klicken Sie auf **Skript für Tabelle als** > **CREATE in** > **Fenster 'Neue Abfrage'** .
 3. Fügen Sie im Skriptfenster WITH (MEMORY_OPTIMIZED = ON) der CREATE TABLE-Anweisung hinzu.
 4. Wenn ein Index als CLUSTERED gekennzeichnet ist, ändern Sie ihn in NONCLUSTERED.
 5. Benennen Sie die vorhandene Tabelle mittels SP_RENAME um.

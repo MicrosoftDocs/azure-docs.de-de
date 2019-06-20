@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
 ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506373"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Hinzufügen, Ändern oder Entfernen von IP-Adressen für Azure-Netzwerkschnittstellen
@@ -56,7 +56,7 @@ Einer Netzwerkschnittstelle können beliebig viele [private](#private) und [öff
    |NAME|Ja|Muss für die Netzwerkschnittstelle eindeutig sein|
    |Type|Ja|Da Sie die IP-Konfiguration einer vorhandenen Netzwerkschnittstelle hinzufügen und jede Netzwerkschnittstelle über eine [primäre](#primary) IP-Konfiguration verfügen muss, steht nur die Option **Sekundär** zur Verfügung.|
    |Zuweisungsmethode für private IP-Adressen|Ja|[**Dynamisch**](#dynamic): Azure weist die nächste verfügbare Adresse für den Subnetzadressbereich zu, in dem die Netzwerkschnittstelle bereitgestellt wird. [**Statisch**](#static): Sie weisen eine nicht verwendete Adresse für den Subnetzadressbereich zu, in dem die Netzwerkschnittstelle bereitgestellt wird.|
-   |Öffentliche IP-Adresse|Nein |**Deaktiviert:** Der IP-Konfiguration ist derzeit keine öffentliche IP-Adressressource zugeordnet. **Aktiviert:** Wählen Sie eine vorhandene öffentliche IPv4-Adresse aus, oder erstellen Sie eine neue. Eine Anleitung zur Erstellung einer öffentlichen IP-Adresse finden Sie im Artikel [Public IP addresses](virtual-network-public-ip-address.md#create-a-public-ip-address) (Öffentliche IP-Adressen).|
+   |Öffentliche IP-Adresse|Nein|**Deaktiviert:** Der IP-Konfiguration ist derzeit keine öffentliche IP-Adressressource zugeordnet. **Aktiviert:** Wählen Sie eine vorhandene öffentliche IPv4-Adresse aus, oder erstellen Sie eine neue. Eine Anleitung zur Erstellung einer öffentlichen IP-Adresse finden Sie im Artikel [Public IP addresses](virtual-network-public-ip-address.md#create-a-public-ip-address) (Öffentliche IP-Adressen).|
 6. Fügen Sie dem Betriebssystem des virtuellen Computers manuell sekundäre private IP-Adressen hinzu. Gehen Sie dabei wie im Artikel [Zuweisen von mehreren IP-Adressen zu Betriebssystemen virtueller Computer](virtual-network-multiple-ip-addresses-portal.md#os-config) beschrieben vor. Spezielle Überlegungen vor dem manuellen Hinzufügen von IP-Adressen zum Betriebssystem virtueller Computer finden Sie unter [private](#private) IP-Adressen. Fügen Sie dem Betriebssystem des virtuellen Computers keine öffentlichen IP-Adressen hinzu.
 
 **Befehle**

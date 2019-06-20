@@ -13,11 +13,11 @@ ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61485977"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Bereitstellen und Katalogisieren neuer Mandanten in einer SaaS-Anwendung unter Verwendung einer mehrinstanzenfähigen Azure SQL-Datenbank mit Sharding
 
@@ -161,7 +161,7 @@ Um nachzuvollziehen, wie die Wingtip-App die Bereitstellung neuer Mandanten in e
    - **$VenueType** = **blues**, einer der vordefinierten Veranstaltungsorttypen: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in Kleinbuchstaben ohne Leerzeichen)
    - **$DemoScenario** = **1**, Bereitstellen eines Mandanten in einer mit anderen Mandanten gemeinsam genutzten Datenbank
 
-2. Fügen Sie einen Haltepunkt hinzu, indem Sie den Cursor an eine beliebige Stelle in Zeile 38 bewegen. Es handelt sich um die Zeile, die folgendermaßen lautet: *New-Tenant `*. Drücken Sie dann **F9**.
+2. Fügen Sie einen Haltepunkt hinzu, indem Sie den Cursor an eine beliebige Stelle in Zeile 38 bewegen. Es handelt sich um die Zeile, die folgendermaßen lautet: *New-Tenant `* . Drücken Sie dann **F9**.
 
    ![Haltepunkt](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -201,7 +201,7 @@ Durchlaufen Sie nun den Skriptprozess zum Erstellen eines Mandanten in seiner ei
    - **$VenueType** = **soccer**, einer der vordefinierten Veranstaltungsorttypen: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (Kleinschreibung, keine Leerzeichen)
    - **$DemoScenario** = **2**, Bereitstellen eines Mandanten in seiner eigenen Datenbank
 
-2. Fügen Sie einen neuen Haltepunkt hinzu, indem Sie den Cursor an eine beliebige Stelle in Zeile 57 bewegen (der Zeile mit *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `*) und **F9** drücken.
+2. Fügen Sie einen neuen Haltepunkt hinzu, indem Sie den Cursor an eine beliebige Stelle in Zeile 57 bewegen (der Zeile mit *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* ) und **F9** drücken.
 
    ![Haltepunkt](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
@@ -220,7 +220,7 @@ In dieser Übung wird ein Batch mit 17 Mandanten bereitgestellt. Es empfiehlt si
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Überprüfen der bereitgestellten Gruppe von Mandanten 
 
-In dieser Phase haben Sie eine Kombination von Mandanten, die in einer gemeinsam genutzten Datenbank bereitgestellt wurden, und Mandanten, die in ihren eigenen Datenbanken bereitgestellt wurden. Im Azure-Portal können die erstellten Datenbanken überprüft werden. Öffnen Sie im [Azure-Portal](https://portal.azure.com) den Server **tenants1-mt-\<USER\>**, indem Sie zur Liste der SQL-Server navigieren.  Die Liste **SQL-Datenbanken** sollte die gemeinsame genutzte Datenbank **tenants1** und die Datenbanken für die Mandanten mit eigener Datenbank enthalten:
+In dieser Phase haben Sie eine Kombination von Mandanten, die in einer gemeinsam genutzten Datenbank bereitgestellt wurden, und Mandanten, die in ihren eigenen Datenbanken bereitgestellt wurden. Im Azure-Portal können die erstellten Datenbanken überprüft werden. Öffnen Sie im [Azure-Portal](https://portal.azure.com) den Server **tenants1-mt-\<USER\>** , indem Sie zur Liste der SQL-Server navigieren.  Die Liste **SQL-Datenbanken** sollte die gemeinsame genutzte Datenbank **tenants1** und die Datenbanken für die Mandanten mit eigener Datenbank enthalten:
 
    ![Datenbankliste](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 

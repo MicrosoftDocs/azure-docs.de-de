@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60822352"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Einrichten von Diagnoseprotokollen für Azure Event Hubs
 
 Sie können zwei Typen von Protokollen für Azure Event Hubs anzeigen:
 
-* **[Aktivitätsprotokolle](../azure-monitor/platform/activity-logs-overview.md)**: Diese Protokolle enthalten Informationen zu Vorgängen, die für einen Auftrag ausgeführt werden. Diese Protokolle sind immer aktiviert.
-* **[Diagnoseprotokolle](../azure-monitor/platform/diagnostic-logs-overview.md)**: Sie können Diagnoseprotokolle konfigurieren, um einen umfangreicheren Einblick in alle Vorgänge zu erhalten, die im Rahmen des Auftrags ausgeführt werden. Diagnoseprotokolle enthalten Informationen zu Aktivitäten vom Erstellen bis zum Löschen des Auftrags, einschließlich Updates und Aktivitäten während der Auftragsausführung.
+* **[Aktivitätsprotokolle](../azure-monitor/platform/activity-logs-overview.md)** : Diese Protokolle enthalten Informationen zu Vorgängen, die für einen Auftrag ausgeführt werden. Diese Protokolle sind immer aktiviert.
+* **[Diagnoseprotokolle](../azure-monitor/platform/diagnostic-logs-overview.md)** : Sie können Diagnoseprotokolle konfigurieren, um einen umfangreicheren Einblick in alle Vorgänge zu erhalten, die im Rahmen des Auftrags ausgeführt werden. Diagnoseprotokolle enthalten Informationen zu Aktivitäten vom Erstellen bis zum Löschen des Auftrags, einschließlich Updates und Aktivitäten während der Auftragsausführung.
 
 ## <a name="enable-diagnostic-logs"></a>Aktivieren von Diagnoseprotokollen
 
@@ -76,14 +76,14 @@ NAME | BESCHREIBUNG
 TaskName | Beschreibung der Aufgabe, bei der ein Fehler aufgetreten ist
 ActivityId | Interne ID zur Nachverfolgung
 trackingId | Interne ID zur Nachverfolgung
-Ressourcen-ID | Azure Resource Manager-Ressourcen-ID
+resourceId | Azure Resource Manager-Ressourcen-ID
 eventHub | Vollständiger Event Hub-Name (mit Namespacename)
 partitionId | Event Hub-Partition, auf die geschrieben wird
 archiveStep | ArchiveFlushWriter
 startTime | Fehlerstartzeit
 failures | Anzahl der Vorkommen eines Fehlers
 durationInSeconds | Dauer des Fehlers
-Message: | Fehlermeldung.
+message | Fehlermeldung.
 category | ArchiveLogs
 
 Es folgt ein Codebeispiel für eine JSON-Zeichenfolge im Archivierungsprotokoll:
@@ -113,12 +113,12 @@ NAME | BESCHREIBUNG
 ------- | -------
 ActivityId | Interne ID zur Nachverfolgung
 EventName | Vorgangsname  
-Ressourcen-ID | Azure Resource Manager-Ressourcen-ID
+resourceId | Azure Resource Manager-Ressourcen-ID
 SubscriptionId | Abonnement-ID
 EventTimeString | Vorgangszeit
 EventProperties | Vorgangseigenschaften
 Status | Vorgangsstatus
-Aufrufer | Aufrufer des Vorgangs (Azure-Portal oder Verwaltungsclient)
+Caller | Aufrufer des Vorgangs (Azure-Portal oder Verwaltungsclient)
 category | OperationalLogs
 
 Es folgt ein Codebeispiel für eine JSON-Zeichenfolge im Betriebsprotokoll:

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60958585"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Erstellen und Verwalten von Blobs in Azure-Blobspeicher mit Azure Logic Apps
 
@@ -63,7 +63,7 @@ In diesem Beispiel wird veranschaulicht, wie Sie einen Logik-App-Workflow mit de
 
    1. Wählen Sie im Feld **Container** das Ordnersymbol.
 
-   2. Wählen Sie in der Ordnerliste den Pfeil nach rechts (**>**), und navigieren Sie zum gewünschten Ordner.
+   2. Wählen Sie in der Ordnerliste den Pfeil nach rechts ( **>** ), und navigieren Sie zum gewünschten Ordner.
 
       ![Ordner auswählen](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -86,7 +86,7 @@ In Azure Logic Apps handelt es sich bei einer [Aktion](../logic-apps/logic-apps-
    ![Hinzufügen einer Aktion](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    Um eine Aktion zwischen vorhandenen Schritten hinzuzufügen, bewegen Sie den Mauszeiger über den Verbindungspfeil. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) aus, und wählen Sie dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) aus, und wählen Sie dann **Aktion hinzufügen** aus.
 
 3. Geben Sie im Suchfeld „azure blob“ als Filter ein. Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 

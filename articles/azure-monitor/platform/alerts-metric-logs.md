@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 9f47ba44e7940414932371ef1b7a360d0b01e1ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 1c744e0063d5c56b2ca17f2b6c6fa694ad13a26c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64872575"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Erstellen von Metrikwarnungen für Protokolle in Azure Monitor
 
@@ -57,7 +57,7 @@ Bevor die Metrik für Protokolle, die über Log Analytics-Daten erfasst wurden, 
 
 1. **Active Log Analytics-Arbeitsbereich**: Es muss ein gültiger und aktiver Log Analytics-Arbeitsbereich vorhanden sein. Weitere Informationen finden Sie unter [Erstellen eines Log Analytics-Arbeitsbereichs im Azure-Portal](../../azure-monitor/learn/quick-create-workspace.md).
 2. **Agent ist für Log Analytics-Arbeitsbereich konfiguriert**: Der Agent muss für Azure VMs (und/oder) lokale VMs konfiguriert werden, um Daten in den Log Analytics-Arbeitsbereich zu senden, der in einem früheren Schritt verwendet wurde. Weitere Informationen finden Sie unter [Log Analytics – Übersicht über Agents](../../azure-monitor/platform/agents-overview.md).
-3. **Unterstützte Log Analytics-Lösungen sind installiert:**: Die Log Analytics-Lösung sollte konfiguriert sein und Daten in den Log Analytics-Arbeitsbereich senden – unterstützte Lösungen sind [Leistungsindikatoren für Windows und Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [Heartbeat-Datensätze für Agent-Integritätsdiagnose](../../azure-monitor/insights/solution-agenthealth.md), [Update-Management und [Ereignisdaten](../../azure-monitor/platform/data-sources-windows-events.md).
+3. **Unterstützte Log Analytics-Lösungen sind installiert:** : Die Log Analytics-Lösung sollte konfiguriert sein und Daten in den Log Analytics-Arbeitsbereich senden – unterstützte Lösungen sind [Leistungsindikatoren für Windows und Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [Heartbeat-Datensätze für Agent-Integritätsdiagnose](../../azure-monitor/insights/solution-agenthealth.md), [Update-Management](../../automation/automation-update-management.md) und [Ereignisdaten](../../azure-monitor/platform/data-sources-windows-events.md).
 4. **Zum Senden von Protokollen konfigurierte Log Analytics-Lösungen**: Für die Log Analytics-Lösung müssen die erforderlichen Protokolle/Daten entsprechend der für [Log Analytics-Arbeitsbereiche unterstützten Metriken](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) aktiviert sein. Der Zähler *% Verfügbarer Arbeitsspeicher* muss z. B. zuerst in der Lösung [Leistungsindikatoren](../../azure-monitor/platform/data-sources-performance-counters.md) konfiguriert sein.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Konfigurieren der Metrikwarnung für Protokolle

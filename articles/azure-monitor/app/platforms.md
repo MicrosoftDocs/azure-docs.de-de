@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/01/2016
+ms.date: 05/16/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 5a7fbeafe74926c7d89ac76dc2964756b3582d61
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 9ef5c9e8b4a46b4bf2bed25027602fb98a09dbf0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671147"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256103"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Entwickleranalysen: Programmiersprachen, Plattformen und Integrationsmöglichkeiten
 Bei diesen Elementen handelt es sich um Implementierungen von [Application Insights](../../azure-monitor/app/app-insights-overview.md), von denen wir gehört haben. Einige davon stammen von Drittanbietern.
@@ -31,6 +31,7 @@ Bei diesen Elementen handelt es sich um Implementierungen von [Application Insig
 
 ## <a name="languages---community-supported"></a>Programmiersprachen – von der Community unterstützt
 * [F#](https://safe-stack.github.io/docs/template-azure-ai/)
+* [Go](https://github.com/Microsoft/ApplicationInsights-go)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -45,7 +46,7 @@ Bei diesen Elementen handelt es sich um Implementierungen von [Application Insig
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md): Einschließlich Web- und Workerrollen
-* [Azure-Funktionen](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Azure-Funktionen](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
@@ -62,6 +63,7 @@ Bei diesen Elementen handelt es sich um Implementierungen von [Application Insig
 * [Alles andere](#projects)
 
 ## <a name="logging-frameworks"></a>Protokollierungsframeworks
+* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
 * [Log4Net, NLog oder System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J oder Logback](../../azure-monitor/app/java-trace-logs.md)
 * [Semantic Logging (SLAB):](https://github.com/fidmor89/SLAB_AppInsights) In [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx) integriert

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61293828"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Verwalten von DNS-Zonen in Azure DNS mithilfe der Azure-Befehlszeilenschnittstelle
 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Hilfe
 
-Alle Azure CLI-Befehle im Zusammenhang mit Azure DNS beginnen mit `az network dns`. Für jeden Befehl ist eine Hilfe verfügbar, die mit der Option `--help` (Kurzform: `-h`) angezeigt werden kann.  Beispiel: 
+Alle Azure CLI-Befehle im Zusammenhang mit Azure DNS beginnen mit `az network dns`. Für jeden Befehl ist eine Hilfe verfügbar, die mit der Option `--help` (Kurzform: `-h`) angezeigt werden kann.  Beispiel:
 
 ```azurecli
 az network dns --help

@@ -3,15 +3,15 @@ title: Aktivieren der Replikation von virtuellen VMware-Computern für die Notfa
 description: In diesem Artikel wird beschrieben, wie Sie mithilfe von Azure Site Recovery die Replikation von virtuellen VMware-Computern für die Notfallwiederherstellung in Azure aktivieren.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004736"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540753"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivieren der Replikation in Azure für VMware-VMs
 
@@ -43,16 +43,17 @@ Bevor Sie die Schritte in diesem Abschnitt ausführen, beachten Sie die Folgende
 * Eine Replikation in Speicherkonten für einen neuen virtuellen Computer ist nur über die REST-API (Representational State Transfer) und Powershell verfügbar. Verwenden Sie die Azure REST-API-Version 2016-08-10 oder 2018-01-10 für die Replikation in Speicherkonten.
 
 1. Fahren Sie fort mit **Schritt 2: Replizieren Sie die Anwendung** > **Quelle**. Wählen Sie nach der erstmaligen Aktivierung der Replikation im Tresor die Option **+Replizieren** aus, um die Replikation für weitere virtuelle Computer zu aktivieren.
-1. Wählen Sie auf der Seite **Quelle** unter **Quelle** den Konfigurationsserver aus.
-1. Wählen Sie unter **Computertyp** die Option **Virtuelle Computer** oder **Physische Computer** aus.
-1. Wählen Sie unter **vCenter-/vSphere-Hypervisor** den vCenter-Server aus, der den vSphere-Host verwaltet, oder wählen Sie den Host aus. Wenn Sie physische Computer replizieren, ist diese Einstellung nicht relevant.
-1. Wählen Sie den Prozessserver aus, der als Konfigurationsserver verwendet werden soll, wenn Sie keine zusätzlichen Prozessserver erstellt haben. Wählen Sie dann **OK**aus.
+2. Wählen Sie auf der Seite **Quelle** unter **Quelle** den Konfigurationsserver aus.
+3. Wählen Sie unter **Computertyp** die Option **Virtuelle Computer** oder **Physische Computer** aus.
+4. Wählen Sie unter **vCenter-/vSphere-Hypervisor** den vCenter-Server aus, der den vSphere-Host verwaltet, oder wählen Sie den Host aus. Wenn Sie physische Computer replizieren, ist diese Einstellung nicht relevant.
+5. Wählen Sie den Prozessserver aus. Wurden keine zusätzlichen Prozessserver erstellt, ist der integrierte Prozessserver des Konfigurationsservers in der Dropdownliste verfügbar. Der Integritätsstatus der einzelnen Prozessserver wird gemäß der empfohlenen Grenzwerte und anderer Parameter angezeigt. Wählen Sie einen fehlerfreien Prozessserver aus. Ein [kritischer](vmware-physical-azure-monitor-process-server.md#process-server-alerts) Prozessserver kann nicht ausgewählt werden. Sie können entweder die Fehler [behandeln und beheben](vmware-physical-azure-troubleshoot-process-server.md) **oder** einen [horizontal hochskalierten Prozessserver](vmware-azure-set-up-process-server-scale.md) einrichten.
+    ![Fenster „Replikation aktivieren: Quelle“](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Fenster „Replikation aktivieren: Quelle“](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> Ab [Version 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups) wurden weitere Warnungen eingeführt, um die Integritätswarnungen des Prozessservers zu verbessern. Aktualisieren Sie die Site Recovery-Komponenten auf Version 9.24 oder höher, damit alle Warnungen generiert werden.
 
-1. Wählen Sie unter **Ziel** das Abonnement und die Ressourcengruppe aus, in dem bzw. der Sie die virtuellen Computer erstellen möchten, für ein Failover erfolgt ist. Wählen Sie das Bereitstellungsmodell aus, das Sie in Azure für die virtuellen Computer verwenden möchten, für die ein Failover erfolgt ist.
-
-1. Wählen Sie das Azure-Netzwerk und das Subnetz aus, mit dem virtuelle Azure-Computer nach dem Failover eine Verbindung herstellen. Das Netzwerk muss sich in derselben Region wie der Tresor des Site Recovery-Diensts befinden.
+6. Wählen Sie unter **Ziel** das Abonnement und die Ressourcengruppe aus, in dem bzw. der Sie die virtuellen Computer erstellen möchten, für ein Failover erfolgt ist. Wählen Sie das Bereitstellungsmodell aus, das Sie in Azure für die virtuellen Computer verwenden möchten, für die ein Failover erfolgt ist.
+2. Wählen Sie das Azure-Netzwerk und das Subnetz aus, mit dem virtuelle Azure-Computer nach dem Failover eine Verbindung herstellen. Das Netzwerk muss sich in derselben Region wie der Tresor des Site Recovery-Diensts befinden.
 
    Wählen Sie **Jetzt für die ausgewählten Computer konfigurieren** aus, um die Netzwerkeinstellung auf alle virtuellen Computer anzuwenden, die geschützt werden sollen. Wählen Sie **Später konfigurieren** aus, um das Azure-Netzwerk über einzelne virtuelle Computer auszuwählen. Wenn Sie über kein Netzwerk verfügen, müssen Sie ein Netzwerk erstellen. Wählen Sie zum Erstellen eines Netzwerks mit Azure Resource Manager **Neu erstellen** aus. Wählen Sie ein Subnetz aus (falls zutreffend), und wählen Sie dann **OK** aus.
    

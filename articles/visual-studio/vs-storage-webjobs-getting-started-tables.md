@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60390841"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Erste Schritte mit Azure Storage (Azure WebJob-Projekte)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +30,7 @@ Der Azure-Tabellenspeicherdienst ermöglicht das Speichern großer Mengen von st
 Einige der Codeausschnitte zeigen das **Table** -Attribut in Funktionen, die manuell aufgerufen werden, also nicht mit einem der Triggerattribute.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Hinzufügen von Entitäten zu einer Tabelle
-Um einer Tabelle Entitäten hinzuzufügen, verwenden Sie das **Table**-Attribut mit einem **ICollector<T>**- oder **IAsyncCollector<T>**-Parameter, wobei **T** das Schema der Entitäten angibt, die Sie hinzufügen möchten. Der Attributkonstruktor verwendet einen Zeichenfolgenparameter, der den Namen der Tabelle angibt.
+Um einer Tabelle Entitäten hinzuzufügen, verwenden Sie das **Table**-Attribut mit einem **ICollector<T>** - oder **IAsyncCollector<T>** -Parameter, wobei **T** das Schema der Entitäten angibt, die Sie hinzufügen möchten. Der Attributkonstruktor verwendet einen Zeichenfolgenparameter, der den Namen der Tabelle angibt.
 
 Das folgende Codebeispiel fügt einer Tabelle namens **Ingress** *Person*-Entitäten hinzu.
 
@@ -79,7 +79,7 @@ Wenn die Funktion abgeschlossen ist, meldet die Seite **Aufrufdetails** die Anza
 ![Eingangsfunktion ist abgeschlossen](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Lesen mehrerer Entitäten aus einer Tabelle
-Verwenden Sie zum Lesen einer Tabelle das **Table**-Attribut mit dem **IQueryable<T>**-Parameter, wobei der Typ **T** von **TableEntity** abgeleitet ist oder **ITableEntity** implementiert.
+Verwenden Sie zum Lesen einer Tabelle das **Table**-Attribut mit dem **IQueryable<T>** -Parameter, wobei der Typ **T** von **TableEntity** abgeleitet ist oder **ITableEntity** implementiert.
 
 Das folgende Codebeispiel liest und protokolliert alle Zeilen aus der **Ingress**-Tabelle:
 

@@ -12,11 +12,11 @@ ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649440"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61430680"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glossar für QnA Maker-Wissensdatenbank und -Dienst
 

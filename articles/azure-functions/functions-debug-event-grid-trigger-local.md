@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60428269"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Lokales Debuggen von Azure-Funktionen mit Event Grid-Trigger
 

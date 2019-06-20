@@ -7,11 +7,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794362"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61348446"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure Data Factory-Pivottransformation
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]

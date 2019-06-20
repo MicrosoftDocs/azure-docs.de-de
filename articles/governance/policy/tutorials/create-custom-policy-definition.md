@@ -3,18 +3,18 @@ title: Erstellen einer benutzerdefinierten Richtliniendefinition
 description: Es wird beschrieben, wie Sie eine benutzerdefinierte Richtliniendefinition für Azure Policy erstellen, um benutzerdefinierte Geschäftsregeln zu erzwingen.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267751"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979667"
 ---
-# <a name="create-a-custom-policy-definition"></a>Erstellen einer benutzerdefinierten Richtliniendefinition
+# <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Erstellen einer benutzerdefinierten Richtliniendefinition
 
 Mit einer benutzerdefinierten Richtliniendefinition können Kunden eigene Regeln für die Verwendung von Azure definieren. Mit diesen Regeln wird häufig Folgendes erzwungen:
 
@@ -46,12 +46,11 @@ Es ist wichtig, dass Sie sich vor dem Erstellen der Richtliniendefinition mit de
 
 In Ihren Anforderungen sollten die gewünschten und unerwünschten Ressourcenzustände jeweils eindeutig angegeben werden.
 
-Wir haben zwar den erwarteten Zustand der Ressource definiert, aber wird haben noch nicht festgelegt, was mit nicht konformen Ressourcen passieren soll. Policy unterstützt verschiedene [Auswirkungen](../concepts/effects.md). Für dieses Tutorial definieren wir die geschäftliche Anforderung so, dass die Erstellung von Ressourcen verhindert wird, wenn sie mit den Geschäftsregeln nicht konform sind. Um dieses Ziel zu erreichen, verwenden wir die Auswirkung [Deny](../concepts/effects.md#deny) (Verweigern). Außerdem möchten wir die Möglichkeit haben, die Richtlinie für bestimmte Fälle auszusetzen. Hierfür verwenden wir die Auswirkung [Disabled](../concepts/effects.md#disabled) (Deaktiviert) und machen die Auswirkung zu einem [Parameter](../concepts/definition-structure.md#parameters) in der Richtliniendefinition.
+Wir haben zwar den erwarteten Zustand der Ressource definiert, aber wird haben noch nicht festgelegt, was mit nicht konformen Ressourcen passieren soll. Azure Policy unterstützt verschiedene [Auswirkungen](../concepts/effects.md). Für dieses Tutorial definieren wir die geschäftliche Anforderung so, dass die Erstellung von Ressourcen verhindert wird, wenn sie mit den Geschäftsregeln nicht konform sind. Um dieses Ziel zu erreichen, verwenden wir die Auswirkung [Deny](../concepts/effects.md#deny) (Verweigern). Außerdem möchten wir die Möglichkeit haben, die Richtlinie für bestimmte Fälle auszusetzen. Hierfür verwenden wir die Auswirkung [Disabled](../concepts/effects.md#disabled) (Deaktiviert) und machen die Auswirkung zu einem [Parameter](../concepts/definition-structure.md#parameters) in der Richtliniendefinition.
 
 ## <a name="determine-resource-properties"></a>Ermitteln von Ressourceneigenschaften
 
-Basierend auf der geschäftlichen Anforderung ist die Azure-Ressource, die mit Policy überwacht werden soll, ein Speicherkonto.
-Wir wissen aber nicht, welche Eigenschaften in der Richtliniendefinition verwendet werden sollen. Da Policy eine Evaluierung anhand der JSON-Darstellung der Ressource durchführt, müssen wir die Eigenschaften verstehen, die für diese Ressource verfügbar sind.
+Basierend auf der geschäftlichen Anforderung ist die Azure-Ressource, die mit Azure Policy überwacht werden soll, ein Speicherkonto. Wir wissen aber nicht, welche Eigenschaften in der Richtliniendefinition verwendet werden sollen. Da Azure Policy eine Evaluierung anhand der JSON-Darstellung der Ressource durchführt, müssen wir die Eigenschaften verstehen, die für diese Ressource verfügbar sind.
 
 Es gibt viele Möglichkeiten, die Eigenschaften für eine Azure-Ressource zu ermitteln. In diesem Tutorial sehen wir uns die einzelnen Fälle an:
 
@@ -69,9 +68,9 @@ Es gibt mehrere Möglichkeiten, sich eine [Resource Manager-Vorlage](../../../az
 #### <a name="existing-resource-in-the-portal"></a>Vorhandene Ressource im Portal
 
 Am einfachsten finden Sie Eigenschaften, indem Sie sich eine vorhandene Ressource desselben Typs ansehen. Ressourcen, die bereits mit der zu erzwingenden Einstellung konfiguriert sind, enthalten auch den Wert für den Vergleich.
-Sehen Sie sich im Azure-Portal die Seite **Automatisierungsskript** (unter **Einstellungen**) für die jeweilige Ressource an.
+Sehen Sie sich im Azure-Portal die Seite **Exportvorlage** (unter **Einstellungen**) für die jeweilige Ressource an.
 
-![Seite zum Exportieren der Vorlage für eine vorhandene Ressource](../media/create-custom-policy-definition/automation-script.png)
+![Seite zum Exportieren der Vorlage für eine vorhandene Ressource](../media/create-custom-policy-definition/export-template.png)
 
 Wenn Sie so für ein Speicherkonto vorgehen, wird eine Vorlage bereitgestellt, die der Vorlage in diesem Beispiel ähnelt:
 
@@ -121,8 +120,7 @@ Unter **properties** befindet sich der Wert **supportsHttpsTrafficOnly**, der au
 
 #### <a name="create-a-resource-in-the-portal"></a>Erstellen einer Ressource im Portal
 
-Eine weitere Möglichkeit zur Verwendung des Portals ist die Umgebung für die Ressourcenerstellung. Beim Erstellen eines Speicherkontos über das Portal können Sie auch auf der Registerkarte **Erweitert** die Option **Sicherheitstransfer erforderlich** verwenden.
-Diese Eigenschaft verfügt über die Optionen _Deaktiviert_ und _Aktiviert_. Für das Infosymbol wird zusätzlicher Text angezeigt, um zu bestätigen, dass es sich bei dieser Option wahrscheinlich um die gewünschte Eigenschaft handelt. Im Portal wird in diesem Fenster aber nicht der Name der Eigenschaft angegeben.
+Eine weitere Möglichkeit zur Verwendung des Portals ist die Umgebung für die Ressourcenerstellung. Beim Erstellen eines Speicherkontos über das Portal können Sie auch auf der Registerkarte **Erweitert** die Option **Sicherheitstransfer erforderlich** verwenden. Diese Eigenschaft verfügt über die Optionen _Deaktiviert_ und _Aktiviert_. Für das Infosymbol wird zusätzlicher Text angezeigt, um zu bestätigen, dass es sich bei dieser Option wahrscheinlich um die gewünschte Eigenschaft handelt. Im Portal wird in diesem Fenster aber nicht der Name der Eigenschaft angegeben.
 
 Die Registerkarte **Bewerten + erstellen** enthält unten den Link **Vorlage zur Automatisierung herunterladen**. Wenn Sie den Link auswählen, wird die Vorlage geöffnet, mit der die konfigurierte Ressource erstellt wird. In diesem Fall werden zwei wichtige Informationen angezeigt:
 
@@ -181,8 +179,7 @@ In den Ergebnissen wird ein Alias angezeigt, der von den Speicherkonten unterst�
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-In Azure PowerShell wird das Cmdlet `Get-AzPolicyAlias` verwendet, um nach Ressourcenaliasen zu suchen.
-Wir filtern anhand der Details, die wir zuvor zur Azure-Ressource erhalten haben, nach dem Namespace **Microsoft.Storage**.
+In Azure PowerShell wird das Cmdlet `Get-AzPolicyAlias` verwendet, um nach Ressourcenaliasen zu suchen. Wir filtern anhand der Details, die wir zuvor zur Azure-Ressource erhalten haben, nach dem Namespace **Microsoft.Storage**.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -197,8 +194,9 @@ Wie in der Azure-Befehlszeilenschnittstelle auch, wird in den Ergebnissen ein Al
 
 [Azure Resource Graph](../../resource-graph/overview.md) ist ein neuer Dienst, der sich in der Vorschauphase befindet. Mit diesem Dienst ist noch ein weiteres Verfahren zum Suchen nach Eigenschaften von Azure-Ressourcen möglich. Hier ist eine Beispielabfrage für die Suche nach einem einzelnen Speicherkonto mit Resource Graph angegeben:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +207,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Die Ergebnisse ähneln den Daten, die in den Resource Manager-Vorlagen enthalten sind und über den Azure-Ressourcen-Explorer bereitgestellt werden. Azure Resource Graph-Ergebnisse enthalten aber auch [Aliasdetails](../concepts/definition-structure.md#aliases). Hier ist eine Beispielausgabe eines Speicherkontos für Aliase angegeben:
+Die Ergebnisse ähneln den Daten, die in den Resource Manager-Vorlagen enthalten sind und über den Azure-Ressourcen-Explorer bereitgestellt werden. Azure Resource Graph-Ergebnisse können aber auch [Aliasdetails](../concepts/definition-structure.md#aliases) enthalten, indem die _Projektion_ für den _Aliasarray_ ausgeführt wird:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Hier ist eine Beispielausgabe eines Speicherkontos für Aliase angegeben:
 
 ```json
 "aliases": {
@@ -295,7 +309,8 @@ Azure Resource Graph (Vorschauversion) kann mit [Cloud Shell](https://shell.azur
 
 ## <a name="determine-the-effect-to-use"></a>Ermitteln der zu verwendenden Auswirkung
 
-Die Entscheidung, was mit Ihren nicht konformen Ressourcen passieren soll, ist fast so wichtig wie die Entscheidung, was überhaupt evaluiert werden soll. Jede mögliche Reaktion auf eine nicht konforme Ressource wird als [Auswirkung](../concepts/effects.md) bezeichnet. Mit der Auswirkung wird gesteuert, ob die nicht konforme Ressource protokolliert oder blockiert wird, über angefügte Daten verfügt oder mit einer zugeordneten Bereitstellung versehen ist, um die Ressource wieder in einen konformen Zustand zu versetzen.
+Die Entscheidung, was mit Ihren nicht konformen Ressourcen passieren soll, ist fast so wichtig wie die Entscheidung, was überhaupt evaluiert werden soll. Jede mögliche Reaktion auf eine nicht konforme Ressource wird als [Auswirkung](../concepts/effects.md) bezeichnet.
+Mit der Auswirkung wird gesteuert, ob die nicht konforme Ressource protokolliert oder blockiert wird, über angefügte Daten verfügt oder mit einer zugeordneten Bereitstellung versehen ist, um die Ressource wieder in einen konformen Zustand zu versetzen.
 
 Für unser Beispiel ist „Deny“ die passende Auswirkung, da wir nicht möchten, dass in unserer Azure-Umgebung nicht konforme Ressourcen erstellt werden. Die Überwachung ist eine gute erste Wahl für eine Richtlinienauswirkung, um vor dem Festlegen einer Richtlinie auf „Deny“ zu ermitteln, welche Auswirkung damit verbunden ist. Eine Möglichkeit, die Änderung der Auswirkung pro Zuweisung zu vereinfachen, ist die Parametrisierung der Auswirkung. Genauere Informationen zur Vorgehensweise finden Sie unter [Parameter](#parameters).
 

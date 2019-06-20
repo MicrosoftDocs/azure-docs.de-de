@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66754070"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostizieren der lokalen Konnektivität über VPN-Gateways
 
@@ -36,7 +36,7 @@ Sie möchten eine Site-to-Site-Verbindung zwischen Azure und dem lokalen Netzwer
 
 1. Virtual Network-Gateway: VPN Gateway in Azure
 1. Gateway des lokalen Netzwerks: die Darstellung des [lokalen VPN-Gateways (FortiGate)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) in der Azure-Cloud
-1. Site-to-Site-Verbindung (routenbasiert): [Verbindung zwischen VPN Gateway und dem lokalen Router](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Site-to-Site-Verbindung (routenbasiert): [Verbindung zwischen VPN Gateway und dem lokalen Router](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [Konfigurieren von FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Eine ausführliche Hilfestellung zum Konfigurieren einer Standort-zu-Standort-Konfiguration finden Sie unter: [Erstellen eines VNET mit einer Standort-zu-Standort-Verbindung über das Azure-Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
@@ -52,7 +52,7 @@ Ein wichtiger Konfigurationsschritt ist die Konfiguration der IPsec-Kommunikatio
 | Authentifizierungsmethode |Vorab ausgetauschter Schlüssel |Vorab ausgetauschter Schlüssel |
 | Verschlüsselungsalgorithmen |AES256 AES128 3DES |AES256 3DES |
 | Hashalgorithmus |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Phase 1 Sicherheitszuordnung (SA) Lebensdauer (Zeit) |28.800 Sekunden |10.800 Sekunden |
+| Phase 1 Sicherheitszuordnung (SA) Lebensdauer (Zeit) |28\.800 Sekunden |10\.800 Sekunden |
 
 Als Benutzer müssen Sie FortiGate konfigurieren. Eine Beispielkonfiguration finden Sie auf [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Ohne es zu wissen, haben Sie FortiGate für die Verwendung des Hashalgorithmus SHA-512 konfiguriert. Da dieser Algorithmus für richtlinienbasierte Verbindungen nicht unterstützt wird, funktioniert Ihre VPN-Verbindung nicht.
 
@@ -84,13 +84,13 @@ Das Azure Network Watcher-Feature zur Problembehandlung ermöglicht es Ihnen, Pr
 | Fehlertyp | `Reason` | Protokoll|
 |---|---|---|
 | NoFault | Es wurde kein Fehler erkannt. |Ja|
-| GatewayNotFound | Das Gateway wurde nicht gefunden oder nicht bereitgestellt. |Nein |
-| PlannedMaintenance |  Die Gatewayinstanz wird zurzeit gewartet.  |Nein |
-| UserDrivenUpdate | Es wird ein Benutzerupdate des Geräts durchgeführt. Dies könnte z.B. eine Größenänderung sein. | Nein  |
-| VipUnResponsive | Die primäre Instanz des Gateways ist nicht erreichbar. Dies tritt auf, wenn beim Integritätstest ein Fehler auftritt. | Nein  |
-| PlatformInActive | Es ist ein Problem mit der Plattform aufgetreten. | Nein |
-| ServiceNotRunning | Der zugrunde liegende Dienst wird nicht ausgeführt. | Nein |
-| NoConnectionsFoundForGateway | Es gibt keine Verbindungen auf dem Gateway. Dies ist nur eine Warnung.| Nein |
+| GatewayNotFound | Das Gateway wurde nicht gefunden oder nicht bereitgestellt. |Nein|
+| PlannedMaintenance |  Die Gatewayinstanz wird zurzeit gewartet.  |Nein|
+| UserDrivenUpdate | Es wird ein Benutzerupdate des Geräts durchgeführt. Dies könnte z.B. eine Größenänderung sein. | Nein |
+| VipUnResponsive | Die primäre Instanz des Gateways ist nicht erreichbar. Dies tritt auf, wenn beim Integritätstest ein Fehler auftritt. | Nein |
+| PlatformInActive | Es ist ein Problem mit der Plattform aufgetreten. | Nein|
+| ServiceNotRunning | Der zugrunde liegende Dienst wird nicht ausgeführt. | Nein|
+| NoConnectionsFoundForGateway | Es gibt keine Verbindungen auf dem Gateway. Dies ist nur eine Warnung.| Nein|
 | ConnectionsNotConnected | Es wurde keine der Verbindungen hergestellt. Dies ist nur eine Warnung.| Ja|
 | GatewayCPUUsageExceeded | Die aktuelle CPU-Auslastung auf dem Gateway liegt über 95 %. | Ja |
 
@@ -99,12 +99,12 @@ Das Azure Network Watcher-Feature zur Problembehandlung ermöglicht es Ihnen, Pr
 | Fehlertyp | `Reason` | Protokoll|
 |---|---|---|
 | NoFault | Es wurde kein Fehler erkannt. |Ja|
-| GatewayNotFound | Das Gateway wurde nicht gefunden oder nicht bereitgestellt. |Nein |
-| PlannedMaintenance | Die Gatewayinstanz wird zurzeit gewartet.  |Nein |
-| UserDrivenUpdate | Es wird ein Benutzerupdate des Geräts durchgeführt. Dies könnte z.B. eine Größenänderung sein.  | Nein  |
-| VipUnResponsive | Die primäre Instanz des Gateways ist nicht erreichbar. Dies tritt auf, wenn beim Integritätstest ein Fehler auftritt. | Nein  |
-| ConnectionEntityNotFound | Die Verbindungskonfiguration fehlt. | Nein  |
-| ConnectionIsMarkedDisconnected | Die Verbindung ist als „getrennt“ gekennzeichnet. |Nein |
+| GatewayNotFound | Das Gateway wurde nicht gefunden oder nicht bereitgestellt. |Nein|
+| PlannedMaintenance | Die Gatewayinstanz wird zurzeit gewartet.  |Nein|
+| UserDrivenUpdate | Es wird ein Benutzerupdate des Geräts durchgeführt. Dies könnte z.B. eine Größenänderung sein.  | Nein |
+| VipUnResponsive | Die primäre Instanz des Gateways ist nicht erreichbar. Dies tritt auf, wenn beim Integritätstest ein Fehler auftritt. | Nein |
+| ConnectionEntityNotFound | Die Verbindungskonfiguration fehlt. | Nein |
+| ConnectionIsMarkedDisconnected | Die Verbindung ist als „getrennt“ gekennzeichnet. |Nein|
 | ConnectionNotConfiguredOnGateway | Für den zugrunde liegenden Dienst wurde die Verbindung nicht konfiguriert. | Ja |
 | ConnectionMarkedStandby | Der zugrunde liegende Dienst ist als im Ruhezustand gekennzeichnet.| Ja|
 | Authentication | Der vorinstallierte Schlüssel stimmt nicht überein. | Ja|

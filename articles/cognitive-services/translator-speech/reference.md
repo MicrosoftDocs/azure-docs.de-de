@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675108"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60539178"
 ---
 # <a name="translator-speech-api"></a>Sprachübersetzungs-API
 
@@ -187,10 +187,10 @@ Wenn eine Clientanwendung die Audiowiedergabe abgeschlossen und das letzte Ender
 
 ### <a name="response-messages"></a>Antwortnachrichten
 
-|HTTP-Statuscode|Grund|Antwortmodell|Header|
+|HTTP-Statuscode|`Reason`|Antwortmodell|Header|
 |:--|:--|:--|:--|
 |101    |WebSocket-Upgrade.|Beispielwert für das Modell <br/> Objekt {}|X-RequestId<br/>Ein Wert, der die Anforderung für die Problembehandlung identifiziert.<br/>Zeichenfolge|
 |400    |Ungültige Anforderung. Überprüfen Sie die Eingabeparameter, und stellen Sie sicher, dass sie gültig sind. Das Antwortobjekt enthält eine ausführlichere Beschreibung des Fehlers.|||
 |401    |Nicht autorisiert. Stellen Sie sicher, dass Anmeldeinformationen festgelegt sind, dass diese gültig sind und dass es bei Ihrem Abonnement für den Azure-Datenmarkt keine Probleme gibt und ein Saldo verfügbar ist.|||
 |500    |Ein Fehler ist aufgetreten. Wenn der Fehler weiterhin besteht, melden Sie ihn mit dem Ablaufverfolgungsbezeichner des Clients (X-ClientTraceId) oder dem Anforderungsbezeichner (X-RequestId).|||
-|503    |Der Server ist vorübergehend nicht verfügbar.  Versuchen Sie die Anforderung erneut. Wenn der Fehler weiterhin besteht, melden Sie ihn mit dem Ablaufverfolgungsbezeichner des Clients (X-ClientTraceId) oder dem Anforderungsbezeichner (X-RequestId).|||
+|503    |Der Server ist vorübergehend nicht verfügbar. Versuchen Sie die Anforderung erneut. Wenn der Fehler weiterhin besteht, melden Sie ihn mit dem Ablaufverfolgungsbezeichner des Clients (X-ClientTraceId) oder dem Anforderungsbezeichner (X-RequestId).|||

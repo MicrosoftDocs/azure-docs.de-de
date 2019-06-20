@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101686"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60883182"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute-Workflows für die Verbindungsbereitstellung und Verbindungszustände
 Auf dieser Seite erhalten Sie einen Überblick über die Workflows zur Dienstbereitstellung und Routingkonfiguration.

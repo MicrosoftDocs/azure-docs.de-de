@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96f1cb60dbb7cf08224e8566852cf47fe5f0fa1c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d4e16ca40e8026861d492f950396d6aa39d4c445
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65791560"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Beibehalten von Auftrags- und Taskdateien in Azure Storage mit der Batch-Dateikonventionenbibliothek für .NET
 
@@ -59,7 +59,7 @@ Um Ausgabedaten in Azure Storage mithilfe der Dateikonventionenbibliothek beizub
 
 1. Navigieren Sie im Azure-Portal zu Ihrem Batch-Konto.
 1. Wählen Sie unter **Einstellungen** die Option **Storage-Konto**.
-1. Wenn Sie noch kein dem Batch-Konto zugeordnetes Storage-Konto haben, klicken Sie auf **Storage-Konto (Keine)**.
+1. Wenn Sie noch kein dem Batch-Konto zugeordnetes Storage-Konto haben, klicken Sie auf **Storage-Konto (Keine)** .
 1. Wählen Sie ein Storage-Konto aus der Liste für Ihr Abonnement. Verwenden Sie für eine optimale Leistung ein Azure Storage-Konto, das sich in der gleichen Region wie das Batch-Konto befindet, in dem Ihre Tasks ausgeführt werden.
 
 ## <a name="persist-output-data"></a>Beibehalten von Ausgabedateien
@@ -208,7 +208,7 @@ Wenn Sie Taskausgabedateien und Protokolle im Azure-Portal anzeigen möchten, na
 
 Das Beispielprojekt [PersistOutputs][github_persistoutputs] ist eines der [Azure Batch-Codebeispiele][github_samples] auf GitHub. Diese Visual Studio-Projektmappe veranschaulicht, wie die Azure Batch-Bibliothek für Dateikonventionen verwendet werden kann, um die Taskausgabe in dauerhaftem Speicher beizubehalten. Gehen Sie folgendermaßen vor, um das Beispiel auszuführen:
 
-1. Öffnen Sie das Projekt in **Visual Studio 2017**.
+1. Öffnen Sie das Projekt in **Visual Studio 2019**.
 2. Fügen Sie die **Anmeldeinformationen** für Ihr Batch- und Storage-Konto zu **AccountSettings.settings** im Microsoft.Azure.Batch.Samples.Common-Projekt hinzu.
 3. **Erstellen** Sie die Lösung (aber führen Sie sie nicht aus). Stellen Sie NuGet-Pakete wieder her, wenn Sie dazu aufgefordert werden.
 4. Laden Sie im Azure-Portal ein [Anwendungspaket](batch-application-packages.md) für **PersistOutputsTask**hoch. Fügen Sie `PersistOutputsTask.exe` und die abhängigen Assemblys dem ZIP-Paket hinzu, und legen Sie die Anwendungs-ID auf „PersistOutputsTask“ und die Version des Anwendungspakets auf „1.0“ fest.

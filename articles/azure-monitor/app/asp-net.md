@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472038"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256623"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Einrichten von Application Insights für Ihre ASP.NET-Website
 
@@ -28,7 +28,7 @@ Die Einrichtung ist mit wenigen Mausklicks in Visual Studio erledigt. Das Volume
 ## <a name="prerequisites"></a>Voraussetzungen
 Sie benötigen Folgendes, um Application Insights Ihrer ASP.NET-Website hinzuzufügen:
 
-- Installieren Sie [Visual Studio 2017 für Windows](https://www.visualstudio.com/downloads/) mit folgenden Workloads:
+- Installieren Sie [Visual Studio 2019 für Windows](https://www.visualstudio.com/downloads/) mit folgenden Workloads:
     - ASP.NET und Webentwicklung (Deaktivieren Sie nicht die optionalen Komponenten.)
     - Azure-Entwicklung
 
@@ -37,7 +37,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 ## <a name="ide"></a> Schritt 1: Hinzufügen des Application Insights SDK
 
 > [!IMPORTANT]
-> Die Screenshots in diesem Beispiel basieren auf Visual Studio 2017, Version 15.9.9. Die Art und Weise, mit der Application Insights hinzugefügt wird, variiert je nach Visual Studio 2017-Version sowie je nach ASP.NET-Vorlagentyp. Ältere Version weisen möglicherweise Alternativtext wie „Application Insights konfigurieren“ auf.
+> Die Screenshots in diesem Beispiel basieren auf Visual Studio 2017, Version 15.9.9 und höher. Die Art und Weise, mit der Application Insights hinzugefügt wird, variiert je nach Visual Studio-Version sowie je nach ASP.NET-Vorlagentyp. Ältere Version weisen möglicherweise Alternativtext wie „Application Insights konfigurieren“ auf.
 
 Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf den Namen Ihrer Web-App, und wählen Sie **Hinzufügen** > **Application Insights-Telemetrie** aus.
 
@@ -99,12 +99,10 @@ Das Portal wird mit einer Ansicht der Telemetriedaten Ihrer App geöffnet.
 
 Klicken Sie im Portal auf eine beliebige Kachel oder auf ein beliebiges Diagramm, um weitere Details anzuzeigen.
 
-[Erfahren Sie mehr über die Verwendung von Application Insights im Azure-Portal](../../azure-monitor/app/app-insights-dashboards.md).
-
 ## <a name="step-4-publish-your-app"></a>Schritt 4: Veröffentlichen der App
 Veröffentlichen Sie Ihre App auf Ihrem IIS-Server oder in Azure. Sehen Sie sich [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) an, um sicherzustellen, dass alles reibungslos funktioniert.
 
-Sie können dann verfolgen, wie Ihre Telemetriedaten im Application Insights-Portal erstellt werden. Darin können Sie Metriken überwachen, die Telemetriedaten durchsuchen und [Dashboards](../../azure-monitor/app/app-insights-dashboards.md) einrichten. Außerdem können Sie die leistungsfähige [Abfragesprache Kusto](/azure/kusto/query/) verwenden, um die Nutzung und Leistung zu analysieren oder nach bestimmten Ereignissen zu suchen.
+Sie können dann verfolgen, wie Ihre Telemetriedaten im Application Insights-Portal erstellt werden. Darin können Sie Metriken überwachen und die Telemetriedaten durchsuchen. Außerdem können Sie die leistungsfähige [Abfragesprache Kusto](/azure/kusto/query/) verwenden, um die Nutzung und Leistung zu analysieren oder nach bestimmten Ereignissen zu suchen.
 
 Sie können Ihre Telemetriedaten auch in [Visual Studio](../../azure-monitor/app/visual-studio.md) mit Tools wie der Diagnosesuche und [Trends](../../azure-monitor/app/visual-studio-trends.md) weiter analysieren.
 
@@ -138,16 +136,15 @@ Es gibt noch weitere Themen, die für Sie unter Umständen von Interesse sind:
 
 ### <a name="more-telemetry"></a>Mehr Telemetrie
 
-* **[Browser- und Seitenladedaten](../../azure-monitor/app/javascript.md)**: Fügen Sie einen Codeausschnitt in Ihre Webseiten ein.
-* **[Ausführlichere Abhängigkeits- und Ausnahmenüberwachung](../../azure-monitor/app/monitor-performance-live-website-now.md)**: Installieren Sie den Statusmonitor auf Ihrem Server.
-* **[Programmieren benutzerdefinierter Ereignisse](../../azure-monitor/app/api-custom-events-metrics.md)**, um Benutzeraktionen zu zählen, zeitlich abzustimmen oder zu messen.
-* **[Abrufen von Protokolldaten](../../azure-monitor/app/asp-net-trace-logs.md)**: Korrelieren Sie Protokolldaten mit Ihren Telemetriedaten.
+* **[Browser- und Seitenladedaten](../../azure-monitor/app/javascript.md)** : Fügen Sie einen Codeausschnitt in Ihre Webseiten ein.
+* **[Ausführlichere Abhängigkeits- und Ausnahmenüberwachung](../../azure-monitor/app/monitor-performance-live-website-now.md)** : Installieren Sie den Statusmonitor auf Ihrem Server.
+* **[Programmieren benutzerdefinierter Ereignisse](../../azure-monitor/app/api-custom-events-metrics.md)** , um Benutzeraktionen zu zählen, zeitlich abzustimmen oder zu messen.
+* **[Abrufen von Protokolldaten](../../azure-monitor/app/asp-net-trace-logs.md)** : Korrelieren Sie Protokolldaten mit Ihren Telemetriedaten.
 
 ### <a name="analysis"></a>Analyse
 
 * **[Arbeiten mit Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Enthält Informationen zum Debuggen per Telemetrie, zur Diagnosesuche und zum Drillthrough für Code.
-* **[Navigation und Dashboards im Application Insights-Portal](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Enthält Informationen zu Dashboards, leistungsstarken Diagnose- und Analysetools, Warnungen und zum Export von Telemetriedaten sowie eine Livekarte der Abhängigkeiten Ihrer Anwendung.
-* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)**: Die leistungsfähige Abfragesprache.
+* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** : Die leistungsfähige Abfragesprache.
 
 ### <a name="alerts"></a>Alerts
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670420"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302243"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-Anwendungs- und -Dienstsicherheit
 Eine Microservicesarchitektur kann [zahlreiche Vorteile](service-fabric-overview-microservices.md) mit sich bringen. Die Verwaltung der Sicherheit von Microservices ist jedoch eine Herausforderung und unterscheidet sich von der Verwaltung traditioneller monolithischer Anwendungen. 
@@ -36,7 +36,7 @@ Der erste Schritt, Entscheidungen zur Vertrauenswürdigkeit auf API-Ebene zu tre
 
 Wenn auf Dienste direkt zugegriffen werden kann, kann ein Authentifizierungsdienst wie Azure Active Directory oder ein dedizierter Authentifizierungsmicroservice verwendet werden, der als Sicherheitstokendienst (Security Token Service, STS) fungiert, um Benutzer zu authentifizieren. Vertrauensentscheidungen werden zwischen Diensten mit Sicherheitstoken oder Cookies geteilt. 
 
-Für ASP.NET Core ist der primäre Mechanismus für die [Authentifizierung von Benutzern](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) das ASP.NET Core Identity-Mitgliedschaftssystem. ASP.NET Core Identity speichert Benutzerinformationen (einschließlich Anmeldeinformationen, Rollen und Ansprüche) in einem vom Entwickler konfigurierten Datenspeicher. ASP.NET Core Identity unterstützt zweistufige Authentifizierung.  Externe Authentifizierungsanbieter werden ebenfalls unterstützt, sodass Benutzer sich mit vorhandenen Authentifizierungsverfahren von Anbietern wie Microsoft, Google, Facebook oder Twitter anmelden können. 
+Für ASP.NET Core ist der primäre Mechanismus für die [Authentifizierung von Benutzern](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) das ASP.NET Core Identity-Mitgliedschaftssystem. ASP.NET Core Identity speichert Benutzerinformationen (einschließlich Anmeldeinformationen, Rollen und Ansprüche) in einem vom Entwickler konfigurierten Datenspeicher. ASP.NET Core Identity unterstützt zweistufige Authentifizierung.  Externe Authentifizierungsanbieter werden ebenfalls unterstützt, sodass Benutzer sich mit vorhandenen Authentifizierungsverfahren von Anbietern wie Microsoft, Google, Facebook oder Twitter anmelden können.
 
 ### <a name="authorization"></a>Autorisierung
 Nach der Authentifizierung müssen Dienste den Benutzerzugriff autorisieren oder ermitteln, welche Aktionen ein Benutzer ausführen kann. Dieser Prozess ermöglicht es einem Dienst, APIs für einige authentifizierte Benutzer zur Verfügung zu stellen, aber nicht für alle. Die Autorisierung ist orthogonal und unabhängig von der Authentifizierung, d.h. der Feststellung, wer ein Benutzer ist. Die Authentifizierung kann mindestens eine Identität für den aktuellen Benutzer erstellen.

@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100427"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61388591"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Überwachen und Verwalten der Leistung von Azure SQL-Datenbanken und Pools in einer mehrinstanzenfähigen SaaS-App
 
@@ -104,7 +104,7 @@ Bei Wingtip Tickets SaaS Database Per Tenant handelt es sich um eine SaaS-App, u
 
 Um den aus der angewendeten Last resultierenden Ressourcenverbrauch zu überwachen, öffnen Sie das Portal mit dem Pool, der die Mandantendatenbanken enthält:
 
-1. Öffnen Sie das [Azure-Portal](https://portal.azure.com), und navigieren Sie zum Server *tenants1-dpt-&lt;BENUTZER&gt;*.
+1. Öffnen Sie das [Azure-Portal](https://portal.azure.com), und navigieren Sie zum Server *tenants1-dpt-&lt;BENUTZER&gt;* .
 1. Führen Sie einen Bildlauf nach unten durch, suchen Sie Pools für elastische Datenbanken, und klicken Sie auf **Pool1**. Dieser Pool enthält alle bisher erstellten Mandantendatenbanken.
 
 Beachten Sie die Diagramme **Überwachung des Pools für elastische Datenbanken** und **Überwachung der elastischen Datenbank**.
@@ -122,7 +122,7 @@ Da neben den fünf wichtigsten Datenbanken weitere Datenbanken im Pool vorhanden
 
 Gehen Sie folgendermaßen vor, um eine Benachrichtigung für den Pool festzulegen, die ausgelöst wird, wenn eine Auslastung von \>75 % vorliegt:
 
-1. Öffnen Sie *Pool1* (auf dem Server *tenants1-dpt-\<Benutzer\>*) im [Azure-Portal](https://portal.azure.com).
+1. Öffnen Sie *Pool1* (auf dem Server *tenants1-dpt-\<Benutzer\>* ) im [Azure-Portal](https://portal.azure.com).
 1. Klicken Sie auf **Benachrichtigungsregeln** und dann auf **+ Benachrichtigung hinzufügen**:
 
    ![Benachrichtigung hinzufügen](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -167,7 +167,7 @@ Datenbanken bleiben online und sind während des gesamten Vorgangs vollständig 
 
 Als Alternative zum zentralen Hochskalieren des Pools können Sie einen zweiten Pool erstellen und Datenbanken zum Lastenausgleich zwischen den zwei Pools in diesen Pool verschieben. Zu diesem Zweck muss der neue Pool auf dem gleichen Server wie der erste erstellt werden.
 
-1. Öffnen Sie im [Azure-Portal](https://portal.azure.com) den Server **tenants1-dpt-&lt;BENUTZER&gt;**.
+1. Öffnen Sie im [Azure-Portal](https://portal.azure.com) den Server **tenants1-dpt-&lt;BENUTZER&gt;** .
 1. Klicken Sie auf **+ Neuer Pool**, um einen Pool auf dem aktuellen Server zu erstellen.
 1. Führen Sie in der Vorlage für **Pool für elastische Datenbanken** folgende Schritte aus:
 
@@ -185,7 +185,7 @@ Als Alternative zum zentralen Hochskalieren des Pools können Sie einen zweiten 
 
 Das Erstellen des Pools und das Verschieben der Datenbanken dauert ein paar Minuten. Die Datenbanken bleiben während der Verschiebung bis zum letzten Moment online und vollständig verfügbar. Dann erst werden alle geöffneten Verbindungen geschlossen. Solange Sie über eine Wiederholungslogik verfügen, stellen Clients eine Verbindung mit der Datenbank im neuen Pool her.
 
-Navigieren Sie (auf dem Server *tenants1-dpt-\<Benutzer\>*) zu **Pool2**, um den Pool zu öffnen und dessen Leistung zu überwachen. Wenn dieser nicht angezeigt wird, warten Sie, bis die Bereitstellung des neuen Pools abgeschlossen ist.
+Navigieren Sie (auf dem Server *tenants1-dpt-\<Benutzer\>* ) zu **Pool2**, um den Pool zu öffnen und dessen Leistung zu überwachen. Wenn dieser nicht angezeigt wird, warten Sie, bis die Bereitstellung des neuen Pools abgeschlossen ist.
 
 Es sollte nun angezeigt werden, dass der Ressourcenverbrauch in *Pool1* gesunken ist und dass in *Pool2* nun eine ähnliche Auslastung vorliegt.
 
@@ -201,7 +201,7 @@ In dieser Übung werden die Auswirkungen simuliert, wenn der Ticketverkauf für 
 1. Führen Sie das Skript mit **F5** aus.
 
 
-1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zur Liste der Datenbanken auf dem Server *tenants1-dpt-\<Benutzer\>*. 
+1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zur Liste der Datenbanken auf dem Server *tenants1-dpt-\<Benutzer\>* . 
 1. Klicken Sie auf die Datenbank **contosoconcerthall**.
 1. Klicken Sie auf den Pool, in dem sich **contosoconcerthall** befindet. Suchen Sie den Pool im Abschnitt **Pool für elastische Datenbanken**.
 
@@ -209,7 +209,7 @@ In dieser Übung werden die Auswirkungen simuliert, wenn der Ticketverkauf für 
 2. In der Anzeige **Überwachung der elastischen Datenbank** werden die meistverwendeten Datenbanken der letzten Stunde angezeigt. Die Datenbank *contosoconcerthall* sollte in Kürze unter den fünf meist verwendeten Datenbanken angezeigt werden.
 3. Klicken Sie auf das Diagramm **Überwachung der elastischen** **Datenbank**. Hierdurch wird die Seite **Datenbank-Ressourcennutzung** geöffnet, mit der Sie beliebige Datenbanken überwachen können. Dadurch können Sie die Anzeige für die Datenbank *contosoconcerthall* isolieren.
 4. Klicken Sie in der Liste der Datenbanken auf **contosoconcerthall**.
-5. Klicken Sie auf **Tarif (DTUs skalieren)**, um die Seite **Leistung konfigurieren** zu öffnen. Auf dieser können Sie eine eigenständige Computegröße für die Datenbank festlegen.
+5. Klicken Sie auf **Tarif (DTUs skalieren)** , um die Seite **Leistung konfigurieren** zu öffnen. Auf dieser können Sie eine eigenständige Computegröße für die Datenbank festlegen.
 6. Klicken Sie auf die Registerkarte **Standard**, um die Skalierungsoptionen des Standard-Tarifs zu öffnen.
 7. Schieben Sie den **DTU-Schieberegler** nach rechts, um **100** DTUs auszuwählen. Beachten Sie, dass dies dem Dienstziel **S3** entspricht.
 8. Klicken Sie auf **Anwenden**, um die Datenbank aus dem Pool zu verschieben und als *Standard S3*-Datenbank festzulegen.

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
 ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60194426"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Veröffentlichen Ihrer aktiven, trainierten App an einem Staging- oder Produktionsendpunkt
 

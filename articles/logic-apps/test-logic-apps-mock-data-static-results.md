@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/18/2019
-ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/13/2019
+ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65597194"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testen von Logik-Apps mit Simulationsdaten durch die Einrichtung von statischen Ergebnissen
 
@@ -38,7 +38,7 @@ Wenn Sie beispielsweise statische Ergebnisse für die Outlook 365-Aktion „E-Ma
 
 1. Führen Sie für die Aktion, für die Sie statische Ergebnisse einrichten möchten, die folgenden Schritte aus: 
 
-   1. Klicken Sie in der Aktion oben rechts zuerst auf die Auslassungspunkte (*...*) und dann auf **Statisches Ergebnis**. Z. B.:
+   1. Klicken Sie in der Aktion oben rechts zuerst auf die Auslassungspunkte ( *...* ) und dann auf **Statisches Ergebnis**. Z. B.:
 
       ![Klicken Sie auf „Statisches Ergebnis“ > „Statisches Ergebnis aktivieren“](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
@@ -89,7 +89,7 @@ Wenn es von einer früheren Ausführung Ihrer Logik-App noch Ausgaben gibt, die 
 
 1. Führen Sie alle unter [Einrichten von statischen Ergebnissen](#set-up-static-results) beschriebenen notwendigen Schritte aus, um das Feld **Statisches Ergebnis** zu öffnen.
 
-1. Wählen Sie anschließend eine der folgenden beiden Optionen aus:****
+1. Wählen Sie anschließend eine der folgenden beiden Optionen aus: ****
 
    * Klicken Sie auf **Zum JSON-Modus wechseln** (![Auf „Zum JSON-Modus wechseln“ klicken](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)), um ein ganzes JSON-Objekt einzufügen:
 
@@ -137,11 +137,9 @@ Wenn Sie die statischen Ergebnisse deaktivieren, werden die Werte Ihres letzten 
 
    ![Statische Ergebnisse deaktivieren](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>Support
+## <a name="reference"></a>Verweis
 
-* Sollten Sie Fragen haben, besuchen Sie das [Azure Logic Apps-Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Wenn Sie Features vorschlagen oder für Vorschläge abstimmen möchten, besuchen Sie die [Website für Logic Apps-Benutzerfeedback](https://aka.ms/logicapps-wish).
+Weitere Informationen zu dieser Einstellung in Ihren zugrunde liegenden Workflowdefinitionen finden Sie unter [Statische Ergebnisse – Schemareferenz für Workflowdefinitionssprache](../logic-apps/logic-apps-workflow-definition-language.md#static-results) und [runtimeConfiguration.staticResult – Laufzeitkonfigurationseinstellungen](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

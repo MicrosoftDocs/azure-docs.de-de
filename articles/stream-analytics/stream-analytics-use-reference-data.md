@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546474"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393119"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Verwenden von Referenzdaten für Suchvorgänge in Stream Analytics
 Verweisdaten werden auch als Nachschlagetabelle bezeichnet und sind ein begrenztes statisches oder sich nur langsam veränderndes Dataset, das für die Suche oder Korrelation mit Ihrem Datenstrom verwendet wird. In einem IoT-Szenario können Sie beispielsweise Metadaten zu Sensoren (die sich nicht oft ändern) in Verweisdaten speichern und mit IoT-Echtzeitdatenströmen verknüpfen. Azure Stream Analytics lädt Verweisdaten in den Arbeitsspeicher, um eine Streamverarbeitung mit geringer Wartezeit zu erreichen. Für den Einsatz von Verweisdaten in Ihrem Azure Stream Analytics-Auftrag verwenden Sie in der Regel [Verweisdaten für JOIN-Vorgänge](https://msdn.microsoft.com/library/azure/dn949258.aspx) in Ihrer Abfrage. 
@@ -49,7 +49,7 @@ Wenn sich Ihre Referenzdaten voraussichtlich nicht ändern, wird die Unterstütz
 
 Wenn es sich bei Ihren Verweisdaten um ein sich langsam änderndes Dataset handelt, wird die Unterstützung für das Aktualisieren von Verweisdaten aktiviert, indem Sie in der Eingabekonfiguration ein Pfadmuster mit den Ersetzungstoken „{date}“ und „{time}“ angeben. Stream Analytics ruft die aktualisierten Definitionen von Verweisdaten auf der Grundlage dieses Pfadmusters ab. Beispiel: Das Muster `sample/{date}/{time}/products.csv` mit dem Datumsformat **YYYY-MM-DD** und dem Zeitformat **HH-mm** weist Stream Analytics an, das aktualisierte Blob `sample/2015-04-16/17-30/products.csv` am 16. April 2015 um 17:30 (UTC-Zeitzone) abzurufen.
 
-Azure Stream Analytics führt in einem Intervall von einer Minute automatisch einen Scan für aktualisierte Referenzdatenblobs durch.
+Azure Stream Analytics führt in einem Intervall von einer Minute automatisch einen Scan für aktualisierte Referenzdatenblobs durch. Wenn ein Blob mit Zeitstempel 10:30:00 mit einer kleinen Verzögerung hochgeladen wird (z. B. 10:30:30), werden Sie eine kleine Verzögerung im Stream Analytics-Auftrag bemerken, der auf dieses Blob verweist. Zur Vermeidung solcher Szenarien wird empfohlen, das Blob früher als die angestrebte effektive Zeit (in diesem Beispiel 10:30:00 Uhr) hochzuladen, damit der Stream Analytics-Auftrag ausreichend Zeit hat, es zu entdecken und in den Speicher zu laden und Vorgänge durchzuführen. 
 
 > [!NOTE]
 > Stream Analytics-Aufträge suchen derzeit nur dann nach der Blobaktualisierung, wenn die Zeit des Computers die im Blobnamen codierte Zeit erreicht. Der Auftrag sucht beispielsweise am 16. April 2015 ab 17:30 Uhr (UTC-Zeitzone) zum frühestmöglichen Zeitpunkt nach `sample/2015-04-16/17-30/products.csv`. Er sucht *nie* nach einem Blob mit einer codierten Zeit vor der letzten Erkennung.
@@ -72,7 +72,7 @@ Mit [Azure Data Factory](https://azure.microsoft.com/documentation/services/data
 3. Verweisdatenblobs werden **nicht** nach der Zeit „Zuletzt geändert“ des Blobs sortiert, sondern nur nach den Werten für Uhrzeit und Datum, die im Blobnamen mithilfe der Ersetzungen {date} und {time} angegeben werden.
 3. Um die Auflistung einer großen Anzahl von Blobs zu vermeiden, sollten Sie darüber nachdenken, sehr alte Blobs zu löschen, für die die Verarbeitung nicht mehr durchgeführt wird. Beachten Sie, dass ASA in einigen Szenarien, wie z.B. einem Neustart, eine kleine Menge nachbearbeiten muss.
 
-## <a name="azure-sql-database-preview"></a>Azure SQL-Datenbank (Vorschau)
+## <a name="azure-sql-database"></a>Azure SQL-Datenbank
 
 Azure SQL-Datenbank-Verweisdaten werden durch den Stream Analytics-Auftrag abgerufen und zur Verarbeitung als Momentaufnahme im Speicher gespeichert. Die Momentaufnahme der Verweisdaten wird zudem in einem Container in einem Speicherkonto gespeichert, das Sie in den Konfigurationseinstellungen angeben. Der Container wird beim Starten des Auftrags automatisch erstellt. Wenn der Auftrag beendet wird oder in den fehlerhaften Zustand übergeht, werden die automatisch erstellten Container gelöscht, sobald der Auftrag neu gestartet wird.  
 

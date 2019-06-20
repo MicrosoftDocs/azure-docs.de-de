@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447171"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Optionen für die Remoteüberwachungsarchitektur
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: f6516e37107a16d80c4d9eb9514782bdbcc44184
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925210"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Einrichten einer Benutzerprofilfreigabe für einen Hostpool
@@ -32,7 +32,7 @@ Nachdem Sie den virtuellen Computer erstellt haben, können Sie ihn in die Domä
 
 1. [Stellen Sie eine Verbindung mit dem virtuellen Computer her](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine), indem Sie die Anmeldeinformationen verwenden, die Sie beim Erstellen des virtuellen Computers angegeben haben.
 2. Starten Sie auf dem virtuellen Computer die **Systemsteuerung**, und wählen Sie **System**.
-3. Wählen Sie **Computername**, **Einstellungen ändern** und dann **Ändern...**.
+3. Wählen Sie **Computername**, **Einstellungen ändern** und dann **Ändern...** .
 4. Wählen Sie **Domäne**, und geben Sie dann die Active Directory-Domäne im virtuellen Netzwerk ein.
 5. Authentifizieren Sie sich mit einem Domänenkonto, das über Berechtigungen für in die Domäne eingebundene Computer verfügt.
 
@@ -43,8 +43,8 @@ Hier ist eine allgemeine Anleitung zum Vorbereiten eines virtuellen Computers al
 1. Fügen Sie die Windows Virtual Desktop Active Directory-Benutzer einer [Active Directory-Sicherheitsgruppe](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups) hinzu. Diese Sicherheitsgruppe wird zum Authentifizieren der Windows Virtual Desktop-Benutzer gegenüber dem virtuellen Dateifreigabencomputer verwendet, den Sie gerade erstellt haben.
 2. [Stellen Sie die Verbindung mit dem virtuellen Dateifreigabencomputer her](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. Erstellen Sie auf dem virtuellen Dateifreigabencomputer einen Ordner auf **Laufwerk C**, der als Profilfreigabe verwendet wird.
-4. Klicken Sie mit der rechten Maustaste auf den neuen Ordner, und wählen Sie dann nacheinander die Optionen **Eigenschaften**, **Freigabe** und **Erweiterte Freigabe...**.
-5. Wählen Sie **Diesen Ordner freigeben**, **Berechtigungen...** und dann **Hinzufügen...**.
+4. Klicken Sie mit der rechten Maustaste auf den neuen Ordner, und wählen Sie dann nacheinander die Optionen **Eigenschaften**, **Freigabe** und **Erweiterte Freigabe...** .
+5. Wählen Sie **Diesen Ordner freigeben**, **Berechtigungen...** und dann **Hinzufügen...** .
 6. Suchen Sie nach der Sicherheitsgruppe, der Sie die Windows Virtual Desktop-Benutzer hinzugefügt haben, und stellen Sie dann sicher, dass für die Gruppe **Vollzugriff** festgelegt wurde.
 7. Klicken Sie nach dem Hinzufügen der Sicherheitsgruppe mit der rechten Maustaste auf den Ordner, wählen Sie **Eigenschaften** und **Freigabe**, und kopieren Sie anschließend den **Netzwerkpfad** zur späteren Verwendung.
 

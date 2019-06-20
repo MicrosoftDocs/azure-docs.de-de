@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 273922c8cf48c24ff3b1b55fa44b36b69e061057
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6758fc5434406e42acf65ff3b712227b5cec0f8
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863898"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991620"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Schnellstart: Verwenden des Bing-Websuche-SDK für Python
 
@@ -93,8 +93,8 @@ Wenn die Antwort Webseiten, Bilder, Nachrichten oder Videos enthält, wird jewei
     # Replace with your subscription key.
     subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
-    # Instantiate the client.
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
+    # Instantiate the client and replace with your endpoint.
+    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key), base_url = "YOUR_ENDPOINT")
 
     # Make a request. Replace Yosemite if you'd like.
     web_data = client.web.search(query="Yosemite")
@@ -164,7 +164,9 @@ Wenn die Antwort Webseiten, Bilder, Nachrichten oder Videos enthält, wird jewei
         print("Didn't find any videos...")
     ```
 
-1. Ersetzen Sie `subscription_key` durch einen gültigen Abonnementschlüssel.
+1. Ersetzen Sie `SUBSCRIPTION_KEY` durch einen gültigen Abonnementschlüssel.
+
+1. Ersetzen Sie `YOUR_ENDPOINT` durch Ihre Endpunkt-URL im Portal.
 
 1. Führen Sie das Programm aus. Beispiel: `python your_program.py`.
 

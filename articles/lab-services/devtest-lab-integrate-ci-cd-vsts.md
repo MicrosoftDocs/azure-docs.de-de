@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157126"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrieren von Azure DevTest Labs in Ihre Azure DevOps-Pipeline für Continuous Integration und Continuous Delivery
@@ -179,7 +179,7 @@ Der nächste Schritt besteht darin, ein Image der neu bereitgestellten VM in Ihr
 
    d. (Optional) Geben Sie unter **Beschreibung** eine Beschreibung ein, um die spätere Auswahl des richtigen Images zu erleichtern.
 
-   e. Wenn Sie den Standardnamen der Umgebungsvariable geändert haben, die durch eine vorherige Aufgabe automatisch mit der ID der Lab-VM aufgefüllt wurde, bearbeiten Sie den Wert für **Quell-Lab-VM – ID der Quell-Lab-VM**. Der Standardwert lautet **$(labVMId)**.
+   e. Wenn Sie den Standardnamen der Umgebungsvariable geändert haben, die durch eine vorherige Aufgabe automatisch mit der ID der Lab-VM aufgefüllt wurde, bearbeiten Sie den Wert für **Quell-Lab-VM – ID der Quell-Lab-VM**. Der Standardwert lautet **$(labVMId)** .
 
    f. Für **Ausgabevariablen – ID des benutzerdefinierten Images** benötigen Sie die ID des neu erstellten Images, wenn sie dieses verwalten oder löschen möchten. Der Standardname der Umgebungsvariable, die automatisch mit dieser ID aufgefüllt wird, wird im Abschnitt **Ausgabevariablen** festgelegt. Sie können die Variable bei Bedarf bearbeiten.
 
@@ -194,7 +194,7 @@ Der letzte Schritt besteht darin, die VM zu löschen, die Sie in Ihrer Azure Dev
 
    a. Wählen Sie für **Azure RM-Abonnement** in der Liste **Verfügbare Azure-Dienstverbindungen** eine Verbindung aus, oder erstellen Sie eine Verbindung mit eingeschränkteren Berechtigungen für Ihr Azure-Abonnement. Weitere Informationen finden Sie unter [Azure Resource Manager-Dienstendpunkt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
  
-   b. Wenn Sie den Standardnamen der Umgebungsvariable geändert haben, die durch eine vorherige Aufgabe automatisch mit der ID der Lab-VM aufgefüllt wurde, bearbeiten Sie den Wert für **Lab-VM-ID**. Der Standardwert lautet **$(labVMId)**.
+   b. Wenn Sie den Standardnamen der Umgebungsvariable geändert haben, die durch eine vorherige Aufgabe automatisch mit der ID der Lab-VM aufgefüllt wurde, bearbeiten Sie den Wert für **Lab-VM-ID**. Der Standardwert lautet **$(labVMId)** .
 
 1. Geben Sie einen Namen für die Releasepipeline ein, und speichern Sie sie.
 1. Erstellen Sie ein neues Release, wählen Sie den aktuellen Build aus, und stellen Sie ihn in der Einzelumgebung in der Pipeline bereit.

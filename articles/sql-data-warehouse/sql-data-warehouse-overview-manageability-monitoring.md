@@ -11,11 +11,11 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460249"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60747573"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Verwaltung und Überwachung von Azure SQL Data Warehouse
 

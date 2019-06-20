@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159769"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177766"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Die Ergebnisse dieses Befehls sehen in etwa wie in der folgenden Tabelle aus:
 
-| userid | username | partition | rowkey |
+| userid | userName | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 Die Ergebnisse sehen in etwa wie in der folgenden Tabelle aus:
 
-| userid | username | partition | rowkey |
+| userid | userName | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -104,7 +104,7 @@ Diese Abfrage ruft einen einzelnen Datensatz ab.
 |Feld|value|
 |----|----|
 | userid | 1 |
-| username | Chris |
+| userName | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -121,7 +121,7 @@ Diese Abfrage ruft einen einzelnen Datensatz ab.
 |Feld|value|
 |----|----|
 | userid | 1 |
-| username | Chris |
+| userName | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -156,7 +156,7 @@ In den Ergebnissen wird der Jessie2-Datensatz angezeigt.
 |Feld|value|
 |----|----|
 | userid | 2 |
-| username | Jessie2 |
+| userName | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 

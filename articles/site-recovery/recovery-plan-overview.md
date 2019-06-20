@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 520f30b5fabebf299b5407a502b76d7d30850bfd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797394"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471448"
 ---
 # <a name="about-recovery-plans"></a>Informationen zu Wiederherstellungsplänen
 
@@ -37,10 +37,10 @@ Mit einem Wiederherstellungsplan können Sie einen systematischen Wiederherstell
 
 Sie können eine Wiederherstellungsgruppe zum Erfassen App-spezifischer Eigenschaften planen und erstellen. Als Beispiel dient hier eine typische dreischichtige Anwendung mit einem SQL Server-Back-End, Middleware und einem Web-Front-End. Normalerweise passen Sie den Wiederherstellungsplan so an, dass Computer in jeder Schicht nach dem Failover in der richtigen Reihenfolge gestartet werden.
 
-    - Das SQL-Back-End sollte zuerst gestartet werden, dann die Middleware und zum Schluss das Web-Front-End.
-    - Mit dieser Startreihenfolge wird sichergestellt, dass die App funktioniert, nachdem der letzte Computer gestartet wurde.
-    - Mit dieser Reihenfolge wird sichergestellt, dass zu dem Zeitpunkt, zu dem die Middleware gestartet wird und versucht, eine Verbindung mit der SQL Server-Schicht herzustellen, die SQL Server-Schicht bereits ausgeführt wird. 
-    - Mit dieser Reihenfolge kann außerdem sichergestellt werden, dass der Front-End-Server zuletzt gestartet wird, sodass Endbenutzer keine Verbindung mit der App-URL herstellen, bevor alle Komponenten ausgeführt werden und die App für die Annahme von Anforderungen bereit ist.
+- Das SQL-Back-End sollte zuerst gestartet werden, dann die Middleware und zum Schluss das Web-Front-End.
+- Mit dieser Startreihenfolge wird sichergestellt, dass die App funktioniert, nachdem der letzte Computer gestartet wurde.
+- Mit dieser Reihenfolge wird sichergestellt, dass zu dem Zeitpunkt, zu dem die Middleware gestartet wird und versucht, eine Verbindung mit der SQL Server-Schicht herzustellen, die SQL Server-Schicht bereits ausgeführt wird. 
+- Mit dieser Reihenfolge kann außerdem sichergestellt werden, dass der Front-End-Server zuletzt gestartet wird, sodass Endbenutzer keine Verbindung mit der App-URL herstellen, bevor alle Komponenten ausgeführt werden und die App für die Annahme von Anforderungen bereit ist.
 
 Um diese Reihenfolge zu erstellen, fügen Sie Gruppen zur Wiederherstellungsgruppe und Computer in den Gruppen hinzu.
 - Wo die Reihenfolge angegeben ist, wird eine Sequenzierung verwendet. Aktionen werden ggf. parallel ausgeführt, um den RTO-Wert der Anwendungswiederherstellung zu verbessern.
@@ -61,11 +61,11 @@ Mit dieser Anpassung geschieht Folgendes beim Ausführen eines Failovers für de
 
 Das Wiederherstellen von großen Anwendungen kann eine komplexe Aufgabe sein. Manuelle Schritte machen den Vorgang fehleranfällig, und die Person, die das Failover ausführt, ist sich möglicherweise der Komplexität der App nicht bewusst. Sie können mit einem Wiederherstellungsplan die Reihenfolge vorgeben und mithilfe von Azure Automation-Runbooks für Failover in Azure oder Skripts die in jedem Schritt erforderlichen Aktionen automatisieren. Für Aufgaben, die nicht automatisiert werden können, können Sie Pausen für manuelle Aktionen in die Wiederherstellungspläne einfügen. Sie können verschiedene Aufgabentypen konfigurieren:
 
-* **Aufgaben für die Azure-VM nach dem Failover**: Wenn Sie ein Failover zu Azure ausführen, müssen Sie normalerweise Aktionen ausführen, damit Sie nach dem Failover eine Verbindung mit der VM herstellen können. Beispiel:  
+* **Aufgaben für die Azure-VM nach dem Failover**: Wenn Sie ein Failover zu Azure ausführen, müssen Sie normalerweise Aktionen ausführen, damit Sie nach dem Failover eine Verbindung mit der VM herstellen können. Beispiel: 
     * Erstellen einer öffentlichen IP-Adresse auf dem virtuellen Azure-Computer
     * Zuweisen einer Netzwerksicherheitsgruppe zum Netzwerkadapter des virtuellen Azure-Computers
     * Hinzufügen eines Lastenausgleichs zu einer Verfügbarkeitsgruppe.
-* **Aufgaben innerhalb der VM nach dem Failover**: Mit diesen Aufgaben wird in der Regel die auf dem Computer ausgeführte App neu konfiguriert, damit sie in der neuen Umgebung weiterhin ordnungsgemäß funktioniert. Beispiel: 
+* **Aufgaben innerhalb der VM nach dem Failover**: Mit diesen Aufgaben wird in der Regel die auf dem Computer ausgeführte App neu konfiguriert, damit sie in der neuen Umgebung weiterhin ordnungsgemäß funktioniert. Beispiel:
     * Ändern der Datenbank-Verbindungszeichenfolge innerhalb des Computers
     * Ändern der Webserverkonfiguration oder -regeln.
 

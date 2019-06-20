@@ -4,15 +4,15 @@ description: Erfahren Sie, wie Sie Skalierungs- und Leistungstests mit Azure Cos
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6d2863e39b5f28c56e2b9045513aa83326d8b8c7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a5842d590a4597253bac39c0b7a6f62e6acad908
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043191"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243532"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Leistungs- und Skalierungstests mit Azure Cosmos DB
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60906412"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Einschränken des Zugriffs über Endpunkte mit Internetzugriff in Azure Security Center
 Azure Security Center empfiehlt, den Zugriff über Endpunkte mit Internetzugriff einzuschränken, wenn für beliebige Ihrer Netzwerksicherheitsgruppen (NSGs) mindestens eine Eingangsregel gilt, die den Zugriff über „alle“ Quell-IP-Adressen zulässt. Durch das Öffnen des Zugriffs für alle Quell-IP-Adressen können Angreifer ggf. auf Ihre Ressourcen zugreifen. Security Center empfiehlt, dass Sie diese Eingangsregeln so ändern, dass der Zugriff auf Quell-IP-Adressen eingeschränkt wird, die tatsächlich Zugriff benötigen.

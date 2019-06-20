@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3b49049ea1ed36a08fad9619183017b0f07d99
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080480"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65596077"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 Preview (Azure Functions)
 
@@ -93,11 +93,12 @@ In dem Fall, wo eine abstrakte Basisklasse virtuelle Methoden enthielt, wurden d
 
 Entitätsfunktionen definieren Vorgänge zum Lesen und Aktualisieren kleinerer Zustandsteile, bekannt als *dauerhafte Entitäten*. Wie Orchestratorfunktionen besitzen Entitätsfunktionen einen speziellen Triggertyp, den *Entitätstrigger*. Im Gegensatz zu Orchestratorfunktionen müssen Entitätsfunktionen keine spezifischen Codeeinschränkungen besitzen. Entitätsfunktionen verwalten Zustände auch explizit, statt Zustände implizit durch die Ablaufsteuerung darzustellen.
 
-Der folgende Code ist ein Beispiel für eine einfache Entitätsfunktion, die eine *Counter*-Entität (Zähler) definiert. Die Funktion definiert drei Vorgänge, `add`, `remove` und `reset`, von denen jeder einen ganzzahligen Wert aktualisiert, `currentValue`.
+Der folgende Code ist ein Beispiel für eine einfache Entitätsfunktion, die eine *Counter*-Entität (Zähler) definiert. Die Funktion definiert drei Vorgänge, `add`, `subtract` und `reset`, von denen jeder einen ganzzahligen Wert aktualisiert, `currentValue`.
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -153,8 +154,8 @@ Die Entitätsunterstützung umfasst mehrere APIs. Einmal gibt es eine neue API z
 Die Ausführung eines Vorgangs für eine Entität kann diese Member für das Context-Objekt aufrufen (`IDurableEntityContext` in .NET):
 
 * **OperationName**: Ruft den Namen des Vorgangs ab.
-* **GetInput\<T>**: Ruft die Eingabe für den Vorgang ab.
-* **GetState\<T>**: Ruft den aktuelle Zustand der Entität ab.
+* **GetInput\<T>** : Ruft die Eingabe für den Vorgang ab.
+* **GetState\<T>** : Ruft den aktuelle Zustand der Entität ab.
 * **SetState**: Aktualisiert den Zustand der Entität.
 * **SignalEntity**: Sendet eine unidirektionale Nachricht an eine Entität.
 * **Self**: Ruft die ID der Entität ab.
@@ -171,7 +172,7 @@ Vorgänge sind weniger eingeschränkt als Orchestrierungen:
 
 Dauerhafte Entitäten können von normalen Funktionen über die `orchestrationClient`-Bindung (`IDurableOrchestrationClient` in .NET) aufgerufen werden. Folgende Methoden werden unterstützt:
 
-* **ReadEntityStateAsync\<T>**: Liest den Zustand einer Entität.
+* **ReadEntityStateAsync\<T>** : Liest den Zustand einer Entität.
 * **SignalEntityAsync**: Sendet eine unidirektional Nachricht an eine Entität und wartet darauf, dass diese in die Warteschlange eingereiht wird.
 
 Diese Methoden priorisieren Leistung über Konsistenz: `ReadEntityStateAsync` kann einen veralteten Wert zurückgeben, und `SignalEntityAsync` kann zurückgegeben werden, bevor der Vorgang abgeschlossen ist. Im Gegensatz dazu ist das Aufrufen von Entitäten aus Orchestrierungen (wie im Folgenden beschrieben) streng konsistent.
@@ -182,7 +183,7 @@ Orchestrierungen können mithilfe des Context-Objekts auf Entitäten zugreifen. 
 
 * **SignalEntity**: Sendet eine unidirektionale Nachricht an eine Entität.
 * **CallEntityAsync**: Sendet eine Nachricht an eine Entität und wartet auf eine Antwort, die anzeigt, dass der Vorgang abgeschlossen wurde.
-* **CallEntityAsync\<T>**: Sendet eine Nachricht an eine Entität und wartet auf eine Antwort, die ein Ergebnis vom Typ „T“ enthält.
+* **CallEntityAsync\<T>** : Sendet eine Nachricht an eine Entität und wartet auf eine Antwort, die ein Ergebnis vom Typ „T“ enthält.
 
 Wenn Sie bidirektionale Kommunikation verwenden, werden auch alle während der Ausführung des Vorgangs ausgelösten Ausnahmen zurück an die aufrufende Orchestrierung übertragen und erneut ausgelöst. Im Gegensatz dazu werden bei der Verwendung von „auslösen und vergessen“ Ausnahmen nicht berücksichtigt.
 
@@ -200,21 +201,25 @@ Der kritische Abschnitt endet, und alle Sperren werden freigegeben, wenn die Orc
 Nehmen Sie beispielsweise eine Orchestrierung an, die testen muss, ob zwei Spieler zur Verfügung stehen, und dann beide zu einem Spiel zuweisen muss. Diese Aufgabe kann mit einem kritischen Abschnitt wie folgt implementiert werden:
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

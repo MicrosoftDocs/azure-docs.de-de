@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
 ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61324391"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Überwachen des Status, Einrichten der Diagnoseprotokollierung und Aktivieren von Warnungen für Azure Logic Apps
 
@@ -35,7 +35,7 @@ Richten Sie [Warnungen](#add-azure-alerts) ein, um Benachrichtigungen zu Ausfäl
 
 2. Wählen Sie Ihre Logik-App aus, und wählen Sie dann die Option **Übersicht**.
 
-   Im Azure-Portal wird der Ausführungs- und Triggerverlauf für Ihre Logik-App angezeigt. Beispiel: 
+   Im Azure-Portal wird der Ausführungs- und Triggerverlauf für Ihre Logik-App angezeigt. Beispiel:
 
    ![Ausführungs- und Triggerverlauf von Logik-Apps](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -49,7 +49,7 @@ Richten Sie [Warnungen](#add-azure-alerts) ein, um Benachrichtigungen zu Ausfäl
 
 3. Wählen Sie unter **Ausführungsverlauf** eine bestimmte Ausführung aus, um die dazugehörigen Schritte anzuzeigen. 
 
-   In der Überwachungsansicht werden die einzelnen Schritte der Ausführung angezeigt. Beispiel: 
+   In der Überwachungsansicht werden die einzelnen Schritte der Ausführung angezeigt. Beispiel:
 
    ![Aktionen für eine bestimmte Ausführung](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -59,7 +59,7 @@ Richten Sie [Warnungen](#add-azure-alerts) ein, um Benachrichtigungen zu Ausfäl
 
    Sie können beispielsweise die **Korrelations-ID** der Ausführung abrufen, die Sie ggf. benötigen, wenn Sie die [REST-API für Logik-Apps](https://docs.microsoft.com/rest/api/logic) verwenden.
 
-5. Wählen Sie diesen Schritt aus, um die Details zu einem bestimmten Schritt zu erhalten. Sie können jetzt Details wie Eingaben, Ausgaben und Fehler für diesen Schritt prüfen. Beispiel: 
+5. Wählen Sie diesen Schritt aus, um die Details zu einem bestimmten Schritt zu erhalten. Sie können jetzt Details wie Eingaben, Ausgaben und Fehler für diesen Schritt prüfen. Beispiel:
 
    ![Schrittdetails](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -160,7 +160,7 @@ In Verbindung mit Azure Monitor-Protokollen können Sie die Nutzung der Diagnose
 * [Archivieren von Azure-Diagnoseprotokollen in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Streamen von Azure-Diagnoseprotokollen an Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-Durch die Verwendung von Telemetriedaten und Analysen anderer Dienste (beispielsweise [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) und [Power BI](../azure-monitor/platform/powerbi.md)) können Sie dann eine Überwachung in Echtzeit implementieren. Beispiel: 
+Durch die Verwendung von Telemetriedaten und Analysen anderer Dienste (beispielsweise [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) und [Power BI](../azure-monitor/platform/powerbi.md)) können Sie dann eine Überwachung in Echtzeit implementieren. Beispiel:
 
 * [Streamen von Daten von Event Hubs zu Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analysieren von Streamingdaten mit Stream Analytics und Erstellen eines Dashboards für die Echtzeitanalyse in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

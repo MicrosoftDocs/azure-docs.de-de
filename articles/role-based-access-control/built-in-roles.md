@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66755110"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Integrierte Rollen für die rollenbasierte Zugriffssteuerung in Azure
 
@@ -56,12 +56,14 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 | [Avere-Bediener](#avere-operator) | Wird vom Avere vFXT-Cluster zum Verwalten des Clusters verwendet |
 | [Administratorrolle für Azure Kubernetes Service-Cluster](#azure-kubernetes-service-cluster-admin-role) | Listet die Aktion für Anmeldeinformationen des Clusteradministrators auf. |
 | [Benutzerrolle für Azure Kubernetes Service-Cluster](#azure-kubernetes-service-cluster-user-role) | Listet die Aktion für Anmeldeinformationen des Clusterbenutzer auf. |
+| [Azure Maps-Datenleser (Vorschauversion)](#azure-maps-data-reader-preview) | Gewährt Lesezugriff auf kartenbezogene Daten von einem Azure Maps-Konto. |
 | [Besitzer der Azure Stack-Registrierung](#azure-stack-registration-owner) | Ermöglicht Ihnen die Verwaltung von Azure Stack-Registrierungen. |
 | [Mitwirkender für Sicherungen](#backup-contributor) | Ermöglicht Ihnen das Verwalten des Sicherungsdiensts, jedoch nicht das Erstellen von Tresoren und das Erteilen des Zugriffs an andere Benutzer. |
 | [Sicherungsoperator](#backup-operator) | Ermöglicht Ihnen das Verwalten von Sicherungsdiensten, jedoch nicht das Entfernen der Sicherung, die Tresorerstellung und das Erteilen von Zugriff an andere Benutzer. |
 | [Sicherungsleser](#backup-reader) | Kann Sicherungsdienste anzeigen, aber keine Änderungen vornehmen. |
 | [Abrechnungsleser](#billing-reader) | Hiermit wird Lesezugriff auf Abrechnungsdaten ermöglicht. |
 | [Mitwirkender von BizTalk](#biztalk-contributor) | Ermöglicht Ihnen das Verwalten von BizTalk-Diensten, nicht aber den Zugriff darauf. |
+| [Zugriff auf Blockchainmitgliedsknoten (Vorschauversion)](#blockchain-member-node-access-preview) | Ermöglicht den Zugriff auf Blockchainmitgliedsknoten. |
 | [Mitwirkender für den CDN-Endpunkt](#cdn-endpoint-contributor) | Kann CDN-Endpunkte verwalten, aber anderen Benutzern keinen Zugriff erteilen. |
 | [CDN-Endpunktleser](#cdn-endpoint-reader) | Kann CDN-Endpunkte anzeigen, aber keine Änderungen vornehmen. |
 | [Mitwirkender für das CDN-Profil](#cdn-profile-contributor) | Kann CDN-Profile und deren Endpunkte verwalten, aber anderen Benutzern keinen Zugriff erteilen. |
@@ -86,6 +88,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 | [DevTest Labs-Benutzer](#devtest-labs-user) | Ermöglicht Ihnen das Verbinden, Starten, Neustarten und Herunterfahren Ihrer virtuellen Computer in Ihren Azure DevTest Labs. |
 | [DNS Zone Contributor](#dns-zone-contributor) | Ermöglicht Ihnen die Verwaltung von DNS-Zonen und Ressourceneintragssätzen in Azure DNS, aber nicht zu steuern, wer darauf Zugriff hat. |
 | [Mitwirkender von DocumentDB-Konto](#documentdb-account-contributor) | Kann Azure Cosmos DB-Konten verwalten. Azure Cosmos DB wurde früher als DocumentDB bezeichnet. |
+| [Event Hubs-Datenbesitzer](#event-hubs-data-owner) | Ermöglicht den uneingeschränkten Zugriff auf die Azure Event Hubs-Ressourcen. | 
 | [EventGrid EventSubscription-Mitwirkender](#eventgrid-eventsubscription-contributor) | Ermöglicht die Verwaltung von EventGrid-Ereignisabonnementvorgängen. |
 | [EventGrid EventSubscription-Leser](#eventgrid-eventsubscription-reader) | Ermöglicht das Lesen von EventGrid-Ereignisabonnements. |
 | [HDInsight-Clusteroperator](#hdinsight-cluster-operator) | Ermöglicht Ihnen das Lesen und Ändern von HDInsight-Clusterkonfigurationen. |
@@ -116,6 +119,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 | [Sicherheitsadministrator](#security-admin) | Nur in Security Center: Kann Sicherheitsrichtlinien und -zustände anzeigen, Sicherheitsrichtlinien bearbeiten sowie Warnungen und Empfehlungen anzeigen und verwerfen. |
 | [Sicherheits-Manager (Legacy)](#security-manager-legacy) | Dies ist eine Legacyrolle. Verwenden Sie stattdessen „Sicherheitsadministrator“. |
 | [Sicherheitsleseberechtigter](#security-reader) | Nur in Security Center: Kann Empfehlungen und Warnungen sowie Sicherheitsrichtlinien und -zustände anzeigen, aber keine Änderungen vornehmen. |
+| [Service Bus-Datenbesitzer](#service-bus-data-owner) | Ermöglicht den uneingeschränkten Zugriff auf die Azure Service Bus-Ressourcen. |
 | [Site Recovery-Mitwirkender](#site-recovery-contributor) | Ermöglicht Ihnen die Verwaltung des Site Recovery-Diensts mit Ausnahme der Tresorerstellung und der Rollenzuweisung. |
 | [Site Recovery-Operator](#site-recovery-operator) | Ermöglicht Ihnen ein Failover und ein Failback, aber nicht das Durchführen weiterer Site Recovery-Verwaltungsvorgänge. |
 | [Site Recovery-Leser](#site-recovery-reader) | Ermöglicht Ihnen die Anzeige des Site Recovery-Status, aber nicht die Durchführung weiterer Verwaltungsvorgänge. |
@@ -574,6 +578,21 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | **NotDataActions** |  |
 > | *keine* |  |
 
+## <a name="azure-maps-data-reader-preview"></a>Azure Maps-Datenleser (Vorschauversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschreibung** | Gewährt Lesezugriff auf kartenbezogene Daten von einem Azure Maps-Konto. |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **Aktionen** |  |
+> | *keine* |  |
+> | **NotActions** |  |
+> | *keine* |  |
+> | **DataActions** |  |
+> | Microsoft.Maps/accounts/data/read | Gewährt Datenlesezugriff auf ein Maps-Konto. |
+> | **NotDataActions** |  |
+> | *keine* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Besitzer der Azure Stack-Registrierung
 > [!div class="mx-tableFixed"]
 > | | |
@@ -812,6 +831,21 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | *keine* |  |
 > | **DataActions** |  |
 > | *keine* |  |
+> | **NotDataActions** |  |
+> | *keine* |  |
+
+## <a name="blockchain-member-node-access-preview"></a>Zugriff auf Blockchainmitgliedsknoten (Vorschauversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschreibung** | Ermöglicht den Zugriff auf Blockchainmitgliedsknoten. |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **Aktionen** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Ruft die vorhandenen Transaktionsknoten eines Blockchainmitglieds ab oder listet sie auf. |
+> | **NotActions** |  |
+> | *keine* |  |
+> | **DataActions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Stellt eine Verbindung mit dem Transaktionsknoten eines Blockchainmitglieds her. |
 > | **NotDataActions** |  |
 > | *keine* |  |
 
@@ -1139,6 +1173,8 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | Microsoft.Resources/subscriptions/read | Ruft die Abonnementliste ab. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ruft Ressourcengruppen ab oder listet sie auf. |
 > | Microsoft.Support/* | Erstellen und Verwalten von Support-Tickets |
+> | Microsoft.Advisor/configurations/read | Konfigurationen abrufen |
+> | Microsoft.Advisor/recommendations/read | Liest Empfehlungen. |
 > | **NotActions** |  |
 > | *keine* |  |
 > | **DataActions** |  |
@@ -1159,6 +1195,8 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | Microsoft.Resources/subscriptions/read | Ruft die Abonnementliste ab. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ruft Ressourcengruppen ab oder listet sie auf. |
 > | Microsoft.Support/* | Erstellen und Verwalten von Support-Tickets |
+> | Microsoft.Advisor/configurations/read | Konfigurationen abrufen |
+> | Microsoft.Advisor/recommendations/read | Liest Empfehlungen. |
 > | **NotActions** |  |
 > | *keine* |  |
 > | **DataActions** |  |
@@ -1198,6 +1236,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Hiermit werden die unverschlüsselten Anmeldeinformationen für den Auftrag aufgelistet. |
 > | Microsoft.Databox/locations/availableSkus/action | Mit dieser Methode wird die Liste der verfügbaren SKUs zurückgegeben. |
+> | Microsoft.Databox/locations/validateAddress/action | Hiermit wird die Lieferadresse überprüft, und es werden – sofern vorhanden – alternative Adressen bereitgestellt. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ruft den Verfügbarkeitsstatus für alle Ressourcen im angegebenen Bereich ab. |
 > | Microsoft.Support/* | Erstellen und Verwalten von Support-Tickets |
 > | **NotActions** |  |
@@ -1299,6 +1338,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | Microsoft.DevTestLab/*/read | Lesen der Eigenschaften eines Labs |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Dient zum Anfordern eines beliebigen anforderbaren virtuellen Computers im Lab. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | Dient zum Erstellen von virtuellen Computern in einem Lab. |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | Stellt sicher, dass der aktuelle Benutzer über ein gültiges Profil im Lab verfügt. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Dient zum Löschen von Formeln. |
 > | Microsoft.DevTestLab/labs/formulas/read | Dient zum Lesen von Formeln. |
 > | Microsoft.DevTestLab/labs/formulas/write | Dient zum Hinzufügen oder Ändern von Formeln. |
@@ -1369,6 +1409,22 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | **NotDataActions** |  |
 > | *keine* |  |
 
+## <a name="event-hubs-data-owner"></a>Event Hubs-Datenbesitzer
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschreibung** | Ermöglicht den uneingeschränkten Zugriff auf die Azure Event Hubs-Ressourcen. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Aktionen** |  |
+> | Microsoft.EventHubs/* | Ermöglicht den uneingeschränkten Verwaltungszugriff auf den Event Hubs-Namespace. |
+> | **NotActions** |  |
+> | *keine* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHubs/* | Ermöglicht den uneingeschränkten Datenzugriff auf den Event Hubs-Namespace. |
+> | **NotDataActions** |  |
+> | *keine* |  |
+
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription-Mitwirkender
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1426,6 +1482,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ruft Ressourcengruppen ab oder listet sie auf. |
 > | Microsoft.Resources/deployments/operations/read | Ruft Bereitstellungsvorgänge ab oder listet sie auf. |
 > | Microsoft.Insights/alertRules/* | Erstellen und Verwalten von Insights-Warnungsregeln |
+> | Microsoft.Authorization/*/read | Lesen von Rollen und Rollenzuweisungen |
 > | Microsoft.Support/* | Erstellen und Verwalten von Support-Tickets |
 > | **NotActions** |  |
 > | *keine* |  |
@@ -2019,6 +2076,22 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | **NotDataActions** |  |
 > | *keine* |  |
 
+## <a name="service-bus-data-owner"></a>Service Bus-Datenbesitzer
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschreibung** | Ermöglicht den uneingeschränkten Zugriff auf die Azure Service Bus-Ressourcen. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Aktionen** |  |
+> | Microsoft.ServiceBus/* | Ermöglicht den uneingeschränkten Verwaltungszugriff auf den Service Bus-Namespace. |
+> | **NotActions** |  |
+> | *keine* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | Ermöglicht den uneingeschränkten Datenzugriff auf den Service Bus-Namespace. |
+> | **NotDataActions** |  |
+> | *keine* |  |
+
 ## <a name="site-recovery-contributor"></a>Site Recovery-Mitwirkender
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2207,7 +2280,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > | **NotActions** |  |
 > | *keine* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Erstellen von Raumankern |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Hiermit werden Raumanker erstellt. |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Löschen von Raumankern |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Ermitteln von Raumankern in räumlicher Nähe |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Abrufen der Eigenschaften von Raumankern |
@@ -2460,7 +2533,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschreibung** | Lesen, Schreiben und Löschen von Azure Storage-Containern und -Blobs. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschreibung** | Lesen, Schreiben und Löschen von Azure Storage-Containern und -Blobs. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Aktionen** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Löschen eines Containers. |
@@ -2479,10 +2552,10 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschreibung** | Bietet Vollzugriff auf Azure Storage-Blobcontainer und -daten, einschließlich POSIX-Zugriffssteuerung. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschreibung** | Bietet Vollzugriff auf Azure Storage-Blobcontainer und -daten, einschließlich POSIX-Zugriffssteuerung. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Aktionen** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Vollzugriffsberechtigungen für Container.  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Vollzugriffsberechtigungen für Container. |
 > | **NotActions** |  |
 > | *keine* |  |
 > | **DataActions** |  |
@@ -2494,7 +2567,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschreibung** | Lesen und Auflisten von Azure Storage-Containern und -Blobs. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschreibung** | Lesen und Auflisten von Azure Storage-Containern und -Blobs. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Aktionen** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Zurückgeben eines Containers oder einer Liste von Containern. |
@@ -2509,7 +2582,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschreibung** | Lesen, Schreiben und Löschen von Azure Storage-Warteschlangen und -Warteschlangennachrichten. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschreibung** | Lesen, Schreiben und Löschen von Azure Storage-Warteschlangen und -Warteschlangennachrichten. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Aktionen** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Löschen einer Warteschlange. |
@@ -2528,7 +2601,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschreibung** | Einsehen, Abrufen und Löschen von Nachrichten aus Azure Storage-Warteschlangen. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschreibung** | Einsehen, Abrufen und Löschen von Nachrichten aus Azure Storage-Warteschlangen. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Aktionen** |  |
 > | *keine* |  |
@@ -2544,7 +2617,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschreibung** | Hinzufügen von Nachrichten zu einer Azure Storage-Warteschlange. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschreibung** | Hinzufügen von Nachrichten zu einer Azure Storage-Warteschlange. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **Aktionen** |  |
 > | *keine* |  |
@@ -2559,7 +2632,7 @@ Die folgende Tabelle enthält eine kurze Beschreibung aller integrierten Rollen.
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beschreibung** | Lesen und Auflisten von Azure Storage-Warteschlangen und -Warteschlangennachrichten. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
+> | **Beschreibung** | Lesen und Auflisten von Azure Storage-Warteschlangen und -Warteschlangennachrichten. Um zu erfahren, welche Aktionen für einen bestimmten Datenvorgang erforderlich sind, siehe [Berechtigungen für den Aufruf von Datenvorgängen für Blobs und Warteschlangen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Aktionen** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Gibt eine Warteschlange oder eine Liste von Warteschlangen zurück. |

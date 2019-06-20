@@ -1,25 +1,18 @@
 ---
-title: Erstellen der technischen Ressourcen eines Containerimages | Microsoft-Dokumentation
+title: Erstellen der technischen Ressourcen eines Containerimages | Azure Marketplace
 description: Erstellen Sie eine technische Ressourcen für einen Azure-Container.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 5a7531be73a872d9c088a0bf02a8686f947c220a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.author: pabutler
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047363"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65794340"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Vorbereiten Ihrer technischen Containerressourcen
 
@@ -60,10 +53,11 @@ Außerdem empfehlen wir Ihnen, sich die verfügbaren Tools auf der Seite [Azure-
 
 ## <a name="create-the-container-image"></a>Erstellen des Containerimages
 
-- Erstellen und konfigurieren Sie die virtuelle Festplatte (VHD) für Ihre Container-VM. Diese VHD enthält das Betriebssystem (Windows, Linux und Ubuntu) für den Container. Möglicherweise sind zusätzliche Datenträger erforderlich.
-- Konfigurieren Sie das VM-Betriebssystem, die VM-Größe, die zu öffnenden Ports und alle angefügten Datenträger.
-- Installieren Sie die Anwendung und andere Software, die für Ihr Angebot erforderlich sind. Zum Beispiel: Datenbanksoftware, Software von Drittanbietern oder eine benutzerdefinierte Anwendung.
+Weitere Informationen finden Sie unter den folgenden Links:
+
+* [Tutorial: Erstellen eines Containerimages für die Bereitstellung in Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutorial: Erstellen und Bereitstellen von Containerimages in der Cloud mit Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Erstellen eines neuen Containerangebots mit dem Cloud-Partnerportal](./cpp-create-offer.md)
+[Erstellen Ihres Containerangebots](./cpp-create-offer.md)

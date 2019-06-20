@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687060"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Übersicht über die Media Services Operations-REST-API 
@@ -73,23 +73,23 @@ Im Folgenden finden Sie eine Reihe optionaler Header:
 
 | Header | Type | Wert |
 | --- | --- | --- |
-| Datum |RFC 1123-Datum |Zeitstempel der Anforderung |
+| Date |RFC 1123-Datum |Zeitstempel der Anforderung |
 | Accept |Content-Typ |Der angeforderte Inhaltstyp für die Antwort, z. B.:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Antworten können unterschiedliche Inhaltstypen aufweisen, z. B. einen Blobabruf, bei dem eine erfolgreiche Antwort den Blobdatenstrom als Nutzlast enthält. |
 | Accept-Encoding |Gzip, deflate |GZIP- und DEFLATE-Codierung, falls zutreffend. Hinweis: Bei großen Ressourcen kann Media Services diesen Header ignorieren und unkomprimierte Daten zurückgeben. |
 | Accept-Language |„en“, „es“ usw. |Gibt die bevorzugte Sprache für die Antwort an. |
 | Accept-Charset |Charset-Typ, z. B. „UTF-8“ |Der Standardwert ist UTF-8. |
 | X-HTTP-Method |HTTP-Methode |Ermöglicht Clients oder Firewalls, die keine HTTP-Methoden wie PUT oder DELETE unterstützen, die Verwendung dieser Methoden über einen getunnelten GET-Aufruf. |
 | Content-Typ |Content-Typ |Der Inhaltstyp des Anforderungstexts in PUT- oder POST-Anforderungen. |
-| client-request-id |Zeichenfolge |Ein vom Aufrufer definierter Wert, der die angegebene Anforderung identifiziert. Falls angegeben, wird dieser Wert in die Antwortnachricht eingeschlossen, um die Anforderung zuzuordnen. <p><p>**Wichtig**<p>Werte müssen auf 2.096 Bytes (2 KB) begrenzt sein. |
+| client-request-id |string |Ein vom Aufrufer definierter Wert, der die angegebene Anforderung identifiziert. Falls angegeben, wird dieser Wert in die Antwortnachricht eingeschlossen, um die Anforderung zuzuordnen. <p><p>**Wichtig**<p>Werte müssen auf 2.096 Bytes (2 KB) begrenzt sein. |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Von Media Services unterstützte standardmäßige HTTP-Antwortheader
 Im Folgenden lernen Sie einen Satz von Headern kennen, die je nach der angeforderten Ressource und beabsichtigten Aktion zurückgegeben werden können.
 
 | Header | Type | Wert |
 | --- | --- | --- |
-| request-id |Zeichenfolge |Ein eindeutiger, vom Dienst generierter Bezeichner für den aktuellen Vorgang. |
-| client-request-id |Zeichenfolge |Ein Bezeichner, der vom Aufrufer in der ursprünglichen Anforderung angegeben wird, sofern vorhanden. |
-| Datum |RFC 1123-Datum |Datum/Uhrzeit, zu dem die Anforderung verarbeitet wurde. |
+| request-id |string |Ein eindeutiger, vom Dienst generierter Bezeichner für den aktuellen Vorgang. |
+| client-request-id |string |Ein Bezeichner, der vom Aufrufer in der ursprünglichen Anforderung angegeben wird, sofern vorhanden. |
+| Date |RFC 1123-Datum |Datum/Uhrzeit, zu dem die Anforderung verarbeitet wurde. |
 | Content-Typ |Variabel |Der Inhaltstyp des Antworttexts. |
 | Content-Encoding |Variabel |GZIP oder DEFLATE, je nachdem, welche Codierung geeignet ist. |
 

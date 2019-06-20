@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793454"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62119808"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossar mit IoT Hub-Begriffen
 In diesem Artikel sind einige Begriffe aufgeführt, die in den Artikeln zu IoT Hub verwendet werden.
@@ -247,7 +247,7 @@ Dies ist ein Azure-Abonnement, für das die Abrechnung durchgeführt wird. Jede 
 ## <a name="system-properties"></a>Systemeigenschaften
 Im Kontext eines [Gerätezwillings](iot-hub-devguide-device-twins.md) sind Systemeigenschaften schreibgeschützt und enthalten Informationen zur Gerätenutzung, z.B. den Zeitpunkt der letzten Aktivität und den Verbindungsstatus.
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>`Tags`
 Im Kontext eines [Gerätezwillings](iot-hub-devguide-device-twins.md) sind Tags Gerätemetadaten, die vom Lösungs-Back-End in Form eines JSON-Dokuments gespeichert und abgerufen werden. Tags sind für Apps auf einem Gerät nicht sichtbar.
 
 ## <a name="telemetry"></a>Telemetrie

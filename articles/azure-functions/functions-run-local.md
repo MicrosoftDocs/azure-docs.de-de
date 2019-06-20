@@ -9,20 +9,32 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.custom: 80e4ff38-5174-43
+ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508229"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241169"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeiten mit Azure Functions Core Tools
 
 Mit Azure Functions Core Tools können Sie Ihre Funktionen über die Eingabeaufforderung oder das Terminal auf dem lokalen Computer entwickeln und testen. Die lokalen Funktionen können mit Azure-Livediensten verbunden werden, und Sie können die Funktionen unter Verwendung der vollständigen Functions-Runtime auf dem lokalen Computer debuggen. Sie können sogar eine Funktions-App in Ihrem Azure-Abonnement bereitstellen.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Beim Entwickeln von Funktionen auf Ihrem lokalen Computer und der anschließenden Veröffentlichung auf Azure mithilfe von Core Tools führen Sie diese grundlegenden Schritte aus:
+
+> [!div class="checklist"]
+> * [Installieren Sie die Core-Tools und Abhängigkeiten.](#v2)
+> * [Erstellen Sie ein Projekt für eine Funktions-App aus einer sprachspezifischen Vorlage.](#create-a-local-functions-project)
+> * [Registrieren Sie die Trigger- und Bindungserweiterungen.](#register-extensions)
+> * [Definieren Sie Speicher- und andere Verbindungen.](#local-settings-file)
+> * [Erstellen Sie eine Funktion aus einem Trigger und einer sprachspezifischen Vorlage.](#create-func)
+> * [Lokales Ausführen der Funktion](#start)
+> * [Veröffentlichen des Projekts in Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Core Tools-Versionen
 
@@ -40,54 +52,51 @@ Sofern nicht anders angegeben, gelten die Beispiele in diesem Artikel für Versi
 
 ### <a name="v2"></a>Version 2.x
 
-Die Tools der Version 2.x verwenden die Azure Functions-Laufzeit 2.x, die auf .NET Core basiert. Diese Version wird auf allen Plattformen unterstützt, die von .NET Core 2.x unterstützt werden, einschließlich [Windows](#windows-npm), [macOS](#brew) und [Linux](#linux). Sie müssen zuerst das .NET Core 2.x SDK installieren.
+Die Tools der Version 2.x verwenden die Azure Functions-Laufzeit 2.x, die auf .NET Core basiert. Diese Version wird auf allen Plattformen unterstützt, die von .NET Core 2.x unterstützt werden, einschließlich [Windows](#windows-npm), [macOS](#brew) und [Linux](#linux). 
 
 > [!IMPORTANT]
-> Zum Aktivieren von Erweiterungspaketen in der Datei „host.json“ des Projekts müssen Sie .NET Core 2.x SDK nicht installieren. Weitere Informationen finden Sie unter [Local development with Azure Functions Core Tools and extension bundles (Lokale Entwicklung mit Azure Functions Core Tools und Erweiterungspaketen)](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Für Erweiterungspakete ist Version 2.6.1071 der Core Tools oder eine neuere Version erforderlich.
+> Sie können auf das Installieren des .NET Core 2.x SDK verzichten, wenn Sie [Erweiterungsbundles] verwenden.
 
 #### <a name="windows-npm"></a>Windows
 
 Die folgenden Schritte verwenden npm zum Installieren der Core Tools unter Windows. Sie können auch [Chocolatey](https://chocolatey.org/) verwenden. Weitere Informationen finden Sie in der [Infodatei zu den Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installieren Sie das [.NET Core 2.x SDK für Windows](https://www.microsoft.com/net/download/windows).
+1. Installieren Sie [Node.js] (enthält npm). Für Version 2.x der Tools werden nur Node.js 8.5 und höhere Versionen unterstützt.
 
-2. Installieren Sie [Node.js] (enthält npm). Für Version 2.x der Tools werden nur Node.js 8.5 und höhere Versionen unterstützt.
-
-3. Installieren Sie das Core Tools-Paket:
+1. Installieren Sie das Core Tools-Paket:
 
     ```bash
     npm install -g azure-functions-core-tools
     ```
+1. Wenn Sie nicht beabsichtigen, [Erweiterungsbundles] zu verwenden, installieren Sie das [.NET Core 2.x SDK für Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS mit Homebrew
 
 Die folgenden Schritte verwenden Homebrew zum Installieren der Core Tools unter macOS.
 
-1. Installieren Sie das [.NET Core 2.x SDK für macOS](https://www.microsoft.com/net/download/macos).
+1. Installieren Sie [Homebrew](https://brew.sh/), sofern dies noch nicht geschehen ist.
 
-2. Installieren Sie [Homebrew](https://brew.sh/), sofern dies noch nicht geschehen ist.
-
-3. Installieren Sie das Core Tools-Paket:
+1. Installieren Sie das Core Tools-Paket:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+1. Wenn Sie nicht beabsichtigen, [Erweiterungsbundles] zu verwenden, installieren Sie das [.NET Core 2.x SDK für macOS](https://www.microsoft.com/net/download/macos).
+
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) mit APT
 
 Die folgenden Schritte verwenden [APT](https://wiki.debian.org/Apt) zum Installieren der Core Tools unter Ihrer Ubuntu/Debian Linux-Distribution. Informationen zu anderen Linux-Distributionen finden Sie in der [Infodatei zu den Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installieren Sie das [.NET Core 2.x SDK für Linux](https://www.microsoft.com/net/download/linux).
-
-2. Registrieren Sie den Microsoft Product Key als vertrauenswürdig:
+1. Registrieren Sie den Microsoft Product Key als vertrauenswürdig:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-3. Stellen Sie anhand der folgenden Tabelle sicher, dass auf Ihrem Ubuntu-Server eine geeignete Version ausgeführt wird. Zum Hinzufügen der Apt-Quelle führen Sie Folgendes aus:
+1. Stellen Sie anhand der folgenden Tabelle sicher, dass auf Ihrem Ubuntu-Server eine geeignete Version ausgeführt wird. Zum Hinzufügen der Apt-Quelle führen Sie Folgendes aus:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -101,11 +110,12 @@ Die folgenden Schritte verwenden [APT](https://wiki.debian.org/Apt) zum Installi
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-4. Installieren Sie das Core Tools-Paket:
+1. Installieren Sie das Core Tools-Paket:
 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+1. Wenn Sie nicht beabsichtigen, [Erweiterungsbundles] zu verwenden, installieren Sie das [.NET Core 2.x SDK für Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Erstellen eines lokalen Functions-Projekts
 
@@ -176,7 +186,8 @@ Die Datei „local.settings.json“ speichert App-Einstellungen, Verbindungszeic
   },
   "Host": {
     "LocalHttpPort": 7071,
-    "CORS": "*"
+    "CORS": "*",
+    "CORSCredentials": false
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -186,14 +197,21 @@ Die Datei „local.settings.json“ speichert App-Einstellungen, Verbindungszeic
 
 | Einstellung      | BESCHREIBUNG                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Wenn diese Einstellung auf `true` festgelegt wird, werden alle Werte mithilfe eines Schlüssels des lokalen Computers verschlüsselt. Wird mit `func settings`-Befehlen verwendet. Der Standardwert ist `true`. Wenn `true`, werden alle mithilfe von `func settings add` hinzugefügten Einstellungen mithilfe des Schlüssels des lokalen Computers verschlüsselt. Dies spiegelt wider, wie Funktionen-App-Einstellungen in Anwendungseinstellungen in Azure gespeichert werden. Die Verschlüsselung lokaler Einstellungswerte bietet zusätzlichen Schutz für wertvolle Daten für den Fall, dass die Datei „local.settings.json“ öffentlich verfügbar gemacht wird.  |
+| **`IsEncrypted`** | Wenn diese Einstellung auf `true` festgelegt wird, werden alle Werte mithilfe eines Schlüssels des lokalen Computers verschlüsselt. Wird mit `func settings`-Befehlen verwendet. Der Standardwert ist `false`. |
 | **`Values`** | Eine Sammlung von Anwendungseinstellungen und Verbindungszeichenfolgen, die bei der lokalen Ausführung verwendet werden. Diese Werte entsprechen App-Einstellungen in Ihrer Funktions-App in Azure, z. B. [`AzureWebJobsStorage`]. Viele Trigger und Bindungen verfügen über eine Eigenschaft, die auf eine App-Einstellung für die Verbindungszeichenfolge verweist, z. B. `Connection` für den [Blob Storage-Trigger](functions-bindings-storage-blob.md#trigger---configuration). Für solche Eigenschaften muss eine Anwendungseinstellung im Array `Values` definiert sein. <br/>[`AzureWebJobsStorage`] ist eine erforderliche App-Einstellung für andere Trigger als HTTP. <br/>Für Version 2.x der Functions-Runtime ist die Einstellung [`FUNCTIONS_WORKER_RUNTIME`] erforderlich, die mit Core Tools für Ihr Projekt generiert wird. <br/> Wenn der [Azure-Speicheremulator](../storage/common/storage-use-emulator.md) lokal installiert ist, können Sie [`AzureWebJobsStorage`] auf `UseDevelopmentStorage=true` festlegen, und Core Tools verwendet den Emulator. Dies ist während der Entwicklung hilfreich, doch sollten Sie vor der Bereitstellung einen Test mit einer tatsächlichen Speicherverbindung durchführen. |
 | **`Host`** | Die Einstellungen in diesem Abschnitt passen den Hostprozess von Functions bei der lokalen Ausführung an. |
 | **`LocalHttpPort`** | Legt den Standardport fest, der bei der Ausführung des lokalen Functions-Host verwendet wird (`func host start` und `func run`). Die Befehlszeilenoption `--port` hat Vorrang vor diesem Wert. |
 | **`CORS`** | Definiert die für die [Ressourcenfreigabe zwischen verschiedenen Ursprüngen (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) zulässigen Ursprünge. Ursprünge werden als durch Trennzeichen getrennte Liste ohne Leerzeichen bereitgestellt. Den Platzhalterwert (\*) wird unterstützt, wodurch Anforderungen von einem beliebigen Ursprung zulässig sind. |
+| **`CORSCredentials`** |  Legen Sie diese Einstellung auf „true“ fest, um `withCredentials`-Anforderungen zuzulassen. |
 | **`ConnectionStrings`** | Verwenden Sie diese Sammlung nicht für die Verbindungszeichenfolgen, die von Ihren Funktionsbindungen verwendet werden. Diese Sammlung wird nur von Frameworks verwendet, die Verbindungszeichenfolgen üblicherweise aus dem Abschnitt `ConnectionStrings` einer Konfigurationsdatei abrufen, z. B. [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Verbindungszeichenfolgen in diesem Objekt werden der Umgebung mit dem Anbietertyp [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) hinzugefügt. Elemente in dieser Sammlung werden nicht mit anderen App-Einstellungen in Azure veröffentlicht. Sie müssen diese Werte explizit zur Sammlung `Connection strings` in den Einstellungen Ihrer Funktions-App hinzufügen. Bei der Erstellung einer [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)-Klasse in Ihrem Funktionscode sollten Sie den Verbindungszeichenfolgenwert zusammen mit den anderen Verbindungen in den **Anwendungseinstellungen** im Portal speichern. |
 
-[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+Die Werte für Funktions-App-Einstellungen können auch im Code als Umgebungsvariablen gelesen werden. Weitere Informationen finden Sie im Abschnitt „Umgebungsvariablen“ dieser sprachspezifischen Referenzthemen:
+
+* [Vorkompilierter C#-Code](functions-dotnet-class-library.md#environment-variables)
+* [C#-Skript (.csx)](functions-reference-csharp.md#environment-variables)
+* [F#-Skript (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 Wenn keine gültige Speicherverbindungszeichenfolge für [`AzureWebJobsStorage`] festgelegt ist und der Emulator nicht verwendet wird, wird die folgende Fehlermeldung angezeigt:
 
@@ -307,7 +325,6 @@ Der Befehl `host` ist nur in Version 1.x erforderlich.
 | **`--script-root --prefix`** | Wird zum Angeben des Pfads zum Stamm der Funktions-App verwendet, die ausgeführt oder bereitgestellt werden soll. Diese Option wird für kompilierte Projekte verwendet, die Projektdateien in einem Unterordner generieren. Beispiel: Wenn Sie ein C#-Klassenbibliotheksprojekt erstellen, werden die Dateien „host.json“, „local.settings.json“ und „function.json“ in einem Unterordner des *Stammverzeichnisses* mit einem Pfad wie etwa dem folgenden generiert: `MyProject/bin/Debug/netstandard2.0`. Legen Sie in diesem Fall als Präfix `--script-root MyProject/bin/Debug/netstandard2.0` fest. Dies ist bei der Ausführung in Azure der Stamm der Funktions-App. |
 | **`--timeout -t`** | Das Timeout für den zu startenden Functions-Host in Sekunden. Standardwert: 20 Sekunden.|
 | **`--useHttps`** | Erstellen Sie eine Bindung an `https://localhost:{port}` statt an `http://localhost:{port}`. Standardmäßig erstellt diese Option ein vertrauenswürdiges Zertifikat auf Ihrem Computer.|
-| **`--enableAuth`** | Aktivieren Sie die Pipeline für die Unterstützung der vollständigen Authentifizierung.|
 
 Bei einem C#-Klassenbibliotheksprojekt (CSPROJ) müssen Sie die Option `--build` einschließen, um die Bibliotheks-DLL zu generieren.
 
@@ -474,7 +491,6 @@ So aktivieren Sie Application Insights für Ihre Funktions-App
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Weitere Informationen finden Sie unter [Überwachen von Azure Functions](functions-monitoring.md).
-
 ## <a name="next-steps"></a>Nächste Schritte
 
 Azure Functions Core Tools ist ein [Open Source-Programm und wird auf GitHub gehostet](https://github.com/azure/azure-functions-cli).  
@@ -487,3 +503,4 @@ Um einen Fehler zu melden oder ein Feature anzufordern, [öffnen Sie ein GitHub-
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [FUNCTIONS_WORKER_RUNTIME]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
+[Erweiterungsbundles]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles

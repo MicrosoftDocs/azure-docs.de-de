@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60761691"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Abfragen mehrerer Shards mithilfe der Tools für elastische Datenbanken
 

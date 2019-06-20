@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 8a1fb0c3270d4899f05190fb1745075584f613ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f2b5a2bc3248c9f2ee0eb49e993fd55c7714367a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793585"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389164"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Einrichten einer WAF-Richtlinie mit Geofilterung für Ihre Front Door-Instanz
-In diesem Tutorial wird veranschaulicht, wie Sie mit Azure PowerShell eine Beispielrichtlinie für die Geofilterung erstellen und sie Ihrem vorhandenen Front Door-Front-End-Host zuordnen. Diese Beispielrichtlinie für die Geofilterung blockiert Anforderungen aus allen Ländern, mit Ausnahme der USA.
+In diesem Tutorial wird veranschaulicht, wie Sie mit Azure PowerShell eine Beispielrichtlinie für die Geofilterung erstellen und sie Ihrem vorhandenen Front Door-Front-End-Host zuordnen. Diese Beispielrichtlinie für die Geofilterung blockiert Anforderungen aus allen Ländern/Regionen, mit Ausnahme der USA.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie jetzt ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen.
 
@@ -53,10 +53,10 @@ Gehen Sie zum Erstellen eines Front Door-Profils gemäß den Anweisungen unter 
 
 ## <a name="define-geo-filtering-match-condition"></a>Definieren der Übereinstimmungsbedingung für die Geofilterung
 
-Erstellen Sie eine exemplarische Übereinstimmungsbedingung, durch die Anforderungen ausgewählt werden, die nicht aus den USA stammen. Verwenden Sie dazu [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) in den Parametern, wenn Sie eine Übereinstimmungsbedingung erstellen. Die zweistelligen Ländercodes für die Zuordnung des Landes finden Sie [hier](front-door-geo-filtering.md).
+Erstellen Sie eine exemplarische Übereinstimmungsbedingung, durch die Anforderungen ausgewählt werden, die nicht aus den USA stammen. Verwenden Sie dazu [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) in den Parametern, wenn Sie eine Übereinstimmungsbedingung erstellen. Die zweistelligen Ländercodes für die Zuordnung des Landes finden Sie [hier](front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
-$nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
+$nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable RemoteAddr `
 -OperatorProperty GeoMatch `
 -NegateCondition $true `
@@ -65,10 +65,10 @@ $nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Hinzufügen der Übereinstimmungsbedingung für die Geofilterung zu einer Regel mit Aktion und Priorität
 
-Erstellen Sie anschließend unter Verwendung von [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorcustomruleobject) das CustomRule-Objekt `nonUSBlockRule` basierend auf der Übereinstimmungsbedingung, einer Aktion und einer Priorität.  Ein CustomRule-Objekt kann über mehrere MatchCondition-Elemente verfügen.  In diesem Beispiel ist „Action“ auf „Block“ und „Priority“ auf „1“ (höchste Priorität) festgelegt.
+Erstellen Sie anschließend unter Verwendung von [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) das CustomRule-Objekt `nonUSBlockRule` basierend auf der Übereinstimmungsbedingung, einer Aktion und einer Priorität.  Ein CustomRule-Objekt kann über mehrere MatchCondition-Elemente verfügen.  In diesem Beispiel ist „Action“ auf „Block“ und „Priority“ auf „1“ (höchste Priorität) festgelegt.
 
 ```
-$nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
+$nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 -Name "geoFilterRule" `
 -RuleType MatchRule `
 -MatchCondition $nonUSGeoMatchCondition `
@@ -77,12 +77,12 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 ```
 
 ## <a name="add-rules-to-a-policy"></a>Hinzufügen von Regeln zu einer Richtlinie
-Suchen Sie mithilfe von `Get-AzResourceGroup` nach dem Namen der Ressourcengruppe, die das Front Door-Profil enthält. Erstellen Sie als Nächstes mithilfe von [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) ein Richtlinienobjekt vom Typ `geoPolicy` mit `nonUSBlockRule` in der angegebenen Ressourcengruppe, die das Front Door-Profil enthält. Geben Sie einen eindeutigen Namen für die Georichtlinie an. 
+Suchen Sie mithilfe von `Get-AzResourceGroup` nach dem Namen der Ressourcengruppe, die das Front Door-Profil enthält. Erstellen Sie als Nächstes mithilfe von [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) ein Richtlinienobjekt vom Typ `geoPolicy` mit `nonUSBlockRule` in der angegebenen Ressourcengruppe, die das Front Door-Profil enthält. Geben Sie einen eindeutigen Namen für die Georichtlinie an. 
 
 Im folgenden Beispiel wird der Ressourcengruppenname *myResourceGroupFD1* verwendet. Dabei wird davon ausgegangen, dass Sie das Front Door-Profil gemäß der Anleitung im Artikel [Schnellstart: Erstellen einer Front Door-Instanz für eine hoch verfügbare globale Webanwendung](quickstart-create-front-door.md) erstellt haben. Ersetzen Sie im folgenden Beispiel den Richtliniennamen *geoPolicyAllowUSOnly* durch einen eindeutigen Richtliniennamen.
 
 ```
-$geoPolicy = New-AzFrontDoorFireWallPolicy `
+$geoPolicy = New-AzFrontDoorWafPolicy `
 -Name "geoPolicyAllowUSOnly" `
 -resourceGroupName myResourceGroupFD1 `
 -Customrule $nonUSBlockRule  `
@@ -110,6 +110,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > Die Eigenschaft „WebApplicationFirewallPolicyLink“ muss nur einmal festgelegt werden, um eine WAF-Richtlinie mit einem Front Door-Front-End-Host zu verknüpfen. Nachfolgende Richtlinienaktualisierungen werden automatisch auf den Front-End-Host angewendet.
 
 ## <a name="next-steps"></a>Nächste Schritte
-
-- Informieren Sie sich über [Sicherheit für die Anwendungsschicht mit Front Door](front-door-application-security.md).
+- Informationen zu Azure Web Application Firewall finden Sie [hier](waf-overview.md).
 - Erfahren Sie mehr über das [Erstellen einer Front Door-Instanz](quickstart-create-front-door.md).

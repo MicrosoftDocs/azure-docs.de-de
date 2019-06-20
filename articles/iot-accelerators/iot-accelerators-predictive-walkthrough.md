@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447543"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Übersicht über den Solution Accelerator für Predictive Maintenance
 

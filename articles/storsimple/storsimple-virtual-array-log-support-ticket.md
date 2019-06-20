@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 658afbc178814389fefd7941e2ca030741bd08e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ac87bbf5089dd20b8c6eeec0b970a7767b3dcda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723941"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Verwenden des StorSimple-Geräte-Manager-Diensts, um eine Supportanfrage für StorSimple Virtual Array zu erstellen
 

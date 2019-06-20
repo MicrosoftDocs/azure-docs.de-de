@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60743325"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>VM-Erweiterung für den Network Watcher-Agent für Windows
 
@@ -68,7 +68,7 @@ Der folgende JSON-Code zeigt das Schema für die Network Watcher-Agent-Erweiteru
 | NAME | Wert/Beispiel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Herausgeber | Microsoft.Azure.NetworkWatcher |
+| publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 

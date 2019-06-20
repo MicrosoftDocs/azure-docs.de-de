@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e70850ba9e5984e36643f1b9ecc9db29eec149
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 58de8de9a9fab67d743d4560ccda037d8f41301b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294534"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299002"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Verlauf der Versionsveröffentlichungen
 Das Azure Active Directory-Team aktualisiert Azure AD Connect Health regelmäßig mit neuen Features und Funktionen. In diesem Artikel werden die veröffentlichten Versionen und Features beschrieben.  
@@ -31,18 +31,30 @@ Das Azure Active Directory-Team aktualisiert Azure AD Connect Health regelmäßi
 
 Azure AD Connect Health für die Synchronisierung ist in die Azure AD Connect-Installation integriert. Weitere Informationen zum Releaseverlauf von Azure AD Connect finden Sie [hier](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history). Featurefeedback können Sie über den [Benutzerfeedbackkanal für Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591) abgeben.
 
+
+## <a name="may-2019"></a>Mai 2019
+**Agent-Aktualisierung:** 
+* Azure AD Connect Health-Agent für AD FS (Version 3.1.51.0) 
+   1. Fehlerbehebung, um zwischen mehreren Anmeldungen zu unterscheiden, die die gleiche Clientanforderungs-ID verwenden
+   2. Fehlerbehebung für die Analyse von Fehlern aufgrund von ungültigen Benutzernamen/Kennwörtern auf Servern mit lokalisierter Sprache   
+
+## <a name="april-2019"></a>April 2019
+**Agent-Aktualisierung:** 
+* Azure AD Connect Health-Agent für AD FS (Version 3.1.46.0) 
+   1. SPN-Warnungsprozess für AD FS beim Überprüfen auf Duplikate korrigiert
+
 ## <a name="march-2019"></a>März 2019
 **Agent-Aktualisierung:** 
-* Azure AD Connect Health-Agent für AD DS (Version 3.1.41.0) 
-* .NET-Versionsauflistung.
-* Verbesserung der Erfassung von Leistungsindikatoren bei Fehlen bestimmter Kategorien.
-* Fehlerbehebung zum Verhindern der Erzeugung mehrerer Monitoring Agent-Instanzen.
+* Azure AD Connect Health-Agent für AD DS (Version 3.1.41.0)  
+   1. .NET-Versionsauflistung
+   2. Verbesserung der Erfassung von Leistungsindikatoren bei Fehlen bestimmter Kategorien
+   3. Fehlerbehebung zum Verhindern der Erzeugung mehrerer Monitoring Agent-Instanzen
 
 * Azure AD Connect Health-Agent für AD FS (Version 3.1.41.0) 
-* Integrieren und Aktualisieren von AD FS-Testskripts über ADFSToolBox.
-* .NET-Versionsauflistung.
-* Verbesserung der Erfassung von Leistungsindikatoren bei Fehlen bestimmter Kategorien.
-* Fehlerbehebung zum Verhindern der Erzeugung mehrerer Monitoring Agent-Instanzen.
+   1. Integrieren und Aktualisieren von AD FS-Testskripts über ADFSToolBox
+   2. Implementieren der .NET-Versionsauflistung
+   3. Verbesserung der Erfassung von Leistungsindikatoren bei Fehlen bestimmter Kategorien
+   4. Fehlerbehebung zum Verhindern der Erzeugung mehrerer Monitoring Agent-Instanzen
 
 
 ## <a name="november-2018"></a>November 2018
@@ -51,15 +63,15 @@ Azure AD Connect Health für die Synchronisierung ist in die Azure AD Connect-In
 
 **Agent-Aktualisierung:** 
 * Azure AD Connect Health-Agent für AD DS (Version 3.1.24.0) 
-* TLS-Protokollversion 1.2 (Transport Layer Security): Compliance und Erzwingung
-* Verringerung des Warnungsaufkommens für den globalen Katalog
-* Fehlerbehebungen für die Health-Agent-Registrierung
+   1. TLS-Protokollversion 1.2 (Transport Layer Security): Compliance und Erzwingung
+   2. Verringerung des Warnungsaufkommens für den globalen Katalog
+   3. Fehlerbehebungen für die Health-Agent-Registrierung
 
-* Azure AD Connect Health-Agent für AD FS (Version 3.1.24.0)
-* TLS-Protokollversion 1.2 (Transport Layer Security): Compliance und Erzwingung
-* Unterstützung von „Test-ADFSRequestToken“ für lokalisiertes Betriebssystem
-* EventHandler-Sperrproblem des Diagnose-Agents behoben
-* Fehlerbehebungen für die Health-Agent-Registrierung
+* Azure AD Connect Health-Agent für AD FS (Version 3.1.24.0)  
+   1. TLS-Protokollversion 1.2 (Transport Layer Security): Compliance und Erzwingung
+   2. Unterstützung von „Test-ADFSRequestToken“ für lokalisiertes Betriebssystem
+   3. EventHandler-Sperrproblem des Diagnose-Agents behoben
+   4. Fehlerbehebungen für die Health-Agent-Registrierung
 
 ## <a name="august-2018"></a>August 2018 
 *  Azure AD Connect Health-Agent für die Synchronisierung (Version 3.1.7.0), veröffentlicht mit Azure AD Connect Version 1.1.880.0    

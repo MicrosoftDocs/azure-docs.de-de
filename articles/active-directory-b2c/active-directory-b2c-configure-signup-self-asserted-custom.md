@@ -2,20 +2,20 @@
 title: Hinzufügen von Ansprüchen und Anpassen von Benutzereingaben mit benutzerdefinierten Richtlinien – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Benutzereingaben anpassen und Ansprüche zur User Journey bei Registrierung bzw. Anmeldung in Azure Active Directory B2C hinzufügen.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685289"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507556"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Hinzufügen von Ansprüchen und Anpassen von Benutzereingaben mit benutzerdefinierten Richtlinien in Azure Active Directory B2C
 
@@ -29,12 +29,12 @@ Führen Sie die Schritte im Artikel [Erste Schritte mit benutzerdefinierten Rich
 
 ## <a name="add-claims"></a>Hinzufügen von Ansprüchen
 
-Das Sammeln der anfänglichen Daten von Ihren Benutzern erfolgt mithilfe der User Journey für die Registrierung bzw. Anmeldung. Weitere Ansprüche können später mit einer User Journey für die Profilbearbeitung gesammelt werden. Jedes Mal, wenn Azure AD B2C auf interaktive Weise Informationen direkt vom Benutzer erfasst, wird vom Identity Experience Framework der selbstbestätigte (selfasserted) Anbieter verwendet.
+Das Sammeln der anfänglichen Daten von Ihren Benutzern erfolgt mithilfe der User Journey für die Registrierung bzw. Anmeldung. Weitere Ansprüche können später mit einer User Journey für die Profilbearbeitung gesammelt werden. Jedes Mal, wenn Azure AD B2C auf interaktive Weise Informationen direkt vom Benutzer erfasst, wird vom Identity Experience Framework der selbstbestätigte Anbieter verwendet.
 
 
 ### <a name="define-the-claim"></a>Definieren des Anspruchs
 
-Wir fragen vom Benutzer den Ort ab. Fügen Sie dem Element **ClaimsSchema** in der Richtliniendatei „TrustFrameworkBase“ das folgende Element hinzu:
+Sie fragen zum Beispiel den Benutzer nach seinem Wohnort. Fügen Sie dem Element **ClaimsSchema** in der Richtliniendatei „TrustFrameworkBase“ das folgende Element hinzu:
 
 ```xml
 <ClaimType Id="city">

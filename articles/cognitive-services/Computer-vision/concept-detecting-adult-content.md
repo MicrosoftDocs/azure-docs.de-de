@@ -12,11 +12,11 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312531"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368337"
 ---
 # <a name="detect-adult-and-racy-content"></a>Erkennen von nicht jugendfreien und freizügigen Inhalten
 

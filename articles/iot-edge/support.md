@@ -4,17 +4,17 @@ description: Erfahren Sie, welche Betriebssysteme zur Ausführung von Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/06/2019
+ms.date: 06/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1db999f5d3172734311ecc7dbec72214a1e07e91
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 178cbf930c946170834eb1f7de17e6d5bc0dda48
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058290"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Von Azure IoT Edge unterstützte Systeme
 
@@ -57,18 +57,19 @@ Allgemein verfügbar
 
 | Betriebssystem | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Raspbian-stretch | Nein  | Ja|
-| Ubuntu Server 16.04 | Ja | Nein  |
-| Ubuntu Server 18.04 | Ja | Nein  |
-| Windows 10 IoT Enterprise, Build 17763 | Ja | Nein  |
+| Raspbian-stretch | Nein | Ja|
+| Ubuntu Server 16.04 | Ja | Nein |
+| Ubuntu Server 18.04 | Ja | Nein |
+| Windows 10 IoT Enterprise, Build 17763 | Ja | Nein |
+| Windows Server 2019, Build 17763 | Ja | Nein |
+| Windows Server IoT 2019, Build 17763 | Ja | Nein |
 
 Öffentliche Vorschau
 
 | Betriebssystem | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core, Build 17763 | Ja | Nein  |
-| Windows Server 2019, Build 17763 | Ja | Nein  |
-| Windows Server IoT 2019, Build 17763 | Ja | Nein  |
+| Windows 10 IoT Core, Build 17763 | Ja | Nein |
+
 
 Die oben aufgeführten Windows-Betriebssysteme stellen die Anforderungen für Geräte dar, die Windows-Container unter Windows ausführen. Dies ist die einzige unterstützte Konfiguration für die Produktion. Die Azure IoT Edge-Installationspakete für Windows ermöglichen die Verwendung von Linux-Containern unter Windows, diese Konfiguration ist jedoch nur für Entwicklungs- und Testzwecke ausgelegt. Die Verwendung von Linux-Containern unter Windows ist keine unterstützte Konfiguration für die Produktion. Jede Version von Windows 10, Build 14393 oder höher, und Windows Server 2016 oder höher kann für dieses Entwicklungsszenario verwendet werden.
 
@@ -82,8 +83,8 @@ Die oben aufgeführten Windows-Betriebssysteme stellen die Anforderungen für Ge
 | RHEL 7.5 | Ja | Ja |
 | Ubuntu 18.04 | Ja | Ja |
 | Ubuntu 16.04 | Ja | Ja |
-| Wind River 8 | Ja | Nein  |
-| Yocto | Ja | Nein  |
+| Wind River 8 | Ja | Nein |
+| Yocto | Ja | Nein |
 
 
 ## <a name="virtual-machines"></a>Virtual Machines

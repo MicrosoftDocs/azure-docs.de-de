@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: d993144006d1fb17d79ffee4f2da538264a309a4
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854154"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65523261"
 ---
 # <a name="virtual-network--business-continuity"></a>Virtuelles Netzwerk: Geschäftskontinuität
 
 ## <a name="overview"></a>Übersicht
 Ein virtuelles Netzwerk (VNet) ist eine logische Darstellung Ihres Netzwerks in der Cloud. Es ermöglicht Ihnen das Definieren Ihres eigenen privaten IP-Adressraums und das Segmentieren des Netzwerks in Subnetze. VNets dienen als Vertrauensstellungsgrenze beim Hosten von Computeressourcen wie Azure Virtual Machines und Cloud Services (Web-/Workerrollen). Ein VNet ermöglicht die direkte private IP-Kommunikation zwischen den darin gehosteten Ressourcen. Sie können ein virtuelles Netzwerk über VPN Gateway oder ExpressRoute mit einem lokalen Netzwerk verknüpfen.
 
-Ein VNet wird innerhalb des Geltungsbereichs einer Region erstellt. Sie können VNETs mit demselben Adressraum in zwei verschiedenen Regionen erstellen (z. B. USA, Osten und USA, Westen), sie aber nicht miteinander verbinden. 
+Ein VNet wird innerhalb des Geltungsbereichs einer Region erstellt. Sie können VNETs mit demselben Adressraum in zwei verschiedenen Regionen *erstellen* (z. B. USA, Osten und USA, Westen), weil sie den gleichen Adressraum verwenden, sie aber nicht miteinander verbinden. 
 
 ## <a name="business-continuity"></a>Geschäftskontinuität
 

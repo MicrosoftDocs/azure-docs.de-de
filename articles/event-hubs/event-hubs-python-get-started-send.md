@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 6a8f0ddcfe6de904219059c6e761ead4c004732d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681708"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60461449"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Senden von Ereignissen an oder Empfangen von Ereignissen aus Event Hubs mithilfe von Python
 

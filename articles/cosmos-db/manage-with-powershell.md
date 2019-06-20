@@ -4,15 +4,15 @@ description: Verwenden Sie Azure PowerShell, um Ihre Azure Cosmos DB-Konten, -Da
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 347c3a1c6cabca9532e5ada1237f2933841d5094
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: f720b678f2c7a6e564ef3e8fa9ae071b004ed1a6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080460"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243385"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Verwalten von SQL-API-Ressourcen für Azure Cosmos DB mit PowerShell
 

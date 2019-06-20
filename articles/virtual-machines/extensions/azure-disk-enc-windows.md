@@ -80,20 +80,20 @@ Für Azure Disk Encryption ist eine Internetverbindung für den Zugriff auf Acti
 | NAME | Wert/Beispiel | Datentyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Herausgeber | Microsoft.Azure.Security | Zeichenfolge |
-| type | AzureDiskEncryptionForWindows| Zeichenfolge |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForWindows| string |
 | typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (Optional:) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (Optional:) AADClientSecret | password | Zeichenfolge |
-| (Optional:) AADClientCertificate | thumbprint | Zeichenfolge |
-| EncryptionOperation | EnableEncryption | Zeichenfolge | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | Zeichenfolge |
-| KeyEncryptionKeyURL | URL | Zeichenfolge |
-| KeyVaultResourceId | Ressourcen-URI | Zeichenfolge |
-| KekVaultResourceId | Ressourcen-URI | Zeichenfolge |
-| KeyVaultURL | URL | Zeichenfolge |
-| SequenceVersion | uniqueidentifier | Zeichenfolge |
-| VolumeType | Betriebssystem, Daten, alle | Zeichenfolge |
+| (Optional:) AADClientSecret | password | string |
+| (Optional:) AADClientCertificate | thumbprint | string |
+| EncryptionOperation | EnableEncryption | string | 
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| KeyEncryptionKeyURL | URL | string |
+| KeyVaultResourceId | Ressourcen-URI | string |
+| KekVaultResourceId | Ressourcen-URI | string |
+| KeyVaultURL | URL | string |
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | Betriebssystem, Daten, alle | string |
 
 ## <a name="template-deployment"></a>Bereitstellung von Vorlagen
 Ein Beispiel für eine Vorlagenbereitstellung finden Sie unter [Create a new encrypted Windows VM from gallery image](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image) (Erstellen einer neuen verschlüsselten Windows-VM aus einem Katalogimage).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2018
 ms.author: ralfwi
-ms.openlocfilehash: 89fbcdaad6e5e7379209854781423161ca2740b0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 932f9457cc5d33063714ae9c9678174a8b64d156
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443486"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60684761"
 ---
 # <a name="azure-germany-iot-services"></a>IoT-Dienste von Azure Deutschland
 
@@ -64,7 +64,7 @@ Gehen Sie hierzu wie folgt vor:
 2. Rufen Sie Ihren Bing Karten-API für Unternehmen-Schlüssel aus dem globalen Azure-Portal ab: 
     1. Navigieren Sie zur Ressourcengruppe, in der sich Ihre Bing Karten-API für Unternehmen im globalen Azure-Portal befindet.
     2. Klicken Sie auf **Alle Einstellungen** > **Schlüsselverwaltung**. 
-    3. Sie sehen zwei Schlüssel: „MasterKey“ und „QueryKey“. Kopieren Sie den Wert für „QueryKey“.
+    3. Es werden zwei Schlüssel angezeigt: „MasterKey“ und „QueryKey“. Kopieren Sie den Wert für „QueryKey“.
 3. Besorgen Sie sich den aktuellen Code aus dem [Azure IoT-Remoteüberwachungs-Repository auf GitHub](https://github.com/Azure/azure-iot-remote-monitoring).
 4. Führen Sie eine Cloudbereitstellung in Ihrer Umgebung aus, indem Sie die Anleitung zur Befehlszeilenbereitstellung im Repositoryordner `/docs/` befolgen. 
 5. Wenn Sie die Bereitstellung ausgeführt haben, suchen Sie im Stammordner nach der Datei **.user.config**, die während der Bereitstellung erstellt wurde. Öffnen Sie diese Datei in einem Texteditor. 

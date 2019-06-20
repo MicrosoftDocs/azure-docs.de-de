@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: orspodek
 ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60394505"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopieren von Daten in oder aus Azure Data Explorer mithilfe von Azure Data Factory
 
@@ -139,7 +139,7 @@ Legen Sie zum Kopieren von Daten aus Azure Data Explorer die **type**-Eigenschaf
 |:--- |:--- |:--- |
 | type | Die **type**-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **AzureDataExplorerSource** | Ja |
 | query | Eine in einem [KQL-Format](/azure/kusto/query/) angegebene schreibgeschützte Anforderung. Verwenden Sie die benutzerdefinierte KQL-Abfrage als Verweis. | Ja |
-| queryTimeout | Die Wartezeit vor dem Timeout der Abfrageanforderung. Der Standardwert ist 10 Minuten (00:10:00), der zulässige maximale Wert 1 Stunde (01:00:00). | Nein  |
+| queryTimeout | Die Wartezeit vor dem Timeout der Abfrageanforderung. Der Standardwert ist 10 Minuten (00:10:00), der zulässige maximale Wert 1 Stunde (01:00:00). | Nein |
 
 >[!NOTE]
 >Die Azure Data Explorer-Quelle hat in der Standardeinstellung ein Größenlimit von 500.000 Datensätzen oder 64 MB. Um alle Datensätze ohne Abschneiden abzurufen, können Sie `set notruncation;` am Anfang Ihrer Abfrage angeben. Weitere Details finden Sie unter [Abfragelimits](https://docs.microsoft.com/azure/kusto/concepts/querylimits).
@@ -184,7 +184,7 @@ Legen Sie zum Kopieren von Daten in Azure Data Explorer die type-Eigenschaft in 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
 | type | Die **type**-Eigenschaft der Senke der Kopieraktivität muss auf Folgendes festgelegt werden: **AzureDataExplorerSink** | Ja |
-| ingestionMappingName | Der Name einer vorab erstellten **[Zuordnung](/azure/kusto/management/mappings#csv-mapping)** für eine Kusto-Tabelle. Um die Spalten aus der Quelle zu Azure Data Explorer zuzuordnen, was für **[alle unterstützten Quellspeicher/-formate](copy-activity-overview.md#supported-data-stores-and-formats)** einschließlich der Formate CSV/JSON/Avro usw. gilt, können Sie die Kopieraktivität [Spaltenzuordnung](copy-activity-schema-and-type-mapping.md) verwenden (implizit anhand des Namens oder explizit wie konfiguriert) und/oder Azure Data Explorer-Zuordnungen. | Nein  |
+| ingestionMappingName | Der Name einer vorab erstellten **[Zuordnung](/azure/kusto/management/mappings#csv-mapping)** für eine Kusto-Tabelle. Um die Spalten aus der Quelle zu Azure Data Explorer zuzuordnen, was für **[alle unterstützten Quellspeicher/-formate](copy-activity-overview.md#supported-data-stores-and-formats)** einschließlich der Formate CSV/JSON/Avro usw. gilt, können Sie die Kopieraktivität [Spaltenzuordnung](copy-activity-schema-and-type-mapping.md) verwenden (implizit anhand des Namens oder explizit wie konfiguriert) und/oder Azure Data Explorer-Zuordnungen. | Nein |
 
 **Beispiel:**
 

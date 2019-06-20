@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
 ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60716046"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Bereitstellen von IBM DB2 pureScale in Azure
 
@@ -118,7 +118,7 @@ Das GitHub-Repository enthält „DB2server.rsp“, eine Antwortdatei (RSP), mit
 
 - Die Setupskripts verwenden Aliase für die iSCSI-Datenträger, sodass die tatsächlichen Namen leicht gefunden werden können.
 
-- Wenn das Setupskript auf d0 ausgeführt wird, können die Werte für **„/dev/dm-\***“ auf d1, cf0 und cf1 unterschiedlich sein. Der Unterschied bei den Werten hat keine Auswirkung auf das DB2 pureScale-Setup.
+- Wenn das Setupskript auf d0 ausgeführt wird, können die Werte für **„/dev/dm-\*** “ auf d1, cf0 und cf1 unterschiedlich sein. Der Unterschied bei den Werten hat keine Auswirkung auf das DB2 pureScale-Setup.
 
 ## <a name="troubleshooting-and-known-issues"></a>Problembehandlung und bekannte Probleme
 

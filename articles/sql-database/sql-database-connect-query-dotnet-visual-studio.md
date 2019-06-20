@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 3959eb789102cd3d54fc7bab32e585b3c09d897b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792158"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303305"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Schnellstart: Herstellen einer Verbindung mit einer Azure SQL-Datenbank und Abfragen der Datenbank mit .NET und C# in Visual Studio
 
@@ -43,7 +43,7 @@ Für die Durchführung dieses Schnellstarts benötigen Sie Folgendes:
   > [!IMPORTANT]
   > Die Skripts in diesem Artikel sind für die Adventure Works-Datenbank geschrieben. Bei einer verwalteten Instanz müssen Sie entweder die Adventure Works-Datenbank in eine Instanzdatenbank importieren oder die Skripts in diesem Artikel zur Verwendung der Wide World Importers-Datenbank anpassen.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) – Community, Professional oder Enterprise Edition.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) – Community, Professional oder Enterprise Edition.
 
 ## <a name="get-sql-server-connection-information"></a>Abrufen von SQL Server-Verbindungsinformationen
 
@@ -59,7 +59,7 @@ Rufen Sie die Verbindungsinformationen ab, die Sie zum Herstellen einer Verbindu
 
 1. Klicken Sie in Visual Studio auf **Datei** > **Neu** > **Projekt**. 
    
-1. Wählen Sie im Dialogfeld **Neues Projekt** die Option **Visual C#**, und wählen Sie anschließend **Konsolen-App (.NET Framework)** aus.
+1. Wählen Sie im Dialogfeld **Neues Projekt** die Option **Visual C#** , und wählen Sie anschließend **Konsolen-App (.NET Framework)** aus.
    
 1. Geben Sie als Projektname *sqltest* ein, und wählen Sie **OK** aus. Das neue Projekt wird erstellt. 
    

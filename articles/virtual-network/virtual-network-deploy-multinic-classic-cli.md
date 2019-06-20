@@ -17,11 +17,11 @@ ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1e47b1e548516960c6aab3c48d64255370c94a77
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650018"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60743318"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Erstellen einer VM (klassisch) mit mehreren Netzwerkkarten mithilfe der klassischen Azure CLI
 

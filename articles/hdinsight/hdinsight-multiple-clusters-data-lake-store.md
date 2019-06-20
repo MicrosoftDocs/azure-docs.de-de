@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700288"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Verwenden von mehreren HDInsight-Clustern mit einem Azure Data Lake Storage-Konto
@@ -50,10 +50,10 @@ Anweisungen zum Erstellen einer AAD-Anwendung (die auch einen Dienstprinzipal er
 
 Zu berücksichtigende Punkte:
 
-- Die Ordnerstruktur mit zwei Ebenen (**/clusters/finance/**) muss mit entsprechenden Berechtigungen vom Data Lake Storage-Administrator erstellt und bereitgestellt werden, **bevor** das Speicherkonto für Cluster verwendet wird. Diese Struktur wird nicht automatisch beim Erstellen von Clustern erstellt.
+- Die Ordnerstruktur mit zwei Ebenen ( **/clusters/finance/** ) muss mit entsprechenden Berechtigungen vom Data Lake Storage-Administrator erstellt und bereitgestellt werden, **bevor** das Speicherkonto für Cluster verwendet wird. Diese Struktur wird nicht automatisch beim Erstellen von Clustern erstellt.
 - Im oben stehenden Beispiel wird empfohlen, die Gruppe von **/clusters/finance** auf **FINGRP** festzulegen und **r-x** Zugriff auf „FINGRP“ und auf die gesamte Ordnerhierarchie vom Stamm aus zu gewähren. So wird sichergestellt, dass die Member von FINGRP vom Stamm aus durch die Ordnerstruktur navigieren können.
 - Wenn verschiedene AAD-Dienstprinzipale Cluster unter **/clusters/finance** erstellen können, stellt das Sticky Bit (wenn es auf den Ordner **Finanzen** festgelegt ist) sicher, dass Ordner, die von einem Dienstprinzipal erstellt wurden, nicht von dem anderen gelöscht werden können.
-- Sobald die Ordnerstruktur und Berechtigungen eingerichtet wurden, erstellt der HDInsight-Clustererstellungsprozess einen clusterspezifischen Speicherort unter **/clusters/finance/**. Der Speicher für einen Cluster mit dem Namen „fincluster01“ könnte z.B. **/clusters/finance/fincluster01** sein. Diese Tabelle zeigt die Zuständigkeit und die Berechtigungen für die vom HDInsight-Cluster erstellten Ordner.
+- Sobald die Ordnerstruktur und Berechtigungen eingerichtet wurden, erstellt der HDInsight-Clustererstellungsprozess einen clusterspezifischen Speicherort unter **/clusters/finance/** . Der Speicher für einen Cluster mit dem Namen „fincluster01“ könnte z.B. **/clusters/finance/fincluster01** sein. Diese Tabelle zeigt die Zuständigkeit und die Berechtigungen für die vom HDInsight-Cluster erstellten Ordner.
 
     |Ordner  |Berechtigungen  |zuständige Benutzer  |zuständige Gruppe  | Benannter Benutzer | Berechtigungen für benannte Benutzer | Benannte Gruppe | Berechtigungen für benannte Gruppen |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -88,7 +88,7 @@ Es ist bekannt, dass diese Einstellungen einen bestimmten Anwendungsfall von HDI
 Wie im bereits verlinkten JIRA von YARN angegeben, überprüft der Lokalisierer beim Lokalisieren von öffentlichen Ressourcen, dass die angeforderten Ressourcen auch tatsächlich öffentlich sind, indem er ihre Berechtigungen auf dem Remote-Dateisystem prüft. Jede lokale Ressource, die diese Bedingung nicht erfüllt, wird bei der Lokalisierung abgelehnt. Das Prüfen der Berechtigungen beinhaltet auch den Lesezugriff auf die Datei für „Andere“. Dieses Szenario ist nicht sofort einsatzbereit, wenn Sie HDInsight-Cluster in Azure Data Lake hosten, da Azure Data Lake den Zugriff auf „Andere“ auf der Ebene des Stammordner verweigert.
 
 #### <a name="workaround"></a>Problemumgehung
-Legen Sie die Lese- und Ausführberechtigungen für **andere** über die Hierarchie fest, beispielsweise über **/**, **/clusters** und **/clusters/finance**, wie in oben stehender Tabelle gezeigt.
+Legen Sie die Lese- und Ausführberechtigungen für **andere** über die Hierarchie fest, beispielsweise über **/** , **/clusters** und **/clusters/finance**, wie in oben stehender Tabelle gezeigt.
 
 ## <a name="see-also"></a>Weitere Informationen
 

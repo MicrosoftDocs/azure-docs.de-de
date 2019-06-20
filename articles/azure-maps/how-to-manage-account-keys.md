@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569466"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957315"
 ---
 # <a name="manage-your-azure-maps-account"></a>Verwalten Ihres Azure Maps-Kontos
 
@@ -43,10 +43,14 @@ Eine Bestätigungsseite wird angezeigt. Sie können das Löschen Ihres Kontos be
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Erfahren Sie, wie Sie den Tarif eines Azure Maps-Kontos verwalten:
-    > [!div class="nextstepaction"] 
-    > [Verwalten eines Tarifs](./how-to-manage-pricing-tier.md)
+Einrichten der Authentifizierung bei Azure Maps:
+> [!div class="nextstepaction"]
+> [Verwalten der Authentifizierung](how-to-manage-authentication.md)
 
-* Erfahren Sie, wie Sie die API-Nutzungsmetriken für Ihr Azure Maps-Konto anzeigen:
-    > [!div class="nextstepaction"] 
-    > [Anzeigen von Nutzungsmetriken](./how-to-view-api-usage.md)
+Erfahren Sie, wie Sie den Tarif eines Azure Maps-Kontos verwalten:
+> [!div class="nextstepaction"] 
+> [Verwalten eines Tarifs](how-to-manage-pricing-tier.md)
+
+Erfahren Sie, wie Sie die API-Nutzungsmetriken für Ihr Azure Maps-Konto anzeigen:
+> [!div class="nextstepaction"] 
+> [Anzeigen von Nutzungsmetriken](how-to-view-api-usage.md)

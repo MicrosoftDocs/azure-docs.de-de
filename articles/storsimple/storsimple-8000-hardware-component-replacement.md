@@ -16,11 +16,11 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60321733"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Austauschen von Hardwarekomponenten auf Geräten der StorSimple 8000-Serie
 
@@ -67,7 +67,7 @@ Die wesentlichen Hardwarekomponenten des Geräts sind in der folgenden Tabelle z
 
 | Komponenten | Vorhandene Anzahl | Steckmodul | Austauschverfahren |
 |:--- |:--- |:--- |:--- |
-| Gehäuse |1 |Nein  |[Austauschen des Gehäuses des StorSimple-Geräts](storsimple-8000-chassis-replacement.md) |
+| Gehäuse |1 |Nein |[Austauschen des Gehäuses des StorSimple-Geräts](storsimple-8000-chassis-replacement.md) |
 | Primäre Controller |2 |Ja |[Austauschen eines Controllermoduls eines StorSimple-Geräts](storsimple-8000-controller-replacement.md) |
 | Module für Stromversorgung und Kühlung (PCMs) mit 764 W |2 |Ja |[Austauschen eines Moduls für Stromversorgung und Kühlung eines StorSimple-Geräts](storsimple-8000-power-cooling-module-replacement.md) |
 | Pufferbatterie |2 |Ja |[Austauschen des Pufferbatteriemoduls eines StorSimple-Geräts](storsimple-8000-battery-replacement.md) |
@@ -79,7 +79,7 @@ Das primäre Gehäuse und das EBOD-Gehäuse unterscheiden sich bei den E/A-Modul
 
 | Komponenten | Vorhandene Anzahl | Steckmodul | Austauschverfahren |
 |:--- |:--- |:--- |:--- |
-| Gehäuse |1 |Nein  |[Austauschen des Gehäuses des StorSimple-Geräts](storsimple-8000-chassis-replacement.md) |
+| Gehäuse |1 |Nein |[Austauschen des Gehäuses des StorSimple-Geräts](storsimple-8000-chassis-replacement.md) |
 | EBOD-Controller |2 |Ja |[Austauschen des EBOD-Controllers eines StorSimple-Geräts](storsimple-8000-ebod-controller-replacement.md) |
 | Module für Stromversorgung und Kühlung (PCMs) mit 580 W |2 |Ja |[Austauschen eines Moduls für Stromversorgung und Kühlung eines StorSimple-Geräts](storsimple-8000-power-cooling-module-replacement.md) |
 | Festplattenlaufwerke |12 |Ja |[Austauschen eines Festplattenlaufwerks im StorSimple-Gerät](storsimple-8000-disk-drive-replacement.md) |

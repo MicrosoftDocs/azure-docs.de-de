@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/13/2017
 ms.author: ralfwi
 ms.openlocfilehash: 5b39a9b69afea2efa1ab37c2cce059da3211b70a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60780908"
 ---
 # <a name="manage-and-connect-to-your-subscription-in-azure-germany"></a>Verwalten Ihres Abonnements und Herstellen einer Verbindung mit Ihrem Abonnement in Azure Deutschland

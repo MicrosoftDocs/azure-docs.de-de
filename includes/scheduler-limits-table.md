@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -9,15 +9,15 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553536"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178467"
 ---
 Die folgende Tabelle informiert über die einzelnen zentralen Kontingente, Einschränkungen, Standardwerte und Drosselungen für Azure Scheduler:
 
-| Ressource | Beschreibung der Einschränkung |
+| Resource | Beschreibung der Einschränkung |
 | -------- | ----------------- |
 | **Auftragsgröße** | Die maximale Auftragsgröße beträgt 16.000. Wenn ein PUT- oder PATCH-Vorgang zu einer Auftragsgröße führt, die größer als dieser Grenzwert ist, wird ein Statuscode 400 Bad Request (unzulässige Anforderung) zurückgegeben. | 
 | **Auftragssammlungen** | Die maximale Anzahl von Auftragssammlungen pro Azure-Abonnement beträgt 200.000. | 

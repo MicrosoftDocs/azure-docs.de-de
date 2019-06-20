@@ -2,26 +2,23 @@
 title: Erneutes Generieren von HTTP-Headern in Azure Application Gateway
 description: Dieser Artikel enthält Informationen zum Erstellen eines Azure Application Gateways und zum erneuten Generieren eines HTTP-Headers mithilfe von Azure PowerShell.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314448"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64947088"
 ---
-# <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Tutorial: Erstellen eines Application Gateways und erneutes Generieren eines HTTP-Headers
+# <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Erstellen eines Application Gateways und erneutes Generieren eines HTTP-Headers
 
 Sie können Azure PowerShell verwenden, wenn Sie das neue [zonenredundante Anwendungs-SKU-Gateway mit automatischer Skalierung](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) erstellen, um [Regeln zum erneuten Generieren einer HTTP-Anforderung und eines Antwort-Headers](rewrite-http-headers.md) zu konfigurieren.
 
-> [!IMPORTANT] 
-> Die Application Gateway-SKU mit automatischer Skalierung und Zonenredundanz ist derzeit als öffentliche Vorschau verfügbar. Diese Vorschau wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar. Weitere Informationen finden Sie unter [Ergänzende Nutzungsbedingungen für Microsoft Azure-Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
-In diesem Tutorial lernen Sie Folgendes:
+In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 > [!div class="checklist"]
 >
@@ -37,7 +34,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Für dieses Tutorial müssen Sie Azure PowerShell lokal ausführen. Sie müssen Version 1.0.0 oder höher des Az-Moduls installiert haben. Führen Sie `Import-Module Az` und dann `Get-Module Az` aus, um die Version zu finden. Wenn Sie ein Upgrade ausführen müssen, finden Sie unter [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps) Informationen dazu. Führen Sie nach dem Überprüfen der PowerShell-Version `Login-AzAccount` aus, um eine Verbindung mit Azure zu erstellen.
+Für diesem Artikel müssen Sie Azure PowerShell lokal ausführen. Sie müssen Version 1.0.0 oder höher des Az-Moduls installiert haben. Führen Sie `Import-Module Az` und dann `Get-Module Az` aus, um die Version zu finden. Wenn Sie ein Upgrade ausführen müssen, finden Sie unter [Installieren des Azure PowerShell-Moduls](https://docs.microsoft.com/powershell/azure/install-az-ps) Informationen dazu. Führen Sie nach dem Überprüfen der PowerShell-Version `Login-AzAccount` aus, um eine Verbindung mit Azure zu erstellen.
 
 ## <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
@@ -178,5 +175,4 @@ Untersuchen Sie zuerst die Ressourcen, die mit dem Anwendungsgateway erstellt wu
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Erstellen eines Anwendungsgateways mit Routingregeln auf URL-Pfadbasis](./tutorial-url-route-powershell.md)
+- [Erstellen eines Anwendungsgateways mit Routingregeln auf URL-Pfadbasis](./tutorial-url-route-powershell.md)

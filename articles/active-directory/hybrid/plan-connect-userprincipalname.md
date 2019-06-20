@@ -11,11 +11,11 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60382066"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Auffüllung des UserPrincipalName-Attributs in Azure AD
 

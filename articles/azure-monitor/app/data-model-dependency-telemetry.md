@@ -13,11 +13,11 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60901024"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetriedaten zu Abhängigkeiten: Application Insights-Datenmodell
 
@@ -35,7 +35,7 @@ Bezeichner einer Instanz eines Aufrufs einer Abhängigkeit. Dient zur Korrelatio
 
 Der durch diesen Aufruf einer Abhängigkeit ausgelöste Befehl. Beispiele sind eine SQL-Anweisung und HTTP-URL mit allen Abfrageparametern.
 
-## <a name="type"></a>Typ
+## <a name="type"></a>Type
 
 Name des Abhängigkeitstyps. Niedriger Kardinalitätswert für die logische Gruppierung von Abhängigkeiten und Interpretation der anderen Felder wie „commandName“ und „resultCode“. Beispiele sind die SQL, Azure-Tabelle und HTTP.
 

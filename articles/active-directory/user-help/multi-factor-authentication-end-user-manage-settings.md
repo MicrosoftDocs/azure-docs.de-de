@@ -15,11 +15,11 @@ ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60334467"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Verwalten der Einstellungen für die zweistufige Überprüfung
 Dieser Artikel enthält Antworten auf Fragen zum Aktualisieren der Einstellungen für die zweistufige Überprüfung oder die Multi-Factor Authentication. Wenn bei der Anmeldung bei Ihrem Konto Probleme auftreten, finden Sie Hilfe unter [Probleme bei der zweistufigen Überprüfung](multi-factor-authentication-end-user-troubleshoot.md).

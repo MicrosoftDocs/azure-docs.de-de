@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66128991"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178473"
 ---
 Um eine Ressource während der Bereitstellung mit einem Tag zu versehen, fügen Sie der Ressource, die Sie bereitstellen, das `tags`-Element hinzu. Geben Sie den Namen und den Wert des Tags an.
 

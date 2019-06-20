@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236354"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-Adresstypen und Zuordnungsmethoden in Azure
@@ -137,7 +137,7 @@ In der Tabelle unten sind die spezifischen Eigenschaften, über die eine öffent
 | --- | --- | --- | --- |
 | Virtueller Computer |Netzwerkschnittstelle |Ja |Ja |
 | Lastenausgleich mit Internetzugriff |Front-End-Konfiguration |Ja |Ja |
-| VPN-Gateway |Gateway-IP-Konfiguration |Ja |Nein  |
+| VPN-Gateway |Gateway-IP-Konfiguration |Ja |Nein |
 | Anwendungsgateway |Front-End-Konfiguration |Ja (nur V1) |Ja (nur V2) |
 
 ## <a name="private-ip-addresses"></a>Private IP-Adressen

@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 526a568bbcd7249e4f8917e8cdd82a0de71bfb0a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 92efd6c4e63959b6098829892c5cbbaeeabe9f83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66159979"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>Einzufügen einer eingehenden Netzwerksicherheitsgruppen-Regel
 

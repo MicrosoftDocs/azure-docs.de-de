@@ -10,11 +10,11 @@ ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998129"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61467713"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(VERALTET) Überwachen eines Azure Container Service-Clusters mit ELK
 

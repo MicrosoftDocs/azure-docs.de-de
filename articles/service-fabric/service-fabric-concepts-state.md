@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e3ab36def2d210bd763f3ce2dc5df155e37e2dba
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60870892"
 ---
 # <a name="service-state"></a>Dienstzustand
 **Dienstzustand** bezieht sich auf die Daten (im Arbeitsspeicher oder auf einem Datenträger), die der Dienst für seine Ausführung benötigt. Er umfasst unter anderem die Datenstrukturen und Membervariablen, die der Dienst im Rahmen seiner Aufgaben liest und schreibt. Abhängig von der Architektur des Diensts können dazu auch Dateien oder andere Ressourcen gehören, die auf einem Datenträger gespeichert sind. Ein Beispiel wären etwa Dateien, die eine Datenbank zum Speichern von Daten und Transaktionsprotokollen verwendet.

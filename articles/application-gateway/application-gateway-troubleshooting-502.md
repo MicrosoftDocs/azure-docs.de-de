@@ -1,26 +1,18 @@
 ---
-title: Behandeln von Fehlern aufgrund eines ungültigen Gateways (502) in Azure Application Gateway | Microsoft-Dokumentation
+title: Behandeln von Fehlern aufgrund eines ungültigen Gateways (502) in Azure Application Gateway
 description: Hier erfahren Sie, wie Sie Application Gateway-Fehler vom Typ 502 behandeln.
 services: application-gateway
-documentationcenter: na
-author: amitsriva
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 4/25/2019
 ms.author: amsriva
-ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997790"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64697161"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Behandeln von Fehlern aufgrund eines ungültigen Gateways in Application Gateway
 
@@ -30,9 +22,9 @@ Erfahren Sie mehr zur Problembehandlung bei Fehlern aufgrund eines ungültigen G
 
 ## <a name="overview"></a>Übersicht
 
-Nach der Konfiguration eines Anwendungsgateways ist einer der möglichen Fehler, auf die Benutzer stoßen können, „Serverfehler: 502 - Webserver hat als Gateway oder Proxyserver eine ungültige Antwort erhalten.“ auftritt, Dieser Fehler kann folgende Hauptursachen haben:
+Nach der Konfiguration eines Anwendungsgateways ist einer der möglichen Fehler, die eventuell angezeigt werden, „Serverfehler: 502 - Webserver hat als Gateway oder Proxyserver eine ungültige Antwort erhalten.“ auftritt, Dieser Fehler kann folgende Hauptursachen haben:
 
-* Eine NSG, eine benutzerdefinierte Route oder ein benutzerdefiniertes DNS blockiert den Zugriff auf Back-End-Poolmitglieder.
+* Eine NSG, eine benutzerdefinierte Route (UDR, user-defined route) oder ein benutzerdefiniertes DNS blockiert den Zugriff auf Back-End-Poolmitglieder.
 * Virtuelle Back-End-Computer oder Instanzen der VM-Skalierungsgruppe reagieren nicht auf die standardmäßige Integritätsüberprüfung.
 * Benutzerdefinierte Integritätsüberprüfungen sind ungültig oder nicht korrekt konfiguriert.
 * Der [Back-End-Pool von Azure Application Gateway ist nicht konfiguriert oder leer](#empty-backendaddresspool).
@@ -43,22 +35,27 @@ Nach der Konfiguration eines Anwendungsgateways ist einer der möglichen Fehler,
 
 ### <a name="cause"></a>Ursache
 
-Wenn der Zugriff auf Back-End durch Vorhandensein einer NSG, einer benutzerdefinierten Route oder eines benutzerdefinierten DNS blockiert ist, können Application Gateway-Instanzen nicht die Back-End-Pools erreichen, und es treten Fehler vom Typ 502 auf. Beachten Sie, dass die NSG/die UDR entweder in Application Gateway-Subnetz oder im Subnetz, in dem die Anwendung-VMs bereitgestellt werden, vorhanden sein kann. Auf ähnliche Weise kann das Vorhandensein des benutzerdefinierten DNS im VNET auch Probleme verursachen, wenn FQDN für Back-End-Poolmitglieder verwendet werden und nicht ordnungsgemäß durch den benutzerkonfigurierten DNS-Server für das VNET aufgelöst werden.
+Wenn der Zugriff auf das Back-End wegen einer NSG, benutzerdefinierten Route oder einem benutzerdefinierten DNS blockiert ist, können Application Gateway-Instanzen den Back-End-Pool nicht erreichen. Dies verursacht Überprüfungsfehler, die zu Fehlern vom Typ 502 führen.
+
+Die NSG/UDR könnte entweder im Application Gateway-Subnetz oder im Subnetz vorhanden sein, in dem die Anwendungs-VMs bereitgestellt sind.
+
+Auf ähnliche Weise könnte auch das Vorhandensein eines benutzerdefinierten DNS im VNet auch Probleme verursachen. Ein für Back-End-Poolmitglieder verwendeter FQDN wird möglicherweise nicht ordnungsgemäß vom benutzerkonfigurierten DNS-Server für das VNet aufgelöst.
 
 ### <a name="solution"></a>Lösung
 
 Überprüfen Sie die NSG-, UDR- und DNS-Konfiguration, indem Sie die folgenden Schritte durchlaufen:
-* Überprüfen Sie NSGs, die dem Application Gateway-Subnetz zugeordnet sind. Stellen Sie sicher, dass die Kommunikation mit Back-End nicht blockiert wird.
-* Überprüfen Sie die UDR, die dem Application Gateway-Subnetz zugeordnet sind. Stellen Sie sicher, dass UDR den Datenverkehr nicht weg vom Back-End-Subnetz lenkt: Überprüfen Sie z.B. das Routing zu virtuellen Geräten oder Standardrouten, die das Application Gateway-Subnetz über ExpressRoute/VPN angekündigt werden.
 
-```powershell
+* Überprüfen Sie NSGs, die dem Application Gateway-Subnetz zugeordnet sind. Stellen Sie sicher, dass die Kommunikation mit dem Back-End nicht blockiert ist.
+* Überprüfen Sie die UDR, die dem Application Gateway-Subnetz zugeordnet ist. Stellen Sie sicher, dass die UDR keinen Datenverkehr vom Back-End-Subnetz wegleitet. Überprüfen Sie z. B. das Routing zu virtuellen Geräten oder Standardrouten, die dem Application Gateway-Subnetz über ExpressRoute/VPN angekündigt werden.
+
+```azurepowershell
 $vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
 Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Überprüfen Sie die effektiven NSGs und Routen mit dem virtuellen Back-End-Computer.
 
-```powershell
+```azurepowershell
 Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
 Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
@@ -79,7 +76,11 @@ Falls vorhanden, stellen Sie sicher, dass der DNS-Server den FQDN von Back-End-P
 
 ### <a name="cause"></a>Ursache
 
-502-Fehler sind auch oftmals darauf zurückzuführen, dass virtuelle Back-End-Computer für die standardmäßige Integritätsüberprüfung nicht erreichbar sind. Beim Bereitstellen einer Application Gateway-Instanz wird unter Verwendung von Eigenschaften der Back-End-HTTP-Einstellung automatisch für jeden Back-End-Adresspool eine standardmäßige Integritätsüberprüfung konfiguriert. Zum Festlegen dieser Überprüfung ist keinerlei Benutzereingabe erforderlich. Wenn eine Regel für den Lastenausgleich konfiguriert wird, erfolgt eine Zuordnung zwischen einer Back-End-HTTP-Einstellung und dem Back-End-Adresspool. Für diese Zuordnungen wird jeweils eine standardmäßige Integritätsüberprüfung konfiguriert, und Application Gateway stellt über den im BackendHttpSetting-Element angegebenen Port in regelmäßigen Abständen eine Verbindung mit den einzelnen Instanzen im Back-End-Adresspool her, um die Integrität zu überprüfen. Die folgende Tabelle enthält die Werte der standardmäßigen Integritätsüberprüfung:
+502-Fehler sind auch oftmals darauf zurückzuführen, dass virtuelle Back-End-Computer für die standardmäßige Integritätsüberprüfung nicht erreichbar sind.
+
+Beim Bereitstellen einer Application Gateway-Instanz wird unter Verwendung von Eigenschaften der Back-End-HTTP-Einstellung automatisch für jeden Back-End-Adresspool eine standardmäßige Integritätsüberprüfung konfiguriert. Zum Festlegen dieser Überprüfung ist keinerlei Benutzereingabe erforderlich. Wenn eine Regel für den Lastenausgleich konfiguriert wird, erfolgt eine Zuordnung zwischen einer Back-End-HTTP-Einstellung und dem Back-End-Adresspool. Für diese Zuordnungen wird jeweils eine standardmäßige Integritätsüberprüfung konfiguriert, und Application Gateway stellt über den im BackendHttpSetting-Element angegebenen Port in regelmäßigen Abständen eine Verbindung mit den einzelnen Instanzen im Back-End-Adresspool her, um die Integrität zu überprüfen. 
+
+Die folgende Tabelle enthält die Werte der standardmäßigen Integritätsüberprüfung:
 
 | Überprüfungseigenschaft | Wert | BESCHREIBUNG |
 | --- | --- | --- |
@@ -101,14 +102,16 @@ Falls vorhanden, stellen Sie sicher, dass der DNS-Server den FQDN von Back-End-P
 
 ### <a name="cause"></a>Ursache
 
-Benutzerdefinierte Integritätsüberprüfungen sorgen für zusätzliche Flexibilität. Bei Verwendung von benutzerdefinierten Überprüfungen können Benutzer das Überprüfungsintervall, die URL und den zu überprüfenden Pfad konfigurieren und festlegen, wie viele fehlerhafte Antworten akzeptiert werden sollen, bevor die Back-End-Pool-Instanz als fehlerhaft gekennzeichnet wird. Folgende Zusatzeigenschaften werden hinzugefügt:
+Benutzerdefinierte Integritätsüberprüfungen sorgen für zusätzliche Flexibilität. Bei Verwendung von benutzerdefinierten Überprüfungen können Sie das Überprüfungsintervall, die URL und den zu überprüfenden Pfad konfigurieren und festlegen, wie viele fehlerhafte Antworten akzeptiert werden, bevor die Back-End-Pool-Instanz als fehlerhaft gekennzeichnet wird.
+
+Folgende Zusatzeigenschaften werden hinzugefügt:
 
 | Überprüfungseigenschaft | BESCHREIBUNG |
 | --- | --- |
 | NAME |Name der Überprüfung. Dieser Name wird verwendet, um in den Back-End-HTTP-Einstellungen auf die Überprüfung zu verweisen. |
-| Protokoll |Das zum Senden der Überprüfung verwendete Protokoll. Für die Überprüfung wird das in den HTTP-Einstellungen des Back-Ends festgelegte Protokoll verwendet. |
+| Protocol |Das zum Senden der Überprüfung verwendete Protokoll. Für die Überprüfung wird das in den HTTP-Einstellungen des Back-Ends festgelegte Protokoll verwendet. |
 | Host |Hostname zum Senden der Überprüfung Nur relevant, wenn in Application Gateway mehrere Standorte konfiguriert sind. Entspricht nicht dem VM-Hostnamen. |
-| path |Relativer Pfad der Überprüfung. Der gültige Pfad beginnt mit „/“. Der Test wird an \<Protokoll\>://\<Host\>:\<Port\>\<Pfad\> gesendet |
+| `Path` |Relativer Pfad der Überprüfung. Der gültige Pfad beginnt mit „/“. Der Test wird an \<Protokoll\>://\<Host\>:\<Port\>\<Pfad\> gesendet |
 | Intervall |Überprüfungsintervall in Sekunden Dies ist das Zeitintervall zwischen zwei aufeinanderfolgenden Überprüfungen. |
 | Zeitüberschreitung |Zeitüberschreitung der Überprüfung in Sekunden. Die Überprüfung wird als fehlerhaft markiert, wenn innerhalb des Zeitraums für die Zeitüberschreitung keine gültige Antwort empfangen wird. |
 | Fehlerhafter Schwellenwert |Anzahl der Wiederholungsversuche der Überprüfung Der Back-End-Server wird als außer Betrieb markiert, nachdem die Anzahl der aufeinanderfolgenden fehlgeschlagenen Überprüfungen den fehlerhaften Schwellenwert erreicht. |
@@ -127,13 +130,13 @@ Vergewissern Sie sich anhand der Tabelle weiter oben, dass die benutzerdefiniert
 
 ### <a name="cause"></a>Ursache
 
-Wenn eine Benutzeranforderung empfangen wird, wendet Application Gateway die konfigurierten Regeln auf die Anforderung an und leitet sie an eine Back-End-Poolinstanz weiter. Danach wartet Application Gateway eine bestimmte Zeit auf eine Antwort der Back-End-Instanz. Dieses Intervall ist standardmäßig auf **30 Sekunden**festgelegt. Wenn Application Gateway innerhalb dieses Intervalls keine Antwort von der Back-End-Anwendung erhält, wird dem Benutzer der Fehler 502 angezeigt.
+Wenn eine Benutzeranforderung empfangen wird, wendet Application Gateway die konfigurierten Regeln auf die Anforderung an und leitet sie an eine Back-End-Poolinstanz weiter. Danach wartet Application Gateway eine bestimmte Zeit auf eine Antwort der Back-End-Instanz. Dieses Intervall ist standardmäßig auf **20** Sekunden festgelegt. Wenn Application Gateway innerhalb dieses Intervalls keine Antwort von der Back-End-Anwendung erhält, wird dem Benutzer der Fehler 502 angezeigt.
 
 ### <a name="solution"></a>Lösung
 
-Mit Application Gateway können Benutzer diese Einstellung über das BackendHttpSetting-Element konfigurieren und auf verschiedene Pools anwenden. Bei unterschiedlichen Back-End-Pools können unterschiedliche Back-End-HTTP-Einstellungen und somit unterschiedliche Anforderungstimeouts konfiguriert sein.
+Mit Application Gateway können Sie diese Einstellung über das BackendHttpSetting-Element konfigurieren und auf verschiedene Pools anwenden. Bei unterschiedlichen Back-End-Pools können unterschiedliche Back-End-HTTP-Einstellungen und unterschiedliche Anforderungstimeouts konfiguriert sein.
 
-```powershell
+```azurepowershell
     New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
@@ -141,17 +144,17 @@ Mit Application Gateway können Benutzer diese Einstellung über das BackendHttp
 
 ### <a name="cause"></a>Ursache
 
-Falls im Back-End-Adresspool für Application Gateway keine virtuellen Computer konfiguriert sind oder keine VM-Skalierungsgruppe konfiguriert ist, können Kundenanforderungen nicht weitergeleitet werden, und es erscheint die Fehlermeldung „Ungültiges Gateway“.
+Falls im Back-End-Adresspool für Application Gateway keine virtuellen Computer konfiguriert sind oder keine VM-Skalierungsgruppe konfiguriert ist, können Kundenanforderungen nicht weitergeleitet werden, und die Fehlermeldung „Ungültiges Gateway“ wird gesendet.
 
 ### <a name="solution"></a>Lösung
 
 Vergewissern Sie sich, dass der Back-End-Adresspool nicht leer ist. Hierzu können Sie entweder PowerShell, die Befehlszeilenschnittstelle oder das Portal verwenden.
 
-```powershell
+```azurepowershell
 Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
-Die Ausgabe des vorherigen Cmdlets muss nicht leere Back-End-Adresspools enthalten. Im folgenden Beispiel werden zwei Pools zurückgegeben, die mit FQDN oder IP-Adressen für virtuelle Back-End-Computer konfiguriert sind. Der Bereitstellungszustand des Back-End-Adresspools muss „Succeeded“ lauten.
+Die Ausgabe des vorherigen Cmdlets muss nicht leere Back-End-Adresspools enthalten. Im folgenden Beispiel werden zwei zurückgegebene Pools gezeigt, die mit einem FQDN oder einer IP-Adresse für virtuelle Back-End-Computer konfiguriert sind. Der Bereitstellungszustand des Back-End-Adresspools muss „Succeeded“ lauten.
 
 BackendAddressPoolsText:
 

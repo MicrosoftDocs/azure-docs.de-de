@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521432"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235585"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinierte Registrierung von Sicherheitsinformationen (Vorschauversion)
 
@@ -24,7 +24,7 @@ Vor der kombinierten Registrierung registrierten Benutzer Authentifizierungsmeth
 
 ![Eigenes Profil zeigt registrierte Sicherheitsinformationen für einen Benutzer an](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Lesen Sie vor dem Aktivieren der neuen Funktion diese an Administratoren gerichtete Dokumentation und die benutzerorientierte Dokumentation, um sich mit der Funktionalität und den Auswirkungen dieser Funktion vertraut zu machen. Ziehen Sie für Ihre Schulungen die Benutzerdokumentation heran, um Ihre Benutzer auf die neue Oberfläche vorzubereiten und so einen erfolgreichen Rollout sicherzustellen.
+Lesen Sie vor dem Aktivieren der neuen Funktion diese an Administratoren gerichtete Dokumentation und die benutzerorientierte Dokumentation, um sich mit der Funktionalität und den Auswirkungen dieser Funktion vertraut zu machen. Ziehen Sie für Ihre Schulungen die [Benutzerdokumentation](../user-help/user-help-security-info-overview.md) heran, um Ihre Benutzer auf die neue Oberfläche vorzubereiten und so einen erfolgreichen Rollout sicherzustellen.
 
 Die kombinierte Azure AD-Registrierung von Sicherheitsinformationen ist für nationale Clouds wie Azure US Government, Azure Deutschland oder Azure China 21Vianet derzeit nicht verfügbar.
 
@@ -44,14 +44,14 @@ Die Seiten von „Mein Profil“ sind entsprechend den aktuellen Spracheinstellu
 
 Bei der kombinierten Registrierung werden die folgenden Authentifizierungsmethoden und -aktionen unterstützt:
 
-|   | Register  | Change | Löschen |
+|   | Register | Change | Löschen |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (maximal 5) | Nein  | Ja |
-| Andere Authenticator-App | Ja (maximal 5) | Nein  | Ja |
-| Hardwaretoken | Nein  | Nein  | Ja |
+| Microsoft Authenticator | Ja (maximal 5) | Nein | Ja |
+| Andere Authenticator-App | Ja (maximal 5) | Nein | Ja |
+| Hardwaretoken | Nein | Nein | Ja |
 | Phone | Ja | Ja | Ja |
 | Alternatives Telefon | Ja | Ja | Ja |
-| Bürotelefon | Nein  | Nein  | Nein  |
+| Bürotelefon | Nein | Nein | Nein |
 | E-Mail | Ja | Ja | Ja |
 | Sicherheitsfragen | Ja | Nein | Ja |
 | App-Kennwörter | Ja | Nein | Ja |
@@ -84,20 +84,20 @@ Bei der kombinierten Registrierung werden sowohl MFA- (Multi-Factor Authenticati
 
 Im Folgenden sind mehrere Szenarien aufgeführt, bei denen ein Benutzer aufgefordert werden kann, seine Sicherheitsinformationen zu registrieren oder zu aktualisieren:
 
-* Durch Identity Protection erzwungene MFA-Registrierung: Benutzer werden bei der Anmeldung aufgefordert, die Registrierung durchzuführen. Sie registrieren MFA-Methoden (Multi-Factor Authentication) und SSPR-Methoden (sofern sie für SSPR aktiviert sind).
-* Durch benutzerspezifische mehrstufige Authentifizierung erzwungene MFA-Registrierung: Benutzer werden bei der Anmeldung aufgefordert, die Registrierung durchzuführen. Sie registrieren MFA-Methoden (Multi-Factor Authentication) und SSPR-Methoden (sofern sie für SSPR aktiviert sind).
-* Durch Richtlinien für bedingten Zugriff oder andere Richtlinien erzwungene MFA-Registrierung: Benutzer werden zur Registrierung aufgefordert, wenn sie eine Ressource verwenden, die Multi-Factor Authentication erfordert. Sie registrieren MFA-Methoden (Multi-Factor Authentication) und SSPR-Methoden (sofern sie für SSPR aktiviert sind).
-* Erzwungene SSPR-Registrierung: Benutzer werden bei der Anmeldung aufgefordert, die Registrierung durchzuführen. Sie registrieren nur SSPR-Methoden.
-* Erzwungene SSPR-Aktualisierung: Benutzer werden in einem vom Administrator festgelegten Intervall aufgefordert, ihre Sicherheitsinformationen zu überprüfen. Die Benutzer prüfen ihre Informationen und können diese bestätigen oder bei Bedarf ändern.
+- Durch Identity Protection erzwungene MFA-Registrierung: Benutzer werden bei der Anmeldung aufgefordert, die Registrierung durchzuführen. Sie registrieren MFA-Methoden (Multi-Factor Authentication) und SSPR-Methoden (sofern sie für SSPR aktiviert sind).
+- Durch benutzerspezifische mehrstufige Authentifizierung erzwungene MFA-Registrierung: Benutzer werden bei der Anmeldung aufgefordert, die Registrierung durchzuführen. Sie registrieren MFA-Methoden (Multi-Factor Authentication) und SSPR-Methoden (sofern sie für SSPR aktiviert sind).
+- Durch Richtlinien für bedingten Zugriff oder andere Richtlinien erzwungene MFA-Registrierung: Benutzer werden zur Registrierung aufgefordert, wenn sie eine Ressource verwenden, die Multi-Factor Authentication erfordert. Sie registrieren MFA-Methoden (Multi-Factor Authentication) und SSPR-Methoden (sofern sie für SSPR aktiviert sind).
+- Erzwungene SSPR-Registrierung: Benutzer werden bei der Anmeldung aufgefordert, die Registrierung durchzuführen. Sie registrieren nur SSPR-Methoden.
+- Erzwungene SSPR-Aktualisierung: Benutzer werden in einem vom Administrator festgelegten Intervall aufgefordert, ihre Sicherheitsinformationen zu überprüfen. Die Benutzer prüfen ihre Informationen und können diese bestätigen oder bei Bedarf ändern.
 
 Wenn die Registrierung erzwungen wird, wird den Benutzern die Mindestanzahl der Methoden angezeigt (angefangen bei der sichersten bis zur am wenigsten sicheren Methode), die erforderlich sind, um den MFA- (Multi-Factor Authentication) sowie den SSPR-Richtlinien zu entsprechen.
 
-Beispiel: 
+Beispiel:
 
-* Ein Benutzer ist für SSPR aktiviert. Die SSPR-Richtlinie erfordert zwei Methoden zum Zurücksetzen und aktiviert den Code der mobilen App sowie E-Mail und Telefon.
-   * Der Benutzer muss zwei Methoden registrieren.
-      * Standardmäßig werden dem Benutzer die Authenticator-App und das Telefon angezeigt.
-      * Der Benutzer hat die Möglichkeit, statt der Authenticator-App oder des Telefons die E-Mail-Adresse zu registrieren.
+- Ein Benutzer ist für SSPR aktiviert. Die SSPR-Richtlinie erfordert zwei Methoden zum Zurücksetzen und aktiviert den Code der mobilen App sowie E-Mail und Telefon.
+   - Der Benutzer muss zwei Methoden registrieren.
+      - Standardmäßig werden dem Benutzer die Authenticator-App und das Telefon angezeigt.
+      - Der Benutzer hat die Möglichkeit, statt der Authenticator-App oder des Telefons die E-Mail-Adresse zu registrieren.
 
 In diesem Flussdiagramm werden die Methoden beschrieben, die für einen Benutzer angezeigt werden, wenn seine Anmeldung unterbrochen und er aufgefordert wird, die Registrierung durchzuführen:
 

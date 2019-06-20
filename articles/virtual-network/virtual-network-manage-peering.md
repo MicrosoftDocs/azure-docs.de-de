@@ -3,8 +3,8 @@ title: Erstellen, Ändern oder Löschen eines Peerings virtueller Azure-Netzwerk
 description: In diesem Artikel erfahren Sie, wie Sie ein Peering virtueller Netzwerke erstellen, ändern oder löschen.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65519655"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Erstellen, Ändern oder Löschen eines Peerings virtueller Netzwerke
 
@@ -43,7 +43,7 @@ Das Konto, bei dem Sie sich anmelden oder das Sie zum Herstellen einer Verbindun
 
 Informieren Sie sich vor der Erstellung eines Peerings über die Anforderungen und Einschränkungen sowie die [erforderlichen Berechtigungen](#permissions).
 
-1. Geben Sie oben im Azure-Portal *Virtuelle Netzwerke* in das Suchfeld ein. Wenn **Virtuelle Netzwerke** in den Suchergebnissen angezeigt wird, können Sie den Begriff auswählen. Aktivieren Sie nicht **Virtuelle Netzwerke (klassisch)**, wenn diese Option in der Liste angezeigt wird, da über das klassische Bereitstellungsmodell kein Peering von einem bereitgestellten virtuellen Netzwerk aus erstellt werden kann.
+1. Geben Sie oben im Azure-Portal *Virtuelle Netzwerke* in das Suchfeld ein. Wenn **Virtuelle Netzwerke** in den Suchergebnissen angezeigt wird, können Sie den Begriff auswählen. Aktivieren Sie nicht **Virtuelle Netzwerke (klassisch)** , wenn diese Option in der Liste angezeigt wird, da über das klassische Bereitstellungsmodell kein Peering von einem bereitgestellten virtuellen Netzwerk aus erstellt werden kann.
 2. Wählen Sie das virtuelle Netzwerk in der Liste aus, für das Sie ein Peering erstellen möchten.
 3. Wählen Sie unter **EINSTELLUNGEN** die Option **Peerings** aus.
 4. Wählen Sie **+ Hinzufügen**. 
@@ -77,7 +77,7 @@ Ausführliche Anweisungen zum Implementieren von Peerings zwischen virtuellen Ne
 
 Informieren Sie sich vor der Änderung eines Peerings über die Anforderungen und Einschränkungen sowie die [erforderlichen Berechtigungen](#permissions).
 
-1. Geben Sie oben im Portal *Virtuelle Netzwerke* in das Suchfeld ein. Wenn **Virtuelle Netzwerke** in den Suchergebnissen angezeigt wird, können Sie den Begriff auswählen. Aktivieren Sie nicht **Virtuelle Netzwerke (klassisch)**, wenn diese Option in der Liste angezeigt wird, da über das klassische Bereitstellungsmodell kein Peering von einem bereitgestellten virtuellen Netzwerk aus erstellt werden kann.
+1. Geben Sie oben im Portal *Virtuelle Netzwerke* in das Suchfeld ein. Wenn **Virtuelle Netzwerke** in den Suchergebnissen angezeigt wird, können Sie den Begriff auswählen. Aktivieren Sie nicht **Virtuelle Netzwerke (klassisch)** , wenn diese Option in der Liste angezeigt wird, da über das klassische Bereitstellungsmodell kein Peering von einem bereitgestellten virtuellen Netzwerk aus erstellt werden kann.
 2. Wählen Sie das virtuelle Netzwerk in der Liste aus, für das Sie Peering-Einstellungen ändern möchten.
 3. Wählen Sie unter **EINSTELLUNGEN** die Option **Peerings** aus.
 4. Wählen Sie das Peering aus, dessen Einstellungen angezeigt oder geändert werden sollen.
@@ -97,10 +97,10 @@ Wenn ein Peering gelöscht wird, wird der Datenverkehr von einem virtuellen Netz
 
 Wenn Sie möchten, dass virtuelle Netzwerke gelegentlich, jedoch nicht immer, kommunizieren sollen, können Sie die Einstellung **Zugriff auf virtuelles Netzwerk zulassen** auf **Deaktiviert** festlegen, statt das Peering zu löschen. Informationen hierzu finden Sie in Schritt 6 des Abschnitts „Erstellen eines Peerings“ dieses Artikels. Es kann ggf. einfacher sein, den Netzwerkzugriff zu deaktivieren und zu aktivieren, statt die Peerings zu löschen und neu zu erstellen.
 
-1. Geben Sie oben im Portal *Virtuelle Netzwerke* in das Suchfeld ein. Wenn **Virtuelle Netzwerke** in den Suchergebnissen angezeigt wird, können Sie den Begriff auswählen. Aktivieren Sie nicht **Virtuelle Netzwerke (klassisch)**, wenn diese Option in der Liste angezeigt wird, da über das klassische Bereitstellungsmodell kein Peering von einem bereitgestellten virtuellen Netzwerk aus erstellt werden kann.
+1. Geben Sie oben im Portal *Virtuelle Netzwerke* in das Suchfeld ein. Wenn **Virtuelle Netzwerke** in den Suchergebnissen angezeigt wird, können Sie den Begriff auswählen. Aktivieren Sie nicht **Virtuelle Netzwerke (klassisch)** , wenn diese Option in der Liste angezeigt wird, da über das klassische Bereitstellungsmodell kein Peering von einem bereitgestellten virtuellen Netzwerk aus erstellt werden kann.
 2. Wählen Sie das virtuelle Netzwerk in der Liste aus, für das Sie ein Peering löschen möchten.
 3. Wählen Sie unter **EINSTELLUNGEN** die Option **Peerings** aus.
-4. Wählen Sie auf der rechten Seite des zu löschenden Peerings die Optionen **...**, **Löschen** und **Ja**, um das Peering aus dem ersten virtuellen Netzwerk löschen.
+4. Wählen Sie auf der rechten Seite des zu löschenden Peerings die Optionen **...** , **Löschen** und **Ja**, um das Peering aus dem ersten virtuellen Netzwerk löschen.
 5. Führen Sie die vorherigen Schritte durch, um das Peering aus dem anderen virtuellen Netzwerk im Peering zu löschen.
 
 **Befehle**
@@ -112,7 +112,7 @@ Wenn Sie möchten, dass virtuelle Netzwerke gelegentlich, jedoch nicht immer, ko
 
 - <a name="cross-region"></a>Sie können virtuelle Netzwerke in derselben Region oder in verschiedenen Regionen per Peering verknüpfen. Das Peering von virtuellen Netzwerken in unterschiedlichen Regionen wird auch als *globales VNet-Peering* bezeichnet. 
 - Wenn ein globales Peering erstellt wird, können sich die virtuellen Netzwerke in einer beliebigen Region einer öffentlichen Azure-Cloud, in China-Cloudregionen oder in Government Cloud-Regionen befinden. Peering ist nicht über die Grenzen von Clouds hinweg möglich. Beispielsweise kann für ein VNet in der öffentlichen Azure-Cloud kein Peering mit einem VNet in der Azure China-Cloud durchgeführt werden.
-- Ressourcen in einem virtuellen Netzwerk können nicht mit der Front-End-IP-Adresse eines Load Balancers Standard in einem per globalem Peering verbundenen virtuellen Netzwerk kommunizieren. Unterstützung für Load Balancer Standard besteht nur innerhalb der gleichen Region. Unterstützung für Load Balancer Standard besteht für beide – VNet-Peering und globales VNet-Peering.
+- Ressourcen in einem virtuellen Netzwerk können nicht mit der Front-End-IP-Adresse eines Load Balancers Standard in einem per globalem Peering verbundenen virtuellen Netzwerk kommunizieren. Unterstützung für Load Balancer Standard besteht nur innerhalb der gleichen Region. Unterstützung für Load Balancer Standard besteht für beide – VNet-Peering und globales VNet-Peering. Dienste, die einen Load Balancer im Tarif „Basic“ verwenden, die nicht über das globale VNET-Peering funktionieren, sind [hier](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) dokumentiert.
 - Sie können Remotegateways verwenden oder Gatewaytransit in virtuellen Netzwerken mit globalem Peering und in virtuellen Netzwerken mit lokalem Peering zulassen.
 - Die virtuellen Netzwerke können sich im gleichen Abonnement oder in verschiedenen Abonnements befinden. Wenn Sie eine Peerverbindung zwischen virtuellen Netzwerken in verschiedenen Abonnements herstellen, können beide Abonnements demselben oder einem anderen Azure Active Directory-Mandanten zugeordnet sein. Wenn Sie noch keinen AD-Mandanten besitzen, [erstellen Sie einen](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Das netzwerkübergreifende Peering aus Abonnements, die unterschiedlichen Azure Active Directory-Mandanten zugeordnet sind, wird im Portal nicht unterstützt. Sie können die CLI, PowerShell oder Vorlagen verwenden.
 - Die mittels Peering verknüpften virtuellen Netzwerke dürfen keine sich überschneidenden IP-Adressräume aufweisen.
@@ -146,7 +146,7 @@ Wenn Ihr Konto nicht einer der zuvor aufgeführten Rollen zugewiesen ist, müsse
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Erforderlich, um ein Peering zwischen dem virtuellen Netzwerk A und dem virtuellen Netzwerk B herzustellen. Das virtuelle Netzwerk A muss ein virtuelles Netzwerk sein (Resource Manager).          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Erforderlich, um ein Peering zwischen dem virtuellen Netzwerk B (Resource Manager) und dem virtuellen Netzwerk A herzustellen.                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer                   | Erforderlich, um ein Peering zwischen dem virtuellen Netzwerk B (klassisch) und dem virtuellen Netzwerk A herzustellen.                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | Erforderlich, um ein Peering zwischen dem virtuellen Netzwerk B (klassisch) und dem virtuellen Netzwerk A herzustellen.                                                                |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Lesen eines Peerings in virtuellen Netzwerken   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Löschen eines Peerings in virtuellen Netzwerken |
 

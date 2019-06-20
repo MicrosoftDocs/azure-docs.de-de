@@ -9,11 +9,11 @@ ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60840171"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurieren des Netzwerkleistungsmonitors für ExpressRoute
 
@@ -74,7 +74,7 @@ Erstellen Sie einen Arbeitsbereich im Abonnement mit den VNETs, die mit den Expr
   
      ![Arbeitsbereich](./media/how-to-npm/4.png)<br><br>
 4. Klicken Sie auf **OK**, um die Einstellungsvorlage zu speichern und bereitzustellen. Sobald die Vorlage überprüft wurde, klicken Sie auf **Erstellen**, um den Arbeitsbereich bereitzustellen.
-5. Nachdem der Arbeitsbereich bereitgestellt wurde, navigieren Sie zu der Ressource **NetworkMonitoring(Name)**, die Sie erstellt haben. Überprüfen Sie die Einstellungen, und klicken Sie dann auf **Für die Lösung ist eine weitere Konfiguration erforderlich**.
+5. Nachdem der Arbeitsbereich bereitgestellt wurde, navigieren Sie zu der Ressource **NetworkMonitoring(Name)** , die Sie erstellt haben. Überprüfen Sie die Einstellungen, und klicken Sie dann auf **Für die Lösung ist eine weitere Konfiguration erforderlich**.
 
    ![Zusätzliche Konfiguration](./media/how-to-npm/5.png)
 
@@ -206,7 +206,7 @@ Klicken Sie für das Microsoft-Peering auf die Microsoft-Peeringverbindung(en), 
 
 1. Aktivieren Sie das Kontrollkästchen **Dieses Peering überwachen**. 
 2. (Optional) Sie können den Zielendpunkt für den Microsoft-Dienst ändern. Standardmäßig wählt NPM einen Microsoft-Dienstendpunkt als Ziel. NPM überwacht die Konnektivität zwischen Ihren lokalen Servern und diesem Zielendpunkt über ExpressRoute. 
-    * Um den Zielendpunkt zu ändern, klicken Sie auf den Link **(Bearbeiten)** unter **Ziel:**, und wählen Sie einen anderen Zielendpunkt für den Microsoft-Dienst in der Liste der URLs aus.
+    * Um den Zielendpunkt zu ändern, klicken Sie auf den Link **(Bearbeiten)** unter **Ziel:** , und wählen Sie einen anderen Zielendpunkt für den Microsoft-Dienst in der Liste der URLs aus.
       ![Ziel bearbeiten](./media/how-to-npm/edit_target.png)<br>
 
     * Sie können eine benutzerdefinierte URL oder eine IP-Adresse verwenden. Diese Option ist besonders wichtig bei Verwendung des Microsoft-Peerings zum Herstellen einer Verbindung mit Azure-PaaS-Diensten, wie z.B. Azure Storage, SQL-Datenbanken und Websites, die über öffentliche IP-Adressen angeboten werden. Zu diesem Zweck klicken Sie auf den Link **(Stattdessen eine benutzerdefinierte URL oder IP-Adresse verwenden)** am Ende der URL-Liste, und geben Sie dann den öffentlichen Endpunkt des Azure-PaaS-Diensts ein, der über ExpressRoute-/Microsoft-Peering verbunden ist.

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61036302"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Problembehandlung bei Konnektivitätsproblemen zwischen Azure-VMs
 

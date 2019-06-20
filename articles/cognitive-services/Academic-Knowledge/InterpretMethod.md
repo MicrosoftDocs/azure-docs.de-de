@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57975490"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61338451"
 ---
 # <a name="interpret-method"></a>interpret-Methode
 
@@ -32,11 +32,11 @@ Um ein interaktives Erlebnis zu ermöglichen, können Sie diese Methode nach jed
 NAME     | Wert | Erforderlich?  | BESCHREIBUNG
 ---------|---------|---------|---------
 **query**    | Textzeichenfolge | Ja | Vom Benutzer eingegeben Abfrage.  Wenn der complete-Parameter auf „1“ gesetzt ist, wird die Abfrage als Präfix für die Generierung von Vorschlägen der automatischen Vervollständigung für Abfragen interpretiert.        
-**model**    | Textzeichenfolge | Nein   | Der Name des Modells, das Sie abfragen möchten.  Derzeit wird als Standardwert *latest* verwendet.        
-**complete** | 0 oder 1 | Nein <br>Standard: 0  | 1 bedeutet, dass Vorschläge für die automatische Vervollständigung basierend auf der Grammatik und Diagrammdaten generiert werden.         
-**count**    | Number | Nein <br>Standard: 10 | Maximale Anzahl der zurückzugebenden Interpretationen.         
-**offset**   | Number | Nein <br>Standard: 0  | Index der ersten zurückzugebenden Interpretation. Zum Beispiel gibt *count=2&offset=0* die Interpretationen „0“ und „1“ zurück. *count=2&offset=2* gibt die Interpretationen 2 und 3 zurück.       
-**timeout**  | Number | Nein <br>Standard: 1.000 | Timeout in Millisekunden. Nur die vor Ablauf des Timeouts gefundenen Interpretationen werden zurückgegeben.
+**model**    | Textzeichenfolge | Nein  | Der Name des Modells, das Sie abfragen möchten.  Derzeit wird als Standardwert *latest* verwendet.        
+**complete** | 0 oder 1 | Nein<br>Standard: 0  | 1 bedeutet, dass Vorschläge für die automatische Vervollständigung basierend auf der Grammatik und Diagrammdaten generiert werden.         
+**count**    | Number | Nein<br>Standard: 10 | Maximale Anzahl der zurückzugebenden Interpretationen.         
+**offset**   | Number | Nein<br>Standard: 0  | Index der ersten zurückzugebenden Interpretation. Zum Beispiel gibt *count=2&offset=0* die Interpretationen „0“ und „1“ zurück. *count=2&offset=2* gibt die Interpretationen 2 und 3 zurück.       
+**timeout**  | Number | Nein<br>Standard: 1.000 | Timeout in Millisekunden. Nur die vor Ablauf des Timeouts gefundenen Interpretationen werden zurückgegeben.
 
 <br>
   

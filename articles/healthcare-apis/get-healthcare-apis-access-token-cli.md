@@ -7,18 +7,18 @@ ms.service: healthcare-apis
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mihansen
-ms.openlocfilehash: a847a3f7d8fbcc8c54b8f6ff4050e5c44f8beeef
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: bfcf2b41cd1c117d1b41e0b3b4be4dd3277b2b2a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "58408371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730193"
 ---
 # <a name="get-access-token-for-azure-api-for-fhir-using-azure-cli"></a>Abrufen von Zugriffstoken für die Azure API for FHIR mit Azure CLI
 
 In diesem Artikel erfahren Sie, wie Sie mithilfe der Azure CLI ein Zugriffstoken für die Azure API for FHIR erhalten. Wenn Sie [die Azure API for FHIR bereitstellen](fhir-paas-portal-quickstart.md), konfigurieren Sie eine Reihe von Benutzern oder Dienstprinzipalen mit Zugriff auf den Dienst. Wenn sich Ihre Benutzerobjekt-ID in der Liste der zulässigen Objekt-IDs befindet, können Sie auf den Dienst über ein Token zugreifen, das Sie über die Azure CLI erhalten haben.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-with-azure-cli"></a>Anmelden mit der Azure CLI
 

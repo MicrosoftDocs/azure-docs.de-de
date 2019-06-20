@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
 ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593402"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66122347"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurieren von Hochverfügbarkeitsports für internen Lastenausgleich
 

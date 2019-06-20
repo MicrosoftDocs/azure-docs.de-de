@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510682"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304956"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Informationen zum Erstellen und Verwalten von Lesereplikaten in Azure Database for MySQL mithilfe der Azure CLI
 
 In diesem Artikel erfahren Sie, wie Sie mit der Azure CLI Lesereplikate im Azure Database for MySQL-Dienst erstellen und verwalten, die sich in der gleichen Azure-Region wie der Masterserver befinden.
 
-> [!NOTE]
-> Die Azure-Befehlszeilenschnittstelle unterstützt noch nicht das Erstellen von Replikaten in einer anderen Region als der des Masterservers. Verwenden Sie stattdessen das [Azure-Portal]( howto-read-replicas-portal.md), um ein regionsübergreifendes Replikat zu erstellen.
+> [!IMPORTANT]
+> Sie können ein Lesereplikat in derselben Region wie Ihren Masterserver oder in einer anderen beliebigen Azure-Region erstellen. Die regionsübergreifende Replikation befindet sich derzeit in der öffentlichen Vorschauversion.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -43,6 +43,12 @@ Für den Befehl `az mysql server replica create` sind folgende Parameter erforde
 | resource-group |  myresourcegroup |  Die Ressourcengruppe, in der der Replikatserver erstellt wird.  |
 | name | mydemoreplicaserver | Der Name des neuen Replikatservers, der erstellt wird. |
 | source-server | mydemoserver | Der Name oder die ID des vorhandenen Masterservers, von dem die Replikation erfolgt. |
+
+Verwenden Sie den `--location`-Parameter, um ein regionsübergreifendes Lesereplikat zu erstellen. Im folgenden CLI-Beispiel wird das Replikat in der Region „USA, Westen“ erstellt.
+
+```azurecli-interactive
+az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
 
 > [!NOTE]
 > Lesereplikate werden mit der gleichen Serverkonfiguration wie der Masterserver erstellt. Die Replikatserverkonfiguration kann nach der Erstellung geändert werden. Für die Konfiguration des Replikatservers sollten mindestens die gleichen Werte verwendet werden wie für den Masterserver, damit das Replikat über genügend Kapazität verfügt.

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
 ms.openlocfilehash: 3c0decaa89b4ecc503157a32fcb1e5b4d249ccfb
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60254626"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Einrichten von Application Insights für eine Azure-Web-App mit PowerShell
 
@@ -49,7 +49,7 @@ Wenn sich die Web-App in Azure befindet und Sie Ihre Ressourcen mit einer Azure 
 * `myWebAppName`: die ID der Web-App
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Aktivieren der Diagnoseerweiterung bei der Bereitstellung eines Clouddiensts
-Das Cmdlet `New-AzureDeployment` hat den `ExtensionConfiguration`-Parameter, der ein Array von Diagnosekonfigurationen verwendet. Diese können mit dem Cmdlet `New-AzureServiceDiagnosticsExtensionConfig` erstellt werden. Beispiel: 
+Das Cmdlet `New-AzureDeployment` hat den `ExtensionConfiguration`-Parameter, der ein Array von Diagnosekonfigurationen verwendet. Diese können mit dem Cmdlet `New-AzureServiceDiagnosticsExtensionConfig` erstellt werden. Beispiel:
 
 ```ps
 

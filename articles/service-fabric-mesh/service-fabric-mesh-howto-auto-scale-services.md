@@ -16,11 +16,11 @@ ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338801"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60583603"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Erstellen von Richtlinien für automatische Skalierung für eine Service Fabric Mesh-Anwendung
 Einer der Hauptvorteile bei der Bereitstellung von Anwendungen in Service Fabric Mesh ist die Möglichkeit, Ihre Dienste ganz einfach horizontal hoch- und herunterzuskalieren. Auf diese Weise können Sie unterschiedlich starke Dienstauslastungen auffangen oder die Verfügbarkeit verbessern. Sie können Ihre Dienste manuell herunter- oder hochskalieren oder Richtlinien für die automatische Skalierung einrichten.

@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973208"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400005"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Erstellen und Anpassen von Wiederherstellungsplänen
 
@@ -21,7 +21,7 @@ Dieser Artikel beschreibt, wie Sie einen Wiederherstellungsplan in [Azure Site R
 
 ## <a name="create-a-recovery-plan"></a>Erstellen eines Wiederherstellungsplans
 
-1. Wählen Sie im Recovery Services-Tresor nacheinander **Wiederherstellungspläne (Site Recovery)** > **+Wiederherstellungsplan** aus.
+1. Wählen Sie im Recovery Services-Tresor nacheinander **Wiederherstellungspläne (Site Recovery)**  >  **+Wiederherstellungsplan** aus.
 2. Geben Sie unter **Wiederherstellungsplan erstellen** einen Namen für den Plan an.
 3. Wählen Sie eine Quelle und ein Ziel basierend auf den Computern im Plan aus, und wählen Sie dann **Ressourcen-Manager** für das Bereitstellungsmodell aus. Der Quellort muss Computer aufweisen, die für Failover und Wiederherstellung aktiviert sind. 
 
@@ -70,13 +70,16 @@ Sie können einen Wiederherstellungsplan anpassen, indem Sie ein Skript oder ein
     Hyper-V-Standort zu Azure | Runbook | Nicht verfügbar
     VMM zu sekundärem VMM | Skript | Skript
 
-1. Klicken Sie im Wiederherstellungsplan auf den Schritt, dem die Aktion hinzugefügt werden soll, und geben Sie an, wann die Aktion stattfinden soll: a. Wenn die Aktion stattfinden soll, bevor die Computer in der Gruppe nach einem Failover gestartet werden, wählen Sie **Vorausgehende Aktion hinzufügen** aus.
-    b. Wenn die Aktion stattfinden soll, nachdem die Computer in der Gruppe nach einem Failover gestartet wurden, wählen Sie **Nachfolgende Aktion hinzufügen** aus. Verwenden Sie die Schaltflächen **Nach oben** und **Nach unten**, um die Position der Aktion zu verschieben.
+1. Klicken Sie im Wiederherstellungsplan auf den Schritt, dem die Aktion hinzugefügt werden soll, und geben Sie an, wann die Aktion stattfinden soll:
+    1. Wenn die Aktion stattfinden soll, bevor die Computer in der Gruppe nach einem Failover gestartet werden, wählen Sie **Vorausgehende Aktion hinzufügen** aus.
+    1. Wenn die Aktion stattfinden soll, nachdem die Computer in der Gruppe nach einem Failover gestartet wurden, wählen Sie **Nachfolgende Aktion hinzufügen** aus. Verwenden Sie die Schaltflächen **Nach oben** und **Nach unten**, um die Position der Aktion zu verschieben.
 2. Wählen Sie unter **Aktion einfügen** die Option **Skript** oder **Manuelle Aktion** aus.
-3. Zum Hinzufügen einer manuellen Aktion gehen Sie folgendermaßen vor: a. Geben Sie einen Namen und Anweisungen für die Aktion ein. Diese Anweisungen werden der Person angezeigt, die das Failover ausführt.
-    b. Geben Sie an, ob Sie die manuelle Aktion für alle Failovertypen (Test, Failover, Geplantes Failover (falls zutreffend)) hinzufügen möchten. Klicken Sie dann auf **OK**.
-4. Zum Hinzufügen eines Skripts gehen Sie folgendermaßen vor: a. Wählen Sie beim Hinzufügen eines VMM-Skripts die Option **Failover zu VMM-Skript** aus, und geben Sie unter **Skriptpfad** den relativen Pfad zur Freigabe ein. Wenn sich die Freigabe beispielsweise unter „\\<VMMServerName>\MSSCVMMLibrary\RPScripts“ befindet, geben Sie den Pfad „\RPScripts\RPScript.PS1“ an.
-    b. Wenn Sie ein Azure-Automatisierungsrunbook hinzufügen, geben Sie das **Azure Automation-Konto** an, in dem sich das Runbook befindet, und wählen das gewünschte **Azure-Runbookskript** aus.
+3. Zum Hinzufügen einer manuellen Aktion gehen Sie folgendermaßen vor:
+    1. Geben Sie einen Namen und Anweisungen für die Aktion ein. Diese Anweisungen werden der Person angezeigt, die das Failover ausführt.
+    1. Geben Sie an, ob Sie die manuelle Aktion für alle Failovertypen (Test, Failover, Geplantes Failover (falls zutreffend)) hinzufügen möchten. Klicken Sie dann auf **OK**.
+4. Zum Hinzufügen eines Skripts gehen Sie folgendermaßen vor:
+    1. Wählen Sie beim Hinzufügen eines VMM-Skripts die Option **Failover zu VMM-Skript** aus, und geben Sie unter **Skriptpfad** den relativen Pfad zur Freigabe ein. Wenn sich die Freigabe beispielsweise unter „\\\<VMMServerName>\MSSCVMMLibrary\RPScripts“ befindet, geben Sie den Pfad „\RPScripts\RPScript.PS1“ an.
+    1. Wenn Sie ein Azure-Automatisierungsrunbook hinzufügen, geben Sie das **Azure Automation-Konto** an, in dem sich das Runbook befindet, und wählen das gewünschte **Azure-Runbookskript** aus.
 5. Führen Sie ein Testfailover für den Wiederherstellungsplan aus, um sicherzustellen, dass das Skript wie erwartet funktioniert.
 
 ## <a name="watch-a-video"></a>Ansehen eines Videos

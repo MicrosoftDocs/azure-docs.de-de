@@ -8,18 +8,21 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470615"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304251"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid-Ereignisschema
 
 Dieser Artikel beschreibt die Eigenschaften und das Schema für alle Ereignisse. Ereignisse bestehen aus einer Gruppe von fünf erforderlichen Zeichenfolgeneigenschaften und einem erforderlichen Datenobjekt. Die Eigenschaften gelten für alle Ereignisse von jedem Herausgeber. Das Datenobjekt weist Eigenschaften auf, die für die einzelnen Herausgeber spezifisch sind. Bei Systemthemen sind diese Eigenschaften spezifisch für den Ressourcenanbieter, z.B. Azure Storage oder Azure Event Hubs.
 
-Ereignisquellen senden Ereignisse an Azure Event Grid in einem Array, das mehrere Ereignisobjekte aufweisen kann. Beim Veröffentlichen von Ereignissen in einem Ereignisrasterthema kann das Array eine Gesamtgröße von bis zu 1 MB aufweisen. Jedes Ereignis im Array ist auf 64 KB beschränkt. Wenn ein Ereignis oder das Array das zulässige Größenlimit überschreitet, erhalten Sie die Antwort **413 Nutzlast zu groß**.
+Ereignisquellen senden Ereignisse an Azure Event Grid in einem Array, das mehrere Ereignisobjekte aufweisen kann. Beim Veröffentlichen von Ereignissen in einem Ereignisrasterthema kann das Array eine Gesamtgröße von bis zu 1 MB aufweisen. Jedes Ereignis in dem Array ist auf 64 KB (Allgemeine Verfügbarkeit) oder 1 MB (Vorschauversion) beschränkt. Wenn ein Ereignis oder das Array das zulässige Größenlimit überschreitet, erhalten Sie die Antwort **413 Nutzlast zu groß**.
+
+> [!NOTE]
+> Ein Ereignis mit einer Größe von bis zu 64 KB wird von der Vereinbarung zum Servicelevel (SLA) für die allgemeine Verfügbarkeit (GA) abgedeckt. Die Unterstützung für ein Ereignis von einer Größe bis zu 1 MB ist derzeit in der Vorschauversion verfügbar. Ereignisse, die größer als 64 KB sind, werden in Schritten von 64 KB in Rechnung gestellt. 
 
 Event Grid sendet die Ereignisse an Abonnenten in einem Array, das ein einzelnes Ereignis aufweist. Dieses Verhalten kann sich in der Zukunft ändern.
 
@@ -82,7 +85,7 @@ Alle Ereignisse weisen die gleichen Daten auf oberster Ebene auf:
 
 | Eigenschaft | Typ | BESCHREIBUNG |
 | -------- | ---- | ----------- |
-| Thema | Zeichenfolge | Vollständiger Ressourcenpfad zu der Ereignisquelle. Dieses Feld ist nicht beschreibbar. Dieser Wert wird von Event Grid bereitgestellt. |
+| topic | Zeichenfolge | Vollständiger Ressourcenpfad zu der Ereignisquelle. Dieses Feld ist nicht beschreibbar. Dieser Wert wird von Event Grid bereitgestellt. |
 | subject | Zeichenfolge | Vom Herausgeber definierter Pfad zum Ereignisbetreff |
 | eventType | Zeichenfolge | Einer der registrierten Ereignistypen für die Ereignisquelle. |
 | eventTime | Zeichenfolge | Die Zeit, in der das Ereignis generiert wird, basierend auf der UTC-Zeit des Anbieters. |

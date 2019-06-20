@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860133"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60815101"
 ---
 # <a name="structured-query-expression"></a>Strukturierter Abfrageausdruck
 
@@ -31,14 +31,14 @@ Ein Attributabfrageausdruck identifiziert eine Reihe von Objekten basierend dara
 
 | Type | Vorgang | Beispiele |
 |------|-------------|------------|
-| Zeichenfolge | equals | Title='latent semantic analysis'  (kanonisch + Synonyme) |
-| Zeichenfolge | equals | Author.Name=='susan t dumais'  (nur kanonisch)|
-| Zeichenfolge | starts_with | Title='latent s'... |
+| string | equals | Title='latent semantic analysis'  (kanonisch + Synonyme) |
+| string | equals | Author.Name=='susan t dumais'  (nur kanonisch)|
+| string | starts_with | Title='latent s'... |
 | Int32/Int64/Double | equals | Year=2000 |
 | Int32/Int64/Double | starts_with | Year='20'... (beliebiger Dezimalwert beginnend mit „20“) |
 | Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=[2010,2012) *(enthält nur den linken Begrenzungswert: 2010, 2011)* <br/> Year=[2000,2012] *(enthält beide Begrenzungswerte: 2010, 2011, 2012)* |
-| Datum | equals | BirthDate='1984-05-14' |
-| Datum | is_between | BirthDate&lt;='2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
+| Date | equals | BirthDate='1984-05-14' |
+| Date | is_between | BirthDate&lt;='2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
 | Guid | equals | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 

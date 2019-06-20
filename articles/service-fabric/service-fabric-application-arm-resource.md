@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663127"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258659"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Verwalten von Anwendungen und Diensten als Azure Resource Manager-Ressourcen
 
@@ -258,6 +258,17 @@ Der folgende Codeausschnitt zeigt die verschiedenen Arten von Ressourcen, die mi
    > *apiVersion* muss auf `"2017-07-01-preview"` festgelegt werden. Diese Vorlage kann auch unabhängig vom Cluster bereitgestellt werden, sofern der Cluster bereits bereitgestellt wurde.
 
 5. Bereitstellen 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Entfernen der Anwendungsressource des Service Fabric-Ressourcenanbieters
+Im Anschluss wird die Bereitstellung des App-Pakets im Cluster aufgehoben, wodurch der beanspruchte Speicherplatz freigegeben wird:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+Wenn Sie lediglich „Microsoft.ServiceFabric/clusters/application“ aus Ihrer ARM-Vorlage entfernen, wird die Bereitstellung der Anwendung nicht aufgehoben.
+
+>[!NOTE]
+> Nach Abschluss der Entfernung wird die Paketversion nicht mehr in SFX oder ARM angezeigt. Die Anwendungstypversions-Ressource, mit der die Anwendung ausgeführt wird, kann nicht gelöscht werden. Dies wird von ARM/SFRP verhindert. Wenn Sie versuchen, die Bereitstellung des ausgeführten Pakets aufzuheben, wird dies von der SF-Runtime verhindert.
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Verwalten einer vorhandenen Anwendung über Ressourcen-Manager
 

@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648845"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60918985"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Anzeigen und Herunterladen der Azure-Nutzung und -Gebühren
 
@@ -60,7 +60,7 @@ Weitere Informationen über Ihre Daten zur täglichen Nutzung finden Sie unter [
 
 ## <a name="download-usage-for-ea-customers"></a>Herunterladen von Nutzungsdaten für EA-Kunden
 
-Um Nutzungsdaten als EA-Kunde anzeigen und herunterladen zu können, müssen Sie Unternehmensadministrator, Kontobesitzer oder Abteilungsadministrator sein. Außerdem muss die Richtlinie zum Anzeigen von Gebühren aktiviert sein.
+Sie müssen Unternehmensadministrator, Kontobesitzer oder Abteilungsadministrator sein, um Nutzungsdaten als EA-Kunde anzeigen und herunterladen zu können. Außerdem muss die Richtlinie zum Anzeigen von Gebühren aktiviert sein.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Suchen Sie nach *Kostenverwaltung + Abrechnung*.
@@ -106,7 +106,7 @@ Sie können auch die Nutzungsgebühren für den bisherigen Kalendermonat für de
 
 ## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Kontakt
 
-Wenn Sie Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
+Wenn Sie weitere Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

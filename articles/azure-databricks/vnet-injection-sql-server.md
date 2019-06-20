@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287621"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60770796"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: Abfragen eines Linux-Docker-Containers für SQL Server in einem virtuellen Netzwerk aus einem Azure Databricks-Notebook
 
@@ -64,7 +64,7 @@ In diesem Tutorial lernen Sie Folgendes:
     
     |Einstellung|Empfohlener Wert|BESCHREIBUNG|
     |-------|---------------|-----------|
-    |Quelle|IP-Adressen|„IP-Adressen“ legt fest, dass eingehender Datenverkehr von einer bestimmten Quell-IP-Adresse durch diese Regel zugelassen oder verweigert wird.|
+    |`Source`|IP-Adressen|„IP-Adressen“ legt fest, dass eingehender Datenverkehr von einer bestimmten Quell-IP-Adresse durch diese Regel zugelassen oder verweigert wird.|
     |Quell-IP-Adressen|<ihre öffentliche ip\>|Geben Sie Ihre öffentliche IP-Adresse ein. Sie können Ihre öffentliche IP-Adresse finden, indem Sie [bing.com](https://www.bing.com/) besuchen und nach **Meine IP-Adresse** suchen.|
     |Quellportbereiche|*|Lassen Sie Datenverkehr von einem beliebigen Port zu.|
     |Ziel|IP-Adressen|„IP-Adressen“ legt fest, dass ausgehender Datenverkehr für eine bestimmte Quell-IP-Adresse durch diese Regel zugelassen oder verweigert wird.|
@@ -80,7 +80,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
     |Einstellung|Empfohlener Wert|BESCHREIBUNG|
     |-------|---------------|-----------|
-    |Quelle|IP-Adressen|„IP-Adressen“ legt fest, dass eingehender Datenverkehr von einer bestimmten Quell-IP-Adresse durch diese Regel zugelassen oder verweigert wird.|
+    |`Source`|IP-Adressen|„IP-Adressen“ legt fest, dass eingehender Datenverkehr von einer bestimmten Quell-IP-Adresse durch diese Regel zugelassen oder verweigert wird.|
     |Quell-IP-Adressen|10.179.0.0/16|Geben Sie den Adressbereich für Ihr virtuelles Netzwerk ein.|
     |Quellportbereiche|*|Lassen Sie Datenverkehr von einem beliebigen Port zu.|
     |Ziel|IP-Adressen|„IP-Adressen“ legt fest, dass ausgehender Datenverkehr für eine bestimmte Quell-IP-Adresse durch diese Regel zugelassen oder verweigert wird.|

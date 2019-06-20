@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57239826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574352"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Karte mit Sicherheitswarnungen und Informationen zu Bedrohungen
 In diesem Artikel erfahren Sie, wie Sie sicherheitsbezogene Probleme mithilfe der Karte mit Sicherheitswarnungen und der auf Sicherheitsereignissen basierenden Informationen zu Bedrohungen in Azure Security Center lösen.
+
+> [!NOTE]
+> Die Kartenschaltfläche *Sicherheitsereignisse* wird am 31. Juli 2019 eingestellt. Weitere Informationen und alternative Dienste finden Sie unter [Auslaufen von Security Center-Funktionen (Juli 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+
 
 ## <a name="how-the-security-alerts-map-works"></a>Funktionsweise der Karte mit Sicherheitswarnungen
 Security Center stellt Ihnen eine Karte bereit, mit deren Hilfe Sie Sicherheitsrisiken für die Umgebung identifizieren können. So können sie beispielsweise ermitteln, ob ein bestimmter Computer Teil eines Botnets ist und woher die Bedrohung stammt. Computer können zu Knoten in einem Botnet werden, wenn Angreifer illegal Schadsoftware installieren, die heimlich mit Befehls- und Steuerelementen interagiert, die das Botnet verwalten. 

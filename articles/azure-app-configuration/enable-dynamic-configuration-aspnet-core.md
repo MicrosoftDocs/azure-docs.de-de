@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cbdfe957587977b01bc46b46818856f789f46d8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408831"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393613"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Verwenden der dynamischen Konfiguration in einer ASP.NET Core-App
 
@@ -63,6 +63,9 @@ Installieren Sie für dieses Tutorial das [.NET Core SDK](https://dotnet.microso
     ```
 
     Der zweite Parameter in der `.Watch`-Methode ist das Abrufintervall, in dem die ASP.NET-Clientbibliothek einen App-Konfigurationsspeicher abfragt. Die Clientbibliothek überprüft die spezifische Konfigurationseinstellung, um festzustellen, ob Änderungen vorgenommen wurden.
+    
+    > [!NOTE]
+    > Das Standardabrufintervall für die Erweiterungsmethode `Watch` beträgt 30 Sekunden, wenn kein anderes Intervall angegeben wurde.
 
 2. Fügen Sie die Datei *Settings.cs* hinzu, mit der eine neue `Settings`-Klasse definiert und implementiert wird.
 
@@ -164,7 +167,7 @@ Installieren Sie für dieses Tutorial das [.NET Core SDK](https://dotnet.microso
 
     ![Schnellstartanleitung: Lokales Starten der App](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Melden Sie sich beim [Azure-Portal](https://aka.ms/azconfig/portal) an. Wählen Sie **Alle Ressourcen** aus, und wählen Sie dann die Instanz des App-Konfigurationsspeichers aus, die Sie in der Schnellstartanleitung erstellt haben.
+4. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. Wählen Sie **Alle Ressourcen** aus, und wählen Sie dann die Instanz des App-Konfigurationsspeichers aus, die Sie in der Schnellstartanleitung erstellt haben.
 
 5. Wählen Sie den **Konfigurations-Explorer** aus, und aktualisieren Sie die Werte der folgenden Schlüssel:
 

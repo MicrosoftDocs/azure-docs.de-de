@@ -11,11 +11,11 @@ ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60532015"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Erstellen und Planen des ersten Auftrags mit Azure Scheduler – Azure-Portal
 

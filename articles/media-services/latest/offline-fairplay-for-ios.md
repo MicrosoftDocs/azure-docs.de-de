@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 25bc7798853d350139a7802eaad68d52a1d7d99f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834811"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937515"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay-Streaming im Offlinemodus für iOS 
 
@@ -36,8 +36,8 @@ Die DRM/AES-Verschlüsselung (Digital Rights Management/Advanced Encryption Stan
 Neben dem Schutz von Inhalten für das Onlinestreaming über verschiedene Streamingprotokolle ist auch der Offlinemodus für geschützte Inhalte ein häufig gefordertes Feature. Für die folgenden Szenarien ist die Unterstützung des Offlinemodus erforderlich:
 
 * Wiedergabe, wenn keine Internetverbindung verfügbar ist, z. B. auf Reisen.
-* Einige Inhaltsanbieter verbieten möglicherweise die Bereitstellung von DRM-Lizenzen außerhalb bestimmter Landesgrenzen. Wenn Benutzer Inhalte auf Reisen außerhalb des Landes ansehen möchten, ist ein Offline-Download erforderlich.
-* In einigen Ländern ist die Verfügbarkeit und/oder Bandbreite des Internets noch begrenzt. Benutzer können sich für den vorherigen Download entscheiden, um Inhalte in ausreichender Auflösung für ein zufriedenstellendes Anzeigeerlebnis ansehen zu können. In diesem Fall liegt das Problem typischerweise nicht in der Verfügbarkeit des Netzwerks, sondern in der begrenzten Netzwerkbandbreite. OTT-/OVP-Anbieter (Over-the-Top/Online Video Platform) fordern die Unterstützung eines Offlinemodus.
+* Einige Inhaltsanbieter verbieten möglicherweise die Bereitstellung von DRM-Lizenzen außerhalb bestimmter Landesgrenzen/Regionen. Wenn Benutzer Inhalte auf Reisen außerhalb des Landes oder der Region ansehen möchten, ist ein Offlinedownload erforderlich.
+* In einigen Ländern/Regionen ist die Verfügbarkeit und/oder Bandbreite des Internets noch begrenzt. Benutzer können sich für den vorherigen Download entscheiden, um Inhalte in ausreichender Auflösung für ein zufriedenstellendes Anzeigeerlebnis ansehen zu können. In diesem Fall liegt das Problem typischerweise nicht in der Verfügbarkeit des Netzwerks, sondern in der begrenzten Netzwerkbandbreite. OTT-/OVP-Anbieter (Over-the-Top/Online Video Platform) fordern die Unterstützung eines Offlinemodus.
 
 Dieser Artikel befasst sich mit der Unterstützung von FairPlay Streaming (FPS) im Offlinemodus für Zielgeräte mit iOS 10 oder höher. Dieses Feature wird für andere Apple-Plattformen wie watchOS, tvOS oder Safari unter macOS nicht unterstützt.
 

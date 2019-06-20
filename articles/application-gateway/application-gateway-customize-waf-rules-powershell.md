@@ -7,11 +7,11 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
 ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60831451"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Anpassen von Web Application Firewall-Regeln über PowerShell
 

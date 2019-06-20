@@ -12,16 +12,16 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77dab6ad0480bc1565c219766d17211995dcfc20
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8cb695fafe042c93f1b11d99296b0545e1674d9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053649"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Cisco Spark für die automatische Benutzerbereitstellung
 
@@ -184,7 +184,7 @@ Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden S
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Tutorial: Berichterstellung zur automatischen Benutzerkontobereitstellung](../manage-apps/check-status-user-account-provisioning.md)
+* [Erfahren Sie, wie Sie Protokolle überprüfen und Berichte zu Bereitstellungsaktivitäten abrufen.](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cisco-spark-provisioning-tutorial/tutorial_general_01.png

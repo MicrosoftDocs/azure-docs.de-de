@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889214"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178128"
 ---
 #### <a name="to-cable-for-power"></a>So verkabeln Sie das Gerät für die Stromversorgung
 1. Stellen Sie sicher, dass sich die Netzschalter aller Stromversorgungs- und Kühleinheiten (Power and Cooling Modules, PCMs) in Position OFF befinden.

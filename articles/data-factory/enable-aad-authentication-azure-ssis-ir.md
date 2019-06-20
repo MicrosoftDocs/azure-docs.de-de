@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65593802"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivieren der Azure Active Directory-Authentifizierung für Azure-SSIS Integration Runtime
 
@@ -60,7 +60,7 @@ Sie können eine vorhandene Azure AD-Gruppe verwenden oder mithilfe von Azure AD
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Fügen Sie der Gruppe die verwaltete Identität für Ihre ADF-Instanz hinzu. Sie können die Schritte im Artikel [Verwaltete Identitäten für Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) durchführen, um die DIENSTIDENTITÄTS-ID des Prinzipals abzurufen (z. B. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, aber verwenden Sie für diesen Zweck nicht die DIENSTIDENTITÄTSANWENDUNGS-ID).
+3.  Fügen Sie der Gruppe die verwaltete Identität für Ihre ADF-Instanz hinzu. Sie können die Schritte im Artikel [Verwaltete Identitäten für Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) durchführen, um die verwaltete Identitätsobjekt-ID des Prinzipals abzurufen (z. B. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, aber verwenden Sie für diesen Zweck nicht die verwaltete Identitätsanwendungs-ID).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ Für den nächsten Schritt benötigen Sie [Microsoft SQL Server Management Stud
 
 4.  Klicken Sie mit der rechten Maustaste auf die **master**-Datenbank, und wählen Sie **Neue Abfrage** aus.
 
-5.  Rufen Sie die verwaltete Identität für Ihre ADF ab. Sie können die Schritte im Artikel [Verwaltete Identitäten für Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) durchführen, um die DIENSTIDENTITÄTSANWENDUNGS-ID des Prinzipals abzurufen (verwenden Sie für diesen Zweck aber nicht die DIENSTIDENTITÄTS-ID).
+5.  Rufen Sie die verwaltete Identität für Ihre ADF ab. Sie können die Schritte im Artikel [Verwaltete Identitäten für Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) durchführen, um die verwaltete Identitätsanwendungs-ID des Prinzipals abzurufen (verwenden Sie für diesen Zweck aber nicht die verwaltete Identitätsobjekt-ID).
 
 6.  Führen Sie im Abfragefenster das folgende T-SQL-Skript aus, um die verwaltete Identität für Ihre ADF in den Binärtyp umzuwandeln:
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ Für den nächsten Schritt benötigen Sie [Microsoft SQL Server Management Stud
 7.  Löschen Sie den Inhalt des Abfragefensters, und führen Sie das folgende T-SQL-Skript aus, um die verwaltete Identität für Ihre ADF als Benutzer hinzuzufügen.
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
@@ -216,7 +216,7 @@ Um Ihre Azure SSIS IR mit PowerShell bereitzustellen, führen Sie folgende Schri
 
 1.  Installieren Sie das [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) -Modul.
 
-2.  Legen Sie im Skript den `CatalogAdminCredential`-Parameter nicht fest. Beispiel: 
+2.  Legen Sie im Skript den `CatalogAdminCredential`-Parameter nicht fest. Beispiel:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

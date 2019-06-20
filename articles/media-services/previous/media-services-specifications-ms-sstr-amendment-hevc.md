@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294704"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963260"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Ergänzung zum Smooth Streaming-Protokoll (MS-SSTR) für HEVC 
 
@@ -44,7 +44,7 @@ Die folgenden Begriffe sind für dieses Dokument spezifisch:
 > 
 >   **CENC**: Gemeinsame Verschlüsselung (Common Encryption), wie in der zweiten Auflage von [ISO/IEC 23001-7] definiert.
 > 
->   **Decodierzeit:** Die Zeit, die für das Decodieren des Samples auf dem Client benötigt wird, wie in [[ISO/IEC https://go.microsoft.com/fwlink/?LinkId=18369514496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) definiert.
+>   **Decodierzeit:** Die Zeit, die für das Decodieren des Samples auf dem Client benötigt wird, wie in [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695) definiert.
 
 **Fragment:** Eine unabhängig herunterladbare Einheit von **Medien**, die mindestens ein **Sample** umfasst.
 
@@ -52,11 +52,11 @@ Die folgenden Begriffe sind für dieses Dokument spezifisch:
 > 
 >   **Manifest:** Metadata zur **Präsentation**, die dem Client das Senden von Anforderungen für **Medien** ermöglicht. **Medien:** Komprimierte Audio-, Video- und Textdaten, die vom Client zur Wiedergabe einer **Präsentation** verwendet werden. **Medienformat:** Ein klar definiertes Format zur Darstellung von Audio- oder Videodaten als komprimiertes **Sample**.
 > 
->   **Präsentation:** Der Satz aller **Streams** und zugehörigen Metadaten, die zur Wiedergabe eines einzelnen Films benötigt werden. **Anforderung:** Eine HTTP-Nachricht, die vom Client an den Server gesendet wird, wie in [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) definiert. **Antwort:** Eine HTTP-Nachricht, die vom Server an den Client gesendet wird, wie in [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) definiert.
+>   **Präsentation:** Der Satz aller **Streams** und zugehörigen Metadaten, die zur Wiedergabe eines einzelnen Films benötigt werden. **Anforderung:** Eine HTTP-Nachricht, die vom Client an den Server gesendet wird, wie in [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) definiert. **Antwort**: Eine HTTP-Nachricht, die vom Server an den Client gesendet wird, wie in [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) definiert.
 > 
 >   **Sample:** Die kleinste grundlegende Einheit (wie ein Frame), in der **Medien** gespeichert und verarbeitet werden.
 > 
->   **KÖNNEN, SOLLTEN, MÜSSEN, SOLLTEN NICHT, DÜRFEN NICHT:** Diese Begriffe (alle in Großbuchstaben) werden so verwendet, wie in [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) beschrieben. Alle Aussagen zu optionalem Verhalten enthalten die Worte KÖNNEN, SOLLTEN oder SOLLTEN NICHT.
+>   **KÖNNEN, SOLLTEN, MÜSSEN, SOLLTEN NICHT, DÜRFEN NICHT:** Diese Begriffe (in Großbuchstaben) werden wie in [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) beschrieben verwendet. Alle Anweisungen für optionales Verhalten verwenden MAY, SHOULD oder SHOULD NOT.
 
 ## <a name="12-references"></a>1.2 Verweise
 
@@ -205,7 +205,7 @@ Das ProtectionElement SOLLTE vorhanden sein, wenn Common Encryption (CENC) auf V
 
 #### <a name="2247-trunbox"></a>2.2.4.7 TrunBox 
 
->   **TrunBox** und verwandte Felder kapseln pro Samplemetadaten für das angeforderte Fragment. Die Syntax von **TrunBox** ist eine strikte Teilmenge der Track Fragment Run Box, Version 1, die in [[ISO/IEC-14496-](https://go.microsoft.com/fwlink/?LinkId=183695)*12]*, Abschnitt 8.8.8, definiert ist.
+>   **TrunBox** und verwandte Felder kapseln pro Samplemetadaten für das angeforderte Fragment. Die Syntax von **TrunBox** ist eine strikte Teilmenge der Track Fragment Run Box, Version 1, die in [[ISO/IEC-14496-](https://go.microsoft.com/fwlink/?LinkId=183695)*12]* , Abschnitt 8.8.8, definiert ist.
 > 
 >   **SampleCompositionTimeOffset (4 Bytes):** Der Samplekompositionszeitoffset für jedes Sample wird so angepasst, dass die Präsentationszeit des ersten dargestellten Samples im Fragment gleich der Decodierzeit des ersten decodierten Samples ist. Negative Kompositionsoffsets für Videosamples SOLLTEN verwendet werden,
 > 
@@ -229,7 +229,7 @@ Das ProtectionElement SOLLTE vorhanden sein, wenn Common Encryption (CENC) auf V
 
 #### <a name="2271-filetype"></a>2.2.7.1 FileType 
 
->   **FileType (Variable)**: Gibt den Untertyp und die beabsichtigte Verwendung der MPEG-4-Datei ([[MPEG4-RA]](https://go.microsoft.com/fwlink/?LinkId=327787)) sowie allgemeinen Attribute an.
+>   **FileType (Variable)** : Gibt den Untertyp und die beabsichtigte Verwendung der MPEG-4-Datei ([[MPEG4-RA]](https://go.microsoft.com/fwlink/?LinkId=327787)) sowie allgemeinen Attribute an.
 > 
 >   **MajorBrand (Variable):** Die Hauptmarke der Mediendatei. MUSS auf „isml“ festgelegt sein.
 > 

@@ -9,11 +9,11 @@ ms.date: 05/16/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471005"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60740882"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>CLI-Beispiele für den Schnellstart mit Azure Monitor
 In diesem Artikel werden Beispielbefehle für die Befehlszeilenschnittstelle (Command Line Interface, CLI) beschrieben, mit denen Sie auf Azure Monitor-Features zugreifen können. Azure Monitor ermöglicht die automatische Skalierung von Clouddiensten, virtuellen Computern und Web-Apps sowie das Senden von Warnbenachrichtigungen oder das Aufrufen von Web-URLs basierend auf Werten konfigurierter Telemetriedaten.

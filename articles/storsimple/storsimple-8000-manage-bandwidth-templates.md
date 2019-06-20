@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 50d0a920bef097013feddc828d2c37133b9057b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108618"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60699470"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Verwalten von StorSimple-Bandbreitenvorlagen mithilfe des StorSimple-Geräte-Manager-Diensts
 
@@ -171,5 +171,5 @@ Folgen Sie diesen Empfehlungen für Ihr StorSimple-Gerät:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen zum [Verwalten Ihres StorSimple-Geräts mithilfe des StorSimple-Geräte-Manager-Diensts](storsimple-8000-manager-service-administration.md).
+Erfahren Sie mehr [Verwalten von StorSimple-Geräten mithilfe des StorSimple-Geräte-Manager-Diensts](storsimple-8000-manager-service-administration.md).
 

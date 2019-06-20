@@ -1,22 +1,22 @@
 ---
-title: 'Schnellstart: Erfassen von Daten aus Logstash in Azure Data Explorer'
-description: In dieser Schnellstartanleitung erfahren Sie, wie Sie Daten aus Logstash in Azure Data Explorer erfassen (laden).
+title: Erfassen von Daten aus Logstash in Azure Data Explorer
+description: In diesem Artikel erfahren Sie, wie Sie Daten aus Logstash in Azure Data Explorer erfassen (laden).
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
-ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046409"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494545"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Schnellstart: Erfassen von Daten aus Logstash in Azure Data Explorer
+# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Erfassen von Daten aus Logstash in Azure Data Explorer
 
-[Logstash](https://www.elastic.co/products/logstash) ist eine serverseitige Open-Source-Datenverarbeitungspipeline, die gleichzeitig Daten aus zahlreichen Quellen erfasst, transformiert und anschließend an Ihren bevorzugten Stash sendet. In dieser Schnellstartanleitung werden die Daten an Azure Data Explorer gesendet. Dabei handelt es sich um einen schnellen und hochgradig skalierbaren Dienst zur Untersuchung von Protokoll- und Telemetriedaten. Sie erstellen eine Tabelle und eine Datenzuordnung in einem Testcluster und weisen Logstash anschließend an, Daten an die Tabelle zu senden und die Ergebnisse zu überprüfen.
+[Logstash](https://www.elastic.co/products/logstash) ist eine serverseitige Open-Source-Datenverarbeitungspipeline, die gleichzeitig Daten aus zahlreichen Quellen erfasst, transformiert und anschließend an Ihren bevorzugten Stash sendet. In diesem Artikel werden Sie diese Daten an Azure Data Explorer senden. Dabei handelt es sich um einen schnellen und hochgradig skalierbaren Dienst zur Untersuchung von Protokoll- und Telemetriedaten. Sie erstellen eine Tabelle und eine Datenzuordnung in einem Testcluster und weisen Logstash anschließend an, Daten an die Tabelle zu senden und die Ergebnisse zu überprüfen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -146,5 +146,4 @@ Führen Sie in Ihrer Datenbank den folgenden Befehl aus, um die Tabelle `logs` z
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Write queries](write-queries.md) (Schreiben von Abfragen)
+* [Write queries](write-queries.md) (Schreiben von Abfragen)

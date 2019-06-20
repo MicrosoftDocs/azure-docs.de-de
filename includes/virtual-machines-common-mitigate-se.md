@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 05/22/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: d2312fac64515756f5ed2e0feb22fdc6b7205376
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620267"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125187"
 ---
 **Letzte Aktualisierung des Dokuments**: 14 Mai. 2019 19:00 Uhr MEZ.
 
@@ -29,7 +29,7 @@ Weitere Informationen dazu, wie die Sicherheit in alle Bereiche von Azure integr
 > Seit der ersten Veröffentlichung dieses Dokuments wurden mehrere Varianten dieser Sicherheitsrisikoklasse öffentlich gemacht. Microsoft investiert weiterhin stark in den Schutz seiner Kunden und in die Bereitstellung von Anleitungen. Diese Seite wird aktualisiert, wenn weitere Fehlerbehebungen veröffentlicht werden. 
 > 
 > Am 14. Mai 2019 machte [Intel](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) eine Reihe von neuen spekulativen Sicherheitsrisiken vom Typ „Seitenkanalangriffe mit spekulativer Ausführung“ öffentlich, die als „Microarchitectural Data Sampling“ (MDS, siehe [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013) im Microsoft-Leitfaden zum Thema Sicherheit) bezeichnet werden und denen mehrere CVEs zugewiesen wurden: 
-> - CVE-2018-11091 – Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
+> - CVE-2019-11091 – Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
 > - CVE-2018-12126 – Microarchitectural Store Buffer Data Sampling (MSBDS) 
 > - CVE-2018-12127 – Microarchitectural Load Port Data Sampling (MLPDS)
 > - CVE-2018-12130 – Microarchitectural Fill Buffer Data Sampling (MFBDS)
@@ -123,7 +123,7 @@ Wenn die Ausgabe `MDS mitigation is enabled: False` anzeigt, [wenden Sie sich an
 <a name="linux"></a>Für die Aktivierung der internen zusätzlichen Sicherheitsfunktionen ist es erforderlich, dass das Zielbetriebssystem auf dem aktuellsten Stand ist. Einige Maßnahmen zur Risikominderung sind standardmäßig aktiviert. Im folgenden Abschnitt werden die Funktionen beschrieben, die standardmäßig deaktiviert sind bzw. für die eine Hardwareunterstützung (Microcode) benötigt wird. Die Aktivierung dieser Funktionen kann zu einer Beeinträchtigung der Leistung führen. Weitere Informationen finden Sie in der Dokumentation des Anbieters Ihres Betriebssystems.
 
 
-**Schritt 1: Deaktivieren von Hyperthreading auf dem virtuellen Computer**: Kunden, die nicht vertrauenswürdigen Code auf einem virtuellen Computer mit Hyperthreading ausführen, müssen das Hyperthreading deaktivieren oder zu einem virtuellen Computer ohne Hyperthreading wechseln.  Führen Sie den Befehl `lspcu` auf dem virtuellen Linux-Computer aus, um festzustellen, einen virtuellen Computer mit Hyperthreading ausführen. 
+**Schritt 1: Deaktivieren von Hyperthreading auf dem virtuellen Computer**: Kunden, die nicht vertrauenswürdigen Code auf einem virtuellen Computer mit Hyperthreading ausführen, müssen das Hyperthreading deaktivieren oder zu einem virtuellen Computer ohne Hyperthreading wechseln.  Führen Sie den Befehl `lscpu` auf dem virtuellen Linux-Computer aus, um festzustellen, einen virtuellen Computer mit Hyperthreading ausführen. 
 
 Bei `Thread(s) per core = 2` ist Hyperthreading aktiviert. 
 
@@ -137,8 +137,7 @@ CPU Architecture:      x86_64
 CPU op-mode(s):        32-bit, 64-bit
 Byte Order:            Little Endian
 CPU(s):                8
-On-line CPU(s) list:   0,2,4,6
-Off-line CPU(s) list:  1,3,5,7
+On-line CPU(s) list:   0-7
 Thread(s) per core:    2
 Core(s) per socket:    4
 Socket(s):             1
@@ -146,7 +145,7 @@ NUMA node(s):          1
 
 ```
 
-Wenn Sie einen virtuellen Computer mit Hyperthreading ausführen, [wenden Sie sich an den Azure-Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical), um das Hyperthreading zu deaktivieren.  Hinweis: Sobald Hyperthreading deaktiviert ist, **fordert der Support zu einem vollständigen Neustart des virtuellen Computers auf**.
+Wenn Sie einen virtuellen Computer mit Hyperthreading ausführen, [wenden Sie sich an den Azure-Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical), um das Hyperthreading zu deaktivieren.  Sobald Hyperthreading deaktiviert ist, **fordert der Support zu einem vollständigen Neustart des virtuellen Computers auf**.
 
 
 **Schritt 2:** Informationen zum Einleiten von Gegenmaßnahmen für die folgenden Sicherheitsrisiken durch Seitenkanalangriffe mit spekulativer Ausführung finden Sie in der Dokumentation Ihres Betriebssystemanbieters:   
@@ -159,18 +158,18 @@ Wenn Sie einen virtuellen Computer mit Hyperthreading ausführen, [wenden Sie si
 
 Dieser Artikel enthält Anleitungen zu den folgenden Seitenkanalangriffen mit spekulativer Ausführung, die zahlreiche moderne Prozessoren betreffen:
 
-[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+[Spectre Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
 - CVE-2017-5715 – Branch Target Injection (BTI)  
 - CVE-2017-5754 – Kernel Page Table Isolation (KPTI)
 - CVE-2018-3639 – Speculative Store Bypass (KPTI) 
  
-[L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+[L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 – Intel Software Guard Extensions (Intel SGX)
 - CVE-2018-3620 – Betriebssysteme (OS) und System Management Mode (SMM)
 - CVE-2018-3646 – betrifft Virtual Machine Manager (VMM)
 
-[Microarchitectural Data Sampling](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-- CVE-2018-11091 – Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
+[Microarchitectural Data Sampling](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
+- CVE-2019-11091 – Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
 - CVE-2018-12126 – Microarchitectural Store Buffer Data Sampling (MSBDS)
 - CVE-2018-12127 – Microarchitectural Load Port Data Sampling (MLPDS)
 - CVE-2018-12130 – Microarchitectural Fill Buffer Data Sampling (MFBDS)

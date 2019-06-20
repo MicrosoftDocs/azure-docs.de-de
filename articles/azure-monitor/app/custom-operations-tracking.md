@@ -13,11 +13,11 @@ ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60900888"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Nachverfolgen von benutzerdefinierten Vorgängen mit dem Application Insights .NET SDK
 
@@ -229,8 +229,8 @@ Da Storage-Warteschlangen die HTTP-API unterstützen, werden alle Vorgänge der 
 
 In diesem Beispiel wird gezeigt, wie Sie den `Enqueue`-Vorgang nachverfolgen. Ihre Möglichkeiten:
 
- - **Neuversuche korrelieren (falls vorhanden)**: Diese verfügen allesamt über ein gemeinsames übergeordnetes Element, den `Enqueue`-Vorgang. Andernfalls werden sie als untergeordnete Elemente der eingehenden Anforderung nachverfolgt. Wenn also mehrere logische Anforderungen für die Warteschlange vorhanden sind, lässt sich unter Umständen nur schwer ermitteln, welcher Aufruf zu den erneuten Versuchen geführt hat.
- - **Speicherprotokolle korrelieren (falls erforderlich)**: Sie sind mit der Telemetrie von Application Insights korreliert.
+ - **Neuversuche korrelieren (falls vorhanden)** : Diese verfügen allesamt über ein gemeinsames übergeordnetes Element, den `Enqueue`-Vorgang. Andernfalls werden sie als untergeordnete Elemente der eingehenden Anforderung nachverfolgt. Wenn also mehrere logische Anforderungen für die Warteschlange vorhanden sind, lässt sich unter Umständen nur schwer ermitteln, welcher Aufruf zu den erneuten Versuchen geführt hat.
+ - **Speicherprotokolle korrelieren (falls erforderlich)** : Sie sind mit der Telemetrie von Application Insights korreliert.
 
 Der `Enqueue`-Vorgang ist einem übergeordneten Vorgang untergeordnet (zum Beispiel einer eingehenden HTTP-Anforderung). Der HTTP-Abhängigkeitsaufruf ist dem `Enqueue`-Vorgang untergeordnet und der eingehenden Anforderung auf zweiter Ebene untergeordnet:
 

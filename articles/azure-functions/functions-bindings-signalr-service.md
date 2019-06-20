@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437797"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511133"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Bindungen des SignalR-Diensts für Azure Functions
 

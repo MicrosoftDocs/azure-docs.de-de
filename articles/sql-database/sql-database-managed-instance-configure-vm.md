@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360489"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60701888"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Schnellstart: Konfigurieren einer Azure-VM für das Herstellen einer Verbindung mit einer verwalteten Azure SQL-Datenbank-Instanz
 
@@ -45,9 +45,9 @@ In den folgenden Schritten wird im VNET der verwalteten Instanz ein neues Subnet
 
 3. Füllen Sie das Formular mit den Angaben aus der folgenden Tabelle aus:
 
-   | Einstellung| Empfohlener Wert | BESCHREIBUNG |
+   | Einstellung| Empfohlener Wert | Beschreibung |
    | ---------------- | ----------------- | ----------- |
-   | **NAME** | Ein gültiger Name|Gültige Namen finden Sie unter [Benennungskonventionen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Name** | Ein gültiger Name|Gültige Namen finden Sie unter [Benennungskonventionen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Adressbereich (CIDR-Block)** | Ein gültiger Bereich | Der Standardwert reicht für diesen Schnellstart aus.|
    | **Netzwerksicherheitsgruppe** | Keine | Der Standardwert reicht für diesen Schnellstart aus.|
    | **Routingtabelle** | Keine | Der Standardwert reicht für diesen Schnellstart aus.|
@@ -78,16 +78,16 @@ Die einfachste Möglichkeit zum Erstellen eines virtuellen Clientcomputers mit a
    | ---------------- | ----------------- | ----------- |
    | **Abonnement** | Ein gültiges Abonnement | Hierbei muss es sich um ein Abonnement mit der Berechtigung zum Erstellen neuer Ressourcen handeln. |
    | **Ressourcengruppe** |Die Ressourcengruppe, die Sie im Schnellstart [Erstellen einer verwalteten Instanz](sql-database-managed-instance-get-started.md) angegeben haben.|In dieser Ressourcengruppe muss das VNET enthalten sein.|
-   | **Standort** | Der Standort für die Ressourcengruppe | Dieser Wert wird basierend auf der ausgewählten Ressourcengruppe ausgefüllt. |
+   | **Location** | Der Standort für die Ressourcengruppe | Dieser Wert wird basierend auf der ausgewählten Ressourcengruppe ausgefüllt. |
    | **Name des virtuellen Computers**  | Ein gültiger Name | Gültige Namen finden Sie unter [Benennungskonventionen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Administratorbenutzername**|Ein beliebiger gültiger Benutzername|Gültige Namen finden Sie unter [Benennungskonventionen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Verwenden Sie nicht „serveradmin“. Hierbei handelt es sich um eine reservierte Rolle auf Serverebene.<br>Dieser Benutzername wird beim [Herstellen einer Verbindung mit dem virtuellen Computer](#connect-to-virtual-machine) verwendet.|
+   |**Benutzername des Administrators**|Ein beliebiger gültiger Benutzername|Gültige Namen finden Sie unter [Benennungskonventionen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Verwenden Sie nicht „serveradmin“. Hierbei handelt es sich um eine reservierte Rolle auf Serverebene.<br>Dieser Benutzername wird beim [Herstellen einer Verbindung mit dem virtuellen Computer](#connect-to-virtual-machine) verwendet.|
    |**Kennwort**|Ein gültiges Kennwort|Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) erfüllen.<br>Dieses Kennwort wird beim [Herstellen einer Verbindung mit dem virtuellen Computer](#connect-to-virtual-machine) verwendet.|
-   | **VM-Größe** | Eine beliebige gültige Größe | Für diese Schnellstartanleitung ist der Standardwert der Vorlage (**Standard_B2s**) ausreichend. |
-   | **Standort**|[resourceGroup().location].| Ändern Sie diesen Wert nicht. |
+   | **Größe des virtuellen Computers** | Eine beliebige gültige Größe | Für diese Schnellstartanleitung ist der Standardwert der Vorlage (**Standard_B2s**) ausreichend. |
+   | **Location**|[resourceGroup().location].| Ändern Sie diesen Wert nicht. |
    | **Name des virtuellen Netzwerks**|Das virtuelle Netzwerk, in dem Sie die verwaltete Instanz erstellt haben.|
    | **Subnetzname**|Der Name des Subnetzes, das Sie im vorherigen Verfahren erstellt haben| Wählen Sie nicht das Subnetz aus, in dem Sie die verwaltete Instanz erstellt haben.|
-   | **artifacts Location („_artifacts“-Speicherort)** | [deployment().properties.templateLink.uri] | Ändern Sie diesen Wert nicht. |
-   | **artifacts Location Sas Token (SAS-Token für „_artifacts“-Speicherort)** | Lassen Sie dieses Feld leer. | Ändern Sie diesen Wert nicht. |
+   | **Artefaktspeicherort** | [deployment().properties.templateLink.uri] | Ändern Sie diesen Wert nicht. |
+   | **SAS-Token des Artefaktspeicherorts** | Lassen Sie dieses Feld leer. | Ändern Sie diesen Wert nicht. |
 
    ![Erstellen des virtuellen Clientcomputers](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 

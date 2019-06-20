@@ -13,11 +13,11 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60720245"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Angeben der Portnummer eines Diensts mithilfe von Parametern in Service Fabric
 

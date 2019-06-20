@@ -10,23 +10,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: ece6a6efa2f4424fb1c9d7f5a7e12a4e707faf45
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649304"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952682"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Erstellen, Ändern oder Löschen des Präfix einer öffentlichen IP-Adresse
 
 Sie erhalten Informationen über Präfixe öffentlicher IP-Adressen und darüber, wie Sie diese erstellen, ändern und löschen können. Das Präfix einer öffentlichen IP-Adresse ist ein zusammenhängender Adressbereich, der auf der Anzahl der von Ihnen angegeben IP-Adressen basiert. Die Adressen sind Ihrem Abonnement zugewiesen. Wenn Sie eine öffentliche IP-Adressressource erstellen, können Sie eine statische öffentliche IP-Adresse aus dem Präfix zuweisen und virtuellen Computern, Lastenausgleichsmodulen oder anderen Ressourcen zuordnen, um Internetkonnektivität zu ermöglichen. Wenn Sie mit Präfixen öffentlicher IP-Adressen nicht vertraut sind, finden Sie weitere Informationen unter [Übersicht über Präfixe öffentlicher IP-Adressen](public-ip-address-prefix.md).
 
 ## <a name="before-you-begin"></a>Voraussetzungen
-
-> [!IMPORTANT]
-> Präfixe öffentlicher IP-Adressen befinden sich in einigen Regionen in der öffentlichen Vorschau. [Hier erfahren Sie mehr über die Nutzungsbedingungen der Vorschau](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Das Präfix ist aktuell in folgenden Regionen verfügbar: „USA, Westen-Mitte“, „USA, Westen“, „USA, Westen 2“, „USA, Mitte“, „Europa, Norden“, „Europa, Westen“ und „Asien, Südosten“. Eine aktualisierte Liste der Regionen finden Sie unter [Azure-Updates](https://azure.microsoft.com/updates/?product=virtual-network).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -53,7 +50,7 @@ Für Präfixe öffentlicher IP-Adressen fällt eine Gebühr an. Weitere Informat
    |Abonnement|Ja|Muss im selben [Abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) wie die Ressource vorhanden sein, der Sie die öffentliche IP-Adresse zuordnen möchten|
    |Ressourcengruppe|Ja|Kann in derselben oder in einer anderen [Ressourcengruppe](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) wie die Ressource vorhanden sein, der Sie die öffentliche IP-Adresse zuordnen möchten|
    |NAME|Ja|Der Name muss innerhalb der ausgewählten Ressourcengruppe eindeutig sein.|
-   |Region|Ja|Muss in der gleichen [Region](https://azure.microsoft.com/regions) wie die öffentlichen IP-Adressen vorhanden sein, die Sie aus dem Bereich zuweisen. Das Präfix ist zurzeit in folgenden Regionen in der Vorschau verfügbar: „USA, Westen-Mitte“, „USA, Westen“, „USA, Westen 2“, „USA, Mitte“, „Europa, Norden“, „Europa, Westen“ und „Asien, Südosten“.|
+   |Region|Ja|Muss in der gleichen [Region](https://azure.microsoft.com/regions) wie die öffentlichen IP-Adressen vorhanden sein, die Sie aus dem Bereich zuweisen.|
    |Präfixgröße|Ja| Die benötigte Größe des Präfix. /28- oder 16-IP-Adressen sind der Standard.
 
 **Befehle**
@@ -68,14 +65,21 @@ Sobald Sie ein Präfix erstellt haben, müssen Sie statische IP-Adressen aus dem
 
 1. Geben Sie im oberen Bereich des Azure-Portals im Feld mit dem Text *Ressourcen suchen* die Zeichenfolge *Präfix öffentlicher IP-Adressen* ein. Wenn **Präfix öffentlicher IP-Adressen** in den Suchergebnissen angezeigt wird, klicken Sie darauf.
 2. Wählen Sie das Präfix aus, aus dem Sie öffentliche IPs erstellen möchten.
-3. Wenn das Präfix in den Suchergebnissen angezeigt wird, wählen Sie es aus, und klicken Sie im Abschnitt „Übersicht“ auf **+ IP-Adresse hinzufügen**. Wenn es nicht angezeigt wird, stellen Sie sicher, dass Sie den richtigen Link für die Vorschau verwenden: https://aka.ms/publicipprefixportal
+3. Wenn das Präfix in den Suchergebnissen angezeigt wird, wählen Sie es aus, und klicken Sie im Abschnitt „Übersicht“ auf **+ IP-Adresse hinzufügen**.
 4. Geben Sie unter **Öffentliche IP-Adresse erstellen** Werte für folgende Einstellungen ein, oder wählen Sie Werte aus. Da sich ein Präfix für Standard-SKUs, IPv4 und statische Adressen eignet, müssen Sie nur die folgenden Informationen angeben:
 
    |Einstellung|Erforderlich?|Details|
    |---|---|---|
    |NAME|Ja|Der Name der öffentlichen IP-Adresse muss innerhalb der ausgewählten Ressourcengruppe eindeutig sein.|
-   |Leerlaufzeitüberschreitung (Minuten)|Nein |Gibt an, wie viele Minuten eine TCP- oder HTTP-Verbindung geöffnet bleiben soll, ohne dass Clients Keep-Alive-Meldungen senden müssen. |
-   |DNS-Namensbezeichnung|Nein |Muss in der Azure-Region, in der Sie den Namen erstellen, eindeutig sein (über alle Abonnements und Kunden hinweg). Azure registriert den Namen und die IP-Adresse automatisch im DNS, sodass Sie über den Namen eine Verbindung mit der Ressource herstellen können. Azure fügt ein Standardsubnetz wie etwa *location.cloudapp.azure.com* (wobei „location“ der Standort ist, den Sie auswählen) an den von Ihnen bereitgestellten Namen an, um den vollqualifizierten DNS-Namen zu erstellen. Weitere Informationen finden Sie unter [Verwenden von Azure DNS mit einer öffentlichen Azure-IP-Adresse](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |Leerlaufzeitüberschreitung (Minuten)|Nein|Gibt an, wie viele Minuten eine TCP- oder HTTP-Verbindung geöffnet bleiben soll, ohne dass Clients Keep-Alive-Meldungen senden müssen. |
+   |DNS-Namensbezeichnung|Nein|Muss in der Azure-Region, in der Sie den Namen erstellen, eindeutig sein (über alle Abonnements und Kunden hinweg). Azure registriert den Namen und die IP-Adresse automatisch im DNS, sodass Sie über den Namen eine Verbindung mit der Ressource herstellen können. Azure fügt ein Standardsubnetz wie etwa *location.cloudapp.azure.com* (wobei „location“ der Standort ist, den Sie auswählen) an den von Ihnen bereitgestellten Namen an, um den vollqualifizierten DNS-Namen zu erstellen. Weitere Informationen finden Sie unter [Verwenden von Azure DNS mit einer öffentlichen Azure-IP-Adresse](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+
+Alternativ können Sie die folgenden CLI- und PS-Befehle mit den Parametern --public-ip-prefix (CLI) und -PublicIpPrefix (PS) verwenden, um eine öffentliche IP-Adressressource zu erstellen. 
+
+|Tool|Get-Help|
+|---|---|
+|Befehlszeilenschnittstelle (CLI)|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
 
 ## <a name="view-or-delete-a-prefix"></a>Anzeigen oder Löschen eines Präfix
 

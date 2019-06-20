@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466506"
 ---
 # <a name="set-up-a-device-template"></a>Einrichten einer Gerätevorlage
@@ -162,7 +162,7 @@ Sie können z.B. das Datum der letzten Wartung für das Gerät als neue Eigensch
 
 | Anzeigename  | Feldname | Anfangswert   |
 | --------------| -----------|-----------------|
-| Datum der letzten Wartung      | lastServiced        | 29.01.2019     |
+| Datum der letzten Wartung      | lastServiced        | 29\.01.2019     |
 
 ![Formular zum Konfigurieren des Datums der letzten Wartung auf der Registerkarte „Eigenschaften“](./media/howto-set-up-template/propertiesform.png)
 

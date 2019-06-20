@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228395"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978794"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Verwaltete Identitäten für Azure-Ressourcen mit Service Bus 
 
@@ -29,7 +29,23 @@ Die Azure-Plattform verwaltet diese Laufzeitidentität mit verwalteten Identitä
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-Rollen und -Berechtigungen
 
-Sie können eine verwaltete Identität nur den Rollen „Besitzer“ oder „Mitwirkender“ eines Service Bus-Namespace hinzufügen. Damit erhält die Identität vollständige Kontrolle über alle Entitäten im Namespace. Verwaltungsvorgänge, bei denen die Namespacetopologie geändert wird, werden anfänglich jedoch nur über Azure Resource Manager unterstützt. Die Unterstützung erfolgt nicht über die native Service Bus-REST-Verwaltungsschnittstelle. Diese Unterstützung bedeutet auch, dass Sie das .NET Framework-Client-[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)- oder das .NET Standard-Client-[ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient)-Objekt innerhalb einer verwalteten Identität nicht verwenden können.
+Sie können der Rolle „Service Bus-Datenbesitzer“ eines Service Bus-Namespace eine verwaltete Identität hinzufügen. Damit erhält die Identität vollständige Kontrolle (für Verwaltungs- und Datenvorgänge) über alle Entitäten im Namespace.
+
+>[!IMPORTANT]
+> Früher haben wir das Hinzufügen einer verwalteten Identität zur Rolle **Besitzer** oder **Mitwirkender** unterstützt.
+>
+> Die Berechtigungen für den Datenzugriff für die Rolle **Besitzer** und **Mitwirkender** werden jedoch nicht mehr berücksichtigt. Wenn Sie die Rolle **Besitzer** oder **Mitwirkender** verwendet haben, müssen diese so angepasst werden, dass sie nun die Rolle **Service Bus-Datenbesitzer** verwenden.
+
+Um die neue integrierte Rolle zu verwenden, führen Sie die folgenden Schritte aus:
+
+1. wechseln Sie zum [Azure-Portal](https://portal.azure.com)
+2. Navigieren Sie zu dem Service Bus-Namespace, in dem Sie aktuell die Rolle „Besitzer“ oder „Mitwirkender“ eingerichtet haben.
+3. Klicken Sie im linken Bereich auf „Zugriffssteuerung (IAM)“.
+4. Fahren Sie fort damit, dass Sie wie unten gezeigt eine neue Rollenzuweisung hinzufügen.
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Klicken Sie auf „Speichern“, um die Rollenzuweisung zu speichern.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Verwenden von Service Bus mit verwalteten Identitäten für Azure-Ressourcen
 
@@ -51,7 +67,7 @@ Wenn Sie das Feature aktiviert haben, wird in Ihrem Azure Active Directory eine 
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Erstellen eines neuen Service Bus-Namespace
 
-Als Nächstes [erstellen Sie einen Service Bus Messaging-Namespace](service-bus-create-namespace-portal.md) in einer der Azure-Regionen, die Vorschauunterstützung für die rollenbasierte Zugriffssteuerung bieten: **USA, Osten**, **USA, Osten 2** oder **Europa, Westen**. 
+Als Nächstes [erstellen Sie einen Service Bus Messaging-Namespace](service-bus-create-namespace-portal.md). 
 
 Navigieren Sie im Portal zur Seite **Zugriffssteuerung (IAM)** des Namespace, und klicken Sie auf **Rollenzuweisung hinzufügen**, um die verwaltete Identität der Rolle **Besitzer** hinzuzufügen. Suchen Sie hierzu im Bereich **Berechtigungen hinzufügen** im Feld **Auswählen** nach dem Namen der Webanwendung, und klicken Sie auf den entsprechenden Eintrag. Klicken Sie anschließend auf **Speichern**.
 

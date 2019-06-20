@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
-ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b65b47389611bcc0e5acb3c7ebff672f72a87581
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23127098"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60761583"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migrieren von VPN Gateways aus dem klassischen Modell zu Resource Manager
 VPN Gateways können jetzt aus dem klassischen Modell zum Resource Manager-Bereitstellungsmodell migriert werden. Informieren Sie sich weiter über [Features und Vorteile von Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). In diesem Artikel wird erklärt, wie man von klassischen Bereitstellungen zu neueren Resource Manager-basierten Modellen migriert. 

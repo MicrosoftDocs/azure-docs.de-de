@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
 ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61467260"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codieren oder Decodieren von Flatfiles mit Azure Logic Apps und Enterprise Integration Pack
 

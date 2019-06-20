@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: 9b6db1b7171652ea5ace4db370b72dc22b6bdc90
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784839"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60626229"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub – Preisinformationen
 

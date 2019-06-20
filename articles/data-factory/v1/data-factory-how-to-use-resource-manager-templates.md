@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111321"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60583365"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Verwenden von Vorlagen zum Erstellen von Azure Data Factory-Entitäten
 > [!NOTE]
@@ -59,7 +59,7 @@ Der nachfolgende Abschnitt enthält detaillierte Informationen zum Definieren de
 Das Grundgerüst einer Vorlage zum Definieren einer Data Factory sieht folgendermaßen aus:
 
 ```JSON
-"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 "contentVersion": "1.0.0.0",
 "parameters": { ...
 },

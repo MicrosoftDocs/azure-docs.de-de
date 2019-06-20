@@ -7,10 +7,10 @@ ms.author: mbaldwin
 manager: barbkess
 ms.date: 07/03/2017
 ms.openlocfilehash: d75ce953f73912428ee88fe2e19a138799f979fa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704711"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Sicherheitsumgebungen und geografische Grenzen von Azure Key Vault

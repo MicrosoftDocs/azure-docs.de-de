@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46247d42837f8ac181d33216d2b93d28e2533c09
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121679"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482425"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hinzufügen von „Mit Microsoft anmelden“ zu einer ASP.NET-Web-App
 
 Diese Anleitung veranschaulicht das Implementieren von „Mit Microsoft anmelden“ mithilfe einer ASP.NET MVC-Projektmappe mit einer herkömmlichen browserbasierten Anwendung mittels OpenID Connect.
 
-Am Ende dieser Anleitung kann Ihre Anwendung Anmeldungen sowohl von persönlichen Konten (z.B. outlook.com, live.com u.a.) als auch von Geschäfts-, Schul- und Unikonten von Unternehmen oder Organisationen akzeptieren, die in Azure Active Directory integriert wurden.
+Am Ende dieses Leitfadens kann Ihre Anwendung Anmeldungen von persönlichen Konten (etwa outlook.com, live.com usw.) akzeptieren. Zu diesen Konten zählen auch Geschäfts,- Schul- und Unikonten von Unternehmen oder Organisationen, die in Azure Active Directory integriert wurden.
 
-> Für diesen Leitfaden wird Visual Studio 2017 benötigt.  Sie haben beides nicht?  [Laden Sie Visual Studio 2017 kostenlos herunter](https://www.visualstudio.com/downloads/)
+> Für diesen Leitfaden wird Visual Studio 2019 benötigt.  Sie haben beides nicht?  [Visual Studio 2019 kostenlos herunterladen](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funktionsweise der über diesen Leitfaden generierten Beispiel-App
 
-![Zeigt, wie die in diesen Tutorials generierte Beispiel-App funktioniert](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
+![Zeigt, wie die in diesem Tutorial generierte Beispiel-App funktioniert](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-Die mithilfe dieser Anleitung erstellte Beispielanwendung basiert auf dem Szenario, in dem ein Benutzer den Browser für den Zugriff auf eine ASP.NET-Website verwendet und aufgefordert wird, sich über die Schaltfläche „Anmelden“ anzumelden. In diesem Szenario wird ein Großteil der Arbeit zum Rendern der Webseite auf dem Server erledigt.
+Die erstellte Beispielanwendung basiert auf dem Szenario, in dem Sie den Browser für den Zugriff auf eine ASP.NET-Website verwenden und aufgefordert werden, sich über die Schaltfläche „Anmelden“ zu authentifizieren. In diesem Szenario wird ein Großteil der Arbeit zum Rendern der Webseite auf dem Server erledigt.
 
 ## <a name="libraries"></a>Bibliotheken
 

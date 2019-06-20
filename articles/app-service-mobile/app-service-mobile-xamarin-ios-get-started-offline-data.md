@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 287977d55656a4b2bc42d90730d16f522fae9b9e
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 6a43ed0a50082cc37587752631c707bf9b5059ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62097443"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>Aktivieren der Offlinesynchronisierung für Ihre mobile Xamarin.iOS-App
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -29,7 +29,7 @@ In diesem Lernprogramm wird die Funktion zur Offlinesynchronisierung von Azure M
 
 In diesem Tutorial aktualisieren Sie das Xamarin.iOS-App-Projekt aus [Erstellen einer Xamarin iOS-App] zur Unterstützung der Offlinefunktionen von Azure Mobile Apps. Wenn Sie das heruntergeladene Schnellstart-Serverprojekt nicht verwenden, müssen Sie Ihrem Projekt die Datenzugriffs-Erweiterungspakete hinzufügen. Weitere Informationen zu Servererweiterungspaketen finden Sie unter [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)(in englischer Sprache).
 
-Weitere Informationen zur Offlinesynchronisierungsfunktion finden Sie im Thema [Inkrementelle Synchronisierung].
+Weitere Informationen zur Offlinesynchronisierungsfunktion finden Sie im Thema [Offlinedatensynchronisierung in Azure Mobile Apps].
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Aktualisieren der Client-App für die Unterstützung von Offlinefunktionen
 Offlinefunktionen der mobilen Azure-App ermöglichen Ihnen die Interaktion mit einer lokalen Datenbank, wenn Sie sich in einem Offlineszenario befinden. Zur Verwendung dieser Funktionen in Ihrer App initialisieren Sie einen [SyncContext] in einem lokalen Speicher. Erstellen für die Tabelle einen Verweis über die [IMobileServiceSyncTable]-Schnittstelle. Als lokaler Speicher auf dem Gerät wird SQLite verwendet.
@@ -62,10 +62,10 @@ Aktivieren Sie das Netzwerk erneut.  Beim ersten Ausführen der Anwendung wird d
 4. Klicken Sie in der App auf das Kontrollkästchen neben einigen Elementen, um sie im lokalen Speicher abzuschließen.
 
    `CompleteItemAsync` ruft `SyncAsync` auf, um jedes abgeschlossene Element mit dem Mobile App-Back-End zu synchronisieren. `SyncAsync` ruft sowohl Push- als auch Pullvorgänge auf.
-   **Bei jeder Ausführung eines Pullvorgangs gegen eine Tabelle, die der Client geändert hat, wird zunächst immer automatisch ein Pushvorgang im Clientsynchronisierungskontext ausgeführt**. Durch diesen impliziten Push wird sichergestellt, dass alle Tabellen im lokalen Speicher und die Beziehungen konsistent bleiben. Weitere Informationen zu diesem Verhalten finden Sie unter [Inkrementelle Synchronisierung].
+   **Bei jeder Ausführung eines Pullvorgangs gegen eine Tabelle, die der Client geändert hat, wird zunächst immer automatisch ein Pushvorgang im Clientsynchronisierungskontext ausgeführt**. Durch diesen impliziten Push wird sichergestellt, dass alle Tabellen im lokalen Speicher und die Beziehungen konsistent bleiben. Weitere Informationen zu diesem Verhalten finden Sie unter [Offlinedatensynchronisierung in Azure Mobile Apps].
 
 ## <a name="review-the-client-sync-code"></a>Überprüfen des Clientcodes für die Synchronisierung
-Das Xamarin-Clientprojekt, das Sie heruntergeladen haben, nachdem Sie das Lernprogramm [Erstellen einer Xamarin iOS-App] abgeschlossen haben, enthält bereits Code zur Unterstützung der Offlinesynchronisierung mithilfe einer lokalen SQLite-Datenbank. Dies ist eine kurze Übersicht darüber, was bereits im Code des Lernprogramms enthalten ist. Eine grundlegende Übersicht über die Funktion finden Sie unter [Inkrementelle Synchronisierung].
+Das Xamarin-Clientprojekt, das Sie heruntergeladen haben, nachdem Sie das Lernprogramm [Erstellen einer Xamarin iOS-App] abgeschlossen haben, enthält bereits Code zur Unterstützung der Offlinesynchronisierung mithilfe einer lokalen SQLite-Datenbank. Dies ist eine kurze Übersicht darüber, was bereits im Code des Lernprogramms enthalten ist. Eine grundlegende Übersicht über die Funktion finden Sie unter [Offlinedatensynchronisierung in Azure Mobile Apps].
 
 * Bevor Tabellenvorgänge durchgeführt werden können, muss der lokale Speicher initialisiert werden. Die lokale Datenbank wird initialisiert, wenn `QSTodoService.InitializeStoreAsync()` von `QSTodoListViewController.ViewDidLoad()` ausgeführt wird. Mit dieser Methode wird eine neue lokale SQLite-Datenbank mit der `MobileServiceSQLiteStore`-Klasse erstellt, die vom Azure Mobile Apps-Client-SDK bereitgestellt wird.
 
@@ -87,7 +87,7 @@ Das Xamarin-Clientprojekt, das Sie heruntergeladen haben, nachdem Sie das Lernpr
 
     Der bereitgestellte Code ruft `QSTodoService.SyncAsync()` zum Synchronisieren ab, wenn die TodoItem-Liste aktualisiert wird oder ein TodoItem hinzugefügt wird oder abgeschlossen ist. Die App wird nach jeder lokalen Änderung synchronisiert. Bei einem Pullvorgang für eine Tabelle mit ausstehenden lokalen Updates, die durch den Kontext verfolgt werden, löst dieser Pullvorgang zuerst automatisch einen Kontextpush aus.
 
-    Im bereitgestellten Code werden alle Datensätze in der `TodoItem`-Remotetabelle abgefragt, es ist aber auch möglich, Datensätze durch Übergeben einer Abfrage-ID und Abfrage an `PushAsync` zu filtern. Weitere Informationen finden Sie unter *Offlinedatensynchronisierung in Azure Mobile Apps* im Abschnitt [Inkrementelle Synchronisierung].
+    Im bereitgestellten Code werden alle Datensätze in der `TodoItem`-Remotetabelle abgefragt, es ist aber auch möglich, Datensätze durch Übergeben einer Abfrage-ID und Abfrage an `PushAsync` zu filtern. Weitere Informationen finden Sie unter *Offlinedatensynchronisierung in Azure Mobile Apps* im Abschnitt [Offlinedatensynchronisierung in Azure Mobile Apps].
 
         // QSTodoService.cs
         public async Task SyncAsync()
@@ -105,13 +105,13 @@ Das Xamarin-Clientprojekt, das Sie heruntergeladen haben, nachdem Sie das Lernpr
         }
 
 ## <a name="additional-resources"></a>Weitere Ressourcen
-* [Inkrementelle Synchronisierung]
+* [Offlinedatensynchronisierung in Azure Mobile Apps]
 * [Verwenden des verwalteten Clients für Azure Mobile Apps][8]
 
 <!-- Images -->
 
 <!-- URLs. -->
 [Erstellen einer Xamarin iOS-App]: app-service-mobile-xamarin-ios-get-started.md
-[Inkrementelle Synchronisierung]: app-service-mobile-offline-data-sync.md
+[Offlinedatensynchronisierung in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

@@ -1,6 +1,6 @@
 ---
-title: Azure-Einrichtungen, Gelände und physische Sicherheit | Microsoft-Dokumentation
-description: Der Artikel beschreibt die Azure-Rechenzentren, einschließlich der physischen Infrastruktur, der Sicherheit und des Complianceangebots.
+title: Physische Sicherheit der Azure-Rechenzentren – Microsoft Azure | Microsoft-Dokumentation
+description: Der Artikel beschreibt, was Microsoft zur Sicherung der Azure-Rechenzentren unternimmt, einschließlich der physischen Infrastruktur, der Sicherheit und des Complianceangebots.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64939848"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure-Einrichtungen, Gelände und physische Sicherheit
+In diesem Artikel wird beschrieben, welche Maßnahmen Microsoft zur Sicherung der Azure-Infrastruktur ergreift.
+
+## <a name="datacenter-infrastructure"></a>Infrastruktur der Rechenzentren
 Azure besteht aus einer [global verteilten Rechenzentrumsinfrastruktur](https://azure.microsoft.com/global-infrastructure/), die Tausende von Onlinediensten unterstützt und mehr als 100 höchst sichere Einrichtungen weltweit umfasst.
 
-Die Infrastruktur bringt Anwendungen und Benutzer weltweit näher zusammen, stellt dabei die Datenresidenz sicher und bietet den Kunden umfassende Optionen hinsichtlich Compliance und Ausfallsicherheit. Azure hat 52-Regionen weltweit und ist in 140 Ländern verfügbar.
+Die Infrastruktur bringt Anwendungen und Benutzer weltweit näher zusammen, stellt dabei die Datenresidenz sicher und bietet den Kunden umfassende Optionen hinsichtlich Compliance und Ausfallsicherheit. Azure hat 52-Regionen weltweit und ist in 140 Ländern/Regionen verfügbar.
 
 Als Region wird eine Reihe von Rechenzentren bezeichnet, die über ein großes und robustes Netzwerk miteinander verbunden sind. Das Netzwerk umfasst standardmäßig Inhaltsverteilung, Lastenausgleich, Redundanz und Verschlüsselung. Azure verfügt über mehr globale Regionen als jeder andere Cloudanbieter und bietet Ihnen damit die Flexibilität, Ihre Anwendungen genau dort bereitzustellen, wo Sie diese benötigen.
 
@@ -67,9 +70,9 @@ Microsoft verwendet bewährte Verfahren und eine Zurücksetzungslösung, die [NI
 Am Ende der Nutzungsdauer eines Systems befolgen die für den Betrieb zuständigen Microsoft-Mitarbeiter strenge Verfahren zum Umgang mit Daten und zur Entsorgung von Hardware, um sicherzustellen, dass Hardware, die eventuell Ihre Daten enthält, in keinem Fall nicht vertrauenswürdigen Dritten zugänglich gemacht wird. Wir verwenden ein sicheres Löschverfahren für Festplatten, die dieses Verfahren unterstützen. Bei Festplatten, die nicht zurückgesetzt werden können, verwenden wir ein Verfahren, das die Platte zerstört und eine Wiederherstellung der Daten unmöglich macht. Mögliche Zerstörungsverfahren sind Zersetzen, Schreddern, Pulverisieren oder Verbrennen. Wir bestimmen die Art der Entsorgung anhand des Ressourcentyps. Wir bewahren die Dokumentation der Zerstörung auf. Alle Azure-Dienste setzen anerkannte Dienste zur Speicherung und Entsorgung von Medien ein.
 
 ## <a name="compliance"></a>Compliance
-Wir haben die Azure-Infrastruktur zur Erfüllung einer Vielzahl von internationalen und branchenspezifischen Compliancestandards wie ISO 27001, HIPAA, FedRAMP, SOC 1 und SOC 2 konzipiert und verwalten sie entsprechend. Wir erfüllen auch länderspezifische Standards, z.B. Australia IRAP, UK G-Cloud und Singapore MTCS. In rigorosen Audits durch Drittanbieter – zum Beispiel durch das British Standards Institute – wird die Einhaltung der von diesen Standards geforderten strengen Sicherheitskontrollen überprüft.
+Wir haben die Azure-Infrastruktur zur Erfüllung einer Vielzahl von internationalen und branchenspezifischen Compliancestandards wie ISO 27001, HIPAA, FedRAMP, SOC 1 und SOC 2 konzipiert und verwalten sie entsprechend. Wir erfüllen auch länder- bzw. regionsspezifische Standards, z.B. Australia IRAP, UK G-Cloud und Singapore MTCS. In rigorosen Audits durch Drittanbieter – zum Beispiel durch das British Standards Institute – wird die Einhaltung der von diesen Standards geforderten strengen Sicherheitskontrollen überprüft.
 
-Eine vollständige Liste der von Azure eingehaltenen Compliancestandards finden Sie unter [Complianceangebote](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
+Eine vollständige Liste der von Azure eingehaltenen Compliancestandards finden Sie unter [Complianceangebote](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="next-steps"></a>Nächste Schritte
 In den folgenden Artikeln erfahren Sie mehr über den Schutz der Azure-Infrastruktur durch Microsoft:

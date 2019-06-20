@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047938"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306932"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programmgesteuertes Skalieren eines Service Fabric-Clusters 
 
@@ -29,16 +29,16 @@ Service Fabric-Cluster, die in Azure ausgeführt werden, basieren auf VM-Skalier
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Verwalten von Anmeldeinformationen
-Eine Herausforderung beim Schreiben von einem Dienst für die Skalierung besteht darin, dass der Dienst ohne eine interaktive Anmeldung Zugriff auf VM-Skalierungsgruppenressourcen haben muss. Der Zugriff auf den Service Fabric-Cluster ist einfach, wenn der Skalierungsdienst seine eigene Service Fabric-Anwendung ändert, für den Zugriff auf die Skalierungsgruppe jedoch Anmeldeinformationen erforderlich sind. Für die Anmeldung können Sie einen mit der [Azure CLI](https://github.com/azure/azure-cli) erstellen [Dienstprinzipal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) verwenden.
+Eine Herausforderung beim Schreiben von einem Dienst für die Skalierung besteht darin, dass der Dienst ohne eine interaktive Anmeldung Zugriff auf VM-Skalierungsgruppenressourcen haben muss. Der Zugriff auf den Service Fabric-Cluster ist einfach, wenn der Skalierungsdienst seine eigene Service Fabric-Anwendung ändert, für den Zugriff auf die Skalierungsgruppe jedoch Anmeldeinformationen erforderlich sind. Für die Anmeldung können Sie einen mit der [Azure CLI](https://github.com/azure/azure-cli) erstellten [Dienstprinzipal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) verwenden.
 
 Ein Dienstprinzipal kann mit den folgenden Schritten erstellt werden:
 
 1. Melden Sie sich bei der Azure CLI (`az login`) als Benutzer mit Zugriff auf die VM-Skalierungsgruppe an.
-2. Erstellen Sie den Dienstprinzipal mit `az ad sp create-for-rbac`
+2. Erstellen Sie den Dienstprinzipal mit `az ad sp create-for-rbac`.
     1. Notieren Sie sich App-ID (an anderer Stelle als „Client-ID“ bezeichnet), Name, Kennwort und Mandant für die spätere Verwendung.
-    2. Sie benötigen außerdem Ihre Abonnement-ID, die Sie mit folgendem Befehl anzeigen können: `az account list`
+    2. Sie benötigen auch Ihre Abonnement-ID, die mit `az account list` angezeigt werden kann.
 
-Die Fluent-Compute-Bibliothek kann wie folgt die Anmeldung mit diesen Anmeldeinformationen durchführen (beachten Sie, dass sich Core-Fluent-Azure-Typen wie `IAzure` im Paket [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) befinden):
+Die Fluent-Computebibliothek kann wie folgt die Anmeldung mit diesen Anmeldeinformationen durchführen (beachten Sie, dass sich wichtige Fluent-Azure-Typen wie `IAzure` im Paket [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) befinden):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {

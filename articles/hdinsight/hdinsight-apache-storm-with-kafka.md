@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Verwenden von Apache Storm zum Lesen und Schreiben von Daten mit Apache Kafka – Azure HDInsight'
 description: Erfahren Sie, wie Sie eine Streamingpipeline mit Apache Storm und Apache Kafka in HDInsight erstellen. In diesem Tutorial verwenden Sie die KafkaBolt- und KafkaSpout-Komponenten zum Streamen von Daten aus Kafka.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316948"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873015"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Verwenden von Apache Storm mit Apache Kafka in HDInsight
 
@@ -80,7 +79,7 @@ Apache Storm stellt mehrere Komponenten für die Arbeit mit Apache Kafka bereit.
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Ordnet die Tupel-Datenstruktur, die in der Storm-Topologie verwendet wird, den in Kafka gespeicherten Feldern zu.
 
 Diese Komponenten sind im Paket `org.apache.storm : storm-kafka` enthalten. Verwenden Sie die Paketversion, die Ihrer Storm-Version entspricht. Für HDInsight 3.6 lautet die Storm-Version 1.1.0.
-Sie benötigen auch das Paket `org.apache.kafka : kafka_2.10`, das zusätzliche Kafka-Komponenten enthält. Verwenden Sie die Paketversion, die Ihrer Kafka-Version entspricht. Für HDInsight 3.6 lautet die Kafka-Version 0.10.0.0.
+Sie benötigen auch das Paket `org.apache.kafka : kafka_2.10`, das zusätzliche Kafka-Komponenten enthält. Verwenden Sie die Paketversion, die Ihrer Kafka-Version entspricht. Für HDInsight 3.6 lautet die Kafka-Version 1.1.1.
 
 Der folgende XML-Code stellt die Abhängigkeitsdeklaration in `pom.xml` für ein [Apache Maven](https://maven.apache.org/)-Projekt dar:
 
@@ -95,7 +94,7 @@ Der folgende XML-Code stellt die Abhängigkeitsdeklaration in `pom.xml` für ein
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>
@@ -392,7 +391,7 @@ Führen Sie zum Erstellen eines virtuellen Azure-Netzwerks und zum anschließend
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Die Azure Resource Manager-Vorlage finden Sie unter **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Er erstellt die folgenden Ressourcen:
+    Die Azure Resource Manager-Vorlage finden Sie unter **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json** . Er erstellt die folgenden Ressourcen:
     
     * Azure-Ressourcengruppe
     * Virtuelles Azure-Netzwerk
@@ -411,7 +410,7 @@ Führen Sie zum Erstellen eines virtuellen Azure-Netzwerks und zum anschließend
       | --- | --- |
       | Abonnement | Ihr Azure-Abonnement |
       | Ressourcengruppe | Die Ressourcengruppe mit den Ressourcen. |
-      | Standort | Die Azure-Region, in der die Ressourcen erstellt werden. |
+      | Location | Die Azure-Region, in der die Ressourcen erstellt werden. |
       | Kafka Cluster Name (Kafka-Clustername) | Der Name des Kafka-Clusters. |
       | Storm Cluster Name (Storm-Clustername) | Der Name des Storm-Clusters. |
       | Benutzername für Clusteranmeldung | Der Administratorbenutzername für die Cluster. |

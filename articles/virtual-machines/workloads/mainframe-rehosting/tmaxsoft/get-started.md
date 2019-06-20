@@ -7,11 +7,11 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 408e0166e52af9efd3d4c64f1b29bddcfc1cca4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61485414"
 ---
 # <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Erste Schritte mit TmaxSoft OpenFrame in Azure
 

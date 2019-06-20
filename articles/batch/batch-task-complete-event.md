@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60549970"
 ---
 # <a name="task-complete-event"></a>Ereignis zum Abschluss eines Tasks
 
@@ -54,9 +54,9 @@ ms.locfileid: "55459239"
 
 |Elementname|Type|Notizen|
 |------------------|----------|-----------|
-|jobId|Zeichenfolge|Die ID des Auftrags, der den Task enthält.|
-|id|Zeichenfolge|Die ID des Tasks.|
-|taskType|Zeichenfolge|Der Typ des Tasks. Entweder „JobManager“, was bedeutet, dass dies ein Auftrags-Manager-Task ist, oder „User“, was bedeutet, dass dies nicht der Fall ist. Dieses Ereignis wird nicht für Auftragsvorbereitungstasks, Auftragsfreigabetasks oder Starttasks ausgegeben.|
+|jobId|string|Die ID des Auftrags, der den Task enthält.|
+|id|string|Die ID des Tasks.|
+|taskType|string|Der Typ des Tasks. Entweder „JobManager“, was bedeutet, dass dies ein Auftrags-Manager-Task ist, oder „User“, was bedeutet, dass dies nicht der Fall ist. Dieses Ereignis wird nicht für Auftragsvorbereitungstasks, Auftragsfreigabetasks oder Starttasks ausgegeben.|
 |systemTaskVersion|Int32|Dies ist der interne Wiederholungszähler für einen Task. Der Batch-Dienst kann intern einen Task wiederholen, um vorübergehende Probleme zu berücksichtigen. Bei diesen Problemen kann es sich um interne Planungsfehler oder Versuche handeln, Computeknoten mit einem fehlerhaften Status wiederherzustellen.|
 |[nodeInfo](#nodeInfo)|Komplexer Typ|Enthält Informationen zu den Computeknoten, auf dem der Task ausgeführt wurde.|
 |[multiInstanceSettings](#multiInstanceSettings)|Komplexer Typ|Gibt an, dass der Task ein Task mit mehreren Instanzen ist, für den mehrere Computeknoten erforderlich sind.  Details finden Sie unter [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task).|
@@ -67,8 +67,8 @@ ms.locfileid: "55459239"
 
 |Elementname|Type|Notizen|
 |------------------|----------|-----------|
-|poolId|Zeichenfolge|Die ID des Pools, auf den der Task angewendet wurde.|
-|nodeId|Zeichenfolge|Die ID des Knotens, auf dem der Task ausgeführt wurde.|
+|poolId|string|Die ID des Pools, auf den der Task angewendet wurde.|
+|nodeId|string|Die ID des Knotens, auf dem der Task ausgeführt wurde.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 

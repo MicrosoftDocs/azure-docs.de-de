@@ -15,191 +15,188 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: d73bc9cc845f214eab490a542892aa67bf9d0216
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282252"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Azure Active Directory-Integration mit TurboRater
 
 In diesem Tutorial erfahren Sie, wie Sie TurboRater in Azure Active Directory (Azure AD) integrieren.
+
 Die Integration von TurboRater in Azure AD bietet die folgenden Vorteile:
 
 * Sie können in Azure AD steuern, wer Zugriff auf TurboRater hat.
-* Sie können es Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei TurboRater anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
-* Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
+* Sie können Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei TurboRater anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
+* Sie können Ihre Konten an einem zentralen Ort verwalten: im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+Details zur Integration von SaaS-Apps (Software-as-a-Service) in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Um die Azure AD-Integration mit TurboRater konfigurieren zu können, benötigen Sie Folgendes:
 
-* Ein Azure AD-Abonnement Wenn Sie keine Azure AD-Umgebung besitzen, können Sie [hier](https://azure.microsoft.com/pricing/free-trial/) eine einmonatige Testversion anfordern.
-* Ein TurboRater-Abonnement, für das einmaliges Anmelden aktiviert ist
+* Ein Azure AD-Abonnement Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+* Ein TurboRater-Abonnement, für das einmaliges Anmelden aktiviert ist.
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* TurboRater unterstützt **IDP-initiiertes** einmaliges Anmelden.
+TurboRater unterstützt IDP-initiiertes einmaliges Anmelden (SSO).
 
-## <a name="adding-turborater-from-the-gallery"></a>Hinzufügen von TurboRater aus dem Katalog
+## <a name="add-turborater-from-the-azure-marketplace"></a>Hinzufügen von TurboRater aus dem Azure Marketplace
 
-Zum Konfigurieren der Integration von TurboRater in Azure AD müssen Sie TurboRater aus dem Katalog zur Liste mit den verwalteten SaaS-Apps hinzufügen.
+Zum Konfigurieren der Integration von TurboRater in Azure AD müssen Sie TurboRater aus dem Azure Marketplace zur Liste mit den verwalteten SaaS-Apps hinzufügen:
 
-**Um TurboRater aus dem Katalog hinzuzufügen, führen Sie die folgenden Schritte aus:**
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com?azure-portal=true) an.
+1. Wählen Sie im linken Bereich **Azure Active Directory** aus.
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
+    ![Die Option „Azure Active Directory“](common/select-azuread.png)
 
-    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
+1. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+    ![Die Option „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
+1. Wählen Sie oben im Fenster **+Neue Anwendung** aus, um eine neue Anwendung hinzuzufügen.
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+    ![Die Option „Neue Anwendung“](common/add-new-app.png)
 
-    ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
+1. Geben Sie **TurboRater** in das Suchfeld ein. Wählen Sie in den Suchergebnissen **TurboRater** aus, und wählen Sie dann **Hinzufügen** aus, um die Anwendung hinzuzufügen.
 
-4. Geben Sie im Suchfeld **TurboRater** ein, wählen Sie im Ergebnisbereich **TurboRater** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
-
-     ![TurboRater in der Ergebnisliste](common/search-new-app.png)
+    ![TurboRater in der Ergebnisliste](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit TurboRater anhand eines Testbenutzers mit dem Namen **Britta Simon**.
-Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in TurboRater eingerichtet werden.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei TurboRater mithilfe eines Testbenutzers namens **B Simon**. Damit einmaliges Anmelden funktioniert, muss eine Verknüpfung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in TurboRater eingerichtet werden.
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei TurboRater müssen die folgenden Schritte ausgeführt werden:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für TurboRater](#configure-turborater-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines TurboRater-Testbenutzers](#create-turborater-test-user)**, um ein Pendant von Britta Simon in TurboRater zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieser Funktion zu ermöglichen.
+1. **[Konfigurieren des einmaligen Anmeldens für TurboRater](#configure-turborater-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
+1. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD mit dem Testbenutzer B. Simon zu testen.
+1. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um B. Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+1. **[Erstellen eines TurboRater-Testbenutzers](#create-a-turborater-test-user)** , damit in TurboRater ein Benutzer namens B. Simon vorhanden ist, der mit dem Azure AD-Benutzer namens B. Simon verknüpft ist.
+1. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
 In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal.
 
-Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit TurboRater die folgenden Schritte aus:
+Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei TurboRater die folgenden Schritte aus:
 
 1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **TurboRater** die Option **Einmaliges Anmelden** aus.
 
-    ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
+    ![Option „Einmaliges Anmelden konfigurieren“](common/select-sso.png)
 
-2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
+1. Wählen Sie im Bereich **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+1. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** die Option **Bearbeiten** (Stiftsymbol), um den Bereich **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
-4. Führen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** die folgenden Schritte aus:
+1. Führen Sie im Bereich **Grundlegende SAML-Konfiguration** die folgenden Schritte aus:
 
     ![SSO-Informationen zur Domäne und zu den URLs für TurboRater](common/idp-intiated.png)
 
-    a. Geben Sie im Textfeld **Bezeichner** eine URL ein: `https://www.itcdataservices.com`
+    1. Geben Sie im Feld **Bezeichner (Entitäts-ID)** eine URL ein:
 
-    b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein:
+       `https://www.itcdataservices.com`
 
-    | Environment | URL |
-    | ---------------| --------------- |    
-    | Test  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
-    | Live  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
+    1. Geben Sie im Feld **Antwort-URL (Assertionsverbraucherdienst-URL)** eine URL in folgendem Format ein:
+
+       | Environment | URL |
+       | ---------------| --------------- |
+       | Test  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
+       | Live  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
 
     > [!NOTE]
-    > Hierbei handelt es sich um Beispielwerte. Aktualisieren Sie diese Werte mit dem eigentlichen Bezeichner und der Antwort-URL. Diese Werte erhalten Sie vom [Supportteam für den TurboRater-Client](https://www.getitc.com/support). Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
+    > Hierbei handelt es sich um Beispielwerte. Aktualisieren Sie diese Werte mit dem eigentlichen Bezeichner und der Antwort-URL. Diese Werte erhalten Sie vom [TurboRater-Supportteam](https://www.getitc.com/support). Sie können sich auch die Muster im Bereich **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML**-Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
+1. Klicken Sie im Bereich **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um die **Verbundmetadaten-XML** aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
-    ![Downloadlink für das Zertifikat](common/metadataxml.png)
+    ![Downloadoption für Verbundmetadaten-XML](common/metadataxml.png)
 
-6. Kopieren Sie im Abschnitt **TurboRater einrichten** die entsprechenden URLs gemäß Ihren Anforderungen.
+1. Kopieren Sie im Abschnitt **TurboRater einrichten** die URL(s), die Sie benötigen:
+
+   * **Anmelde-URL**
+   * **Azure AD-Bezeichner**
+   * **Abmelde-URL**
 
     ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    a. Anmelde-URL
-
-    b. Azure AD-Bezeichner
-
-    c. Abmelde-URL
-
 ### <a name="configure-turborater-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für TurboRater
 
-Zum Konfigurieren des einmaligen Anmeldens aufseiten von **TurboRater** müssen Sie die heruntergeladene **Verbundmetadaten-XML** und die kopierten URLs aus dem Azure-Portal an das [Supportteam von TurboRater](https://www.getitc.com/support) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+Zum Konfigurieren des einmaligen Anmeldens aufseiten von TurboRater müssen Sie die heruntergeladene Verbundmetadaten-XML und die kopierten URLs aus dem Azure-Portal an das [Supportteam von TurboRater](https://www.getitc.com/support) senden. Das TurboRater-Team sorgt dafür, dass die SAML-Verbindung für einmaliges Anmelden auf beiden Seiten ordnungsgemäß eingerichtet wird.
 
-### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers 
+### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
-Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
+In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin mit dem Namen Britta Simon.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im linken Bereich des Azure-Portals **Azure Active Directory**   > **Benutzer** > **Alle Benutzer** aus.
 
-    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
+    ![Die Optionen „Benutzer“ und „Alle Benutzer“](common/users.png)
 
-2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
+1. Wählen Sie oben im Bildschirm die Option **+ Neuer Benutzer** aus.
 
-    ![Schaltfläche „Neuer Benutzer“](common/new-user.png)
+    ![Option „Neuer Benutzer“](common/new-user.png)
 
-3. Führen Sie in den Benutzereigenschaften die folgenden Schritte aus.
+1. Führen Sie im Bereich **Benutzer** folgende Schritte aus:
 
-    ![Dialogfeld „Benutzer“](common/user-properties.png)
+    ![Der Bereich „Benutzer“](common/user-properties.png)
 
-    a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
+    1. Geben Sie in das Feld **Name** den Namen **BSimon** ein.
   
-    b. Geben Sie im Feld **Benutzername** den Namen brittasimon@yourcompanydomain.extension ein. Zum Beispiel, BrittaSimon@contoso.com
+    1. Geben Sie in das Feld **Benutzername** den Eintrag **BSimon\@\<IhreUnternehmensdomäne>.\<Erweiterung>** ein. Beispiel: **BSimon\@contoso.com**
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
 
-    d. Klicken Sie auf **Create**.
+    1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf TurboRater gewähren.
+In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihm Zugriff auf TurboRater gewähren.
 
 1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** > **TurboRater** aus.
 
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
+    ![Bereich für Unternehmensanwendungen](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste **TurboRater** aus.
+1. Wählen Sie in der Anwendungsliste **TurboRater** aus.
 
-    ![TurboRater-Link in der Anwendungsliste](common/all-applications.png)
+    ![TurboRater in der Anwendungsliste](common/all-applications.png)
 
-3. Wählen Sie im Menü auf der linken Seite **Benutzer und Gruppen** aus.
+1. Wählen Sie im linken Bereich unter **VERWALTEN** die Option **Benutzer und Gruppen** aus.
 
-    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
+    ![Option „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+1. Wählen Sie die Schaltfläche **+ Benutzer hinzufügen** aus, und wählen Sie anschließend im Bereich **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
-5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Bildschirm auf die Schaltfläche **Auswählen**.
+1. Wählen Sie im Bereich **Benutzer und Gruppen** in der Liste **Benutzer** den Eintrag **B. Simon** und anschließend unten im Bereich **Auswählen** aus.
 
-6. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** in der Liste die entsprechende Rolle für den Benutzer aus, und klicken Sie dann unten auf dem Bildschirm auf **Auswählen**.
+1. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Bereich **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Wählen Sie unten im Bereich die Option **Auswählen**.
 
-7. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
+1. Wählen Sie im Bereich **Zuweisung hinzufügen** die Option **Zuweisen** aus.
 
-### <a name="create-turborater-test-user"></a>Erstellen eines TurboRater-Testbenutzers
+### <a name="create-a-turborater-test-user"></a>Erstellen eines TurboRater-Testbenutzers
 
-In diesem Abschnitt erstellen Sie in TurboRater einen Benutzer namens Britta Simon. Wenden Sie sich an das  [TurboRater-Supportteam](https://www.getitc.com/support), um die Benutzer auf der TurboRater-Plattform hinzuzufügen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
+In diesem Abschnitt erstellen Sie in TurboRater einen Benutzer namens B. Simon. Wenden Sie sich an das [TurboRater-Supportteam](https://www.getitc.com/support), um B. Simon als Benutzer in TurboRater hinzuzufügen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
 
-### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens 
+### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 
-In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
+In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden mithilfe des Portals „Meine Apps“.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „TurboRater“ klicken, sollten Sie automatisch bei der TurboRater-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Bei Auswahl von **TurboRater** im Portal „Meine Apps“ sollten Sie automatisch bei dem TurboRater-Abonnement angemeldet werden, für das Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Portal „Meine Apps“ finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Liste der Tutorials zur Integration von SaaS-Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

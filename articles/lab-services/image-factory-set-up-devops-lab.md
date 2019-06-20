@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61320605"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Ausführen einer Image Factory aus AzureDevOps
 Dieser Artikel behandelt alle erforderlichen Vorbereitungsschritte, um die Image Factory aus Azure DevOps (früher Visual Studio Team Services) auszuführen.

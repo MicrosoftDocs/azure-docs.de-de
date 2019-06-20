@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
 ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371110"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813461"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Konzepte zu Absichten in Ihrer LUIS-App
 

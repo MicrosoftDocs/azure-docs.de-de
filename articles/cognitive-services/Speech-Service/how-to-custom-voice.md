@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 8cf9dc6cbfc96448462aac3a64807f8beb6036ad
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 016dcf32f2f846e43362f17bc9f4627113908352
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156837"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075150"
 ---
 # <a name="get-started-with-custom-voice"></a>Erste Schritte mit Custom Voice
 
@@ -29,13 +29,13 @@ Im folgenden Diagramm sind die Schritte zum Erstellen eines benutzerdefinierten 
 
 ![Custom Voice-Architekturdiagramm](media/custom-voice/custom-voice-diagram.png)
 
-1.  [Abonnieren und Erstellen eines Projekts:](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice?branch=release-build-cogserv-speech-services#set-up-your-azure-account) Erstellen Sie ein Azure-Konto und ein Abonnement für die Speech-Dienste. Durch dieses konsolidierte Abonnement erhalten Sie Zugriff auf die Spracherkennung, Sprachsynthese, Sprachübersetzung und das Custom Voice-Portal. Erstellen Sie anschließend unter Verwendung Ihres Abonnements für die Speech-Dienste Ihr erstes Custom Voice-Projekt.
+1.  [Abonnieren und Erstellen eines Projekts:](#set-up-your-azure-account) Erstellen Sie ein Azure-Konto und ein Abonnement für die Speech-Dienste. Durch dieses konsolidierte Abonnement erhalten Sie Zugriff auf die Spracherkennung, Sprachsynthese, Sprachübersetzung und das Custom Voice-Portal. Erstellen Sie anschließend unter Verwendung Ihres Abonnements für die Speech-Dienste Ihr erstes Custom Voice-Projekt.
 
-2.  [Hochladen von Daten:](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#upload-your-datasets) Laden Sie Daten (Audio und Text) über das Custom Voice-Portal oder über die Custom Voice-API hoch. Über das Portal können Sie Aussprachebewertungen und Signal-Rausch-Verhältnisse untersuchen und bewerten. Weitere Informationen finden Sie unter [Prepare data to create a custom voice](how-to-custom-voice-prepare-data.md) (Vorbereiten von Daten zum Erstellen einer benutzerdefinierten Stimme).
+2.  [Hochladen von Daten:](how-to-custom-voice-create-voice.md#upload-your-datasets) Laden Sie Daten (Audio und Text) über das Custom Voice-Portal oder über die Custom Voice-API hoch. Über das Portal können Sie Aussprachebewertungen und Signal-Rausch-Verhältnisse untersuchen und bewerten. Weitere Informationen finden Sie unter [Prepare data to create a custom voice](how-to-custom-voice-prepare-data.md) (Vorbereiten von Daten zum Erstellen einer benutzerdefinierten Stimme).
 
-3.  [Trainieren Ihres Modells:](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#build-your-voice-font) Erstellen Sie unter Verwendung Ihrer Daten ein benutzerdefiniertes Stimmmodell für die Sprachsynthese. Sie können ein Modell in verschiedenen Sprachen trainieren. Testen Sie Ihr trainiertes Modell. Wenn Sie mit dem Ergebnis zufrieden sind, können Sie das Modell bereitstellen.
+3.  [Trainieren Ihres Modells:](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) Erstellen Sie unter Verwendung Ihrer Daten ein benutzerdefiniertes Stimmmodell für die Sprachsynthese. Sie können ein Modell in verschiedenen Sprachen trainieren. Testen Sie Ihr trainiertes Modell. Wenn Sie mit dem Ergebnis zufrieden sind, können Sie das Modell bereitstellen.
 
-4.  [Bereitstellen Ihres Modells:](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font?branch=release-build-cogserv-speech-services#create-and-use-a-custom-endpoint) Erstellen Sie einen benutzerdefinierten Endpunkt für Ihr Stimmmodell für die Sprachsynthese, und verwenden sie ihn für die Sprachsynthese in Ihren Produkten, Tools und Anwendungen.
+4.  [Bereitstellen Ihres Modells:](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) Erstellen Sie einen benutzerdefinierten Endpunkt für Ihr Stimmmodell für die Sprachsynthese, und verwenden sie ihn für die Sprachsynthese in Ihren Produkten, Tools und Anwendungen.
 
 ## <a name="set-up-your-azure-account"></a>Einrichten Ihres Azure-Kontos
 
@@ -55,10 +55,10 @@ Nachdem Sie ein Azure-Konto und ein Abonnement für die Speech-Dienste erstellt 
 
 Inhalte wie Daten, Modelle, Tests und Endpunkte sind im Custom Voice-Portal in **Projekten** organisiert. Jedes Projekt ist spezifisch für ein Land/eine Sprache und das Geschlecht der Stimme, die Sie erstellen möchten. So können Sie beispielsweise ein Projekt mit einer weiblichen Stimme für die Chatbots Ihres Callcenters erstellen, die US-amerikanisches Englisch (en-US) verwenden.
 
-Wählen Sie zum Erstellen Ihres ersten Projekts die Registerkarte **Text-to-Speech/Custom Voice** (Sprachsynthese/Benutzerdefinierte Stimme) aus, und klicken Sie auf **Neues Projekt**. Folgen Sie den Anweisungen des Assistenten, um Ihr Projekt zu erstellen. Nachdem Sie ein Projekt erstellt haben, werden vier Registerkarten angezeigt: **Daten**, **Training**, **Test** und **Bereitstellung**. Verwenden Sie die Links unter [Nächste Schritte](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice?branch=release-build-cogserv-speech-services#next-steps), um mehr über die Verwendung der einzelnen Registerkarten zu erfahren.
+Wählen Sie zum Erstellen Ihres ersten Projekts die Registerkarte **Text-to-Speech/Custom Voice** (Sprachsynthese/Benutzerdefinierte Stimme) aus, und klicken Sie auf **Neues Projekt**. Folgen Sie den Anweisungen des Assistenten, um Ihr Projekt zu erstellen. Nachdem Sie ein Projekt erstellt haben, werden vier Registerkarten angezeigt: **Daten**, **Training**, **Test** und **Bereitstellung**. Verwenden Sie die Links unter [Nächste Schritte](#next-steps), um mehr über die Verwendung der einzelnen Registerkarten zu erfahren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Get started with Custom Voice](how-to-custom-voice.md) (Erste Schritte mit Custom Voice)
 - [Create a Custom Voice](how-to-custom-voice-create-voice.md) (Erstellen einer benutzerdefinierten Stimme)
-- [Aufzeichnen von Sprachbeispielen zum Erstellen einer benutzerdefinierten Stimme](record-custom-voice-samples.md)
+- [Aufzeichnen Aufnehmen Ihrer Sprachbeispiele](record-custom-voice-samples.md)

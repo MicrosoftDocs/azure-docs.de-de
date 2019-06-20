@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
 ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073704"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Gruppieren und Extrahieren zugehöriger Daten

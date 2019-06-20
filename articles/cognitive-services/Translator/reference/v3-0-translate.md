@@ -3,19 +3,19 @@ title: Übersetzungsmethode der Textübersetzungs-API
 titleSuffix: Azure Cognitive Services
 description: Verwenden Sie die Übersetzungsmethode der Textübersetzungs-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722430"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389752"
 ---
 # <a name="translator-text-api-30-translate"></a>Textübersetzungs-API 3.0: Translate
 
@@ -54,7 +54,7 @@ Die folgenden Anforderungsparameter werden in der Abfragezeichenfolge übergeben
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Optionaler Parameter</em>.<br/>Eine Zeichenfolge, die die Kategorie (Domäne) der Übersetzung angibt. Dieser Parameter wird verwendet, um Übersetzungen von einem benutzerdefinierten System zu erhalten, das mit <a href="../customization.md">Custom Translator</a> erstellt wurde. Fügen Sie diesem Parameter die Kategorie-ID Ihres „Benutzerdefinierter Translator“-Projekts hinzu, um Ihr bereitgestelltes angepasstes System zu verwenden. Der Standardwert ist <code>general</code>.</td>
+    <td><em>Optionaler Parameter</em>.<br/>Eine Zeichenfolge, die die Kategorie (Domäne) der Übersetzung angibt. Dieser Parameter wird verwendet, um Übersetzungen von einem benutzerdefinierten System zu erhalten, das mit <a href="../customization.md">Custom Translator</a> erstellt wurde. Fügen Sie diesem Parameter die Kategorie-ID Ihrer „Benutzerdefinierter Translator“-<a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">Projektdetails</a> hinzu, um Ihr bereitgestelltes angepasstes System zu verwenden. Der Standardwert ist <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -213,7 +213,7 @@ Im Folgenden finden Sie die möglichen HTTP-Statuscodes, die eine Anforderung zu
   </tr>
   <tr>
     <td>429</td>
-    <td>Der Aufrufer sendet zu viele Anforderungen.</td>
+    <td>Der Server hat die Anforderung abgelehnt, da der Client die Anforderungsgrenzwerte überschritten hat.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -401,7 +401,7 @@ Bei Verwendung von <code>ProfanityMarker=Tag</code> werden obszöne Wörter von 
   </tr>
 </table> 
 
-Beispiel: 
+Beispiel:
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

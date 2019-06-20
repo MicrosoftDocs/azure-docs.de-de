@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64572758"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurieren von ExpressRoute Global Reach
 
@@ -39,7 +39,7 @@ Vergewissern Sie sich, dass folgende Voraussetzungen erfüllt sind, bevor Sie mi
 1. Um mit der Konfiguration zu beginnen, melden Sie sich bei Ihrem Azure-Konto an, und wählen Sie das zu verwendende Abonnement aus.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identifizieren Sie die ExpressRoute-Leitungen, die Sie verwenden möchten. Sie können ExpressRoute Global Reach zwischen zwei beliebigen ExpressRoute-Leitungen aktivieren, solange sich diese in den unterstützten Ländern befinden und an verschiedenen Peeringstandorten erstellt wurden. 
+2. Identifizieren Sie die ExpressRoute-Leitungen, die Sie verwenden möchten. Sie können ExpressRoute Global Reach zwischen zwei beliebigen ExpressRoute-Leitungen aktivieren, solange sich diese in den unterstützten Ländern/Regionen befinden und an verschiedenen Peeringstandorten erstellt wurden. 
 
    * Wenn beide Leitungen Ihrem Abonnement zugewiesen sind, können Sie eine der beiden Leitungen auswählen, um die Konfiguration in den folgenden Abschnitten auszuführen.
    * Wenn sich die beiden Leitungen in unterschiedlichen Azure-Abonnements befinden, benötigen Sie die Autorisierung eines der Azure-Abonnements. Den Autorisierungsschlüssel übergeben Sie, wenn Sie den Konfigurationsbefehl im anderen Azure-Abonnement ausführen.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: b3357436d068396c5c3c4fae10ed6857759c5aed
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61221321"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Spezifikation der Fragmented MP4-Echtzeiterfassung für Azure Media Services 
 
@@ -69,7 +69,7 @@ Es folgen die detaillierten Anforderungen:
 1. Der Encoder DARF das in Abschnitt 9.2 in [1] beschriebene `Events()`-Nomen NICHT für die Echtzeiterfassung in Media Services verwenden.
 1. Wenn die HTTP POST-Anforderung endet oder ein Timeout aufgrund eines TCP-Fehlers vor dem Ende des Streams auftritt, MUSS der Encoder eine neue POST-Anforderung mithilfe einer neuen Verbindung ausgeben und die vorausgehenden Anforderungen erfüllen. Der Encoder muss darüber hinaus die vorherigen beiden MP4-Fragmente für jede Spur im Stream neu senden und fortfahren, ohne eine Diskontinuität in der Medienzeitachse auszulösen. Durch das erneute Senden der letzten beiden MP4-Fragmente für jede Spur wird sichergestellt, dass keine Daten verloren gehen. Mit anderen Worten: Wenn ein Stream eine Audio- und eine Videospur enthält und bei der aktuellen POST-Anforderung ein Fehler auftritt, muss der Encoder eine neue Verbindung herstellen und die letzten zwei zuvor erfolgreich gesendeten Fragmente für die Audiospur sowie die letzten zwei zuvor erfolgreich gesendeten Fragmente für die Videospur erneut senden, um sicherzustellen, dass keine Daten verloren gehen. Der Encoder MUSS einen vorausschauenden Puffer der Medienfragmente beibehalten, den er beim Wiederherstellen der Verbindung erneut sendet.
 
-## <a name="5-timescale"></a>5. Zeitskala
+## <a name="5-timescale"></a>5. Timescale
 Unter [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) wird die Verwendung der Zeitskala für **SmoothStreamingMedia** (Abschnitt 2.2.2.1), **StreamElement** (Abschnitt 2.2.2.3), **StreamFragmentElement** (Abschnitt 2.2.2.6) und **LiveSMIL** (Abschnitt 2.2.7.3.1) beschrieben. Wenn der Zeitskalawert nicht vorhanden ist, wird der Standardwert 10.000.000 (10 MHz) verwendet. Obwohl die Spezifikation des Smooth Streaming-Formats die Verwendung anderer Zeitskalawerte nicht blockiert, verwenden die meisten Encoderimplementierungen diesen Standardwert (10 MHz), um Smooth Streaming-Erfassungsdaten zu generieren. Wegen der Funktion [Azure Media Services Dynamic Packaging](media-services-dynamic-packaging-overview.md) wird empfohlen, 90 kHz als Zeitskala für Videostreams sowie 44,1 kHz oder 48,1 kHz für Audiostreams zu verwenden. Wenn für verschiedene Streams unterschiedliche Zeitskalawerte verwendet werden, MUSS die Zeitskala der Streamebene gesendet werden. Weitere Informationen finden Sie unter [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
 ## <a name="6-definition-of-stream"></a>6. Definition von „Stream“

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622544"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Erstellen einer benutzerdefinierten Image Factory in Azure DevTest Labs
 In diesem Artikel wird das Festlegen einer Aufbewahrungsrichtlinie, das Bereinigen der Factory und das Ausmustern alter Images aus allen anderen DevTest Labs in der Organisation behandelt. 

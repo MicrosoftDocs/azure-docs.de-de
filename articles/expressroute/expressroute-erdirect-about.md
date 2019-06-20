@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60367631"
 ---
 # <a name="about-expressroute-direct"></a>Informationen zu ExpressRoute Direct
 

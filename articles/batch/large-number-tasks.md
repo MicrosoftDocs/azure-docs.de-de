@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60549664"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Übermitteln einer großen Anzahl von Aufgaben an einen Batch-Auftrag
 
@@ -65,7 +65,7 @@ Das Hinzufügen einer großen Sammlung von Aufgaben zu einem Auftrag kann einige
 
 Die folgenden C#-Codeausschnitte zeigen die Einstellungen, die konfiguriert werden müssen, wenn Sie eine große Anzahl von Aufgaben mithilfe der Batch-.NET-API hinzufügen.
 
-Um den Aufgabendurchsatz zu steigern, erhöhen Sie den Wert der [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism)-Eigenschaft von [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Beispiel: 
+Um den Aufgabendurchsatz zu steigern, erhöhen Sie den Wert der [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism)-Eigenschaft von [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Beispiel:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -75,7 +75,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Fügen Sie dem Auftrag eine Aufgabensammlung hinzu, indem Sie die geeignete Überladung der [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)- oder der [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-)-Methode verwenden. Beispiel: 
+)-Methode verwenden. Beispiel:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -145,7 +145,7 @@ client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=
 ...
 ```
 
-Erstellen Sie eine Sammlung von Aufgaben, die einem Auftrag hinzugefügt werden sollen. Beispiel: 
+Erstellen Sie eine Sammlung von Aufgaben, die einem Auftrag hinzugefügt werden sollen. Beispiel:
 
 
 ```python

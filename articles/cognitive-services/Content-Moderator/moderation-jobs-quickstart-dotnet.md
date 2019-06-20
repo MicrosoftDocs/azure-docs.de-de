@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62113867"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definieren und Verwenden von Moderationsaufträgen (.NET)
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
 ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61315638"
 ---
 # <a name="messages-payloads-and-serialization"></a>Nachrichten, Nutzlasten und Serialisierung
 
@@ -77,7 +77,7 @@ Ob während des Transports oder bei Speicherung im Service Bus, die Nutzlast ist
 
 Im Gegensatz zu den Java- oder. NET Standard-Varianten unterstützt die. NET Framework-Version der Service Bus-API das Erstellen von **BrokeredMessage**-Instanzen durch Übergabe beliebiger. NET-Objekte an den Konstruktor. 
 
-Bei Verwendung des alten SBMP-Protokolls werden diese Objekte dann mit dem standardmäßigen binären Serialisierer oder mit einem extern bereitgestellten Serialisierer serialisiert. Bei Verwendung des AMQP-Protokolls wird das Objekt in ein AMQP-Objekt serialisiert. Der Empfänger kann diese Objekte mit der [GetBody<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)-Methode abrufen und den erwarteten Typ bereitstellen. Bei AMQP werden die Objekte in ein AMQP-Diagramm aus **ArrayList**- und **IDictionary<string,object>**-Objekten serialisiert und können von jedem AMQP-Client decodiert werden. 
+Bei Verwendung des alten SBMP-Protokolls werden diese Objekte dann mit dem standardmäßigen binären Serialisierer oder mit einem extern bereitgestellten Serialisierer serialisiert. Bei Verwendung des AMQP-Protokolls wird das Objekt in ein AMQP-Objekt serialisiert. Der Empfänger kann diese Objekte mit der [GetBody<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)-Methode abrufen und den erwarteten Typ bereitstellen. Bei AMQP werden die Objekte in ein AMQP-Diagramm aus **ArrayList**- und **IDictionary<string,object>** -Objekten serialisiert und können von jedem AMQP-Client decodiert werden. 
 
 Wenngleich diese Methode der versteckten Serialisierung praktisch ist, sollten Anwendungen die explizite Steuerung der Objektserialisierung übernehmen und ihre Objektgraphen in Streams umwandeln, bevor sie diese in eine Nachricht einbinden, und auf Empfängerseite das Gegenteil tun. Dies führt zu interoperablen Ergebnissen. Es sollte auch darauf hingewiesen werden, dass AMQP zwar über ein leistungsfähiges binäres Codierungsmodell verfügt, aber an das AMQP-Messaging-Ökosystem gebunden ist. HTTP-Clients werden Probleme haben, solche Nutzdaten zu decodieren. 
 

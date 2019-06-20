@@ -10,11 +10,11 @@ ms.date: 09/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 574cdea61a474dda5d20254bfae9ff2f06044cca
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60775371"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Überwachen von Batch-Lösungen durch Zählen von Tasks und Knoten nach Status
 

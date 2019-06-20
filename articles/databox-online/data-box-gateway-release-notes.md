@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60754198"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Anmerkungen zum Release zur allgemeinen Verfügbarkeit von Azure Data Box Edge/Azure Data Box Gateway
 
@@ -40,7 +40,7 @@ Das Release zur allgemeinen Verfügbarkeit entspricht den folgenden Softwarevers
 
 Die folgende Tabelle enthält eine Zusammenfassung der bekannten Probleme bei der Data Box Gateway-Version.
 
-|  Nein. | Feature | Problem | Problemumgehung/Kommentare |
+| Nein. | Feature | Problem | Problemumgehung/Kommentare |
 | --- | --- | --- | --- |
 | **1.** |Dateitypen | Die folgenden Dateitypen werden nicht unterstützt: Zeichendateien, Blockdateien, Sockets, Pipes, symbolische Verknüpfungen.  |Das Kopieren dieser Dateien führt dazu, dass auf der NFS-Freigabe Dateien mit Nulllänge erstellt werden. Diese Dateien verbleiben in einem Fehlerzustand und werden außerdem in *error.xml* gemeldet. <br> Symbolische Verknüpfungen mit Verzeichnissen führen dazu, dass Verzeichnisse niemals als offline markiert werden. Infolgedessen wird möglicherweise kein graues Kreuz auf den Verzeichnissen angezeigt, mit dem gekennzeichnet wird, dass die Verzeichnisse offline sind und alle zugehörigen Inhalte vollständig nach Azure hochgeladen wurden. |
 | **2.** |Löschen | Aufgrund eines Fehlers in dieser Version wird beim Löschen einer NFS-Freigabe die Freigabe möglicherweise nicht gelöscht. Als Status der Freigabe wird *Wird gelöscht* angezeigt.  |Dies erfolgt nur, wenn die Freigabe einen nicht unterstützten Dateinamen verwendet. |

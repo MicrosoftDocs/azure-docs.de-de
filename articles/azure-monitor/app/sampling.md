@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c11eeb84fe4ed1ded93cb8de7ff54b756fd36749
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779912"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388387"
 ---
 # <a name="sampling-in-application-insights"></a>Erstellen von Stichproben in Application Insights
 
@@ -31,7 +31,7 @@ Die Stichprobenerstellung reduziert Datenverkehr und Datenkosten und unterstütz
 
 * Bei der Stichprobenerstellung wird ein Datensatz von *n* Datensätzen beibehalten, und der Rest wird verworfen. Beispielsweise kann eines von fünf Ereignissen beibehalten werden, was einer Stichprobenrate von 20 % entspricht. 
 * Die adaptive Stichprobenerstellung ist in allen aktuellen Versionen der ASP.NET und ASP.NET Core Software Development Kits (SDKs) standardmäßig aktiviert.
-* Sie können die Stichprobenerstellung auch manuell festlegen. Diese Konfiguration kann im Portal auf der *Seite „Nutzung und geschätzte Kosten“*, im ASP.NET SDK in der Datei „ApplicationInsights.config“, im ASP.NET Core SDK über den Code oder im Java SDK in der Datei „ApplicationInsights.xml“ vorgenommen werden.
+* Sie können die Stichprobenerstellung auch manuell festlegen. Diese Konfiguration kann im Portal auf der *Seite „Nutzung und geschätzte Kosten“* , im ASP.NET SDK in der Datei „ApplicationInsights.config“, im ASP.NET Core SDK über den Code oder im Java SDK in der Datei „ApplicationInsights.xml“ vorgenommen werden.
 * Wenn Sie benutzerdefinierte Ereignisse protokollieren und dabei sicherstellen müssen, dass eine Gruppe von Ereignissen gemeinsam beibehalten oder verworfen wird, müssen die Ereignisse den gleichen Wert für „OperationId“ aufweisen.
 * Der Stichprobenteiler *n* wird in jedem Datensatz in der Eigenschaft `itemCount` gemeldet, die in der Suche unter dem Anzeigenamen „Anforderungsanzahl“ oder „Ereignisanzahl“ angezeigt wird. `itemCount==1`, wenn keine Stichprobenerstellung aktiv ist.
 * Wenn Sie Analytics-Abfragen schreiben, sollten Sie die [Stichprobenerstellung berücksichtigen](../../azure-monitor/log-query/aggregations.md). Insbesondere sollten Sie nicht einfach nur Datensätze zählen, sondern stattdessen `summarize sum(itemCount)`verwenden.
@@ -483,7 +483,7 @@ Das clientseitige (JavaScript) SDK führt die Stichprobenerstellung mit festem P
 
 *Können mehrmals Stichproben für Telemetrieelemente erstellt werden?*
 
-*  Nein. „SamplingTelemetryProcessors“ ignorieren Elemente, wenn bereits eine Stichprobe für sie erstellt wurde. Dies gilt auch für die Erfassungs-Stichprobenerstellung: Elemente, für die bereits im SDK selbst eine Stichprobe erstellt wurde, werden nicht in die Stichprobenerstellung einbezogen.
+* Nein. „SamplingTelemetryProcessors“ ignorieren Elemente, wenn bereits eine Stichprobe für sie erstellt wurde. Dies gilt auch für die Erfassungs-Stichprobenerstellung: Elemente, für die bereits im SDK selbst eine Stichprobe erstellt wurde, werden nicht in die Stichprobenerstellung einbezogen.
 
 *Weshalb erfolgt die Stichprobenerstellung nicht einfach nach dem Prinzip „X Prozent jedes Telemetrietyps erfassen“?*
 
@@ -527,3 +527,4 @@ Das clientseitige (JavaScript) SDK führt die Stichprobenerstellung mit festem P
 ## <a name="next-steps"></a>Nächste Schritte
 
 * [Filtern](../../azure-monitor/app/api-filtering-sampling.md) erhalten Sie eine strengere Kontrolle über die Sendungen Ihres SDK.
+* Lesen Sie den Developer Network-Artikel [Optimieren von Telemetrie mit Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).

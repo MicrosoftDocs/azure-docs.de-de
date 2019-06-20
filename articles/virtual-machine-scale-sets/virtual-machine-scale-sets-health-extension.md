@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60619823"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Verwenden der Application Health-Erweiterung mit VM-Skalierungsgruppen
 Überwachung der Integrität Ihrer Anwendung ist ein wichtiges Signal für das Verwalten und Aktualisieren Ihrer Bereitstellung. Azure-VM-Skalierungsgruppen bieten Unterstützung für [parallele Upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) einschließlich [automatischer Betriebssystemimage-Upgrades](virtual-machine-scale-sets-automatic-upgrade.md), die von der Überwachung der Integrität der einzelnen Instanzen beim Upgrade Ihrer Bereitstellung abhängig sind.
@@ -66,7 +66,7 @@ Der folgende JSON-Code zeigt das Schema für die Application Health-Erweiterung.
 | NAME | Wert/Beispiel | Datentyp
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| Herausgeber | `Microsoft.ManagedServices` | Zeichenfolge |
+| publisher | `Microsoft.ManagedServices` | Zeichenfolge |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | Zeichenfolge |
 | typeHandlerVersion | `1.0` | int |
 

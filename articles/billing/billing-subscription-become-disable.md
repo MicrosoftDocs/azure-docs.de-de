@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 2da6a5c93d4bf4fcf8763be47b9eb629b930e3b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843472"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370770"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Warum ist mein Azure-Abonnement deaktiviert, und wie reaktiviere ich es?
 
@@ -63,4 +63,4 @@ Wenn Sie der Kontoadministrator sind und versehentlich ein Abonnement mit nutzun
 
 ## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Wenden Sie sich an uns.
 
-Wenn Sie Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
+Wenn Sie weitere Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).

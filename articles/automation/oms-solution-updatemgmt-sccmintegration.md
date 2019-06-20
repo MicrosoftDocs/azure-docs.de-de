@@ -10,11 +10,11 @@ ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ddc055be45eae923be31d7d11621c9427660bf74
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818305"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60499867"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrieren von System Center Configuration Manager in die Updateverwaltung
 

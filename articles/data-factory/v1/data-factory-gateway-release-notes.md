@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60486463"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Versionshinweise für Datenverwaltungsgateway
 > [!NOTE]

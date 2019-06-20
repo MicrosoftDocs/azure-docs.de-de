@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66166345"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178749"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Internet der Dinge (IoT) – Sicherheitsarchitektur
 
@@ -169,15 +169,15 @@ In diesem Abschnitt wird die zuvor beschriebene Architektur aus Sicht der Bedroh
 
 In jeder Kategorie der Azure IoT-Architektur wird in diesem Beispiel versucht, den unterschiedlichen Bedrohungen auf den einzelnen Daten- und Informationsebenen zu begegnen: Prozess, Kommunikation und Speicherung. Im Folgenden finden Sie eine Übersicht über die häufigsten Bedrohungen für die Kategorie „Prozess“, gefolgt von einer Übersicht darüber, welche Lösungen für diese Bedrohungen am besten geeignet sind:
 
-**Spoofing (S)**: Ein Angreifer kann kryptografische Schlüsseldaten von einem Gerät entwenden – entweder auf Software- oder Hardwareebene – und dann mit einem anderen physischen oder virtuellen Gerät unter der Identität des Geräts zugreifen, von dem die Schlüsseldaten gestohlen wurden. Ein gutes Beispiel hierfür sind Fernbedienungen, mit denen alle Fernseher bedient werden können und die daher gern für Scherze verwendet werden.
+**Spoofing (S)** : Ein Angreifer kann kryptografische Schlüsseldaten von einem Gerät entwenden – entweder auf Software- oder Hardwareebene – und dann mit einem anderen physischen oder virtuellen Gerät unter der Identität des Geräts zugreifen, von dem die Schlüsseldaten gestohlen wurden. Ein gutes Beispiel hierfür sind Fernbedienungen, mit denen alle Fernseher bedient werden können und die daher gern für Scherze verwendet werden.
 
-**Denial of Service (D)**: Ein Gerät kann so manipuliert werden, dass es nicht mehr funktionsfähig ist oder kommunizieren kann, indem Funkfrequenzen gestört oder Kabel durchschnitten werden. Beispielsweise liefert eine Überwachungskamera, deren Stromversorgung oder Netzwerkverbindung absichtlich unterbrochen wurde, überhaupt keine Daten mehr.
+**Denial of Service (D)** : Ein Gerät kann so manipuliert werden, dass es nicht mehr funktionsfähig ist oder kommunizieren kann, indem Funkfrequenzen gestört oder Kabel durchschnitten werden. Beispielsweise liefert eine Überwachungskamera, deren Stromversorgung oder Netzwerkverbindung absichtlich unterbrochen wurde, überhaupt keine Daten mehr.
 
-**Manipulation (M)**: Ein Angreifer kann die Software, die auf dem Gerät ausgeführt wird, teilweise oder vollständig austauschen. Unter Umständen kann mit der neuen Software dann die echte Identität des Geräts genutzt werden, falls die Schlüsseldaten oder die Kryptografieeinrichtungen mit den Schlüsseldaten für das unzulässige Programm verfügbar sind. Beispielsweise kann ein Angreifer entwendete Schlüsseldaten ggf. nutzen, um Daten vom Gerät abzufangen und im Kommunikationspfad zu unterdrücken und durch falsche Daten zu ersetzen, die mit den gestohlenen Schlüsseldaten authentifiziert werden.
+**Manipulation (M)** : Ein Angreifer kann die Software, die auf dem Gerät ausgeführt wird, teilweise oder vollständig austauschen. Unter Umständen kann mit der neuen Software dann die echte Identität des Geräts genutzt werden, falls die Schlüsseldaten oder die Kryptografieeinrichtungen mit den Schlüsseldaten für das unzulässige Programm verfügbar sind. Beispielsweise kann ein Angreifer entwendete Schlüsseldaten ggf. nutzen, um Daten vom Gerät abzufangen und im Kommunikationspfad zu unterdrücken und durch falsche Daten zu ersetzen, die mit den gestohlenen Schlüsseldaten authentifiziert werden.
 
-**Offenlegung von Daten (O)**: Wenn auf dem Gerät manipulierte Software ausgeführt wird, können mit dieser Software unter Umständen Daten an unbefugte Personen weitergegeben werden. Ein Angreifer kann beispielsweise entwendete Schlüsseldaten nutzen, um sich in den Kommunikationspfad zwischen dem Gerät und einem Controller oder Bereichsgateway oder Cloudgateway einzuschalten und Informationen abzuschöpfen.
+**Offenlegung von Daten (O)** : Wenn auf dem Gerät manipulierte Software ausgeführt wird, können mit dieser Software unter Umständen Daten an unbefugte Personen weitergegeben werden. Ein Angreifer kann beispielsweise entwendete Schlüsseldaten nutzen, um sich in den Kommunikationspfad zwischen dem Gerät und einem Controller oder Bereichsgateway oder Cloudgateway einzuschalten und Informationen abzuschöpfen.
 
-**Rechteerweiterungen (R)**: Ein Gerät, das eine bestimmte Funktion erfüllt, kann dazu gebracht werden, eine andere Funktion auszuführen. Für ein Ventil, das für das halbe Öffnen programmiert ist, kann beispielsweise erreicht werden, dass es ganz geöffnet wird.
+**Rechteerweiterungen (R)** : Ein Gerät, das eine bestimmte Funktion erfüllt, kann dazu gebracht werden, eine andere Funktion auszuführen. Für ein Ventil, das für das halbe Öffnen programmiert ist, kann beispielsweise erreicht werden, dass es ganz geöffnet wird.
 
 | **Komponente** | **Bedrohung** | **Lösung** | **Risiko** | **Implementierung** |
 | --- | --- | --- | --- | --- |

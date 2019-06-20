@@ -11,11 +11,11 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: 1d6c89e596fa976161ee28d62885e77b9400a1f1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781645"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60799494"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>VM-Momentaufnahmenerweiterung unter Linux für Azure Backup
 

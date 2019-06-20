@@ -1,25 +1,18 @@
 ---
-title: Aktualisieren eines vorhandenen Azure-Containerangebots | Microsoft-Dokumentation
+title: Aktualisieren eines vorhandenen Azure-Containerangebots | Azure Marketplace
 description: Hier erfahren Sie, wie Sie ein vorhandenes Containerangebot im Azure Marketplace aktualisieren.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2b568717b6656fb9ae15e9a6dbd27441689c4372
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.author: pabutler
+ms.openlocfilehash: 0e0db961dec69880eff6ef640e9210af6fcbc978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942598"
 ---
 # <a name="update-an-existing-container-offer"></a>Aktualisieren eines vorhandenen Containerangebots
 

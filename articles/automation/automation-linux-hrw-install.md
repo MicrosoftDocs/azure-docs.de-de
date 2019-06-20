@@ -10,11 +10,11 @@ ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225449"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60738858"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Bereitstellen eines Linux-Hybrid Runbook Workers
 

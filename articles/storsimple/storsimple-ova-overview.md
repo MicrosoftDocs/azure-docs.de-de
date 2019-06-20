@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60630318"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Einführung in das StorSimple Virtual Array
 
@@ -44,7 +44,7 @@ In der folgenden Tabelle sind die wichtigen Features von StorSimple Virtual Arra
 | Gesamtkapazität (einschließlich Cloud) |Bis zu 64 TB nutzbare Kapazität pro virtuellem Array |
 | Lokale Kapazität |390 GB bis 6,4 TB nutzbare Kapazität pro virtuellem Array (Bereitstellung von Datenträger-Speicherplatz im Bereich 500 GB bis 8 TB erforderlich) |
 | Systemeigene Protokolle |iSCSI oder SMB |
-| Recovery Time Objective (RTO) |iSCSI: weniger als 2 Minuten, unabhängig von der Größe  |
+| Recovery Time Objective (RTO) |iSCSI: weniger als 2 Minuten, unabhängig von der Größe |
 | Recovery Point Objective (RPO) |Tägliche Sicherungen und bedarfsgesteuerte Sicherungen |
 | Speicherstaffelung |Verwendung von Heat Maps zum Ermitteln, welche Daten einbezogen bzw. nicht einbezogen werden sollen |
 | Support |Vom Anbieter unterstützte Virtualisierungsinfrastruktur |

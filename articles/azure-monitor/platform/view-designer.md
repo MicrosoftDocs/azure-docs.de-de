@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61342005"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Erstellen benutzerdefinierter Ansichten mithilfe des Ansicht-Designers in Azure Monitor
 Mithilfe des Ansicht-Designers in Azure Monitor können Sie verschiedene benutzerdefinierten Ansichten im Azure-Portal erstellen, in denen Sie Daten in Ihrem Log Analytics-Arbeitsbereich visualisieren können. Dieser Artikel bietet eine Übersicht über den Ansicht-Designer und die Verfahren zum Erstellen und Bearbeiten von benutzerdefinierten Ansichten.

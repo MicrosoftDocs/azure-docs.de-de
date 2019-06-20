@@ -16,6 +16,10 @@
       href: manage-app-groups.md
     - name: 5. Erstellen eines Hostpools zum Überprüfen von Dienstupdates
       href: create-validation-host-pool.md
+    - name: 6. Bereitstellen eines Verwaltungstools
+      href: manage-resources-using-ui.md
+    - name: 7. Einrichten von Dienstwarnungen
+      href: set-up-service-alerts.md
 - name: Vorgehensweise
   items:
     - name: Herstellen einer Verbindung mit Windows Virtual Desktop-Ressourcen
@@ -40,6 +44,10 @@
       href: configure-vm-gpu.md
     - name: Automatisches Skalieren von Sitzungshosts
       href: set-up-scaling-script.md
+    - name: Anpassen von Feeds für Windows Virtual Desktop-Benutzer
+      href: customize-feed-for-virtual-desktop-users.md
+    - name: Anpassen der RDP-Eigenschaften
+      href: customize-rdp-properties.md
 - name: Konzepte
   items:
     - name: Windows Virtual Desktop-Umgebung
@@ -48,20 +56,24 @@
       href: delegated-access-virtual-desktop.md
     - name: Lastenausgleichsmethoden für Hostpools
       href: host-pool-load-balancing.md
+    - name: FSLogix-Profilcontainer und Azure-Dateien
+      href: fslogix-containers-azure-files.md
 - name: Problembehandlung
   items:
-    - name: 'Übersicht über die Problembehandlung, Feedback und Support'
+    - name: 'Problembehandlung: Übersicht, Feedback und Support'
       href: troubleshoot-set-up-overview.md
     - name: Identifizieren von Problemen mit der Diagnosefunktion
       href: diagnostics-role-service.md
-    - name: Erstellung von Mandanten- und Hostpools
+    - name: Mandanten- und Hostpoolerstellung
       href: troubleshoot-set-up-issues.md
     - name: Konfiguration des virtuellen Sitzungshostcomputers
       href: troubleshoot-vm-configuration.md
     - name: Remotedesktop-Clientverbindungen
       href: troubleshoot-client-connection.md
-    - name: Windows Virtual Desktop – PowerShell
+    - name: 'Windows Virtual Desktop: PowerShell'
       href: troubleshoot-powershell.md
+    - name: Diagnostizieren von Problemen mit der Grafikleistung
+      href: remotefx-graphics-performance-counters.md
 - name: Verweis
   items:
     - name: PowerShell

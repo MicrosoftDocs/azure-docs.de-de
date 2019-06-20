@@ -11,11 +11,11 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60685406"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Ausführen von Aktionen basierend auf dem Gruppenstatus mit Bereichen in Azure Logic Apps
 
@@ -125,7 +125,7 @@ Sie können Ihre Logik-App jederzeit speichern, machen Sie also häufig Gebrauch
 
    1. Wenn die Liste mit den dynamischen Inhalten erscheint, wählen Sie **Ausdruck** aus.
 
-   1. Suchen Sie die Funktion **div()**, und wählen Sie sie aus. 
+   1. Suchen Sie die Funktion **div()** , und wählen Sie sie aus. 
       Setzen Sie den Cursor zwischen die Klammern der Funktion.
 
    1. Während sich der Cursor innerhalb der Klammern der befindet, wählen Sie **Dynamischer Inhalt** aus, damit die dynamische Inhaltsliste angezeigt wird. 
@@ -165,7 +165,7 @@ Fügen Sie als nächstes einen Bereich hinzu, damit Sie bestimmte Aktionen grupp
 1. Fügen im gewünschten Workflow-Speicherort einen Bereich hinzu. Um z. B. einen Bereich zwischen bestehenden Schritten im Workflow der Logik-App hinzuzufügen, führen Sie diese Schritte aus: 
 
    1. Bewegen Sie den Mauszeiger über den Pfeil, wo Sie den Bereich hinzufügen möchten. 
-   Wählen Sie das **Pluszeichen** (**+**) > **Aktion hinzufügen** aus.
+   Wählen Sie das **Pluszeichen** ( **+** ) > **Aktion hinzufügen** aus.
 
       ![Hinzufügen eines Bereichs](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 

@@ -11,11 +11,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428776"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62126362"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Bedarfsgerechtes Bereitstellen und Überwachen von IoT Edge-Modulen mithilfe des Azure-Portals
 
@@ -109,7 +109,7 @@ Metriken bieten zusammenfassende Angaben zu den verschiedenen Zuständen, die ei
 
 1. Geben Sie eine Abfrage unter **Metrikkriterien** ein. Diese Abfrage basiert auf [gemeldeten Eigenschaften](module-edgeagent-edgehub.md#edgehub-reported-properties) eines IoT Edge-Hub-Modulzwillings. Die Metrik stellt die Anzahl der von der Abfrage zurückgegebenen Zeilen dar.
 
-Beispiel: 
+Beispiel:
 
 ```sql
 SELECT deviceId FROM devices
@@ -151,7 +151,7 @@ Sie können ein IoT Edge-Modul entweder über Azure Marketplace oder das Azure-P
 
 1. Legen Sie fest, ob das Modul einer neuen Bereitstellung oder einem Klon einer vorhandenen Bereitstellung hinzugefügt werden soll; wählen Sie für die Klonoption die vorhandene Bereitstellung aus der Liste aus.
 
-1. Wählen Sie **Erstellen**, um mit der Erstellung einer bedarfsorientierten Bereitstellung fortzufahren. Sie können die gleichen Details wie für jede andere Bereitstellung angeben.
+1. Wählen Sie **Erstellen**, um mit der Erstellung einer bedarfsorientierten Bereitstellung fortzufahren. Sie können die gleichen Details angeben, wie für jede Bereitstellung.
 
 ## <a name="monitor-a-deployment"></a>Überwachen einer Bereitstellung
 

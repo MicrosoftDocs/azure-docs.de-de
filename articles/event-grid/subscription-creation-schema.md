@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
 ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60822786"
 ---
 # <a name="event-grid-subscription-schema"></a>Event Grid-Abonnementschema
 
@@ -35,7 +35,7 @@ Der Name des Ereignisabonnements muss 3 bis 64 Zeichen umfassen und darf nur die
 
 | Eigenschaft | Typ | BESCHREIBUNG |
 | -------- | ---- | ----------- |
-| Ziel | object | Das Objekt, das den Endpunkt definiert. |
+| destination | object | Das Objekt, das den Endpunkt definiert. |
 | filter | object | Ein optionales Feld zum Filtern der Ereignistypen. |
 
 ### <a name="destination-object"></a>destination-Objekt

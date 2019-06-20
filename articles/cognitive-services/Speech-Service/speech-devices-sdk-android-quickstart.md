@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: d5af2bb61eeb986f02a31d45ff9236ecc0c8427e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025738"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425661"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Schnellstart: Ausführen der Speech Devices SDK-Beispiel-App unter Android
 
-In dieser Schnellstartanleitung erfahren Sie, wie Sie das Speech Devices SDK für Android verwenden, um ein sprachaktiviertes Produkt zu erstellen.
+In dieser Schnellstartanleitung erfahren Sie, wie Sie das Speech Devices SDK für Android verwenden, um ein sprachaktiviertes Produkt zu erstellen oder es als Gerät für die [Unterhaltungstranskription](conversation-transcription-service.md) zu verwenden.
 
 Für diese Anleitung wird ein [Azure Cognitive Services-Konto](get-started.md) mit einer Ressource für die Speech-Dienste benötigt. Wenn Sie über kein Konto verfügen, können Sie über die [kostenlose Testversion](https://azure.microsoft.com/try/cognitive-services/) einen Abonnementschlüssel abrufen.
 
@@ -33,9 +33,11 @@ Bevor Sie das Speech Devices SDK verwenden, sind folgende Schritte erforderlich:
 
 * Laden Sie die aktuelle Version des [Speech Devices SDK](https://aka.ms/sdsdk-download) herunter, und extrahieren Sie die ZIP in Ihrem Arbeitsverzeichnis.
    > [!NOTE]
-   > Die ZIP-Datei enthält die Android-Beispiel-App.
+   > Die Datei „Android-Sample-Release.zip“ enthält die Android-Beispielanwendung und dieser Schnellstart geht davon aus, dass die App in das Verzeichnis „C:\SDSDK\Android-Sample-Release“ extrahiert wurde.
 
 * Beziehen eines [Azure-Abonnementschlüssels für die Speech-Dienste](get-started.md)
+
+* Wenn Sie planen, die Unterhaltungstranskription zu verwenden, müssen Sie ein [kreisförmiges Mikrofongerät](get-speech-devices-sdk.md) verwenden und der Dienst ist derzeit nur für „en-US“ und „zh-CN“ in den Regionen, „centralus“ (USA, Mitte) und „eastasia“ (Asien, Osten) verfügbar. Sie müssen in einer dieser Regionen über einen Sprachschlüssel verfügen, um die Unterhaltungstranskription verwenden zu können.
 
 * Wenn Sie die Speech-Dienste zum Identifizieren von Absichten (oder Aktionen) in Benutzeräußerungen verwenden möchten, benötigen Sie ein [LUIS-Abonnement (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Weitere Informationen zu LUIS und zur Absichtserkennung finden Sie unter [Tutorial: Erkennen von Absichten anhand von gesprochener Sprache mit dem Speech SDK für C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
@@ -82,16 +84,23 @@ Erstellen und installieren Sie zum Überprüfen des Setups Ihres Development Kit
 
 1. Fügen Sie dem Quellcode den Abonnementschlüssel für Ihre Spracherkennung hinzu. Wenn Sie die Absichtserkennung ausprobieren möchten, fügen Sie auch Ihren Abonnementschlüssel für den [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) und die Anwendungs-ID hinzu.
 
-   Ihre Schlüssel und Anwendungsinformationen müssen in die folgenden Zeilen der Quelldatei „MainActivity.java“ eingefügt werden:
+   Für Sprach- und LUIS geht Ihre Informationen in MainActivity.java:
 
    ```java
-   // Subscription
-   private static final String SpeechSubscriptionKey = "[your speech key]";
-   private static final String SpeechRegion = "westus";
-   private static final String LuisSubscriptionKey = "[your LUIS key]";
-   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-   private static final String LuisAppId = "[your LUIS app ID]"
+    // Subscription
+    private static String SpeechSubscriptionKey = "<enter your subscription info here>";
+    private static String SpeechRegion = "westus"; // You can change this if your speech region is different.
+    private static String LuisSubscriptionKey = "<enter your subscription info here>";
+    private static String LuisRegion = "westus2"; // you can change this, if you want to test the intent, and your LUIS region is different.
+    private static String LuisAppId = "<enter your LUIS AppId>";
    ```
+
+    Bei Verwendung von Konversation-Aufzeichnung wird Ihre Sprachinformationen für Schlüssel und Region auch in conversation.java erforderlich:
+
+   ```java
+    private static final String CTSKey = "<Conversation Transcription Service Key>";
+    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
+    ```
 
 1. Das standardmäßige Aktivierungswort (Schlüsselwort) ist „Computer“. Auf Wunsch können Sie eines der anderen angebotenen Aktivierungswörter wie „Maschine“ oder „Assistent“ ausprobieren. Die Ressourcendateien für diese alternativen Aktivierungswörter finden Sie im Speech-Geräte-SDK im Ordner „keyword“. „C:\SDSDK\Android-Sample-Release\keyword\Computer“ enthält beispielsweise die Dateien, die für das Aktivierungswort „Computer“ verwendet werden.
 
@@ -135,6 +144,10 @@ Erstellen und installieren Sie zum Überprüfen des Setups Ihres Development Kit
 1. Die Beispielanwendung des Speech-Geräte-SDK wird gestartet und zeigt die folgenden Optionen an:
 
    ![Speech-Geräte-SDK-Beispielanwendung und Optionen](media/speech-devices-sdk/qsg-8.png)
+
+1. Probieren Sie die neue Konversation Aufzeichnung-Demo. Beginnen Sie die Transkription mit „Sitzung starten“. Standardmäßig ist jeder Gast. Jedoch wenn Sie des Teilnehmers Voice Signaturen haben sie können platziert werden in eine Datei `/video/participants.properties` auf dem Gerät. Um die Sprach-Signatur zu generieren, sehen Sie sich [transkribieren Konversationen (SDK)](how-to-use-conversation-transcription-service.md).
+
+   ![Demoanwendung für die Unterhaltungstranskription](media/speech-devices-sdk/qsg-15.png)
 
 1. Experimentieren Sie.
 

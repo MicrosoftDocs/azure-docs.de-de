@@ -16,11 +16,11 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895463"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60302730"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Verwenden des StorSimple-Geräte-Managers zum Verwalten von Warnungen für StorSimple Virtual Array
 
@@ -143,8 +143,8 @@ In den folgenden Tabellen sind einige StorSimple-Warnungen aufgeführt, die unte
 
 | Warnungstext | Ereignis | Weitere Informationen/Empfohlene Maßnahmen |
 |:--- |:--- |:--- |
-| Die Sicherung von <*Name des Geräts*\> konnte nicht abgeschlossen werden. |Fehler beim Sicherungsauftrag. |Eine Sicherung konnte nicht erstellt werden. Erwägen Sie eine der folgenden Maßnahmen:<ul><li>Der Sicherungsvorgang kann aufgrund möglicher Konnektivitätsprobleme nicht erfolgreich abgeschlossen werden. Stellen Sie sicher, dass keine Konnektivitätsprobleme vorliegen. Weitere Informationen zur Behandlung von Verbindungsproblemen finden Sie auf der [lokalen Webbenutzeroberfläche](storsimple-ova-web-ui-admin.md) des virtuellen Geräts.</li><li>Sie haben das verfügbare Speicherlimit erreicht. Erwägen Sie, nicht mehr benötigte Sicherungen zu löschen, um mehr Speicherplatz bereitzustellen.</li></ul>  Beheben Sie die Probleme, löschen Sie die Warnung, und versuchen Sie, den Vorgang zu wiederholen. |
-| Das Klonen von <*Name des Geräts*\> konnte nicht abgeschlossen werden. |Fehler beim Klonauftrag. |Ein Klon konnte nicht erstellt werden. Erwägen Sie eine der folgenden Maßnahmen:<ul><li>Unter Umständen ist Ihre Sicherungsliste nicht gültig. Aktualisieren Sie die Liste, um ihre Gültigkeit sicherzustellen.</li><li>Unter Umständen verhindern Verbindungsprobleme, dass der Klonvorgang erfolgreich abgeschlossen wird. Stellen Sie sicher, dass keine Konnektivitätsprobleme vorliegen.</li><li>Sie haben das verfügbare Speicherlimit erreicht. Erwägen Sie, nicht mehr benötigte Sicherungen zu löschen, um mehr Speicherplatz bereitzustellen.</li></ul> Beheben Sie die Probleme, löschen Sie die Warnung, und versuchen Sie, den Vorgang zu wiederholen. |
+| Die Sicherung von <*Name des Geräts*\> konnte nicht abgeschlossen werden. |Fehler beim Sicherungsauftrag. |Eine Sicherung konnte nicht erstellt werden. Erwägen Sie eine der folgenden Maßnahmen:<ul><li>Der Sicherungsvorgang kann aufgrund möglicher Konnektivitätsprobleme nicht erfolgreich abgeschlossen werden. Stellen Sie sicher, dass keine Konnektivitätsprobleme vorliegen. Weitere Informationen zur Behandlung von Verbindungsproblemen finden Sie auf der [lokalen Webbenutzeroberfläche](storsimple-ova-web-ui-admin.md) des virtuellen Geräts.</li><li>Sie haben das verfügbare Speicherlimit erreicht. Erwägen Sie, nicht mehr benötigte Sicherungen zu löschen, um mehr Speicherplatz bereitzustellen.</li></ul> Beheben Sie die Probleme, löschen Sie die Warnung, und versuchen Sie, den Vorgang zu wiederholen. |
+| Das Klonen von <*Name des Geräts*\> konnte nicht abgeschlossen werden. |Fehler beim Klonauftrag. |Ein Klon konnte nicht erstellt werden. Erwägen Sie eine der folgenden Maßnahmen:<ul><li>Unter Umständen ist Ihre Sicherungsliste nicht gültig. Aktualisieren Sie die Liste, um ihre Gültigkeit sicherzustellen.</li><li>Unter Umständen verhindern Verbindungsprobleme, dass der Klonvorgang erfolgreich abgeschlossen wird. Stellen Sie sicher, dass keine Konnektivitätsprobleme vorliegen.</li><li>Sie haben das verfügbare Speicherlimit erreicht. Erwägen Sie, nicht mehr benötigte Sicherungen zu löschen, um mehr Speicherplatz bereitzustellen.</li></ul>Beheben Sie die Probleme, löschen Sie die Warnung, und versuchen Sie, den Vorgang zu wiederholen. |
 
 ### <a name="networking-alerts"></a>Netzwerkwarnungen
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071983"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956471"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamisches Erstellen und Verwenden eines persistenten Volumes mit Azure-Datenträgern in Azure Kubernetes Service (AKS)
 
@@ -39,6 +39,8 @@ Jeder AKS-Cluster schließt zwei vorab erstellte Speicherklassen ein, die beide 
     * Der Standardspeicher basiert auf Festplatten und stellt eine kostengünstige, leistungsstarke Speicherlösung dar. Standarddatenträger sind ideal für eine kostengünstige Entwicklungs- und Testworkload.
 * Die Speicherklasse *managed-premium* stellt einen Azure Premium-Datenträger bereit.
     * Premium-Datenträger zeichnen sich durch SSD-basierte hohe Leistung und geringe Wartezeit aus. Sie eignen sich hervorragend für virtuelle Computer, auf denen die Produktionsworkload ausgeführt wird. Wenn die AKS-Knoten in dem Cluster Storage Premium verwenden, wählen Sie die *managed-premium*-Klasse aus.
+    
+Diese Standardspeicherklassen erlauben nicht, die Größe des Volumes nach der Erstellung zu aktualisieren. Um dies zu ermöglichen, fügen Sie einer der Standardspeicherklassen die Zeile *allowVolumeExpansion: true* hinzu, oder erstellen Sie Ihre eigene benutzerdefinierte Speicherklasse. Sie können eine vorhandene Speicherklasse mit dem Befehl `kubectl edit sc` bearbeiten. Weitere Informationen zu Speicherklassen und der Erstellung eigener Speicherklassen finden Sie unter [Speicheroptionen für Anwendungen in AKS][storage-class-concepts].
 
 Mit dem Befehl [kubectl get sc][kubectl-get] können Sie die vorab erstellten Speicherklassen anzeigen. Im folgenden Beispiel werden die in einem AKS-Cluster verfügbaren vorab erstellten Speicherklassen gezeigt:
 
@@ -86,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Verwenden des persistenten Volumes
 
-Nachdem der Anspruch auf ein persistentes Volumes erstellt und der Datenträger erfolgreich bereitgestellt wurde, kann ein Pod mit Zugriff auf den Datenträger erstellt werden. Das folgende Manifest erstellt einen grundlegenden NGINX-Pod, der den Anspruch auf das persistente Volume *azure-managed-disk* verwendet, um den Azure-Datenträger im Pfad `/mnt/azure` einzubinden.
+Nachdem der Anspruch auf ein persistentes Volumes erstellt und der Datenträger erfolgreich bereitgestellt wurde, kann ein Pod mit Zugriff auf den Datenträger erstellt werden. Das folgende Manifest erstellt einen grundlegenden NGINX-Pod, der den Anspruch auf das persistente Volume *azure-managed-disk* verwendet, um den Azure-Datenträger im Pfad `/mnt/azure` einzubinden. Geben Sie für Windows Server-Container (derzeit in der Vorschau in AKS) einen *mountPath* gemäß Windows-Pfadkonvention an, z.B. *D:* .
 
 Erstellen Sie eine Datei namens `azure-pvc-disk.yaml`, und fügen Sie das folgende Manifest ein.
 
@@ -279,3 +281,4 @@ Erfahren Sie mehr über persistente Kubernetes-Volumes bei Verwendung von Azure-
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes

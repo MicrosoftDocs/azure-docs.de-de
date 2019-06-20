@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8874039d148cc89d3f47979370e64dd78777f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325747"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131308"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Zuordnen einer benutzerdefinierten Domäne zu einer Funktionen-App
 
-Dieses Beispielskript erstellt eine Funktions-App in einem App Service-Plan und ordnet sie dann einer von Ihnen bereitgestellten benutzerdefinierten Domäne zu. Wenn Ihre Funktionen-App unter einem [App Service-Plan](../functions-scale.md#app-service-plan) gehostet wird, können Sie eine benutzerdefinierte Domäne zuordnen, indem Sie entweder einen CNAME- oder A-Eintrag verwenden. Für Funktionen-Apps unter einem [Verbrauchstarif](../functions-scale.md#consumption-plan) wird nur die CNAME-Option unterstützt. Dieses Beispiel erstellt einen App Service-Plan und erfordert einen A-Eintrag zum zuordnen der Domäne. 
+Dieses Beispielskript erstellt eine Funktions-App in einem App Service-Plan und ordnet sie dann einer von Ihnen bereitgestellten benutzerdefinierten Domäne zu. Wenn Ihre Funktions-App unter einem [Premium-Plan](../functions-scale.md#premium-plan-public-preview) oder einem [App Service-Plan](../functions-scale.md#app-service-plan) gehostet wird, können Sie entweder mit einem CNAME- oder A-Eintrag eine benutzerdefinierte Domäne zuordnen. Für Funktionen-Apps unter einem [Verbrauchstarif](../functions-scale.md#consumption-plan) wird nur die CNAME-Option unterstützt. Dieses Beispiel erstellt einen App Service-Plan und erfordert einen A-Eintrag zum zuordnen der Domäne. 
 
 Zum Ausführen dieses Beispielskripts müssen Sie bereits einen A-Eintrag in Ihrer benutzerdefinierten Domäne konfiguriert haben, die auf den Standarddomänennamen Ihrer Web-App verweist. Weitere Informationen finden Sie in den [Anweisungen zum Zuordnen von benutzerdefinierten Domäne für Azure App Service](https://aka.ms/appservicecustomdns). 
 

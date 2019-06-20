@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 06/06/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: d309765e6c4b0b0cc8a7e92977134d4135a69a13
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: be05cec8e3d755f1b04e5ecc5ec7c740053a74d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995468"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073032"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Clientbibliotheksreferenz für benutzerdefinierte Funktionen
 
@@ -30,7 +30,7 @@ Bei angegebenem Raumbezeichner ruft diese Funktion den Raum aus dem Graphen ab.
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ---------- | ------------------- | ------------ |
 | *id*  | `guid` | Raumbezeichner |
 
@@ -40,7 +40,7 @@ Bei angegebenem Sensorbezeichner ruft diese Funktion den Sensor aus dem Graphen 
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ---------- | ------------------- | ------------ |
 | *id*  | `guid` | Sensorbezeichner |
 
@@ -50,7 +50,7 @@ Bei angegebenem Gerätebezeichner ruft diese Funktion das Gerät aus dem Graphen
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *id* | `guid` | Gerätebezeichner |
 
@@ -60,7 +60,7 @@ Nach Angabe eines Sensorbezeichners und dessen Datentyps ruft diese Funktion den
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | Sensorbezeichner |
 | *dataType*  | `string` | Sensordatentyp |
@@ -71,7 +71,7 @@ Nach Angabe eines Raumbezeichners und des Wertnamens ruft diese Funktion den akt
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | Raumbezeichner |
 | *valueName* | `string` | Name der Raumeigenschaft |
@@ -82,7 +82,7 @@ Nach Angabe eines Sensorbezeichners und dessen Datentyps ruft diese Funktion die
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Sensorbezeichner |
 | *dataType* | `string` | Sensordatentyp |
@@ -93,7 +93,7 @@ Nach Angabe eines Raumbezeichners und des Wertnamens ruft diese Funktion die fr�
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Raumbezeichner |
 | *valueName* | `string` | Name der Raumeigenschaft |
@@ -104,7 +104,7 @@ Nach Angabe eines Raumbezeichners ruft diese Funktion die untergeordneten Räume
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Raumbezeichner |
 
@@ -114,7 +114,7 @@ Nach Angabe eines Raumbezeichners ruft diese Funktion die untergeordneten Sensor
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Raumbezeichner |
 
@@ -124,7 +124,7 @@ Nach Angabe eines Raumbezeichners ruft diese Funktion die untergeordneten Gerät
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Raumbezeichner |
 
@@ -134,7 +134,7 @@ Nach Angabe eines Gerätebezeichners ruft diese Funktion die untergeordneten Sen
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Gerätebezeichner |
 
@@ -144,7 +144,7 @@ Nach Angabe eines Raumbezeichners ruft diese Funktion den übergeordneten Raum a
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | Raumbezeichner |
 
@@ -154,7 +154,7 @@ Nach Angabe eines Sensorbezeichners ruft diese Funktion den übergeordneten Raum
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Sensorbezeichner |
 
@@ -164,7 +164,7 @@ Nach Angabe eines Gerätebezeichners ruft diese Funktion den übergeordneten Rau
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Gerätebezeichner |
 
@@ -174,7 +174,7 @@ Nach Angabe eines Sensorbezeichners ruft diese Funktion das übergeordnete Gerä
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Sensorbezeichner |
 
@@ -184,7 +184,7 @@ Nach Angabe eines Raumbezeichners ruft diese Funktion die Eigenschaft und deren 
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Raumbezeichner |
 | *propertyName* | `string` | Name der Raumeigenschaft |
@@ -195,7 +195,7 @@ Nach Angabe eines Sensorbezeichners ruft diese Funktion die Eigenschaft und dere
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Sensorbezeichner |
 | *propertyName* | `string` | Name der Sensoreigenschaft |
@@ -206,7 +206,7 @@ Nach Angabe eines Gerätebezeichners ruft diese Funktion die Eigenschaft und der
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Gerätebezeichner |
 | *propertyName* | `string` | Name der Geräteeigenschaft |
@@ -217,7 +217,7 @@ Diese Funktion legt den Wert des Sensorobjekts mit dem angegebenen Datentyp fest
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Sensorbezeichner |
 | *dataType*  | `string` | Sensordatentyp |
@@ -229,7 +229,7 @@ Diese Funktion legt den Wert des Raumobjekts mit dem angegebenen Datentyp fest.
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Raumbezeichner |
 | *dataType* | `string` | Datentyp |
@@ -241,7 +241,7 @@ Diese Funktion protokolliert die folgende Meldung in der benutzerdefinierten Fun
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *message* | `string` | Die zu protokollierende Meldung |
 
@@ -251,7 +251,7 @@ Diese Funktion sendet eine benutzerdefinierte Benachrichtigung, die erledigt wer
 
 **Art**: globale Funktion
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *topologyObjectId*  | `guid` | Bezeichner des Graphobjekts. Beispiele: Raum-, Sensor- und Geräte-ID.|
 | *topologyObjectType*  | `string` | Beispiele: Sensor und Gerät.|
@@ -292,7 +292,7 @@ Diese Funktion gibt die untergeordneten Geräte des aktuellen Raums zurück.
 
 Diese Funktion gibt die erweiterte Eigenschaft und deren Wert für den aktuellen Raum zurück.
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | Name der erweiterten Eigenschaft |
 
@@ -300,7 +300,7 @@ Diese Funktion gibt die erweiterte Eigenschaft und deren Wert für den aktuellen
 
 Diese Funktion gibt den Wert des aktuellen Raums zurück.
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *valueName* | `string` | Name des Werts |
 
@@ -308,7 +308,7 @@ Diese Funktion gibt den Wert des aktuellen Raums zurück.
 
 Diese Funktion gibt die früheren Werte des aktuellen Raums zurück.
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *valueName* | `string` | Name des Werts |
 
@@ -316,7 +316,7 @@ Diese Funktion gibt die früheren Werte des aktuellen Raums zurück.
 
 Diese Funktion sendet eine Benachrichtigung mit der angegebenen Nutzlast.
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | JSON-Nutzlast, die in die Benachrichtigung eingefügt werden soll |
 
@@ -352,7 +352,7 @@ Diese Funktion gibt die untergeordneten Sensoren des aktuellen Geräts zurück.
 
 Diese Funktion gibt die erweiterte Eigenschaft und deren Wert für das aktuelle Gerät zurück.
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | Name der erweiterten Eigenschaft |
 
@@ -360,7 +360,7 @@ Diese Funktion gibt die erweiterte Eigenschaft und deren Wert für das aktuelle 
 
 Diese Funktion sendet eine Benachrichtigung mit der angegebenen Nutzlast.
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | JSON-Nutzlast, die in die Benachrichtigung eingefügt werden soll |
 
@@ -400,7 +400,7 @@ Diese Funktion gibt das übergeordnete Gerät des aktuellen Sensors zurück.
 
 Diese Funktion gibt die erweiterte Eigenschaft und deren Wert für den aktuellen Sensor zurück.
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | Name der erweiterten Eigenschaft |
 
@@ -416,7 +416,7 @@ Diese Funktion gibt die früheren Werte des aktuellen Sensors zurück.
 
 Diese Funktion sendet eine Benachrichtigung mit der angegebenen Nutzlast.
 
-| Parameter  | Typ                | BESCHREIBUNG  |
+| Parameter  | Type                | BESCHREIBUNG  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | JSON-Nutzlast, die in die Benachrichtigung eingefügt werden soll |
 

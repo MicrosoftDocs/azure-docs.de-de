@@ -12,17 +12,17 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784055"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479225"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Tarif „Unternehmenskritisch“ – Azure SQL-Datenbank
 
 > [!NOTE]
-> Der Tarif „Unternehmenskritisch“ hat im DTU-Kaufmodell den Namen „Premium“. Einen Vergleich zwischen vCore-basierten Kaufmodell und DTU-basiertem Kaufmodell finden Sie unter [Kaufmodelle für Azure SQL-Datenbank und Ressourcen](sql-database-purchase-models.md).
+> Der Tarif „Unternehmenskritisch“ hat im DTU-Kaufmodell den Namen „Premium“. Einen Vergleich zwischen vCore-basiertem Kaufmodell und DTU-basiertem Kaufmodell finden Sie unter [Kaufmodelle für Azure SQL-Datenbank und Ressourcen](sql-database-purchase-models.md).
 
 Azure SQL-Datenbank basiert auf der an die Cloudumgebung angepasste Architektur der SQL Server-Datenbank-Engine, um die Verfügbarkeit von 99,99 % selbst bei Infrastrukturausfällen sicherzustellen. In Azure SQL-Datenbank werden drei Architekturmodelle verwendet:
 - Universell/Standard 
@@ -49,6 +49,7 @@ Die Dienstebene „Unternehmenskritisch“ ist für die Anwendungen gedacht, die
 
 ## <a name="next-steps"></a>Nächste Schritte
 
+- Sehen Sie sich die Ressourcenmerkmale (Anzahl von Kernen, E/A, Arbeitsspeicher) der Ebene „Unternehmenskritisch“ für eine [verwaltete Instanz](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), für eine Einzeldatenbank im [V-Kern-Modell](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) bzw. [DTU-Modell](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier) oder für einen Pool für elastische Datenbanken im [V-Kern-Modell](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) und [DTU-Modell](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits) an.
 - Erfahren Sie mehr über die Tarife [Universell](sql-database-service-tier-general-purpose.md) und [Hyperscale](sql-database-service-tier-hyperscale.md).
 - Erfahren Sie mehr über [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Weitere Optionen zu Hochverfügbarkeit und Notfallwiederherstellung finden Sie unter [Geschäftskontinuität](sql-database-business-continuity.md).

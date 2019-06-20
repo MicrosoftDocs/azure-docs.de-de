@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 60e9aa1daaa2edea534dabd549ed666fdcdd1940
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a29aa4ac802cfc708203e7e2d125cb421e4bb9a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60937418"
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>Erstellen eines virtuellen Netzwerks (klassisch) über das Azure-Portal
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

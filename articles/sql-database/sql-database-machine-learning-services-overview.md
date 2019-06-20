@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 172bf201e2327f5ae8db0ac3c82f2f07e3f0ffc9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: fe472b8a19b45d7f7b00a8f858c9179d6ee51999
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997477"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951585"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Machine Learning Services (mit R) in Azure SQL-Datenbank (Vorschauversion)
 
@@ -27,7 +27,7 @@ Machine Learning Services ist eine Funktion von Azure SQL-Datenbank zum Ausführ
 > Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
 > Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Die öffentliche Vorschau ist für Einzeldatenbanken und Pools für elastische Datenbanken mit dem V-Kern-basierten Kaufmodell in den Diensttarifen **Universell** und **Unternehmenskritisch** verfügbar. In dieser ersten öffentlichen Vorschauversion werden weder der Diensttarif **Hyperscale** noch die Bereitstellungsoption **Verwaltete Instanz** unterstützt. R ist derzeit die einzige unterstützte Sprache. Momentan ist keine Unterstützung für Python vorhanden.
+> Die öffentliche Vorschau ist für Einzeldatenbanken und Pools für elastische Datenbanken mit dem vCore-basierten Kaufmodell in den Dienstebenen **Universell** und **Unternehmenskritisch** verfügbar. In dieser ersten öffentlichen Vorschauversion werden weder die Dienstebene **Hyperscale** noch die Bereitstellungsoption **Verwaltete Instanz** unterstützt. R ist derzeit die einzige unterstützte Sprache. Momentan ist keine Unterstützung für Python vorhanden.
 >
 > Die Vorschauversion ist derzeit in den folgenden Regionen verfügbar: „Europa, Westen“, „Europa, Norden“, „USA, Westen 2“, „USA, Osten“, „USA, Süden-Mitte“, „USA, Norden-Mitte“, „Kanada, Mitte“, „Asien, Südosten“, „Indien, Süden“ und „Australien, Südosten“.
 >
@@ -49,9 +49,7 @@ Die am häufigsten verwendeten Open-Source-R-Pakete sind bei Machine Learning Se
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR ist die primäre Bibliothek für skalierbares R. Die Funktionen in dieser Bibliothek gehören zu den am häufigsten verwendeten. Datentransformationen und -manipulationen, statistische Zusammenfassung, Visualisierung und viele Formen der Modellierung und Analyse sind in diesen Bibliotheken enthalten. Darüber hinaus verteilen die Funktionen in diesen Bibliotheken die Workloads automatisch auf die verfügbaren Kerne, um die Verarbeitung zu parallelisieren, und sie bieten die Möglichkeit, die Daten in Blöcken zu verarbeiten, die von der Berechnungs-Engine koordiniert und verwaltet werden. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML fügt Algorithmen für maschinelles Lernen hinzu, mit denen Sie benutzerdefinierte Modelle für die Text-, Bild- und Standpunktanalyse erstellen können. |
 
-<!-- Add this back when the new package-related article is written
-In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
--->
+Zusätzlich zu den vorinstallierten Paketen können Sie [weitere Pakete installieren](sql-database-machine-learning-services-add-r-packages.md).
 
 <a name="signup"></a>
 
@@ -69,6 +67,6 @@ Es ist nicht empfehlenswert, Machine Learning Services mit R während der öffen
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Lesen Sie [Key differences between Machine Learning Services in Azure SQL Database and SQL Server](sql-database-machine-learning-services-differences.md) (Wichtige Unterschiede zwischen Machine Learning Services in Azure SQL-Datenbank und SQL Server).
-- Informationen zum Verwenden von Machine Learning Services (mit R) in Azure SQL-Datenbank finden Sie unter [Schnellstart](sql-database-connect-query-r.md).
-- Erfahren Sie mehr mit [Tutorials für die R-Sprache von SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials).
+- Lesen Sie [Key differences from SQL Server Machine Learning Services](sql-database-machine-learning-services-differences.md) (Wichtige Unterschiede zwischen Machine Learning Services in Azure SQL Server).
+- Wenn Sie erfahren möchten, wie Sie R zum Abfragen von Machine Learning Services in Azure SQL-Datenbank (Vorschauversion) verwenden, lesen Sie die [Schnellstartanleitung](sql-database-connect-query-r.md).
+- Für die ersten Schritte mit einfachen R-Skripts lesen Sie [Erstellen und Ausführen einfacher R-Skripts in Machine Learning Services von Azure SQL-Datenbank (Vorschauversion)](sql-database-quickstart-r-create-script.md).

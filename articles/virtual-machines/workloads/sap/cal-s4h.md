@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60836720"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Bereitstellen von SAP S/4HANA oder BW/4HANA in Azure
 In diesem Artikel wird beschrieben, wie Sie S/4HANA über die SAP Cloud Appliance Library (SAP CAL) 3.0 in Azure bereitstellen. Zum Bereitstellen anderer SAP HANA-basierter Lösungen, z.B. BW/4HANA, befolgen Sie dieselben Schritte.

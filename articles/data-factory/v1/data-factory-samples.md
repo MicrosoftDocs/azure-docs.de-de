@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020811"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61260043"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory Editor – Beispiele
 > [!NOTE]

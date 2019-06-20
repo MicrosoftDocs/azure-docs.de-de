@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413714"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Wiederherstellen von Sicherungsdaten in Azure Service Fabric

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b7968de8ad4357241eb8d86d51e991f4bbab959d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882071"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65601574"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Wire Data 2.0-Lösung (Vorschauversion) in Azure Monitor
 
@@ -58,12 +58,12 @@ Da Sie Metadaten anzeigen, ist der Vorgang nicht unbedingt gut für die eingehen
 
 Wire Data ruft ihre Daten vom Microsoft Dependency-Agent ab. Der Dependency-Agent ist abhängig vom Log Analytics-Agent, da er dessen Verbindungen mit Azure Monitor benötigt. Dies bedeutet, dass auf einem Server der Log Analytics-Agent mit dem Dependency-Agent installiert und konfiguriert sein muss. In der folgenden Tabelle sind die verbundenen Quellen beschrieben, die von Wire Data unterstützt werden.
 
-| **Verbundene Quelle** | **Unterstützt** | **BESCHREIBUNG** |
+| **Verbundene Quelle** | **Unterstützt** | **Beschreibung** |
 | --- | --- | --- |
 | Windows-Agents | Ja | Wire Data analysiert und erfasst Daten von Windows-Agent-Computern. <br><br> Zusätzlich zum [Log Analytics-Agent für Windows](../../azure-monitor/platform/agent-windows.md) benötigen Windows-Agents den Microsoft Dependency-Agent. Eine vollständige Liste der Betriebssystemversionen finden Sie unter [Unterstützte Betriebssysteme](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems). |
 | Linux-Agents | Ja | Wire Data analysiert und erfasst Daten von Linux-Agent-Computern.<br><br> Zusätzlich zum [Log Analytics-Agent für Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) benötigen Linux-Agents den Microsoft Dependency-Agent. Eine vollständige Liste der Betriebssystemversionen finden Sie unter [Unterstützte Betriebssysteme](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems). |
 | System Center Operations Manager-Verwaltungsgruppe | Ja | Wire Data analysiert und erfasst Daten von Windows- und Linux-Agents in einer verbundenen [System Center Operations Manager-Verwaltungsgruppe](../../azure-monitor/platform/om-agents.md). <br><br> Es ist eine direkte Verbindung des System Center Operations Manager-Agents mit Azure Monitor erforderlich. |
-| Azure-Speicherkonto | Nein  | Da Wire Data Daten von Agent-Computern erfasst, sind keine Daten aus Azure Storage zu erfassen. |
+| Azure-Speicherkonto | Nein | Da Wire Data Daten von Agent-Computern erfasst, sind keine Daten aus Azure Storage zu erfassen. |
 
 Unter Windows wird der Microsoft Monitoring Agent (MMA) von System Center Operations Manager und Azure Monitor zum Erfassen und Senden von Daten verwendet. Dieser Agent wird je nach Kontext als System Center Operations Manager-Agent, Log Analytics-Agent, MMA oder Direkt-Agent bezeichnet. System Center Operations Manager und Azure Monitor bieten leicht unterschiedliche Versionen der MMA. Jede dieser Versionen kann Berichte an System Center Operations Manager, Azure Monitor oder beide senden.
 
@@ -187,7 +187,7 @@ Der Dependency-Agent wird auf Windows-Computern mithilfe von „InstallDependenc
 Führen Sie die folgenden Schritte aus, um den Dependency-Agent auf jedem Windows-Computer zu installieren:
 
 1. Installieren Sie den Log Analytics-Agent mithilfe der in [Sammeln von Daten von Windows-Computern, die in Ihrer Umgebung gehostet werden](../../azure-monitor/platform/agent-windows.md) aufgeführten Schritte.
-2. Laden Sie den Dependency-Agent von Windows über den Link im vorherigen Abschnitt herunter, und führen Sie ihn dann mithilfe des folgenden Befehls aus: `InstallDependencyAgent-Windows.exe`
+2. Laden Sie den Dependency-Agent von Windows über den Link aus dem vorherigen Abschnitt herunter, und führen Sie ihn dann mithilfe des folgenden Befehls aus: `InstallDependencyAgent-Windows.exe`.
 3. Folgen Sie den Anweisungen des Assistenten, um den Assistenten zu installieren.
 4. Wenn der Dependency-Agent nicht gestartet wird, suchen Sie in den Protokollen ausführliche Fehlerinformationen. Für Windows-Agents lautet das Protokollverzeichnis „%Programfiles%\Microsoft Dependency Agent\logs“.
 
@@ -197,7 +197,7 @@ Verwenden Sie Optionen aus der folgenden Tabelle, um über die Befehlszeile zu i
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Flag** | **BESCHREIBUNG** |
+| **Flag** | **Beschreibung** |
 | --- | --- |
 | <code>/?</code> | Ruft eine Liste der Befehlszeilenoptionen ab. |
 | <code>/S</code> | Führt eine automatische Installation ohne Benutzereingaben aus. |
@@ -222,7 +222,7 @@ Um eine Liste der Installationsflags anzuzeigen, führen Sie das Installationspr
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Flag** | **BESCHREIBUNG** |
+| **Flag** | **Beschreibung** |
 | --- | --- |
 | <code>-help</code> | Ruft eine Liste der Befehlszeilenoptionen ab. |
 | <code>-s</code> | Führt eine automatische Installation ohne Benutzereingaben aus. |
@@ -230,7 +230,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Dateien für den Dependency-Agent befinden sich in den folgenden Verzeichnissen:
 
-| **Dateien** | **Standort** |
+| **Dateien** | **Location** |
 | --- | --- |
 | Hauptdateien | /opt/microsoft/dependency-agent |
 | Protokolldateien | /var/opt/microsoft/dependency-agent/log |
@@ -358,7 +358,7 @@ Nachdem Sie Agents installiert haben, und Sie die Lösung installieren, wird die
 
 Klicken Sie im Azure-Portal auf der Seite **Übersicht** für Ihren Log Analytics-Arbeitsbereich auf die Kachel **Wire Data 2.0**, um das Wire Data-Dashboard zu öffnen. Das Dashboard enthält die Blätter, die in der folgenden Tabelle angegeben sind. Auf jedem Blatt sind bis zu 10 Einträge aufgeführt, die die Kriterien des Blatts für den angegebenen Bereich und Zeitraum erfüllen. Sie können eine Protokollsuche durchführen, mit der alle Einträge zurückgegeben werden, indem Sie unten auf dem Blatt auf **Alle anzeigen** oder auf die Blattüberschrift klicken.
 
-| **Blatt** | **BESCHREIBUNG** |
+| **Blatt** | **Beschreibung** |
 | --- | --- |
 | Agents, die Netzwerkdatenverkehr erfassen | Zeigt die Anzahl der Agents an, die Netzwerkdatenverkehr erfassen, und listet die 10 Computer auf, die am meisten Datenverkehr erfassen. Klicken Sie auf die Zahl, um eine Protokollsuche für <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code> durchzuführen. Klicken Sie auf einen Computer in der Liste, um eine Protokollsuche durchzuführen, die die Gesamtanzahl erfasster Bytes zurückgibt. |
 | Lokale Subnetze | Zeigt die Anzahl von lokalen Subnetzen an, die Agents ermittelt haben.  Klicken Sie auf die Anzahl, um eine Protokollsuche für <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code> durchzuführen, die alle Subnetze mit der Anzahl von Bytes auflistet, die über jedes einzelne gesendet werden. Klicken Sie auf ein Subnetz in der Liste, um eine Protokollsuche durchzuführen, die die Gesamtanzahl über das Subnetz gesendeter Bytes zurückgibt. |
@@ -400,7 +400,7 @@ Ein Datensatz mit dem Typ _WireData_ wird für jeden Eingabedatentyp erstellt. D
 | Direction | Eingehend oder ausgehend |
 | MaliciousIP | IP-Adresse einer bekannten schädlichen Quelle |
 | Severity | Vermuteter Malwareschweregrad |
-| RemoteIPCountry | Land der Remote-IP-Adresse |
+| RemoteIPCountry | Land/Region der Remote-IP-Adresse |
 | ManagementGroupName | Name der Operations Manager-Verwaltungsgruppe |
 | SourceSystem | Quelle, auf der Daten gesammelt wurden |
 | SessionStartTime | Startzeit der Sitzung |

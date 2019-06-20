@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a9a6c7c47a6ea81f682f453a85ee6f8e214a09a7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678087"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496519"
 ---
 # <a name="use-an-app-service-environment"></a>Verwenden einer App Service-Umgebung #
-
-## <a name="overview"></a>Übersicht ##
 
 Die Azure App Service-Umgebung ist eine Bereitstellung des Azure App Service in einem Subnetz im virtuellen Azure-Netzwerk eines Kunden. Sie besteht aus:
 
@@ -62,17 +60,14 @@ So erstellen Sie eine App in einer ASE
 
 1. Wählen Sie Ihr Betriebssystem aus. 
 
-    * Das Hosten einer Linux-App in einer ASE ist ein neues Feature in der Vorschau, daher wird empfohlen, einer ASE, in der derzeit eine Produktionsworkload ausgeführt wird, keine Apps für Linux hinzuzufügen. 
-    * Durch das Hinzufügen einer Linux-App zu einer ASE befindet sich die ASE auch im Vorschaumodus. 
-
 1. Wählen Sie einen in Ihrer ASE vorhandenen App Service-Plan aus, oder erstellen Sie mit den folgenden Schritten einen neuen:
 
     a. Wählen Sie **Neu erstellen**.
 
     b. Geben Sie einen Namen für Ihren App Service-Plan ein.
 
-    c. Wählen Sie Ihre ASE in der Dropdownliste **Speicherort** aus. Das Hosten einer Linux-App in einer ASE ist derzeit nur in 6 Regionen aktiviert: **„USA, Westen“, „USA, Osten“, „Europa, Westen“, „Europa, Norden“, „Australien, Osten“, „Asien, Südosten“**. 
-
+    c. Wählen Sie Ihre ASE in der Dropdownliste **Speicherort** aus. 
+    
     d. Wählen Sie einen **Isolierten** Tarif. Wählen Sie **Auswählen**.
 
     e. Klicken Sie auf **OK**.

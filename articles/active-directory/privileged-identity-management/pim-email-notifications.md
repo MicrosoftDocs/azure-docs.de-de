@@ -17,11 +17,11 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576946"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60289194"
 ---
 # <a name="email-notifications-in-pim"></a>E-Mail-Benachrichtigungen in PIM
 
@@ -51,8 +51,8 @@ Wer diese E-Mails für Azure AD-Rollen erhält, hängt von der Rolle, dem Ereign
 | Benutzer | Für die Rollenaktivierung steht Genehmigung aus | Anforderung zur Rollenaktivierung ist abgeschlossen | PIM ist aktiviert |
 | --- | --- | --- | --- |
 | Administrator für privilegierte Rollen</br>(Aktiviert/Berechtigt) | Ja</br>(nur, wenn keine expliziten genehmigenden Personen angegeben sind) | Ja* | Ja |
-| Sicherheitsadministrator</br>(Aktiviert/Berechtigt) | Nein  | Ja* | Ja |
-| Globaler Administrator</br>(Aktiviert/Berechtigt) | Nein  | Ja* | Ja |
+| Sicherheitsadministrator</br>(Aktiviert/Berechtigt) | Nein | Ja* | Ja |
+| Globaler Administrator</br>(Aktiviert/Berechtigt) | Nein | Ja* | Ja |
 
 \* Wenn die [Einstellung **Benachrichtigungen**](pim-how-to-change-default-settings.md#notifications) auf **Aktivieren** festgelegt ist.
 

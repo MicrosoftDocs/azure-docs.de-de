@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671778"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178378"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -17,10 +17,10 @@ Jede Anforderung erfordert einen Autorisierungsheader. Diese Tabelle zeigt, welc
 
 | Unterstützte Autorisierungsheader | Spracherkennung | Text-zu-Sprache |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Ja | Nein  |
+| Ocp-Apim-Subscription-Key | Ja | Nein |
 | Autorisierung: Bearer | Ja | Ja |
 
-Wenn Sie den Header `Ocp-Apim-Subscription-Key` verwenden, müssen Sie nur Ihren Abonnementschlüssel angeben. Beispiel: 
+Wenn Sie den Header `Ocp-Apim-Subscription-Key` verwenden, müssen Sie nur Ihren Abonnementschlüssel angeben. Beispiel:
 
 ```
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'

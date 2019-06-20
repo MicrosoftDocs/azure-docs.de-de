@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60769667"
 ---
 # <a name="add-html-markers-to-the-map"></a>Hinzufügen von HTML-Markern zur Karte
 

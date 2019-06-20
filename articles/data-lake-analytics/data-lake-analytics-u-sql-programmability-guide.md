@@ -10,11 +10,11 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60811603"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL-Programmierbarkeitshandbuch
 
@@ -533,9 +533,9 @@ Die `IFormatter`-Schnittstelle serialisiert und deserialisiert ein Objektdiagram
 
 * **Serialize:** Serialisiert ein Objekt oder Objektdiagramm mit dem angegebenen Stamm in den angegebenen Datenstrom.
 
-`MyType` instance: Die Instanz des Typs.  
-`IColumnWriter` writer / `IColumnReader` reader: Der zugrunde liegende Spaltendatenstrom.  
-`ISerializationContext` context: Enumeration, die eine Gruppe von Flags definiert, die den Quell- oder Zielkontext für den Datenstrom während der Serialisierung angibt.
+`MyType`-Instanz: Die Instanz des Typs.  
+Writer `IColumnWriter`; Reader `IColumnReader`: Der zugrunde liegende Spaltendatenstrom.  
+Kontext `ISerializationContext`: Enumeration, die eine Gruppe von Flags definiert, die den Quell- oder Zielkontext für den Datenstrom während der Serialisierung angibt.
 
 * **Intermediate:** Gibt an, dass der Quell- oder Zielkontext kein permanenter Speicher ist.
 
@@ -949,7 +949,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: Zweiter Parameter für „accumulate“
 * TResult: Rückgabetyp von „terminate“
 
-Beispiel: 
+Beispiel:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1067,7 +1067,7 @@ UDOs werden im U-SQL-Skript in der Regel explizit als Teil der folgenden U-SQL-A
 ## <a name="use-user-defined-extractors"></a>Verwenden benutzerdefinierter Extraktoren
 In U-SQL können Sie externe Daten mithilfe einer EXTRACT-Anweisung importieren. Eine EXTRACT-Anweisung kann integrierte UDO-Extraktoren verwenden:  
 
-* *Extractors.Text()*: Ermöglicht das Extrahieren aus durch Trennzeichen getrennten Textdateien mit verschiedenen Codierungen.
+* *Extractors.Text()* : Ermöglicht das Extrahieren aus durch Trennzeichen getrennten Textdateien mit verschiedenen Codierungen.
 
 * *Extractors.Csv():* Ermöglicht das Extrahieren aus durch Trennzeichen getrennten Dateien (CSV) mit verschiedenen Codierungen.
 
@@ -1219,7 +1219,7 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Verwenden benutzerdefinierter Outputter
 Der benutzerdefinierte Outputter ist ein weiteres U-SQL-UDO, das die Erweiterung der integrierten U-SQL-Funktionen ermöglicht. Ähnlich wie beim Extraktor gibt es verschiedene integrierte Outputter.
 
-* *Outputters.Text()*: Schreibt Daten in durch Trennzeichen getrennte Textdateien mit verschiedenen Codierungen.
+* *Outputters.Text()* : Schreibt Daten in durch Trennzeichen getrennte Textdateien mit verschiedenen Codierungen.
 * *Outputters.Csv():* Schreibt Daten in durch Trennzeichen getrennte Textdateien (CSV) mit verschiedenen Codierungen.
 * *Outputters.Tsv():* Schreibt Daten in durch Tabstopp getrennte Textdateien (TSV) mit verschiedenen Codierungen.
 

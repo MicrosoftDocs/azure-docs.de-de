@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61475812"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Erstellen und Verwalten von Aufträgen für die elastische Datenbank mit Transact-SQL (T-SQL)
 
@@ -456,7 +456,7 @@ Die Beschreibung des Auftrags. „description“ ist vom Datentyp „nvarchar(51
 [ **\@enabled =** ] enabled  
 Gibt an, ob der Zeitplan des Auftrags aktiviert ist. „enabled“ ist vom Datentyp „bit“ mit dem Standardwert „0“ (deaktiviert). Wenn der Wert „0“ festgelegt ist, wird der Auftrag nicht aktiviert und nicht gemäß dem Zeitplan ausgeführt, er kann jedoch manuell ausgeführt werden. Wenn der Wert „1“ festgelegt ist, wird der Auftrag wird gemäß dem Zeitplan ausgeführt und kann auch manuell ausgeführt werden.
 
-[ **\@Schedule_interval_type =**] Schedule_interval_type  
+[ **\@Schedule_interval_type =** ] Schedule_interval_type  
 Der Wert gibt an, wie oft der Auftrag ausgeführt werden soll. „schedule_interval_type“ ist vom Datentyp „nvarchar(50)“ mit dem Standardwert „Once“ und kann einen der folgenden Werte aufweisen:
 - „Once“
 - „Minutes“
@@ -1218,7 +1218,7 @@ Zeigt den Auftragsausführungsverlauf an.
 |**job_id** |uniqueidentifier|  Eindeutige ID des Auftrags.
 |**job_version**    |int    |Die Version des Auftrags (wird automatisch bei jeder Auftragsänderung aktualisiert).
 |**step_id**    |int|   Der (bei diesem Auftrag) eindeutige Bezeichner für den Schritt. NULL weist darauf hin, dass es sich hierbei um eine übergeordnete Auftragsausführung handelt.
-|**is_active**| Bit |Gibt an, ob Informationen aktiv oder inaktiv sind. „1“ weist auf aktive Aufträge hin, während „0“ auf inaktive Aufträge hinweist.
+|**is_active**| bit |Gibt an, ob Informationen aktiv oder inaktiv sind. „1“ weist auf aktive Aufträge hin, während „0“ auf inaktive Aufträge hinweist.
 |**lifecycle**| nvarchar(50)|Wert, der den Status des Auftrags angibt: „Created“, „In Progress“, „Failed“, „Succeeded“, „Skipped“, „SucceededWithSkipped“|
 |**create_time**|   datetime2(7)|   Datum und Uhrzeit, an dem der Auftrag erstellt wurde.
 |**start_time** |datetime2(7)|  Datum und Uhrzeit, an dem die Ausführung des Auftrags gestartet wurde. NULL, wenn der Auftrag noch nicht ausgeführt wurde.

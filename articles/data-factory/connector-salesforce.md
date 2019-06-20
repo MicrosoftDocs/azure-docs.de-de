@@ -319,9 +319,9 @@ Beim Kopieren von Daten aus Salesforce werden die folgenden Zuordnungen von Sale
 | Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
-| Date/Time |DateTime |
-| Email |String |
-| Id |String |
+| Datum/Uhrzeit |DateTime |
+| E-Mail |String |
+| id |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
 | Number |Decimal |

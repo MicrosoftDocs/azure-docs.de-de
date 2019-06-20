@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443626"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61088172"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Produktvorlagen in Azure API Management
 
@@ -81,8 +81,8 @@ Azure API Management bietet Ihnen die Möglichkeit, den Inhalt von Seiten des En
 |Eigenschaft|Typ|BESCHREIBUNG|  
 |--------------|----------|-----------------|  
 |Paging|Entität [Paging](api-management-template-data-model-reference.md#Paging).|Die Seiteninformationen für die Produktsammlung.|  
-|Filtering|Entität [Filtering](api-management-template-data-model-reference.md#Filtering).|Die Filterinformationen für die Produktlistenseite.|  
-|Products|Sammlung von [Product](api-management-template-data-model-reference.md#Product)-Entitäten.|Die für den aktuellen Benutzer sichtbaren Produkte.|  
+|Filterung|Entität [Filtering](api-management-template-data-model-reference.md#Filtering).|Die Filterinformationen für die Produktlistenseite.|  
+|Produkte|Sammlung von [Product](api-management-template-data-model-reference.md#Product)-Entitäten.|Die für den aktuellen Benutzer sichtbaren Produkte.|  
   
 ### <a name="sample-template-data"></a>Vorlagenbeispieldaten  
   
@@ -205,14 +205,14 @@ Azure API Management bietet Ihnen die Möglichkeit, den Inhalt von Seiten des En
   
 |Eigenschaft|Typ|BESCHREIBUNG|  
 |--------------|----------|-----------------|  
-|Product|[Produkt](api-management-template-data-model-reference.md#Product)|Das angegebene Produkt.|  
+|Produkt|[Produkt](api-management-template-data-model-reference.md#Product)|Das angegebene Produkt.|  
 |IsDeveloperSubscribed|boolean|Gibt an, ob der aktuelle Benutzer dieses Produkt abonniert hat.|  
 |SubscriptionState|number|Der Status des Abonnements. Mögliche Statusangaben:<br /><br /> -   `0 - suspended`: Das Abonnement ist blockiert, und der Abonnent kann keine APIs des Produkts aufrufen.<br />-   `1 - active`: Das Abonnement ist aktiv.<br />-   `2 - expired`: Das Abonnement hat das Ablaufdatum erreicht und wurde deaktiviert.<br />-   `3 - submitted`: Die Abonnementanforderung wurde vom Entwickler gesendet, aber noch nicht genehmigt oder abgelehnt.<br />-   `4 - rejected`: Die Abonnementanforderung wurde von einem Administrator abgelehnt.<br />-   `5 - cancelled`: Das Abonnement wurde vom Entwickler oder Administrator abgebrochen.|  
-|Limits|Array|Diese Eigenschaft ist veraltet und sollte nicht verwendet werden.|  
+|Einschränkungen|Array|Diese Eigenschaft ist veraltet und sollte nicht verwendet werden.|  
 |DelegatedSubscriptionEnabled|boolean|Gibt an, ob für dieses Abonnement die [Delegierung](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) aktiviert ist.|  
 |DelegatedSubscriptionUrl|Zeichenfolge|Gibt bei aktivierter Delegierung die URL des delegierten Abonnements an.|  
 |IsAgreed|boolean|Wenn für das Produkt Bedingungen gelten, gibt dieser Wert an, ob der aktuelle Benutzer den Nutzungsbedingungen zugestimmt hat.|  
-|Subscriptions|Sammlung von [Subscription summary](api-management-template-data-model-reference.md#SubscriptionSummary)-Entitäten.|Die Abonnements für das Produkt.|  
+|Abonnements|Sammlung von [Subscription summary](api-management-template-data-model-reference.md#SubscriptionSummary)-Entitäten.|Die Abonnements für das Produkt.|  
 |Apis|Sammlung von [API](api-management-template-data-model-reference.md#API)-Entitäten.|Die APIs in dieses Produkt.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|boolean|Gibt an, ob der aktuelle Benutzer im Hinblick auf das Abonnementlimit zum Abonnieren dieses Produkts berechtigt ist.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Gibt an, ob der aktuelle Benutzer zum Abonnieren dieses Produkts berechtigt ist, je nachdem, ob mehrere Abonnements zulässig sind oder nicht.|  

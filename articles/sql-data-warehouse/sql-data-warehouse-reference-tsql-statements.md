@@ -2,20 +2,20 @@
 title: T-SQL-Anweisungen – Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Links zur Dokumentation für die in Azure SQL Data Warehouse unterstützten T-SQL-Anweisungen.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 05/01/2019
-ms.author: twounder
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1144115ad349879d097062e44226dd2ffcf9b48e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 984d8ffa9f901437f1413e1d5d3145cabba80883
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154173"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954973"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-Anweisungen, die in Azure SQL Data Warehouse unterstützt werden
 Links zur Dokumentation für die in Azure SQL Data Warehouse unterstützten T-SQL-Anweisungen.
@@ -52,6 +52,7 @@ Links zur Dokumentation für die in Azure SQL Data Warehouse unterstützten T-SQ
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
 * [DROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
+* [SET-RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) (Vorschau)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 

@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569825"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Untersuchen von Vorfällen und Warnungen in Azure Security Center (Vorschauversion)
 Dieses Dokument enthält hilfreiche Informationen zur Untersuchung von Sicherheitsvorfällen und -warnungen mithilfe des Untersuchungsfeatures in Azure Security Center.
+
+> [!NOTE]
+> Die Funktion zur Untersuchung von Warnungen und Vorfällen wird am 31. Juli 2019 eingestellt. Weitere Informationen und alternative Dienste finden Sie unter [Auslaufen von Security Center-Funktionen (Juli 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Was ist das Untersuchungsfeature in Security Center?
 Mit dem Untersuchungsfeature in Security Center können Sie einen potenziellen [Sicherheitsvorfall](https://docs.microsoft.com/azure/security-center/security-center-incident) selektieren, sich ein Bild vom Umfang machen und der Ursache auf den Grund gehen.
@@ -45,7 +48,7 @@ Der Benutzer kann im Diagramm auf eine Entität klicken, um zwischen den Entitä
 ### <a name="investigation-path"></a>Untersuchungspfad
 Während der Navigation zu verschiedenen Entitäten kann der Benutzer dank des Untersuchungspfads den Untersuchungskontext nachvollziehen und blitzschnell navigieren. Der Vorfall mit den Untersuchungsergebnissen befindet sich immer im äußerst linken Vorfall des Untersuchungspfads.
 
-![path](./media/security-center-investigation/security-center-investigation-fig2.png)
+![`Path`](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Allgemeine Informationen
 Wenn eine Entität im Diagramm dargestellt wird, stehen auf den Registerkarten zusätzliche Informationen zu dieser Entität zur Verfügung. Auf der Registerkarte **Informationen** werden allgemeine Informationen zu der Entität aus verschiedenen Quellen angezeigt.

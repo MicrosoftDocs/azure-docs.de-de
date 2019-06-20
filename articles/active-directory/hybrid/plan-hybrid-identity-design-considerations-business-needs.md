@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204768"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950898"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Ermitteln der Identitätsanforderungen für Ihre Hybrid-Identitätslösung
 Der erste Schritt beim Entwickeln einer Hybrid-Identitätslösung ist, die Anforderungen für das Unternehmen zu bestimmen, das diese Lösung nutzen wird.  Die Hybrid-Identität beginnt als unterstützende Rolle (unterstützt alle anderen Cloud-Lösungen durch Authentifizierung) und bietet dann neue und interessante Funktionen, die Benutzern neue Workloads ermöglichen.  Diese Workloads oder Dienste, die Sie für Ihre Benutzer integrieren möchten, bestimmen die Anforderungen an die Gestaltung der Hybrid-Identität.  Diese Dienste und Workloads müssen Hybrid-Identität sowohl lokal aus auch in der Cloud nutzen.  
 
-Sie müssen diese wichtige Aspekte des Unternehmens prüfen, um zu verstehen, welche Anforderung jetzt vorliegen und was das Unternehmen für die Zukunft plant. Wenn Ihnen die langfristige Strategie für die Entwicklung der Hybrid-Identität fehlt, besteht das Risiko, dass Ihre Lösung nicht skaliert werden kann, wenn Ihr Unternehmen Wachstum und Veränderung braucht.   Das folgende Diagramm zeigt ein Beispiel für eine Hybrid-Identitätsarchitektur und die Workloads, die sich Benutzern eröffnen. Dies ist nur ein Beispiel für die neuen Möglichkeiten, die sich Ihnen durch eine solide Hybrid-Identitätsstrategie eröffnen können. 
+Sie müssen diese wichtige Aspekte des Unternehmens prüfen, um zu verstehen, welche Anforderung jetzt vorliegen und was das Unternehmen für die Zukunft plant. Wenn Ihnen die langfristige Strategie für die Entwicklung der Hybrid-Identität fehlt, besteht das Risiko, dass Ihre Lösung nicht skaliert werden kann, wenn Ihr Unternehmen Wachstum und Veränderung braucht. Das folgende Diagramm zeigt ein Beispiel für eine Hybrid-Identitätsarchitektur und die Workloads, die sich Benutzern eröffnen. Dies ist nur ein Beispiel für die neuen Möglichkeiten, die sich Ihnen durch eine solide Hybrid-Identitätsstrategie eröffnen können. 
 
-Einige Komponenten, die Teil der Hybrid-Identitätsarchitektur sind ![](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Einige Komponenten, die Teil der Hybrid-Identitätsarchitektur sind ![Hybrid-Identitätsarchitektur](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Ermitteln von Geschäftsanforderungen
 Jedes Unternehmen hat unterschiedliche Anforderungen – auch wenn diese Unternehmen derselben Branche angehören, können die tatsächlichen geschäftlichen Anforderungen variieren. Sie können weiterhin Best Practices der Branche nutzen, doch letztendlich bestimmen die geschäftlichen Anforderungen des Unternehmens die Anforderungen an die Gestaltung der Hybrid-Identität. 
@@ -86,7 +86,7 @@ Als Nächstes müssen Sie die Identitäts-Integrationsanforderungen bewerten. Di
 * Verfügt das Unternehmen über Apps, die für die Integration mit Cloud-Diensten erforderlich sind?
 * Verfügt die Organisation über mehrere Domänen und verwenden diese alle die Standard- oder Verbund-Authentifizierung?
 
-## <a name="evaluate-applications-that-run-in-your-environment"></a>Anwendungen bewerten, die in Ihrer Umgebung ausgeführt werden 
+## <a name="evaluate-applications-that-run-in-your-environment"></a>Anwendungen bewerten, die in Ihrer Umgebung ausgeführt werden
 Da Sie nun eine Vorstellung von Ihrer lokalen und Cloud-Infrastruktur haben, müssen Sie die Anwendungen bewerten, die in diesen Umgebungen ausgeführt werden. Diese Auswertung ist wichtig, um die technischen Anforderungen zum Integrieren dieser Anwendungen in das Cloud-Identitätsverwaltungssystem zu definieren. Beantworten Sie die folgenden Fragen:
 
 * Wo werden unsere Anwendungen ausgeführt?

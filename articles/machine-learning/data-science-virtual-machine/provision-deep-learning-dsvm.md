@@ -16,17 +16,17 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410439"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Bereitstellen einer Data Science Virtual Machine in Azure 
 
 Die Deep Learning Virtual Machine (DLVM) ist eine speziell konfigurierte Variante der [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM), die ein einfacheres und schnelleres Training von Deep Learning-Modellen anhand GPU-basierter VM-Instanzen ermöglicht. Sie wird von Windows 2016 oder der Ubuntu DSVM als Basis unterstützt. Die DLVM nutzt dieselben VM-Kernimages und daher das gesamte umfangreiche Toolset, das von der DSVM geboten wird. 
 
-Die DLVM bietet mehrere Tools für AI einschließlich GPU-Editionen beliebter Deep Learning-Frameworks wie Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer. Ferner bietet sie Tools zum Abrufen und Vorverarbeiten von Bild- und Textdaten, Tools für Data Science-Modellierungs- und Entwicklungsaktivitäten wie Microsoft R Server Developer Edition, Anaconda Python, Jupyter-Notebooks für Python und R, IDEs für Python und R, SQL-Datenbanken und zahlreiche weitere Data Science- und ML-Tools. 
+DLVM bietet mehrere Tools für KI, einschließlich GPU-Editionen beliebter Deep Learning-Frameworks wie Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer. Ferner bietet sie Tools zum Abrufen und Vorverarbeiten von Bild- und Textdaten, Tools für Data Science-Modellierungs- und Entwicklungsaktivitäten wie Microsoft R Server Developer Edition, Anaconda Python, Jupyter-Notebooks für Python und R, IDEs für Python und R, SQL-Datenbanken und zahlreiche weitere Data Science- und ML-Tools. 
 
 ## <a name="create-your-deep-learning-virtual-machine"></a>Erstellen Ihrer Deep Learning Virtual Machine
 Es folgen die Schritte zum Erstellen einer Instanz der Deep Learning Virtual Machine: 
@@ -85,7 +85,7 @@ Die Linux DLVM wird bereits mit X2Go-Server bereitgestellt und ist zum Akzeptier
      * **Anmeldung**: Der Benutzername für die Linux-VM.
      * **SSH-Port**: Übernehmen Sie den Standardwert 22.
      * **Sitzungstyp**: Ändern Sie den Wert in **XFCE**. Derzeit unterstützt die Linux DSVM nur den XFCE-Desktop.
-   * **Registerkarte „Medien“**: Sie können die Soundunterstützung und die Clientausgabe deaktivieren, wenn Sie diese Funktionen nicht benötigen.
+   * **Registerkarte „Medien“** : Sie können die Soundunterstützung und die Clientausgabe deaktivieren, wenn Sie diese Funktionen nicht benötigen.
    * **Freigegebene Ordner**: Wenn Verzeichnisse von Ihren Clientcomputern auf der Linux-VM bereitgestellt werden sollen, fügen Sie auf dieser Registerkarte die Clientcomputerverzeichnisse hinzu, die Sie für die VM freigeben möchten.
 
 Nachdem Sie sich bei der VM angemeldet haben, indem Sie entweder den SSH-Client oder den grafischen XFCE-Desktop über den X2Go-Client nutzen, können Sie die Tools verwenden, die auf der VM installiert und konfiguriert sind. Auf dem XFCE-Desktop können Sie Anwendungsmenü-Tastenkombinationen und Desktopsymbole für viele Tools anzeigen.

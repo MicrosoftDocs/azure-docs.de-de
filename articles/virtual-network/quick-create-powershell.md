@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 30b1b08e27eca826a9f882475723913810b3feb4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3a21bff9e4c696063458d5734a579fc7c37258a7
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721850"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730084"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Schnellstart: Erstellen eines virtuellen Netzwerks über PowerShell
 
@@ -27,7 +27,7 @@ In einem virtuellen Netzwerk können Azure-Ressourcen wie virtuelle Computer (VM
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie jetzt ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Wenn Sie PowerShell stattdessen lokal installieren und verwenden möchten, müssen Sie für diese Schnellstartanleitung mindestens Version 1.0.0 des Azure PowerShell-Moduls verwenden. Führen Sie `Get-Module -ListAvailable Az` aus, um die installierte Version zu ermitteln. Informationen zum Installieren oder Upgraden finden Sie unter [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -140,9 +140,6 @@ Get-AzPublicIpAddress `
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-Eine RDP-Datei (Remotedesktopprotokoll) (*.rdp*) wird auf Ihren Computer heruntergeladen und es wird ein Remotedesktop geöffnet.
-
 1. Wenn Sie dazu aufgefordert werden, wählen Sie **Verbinden** aus.
 
 1. Geben Sie den Benutzernamen und das Kennwort ein, die Sie beim Erstellen des virtuellen Computers festgelegt haben.

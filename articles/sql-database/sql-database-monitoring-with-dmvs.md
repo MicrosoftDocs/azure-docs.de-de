@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 371632a28d22583f8b206e4d8b9d2b6b4e510ab0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563948"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62103762"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Überwachen der Leistung von Azure SQL-Datenbank mit dynamischen Verwaltungssichten
 

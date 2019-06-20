@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 Business Central-Angebot für den Azure Marketplace | Microsoft-Dokumentation
+title: Dynamics 365 Business Central-Angebot für den Azure Marketplace
 description: Dieser Artikel erläutert, wie Sie ein Dynamics 365 Business Central-Angebot im Cloud-Partnerportal erstellen.
 services: Dynamics 365 Business Central, AppSource Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b5fdcb3269a63e6f0d961bf2ab9f5f2a4a4005ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.author: pabutler
+ms.openlocfilehash: e9581f2ca4322a247b2cd3e64483b8baac3a6a58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038819"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64934952"
 ---
 # <a name="dynamics-365-business-central-offer"></a>Dynamics 365 Business Central-Angebot
 
@@ -30,11 +23,11 @@ ms.locfileid: "51038819"
 
 Die Verwendung von Microsoft Dynamics 365 Business Central zum Veröffentlichen von Anwendungen in AppSource bietet viele Vorteile:
 
-- Erweitern Sie Dynamics 365 Business Central, eine bewährte Microsoft-Onlinelösung, mit Ihren Fachkenntnissen.
+- Erweiterung von Dynamics 365 Business Central, einer bewährten Microsoft-Onlinelösung, mit Ihrer Expertise
 - Nutzen Sie die Marke Dynamics 365 – eine Marke, die Millionen von Benutzern kennen und der sie vertrauen.
-- Erreichen Sie mit Microsoft AppSource mehr Kunden für Ihre Geschäftsanwendungen.
-- Profitieren Sie von einer Plattform, die eine moderne Umgebung und einen großen Umfang bietet.
-- Bündeln Sie Ihre Apps mit intelligenten Geschäftsanwendungen wie Microsoft PowerApps, Microsoft Flow, Power BI, Cortana Intelligence und vielen weiteren.
+- Größere Reichweite mit Microsoft AppSource – Gewinnen Sie mehr Kunden für Ihre Geschäftsanwendungen
+- Optimierung dank einer Plattform, die eine moderne Umgebung und Skalierbarkeit bietet
+- Zusammenstellen intelligenter Geschäftsanwendungen wie Microsoft PowerApps, Microsoft Flow, Power BI und Cortana Intelligence
 
 
 ## <a name="publishing-process"></a>Veröffentlichungsvorgang

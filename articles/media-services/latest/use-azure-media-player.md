@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
 ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926529"
 ---
 # <a name="azure-media-player-overview"></a>Übersicht über Azure Media Player

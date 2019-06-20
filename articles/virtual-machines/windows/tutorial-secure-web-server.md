@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5b3f352528087c427a05aac4c5162f90a423b793
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b92700caab27b527ae58cc0c7e8deca89c4d43f
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711976"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66727913"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Sichern eines Webservers auf einem virtuellen Windows-Computer in Azure mit in Key Vault gespeicherten SSL-Zertifikaten
 
@@ -33,7 +33,7 @@ Zum Sichern von Webservern kann ein SSL-Zertifikat (Secure Sockets Layer) zum Ve
 > * Erstellen eines virtuellen Computers und Installieren des IIS-Webservers
 > * Einfügen des Zertifikats auf dem virtuellen Computer und Konfigurieren von IIS mit einer SSL-Bindung
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>Starten von Azure Cloud Shell
 

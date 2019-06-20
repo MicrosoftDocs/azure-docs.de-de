@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793967"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951179"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Checkliste zu Leistung und Skalierbarkeit von Microsoft Azure Storage
 ## <a name="overview"></a>Übersicht
 Seit der Veröffentlichung der Microsoft Azure Storage-Dienste hat Microsoft eine Reihe bewährter Vorgehensweisen zur effektiven Verwendung dieser Dienste entwickelt. In diesem Artikel werden die wichtigsten davon in einer "Checkliste" zusammengefasst. Dieser Artikel soll Anwendungsentwickler bei der Verwendung bewährter Vorgehensweisen für Azure Storage unterstützen und ihnen helfen, weitere bewährte Vorgehensweisen kennen zu lernen, die sie in Erwägung ziehen sollten. Es wird jedoch nicht jede mögliche Leistungs- und Skalierbarkeitsoptimierung in diesem Artikel abgedeckt; begrenzt anwendbare Methoden oder solche mit geringer Auswirkung sind ausgeschlossen. Insofern sich das Anwendungsverhalten während des Entwurfs vorhersagen lässt, sollten diese Vorgehensweisen von Anfang an berücksichtigt werden, um spätere Leistungsprobleme zu vermeiden.  
 
-Jeder Anwendungsentwickler, der Azure Storage verwendet, sollte sich Zeit für diesen Artikel nehmen und überprüfen, ob seine Anwendung den unten aufgeführten bewährten Vorgehensweisen entspricht.  
+Jeder Anwendungsentwickler, der Azure Storage verwendet, sollte sich Zeit zum Lesen dieses Artikels nehmen und überprüfen, ob seine Anwendung den unten aufgeführten bewährten Vorgehensweisen entspricht.  
 
 ## <a name="checklist"></a>Checkliste
 Dieser Artikel unterteilt die bewährten Vorgehensweisen in Gruppen, die wie folgt anwendbar sind:  

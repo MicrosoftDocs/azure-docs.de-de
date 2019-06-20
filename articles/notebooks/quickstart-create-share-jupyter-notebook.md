@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273667"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751799"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Schnellstart: Erstellen und Freigeben eines Notebooks
 
@@ -45,7 +45,7 @@ ms.locfileid: "59273667"
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "Neues leeres Projekt und Befehl „Add Notebook“ (Notizbuch hinzufügen)")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. Geben Sie im Popup **Create New Notebook** (Neues Notebook erstellen), das angezeigt wird, einen Dateinamen für Ihr Notebook ein, z. B. *HelloWorldInPython.ipynb* (*.ipynb* bedeutet IronPython (Jupyter) Notebook), und wählen Sie **Python 3.6** als Sprache aus (auch als *Kernel* bezeichnet):
+1. Geben Sie im Popup **Create New Notebook** (Neues Notebook erstellen), das angezeigt wird, einen Dateinamen für Ihr Notebook ein, z. B. *HelloWorldInPython.ipynb* ( *.ipynb* bedeutet IronPython (Jupyter) Notebook), und wählen Sie **Python 3.6** als Sprache aus (auch als *Kernel* bezeichnet):
 
     ![Popup „Create New Notebook“ (Neues Notebook erstellen)](media/quickstarts/new-notebook-popup.png)
 

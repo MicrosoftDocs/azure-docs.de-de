@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117318"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157317"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurieren einer Point-to-Site-Verbindung mit einem VNET unter Verwendung der nativen Azure-Zertifikatauthentifizierung: Azure-Portal
 
@@ -108,7 +108,7 @@ Der Clientadresspool ist ein Bereich privater IP-Adressen, die Sie angeben. Den 
 
 ## <a name="tunneltype"></a>7. Konfigurieren des Tunneltyps
 
-Sie können den Tunneltyp auswählen. Die zwei Tunneloptionen lauten SSTP und IKEv2. Der strongSwan-Client unter Android und Linux und der native IKEv2-VPN-Client unter iOS und OSX verwenden nur den IKEv2-Tunnel für die Verbindungsherstellung. Windows-Clients probieren zunächst IKEv2. Wird keine Verbindung hergestellt, verwenden sie SSTP. Sie können entscheiden, ob Sie eine der beiden Optionen oder beide aktivieren. Aktivieren Sie die Kontrollkästchen, die für Ihre Lösung erforderlich sind.
+Sie können den Tunneltyp auswählen. Die Tunneloptionen sind OpenVPN, SSTP und IKEv2. Der strongSwan-Client unter Android und Linux und der native IKEv2-VPN-Client unter iOS und OSX verwenden nur den IKEv2-Tunnel für die Verbindungsherstellung. Windows-Clients probieren zunächst IKEv2. Wird keine Verbindung hergestellt, verwenden sie SSTP. Sie können den OpenVPN-Client verwenden, um eine Verbindung mit dem OpenVPN-Tunneltyp herzustellen.
 
 ![Tunneltyp](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 

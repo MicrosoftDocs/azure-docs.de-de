@@ -11,11 +11,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: c822ebdea2bab6f4c6c05cf2d4a4b822d6e02f3f
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575680"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60635016"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Azure PowerShell-Beispiele für Azure Data Factory
 

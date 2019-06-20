@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8d8fd03d9c3d912788e9893377bbab3efac86f8a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199492"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383835"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtern der Ergebnisse, die die Suchantwort enthält  
 
@@ -44,9 +44,9 @@ Wenn Sie das Web abfragen, gibt Bing alle Inhalte zurück, die für die Suche re
     }
 }    
 ```
-Sie können die empfangenen Inhalte mit dem Abfrageparameter [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) nach Typ filtern (z.B. Bilder, Videos und News). Wenn Bing relevante Inhalte für die angegebenen Antworten findet, werden diese zurückgegeben. Der Antwortfilter ist eine durch Trennzeichen getrennte Liste mit Antworten. 
+Sie können die empfangenen Inhalte mit dem Abfrageparameter [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) nach Typ filtern (z.B. Bilder, Videos und News). Wenn Bing relevante Inhalte für die angegebenen Antworten findet, werden diese zurückgegeben. Der Antwortfilter ist eine durch Trennzeichen getrennte Liste mit Antworten. 
 
-Um bestimmte Inhaltstypen wie z.B. Bilder aus der Antwort auszuschließen, können Sie das Zeichen `-` am Anfang des `responseFilter`-Werts hinzufügen. Sie trennen ausgeschlossene Inhaltstypen durch ein Komma (`,`) voneinander ab. Beispiel: 
+Um bestimmte Inhaltstypen wie z.B. Bilder aus der Antwort auszuschließen, können Sie das Zeichen `-` am Anfang des `responseFilter`-Werts hinzufügen. Sie trennen ausgeschlossene Inhaltstypen durch ein Komma (`,`) voneinander ab. Beispiel:
 
 ```
 &responseFilter=-images,-videos
@@ -92,7 +92,7 @@ Das folgende Beispiel zeigt die Antwort auf die vorherige Abfrage. Da Bing keine
 
 Obwohl Bing in der vorherigen Antwort keine Video- und News-Ergebnisse zurückgegeben hat, bedeutet dies nicht, dass es keine Video- und News-Inhalte gibt. Es bedeutet lediglich, dass sie nicht auf der Seite enthalten waren. Wenn Sie jedoch weitere [Seiten](./paging-webpages.md) mit Ergebnissen anzeigen, werden die nachfolgenden Seiten solche Ergebnisse wahrscheinlich enthalten. Auch wenn Sie die [Videosuche-API](../bing-video-search/search-the-web.md)- und [News-Suche-API](../bing-news-search/search-the-web.md)-Endpunkte direkt aufrufen, enthält die Antwort wahrscheinlich Ergebnisse.
 
-Es wird davon abgeraten, `responseFilter` zu verwenden, um Ergebnisse von einer einzigen API zu erhalten. Wenn Sie Inhalte von einer einzelnen Bing-API wünschen, rufen Sie diese API direkt auf. Um beispielsweise nur Bilder zu erhalten, senden Sie eine Anforderung an den Bildersuche-API-Endpunkt, an `https://api.cognitive.microsoft.com/bing/v7.0/images/search` oder einen der anderen [Bilder](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints)-Endpunkte. Der Aufruf der einzelnen API ist nicht nur aus Leistungsgründen wichtig, sondern auch, weil die inhaltsspezifischen APIs reichhaltigere Ergebnisse liefern. Sie können z.B. Filter zum Filtern der Ergebnisse verwenden, die für die Web-API nicht verfügbar sind.  
+Es wird davon abgeraten, `responseFilter` zu verwenden, um Ergebnisse von einer einzigen API zu erhalten. Wenn Sie Inhalte von einer einzelnen Bing-API wünschen, rufen Sie diese API direkt auf. Um beispielsweise nur Bilder zu erhalten, senden Sie eine Anforderung an den Bildersuche-API-Endpunkt, an `https://api.cognitive.microsoft.com/bing/v7.0/images/search` oder einen der anderen [Bilder](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints)-Endpunkte. Der Aufruf der einzelnen API ist nicht nur aus Leistungsgründen wichtig, sondern auch, weil die inhaltsspezifischen APIs reichhaltigere Ergebnisse liefern. Sie können z.B. Filter zum Filtern der Ergebnisse verwenden, die für die Web-API nicht verfügbar sind.  
 
 Um Suchergebnisse von einer bestimmten Domäne zu erhalten, schließen Sie den Abfrageoperator `site:` in die Abfragezeichenfolge ein.  
 
@@ -101,7 +101,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 ```
 
 > [!NOTE]
-> Bei Verwendung des Abfrageoperators `site:` kann es je nach Abfrage vorkommen, dass die Antwort ggf nicht jugendfreie Inhalte enthält (unabhängig von der Einstellung [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch)). Verwenden Sie `site:` nur, wenn Sie wissen, welche Inhalte die Website enthält, und wenn in Ihrem Szenario ggf. auch nicht jugendfreie Inhalte zulässig sind.
+> Bei Verwendung des Abfrageoperators `site:` kann es je nach Abfrage vorkommen, dass die Antwort ggf nicht jugendfreie Inhalte enthält (unabhängig von der Einstellung [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch)). Verwenden Sie `site:` nur, wenn Sie wissen, welche Inhalte die Website enthält, und wenn in Ihrem Szenario ggf. auch nicht jugendfreie Inhalte zulässig sind.
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Einschränken der Anzahl von Ergebnissen in der Antwort
 
@@ -121,7 +121,7 @@ Bing schließt Ergebnisse in die Antwort basierend auf der Rangfolge ein. Wenn S
 }
 ```
 
-Um die Anzahl der Antworten einzuschränken, die Bing an die beiden wichtigsten Ergebnisse (Webseiten und Bilder) zurückgibt, legen Sie den Abfrageparameter [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) auf 2 fest.
+Um die Anzahl der Antworten einzuschränken, die Bing an die beiden wichtigsten Ergebnisse (Webseiten und Bilder) zurückgibt, legen Sie den Abfrageparameter [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) auf 2 fest.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -162,7 +162,7 @@ Wenn Sie den Abfrageparameter `responseFilter` zur vorherigen Abfrage hinzufüge
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>Höherstufen von Antworten, die keine Rangfolge besitzen
 
-Wenn die am besten bewerteten Antworten, die Bing für eine Abfrage zurückgibt, Webseiten, Bilder, Videos und relatedSearches sind, würde die Antwort diese Ergebnisse enthalten. Wenn Sie [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) auf 2 festlegen, gibt Bing die beiden Ergebnisse mit der höchsten Rangfolge zurück: Webseiten und Bilder. Wenn Bing Bilder und Videos in die Antwort einbeziehen soll, geben Sie den Abfrageparameter [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) an und legen ihn auf Bilder und Videos fest.
+Wenn die am besten bewerteten Antworten, die Bing für eine Abfrage zurückgibt, Webseiten, Bilder, Videos und relatedSearches sind, würde die Antwort diese Ergebnisse enthalten. Wenn Sie [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) auf 2 festlegen, gibt Bing die beiden Ergebnisse mit der höchsten Rangfolge zurück: Webseiten und Bilder. Wenn Bing Bilder und Videos in die Antwort einbeziehen soll, geben Sie den Abfrageparameter [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) an und legen ihn auf Bilder und Videos fest.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

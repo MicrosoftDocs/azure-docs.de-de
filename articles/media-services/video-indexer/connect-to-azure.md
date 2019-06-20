@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796544"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799845"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Erstellen eines Video Indexer-Kontos mit Azure-Verbindung
 
@@ -103,7 +104,7 @@ Wenn die Verbindungsherstellung mit Azure nicht erfolgreich war, können Sie ver
 
 1. Verwenden Sie das [Azure](https://portal.azure.com/)-Portal, um ein Azure Media Services-Konto zu erstellen, wie beschrieben unter [Erstellen eines Kontos](../previous/media-services-portal-create-account.md).
 
-    Wenn Sie ein Speicherkonto für Ihr Media Services-Konto erstellen, wählen Sie als Kontoart **StorageV2** und für die Replikation **Georedundant (RGS)** aus.
+    Wenn Sie ein Speicherkonto für Ihr Media Services-Konto erstellen, wählen Sie als Kontoart **StorageV2** und für die Replikation **Georedundant (GRS)** aus.
 
     ![Neues Azure Media Services-Konto](./media/create-account/create-ams-account1.png)
 

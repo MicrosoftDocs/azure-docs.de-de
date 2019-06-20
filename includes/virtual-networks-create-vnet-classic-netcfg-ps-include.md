@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-network
 author: genlin
 ms.service: virtual-network
@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116827"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178008"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Erstellen eines virtuellen Netzwerks mithilfe einer Netzwerkkonfigurationsdatei von PowerShell
 Azure verwendet eine XML-Datei, um alle für ein Abonnement verfügbaren virtuellen Netzwerke zu definieren. Sie können diese Datei herunterladen und bearbeiten, um vorhandene virtuelle Netzwerke zu ändern oder zu löschen und neue Netzwerke zu erstellen. In diesem Tutorial erfahren Sie, wie Sie diese Datei, die auch als Netzwerkkonfigurationsdatei oder netcfg-Datei bezeichnet wird, herunterladen und bearbeiten können, um ein neues virtuelles Netzwerk zu erstellen. Weitere Informationen zur Netzwerkkonfigurationsdatei finden Sie im [Konfigurationsschema für virtuelle Azure-Netzwerke](https://msdn.microsoft.com/library/azure/jj157100.aspx).
@@ -35,8 +35,8 @@ Um ein virtuelles Netzwerk mit PowerShell und einer netcfg-Datei zu erstellen, m
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Öffnen Sie die in Schritt 2 gespeicherte Datei mit einem beliebigen XML- oder Text-Editor, und suchen Sie nach dem **\<VirtualNetworkSites>**-Element. Wenn Sie bereits Netzwerke erstellt haben, wird für jedes Netzwerk ein eigenes **\<VirtualNetworkSites>**-Element angezeigt.
-4. Um das in diesem Szenario beschriebene virtuelle Netzwerk zu erstellen, fügen Sie den folgenden XML-Code direkt unter dem **\<VirtualNetworkSites>**-Element hinzu:
+3. Öffnen Sie die in Schritt 2 gespeicherte Datei mit einem beliebigen XML- oder Text-Editor, und suchen Sie nach dem **\<VirtualNetworkSites>** -Element. Wenn Sie bereits Netzwerke erstellt haben, wird für jedes Netzwerk ein eigenes **\<VirtualNetworkSites>** -Element angezeigt.
+4. Um das in diesem Szenario beschriebene virtuelle Netzwerk zu erstellen, fügen Sie den folgenden XML-Code direkt unter dem **\<VirtualNetworkSites>** -Element hinzu:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

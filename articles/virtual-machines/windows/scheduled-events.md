@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508199"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Instance Metadata Service: Scheduled Events für Windows-VMs
@@ -64,7 +64,7 @@ Wenn der virtuelle Computer nicht innerhalb eines virtuellen Netzwerks erstellt 
 ### <a name="version-and-region-availability"></a>Version und regionale Verfügbarkeit
 Der Dienst Geplante Ereignisse ist versionsspezifisch. Versionen sind obligatorisch, und die aktuelle Version ist `2017-11-01`.
 
-| Version | Releasetyp | Regionen | Versionsinformationen | 
+| Version | Releasetyp | Regions | Versionsinformationen | 
 | - | - | - | - |
 | 2017-11-01 | Allgemeine Verfügbarkeit | Alle | <li> Unterstützung für die Entfernung von VMs mit niedriger Priorität hinzugefügt (EventType 'Preempt')<br> | 
 | 2017-08-01 | Allgemeine Verfügbarkeit | Alle | <li> Ein vorangestellter Unterstrich wurde aus Ressourcennamen virtueller Iaas-Computer entfernt.<br><li>Der Metadatenheader wird als Voraussetzung für alle Anforderungen erzwungen. | 

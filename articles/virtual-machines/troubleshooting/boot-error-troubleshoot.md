@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
 ms.openlocfilehash: c12f753225f8c6fc4fdb3fdcbaf0e915cb85fdbf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779440"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60505443"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Problembehandlung bei Startfehlern von virtuellen Azure-Computern
 

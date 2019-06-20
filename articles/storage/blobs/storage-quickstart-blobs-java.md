@@ -10,10 +10,10 @@ ms.date: 02/04/2019
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154412"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Hochladen, Herunterladen und Auflisten von Blobs mit der Clientbibliothek für Java v7

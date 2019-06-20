@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 7720189c0eb7cee31fb43f8d3ff055e1d19ff142
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: c1cdb64e4c8c99eeca4cc66c0d0ad2b755144917
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60201940"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Erstellen eines benutzerdefinierten Images aus einer VHD-Datei mithilfe von PowerShell
 

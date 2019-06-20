@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618085"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772381"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrieren von Azure ExpressRoute mit Notfallwiederherstellung für virtuelle Azure-Computer
 
@@ -106,10 +106,10 @@ Die Workloads herkömmlicher Enterprise-Bereitstellungen werden normalerweise au
 
 **Richtung** | **Einstellung** | **State**
 --- | --- | ---
-Spoke zu Hub | Virtuelle Netzwerkadressen zulassen | Aktiviert
-Spoke zu Hub | Weitergeleiteten Datenverkehr zulassen | Aktiviert
+Spoke zu Hub | Virtuelle Netzwerkadressen zulassen | Enabled
+Spoke zu Hub | Weitergeleiteten Datenverkehr zulassen | Enabled
 Spoke zu Hub | Gatewaytransit zulassen | Deaktiviert
-Spoke zu Hub | „Gateways entfernen“ verwenden | Aktiviert
+Spoke zu Hub | „Gateways entfernen“ verwenden | Enabled
 
  ![Konfiguration des Spoke-zu-Hub-Peerings](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Spoke zu Hub | „Gateways entfernen“ verwenden | Aktiviert
 
 **Richtung** | **Einstellung** | **State**
 --- | --- | ---
-Hub zu Spoke | Virtuelle Netzwerkadressen zulassen | Aktiviert
-Hub zu Spoke | Weitergeleiteten Datenverkehr zulassen | Aktiviert
-Hub zu Spoke | Gatewaytransit zulassen | Aktiviert
+Hub zu Spoke | Virtuelle Netzwerkadressen zulassen | Enabled
+Hub zu Spoke | Weitergeleiteten Datenverkehr zulassen | Enabled
+Hub zu Spoke | Gatewaytransit zulassen | Enabled
 Hub zu Spoke | „Gateways entfernen“ verwenden | Deaktiviert
 
  ![Konfiguration des Hub-zu-Spoke-Peerings](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

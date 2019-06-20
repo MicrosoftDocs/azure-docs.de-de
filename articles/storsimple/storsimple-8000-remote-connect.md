@@ -16,11 +16,11 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60631782"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Herstellen einer Remoteverbindung mit Geräten der StorSimple 8000-Serie
 
@@ -151,7 +151,7 @@ Führen Sie die folgenden Schritte auf der seriellen Gerätekonsole aus, um die 
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>So aktivieren Sie die Remoteverwaltung über die serielle Gerätekonsole
 1. Wählen Sie im Menü der seriellen Konsole Option 1 aus. Weitere Informationen über die Verwendung der seriellen Konsole auf dem Gerät finden Sie unter [Herstellen einer Verbindung mit Windows PowerShell für StorSimple über die serielle Gerätekonsole](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Geben Sie an der Eingabeaufforderung Folgendes ein: 
+2. Geben Sie an der Eingabeaufforderung Folgendes ein:
    
      `Enable-HcsRemoteManagement`
    
@@ -237,7 +237,7 @@ Führen Sie die folgenden Schritte auf dem Computer aus, über den Sie die Windo
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Geben Sie für den Parameter „-ComputerName“ im Cmdlet die <*Seriennummer des Zielgeräts*> an. Diese Seriennummer wurde der IP-Adresse von DATA 0 in der Datei "hosts" auf dem Remotehost zugeordnet, beispielsweise **SHX0991003G44MT** , wie in der folgenden Abbildung dargestellt.
-5. Geben Sie Folgendes ein: 
+5. Geben Sie Folgendes ein:
    
      `Enter-PSSession $session`
 6. Sie müssen einige Minuten warten, und dann wird über HTTPS über SSL eine Verbindung mit Ihrem Gerät hergestellt. Es wird eine Meldung darüber angezeigt, dass Sie mit dem Gerät verbunden sind.

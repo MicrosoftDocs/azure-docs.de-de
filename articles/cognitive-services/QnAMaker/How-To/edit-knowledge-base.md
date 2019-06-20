@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65541670"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Bearbeiten einer Wissensdatenbank in QnA Maker
 
@@ -72,8 +72,7 @@ Fügen Sie alternative Fragen zu einem vorhandenen Fragen-und-Antworten-Paar hin
 
 ## <a name="add-metadata"></a>Hinzufügen von Metadaten
 
-
-Fügen Sie Metadatenpaare durch Auswahl des Metadatensymbols hinzu. Ein Metadatenpaar besteht aus einem Schlüssel und einen Wert.
+Fügen Sie Metadatenpaare hinzu, indem Sie zuerst **Ansichtsoptionen** und dann **Metadaten anzeigen** auswählen. Dadurch wird die Metadatenspalte angezeigt. Wählen Sie anschließend das Zeichen **+** aus, um ein Metadatenpaar hinzuzufügen. Dieses Paar besteht aus einem Schlüssel und einen Wert.
 
 ![Hinzufügen von Metadaten](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

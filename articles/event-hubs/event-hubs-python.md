@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
 ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818617"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60202972"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Verwenden von Azure Event Hubs aus einer Python-Anwendung
 Azure Event Hubs ist eine Big Data-Streamingplattform und ein Ereigniserfassungsdienst, der pro Sekunde Millionen von Ereignissen empfangen und verarbeiten kann. Event Hubs kann Ereignisse, Daten oder Telemetriedaten, die von verteilter Software und verteilten Geräten erzeugt wurden, verarbeiten und speichern. An einen Event Hub gesendete Daten können transformiert und mit einem beliebigen Echtzeitanalyse-Anbieter oder Batchverarbeitungs-/Speicheradapter gespeichert werden. Weitere Informationen finden Sie unter [Einführung in Event Hubs](event-hubs-what-is-event-hubs.md). 

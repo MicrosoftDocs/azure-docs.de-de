@@ -75,7 +75,7 @@ Für Azure Disk Encryption für Linux ist eine Internetverbindung für den Zugri
 | NAME | Wert/Beispiel | Datentyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Herausgeber | Microsoft.Azure.Security | Zeichenfolge |
+| publisher | Microsoft.Azure.Security | Zeichenfolge |
 | type | AzureDiskEncryptionForLinux | Zeichenfolge |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
 | AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 

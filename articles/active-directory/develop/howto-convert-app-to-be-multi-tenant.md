@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540457"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235277"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Gewusst wie: Anmelden von Azure Active Directory-Benutzern mit dem mehrinstanzenfähigen Anwendungsmuster
 
@@ -45,7 +45,7 @@ Betrachten wir jeden Schritt im Detail. Sie können auch direkt zu [dieser Liste
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Aktualisieren der Registrierung, sodass sie mehrinstanzenfähig ist
 
-Standardmäßig gelten Web-App-/API-Registrierungen in Azure AD für einen einzelnen Mandanten. Sie können Ihre Registrierung mehrinstanzenfähig machen, indem Sie die Option **Mehrinstanzenfähig** im Bereich **Eigenschaften** Ihrer Anwendungsregistrierung im [Azure-Portal][AZURE-portal] auf **Ja** festlegen.
+Standardmäßig gelten Web-App-/API-Registrierungen in Azure AD für einen einzelnen Mandanten. Sie können Ihre Registrierung mehrinstanzenfähig machen, indem Sie den Schalter **Supported account types** (Unterstützte Kontotypen) im Bereich **Authentifizierung** Ihrer Anwendungsregistrierung im [Azure-Portal][AZURE-portal] auf **Konten in einem beliebigen Organisationsverzeichnis** festlegen.
 
 Damit eine Anwendung mehrinstanzenfähig sein kann, muss der App-ID-URI der Anwendung in Azure AD global eindeutig sein. Der App-ID-URI ist eine der Methoden, mit der eine Anwendung in Protokollmeldungen identifiziert wird. Bei einer Anwendung mit einem einzigen Mandanten muss der App-ID-URI nur in diesem Mandanten eindeutig sein. Bei einer mehrinstanzenfähigen Anwendung muss er global eindeutig sein, damit Azure AD die Anwendung in allen Mandanten finden kann. Globale Eindeutigkeit wird durch die Anforderung erzwungen, dass der App-ID-URI einen Hostnamen aufweisen muss, der mit einer überprüften Domäne des Azure AD-Mandanten übereinstimmt.
 
@@ -138,7 +138,7 @@ Ihre Anwendung weist möglicherweise mehrere Ebenen auf, die in Azure AD jeweils
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Mehrere Ebenen in einem einzelnen Mandanten
 
-Dies kann ein Problem sein, wenn die logische Anwendung aus zwei oder mehr Anwendungsregistrierungen besteht, z.B. separate Clients und Ressourcen. Wie sorgen Sie zuerst dafür, dass die Ressource im Mandanten des Kunden vorhanden ist? Azure AD behandelt diesen Fall, indem der Client und die Ressource, der zugestimmt werden soll, in einem einzigen Schritt aktiviert werden. Der Benutzer sieht die Gesamtsumme der Berechtigungen, die sowohl vom Client als auch von der Ressource auf der Seite „Zustimmung“ angefordert werden. Um dieses Verhalten zu ermöglichen, muss die Anwendungsregistrierung der Ressource die App-ID des Clients als `knownClientApplications` im [Anwendungsmanifest][AAD-App-Manifest] enthalten. Beispiel: 
+Dies kann ein Problem sein, wenn die logische Anwendung aus zwei oder mehr Anwendungsregistrierungen besteht, z.B. separate Clients und Ressourcen. Wie sorgen Sie zuerst dafür, dass die Ressource im Mandanten des Kunden vorhanden ist? Azure AD behandelt diesen Fall, indem der Client und die Ressource, der zugestimmt werden soll, in einem einzigen Schritt aktiviert werden. Der Benutzer sieht die Gesamtsumme der Berechtigungen, die sowohl vom Client als auch von der Ressource auf der Seite „Zustimmung“ angefordert werden. Um dieses Verhalten zu ermöglichen, muss die Anwendungsregistrierung der Ressource die App-ID des Clients als `knownClientApplications` im [Anwendungsmanifest][AAD-App-Manifest] enthalten. Beispiel:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 

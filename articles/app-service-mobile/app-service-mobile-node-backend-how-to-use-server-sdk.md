@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128099"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Verwenden des Node.js SDK für Mobile Apps
 
@@ -302,7 +302,7 @@ Das Mobile Apps Node.js SDK verwendet das [mssql-Node.js-Paket], um eine Verbind
 
    h. Wählen Sie im Strukturmenü **SQL Server-Dienste** aus.
 
-   i. Klicken Sie mit der rechten Maustaste auf **SQL Server (SQLEXPRESS)**, und wählen Sie **Neu starten** aus.
+   i. Klicken Sie mit der rechten Maustaste auf **SQL Server (SQLEXPRESS)** , und wählen Sie **Neu starten** aus.
 
    j. Schließen Sie den SQL Server 2014-Konfigurations-Manager.
 
@@ -404,7 +404,7 @@ Das Verwenden von Azure SQL-Datenbank als Datenspeicher ist über alle Azure App
 1. Geben Sie im Feld **Ressourcengruppe** den gleichen Namen wie für Ihre App ein.
 1. Der App Service-Plan „Standard“ wird ausgewählt. Wenn Sie den App Service-Plan ändern möchten, gehen Sie folgendermaßen von:
 
-   a. Wählen Sie **App Service-Plan** > **+Neu erstellen** aus.
+   a. Wählen Sie **App Service-Plan** >  **+Neu erstellen** aus.
 
    b. Geben Sie einen Namen für den neuen App Service-Tarif ein, und wählen Sie einen geeigneten Speicherort.
 
@@ -422,7 +422,7 @@ Sie können entweder für eine vorhandene SQL-Datenbank eine Verbindung mit Ihre
 > [!NOTE]
 > Wenn Sie am Standort des Mobile Apps-Back-Ends bereits über eine Datenbank verfügen, können Sie auf stattdessen **Vorhandene Datenbank verwenden** klicken und dann diese Datenbank auswählen. Die Verwendung einer Datenbank an einem anderen Standort wird aufgrund der höheren Latenz nicht empfohlen.
 
-1. Wählen Sie im neuen Mobile Apps-Back-End **Einstellungen** > **Mobile App** > **Daten** > **+Hinzufügen** aus.
+1. Wählen Sie im neuen Mobile Apps-Back-End **Einstellungen** > **Mobile App** > **Daten** >  **+Hinzufügen** aus.
 1. Klicken Sie im Bereich **Datenverbindung hinzufügen** auf **SQL-Datenbank – erforderliche Einstellungen konfigurieren** > **Neue Datenbank erstellen**. Geben Sie den Namen der neuen Datenbank in das Feld **Name** ein.
 1. Wählen Sie **Server** aus. Geben Sie im Bereich **Neuer Server** einen eindeutigen Namen in das Feld **Servername** ein, und geben Sie einen geeigneten Administratoranmeldenamen und ein Kennwort für den Server an. Achten Sie darauf, dass **Azure-Diensten Zugriff auf den Server erlauben** aktiviert ist. Klicken Sie auf **OK**.
 
@@ -910,7 +910,7 @@ Mit einfachen Tabellen können Sie Tabellen direkt im Portal erstellen und damit
 * createdAt
 * updatedAt
 * deleted
-* Version
+* version
 
 Sie können mit dem App Service-Editor sogar Tabellenvorgänge bearbeiten. Wenn Sie in den Einstellungen für die Back-End-Website **Einfache Tabellen** auswählen, können Sie eine Tabelle hinzufügen, ändern oder löschen. Sie sehen auch, dass Daten in der Tabelle enthalten sind.
 

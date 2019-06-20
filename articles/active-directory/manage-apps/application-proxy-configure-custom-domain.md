@@ -3,8 +3,8 @@ title: Benutzerdefinierte Domänen im Azure AD-Anwendungsproxy | Microsoft-Dokum
 description: Verwalten Sie benutzerdefinierte Domänen im Azure AD-Anwendungsproxy, sodass die URL für die App immer die gleiche ist – unabhängig davon, wo Ihre Benutzer darauf zugreifen.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/31/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59663346fce415d73609f09345048ff321f1a234
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359826"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956914"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeiten mit benutzerdefinierten Domänen im Azure AD-Anwendungsproxy
 
@@ -71,7 +71,9 @@ Wenn diese drei Anforderungen erfüllt sind, können Sie die folgenden Schritte 
 ### <a name="certificate-format"></a>Zertifikatformat
 Es gibt keine Einschränkung für die Zertifikatsignaturmethoden. Elliptic Curve Cryptography (ECC), Subject Alternative Name (SAN) und andere gängige Zertifikattypen werden unterstützt. 
 
-Sie können ein Platzhalterzertifikats verwenden, solange der Platzhalter mit der gewünschten externen URL übereinstimmt. 
+Sie können ein Platzhalterzertifikats verwenden, solange der Platzhalter mit der gewünschten externen URL übereinstimmt.
+
+Aus Sicherheitsgründen können Sie kein Zertifikat verwenden, das von Ihrer eigenen Public Key-Infrastruktur ausgestellt wurde.
 
 ### <a name="changing-the-domain"></a>Ändern der Domäne
 Alle überprüften Domänen werden in der Dropdownliste „Externe URL“ Ihrer Anwendung angezeigt. Sie können einfach dieses Feld für die Anwendung aktualisieren, um die Domäne zu ändern. [Fügen Sie die gewünschte Domäne als überprüfte Domäne hinzu](../fundamentals/add-custom-domain.md), falls sie nicht in der Liste enthalten ist. Wenn Sie eine Domäne auswählen, der noch kein Zertifikat zugeordnet ist, können Sie die Schritte 5 bis 7 ausführen, um das Zertifikat hinzuzufügen. Stellen Sie anschließend sicher, dass Sie den DNS-Eintrag aktualisieren, damit die Umleitung von der neuen externen URL durchgeführt wird. 

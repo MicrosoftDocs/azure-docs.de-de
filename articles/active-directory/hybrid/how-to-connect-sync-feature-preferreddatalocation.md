@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Connect-Synchronisierung: Konfigurieren des bevorzugten Datenspeicherorts für Multi-Geo Capabilities in Office 365 | Microsoft-Dokumentation'
+title: 'Azure AD Connect: Konfigurieren des bevorzugten Datenspeicherorts für Office 365-Ressourcen'
 description: Erfahren Sie, wie Sie Ihre Office 365-Benutzerressourcen mit der Azure Active Directory Connect-Synchronisierung in der Nähe der Benutzer platzieren.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118441"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473026"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-Synchronisierung: Konfigurieren des bevorzugten Datenspeicherorts für Office 365-Ressourcen
 In diesem Thema wird ausführlich erläutert, wie Sie das Attribut für den bevorzugten Datenspeicherort in der Azure Active Directory Connect-Synchronisierung (Azure AD) konfigurieren. Wenn jemand Multi-Geo Capabilities in Office 365 verwendet, legen Sie mit diesem Attribut den geografischen Standort der Office 365-Daten des Benutzers fest. (Die Benennungen *Region* und *geografischer Raum* werden synonym verwendet.)
@@ -137,7 +137,7 @@ Die Synchronisierungsregel für eingehende Daten ermöglicht die Übertragung de
 5. Lassen Sie die **Bereichsfilter** leer, um alle Objekte einzubeziehen. Möglicherweise müssen Sie den Bereichsfilter entsprechend Ihrer Azure AD Connect-Bereitstellung anpassen.
 6. Navigieren Sie zur Registerkarte **Transformation**, und implementieren Sie folgende Transformationsregel:
 
-    | Attributflusstyp | Zielattribut | Quelle | Einmal anwenden | Mergetyp |
+    | Attributflusstyp | Zielattribut | `Source` | Einmal anwenden | Mergetyp |
     | --- | --- | --- | --- | --- |
     |Direkt | preferredDataLocation | Wählen Sie das Quellattribut aus. | Deaktiviert | Aktualisieren |
 
@@ -174,7 +174,7 @@ Die Synchronisierungsregel für ausgehende Daten ermöglicht die Übertragung de
 
 6. Navigieren Sie zur Registerkarte **Transformation**, und implementieren Sie folgende Transformationsregel:
 
-    | Attributflusstyp | Zielattribut | Quelle | Einmal anwenden | Mergetyp |
+    | Attributflusstyp | Zielattribut | `Source` | Einmal anwenden | Mergetyp |
     | --- | --- | --- | --- | --- |
     | Direkt | preferredDataLocation | preferredDataLocation | Deaktiviert | Aktualisieren |
 
@@ -217,7 +217,7 @@ Im Allgemeinen ist der vollständige Synchronisierungszyklus erforderlich. Der G
    2. Gehen Sie im Dialogfeld **Connectorbereich durchsuchen** wie folgt vor:
 
         a. Legen Sie den **Bereich** auf **Ausstehender Export** fest.<br>
-        b. Wählen Sie alle drei Kontrollkästchen aus: **„Hinzufügen“, „Ändern“ und „Löschen“**.<br>
+        b. Wählen Sie alle drei Kontrollkästchen aus: **„Hinzufügen“, „Ändern“ und „Löschen“** .<br>
         c. Um die Liste von Objekten mit Änderungen, die exportiert werden sollen, anzuzeigen, wählen Sie **Durchsuchen** aus. Um die Änderungen für ein bestimmtes Objekt zu untersuchen, doppelklicken Sie auf das Objekt.<br>
         d. Stellen Sie sicher, dass die Änderungen Ihren Erwartungen entsprechen.
 

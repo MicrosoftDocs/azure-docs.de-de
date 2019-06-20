@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937889"
 ---
 # <a name="requirements-by-listing-type"></a>Listingtyp-Anforderungen  

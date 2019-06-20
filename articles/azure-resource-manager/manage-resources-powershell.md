@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 51ef6f3f8ac18b71064f73f32597c1f59ffa1d18
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61075318"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Verwalten von Azure-Ressourcen mithilfe von Azure PowerShell
 

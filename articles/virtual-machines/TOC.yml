@@ -12,6 +12,8 @@
       href: workloads/oracle/oracle-considerations.md
     - name: SAP
       href: workloads/sap/get-started.md
+    - name: High Performance Computing
+      href: workloads/hpc/configure.md
     - name: Erneutes Hosten von Mainframes
       href: workloads/mainframe-rehosting/overview.md
 - name: Klassische Bereitstellungen

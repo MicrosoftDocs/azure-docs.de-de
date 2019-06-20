@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: cognitive-services
 author: scottwhi-msft
 ms.service: cognitive-services
@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124732"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178374"
 ---
 Die Bing-Statistik stellt Analysen für Bing-Suche-APIs bereit. Die Analysen enthalten das Aufrufvolumen, die häufigsten Abfragezeichenfolgen, die geografische Verteilung und vieles mehr. Wenn Sie die Bing-Statistik in Ihrem kostenpflichtigen Abonnement für die Bing-Suche aktivieren möchten, navigieren Sie zu Ihrem [Azure-Dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), wählen Sie Ihr kostenpflichtiges Abonnement aus, und klicken Sie auf „Enable Bing Statistics“ (Bing-Statistik aktivieren). Durch das Aktivieren der Bing-Statistik wird Ihre Abonnementrate leicht erhöht (siehe [Preise](https://aka.ms/bingstatisticspricing)).
 

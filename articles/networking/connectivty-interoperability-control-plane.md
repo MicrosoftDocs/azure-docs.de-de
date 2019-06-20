@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 28ce4cfd0c62586510a6f7dfdeca8b552fe9638e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60425647"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilität in Azure-Back-End-Konnektivitätsfeatures: Analyse der Steuerungsebene
 

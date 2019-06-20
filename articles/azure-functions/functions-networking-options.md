@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698200"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492834"
 ---
 # <a name="azure-functions-networking-options"></a>Netzwerkoptionen von Azure Functions
 
@@ -31,15 +31,14 @@ Sie können Funktions-Apps auf verschiedene Arten hosten:
 
 ## <a name="matrix-of-networking-features"></a>Matrix der Netzwerkfunktionen
 
-|                |[Verbrauchstarif](functions-scale.md#consumption-plan)|⚠ [Premium-Tarif](functions-scale.md#premium-plan-public-preview)|[App Service-Plan](functions-scale.md#app-service-plan)|[App Service-Umgebung](../app-service/environment/intro.md)|
+|                |[Verbrauchstarif](functions-scale.md#consumption-plan)|[Premium-Plan (Vorschauversion)](functions-scale.md#premium-plan-public-preview)|[App Service-Plan](functions-scale.md#app-service-plan)|[App Service-Umgebung](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[IP-Einschränkungen für eingehenden Datenverkehr](#inbound-ip-restrictions)|✅ Ja|✅ Ja|✅ Ja|✅ Ja|
+|[IP-Einschränkungen für ausgehenden Datenverkehr](#private-site-access)|❌ Nein| ❌ Nein|❌ Nein|✅ Ja|
 |[Integration in ein virtuelles Netzwerk](#virtual-network-integration)|❌ Nein|❌ Nein|✅ Ja|✅ Ja|
-|[Vorschau der Integration des virtuellen Netzwerks (Azure ExpressRoute und Dienstendpunkte)](#preview-version-of-virtual-network-integration)|❌ Nein|⚠Ja|⚠Ja|✅ Ja|
+|[Vorschau der Integration des virtuellen Netzwerks (Azure ExpressRoute und Dienstendpunkte ausgehend)](#preview-version-of-virtual-network-integration)|❌ Nein|✅ Ja|✅ Ja|✅ Ja|
 |[Hybridverbindungen](#hybrid-connections)|❌ Nein|❌ Nein|✅ Ja|✅ Ja|
-|[Privater Websitezugriff](#private-site-access)|❌ Nein| ❌ Nein|❌ Nein|✅ Ja|
-
-⚠ Diese Previewfunktion ist nicht für die Verwendung in der Produktion bestimmt.
+|[Privater Websitezugriff](#private-site-access)|❌ Nein| ✅ Ja|✅ Ja|✅ Ja|
 
 ## <a name="inbound-ip-restrictions"></a>IP-Einschränkungen für eingehenden Datenverkehr
 
@@ -50,6 +49,10 @@ Mit IP-Einschränkungen können Sie eine nach Priorität sortierte Liste mit IP-
 
 Weitere Informationen finden Sie unter [Azure App Service – statische Zugriffseinschränkungen](../app-service/app-service-ip-restrictions.md).
 
+## <a name="outbound-ip-restrictions"></a>IP-Einschränkungen für ausgehenden Datenverkehr
+
+IP-Einschränkungen für ausgehenden Datenverkehr sind nur für Funktionen verfügbar, die in einer App Service-Umgebung bereitgestellt werden. Sie können ausgehende Einschränkungen für das virtuelle Netzwerk konfigurieren, wo Ihre App Service-Umgebung bereitgestellt wird.
+
 ## <a name="virtual-network-integration"></a>Integration in ein virtuelles Netzwerk
 
 Durch die Integration des virtuellen Netzwerks kann die Funktions-App auf Ressourcen eines virtuellen Netzwerks zugreifen. Diese Funktion ist sowohl für den Premium-Tarif als auch für den App Service-Plan verfügbar. In einer App Service-Umgebung befindet sich Ihre App bereits in einem virtuellen Netzwerk, sodass die Integration des virtuellen Netzwerks nicht erforderlich ist, um Ressourcen im selben virtuellen Netzwerk zu erreichen.
@@ -58,7 +61,7 @@ Die Integration des virtuellen Netzwerks ermöglicht Ihrer Funktions-App den Zug
 
 Mithilfe der Integration des virtuellen Netzwerks kann der Zugriff von Apps auf Datenbanken und Webdienste im virtuellen Netzwerk ermöglicht werden. Mit der Integration des virtuellen Netzwerks müssen Sie keinen öffentlichen Endpunkt für Anwendungen auf Ihrem virtuellen Computer verfügbar machen. Stattdessen können Sie die privaten Adressen verwenden, die nicht über das Internet geroutet werden.
 
-Die allgemein verfügbare Version der Integration des virtuellen Netzwerks beruht auf einem VPN-Gateway zum Verbinden von Funktions-Apps mit einem virtuellen Netzwerk. Sie ist verfügbar, wenn Functions unter einem App Service-Plan gehostet wird. Informationen zum Konfigurieren der Funktion finden Sie unter [Integrieren Ihrer App in ein virtuelles Azure-Netzwerk](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+Die allgemein verfügbare Version der Integration des virtuellen Netzwerks beruht auf einem VPN-Gateway zum Verbinden von Funktions-Apps mit einem virtuellen Netzwerk. Sie ist verfügbar, wenn Functions unter einem App Service-Plan gehostet wird. Informationen zum Konfigurieren der Funktion finden Sie unter [Integrieren Ihrer App in ein virtuelles Azure-Netzwerk](../app-service/web-sites-integrate-with-vnet.md).
 
 ### <a name="preview-version-of-virtual-network-integration"></a>Vorschauversion der Integration des virtuellen Netzwerks
 
@@ -88,7 +91,10 @@ Weitere Informationen finden Sie in der [App Service-Dokumentation zu Hybrid Con
 
 ## <a name="private-site-access"></a>Privater Websitezugriff
 
-Privater Websitezugriff bezieht sich darauf, den Zugriff auf Ihre App nur über ein privates Netzwerk zuzulassen, z. B. über ein virtuelles Azure-Netzwerk. Der private Websitezugriff ist nur verfügbar, wenn eine App Service-Umgebung mit einem internen Lastenausgleich (ILB) konfiguriert ist. Weitere Informationen finden Sie unter [Erstellen und Verwenden eines internen Lastenausgleichs mit einer App Service-Umgebung](../app-service/environment/create-ilb-ase.md).
+Privater Websitezugriff bezieht sich darauf, den Zugriff auf Ihre App nur über ein privates Netzwerk zuzulassen, z. B. über ein virtuelles Azure-Netzwerk. 
+* Zugriff auf private Sites ist im Premium- und App Service-Plan verfügbar, wenn **Dienstendpunkte** konfiguriert sind. Weitere Informationen finden Sie unter [ virtueller Netzwerke](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * Bedenken Sie, dass Ihre Funktion auch mit Dienstendpunkten immer noch vollständigen ausgehenden Zugriff auf das Internet besitzt, selbst wenn VNET-Integration konfiguriert ist.
+* Der private Websitezugriff ist nur verfügbar, wenn eine App Service-Umgebung mit einem internen Lastenausgleich (ILB) konfiguriert ist. Weitere Informationen finden Sie unter [Erstellen und Verwenden eines internen Lastenausgleichs mit einer App Service-Umgebung](../app-service/environment/create-ilb-ase.md).
 
 Es gibt viele Möglichkeiten, um in anderen Hostingoptionen auf Ressourcen des virtuellen Netzwerks zuzugreifen. Jedoch kann nur über eine App Service-Umgebung zugelassen werden, dass Trigger für eine Funktion über ein virtuelles Netzwerk verwendet werden.
 

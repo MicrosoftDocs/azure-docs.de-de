@@ -9,11 +9,11 @@ ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103376"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60431117"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Erweitern von Warnungen aus Log Analytics in Azure-Warnungen
 Die Warnfunktion im Operations Management Suite-Portal (OMS) wird durch Azure-Warnungen in Azure Government Cloud ersetzt. Im Rahmen dieses Übergangs werden Warnungen, die Sie ursprünglich in Log Analytics konfiguriert haben, auf Azure erweitert. Wenn Sie nicht warten möchten, bis diese automatisch in Azure verschoben werden, können Sie den Prozess auslösen:

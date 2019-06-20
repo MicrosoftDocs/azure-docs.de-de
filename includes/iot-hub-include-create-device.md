@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -9,11 +9,11 @@ ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: d70544866b9e321d98acd3978da145276e036025
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671763"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178190"
 ---
 <!-- put the ## header in the file that includes this file -->
 

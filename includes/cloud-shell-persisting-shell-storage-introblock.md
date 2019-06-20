@@ -5,11 +5,11 @@ ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
 ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125192"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178429"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Beibehalten von Dateien in Azure Cloud Shell
 Cloud Shell nutzt Azure-Dateispeicher, um Dateien sitzungsübergreifend beizubehalten. Beim ersten Start fordert Cloud Shell Sie auf, eine neue oder vorhandene Dateifreigabe zu verknüpfen, um Dateien sitzungsübergreifend beizubehalten.

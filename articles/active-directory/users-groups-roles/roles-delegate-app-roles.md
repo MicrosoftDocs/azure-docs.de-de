@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60469127"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegieren von App-Administratorrollen in Azure Active Directory
 

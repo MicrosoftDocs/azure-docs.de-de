@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62112649"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivieren der Offlinesynchronisierung mit mobilen iOS-Apps
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -162,9 +162,9 @@ Wenn Sie die Funktion für die Offlinesynchronisierung verwenden, definieren Sie
 | Attribut | Type |
 | --- | --- |
 | id | Integer 64 |
-| itemId | Zeichenfolge |
-| Eigenschaften | Binärdaten |
-| Tabelle | Zeichenfolge |
+| itemId | string |
+| properties | Binärdaten |
+| table | string |
 | tableKind | Integer 16 |
 
 
@@ -174,9 +174,9 @@ Wenn Sie die Funktion für die Offlinesynchronisierung verwenden, definieren Sie
 
 | Attribut | Type |
 | --- | --- |
-| id |Zeichenfolge |
+| id |string |
 | operationId |Integer 64 |
-| Eigenschaften |Binärdaten |
+| properties |Binärdaten |
 | tableKind |Integer 16 |
 
  **MS_TableConfig**
@@ -185,11 +185,11 @@ Wenn Sie die Funktion für die Offlinesynchronisierung verwenden, definieren Sie
 
 | Attribut | Type |
 | --- | --- |
-| id |Zeichenfolge |
-| key |Zeichenfolge |
+| id |string |
+| key |string |
 | keyType |Integer 64 |
-| Tabelle |Zeichenfolge |
-| value |Zeichenfolge |
+| table |string |
+| value |string |
 
 ### <a name="data-table"></a>Datentabelle
 
@@ -198,11 +198,11 @@ Wenn Sie die Funktion für die Offlinesynchronisierung verwenden, definieren Sie
 | Attribut | Type | Hinweis |
 | --- | --- | --- |
 | id | Zeichenfolge, als erforderlich gekennzeichnet |Primärschlüssel im Remotespeicher |
-| complete | Boolescher Wert | To-do-Elementfeld |
+| complete | Boolean | To-do-Elementfeld |
 | text |string |To-do-Elementfeld |
-| createdAt | Datum | (optional) Zuordnung zur **createdAt**-Systemeigenschaft |
-| updatedAt | Datum | (optional) Zuordnung zur **updatedAt**-Systemeigenschaft |
-| Version | Zeichenfolge | (optional) Zum Erkennen von Konflikten, Zuordnung zu „version“ |
+| createdAt | Date | (optional) Zuordnung zur **createdAt**-Systemeigenschaft |
+| updatedAt | Date | (optional) Zuordnung zur **updatedAt**-Systemeigenschaft |
+| version | string | (optional) Zum Erkennen von Konflikten, Zuordnung zu „version“ |
 
 ## <a name="setup-sync"></a>Ändern des Synchronisierungsverhaltens der App
 In diesem Abschnitt ändern Sie die App, sodass beim App-Start oder beim Einfügen und Aktualisieren von Elementen keine Synchronisierung erfolgt. Es wird nur synchronisiert, wenn die Aktualisierungsschaltfläche betätigt wird.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007456"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561386"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Verwenden von Systemintegritätsberichten für die Problembehandlung
 Azure Service Fabric-Komponenten erstellen direkt Integritätsberichte für alle Entitäten im Cluster. Im [Integritätsspeicher](service-fabric-health-introduction.md#health-store) werden Entitäten basierend auf den Systemberichten erstellt und gelöscht. Darüber hinaus werden sie in einer Hierarchie organisiert, in der Interaktionen zwischen den Entitäten erfasst werden.
@@ -36,7 +36,7 @@ Die Systemintegritätsberichte sorgen für Transparenz in Bezug auf die Cluster-
 > 
 > 
 
-Die Systemkomponentenberichte werden über die Quelle identifiziert. Diese beginnt mit dem „**System.**“- Präfix. Watchdogs können nicht das gleiche Präfix für ihre Quellen verwenden, da Berichte mit ungültigen Parametern abgelehnt werden.
+Die Systemkomponentenberichte werden über die Quelle identifiziert. Diese beginnt mit dem „**System.** “- Präfix. Watchdogs können nicht das gleiche Präfix für ihre Quellen verwenden, da Berichte mit ungültigen Parametern abgelehnt werden.
 
 Nun sehen wir uns einige Systemberichte an, um zu verstehen, wodurch sie ausgelöst werden und wie mögliche Probleme behoben werden, die damit verbunden sind.
 
@@ -632,25 +632,25 @@ Die Eigenschaft und der Text geben an, welche API nicht ausgeführt wurde. Die n
 
 - **IStatefulServiceReplica.Close** und **IStatefulServiceReplica.Abort**: Der häufigste Fall ist ein Dienst, der das in `RunAsync` übergebene Abbruchtoken nicht berücksichtigt. Es kann auch sein, dass `ICommunicationListener.CloseAsync` oder sofern überschrieben `OnCloseAsync` unterbrochen ist.
 
-- **IStatefulServiceReplica.ChangeRole(S)** und **IStatefulServiceReplica.ChangeRole(N)**: Der häufigste Fall ist ein Dienst, der das in `RunAsync` übergebene Abbruchtoken nicht berücksichtigt.
+- **IStatefulServiceReplica.ChangeRole(S)** und **IStatefulServiceReplica.ChangeRole(N)** : Der häufigste Fall ist ein Dienst, der das in `RunAsync` übergebene Abbruchtoken nicht berücksichtigt. In diesem Szenario besteht die beste Lösung im Neustart des Replikats.
 
-- **IStatefulServiceReplica.ChangeRole(P)**: Am häufigsten hat der Dienst keine Aufgabe von `RunAsync` zurückgegeben.
+- **IStatefulServiceReplica.ChangeRole(P)** : Am häufigsten hat der Dienst keine Aufgabe von `RunAsync` zurückgegeben.
 
-Andere API-Aufrufe, die unterbrochen werden können, befinden sich in der **IReplicator**-Schnittstelle. Beispiel: 
+Andere API-Aufrufe, die unterbrochen werden können, befinden sich in der **IReplicator**-Schnittstelle. Beispiel:
 
 - **IReplicator.CatchupReplicaSet:** Diese Warnung gibt eines von zwei Dingen an. Es sind nicht ausreichend aktive Replikate vorhanden. Dies kann durch Prüfen des Replikatzustands der Replikate in der Partition oder im System.FM-Integritätsbericht für eine unterbrochene Neukonfiguration ermittelt werden. oder die Replikate bestätigen Vorgänge nicht. Mit dem PowerShell-Cmdlet `Get-ServiceFabricDeployedReplicaDetail` kann der Zustand aller Replikate ermittelt werden. Das Problem liegt bei den Replikaten, deren `LastAppliedReplicationSequenceNumber`-Wert unter dem `CommittedSequenceNumber`-Wert des primären Replikats liegt.
 
-- **IReplicator.BuildReplica(\<Remotereplikat-ID>)**: Diese Warnung weist auf ein Problem im Buildprozess hin. Weitere Informationen finden Sie unter [Replikatlebenszyklus](service-fabric-concepts-replica-lifecycle.md). Dies ist möglicherweise auf eine Fehlkonfiguration der Replikationsadresse zurückzuführen. Entsprechende Informationen finden Sie unter [Konfigurieren zustandsbehafteter Reliable Services](service-fabric-reliable-services-configuration.md) und [Angeben von Ressourcen in einem Dienstmanifest](service-fabric-service-manifest-resources.md). Ursache kann auch ein Problem mit dem Remoteknoten sein.
+- **IReplicator.BuildReplica(\<Remotereplikat-ID>)** : Diese Warnung weist auf ein Problem im Buildprozess hin. Weitere Informationen finden Sie unter [Replikatlebenszyklus](service-fabric-concepts-replica-lifecycle.md). Dies ist möglicherweise auf eine Fehlkonfiguration der Replikationsadresse zurückzuführen. Entsprechende Informationen finden Sie unter [Konfigurieren zustandsbehafteter Reliable Services](service-fabric-reliable-services-configuration.md) und [Angeben von Ressourcen in einem Dienstmanifest](service-fabric-service-manifest-resources.md). Ursache kann auch ein Problem mit dem Remoteknoten sein.
 
 ### <a name="replicator-system-health-reports"></a>Systemintegritätsberichte für Replikatoren
-**Replikationswarteschlange ist voll:**
+**Replikationswarteschlange ist voll:** 
 **System.Replicator** gibt eine Warnung aus, wenn die Replikationswarteschlange voll ist. Beim primären Replikat ist die Replikationswarteschlange in der Regel voll, weil sekundäre Replikate beim Bestätigen von Vorgängen sehr langsam sind. Beim sekundären Element geschieht dies gewöhnlich, wenn der Dienst langsam beim Anwenden der Vorgänge ist. Die Warnung wird gelöscht, wenn die Warteschlange nicht mehr voll ist.
 
 * **SourceID**: System.Replicator
 * **Property:** **PrimaryReplicationQueueStatus** oder **SecondaryReplicationQueueStatus**, je nach Replikatrolle.
 * **Nächste Schritte:** Gilt der Bericht für das primäre Element, überprüfen Sie die Verbindung zwischen den Knoten im Cluster. Wenn alle Verbindungen fehlerfrei sind, kann mindestens ein langsames sekundäres Element mit hoher Datenträgerwartezeit für die Anwendung auf Vorgänge vorhanden sein. Falls sich der Bericht auf dem sekundären Replikat befindet, sollten Sie zuerst die Datenträgerauslastung und -leistung auf dem Knoten überprüfen. Überprüfen Sie anschließend die ausgehende Verbindung vom langsamen Knoten zum primären Replikat.
 
-**RemoteReplicatorConnectionStatus:**
+**RemoteReplicatorConnectionStatus:** 
 **System.Replicator** für das primäre Replikat gibt eine Warnung aus, wenn bei der Verbindung mit einem sekundären Replikator (Remotereplikator) Fehler auftreten. Die Adresse des Remotereplikators wird in der Meldung des Berichts angezeigt. Dadurch kann einfacher erkannt werden, ob die falsche Konfiguration übergeben wurde oder ob Netzwerkfehler zwischen den Replikatoren auftreten.
 
 * **SourceID**: System.Replicator
@@ -674,7 +674,7 @@ Andere API-Aufrufe, die unterbrochen werden können, befinden sich in der **IRep
 Wenn ein Benennungsvorgang unerwartet lang dauert, wird der Vorgang im primären Replikat der Benennungsdienstpartition, die den Vorgang abwickelt, mit einem Warnungsbericht gekennzeichnet. Ist der Vorgang erfolgreich, wird die Warnung gelöscht. Wird der Vorgang mit einem Fehler abgeschlossen, enthält der Integritätsbericht Einzelheiten zu dem Fehler.
 
 * **SourceID**: System.NamingService
-* **Property:** Beginnt mit dem Präfix „**Duration_**“ und identifiziert den langsamen Vorgang und den Service Fabric-Namen, auf den der Vorgang angewendet wird. Beispiel: Wenn die Diensterstellung für den Namen **fabric:/MyApp/MyService** zu lang dauert, lautet die Eigenschaft **Duration_AOCreateService.fabric:/MyApp/MyService**. „AO“ verweist auf die Rolle der Namenspartition für diesen Namen und Vorgang.
+* **Property:** Beginnt mit dem Präfix „**Duration_** “ und identifiziert den langsamen Vorgang und den Service Fabric-Namen, auf den der Vorgang angewendet wird. Beispiel: Wenn die Diensterstellung für den Namen **fabric:/MyApp/MyService** zu lang dauert, lautet die Eigenschaft **Duration_AOCreateService.fabric:/MyApp/MyService**. „AO“ verweist auf die Rolle der Namenspartition für diesen Namen und Vorgang.
 * **Nächste Schritte:** Überprüfen Sie, warum der Benennungsvorgang nicht erfolgreich ist. Bei jedem Vorgang können andere Ursachen vorliegen. So kann beispielsweise der Befehl zum Löschen des Diensts unterbrochen sein. Dies kann daran liegen, dass der Anwendungshost auf einem Knoten aufgrund eines Benutzerfehlers im Dienstcode immer wieder abstürzt.
 
 Im Anschluss sehen Sie ein Beispiel für einen Diensterstellungsvorgang. Der Vorgang dauerte länger als in der Konfiguration festgelegt. „AO“ wiederholt den Vorgang und sendet Arbeit an „NO“. „NO“ hat den letzten Vorgang mit TIMEOUT abgeschlossen. In diesem Fall wird sowohl für die „AO“- als auch für die „NO“-Rolle das gleiche Replikat als primäres Replikat verwendet.

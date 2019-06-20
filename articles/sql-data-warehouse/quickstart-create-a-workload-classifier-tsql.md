@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9fd11425d22daa87ec5bf2191a5864251ef86f77
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150382"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241247"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Schnellstart: Erstellen eines Workloadklassifizierers mit T-SQL
 
@@ -107,6 +107,6 @@ Führen Sie die folgenden Schritte aus, um Ressourcen zu bereinigen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sie haben nun einen Workloadklassifizierer erstellt. Führen Sie einige Abfragen als TheCEO durch, um zu ermitteln, welche Leistung erzielt wird. Sie können die Abfragen und die zugewiesene Wichtigkeit unter [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) anzeigen.
-
-Weitere Informationen zur Workloadverwaltung für SQL Data Warehouse finden Sie unter [SQL Data Warehouse workload importance (Preview)](sql-data-warehouse-workload-importance.md) (Wichtigkeit von SQL Data Warehouse-Workloads (Vorschauversion)) und [SQL Data Warehouse workload classification (Preview)](sql-data-warehouse-workload-classification.md) (SQL Data Warehouse-Workloadklassifizierung (Vorschauversion)).
+- Sie haben nun einen Workloadklassifizierer erstellt. Führen Sie einige Abfragen als TheCEO durch, um zu ermitteln, welche Leistung erzielt wird. Sie können die Abfragen und die zugewiesene Wichtigkeit unter [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) anzeigen.
+- Weitere Informationen zur Workloadverwaltung für Azure SQL Data Warehouse finden Sie unter [Workloadpriorität für SQL Data Warehouse](sql-data-warehouse-workload-importance.md) und [SQL Data Warehouse-Workloadklassifizierung](sql-data-warehouse-workload-classification.md).
+- Sehen Sie sich die Anleitungsartikel zum [Konfigurieren der Workloadpriorität](sql-data-warehouse-how-to-configure-workload-importance.md) und zum [Verwalten und Überwachen der Workloadpriorität](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) an.

@@ -12,30 +12,39 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d1275a48de5cad9321186ba20860d853b8ce55ad
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 3d9a597e7ced631627a121f3f0757e472f9a4bae
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413620"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393586"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Bewährte Methoden für Azure App Configuration
 
-Dieser Artikel behandelt gängige Muster und Methoden bei der Verwendung von Azure App Configuration.
+In diesem Artikel werden allgemeine Muster und bewährte Methoden bei der Verwendung von Azure App Configuration erörtert.
 
 ## <a name="key-groupings"></a>Schlüsselgruppierungen
 
-App Configuration bietet zwei Optionen zum Organisieren von Schlüsseln: Schlüsselpräfixe oder -bezeichnungen. Sie können einen oder beide Typen verwenden.
+App Configuration bietet zwei Optionen zum Organisieren von Schlüsseln:
 
-Schlüsselpräfixe sind die Anfangsteile von Schlüsseln. Sie können einen Satz von Schlüsseln logisch gruppieren, indem Sie dasselbe Präfix in ihren Namen verwenden. Präfixe können mehrere Komponenten enthalten, die durch ein Trennzeichen wie z. B. `/` miteinander verbunden sind, ähnlich einem URL-Pfad, um einen Namespace zu bilden. Solche Hierarchien sind hilfreich, wenn Sie Schlüssel für viele Anwendungen, Komponentendienste und Umgebungen in einem App Configuration-Speicher speichern. Ein wichtiger, zu berücksichtigender Aspekt ist, dass Schlüssel das sind, worauf Ihr Anwendungscode verweist, um die Werte der entsprechenden Einstellungen abzurufen. Ein Schlüssel sollte nicht geändert werden, da Sie sonst den Code jedes Mal ändern müssen, wenn es hierzu kommt.
+* Schlüsselpräfixe
+* Bezeichnungen
 
-Bezeichnungen sind Attribute von Schlüsseln. Sie werden zum Erstellen von Varianten eines Schlüssels verwendet. Beispielsweise können Sie mehrere Versionen eines Schlüssels Bezeichnungen zuweisen. Eine Version kann eine Iteration, eine Umgebung oder andere kontextbezogene Informationen sein. Ihre Anwendung kann einen vollständig anderen Satz von Schlüsselwerten anfordern, indem sie einfach eine andere Bezeichnung angibt. Alle Schlüsselverweise können unverändert bleiben.
+Sie können eine oder beide Optionen verwenden, um Ihre Schlüssel zu gruppieren.
+
+*Schlüsselpräfixe* bilden den Anfang von Schlüsseln. Sie können einen Satz von Schlüsseln logisch gruppieren, indem Sie dasselbe Präfix in ihren Namen verwenden. Präfixe können mehrere Komponenten enthalten, die durch ein Trennzeichen wie z. B. `/` miteinander verbunden sind, ähnlich einem URL-Pfad, um einen Namespace zu bilden. Solche Hierarchien sind hilfreich, wenn Sie Schlüssel für viele Anwendungen, Komponentendienste und Umgebungen in einem App Configuration-Speicher speichern.
+
+Ein wichtiger, zu berücksichtigender Aspekt ist, dass Schlüssel das sind, worauf Ihr Anwendungscode verweist, um die Werte der entsprechenden Einstellungen abzurufen. Schlüssel sollten nicht geändert werden, weil Sie ansonsten bei jeder Änderung auch den Code ändern müssen.
+
+*Bezeichnungen* sind Attribute für Schlüssel. Sie werden zum Erstellen von Varianten eines Schlüssels verwendet. Beispielsweise können Sie mehrere Versionen eines Schlüssels Bezeichnungen zuweisen. Eine Version kann eine Iteration, eine Umgebung oder eine andere kontextbezogene Information sein. Ihre Anwendung kann einen vollständig anderen Satz von Schlüsselwerten anfordern, indem sie eine andere Bezeichnung angibt. Daher bleiben alle Schlüsselverweise in Ihrem Code unverändert.
 
 ## <a name="key-value-compositions"></a>Schlüsselwertkompositionen
 
-App Configuration behandelt alle gespeicherten Schlüssel als unabhängige Entitäten. Es versucht nicht, eine Beziehung zwischen Schlüsseln abzuleiten oder Schlüsselwerte basierend auf der Hierarchie zu erben. Sie können aber mehrere Sätze von Schlüsseln aggregieren, indem Sie Bezeichnungen verwenden, die mit geeigneter Konfigurationsstapelung in Ihrem Anwendungscode gekoppelt sind.
+App Configuration behandelt alle gespeicherten Schlüssel als unabhängige Entitäten. App Configuration versucht nicht, eine Beziehung zwischen Schlüsseln abzuleiten oder Schlüsselwerte basierend auf der Hierarchie zu erben. Sie können jedoch mehrere Sätze von Schlüsseln aggregieren, indem Sie Bezeichnungen verwenden, die mit geeigneter Konfigurationsstapelung in Ihrem Anwendungscode gekoppelt sind.
 
-Schauen wir uns ein Beispiel an. Sie verfügen über eine Einstellung **Asset1**, deren Wert für die Umgebung „Development“ (Entwicklung) variieren kann. Sie können einen Schlüssel namens „Asset1“ mit einer leeren Bezeichnung und eine Bezeichnung namens „Development“ erstellen. Sie legen den Standardwert für **Asset1** in der ersten und jeden spezifischen Wert für „Development“ in der letzteren ab. In Ihrem Code rufen Sie zuerst die Schlüsselwerte ohne eine Bezeichnung ab und dann die mit einer „Development“-Bezeichnung, um jeden vorherigen Wert derselben Schlüssel zu überschreiben. Wenn Sie ein modernes Programmierframework wie .NET Core verwenden, erhalten Sie diese Stapelfunktion kostenlos, wenn einen nativen Konfigurationsanbieter für den Zugriff auf App Configuration verwenden. Der folgende Codeausschnitt zeigt, wie Sie Stapelung in eine .NET Core-Anwendung implementieren können.
+Schauen wir uns ein Beispiel an. Angenommen, Sie verwenden eine Einstellung namens **Asset1**, deren Wert basierend auf der Entwicklungsumgebung variieren kann. Sie erstellen einen Schlüssel namens „Asset1“ mit einer leeren Bezeichnung und eine Bezeichnung mit dem Namen „Development“. In der ersten Bezeichnung platzieren Sie den Standardwert für **Asset1**, und in der letzteren platzieren Sie einen spezifischen Wert für „Development“.
+
+In Ihrem Code rufen Sie zuerst die Schlüsselwerte ohne Bezeichnungen ab, und dann rufen Sie den gleichen Satz von Schlüsselwerten ein zweites Mal mit der Bezeichnung „Development“ ab. Wenn Sie die Werte das zweite Mal abrufen, werden die vorherigen Werte der Schlüssel überschrieben. Das .NET Core-Konfigurationssystem bietet Ihnen die Möglichkeit, mehrere Sätze von Konfigurationsdaten übereinander zu „stapeln“. Wenn ein Schlüssel in mehreren Sätzen vorhanden ist, wird der letzte Satz verwendet, der den Schlüssel enthält. Bei einem modernen Programmierframework wie .NET Core erhalten Sie diese Stapelfunktion kostenlos, wenn Sie einen nativen Konfigurationsanbieter für den Zugriff auf App Configuration verwenden. Der folgende Codeausschnitt zeigt, wie Sie eine Stapelung in eine .NET Core-Anwendung implementieren können:
 
 ```csharp
 // Augment the ConfigurationBuilder with Azure App Configuration
@@ -49,13 +58,18 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 ## <a name="app-configuration-bootstrap"></a>App Configuration-Bootstrapping
 
-Um auf den App Configuration-Speicher zuzugreifen, können Sie seine Verbindungszeichenfolge verwenden, die im Azure-Portal verfügbar ist. Verbindungszeichenfolgen enthalten Anmeldeinformationen und gelten als Geheimnisse. Sie müssen in einem Key Vault gespeichert werden. Eine bessere Option ist die Verwendung einer verwalteten Azure-Identität. Mit dieser Methode benötigen Sie nur die URL des App Configuration-Endpunkts, um den Zugriff auf Ihren Konfigurationsspeicher zu bootstrappen. Sie können die URL in Ihren Anwendungscode einbetten (z. B. in die Datei *appsettings.json*). Weitere Details finden Sie unter [Integrieren mit verwalteten Azure-Identitäten](howto-integrate-azure-managed-service-identity.md).
+Um auf den App Configuration-Speicher zuzugreifen, können Sie seine Verbindungszeichenfolge verwenden, die im Azure-Portal verfügbar ist. Weil Verbindungszeichenfolgen Anmeldeinformationen enthalten, gelten sie als Geheimnisse. Diese Geheimnisse müssen in Azure Key Vault gespeichert werden, und Ihr Code muss bei Key Vault authentifiziert werden, um sie abrufen zu können.
 
-## <a name="web-app-or-function-access-to-app-configuration"></a>Web-App- oder Funktionszugriff auf App Configuration
+Eine bessere Option ist die Verwendung des Features für verwaltete Identitäten in Azure Active Directory. Wenn Sie verwaltete Identitäten verwenden, benötigen Sie nur die URL des App Configuration-Endpunkts, um den Zugriff auf Ihren App Configuration-Speicher zu bootstrappen. Sie können die URL in Ihren Anwendungscode einbetten (z. B. in die Datei *appsettings.json*). Weitere Details finden Sie unter [Integrieren mit verwalteten Azure-Identitäten](howto-integrate-azure-managed-service-identity.md).
 
-Sie können die Verbindungszeichenfolge zu Ihrem App Configuration-Speicher über das Azure-Portal in den Anwendungseinstellungen des App Service eingeben. Sie können sie außerdem in Key Vault speichern und [aus App Service darauf verweisen](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references). Sie können auch eine verwaltete Azure-Identität für den Zugriff auf den Konfigurationsspeicher verwenden. Weitere Details finden Sie unter [Integrieren mit verwalteten Azure-Identitäten](howto-integrate-azure-managed-service-identity.md).
+## <a name="app-or-function-access-to-app-configuration"></a>App- oder Funktionszugriff auf App Configuration
 
-Alternativ können Sie die Konfiguration aus App Configuration an App Service per Push übertragen. App Configuration bietet eine Exportfunktion (im Azure-Portal und in der CLI), die Daten direkt an App Service sendet. Mit dieser Methode müssen Sie den Anwendungscode gar nicht ändern.
+Sie können Web-Apps oder Funktionen mit einer der folgenden Methoden Zugriff auf App Configuration gewähren:
+
+* Geben Sie über das Azure-Portal in den Anwendungseinstellungen von App Service die Verbindungszeichenfolge zu Ihrem App Configuration-Speicher ein.
+* Speichern Sie die Verbindungszeichenfolge zu Ihrem App Configuration-Speicher in Key Vault, und [verweisen Sie über App Service darauf](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Verwenden Sie verwaltete Azure-Identitäten für den Zugriff auf den App Configuration-Speicher. Weitere Informationen finden Sie unter [Integrieren mit verwalteten Azure-Identitäten](howto-integrate-azure-managed-service-identity.md).
+* Übertragen Sie die Konfiguration aus App Configuration per Push an App Service. App Configuration bietet (im Azure-Portal und in der Azure-Befehlszeilenschnittstelle) eine Exportfunktion, die Daten direkt an App Service sendet. Bei dieser Methode müssen Sie den Anwendungscode gar nicht ändern.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

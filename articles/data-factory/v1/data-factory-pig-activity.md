@@ -86,14 +86,14 @@ Die HDInsight Pig-Aktivität in einer Data Factory-[Pipeline](data-factory-creat
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 | --- | --- | --- |
 | name |Der Name der Aktivität |Ja |
-| Beschreibung |Ein Text, der beschreibt, wofür die Aktivität verwendet wird. |Nein  |
+| description |Ein Text, der beschreibt, wofür die Aktivität verwendet wird. |Nein |
 | type |HDInsightPig |Ja |
-| inputs |Mindestens eine von der Pig-Aktivität genutzte Eingabe |Nein  |
+| inputs |Mindestens eine von der Pig-Aktivität genutzte Eingabe |Nein |
 | outputs |Mindestens eine von der Pig-Aktivität erzeugte Ausgabe |Ja |
 | linkedServiceName |Verweis auf den HDInsight-Cluster, der als verknüpfter Dienst in Data Factory registriert ist. |Ja |
-| script |Angabe des Pig-Skripts inline |Nein  |
-| Skriptpfad |Speichern Sie das Pig-Skript in Azure Blob Storage, und geben Sie den Pfad zur Datei an. Verwenden Sie die Eigenschaft "script" oder "scriptPath". Beide können nicht zusammen verwendet werden. Beim Dateinamen muss die Groß-/Kleinschreibung beachtet werden. |Nein  |
-| defines |Geben Sie Parameter als Schlüssel-Wert-Paare für Verweise innerhalb des Pig-Skripts an. |Nein  |
+| script |Angabe des Pig-Skripts inline |Nein |
+| script path |Speichern Sie das Pig-Skript in Azure Blob Storage, und geben Sie den Pfad zur Datei an. Verwenden Sie die Eigenschaft "script" oder "scriptPath". Beide können nicht zusammen verwendet werden. Beim Dateinamen muss die Groß-/Kleinschreibung beachtet werden. |Nein |
+| defines |Geben Sie Parameter als Schlüssel-Wert-Paare für Verweise innerhalb des Pig-Skripts an. |Nein |
 
 ## <a name="example"></a>Beispiel
 Betrachten wir ein Beispiel mit Analysen von Spielprotokollen, in dem Sie die Zeit ermitteln möchten, die Benutzer mit den Spielen Ihres Unternehmens verbringen.
@@ -211,7 +211,7 @@ Gehen Sie folgendermaßen vor, um das parametrisierte Pig-Skript zu verwenden:
       }
     }
     ```
-* Verweisen Sie im Pig-Skript mit "**$parameterName**" wie im folgenden Beispiel gezeigt auf die Parameter:
+* Verweisen Sie im Pig-Skript mit " **$parameterName**" wie im folgenden Beispiel gezeigt auf die Parameter:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

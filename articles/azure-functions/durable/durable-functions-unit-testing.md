@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: kadimitr
 ms.openlocfilehash: 69cf91f1448e36353f83de7a271abb3b53858bb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094074"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60648464"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions-Unittest
 

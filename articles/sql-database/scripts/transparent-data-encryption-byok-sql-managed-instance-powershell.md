@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 8eb924b3dc6ff912db402596c763dd69b85147a3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c2c4bd7bffd923430d0817cb6ea975f4c1596623
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003121"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729164"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Verwalten von Transparent Data Encryption in einer verwalteten Instanz mithilfe eines eigenen Azure Key Vault-Schlüssels (Vorschauversion)
 
@@ -29,7 +29,7 @@ In diesem PowerShell-Skriptbeispiel wird Transparent Data Encryption (TDE) in ei
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Sowohl die lokale Verwendung von PowerShell als auch die Verwendung von Azure Cloud Shell erfordert Azure PowerShell 1.1.1-preview oder eine höhere Vorschauversion. Wenn Sie ein Upgrade durchführen müssen, lesen Sie [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps), oder führen Sie das folgende Beispielskript zum Installieren des Moduls aus.
 

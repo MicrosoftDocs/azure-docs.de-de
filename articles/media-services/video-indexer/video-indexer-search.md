@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872402"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799090"
 ---
 # <a name="find-exact-moments-within-videos"></a>Suchen bestimmter Momente in Videos
 
@@ -49,7 +50,7 @@ In diesem Thema werden die Suchoptionen veranschaulicht, mit denen Sie in Videos
 
 Nachdem Sie das gewünschte Video gefunden haben, können Sie mit dem Verarbeiten des Videos fortfahren. Dies ist in einem dieser Themen beschrieben: 
 
-- [Erstellen von Highlights aus vorhandenen Videos](video-indexer-create-new.md)
+- [Verwenden der tiefen Einblicke Ihrer Videos](use-editor-create-project.md)
 - [Verarbeiten von Inhalten mit der Video Indexer-REST-API](video-indexer-use-apis.md)
 - [Einbetten von visuellen Widgets in Ihre Anwendung](video-indexer-embed-widgets.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23109848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699710"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Verwenden des StorSimple Snapshot Manager zum Erstellen und Verwalten von Volumegruppen
 ## <a name="overview"></a>Übersicht
@@ -33,7 +33,7 @@ Volumegruppen sind Pools zusammengehöriger Volumes, mit denen sichergestellt we
 
 ![Knoten "Volumegruppen"](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Abbildung 1: StorSimple Snapshot Manager-Knoten "Volumegruppen"** 
+**Abbildung 1: StorSimple Snapshot Manager-Knoten "Volumegruppen"** 
 
 In diesem Lernprogramm erfahren Sie, wie Sie den StorSimple Snapshot Manager für Folgendes verwenden:
 

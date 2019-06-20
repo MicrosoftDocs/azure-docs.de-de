@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e3cff54f49d40fb7da99dcafa9535349ccb70e09
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114485"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150473"
 ---
 In der folgenden Tabelle werden die für Azure GPv1, GPv2 und Blob-Speicherkonten geltenden Standardgrenzwerte beschrieben. Das Limit für den *Eingang* bezieht sich auf alle Daten aus Anforderungen, die an ein Speicherkonto gesendet werden. Das Limit für den *Ausgang* bezieht sich auf alle Daten aus Anforderungen, die von einem Speicherkonto empfangen werden.
 
@@ -32,15 +32,15 @@ In der folgenden Tabelle werden die für Azure GPv1, GPv2 und Blob-Speicherkonte
 <sup>1</sup> Azure Storage Standard-Konten unterstützen höhere Grenzwerte für Eingang auf Anforderung. Wenden Sie sich an den [Azure-Support](https://azure.microsoft.com/support/faq/), um eine Erhöhung der Kontogrenzwerte für Eingang anzufordern.
 
 <sup>2</sup> Für die [Azure Storage-Replikation](https://docs.microsoft.com/azure/storage/common/storage-redundancy) sind folgende Replikationsoptionen verfügbar:
-* **RA-GRS**: Georedundanter Speicher mit Lesezugriff. Wenn RA-GRS aktiviert ist, sind die Ausgangsziele für den sekundären Standort mit denen für den primären Standort identisch.
-* **GRS**: Georedundanter Speicher. 
-* **ZRS**: Zonenredundanter Speicher.
-* **LRS**: Lokal redundanter Speicher. 
+- **RA-GRS**: Georedundanter Speicher mit Lesezugriff. Wenn RA-GRS aktiviert ist, sind die Ausgangsziele für den sekundären Standort mit denen für den primären Standort identisch.
+- **GRS**: Georedundanter Speicher.
+- **ZRS**: Zonenredundanter Speicher.
+- **LRS**: Lokal redundanter Speicher.
 
 > [!NOTE]
 > Für die meisten Szenarien wird die Verwendung von Speicherkonten vom Typ „Allgemein v2“ empfohlen. Sie können ganz einfach ein Upgrade von einem Konto vom Typ „Allgemein v1“ oder einem Blob Storage-Konto auf ein Konto vom Typ „Allgemein v2“ durchführen. Dabei treten keine Ausfallzeiten auf, und Sie müssen keine Daten kopieren.
 >
-> Weitere Informationen zu Azure Storage-Konten finden Sie unter [Übersicht über Azure Storage-Konten](../articles/storage/common/storage-account-overview.md). 
+> Weitere Informationen zu Azure Storage-Konten finden Sie unter [Übersicht über Azure Storage-Konten](../articles/storage/common/storage-account-overview.md).
 
 Wenn die Anforderungen Ihrer Anwendung die Skalierbarkeitsziele eines einzelnen Speicherkontos überschreiten, können Sie die Anwendung so erstellen, dass mehrere Speicherkonten verwendet werden. Sie können Ihre Datenobjekte dann basierend auf diesen Speicherkonten partitionieren. Informationen zu Volumenpreisen finden Sie unter [Preise für Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731334"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151191"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Unternehmenssicherheit für Azure Machine Learning Service
 
@@ -83,7 +83,7 @@ Jeder Arbeitsbereich verfügt auch über eine zugeordnete, vom System zugewiesen
 
 Weitere allgemeine Informationen zu verwalteten Identitäten finden Sie unter [Was sind verwaltete Identitäten für Azure-Ressourcen?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-| Ressource | Berechtigungen |
+| Resource | Berechtigungen |
 | ----- | ----- |
 | Arbeitsbereich | Mitwirkender | 
 | Speicherkonto | Mitwirkender an Speicherblobdaten | 
@@ -154,7 +154,7 @@ Das folgende Diagramm zeigt den Workflow des Erstellens des Arbeitsbereichs.
 Der Benutzer meldet sich von einem der unterstützten Azure Machine Learning Service-Clients (CLI, Python, SDK, Azure-Portal) aus bei Azure AD an und fordert das entsprechende Azure Resource Manager-Token an.  Dann ruft der Benutzer den Azure Resource Manager auf, um den Arbeitsbereich zu erstellen.  Der Azure Resource Manager kontaktiert den Ressourcenanbieter von Azure Machine Learning Service, um den Arbeitsbereich bereitzustellen.  Zusätzliche Ressourcen werden bei der Erstellung des Arbeitsbereichs im Abonnement des Kunden erstellt:
 * Key Vault-Instanz (zum Speichern von Geheimnissen)
 * Ein Azure Storage-Konto (einschließlich Blob und FileShare)
-* Azure Container Registry (zum Speichern von Docker-Images für Rückschlüsse und Experimente)
+* Azure Container Registry (zum Speichern von Docker-Images für Rückschlüsse/Bewertungen und Experimente)
 * Application Insights (zum Speichern von Telemetriedaten)
 
 Andere Computes, die einem Arbeitsbereich (Azure Kubernetes Service, VM usw.) angefügt sind, können auch nach Bedarf von Kunden bereitgestellt werden. 
@@ -172,7 +172,7 @@ Das folgende Diagramm zeigt den Trainingsworkflow.
 * Azure Machine Learning Service wird mit der Momentaufnahmen-ID für die oben gespeicherte Codemomentaufnahme aufgerufen
 * Der Azure Machine Learning Service erstellt eine Ausführungs-ID (optional) und ein Azure Machine Learning Service-Token, das später von Computezielen wie Machine Learning Compute/VM zur Kommunikation mit Azure Machine Learning Service verwendet wird
 * Sie können entweder ein verwaltetes Compute (z.B. Machine Learning Compute) oder nicht verwaltetes Compute (z.B. VM) auswählen, um Ihre Trainingsaufträge auszuführen. Der Datenfluss wird für beide der folgenden Szenarien erläutert:
-* (VM/HDInsight/Lokal – Zugriff erfolgt unter Verwendung von SSH-Anmeldeinformationen in Key Vault im Microsoft-Abonnement) Azure Machine Learning Service führt Verwaltungscode auf dem Computeziel aus, der Folgendes bewirkt:
+* (VM/HDInsight – Zugriff erfolgt unter Verwendung von SSH-Anmeldeinformationen in Key Vault im Microsoft-Abonnement) Azure Machine Learning Service führt Verwaltungscode auf dem Computeziel aus, der Folgendes bewirkt:
     1.  Vorbereiten der Umgebung (Hinweis: Docker ist ebenfalls eine Option für VM/lokal. Beachten Sie die Schritte für Machine Learning Compute im Folgenden, um zu verstehen, wie die Ausführung des Experiments in einem Docker-Container funktioniert.)
     2.  Herunterladen des Codes
     3.  Einrichten der Umgebungsvariablen/Konfigurationen
@@ -189,7 +189,7 @@ Dieser Schritt ist im Fluss dargestellt, wo das Trainingscompute die *Ausführun
 ![Screenshot zeigt den Workflow des Erstellens des Arbeitsbereichs](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>Erstellen von Webdiensten
-Das folgende Diagramm zeigt den Workflow zum Ziehen von Rückschlüssen, in dem das Modell als Webdienst bereitgestellt wird.
+Das folgende Diagramm zeigt den Rückschlussworkflow. Rückschlüsse oder Modellbewertungen bilden die Phase, in der das bereitgestellte Modell für die Vorhersage verwendet wird, meist für Produktionsdaten.
 Beachten Sie folgende Details:
 * Der Benutzer registriert ein Modell mit einem Client wie Azure ML SDK
 * Der Benutzer erstellt das Image mit Modell, Bewertungsdatei und anderen Modellabhängigkeiten

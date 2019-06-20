@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498382"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60610725"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Sicherheitskonzept: Konfigurationsverwaltung | Risikominderung 
 | Produkt/Dienst | Artikel |

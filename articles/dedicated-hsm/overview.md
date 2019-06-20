@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: barclayn
 ms.openlocfilehash: 88a49c9c124c5399749d2b60595d7f5c7ec77b20
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "62117991"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Was ist Azure Dedicated HSM?

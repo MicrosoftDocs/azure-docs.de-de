@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: 6f27aeb65cb9077011e662c165ca26202546db26
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66130410"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Erstellen eines Log Analytics-Arbeitsbereichs mit Azure PowerShell
 

@@ -9,11 +9,11 @@ ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: bee414ada61e2cfcf7609b02ef1da7323a0fe0e3
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61304611"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Erstellen von Azure Automation-Watchertasks zum Nachverfolgen von Dateiänderungen auf einem lokalen Computer
 

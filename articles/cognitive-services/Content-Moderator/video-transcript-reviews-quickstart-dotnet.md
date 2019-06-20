@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: fa782f687979f1d32cdf1c18bd08f6672e39adfe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64868591"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Erstellen von Videotranskriptüberprüfungen per .NET
 
@@ -154,7 +154,7 @@ Erstellen Sie mit **ContentModeratorClient.Reviews.CreateVideoReviews** eine Vid
 **CreateVideoReviews** verfügt über die folgenden erforderlichen Parameter:
 1. Eine Zeichenfolge, die einen MIME-Typ enthält. Dieser sollte „application/json“ lauten. 
 1. Ihr Content Moderator-Teamname.
-1. Ein **IList\<CreateVideoReviewsBodyItem>**-Objekt. Jedes **CreateVideoReviewsBodyItem**-Objekt stellt eine Videoüberprüfung dar. In dieser Schnellstartanleitung wird jeweils nur eine Überprüfung erstellt.
+1. Ein **IList\<CreateVideoReviewsBodyItem>** -Objekt. Jedes **CreateVideoReviewsBodyItem**-Objekt stellt eine Videoüberprüfung dar. In dieser Schnellstartanleitung wird jeweils nur eine Überprüfung erstellt.
 
 **CreateVideoReviewsBodyItem** verfügt über mehrere Eigenschaften. Sie legen mindestens die folgenden Eigenschaften fest:
 - **Content**: Die URL des zu überprüfenden Videos.
@@ -162,7 +162,7 @@ Erstellen Sie mit **ContentModeratorClient.Reviews.CreateVideoReviews** eine Vid
 - **Status**: Legen Sie den Wert auf „Unpublished“ (Veröffentlichung aufgehoben) fest. Wenn Sie nichts festlegen, wird standardmäßig „Pending“ (Ausstehend) verwendet. Dies bedeutet, dass die Videoüberprüfung veröffentlicht wird und dass die Prüfung durch den Menschen noch aussteht. Nachdem eine Videoüberprüfung veröffentlicht wurde, können Sie ihr keine Videoframes, kein Transkript und auch kein Transkriptmoderationsergebnis mehr hinzufügen.
 
 > [!NOTE]
-> **CreateVideoReviews** gibt „IList<string>“ zurück. Jede dieser Zeichenfolgen enthält eine ID für eine Videoüberprüfung. Diese IDs sind GUIDs und nicht mit dem Wert der **ContentId**-Eigenschaft identisch.
+> **CreateVideoReviews** gibt „IList\<string>“ zurück. Jede dieser Zeichenfolgen enthält eine ID für eine Videoüberprüfung. Diese IDs sind GUIDs und nicht mit dem Wert der **ContentId**-Eigenschaft identisch.
 
 Fügen Sie dem VideoReviews-Namespace (Program-Klasse) die folgende Methodendefinition hinzu.
 
@@ -341,7 +341,7 @@ static void Main(string[] args)
         var transcript = @"WEBVTT
 
         01:01.000 --> 02:02.000
-        First line with a crap word in a transcript.
+        First line with a negative word in a transcript.
 
         02:03.000 --> 02:25.000
         This is another line in the transcript.

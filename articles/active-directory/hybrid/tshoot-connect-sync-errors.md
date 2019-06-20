@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845089"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298760"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Beheben von Fehlern während der Synchronisierung
 Fehler können auftreten, wenn Identitätsdaten aus Windows Server Active Directory (AD DS) mit Azure Active Directory (Azure AD) synchronisiert werden. Dieser Artikel bietet einen Überblick über verschiedene Fehlertypen, die während der Synchronisierung auftreten können, einige der möglichen Szenarios, die solche Fehler verursachen, und Möglichkeiten, diese Fehler zu beheben. In diesem Artikel werden die häufigsten Fehlertypen behandelt, daher sind eventuell nicht alle möglichen Fehler enthalten.
@@ -42,8 +42,8 @@ Fehler, die während des Exportierens nach Azure AD auftreten, deuten an, dass d
 ## <a name="data-mismatch-errors"></a>Fehler durch Datenkonflikt
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch (Ungültiges Soft Match (mögliche Übereinstimmung))
 #### <a name="description"></a>BESCHREIBUNG
-* Wenn das \(Synchronisierungsmodul\) von Azure AD Connect die Anweisung an Azure Active Directory gibt, Objekte hinzuzufügen oder zu aktualisieren, untersucht Azure AD mithilfe des Attributs **sourceAnchor** das eingehende Objekt nach Übereinstimmungen mit dem Attribut **immutableId** von Objekten in Azure AD. Diese Übereinstimmung nennt man **Hard Match (genaue Übereinstimmung)**.
-* Wenn Azure AD **kein** Objekt findet, bei dem das Attribut **immutableID** mit dem Attribut **sourceAnchor** eines eingehenden Objekts übereinstimmt, bevor ein neues Objekt bereitgestellt wird, werden stattdessen die Attribute „ProxyAddresses“ und „UserPrincipalName“ verwendet, um eine Übereinstimmung zu finden. Diese Übereinstimmung nennt man **Soft Match (mögliche Übereinstimmung)**. Ein Soft Match soll Objekte, die sich bereits in Azure AD befinden (die Azure AD als Quelle haben), mit neuen Objekten abgleichen, die während der Synchronisierung hinzugefügt/aktualisiert werden, und lokal die gleiche Entität (Benutzer, Gruppen) darstellen.
+* Wenn das \(Synchronisierungsmodul\) von Azure AD Connect die Anweisung an Azure Active Directory gibt, Objekte hinzuzufügen oder zu aktualisieren, untersucht Azure AD mithilfe des Attributs **sourceAnchor** das eingehende Objekt nach Übereinstimmungen mit dem Attribut **immutableId** von Objekten in Azure AD. Diese Übereinstimmung nennt man **Hard Match (genaue Übereinstimmung)** .
+* Wenn Azure AD **kein** Objekt findet, bei dem das Attribut **immutableID** mit dem Attribut **sourceAnchor** eines eingehenden Objekts übereinstimmt, bevor ein neues Objekt bereitgestellt wird, werden stattdessen die Attribute „ProxyAddresses“ und „UserPrincipalName“ verwendet, um eine Übereinstimmung zu finden. Diese Übereinstimmung nennt man **Soft Match (mögliche Übereinstimmung)** . Ein Soft Match soll Objekte, die sich bereits in Azure AD befinden (die Azure AD als Quelle haben), mit neuen Objekten abgleichen, die während der Synchronisierung hinzugefügt/aktualisiert werden, und lokal die gleiche Entität (Benutzer, Gruppen) darstellen.
 * Der Fehler **InvalidSoftMatch** tritt auf, wenn das Hard Match keine übereinstimmenden Objekte findet, **UND** das Soft Match ein übereinstimmendes Objekt findet, dieses Objekt aber einen anderen Wert für *immutableId* hat als *SourceAnchor* des eingehenden Objekts. Das bedeutet, dass das übereinstimmende Objekt mit einem anderen Objekt aus dem lokalen Active Directory synchronisiert wurde.
 
 Anders ausgedrückt bedeutet das, dass das Objekt, mit dem eine mögliche Übereinstimmung bestehen soll, keinen Wert für das Attribut *immutableId* haben sollte, damit das Soft Match funktioniert. Wenn ein Objekt, bei dem für *immutableId* ein Wert festgelegt ist, nicht den Kriterien eines Hard Matchs erfüllt, aber den Kriterien eines Soft Matchs entspricht, tritt beim Vorgang der Synchronisierungsfehler „InvalidSoftMatch“ auf.

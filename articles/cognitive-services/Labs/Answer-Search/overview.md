@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548080"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60721858"
 ---
 # <a name="what-is-project-answer-search"></a>Worum handelt es sich bei Project Answer Search?
 Die Project Answer Search-API verwendet den Bing-v7-Endpunkt, um Antworten auf interrogative Abfragen zu erhalten. Auf eine Frage wie z.B. „Wie groß ist der Erdumfang?“ wird eine Antwort mit Fakten zurückgegeben.  Eine Abfrage für eine Person, einen Ort oder eine Sache gibt Informationen über die in der Abfrage angegebene Entität zurück. Diese Szenarien können in Anwendungen wie Konversationsbots, Messaging-Apps, Readern usw. nützlich sein.  

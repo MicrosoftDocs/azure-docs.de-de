@@ -1,28 +1,20 @@
 ---
-title: Gleichzeitigkeitssteuerung | Microsoft-Dokumentation
+title: Gleichzeitigkeitssteuerung | Azure Marketplace
 description: Strategien für die Gleichzeitigkeitssteuerung der Veröffentlichungs-APIs des Cloud-Partnerportals.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ecf0bb6ac7fc77e804c9fc8d62aba52810de5640
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806509"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935588"
 ---
-<a name="concurrency-control"></a>Gleichzeitigkeitssteuerung
-===================
+# <a name="concurrency-control"></a>Gleichzeitigkeitssteuerung
 
 In jedem Aufruf einer Veröffentlichungs-API des Cloud-Partnerportals muss explizit angegeben sein, welche Strategie für die Gleichzeitigkeitssteuerung verwendet werden soll. Fehler beim Bereitstellen des **If-Match**-Headers führen zu einer HTTP 400-Fehlerantwort. Es gibt zwei Strategien für die Gleichzeitigkeitssteuerung.
 

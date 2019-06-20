@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 4c7e0e091aeecb205c63b8fa7e97d7592f15b856
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65520010"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard-Formate und -Codecs
+# <a name="standard-encoder-formats-and-codecs"></a>Media Encoder Standard-Formate und -Codecs
 
 Dieser Artikel enthält eine Liste der gängigsten Import- und Exportdateiformate, die Sie mit [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) verwenden können. Informationen zum Erstellen benutzerdefinierter Voreinstellungen mit **StandardEncoderPreset** finden Sie unter [Erstellen einer Transformation mit einer benutzerdefinierten Voreinstellung](customize-encoder-presets-how-to.md).
 
@@ -41,12 +41,12 @@ Dieser Artikel enthält eine Liste der gängigsten Import- und Exportdateiformat
 | QuickTime (.mov) |Ja |
 
 > [!NOTE]
-> In der obigen Liste sind nur die gängigeren Dateierweiterungen angegeben. Für Media Encoder Standard werden noch viele andere Erweiterungen unterstützt (z.B. .m2ts, .mpeg2video, .qt). Wenn Sie versuchen, eine Datei zu codieren, und eine Fehlermeldung zur fehlenden Unterstützung des Formats erhalten, können Sie uns [hier](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/) Feedback zukommen lassen.
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Audioformate in Eingabecontainern
-Media Encoder Standard unterstützt das Befördern der folgenden Audioformate in Eingabecontainern:
+
+Media Encoder Standard unterstützt die folgenden Audioformate in Eingabecontainern:
 
 * MXF-, GXF- und QuickTime-Dateien, die Audiospuren mit verschachteltem Stereo- oder 5.1-Beispielen haben.
 
@@ -65,7 +65,7 @@ oder
 | MPEG-2 (bis zu 422 Profile und High Level; Varianten wie XDCAM, XDCAM HD, XDCAM IMX, CableLabs® und D10 eingeschlossen) |Bis zu 422 Profile |
 | MPEG-1 |Ja |
 | VC-1/WMV9 |Ja |
-| Canopus HQ/HQX |Nein  |
+| Canopus HQ/HQX |Nein |
 | MPEG-4 Teil 2 |Ja |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Ja |
 | YUV420, nicht komprimiert oder Mezzanine |Ja |
@@ -89,17 +89,17 @@ oder
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Ja |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Ja |
 | AMR (Adaptive Multi-Rate) |Ja |
-| AES (SMPTE 331M und 302M, AES3-2003) |Nein  |
-| Dolby® E |Nein  |
-| Dolby® Digital (AC3) |Nein  |
-| Dolby® Digital Plus (E-AC3) |Nein  |
+| AES (SMPTE 331M und 302M, AES3-2003) |Nein |
+| Dolby® E |Nein |
+| Dolby® Digital (AC3) |Nein |
+| Dolby® Digital Plus (E-AC3) |Nein |
 
 ## <a name="output-formats-and-codecs"></a>Ausgabeformate und Codecs
 In der folgenden Tabelle werden die Codecs und Dateiformate aufgeführt, die für den Export unterstützt werden.
 
 | Dateiformat | Videocodec | Audiocodec |
 | --- | --- | --- |
-| MP4  <br/><br/>(einschließlich Multi-Bitrate-MP4-Container) |H.264 (High, Main und Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(einschließlich Multi-Bitrate-MP4-Container) |H.264 (High, Main und Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (High, Main und Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="next-steps"></a>Nächste Schritte

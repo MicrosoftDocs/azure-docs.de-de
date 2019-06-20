@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444801"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62123466"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Automatisches Skalieren einer Azure API Management-Instanz  
 
@@ -105,7 +105,7 @@ Führen Sie zum Konfigurieren der automatischen Skalierung für einen Azure API 
     | Zeitaggregation      | Durchschnitt           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Metrikname           | Capacity          | Gleiche Metrik wie die für die Regel zum horizontalen Hochskalieren.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
     | Statistik zum Aggregationsintervall  | Durchschnitt           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Operator              | Kleiner als          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | Operator              | Kleiner als         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Schwellenwert             | 35 %               | Ähnlich wie bei der Regel zum horizontalen Hochskalieren hängt dieser Wert stark von den Verwendungsmustern von Azure API Management ab. |
     | Dauer (in Minuten) | 30                | Gleicher Wert wie der für die Regel zum horizontalen Hochskalieren.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *Aktion*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |

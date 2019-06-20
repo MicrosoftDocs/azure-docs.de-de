@@ -10,38 +10,38 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 702aed12860c090e83b997e6b56d56e06b416568
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548403"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65913792"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrieren Ihrer Gesichtserkennungsdaten in ein anderes Abonnement für die Gesichtserkennung
 
-In diesem Leitfaden erfahren Sie, wie Sie Gesichtserkennungsdaten (z.B. ein gespeichertes **PersonGroup**-Objekt mit Gesichtern) anhand der Momentaufnahmefunktion in ein anderes Gesichtserkennungs-API-Abonnement verschieben können. Auf diese Weise können Sie vermeiden, dass Sie bei einer Verlagerung oder Erweiterung Ihrer Betriebsabläufe **PersonGroup**- oder **FaceList**-Objekte wiederholt erstellen und trainieren müssen. Dies ist beispielsweise in folgenden Fällen nützlich: Sie haben unter Verwendung eines kostenlosen Testabonnements ein **PersonGroup**-Objekt erstellt und möchten dieses zu Ihrem kostenpflichtigen Abonnement migrieren, oder Sie müssen Gesichtserkennungsdaten für ein Großunternehmen regionsübergreifend synchronisieren.
+In dieser Anleitung erfahren Sie, wie Sie Gesichtserkennungsdaten (z. B. ein gespeichertes PersonGroup-Objekt mit Gesichtern) in ein anderes Abonnement für die Gesichtserkennungs-API von Azure Cognitive Services verschieben. Sie verwenden zum Verschieben der Daten die Momentaufnahmefunktion. Auf diese Weise können Sie vermeiden, dass Sie bei einer Verlagerung oder Erweiterung Ihrer Betriebsabläufe PersonGroup- oder FaceList-Objekte wiederholt erstellen und trainieren müssen. Dies könnte z. B. erforderlich sein, wenn Sie ein PersonGroup-Objekt mit einem kostenlosen Testabonnement erstellt haben und dieses nun zu Ihrem Bezahlabonnement migrieren möchten. Oder Sie müssen Gesichtserkennungsdaten für einen umfangreichen Vorgang innerhalb Ihres Unternehmens zwischen Regionen synchronisieren.
 
-Dieselbe Migrationsstrategie gilt auch für **LargePersonGroup**- und **LargeFaceList**-Objekte. Wenn Sie mit den folgenden Konzepten in diesem Leitfaden nicht vertraut sind, finden Sie die Definitionen im [Glossar](../Glossary.md). In diesem Leitfaden wird die .NET-Clientbibliothek für die Gesichtserkennungs-API mit C# verwendet.
+Dieselbe Migrationsstrategie gilt auch für LargePersonGroup- und LargeFaceList-Objekte. Wenn Sie mit den Konzepten in diesem Leitfaden nicht vertraut sind, finden Sie die Definitionen unter [Konzepte der Gesichtserkennung](../concepts/face-recognition.md). In diesem Leitfaden wird die .NET-Clientbibliothek für die Gesichtserkennungs-API mit C# verwendet.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Zwei Abonnementschlüssel für die Gesichtserkennungs-API (ein Abonnement mit vorhandenen Daten, ein Abonnement als Migrationsziel). Folgen Sie den Anweisungen unter [Erstellen eines Cognitive Services-Kontos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), um den Gesichtserkennungs-API-Dienst zu abonnieren und Ihren Schlüssel abzurufen.
-- Die Abonnement-ID der Gesichtserkennungs-API für das Zielabonnement (diese finden Sie im Blatt **Übersicht** im Azure-Portal). 
-- Eine beliebige Edition von [Visual Studio 2015 oder 2017](https://www.visualstudio.com/downloads/).
+Sie benötigen folgende Elemente:
 
+- Zwei Abonnementschlüssel für die Gesichtserkennungs-API – ein Abonnement mit vorhandenen Daten und ein Abonnement als Migrationsziel. Folgen Sie den Anweisungen unter [Erstellen eines Cognitive Services-Kontos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account), um den Gesichtserkennungs-API-Dienst zu abonnieren und Ihren Schlüssel abzurufen.
+- Die Zeichenfolge der Abonnement-ID für die Gesichtserkennungs-API für das Zielabonnement. Sie finden diese durch Auswählen von **Übersicht** im Azure-Portal. 
+- Eine beliebige Edition von [Visual Studio 2015 oder 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Erstellen des Visual Studio-Projekts
 
-In diesem Leitfaden wird die Migration der Daten zur Gesichtserkennung anhand einer einfachen Konsolen-App durchgeführt. Eine vollständige Implementierung finden Sie im [Momentaufnahmebeispiel für die Gesichtserkennungs-API](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) auf GitHub.
+In diesem Leitfaden wird die Migration der Daten zur Gesichtserkennung anhand einer einfachen Konsolen-App ausgeführt. Eine vollständige Implementierung finden Sie im [Momentaufnahmebeispiel für die Gesichtserkennungs-API](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) auf GitHub.
 
-1. Erstellen Sie in Visual Studio ein neues Projekt vom Typ **Konsolen-App (.NET Framework)**, und nennen Sie es **FaceApiSnapshotSample**. 
-1. Rufen Sie die erforderlichen NuGet-Pakete ab. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf Ihr Projekt, und wählen Sie **NuGet-Pakete verwalten...** aus. Klicken Sie auf die Registerkarte **Durchsuchen**, und wählen Sie **Vorabversion einbeziehen** aus. Suchen Sie anschließend das folgende Paket, und installieren Sie es:
+1. Erstellen Sie in Visual Studio ein neues Projekt vom Typ „Konsolen-App (.NET Framework)“. Benennen Sie es mit **FaceApiSnapshotSample**.
+1. Rufen Sie die erforderlichen NuGet-Pakete ab. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf Ihr Projekt, und wählen Sie **NuGet-Pakete verwalten** aus. Wählen Sie auf der Registerkarte **Durchsuchen** die Option **Vorabversion einbeziehen** aus. Suchen und installieren Sie das folgende Paket:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>Erstellen von Clients für die Gesichtserkennung
 
-Erstellen Sie in der **Main**-Methode in *Program.cs* zwei **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)**-Instanzen für Ihre Quell- und Zielabonnements. In diesem Beispiel verwenden wir als Quelle ein Abonnement für die Gesichtserkennung in der Region „Asien, Osten“ und als Ziel ein Abonnement in der Region „USA, Westen“. Auf diese Weise wird veranschaulicht, wie Daten von einer Azure-Region zu einer anderen migriert werden. Wenn sich Ihre Abonnements in unterschiedlichen Regionen befinden, müssen Sie die `Endpoint`-Zeichenfolgen ändern.
+Erstellen Sie in der **Main**-Methode in *Program.cs* zwei [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)-Instanzen für Ihre Quell- und Zielabonnements. In diesem Beispiel werden als Quelle ein Abonnement für die Gesichtserkennung in der Region „Asien, Osten“ und als Ziel ein Abonnement in der Region „USA, Westen“ verwendet. In diesem Beispiel wird veranschaulicht, wie Daten von einer Azure-Region zu einer anderen migriert werden. Wenn sich Ihre Abonnements in unterschiedlichen Regionen befinden, ändern Sie die `Endpoint`-Zeichenfolgen.
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))
@@ -55,21 +55,21 @@ var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West 
     };
 ```
 
-Sie müssen die Abonnementschlüsselwerte und die Endpunkt-URLs für Ihre Quell- und Zielabonnements angeben.
+Geben Sie die Abonnementschlüsselwerte und die Endpunkt-URLs für Ihre Quell- und Zielabonnements an.
 
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Vorbereiten eines PersonGroup-Objekts für die Migration
 
-Sie benötigen die ID des **PersonGroup**-Objekts in Ihrem Quellabonnement, das zum Zielabonnement migriert werden soll. Verwenden Sie die **[PersonGroupOperationsExtensions.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet)**-Methode, um eine Liste Ihrer **PersonGroup**-Objekte abzurufen, und rufen Sie anschließend die **[PersonGroup.PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId)**-Eigenschaft ab. Je nachdem, über welche **PersonGroup**-Objekte Sie verfügen, sieht dieser Prozess unterschiedlich aus. In diesem Leitfaden ist die **PersonGroup**-Quell-ID in `personGroupId` gespeichert.
+Sie benötigen die ID des PersonGroup-Objekts in Ihrem Quellabonnement, das zum Zielabonnement migriert werden soll. Verwenden Sie die [PersonGroupOperationsExtensions.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet)-Methode, um eine Liste Ihrer PersonGroup-Objekte abzurufen. Rufen Sie anschließend die [PersonGroup.PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId)-Eigenschaft ab. Je nachdem, über welche PersonGroup-Objekte Sie verfügen, kann dieser Prozess abweichen. In dieser Anleitung ist die PersonGroup-Quell-ID in `personGroupId` gespeichert.
 
 > [!NOTE]
-> Im [Beispielcode](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) wird ein neues **PersonGroup**-Objekt für die Migration erstellt und trainiert, aber in den meisten Fällen sollten Sie bereits über ein **PersonGroup**-Objekt verfügen.
+> Der [Beispielcode](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) erstellt und trainiert ein neues PersonGroup-Objekt für die Migration. In den meisten Fällen sollten Sie bereits über eine verwendbare PersonGroup verfügen.
 
-## <a name="take-snapshot-of-persongroup"></a>Erstellen einer PersonGroup-Momentaufnahme
+## <a name="take-a-snapshot-of-a-persongroup"></a>Erstellen einer Momentaufnahme einer PersonGroup
 
-Eine Momentaufnahme ist ein temporärer Remotespeicher für bestimmte Arten von Gesichtserkennungsdaten. Die Momentaufnahme fungiert als eine Art Zwischenablage, um Daten von einem Abonnement in ein anderes zu kopieren. Zuerst erstellt der Benutzer eine Momentaufnahme der Daten im Quellabonnement, anschließend wird die Momentaufnahme auf ein neues Datenobjekt im Zielabonnement angewendet.
+Eine Momentaufnahme ist ein temporärer Remotespeicher für bestimmte Arten von Gesichtserkennungsdaten. Die Momentaufnahme fungiert als eine Art Zwischenablage, um Daten von einem Abonnement in ein anderes zu kopieren. Erstellen Sie zunächst eine Momentaufnahme der Daten im Quellabonnement. Wenden Sie sie dann auf ein neues Datenobjekt im Zielabonnement an.
 
-Verwenden Sie die **FaceClient**-Instanz im Quellabonnement, um eine Momentaufnahme des **PersonGroup**-Objekts zu erstellen. Verwenden Sie hierbei **[TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet)** mit der **PersonGroup**-ID und der ID des Zielabonnements. Wenn Sie über mehrere Zielabonnements verfügen, können Sie diese als Arrayeinträge im dritten Parameter hinzufügen.
+Verwenden Sie die FaceClient-Instanz des Quellabonnements, um eine Momentaufnahme der PersonGroup zu erstellen. Verwenden Sie [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) mit der PersonGroup-ID und der Zielabonnement-ID. Wenn Sie über mehrere Zielabonnements verfügen, fügen Sie diese als Arrayeinträge im dritten Parameter hinzu.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -79,18 +79,18 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> Durch das Erstellen und Anwenden von Momentaufnahmen werden reguläre Aufrufe von **PersonGroup** (oder **FaceList**) in Quelle oder Ziel nicht unterbrochen. Es wird jedoch nicht empfohlen, gleichzeitig Aufrufe zur Quellobjektänderung durchzuführen (z. B. [Aufrufe zum Verwalten von Gesichtserkennungslisten](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) oder Aufrufe zum [Trainieren von Personengruppen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet)), da der Momentaufnahmevorgang vor oder nach diesen Vorgängen ausgeführt werden oder zu Fehlern führen kann.
+> Durch das Erstellen und Anwenden von Momentaufnahmen werden reguläre Aufrufe von PersonGroup- oder FaceList-Objekten in Quelle oder Ziel nicht unterbrochen. Führen Sie keine gleichzeitigen Aufrufe durch, die das Quellobjekt ändern, z. B. [FaceList-Verwaltungsaufrufe](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) oder [PersonGroup-Trainingsaufrufe](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet). Der Momentaufnahmevorgang kann vor oder nach diesen Vorgängen ausgeführt werden, oder es können Fehler auftreten.
 
 ## <a name="retrieve-the-snapshot-id"></a>Abrufen der Momentaufnahme-ID
 
-Die Methode zur Momentaufnahmeerstellung ist asynchron, deshalb müssen Sie auf ihren Abschluss warten (Momentaufnahmevorgänge können nicht abgebrochen werden). In diesem Code überwacht die `WaitForOperation`-Methode den asynchronen Aufruf, der Status wird alle 100 ms überprüft. Nach Abschluss des Vorgangs können Sie eine Vorgangs-ID abrufen. Der Abruf kann durch Analyse des Felds `OperationLocation` erfolgen. 
+Die Methode zum Erstellen der Momentaufnahmen ist asynchron. Aus diesem Grund müssen Sie ihren Abschluss abwarten. Momentaufnahmevorgänge können nicht abgebrochen werden. In diesem Code überwacht die `WaitForOperation`-Methode den asynchronen Aufruf. Der Status wird alle 100 ms überprüft. Nachdem der Vorgang abgeschlossen ist, rufen Sie eine Vorgangs-ID ab, indem Sie das Feld `OperationLocation` analysieren. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
 var operationStatus = await WaitForOperation(FaceClientEastAsia, takeOperationId);
 ```
 
-Ein typischer `OperationLocation`-Wert sieht wie folgt aus:
+Ein typischer `OperationLocation`-Wert sieht folgendermaßen aus:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
@@ -125,21 +125,21 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-Wenn der Vorgangsstatus als `Succeeded` markiert ist, können Sie die Momentaufnahme-ID abrufen, indem Sie das Feld `ResourceLocation` der zurückgegebenen Instanz **OperationStatus** analysieren.
+Wenn der Vorgangsstatus `Succeeded` lautet, rufen Sie die Momentaufnahme-ID ab, indem Sie das Feld `ResourceLocation` der zurückgegebenen OperationStatus-Instanz analysieren.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 ```
 
-Ein typischer `resourceLocation`-Wert sieht wie folgt aus:
+Ein typischer `resourceLocation`-Wert sieht folgendermaßen aus:
 
 ```csharp
 "/snapshots/e58b3f08-1e8b-4165-81df-aa9858f233dc"
 ```
 
-## <a name="apply-snapshot-to-target-subscription"></a>Anwenden der Momentaufnahme auf das Zielabonnement
+## <a name="apply-a-snapshot-to-a-target-subscription"></a>Anwenden einer Momentaufnahme auf ein Zielabonnement
 
-Als Nächstes erstellen Sie das neue **PersonGroup**-Objekt im Zielabonnement. Hierbei verwenden Sie eine zufällig generierte ID. Anschließend verwenden Sie die **FaceClient**-Instanz des Zielabonnements, um die Momentaufnahme auf dieses PersonGroup-Objekt anzuwenden, indem Sie die Momentaufnahme-ID und die ID des neuen **PersonGroup**-Objekts übergeben. 
+Als Nächstes erstellen Sie das neue PersonGroup-Objekt im Zielabonnement. Hierbei verwenden Sie eine zufällig generierte ID. Anschließend verwenden Sie die FaceClient-Instanz des Zielabonnements, um die Momentaufnahme auf dieses PersonGroup-Objekt anzuwenden. Übergeben Sie die Momentaufnahme-ID und die ID des neuen PersonGroup-Objekts.
 
 ```csharp
 var newPersonGroupId = Guid.NewGuid().ToString();
@@ -148,15 +148,15 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 
 
 > [!NOTE]
-> Ein Momentaufnahmeobjekt ist nur für 48 Stunden gültig. Sie sollten nur dann eine Momentaufnahme erstellen, wenn Sie kurz darauf eine Datenmigration durchführen möchten.
+> Ein Momentaufnahmeobjekt ist nur 48 Stunden gültig. Sie sollten nur dann eine Momentaufnahme erstellen, wenn Sie kurz darauf eine Datenmigration durchführen möchten.
 
-Bei der Anforderung zur Momentaufnahmeanwendung wird eine weitere Vorgangs-ID zurückgegeben. Sie können diese ID abrufen, indem Sie das Feld `OperationLocation` der zurückgegebenen **applySnapshotResult**-Instanz analysieren. 
+Bei der Anforderung zur Momentaufnahmeanwendung wird eine weitere Vorgangs-ID zurückgegeben. Sie können diese ID abrufen, indem Sie das Feld `OperationLocation` der zurückgegebenen applySnapshotResult-Instanz analysieren. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-Der Prozess zur Momentaufnahmeanwendung ist ebenfalls synchron. Verwenden Sie deshalb erneut `WaitForOperation`, um auf den Abschluss des Vorgangs zu warten.
+Der Prozess zur Momentaufnahmeanwendung ist ebenfalls asynchron. Verwenden Sie deshalb erneut `WaitForOperation`, um auf den Abschluss des Vorgangs zu warten.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
@@ -164,9 +164,9 @@ operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
 
 ## <a name="test-the-data-migration"></a>Testen der Datenmigration
 
-Nachdem Sie die Momentaufnahme angewendet haben, sollte das neue **PersonGroup**-Objekt im Zielabonnement mit den ursprünglichen Gesichtserkennungsdaten aufgefüllt werden. Standardmäßig werden auch Trainingsergebnisse kopiert, deshalb steht das neue **PersonGroup**-Objekt für Aufrufe zur Gesichtserkennung zur Verfügung, ohne erneut trainiert werden zu müssen.
+Nachdem Sie die Momentaufnahme angewandt haben, wird das neue PersonGroup-Objekt im Zielabonnement mit den ursprünglichen Gesichtserkennungsdaten aufgefüllt. Standardmäßig werden auch die Trainingsergebnisse kopiert. Die neue PersonGroup steht für Aufrufe zur Gesichtserkennung bereit, ohne dass sie erneut trainiert werden muss.
 
-Um die Datenmigration zu testen, können Sie die folgenden Vorgänge ausführen und die an die Konsole ausgegebenen Ergebnisse vergleichen.
+Um die Datenmigration zu testen, führen Sie die folgenden Vorgänge aus und vergleichen dann die an die Konsole ausgegebenen Ergebnisse:
 
 ```csharp
 await DisplayPersonGroup(FaceClientEastAsia, personGroupId);
@@ -214,22 +214,24 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 }
 ```
 
-Jetzt können Sie das neue **PersonGroup**-Objekt im Zielabonnement verwenden. 
+Jetzt können Sie das neue PersonGroup-Objekt im Zielabonnement verwenden. 
 
-Wenn Sie das **PersonGroup**-Zielobjekt später aktualisieren möchten, müssen Sie (mithilfe der Schritte in diesem Leitfaden) ein neues **PersonGroup**-Objekt erstellen, um die Momentaufnahme zu empfangen. Auf ein einzelnes **PersonGroup**-Objekt kann pro Arbeitsschritt nur eine Momentaufnahme angewendet werden.
+Um das PersonGroup-Zielobjekt später erneut zu aktualisieren, erstellen Sie eine neue PersonGroup für den Empfang einer Momentaufnahme. Führen Sie dazu die Schritte in dieser Anleitung aus. Auf ein einzelnes PersonGroup-Objekt kann pro Arbeitsschritt nur eine Momentaufnahme angewandt werden.
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Nachdem Sie die Gesichtserkennungsdaten migriert haben, wird empfohlen, das Momentaufnahmeobjekt manuell zu löschen.
+Löschen Sie das Momentaufnahmeobjekt nach Abschluss der Migration der Gesichtserkennungsdaten manuell.
 
 ```csharp
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>Verwandte Themen
+## <a name="next-steps"></a>Nächste Schritte
+
+Sehen Sie sich als Nächstes die relevante API-Referenzdokumentation sowie eine Beispiel-App an, die die Momentaufnahmefunktion verwendet, oder führen Sie eine Anleitung zum Einstieg in die anderen hier erwähnten API-Vorgänge aus:
 
 - [Referenzdokumentation zu Momentaufnahmen (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Momentaufnahmebeispiel für die Gesichtserkennungs-API](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Hinzufügen von Gesichtern](how-to-add-faces.md)
-- [How to Detect Faces in Image](HowtoDetectFacesinImage.md) (Gesichtserkennung in Bildern)
-- [Gesichtsidentifikation in Bildern](HowtoIdentifyFacesinImage.md)
+- [Gesichtserkennung in einem Bild](HowtoDetectFacesinImage.md)
+- [Identifizieren von Gesichtern in Bildern](HowtoIdentifyFacesinImage.md)

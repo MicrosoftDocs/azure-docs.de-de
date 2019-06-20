@@ -1,25 +1,18 @@
 ---
-title: Azure- und Dynamics 365-Beratungsdienstangebot – Definieren von Angebotseinstellungen | Microsoft-Dokumentation
-description: Dies ist ein Leitfaden für die Definition von Angebotseinstellungen eines Azure- oder Dynamics 365-Beratungsdienstangebots im Cloud-Partnerportal.
+title: Definieren der Angebotseinstellungen für ein Beratungsdienstangebot | Azure Marketplace
+description: Definieren Sie Angebotseinstellungen eines Azure- oder Dynamics 365-Beratungsdienstangebots im Cloud-Partnerportal für den Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942788"
 ---
 # <a name="offer-settings-tab"></a>Registerkarte „Angebotseinstellungen“
 
@@ -27,7 +20,8 @@ Der erste Schritt unter **Neues Angebot** besteht darin, die Angebots-ID zu erst
 
 ![Erstellen eines neuen Beratungsdienstangebots – Registerkarte „Angebotseinstellungen“](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>Angebots-ID
+
+### <a name="offer-id"></a>Angebots-ID*
 
 Dieser Bezeichner ist ein eindeutiger Name, den Sie bei der ersten Übermittlung des Angebots erstellen. Dieser Name darf nur klein geschriebene alphanumerische Zeichen, Bindestriche und Unterstriche enthalten. Die **Angebots-ID** ist in der URL sichtbar und wirkt sich auf Suchmaschinenergebnisse aus. Ein Beispiel ist *yourcompanyname_exampleservice*.
 
@@ -36,11 +30,13 @@ Wie im Beispiel gezeigt, wird die **Angebots-ID** Ihrer Herausgeber-ID angefügt
 >[!Note]
 >Nachdem ein Angebot live geschaltet wurde, kann der Bezeichner nicht mehr aktualisiert werden.
 
-### <a name="publisher-id"></a>Herausgeber-ID
+
+### <a name="publisher-id"></a>Herausgeber-ID*
 
 Dieser Bezeichner bezieht sich auf Ihr Konto. Wenn Sie sich mit Ihrem Organisationskonto angemeldet haben, wird Ihre **Herausgeber-ID** im Dropdownmenü angezeigt.
 
-### <a name="name"></a>NAME
+
+### <a name="name"></a>Name*
 
 Diese Zeichenfolge wird als Angebotsname in AppSource oder Azure Marketplace angezeigt. Das Feld **Name** ist auf 50 Zeichen begrenzt. Der Prüfer muss Ihren Titel ggf. bearbeiten, um die Dauer und den Angebotstyp Ihrem Angebotsnamen anzufügen.
 

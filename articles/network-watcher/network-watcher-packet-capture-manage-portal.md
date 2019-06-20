@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
 ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714710"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Verwalten von Paketerfassungen mit Azure Network Watcher über das Portal
@@ -54,7 +54,7 @@ Wenn eine Netzwerksicherheitsgruppe der Netzwerkschnittstelle oder einem Subnetz
 
    - **Maximale Anzahl von Bytes pro Paket**: Die Anzahl der Bytes aus jedem Paket, die erfasst werden. Wenn keine Angabe erfolgt, werden alle Bytes erfasst.
    - **Maximale Anzahl von Bytes pro Sitzung**: Die Gesamtzahl der erfassten Bytes. Wenn dieser Wert erreicht wird, wird die Paketerfassung beendet.
-   - **Zeitlimit (Sekunden)**: Das Zeitlimit, nach dem die Paketerfassung beendet wird. Der Standardwert ist 18.000 Sekunden.
+   - **Zeitlimit (Sekunden)** : Das Zeitlimit, nach dem die Paketerfassung beendet wird. Der Standardwert ist 18.000 Sekunden.
    - Filterung (optional). Wählen Sie **+ Filter hinzufügen** aus.
      - **Protokoll:** Das zu filternde Protokoll für die Paketerfassung. Die verfügbaren Werte sind „TCP“, „UDP“ und „Alle“.
      - **Lokale IP-Adresse**: Filtert die Paketerfassung für Pakete, deren lokale IP-Adresse mit diesem Wert übereinstimmt.

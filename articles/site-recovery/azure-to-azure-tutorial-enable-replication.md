@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 13c86a38e0d894feed0d9c24dd802a09ff1d1d2d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 5602298ffe60ad15d3daf52587c50357c310200c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678838"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480109"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Einrichten der Notfallwiederherstellung für Azure-VMs
 
@@ -25,7 +25,7 @@ In diesem Tutorial wird erläutert, wie Sie die Notfallwiederherstellung für Az
 > [!div class="checklist"]
 > * Erstellen eines Recovery Services-Tresors
 > * Überprüfen der Zielressourceneinstellungen
-> * Einrichten des ausgehenden Zugriffs für VMs
+> * Einrichten der ausgehenden Netzwerkkonnektivität für VMs
 > * Aktivieren der Replikation für eine VM
 
 > [!NOTE]
@@ -35,10 +35,10 @@ In diesem Tutorial wird erläutert, wie Sie die Notfallwiederherstellung für Az
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-- Stellen Sie sicher, dass Sie die [Architektur und die Komponenten des Szenarios](concepts-azure-to-azure-architecture.md) verstehen.
+- Überprüfen Sie [Architektur und Komponenten des Szenarios](concepts-azure-to-azure-architecture.md).
 - Sehen Sie sich die [Supportanforderungen](site-recovery-support-matrix-azure-to-azure.md) an, bevor Sie beginnen.
 
-## <a name="create-a-vault"></a>Erstellen eines Tresors
+## <a name="create-a-recovery-services-vault"></a>Erstellen eines Recovery Services-Tresors
 
 Erstellen Sie den Tresor in einer beliebigen Region außer der Quellregion.
 
@@ -52,12 +52,12 @@ Erstellen Sie den Tresor in einer beliebigen Region außer der Quellregion.
 
    Der neue Tresor wird dem **Dashboard** unter **Alle Ressourcen** und der Hauptseite **Recovery Services-Tresore** hinzugefügt.
 
-## <a name="verify-target-resources"></a>Überprüfen der Zielressourcen
+## <a name="verify-target-resource-settings"></a>Überprüfen der Zielressourceneinstellungen
 
 1. Vergewissern Sie sich, dass Ihr Azure-Abonnement das Erstellen von VMs in der Zielregion zulässt. Wenden Sie sich an den Support, um das erforderliche Kontingent zu aktivieren.
 2. Stellen Sie sicher, dass Ihr Abonnement über ausreichend Ressourcen verfügt, um die entsprechenden VM-Größen für Ihre Quell-VMs zu unterstützen. Site Recovery wählt dieselbe oder eine möglichst ähnliche Größe für die Ziel-VM aus.
 
-## <a name="configure-outbound-network-connectivity"></a>Konfigurieren der ausgehenden Netzwerkkonnektivität
+## <a name="set-up-outbound-network-connectivity-for-vms"></a>Einrichten der ausgehenden Netzwerkkonnektivität für VMs
 
 Damit Site Recovery erwartungsgemäß funktioniert, müssen Sie die ausgehende Netzwerkkonnektivität der VMs ändern, die Sie replizieren möchten.
 
@@ -107,7 +107,7 @@ Azure Site Recovery bietet drei integrierte Rollen zum Steuern von Site Recovery
 
 Erfahren Sie mehr über [integrierte Rollen für die rollenbasierte Zugriffssteuerung in Azure](../role-based-access-control/built-in-roles.md).
 
-## <a name="enable-replication"></a>Aktivieren der Replikation
+## <a name="enable-replication-for-a-vm"></a>Aktivieren der Replikation für eine VM
 
 ### <a name="select-the-source"></a>Auswählen der Quelle
 
@@ -146,7 +146,7 @@ Site Recovery erstellt Standardeinstellungen und Replikationsrichtlinien für di
     **Virtuelles Zielnetzwerk** | Das Netzwerk in der Zielregion, in dem sich Azure-VMs nach einem Failover befinden.<br/><br/> Site Recovery erstellt standardmäßig in der Zielregion ein neues virtuelles Netzwerk (und Subnetze) mit dem Suffix „asr“.
     **Cachespeicherkonten** | Site Recovery verwendet ein Speicherkonto in der Quellregion. Änderungen an Quell-VMs werden vor der Replikation am Zielspeicherort an dieses Konto gesendet.<br/><br/> Wenn Sie ein Cachespeicherkonto mit aktivierter Firewall verwenden, müssen Sie **vertrauenswürdige Microsoft-Dienste zulassen**, indem Sie die entsprechende Option auswählen. [Weitere Informationen.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
     **Zielspeicherkonten (wenn die Quell-VM keine verwalteten Datenträger verwendet)** | Standardmäßig erstellt Site Recovery ein neues Speicherkonto in der Zielregion, um das Quell-VM-Speicherkonto zu spiegeln.<br/><br/> Aktivieren Sie die Option **Vertrauenswürdige Microsoft-Dienste zulassen**, wenn Sie ein Cachespeicherkonto mit aktivierter Firewall verwenden.
-    **Verwaltete Replikatdatenträger (wenn die Quell-VM verwaltete Datenträger verwendet)** | Site Recovery erstellt standardmäßig verwaltete Replikatdatenträger in der Zielregion, um die verwalteten Datenträger der Quell-VM zu spiegeln. Dabei wird der gleiche Speichertyp (Standard oder Premium) wie für die verwalteten Datenträger der Quell-VM verwendet.
+    **Verwaltete Replikatdatenträger (wenn die Quell-VM verwaltete Datenträger verwendet)** | Site Recovery erstellt standardmäßig verwaltete Replikatdatenträger in der Zielregion, um die verwalteten Datenträger der Quell-VM zu spiegeln. Dabei wird der gleiche Speichertyp (Standard oder Premium) wie für die verwalteten Datenträger der Quell-VM verwendet. Sie können nur den Datenträgertyp anpassen 
     **Zielverfügbarkeitsgruppen** | Standardmäßig erstellt Azure Site Recovery in der Zielregion eine neue Verfügbarkeitsgruppe und verwendet das Namenssuffix „asr“ für die virtuellen Computer, die zu einer Verfügbarkeitsgruppe in der Quellregion gehören. Falls bereits eine von Azure Site Recovery erstellte Verfügbarkeitsgruppe vorhanden ist, wird diese wiederverwendet.
     **Zielverfügbarkeitszonen** | Site Recovery weist in der Zielregion standardmäßig die gleiche Anzahl von Zonen zu wie in der Quellregion, sofern die Zielregion Verfügbarkeitszonen unterstützt.<br/><br/> Wenn die Zielregion keine Verfügbarkeitszonen unterstützt, werden die virtuellen Zielcomputer standardmäßig als einzelne Instanzen konfiguriert.<br/><br/> Klicken Sie auf **Anpassen**, um virtuelle Computer als Teil einer Verfügbarkeitsgruppe in der Zielregion zu konfigurieren.<br/><br/> Nach der Aktivierung der Replikation können Sie den Verfügbarkeitstyp (einzelne Instanz, Verfügbarkeitsgruppe oder Verfügbarkeitszone) nicht mehr ändern. Wenn Sie den Verfügbarkeitstyp ändern möchten, müssen Sie die Replikation deaktivieren und wieder aktivieren.
 

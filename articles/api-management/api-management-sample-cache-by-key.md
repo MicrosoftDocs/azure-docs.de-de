@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60780820"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Benutzerdefiniertes Caching in Azure API Management
 Der Azure API Management-Dienst verfügt über eine integrierte Unterstützung für das [HTTP-Antwort-Caching](api-management-howto-cache.md) mit der Ressourcen-URL als Schlüssel. Der Schlüssel kann durch Anforderungsheader mithilfe der `vary-by` -Eigenschaften geändert werden. Dies ist nützlich, wenn ganze HTTP-Antworten (auch als Darstellungen bezeichnet) zwischengespeichert werden sollen. Die neuen [cache-lookup-value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) und [cache-store-value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) bieten die Möglichkeit zum Speichern und Abrufen von zufälligen Datenelementen aus Richtliniendefinitionen. Die neuen Richtlinien [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) -Richtlinie, da Sie nun Antworten von externen Diensten zwischenspeichern können.

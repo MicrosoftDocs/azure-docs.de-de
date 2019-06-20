@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823326"
 ---
 # <a name="understand-the-device-model-schema"></a>Grundlegendes zum Gerätemodellschema
@@ -116,7 +116,7 @@ Der Simulationsdienst führt die Datei **chiller-01-state.js** alle fünf Sekund
 
 ## <a name="properties"></a>Eigenschaften
 
-Der Abschnitt `Properties` des Schemas definiert die Eigenschaftswerte, die das Gerät an die Lösung meldet. Beispiel: 
+Der Abschnitt `Properties` des Schemas definiert die Eigenschaftswerte, die das Gerät an die Lösung meldet. Beispiel:
 
 ```json
 "Properties": {
@@ -167,7 +167,7 @@ Derzeit können Sie nur JSON-Nachrichtenschemas verwenden. Die im Schema aufgef�
 * Boolean
 * Integer
 * Double
-* Datetime
+* DateTime
 
 Fügen Sie dem Array `Telemetry` mehrere Telemetrietypen hinzu, um Telemetrienachrichten in verschiedenen Intervallen zu senden. Im folgenden Beispiel werden die Daten zur Temperatur und Luftfeuchtigkeit alle 10 Sekunden und der Status des Lichts einmal pro Minute gesendet:
 

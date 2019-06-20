@@ -2,20 +2,20 @@
 title: Erste Schritte mit benutzerdefinierten Richtlinien – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erste Schritte mit benutzerdefinierten Richtlinien in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.author: davidmu
+ms.date: 05/16/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e9ad91967b5423539f28089bbf2da22edcf8f9a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2929c033b4744ea89f8e3d711a5e2e0df6301c14
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730008"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Erste Schritte für benutzerdefinierte Richtlinien in Azure Active Directory B2C
 
@@ -31,9 +31,9 @@ ms.locfileid: "64714972"
 ## <a name="add-signing-and-encryption-keys"></a>Hinzufügen von Signatur- und Verschlüsselungsschlüsseln
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) als globaler Administrator Ihres Azure AD B2C-Mandanten an.
-2. Stellen Sie sicher, dass Sie das Verzeichnis verwenden, das Ihren Azure AD B2C-Mandanten enthält. Klicken Sie im Hauptmenü auf den **Verzeichnis- und Abonnementfilter**, und wählen Sie das Verzeichnis aus, das Ihren Mandanten enthält. 
+2. Stellen Sie sicher, dass Sie das Verzeichnis verwenden, das Ihren Azure AD B2C-Mandanten enthält. Klicken Sie im oberen Menü auf **Verzeichnis- und Abonnementfilter**, und wählen Sie dann das Verzeichnis aus, das Ihren Mandanten enthält. 
 3. Klicken Sie links oben im Azure-Portal auf **Alle Dienste**, suchen Sie nach **Azure AD B2C**, und klicken Sie darauf.
-4. Wählen Sie auf der Seite „Übersicht“ die Option **Identity Experience Framework – PREVIEW** (Framework für die Identitätsfunktion – VORSCHAU) aus.
+4. Wählen Sie auf der Seite „Übersicht“ die Option **Framework für die Identitätsfunktion** aus.
 
 ### <a name="create-the-signing-key"></a>Erstellen des Signaturschlüssels
 
@@ -70,20 +70,20 @@ Azure AD B2C erfordert, dass Sie zwei Anwendungen registrieren, die zur Registri
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrieren der IdentityExperienceFramework-Anwendung
 
-1. Wählen Sie links oben im Azure-Portal **Alle Dienste** aus, suchen Sie nach **App-Registrierungen**, und wählen Sie dann diese Option aus.
-2. Wählen Sie **Registrierung einer neuen Anwendung** aus.
-3. Geben Sie unter **Name** `IdentityExperienceFramework` ein.
-4. Wählen Sie unter **Anwendungstyp** die Option **Web-App/API** aus.
-5. Geben Sie `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` als **Anmelde-URL** ein, wobei `your-tenant-name` für den Domänennamen Ihres Azure AD B2C-Mandanten steht.
-6. Klicken Sie auf **Create**. 
-7. Wenn der Bestellvorgang abgeschlossen ist, kopieren Sie die Anwendungs-ID und speichern Sie sie zur späteren Verwendung.
+1. Klicken Sie links oben im Azure-Portal auf **Alle Dienste**, suchen Sie nach **Azure Active Directory**, und wählen Sie diese Option aus.
+2. Wählen Sie im Menü **App-Registrierungen (Legacy)** aus.
+3. Wählen Sie **Registrierung einer neuen Anwendung** aus.
+4. Geben Sie unter **Name** `IdentityExperienceFramework` ein.
+5. Wählen Sie unter **Anwendungstyp** die Option **Web-App/API** aus.
+6. Geben Sie `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` als **Anmelde-URL** ein, wobei `your-tenant-name` für den Domänennamen Ihres Azure AD B2C-Mandanten steht. Alle URLs sollten jetzt [b2clogin.com](b2clogin.md) verwenden.
+7. Klicken Sie auf **Create**. Wenn der Bestellvorgang abgeschlossen ist, kopieren Sie die Anwendungs-ID und speichern Sie sie zur späteren Verwendung.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrieren der ProxyIdentityExperienceFramework-Anwendung
 
-1. Klicken Sie erst auf **App-Registrierungen** und anschließend auf **New application registration** (Neue Anwendungsregistrierung).
+1. Wählen Sie unter **App-Registrierungen (Legacy)** die Option **Registrierung einer neuen Anwendung** aus.
 2. Geben Sie unter **Name** `ProxyIdentityExperienceFramework` ein.
 3. Wählen Sie **Nativ** als **Anwendungstyp** aus.
-4. Geben Sie `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` als **Umleitungs-URI** ein, wobei `yourtenant` für Ihren Azure AD B2C-Mandanten steht.
+4. Geben Sie `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` als **Umleitungs-URI** ein, wobei `your-tenant-name` für Ihren Azure AD B2C-Mandanten steht.
 5. Klicken Sie auf **Create**. Wenn der Bestellvorgang abgeschlossen ist, kopieren Sie die Anwendungs-ID und speichern Sie sie zur späteren Verwendung.
 6. Klicken Sie auf der Seite „Einstellungen“ zunächst auf **Erforderliche Berechtigungen** und dann auf **Hinzufügen**.
 7. Wählen Sie **API auswählen** aus, suchen Sie nach **IdentityExperienceFramework**, wählen Sie diese API aus, und klicken Sie anschließend auf **Auswählen**.

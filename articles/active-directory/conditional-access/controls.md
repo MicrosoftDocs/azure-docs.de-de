@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258741"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305756"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Was sind die Zugriffssteuerungen beim bedingten Zugriff mit Azure Active Directory?
 
@@ -76,9 +76,9 @@ Sie können die Richtlinien für den bedingten Zugriff auf Geräteebene festlege
 
 Ihr Gerät muss in Azure AD registriert werden, bevor es als konform markiert werden kann. Zum Registrieren eines Geräts stehen Ihnen drei Optionen zur Auswahl: 
 
-- [Bei Azure AD registrierte Geräte](../devices/overview.md#azure-ad-registered-devices)
+- [In Azure AD registrierte Geräte](../devices/overview.md#azure-ad-registered-devices)
 - [In Azure AD eingebundene Geräte](../devices/overview.md#azure-ad-joined-devices)  
-- [In Azure AD eingebundene Hybridgeräte](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Über Azure AD Hybrid Join eingebundene Geräte](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Weitere Informationen finden Sie unter [Vorschreiben der Verwendung verwalteter Geräte für den Zugriff auf Cloud-Apps mithilfe des bedingten Zugriffs](require-managed-devices.md).
 
@@ -107,13 +107,13 @@ Ihr Gerät muss bei Azure AD registriert werden, bevor eine Anwendung als von ei
 Eine Liste der unterstützen durch Richtlinien geschützten Client-Apps finden Sie unter [Genehmigte Client-App als Voraussetzung](technical-reference.md#app-protection-policy-requirement).
 
 
-### <a name="terms-of-use"></a>Terms of Use (Nutzungsbedingungen)
+### <a name="terms-of-use"></a>Nutzungsbedingungen
 
 Sie können einen Benutzer in Ihrem Mandanten anfordern, den Nutzungsbedingungen zuzustimmen, bevor der Zugriff auf eine Ressource gewährt wird. Als Administrator können Sie Nutzungsbedingungen durch Hochladen eines PDF-Dokuments konfigurieren und anpassen. Fällt ein Benutzer in den Anwendungsbereich dieses Steuerelements, wird der Zugriff auf eine Anwendung nur gewährt, wenn die Nutzungsbedingungen akzeptiert wurden.
 
 ### <a name="custom-controls-preview"></a>Benutzerdefinierte Steuerelemente (Vorschau)
 
-Sie können benutzerdefinierte Steuerelemente für den bedingten Zugriff erstellen, die Ihre Benutzer zu einem kompatiblen Dienst umleiten, um weiteren Anforderungen außerhalb von Azure Active Directory zu genügen. Dadurch können Sie bestimmte externe mehrstufige Authentifizierungs- und Überprüfungsanbieter verwenden, um Regeln für den bedingten Zugriff zu erzwingen, oder zur Erstellung Ihres eigenen benutzerdefinierten Diensts. Um die Bedingungen dieses Steuerelements zu erfüllen, wird der Browser eines Benutzers auf den externen Dienst umgeleitet, führt alle erforderlichen Authentifizierungs- oder Überprüfungsaktivitäten durch und wird dann wieder an Azure Active Directory umgeleitet. Wenn der Benutzer erfolgreich authentifiziert oder überprüft wurde, bleibt der Benutzer im Vorgangsfluss des bedingten Zugriffs. 
+Sie können benutzerdefinierte Steuerelemente für den bedingten Zugriff hinzufügen, die Ihre Benutzer zu einem kompatiblen Dienst umleiten, um weiteren Anforderungen außerhalb von Azure Active Directory zu genügen. Dadurch können Sie bestimmte externe mehrstufige Authentifizierungs- und Überprüfungsanbieter verwenden, um Regeln für den bedingten Zugriff zu erzwingen. Um die Bedingungen dieses Steuerelements zu erfüllen, wird der Browser eines Benutzers auf den externen Dienst umgeleitet, führt alle erforderlichen Authentifizierungs- oder Überprüfungsaktivitäten durch und wird dann wieder an Azure Active Directory umgeleitet. Wenn der Benutzer erfolgreich authentifiziert oder überprüft wurde, bleibt der Benutzer im Vorgangsfluss des bedingten Zugriffs. 
 
 ## <a name="custom-controls"></a>Benutzerdefinierte Steuerelemente
 
@@ -137,6 +137,8 @@ Für weitere Informationen zu diesen Diensten wenden Sie sich direkt an die Anbi
 ### <a name="creating-custom-controls"></a>Erstellen von benutzerdefinierten Steuerelementen
 
 Um ein benutzerdefiniertes Steuerelement zu erstellen, sollten Sie sich zuerst an den Anbieter wenden, den Sie verwenden möchten. Jeder Nicht-Microsoft-Anbieter hat seine eigenen Prozesse und Anforderungen für das Registrieren, das Abonnieren, oder um auf andere Weise Teil des Diensts zu werden, und um anzugeben, dass Sie sich in den bedingten Zugriff integrieren möchten. Zu diesem Zeitpunkt wird der Anbieter einen Block von Daten im JSON-Format für Sie bereitstellen. Diese Daten ermöglichen dem Anbieter und dem bedingten Zugriff, für Ihren Mandanten zusammenzuarbeiten. Diese Daten erstellen das neue Steuerelement und definieren, wie der bedingte Zugriff feststellen kann, ob Ihre Benutzer die Überprüfung mit dem Anbieter erfolgreich ausgeführt haben.
+
+Benutzerdefinierte Steuerelemente können nicht mit der Identity Protection-Automatisierung verwendet werden, die eine mehrstufige Authentifizierung erfordert. Sie können auch nicht zum Erhöhen von Rollen im Privileged Identity Manager (PIM) eingesetzt werden.
 
 Kopieren Sie die JSON-Daten, und fügen Sie sie in das entsprechende Textfeld ein. Verändern Sie JSON-Daten nicht, es sei denn, Sie verstehen explizit die Änderungen, die Sie vornehmen möchten. Jede Änderung kann die Verbindung zwischen dem Anbieter und Microsoft unterbrechen und möglicherweise den Zugriff auf Ihre Konten für Sie und Ihre Benutzer sperren.
 
@@ -174,9 +176,9 @@ Sie können dieses Steuerelement verwenden, um von Azure AD anzufordern, die Ger
 
 Weitere Informationen finden Sie unter:
 
-- [Enabling limited access with SharePoint Online (Aktivieren des eingeschränkten Zugriffs mit SharePoint Online)](https://aka.ms/spolimitedaccessdocs)
+- [Aktivieren des eingeschränkten Zugriffs mit SharePoint Online](https://aka.ms/spolimitedaccessdocs)
 
-- [Enabling limited access with Exchange Online (Aktivieren des eingeschränkten Zugriffs mit Exchange Online)](https://aka.ms/owalimitedaccess)
+- [Aktivieren des eingeschränkten Zugriffs mit Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

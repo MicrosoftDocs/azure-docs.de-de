@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
+ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: a343caaa998505a1772096b058ec7ad300eec03c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d3ce2a19e195174cd302b25005b3b063d028b6cf
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725699"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137168"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Bedarfsorientiertes Extrahieren, Transformieren und Laden (ETL)
 
@@ -127,7 +127,7 @@ Sqoop verwendet MapReduce zum Importieren und Exportieren der Daten, um Parallel
 
 Apache Flume ist ein verteilter, zuverlässiger und verfügbarer Dienst für das effiziente Sammeln, Aggregieren und Verschieben großer Mengen von Protokolldaten. Flume hat eine einfache und flexible Architektur, die auf Streamingdatenflüssen basiert. Flume ist robust und fehlertolerant und besitzt einstellbare Zuverlässigkeitsmechanismen sowie zahlreiche Failover- und Wiederherstellungsmechanismen. Flume verwendet ein einfaches, erweiterbares Datenmodell, das analytische Onlineanwendungen zulässt.
 
-Apache Flume kann nicht mit Azure HDInsight verwendet werden.  Eine lokale Hadoop-Installation kann Flume verwenden, um Daten an Azure Storage Blobs oder an Azure Data Lake Storage zu senden.  Weitere Informationen finden Sie unter [Verwenden von Apache Flume mit HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Apache Flume kann nicht mit Azure HDInsight verwendet werden.  Eine lokale Hadoop-Installation kann Flume verwenden, um Daten an Azure Storage Blobs oder an Azure Data Lake Storage zu senden.  Weitere Informationen finden Sie unter [Verwenden von Apache Flume mit HDInsight](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## <a name="transform"></a>Transformieren
 

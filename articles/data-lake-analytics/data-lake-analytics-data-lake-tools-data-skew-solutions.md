@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606711"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Lösen von Problemen aufgrund von Datenschiefe mithilfe von Azure Data Lake Tools für Visual Studio
 
@@ -36,7 +36,7 @@ Wenn dies Ihre Geschäftslogik nicht beeinträchtigt, können Sie häufiger verw
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Option 2: Auswahl eines anderen Partitions- oder Verteilungsschlüssels
 
-Wenn Sie im oben genannten Beispiel nur die Workload für die Steuerprüfung im gesamten Land überprüfen möchten, können Sie die Datenverteilung verbessern, indem Sie ID als Schlüssel auswählen. Die Auswahl eines anderen Partitions- oder Verteilungsschlüssels kann manchmal für eine gleichmäßigere Verteilung der Daten sorgen, aber Sie müssen sicherstellen, dass dies Ihre Geschäftslogik nicht beeinträchtigt. Wenn Sie z.B. die Steuersumme für jeden Bundesstaat berechnen möchten, sollten Sie als Partitionsschlüssel _State_ auswählen. Lässt sich das Problem dadurch nicht lösen, versuchen Sie Option 3.
+Wenn Sie im oben genannten Beispiel nur die Workload für die Steuerprüfung im gesamten Land bzw. in der gesamten Region überprüfen möchten, können Sie die Datenverteilung verbessern, indem Sie ID als Schlüssel auswählen. Die Auswahl eines anderen Partitions- oder Verteilungsschlüssels kann manchmal für eine gleichmäßigere Verteilung der Daten sorgen, aber Sie müssen sicherstellen, dass dies Ihre Geschäftslogik nicht beeinträchtigt. Wenn Sie z.B. die Steuersumme für jeden Bundesstaat berechnen möchten, sollten Sie als Partitionsschlüssel _State_ auswählen. Lässt sich das Problem dadurch nicht lösen, versuchen Sie Option 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Option 3: Hinzufügen weiterer Partitions- oder Verteilungsschlüssel
 

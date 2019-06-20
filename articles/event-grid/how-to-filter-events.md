@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 182a936e97cd6ed2527d618dfe777ae861c757e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb95b80e12c818641e2be2b929cdfd01f8f5b5c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119632"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304227"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtern von Ereignissen für Event Grid
 
@@ -184,8 +184,6 @@ Das nächste Beispiel für eine Resource Manager-Vorlage erstellt ein Abonnement
 ## <a name="filter-by-operators-and-data"></a>Filtern nach Operatoren und Daten
 
 Um bei der Filterung mehr Flexibilität zu erhalten, können Sie Ereignisse nach Operatoren und Dateneigenschaften filtern.
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>Abonnieren mit erweiterten Filtern
 

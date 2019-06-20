@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516908"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60294408"
 ---
 # <a name="how-to-unblock-users"></a>Anleitung: Entsperren von Benutzern
 

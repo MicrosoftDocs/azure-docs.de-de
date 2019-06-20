@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 816233368c2274e34d2acdd712aed270a5e3bfa5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60203923"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Erstellen und Verwalten von virtuellen Windows-Computern in Azure mithilfe von Java
 

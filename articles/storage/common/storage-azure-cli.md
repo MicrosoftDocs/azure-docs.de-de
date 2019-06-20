@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: ea7e4757aac0fccf60a44c70e9de6a63c1ec9498
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147007"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Verwenden der Azure-Befehlszeilenschnittstelle mit Azure-Speicher
@@ -134,7 +134,7 @@ echo "Done"
 
 2. Aktualisieren Sie als Nächstes die Skriptvariablen entsprechend Ihren Konfigurationseinstellungen. Ersetzen Sie die folgenden Werte wie angegeben:
 
-   * **\<storage_account_name\>**: Der Name Ihres Speicherkontos.
+   * **\<storage_account_name\>** : Der Name Ihres Speicherkontos.
    * **\<storage_account_key\>** Der primäre oder sekundäre Zugriffsschlüssel für Ihr Speicherkonto.
    * **\<container_name\>** Ein Name für den zu erstellenden Container wie z.B. „azure-cli-beispielcontainer“.
    * **\<blob_name\>** Ein Name für das Zielblob im Container.
@@ -147,7 +147,7 @@ echo "Done"
 
 5. Führen Sie das Skript aus. Beispielsweise in Bash:`./my_storage_sample.sh`
 
-Eine Ausgabe wie die folgende sollte angezeigt werden. Die **\<destination_file\>**, die Sie im Skript angegeben haben, sollte auf Ihrem lokalen Computer angezeigt werden.
+Eine Ausgabe wie die folgende sollte angezeigt werden. Die **\<destination_file\>** , die Sie im Skript angegeben haben, sollte auf Ihrem lokalen Computer angezeigt werden.
 
 ```
 Creating the container...

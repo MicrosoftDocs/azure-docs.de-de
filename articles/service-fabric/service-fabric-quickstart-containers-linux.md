@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/30/2019
 ms.author: aljo,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 183f27d752b99c04a711d8141db512c77b9848f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1487c9e3e57a2fe4dcdcab04aa81cd81315decfd
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664878"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302295"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Schnellstart: Bereitstellen von Linux-Containern in Service Fabric
 

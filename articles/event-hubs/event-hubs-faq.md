@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162644"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476120"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Häufig gestellte Fragen zu Event Hubs
 
@@ -23,6 +23,15 @@ ms.locfileid: "56162644"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Was ist ein Event Hubs-Namespace?
 Ein Namespace ist ein Bereichscontainer für Event Hub- und Kafka-Themen. Dadurch erhalten Sie einen eindeutigen [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Ein Namespace dient als Anwendungscontainer, der mehrere Event Hub- und Kafka-Themen aufnehmen kann. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Wann erstelle ich einen neuen Namespace bzw. wann verwende ich einen bereits vorhandenen?
+Kapazitätszuteilungen ([Durchsatzeinheiten (Througput Units, TUs)](#throughput-units)) werden auf Namespaceebene abgerechnet. Ein Namespace ist auch mit einer Region verbunden.
+
+Es empfiehlt sich, einen neuen Namespace zu erstellen, anstatt einen vorhandenen zu verwenden, wenn eines der folgenden Szenarios zutrifft: 
+
+- Sie benötigen einen Event Hub, der mit einer neuen Region verbunden ist.
+- Sie benötigen einen Event Hub, der mit einem anderen Abonnement verbunden ist.
+- Sie benötigen einen Event Hub mit einer anderen Kapazitätszuteilung, d. h., der Kapazitätsbedarf für den Namespace zusammen mit dem hinzugefügten Event Hub würde den Schwellenwert von 40 TUs überschreiten, und Sie möchten die Verwendung eines dedizierten Clusters vermeiden.  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Was ist der Unterschied zwischen den Event Hubs-Ebenen Basic und Standard?
 
@@ -50,6 +59,47 @@ Im Standard-Tarif für Event Hubs wird derzeit ein maximaler Aufbewahrungszeitra
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Wie überwache ich Event Hubs?
 Event Hubs gibt umfassende Metriken aus, die den Zustand Ihrer Ressourcen in [Azure Monitor](../azure-monitor/overview.md) angeben. Mit den Metriken können Sie zudem die allgemeine Integrität des Event Hubs-Diensts nicht nur auf Namespaceebene, sondern auch auf Entitätsebene bewerten. Erfahren Sie mehr über die angebotene Überwachung für [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welche Ports muss ich in der Firewall öffnen? 
+Sie können die folgenden Protokolle mit Azure Service Bus verwenden, um Nachrichten zu senden und zu empfangen:
+
+- Advanced Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+In der folgenden Tabelle finden Sie die ausgehenden Ports, die Sie öffnen müssen, um diese Protokolle für die Kommunikation mit Azure Event Hubs verwenden zu können. 
+
+| Protocol | Ports | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 und 5672 | Weitere Informationen finden Sie im [AMQP 1.0 in Azure Service Bus und Event Hubs – Protokollleitfaden](../service-bus-messaging/service-bus-amqp-protocol-guide.md). | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9093 | Weitere Informationen finden Sie unter [Verwenden von Azure Event Hubs aus Apache Kafka-Anwendungen](event-hubs-for-kafka-ecosystem-overview.md).
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Welche IP-Adressen muss ich in die Whitelist aufnehmen?
+Um die richtigen IP-Adressen für die Whitelist für Ihre Verbindungen zu ermitteln, führen Sie diese Schritte aus:
+
+1. Führen Sie den folgenden Befehl an einer Eingabeaufforderung aus: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Notieren Sie sich die IP-Adresse, die in `Non-authoritative answer` zurückgegeben werden. Diese IP-Adresse ist statisch. Sie würde sich nur dann ändern, wenn Sie den Namespace auf einem anderen Cluster wiederherstellen.
+
+Wenn Sie die Zonenredundanz für Ihren Namespace verwenden, müssen Sie einige zusätzliche Schritte durchführen: 
+
+1. Führen Sie zunächst nslookup für den Namespace aus.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Notieren Sie sich den Namen im Abschnitt **non-authoritative answer** (nicht autorisierende Antwort), der in einem der folgenden Formate vorliegt: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Führen Sie den Befehl „nslookup“ für jeden Namen mit den Suffixen s1, s2 und s3 aus, um die IP-Adressen aller drei Instanzen zu erhalten, die in drei Verfügbarkeitszonen ausgeführt werden. 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka-Integration
 
@@ -117,9 +167,9 @@ In der folgenden Tabelle sind die Ergebnisse aufgeführt, die bei unseren Vergle
 
 | Form der Nutzlast | Empfänger | Eingangsbandbreite| Eingangsnachrichten | Ausgangsbandbreite | Ausgangsnachrichten | TUs gesamt | TUs pro CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batches von 100 x 1 KB | 2 | 400 MB/s | 400.000 Nachrichten/s | 800 MB/s | 800.000 Nachrichten/s | 400 TUs | 100 TUs | 
-| Batches von 10 x 10 KB | 2 | 666 MB/s | 666.000 Nachrichten/s | 1,33 GB/s | 133.000 Nachrichten/s | 666 TUs | 166 TUs |
-| Batches von 6 x 32 KB | 1 | 1,05 GB/s | 34.000 Nachrichten/s | 1,05 GB/s | 34.000 Nachrichten/s | 1.000 TUs | 250 TUs |
+| Batches von 100 x 1 KB | 2 | 400 MB/s | 400\.000 Nachrichten/s | 800 MB/s | 800\.000 Nachrichten/s | 400 TUs | 100 TUs | 
+| Batches von 10 x 10 KB | 2 | 666 MB/s | 666.000 Nachrichten/s | 1,33 GB/s | 133\.000 Nachrichten/s | 666 TUs | 166 TUs |
+| Batches von 6 x 32 KB | 1 | 1,05 GB/s | 34\.000 Nachrichten/s | 1,05 GB/s | 34\.000 Nachrichten/s | 1\.000 TUs | 250 TUs |
 
 Bei den Tests wurden folgende Kriterien verwendet:
 

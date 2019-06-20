@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917225"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60653890"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Aktualisieren eines Clouddiensts
 
@@ -60,7 +60,7 @@ Die folgende Tabelle zeigt die zulässigen Änderungen an einen Dienst während 
 | Einstellungen für den lokalen Speicher |Nur Erhöhen <sup>2</sup> |Ja |Ja |
 | Rollen in einem Dienst hinzufügen oder entfernen |Ja |Ja |Ja |
 | Anzahl der Instanzen einer bestimmten Rolle |Ja |Ja |Ja |
-| Anzahl oder Typ der Endpunkte für einen Dienst |Ja<sup>2</sup> |Nein  |Ja |
+| Anzahl oder Typ der Endpunkte für einen Dienst |Ja<sup>2</sup> |Nein |Ja |
 | Namen und Werte von Konfigurationseinstellungen |Ja |Ja |Ja |
 | Werte (aber keine Namen) von Konfigurationseinstellungen |Ja |Ja |Ja |
 | Neue Zertifikate hinzufügen |Ja |Ja |Ja |
@@ -114,7 +114,7 @@ Beim Aktualisieren eines Diensts aus einer einzelnen Instanz auf mehrere Instanz
 |Direktes Upgrade|Wird beibehalten|Wird beibehalten|Wird zerstört|
 |Knotenmigration|Wird zerstört|Wird zerstört|Wird zerstört|
 
-Bitte beachten Sie, dass das Laufwerk E: in der Liste oben das Stammlaufwerk der Rolle darstellt und nicht hartcodiert werden sollte. Verwenden Sie stattdessen die Umgebungsvariable **% RoleRoot%**, um das Laufwerk darzustellen.
+Bitte beachten Sie, dass das Laufwerk E: in der Liste oben das Stammlaufwerk der Rolle darstellt und nicht hartcodiert werden sollte. Verwenden Sie stattdessen die Umgebungsvariable **% RoleRoot%** , um das Laufwerk darzustellen.
 
 Stellen Sie einen neuen Dienst mit mehreren Instanzen auf dem Staging-Server bereit, und führen Sie einen VIP-Austausch aus, um die Ausfallzeit bei der Aktualisierung eines Einzelinstanzdiensts zu minimieren.
 

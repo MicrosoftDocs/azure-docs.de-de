@@ -9,11 +9,11 @@ ms.date: 03/26/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60886859"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Erstellen der Azure IoT Central-Geräte-Bridge, um weitere IoT-Clouds mit IoT Central zu verbinden
 

@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 2045041a9ee4872e4510e5ee0deba258b0342557
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 2d9c6a9636629d3ad05d50320e00ed4c4d7f0b83
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437287"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389279"
 ---
 # <a name="train-a-model"></a>Trainieren eines Modells
 

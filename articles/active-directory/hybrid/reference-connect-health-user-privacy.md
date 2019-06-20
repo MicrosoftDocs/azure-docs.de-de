@@ -15,11 +15,11 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60386251"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Datenschutz und Azure AD Connect Health 
 

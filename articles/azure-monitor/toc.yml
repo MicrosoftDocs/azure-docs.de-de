@@ -63,28 +63,24 @@
       href: azure-management.md
     - name: Kontinuierliche Überwachung
       href: continuous-monitoring.md
+    - name: Datenquellen
+      href: platform/data-sources.md
     - name: Datenplattform
       items:
         - name: Übersicht
           href: platform/data-platform.md
-        - name: Metriken
+        - name: Datenspeicherorte
+          href: platform/data-locations.md
+        - name: metrics
           href: platform/data-platform-metrics.md
         - name: Protokolle
           href: platform/data-platform-logs.md
-    - name: Datenquellen
-      items:
-        - name: Zusammenfassung der Datenquellen
-          href: platform/data-sources.md
-        - name: Azure-Datenquellen
-          href: platform/data-sources-reference.md
-        - name: Aktivitätsprotokoll
-          href: platform/activity-logs-overview.md
-        - name: Diagnoseprotokolle
-          href: platform/diagnostic-logs-overview.md
         - name: Protokolldatenerfassungszeit
           href: platform/data-ingestion-time.md
-        - name: Benutzerdefinierte Metriken in Metrikspeicher
-          href: platform/metrics-custom-overview.md
+    - name: Einblicke
+      href: insights/insights-overview.md
+    - name: Überwachungslösungen
+      href: insights/solutions-inventory.md
     - name: Datensicherheit
       items:
         - name: Protokolldaten
@@ -93,34 +89,12 @@
           href: platform/personal-data-mgmt.md
         - name: 'Anwendungsdatensammlung, -vermerkdauer und -speicherung'
           href: app/data-retention-privacy.md
-    - name: Einblicke
-      items:
-        - name: Application Insights
-          items:
-            - name: Übersicht
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: Verteilte Ablaufverfolgung
-              href: app/distributed-tracing.md
-            - name: Protokollbasierte und vorab aggregierte Metriken
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Container
-          href: insights/container-insights-overview.md
-        - name: Virtual Machines
-          href: insights/vminsights-overview.md
-        - name: Überwachungslösungen
-          href: insights/solutions-inventory.md
     - name: Reagieren auf Incidents
       items:
         - name: Alerts
           href: platform/alerts-overview.md
         - name: Klassische Warnungen
           href: platform/alerts-classic.overview.md
-        - name: Intelligente Gruppen
-          href: platform/alerts-smartgroups-overview.md
-        - name: Autoscale
-          href: platform/autoscale-overview.md
         - name: Metrikwarnungen
           href: platform/alerts-metric-overview.md
         - name: Protokollwarnungen
@@ -131,18 +105,18 @@
           href: platform/alerts-common-schema.md
         - name: Aktionsregeln
           href: platform/alerts-action-rules.md
+        - name: Intelligente Gruppen
+          href: platform/alerts-smartgroups-overview.md
+        - name: Autoscale
+          href: platform/autoscale-overview.md
         - name: Ändern der Analyse
           href: app/change-analysis.md
     - name: Visualisieren von Daten
       href: visualizations.md
     - name: Partnerintegrationen
       href: platform/partners.md
-    - name: Übergang zum OMS-Portal
-      items:
-        - name: Übersicht
-          href: platform/oms-portal-transition.md
-        - name: Häufig gestellte Fragen
-          href: platform/oms-portal-faq.md
+    - name: Einstellung des OMS-Portals
+      href: platform/oms-portal-transition.md
     - name: Häufig gestellte Fragen
       items:
         - name: Log Analytics
@@ -189,6 +163,42 @@
               href: platform/service-providers.md
     - name: Sammeln von Daten
       items:
+        - name: Azure-Ressourcen
+          items:
+            - name: Aktivitätsprotokoll
+              items:
+                - name: Übersicht
+                  href: platform/activity-logs-overview.md
+                - name: Anzeigen und Abrufen
+                  href: platform/activity-log-view.md
+                - name: Sammeln und Analysieren
+                  href: platform/activity-log-collect.md
+                - name: Mandantenübergreifendes Sammeln
+                  href: platform/activity-log-collect-tenants.md
+                - name: Export
+                  href: platform/activity-log-export.md
+                - name: Schema
+                  href: platform/activity-log-schema.md
+            - name: Diagnoseprotokolle
+              items:
+                - name: Übersicht
+                  href: platform/diagnostic-logs-overview.md
+                - name: Erfassen in Protokollen
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Sammeln in Azure Storage
+                  href: platform/collect-azure-metrics-logs.md
+                - name: Archivieren im Speicher
+                  href: platform/archive-diagnostic-logs.md
+                - name: Streamen von Daten an Event Hubs
+                  href: platform/diagnostic-logs-stream-event-hubs.md
+                - name: Aktivieren mit Resource Manager-Vorlagen
+                  href: platform/diagnostic-logs-stream-template.md
+                - name: Dienstprotokolle und -metriken
+                  href: platform/azure-storage-iis-table.md
+            - name: Stream für Event Hubs
+              href: platform/stream-monitoring-data-event-hubs.md
+            - name: Korrelieren von benutzerdefinierten Datenquellen
+              href: app/custom-data-correlation.md
         - name: Installieren und Konfigurieren von Agents
           items:
             - name: Übersicht über Überwachungs-Agents
@@ -221,22 +231,22 @@
                   href: platform/diagnostics-extension-stream-event-hubs.md
                 - name: Problembehandlung
                   href: platform/diagnostics-extension-troubleshooting.md
-                - name: Aktivieren der Diagnoseeinstellungen mithilfe von Resource Manager-Vorlagen
-                  href: platform/diagnostic-logs-stream-template.md
                 - name: Vorbereiten für das Diagnoseprotokollformat JSON Lines
                   href: platform/diagnostic-logs-append-blobs.md
-                - name: VM-Gast in Metrikspeicher
+                - name: VM-Gast in Metrik
                   href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: VM-Skalierungsgruppengast in Metrikspeicher
+                - name: VM-Skalierungsgruppengast in Metrik
                   href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: Klassischer VM-Gast in Metrikspeicher
+                - name: Klassischer VM-Gast in Metrik
                   href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: Clouddienstgast in Metrikspeicher
+                - name: Clouddienstgast in Metrik
                   href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
             - name: Problembehandlung
               items:
                 - name: Log Analytics-Erweiterung für virtuelle Computer
                   href: platform/vmext-troubleshoot.md
+                - name: Log Analytics-Windows-Agent
+                  href: platform/agent-windows-troubleshoot.md
                 - name: Log Analytics-Agent für Linux
                   href: platform/agent-linux-troubleshoot.md
         - name: Agent-Datenquellen
@@ -341,8 +351,6 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: 'API: Set-ApplicationInsightsMonitoringConfig'
                       href: app/status-monitor-v2-api-set-config.md
-                - name: Windows-Dienste
-                  href: app/windows-services.md
                 - name: Windows Desktop
                   href: app/windows-desktop.md
                 - name: Konsole
@@ -432,83 +440,46 @@
                   href: app/proactive-email-notification.md
             - name: Erstellen einer Ressource
               href: app/create-new-resource.md
-            - name: Problembehandlung
+            - name: Anwendungsdaten an Log Analytics
+              href: platform/app-insights-connector.md
+            - name: Exportieren von Anwendungsdaten
               items:
                 - name: Keine Daten für .NET
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: Debugger für Momentaufnahmen
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: Analytics
-                  href: app/analytics-troubleshooting.md
                 - name: Java
                   href: app/java-troubleshoot.md
                 - name: Nutzungsanalyse
                   href: app/usage-troubleshoot.md
-        - name: Azure-Ressourcen
-          items:
-            - name: Azure-Aktivitätsprotokolle
-              items:
-                - name: Analytics
-                  href: platform/collect-activity-logs.md
-                - name: Abonnementübergreifende Erfassung
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: Dienstprotokolle und -metriken
-              href: platform/collect-azure-metrics-logs.md
-            - name: Diagnose- oder Protokolldaten aus dem Azure-Speicher
-              href: platform/azure-storage-iis-table.md
-            - name: Azure PaaS-Ressourcen
-              href: platform/collect-azurepass-posh.md
-            - name: Korrelieren von benutzerdefinierten Datenquellen
-              href: app/custom-data-correlation.md
         - name: Sammeln von benutzerdefinierten Daten
           items:
+            - name: Benutzerdefinierte Metriken
+              href: platform/metrics-custom-overview.md
             - name: Log Analytics-Datensammler-API
               href: platform/data-collector-api.md
             - name: Pipeline-Beispiel für die Log Analytics-Datensammler-API
               href: platform/create-pipeline-datacollector-api.md
-            - name: 'Metrikspeicher: REST-API'
+            - name: REST-API für Metriken
               href: platform/metrics-store-custom-rest-api.md
-            - name: GuestOS in Metrikspeicher – Linux-VM (Telegraf)
+            - name: GuestOS in Metrik – Linux-VM (Telegraf)
               href: platform/collect-custom-metrics-linux-telegraf.md
         - name: System Center
           items:
             - name: Konfigurations-Manager
               href: platform/collect-sccm.md
-            - name: Überwachung der Anwendungsleistung mit SCOM
-              href: app/scom.md
-        - name: Weiterleiten von Daten
-          items:
-            - name: Archivieren des Aktivitätsprotokolls
-              href: platform/archive-activity-log.md
-            - name: Archivieren von Diagnoseprotokollen
-              href: platform/archive-diagnostic-logs.md
-            - name: Speichern von Diagnoseprotokollen
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: Streamen von Aktivitätsprotokollen an Event Hubs
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: Protokolle und Metriken an Event Hub
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: Diagnoseprotokolle an Event Hub
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: Anwendungsdaten an Log Analytics
-              href: platform/app-insights-connector.md
-            - name: Exportieren von Anwendungsdaten
-              items:
-                - name: Fortlaufendem Export
-                  href: app/export-telemetry.md
-                  items:
-                    - name: Codebeispiele
-                      items:
-                        - name: Exportieren nach SQL mit Stream Analytics
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: Exportieren nach Stream Analytics
-                          href: app/export-stream-analytics.md
-                - name: Exportdatenmodell
-                  href: app/export-data-model.md
     - name: Gewinnen von Einblicken
       items:
         - name: Überwachen von Anwendungen
           items:
+            - name: Application Insights-Übersicht
+              items:
+                - name: Übersicht
+                  href: app/app-insights-overview.md
+                - name: Verteilte Ablaufverfolgung
+                  href: app/distributed-tracing.md
+                - name: Protokollbasierte und vorab aggregierte Metriken
+                  href: app/pre-aggregated-metrics-log-metrics.md
             - name: Application Insights-Portal
               items:
                 - name: 'Suchen,'
@@ -712,13 +683,11 @@
               href: platform/powerbi.md
             - name: Exportieren von Anwendungsdaten
               href: app/export-power-bi.md
-        - name: Dashboards
-          href: app/app-insights-dashboards.md
         - name: Senden von Daten an Grafana
           href: platform/grafana-plugin.md
     - name: Daten analysieren
       items:
-        - name: Metriken
+        - name: metrics
           items:
             - name: Erste Schritte mit Metrik-Explorer
               href: platform/metrics-getting-started.md
@@ -866,6 +835,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Implementieren einer Logik-App-Aktion
                   href: platform/action-groups-logic-app.md
+                - name: Integrieren des allgemeinen Warnungsschemas mit Logic Apps
+                  href: platform/alerts-common-schema-integrations.md
             - name: Lösung Warnungsverwaltung
               href: platform/alert-management-solution.md
             - name: Benutzeroberfläche für Warnungen
@@ -982,6 +953,8 @@
               href: app/api-filtering-sampling.md
             - name: Stichproben
               href: app/sampling.md
+            - name: TelemetryChannels
+              href: app/telemetry-channels.md
         - name: Überwachungslösungen
           items:
             - name: Entwerfen und Erstellen
@@ -1010,6 +983,8 @@
           href: app/nuget.md
         - name: Plattformunterstützung
           href: app/platforms.md
+        - name: Endpunktaußerkraftsetzungen
+          href: app/custom-endpoints.md
     - name: Application Insights-Datenmodell
       items:
         - name: Übersicht
@@ -1060,8 +1035,6 @@
       items:
         - name: 'Diagnoseprotokolle – Dienste, Kategorien und Schemas'
           href: platform/diagnostic-logs-schema.md
-        - name: Schema für Aktivitätsprotokollereignisse
-          href: platform/activity-log-schema.md
         - name: Erweiterungsschema der Azure-Diagnose
           href: platform/diagnostics-extension-schema.md
           items:
@@ -1099,8 +1072,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: Anmerkungen zu dieser SDK-Version
           href: app/release-notes.md
-        - name: Anmerkungen zu dieser Version der Developer Analytics Tools
-          href: app/release-notes-vsix.md
     - name: Windows Analytics
       href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: Regionale Verfügbarkeit

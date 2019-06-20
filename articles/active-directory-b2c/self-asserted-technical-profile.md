@@ -2,20 +2,20 @@
 title: Definieren eines selbstbestätigten technischen Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Definieren Sie ein selbstbestätigtes technisches Profil in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41305cc5825344a61ff15ddb5deb629cd0f1c679
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c728660f1a77c02f1e4b5fdeb467a7dbba4e36a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66512659"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines selbstbestätigten technischen Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -129,14 +129,14 @@ Mit Ihrer Geschäftslogik können Sie durch eine weitere Integration in die Bran
 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | Nein  | Zeigt die Schaltfläche „Weiter“ an. Mögliche Werte: `true` (Standard) oder `false` |
-| setting.showCancelButton | Nein  | Zeigt die Schaltfläche „Abbrechen“ an. Mögliche Werte: `true` (Standard) oder `false` |
-| setting.operatingMode | Nein  | Bei einer Anmeldeseite steuert diese Eigenschaft das Verhalten des Benutzernamensfelds also z.B. die Eingabeüberprüfung und Fehlermeldungen. Erwartete Werte: `Username` oder `Email`. |
+| setting.showContinueButton | Nein | Zeigt die Schaltfläche „Weiter“ an. Mögliche Werte: `true` (Standard) oder `false` |
+| setting.showCancelButton | Nein | Zeigt die Schaltfläche „Abbrechen“ an. Mögliche Werte: `true` (Standard) oder `false` |
+| setting.operatingMode | Nein | Bei einer Anmeldeseite steuert diese Eigenschaft das Verhalten des Benutzernamensfelds also z.B. die Eingabeüberprüfung und Fehlermeldungen. Erwartete Werte: `Username` oder `Email`. |
 | ContentDefinitionReferenceId | Ja | Der Bezeichner der [Inhaltsdefinition](contentdefinitions.md), die diesem technischen Profil zugeordnet ist. |
-| EnforceEmailVerification | Nein  | Für die Registrierungs- oder Profilbearbeitung, erzwingt eine E-Mail-Überprüfung. Mögliche Werte: `true` (Standard) oder `false`. | 
-| setting.showSignupLink | Nein  | Zeigt die Schaltfläche „Registrieren“ an. Mögliche Werte: `true` (Standard) oder `false` |
-| setting.retryLimit | Nein  | Legt fest, wie oft ein Benutzer die Daten eingeben kann, die anhand des technischen Validierungsprofils überprüft werden. Beispiel: Ein Benutzer versucht, ein Konto zu registrieren, das bereits vorhanden ist, und wiederholt den Vorgang, bis der Grenzwert erreicht ist.
-| SignUpTarget | Nein  | Der Austauschbezeichner für das Registrierungsziel. Wenn der Benutzer auf die Schaltfläche „Registrieren“ klickt, führt Azure AD B2C den angegebenen Austauschbezeichner aus. |
+| EnforceEmailVerification | Nein | Für die Registrierungs- oder Profilbearbeitung, erzwingt eine E-Mail-Überprüfung. Mögliche Werte: `true` (Standard) oder `false`. | 
+| setting.showSignupLink | Nein | Zeigt die Schaltfläche „Registrieren“ an. Mögliche Werte: `true` (Standard) oder `false` |
+| setting.retryLimit | Nein | Legt fest, wie oft ein Benutzer die Daten eingeben kann, die anhand des technischen Validierungsprofils überprüft werden. Beispiel: Ein Benutzer versucht, ein Konto zu registrieren, das bereits vorhanden ist, und wiederholt den Vorgang, bis der Grenzwert erreicht ist.
+| SignUpTarget | Nein | Der Austauschbezeichner für das Registrierungsziel. Wenn der Benutzer auf die Schaltfläche „Registrieren“ klickt, führt Azure AD B2C den angegebenen Austauschbezeichner aus. |
 
 ## <a name="cryptographic-keys"></a>Kryptografische Schlüssel
 

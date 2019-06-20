@@ -9,18 +9,22 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002271"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417945"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Beispiel: Sprachenerkennung mithilfe der Textanalyse
 
-Die [Sprachenerkennungs-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) wertet Texteingaben aus und gibt für jedes Dokument Sprachen-IDs mit einer Punktzahl zurück, die die Stärke der Analyse angibt. Die Textanalyse erkennt bis zu 120 Sprachen.
+Das Feature für die [Sprachenerkennung](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) der API wertet Texteingaben aus und gibt für jedes Dokument Sprachen-IDs mit einer Punktzahl zurück, die die Stärke der Analyse angibt.
 
 Diese Funktion ist hilfreich für Inhaltsspeicher, die willkürliche Texte mit unbekannter Sprache sammeln. Sie können die Analyseergebnisse analysieren, um die Sprache des Eingabedokuments zu bestimmen. Die Antwort gibt außerdem eine Punktzahl zwischen 0 und 1 zurück, um die Zuverlässigkeit des Modells anzugeben.
+
+Für dieses Feature wird keine genaue Liste mit Sprachen veröffentlicht. Es kann jedoch eine Vielzahl von Sprachen, Varianten und Dialekten sowie einige Regional- und Kultursprachen erkennen. 
+
+Bei Inhalten in einer seltener verwendeten Sprache können Sie die Sprachenerkennung ausprobieren, um zu sehen, ob sie einen Code zurückgibt. Die Antwort bei Sprachen, die nicht erkannt werden können, lautet `unknown`.
 
 > [!TIP]
 > Die Textanalyse bietet darüber hinaus ein Linux-basiertes Docker-Containerimage für die Spracherkennung, damit Sie [den Textanalysecontainer nah bei Ihren Daten installieren und ausführen können](text-analytics-how-to-install-containers.md).
@@ -206,7 +210,7 @@ Die resultierende Ausgabe enthält die vorherrschende Sprache mit einer Punktzah
 
 In diesem Artikel haben Sie sich mit Konzepten und mit dem Workflow für die Sprachenerkennung unter Verwendung der Textanalyse in Cognitive Services vertraut gemacht. Im Anschluss finden Sie eine kurze Zusammenfassung der wichtigsten Punkte:
 
-+ Die [Sprachenerkennungs-API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) steht für 120 Sprachen zur Verfügung.
++ Die [Sprachenerkennung](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) ist für eine Vielzahl von Sprachen, Varianten und Dialekten sowie einige Regional- und Kultursprachen verfügbar.
 + JSON-Dokumente im Anforderungstext umfassen eine ID und Text.
 + Die POST-Anforderung wird an einen Endpunkt vom Typ `/languages` gesendet. Dabei werden ein personalisierter [Zugriffsschlüssel und ein Endpunkt](text-analytics-how-to-access-key.md) verwendet, der für Ihr Abonnement gültig ist.
 + Bei der Antwortausgabe handelt es sich um Sprachen-IDs für die jeweilige Dokument-ID. Sie kann an eine beliebige JSON-fähige App gestreamt werden (beispielsweise an Excel oder Power BI).

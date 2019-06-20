@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 7c896356b67de185c55396e98aa6bb2e61dd004d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576495"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472904"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Verwalten des Gastzugriffs mit Azure AD-Zugriffsüberprüfungen
 
@@ -31,20 +31,17 @@ Mit Azure Active Directory (Azure AD) können Sie problemlos die Zusammenarbeit 
 Sie können auch auf einfache Weise sicherstellen, dass Gastbenutzer über entsprechenden Zugriff verfügen. Hierzu können Sie die Gäste selbst oder einen Entscheidungsträger bitten, an einer Zugriffsüberprüfung teilzunehmen und den Zugriff des Gasts erneut zu zertifizieren (oder zu „bescheinigen“). Basierend auf Vorschlägen von Azure AD können die Prüfer die Notwendigkeit des weiteren Zugriffs der einzelnen Benutzer abwägen. Nach Abschluss einer Zugriffsüberprüfung können Sie dann Änderungen vornehmen und Zugriffsrechte für Gäste entfernen, die diese nicht mehr benötigen.
 
 > [!NOTE]
-> Dieses Dokument beschäftigt sich mit der Überprüfung des Zugriffs von Gastbenutzern. Wenn Sie den Zugriff aller Benutzer überprüfen möchten (und nicht nur den von Gästen), lesen Sie [Verwalten des Benutzerzugriffs mit Azure AD-Zugriffsüberprüfungen](manage-user-access-with-access-reviews.md). Wenn Sie die Benutzermitgliedschaft in Administratorrollen wie „Globaler Administrator“ überprüfen möchten, finden Sie entsprechende Informationen unter [Starten einer Zugriffsüberprüfung in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md). 
->
->
+> Dieses Dokument beschäftigt sich mit der Überprüfung des Zugriffs von Gastbenutzern. Wenn Sie den Zugriff aller Benutzer überprüfen möchten (und nicht nur den von Gästen), lesen Sie [Verwalten des Benutzerzugriffs mit Azure AD-Zugriffsüberprüfungen](manage-user-access-with-access-reviews.md). Wenn Sie die Benutzermitgliedschaft in Administratorrollen wie „Globaler Administrator“ überprüfen möchten, finden Sie entsprechende Informationen unter [Starten einer Zugriffsüberprüfung in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Voraussetzungen 
+## <a name="prerequisites"></a>Voraussetzungen
 
+- Azure AD Premium P2
 
-Zugriffsüberprüfungen sind mit der Premium P2-Edition von Azure AD (in Microsoft Enterprise Mobility + Security E5 enthalten) verfügbar. Weitere Informationen finden Sie unter [Azure Active Directory-Editionen](../fundamentals/active-directory-whatis.md). Jeder Benutzer, der mit diesem Feature interagiert (einschließlich Erstellen oder Ausfüllen einer Überprüfung bzw. Bestätigen des Zugriffs), benötigt eine Lizenz. 
-
-Sie können Gastbenutzer auch bitten, ihren eigenen Zugriff zu überprüfen. Für jede kostenpflichtige Azure AD Premium P2-Lizenz, die Sie einem Benutzer Ihrer eigenen Organisation zuweisen, können Sie mit B2B unter dem Kontingent für externe Benutzer bis zu fünf Gastbenutzer einladen. Diese Gastbenutzer können auch Azure AD Premium P2-Features nutzen. Weitere Informationen finden Sie unter [Lizenzierung für die Azure AD B2B-Zusammenarbeit](../b2b/licensing-guidance.md).
+Weitere Informationen finden Sie unter [Welche Benutzer benötigen Lizenzen?](access-reviews-overview.md#which-users-must-have-licenses)
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Erstellen und Durchführen einer Zugriffsüberprüfung für Gäste
 
-Navigieren Sie zuerst als globaler Administrator oder Benutzeradministrator zur [Seite „Zugriffsüberprüfungen“](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), um sicherzustellen, dass Ihre Organisation Zugriffsüberprüfungen verwenden kann.
+Navigieren Sie zuerst als globaler Administrator oder Benutzeradministrator zur [Seite „Identity Governance“](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), um sicherzustellen, dass Ihre Organisation Zugriffsüberprüfungen verwenden kann.
 
 Azure AD ermöglicht mehrere Szenarien für die Überprüfung von Gastbenutzern.
 

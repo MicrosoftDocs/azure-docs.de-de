@@ -10,11 +10,11 @@ ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61081577"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Untergeordnete Runbooks in Azure Automation
 

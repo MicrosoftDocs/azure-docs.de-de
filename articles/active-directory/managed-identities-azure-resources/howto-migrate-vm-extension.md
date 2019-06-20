@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
 ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65406790"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Umsteigen von der VM-Erweiterung für verwaltete Identitäten auf Azure Instance Metadata Service

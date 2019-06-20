@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
 ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60641125"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Anwendungskonsistente Sicherung von virtuellen Linux-Computern in Azure
 

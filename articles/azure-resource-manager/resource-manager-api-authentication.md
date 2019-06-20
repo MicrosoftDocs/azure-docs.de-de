@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
 ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791909"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61063244"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Verwenden der Resource Manager-Authentifizierungs-API für den Zugriff auf Abonnements
 

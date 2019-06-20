@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60240431"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Arbeiten mit Datendateien in Azure Notebooks-Projekten
 
@@ -62,11 +62,11 @@ Sie können Dateien auf dem Projektdashboard oder innerhalb eines ausgeführten 
 
 1. Wählen Sie im Popup **Uploadstatus**, das angezeigt wird, einen **Zielordner** in der Dropdownliste aus:
 
-    - Sitzungsordner (*~/*): Lädt Dateien in die aktuelle Notebooksitzung hoch, erstellt aber keine Dateien im Projekt. Der Sitzungsordner befindet sich auf gleicher Ebene wie der Projektordner, bleibt aber nach dem Ende der Sitzung nicht erhalten. Um auf Sitzungsdateien in Code zuzugreifen, stellen Sie den Dateinamen den relativen Pfad *../* voran.
+    - Sitzungsordner ( *~/* ): Lädt Dateien in die aktuelle Notebooksitzung hoch, erstellt aber keine Dateien im Projekt. Der Sitzungsordner befindet sich auf gleicher Ebene wie der Projektordner, bleibt aber nach dem Ende der Sitzung nicht erhalten. Um auf Sitzungsdateien in Code zuzugreifen, stellen Sie den Dateinamen den relativen Pfad *../* voran.
 
         Das Verwenden des Sitzungsordners ist für Experimente nützlich und hilft, das Anfüllen des Projekts mit Dateien, die Sie langfristig möglicherweise nicht benötigen, zu vermeiden. Ferner können Sie in den Sitzungsordner Dateien hochladen, die identische Namen wie Dateien im Projektordner aufweisen, ohne dadurch Konflikte auszulösen und ohne die Dateien umzubenennen. Nehmen wir beispielsweise an, Sie besitzen bereits eine Version von *data.csv* im Projekt, möchten aber experimentell eine andere Version von *data.csv* verwenden. Durch Hochladen der Datei in den Sitzungsordner können Sie das Notebook mit den Daten in der hochgeladenen Datei (indem Sie mithilfe von *../data.csv* auf sie verweisen) anstelle der Daten in der Datei des Projekts ausführen.
 
-    - Projektordner (*/project*): Lädt Dateien in das Projekt hoch, wo über relative Pfade im Code auf sie zugegriffen werden kann. Das Hochladen einer Datei in diesen Ordner bewirkt das Gleiche wie das Hochladen einer Datei auf dem Projektdashboard. Die Datei wird mit dem Projekt gespeichert und steht in späteren Sitzungen zur Verfügung.
+    - Projektordner ( */project*): Lädt Dateien in das Projekt hoch, wo über relative Pfade im Code auf sie zugegriffen werden kann. Das Hochladen einer Datei in diesen Ordner bewirkt das Gleiche wie das Hochladen einer Datei auf dem Projektdashboard. Die Datei wird mit dem Projekt gespeichert und steht in späteren Sitzungen zur Verfügung.
 
         Beim Hochladen tritt ein Fehler auf, wenn Sie versuchen, eine Datei mit gleichem Namen wie eine bereits im Projekt vorhandene Datei hochzuladen. Um eine Datei zu überschreiben, laden Sie die neue Datei stattdessen auf dem Projektdashboard hoch, wo Ihnen die Option zum Überschreiben zur Verfügung steht.
 

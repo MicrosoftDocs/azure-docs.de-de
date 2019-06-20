@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: f4a69fd57bf2e9535fdb1664365b074927e27585
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64707258"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuelle Computer in einer Azure Resource Manager-Vorlage
 
@@ -28,7 +28,7 @@ In diesem Artikel werden die Aspekte einer Azure Resource Manager-Vorlage beschr
 
 Es sind viele [Vorlagen im Katalog](https://azure.microsoft.com/documentation/templates/?term=VM) enthalten, die eine VM-Ressource aufweisen. Hier werden nicht alle Elemente beschrieben, die in eine Vorlage eingebunden werden können.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 Dieses Beispiel zeigt einen typischen Ressourcenabschnitt einer Vorlage zum Erstellen einer angegebenen Anzahl von VMs:
 

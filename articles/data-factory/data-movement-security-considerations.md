@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153306"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Sicherheitsüberlegungen für Datenverschiebung in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -135,7 +135,7 @@ Azure Virtual Network ist eine logische Darstellung Ihres Netzwerks in der Cloud
 
 In der folgenden Tabelle sind die Empfehlungen für die Konfiguration von Netzwerk und selbstgehosteter Integrationslaufzeit zusammengefasst, die sich aus verschiedenen Kombinationen von Quell- und Zielstandort für hybride Datenverschiebung ergeben.
 
-| Quelle      | Ziel                              | Netzwerkkonfiguration                    | Setup der Integrationslaufzeit                |
+| `Source`      | Ziel                              | Netzwerkkonfiguration                    | Setup der Integrationslaufzeit                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Lokal | Virtuelle Computer und Clouddienste, die in virtuellen Netzwerken bereitgestellt werden | IPSec-VPN (Punkt-zu-Standort oder Standort-zu-Standort) | Die selbstgehostete Integration Runtime sollte auf einer Azure-VM im virtuellen Netzwerk installiert sein.  |
 | Lokal | Virtuelle Computer und Clouddienste, die in virtuellen Netzwerken bereitgestellt werden | ExpressRoute (privates Peering)           | Die selbstgehostete Integration Runtime sollte auf einer Azure-VM im virtuellen Netzwerk installiert sein.  |

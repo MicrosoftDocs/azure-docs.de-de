@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3730e4a0bfa05e6606e50b9bbd9d9152e2488954
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 0fba7c2f5a46e0c5d0e3c5fdd65a03bb77f148d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074998"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Problembehandlung von Bereitstellungen von Azure Machine Learning Service mit AKS und ACI
 
@@ -63,7 +63,7 @@ Die Aufschlüsselung der Bereitstellung in Aufgaben ist hilfreich, wenn Sie die 
     ```python
     # configure the image
     image_config = ContainerImage.image_configuration(runtime="python",
-                                                      execution_script="score.py",
+                                                      entry_script="score.py",
                                                       conda_file="myenv.yml")
 
     # create the image
@@ -165,12 +165,12 @@ Wenn bei der Bereitstellung eines Modells für ACI oder AKS Probleme auftreten, 
 Ändern Sie zum lokalen Bereitstellen Ihren Code so, dass `LocalWebservice.deploy_configuration()` zum Erstellen einer Bereitstellungskonfiguration verwendet wird. Verwenden Sie dann `Model.deploy()`, um den Dienst bereitzustellen. Im folgenden Beispiel wird ein (in der `model`-Variable enthaltenes) Modell als lokaler Webdienst bereitgestellt:
 
 ```python
-from azureml.core.model import InferenceConfig
+from azureml.core.model import InferenceConfig,Model
 from azureml.core.webservice import LocalWebservice
 
 # Create inference configuration. This creates a docker image that contains the model.
 inference_config = InferenceConfig(runtime= "python", 
-                                   execution_script="score.py",
+                                   entry_script="score.py",
                                    conda_file="myenv.yml")
 
 # Create a local deployment, using port 8890 for the web service endpoint
@@ -256,7 +256,7 @@ Das Festlegen der Protokollierungsstufe auf DEBUG kann dazu führen, dass zusät
 
 ## <a name="function-fails-runinputdata"></a>Fehler bei der Funktion: run(input_data)
 
-Wenn der Dienst erfolgreich bereitgestellt wurde, aber beim Veröffentlichen von Daten am Bewertungsendpunkt abstürzt, können Sie Ihrer `run(input_data)`-Funktion eine Anweisung zum Abfangen von Fehlern hinzufügen, damit sie stattdessen eine detaillierte Fehlermeldung zurückgibt. Beispiel: 
+Wenn der Dienst erfolgreich bereitgestellt wurde, aber beim Veröffentlichen von Daten am Bewertungsendpunkt abstürzt, können Sie Ihrer `run(input_data)`-Funktion eine Anweisung zum Abfangen von Fehlern hinzufügen, damit sie stattdessen eine detaillierte Fehlermeldung zurückgibt. Beispiel:
 
 ```python
 def run(input_data):

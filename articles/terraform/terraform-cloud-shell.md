@@ -10,11 +10,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
 ms.openlocfilehash: ab2fd0c7fa546201d6eb19f727053a9ac54fa854
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169927"
 ---
 # <a name="terraform-cloud-shell-development"></a>Entwicklung mit Terraform und Cloud Shell 
 

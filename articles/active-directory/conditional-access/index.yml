@@ -4,7 +4,7 @@ title: Dokumentation zum bedingten Zugriff mit Azure AD
 metadata:
   document_id: null
   title: 'Dokumentation zum bedingten Zugriff mit Azure Active Directory: Tutorials, Schnellstartanleitungen, Konzepte, Referenzen | Microsoft-Dokumentation'
-  description: 'Hier erfahren Sie, wie Sie den bedingten Zugriff für Azure Active Directory konfigurieren und testen.'
+  description: 'Hier erfahren Sie, wie Sie den bedingten Azure Active Directory-Zugriff konfigurieren und testen.'
   services: active-directory
   ms.subservice: conditional-access
   author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 'Lesen Sie, wie Sie das Gleichgewicht zwischen Sicherheit und Produktivität bewahren, indem Sie den bedingten Zugriff mit Azure AD konfigurieren. Mit Richtlinien für bedingten Zugriff können Sie bei der Wahl des Zugriffs berücksichtigen, auf welche Weise auf Ihre Cloud-Apps zugegriffen wird. Mit Zugriffsentscheidungen können Sie unter anderem folgende Aspekte steuern:<ul><li>Wie lautet die Netzwerkadresse des Benutzers?</li><li>Wurde der Zugriffsversuch von einem verwalteten Gerät initiiert?</li><li>Über welche Client-App wurde ein Verbindungsversuch initiiert?</li><li>Wurde der Zugriff über eine riskante Anmeldung versucht?</li></ul>Die folgenden Ressourcen helfen Ihnen beim schnellen Einstieg.'
+  description: 'Lesen Sie, wie Sie das Gleichgewicht zwischen Sicherheit und Produktivität bewahren, indem Sie den bedingten Azure AD-Zugriff konfigurieren. Mit Richtlinien für bedingten Zugriff können Sie bei der Wahl des Zugriffs berücksichtigen, auf welche Weise auf Ihre Cloud-Apps zugegriffen wird. Mit Zugriffsentscheidungen können Sie unter anderem folgende Aspekte steuern:<ul><li>Wie lautet die Netzwerkadresse des Benutzers?</li><li>Wurde der Zugriffsversuch von einem verwalteten Gerät initiiert?</li><li>Über welche Client-App wurde ein Verbindungsversuch initiiert?</li><li>Wurde der Zugriff über eine riskante Anmeldung versucht?</li></ul>Die folgenden Ressourcen helfen Ihnen beim schnellen Einstieg.'
   aside:
     image:
       alt: null

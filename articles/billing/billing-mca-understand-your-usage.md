@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57836945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60371307"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Begriffe in der CSV-Datei für die Azure-Nutzung und -Gebühren bei abgeschlossener Microsoft-Kundenvereinbarung
 
@@ -38,7 +38,7 @@ Wenn Sie Enterprise Agreement-Kunde sind, werden Sie feststellen, dass sich die 
 
 | CSV-Datei für die Azure-Nutzung mit Enterprise Agreement | CSV-Datei für die Azure-Nutzung und -Gebühren mit Microsoft-Kundenvereinbarung |
 | --- | --- |
-| Datum | date |
+| Date | date |
 | Month (Monat)| date |
 | Day (Tag) | date |
 | Jahr | date |
@@ -57,7 +57,7 @@ Wenn Sie Enterprise Agreement-Kunde sind, werden Sie feststellen, dass sich die 
 | ServiceInfo1 | serviceInfo1 |
 | ServiceInfo2 | serviceInfo2 |
 | AdditionalInfo | additionalInfo |
-| Tags | tags |
+| `Tags` | tags |
 | StoreServiceIdentifier | – |
 | Abteilungsname | invoiceSection | <!-- this was highlighted -->
 | CostCenter | costCenter |
@@ -107,7 +107,7 @@ publisherType | Die Art des Herausgebers (Werte: firstParty, thirdPartyReseller,
 publisherName | Der Herausgeber für Marketplace-Dienste
 resourceGroupId | Der eindeutiger Bezeichner für die der Ressourcengruppe zugeordnete Ressource
 resourceGroupName | Der Name der Ressourcengruppe, die der Ressource zugeordnet ist
-Ressourcen-ID | Der eindeutige Bezeichner für die Ressourceninstanz
+resourceId | Der eindeutige Bezeichner für die Ressourceninstanz
 resourceType | Der Ressourceninstanztyp
 resourceLocation | Gibt den Standort des Rechenzentrums an, in dem die Ressource ausgeführt wird
 location | Normalisierter Standort der Ressource, wenn mehrere Ressourcenstandorte für dieselben Regionen konfiguriert wurden

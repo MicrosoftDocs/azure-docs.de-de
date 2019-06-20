@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: d151dbf20e68a2152e9d886a74e51786bb8fbfa6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60614478"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Verwalten von verschlüsselten Geheimnissen in Service Fabric-Anwendungen
 In diesem Leitfaden werden die Schritte zum Verwalten von Geheimnissen in einer Service Fabric-Anwendung beschrieben. Geheimnisse beinhalten jegliche Art von vertraulichen Informationen (z.B. Speicherverbindungszeichenfolgen, Kennwörter oder andere Werte, die nicht als Nur-Text verarbeitet werden sollen).

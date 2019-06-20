@@ -13,12 +13,12 @@ caps.latest.revision: 14
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: f7b0ba3b4797149798037dee0188850eff6baf1d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60613862"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services-Definition LoadBalancerProbe-Schema
 Der Lastenausgleichstest ist ein vom Kunden definierter Integritätstest von UDP-Endpunkten und Endpunkten in Rolleninstanzen. `LoadBalancerProbe` ist kein eigenständiges Element; es wird mit der Webrolle oder der Workerrolle in einer Dienstdefinitionsdatei kombiniert. Ein `LoadBalancerProbe` kann von mehreren Rollen verwendet werden.
@@ -59,7 +59,7 @@ Das Element `LoadBalancerProbe` definiert den Integritätstest für ein Modell. 
 
 In der folgenden Tabelle sind die Attribute des `LoadBalancerProbe`-Elements beschrieben:
 
-|Attribut|Typ|BESCHREIBUNG|
+|Attribut|Type|BESCHREIBUNG|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Erforderlich. Der Name des Lastenausgleichstests. Der Name muss eindeutig sein.|
 | `protocol`          | `string` | Erforderlich. Gibt das Protokoll des Endpunkts an. Mögliche Werte sind `http` und `tcp`. Wenn `tcp` angegeben wird, ist der Empfang einer Bestätigung erforderlich, damit der Test erfolgreich ist. Wenn `http` angegeben wird, ist eine 200 OK-Antwort vom angegebenen URI erforderlich, damit der Test erfolgreich ist.|

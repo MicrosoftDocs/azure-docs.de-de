@@ -1,24 +1,24 @@
 ---
-title: 'Schnellstart: Erfassen von Daten mit der Azure Data Explorer-Bibliothek für Python'
-description: In diesem Schnellstart erfahren Sie, wie Sie mit Python Daten im Azure-Daten-Explorer erfassen (laden).
+title: Erfassen von Daten mit der Azure Data Explorer-Bibliothek für Python
+description: In diesem Artikel erfahren Sie, wie Sie Daten mit Python in Azure Data Explorer erfassen (laden).
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: da23ec91891776e9a459b04c5718147427843991
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046460"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496919"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Schnellstart: Erfassen von Daten mit der Azure Data Explorer-Bibliothek für Python
+# <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Erfassen von Daten mit der Azure Data Explorer-Bibliothek für Python
 
-Azure-Daten-Explorer ist ein schneller und hochgradig skalierbarer Dienst zur Untersuchung von Daten (Protokoll- und Telemetriedaten). Der Azure-Daten-Explorer bietet zwei Clientbibliotheken für Python: eine [Erfassungsbibliothek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) und eine [Datenbibliothek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Mit diesen Bibliotheken können Sie über Ihren Code Daten in einem Cluster erfassen (laden) und Daten abfragen. In diesem Schnellstart erstellen Sie zunächst eine Tabelle und eine Datenzuordnung in einem Cluster. Anschließend stellen Sie die Erfassung im Cluster in eine Warteschlange und überprüfen die Ergebnisse.
+Azure-Daten-Explorer ist ein schneller und hochgradig skalierbarer Dienst zur Untersuchung von Daten (Protokoll- und Telemetriedaten). Der Azure-Daten-Explorer bietet zwei Clientbibliotheken für Python: eine [Erfassungsbibliothek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) und eine [Datenbibliothek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Mit diesen Bibliotheken können Sie über Ihren Code Daten in einem Cluster erfassen (laden) und Daten abfragen. In diesem Artikel erstellen Sie zunächst eine Tabelle und eine Datenzuordnung in einem Cluster. Anschließend stellen Sie die Erfassung im Cluster in eine Warteschlange und überprüfen die Ergebnisse.
 
-Dieser Schnellstart ist auch als [Azure-Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb) verfügbar.
+Dieser Artikel ist auch als [Azure-Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb) verfügbar.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -170,7 +170,7 @@ Führen Sie den folgenden Befehl aus, um den Status aller Erfassungsvorgänge in
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn Sie unsere anderen Schnellstarts und Tutorials durchgehen möchten, behalten Sie die erstellten Ressourcen bei. Wenn dies nicht der Fall ist, führen Sie den folgenden Befehl in der Datenbank aus, um die Tabelle „StormEvents“ zu bereinigen.
+Wenn Sie unsere anderen Artikel durcharbeiten möchten, behalten Sie die erstellten Ressourcen bei. Wenn dies nicht der Fall ist, führen Sie den folgenden Befehl in der Datenbank aus, um die Tabelle „StormEvents“ zu bereinigen.
 
 ```Kusto
 .drop table StormEvents
@@ -178,5 +178,4 @@ Wenn Sie unsere anderen Schnellstarts und Tutorials durchgehen möchten, behalte
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Abfragen von Daten mithilfe von Python](python-query-data.md)
+* [Abfragen von Daten mithilfe von Python](python-query-data.md)

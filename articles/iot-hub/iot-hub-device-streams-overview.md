@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
 ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60401056"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub-Gerätestreams (Vorschau)
 

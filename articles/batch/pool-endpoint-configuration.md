@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457614"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071530"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Konfigurieren oder Deaktivieren des Remotezugriffs auf Computeknoten in einem Azure Batch-Pool
 
@@ -27,7 +27,7 @@ Die Endpunktkonfiguration besteht aus einem oder mehreren [Pools für die Netzwe
 Jede NAT-Pool-Konfiguration enthält eine oder mehrere [Regeln für die Netzwerksicherheitsgruppe (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Jede NSG-Regel erlaubt oder verweigert bestimmten Netzwerkdatenverkehr zum Endpunkt. Sie können den kompletten Datenverkehr, durch ein [Diensttag](../virtual-network/security-overview.md#service-tags) (wie „Internet“) identifizierten Datenverkehr oder Datenverkehr von bestimmten IP-Adressen oder Subnetzen zulassen oder verweigern.
 
 ### <a name="considerations"></a>Überlegungen
-* Die Konfiguration des Poolendpunkts ist Teil der [Netzwerkkonfiguration](/rest/api/batchservice/pool/add#NetworkConfiguration) des Pools. Die Netzwerkkonfiguration kann optional Einstellungen zum Verknüpfen des Pools mit einem [virtuellen Azure-Netzwerk](batch-virtual-network.md) enthalten. Wenn Sie den Pool in einem virtuellen Netzwerk einrichten, können Sie NSG-Regeln erstellen, die Adresseinstellungen im virtuellen Netzwerk verwenden.
+* Die Konfiguration des Poolendpunkts ist Teil der [Netzwerkkonfiguration](/rest/api/batchservice/pool/add#networkconfiguration) des Pools. Die Netzwerkkonfiguration kann optional Einstellungen zum Verknüpfen des Pools mit einem [virtuellen Azure-Netzwerk](batch-virtual-network.md) enthalten. Wenn Sie den Pool in einem virtuellen Netzwerk einrichten, können Sie NSG-Regeln erstellen, die Adresseinstellungen im virtuellen Netzwerk verwenden.
 * Sie können mehrere NSG-Regeln konfigurieren, wenn Sie einen NAT-Pool konfigurieren. Die Regeln werden gemäß ihrer Priorität geprüft. Sobald eine Regel als gültig erkannt wird, werden keine weiteren Regeln mehr geprüft.
 
 

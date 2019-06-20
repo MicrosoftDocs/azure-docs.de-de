@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 71104ecf0514b61e4f0d224d25f2ace9457f3cd3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145535"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497025"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Abrufen von gut formatierten Daten aus der Äußerung
 In diesem Tutorial erstellen Sie eine App zum Extrahieren einheitlich formatierter Daten aus einer Äußerung mithilfe der Entität **Regulärer Ausdruck**.
@@ -125,7 +125,11 @@ In den folgenden Schritten erstellen Sie eine Entität vom Typ „Regulärer Aus
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Geben Sie in der Adressleiste am Ende der URL `When were HRF-123456 and hrf-234567 published in the last year?` ein. Der letzte Parameter der Abfragezeichenfolge lautet `q` (die Äußerung **query** (Abfrage)). Diese Äußerung entspricht keiner der gekennzeichneten Äußerungen. Sie ist daher ein guter Test und sollte die Absicht `FindForm` mit den beiden Formularnummern `HRF-123456` und `hrf-234567` zurückgeben.
+2. Geben Sie in der Adressleiste am Ende der URL die folgende Äußerung ein:
+
+    `When were HRF-123456 and hrf-234567 published in the last year?`
+
+    Der letzte Parameter der Abfragezeichenfolge lautet `q` (für die Abfrage (**query**) der Äußerung). Diese Äußerung entspricht keiner der gekennzeichneten Äußerungen. Sie ist daher ein guter Test und sollte die Absicht `FindForm` mit den beiden Formularnummern `HRF-123456` und `hrf-234567` zurückgeben.
 
     ```json
     {

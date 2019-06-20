@@ -43,7 +43,7 @@
           href: apache-hbase-build-java-maven-linux.md
         - name: Verwenden leerer Edgeknoten
           href: ../hdinsight-apps-use-edge-node.md
-        - name: 'Erstellen von .NET HDInsight-Anwendungen für die nicht interaktive Authentifizierung '
+        - name: Erstellen von .NET HDInsight-Anwendungen für die nicht interaktive Authentifizierung
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
         - name: Apache Phoenix in HDInsight
           href: ../hdinsight-phoenix-in-hdinsight.md
@@ -236,6 +236,10 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Netzwerkzugriff
       items:
+        - name: Architektur des virtuellen HDInsight-Netzwerks
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Verwenden einer Firewall zum Einschränken des ausgehenden Datenverkehrs
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight in Azure VNET
           href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Verbinden von HDInsight mit dem lokalen Netzwerk
@@ -260,7 +264,5 @@
   items:
     - name: Windows-Cluster
       items:
-        - name: Migrieren von Windows-Clustern zu Linux-Clustern
-          href: ../hdinsight-migrate-from-windows-to-linux.md
         - name: Migrieren von .NET-Lösungen zu Linux-Clustern
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

@@ -13,11 +13,11 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60699323"
 ---
 # <a name="local-forwarder-preview"></a>Lokale Weiterleitung (Vorschau)
 
@@ -35,7 +35,7 @@ Am einfachsten können Sie die lokale Weiterleitung unter Windows ausführen, in
 
 > [!NOTE]
 > Für den lokalen Weiterleitungsdienst ist mindestens .NET Framework 4.7 erforderlich. Wenn .NET Framework 4.7 nicht installiert ist, wird der Dienst zwar installiert, aber nicht gestartet. Die neueste Version von .NET Framework finden Sie auf der **[.NET Framework-Downloadseite](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Laden Sie die Datei „LF.WindowsServiceHost.zip“ von der [Seite der lokalen Weiterleitung](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) auf GitHub herunter.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Überwachen Sie den Dienst, indem Sie die **.log*-Dateien im Verzeichnis /home/SAMPLE_USER/LOCALFORWARDER_DIR überprüfen.
+* Überwachen Sie den Dienst, indem Sie die * *.log*-Dateien im Verzeichnis /home/SAMPLE_USER/LOCALFORWARDER_DIR überprüfen.
 
 ### <a name="mac"></a>Mac
 Die lokale Weiterleitung kann möglicherweise mit macOS verwendet werden, aber dies wird derzeit nicht offiziell unterstützt.
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>Überwachen der lokalen Weiterleitung
 
-Ablaufverfolgungsdateien werden in das Dateisystem neben der ausführbaren Datei geschrieben, die die lokale Weiterleitung ausführt (suchen Sie nach **.log*-Dateien). Sie können eine Datei mit dem Namen *NLog.config* neben der ausführbaren Datei platzieren, um Ihre eigene Konfiguration anstelle der Standardkonfiguration bereitzustellen. Die Beschreibung des Formats finden Sie in der [Dokumentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format).
+Ablaufverfolgungsdateien werden in das Dateisystem neben der ausführbaren Datei geschrieben, die die lokale Weiterleitung ausführt (suchen Sie nach * *.log*-Dateien). Sie können eine Datei mit dem Namen *NLog.config* neben der ausführbaren Datei platzieren, um Ihre eigene Konfiguration anstelle der Standardkonfiguration bereitzustellen. Die Beschreibung des Formats finden Sie in der [Dokumentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format).
 
 Wenn keine Konfigurationsdatei bereitgestellt wird (dies ist die Standardeinstellung), verwendet die lokale Weiterleitung die Standardkonfiguration, die Sie [hier](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config) finden.
 

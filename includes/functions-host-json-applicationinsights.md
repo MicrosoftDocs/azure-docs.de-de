@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 7d8773cc12b50382f6f300987ec6ce504cd238af
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131694"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178659"
 ---
 Steuert das [Stichprobenfeature in Application Insights](../articles/azure-functions/functions-monitoring.md#configure-sampling).
 

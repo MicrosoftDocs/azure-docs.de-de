@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696182"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957248"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Sammeln verteilter Ablaufverfolgungsdaten von Python (Vorschau)
 
@@ -78,10 +78,12 @@ Zuerst müssen Sie eine Application Insights-Ressource erstellen, die einen Inst
 
 ## <a name="opencensus-python-package"></a>OpenCensus Python-Paket
 
-1. Installieren Sie das OpenCensus-Paket für Python mit „pip“ oder „pipenv“ über die Befehlszeile:
+1. Installieren Sie das OpenCensus-Paket für Python und den Exporter mit „pip“ oder „pipenv“ über die Befehlszeile:
 
-    ```python
+    ```console
     python -m pip install opencensus
+    python -m pip install opencensus-ext-ocagent
+
     # pip env install opencensus
     ```
 
@@ -92,23 +94,23 @@ Zuerst müssen Sie eine Application Insights-Ressource erstellen, die einen Inst
 
     ```python
     from opencensus.trace.tracer import Tracer
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
         tracer = Tracer()
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
-    
+
     ```
 
-3. Durch Ausführen des Codes werden Sie wiederholt aufgefordert, einen Wert einzugeben. Mit jedem Eintrag wird der Wert in die Shell gedruckt, und vom OpenCensus Python-Modul wird ein entsprechendes **SpanData**-Element generiert. Das OpenCensus-Projekt definiert eine [_Ablaufverfolgung als Struktur von Spannen (Spans)_](https://opencensus.io/core-concepts/tracing/).
+3. Durch Ausführen des Codes werden Sie wiederholt aufgefordert, einen Wert einzugeben. Mit jedem Eintrag wird der Wert in die Shell gedruckt, und vom OpenCensus Python-Modul wird ein entsprechendes **SpanData**-Element generiert. Das OpenCensus-Projekt definiert eine [_Ablaufverfolgung als Struktur von Spannen (Spans)_ ](https://opencensus.io/core-concepts/tracing/).
     
     ```python
     Enter a value: 4
@@ -127,32 +129,33 @@ Zuerst müssen Sie eine Application Insights-Ressource erstellen, die einen Inst
     ```python
     from opencensus.trace.tracer import Tracer
     from opencensus.trace import config_integration
-    from opencensus.trace.exporters.ocagent import trace_exporter
+    from opencensus.ext.ocagent.trace_exporter import TraceExporter
     from opencensus.trace import tracer as tracer_module
-    
+
     import os
-    
-    def main():        
+
+    def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
-        export_LocalForwarder = trace_exporter.TraceExporter(
+        export_LocalForwarder = TraceExporter(
         service_name=os.getenv('SERVICE_NAME', 'python-service'),
         endpoint=os.getenv('OCAGENT_TRACE_EXPORTER_ENDPOINT'))
-        
+
         tracer = Tracer(exporter=export_LocalForwarder)
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
+
     ```
 
 5. Wenn Sie das oben genannte Modul speichern und wieder ausführen, erhalten Sie möglicherweise einen `ModuleNotFoundError` für `grpc`. Führen Sie in diesem Fall den folgenden Befehl zum Installieren des [grpcio-Pakets](https://pypi.org/project/grpcio/) aus:
 
-    ```
+    ```console
     python -m pip install grpcio
     ```
 

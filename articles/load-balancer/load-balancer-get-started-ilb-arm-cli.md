@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122299"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475904"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Erstellen eines internen Load Balancers für den Lastenausgleich virtueller Computer mit der Azure CLI
 
@@ -58,9 +58,9 @@ In diesem Abschnitt wird erläutert, wie Sie die folgenden Komponenten des Load 
   - Integritätstest zum Ermitteln der Integrität der Back-End-VM-Instanzen
   - Lastenausgleichsregel, mit der definiert wird, wie Datenverkehr auf die virtuellen Computer verteilt werden soll
 
-### <a name="create-the-load-balancer"></a>Erstellen des Load Balancers
+### <a name="create-the-load-balancer"></a>Erstellen des Lastenausgleichs
 
-Erstellen Sie mit [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) einen öffentlichen Load Balancer im Tarif „Basic“ mit dem Namen **myLoadBalancer**, der über eine Front-End-IP-Konfiguration mit dem Namen **myFrontEnd** und den Back-End-Pool **myBackEndPool** (mit Zuordnung der privaten IP-Adresse „10.0.0.7“) verfügt.
+Erstellen Sie mit [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) einen internen Load Balancer mit dem Namen **myLoadBalancer**, der über eine Front-End-IP-Konfiguration mit dem Namen **myFrontEnd** und den Back-End-Pool **myBackEndPool** (mit Zuordnung der privaten IP-Adresse **10.0.0.7) verfügt.
 
 ```azurecli-interactive
   az network lb create \

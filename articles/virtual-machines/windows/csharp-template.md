@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 80c2a1f4b9b724058b8b573f265a3cb2a99302a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66305956"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Bereitstellen eines virtuellen Azure-Computers mit C# und einer Resource Manager-Vorlage
 
@@ -166,7 +166,7 @@ In diesem Schritt erstellen Sie eine Vorlagendatei, die Ressourcen und eine Para
 
 ### <a name="create-the-parameters-file"></a>Erstellen der Parameterdatei
 
-Um Werte für die Ressourcenparameter anzugeben, die in der Vorlage definiert wurden, müssen Sie eine Parameterdatei erstellen, die die Werte enthält.
+Um Werte für die Ressourcenparameter in der Vorlage anzugeben, müssen Sie eine Parameterdatei erstellen, die die Werte enthält.
 
 1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf *myDotnetProject* > **Hinzufügen** > **Neues Element**, und wählen Sie dann **Textdatei** in *Visual C#-Elemente* aus. Nennen Sie die Datei *Parameters.json*, und klicken Sie dann auf **Hinzufügen**.
 2. Fügen Sie diesen JSON-Code der Datei hinzu, die Sie erstellt haben:
@@ -208,14 +208,14 @@ Bevor Sie eine Vorlage bereitstellen können, stellen Sie sicher, dass Sie Zugri
 4. Legen Sie eine Umgebungsvariable in Windows mit dem Namen AZURE_AUTH_LOCATION mit vollständigem Pfad zur erstellten Autorisierungsdatei fest. Sie können z.B. den folgende PowerShell-Befehl verwenden:
 
     ```powershell
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
     
 
 ## <a name="create-the-management-client"></a>Erstellen des Verwaltungsclients
 
-1. Öffnen Sie die Datei „Program.cs“ für das von Ihnen erstellte Projekt, und fügen Sie die folgenden using-Anweisungen dann am Anfang der Datei den vorhandenen Anweisungen hinzu:
+1. Öffnen Sie die Datei „Program.cs“ für das von Ihnen erstellte Projekt. Fügen Sie dann am Anfang der Datei den vorhandenen Anweisungen die folgenden using-Anweisungen hinzu:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;

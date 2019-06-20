@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: 6dc9476f603d5664b7ea23489042b69f86647cf5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60752195"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Auswählen von Parametern zur Optimierung von Algorithmen in Azure Machine Learning Studio
 

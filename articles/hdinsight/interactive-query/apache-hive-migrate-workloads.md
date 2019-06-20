@@ -1,19 +1,18 @@
 ---
 title: Migrieren von Azure HDInsight 3.6-Hive-Workloads zu HDInsight 4.0
 description: Erfahren Sie, wie Sie Apache Hive-Workloads in HDInsight 3.6 zu HDInsight 4.0 migrieren.
-services: hdinsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
+author: msft-tacox
+ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
-ms.openlocfilehash: 958a3249fd2e8af9faeb827f07efc21c8184a100
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 04/24/2019
+ms.openlocfilehash: b39279e560cb1738ff9b33ec587562efd2ed4e8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006980"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65800952"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrieren von Azure HDInsight 3.6-Hive-Workloads zu HDInsight 4.0
 
@@ -30,8 +29,8 @@ In diesem Artikel werden die folgenden Themen behandelt:
 
 Ein Vorteil von Hive ist die Möglichkeit, Metadaten in eine externe Datenbank zu exportieren (bezeichnet als Hive-Metastore). Der **Hive-Metastore** ist für das Speichern von Tabellenstatistiken zuständig, einschließlich des Tabellenspeicherorts, der Spaltennamen und der Indexinformationen der Tabelle. Das Datenbankschema des Metastores unterscheidet sich je nach Hive-Version. Gehen Sie wie im Folgenden beschrieben vor, um einen HDInsight 3.6-Hive-Metastore so zu aktualisieren, dass er mit HDInsight 4.0 kompatibel ist.
 
-1. Erstellen Sie eine neue Kopie Ihres externen Metastores. HDInsight 3.6 und HDInsight 4.0 erfordern unterschiedliche Schemas für den Metastore. Die gemeinsame Nutzung eines einzelnen Metastores ist daher nicht möglich.
-1. Fügen Sie die neue Kopie des Metastores an (a) einen vorhandenen HDInsight 4.0-Cluster oder (b) einen neu erstellten Cluster an. Weitere Informationen zum Anfügen eines externen Metastores an einen HDInsight-Cluster finden Sie unter [Verwenden von externen Metadatenspeichern in Azure HDInsight](../hdinsight-use-external-metadata-stores.md). Nachdem Sie den Metastore angefügt haben, wird er automatisch in einen 4.0-kompatiblen Metastore konvertiert.
+1. Erstellen Sie eine neue Kopie Ihres externen Metastores. HDInsight 3.6 und HDInsight 4.0 erfordern unterschiedliche Schemas für den Metastore. Die gemeinsame Nutzung eines einzelnen Metastores ist daher nicht möglich. Weitere Informationen zum Anfügen eines externen Metastores an einen HDInsight-Cluster finden Sie unter [Verwenden von externen Metadatenspeichern in Azure HDInsight](../hdinsight-use-external-metadata-stores.md). 
+2. Starten Sie eine Skriptaktion für Ihren HDI 3.6-Cluster, in der Sie „Head nodes“ als Knotentyp für die Ausführung angeben. Fügen Sie den folgenden URI in das Textfeld „Bash-Skript-URI“ ein: https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. Geben Sie in das Textfeld „Argumente“ den Servernamen, die Datenbank, den Benutzernamen und das Kennwort für den **kopierten** Hive-Metastore durch Leerzeichen getrennt ein. Beziehen Sie bei der Angabe des Servernamens nicht „.database.windows.net“ ein.
 
 > [!Warning]
 > Das Upgrade zum Konvertieren des HDInsight 3.6-Metadatenschemas in das HDInsight 4.0-Schema kann nicht rückgängig gemacht.
@@ -99,6 +98,8 @@ In HDInsight 4.0 wurde HiveCLI durch Beeline ersetzt. HiveCLI ist ein Thrift-Cl
 In HDInsight 3.6 ist die Ambari-Hive-Ansicht der GUI-Client für die Interaktion mit dem Hive-Server. In HDInsight 4.0 wurde die Hive-Ansicht durch Hortonworks Data Analytics Studio (DAS) ersetzt. DAS ist nicht standardmäßig in HDInsight-Clustern enthalten und kein offiziell unterstütztes Paket. DAS kann jedoch wie folgt auf dem Cluster installiert werden:
 
 Starten Sie eine Skriptaktion für Ihren Cluster, in der Sie „Head nodes“ als Knotentyp für die Ausführung angeben. Fügen Sie den folgenden URI in das Textfeld „Bash-Skript-URI“ ein: https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+Data Analytics Studio kann über die URL „https://<clustername>.azurehdinsight.net/das/“ gestartet werden.
 
 
 

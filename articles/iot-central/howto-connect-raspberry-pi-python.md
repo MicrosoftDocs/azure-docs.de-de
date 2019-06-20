@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: eccc4100c89c971e264b9b915cd17b9f5ce4477b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64405875"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Verbinden eines Raspberry Pi-Geräts mit Ihrer Azure IoT Central-Anwendung (Python)
 
@@ -94,7 +94,7 @@ Eine Anwendung, die mit der Anwendungsvorlage **Beispiel-Entwickler-Kits** erste
 
 Numerische Einstellungen
 
-| Anzeigename | Feldname | Units | Dezimalstellen | Minimum | Maximum | Initial |
+| `Display name` | Feldname | Units | Dezimalstellen | Minimum | Maximum | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Spannung      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Aktuell      | setCurrent | Ampere  | 0              | 0       | 100     | 0       |
@@ -102,17 +102,17 @@ Numerische Einstellungen
 
 Einstellungen zum Ein-/Ausschalten
 
-| Anzeigename | Feldname | Text, wenn „eingeschaltet“ | Text, wenn „ausgeschaltet“ | Initial |
+| `Display name` | Feldname | Text, wenn „eingeschaltet“ | Text, wenn „ausgeschaltet“ | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | EIN      | OFF      | Aus     |
 
 ### <a name="properties"></a>Eigenschaften
 
-| Type            | Anzeigename | Feldname | Datentyp |
+| Type            | `Display name` | Feldname | Datentyp |
 | --------------- | ------------ | ---------- | --------- |
 | Geräteeigenschaft | Nummer   | dieNumber  | number    |
-| Text            | Standort     | location   | –       |
+| Text            | Location     | location   | –       |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie erfahren haben, wie ein Raspberry Pi-Gerät mit Ihrer Azure IoT Central-Anwendung verbunden wird, empfiehlt sich als nächster Schritt das [Einrichten einer benutzerdefinierten Gerätevorlage](howto-set-up-template.md) für Ihr eigenes IoT-Gerät.
+Da Sie nun wissen, wie ein Raspberry Pi-Gerät mit Ihrer Azure IoT Central-Anwendung verbunden wird, empfiehlt sich als nächster Schritt das [Einrichten einer benutzerdefinierten Gerätevorlage](howto-set-up-template.md) für Ihr eigenes IoT-Gerät.

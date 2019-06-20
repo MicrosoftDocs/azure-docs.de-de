@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: cbcdfccfdca1dbed3b766b3f50295b1d355b3478
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556432"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61401751"
 ---
 # <a name="azure-signalr-service-internals"></a>Ausführliche Informationen zu Azure SignalR Service
 

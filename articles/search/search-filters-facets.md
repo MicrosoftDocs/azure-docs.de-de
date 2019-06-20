@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339430"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65597394"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Erstellen eines Facettenfilters in Azure Search 
 
@@ -35,52 +35,50 @@ Benötigen Sie ausführlichere Informationen zur Facetnavigation? Sie finden die
 
 ## <a name="choose-fields"></a>Auswählen von Feldern
 
-Facets können über Felder mit einzelnen Werten und auch über Sammlungen berechnet werden. Felder, die für die Facetnavigation am besten funktionieren, weisen eine niedrige Kardinalität auf: eine geringe Anzahl von unterschiedlichen Werten, die sich in den Dokumenten Ihres Suchkorpus wiederholen (z.B. eine Liste mit Farben, Ländern oder Markennamen). 
+Facets können über Felder mit einzelnen Werten und auch über Sammlungen berechnet werden. Felder, die für die Facettennavigation am besten funktionieren, weisen eine niedrige Kardinalität auf: eine geringe Anzahl von unterschiedlichen Werten, die sich in den Dokumenten Ihres Suchkorpus wiederholen (z. B. eine Liste mit Farben, Ländern/Regionen oder Markennamen). 
 
-Das Faceting wird pro Feld aktiviert, wenn Sie den Index erstellen, indem Sie die folgenden Attribute auf TRUE festlegen: `filterable`, `facetable`. Nur filterbare Felder können facettiert werden.
+Das Faceting wird pro Feld aktiviert, wenn Sie den Index erstellen, indem Sie das `facetable`-Attribut auf `true` festlegen. Generell sollten Sie das `filterable`-Attribut auch für solche Felder auf `true` festlegen, damit Ihre Suchanwendung nach diesen Feldern auf Grundlage der Facetten, die der Endbenutzer auswählt, filtern kann. 
 
-Alle [Feldtypen](https://docs.microsoft.com/rest/api/searchservice/supported-data-types), die für die Facetnavigation verwendet werden können, sind als „facetable“ (facettierbar) gekennzeichnet:
+Bei der Erstellung eines Index mithilfe der REST-API, wird jeder [Feldtyp](https://docs.microsoft.com/rest/api/searchservice/supported-data-types), der theoretisch für die Facettennavigation verwendet werden könnte, standardmäßig als `facetable` markiert:
 
-+ Edm.String
-+ Edm.DateTimeOffset
-+ Edm.Boolean
-+ Edm.Collections
-+ Numerische Feldtypen: Edm.Int32, Edm.Int64, Edm.Double
++ `Edm.String`
++ `Edm.DateTimeOffset`
++ `Edm.Boolean`
++ Numerische Feldtypen: `Edm.Int32`, `Edm.Int64`, `Edm.Double`
++ Sammlungen der obigen Typen (z. B. `Collection(Edm.String)` oder `Collection(Edm.Double)`)
 
-Es ist nicht möglich, Edm.GeographyPoint für die Facettennavigation zu verwenden. Facets werden aus für Menschen lesbarem Text oder Zahlen erstellt. Daher werden Facets für Geokoordinaten nicht unterstützt. Sie benötigen ein Feld für einen Ort oder eine Region, um das Facettieren nach dem Standort durchzuführen.
+`Edm.GeographyPoint`- oder `Collection(Edm.GeographyPoint)`-Felder eignen sich nicht für die Facettennavigation. Facetten funktionieren am besten mit Feldern mit einer geringen Kardinalität. Aufgrund der Auflösung von Geokoordinaten kommt es nur selten vor, dass zwei beliebige Gruppen von Koordinaten in einem gegebenen Dataset identisch sind. Daher werden Facets für Geokoordinaten nicht unterstützt. Sie benötigen ein Feld für einen Ort oder eine Region, um das Facettieren nach dem Standort durchzuführen.
 
 ## <a name="set-attributes"></a>Festlegen von Attributen
 
-Indexattribute, mit denen gesteuert wird, wie ein Feld verwendet wird, werden einzelnen Felddefinitionen im Index hinzugefügt. Im folgenden Beispiel bestehen Felder mit geringer Kardinalität, die für das Faceting nützlich sind, aus folgenden Komponenten: Kategorie (hotel, motel, hostel), Annehmlichkeiten und Bewertungen. 
-
-In der .NET-API müssen Filterattribute explizit festgelegt werden. In der REST-API sind das Faceting und die Filterung standardmäßig aktiviert. Dies bedeutet, dass Sie die Attribute nur dann explizit festlegen müssen, wenn Sie sie deaktivieren möchten. Es ist zwar technisch nicht erforderlich, aber die Attributzuordnungen sind im folgenden REST-Beispiel zu Lernzwecken angegeben. 
+Indexattribute, mit denen gesteuert wird, wie ein Feld verwendet wird, werden einzelnen Felddefinitionen im Index hinzugefügt. Im folgenden Beispiel bestehen Felder mit geringer Kardinalität, die für das Faceting nützlich sind, aus den folgenden Komponenten: `category` (hotel, motel, hostel), `tags` und `rating`. Für diese Felder wurden die `filterable`- und `facetable`-Attribute im folgenden Beispiel zu Demonstrationszwecken explizit festgelegt. 
 
 > [!Tip]
-> Die bewährte Methode zur Leistungs- und Speicheroptimierung besteht darin, das Faceting für Felder zu deaktivieren, die niemals als Facet genutzt werden sollten. Insbesondere Zeichenfolgenfelder für Singleton-Werte (wie etwa eine ID oder ein Produktname) sollten auf „Facetable: false“ festgelegt werden, damit sie nicht versehentlich für die Facettennavigation verwendet werden.
+> Die bewährte Methode zur Leistungs- und Speicheroptimierung besteht darin, das Faceting für Felder zu deaktivieren, die niemals als Facet genutzt werden sollten. Insbesondere Zeichenfolgenfelder für eindeutige Werte, z. B. eine ID oder ein Produktname, sollten auf `"facetable": false` festgelegt werden, damit sie nicht versehentlich (und ineffektiv) für die Facettennavigation verwendet werden.
 
 
-```http
+```json
 {
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String", "filterable": true, "facetable": true},
-        {"name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true},
-        {"name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
+  "name": "hotels",  
+  "fields": [
+    { "name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false },
+    { "name": "baseRate", "type": "Edm.Double" },
+    { "name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
+    { "name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene" },
+    { "name": "hotelName", "type": "Edm.String", "facetable": false },
+    { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true },
+    { "name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
+    { "name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false },
+    { "name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false },
+    { "name": "lastRenovationDate", "type": "Edm.DateTimeOffset" },
+    { "name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "location", "type": "Edm.GeographyPoint" }
+  ]
 }
 ```
 
 > [!Note]
-> Diese Indexdefinition wurde aus [Erstellen eines Azure Search-Indexes mit der REST-API](https://docs.microsoft.com/azure/search/search-create-index-rest-api) kopiert. Sie ist bis auf einige vernachlässigbare Unterschiede bei den Felddefinitionen identisch. Filterbare und facettierbare Attribute werden für die Felder „category“, „tags“, „parkingIncluded“, „smokingAllowed“ und „rating“ explizit hinzugefügt. In der Praxis erhalten Sie die Filterbarkeit und Facettierbarkeit standardmäßig für die Typen „Edm.String“, „Edm.Boolean“ und „Edm.Int32“. 
+> Diese Indexdefinition wurde aus [Erstellen eines Azure Search-Indexes mit der REST-API](https://docs.microsoft.com/azure/search/search-create-index-rest-api) kopiert. Sie ist bis auf einige vernachlässigbare Unterschiede bei den Felddefinitionen identisch. Die `filterable`- und `facetable`-Attribute werden `category`-, `tags`-, `parkingIncluded`-, `smokingAllowed`- und `rating`-Feldern explizit hinzugefügt. In der Praxis wären `filterable` und `facetable` standardmäßig für diese Felder aktiviert, wenn die REST-API verwendet wird. Wenn das .NET SDK verwendet wird, müssen diese Attribute explizit aktiviert werden.
 
 ## <a name="build-and-load-an-index"></a>Erstellen und Laden eines Index
 
@@ -91,25 +89,26 @@ Ein (wahrscheinlich naheliegender) Zwischenschritt vor der Erstellung einer Abfr
 Erstellen Sie im Anwendungscode eine Abfrage, mit der alle Teile einer gültigen Abfrage angegeben werden, z.B. Suchausdrücke, Facets, Filter, Bewertungsprofile – alle Elemente, die zum Formulieren einer Anforderung verwendet werden. Im folgenden Beispiel wird eine Anforderung erstellt, bei der die Facettennavigation basierend auf der Art der Unterbringung, der Bewertung und anderen Annehmlichkeiten erstellt wird.
 
 ```csharp
-SearchParameters sp = new SearchParameters()
+var sp = new SearchParameters()
 {
-  ...
-  // Add facets
-  Facets = new List<String>() { "category", "rating", "parkingIncluded", "smokingAllowed" },
+    ...
+    // Add facets
+    Facets = new[] { "category", "rating", "parkingIncluded", "smokingAllowed" }.ToList()
 };
 ```
 
 ### <a name="return-filtered-results-on-click-events"></a>Zurückgeben von gefilterten Ergebnissen bei Klickereignissen
 
-Der Filterausdruck behandelt das Klickereignis auf den Facettenwert. Beim Facet „Category“ wird das Klicken auf die Kategorie „motel“ über den Ausdruck `$filter` implementiert, mit dem Unterbringungsmöglichkeiten dieser Art ausgewählt werden. Wenn ein Benutzer auf „motels“ klickt, um anzugeben, dass nur Motels angezeigt werden sollen, enthält die nächste von der Anwendung gesendete Abfrage „$filter=category eq ‘motels’“.
+Wenn der Endbenutzer auf einen Facettenwert klickt, sollte der Handler für das Klickereignis einen Filterausdruck verwenden, um die Absicht des Benutzer umsetzen zu können. Beim Facet `category` wird das Klicken auf die Kategorie „motel“ beispielweise über einen `$filter`-Ausdruck implementiert, mit dem Unterbringungsmöglichkeiten dieser Art ausgewählt werden. Wenn ein Benutzer auf „motel“ klickt, um anzugeben, dass nur Motels angezeigt werden sollen, enthält die nächste von der Anwendung gesendete Abfrage `$filter=category eq 'motel'`.
 
 Mit dem folgenden Codeausschnitt wird die Kategorie dem Filter hinzugefügt, wenn ein Benutzer einen Wert aus dem Facet „category“ auswählt.
 
 ```csharp
-if (categoryFacet != "")
-  filter = "category eq '" + categoryFacet + "'";
+if (!String.IsNullOrEmpty(categoryFacet))
+    filter = $"category eq '{categoryFacet}'";
 ```
-Bei Verwendung der REST-API würde die Anforderung wie folgt formuliert werden: `$filter=category eq 'c1'`. Verwenden Sie die folgende Syntax, um „category“ zu einem Feld mit mehreren Werten zu machen: `$filter=category/any(c: c eq 'c1')`
+
+Wenn der Benutzer auf ein Facettenwert für ein Sammlungsfeld wie `tags` klickt, z. B. auf den Wert „pool“, sollte Ihre Anwendung die folgende Filtersyntax verwenden: `$filter=tags/any(t: t eq 'pool')`.
 
 ## <a name="tips-and-workarounds"></a>Tipps und Problemumgehungen
 

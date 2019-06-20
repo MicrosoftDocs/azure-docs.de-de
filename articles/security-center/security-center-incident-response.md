@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60908172"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Verwenden von Azure Security Center zur Reaktion auf Vorfälle
 Viele Organisationen lernen erst nach einem Angriff, wie auf Sicherheitsvorfälle reagiert werden sollte. Zur Reduzierung von Kosten und Schäden ist es wichtig, dass ein Plan zur Reaktion auf Vorfälle vorhanden ist, bevor es zu einem Angriff kommt. Sie können Azure Security Center in unterschiedlichen Phasen einer Reaktion auf Vorfälle nutzen.
@@ -84,7 +84,7 @@ Judy hat sich am Azure-Portal angemeldet und verwendet die Security Center-Konso
    > In diesem Szenario führt Judy eine Bewertung der Warnung zu einer Aktivität mit schädlichen SQL-Befehlen durch. Dies ist in der Abbildung oben dargestellt.
    >
    >
-2. Klicken Sie auf die Warnung **Malicious SQL activity** (Aktivität mit schädlichen SQL-Befehlen), und überprüfen Sie die angegriffenen Ressourcen auf dem Blatt **Malicious SQL Activity** (Aktivität mit schädlichen SQL-Befehlen): ![Details zum Vorfall](./media/security-center-incident-response/security-center-incident-response-fig5.png)  
+2. Klicken Sie auf die Warnung **Malicious SQL activity** (Aktivität mit schädlichen SQL-Befehlen), und überprüfen Sie die angegriffenen Ressourcen auf dem Blatt **Malicious SQL activity** (Aktivität mit schädlichen SQL-Befehlen):  ![Details zum Vorfall](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     Auf diesem Blatt kann Judy sich Notizen dazu machen, welche Ressourcen angegriffen wurden, wie oft der Angriff durchgeführt wurde und wann er erkannt wurde.
 3. Klicken Sie auf die **Angegriffene Ressource** , um weitere Informationen zum Angriff zu erhalten.

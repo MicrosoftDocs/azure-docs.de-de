@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595452"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Erste Schritte mit dem Azure-Metrik-Explorer
 
@@ -24,7 +24,7 @@ Der Azure Monitor-Metrik-Explorer ist eine Komponente des Microsoft Azure-Portal
 
 1. Versuchen Sie, [Dimensionsfilter und Aufteilung anzuwenden](#apply-dimension-filters-and-splitting). Mithilfe der Filter und der Aufteilung können Sie analysieren, welche Segmente der Metrik zu dem Gesamtwert der Metrik beitragen und mögliche Ausreißer identifizieren.
 
-1. Verwenden Sie [erweiterte Einstellungen](#advanced-chart-settings-and-next-steps), um das Diagramm anzupassen, bevor Sie es an Dashboards anheften. [Konfigurieren Sie Warnungen](alerts-metric-overview.md), um Benachrichtigungen zu erhalten, wenn der Metrikwert einen Schwellenwert überschreitet oder darunter fällt.
+1. Verwenden Sie [erweiterte Einstellungen](#advanced-chart-settings), um das Diagramm anzupassen, bevor Sie es an Dashboards anheften. [Konfigurieren Sie Warnungen](alerts-metric-overview.md), um Benachrichtigungen zu erhalten, wenn der Metrikwert einen Schwellenwert überschreitet oder darunter fällt.
 
 ## <a name="create-your-first-metric-chart"></a>Erstellen eines ersten Metrikdiagramms
 
@@ -61,12 +61,13 @@ Das Diagramm zeigt standardmäßig die Metrikdaten der letzten 24 Stunden an. V
 
 In den [Beispielen für Metrikdiagramme](metric-chart-samples.md) können Sie sich Beispiele mit angewandter Filterung und Aufteilung ansehen. Im Artikel werden auch die Schritte für die Konfiguration der Beispieldiagramme erläutert.
 
-## <a name="advanced-chart-settings-and-next-steps"></a>Erweiterte Diagrammeinstellungen und die nächsten Schritte
+## <a name="advanced-chart-settings"></a>Erweiterte Diagrammeinstellungen
 
 Sie können die Formatierung des Diagramms, den Titel und erweiterte Diagrammeinstellungen anpassen. Wenn Sie Ihre Anpassungen vorgenommen haben, heften Sie das Diagramm an ein Dashboard an, um Ihr Werk zu speichern. Sie können auch Metrikwarnungen konfigurieren. Lesen Sie die [Produktdokumentation](metrics-charts.md), um mehr über diese und weitere erweiterte Features des Azure Monitor-Metrik-Explorers zu erfahren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Unterstützte Metriken von Azure Monitor](metrics-supported.md)
 * [Erweiterte Funktionen des Metrik-Explorers](metrics-charts.md)
+* [Problembehandlung für den Metrik-Explorer](metrics-troubleshoot.md)
+* [Unterstützte Metriken von Azure Monitor](metrics-supported.md)
 * [Beispiele für Metrikdiagramme](metric-chart-samples.md)

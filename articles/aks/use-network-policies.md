@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
 ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230014"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sicherer Datenverkehr zwischen Pods durch Netzwerkrichtlinien in Azure Kubernetes Service (AKS)
@@ -63,7 +63,7 @@ Netzwerkrichtlinien funktionieren nur mit der Option (erweitert) von Azure CNI. 
 | Unterstützte Netzwerkoptionen             | Azure CNI                  | Azure CNI                   |
 | Compliance mit Kubernetes-Spezifikation | Alle Richtlinientypen werden unterstützt |  Alle Richtlinientypen werden unterstützt |
 | Zusätzliche Funktionen                      | Keine                       | Erweitertes Richtlinienmodell, das aus globaler Netzwerkrichtlinie, globalem Netzwerksatz und Hostendpunkt besteht. Weitere Informationen zur Verwendung der `calicoctl` CLI zum Verwalten dieser erweiterten Funktionen finden Sie in der [calicoctl-Benutzerreferenz][calicoctl]. |
-| Support                                  | Unterstützt durch das Azure-Support- und Engineering-Team | Calico-Communitysupport. Weitere Informationen über zusätzlichen kostenpflichtigen Support finden Sie unter [Project Calico support options][calico-support] (Supportoptionen für Projekt „Calico“). |
+| Support                                  | Unterstützt durch das Azure-Support- und Engineering-Team | Calico-Communitysupport. Weitere Informationen über zusätzlichen kostenpflichtigen Support finden Sie unter [Project Calico support options][calico-support] (Supportoptionen für Project „Calico“). |
 | Protokollierung                                  | In IPTables hinzugefügte/gelöschte Regeln werden auf jedem Host unter */var/log/azure-npm.log* protokolliert. | Weitere Informationen finden Sie unter [Calico-Komponentenprotokolle][calico-logs]. |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Erstellen eines AKS-Clusters und Aktivieren der Netzwerkrichtlinie

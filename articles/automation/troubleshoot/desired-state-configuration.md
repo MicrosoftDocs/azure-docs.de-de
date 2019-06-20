@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66514465"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Behandeln von Problemen mit Konfiguration des gewünschten Zustands (Desired State Configuration, DSC)
 
@@ -145,6 +145,25 @@ Sie haben Anmeldeinformationen in einer Konfiguration verwendet, aber keine ordn
 #### <a name="resolution"></a>Lösung
 
 * Stellen Sie sicher, dass Sie die ordnungsgemäßen **ConfigurationData** übergeben, über die **PSDscAllowPlainTextPassword** für jede Knotenkonfiguration auf „true“ festgelegt wird. Weitere Informationen finden Sie unter [Assets in Azure Automation DSC](../automation-dsc-compile.md#assets).
+
+### <a name="failure-processing-extension"></a>Szenario: Onboarding über DSC-Erweiterung, Fehler beim Verarbeiten der Erweiterung
+
+#### <a name="issue"></a>Problem
+
+Beim Onboarding mithilfe der DSC-Erweiterung tritt der folgende Fehler auf:
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### <a name="cause"></a>Ursache
+
+Dieser Fehler tritt in der Regel auf, wenn dem Knoten ein Knotenkonfigurationsname zugewiesen wurde, der im Dienst nicht vorhanden ist.
+
+#### <a name="resolution"></a>Lösung
+
+* Stellen Sie sicher, dass Sie dem Knoten einen Knotenkonfigurationsnamen zuweisen, der genau mit dem im Dienst vorhandenen Namen übereinstimmt.
+* Sie können festlegen, dass kein Knotenkonfigurationsname angegeben werden soll. In dem Fall erfolgt ein Onboarding des Knotens, aber keine Zuweisung einer Knotenkonfiguration.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

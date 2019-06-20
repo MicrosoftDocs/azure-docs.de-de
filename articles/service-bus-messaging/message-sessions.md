@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500140"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569792"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Nachrichtensitzungen: FIFO (First In, First Out) 
 
@@ -79,8 +79,7 @@ Der Sitzungszustand, der in einer Warteschlange oder in einem Abonnement gespeic
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Ein vollständiges Beispiel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) für das Senden und Empfangen sitzungsbasierter Nachrichten aus Service Bus-Warteschlangen mithilfe der .NET Standard-Bibliothek.
-- [Ein Beispiel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions), das den .NET Framework-Client verwendet, um sitzungsabhängige Nachrichten zu verarbeiten. 
+- Ein Beispiel, das den .NET Framework-Client verwendet, um für Sitzungen aktivierte Nachrichten zu verarbeiten, finden Sie unter [Microsoft.Azure.ServiceBus-Beispiele](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) oder [Microsoft.ServiceBus.Messaging-Beispiele](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions). 
 
 Weitere Informationen zum Service Bus-Messaging finden Sie in folgenden Themen:
 

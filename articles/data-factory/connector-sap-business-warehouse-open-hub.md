@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103909"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256907"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopieren von Daten aus SAP Business Warehouse über Open Hub mithilfe von Azure Data Factory
 
@@ -29,7 +29,7 @@ Sie können Daten aus SAP Business Warehouse über Open Hub in jeden unterstütz
 
 Dieser SAP Business Warehouse Open Hub-Connector unterstützt insbesondere Folgendes:
 
-- SAP Business Warehouse **Version 7.01 oder höher (in einem aktuellen, nach 2015 veröffentlichten SAP-Supportpaket)**.
+- SAP Business Warehouse **Version 7.01 oder höher (in einem aktuellen, nach 2015 veröffentlichten SAP-Supportpaket)** .
 - Kopieren von Daten über lokale Open Hub Destination-Tabelle, wie z.B. DSO, InfoCube, MultiProvider, DataSource usw.
 - Kopieren von Daten mithilfe der Standardauthentifizierung
 - Herstellen einer Verbindung zum Anwendungsserver.
@@ -51,7 +51,7 @@ ADF SAP BW Open Hub Connector verfügt über die beiden optionalen Eigenschaften
 
 Insgesamt umfasst die Extraktion von SAP InfoProviders in Azure Data Factory (ADF) zwei Schritte: 
 
-1. **SAP BW Data Transfer Process (DTP)**: In diesem Schritt werden die Daten aus einer SAP BW InfoProvider-Instanz in eine SAP BW Open Hub-Tabelle kopiert. 
+1. **SAP BW Data Transfer Process (DTP)** : In diesem Schritt werden die Daten aus einer SAP BW InfoProvider-Instanz in eine SAP BW Open Hub-Tabelle kopiert. 
 
 1. **ADF Data Copy**: In diesem Schritt wird die Open Hub-Tabelle vom ADF Connector gelesen. 
 
@@ -134,7 +134,7 @@ Folgende Eigenschaften werden für den mit SAP Business Warehouse Open Hub verkn
 
 ## <a name="dataset-properties"></a>Dataset-Eigenschaften
 
-Eine vollständige Liste mit den Abschnitten und Eigenschaften, die zum Definieren von Datasets zur Verfügung stehen, finden Sie im Artikel zu [Datasets](concepts-datasets-linked-services.md). Dieser Abschnitt enthält eine Liste der Eigenschaften, die vom Salesforce-Dataset unterstützt werden.
+Eine vollständige Liste mit den Abschnitten und Eigenschaften, die zum Definieren von Datasets zur Verfügung stehen, finden Sie im Artikel zu [Datasets](concepts-datasets-linked-services.md). Dieser Abschnitt enthält eine Liste der Eigenschaften, die vom SAP BW Open Hub-Dataset unterstützt werden.
 
 Legen Sie zum Kopieren von Daten aus und nach SAP BW Open Hub die type-Eigenschaft des Datasets auf **SapOpenHubTable** fest. Die folgenden Eigenschaften werden unterstützt.
 
@@ -143,7 +143,7 @@ Legen Sie zum Kopieren von Daten aus und nach SAP BW Open Hub die type-Eigenscha
 | type | Die type-Eigenschaft muss auf **SapOpenHubTable** festgelegt werden.  | Ja |
 | openHubDestinationName | Der Name des Open Hub-Ziels, aus dem Daten kopiert werden. | Ja |
 | excludeLastRequest | Damit entscheiden Sie, ob die Datensätze der letzten Anforderung ausgeschlossen werden. | Nein (Standardwert ist **true**). |
-| baseRequestId | Die ID der Anforderung für das Deltaladen. Sobald sie festgelegt ist, werden nur noch Daten mit requestId **größer als** der Wert dieser Eigenschaft abgerufen.  | Nein  |
+| baseRequestId | Die ID der Anforderung für das Deltaladen. Sobald sie festgelegt ist, werden nur noch Daten mit requestId **größer als** der Wert dieser Eigenschaft abgerufen.  | Nein |
 
 >[!TIP]
 >Wenn Ihre Open Hub-Tabelle z.B. nur die Daten enthält, die durch eine einzige Anforderungs-ID generiert wurden, Sie immer eine vollständige Ladung durchführen und die vorhandenen Daten in der Tabelle überschreiben, oder Sie den DTP nur einmal zum Testen ausführen, denken Sie daran, die Option „excludeLastRequest“ zu deaktivieren, um die Daten zu kopieren.
@@ -172,7 +172,7 @@ Eine vollständige Liste mit den Abschnitten und Eigenschaften zum Definieren vo
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub als Quelle
 
-Legen Sie zum Kopieren von Daten aus SAP BW Open Hub den Quelltyp in der Kopieraktivität auf **SapOpenHubSource** fest. Es gibt keine zusätzlichen type-spezifischen Eigenschaften, die im Abschnitt **Quelle** der Kopieraktivität erforderlich sind.
+Legen Sie zum Kopieren von Daten aus SAP BW Open Hub den Quelltyp in der Kopieraktivität auf **SapOpenHubSource** fest. Es gibt keine zusätzlichen typspezifischen Eigenschaften, die im Abschnitt **Quelle** der Kopieraktivität erforderlich sind.
 
 **Beispiel:**
 

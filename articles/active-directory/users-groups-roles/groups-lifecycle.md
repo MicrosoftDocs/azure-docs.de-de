@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660255"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604395"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurieren der Ablaufrichtlinie für Office 365-Gruppen
 
-Der Lebenszyklus von Office 365-Gruppen kann jetzt durch das Festlegen einer Ablaufrichtlinie verwaltet werden. Sie können eine Ablaufrichtlinie ausschließlich für Office 365-Gruppen in Azure Active Directory (Azure AD) festlegen. 
+Der Lebenszyklus von Office 365-Gruppen kann jetzt durch das Festlegen einer Ablaufrichtlinie verwaltet werden. Sie können eine Ablaufrichtlinie ausschließlich für Office 365-Gruppen in Azure Active Directory (Azure AD) festlegen.
 
 Das Festlegen eines Ablaufs für eine Gruppe bewirkt Folgendes:
 
@@ -54,7 +54,7 @@ Weitere Informationen zu Berechtigungen zum Wiederherstellen von gelöschten Gru
 
 1. Öffnen Sie das [Azure AD Admin Center](https://aad.portal.azure.com) mit dem Konto eines globalen Administrators in Ihrem Azure AD-Mandanten.
 
-2. Wählen Sie **Gruppen**, und wählen Sie dann **Ablauf**, um die Ablaufeinstellungen zu öffnen.
+2. Wählen Sie zuerst **Gruppen** und dann **Ablauf** aus, um die Ablaufeinstellungen zu öffnen.
   
    ![Ablaufeinstellungen für Gruppen](./media/groups-lifecycle/expiration-settings.png)
 
@@ -66,8 +66,8 @@ Weitere Informationen zu Berechtigungen zum Wiederherstellen von gelöschten Gru
   * Speichern Sie die Einstellungen durch Auswahl von **Speichern**.
 
 > [!NOTE]
-> * Beim erstmaligen Einrichten des Ablaufs wird für alle Gruppen, deren Alter das Ablaufintervall übersteigt, ein Ablaufzeitraum von 30 Tagen festgelegt. Die erste Verlängerungsbenachrichtigung wird innerhalb eines Tages gesendet. Beispielsweise wurde Gruppe A vor 400 Tagen erstellt, und das Ablaufintervall ist auf 180 Tage festgelegt. Wenn Sie Ablaufeinstellungen anwenden, hat Gruppe A 30 Tage, bevor sie gelöscht wird, es sei denn, der Besitzer verlängert sie.
-> * Wenn eine dynamische Gruppe gelöscht und wiederhergestellt wird, gilt sie als neue Gruppe und wird der Regel entsprechend erneut aufgefüllt. Dieser Vorgang kann bis zu 24 Stunden dauern.
+> Beim erstmaligen Einrichten des Ablaufs wird für alle Gruppen, deren Alter das Ablaufintervall übersteigt, ein Ablaufzeitraum von 30 Tagen festgelegt. Die erste Verlängerungsbenachrichtigung wird innerhalb eines Tages gesendet. Beispielsweise wurde Gruppe A vor 400 Tagen erstellt, und das Ablaufintervall ist auf 180 Tage festgelegt. Wenn Sie eine Ablaufrichtlinie anwenden, hat Gruppe A 30 Tage, bevor sie gelöscht wird, falls sie der Besitzer nicht verlängert.
+> Wenn eine dynamische Gruppe gelöscht und wiederhergestellt wird, gilt sie als neue Gruppe und wird der Regel entsprechend erneut aufgefüllt. Dieser Vorgang kann bis zu 24 Stunden dauern.
 
 ## <a name="email-notifications"></a>E-Mail-Benachrichtigungen
 
@@ -86,7 +86,7 @@ Die Gruppe kann innerhalb von 30 Tagen nach ihrer Löschung wiederhergestellt we
 Wenn die Gruppe, die Sie wiederherstellen, Dokumente, SharePoint-Websites oder andere beständige Objekte enthält, kann es bis zu 24 Stunden dauern, bis die Gruppe und deren Inhalte vollständig wiederhergestellt werden.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Abrufen des Ablaufdatums für eine Office 365-Gruppe
-Zusätzlich zum Zugriffsbereich, in dem Benutzer Gruppendetails mit Ablaufdatum und letztem Erneuerungsdatum anzeigen können, kann das Ablaufdatum einer Office 365-Gruppe aus der Betaversion der Microsoft Graph-REST-API abgerufen werden. expirationDateTime als Gruppeneigenschaft wurde in der Betaversion von Microsoft Graph aktiviert. Sie kann mit einer GET-Anforderung abgerufen werden. Weitere Informationen finden Sie in [diesem Beispiel](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+Zusätzlich zum Zugriffsbereich, in dem Benutzer Gruppendetails mit Ablaufdatum und letztem Erneuerungsdatum anzeigen können, kann das Ablaufdatum einer Office 365-Gruppe aus der Betaversion der Microsoft Graph-REST-API abgerufen werden. expirationDateTime als Gruppeneigenschaft wurde in der Betaversion von Microsoft Graph aktiviert. Sie kann mit einer GET-Anforderung abgerufen werden. Weitere Informationen finden Sie in [diesem Beispiel](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > Um Gruppenmitgliedschaften im Zugriffsbereich zu verwalten, muss „Zugriff auf Gruppen im Zugriffsbereich einschränken“ in der Allgemeinen Einstellung für Azure Active Directory-Gruppen auf „Nein“ festgelegt werden.
@@ -101,10 +101,10 @@ Die Aufbewahrungsrichtlinie wird über das Security & Compliance Center konfigur
 ## <a name="powershell-examples"></a>PowerShell-Beispiele
 Hier sind Beispiele dafür angegeben, wie Sie PowerShell-Cmdlets zum Konfigurieren der Ablaufeinstellungen für Office 365-Gruppen in Ihrem Mandanten verwenden können:
 
-1. Installieren Sie das PowerShell v2.0 Preview-Modul (2.0.0.137), und melden Sie sich an der PowerShell-Eingabeaufforderung an:
+1. Installieren Sie das PowerShell v2.0-Modul, und melden Sie sich an der PowerShell-Eingabeaufforderung an:
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. Konfigurieren Sie die Ablaufeinstellungen per „New-AzureADMSGroupLifecyclePolicy“:  Mit diesem Cmdlet können Sie die Lebensdauer für alle Office 365-Gruppen im Mandanten auf 365 Tage festlegen. Verlängerungsbenachrichtigungen für Office 365-Gruppen ohne Besitzer werden an emailaddress@contoso.com gesendet.
   

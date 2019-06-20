@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4a6d359b27b9a2e52d71ed5f8547041645147605
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61479917"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Datengesteuertes Debuggen mithilfe des Auftragsdiagramms
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086801"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693814"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Erstellen eines virtuellen Computers auf der Grundlage einer spezialisierten VHD in einem Speicherkonto
 
@@ -31,7 +31,7 @@ Sie haben zwei Möglichkeiten:
 * [Hochladen einer VHD-Datei](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Kopieren der VHD eines vorhandenen virtuellen Azure-Computers](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Option 1: Hochladen einer speziellen VHD
@@ -126,7 +126,7 @@ Heben Sie die Zuordnung der VM auf, wodurch die VHD zum Kopieren freigegeben wir
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-Der **Status** der VM im Azure-Portal ändert sich von **Beendet** in **Beendet (Zuordnung aufgehoben)**.
+Der **Status** der VM im Azure-Portal ändert sich von **Beendet** in **Beendet (Zuordnung aufgehoben)** .
 
 ### <a name="get-the-storage-account-urls"></a>Abrufen der Speicherkonto-URLs
 Sie benötigen die URLs der Quell- und Zielspeicherkonten. Die URLs sehen wie folgt aus: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Wenn Sie die Namen des Speicherkontos und des Containers bereits kennen, können Sie einfach die Informationen in Klammern ersetzen, um Ihre URL zu erstellen. 

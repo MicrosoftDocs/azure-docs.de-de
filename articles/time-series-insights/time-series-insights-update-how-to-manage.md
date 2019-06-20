@@ -2,7 +2,7 @@
 title: Bereitstellen und Verwalten der Vorschauversion von Azure Time Series Insights | Microsoft-Dokumentation
 description: Grundlagen zum Bereitstellen und Verwalten von Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce24fb8c62432e50fe04de23d2abbee1ec120c6c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471625"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237589"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Bereitstellen und Verwalten der Vorschauversion von Azure Time Series Insights
 

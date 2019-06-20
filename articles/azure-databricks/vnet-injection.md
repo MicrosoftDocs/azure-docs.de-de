@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003444"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62126680"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Bereitstellen von Azure Databricks in Ihrem virtuellen Netzwerk (Vorschauversion)
 
@@ -37,7 +37,7 @@ Sie können die Schnittstelle für die Bereitstellung des Azure Databricks-Arbei
 
 Das virtuelle Netzwerk, für das Sie Ihren Azure Databricks-Arbeitsbereich bereitstellen, muss die folgenden Anforderungen erfüllen:
 
-### <a name="location"></a>Standort
+### <a name="location"></a>Location
 
 Das virtuelle Netzwerk muss sich am selben Ort wie der Arbeitsbereich von Azure Databricks befinden.
 
@@ -121,7 +121,7 @@ Wenn Sie diese Vorlage verwenden, ohne auch die Vorlage für Netzwerksicherheits
 
 Wenn Sie zur Erstellung Ihrer Netzwerksicherheitsgruppen nicht das [Azure-Portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) oder die [Azure Resource Manager-Vorlagen](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) verwenden, müssen Sie den folgenden Datenverkehr in Ihren Subnetzen manuell auf die Whitelist setzen.
 
-|Direction|Protokoll|Quelle|Quellport|Ziel|Zielport|
+|Direction|Protocol|`Source`|Quellport|Ziel|Zielport|
 |---------|--------|------|-----------|-----------|----------------|
 |Eingehend|\*|VirtualNetwork|\*|\*|\*|
 |Eingehend|\*|NAT-API der Steuerungsebene|\*|\*|22|

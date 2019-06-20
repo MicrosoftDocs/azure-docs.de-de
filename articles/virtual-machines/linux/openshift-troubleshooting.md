@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001115"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60771276"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Behandeln von Problemen beim Bereitstellen von OpenShift in Azure
 

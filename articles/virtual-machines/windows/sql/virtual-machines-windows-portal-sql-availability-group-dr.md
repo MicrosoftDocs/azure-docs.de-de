@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 542505c5a6c3af91669ebe28287ae6e1477e214d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487175"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64571732"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurieren einer Always On-Verfügbarkeitsgruppe auf virtuellen Azure-Computern in verschiedenen Regionen
 
@@ -145,7 +145,7 @@ Das Replikat im Remoterechenzentrum ist Teil der Verfügbarkeitsgruppe, befindet
 
 Aktualisieren Sie vorzugsweise die Clientverbindungszeichenfolgen, um `MultiSubnetFailover=Yes` festzulegen. Weitere Informationen finden Sie unter [Verbinden mit MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Falls Sie die Verbindungszeichenfolgen nicht ändern können, können Sie den Namensauflösungs-Cache konfigurieren. Weitere Informationen finden Sie unter [Connection Timeouts in Multi-subnet Availability Group](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/) (Verbindungstimeouts in Verfügbarkeitsgruppen mit mehreren Subnetzen).
+Falls Sie die Verbindungszeichenfolgen nicht ändern können, können Sie den Namensauflösungs-Cache konfigurieren. Weitere Informationen finden Sie unter [Timeoutfehler, und Sie können keine Verbindung mit einem SQL Server 2012 AlwaysOn-Verfügbarkeitsgruppenlistener in einer Umgebung mit mehreren Subnetzen herstellen](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## <a name="fail-over-to-remote-region"></a>Durchführen eines Failovers auf die Remoteregion
 
@@ -158,14 +158,14 @@ Sie können ein Failover des Replikats auf die Remoteregion durchführen, um die
 1. Klicken Sie auf OK.
 1. Klicken Sie im **Objekt-Explorer** mit der rechten Maustaste auf die Verfügbarkeitsgruppe, und klicken Sie anschließend auf **Dashboard anzeigen**.
 1. Vergewissern Sie sich auf dem Dashboard, dass das Replikat am Notfallwiederherstellungsstandort synchronisiert wird.
-1. Klicken Sie im **Objekt-Explorer** mit der rechten Maustaste auf die Verfügbarkeitsgruppe, und klicken Sie anschließend auf **Failover...**. In SQL Server Management Studio wird ein SQL Server-Failover-Assistent geöffnet.  
+1. Klicken Sie im **Objekt-Explorer** mit der rechten Maustaste auf die Verfügbarkeitsgruppe, und klicken Sie anschließend auf **Failover...** . In SQL Server Management Studio wird ein SQL Server-Failover-Assistent geöffnet.  
 1. Klicken Sie auf **Weiter**, und wählen Sie die SQL Server-Instanz am Notfallwiederherstellungsstandort aus. Klicken Sie erneut auf **Weiter** .
 1. Stellen Sie eine Verbindung mit der SQL Server-Instanz am Notfallwiederherstellungsstandort her, und klicken Sie auf **Weiter**.
 1. Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen, und klicken Sie anschließend auf **Fertig stellen**.
 
 Verschieben Sie das primäre Replikat nach dem Testen der Verbindung wieder in Ihr primäres Rechenzentrum, und legen Sie den Verfügbarkeitsmodus wieder auf die normalen Betriebseinstellungen fest. Die folgende Tabelle enthält die normalen Betriebseinstellungen für die in diesem Dokument beschriebene Architektur:
 
-| Standort | Serverinstanz | Rolle | Verfügbarkeitsmodus | Failovermodus
+| Location | Serverinstanz | Rolle | Verfügbarkeitsmodus | Failovermodus
 | ----- | ----- | ----- | ----- | -----
 | Primäres Rechenzentrum | SQL-1 | Primär | Synchron | Automatisch
 | Primäres Rechenzentrum | SQL-2 | Sekundär | Synchron | Automatisch

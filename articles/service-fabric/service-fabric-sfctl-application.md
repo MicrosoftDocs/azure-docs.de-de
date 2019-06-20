@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665541"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837486"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Ermöglicht es, Anwendungen und Anwendungstypen zu erstellen, zu löschen und zu verwalten.
@@ -43,7 +43,7 @@ Ermöglicht es, Anwendungen und Anwendungstypen zu erstellen, zu löschen und zu
 | type | Ruft die Liste der Anwendungstypen im Service Fabric-Cluster ab, die genau mit dem angegebenen Namen übereinstimmen. |
 | type-list | Ruft die Liste der Anwendungstypen im Service Fabric-Cluster ab. |
 | unprovision | Entfernt einen Service Fabric-Anwendungstyp aus dem Cluster oder hebt die Registrierung eines Service Fabric-Anwendungstyps für den Cluster auf. |
-| Upgrade | Startet ein Aktualisieren einer Anwendung im Service Fabric-Cluster. |
+| upgrade | Startet ein Aktualisieren einer Anwendung im Service Fabric-Cluster. |
 | upgrade-resume | Setzt ein Aktualisieren einer Anwendung im Service Fabric-Cluster fort. |
 | upgrade-rollback | Führt ein Rollback des derzeit laufenden Upgrades einer Anwendung im Service Fabric-Cluster aus. |
 | upgrade-status | Ruft Details über das neueste Upgrade ab, das für diese Anwendung ausgeführt wurde. |

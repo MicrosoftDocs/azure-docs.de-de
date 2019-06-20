@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711913"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Verwenden der Paketerfassung für die proaktive Netzwerküberwachung mit Warnungen und Azure Functions
@@ -84,7 +84,7 @@ Im ersten Schritt wird eine Azure-Funktion zum Verarbeiten der Warnung und Erste
     |**Location**|USA (Mitte)| Die Region, in der Sie die Funktions-App erstellen möchten|
     |**Speicherkonto**|{automatisch generiert}| Das Speicherkonto, das von Azure Functions für allgemeine Speicherzwecke benötigt wird.|
 
-3. Wählen Sie auf dem Blatt **PacketCaptureExample** der Funktionen-App die Option **Funktionen** > **Benutzerdefinierte Funktion** >**+** aus.
+3. Wählen Sie auf dem Blatt **PacketCaptureExample** der Funktionen-App die Option **Funktionen** > **Benutzerdefinierte Funktion** > **+** aus.
 
 4. Wählen Sie **HttpTrigger Powershell** aus, und geben Sie dann die übrigen Informationen ein. Wählen Sie abschließend **Erstellen** aus, um die Funktion zu erstellen.
 

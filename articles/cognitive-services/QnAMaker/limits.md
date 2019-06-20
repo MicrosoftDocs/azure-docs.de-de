@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/22/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ce6c5f3059041d8dbb097470cf4a415e73d9156b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960053"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237251"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Grenzwerte und Grenzen für QnA Maker-Wissensdatenbanken
 Umfassende Liste der für QnA Maker geltenden Grenzwerte.
@@ -51,19 +51,19 @@ Allgemeine Grenzwerte für die Inhalte in der Knowledge Base:
 * Unterstützte Zeichen für den Metadatenwerte: Alle Zeichen außer „:“ und „|“ 
 * Länge des Dateinamens: 200
 * Unterstützte Dateiformate: „.tsv“, „.pdf“, „.txt“, „.docx“, „.xlsx“.
-* Maximale Anzahl von alternativen Fragen: 100
+* Maximale Anzahl von alternativen Fragen: 300
 * Maximale Anzahl von Frage-Antwort-Paaren: Abhängig vom ausgewählten [Azure Search-Tarif](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits). Ein Frage-Antwort-Paar wird einem Dokument im Azure Search-Index zugeordnet. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Grenzwerte für Aufrufe zum Erstellen einer Knowledge Base
 Dabei handelt es sich um die Grenzwerte für die einzelnen Aktionen zum Erstellen einer Knowledge Base, d.h. Klicken auf *Create KB* (Knowledge Base erstellen) oder Aufrufen der CreateKnowledgeBase-API.
-* Maximale Anzahl von alternativen Fragen pro Antwort: 100
+* Maximale Anzahl von alternativen Fragen pro Antwort: 300
 * Maximale Anzahl von URLs: 10
 * Maximale Anzahl von Dateien: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Grenzwerte für Aufrufe zum Aktualisieren einer Knowledge Base
 Dabei handelt es sich um die Grenzwerte für die einzelnen Aktualisierungsaktionen, d.h. Klicken auf *Save and train* (Speichern und trainieren) oder Aufrufen der UpdateKnowledgeBase-API.
 * Länge jedes Quellnamens: 300
-* Maximale Anzahl hinzugefügter oder gelöschter alternativer Fragen: 100
+* Maximale Anzahl hinzugefügter oder gelöschter alternativer Fragen: 300
 * Maximale Anzahl hinzugefügter oder gelöschter Metadatenfelder: 10
 * Maximale Anzahl der URLs, die aktualisiert werden können: 5
 

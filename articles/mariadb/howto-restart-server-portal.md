@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.openlocfilehash: 232037562c4a84ee9217e2e89a0da2ffdc37d560
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745750"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Neustarten eines Azure Database for MariaDB-Servers mithilfe des Azure-Portals

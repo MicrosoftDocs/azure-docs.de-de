@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60531172"
 ---
 # <a name="data-warehouse-workload"></a>Data Warehouse-Workload
 Ein Data Warehouse-Workload bezieht sich auf alle Vorgänge, die für ein Data Warehouse ablaufen müssen. Der Data Warehouse-Workload umfasst den gesamten Prozess des Ladens von Daten in das Warehouse, das Durchführen der Analyse und die Berichterstellung für das Data Warehouse, das Verwalten von Daten im Data Warehouse und das Exportieren von Daten aus dem Data Warehouse. Die Tiefe und Breite dieser Komponenten entsprechen häufig dem Reifegrad des Data Warehouse.

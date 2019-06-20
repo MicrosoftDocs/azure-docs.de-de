@@ -14,20 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 48f439a566a8067e153aab4fb789937d2f91268d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be761f0a2e59878139ae54dba62634a53b172711
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715274"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Verwenden der MMC-Menüaktionen im StorSimple Snapshot Manager
 
 ## <a name="overview"></a>Übersicht
 In StorSimple Snapshot Manager werden die folgenden Aktionen in allen Aktionsmenüs und allen Varianten des Bereichs **Aktionen** aufgeführt.
 
-* Ansicht
-* New Window from Here 
+* Sicht
+* Neues Fenster hier öffnen 
 * Aktualisieren 
 * Liste exportieren 
 * Hilfe 
@@ -67,7 +67,7 @@ Mit der Option **New Window from Here** können Sie ein neues Fenster öffnen.
    
     Ein neues Fenster wird angezeigt, in dem nur der ausgewählte Gültigkeitsbereich berücksichtigt wird. Wenn Sie beispielsweise mit der rechten Maustaste auf den Knoten **Sicherungsrichtlinien** klicken, werden im neuen Fenster nur der Knoten **Sicherungsrichtlinien** im Fensterbereich **Bereich** und eine Liste der definierten Sicherungsrichtlinien im Bereich **Ergebnisse** angezeigt. Siehe folgendes Beispiel.
    
-    ![New Window from Here](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png) 
+    ![Neues Fenster hier öffnen](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png) 
 
 ## <a name="refresh"></a>Aktualisieren
 Mit der Aktion **Aktualisieren** können Sie das Konsolenfenster aktualisieren.

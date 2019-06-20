@@ -1,27 +1,22 @@
 ---
-title: Entwickeln von Skriptaktionen mit Linux-basiertem HDInsight – Azure
-description: Erfahren Sie, wie Sie Bash-Skripts verwenden, um Linux-basierte HDInsight-Cluster anzupassen. Das HDInsight-Feature „Skriptaktionen“ ermöglicht es Ihnen, Skripts während oder nach der Clustererstellung auszuführen. Skripts können verwendet werden, um die Konfigurationseinstellungen von Clustern zu ändern oder um zusätzliche Software zu installieren.
-services: hdinsight
+title: Entwickeln von Skriptaktionen zum Anpassen von Azure HDInsight-Clustern
+description: Erfahren Sie, wie Sie Bash-Skripts verwenden, um HDInsight-Cluster anzupassen. Mit Skriptaktionen können Sie Skripts während oder nach der Clustererstellung ausführen, um die Konfigurationseinstellungen der Cluster zu ändern oder zusätzliche Software zu installieren.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 0d56d901ca932f044ef71ef2bc24933bcf18c24a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.date: 04/22/2019
+ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544584"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64687451"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Entwickeln von Skriptaktionen mit HDInsight
 
 Erfahren Sie, wie Sie Ihr HDInsight-Cluster mit Bash-Skripts anpassen können. Mit Skriptaktionen können Sie HDInsight während oder nach der Erstellung eines Clusters anpassen.
-
-> [!IMPORTANT]  
-> Die Schritte in diesem Dokument erfordern einen HDInsight-Cluster mit Linux. Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. Weitere Informationen finden Sie unter [Welche Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Was sind Skriptaktionen?
 
@@ -61,13 +56,28 @@ Wenn Sie ein benutzerdefiniertes Skript für einen HDInsight-Cluster entwickeln,
 
 In den verschiedenen HDInsight-Versionen sind unterschiedliche Versionen von Hadoop-Diensten und Hadoop-Komponenten installiert. Wenn bei Ihrem Skript eine bestimmte Version eines Diensts oder einer Komponente vorausgesetzt wird, sollten Sie das Skript nur mit der HDInsight-Version verwenden, die die erforderlichen Komponenten enthält. Informationen zu den in HDInsight enthaltenen Komponentenversionen finden Sie im Dokument [Neuheiten in den von HDInsight bereitgestellten Hadoop-Clusterversionen](hdinsight-component-versioning.md) .
 
-### <a name="bps10"></a> Auswählen der Betriebssystemversion
+### <a name="checking-the-operating-system-version"></a>Überprüfen der Betriebssystemversion
+
+Unterschiedliche Versionen von HDInsight basieren auf bestimmten Versionen von Ubuntu. Unter Umständen bestehen Unterschiede zwischen den Betriebssystemversionen, die Sie für Ihr Skript überprüfen sollten. Beispielweise müssen Sie ggf. eine Binärdatei installieren, die an die Version von Ubuntu gebunden ist.
+
+Verwenden Sie `lsb_release`, um die Betriebssystemversion zu überprüfen. Das folgende Skript veranschaulicht beispielsweise, wie Sie je nach Betriebssystemversion auf eine spezifische TAR-Datei verweisen:
+
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
+
+### <a name="bps10"></a> Ausrichten auf die Betriebssystemversion
 
 Linux-basiertes HDInsight basiert auf der Ubuntu Linux-Distribution. Da unterschiedliche Versionen von HDInsight auf verschiedenen Versionen von Ubuntu basieren, können sich Auswirkungen auf das Skriptverhalten ergeben. Beispielsweise basiert HDInsight 3.4 und früher auf Ubuntu-Versionen, für die Upstart genutzt wird. Version 3.5 und höher basieren auf Ubuntu 16.04 mit Verwendung von Systemd. Für Systemd und Upstart sind unterschiedliche Befehle erforderlich, und Ihr Skript sollte so geschrieben sein, dass es für beide Fälle funktioniert.
 
-Ein weiterer wichtiger Unterschied zwischen HDInsight 3.4 und 3.5 besteht darin, dass `JAVA_HOME` jetzt auf Java 8 verweist.
-
-Sie können `lsb_release` verwenden, um die Betriebssystemversion zu prüfen. Der folgende Code veranschaulicht, wie ermittelt werden kann, ob das Skript unter Ubuntu 14 oder 16 ausgeführt wird:
+Ein weiterer wichtiger Unterschied zwischen HDInsight 3.4 und 3.5 besteht darin, dass `JAVA_HOME` jetzt auf Java 8 verweist. Der folgende Code veranschaulicht, wie ermittelt werden kann, ob das Skript unter Ubuntu 14 oder 16 ausgeführt wird:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -136,10 +146,10 @@ Linux-basierte HDInsight-Cluster stellen zwei Hauptknoten bereit, die im Cluster
 
 Die Komponenten, die Sie auf dem Cluster installieren, sind möglicherweise standardmäßig so konfiguriert, dass sie den HDFS-Speicher (Apache Hadoop Distributed File System) verwenden. HDInsight verwendet als Standardspeicher entweder Azure Storage oder Azure Data Lake Storage. Diese bieten ein mit HDFS kompatibles Dateisystem, das Daten auch dann beibehält, wenn der Cluster gelöscht wird. Möglicherweise müssen Sie die Komponenten, die Sie installieren, so konfigurieren, dass sie WASB oder ADL anstelle von HDFS verwenden.
 
-Für die meisten Vorgänge müssen Sie das Dateisystem nicht angeben. Mit dem folgenden Code wird beispielsweise die Datei „giraph-examples.jar“ aus dem lokalen Dateisystem in den Clusterspeicher kopiert:
+Für die meisten Vorgänge müssen Sie das Dateisystem nicht angeben. Mit dem folgenden Code wird beispielsweise die Datei „hadoop-common.jar“ aus dem lokalen Dateisystem in den Clusterspeicher kopiert:
 
 ```bash
-hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
 In diesem Beispiel verwendet der Befehl `hdfs` auf transparente Weise den Standardclusterspeicher. Für manche Vorgänge müssen Sie möglicherweise den URI angeben. Geben Sie beispielsweise `adl:///example/jars` für Azure Data Lake Storage Gen1, `abfs:///example/jars` für Data Lake Storage Gen2 oder `wasb:///example/jars` für Azure Storage an.
@@ -151,13 +161,13 @@ HDInsight protokolliert Skriptausgaben, die in STDOUT oder STDERR geschrieben we
 > [!NOTE]  
 > Apache Ambari ist nur dann verfügbar, wenn der Cluster erfolgreich erstellt wurde. Wenn Sie während der Clustererstellung eine Skriptaktion verwenden, und ein Fehler bei der Erstellung auftritt, finden Sie im Abschnitt zur Problembehandlung unter [Anpassen Linux-basierter HDInsight-Cluster mithilfe von Skriptaktionen](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) andere Möglichkeiten, um auf protokollierte Informationen zuzugreifen.
 
-Die meisten Dienstprogramme und Installationspakete schreiben bereits Informationen in STDOUT und STDERR. Möglicherweise möchten Sie jedoch weitere Protokollierungsinformationen hinzufügen. Verwenden Sie `echo`, um Text an STDOUT zu senden. Beispiel: 
+Die meisten Dienstprogramme und Installationspakete schreiben bereits Informationen in STDOUT und STDERR. Möglicherweise möchten Sie jedoch weitere Protokollierungsinformationen hinzufügen. Verwenden Sie `echo`, um Text an STDOUT zu senden. Beispiel:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Standardmäßig sendet `echo` die Zeichenfolge an STDOUT. Soll dieser an STDERR geleitet werden, setzen Sie `>&2` vor `echo`. Beispiel: 
+Standardmäßig sendet `echo` die Zeichenfolge an STDOUT. Soll dieser an STDERR geleitet werden, setzen Sie `>&2` vor `echo`. Beispiel:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -289,23 +299,6 @@ Durch das Speichern von Dateien in einem Azure Storage-Konto oder in Azure Data 
 
 > [!NOTE]  
 > Das URI-Format zum Verweisen auf das Skript unterscheidet sich je nach dem verwendeten Dienst. Verwenden Sie für Speicherkonten, die dem HDInsight-Cluster zugeordnet sind, `wasb://` oder `wasbs://`. Verwenden Sie für öffentlich lesbare URIs `http://` oder `https://`. Verwenden Sie für Data Lake Storage `adl://`.
-
-### <a name="checking-the-operating-system-version"></a>Überprüfen der Betriebssystemversion
-
-Unterschiedliche Versionen von HDInsight basieren auf bestimmten Versionen von Ubuntu. Unter Umständen bestehen Unterschiede zwischen den Betriebssystemversionen, die Sie für Ihr Skript überprüfen sollten. Beispielweise müssen Sie ggf. eine Binärdatei installieren, die an die Version von Ubuntu gebunden ist.
-
-Verwenden Sie `lsb_release`, um die Betriebssystemversion zu überprüfen. Das folgende Skript veranschaulicht beispielsweise, wie Sie je nach Betriebssystemversion auf eine spezifische TAR-Datei verweisen:
-
-```bash
-OS_VERSION=$(lsb_release -sr)
-if [[ $OS_VERSION == 14* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
-    HUE_TARFILE=hue-binaries-14-04.tgz
-elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
-    HUE_TARFILE=hue-binaries-16-04.tgz
-fi
-```
 
 ## <a name="deployScript"></a>Prüfliste für die Bereitstellung einer Skriptaktion
 

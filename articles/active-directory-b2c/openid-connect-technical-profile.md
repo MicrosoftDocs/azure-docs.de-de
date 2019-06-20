@@ -2,20 +2,20 @@
 title: Definieren eines technischen OpenId Connect-Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein technisches OpenId Connect-Profil in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C definieren.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ec323d4596c866da33c4a8ff5499bf2ad92a8bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66512913"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines technischen OpenId Connect-Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -76,17 +76,17 @@ Das technische Profil gibt auch Ansprüche zurück, die vom Identitätsanbieter 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | client_id | Ja | Die Anwendungs-ID des Identitätsanbieters. |
-| IdTokenAudience | Nein  | Die Zielgruppe von id_token. Wenn eine Angabe erfolgt, überprüft Azure AD B2C, ob das Token in einem Anspruch, der vom Identitätsanbieter zurückgegeben wurde, enthalten und mit dem angegebenen Token identisch ist. |
+| IdTokenAudience | Nein | Die Zielgruppe von id_token. Wenn eine Angabe erfolgt, überprüft Azure AD B2C, ob das Token in einem Anspruch, der vom Identitätsanbieter zurückgegeben wurde, enthalten und mit dem angegebenen Token identisch ist. |
 | METADATA | Ja | Eine URL, die auf ein JSON-Konfigurationsdokument, das gemäß der OpenId Connect Discovery-Spezifikation formatiert ist, verweist und auch als OpenId-Konfigurationsendpunkt bezeichnet wird. |
-| ProviderName | Nein  | Der Name des Identitätsanbieters. |
-| response_types | Nein  | Der Antworttyp gemäß der OpenId Connect Core 1.0-Spezifikation. Mögliche Werte: `id_token`, `code` oder `token`. |
-| response_mode | Nein  | Die Methode, die der Identitätsanbieter verwendet, um das Ergebnis zurück an Azure AD B2C zu senden. Mögliche Werte: `query`, `form_post` (Standard) oder `fragment`. |
-| scope | Nein  | Der Bereich für die Anforderung gemäß der OpenId Connect Core 1.0-Spezifikation. Beispiele: `openid`, `profile` und `email`. |
-| HttpBinding | Nein  | Die erwartete HTTP-Bindung an die Endpunkte für Zugriffs- und Anspruchstoken. Mögliche Werte: `GET` oder `POST`.  |
-| ValidTokenIssuerPrefixes | Nein  | Ein Schlüssel, der für die Anmeldung bei den einzelnen Mandanten verwendet werden kann, wenn ein mehrinstanzenfähiger Identitätsanbieter wie Azure Active Directory verwendet wird. |
-| UsePolicyInRedirectUri | Nein  | Gibt an, ob beim Erstellen des Umleitungs-URI eine Richtlinie verwendet werden soll. Wenn Sie Ihre Anwendung im Identitätsanbieter konfigurieren, müssen Sie den Umleitungs-URI angeben. Der Umleitungs-URI verweist auf Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` („login.microsoftonline.com“ kann sich gemäß Ihr-Mandantenname.b2clogin.com ändern).  Bei Angabe von `false` müssen Sie einen Umleitungs-URI für jede verwendete Richtlinie hinzufügen. Beispiel: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
-| MarkAsFailureOnStatusCode5xx | Nein  | Gibt an, ob eine Anforderung an einen externen Dienst als fehlerhaft gekennzeichnet werden soll, wenn der HTTP-Statuscode im Bereich 5xx liegt. Der Standardwert lautet `false`. |
-| DiscoverMetadataByTokenIssuer | Nein  | Gibt an, ob die OIDC-Metadaten mithilfe des Ausstellers im JWT-Token ermittelt werden sollen. |
+| ProviderName | Nein | Der Name des Identitätsanbieters. |
+| response_types | Nein | Der Antworttyp gemäß der OpenId Connect Core 1.0-Spezifikation. Mögliche Werte: `id_token`, `code` oder `token`. |
+| response_mode | Nein | Die Methode, die der Identitätsanbieter verwendet, um das Ergebnis zurück an Azure AD B2C zu senden. Mögliche Werte: `query`, `form_post` (Standard) oder `fragment`. |
+| scope | Nein | Der Bereich für die Anforderung gemäß der OpenId Connect Core 1.0-Spezifikation. Beispiele: `openid`, `profile` und `email`. |
+| HttpBinding | Nein | Die erwartete HTTP-Bindung an die Endpunkte für Zugriffs- und Anspruchstoken. Mögliche Werte: `GET` oder `POST`.  |
+| ValidTokenIssuerPrefixes | Nein | Ein Schlüssel, der für die Anmeldung bei den einzelnen Mandanten verwendet werden kann, wenn ein mehrinstanzenfähiger Identitätsanbieter wie Azure Active Directory verwendet wird. |
+| UsePolicyInRedirectUri | Nein | Gibt an, ob beim Erstellen des Umleitungs-URI eine Richtlinie verwendet werden soll. Wenn Sie Ihre Anwendung im Identitätsanbieter konfigurieren, müssen Sie den Umleitungs-URI angeben. Der Umleitungs-URI verweist auf Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` („login.microsoftonline.com“ kann sich gemäß Ihr-Mandantenname.b2clogin.com ändern).  Bei Angabe von `false` müssen Sie einen Umleitungs-URI für jede verwendete Richtlinie hinzufügen. Beispiel: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |
+| MarkAsFailureOnStatusCode5xx | Nein | Gibt an, ob eine Anforderung an einen externen Dienst als fehlerhaft gekennzeichnet werden soll, wenn der HTTP-Statuscode im Bereich 5xx liegt. Der Standardwert lautet `false`. |
+| DiscoverMetadataByTokenIssuer | Nein | Gibt an, ob die OIDC-Metadaten mithilfe des Ausstellers im JWT-Token ermittelt werden sollen. |
 
 ## <a name="cryptographic-keys"></a>Kryptografische Schlüssel
 

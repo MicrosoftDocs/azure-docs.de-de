@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 6ee3ecc37cfb21630b671e70260b44f1532de2b6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 13ce1706a2184075155b2bbc4dca5753be391ceb
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594124"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357119"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Schnellstart: Ändern des Modells mit Node.js
 
-[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
 ms.openlocfilehash: 169ec7a8ef407af3f754046aa8e3b06793a7e962
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027652"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Einschränkungen des Azure Blockchain-Diensts

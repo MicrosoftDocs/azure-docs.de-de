@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
 ms.openlocfilehash: 2f3967c64e79b2bc7b01b35eff26f5ac0d4e3db4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287575"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60888406"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Gewusst wie: Verwenden des Schritts „Ausführungsprofil“ zum Auswerten Ihrer Gremlin-Abfragen
 
@@ -22,7 +22,7 @@ Dieser Artikel enthält eine Übersicht über die Verwendung des Schritts „Aus
 
 Fügen Sie zum Verwenden dieses Schritts einfach den Funktionsaufruf `executionProfile()` am Ende Ihrer Gremlin-Abfrage an. **Ihre Gremlin-Abfrage wird ausgeführt**, und als Ergebnis des Vorgangs wird ein JSON-Antwortobjekt mit dem Ausführungsprofil der Abfrage zurückgegeben.
 
-Beispiel: 
+Beispiel:
 
 ```java
     // Basic traversal

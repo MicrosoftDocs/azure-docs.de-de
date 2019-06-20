@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09ea530cac5bdbd62208f134177e5ceaccb545e2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027622"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modul „Two-Class Boosted Decision Tree“
@@ -46,7 +46,7 @@ Diese Art von Modell kann mithilfe von [Train Model](././train-model.md) (Modell
   
 4.  Geben Sie unter **Minimum number of samples per leaf node** (Minimale Anzahl von Stichproben pro Blattknoten) die Anzahl von Fällen an, die zum Erstellen eines Endknotens (Blatt) in einer Struktur erforderlich sind.  
   
-     Wenn Sie diesen Wert erhöhen, erhöht sich der Schwellenwert für die Erstellung neuer Regeln. So reicht beispielsweise bei Verwendung des Standardwerts „1“ bereits ein einzelner Fall aus, um eine neue Regel zu erstellen. Wenn Sie den Wert auf „5“ erhöhen, müssen die Trainingsdaten mindestens fünf Fälle enthalten, die die gleichen Bedingungen erfüllen.
+     Wenn Sie diesen Wert erhöhen, erhöht sich der Schwellenwert für die Erstellung neuer Regeln. Bei Verwendung des Standardwerts „1“ reicht für die Erstellung einer neuen Regel beispielsweise bereits ein einzelner Fall aus. Wenn Sie den Wert auf „5“ erhöhen, müssen die Trainingsdaten mindestens fünf Fälle enthalten, die die gleichen Bedingungen erfüllen.
   
 5.  Geben Sie unter **Learning rate** (Lernrate) eine Zahl zwischen 0 und 1 ein, um die Schrittgröße beim Lernen zu definieren.  
   
@@ -76,4 +76,4 @@ Klicken Sie nach Abschluss des Modelltrainings mit der rechten Maustaste auf die
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Sehen Sie sich die [verfügbaren Module](module-reference.md) für Azure Machine Learning Service an. 
+Sehen Sie sich die [Gruppe der verfügbaren Module](module-reference.md) für Azure Machine Learning Service an. 

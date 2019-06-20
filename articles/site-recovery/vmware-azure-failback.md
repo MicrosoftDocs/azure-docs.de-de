@@ -8,11 +8,11 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 7773a2f43eb076075be484d92fde31094a2b584b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60318120"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Failback von virtuellen VMware-Computern und physischen Servern von Azure zum lokalen Standort
 

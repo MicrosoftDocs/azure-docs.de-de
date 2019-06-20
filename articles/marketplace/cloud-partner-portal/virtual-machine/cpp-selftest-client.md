@@ -1,25 +1,18 @@
 ---
-title: Selbsttestclient zur Vorabüberprüfung eines virtuellen Computers – Azure Marketplace | Microsoft-Dokumentation
+title: Selbsttestclient zur Vorabüberprüfung eines virtuellen Computers | Azure Marketplace
 description: Erfahren Sie, wie Sie einen Selbsttestclient zur Vorabüberprüfung eines VM-Images für den Azure Marketplace erstellen.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848932"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938717"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Erstellen eines Selbsttestclients zur Vorabüberprüfung eines Azure-VM-Images
 

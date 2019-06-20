@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60332376"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA für Azure-Ressourcen und -Benutzer 
 

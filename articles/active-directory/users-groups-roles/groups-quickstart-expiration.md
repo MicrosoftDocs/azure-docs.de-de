@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199306"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606175"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Schnellstart: Festlegen des Ablaufs von Office 365-Gruppen in Azure Active Directory
 
@@ -35,11 +35,11 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 ## <a name="prerequisite"></a>Voraussetzung
 
-Sie müssen ein globaler Administrator oder Benutzeradministrator in der Organisation sein, um den Gruppenablauf einrichten zu können.
+ Die zum Einrichten des Gruppenablaufs erforderliche Rolle mit den geringsten Berechtigungen ist die Rolle „Benutzeradministrator“ für die Organisation.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Aktivieren der Benutzererstellung für Gruppen
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) mit einem Konto an, das globaler Administrator oder Benutzeradministrator für die Organisation ist.
+1. Melden Sie sich mit einem Benutzeradministratorkonto beim [Azure-Portal](https://portal.azure.com) an.
 
 2. Klicken Sie auf **Gruppen** und anschließend auf **Allgemein**.
   
@@ -80,7 +80,7 @@ Das ist alles! In dieser Schnellstartanleitung haben Sie die Ablaufrichtlinie f�
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Der folgende Artikel enthält weitere Informationen zum Ablauf, u.a. zu technischen Einschränkungen, zum Hinzufügen einer Liste mit benutzerdefinierten blockierten Wörtern und zu Benutzeroberflächen für Endbenutzer in Office 365-Apps:
+Weitere Informationen zum Ablauf einschließlich der PowerShell-Anweisungen und technischen Einschränkungen finden Sie im folgenden Artikel:
 
 > [!div class="nextstepaction"]
 > [Konfigurieren der Ablaufrichtlinie für Office 365-Gruppen](groups-lifecycle.md)

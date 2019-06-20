@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60634821"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Verwalten von Volumes mithilfe des StorSimple-Geräte-Manager-Diensts (Update 3 und höher)
 
@@ -303,7 +303,7 @@ Führen Sie die folgenden Schritte durch, um ein Volume zu löschen.
    > [!NOTE]
    > Wenn Sie ein lokales Volume löschen, wird der für neue Volumes verfügbare Speicherplatz möglicherweise nicht sofort aktualisiert. Der StorSimple-Geräte-Manager-Dienst aktualisiert in regelmäßigen Abständen den verfügbaren lokalen Speicherplatz. Warten Sie einige Minuten, bevor Sie das neue Volume erstellen.
    >
-   >  Außerdem gilt: Wenn Sie ein lokales Volume und unmittelbar danach ein weiteres lokales Volume löschen, werden die Aufträge zur Volumelöschung nacheinander ausgeführt. Der erste Auftrag zur Volumelöschung muss abgeschlossen sein, bevor der nächste Auftrag zur Volumelöschung beginnt.
+   > Außerdem gilt: Wenn Sie ein lokales Volume und unmittelbar danach ein weiteres lokales Volume löschen, werden die Aufträge zur Volumelöschung nacheinander ausgeführt. Der erste Auftrag zur Volumelöschung muss abgeschlossen sein, bevor der nächste Auftrag zur Volumelöschung beginnt.
 
 ## <a name="monitor-a-volume"></a>Volume überwachen
 

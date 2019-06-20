@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 974f0af461ecdc7de820191950b010035d02a601
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60598306"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Veröffentlichen von Azure Media Services-Inhalten mit REST 
 > [!div class="op_single_selector"]

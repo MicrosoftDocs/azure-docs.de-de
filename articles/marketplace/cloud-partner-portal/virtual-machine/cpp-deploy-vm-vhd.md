@@ -1,25 +1,18 @@
 ---
-title: Bereitstellen einer VM von Ihren VHDs für den Azure Marketplace | Microsoft-Dokumentation
+title: Bereitstellen einer VM von Ihren VHDs für den Azure Marketplace
 description: Dieser Artikel erläutert, wie Sie eine VM von einer in Azure bereitgestellten virtuellen Festplatte registrieren.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.author: pabutler
+ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938286"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Bereitstellen eines virtuellen Computers auf Basis der VHDs
 
@@ -30,7 +23,7 @@ Nachdem Sie Ihre virtuellen Festplatten – die generalisierte Betriebssystem-VH
 Weitere Informationen zu VM-Images finden Sie in den folgenden Blogbeiträgen:
 
 - [VM-Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM-Images in PowerShell – Vorgehensweisen](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM Image PowerShell How To](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/) (VM-Images in PowerShell – Vorgehensweisen)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -38,7 +31,7 @@ Weitere Informationen zu VM-Images finden Sie in den folgenden Blogbeiträgen:
 
 Falls Sie dies noch nicht getan haben, installieren Sie Azure PowerShell und die Azure CLI gemäß den folgenden Anweisungen:
 
-- [Installieren von Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Installieren von Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Installieren der Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
@@ -56,13 +49,13 @@ Nachdem Ihr virtueller Computer bereitgestellt wurde, können Sie [Ihr VM-Image 
    ![Erstellen einer Vorlage für die VHD-Bereitstellung im Azure-Portal](./media/publishvm_021.png)
 
 1. Kopieren Sie diese [JSON-Vorlage](./cpp-deploy-json-template.md), fügen Sie sie in den Editor ein, und klicken Sie auf **Speichern**. <br/>
-   ![Speichern einer Vorlage für die VHD-Bereitstellung im Azure-Portal](./media/publishvm_022.png)
+   ![Speichern der Vorlage für die VHD-Bereitstellung im Azure-Portal](./media/publishvm_022.png)
 
 1. Geben Sie die Parameterwerte für die angezeigten Eigenschaftenseiten für die **benutzerdefinierte Bereitstellung** ein.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parameter**              |   **BESCHREIBUNG**                                                            |
+   |  **Parameter**              |   **Beschreibung**                                                            |
    |  -------------              |   ---------------                                                            |
    | Name des Speicherkontos des Benutzers   | Name des Speicherkontos, in dem sich die generalisierte VHD befindet                    |
    | Name des Speichercontainers des Benutzers | Name des Containers, in dem sich die generalisierte VHD befindet                          |
@@ -71,8 +64,8 @@ Nachdem Ihr virtueller Computer bereitgestellt wurde, können Sie [Ihr VM-Image 
    | Administratorkennwort              | Das Kennwort des Administratorkontos für die neue VM                                  |
    | OS Type (Betriebssystemtyp)                     | VM-Betriebssystem: `Windows` \| `Linux`                                    |
    | Abonnement-ID             | Bezeichner des ausgewählten Abonnements                                      |
-   | Standort                    | Geografischer Standort der Bereitstellung                                        |
-   | Größe des virtuellen Computers                     | [Größe des virtuellen Azure-Computers](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), z. B. `Standard_A2` |
+   | Location                    | Geografischer Standort der Bereitstellung                                        |
+   | Größe des virtuellen Computers                     | [Größe des virtuellen Azure-Computers](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), z.B. `Standard_A2` |
    | Öffentliche IP-Adresse      | Name der öffentlichen IP-Adresse                                               |
    | VM-Name                     | Name des neuen virtuellen Computers                                                           |
    | Name des virtuellen Netzwerks        | Name des virtuellen Netzwerks, das von der VM verwendet wird                                   |

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
 ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125694"
 ---
 # <a name="deploy-a-configuration-server"></a>Bereitstellen eines Konfigurationsservers
 

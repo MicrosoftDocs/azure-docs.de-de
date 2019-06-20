@@ -3,7 +3,7 @@ title: Hybridverbindung mit einer Anwendung mit zwei Ebenen | Microsoft Docs
 description: Erfahren Sie, wie Sie virtuelle Geräte und benutzerdefinierte Routen bereitstellen, um eine Anwendungsumgebung mit mehreren Ebenen in Azure zu erstellen.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: jdial
-ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: kumud
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/31/2017
-ms.locfileid: "23643864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64575591"
 ---
 # <a name="virtual-appliance-scenario"></a>Szenario für virtuelle Geräte
 Als gängiges Szenario müssen größere Azure-Kunden eine Anwendung mit zwei Ebenen bereitstellen, die über das Internet verfügbar ist und gleichzeitig den Zugriff auf die Back-End-Ebene über ein lokales Rechenzentrum ermöglicht. In diesem Dokument wird schrittweise ein Szenario mit benutzerdefinierten Routen (User Defined Routes, UDR), einem VPN-Gateway und virtuellen Netzwerkgeräten zum Bereitstellen einer Umgebung mit zwei Ebenen erläutert, die folgende Anforderungen erfüllt:
@@ -30,23 +30,23 @@ Als gängiges Szenario müssen größere Azure-Kunden eine Anwendung mit zwei Eb
 * Der gesamte Datenverkehr an den Anwendungsserver muss über ein virtuelles Firewallgerät geleitet werden. Dieses virtuelle Gerät wird für den Zugriff auf den Back-End-Server und den Zugriff auf den vom lokalen Netzwerk über ein VPN-Gateway eingehenden Datenverkehr eingesetzt.
 * Administratoren müssen die virtuellen Firewallgeräte über ihre lokalen Computer verwalten können, indem sie ein drittes ausschließlich zu Verwaltungszwecken genutztes virtuelles Firewallgerät nutzen.
 
-Dabei handelt es sich um ein DMZ-Standardszenario mit einer DMZ und einem geschützten Netzwerk. Dieses Szenario kann in Azure unter Verwendung von Netzwerksicherheitsgruppen (NSGs) oder virtuellen Firewallgeräten oder einer Kombination aus beiden geschaffen werden. In der folgenden Tabelle sind einige Vor- und Nachteile im Hinblick auf Netzwerksicherheitsgruppen und virtuelle Firewallgeräte aufgeführt.
+Dabei handelt es sich um ein Umkreisnetzwerk-Standardszenario (auch als DMZ bezeichnet) mit einer DMZ und einem geschützten Netzwerk. Dieses Szenario kann in Azure unter Verwendung von Netzwerksicherheitsgruppen (NSGs) oder virtuellen Firewallgeräten oder einer Kombination aus beiden geschaffen werden. In der folgenden Tabelle sind einige Vor- und Nachteile im Hinblick auf Netzwerksicherheitsgruppen und virtuelle Firewallgeräte aufgeführt.
 
 |  | Vorteile | Nachteile |
 | --- | --- | --- |
-| NSG |Keine Kosten. <br/>In Azure RBAC integriert. <br/>Regeln können in ARM-Vorlagen erstellt werden. |Komplexität kann in größeren Umgebungen variieren. |
+| NSG |Keine Kosten. <br/>In Azure RBAC integriert. <br/>Regeln können in Azure Resource Manager-Vorlagen erstellt werden. |Komplexität kann in größeren Umgebungen variieren. |
 | Firewall |Vollständige Kontrolle über die Datenebene. <br/>Zentrale Verwaltung über Firewallkonsole. |Kosten der Firewallgeräte. <br/>Nicht in Azure RBAC integriert. |
 
-In der unten beschriebenen Lösung wird ein Szenario mit einer DMZ und einem geschützten Netzwerk mithilfe virtueller Firewallgeräte implementiert.
+In der unten beschriebenen Lösung wird ein Szenario mit einem Umkreisnetzwerk (DMZ) bzw. ein geschütztes Netzwerk mithilfe virtueller Firewallgeräte implementiert.
 
 ## <a name="considerations"></a>Überlegungen
 Die oben erläuterte Umgebung können Sie in Azure mithilfe verschiedener derzeit verfügbarer Features bereitstellen.
 
-* **Virtuelles Netzwerk (VNET)**. Ein Azure-VNET ähnelt einem lokalen Netzwerk und kann in ein oder mehrere Subnetze segmentiert werden, um die Isolation des Datenverkehrs und eine Trennung von Zuständigkeiten zu gewährleisten.
+* **Virtuelles Netzwerk (VNET)** . Ein Azure-VNET ähnelt einem lokalen Netzwerk und kann in ein oder mehrere Subnetze segmentiert werden, um die Isolation des Datenverkehrs und eine Trennung von Zuständigkeiten zu gewährleisten.
 * **Virtuelles Gerät**. Mehrere Partner bieten im Azure Marketplace virtuelle Geräte an, die für die drei oben beschriebenen Firewalls verwendet werden können. 
-* **Benutzerdefinierte Routen (UDR)**. Routingtabellen können benutzerdefinierte Routen enthalten, über die im Azure-Netzwerk die Weiterleitung der Pakete in einem VNET gesteuert wird. Diese Routingtabellen können auf Subnetze angewendet werden. Eines der neuesten Features in Azure bietet die Möglichkeit, eine Routingtabelle auf das GatewaySubnet anzuwenden, sodass der gesamte Datenverkehr, der über eine Hybridverbindung im Azure-VNET eingeht, an ein virtuelles Gerät weitergeleitet werden kann.
-* **IP-Weiterleitung**. Mit dem Azure-Netzwerkmodul werden Pakete standardmäßig nur an virtuelle Netzwerkkarten (NICs) weitergeleitet, wenn die Ziel-IP-Adresse der Pakete der IP-Adresse der NICs entspricht. Wenn also mit einer benutzerdefinierten Route definiert wird, dass ein Paket an ein bestimmtes virtuelles Gerät gesendet werden muss, wird dieses Paket im Azure-Netzwerkmodul ignoriert. Um sicherzustellen, dass das Paket an einen virtuellen Computer (in diesem Fall ein virtuelles Gerät) übermittelt wird, das nicht das eigentliche Ziel für das Paket ist, müssen Sie die IP-Weiterleitung für das virtuelle Gerät aktivieren.
-* **Netzwerksicherheitsgruppen (NSGs)**. Im folgenden Beispiel werden zwar keine Netzwerksicherheitsgruppen verwendet, dennoch könnten Sie Netzwerksicherheitsgruppen auf die Subnetze und/oder Netzwerkkarten anwenden, um den eingehenden und ausgehenden Datenverkehr dieser Subnetze und Netzwerkkarten weiter zu filtern.
+* **Benutzerdefinierte Routen (UDR)** . Routingtabellen können benutzerdefinierte Routen enthalten, über die im Azure-Netzwerk die Weiterleitung der Pakete in einem VNET gesteuert wird. Diese Routingtabellen können auf Subnetze angewendet werden. Eines der neuesten Features in Azure bietet die Möglichkeit, eine Routingtabelle auf das GatewaySubnet anzuwenden, sodass der gesamte Datenverkehr, der über eine Hybridverbindung im Azure-VNET eingeht, an ein virtuelles Gerät weitergeleitet werden kann.
+* **IP-Weiterleitung**. Mit der Azure-Netzwerk-Engine werden Pakete standardmäßig nur an virtuelle Netzwerkkarten (NICs) weitergeleitet, wenn die Ziel-IP-Adresse der Pakete der IP-Adresse der NICs entspricht. Wenn also mit einer benutzerdefinierten Route definiert wird, dass ein Paket an ein bestimmtes virtuelles Gerät gesendet werden muss, wird dieses Paket in der Azure-Netzwerk-Engine ignoriert. Um sicherzustellen, dass das Paket an einen virtuellen Computer (in diesem Fall ein virtuelles Gerät) übermittelt wird, das nicht das eigentliche Ziel für das Paket ist, müssen Sie die IP-Weiterleitung für das virtuelle Gerät aktivieren.
+* **Netzwerksicherheitsgruppen (NSGs)** . Im folgenden Beispiel werden zwar keine Netzwerksicherheitsgruppen verwendet, dennoch könnten Sie Netzwerksicherheitsgruppen auf die Subnetze und/oder Netzwerkkarten anwenden, um den eingehenden und ausgehenden Datenverkehr dieser Subnetze und Netzwerkkarten weiter zu filtern.
 
 ![IPv6-Konnektivität](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -106,7 +106,7 @@ Sie müssen zudem Routingtabellen für die Subnetze in **onpremvnet** erstellen,
 | 10.0.3.0/24 |192.168.2.4 |Ermöglicht den Datenverkehr zum Back-End-Subnetz in Azure über **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Ermöglicht den Datenverkehr zu **onpremsn1** über **OPFW** |
 
-## <a name="ip-forwarding"></a>IP-Weiterleitung
+## <a name="ip-forwarding"></a>SSL-Weiterleitung
 Benutzerdefinierte Routen und die IP-Weiterleitung sind Features, die Sie kombiniert nutzen können, um über virtuelle Geräte den Datenverkehrsfluss in einem Azure-VNET zu steuern.  Ein virtuelles Gerät ist letztlich nur ein virtueller Computer, der eine Anwendung zur Verarbeitung des Netzwerkverkehrs ausführt, z. B. eine Firewall oder ein NAT-Gerät.
 
 Dieser virtuelle Computer muss eingehenden Datenverkehr empfangen können, der nicht an ihn selbst adressiert ist. Damit ein virtueller Computer an andere Ziele gerichteten Datenverkehr empfangen kann, müssen Sie für den virtuellen Computer die IP-Weiterleitung aktivieren. Hierbei handelt es sich um eine Azure-Einstellung, keine Einstellung im Gastbetriebssystem. Auf dem virtuellen Gerät muss dennoch eine Anwendung zum Verarbeiten und zur entsprechenden Weiterleitung des eingehenden Datenverkehrs ausgeführt werden.
@@ -134,7 +134,7 @@ Wie oben beschrieben, wird mit der IP-Weiterleitung nur sichergestellt, dass Pak
 ### <a name="opfw"></a>OPFW
 OPFW stellt ein lokales Gerät dar, für das folgende Regeln definiert sind:
 
-* **Route:** Der gesamte Datenverkehr an 10.0.0.0/16 (**azurevnet**) muss über den Tunnel **ONPREMAZURE** geleitet werden.
+* **Route**: Der gesamte Datenverkehr an 10.0.0.0/16 (**azurevnet**) muss über den Tunnel **ONPREMAZURE** geleitet werden.
 * **Richtlinie:** Zulassen des gesamten bidirektionalen Datenverkehrs zwischen **port2** und **ONPREMAZURE**.
 
 ### <a name="azf1"></a>AZF1
@@ -145,7 +145,7 @@ AZF1 stellt ein virtuelles Azure-Gerät dar, für das folgende Regeln definiert 
 ### <a name="azf2"></a>AZF2
 AZF2 stellt ein virtuelles Azure-Gerät dar, für das folgende Regeln definiert sind:
 
-* **Route:** Der gesamte Datenverkehr an 10.0.0.0/16 (**onpremvnet**) muss über **port1** an die IP-Adresse des Azure-Gateways (z.B. 10.0.0.1) geleitet werden.
+* **Route**: Der gesamte Datenverkehr an 10.0.0.0/16 (**onpremvnet**) muss über **port1** an die IP-Adresse des Azure-Gateways (z.B. 10.0.0.1) geleitet werden.
 * **Richtlinie:** Zulassen des gesamten bidirektionalen Datenverkehrs zwischen **port1** und **port2**.
 
 ## <a name="network-security-groups-nsgs"></a>Netzwerksicherheitsgruppen
@@ -167,5 +167,5 @@ Führen Sie zum Bereitstellen dieses Szenarios die oben beschriebenen Schritte a
 2. Wenn Sie ein VNET zum Imitieren des lokalen Netzwerks bereitstellen möchten, geben Sie die Ressourcen an, die zu **ONPREMRG**gehören.
 3. Geben Sie die Ressourcen an, die zu **AZURERG**gehören.
 4. Geben Sie den Tunnel zwischen **onpremvnet** und **azurevnet** an.
-5. Nachdem Sie alle Ressourcen angegeben haben, melden Sie sich bei **onpremvm2** an, und pingen Sie 10.0.3.101 an, um die Verbindung zwischen **onpremsn2** und **azsn3** zu testen.
+5. Nachdem Sie alle Ressourcen angegeben haben, melden Sie sich bei **onpremvm2** an, und pingen Sie 10.0.3.101, um die Verbindung zwischen **onpremsn2** und **azsn3** zu testen.
 

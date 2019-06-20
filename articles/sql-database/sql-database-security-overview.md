@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/11/2019
-ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/14/2019
+ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001081"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258628"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Eine Übersicht über die Sicherheitsfunktionen von Azure SQL-Datenbank
 
@@ -35,9 +35,9 @@ IP-Firewallregeln gewähren den Datenbankzugriff auf der Grundlage der Ursprungs
 
 ### <a name="virtual-network-firewall-rules"></a>Firewallregeln für virtuelle Netzwerke
 
-[Dienstendpunkte virtueller Netzwerke](../virtual-network/virtual-network-service-endpoints-overview.md) erweitern Ihre VNET-Konnektivität über den Azure-Backbone hinaus und ermöglichen Azure SQL-Datenbank, das Subnetz des virtuellen Netzwerks zu identifizieren, aus dem der Datenverkehr stammt. Wenn Sie Datenverkehr an Azure SQL-Datenbank zulassen möchten, verwenden Sie die SQL-[Diensttags](../virtual-network/security-overview.md), um ausgehenden Datenverkehr über Netzwerksicherheitsgruppen zu ermöglichen.
+[VNET-Dienstendpunkte](../virtual-network/virtual-network-service-endpoints-overview.md) erweitern Ihre VNET-Konnektivität über den Azure-Backbone hinaus und ermöglichen Azure SQL-Datenbank, das Subnetz des virtuellen Netzwerks zu identifizieren, aus dem der Datenverkehr stammt. Wenn Sie Datenverkehr an Azure SQL-Datenbank zulassen möchten, verwenden Sie die SQL-[Diensttags](../virtual-network/security-overview.md), um ausgehenden Datenverkehr über Netzwerksicherheitsgruppen zu ermöglichen.
 
-Mithilfe von [Regeln für virtuelle Netzwerke](sql-database-vnet-service-endpoint-rule-overview.md) kann Azure SQL-Datenbank nur Verbindungen akzeptieren, die von ausgewählten Subnetzen innerhalb eines virtuellen Netzwerks stammen.
+Mithilfe von [VNET-Regeln](sql-database-vnet-service-endpoint-rule-overview.md) kann Azure SQL-Datenbank nur Verbindungen akzeptieren, die von ausgewählten Subnetzen innerhalb eines virtuellen Netzwerks stammen.
 
 > [!NOTE]
 > Die Zugriffskontrolle mit Firewallregeln gilt *nicht* für **eine verwaltete Instanz**. Weitere Informationen zur erforderlichen Netzwerkkonfiguration finden Sie unter [Herstellen einer Verbindung mit einer verwalteten Instanz](sql-database-managed-instance-connect-app.md).
@@ -66,19 +66,17 @@ Die Authentifizierung ist der Prozess, bei dem bestätigt wird, dass der Benutze
 > [!IMPORTANT]
 > Die Verwaltung von Datenbanken und Servern in Azure wird über die Rollenzuweisungen in Ihrem Portalbenutzerkonto gesteuert. Weitere Informationen zu diesem Artikel finden Sie unter [Rollenbasierte Zugriffssteuerung im Azure-Portal](../role-based-access-control/overview.md). Die Zugriffskontrolle mit Firewallregeln gilt *nicht* für **eine verwaltete Instanz**. Weitere Informationen zur erforderlichen Netzwerkkonfiguration finden Sie im Artikel zum [Herstellen einer Verbindung mit einer verwalteten Instanz](sql-database-managed-instance-connect-app.md).
 
-Der Begriff Autorisierung bezieht sich auf die Berechtigungen, die einem Benutzer in Azure SQL-Datenbank zugeordnet sind und die festlegen, welche Aktionen der Benutzer ausführen darf. Berechtigungen werden durch das Hinzufügen von Benutzerkonten zu [Datenbankrollen](/sql/relational-databases/security/authentication-access/database-level-roles) gesteuert. Diese definieren Berechtigungen auf Datenbankebene oder gewähren dem Benutzer bestimmte [Berechtigungen auf Objektebene](/sql/relational-databases/security/permissions-database-engine). Weitere Informationen finden Sie unter [Anmeldungen und Benutzer](sql-database-manage-logins.md).
+## <a name="authorization"></a>Autorisierung
 
-Es hat sich bewährt, Benutzern eine Rolle mit den geringsten Berechtigungen, die sie für ihre Aufgaben benötigen, zuzuweisen. Das Serveradministratorkonto ist ein Mitglied der Rolle „db_owner“, die über umfassende Berechtigungen verfügt und Benutzern daher mit Vorsicht gewährt werden sollte. Weisen Sie Anwendungen, die Azure SQL-Datenbank verwenden, [Anwendungsrollen](/sql/relational-databases/security/authentication-access/application-roles) mit eingeschränkten Berechtigungen zu. Dadurch wird sichergestellt, dass eine Anwendung, die eine Verbindung mit der Datenbank herstellt, nur über die geringsten Berechtigungen verfügt, die von der Anwendung benötigt werden.
+Der Begriff Autorisierung bezieht sich auf die Berechtigungen, die einem Benutzer in Azure SQL-Datenbank zugeordnet sind und die festlegen, welche Aktionen der Benutzer ausführen darf. Berechtigungen werden gesteuert, indem Benutzerkonten zu [Datenbankrollen](/sql/relational-databases/security/authentication-access/database-level-roles) hinzugefügt und diesen Rollen Berechtigungen auf Datenbankebene zugewiesen oder dem Benutzer bestimmte [Berechtigungen auf Objektebene](/sql/relational-databases/security/permissions-database-engine) erteilt werden. Weitere Informationen finden Sie unter [Anmeldungen und Benutzer](sql-database-manage-logins.md).
+
+Es hat sich bewährt, benutzerdefinierte Rollen bei Bedarf zu erstellen. Fügen Sie dann der Rolle Benutzer mit den geringsten Berechtigungen hinzu, die sie für ihre Aufgaben benötigen. Weisen Sie Benutzern Berechtigungen nicht direkt zu. Das Serveradministratorkonto gehört zur integrierten Rolle „db_owner“, die über umfassende Berechtigungen verfügt und nur wenigen Benutzern mit administrativen Aufgaben erteilt werden sollte. Verwenden Sie bei Azure SQL-Datenbank-Anwendungen die Option [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) zur Angabe des Ausführungskontexts für das aufgerufene Modul, oder verwenden Sie [Anwendungsrollen](/sql/relational-databases/security/authentication-access/application-roles) mit eingeschränkten Berechtigungen. Durch diese Vorgehensweise wird sichergestellt, dass eine Anwendung, die eine Verbindung mit der Datenbank herstellt, nur über die geringsten Berechtigungen verfügt, die von der Anwendung benötigt werden. Diese bewährten Methoden fördern auch die Aufgabentrennung.
 
 ### <a name="row-level-security"></a>Sicherheit auf Zeilenebene
 
-Bei der Sicherheit auf Zeilenebene können Kunden den Zugriff auf Zeilen in einer Datenbanktabelle basierend auf den Merkmalen des Benutzers steuern, der eine Abfrage ausführt (etwa Gruppenmitgliedschaft oder Ausführungskontext). Weitere Informationen finden Sie unter [Sicherheit auf Zeilenebene](/sql/relational-databases/security/row-level-security).
+Bei der Sicherheit auf Zeilenebene können Kunden den Zugriff auf Zeilen in einer Datenbanktabelle basierend auf den Merkmalen des Benutzers steuern, der eine Abfrage ausführt (etwa Gruppenmitgliedschaft oder Ausführungskontext). Sicherheit auf Zeilenebene kann auch verwendet werden, um benutzerdefinierte bezeichnungsbasierte Sicherheitskonzepte zu implementieren. Weitere Informationen finden Sie unter [Sicherheit auf Zeilenebene](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
-
-  Diese Authentifizierungsmethode verwendet einen Benutzernamen und ein Kennwort. 
-
-Eine Übersicht über die Berechtigungen in Azure SQL-Datenbank finden Sie unter [Anmeldungen und Benutzer](sql-database-manage-logins.md#permissions).
 
 ## <a name="threat-protection"></a>Bedrohungsschutz
 
@@ -127,17 +125,11 @@ In Azure werden standardmäßig alle neu erstellten SQL-Datenbanken verschlüsse
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) ist eine Funktion zum Schutz vor dem Zugriff auf vertrauliche Daten (z.B. Kreditkartennummern, nationale Identifikationsnummern oder Daten, die _nur bei Bedarf bekannt sein sollten_), die in bestimmten Datenbankspalten gespeichert sind. Dies schließt Datenbankadministratoren und anderen privilegierte Benutzer ein, die autorisiert sind, für Verwaltungsaufgaben auf die Datenbank zuzugreifen, jedoch keinen Zugriff auf die entsprechenden Daten in den verschlüsselten Spalten benötigen. Die Daten werden immer verschlüsselt. Das bedeutet, dass die verschlüsselten Daten nur für die Verarbeitung durch Clientanwendungen mit Zugriff auf den Verschlüsselungsschlüssel entschlüsselt werden.  Der Verschlüsselungsschlüssel wird nie für SQL verfügbar gemacht und kann im [Windows-Zertifikatspeicher](sql-database-always-encrypted.md) oder in [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md) gespeichert werden.
 
-### <a name="masking"></a>Maskierung
+### <a name="dynamic-data-masking"></a>Dynamische Datenmaskierung
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>Dynamische Datenmaskierung
-
 Die dynamische Datenmaskierung für SQL-Datenbank schränkt die Offenlegung vertraulicher Daten ein, indem sie für nicht berechtigte Benutzer maskiert werden. Mit der dynamischen Datenmaskierung werden in Azure SQL-Datenbank automatisch potenziell sensible Daten ermittelt und direkt umsetzbare Empfehlungen bereitgestellt, um diese Felder mit minimalen Auswirkungen auf die Anwendungsschicht zu maskieren. Hierzu werden die sensiblen Daten im Resultset einer Abfrage in festgelegten Datenbankfeldern verborgen, ohne dass die Daten in der Datenbank geändert werden. Weitere Informationen finden Sie unter [Dynamische Datenmaskierung für SQL-Datenbank](sql-database-dynamic-data-masking-get-started.md).
-
-#### <a name="static-data-masking"></a>Statische Datenmaskierung
-
-Die [statische Datenmaskierung](/sql/relational-databases/security/static-data-masking) ist ein clientseitiges Tool, das in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 Preview 5 und höher verfügbar ist.  Mithilfe der statischen Datenmaskierung können Benutzer eine Kopie einer Datenbank erstellen, in denen die Daten in ausgewählten Spalten dauerhaft maskiert wurden. Zu den verfügbaren Maskierungsfunktionen gehören NULL-Maskierung, Einzelwertmaskierung, Shuffle- oder Gruppenshufflemaskierung und Maskierung mit einer zusammengesetzten Zeichenfolge. Mithilfe der maskierten Kopie der Datenbank können Organisationen die Produktions- und Testumgebungen voneinander trennen, indem sie die maskierte Kopie freigeben. Die vertraulichen Daten sind ausreichend geschützt, und alle anderen Datenbankeigenschaften bleiben erhalten. Das Maskieren von Datenbanken wird empfohlen, wenn ein Zugriff auf die Datenbanken durch Drittanbieter erforderlich ist.
 
 ## <a name="security-management"></a>Sicherheitsverwaltung
 
@@ -158,6 +150,10 @@ Weitere Informationen finden Sie unter [Erste Schritte bei der Datenermittlung u
 ### <a name="compliance"></a>Compliance
 
 Zusätzlich zu den oben aufgeführten Features und Funktionen, mit denen Ihre Anwendung eine Reihe von Sicherheitsanforderungen erfüllen kann, wird Azure SQL-Datenbank außerdem regelmäßigen Überprüfungen unterzogen und ist für eine Reihe von Compliancestandards zertifiziert. Weitere Informationen finden Sie im [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), wo die aktuellste Liste von Compliance-Zertifizierungen für SQL-Datenbank angezeigt wird.
+
+### <a name="feature-restrictions"></a>Featureeinschränkungen
+
+Featureeinschränkungen schützen bei einigen Formen der Einschleusung von SQL-Befehlen vor Preisgabe von Informationen über die Datenbank, selbst wenn die Einschleusung von SQL-Befehlen erfolgreich ist. Weitere Informationen finden Sie unter [Featureeinschränkungen für Azure SQL-Datenbank](sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,26 +1,26 @@
 ---
-title: Kontinuierliche Integration und Entwicklung mit Stream Analytics-Tools
-description: In diesem Artikel wird beschrieben, wie Sie Continuous Integration und Continuous Deployment mithilfe der Visual Studio-Tools für Azure Stream Analytics einrichten.
+title: Kontinuierliche Integration und Entwicklung mit dem Stream Analytics CI/CD NuGet-Paket
+description: In diesem Artikel wird beschrieben, wie Sie Continuous Integration und Continuous Deployment mithilfe des Azure Stream Analytics CI/CD NuGet-Pakets einrichten.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/15/2019
+ms.openlocfilehash: f34139dafffe3d4890f17988114dffdd8b480d2d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122772"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827311"
 ---
-# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Kontinuierliche Integration und Entwicklung mit Stream Analytics-Tools
-In diesem Artikel wird beschrieben, wie Sie Continuous Integration und Continuous Deployment mithilfe der Azure Stream Analytics-Tools für Visual Studio einrichten.
+# <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>Kontinuierliche Integration und Entwicklung mit dem Stream Analytics CI/CD NuGet-Paket
+In diesem Artikel wird beschrieben, wie Sie Continuous Integration und Continuous Deployment mithilfe des Azure Stream Analytics CI/CD NuGet-Pakets einrichten.
 
 Verwenden Sie Version 2.3.0000.0 oder höher der [Stream Analytics-Tools für Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio), um Unterstützung für MSBuild zu erhalten.
 
-Ein NuGet-Paket ist verfügbar: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Es bietet Tools für MSBuild, lokales Ausführen und Bereitstellung zur Unterstützung von Continuous Integration und Continuous Deployment für Stream Analytics Visual Studio-Projekte. 
+Ein NuGet-Paket ist verfügbar: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Es bietet Tools für MSBuild, lokales Ausführen und Bereitstellung zur Unterstützung von Continuous Integration und Continuous Deployment für [Stream Analytics Visual Studio-Projekte](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > Das NuGet-Paket kann nur mit Version 2.3.0000.0 oder höher der Stream Analytics-Tools für Visual Studio verwendet werden. Wenn einige Ihrer Projekte in früheren Versionen von Visual Studio-Tools erstellt wurden, öffnen Sie sie einfach mit Version 2.3.0000.0 oder einer höheren Version, und speichern Sie sie. Dann werden die neuen Funktionen aktiviert. 
 
@@ -46,7 +46,7 @@ Wenn ein Stream Analytics Visual Studio-Projekt erfolgreich erstellt wurde, gene
 Die Standardparameter in der „parameters.json“-Datei werden aus den Einstellungen im Visual Studio-Projekt entnommen. Wenn Sie die Bereitstellung in einer anderen Umgebung ausführen möchten, ersetzen Sie die Parameter entsprechend.
 
 > [!NOTE]
-> Für alle Anmeldeinformationen sind die Standardwerte auf NULL festgelegt. Sie *müssen* die Werte festlegen, bevor Sie eine Bereitstellung in der Cloud ausführen.
+> Für alle Anmeldeinformationen sind die Standardwerte auf NULL festgelegt. Sie **müssen** die Werte festlegen, bevor Sie eine Bereitstellung in der Cloud ausführen.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -90,3 +90,9 @@ Beispiel:
 ```
 
 
+
+## <a name="next-steps"></a>Nächste Schritte
+
+* [Schnellstart: Erstellen eines Azure Stream Analytics-Cloudauftrags in Visual Studio](stream-analytics-quick-create-vs.md)
+* [Lokales Testen von Stream Analytics-Abfragen mit Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Erkunden von Azure Stream Analytics-Aufträgen mit Visual Studio](stream-analytics-vs-tools.md)

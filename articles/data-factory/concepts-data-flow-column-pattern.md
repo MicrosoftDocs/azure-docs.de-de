@@ -1,24 +1,23 @@
 ---
 title: Azure Data Factory Mapping Data Flow – Spaltenmuster
-description: Mit Spaltenmustern von Azure Data Factory Mapping Data Flow werden generalisierte Vorlagenmuster zum Transformieren von Feldern in einem Datenfluss ohne Berücksichtigung der zugrunde liegenden Schemametadaten erstellt.
+description: Erfahren Sie, wie Sie mit Spaltenmustern von Azure Data Factory im Mappingdatenfluss generalisierte Vorlagenmuster zum Transformieren von Feldern in einem Datenfluss ohne Berücksichtigung der zugrunde liegenden Schemametadaten erstellen.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 53d3300ea11a86c34909ba6ce0fd6c8c0c38b4b5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726940"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430760"
 ---
-# <a name="azure-data-factory-mapping-data-flow-concepts"></a>Azure Data Factory Mapping Data Flow-Konzepte
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure Data Factory-Mappingdatenfluss – Spaltenmuster
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Mehrere Azure Data Factory-Datenflusstransformationen unterstützen das Konzept von „Spaltenmustern“, sodass Sie Vorlagenspalten erstellen können, die auf Mustern anstelle von hartcodierten Spaltennamen basieren. Sie können dieses Feature im Ausdrucks-Generator verwenden, um Muster gemäß den Spalten für die Transformation zu definieren, sodass keine exakten, bestimmten Feldnamen erforderlich sind. Muster sind bei sich häufig ändernden eingehenden Quellfeldern hilfreich, insbesondere beim Ändern von Spalten in Textdateien oder NoSQL-Datenbanken. Dies wird manchmal als „Schemaabweichung“ bezeichnet.
+Mehrere Azure Data Factory-Datenflusstransformationen unterstützen das Konzept von „Spaltenmustern“, sodass Sie Vorlagenspalten erstellen können, die auf Mustern anstelle von hartcodierten Spaltennamen basieren. Sie können dieses Feature im Ausdrucks-Generator verwenden, um Muster gemäß den Spalten für die Transformation zu definieren, sodass keine exakten, bestimmten Feldnamen erforderlich sind. Muster sind bei sich häufig ändernden eingehenden Quellfeldern hilfreich, insbesondere beim Ändern von Spalten in Textdateien oder NoSQL-Datenbanken. Diese Bedingung wird manchmal als „Schemaabweichung“ bezeichnet.
 
 ![Spaltenmuster](media/data-flow/columnpattern2.png "Spaltenmuster")
 

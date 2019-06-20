@@ -3,22 +3,22 @@ title: Referenz für die API für die Bing-Suche nach ortsansässigen Unternehme
 description: Beschreibt die Programmierelemente der API für die Bing-Suche nach ortsansässigen Unternehmen.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65796742"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referenz für die API für die Bing-Suche nach ortsansässigen Unternehmen v7
 
-Die API für die Suche nach ortsansässigen Unternehmen sendet eine Suchabfrage an Bing, um Ergebnisse zu erhalten, die Restaurants, Hotels oder andere lokale Unternehmen umfassen. Für Orte kann die Abfrage den Namen des ortsansässigen Unternehmens oder eine Kategorie angeben (z.B. Restaurants in meiner Nähe). Entitätsergebnisse enthalten Personen, Orte oder Gegenstände. Orte sind in diesem Zusammenhang Geschäftsentitäten, Staaten, Länder, etc.  
+Die API für die Suche nach ortsansässigen Unternehmen sendet eine Suchabfrage an Bing, um Ergebnisse zu erhalten, die Restaurants, Hotels oder andere lokale Unternehmen umfassen. Für Orte kann die Abfrage den Namen des ortsansässigen Unternehmens oder eine Kategorie angeben (z.B. Restaurants in meiner Nähe). Entitätsergebnisse enthalten Personen, Orte oder Gegenstände. Orte sind in diesem Zusammenhang Geschäftsentitäten, Staaten, Länder/Regionen, usw.  
 
 Dieser Abschnitt enthält technische Details zu Antwortobjekten und die Abfrageparameter und Header, die die Suchergebnisse beeinflussen. Beispiele zum Ausführen von Abfragen finden Sie in [Schnellstart: Suche nach ortsansässigen Unternehmen mit C#](quickstarts/local-quickstart.md) oder [Schnellstart: Suche nach ortsansässigen Unternehmen mit Java](quickstarts/local-search-java-quickstart.md). 
   
@@ -72,21 +72,21 @@ Die Anforderung kann die folgenden Abfrageparameter enthalten. Die erforderliche
   
 |NAME|Wert|Type|Erforderlich|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|Die Anzahl der zurückzugebenden Ergebnisse, beginnend mit dem durch den Parameter `offset` angegebenen Index.|Zeichenfolge|Nein |   
-|<a name="localCategories" />localCategories|Liste der Optionen, die die Suche nach Unternehmenskategorie definieren.  Weitere Informationen finden Sie unter [Kategorien für die Suche nach ortsansässigen Unternehmen](local-categories.md).|Zeichenfolge|Nein |  
-|<a name="mkt" />mkt|Der Markt, aus dem die Ergebnisse stammen. <br /><br />Eine Liste der möglichen Marktwerte finden Sie unter „Marktcodes“.<br /><br /> **HINWEIS:** Die API für die Suche nach ortsansässigen Unternehmen unterstützt zurzeit nur den Markt und die Sprache „en-us“.<br /><br />|Zeichenfolge|Ja|
-|<a name="offset"/>offset|Der Index, der die Ergebnisse startet, die durch den Parameter `count` angegeben werden.|Ganze Zahl |Nein |  
-|<a name="query" />q|Der Suchbegriff des Benutzers.|Zeichenfolge|Nein |  
-|<a name="responseformat" />responseFormat|Der Medientyp, der für die Antwort verwendet werden soll. Die folgenden Werte (ohne Beachtung von Groß-/Kleinschreibung) sind möglich.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Der Standardwert ist JSON. Weitere Informationen zu den JSON-Objekten, die die Antwort enthält, finden Sie unter [Antwortobjekte](#response-objects).<br /><br />  Wenn Sie JsonLd angeben, enthält der Antworttext die JSON-LD-Objekte, die die Suchergebnisse enthalten. Informationen zu JSON-LD finden Sie unter [JSON-LD](https://json-ld.org/).|Zeichenfolge|Nein |  
-|<a name="safesearch" />safeSearch|Ein Filter für nicht jugendfreie Inhalte. Die folgenden Filterwerte (ohne Beachtung von Groß-/Kleinschreibung) sind möglich.<br /><ul><li>Off: Es werden Webseiten mit nicht jugendfreiem Text oder Bildern zurückgegeben.<br /><br/></li><li>Moderate: Webseiten mit nicht jugendfreiem Text werden zurückgegeben, nicht jugendfreie Bilder oder Videos jedoch nicht.<br /><br/></li><li>Strict: Es werden keine Webseiten mit nicht jugendfreiem Text bzw. nicht jugendfreien Bildern oder Videos zurückgegeben.</li></ul><br /> Die Standardeinstellung ist „Moderate“.<br /><br /> **HINWEIS:** Stammt die Anforderung aus einem Markt, für den laut Bing-Richtlinien zu nicht jugendfreien Inhalten für `safeSearch` die Einstellung „Strict“ erforderlich ist, ignoriert Bing den `safeSearch`-Wert und verwendet stattdessen „Strict“.<br/><br/>**HINWEIS:** Bei Verwendung des Abfrageoperators `site:` kann es vorkommen, dass die Antwort unabhängig von der Einstellung des `safeSearch`-Abfrageparameters nicht jugendfreie Inhalte enthält. Verwenden Sie `site:` nur, wenn Sie wissen, welche Inhalte die Website enthält, und wenn in Ihrem Szenario ggf. auch nicht jugendfreie Inhalte zulässig sind. |Zeichenfolge|Nein |  
-|<a name="setlang" />setLang|Die Sprache, die für Zeichenfolgen der Benutzeroberfläche verwendet werden soll. Geben Sie die Sprache mithilfe des zweistelligen Sprachcodes nach ISO 639-1 an. Der Sprachcode für Englisch lautet z.B. „EN“. Der Standardwert ist „EN“ (Englisch).<br /><br /> Auch wenn dies optional ist, sollten Sie immer eine Sprache angeben. In der Regel wird bei `setLang` dieselbe Sprache angegeben wie bei `mkt`, sofern der Benutzer die Zeichenfolgen der Benutzeroberfläche nicht in einer anderen Sprache anzeigen möchte.<br /><br /> Dieser Parameter und der Header [Accept-Language](#acceptlanguage) schließen sich gegenseitig aus. Geben Sie daher nicht beide an.<br /><br /> Eine Zeichenfolge der Benutzeroberfläche ist eine Zeichenfolge, die als Bezeichnung in einer Benutzeroberfläche verwendet wird. Die JSON-Antwortobjekte enthalten nur wenige Zeichenfolgen für Benutzeroberflächen. Die angegebene Sprache wird auch in Links zu Eigenschaften von „bing.com“ in den Antwortobjekten verwendet.|Zeichenfolge|Nein | 
+|<a name="count" />count|Die Anzahl der zurückzugebenden Ergebnisse, beginnend mit dem durch den Parameter `offset` angegebenen Index.|string|Nein|   
+|<a name="localCategories" />localCategories|Liste der Optionen, die die Suche nach Unternehmenskategorie definieren.  Weitere Informationen finden Sie unter [Kategorien für die Suche nach ortsansässigen Unternehmen](local-categories.md).|string|Nein|  
+|<a name="mkt" />mkt|Der Markt, aus dem die Ergebnisse stammen. <br /><br />Eine Liste der möglichen Marktwerte finden Sie unter „Marktcodes“.<br /><br /> **HINWEIS:** Die API für die Suche nach ortsansässigen Unternehmen unterstützt zurzeit nur den Markt und die Sprache „en-us“.<br /><br />|string|Ja|
+|<a name="offset"/>offset|Der Index, der die Ergebnisse startet, die durch den Parameter `count` angegeben werden.|Integer|Nein|  
+|<a name="query" />q|Der Suchbegriff des Benutzers.|string|Nein|  
+|<a name="responseformat" />responseFormat|Der Medientyp, der für die Antwort verwendet werden soll. Die folgenden Werte (ohne Beachtung von Groß-/Kleinschreibung) sind möglich.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Der Standardwert ist JSON. Weitere Informationen zu den JSON-Objekten, die die Antwort enthält, finden Sie unter [Antwortobjekte](#response-objects).<br /><br />  Wenn Sie JsonLd angeben, enthält der Antworttext die JSON-LD-Objekte, die die Suchergebnisse enthalten. Informationen zu JSON-LD finden Sie unter [JSON-LD](https://json-ld.org/).|string|Nein|  
+|<a name="safesearch" />safeSearch|Ein Filter für nicht jugendfreie Inhalte. Die folgenden Filterwerte (ohne Beachtung von Groß-/Kleinschreibung) sind möglich.<br /><ul><li>Off: Es werden Webseiten mit nicht jugendfreiem Text oder Bildern zurückgegeben.<br /><br/></li><li>Moderate: Webseiten mit nicht jugendfreiem Text werden zurückgegeben, nicht jugendfreie Bilder oder Videos jedoch nicht.<br /><br/></li><li>Strict: Es werden keine Webseiten mit nicht jugendfreiem Text bzw. nicht jugendfreien Bildern oder Videos zurückgegeben.</li></ul><br /> Die Standardeinstellung ist „Moderate“.<br /><br /> **HINWEIS:** Stammt die Anforderung aus einem Markt, für den laut Bing-Richtlinien zu nicht jugendfreien Inhalten für `safeSearch` die Einstellung „Strict“ erforderlich ist, ignoriert Bing den `safeSearch`-Wert und verwendet stattdessen „Strict“.<br/><br/>**HINWEIS:** Bei Verwendung des Abfrageoperators `site:` kann es vorkommen, dass die Antwort unabhängig von der Einstellung des `safeSearch`-Abfrageparameters nicht jugendfreie Inhalte enthält. Verwenden Sie `site:` nur, wenn Sie wissen, welche Inhalte die Website enthält, und wenn in Ihrem Szenario ggf. auch nicht jugendfreie Inhalte zulässig sind. |string|Nein|  
+|<a name="setlang" />setLang|Die Sprache, die für Zeichenfolgen der Benutzeroberfläche verwendet werden soll. Geben Sie die Sprache mithilfe des zweistelligen Sprachcodes nach ISO 639-1 an. Der Sprachcode für Englisch lautet z.B. „EN“. Der Standardwert ist „EN“ (Englisch).<br /><br /> Auch wenn dies optional ist, sollten Sie immer eine Sprache angeben. In der Regel wird bei `setLang` dieselbe Sprache angegeben wie bei `mkt`, sofern der Benutzer die Zeichenfolgen der Benutzeroberfläche nicht in einer anderen Sprache anzeigen möchte.<br /><br /> Dieser Parameter und der Header [Accept-Language](#acceptlanguage) schließen sich gegenseitig aus. Geben Sie daher nicht beide an.<br /><br /> Eine Zeichenfolge der Benutzeroberfläche ist eine Zeichenfolge, die als Bezeichnung in einer Benutzeroberfläche verwendet wird. Die JSON-Antwortobjekte enthalten nur wenige Zeichenfolgen für Benutzeroberflächen. Die angegebene Sprache wird auch in Links zu Eigenschaften von „bing.com“ in den Antwortobjekten verwendet.|string|Nein| 
 
 
 ## <a name="response-objects"></a>Antwortobjekte  
 Im Folgenden finden Sie die JSON-Antwortobjekte, die die Antwort enthalten können. Wenn die Anforderung erfolgreich ist, ist das Objekt der obersten Ebene in der Antwort das [SearchResponse](#searchresponse) Objekt. Wenn die Anforderung fehlschlägt, ist das Objekt auf oberster Ebene das [ErrorResponse](#errorresponse)-Objekt.
 
 
-|Objekt|BESCHREIBUNG|  
+|Object|BESCHREIBUNG|  
 |------------|-----------------|  
 |[Place](#place)|Definiert Informationen zu einem ortsansässigen Unternehmen, z.B. ein Restaurant oder Hotel.|  
 
@@ -96,12 +96,12 @@ Definiert den aufgetretenen Fehler.
   
 |Element|BESCHREIBUNG|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|Der Fehlercode, der die Kategorie des Fehlers angibt. Eine Liste der möglichen Codes finden Sie unter [Fehlercodes](#error-codes).|Zeichenfolge|  
-|<a name="error-message" />message|Eine Beschreibung des Fehlers.|Zeichenfolge|  
-|<a name="error-moredetails" />moreDetails|Eine Beschreibung, die zusätzliche Informationen zum Fehler enthält.|Zeichenfolge|  
-|<a name="error-parameter" />parameter|Der Abfrageparameter in der Anforderung, der den Fehler verursacht hat.|Zeichenfolge|  
-|<a name="error-subcode" />subCode|Der Fehlercode, der den Fehler identifiziert. Wenn `code` z.B. InvalidRequest ist, kann `subCode` ParameterInvalid oder ParameterInvalidValue sein. |Zeichenfolge|  
-|<a name="error-value" />value|Der Wert des Abfrageparameters, der ungültig war.|Zeichenfolge|  
+|<a name="error-code" />code|Der Fehlercode, der die Kategorie des Fehlers angibt. Eine Liste der möglichen Codes finden Sie unter [Fehlercodes](#error-codes).|string|  
+|<a name="error-message" />message|Eine Beschreibung des Fehlers.|string|  
+|<a name="error-moredetails" />moreDetails|Eine Beschreibung, die zusätzliche Informationen zum Fehler enthält.|string|  
+|<a name="error-parameter" />parameter|Der Abfrageparameter in der Anforderung, der den Fehler verursacht hat.|string|  
+|<a name="error-subcode" />subCode|Der Fehlercode, der den Fehler identifiziert. Wenn `code` z.B. InvalidRequest ist, kann `subCode` ParameterInvalid oder ParameterInvalidValue sein. |string|  
+|<a name="error-value" />value|Der Wert des Abfrageparameters, der ungültig war.|string|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
@@ -109,7 +109,7 @@ Das Objekt auf oberster Ebene, das die Antwort enthält, wenn die Anforderung fe
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Der Typhinweis.|Zeichenfolge|  
+|_type|Der Typhinweis.|string|  
 |<a name="errors" />errors|Eine Liste von Fehlern, die die Gründe beschreiben, warum die Anforderung fehlgeschlagen ist.|[Error](#error)[]|  
 
   
@@ -119,8 +119,8 @@ Definiert die Lizenz, unter der der Text oder das Foto verwendet werden kann.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|name|Der Name der Lizenz.|Zeichenfolge|  
-|URL|Die URL zu einer Website, auf der der Benutzer weitere Informationen zur Lizenz erhalten kann.<br /><br /> Verwenden Sie den Namen und die URL, um einen Link zu erstellen.|Zeichenfolge|  
+|name|Der Name der Lizenz.|string|  
+|url|Die URL zu einer Website, auf der der Benutzer weitere Informationen zur Lizenz erhalten kann.<br /><br /> Verwenden Sie den Namen und die URL, um einen Link zu erstellen.|string|  
 
 
 ### <a name="link"></a>Link  
@@ -128,9 +128,9 @@ Definiert die Komponenten eines Links.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Der Typhinweis.|Zeichenfolge|  
-|text|Der Anzeigetext.|Zeichenfolge|  
-|URL|Eine URL. Verwenden Sie die URL und den Anzeigetext, um einen Link zu erstellen.|Zeichenfolge|  
+|_type|Der Typhinweis.|string|  
+|text|Der Anzeigetext.|string|  
+|url|Eine URL. Verwenden Sie die URL und den Anzeigetext, um einen Link zu erstellen.|string|  
   
 
 
@@ -142,8 +142,8 @@ Beachten Sie, dass ein Herausgeber möglicherweise seinen Namen oder seine Websi
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|name|Der Name des Herausgebers.|Zeichenfolge|  
-|URL|Die URL zur Website des Herausgebers.<br /><br /> Beachten Sie, dass der Herausgeber möglicherweise keine Website bereitstellt.|Zeichenfolge|  
+|name|Der Name des Herausgebers.|string|  
+|url|Die URL zur Website des Herausgebers.<br /><br /> Beachten Sie, dass der Herausgeber möglicherweise keine Website bereitstellt.|string|  
   
   
 
@@ -152,13 +152,13 @@ Definiert Informationen zu einem ortsansässigen Unternehmen, z.B. ein Restauran
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Der Typhinweis, die auf einen der folgenden Werte festgelegt werden kann:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|Zeichenfolge|  
+|_type|Der Typhinweis, die auf einen der folgenden Werte festgelegt werden kann:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|string|  
 |address|Die Postadresse, an der sich die Entität befindet.|PostalAddress|  
 |entityPresentationInfo|Weitere Informationen zur Entität z.B. Hinweise, die Sie zum Bestimmen des Entitätstypen verwenden können. Beispielsweise, ob es sich um ein Restaurant oder Hotel handelt. Die Feld `entityScenario` auf „ListItem“ festgelegt.|EntityPresentationInfo|  
-|name|Der Name der Entität.|Zeichenfolge|  
-|telephone|Die Telefonnummer der Entität.|Zeichenfolge|  
-|URL|Die URL zur Website der Entität.<br /><br /> Verwenden Sie diese URL zusammen mit dem Namen der Entität, um einen Hyperlink zu erstellen, der den Benutzer beim Anklicken auf die Website der Entität führt.|Zeichenfolge|  
-|webSearchUrl|Die URL zum Bing-Suchergebnis für diesen Ort.|Zeichenfolge| 
+|name|Der Name der Entität.|string|  
+|telephone|Die Telefonnummer der Entität.|string|  
+|url|Die URL zur Website der Entität.<br /><br /> Verwenden Sie diese URL zusammen mit dem Namen der Entität, um einen Hyperlink zu erstellen, der den Benutzer beim Anklicken auf die Website der Entität führt.|string|  
+|webSearchUrl|Die URL zum Bing-Suchergebnis für diesen Ort.|string| 
   
   
 ### <a name="querycontext"></a>QueryContext  
@@ -166,17 +166,17 @@ Definiert den Abfragekontext, den Bing für die Anforderung verwendet hat.
   
 |Element|BESCHREIBUNG|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Ein boolescher Wert, der angibt, ob die angegebene Abfrage nicht jugendfreie Inhalte aufweist. Der Wert ist **TRUE**, wenn die Abfrage nicht jugendfreie Inhalte aufweist, andernfalls ist er **FALSE**.|Boolescher Wert|  
-|alterationOverrideQuery|Die zu verwendende Abfragezeichenfolge, um Bing zu zwingen, die ursprüngliche Zeichenfolge zu verwenden. Wenn die Abfragezeichenfolge z.B. *saling downwind* lautet, lautet die Abfragezeichenfolge zum Überschreiben *+saling downwind*. Denken Sie daran, die Abfragezeichenfolge mit den Ergebnissen in *%2Bsaling+downwind* zu codieren.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|Zeichenfolge|  
-|alteredQuery|Die Abfragezeichenfolge, die von Bing verwendet wird, um die Abfrage auszuführen. Bing verwendet die geänderte Abfragezeichenfolge, wenn die ursprüngliche Abfragezeichenfolge Rechtschreibfehler enthielt. Wenn die Abfragezeichenfolge z.B. `saling downwind` lautet, lautet die geänderten Abfragezeichenfolge `sailing downwind`.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|Zeichenfolge|  
-|askUserForLocation|Ein boolescher Wert, der angibt, ob Bing den Standort des Benutzers benötigt, um genaue Ergebnisse bereitzustellen. Wenn Sie den Standort des Benutzers mithilfe der [X-MSEdge-ClientIP](#clientip)- und [X-Search-Location](#location)-Header angegeben haben, können Sie dieses Feld ignorieren.<br /><br /> Für standortaktivierte Abfragen (z.B. „Wetter heute“ oder „Restaurants in meiner Nähe“), die den Standort des Benutzers benötigen, um genaue Ergebnisse zu liefern, ist dieses Feld auf **TRUE** festgelegt.<br /><br /> Für standortaktivierte Abfragen, die den Standort beinhalten (z.B. „Wetter in Seattle“), ist dieses Feld auf **FALSE** festgelegt. Dieses Feld wird auch für Abfragen auf **FALSE** festgelegt, die nicht standortaktiviert sind, z.B. „Beste Verkäufer“.|Boolescher Wert|  
-|originalQuery|Die Abfragezeichenfolge wie in der Anforderung angegeben.|Zeichenfolge|  
+|adultIntent|Ein boolescher Wert, der angibt, ob die angegebene Abfrage nicht jugendfreie Inhalte aufweist. Der Wert ist **TRUE**, wenn die Abfrage nicht jugendfreie Inhalte aufweist, andernfalls ist er **FALSE**.|Boolean|  
+|alterationOverrideQuery|Die zu verwendende Abfragezeichenfolge, um Bing zu zwingen, die ursprüngliche Zeichenfolge zu verwenden. Wenn die Abfragezeichenfolge z.B. *saling downwind* lautet, lautet die Abfragezeichenfolge zum Überschreiben *+saling downwind*. Denken Sie daran, die Abfragezeichenfolge mit den Ergebnissen in *%2Bsaling+downwind* zu codieren.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|string|  
+|alteredQuery|Die Abfragezeichenfolge, die von Bing verwendet wird, um die Abfrage auszuführen. Bing verwendet die geänderte Abfragezeichenfolge, wenn die ursprüngliche Abfragezeichenfolge Rechtschreibfehler enthielt. Wenn die Abfragezeichenfolge z.B. `saling downwind` lautet, lautet die geänderten Abfragezeichenfolge `sailing downwind`.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|string|  
+|askUserForLocation|Ein boolescher Wert, der angibt, ob Bing den Standort des Benutzers benötigt, um genaue Ergebnisse bereitzustellen. Wenn Sie den Standort des Benutzers mithilfe der [X-MSEdge-ClientIP](#clientip)- und [X-Search-Location](#location)-Header angegeben haben, können Sie dieses Feld ignorieren.<br /><br /> Für standortaktivierte Abfragen (z.B. „Wetter heute“ oder „Restaurants in meiner Nähe“), die den Standort des Benutzers benötigen, um genaue Ergebnisse zu liefern, ist dieses Feld auf **TRUE** festgelegt.<br /><br /> Für standortaktivierte Abfragen, die den Standort beinhalten (z.B. „Wetter in Seattle“), ist dieses Feld auf **FALSE** festgelegt. Dieses Feld wird auch für Abfragen auf **FALSE** festgelegt, die nicht standortaktiviert sind, z.B. „Beste Verkäufer“.|Boolean|  
+|originalQuery|Die Abfragezeichenfolge wie in der Anforderung angegeben.|string|  
 
 ### <a name="identifiable"></a>Identifiable
 
 |NAME|Wert|Type|  
 |-------------|-----------------|----------|
-|id|Ein Ressourcenbezeichner.|Zeichenfolge|
+|id|Ein Ressourcenbezeichner.|string|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definiert eine Suchergebnisgruppe, z.B. „mainline“.
@@ -190,8 +190,8 @@ Definiert ein anzuzeigendes Suchergebniselement.
 
 |NAME|Wert|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Ein nullbasierter Index des Elements in der Antwort, das angezeigt werden soll. Wenn das Element dieses Feld nicht enthält, werden alle Elemente in der Antwort angezeigt. Beispielsweise werden alle Artikel in der News-Antwort angezeigt.|Ganze Zahl |
-|answerType|Die Antwort, die das anzuzeigende Element enthält. Beispiel: News.<br /><br />Verwenden Sie den Typ, um nach der Antwort im SearchResponse-Objekt zu suchen. Der Typ ist der Name eines SearchResponse-Felds.<br /><br /> Verwenden Sie diesen Antworttyp jedoch nur, wenn dieses Objekt das value-Feld enthält. Ignorieren Sie ihn andernfalls.|Zeichenfolge|
+|resultIndex|Ein nullbasierter Index des Elements in der Antwort, das angezeigt werden soll. Wenn das Element dieses Feld nicht enthält, werden alle Elemente in der Antwort angezeigt. Beispielsweise werden alle Artikel in der News-Antwort angezeigt.|Integer|
+|answerType|Die Antwort, die das anzuzeigende Element enthält. Beispiel: News.<br /><br />Verwenden Sie den Typ, um nach der Antwort im SearchResponse-Objekt zu suchen. Der Typ ist der Name eines SearchResponse-Felds.<br /><br /> Verwenden Sie diesen Antworttyp jedoch nur, wenn dieses Objekt das value-Feld enthält. Ignorieren Sie ihn andernfalls.|string|
 |textualIndex|Der Index der Antwort in textualAnswers, die angezeigt werden soll.| Ganze Zahl ohne Vorzeichen|
 |value|Die ID, die eine anzuzeigende Antwort oder ein anzuzeigendes Element einer Antwort identifiziert. Wenn die ID eine Antwort identifiziert, werden alle Elemente der Antwort angezeigt.|Identifiable|
 
@@ -211,7 +211,7 @@ Beachten Sie Folgendes: Wenn der Dienst einen Denial-of-Service-Angriff vermutet
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Der Typhinweis, der auf SearchResponse festgelegt wird.|Zeichenfolge|  
+|_type|Der Typhinweis, der auf SearchResponse festgelegt wird.|string|  
 |places|Eine Liste der Entitäten, die für die Suchabfrage relevant sind.|JSON-Objekt|  
 |queryContext|Ein Objekt, das die Abfragezeichenfolge enthält, die Bing für die Anforderung verwendet.<br /><br /> Dieses Objekt enthält die Abfragezeichenfolge, wie Sie vom Benutzer eingegeben wurde. Es kann auch eine geänderte Abfragezeichenfolge enthalten, die Bing für die Abfrage verwendet hat, wenn die Abfragezeichenfolge einen Rechtschreibfehler enthält.|[QueryContext](#querycontext)|  
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
 ms.openlocfilehash: 81a3064290e0aa720a4fe6b0fa0d8eb13cfe6903
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141797"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60318917"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Remotedesktopverbindung mit Azure Virtual Machines aufgrund einer statischen IP-Adresse nicht möglich
 

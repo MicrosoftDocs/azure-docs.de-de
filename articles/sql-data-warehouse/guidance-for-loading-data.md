@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load data
-ms.date: 04/17/2018
+ms.date: 05/31/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 905f14e025ae7995635962abf1cccc3afe7f5f35
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 1b5af710feb743a30ac4a2af94b6e7e8b6c56595
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65857022"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479892"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Bewährte Methoden zum Laden von Daten in Azure SQL Data Warehouse
 
@@ -102,7 +102,9 @@ Wenn Sie im Laufe eines Tages über Tausende oder mehr einzelne Einfügungen ver
 
 ## <a name="creating-statistics-after-the-load"></a>Erstellen von Statistiken nach dem Laden
 
-Zur Verbesserung der Abfrageleistung ist es wichtig, nach dem ersten Laden oder nach Datenänderungen Statistiken für alle Spalten sämtlicher Tabellen zu erstellen.  Eine ausführliche Erläuterung von Statistiken finden Sie unter [Statistiken](sql-data-warehouse-tables-statistics.md). Im folgenden Beispiel werden Statistiken für fünf Spalten der Tabelle „Customer_Speed“ erstellt.
+Zur Verbesserung der Abfrageleistung ist es wichtig, nach dem ersten Laden oder nach Datenänderungen Statistiken für alle Spalten sämtlicher Tabellen zu erstellen.  Dies kann manuell ausgeführt werden, oder Sie können das [automatische Erstellen von Statistiken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) aktivieren.
+
+Eine ausführliche Erläuterung von Statistiken finden Sie unter [Statistiken](sql-data-warehouse-tables-statistics.md). Im folgenden Beispiel wird gezeigt, wie Statistiken für fünf Spalten der Tabelle „Customer_Speed“ manuell erstellt werden.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

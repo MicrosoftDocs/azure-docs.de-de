@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
 ms.openlocfilehash: 02312a19c687908b0e1c0e6417dc6b0a9df23912
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669468"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125084"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Erstellen eines Service Fabric-Clusters in Azure über das Azure-Portal
 > [!div class="op_single_selector"]

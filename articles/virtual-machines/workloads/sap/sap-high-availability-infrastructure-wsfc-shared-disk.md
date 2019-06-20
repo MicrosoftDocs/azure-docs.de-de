@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408773"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Vorbereiten der Azure-Infrastruktur für SAP HA mit einem Windows-Failovercluster und einem freigegebenen Datenträger für SAP ASCS/SCS
@@ -204,7 +204,7 @@ _**Abbildung 1:** Festlegen von Azure Resource Manager-Parametern für die Hochv
     * \<SAPSystemSID\>-nic-ascs-\<Anzahl\>
     * \<SAPSystemSID\>-nic-db-\<Anzahl\>
 
-  * **Azure-Speicherkonten (nur nicht verwaltete Datenträger)**:
+  * **Azure-Speicherkonten (nur nicht verwaltete Datenträger)** :
 
   * **Verfügbarkeitsgruppen** für:
     * Virtuelle Computer für SAP-Anwendungsserver: \<SAPSystemSID\>-avset-di

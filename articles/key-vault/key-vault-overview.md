@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4169a288ba85a7a7d83f77a8de8f6a4ef9bf0eac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 456f828f09a710009d30e1c0a669cde658318ae0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700403"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789370"
 ---
 # <a name="what-is-azure-key-vault"></a>Was ist der Azure-Schlüsseltresor?
 
@@ -42,7 +42,7 @@ Ein Aufrufer (Benutzer oder Anwendung) kann erst nach ordnungsgemäßer Authenti
 
 Die Authentifizierung erfolgt über Azure Active Directory. Für die Autorisierung kann die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) oder eine Key Vault-Zugriffsrichtlinie verwendet werden. RBAC kommt bei der Verwaltung der Tresore zum Einsatz. Eine Key Vault-Zugriffsrichtlinie wird für den Zugriff auf gespeicherte Daten in einem Tresor verwendet.
 
-Azure Key Vault-Instanzen können durch Software oder Hardware (HSM) geschützt werden. In Szenarien mit erhöhten Sicherheitsanforderungen können Sie Schlüssel in Hardwaresicherheitsmodule (HSMs) importieren oder darin generieren. Diese Schlüssel bleiben immer innerhalb der HSM-Grenzen. Microsoft verwendet Hardwaresicherheitsmodule von Thales. Sie können Thales-Tools verwenden, um einen Schlüssel aus Ihrem HSM in Azure Key Vault zu verschieben.
+Azure Key Vault-Instanzen können durch Software oder Hardware (HSM) geschützt werden. In Szenarien mit erhöhten Sicherheitsanforderungen können Sie Schlüssel in Hardwaresicherheitsmodule (HSMs) importieren oder darin generieren. Diese Schlüssel bleiben immer innerhalb der HSM-Grenzen. Microsoft verwendet Hardwaresicherheitsmodule von nCipher. Sie können nCipher-Tools verwenden, um einen Schlüssel aus Ihrem HSM zu Azure Key Vault zu verschieben.
 
 Darüber hinaus ist Azure Key Vault so konzipiert, dass Ihre Daten von Microsoft weder angezeigt noch extrahiert werden können.
 

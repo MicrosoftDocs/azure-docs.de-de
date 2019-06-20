@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 8659ecab649216650403f3a992cc6e356e5de5d0
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053223"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823583"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Nutzungsbedingungsfeature für Azure Active Directory
 Mit den Azure AD-Nutzungsbedingungen können Organisationen komfortabel Informationen für Endbenutzer anzeigen. Dadurch wird sichergestellt, dass Benutzern relevante Haftungsausschlüsse angezeigt werden, um rechtliche oder compliancebezogene Anforderungen zu erfüllen. Dieser Artikel enthält eine Einführung in die Verwendung der Nutzungsbedingungen.
@@ -34,8 +34,8 @@ Das folgende Video enthält eine kurze Übersicht über die Nutzungsbedingungen.
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
 Weitere Videos finden Sie unter:
-- [How to deploy Terms of use in Azure Active Directory (Bereitstellen der Nutzungsbedingungen in Azure Active Directory)](https://www.youtube.com/embed/N4vgqHO2tgY)
-- [How to roll out Terms of use in Azure Active Directory (Rollout der Nutzungsbedingungen in Azure Active Directory)](https://www.youtube.com/embed/t_hA4y9luCY)
+- [How to deploy Terms of use in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY) (Gewusst wie: Bereitstellen der Nutzungsbedingungen in Azure Active Directory)
+- [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY) (Gewusst wie: Durchführen des Rollouts für die Nutzungsbedingungen in Azure Active Directory)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>Welche Möglichkeiten bieten die Nutzungsbedingungen?
 Für die Azure AD-Nutzungsbedingungen können Sie folgendes festlegen:
@@ -108,7 +108,7 @@ Gehen Sie nach Fertigstellung Ihres Dokuments mit Nutzungsbedingungen wie folgt 
     | Alina | 1. Januar | 1. Februar | 1. März | 1. April |
     | Bernd | 15. Januar | 1. Februar | 1. März | 1. April |
 
-1. Verwenden Sie die Einstellung **Zeitraum bis erneute Zustimmung erforderlich ist (Tage)**, um die Anzahl von Tagen anzugeben, nach denen der Benutzer den Nutzungsbedingungen spätestens erneut zustimmen muss. Dies ermöglicht es den Benutzern, ihrem eigenen Zeitplan zu folgen. Wenn Sie beispielsweise den Zeitraum auf **30** Tage festlegen, können sich für zwei Benutzer die folgenden Ablauftermine ergeben:
+1. Verwenden Sie die Einstellung **Zeitraum bis erneute Zustimmung erforderlich ist (Tage)** , um die Anzahl von Tagen anzugeben, nach denen der Benutzer den Nutzungsbedingungen spätestens erneut zustimmen muss. Dies ermöglicht es den Benutzern, ihrem eigenen Zeitplan zu folgen. Wenn Sie beispielsweise den Zeitraum auf **30** Tage festlegen, können sich für zwei Benutzer die folgenden Ablauftermine ergeben:
 
     | Benutzer | Erstes Zustimmungsdatum | Erstes Ablaufdatum | Zweites Ablaufdatum | Drittes Ablaufdatum |
     | --- | --- | --- | --- | --- |
@@ -154,7 +154,7 @@ Auf dem Blatt für die Nutzungsbedingungen wird angezeigt, wie viele Benutzer di
 
     ![Zustimmungen zu Nutzungsbedingungen](./media/terms-of-use/accepted-tou.png)
 
-1. Um den Verlauf für einen einzelnen Benutzer anzuzeigen, klicken Sie auf die Auslassungspunkte (**...**) und dann auf **Verlauf anzeigen**.
+1. Um den Verlauf für einen einzelnen Benutzer anzuzeigen, klicken Sie auf die Auslassungspunkte ( **...** ) und dann auf **Verlauf anzeigen**.
 
     ![Menü „Verlauf anzeigen“](./media/terms-of-use/view-history-menu.png)
 
@@ -345,11 +345,11 @@ Sie können für die App Microsoft Intune-Registrierung eine Richtlinie für bed
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-**F: Wie sehe ich, wann bzw. ob ein Benutzer die Nutzungsbedingungen akzeptiert hat?**<br />
+**F: Wie sehe ich, wann/ob ein Benutzer Nutzungsbedingungen akzeptiert hat?**<br />
 A: Klicken Sie auf dem Blatt für Nutzungsbedingungen auf die Zahl unter **Akzeptiert**. Sie können die Zustimmungsaktivität auch in den Azure AD-Überwachungsprotokollen anzeigen oder suchen. Weitere Informationen finden Sie unter „Anzeigen des Berichts über abgelehnte und akzeptierte Nutzungsbedingungen“ und [Anzeigen der Azure AD-Überwachungsprotokolle](#view-azure-ad-audit-logs).
 
 **F: Wie lange werden die Informationen gespeichert?**<br />
-A: Die Benutzeranzahl im Bericht zu den Nutzungsbedingungen sowie die Angabe, wer die Bedingungen akzeptiert/abgelehnt hat, werden für die Lebensdauer der Nutzungsbedingungen gespeichert. Die Azure AD-Überwachungsprotokolle werden 30 Tage lang gespeichert.
+A: Die Benutzeranzahl im Bericht zu den Nutzungsbedingungen sowie die Angabe, wer die Bedingungen akzeptiert/abgelehnt hat, werden für die Lebensdauer der Nutzungsbedingungen gespeichert. Die Azure AD-Überwachungsprotokolle werden 30 Tage lang gespeichert.
 
 **F: Warum sehe ich eine andere Anzahl von Zustimmungen im Bericht zu den Nutzungsbedingungen als in den Azure AD-Überwachungsprotokollen?**<br />
 A: Der Bericht zu den Nutzungsbedingungen wird für die Lebensdauer dieser Nutzungsbedingungen gespeichert, während die Azure AD-Überwachungsprotokolle (nur) 30 Tage lang gespeichert werden. Darüber hinaus werden im Bericht zu den Nutzungsbedingungen nur der aktuelle Zustimmungsstatus der Benutzer angezeigt. Lehnt ein Benutzer z.B. die Nutzungsbedingungen ab und akzeptiert sie aber später, enthält der Bericht zu den Nutzungsbedingungen nur die Zustimmung. Wenn Sie den Verlauf anzeigen möchten, können Sie in den Azure AD-Überwachungsprotokollen nachsehen.
@@ -383,6 +383,9 @@ A: Sie können [zuvor akzeptierte Nutzungsbedingungen überprüfen](#how-users-c
 
 **F: Was geschieht, wenn ich auch Intune-Nutzungsbedingungen verwende?**<br />
 A: Wenn Sie sowohl Azure AD-Nutzungsbedingungen als auch [Intune-Nutzungsbedingungen](/intune/terms-and-conditions-create) konfiguriert haben, muss der Benutzer beide akzeptieren. Weitere Informationen finden Sie im Blogbeitrag [Choosing the right Terms solution for your organization](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) (Auswählen der richtigen Lösung für Bestimmungen für Ihre Organisation).
+
+**F: Welche Endpunkte werden vom Dienst für die Nutzungsbedingungen zur Authentifizierung verwendet?**<br />
+A: Der Dienst für die Nutzungsbedingungen verwendet die folgenden Endpunkte zur Authentifizierung: https://tokenprovider.termsofuse.identitygovernance.azure.com und https://account.activedirectory.windowsazure.com. Wenn Ihre Organisation über eine Liste zulässiger Registrierungs-URLs verfügt, müssen Sie die Endpunkte zusammen mit den Azure AD-Endpunkten für die Anmeldung dieser Liste hinzufügen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

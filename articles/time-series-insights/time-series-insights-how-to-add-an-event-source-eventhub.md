@@ -4,19 +4,19 @@ description: In diesem Artikel wird beschrieben, wie eine Ereignisquelle hinzuge
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 21e054aefab0ee5535376ac86ebbaf1316e671b5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147605"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165694"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Hinzufügen einer Event Hub-Ereignisquelle zu einer Time Series Insights-Umgebung
 
@@ -34,7 +34,7 @@ In diesem Artikel wird beschrieben, wie im Azure-Portal eine Ereignisquelle hinz
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Hinzufügen einer Consumergruppe zum Event Hub
 
-Anwendungen verwenden Consumergruppen, um Daten aus Azure Event Hubs abzurufen. Geben Sie eine dedizierte Consumergruppe an, die nur von dieser Time Series Insights-Umgebung verwendet wird, um zuverlässig Daten aus Ihrem Event Hub zu lesen.
+Anwendungen verwenden Consumergruppen, um Daten aus Azure Event Hubs abzurufen. Für ein zuverlässiges Lesen von Daten aus Ihrem Event Hub geben Sie eine dedizierte Consumergruppe an, die nur von dieser Time Series Insights-Umgebung verwendet wird.
 
 So fügen Sie Ihrem Event Hub eine neue Consumergruppe hinzu
 
@@ -64,38 +64,40 @@ So fügen Sie Ihrem Event Hub eine neue Consumergruppe hinzu
 
 1. Wählen Sie die geeigneten Werte für **Importoption** aus:
    - Wenn Sie in einem Ihrer Abonnements bereits über einen Event Hub verfügen, wählen Sie **Verwenden Sie einen Event Hub aus verfügbaren Abonnements** aus. Diese Option stellt den einfachsten Ansatz dar.
-   - Wenn sich der Event Hub außerhalb Ihrer Abonnements befindet oder Sie erweiterte Optionen auswählen möchten, wählen Sie **Event Hub-Einstellungen manuell angeben** aus.
 
-   [![Geben Sie im Bereich „Neue Ereignisquelle“ Werte für die ersten drei Parameter ein](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox).
+       [![Geben Sie im Bereich „Neue Ereignisquelle“ Werte für die ersten drei Parameter ein](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox).
 
-1. In der folgenden Tabelle werden die Eigenschaften beschrieben, die für die Option **Event Hub aus verfügbaren Abonnements verwenden** erforderlich sind:
 
-   [![Details zu Abonnements und Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+       [![Details zu Abonnements und Event Hub](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
-   | Eigenschaft | BESCHREIBUNG |
-   | --- | --- |
-   | Subscription Id (Abonnement-ID) | Wählen Sie das Abonnement, in dem dieser Event Hub erstellt wurde.
-   | Service Bus-Namespace | Wählen Sie den Azure Service Bus-Namespace, der den Event Hub enthält.
-   | Event Hub-Name | Wählen Sie den Namen des Event Hubs.
-   | Event Hub-Richtlinienname | Wählen Sie die SAS-Richtlinie aus. Sie können die Richtlinie für den gemeinsamen Zugriff auf der Event Hub-Registerkarte **Konfigurieren** erstellen. Jede SAS-Richtlinie umfasst einen Namen, die von Ihnen festgelegten Berechtigungen und Zugriffsschlüssel. Die SAS-Richtlinie für die Ereignisquelle *muss* über die Berechtigung **Lesen** verfügen.
-   | Event Hub-Richtlinienschlüssel | Der Schlüsselwert ist möglicherweise bereits angegeben.
-   | Event Hub-Consumergruppe | Die Consumergruppe, die Ereignisse aus dem Event Hub liest. Wir empfehlen ausdrücklich, dass Sie eine dedizierte Consumergruppe für Ihre Ereignisquelle verwenden. |
-   | Ereignisserialisierungsformat | Zurzeit ist JSON das einzige verfügbare Serialisierungsformat. Ereignismeldungen müssen in diesem Format vorliegen, damit Daten gelesen werden können. |
-   | Name der Timestamp-Eigenschaft | Um diesen Wert ermitteln, müssen Sie das Nachrichtenformat der Nachrichtendaten kennen, die an den Event Hub gesendet werden. Dieser Wert entspricht **name** der spezifischen Ereigniseigenschaft in den Nachrichtendaten, die Sie als Ereigniszeitstempel verwenden möchten. Bei dem Wert wird die Groß-/Kleinschreibung beachtet. Wenn dieser Wert nicht angegeben wird, wird der Zeitpunkt der **Einreihung des Ereignisses** in die Warteschlange in der Ereignisquelle als Ereigniszeitstempel verwendet. |
+     In der folgenden Tabelle werden die Eigenschaften beschrieben, die für die Option **Event Hub aus verfügbaren Abonnements verwenden** erforderlich sind:
 
-1. In der folgenden Tabelle werden die für die Option **Event Hub-Einstellungen manuell angeben** erforderlichen Eigenschaften beschrieben:
+     | Eigenschaft | BESCHREIBUNG |
+     | --- | --- |
+     | Abonnement-ID | Wählen Sie das Abonnement, in dem dieser Event Hub erstellt wurde.
+     | Service Bus-Namespace | Wählen Sie den Azure Service Bus-Namespace, der den Event Hub enthält.
+     | Event Hub-Name | Wählen Sie den Namen des Event Hubs.
+     | Event Hub-Richtlinienname | Wählen Sie die SAS-Richtlinie aus. Sie können die Richtlinie für den gemeinsamen Zugriff auf der Event Hub-Registerkarte **Konfigurieren** erstellen. Jede SAS-Richtlinie umfasst einen Namen, die von Ihnen festgelegten Berechtigungen und Zugriffsschlüssel. Die SAS-Richtlinie für die Ereignisquelle *muss* über die Berechtigung **Lesen** verfügen.
+     | Event Hub-Richtlinienschlüssel | Der Schlüsselwert ist möglicherweise bereits angegeben.
+     | Event Hub-Consumergruppe | Die Consumergruppe, die Ereignisse aus dem Event Hub liest. Wir empfehlen ausdrücklich, dass Sie eine dedizierte Consumergruppe für Ihre Ereignisquelle verwenden. |
+     | Ereignisserialisierungsformat | Zurzeit ist JSON das einzige verfügbare Serialisierungsformat. Ereignismeldungen müssen in diesem Format vorliegen, damit Daten gelesen werden können. |
+     | Name der Timestamp-Eigenschaft | Um diesen Wert ermitteln, müssen Sie das Nachrichtenformat der Nachrichtendaten kennen, die an den Event Hub gesendet werden. Dieser Wert entspricht **name** der spezifischen Ereigniseigenschaft in den Nachrichtendaten, die Sie als Ereigniszeitstempel verwenden möchten. Bei dem Wert wird die Groß-/Kleinschreibung beachtet. Wenn dieser Wert nicht angegeben wird, wird der Zeitpunkt der **Einreihung des Ereignisses** in die Warteschlange in der Ereignisquelle als Ereigniszeitstempel verwendet. |
 
-   | Eigenschaft | BESCHREIBUNG |
-   | --- | --- |
-   | Subscription Id (Abonnement-ID) | Das Abonnement, in dem dieser Event Hub erstellt wurde.
-   | Ressourcengruppe | Die Ressourcengruppe, in der dieser Event Hub erstellt wurde.
-   | Service Bus-Namespace | Ein Service Bus-Namespace ist ein Container für einen Satz von Nachrichtenentitäten. Sie haben bei der Erstellung eines neuen Event Hubs auch einen Service Bus-Namespace erstellt.
-   | Event Hub-Name | Der Name Ihres Event Hubs. Bei der Erstellung des Event Hubs haben Sie ihm auch einen bestimmten Namen zugewiesen.
-   | Event Hub-Richtlinienname | Die SAS-Richtlinie. Sie können eine Richtlinie für den gemeinsamen Zugriff auf der Event Hub-Registerkarte **Konfigurieren** erstellen. Jede SAS-Richtlinie umfasst einen Namen, die von Ihnen festgelegten Berechtigungen und Zugriffsschlüssel. Die SAS-Richtlinie für die Ereignisquelle *muss* über die Berechtigung **Lesen** verfügen.
-   | Event Hub-Richtlinienschlüssel | Der Schlüssel für den gemeinsamen Zugriff, der für die Authentifizierung des Zugriffs auf den Service Bus-Namespace verwendet wird. Geben Sie hier den primären oder sekundären Schlüssel ein.
-   | Event Hub-Consumergruppe | Die Consumergruppe, die Ereignisse aus dem Event Hub liest. Wir empfehlen ausdrücklich, dass Sie eine dedizierte Consumergruppe für Ihre Ereignisquelle verwenden.
-   | Ereignisserialisierungsformat | Zurzeit ist JSON das einzige verfügbare Serialisierungsformat. Ereignismeldungen müssen in diesem Format vorliegen, damit Daten gelesen werden können. |
-   | Name der Timestamp-Eigenschaft | Um diesen Wert ermitteln, müssen Sie das Nachrichtenformat der Nachrichtendaten kennen, die an den Event Hub gesendet werden. Dieser Wert entspricht **name** der spezifischen Ereigniseigenschaft in den Nachrichtendaten, die Sie als Ereigniszeitstempel verwenden möchten. Bei dem Wert wird die Groß-/Kleinschreibung beachtet. Wenn dieser Wert nicht angegeben wird, wird der Zeitpunkt der **Einreihung des Ereignisses** in die Warteschlange in der Ereignisquelle als Ereigniszeitstempel verwendet. |
+    - Wenn sich der Event Hub außerhalb Ihrer Abonnements befindet oder Sie erweiterte Optionen auswählen möchten, wählen Sie **Event Hub-Einstellungen manuell angeben** aus.
+
+      In der folgenden Tabelle werden die für die Option **Event Hub-Einstellungen manuell angeben** erforderlichen Eigenschaften beschrieben:
+ 
+      | Eigenschaft | BESCHREIBUNG |
+      | --- | --- |
+      | Abonnement-ID | Das Abonnement, in dem dieser Event Hub erstellt wurde.
+      | Ressourcengruppe | Die Ressourcengruppe, in der dieser Event Hub erstellt wurde.
+      | Service Bus-Namespace | Ein Service Bus-Namespace ist ein Container für einen Satz von Nachrichtenentitäten. Sie haben bei der Erstellung eines neuen Event Hubs auch einen Service Bus-Namespace erstellt.
+      | Event Hub-Name | Der Name Ihres Event Hubs. Bei der Erstellung des Event Hubs haben Sie ihm auch einen bestimmten Namen zugewiesen.
+      | Event Hub-Richtlinienname | Die SAS-Richtlinie. Sie können eine Richtlinie für den gemeinsamen Zugriff auf der Event Hub-Registerkarte **Konfigurieren** erstellen. Jede SAS-Richtlinie umfasst einen Namen, die von Ihnen festgelegten Berechtigungen und Zugriffsschlüssel. Die SAS-Richtlinie für die Ereignisquelle *muss* über die Berechtigung **Lesen** verfügen.
+      | Event Hub-Richtlinienschlüssel | Der Schlüssel für den gemeinsamen Zugriff, der für die Authentifizierung des Zugriffs auf den Service Bus-Namespace verwendet wird. Geben Sie hier den primären oder sekundären Schlüssel ein.
+      | Event Hub-Consumergruppe | Die Consumergruppe, die Ereignisse aus dem Event Hub liest. Wir empfehlen ausdrücklich, dass Sie eine dedizierte Consumergruppe für Ihre Ereignisquelle verwenden.
+      | Ereignisserialisierungsformat | Zurzeit ist JSON das einzige verfügbare Serialisierungsformat. Ereignismeldungen müssen in diesem Format vorliegen, damit Daten gelesen werden können. |
+      | Name der Timestamp-Eigenschaft | Um diesen Wert ermitteln, müssen Sie das Nachrichtenformat der Nachrichtendaten kennen, die an den Event Hub gesendet werden. Dieser Wert entspricht **name** der spezifischen Ereigniseigenschaft in den Nachrichtendaten, die Sie als Ereigniszeitstempel verwenden möchten. Bei dem Wert wird die Groß-/Kleinschreibung beachtet. Wenn dieser Wert nicht angegeben wird, wird der Zeitpunkt der **Einreihung des Ereignisses** in die Warteschlange in der Ereignisquelle als Ereigniszeitstempel verwendet. |
 
 1. Fügen Sie den dedizierten Time Series Insights-Consumergruppennamen hinzu, den Sie Ihrem Event Hub hinzugefügt haben.
 
@@ -103,7 +105,7 @@ So fügen Sie Ihrem Event Hub eine neue Consumergruppe hinzu
 
    [![Wählen Sie „Erstellen“ aus](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox).
 
-   After the event source is created, Time Series Insights automatically starts streaming data to your environment.
+   Nach der Erstellung der Ereignisquelle beginnt Time Series Insights automatisch damit, Daten in Ihre Umgebung zu streamen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

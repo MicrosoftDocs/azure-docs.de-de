@@ -1,6 +1,6 @@
 ---
 title: 'API-Referenz für Azure-Statusmonitor v2: Abrufen des Status | Microsoft-Dokumentation'
-description: API-Referenz für Statusmonitor v2 Get-ApplicationInsightsMonitoringStatus. Überwachen Sie die Websiteleistung ohne erneute Bereitstellung der Website. Funktioniert mit ASP.NET-Web-Apps, die lokal, auf virtuellen Computern oder in Azure gehostet werden.
+description: API-Referenz für Statusmonitor v2. Get-ApplicationInsightsMonitoringStatus. Überwachen Sie die Websiteleistung ohne erneute Bereitstellung der Website. Funktioniert mit ASP.NET-Web-Apps, die lokal, auf virtuellen Computern oder in Azure gehostet werden.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,27 +12,27 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ff61cf2bfb49a64d2f885cb13fd6c48e32c1f8f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66514309"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>API für Statusmonitor v2: Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
 
-In diesem Dokument wird ein Cmdlet beschrieben, das als Teil des [PowerShell-Moduls „Az.ApplicationMonitor“](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/) zur Verfügung gestellt wird.
+In diesem Artikel wird ein Cmdlet des [PowerShell-Moduls „Az.ApplicationMonitor“](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/) beschrieben.
 
 > [!IMPORTANT]
 > Statusmonitor v2 ist derzeit als öffentliche Vorschauversion verfügbar.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
-> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Einige Features werden möglicherweise nicht unterstützt oder bieten möglicherweise nur eingeschränkte Funktionen.
+> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>BESCHREIBUNG
 
-Dieses Cmdlet wird für die Problembehandlung des verwendeten PowerShell-Moduls bereitgestellt.
-Dieses Cmdlet meldet für die Überwachung erforderliche Versionsinformationen und Schlüsseldateien.
-Mit zusätzlichen Parametern werden weitere Berichte zum aktuellen Status der Überwachung bereitgestellt.
+Ermöglicht die Problembehandlung für das verwendete PowerShell-Modul.
+Dieses Cmdlet meldet Versionsinformationen und Informationen über Schlüsseldateien, die für die Überwachung erforderlich sind.
+Mit zusätzlichen Parametern werden weitere Berichte zum Status der Überwachung bereitgestellt.
 
 > [!IMPORTANT] 
 > Dieses Cmdlet erfordert eine PowerShell-Sitzung mit Administratorberechtigungen.
@@ -40,9 +40,9 @@ Mit zusätzlichen Parametern werden weitere Berichte zum aktuellen Status der Ü
 ## <a name="examples"></a>Beispiele
 
 
-### <a name="example-basic-information"></a>Beispiel: grundlegende Informationen
+### <a name="example-basic-information"></a>Beispiel: Grundlegende Informationen
 
-Führen Sie den Befehl `Get-ApplicationInsightsMonitoringStatus` aus, um sich Informationen zu diesem Modul anzeigen zu lassen:
+Führen Sie `Get-ApplicationInsightsMonitoringStatus` aus, um Informationen über das aktuelle Modul anzuzeigen:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
@@ -79,9 +79,9 @@ Machine Identifier:
 
 ### <a name="example-runtime-status"></a>Beispiel: Laufzeitstatus
 
-Sie können den Prozess auf dem instrumentierten Computer überprüfen, um herauszufinden, ob alle DLLs geladen wurden. Wenn die Überwachung funktioniert, sollten mindestens 12 DLLS geladen worden sein.
+Sie können den Prozess auf dem instrumentierten Computer überprüfen, um herauszufinden, ob alle DLLs geladen wurden. Wenn die Überwachung funktioniert, sollten mindestens 12 DLLS geladen worden sein.
 
-- Befehl: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+Führen Sie den Befehl `Get-ApplicationInsightsMonitoringStatus -InspectProcess` aus:
 
 
 ```
@@ -115,19 +115,19 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>Parameter 
+## <a name="parameters"></a>Parameter
 
-### <a name="no-params"></a>(Ohne Parameter)
+### <a name="no-parameters"></a>(Keine Parameter)
 
-Mit der **Standard**-Einstellung meldet dieses Cmdlet Versionsnummern und Pfade von DLLs, die für die Überwachung erforderlich sind.
+Standardmäßig meldet dieses Cmdlet die Versionsnummern und Pfade von DLLs, die für die Überwachung erforderlich sind.
 
 Verwenden Sie diese Option, wenn Sie die Version einer DLL ermitteln müssen (einschließlich Application Insights SDK).
 
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Optional**. Dieses Cmdlet meldet, ob IIS ausgeführt wird.
-Mit diesem Cmdlet werden auch externe Tools heruntergeladen, um zu überprüfen, ob die erforderlichen DLLs in die IIS-Laufzeit geladen werden.
+**Optional**. Verwenden Sie diesen Parameter, um zu melden, ob IIS ausgeführt wird.
+Damit werden auch externe Tools heruntergeladen, um zu ermitteln, ob die erforderlichen DLLs in die IIS-Laufzeit geladen werden.
 
 
 Wenn dieser Prozess aus irgendeinem Grund fehlschlägt, können Sie diese Befehle auch manuell ausführen:
@@ -138,7 +138,7 @@ Wenn dieser Prozess aus irgendeinem Grund fehlschlägt, können Sie diese Befehl
 
 ### <a name="-force"></a>-Force
 
-**Optional**. Nur mit InspectProcess verwendet. Mit diesem Schalter wird die Eingabeaufforderung zum Herunterladen der zusätzlichen Tools übersprungen.
+**Optional**. Nur mit InspectProcess verwendet. Verwenden Sie diese Option, um die Benutzereingabeaufforderung zu überspringen, die angezeigt wird, bevor zusätzliche Tools heruntergeladen werden.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

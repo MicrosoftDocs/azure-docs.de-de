@@ -1,28 +1,20 @@
 ---
-title: API zum Abbrechen eines Vorgangs | Microsoft-Dokumentation
+title: Abbrechen der Operations-API | Azure Marketplace
 description: Abbrechen von Vorgängen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806044"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935563"
 ---
-<a name="cancel-operation"></a>Abbrechen eines Vorgangs 
-=================
+# <a name="cancel-operation"></a>Abbrechen eines Vorgangs 
 
 Diese API bricht einen Vorgang ab, der gerade für das Angebot ausgeführt wird. Verwenden Sie die [API zum Abrufen von Vorgängen](./cloud-partner-portal-api-retrieve-operations.md), um eine Vorgangs-ID (`operationId`) zu erhalten, die an diese API übergeben werden kann. Das Abbrechen eines Vorgangs ist in der Regel ein synchroner Vorgang. In bestimmten komplexen Szenarien wird zum Abbrechen eines vorhandenen Vorgangs jedoch unter Umständen ein neuer Vorgang benötigt. In diesem Fall enthält der HTTP-Antworttext den Ort des Vorgangs, der zum Abfragen des Status verwendet werden muss.
 
@@ -35,9 +27,9 @@ Sie können für die Anforderung eine kommagetrennte Liste mit E-Mail-Adressen a
 
 |  **Name**    |      **Beschreibung**                                  |    **Datentyp**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Herausgeber-ID (Beispiel: `contoso`)         |   Zeichenfolge          |
-| offerId      |  Angebots-ID                                     |   Zeichenfolge          |
-| api-version  |  Aktuelle Version der API                               |    Datum           |
+| publisherId  |  Herausgeber-ID (Beispiel: `contoso`)         |   string          |
+| offerId      |  Angebots-ID                                     |   string          |
+| api-version  |  Aktuelle Version der API                               |    Date           |
 |  |  |  |
 
 

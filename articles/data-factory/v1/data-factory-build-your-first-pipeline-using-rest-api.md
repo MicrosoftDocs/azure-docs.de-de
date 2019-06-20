@@ -125,8 +125,8 @@ Die folgende Tabelle enthält eine Beschreibung der JSON-Eigenschaften, die im C
 
 | Eigenschaft | BESCHREIBUNG |
 |:--- |:--- |
-| ClusterSize |Gibt die Größe des HDInsight-Clusters an. |
-| TimeToLive |Gibt die Leerlaufzeit des HDInsight-Clusters an, bevor er gelöscht wird. |
+| clusterSize |Gibt die Größe des HDInsight-Clusters an. |
+| timeToLive |Gibt die Leerlaufzeit des HDInsight-Clusters an, bevor er gelöscht wird. |
 | linkedServiceName |Gibt das Speicherkonto an, das verwendet wird, um die von HDInsight generierten Protokolle zu speichern. |
 
 Beachten Sie folgende Punkte:

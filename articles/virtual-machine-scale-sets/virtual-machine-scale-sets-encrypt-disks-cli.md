@@ -13,46 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1264c7e4ebaf5e948e624fa49dc5fb0b4cdb31f0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64869053"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Verschlüsseln von Betriebssystem- und angefügten Datenträgern in einer VM-Skalierungsgruppe mit Azure CLI (Vorschauversion)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Verschlüsseln von Betriebssystem- und angefügten Datenträgern in einer VM-Skalierungsgruppe mit Azure CLI
 
 Um die ruhenden Daten mit einer Verschlüsselungstechnologie nach Industriestandard zu schützen, unterstützen VM-Skalierungsgruppen Azure Disk Encryption (ADE). Die Verschlüsselung kann für Linux- und Windows-VM-Skalierungsgruppen aktiviert werden. Weitere Informationen finden Sie unter [Azure Disk Encryption for Linux and Windows (Azure Disk Encryption für Linux und Windows)](../security/azure-security-disk-encryption.md).
-
-> [!NOTE]
->  Azure Disk Encryption für VM-Skalierungsgruppen befindet sich derzeit in der öffentlichen Vorschau und ist in allen öffentlichen Azure-Regionen verfügbar.
 
 Azure Disk Encryption wird unterstützt:
 - für Skalierungsgruppen mit verwalteten Datenträgern (nicht für native oder nicht verwaltete Datenträger-Skalierungsgruppen).
 - für Betriebssystem- und Datenvolumes in Windows-Skalierungsgruppen. Das Deaktivieren der Verschlüsselung wird bei Betriebssystem- und Datenvolumes für Windows-Skalierungsgruppen unterstützt.
-- für Datenvolumes in Linux-Skalierungsgruppen. Die Betriebssystem-Datenträgerverschlüsselung wird in der aktuellen Vorschau für Linux-Skalierungsgruppen NICHT unterstützt.
-
-Reimaging- und Upgradevorgänge von Skalierungsgruppen-VMs werden in der aktuellen Vorschauversion nicht unterstützt. Die Vorschauversion von Azure Disk Encryption für VM-Skalierungsgruppen wird nur in Testumgebungen empfohlen. Aktivieren Sie in der Vorschauversion die Datenträgerverschlüsselung nicht in Produktionsumgebungen, in denen Sie möglicherweise ein Betriebssystemimage in einer verschlüsselten Skalierungsgruppe aktualisieren müssen.
+- für Datenvolumes in Linux-Skalierungsgruppen. Betriebssystem-Datenträgerverschlüsselung wird für Linux-Skalierungsgruppen NICHT unterstützt.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Wenn Sie die Befehlszeilenschnittstelle lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial die Azure CLI-Version 2.0.31 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI]( /cli/azure/install-azure-cli).
-
-## <a name="register-for-disk-encryption-preview"></a>Registrieren der Vorschauversion der Datenträgerverschlüsselung
-
-Azure Disk Encryption für die Vorschauversion von VM-Skalierungsgruppen erfordert, dass Sie Ihr Abonnement mithilfe des Befehls [az feature register](/cli/azure/feature) selbst registrieren. Sie müssen die folgenden Schritte nur beim ersten Mal ausführen, wenn Sie das Vorschaufeature der Datenträgerverschlüsselung verwenden:
-
-```azurecli-interactive
-az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
-```
-
-Es kann bis zu 10 Minuten dauern, bis die Registrierungsanforderung weitergegeben wurde. Sie können den Registrierungsstatus mithilfe des Befehls [az feature show](/cli/azure/feature) überprüfen. Wenn *Registered* (Registriert) für `State` angegeben ist, registrieren Sie den Anbieter *Microsoft.Compute* erneut mithilfe von [az provider register](/cli/azure/provider):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
 
 ## <a name="create-a-scale-set"></a>Erstellen einer Skalierungsgruppe
 
@@ -135,6 +116,30 @@ Es kann etwas Zeit in Anspruch nehmen, diesen Verschlüsselungsvorgang zu starte
 
 Da eine in einem vorherigen Schritt erstellte Upgraderichtlinie für die Skalierungsgruppe auf *automatisch* festgelegt ist, starten die VM-Instanzen den Verschlüsselungsvorgang automatisch. Bei Skalierungsgruppen, für die die Upgraderichtlinie auf „manuell“ festgelegt ist, starten Sie die Verschlüsselungsrichtlinie auf den VM-Instanzen mit [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Aktivieren der Verschlüsselung mithilfe von KEK zum Umschließen des Schlüssels
+
+Sie können auch einen Schlüsselverschlüsselungsschlüssel für zusätzliche Sicherheit bei der Verschlüsselung der VM-Skalierungsgruppe verwenden.
+
+```azurecli-interactive
+# Get the resource ID of the Key Vault
+vaultResourceId=$(az keyvault show --resource-group myResourceGroup --name $keyvault_name --query id -o tsv)
+
+# Enable encryption of the data disks in a scale set
+az vmss encryption enable \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --disk-encryption-keyvault $vaultResourceId \
+    --key-encryption-key myKEK \
+    --key-encryption-keyvault $vaultResourceId \
+    --volume-type DATA
+```
+
+> [!NOTE]
+>  Die Syntax für den Wert des Parameters disk-encryption-keyvault ist die vollständige Bezeichnerzeichenfolge:</br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> Die Syntax für den Wert des Parameters key-encryption-key ist der vollständige URI zum KEK, beispielsweise:</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+
 ## <a name="check-encryption-progress"></a>Überprüfen des Verschlüsselungsfortschritts
 
 Verwenden Sie [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show) zum Überprüfen des Status der Datenträgerverschlüsselung:
@@ -180,6 +185,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Artikel haben Sie Azure CLI verwendet, um eine VM-Skalierungsgruppe zu verschlüsseln. Sie können auch [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) oder Vorlagen für [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) oder [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox) verwenden.
-
-Ein End-to-End-Batchdateibeispiel für die Datenträgerverschlüsselung von Linux-Skalierungsgruppen finden Sie [hier](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Dieses Beispiel erstellt eine Ressourcengruppe und eine Linux-Skalierungsgruppe, bindet einen 5-GB-Datenträger für Daten ein und verschlüsselt die VM-Skalierungsgruppe.
+- In diesem Artikel haben Sie Azure CLI verwendet, um eine VM-Skalierungsgruppe zu verschlüsseln. Sie können auch [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) oder Vorlagen für [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) oder [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox) verwenden.
+- Wenn Sie Azure Disk Encryption anwenden möchten, nachdem eine weitere Erweiterung bereitgestellt wurde, können Sie [Erweiterungssequenzierung](virtual-machine-scale-sets-extension-sequencing.md) verwenden. Sie können [diese Beispiele](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) für den Einstieg verwenden.
+- Ein End-to-End-Batchdateibeispiel für die Datenträgerverschlüsselung von Linux-Skalierungsgruppen finden Sie [hier](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Dieses Beispiel erstellt eine Ressourcengruppe und eine Linux-Skalierungsgruppe, bindet einen 5-GB-Datenträger für Daten ein und verschlüsselt die VM-Skalierungsgruppe.

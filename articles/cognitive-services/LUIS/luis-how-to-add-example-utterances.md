@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65072854"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Hinzufügen einer Entität zu Beispieläußerungen 
 
@@ -89,25 +89,6 @@ Bei der Äußerung `Does John Smith work in Seattle?` kann eine zusammengesetzte
 
     ![Screenshot der Seite „Intents details“ (Details zu Absichten) mit zusammengesetzter Entität](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>Hinzufügen einer Entität vom Typ „Hierarchisch“
-
-**Hierarchische Einheiten werden möglicherweise veraltet sein. Verwenden Sie [Entitätsrollen](luis-concept-roles.md) zum Ermitteln von Entitätsuntertypen, anstatt hierarchische Entitäten zu verwenden.**
-
-Eine hierarchische Entität ist eine Kategorie von im Kontext erlernten und konzeptionell verwandten Entitäten. Die Entität im folgenden Beispiel enthält Abflug- und Zielorte. 
-
-In der Äußerung `Move John Smith from Seattle to Cairo` ist Seattle der Abflug- und Kairo der Zielort. Die Orte unterscheiden sich durch den Kontext und werden aufgrund der Wortstellung und Wortwahl in der Äußerung erlernt.
-
-1. Wählen Sie auf der Seite der Absicht in der Äußerung den Ort `Seattle` aus, geben Sie als Namen der Entität `Location` an, und drücken Sie dann auf der Tastatur die EINGABETASTE.
-
-1. Wählen Sie im Popupfeld **What type of entity do you want to create?** (Welchen Entitätstyp möchten Sie erstellen?) _Hierarchisch_ für den **Entitätstyp** aus, fügen Sie anschließend `Origin` und `Destination` als untergeordnete Elemente hinzu, und wählen Sie dann **Fertig** aus.
-
-    ![Screenshot der Seite „Intents details“ (Details zu den Absichten) mit der hervorgehobenen Option „ToLocation“ (zum Zielort)](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. Das Wort in der Äußerung wurde mit der hierarchischen übergeordneten Entität beschriftet. Sie müssen das Wort einer untergeordneten Entität zuweisen. Kehren Sie zur Äußerung auf der Seite der Absichtsdetails zurück. Wählen Sie das Wort aus. Wählen Sie anschließend aus der Dropdownliste den von Ihnen erstellten Entitätsnamen aus, und folgen Sie dann der Menüstruktur nach rechts, um die richtige untergeordnete Entität auszuwählen.
-
-    >[!CAUTION]
-    >Die Namen untergeordneter Entitäten müssen für alle Entitäten einer einzelnen App eindeutig sein. Zwei unterschiedliche hierarchische Entitäten dürfen keine untergeordneten Elemente mit dem gleichen Namen enthalten. 
-
 ## <a name="add-entitys-role-to-utterance"></a>Hinzufügen der Rolle der Entität zur Äußerung
 
 Eine Rolle ist ein benannter Untertyp einer Entität, der durch den Kontext der Äußerung bestimmt wird. Sie können eine Entität innerhalb einer Äußerung als Entität markieren oder eine Rolle innerhalb dieser Entität auswählen. Jede Entität kann Rollen aufweisen, einschließlich benutzerdefinierter Entitäten, die durch maschinelles Lernen erworben werden (einfache Entitäten und zusammengesetzte Entitäten), die nicht durch maschinelles Lernen erworben werden (vorkonfigurierte Entitäten, Entitäten mit regulären Ausdrücken, Listenentitäten). 
@@ -143,9 +124,6 @@ Die folgenden Lösungen beheben Abweichungen bei Entitätsvorhersagen:
 |Nicht bezeichneter Text|rot unterstrichen|Falsche Vorhersage|Die aktuellen Äußerungen, die diese falsche Entität verwenden, müssen für alle Absichten überprüft werden. Die aktuellen Äußerungen haben LUIS fälschlicherweise trainiert, diesen Text als die vorhergesagte Entität anzusehen.
 |Richtig bezeichneter Text|blaue Entitätsmarkierung, rot unterstrichen|Falsche Vorhersage|Stellen Sie weitere Äußerungen mit der richtig bezeichneten Entität an verschiedenen Stellen und in unterschiedlichen Verwendungen bereit. Die aktuellen Äußerungen sind entweder nicht ausreichend, um LUIS für diese Entität zu trainieren, oder ähnliche Entitäten kommen im selben Kontext vor. Ähnliche Entitäten sollten in einer einzigen Entität zusammengefasst werden, damit LUIS nicht verwirrt wird. Eine weitere Lösung besteht darin, eine Ausdrucksliste hinzuzufügen, um die Wichtigkeit der Wörter zu steigern. |
 |Falsch bezeichneter Text|blaue Entitätsmarkierung, rot unterstrichen|Richtige Vorhersage| Stellen Sie weitere Äußerungen mit der richtig bezeichneten Entität an verschiedenen Stellen und in unterschiedlichen Verwendungen bereit. 
-
-> [!Note]
-> Wenn ein rotes Feld um die bezeichnete Absicht in der Zeile der Beispieläußerung angezeigt wird, ist ein [Absichtsvorhersagefehler](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) aufgetreten. Diesen müssen Sie korrigieren. 
 
 ## <a name="other-actions"></a>Andere Aktionen
 

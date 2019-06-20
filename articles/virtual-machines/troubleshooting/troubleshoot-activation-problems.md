@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
 ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791710"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60921271"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Behandlung von Problemen bei der Aktivierung virtueller Windows-Computer
 
@@ -124,7 +124,7 @@ Eine erfolgreiche Aktivierung gibt Informationen zurück, die der folgenden ähn
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Ich habe Windows Server 2016 aus dem Azure Marketplace erstellt. Muss ich einen KMS-Schlüssel zum Aktivieren von Windows Server 2016 konfigurieren? 
 
  
- Nein. Im Image des Azure Marketplace wurde der passende KMS-Clientsetupschlüssel schon konfiguriert. 
+Nein. Im Image des Azure Marketplace wurde der passende KMS-Clientsetupschlüssel schon konfiguriert. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>Funktioniert die Windows-Aktivierung auf die gleiche Weise, unabhängig davon, ob der virtuelle Computer den Azure-Vorteil bei Hybridnutzung verwendet oder nicht? 
 

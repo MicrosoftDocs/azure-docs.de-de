@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 06/04/2019
 ms.author: mavoge
-ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 03b5693fe016cfb11d6f685f9088fe6e94f03b90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66688602"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Aktivieren von mehrinstanzenfähigen Anwendungen mit Azure Digital Twins
 

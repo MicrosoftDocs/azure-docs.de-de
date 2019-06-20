@@ -4,27 +4,17 @@ description: Enthält Antworten auf häufig gestellte Fragen zu Azure Cosmos DB,
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523952"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954154"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Häufig gestellte Fragen zu unterschiedlichen APIs in Azure Cosmos DB
-
-### <a name="what-happened-to-the-documentdb-api"></a>Was ist mit der DocumentDB-API passiert?
-
-Die Azure Cosmos DB DocumentDB-API oder SQL (DocumentDB)-API wird als Azure Cosmos DB-SQL-API bezeichnet. Sie müssen keine Änderungen vornehmen, um Ihre mit der DocumentDB-API erstellten Apps weiter ausführen zu können. Die Funktionen bleiben gleich.
-
-Wenn Sie zuvor über ein DocumentDB-API-Konto verfügten, besitzen Sie jetzt ein SQL-API-Konto. An der Abrechnung ändert sich nichts.
-
-### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Was ist mit Azure DocumentDB als Dienst passiert?
-
-Der Azure DocumentDB-Dienst ist jetzt Teil des Azure Cosmos DB-Diensts und manifestiert sich in Form der SQL-API. Anwendungen, die für Azure DocumentDB erstellt wurden, können ohne Änderungen für die SQL-API von Azure Cosmos DB ausgeführt werden. Cosmos DB implementiert auch die Wire Protocols [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) und [Azure Table Storage](table-introduction.md) direkt im Dienst. Auf diese Weise können Sie Clienttreiber (und Tools) für die häufig verwendeten NoSQL-APIs direkt auf Ihre Cosmos-Datenbank verweisen.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Was sind die typischen Anwendungsfälle für Azure Cosmos DB?
 
@@ -34,7 +24,7 @@ Azure Cosmos DB ist eine gute Wahl für neue Web-, Mobil-, Gaming- und IoT-Anwen
 
 In Azure Cosmos DB wird der Durchsatz in [Anforderungseinheiten](request-units.md) (Request Units, RUs) gemessen. Ein Durchsatz von einer Anforderungseinheit entspricht dem Durchsatz der GET-Anforderung für ein Dokument mit einer Größe von 1 KB. Jeder Vorgang in Azure Cosmos DB (einschließlich der Ausführung von Lese- und Schreibvorgängen, SQL-Abfragen sowie gespeicherten Prozeduren) verfügt über einen deterministischen Wert für die Anforderungseinheiten, der auf dem erforderlichen Durchsatz zum Abschließen des Vorgangs basiert. Im Hinblick auf den Durchsatz Ihrer Anwendung müssen Sie sich also keine Gedanken um das Zusammenspiel von CPU, E/A-Leistung und Arbeitsspeicher machen, sondern können mit einer einzigen Kennzahl arbeiten: der Anforderungseinheit.
 
-Sie können jeden Azure Cosmos DB-Container mit bereitgestelltem Durchsatz konfigurieren (Anforderungseinheiten des Durchsatzes pro Sekunde). Für Anwendungen jeder Größe können Sie Vergleichstests einzelner Anforderungen durchführen, um deren Werte für die Anforderungseinheiten zu messen. Außerdem können Sie einen Container bereitstellen, um die Gesamtsumme der Anforderungseinheiten über alle Anforderungen hinweg zu verarbeiten. Sie können den Durchsatz des Containers auch zentral hoch- oder herunterskalieren, wenn sich die Anforderungen Ihrer Anwendung ändern. Um mehr über Anforderungseinheiten zu erfahren und Hilfe zum Ermitteln Ihrer Containeranforderungen zu erhalten, testen Sie den [Durchsatzrechner](https://www.documentdb.com/capacityplanner).
+Sie können jeden Azure Cosmos-Container mit bereitgestelltem Durchsatz (Anforderungseinheiten des Durchsatzes pro Sekunde) konfigurieren. Für Anwendungen jeder Größe können Sie Vergleichstests einzelner Anforderungen durchführen, um deren Werte für die Anforderungseinheiten zu messen. Außerdem können Sie einen Container bereitstellen, um die Gesamtsumme der Anforderungseinheiten über alle Anforderungen hinweg zu verarbeiten. Sie können den Durchsatz des Containers auch zentral hoch- oder herunterskalieren, wenn sich die Anforderungen Ihrer Anwendung ändern. Um mehr über Anforderungseinheiten zu erfahren und Hilfe zum Ermitteln Ihrer Containeranforderungen zu erhalten, testen Sie den [Durchsatzrechner](https://www.documentdb.com/capacityplanner).
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Wie unterstützt Azure Cosmos DB verschiedene Datenmodelle wie Schlüssel/Wert-, einspaltige, Dokument- und Diagrammdaten?
 
@@ -91,8 +81,9 @@ Testabonnements für Azure Cosmos DB werden im Azure-Portal neben den anderen Ab
 
 Die folgenden Bedingungen gelten für Azure Cosmos DB-Testabonnements:
 
-* Ein Container pro Abonnement für SQL-, Gremlin-API- und Tabellenkonten.
-* Bis zu drei Sammlungen pro Abonnement für MongoDB-Konten
+* Ein [Container mit bereitgestelltem Durchsatz](./set-throughput.md#set-throughput-on-a-container) pro Abonnement für SQL-, Gremlin-API- und Tabellenkonten.
+* Bis zu drei [Sammlungen mit bereitgestelltem Durchsatz](./set-throughput.md#set-throughput-on-a-container) pro Abonnement für MongoDB-Konten.
+* Eine [Datenbank mit bereitgestelltem Durchsatz](./set-throughput.md#set-throughput-on-a-database) pro Abonnement. Datenbanken mit bereitgestelltem Durchsatz können eine beliebige Anzahl von Containern enthalten.
 * 10 GB Speicherkapazität
 * Die globale Replikation ist in den folgenden [Azure-Regionen](https://azure.microsoft.com/regions/) verfügbar: „USA, Mitte“, „Europa, Norden“ und „Asien, Südosten“
 * Maximaler Durchsatz von 5.000 RU/s bei Bereitstellung auf Containerebene.
@@ -222,7 +213,7 @@ Azure Cosmos DB erzwingt strenge Sicherheitsanforderungen und -standards. Azure 
 
 Weitere Informationen finden Sie unter [Verbinden einer MongoDB-Anwendung mit Azure Cosmos DB](connect-mongodb-account.md).
 
-Gibt es weitere Fehlercodes, die ich für den Umgang mit der Azure Cosmos DB-API für MongoDB kennen sollte?
+### <a name="are-there-additional-error-codes-that-i-need-to-deal-with-while-using-azure-cosmos-dbs-api-for-mongodb"></a>Gibt es weitere Fehlercodes, die ich für den Umgang mit der Azure Cosmos DB-API für MongoDB kennen sollte?
 
 Neben den allgemeinen MongoDB-Fehlercodes verfügt die Azure Cosmos DB-API für MongoDB über eigene, spezifische Fehlercodes:
 
@@ -530,7 +521,7 @@ Azure Cosmos DB nutzt [horizontale Partitionierung](partition-data.md), um einem
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Wie kann ich mithilfe von Gremlin-Treibern vor Einschleusungsangriffen schützen?
 
-Die meisten nativen Tinkerpop Gremlin-Treiber lassen die Bereitstellung eines Wörterbuchs von Parametern für die Abfrageausführung zu. Hier finden Sie Beispiele für die Bereitstellung in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) und in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Die meisten nativen Gremlin-Treiber von Apache TinkerPop lassen die Bereitstellung eines Wörterbuchs von Parametern für die Abfrageausführung zu. Hier finden Sie Beispiele für die Bereitstellung in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) und in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Warum erhalte ich die Fehlermeldung „Gremlin Query Compilation Error: Unable to find any method“ (Fehler bei der Kompilierung von Gremlin-Abfragen: Methoden konnten nicht gefunden werden.)?
 
@@ -755,7 +746,7 @@ Ja. Sie können unter Verwendung der regulären Syntax einen zusammengesetzten P
 
 Nein. In der Vorschauversion wird das sstable-Ladeprogramm nicht unterstützt.
 
-### <a name="can-an-on-premises-cassandra-cluster-be-paired-with-azure-cosmos-dbs-apache-cassandra-api"></a>Kann ein lokaler Cassandra-Cluster mit der Apache Cassandra-API von Azure Cosmos DB gekoppelt werden?
+### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Kann ein lokaler Apache Cassandra-Cluster mit der Cassandra-API von Azure Cosmos DB gekoppelt werden?
 
 Derzeit ist Azure Cosmos DB für Cloudumgebungen optimiert und kann ohne zusätzlichen Aufwand betrieben werden. Wenn Sie Kopplung benötigen, senden Sie eine E-Mail mit einer Beschreibung Ihres Szenarios an [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 

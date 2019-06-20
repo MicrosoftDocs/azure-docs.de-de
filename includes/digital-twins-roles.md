@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
@@ -9,11 +9,11 @@ ms.date: 12/20/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 7e4760990229433b2ea40fadd0d17de0b52fcb36
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53795895"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178726"
 ---
 Die folgende Tabelle beschreibt die in Azure Digital Twins verfügbaren Rollen:
 

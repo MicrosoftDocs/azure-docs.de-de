@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786107"
 ---
 # <a name="call-a-function-from-powerapps"></a>Aufrufen einer Funktion aus PowerApps
@@ -160,7 +160,7 @@ Nachdem die Datenquellen nun in der App verfügbar sind, fügen Sie ihr einen Bi
 
     ![Ausgewähltes Element](media/functions-powerapps-scenario/selected-item.png)
 
-1. Der ursprüngliche Bildschirm wird in der App nicht benötigt. Zeigen Sie im linken Bereich auf **Screen1**, klicken Sie auf **. . .**, und klicken Sie anschließend auf **Löschen**.
+1. Der ursprüngliche Bildschirm wird in der App nicht benötigt. Zeigen Sie im linken Bereich auf **Screen1**, klicken Sie auf **. . .** , und klicken Sie anschließend auf **Löschen**.
 
     ![Löschen des Bildschirms](media/functions-powerapps-scenario/delete-screen.png)
 

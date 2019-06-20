@@ -5,57 +5,118 @@ services: data-factory
 documentationcenter: ''
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64875803"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemazuordnung in Kopieraktivität
+
 In diesem Artikel wird beschrieben, wie Kopieraktivität in Azure Data Factory Schemazuordnung und Datentypzuordnung von Quelldaten zu Daten der Empfangsquelle (Senkendaten) beim Kopieren der Daten ausführt.
 
-## <a name="column-mapping"></a>Spaltenzuordnung
+## <a name="schema-mapping"></a>Schemazuordnung
 
-Die Spaltenzuordnung wird angewendet, wenn Daten zwischen tabellarischen Datencontainern kopiert werden. Standardmäßig ordnet Kopieraktivität **Quelldaten nach Spaltennamen Senkendaten zu**, es sei denn, [explizite Spaltenzuordnung](#explicit-column-mapping) ist konfiguriert. Genauer gesagt, macht Kopieraktivität Folgendes:
+Die Spaltenzuordnung wird angewendet, wenn Daten aus der Quelle in die Senke kopiert werden. Kopieren Sie standardmäßig die Aktivität **Quelldaten nach Spaltennamen zur Senke zuordnen**. Sie können [explizite Zuordnung](#explicit-mapping) angeben, um die Spaltenzuordnung an Ihre Anforderungen anzupassen. Genauer gesagt, macht Kopieraktivität Folgendes:
 
 1. Lesen von Daten aus der Quelle und Bestimmen des Quellschemas
-
-    * Für Datenquellen mit vordefiniertem Schema im Datenspeicher/Datei-Format, z.B. Datenbanken/Dateien mit Metadaten (Avro/ORC/Parquet/Text mit Header), wird das Quellschema aus dem Abfrageergebnis oder Dateimetadaten extrahiert.
-    * Für Datenquellen mit flexiblem Schema, z.B. Azure Table/Cosmos DB, wird das Quellschema aus dem Abfrageergebnis abgeleitet. Sie können es überschreiben, indem Sie „structure“ im Dataset konfigurieren.
-    * Für Textdateien ohne Header werden Standardspaltennamen mit dem Muster „Prop_0“, „Prop_1“, ... generiert. Sie können sie überschreiben, indem Sie „structure“ im Dataset konfigurieren.
-    * Für Dynamics-Quellen müssen Sie die Schemainformationen im Dataset im Abschnitt „structure“ angeben.
-
-2. Wenden Sie explizite Spaltenzuordnung an, falls angegeben.
-
+2. Verwenden Sie die standardmäßige Spaltenzuordnung, um Spalten nach Name zuzuordnen, oder wenden Sie eine explizite Spaltenzuordnung an, falls angegeben.
 3. Schreiben der Daten in die Senke
 
-    * Für Datenspeicher mit vordefiniertem Schema werden die Daten in die Spalten identischen Namens geschrieben.
-    * Für Datenspeicher ohne festes Schema und Dateiformate werden die Spaltennamen/Metadaten auf dem Quellschema basierend generiert.
+### <a name="explicit-mapping"></a>Explizite Zuordnung
 
-### <a name="explicit-column-mapping"></a>Explizite Spaltenzuordnung
+Sie können die in der Kopieraktivität zuzuordnenden Spalten angeben -> `translator` -> `mappings`-Eigenschaft. Das folgende Beispiel definiert eine Kopieraktivität in einer Pipeline, um Daten aus Text mit Trennzeichen nach Azure SQL-Datenbank zu kopieren.
 
-Sie können **columnMappings** im Abschnitt **typeProperties** der Kopieraktivität angeben, um eine explizite Spaltenzuordnung durchzuführen. In diesem Szenario ist der Abschnitt „structure“ für Eingabe- und Ausgabedatasets erforderlich. Die Spaltenzuordnung unterstützt die **Zuordnung aller oder einer Teilmenge der Spalten in „structure“ des Quelldatasets zu allen Spalten in „structure“ des Senkendatasets**. Im Folgenden sind Fehlerbedingungen angegeben, die zu einer Ausnahme führen:
+```json
+{
+    "name": "CopyActivity",
+    "type": "Copy",
+    "inputs": [{
+        "referenceName": "DelimitedTextInput",
+        "type": "DatasetReference"
+    }],
+    "outputs": [{
+        "referenceName": "AzureSqlOutput",
+        "type": "DatasetReference"
+    }],
+    "typeProperties": {
+        "source": { "type": "DelimitedTextSource" },
+        "sink": { "type": "SqlSink" },
+        "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+                {
+                    "source": {
+                        "name": "UserId",
+                        "type": "Guid"
+                    },
+                    "sink": {
+                        "name": "MyUserId"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Name",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyName"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Group",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyGroup"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+Die folgenden Eigenschaften werden unter `translator` -> `mappings` unterstützt -> Objekt mit `source` und `sink`:
+
+| Eigenschaft | BESCHREIBUNG                                                  | Erforderlich |
+| -------- | ------------------------------------------------------------ | -------- |
+| name     | Name der Quell- oder Senkenspalte.                           | Ja      |
+| Ordinal  | Spaltenindex. Beginnen Sie mit 1. <br>Anwenden und erforderlich, wenn Text mit Trennzeichen und ohne Kopfzeile verwendet wird. | Nein       |
+| path     | Der Ausdruck des JSON-Pfads für jedes Feld, das extrahiert oder zugeordnet werden soll. Anwenden auf hierarchische Daten, z. B. MongoDB/REST.<br>Der JSON-Pfad für Felder unter der Stammobjekt beginnt mit dem Stamm „$“. Für Felder innerhalb des von der `collectionReference`-Eigenschaften ausgewählten Arrays beginnt der JSON-Pfad mit dem Arrayelement. | Nein       |
+| type     | Data Factory-Zwischendatentyp der Quell- oder Senkenspalte. | Nein       |
+| culture  | Kultur der Quell- oder Senkenspalte. <br>Anwenden, wenn der Typ `Datetime` oder `Datetimeoffset` ist. Der Standardwert lautet `en-us`. | Nein       |
+| format   | Zu verwendende Formatzeichenfolge, wenn der Typ `Datetime` oder `Datetimeoffset` ist. Informationen zum Formatieren von Datum und Uhrzeit finden Sie unter [Benutzerdefinierte Formatzeichenfolgen für Datum und Uhrzeit](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | Nein       |
+
+Die folgenden Eigenschaften werden unter `translator` -> `mappings` unterstützt, zusätzlich zum Objekt mit `source` und `sink`:
+
+| Eigenschaft            | BESCHREIBUNG                                                  | Erforderlich |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| collectionReference | Wird nur unterstützt, wenn hierarchische Daten, z. B. MongoDB/REST, die Quelle sind.<br>Wenn Sie Daten durchlaufen und Objekte **innerhalb eines Arrayfelds** mit demselben Muster extrahieren, und wenn Sie möchten, dass jedes Objekt in einer neuen Zeile steht, geben Sie den JSON-Pfad dieses Arrays für die übergreifende Anwendung an. | Nein       |
+
+### <a name="alternative-column-mapping"></a>Alternative Spaltenzuordnung
+
+Sie können die Kopieraktivität -> `translator` -> `columnMappings` angeben, um zwischen tabellenförmigen Daten zu wechseln. In diesem Fall ist der Abschnitt „structure“ für Eingabe- und Ausgabedatasets erforderlich. Die Spaltenzuordnung unterstützt die **Zuordnung aller oder einer Teilmenge der Spalten in „structure“ des Quelldatasets zu allen Spalten in „structure“ des Senkendatasets**. Im Folgenden sind Fehlerbedingungen angegeben, die zu einer Ausnahme führen:
 
 * Das Ergebnis der Abfrage des Quelldatenspeichers enthält keinen Spaltennamen, der im Abschnitt „structure“ des Eingabedatasets angegeben wird.
 * Der Senkendatenspeicher (sofern mit vordefiniertem Schema) enthält keinen Spaltennamen, der im Abschnitt „structure“ des Ausgabedatasets angegeben wird.
 * Entweder sind weniger Spalten oder mehr Spalten in „structure“ des Senkendatasets, als in der Zuordnung angegeben.
 * Doppelte Zuordnung.
 
-#### <a name="explicit-column-mapping-example"></a>Beispiel für explizite Spaltenzuordnung
-
-In diesem Beispiel verfügt die Eingabetabelle über eine Struktur, und diese verweist auf eine Tabelle in einer lokalen SQL-Datenbank.
+Im folgenden Beispiel verfügt das Eingabedataset über eine Struktur, und diese verweist auf eine Tabelle in einer lokalen Oracle-Datenbank.
 
 ```json
 {
-    "name": "SqlServerInput",
+    "name": "OracleDataset",
     "properties": {
         "structure":
          [
@@ -63,9 +124,9 @@ In diesem Beispiel verfügt die Eingabetabelle über eine Struktur, und diese ve
             { "name": "Name"},
             { "name": "Group"}
          ],
-        "type": "SqlServerTable",
+        "type": "OracleTable",
         "linkedServiceName": {
-            "referenceName": "SqlServerLinkedService",
+            "referenceName": "OracleLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -75,11 +136,11 @@ In diesem Beispiel verfügt die Eingabetabelle über eine Struktur, und diese ve
 }
 ```
 
-In diesem Beispiel verfügt die Ausgabetabelle über eine Struktur, und diese verweist auf eine Tabelle in einer Azure SQL-Datenbank.
+In diesem Beispiel verfügt das Ausgabedataset über eine Struktur, und diese verweist auf eine Tabelle in Salesforce.
 
 ```json
 {
-    "name": "AzureSqlOutput",
+    "name": "SalesforceDataset",
     "properties": {
         "structure":
         [
@@ -87,9 +148,9 @@ In diesem Beispiel verfügt die Ausgabetabelle über eine Struktur, und diese ve
             { "name": "MyName" },
             { "name": "MyGroup"}
         ],
-        "type": "AzureSqlTable",
+        "type": "SalesforceObject",
         "linkedServiceName": {
-            "referenceName": "AzureSqlLinkedService",
+            "referenceName": "SalesforceLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -99,7 +160,7 @@ In diesem Beispiel verfügt die Ausgabetabelle über eine Struktur, und diese ve
 }
 ```
 
-Der folgende JSON-Code definiert eine Kopieraktivität in einer Pipeline. Die Spalten der Quelle werden mithilfe der **translator**-Eigenschaft den Spalten der Senke (**columnMappings**) zugeordnet.
+Der folgende JSON-Code definiert eine Kopieraktivität in einer Pipeline. Die Spalten der Quelle werden mithilfe der **translator** -> **columnMappings**-Eigenschaft den Spalten der Senke zugeordnet.
 
 ```json
 {
@@ -107,23 +168,23 @@ Der folgende JSON-Code definiert eine Kopieraktivität in einer Pipeline. Die Sp
     "type": "Copy",
     "inputs": [
         {
-            "referenceName": "SqlServerInput",
+            "referenceName": "OracleDataset",
             "type": "DatasetReference"
         }
     ],
     "outputs": [
         {
-            "referenceName": "AzureSqlOutput",
+            "referenceName": "SalesforceDataset",
             "type": "DatasetReference"
         }
     ],
     "typeProperties":    {
-        "source": { "type": "SqlSource" },
-        "sink": { "type": "SqlSink" },
+        "source": { "type": "OracleSource" },
+        "sink": { "type": "SalesforceSink" },
         "translator":
         {
             "type": "TabularTranslator",
-            "columnMappings": 
+            "columnMappings":
             {
                 "UserId": "MyUserId",
                 "Group": "MyGroup",
@@ -136,23 +197,19 @@ Der folgende JSON-Code definiert eine Kopieraktivität in einer Pipeline. Die Sp
 
 Wenn Sie zum Angeben der Spaltenzuordnung die Syntax `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` verwenden, wird sie weiterhin unverändert unterstützt.
 
-**Ablauf der Spaltenzuordnung:**
+### <a name="alternative-schema-mapping"></a>Alternative Schemazuordnung
 
-![Ablauf der Spaltenzuordnung](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
-
-## <a name="schema-mapping"></a>Schemazuordnung
-
-Die Schemazuordnung wird angewendet, wenn Daten zwischen hierarchisch und tabellarisch strukturierten Daten kopiert werden, z. B. Kopieren aus MongoDB/REST in eine Textdatei oder aus SQL in die Azure Cosmos DB-API für MongoDB. Folgende Eigenschaften werden im Abschnitt `translator` der Kopieraktivität unterstützt:
+Sie können die Kopieraktivität -> `translator` -> `schemaMapping` angeben, um zwischen hierarchisch und tabellarisch strukturierten Daten zuzuordnen, z. B. Kopieren aus MongoDB/REST in eine Textdatei oder aus Oracle in die Azure Cosmos DB-API für MongoDB. Folgende Eigenschaften werden im Abschnitt `translator` der Kopieraktivität unterstützt:
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft der Kopieraktivität „translator“ muss auf Folgendes festgelegt werden: **TabularTranslator** | Ja |
-| schemaMapping | Eine Sammlung von Schlüssel-Wert-Paaren, die die Zuordnungsbeziehung **von der Quelle zur Senke** darstellt.<br/>- **Schlüssel:** stellt die Quelle dar. Für eine **tabellarische Quelle** legen Sie den Spaltennamen wie in der Datasetstruktur definiert fest. Für eine **hierarchische Quelle** legen Sie den Ausdruck des JSON-Pfads für jedes zu extrahierende und zuzuordnende Feld fest.<br/>- **Wert:** stellt die Senke dar. Für eine **tabellarische Senke** legen Sie den Spaltennamen wie in der Datasetstruktur definiert fest. Für eine **hierarchische Senke** legen Sie den Ausdruck des JSON-Pfads für jedes zu extrahierende und zuzuordnende Feld fest. <br/> Bei hierarchischen Daten beginnt der JSON-Pfad für Felder unter der Stammobjekt mit dem Stamm „$“. Für Felder innerhalb des von der `collectionReference`-Eigenschaften ausgewählten Arrays beginnt der JSON-Pfad mit dem Array-Element.  | Ja |
-| collectionReference | Wenn Sie Daten durchlaufen und Objekte **innerhalb eines Arrayfelds** mit demselben Muster extrahieren, und wenn Sie möchten, dass jedes Objekt in einer neuen Zeile steht, geben Sie den JSON-Pfad dieses Arrays für die übergreifende Anwendung an. Diese Eigenschaft wird nur unterstützt, wenn hierarchische Daten die Quelle sind. | Nein  |
+| schemaMapping | Eine Sammlung von Schlüssel-Wert-Paaren, die die Zuordnungsbeziehung **von der Quelle zur Senke** darstellt.<br/>- **Schlüssel:** stellt die Quelle dar. Für eine **tabellarische Quelle** legen Sie den Spaltennamen wie in der Datasetstruktur definiert fest. Für eine **hierarchische Quelle** legen Sie den Ausdruck des JSON-Pfads für jedes zu extrahierende und zuzuordnende Feld fest.<br>- **Wert:** stellt die Senke dar. Für eine **tabellarische Senke** legen Sie den Spaltennamen wie in der Datasetstruktur definiert fest. Für eine **hierarchische Senke** legen Sie den Ausdruck des JSON-Pfads für jedes zu extrahierende und zuzuordnende Feld fest. <br>Bei hierarchischen Daten beginnt der JSON-Pfad für Felder unter der Stammobjekt mit dem Stamm „$“. Für Felder innerhalb des von der `collectionReference`-Eigenschaften ausgewählten Arrays beginnt der JSON-Pfad mit dem Array-Element.  | Ja |
+| collectionReference | Wenn Sie Daten durchlaufen und Objekte **innerhalb eines Arrayfelds** mit demselben Muster extrahieren, und wenn Sie möchten, dass jedes Objekt in einer neuen Zeile steht, geben Sie den JSON-Pfad dieses Arrays für die übergreifende Anwendung an. Diese Eigenschaft wird nur unterstützt, wenn hierarchische Daten die Quelle sind. | Nein |
 
-**Beispiel: Kopieren aus MongoDB nach SQL:**
+**Beispiel: Kopieren aus MongoDB nach Oracle:**
 
-Sie besitzen zum Beispiel ein MongoDB-Dokument mit folgendem Inhalt: 
+Sie besitzen zum Beispiel ein MongoDB-Dokument mit folgendem Inhalt:
 
 ```json
 {
@@ -191,21 +248,21 @@ Konfigurieren Sie die Regel für die Schemazuordnung wie im folgenden JSON-Beisp
 
 ```json
 {
-    "name": "CopyFromMongoDBToSqlAzure",
+    "name": "CopyFromMongoDBToOracle",
     "type": "Copy",
     "typeProperties": {
         "source": {
             "type": "MongoDbV2Source"
         },
         "sink": {
-            "type": "SqlSink"
+            "type": "OracleSink"
         },
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number", 
-                "orderDate": "$.date", 
-                "order_pd": "prod", 
+                "orderNumber": "$.number",
+                "orderDate": "$.date",
+                "order_pd": "prod",
                 "order_price": "price",
                 "city": " $.city[0].name"
             },
@@ -226,11 +283,11 @@ Sie können die Zuordnung des nativen Typs zum Zwischendatentyp im „Datentypzu
 
 ### <a name="supported-data-types"></a>Unterstützte Datentypen
 
-Data Factory unterstützt die folgenden Zwischendatentypen: Sie können beim Konfigurieren von Typinformationen in der Konfiguration der [Datasetstruktur](concepts-datasets-linked-services.md#dataset-structure) folgende Werte angeben:
+Data Factory unterstützt die folgenden Zwischendatentypen: Sie können beim Konfigurieren von Typinformationen in der Konfiguration der [Datasetstruktur](concepts-datasets-linked-services.md#dataset-structure-or-schema) folgende Werte angeben:
 
 * Byte[]
 * Boolean
-* Datetime
+* DateTime
 * Datetimeoffset
 * Decimal
 * Double
@@ -242,31 +299,7 @@ Data Factory unterstützt die folgenden Zwischendatentypen: Sie können beim Kon
 * String
 * Timespan
 
-### <a name="explicit-data-type-conversion"></a>Explizite Konvertierung von Datentypen
-
-Beim Kopieren von Daten in Datenspeicher mit festem Schema, z.B. SQL Server/Oracle, sollte die explizite Typkonvertierung quellseitig deklariert werden, wenn die gleiche Spalte in Quelle und Senke unterschiedlichen Typs ist:
-
-* Für die Dateiquelle, z.B. CSV/Avro, wird die Typkonvertierung mit vollständiger Spaltenliste (quellseitiger Spaltenname und senkenseitiger Quelltyp) über die Quellstruktur deklariert.
-* Für die relationale Quelle (z.B. SQL/Oracle) sollte die Typkonvertierung durch explizite Typumwandlung in der Abfrageanweisung erreicht werden.
-
-## <a name="when-to-specify-dataset-structure"></a>Wann ist „structure“ im Dataset erforderlich?
-
-In folgenden Szenarien ist „structure“ in Dataset erforderlich:
-
-* Anwenden [expliziter Datentypkonvertierung](#explicit-data-type-conversion) für Dateiquellen beim Kopieren (Eingabedataset)
-* Anwenden [expliziter Spaltenzuordnung](#explicit-column-mapping) beim Kopieren (sowohl für Eingabe- als auch Ausgabedataset)
-* Kopieren aus Dynamics 365/CRM-Quelle (Eingabedataset)
-* Kopieren nach Cosmos DB als geschachteltes Objekt, wenn die Quelle keine JSON-Datei ist (Ausgabedataset)
-
-In folgenden Szenarien wird „structure“ im Dataset vorgeschlagen:
-
-* Kopieren aus einer Textdatei ohne Header (Eingabedataset). Sie können die Spaltennamen für die Textdatei den entsprechenden Senkenspalten angleichen, um keine explizite Spaltenzuordnung zu konfigurieren.
-* Kopieren aus Datenspeichern mit flexiblem Schema, z.B. Azure Table/Cosmos DB (Eingabedataset), um zu gewährleisten, dass die erwarteten Daten (Spalten) kopiert werden, anstatt dass die Kopieraktivität das Schema bei jeder Aktivitätsausführung anhand der obersten Zeile(n) ableitet.
-
-
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen finden Sie in den anderen Artikeln zur Kopieraktivität:
 
-- [Kopieraktivität in Azure Data Factory](copy-activity-overview.md)
-- [Fehlertoleranz der Kopieraktivität in Azure Data Factory](copy-activity-fault-tolerance.md)
-- [Handbuch zur Leistung und Optimierung der Kopieraktivität](copy-activity-performance.md)
+- [Kopieraktivität – Übersicht](copy-activity-overview.md)

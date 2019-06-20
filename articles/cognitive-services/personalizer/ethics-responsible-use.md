@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035427"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239897"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Richtlinien für die verantwortungsvolle Implementierung der Personalisierung
 
@@ -49,7 +49,7 @@ Die Implementierung der Personalisierung kann für Ihre Benutzer und Ihr Unterne
 
 Die Verwendung eines Diensts, der lernt, Inhalte und Benutzeroberflächen zu personalisieren, ist hilfreich. Er kann aber auch falsch angewendet werden, wenn die Personalisierung negative Nebeneffekte in der realen Welt verursacht, wozu auch gehört, dass Benutzer sich nicht bewusst sind, dass Inhalte personalisiert werden. 
 
-Beispiele für die Verwendungen von Personalisierung mit erhöhtem Potenzial für negative Nebeneffekte oder fehlende Transparenz sind unter anderem Szenarien, in denen der „Nutzen“ (Relevanz) "von vielen langfristigen und komplexen Faktoren abhängig ist, die, wenn Sie zu stark vereinfacht in einen sofortigen Nutzen umgewandelt werden, zu nachteiligen Ergebnissen für Einzelpersonen führen können. Diese werden in der Regel als „Folge“entscheidungen bzw. Entscheidungen, die das Risiko eines Schadens mit sich bringen, angesehen. Beispiel:  
+Beispiele für die Verwendungen von Personalisierung mit erhöhtem Potenzial für negative Nebeneffekte oder fehlende Transparenz sind unter anderem Szenarien, in denen der „Nutzen“ (Relevanz) "von vielen langfristigen und komplexen Faktoren abhängig ist, die, wenn Sie zu stark vereinfacht in einen sofortigen Nutzen umgewandelt werden, zu nachteiligen Ergebnissen für Einzelpersonen führen können. Diese werden in der Regel als „Folge“entscheidungen bzw. Entscheidungen, die das Risiko eines Schadens mit sich bringen, angesehen. Beispiel: 
 
 
 * **Finanzen**: Personalisierungsangebote für Kredit-, Finanz-und Versicherungsprodukte, bei denen Risikofaktoren auf Daten basieren, die Einzelpersonen nicht kennen, nicht abrufen oder anfechten können. 
@@ -128,17 +128,13 @@ Im Folgenden finden Sie Designbereiche für verantwortungsvolle Implementierunge
 * Archivieren Sie Informationen und Ressourcen – z. B. Modelle, Lernrichtlinien und andere Daten, die die Personalisierung für ihre Funktion verwendet, um Ergebnisse reproduzieren zu können.
 
 ### <a name="transparency"></a>Transparenz
-*KI-Systeme sollten verständlich sein*. Mit Personalisierung
+*KI-Systeme sollten verständlich sein*. Mit Personalisierung:
 
-• Geben Sie Benutzern Informationen darüber, wie der Inhalt personalisiert wurde. Beispielsweise können Sie Ihren Benutzern eine Schaltfläche mit der Bezeichnung „Warum diese Vorschläge?“ anzeigen, über die angezeigt wird, welche Top-Merkmale des Benutzers und welche Aktionen eine Rolle für die Ergebnisse der Personalisierung gespielt haben.
-• Stellen Sie sicher, dass in Ihren Nutzungsbedingungen erwähnt wird, dass Sie Informationen über Benutzer und ihr Verhalten zum Personalisieren der Erfahrung verwenden.
-
-
-* *Geben Sie Benutzern Informationen darüber, wie der Inhalt personalisiert wurde.* Beispielsweise können Sie Ihren Benutzern eine Schaltfläche mit der Bezeichnung „`Why These Suggestions?`“ (Warum diese Vorschläge?) anzeigen, über die angezeigt wird, welche Top-Merkmale des Benutzers und welche Aktionen eine Rolle bei der Personalisierung gespielt haben.
-* Stellen Sie sicher, dass in Ihren Nutzungsbedingungen erwähnt wird, dass Sie Informationen über Benutzer zum Personalisieren der Erfahrung verwenden.
+* *Geben Sie Benutzern Informationen darüber, wie der Inhalt personalisiert wurde.* Beispielsweise können Sie Ihren Benutzern eine Schaltfläche mit der Bezeichnung `Why These Suggestions?` (Warum diese Vorschläge?) anzeigen, über die angezeigt wird, welche Top-Merkmale des Benutzers und welche Aktionen eine Rolle bei den Ergebnissen der Personalisierung gespielt haben.
+* Stellen Sie sicher, dass in Ihren Nutzungsbedingungen erwähnt wird, dass Sie Informationen über Benutzer und ihr Verhalten zum Personalisieren der Erfahrung verwenden.
 
 ### <a name="fairness"></a>Fairness
-*KI-Systeme sollten alle Personen fair, also gleich behandeln.
+*KI-Systeme sollten alle Personen fair, also gleich behandeln.*
 
 * Verwenden Sie Personalisierung nicht für Anwendungsfälle, in denen die Ergebnisse langfristig sind, Folgen haben oder tatsächliche Schäden beinhalten.
 * Verwenden Sie keine Merkmale, die nicht für die Personalisierung von Inhalten geeignet sind oder die die Propagierung unerwünschter Vorurteile unterstützen. Beispielsweise sollten jedem Benutzer mit ähnlicher Finanzlage dieselben personalisierten Empfehlungen für Finanzprodukte angezeigt werden.

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1aae74d8077a75e5ab556703b1c1531f540bbdb4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 72d1c4d2ea3adf7d8751adfbb013435f8f2530f0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125745"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Konfigurieren von privaten IP-Adressen für einen virtuellen Computer (klassisch) über das Azure-Portal
 
@@ -61,7 +61,7 @@ Um in einem VNet mit dem Namen *TestVNet* im Subnetz *FrontEnd* einen virtuellen
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Abrufen der Informationen zur statischen privaten IP-Adresse für einen virtuellen Computer
 Um die Informationen zur statischen privaten IP-Adresse für den virtuellen Computer anzuzeigen, der mit den obigen Schritten erstellt wurde, führen Sie die folgenden Schritte aus.
 
-1. Wählen Sie im Azure-Portal die Option **ALLE DURCHSUCHEN** > **Virtuelle Computer (Klassisch)** > **DNS01All** > **Alle Einstellungen** > **IP-Adressen**, um die Informationen zur IP-Adresszuweisung und IP-Adresse anzuzeigen, wie nachfolgend dargestellt.
+1. Wählen Sie im Azure-Portal die Option **ALLE DURCHSUCHEN** > **Virtuelle Computer (Klassisch)**  > **DNS01All** > **Alle Einstellungen** > **IP-Adressen**, um die Informationen zur IP-Adresszuweisung und IP-Adresse anzuzeigen, wie nachfolgend dargestellt.
    
     ![Erstellen einer VM im Azure-Portal](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 

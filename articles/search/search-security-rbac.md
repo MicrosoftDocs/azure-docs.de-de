@@ -10,11 +10,11 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61282365"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Festlegen von RBAC-Rollen für den Administratorzugriff
 
@@ -39,5 +39,5 @@ Rollen erteilen keine Zugriffsrechte für den Dienstendpunkt. Suchdienstoperatio
 ## <a name="see-also"></a>Weitere Informationen
 
 + [Verwalten mit PowerShell](search-manage-powershell.md) 
-+ [Bereitstellungsstrategien und bewährte Methoden zur Optimierung der Leistung in Azure Search](search-performance-optimization.md)
++ [Überlegungen zur Leistung und Optimierung von Azure Search](search-performance-optimization.md)
 + [Erste Schritte mit der rollenbasierten Zugriffssteuerung im Azure-Portal](../role-based-access-control/overview.md)

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023888"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62107976"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Konfigurieren von privaten IP-Adressen für einen virtuellen Computer (klassisch) mithilfe der klassischen Azure CLI
 
@@ -64,10 +64,10 @@ Erstellen Sie basierend auf dem oben beschriebenen Szenario in einem neuen Cloud
         info:    OK
         info:    vm create command OK
    
-   * **-l (oder --location)**. Azure-Region aus, in der der virtuelle Computer erstellt wird. In diesem Szenario *centralus*.
-   * **-n (oder --vm-name)**. Name des zu erstellenden virtuellen Computers.
-   * **-w (oder --virtual-network-name)**. Name des VNets, in dem der virtuelle Computer erstellt wird. 
-   * **-S (oder --static-ip)**. Statische private IP-Adresse für den virtuellen Computer.
+   * **-l (oder --location)** . Azure-Region aus, in der der virtuelle Computer erstellt wird. In diesem Szenario *centralus*.
+   * **-n (oder --vm-name)** . Name des zu erstellenden virtuellen Computers.
+   * **-w (oder --virtual-network-name)** . Name des VNets, in dem der virtuelle Computer erstellt wird. 
+   * **-S (oder --static-ip)** . Statische private IP-Adresse für den virtuellen Computer.
    * **TestService**. Name des Clouddiensts, in dem der virtuelle Computer erstellt wird.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Image, das zum Erstellen des virtuellen Computers verwendet wird.
    * **adminuser**. Lokaler Administrator für den virtuellen Windows-Computer.

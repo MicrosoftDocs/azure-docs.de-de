@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692465"
 ---
 # <a name="scp-programming-guide"></a>SCP-Programmierleitfaden
@@ -149,7 +149,7 @@ Context stellt eine Ausführungsumgebung für die Anwendung bereit. Jede ISCPPlu
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf` enthält die von Storm definierten Parameter, und `pluginConf` enthält die von SCP definierten Parameter. Beispiel: 
+`stormConf` enthält die von Storm definierten Parameter, und `pluginConf` enthält die von SCP definierten Parameter. Beispiel:
 
     public class Constants
     {
@@ -163,7 +163,7 @@ Context stellt eine Ausführungsumgebung für die Anwendung bereit. Jede ISCPPlu
         public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
     }
 
-`TopologyContext` wird bereitgestellt, um den Topologie-Kontext abzurufen, und eignet sich hauptsächlich für Komponenten mit Mehrfach-Parallelität. Beispiel: 
+`TopologyContext` wird bereitgestellt, um den Topologie-Kontext abzurufen, und eignet sich hauptsächlich für Komponenten mit Mehrfach-Parallelität. Beispiel:
 
     //demo how to get TopologyContext info
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -461,7 +461,7 @@ Die native Storm-Version wurde in Java geschrieben. Sie wurde durch SCP.NET erwe
 Hier ist `microsoft.scp.example.HybridTopology.Generator` der Klassenname des Java-Spouts.
 
 ### <a name="specify-java-classpath-in-runspec-command"></a>Angeben des Java-Classpath im runSpec-Befehl
-Wenn Sie eine Topologie mit Java-Spouts oder -Bolts übermitteln möchten, müssen Sie die Java-Spouts bzw. -Bolts zunächst kompilieren und die Jar-Dateien erstellen. Anschließend geben Sie den Java-Classpath mit den Jar-Dateien an, wenn Sie die Topologie übermitteln. Beispiel: 
+Wenn Sie eine Topologie mit Java-Spouts oder -Bolts übermitteln möchten, müssen Sie die Java-Spouts bzw. -Bolts zunächst kompilieren und die Jar-Dateien erstellen. Anschließend geben Sie den Java-Classpath mit den Jar-Dateien an, wenn Sie die Topologie übermitteln. Beispiel:
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 

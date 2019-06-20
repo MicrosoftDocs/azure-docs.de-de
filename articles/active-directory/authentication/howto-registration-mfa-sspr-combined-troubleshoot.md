@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60414619"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Problembehandlung für die kombinierte Registrierung von Sicherheitsinformationen (Preview)
 
@@ -35,7 +35,7 @@ Die für kombinierte Registrierungen protokollierten Ereignisse befinden sich in
 
 In der folgenden Tabelle werden alle Überwachungsereignisse aufgeführt, die mit der kombinierten Registrierung generiert werden:
 
-| Aktivität | Status | Grund | BESCHREIBUNG |
+| Aktivität | Status | `Reason` | BESCHREIBUNG |
 | --- | --- | --- | --- |
 | User registered all required security info (Der Benutzer hat alle erforderlichen Sicherheitsinformationen registriert) | Erfolgreich | Der Benutzer hat alle erforderlichen Sicherheitsinformationen registriert. | Dieses Ereignis tritt auf, wenn ein Benutzer die Registrierung erfolgreich abgeschlossen hat.|
 | User registered all required security info (Der Benutzer hat alle erforderlichen Sicherheitsinformationen registriert) | Fehler | Der Benutzer hat die Registrierung der Sicherheitsinformationen abgebrochen. | Dieses Ereignis tritt auf, wenn ein Benutzer die Registrierung über den Interruptmodus abbricht.|

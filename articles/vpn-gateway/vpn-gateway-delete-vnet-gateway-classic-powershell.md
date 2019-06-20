@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
 ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767769"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60863979"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Löschen eines Gateways des virtuellen Netzwerks mit PowerShell (klassisch)
 

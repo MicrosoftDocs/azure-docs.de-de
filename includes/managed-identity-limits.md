@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: active-directory
 author: daveba
 ms.service: active-directory
@@ -10,11 +10,11 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553757"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178500"
 ---
 | Category (Kategorie) | Begrenzung |
 | --- | --- |

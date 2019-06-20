@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: a48ce5319616e86bf4ad6f9bfa24fda5b98d62f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cee3b68273fe98e70d558b5d01232bedf113224
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66122134"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Erstellen eines Load Balancer Standard mit zonenredundantem Front-End mithilfe von Azure PowerShell
 

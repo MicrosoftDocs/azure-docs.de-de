@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006130"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65522329"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Konnektivitätsarchitektur für eine verwaltete Instanz in Azure SQL-Datenbank
 
@@ -86,8 +86,8 @@ Wenn Verbindungen in der verwalteten Instanz starten (wie bei Sicherungen und Ü
 
 Stellen Sie eine verwaltete Instanz in einem dedizierten Subnetz im virtuellen Netzwerk bereit. Das Subnetz muss diese Merkmale aufweisen:
 
-- **Dediziertes Subnetz**: Das Subnetz der verwalteten Instanz darf mit keinem anderen Clouddienst verknüpft und kein Gatewaysubnetz sein. Das Subnetz darf keine Ressourcen außer der verwalteten Instanz enthalten, und Sie können später keine Ressourcen im Subnetz hinzufügen.
-- **Netzwerksicherheitsgruppe (NSG)**: Eine NSG, die mit dem virtuellen Netzwerk verknüpft ist, muss [Eingangssicherheitsregeln](#mandatory-inbound-security-rules) und [Ausgangssicherheitsregeln](#mandatory-outbound-security-rules) vor allen anderen Regeln definieren. Sie können eine NSG verwenden, um den Zugriff auf den Datenendpunkt der verwalteten Instanz zu steuern, indem Sie Datenverkehr an Port 1433 und den Ports 11000–11999 filtern, wenn die verwaltete Instanz für direkte Verbindungen konfiguriert ist.
+- **Dediziertes Subnetz**: Das Subnetz der verwalteten Instanz darf mit keinem anderen Clouddienst verknüpft und kein Gatewaysubnetz sein. Das Subnetz darf keine Ressourcen außer der verwalteten Instanz enthalten, und Sie können später keine Arten von Ressourcen im Subnetz hinzufügen.
+- **Netzwerksicherheitsgruppe (NSG)** : Eine NSG, die mit dem virtuellen Netzwerk verknüpft ist, muss [Eingangssicherheitsregeln](#mandatory-inbound-security-rules) und [Ausgangssicherheitsregeln](#mandatory-outbound-security-rules) vor allen anderen Regeln definieren. Sie können eine NSG verwenden, um den Zugriff auf den Datenendpunkt der verwalteten Instanz zu steuern, indem Sie Datenverkehr an Port 1433 und den Ports 11000–11999 filtern, wenn die verwaltete Instanz für direkte Verbindungen konfiguriert ist.
 - **Benutzerdefinierte Routingtabelle (User Defined Route, UDR):** Eine UDR-Tabelle, die mit dem virtuellen Netzwerk verknüpft ist, muss bestimmte [Einträge](#user-defined-routes) enthalten.
 - **Keine Dienstendpunkte**: Dem Subnetz der verwalteten Instanz sollte kein Dienstendpunkt zugeordnet werden. Wenn Sie das virtuelle Netzwerk erstellen, überprüfen Sie, ob die Option „Dienstendpunkte“ auf „Deaktiviert“ festgelegt ist.
 - **Ausreichende IP-Adressen**: Das Subnetz der verwalteten Instanz muss mindestens 16 IP-Adressen haben. Der empfohlene Mindestwert sind 32 IP-Adressen. Weitere Informationen finden Sie unter [Ermitteln der Größe des Subnetzes für verwaltete Instanzen](sql-database-managed-instance-determine-size-vnet-subnet.md). Sie können verwaltete Instanzen im [vorhandenen Netzwerk](sql-database-managed-instance-configure-vnet-subnet.md) bereitstellen, nachdem Sie dieses entsprechend den [Netzwerkanforderungen für verwaltete Instanzen](#network-requirements) konfiguriert haben. Erstellen Sie andernfalls ein [neues Netzwerk und Subnetz](sql-database-managed-instance-create-vnet-subnet.md).
@@ -97,7 +97,7 @@ Stellen Sie eine verwaltete Instanz in einem dedizierten Subnetz im virtuellen N
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatorische Eingangssicherheitsregeln
 
-| NAME       |Port                        |Protokoll|Quelle           |Ziel|Aktion|
+| NAME       |Port                        |Protocol|`Source`           |Ziel|Aktion|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Beliebig              |MI-SUBNETZ  |ZULASSEN |
 |mi_subnet   |Beliebig                         |Beliebig     |MI-SUBNETZ        |MI-SUBNETZ  |ZULASSEN |
@@ -105,7 +105,7 @@ Stellen Sie eine verwaltete Instanz in einem dedizierten Subnetz im virtuellen N
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatorische Ausgangssicherheitsregeln
 
-| NAME       |Port          |Protokoll|Quelle           |Ziel|Aktion|
+| NAME       |Port          |Protocol|`Source`           |Ziel|Aktion|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |80, 443, 12000|TCP     |MI-SUBNETZ        |AzureCloud |ZULASSEN |
 |mi_subnet   |Beliebig           |Beliebig     |MI-SUBNETZ        |MI-SUBNETZ  |ZULASSEN |

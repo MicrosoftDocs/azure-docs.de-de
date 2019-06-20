@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: ddc1c7f2dd207cba18a8c080c8b14cc53c149a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797265"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463323"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Erstellen eines Media Services-Kontos im Azure-Portal
 

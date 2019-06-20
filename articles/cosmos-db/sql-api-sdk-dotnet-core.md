@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
 ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510639"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK für SQL-API: Versionshinweise und Ressourcen
@@ -251,38 +251,38 @@ Wenn Sie Fragen zu diesem SDK haben, stellen Sie diese bei [StackOverflow](https
 
 | Version | Herausgabedatum | Deaktivierungstermine |
 | --- | --- | --- |
-| [2.4.0](#2.4.0) |5. Mai 2019 |--- |
-| [2.3.0](#2.3.0) |4. April 2019 |--- |
-| [2.2.3](#2.2.3) |11. März 2019 |--- |
-| [2.2.2](#2.2.2) |6. Februar 2019 |--- |
-| [2.2.1](#2.2.1) |24. Dezember 2018 |--- |
-| [2.2.0](#2.2.0) |07. Dezember 2018 |--- |
-| [2.1.3](#2.1.3) |15. Oktober 2018 |--- |
-| [2.1.2](#2.1.2) |4. Oktober 2018 |--- |
-| [2.1.1](#2.1.1) |27. September 2018 |--- |
-| [2.1.0](#2.1.0) |21. September 2018 |--- |
-| [2.0.0](#2.0.0) |07. September 2018 |--- |
-| [1.9.1](#1.9.1) |09. März 2018 |--- |
-| [1.8.2](#1.8.2) |21. Februar 2018 |--- |
-| [1.8.1](#1.8.1) |05. Februar 2018 |--- |
-| [1.7.1](#1.7.1) |16. November 2017 |--- |
-| [1.7.0](#1.7.0) |10. November 2017 |--- |
-| [1.6.0](#1.6.0) |17. Oktober 2017 |--- |
-| [1.5.1](#1.5.1) |02. Oktober 2017 |--- |
-| [1.5.0](#1.5.0) |10. August 2017 |--- | 
-| [1.4.1](#1.4.1) |07. August 2017 |--- |
-| [1.4.0](#1.4.0) |02. August 2017 |--- |
-| [1.3.2](#1.3.2) |12. Juni 2017 |--- |
-| [1.3.1](#1.3.1) |23. Mai 2017 |--- |
-| [1.3.0](#1.3.0) |10. Mai 2017 |--- |
-| [1.2.2](#1.2.2) |19. April 2017 |--- |
-| [1.2.1](#1.2.1) |29. März 2017 |--- |
-| [1.2.0](#1.2.0) |25. März 2017 |--- |
-| [1.1.2](#1.1.2) |20. März 2017 |--- |
-| [1.1.1](#1.1.1) |14. März 2017 |--- |
-| [1.1.0](#1.1.0) |16. Februar 2017 |--- |
-| [1.0.0](#1.0.0) |21. Dezember 2016 |--- |
-| [0.1.0-preview](#0.1.0-preview) |15. November 2016 |31. Dezember 2016 |
+| [2.4.0](#2.4.0) |5\. Mai 2019 |--- |
+| [2.3.0](#2.3.0) |4\. April 2019 |--- |
+| [2.2.3](#2.2.3) |11\. März 2019 |--- |
+| [2.2.2](#2.2.2) |6\. Februar 2019 |--- |
+| [2.2.1](#2.2.1) |24\. Dezember 2018 |--- |
+| [2.2.0](#2.2.0) |07\. Dezember 2018 |--- |
+| [2.1.3](#2.1.3) |15\. Oktober 2018 |--- |
+| [2.1.2](#2.1.2) |4\. Oktober 2018 |--- |
+| [2.1.1](#2.1.1) |27\. September 2018 |--- |
+| [2.1.0](#2.1.0) |21\. September 2018 |--- |
+| [2.0.0](#2.0.0) |07\. September 2018 |--- |
+| [1.9.1](#1.9.1) |09\. März 2018 |--- |
+| [1.8.2](#1.8.2) |21\. Februar 2018 |--- |
+| [1.8.1](#1.8.1) |05\. Februar 2018 |--- |
+| [1.7.1](#1.7.1) |16\. November 2017 |--- |
+| [1.7.0](#1.7.0) |10\. November 2017 |--- |
+| [1.6.0](#1.6.0) |17\. Oktober 2017 |--- |
+| [1.5.1](#1.5.1) |02\. Oktober 2017 |--- |
+| [1.5.0](#1.5.0) |10\. August 2017 |--- | 
+| [1.4.1](#1.4.1) |07\. August 2017 |--- |
+| [1.4.0](#1.4.0) |02\. August 2017 |--- |
+| [1.3.2](#1.3.2) |12\. Juni 2017 |--- |
+| [1.3.1](#1.3.1) |23\. Mai 2017 |--- |
+| [1.3.0](#1.3.0) |10\. Mai 2017 |--- |
+| [1.2.2](#1.2.2) |19\. April 2017 |--- |
+| [1.2.1](#1.2.1) |29\. März 2017 |--- |
+| [1.2.0](#1.2.0) |25\. März 2017 |--- |
+| [1.1.2](#1.1.2) |20\. März 2017 |--- |
+| [1.1.1](#1.1.1) |14\. März 2017 |--- |
+| [1.1.0](#1.1.0) |16\. Februar 2017 |--- |
+| [1.0.0](#1.0.0) |21\. Dezember 2016 |--- |
+| [0.1.0-preview](#0.1.0-preview) |15\. November 2016 |31\. Dezember 2016 |
 
 ## <a name="see-also"></a>Siehe auch
 Weitere Informationen zu Cosmos DB finden Sie auf der Seite zum Dienst [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

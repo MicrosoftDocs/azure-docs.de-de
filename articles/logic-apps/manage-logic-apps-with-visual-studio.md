@@ -11,10 +11,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
 ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467427"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Verwalten von Logik-Apps mit Visual Studio
@@ -69,7 +69,7 @@ In Visual Studio finden Sie alle Logik-Apps, die Ihrem Azure-Abonnement zugeordn
 
 1. Öffnen Sie Visual Studio. Wählen Sie im Menü **Ansicht** die Option **Cloud-Explorer** aus.
 
-1. Wählen Sie im Cloud-Explorer **Kontenverwaltung** aus. Wählen Sie das Azure-Abonnement aus, dem Ihre Logik-Apps zugeordnet sind, und wählen Sie dann **Übernehmen** aus. Beispiel: 
+1. Wählen Sie im Cloud-Explorer **Kontenverwaltung** aus. Wählen Sie das Azure-Abonnement aus, dem Ihre Logik-Apps zugeordnet sind, und wählen Sie dann **Übernehmen** aus. Beispiel:
 
    ![„Kontenverwaltung“ auswählen](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -155,14 +155,14 @@ Um den Status zu überprüfen und Probleme mit Logik-App-Ausführungen zu diagno
 
    ![„Ausführungsverlauf öffnen“](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-1. Um die Details für eine bestimmte Ausführung anzuzeigen, doppelklicken Sie auf eine Ausführung. Beispiel: 
+1. Um die Details für eine bestimmte Ausführung anzuzeigen, doppelklicken Sie auf eine Ausführung. Beispiel:
 
    ![Detaillierter Ausführungsverlauf](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Wählen Sie zum Sortieren der Tabelle nach Eigenschaft die Spaltenüberschrift für diese Eigenschaft aus. 
 
-1. Erweitern Sie die Schritte, deren Eingaben und Ausgaben Sie überprüfen möchten. Beispiel: 
+1. Erweitern Sie die Schritte, deren Eingaben und Ausgaben Sie überprüfen möchten. Beispiel:
 
    ![Eingaben und Ausgaben für jeden Schritt anzeigen](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 

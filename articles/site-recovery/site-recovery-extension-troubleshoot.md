@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61280670"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Behandeln von Problemen mit dem Azure Site Recovery-Agent
 
@@ -26,14 +26,14 @@ Fehlercode: 151076
 
  Azure Site Recovery installiert eine Erweiterung auf dem virtuellen Computer als Teil des Aktivierungsschutzes. Jede der folgenden Bedingungen kann verhindern, dass der Schutzvorgang ausgelöst wird und der Auftrag nicht ausgeführt wird. Führen Sie die folgenden Problembehandlungsschritte aus, und wiederholen Sie dann den Vorgang:
 
-**Ursache 1: [Der Agent ist auf der VM installiert, reagiert aber nicht (für Windows-VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Ursache 1: [Der Agent ist auf der VM installiert, reagiert aber nicht (für Windows-VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Ursache 2: [Der auf der VM installierte Agent ist veraltet (für Linux-VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Ursache 3: [Die Site Recovery-Erweiterung kann nicht aktualisiert oder geladen werden.](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 Fehlermeldung: „Der vorherige Site Recovery-Erweiterungsvorgang nimmt mehr Zeit in Anspruch als erwartet.“<br>
 Fehlercode: 150066<br>
 
-**Ursache 1: [Der Agent ist auf der VM installiert, reagiert aber nicht (für Windows-VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Ursache 1: [Der Agent ist auf der VM installiert, reagiert aber nicht (für Windows-VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Ursache 2: [Der auf der VM installierte Agent ist veraltet (für Linux-VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Ursache 3: [Der Status der Site Recovery-Erweiterung ist nicht korrekt.](#the-site-recovery-extension-fails-to-update-or-load)**  
 
@@ -45,7 +45,7 @@ Fehlercode: 151099<br>
 Dieser Fehler kann auftreten, wenn der Azure-Gast-Agent auf dem virtuellen Computer nicht im Bereitschaftszustand befindet.
 Sie können den Status des Azure-Gast-Agents im [Azure-Portal](https://portal.azure.com/) überprüfen. Wechseln Sie zum virtuellen Computer, den Sie schützen möchten, und überprüfen Sie den Status unter „VM > Einstellungen > Eigenschaften > Agent-Status“. Meistens ist der Status des Agents nach dem Neustart des virtuellen Computers „Bereit“. Wenn jedoch ein Neustart nicht möglich ist, oder das Problem weiterhin besteht, führen Sie die folgenden Schritte zur Problembehebung aus.
 
-**Ursache 1: [Der Agent ist auf der VM installiert, reagiert aber nicht (für Windows-VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Ursache 1: [Der Agent ist auf der VM installiert, reagiert aber nicht (für Windows-VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Ursache 2: [Der auf der VM installierte Agent ist veraltet (für Linux-VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 

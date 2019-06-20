@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458141"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950105"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Aufgaben eines Gruppenleiters eines Data Science-Teamprojekts
 
-In diesem Thema werden die Aufgaben beschrieben, die ein Gruppenleiter für eine Data Science-Organisation zu erfüllen hat. Das Ziel besteht darin, eine auf Zusammenarbeit ausgelegte Gruppenumgebung zu schaffen, die gemäß dem [Team Data Science-Prozess (TDSP)](overview.md) vereinheitlicht ist. Unter [Rollen und Aufgaben im Team Data Science-Prozess](roles-tasks.md) finden Sie eine Übersicht über die wichtigsten Mitarbeiterrollen und die dazugehörigen Aufgaben für ein Data Science-Team, das eine Vereinheitlichung gemäß diesem Prozess anstrebt.
+In diesem Thema werden die Aufgaben beschrieben, die ein Gruppenleiter für seine Data Science-Organisation zu erfüllen hat. Das Ziel besteht darin, eine auf Zusammenarbeit ausgelegte Gruppenumgebung zu schaffen, die gemäß dem [Team Data Science-Prozess (TDSP)](overview.md) vereinheitlicht ist. Unter [Rollen und Aufgaben im Team Data Science-Prozess](roles-tasks.md) finden Sie eine Übersicht über die wichtigsten Mitarbeiterrollen und die dazugehörigen Aufgaben für ein Data Science-Team, das eine Vereinheitlichung gemäß diesem Prozess anstrebt.
 
 Der **Gruppenleiter** verwaltet die gesamte Data Science-Einheit in einem Unternehmen. Eine Data Science-Einheit kann aus mehreren Teams bestehen, von denen jedes an unterschiedlichen Data Science-Projekten in bestimmten Branchen arbeitet. Ein Gruppenleiter kann seine Aufgaben an einen Stellvertreter delegieren. Dadurch bleiben die der Rolle zugeordneten Aufgaben aber identisch. Wie im folgenden Diagramm dargestellt, gibt es sechs Hauptaufgaben:
 
@@ -146,7 +146,7 @@ Gehen Sie wie folgt vor, um das Standardrepository **GroupCommon** in *GroupProj
 
   ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
-- Klicken Sie im linken Bereich rechts vom Repository **GroupCommon** auf **...**, und wählen Sie die Option **Repository umbenennen**.
+- Klicken Sie im linken Bereich rechts vom Repository **GroupCommon** auf **...** , und wählen Sie die Option **Repository umbenennen**.
 
   ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
 

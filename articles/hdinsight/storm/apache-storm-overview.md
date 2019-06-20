@@ -7,14 +7,14 @@ keywords: Apache Storm-Anwendungsfälle, Storm-Cluster, was ist Apache Storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5688056bc0d371c780bce02254769792e9a95696
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696106"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257781"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Was ist Apache Storm in Azure HDInsight?
 
@@ -47,7 +47,7 @@ Storm in HDInsight umfasst die folgenden Features:
 
 Eine Liste der Unternehmen, die Apache Storm für ihre Echtzeitanalyselösungen verwenden, finden Sie unter [Unternehmen, die Apache Storm verwenden](https://storm.apache.org/documentation/Powered-By.html).
 
-Eine Einführung in Storm finden Sie unter [Erste Schritte mit Apache Storm in HDInsight][gettingstarted].
+Eine Einführung in Storm finden Sie unter [Erste Schritte mit Apache Storm in HDInsight](apache-storm-tutorial-get-started-linux.md).
 
 ## <a name="how-does-apache-storm-work"></a>Funktionsweise von Apache Storm
 
@@ -75,7 +75,7 @@ Ein neuer Storm-Cluster in HDInsight kann innerhalb weniger Minuten erstellt wer
 
 ## <a name="ease-of-use"></a>Einfache Bedienung
 
-* __SSH-Konnektivität (Secure Shell)__: Sie können per SSH über das Internet auf die Hauptknoten Ihres Storm-Clusters zugreifen. Mit SSH können Sie Befehle direkt in Ihrem Cluster ausführen.
+* __SSH-Konnektivität (Secure Shell)__ : Sie können per SSH über das Internet auf die Hauptknoten Ihres Storm-Clusters zugreifen. Mit SSH können Sie Befehle direkt in Ihrem Cluster ausführen.
 
   Weitere Informationen finden Sie unter [Verwenden von SSH mit Linux-basiertem Hadoop in HDInsight unter Linux, Unix oder OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -177,10 +177,5 @@ Eine Beispieltopologie, die das Konfigurieren der Protokollierung veranschaulich
 
 Weitere Informationen zu Lösungen für Echtzeitanalysen mit Apache Storm in HDInsight:
 
-* [Erste Schritte mit Apache Storm in HDInsight][gettingstarted]
+* [Erste Schritte mit Apache Storm in HDInsight mithilfe der Storm-Starter-Beispiele](apache-storm-tutorial-get-started-linux.md)
 * [Beispieltopologien für Apache Storm in HDInsight](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

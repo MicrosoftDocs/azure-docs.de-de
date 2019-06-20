@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089402"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60551813"
 ---
 # <a name="manage-alert-instances"></a>Verwalten von Warnungsinstanzen
 Mit der [einheitlichen Oberfläche für Warnungen](https://aka.ms/azure-alerts-overview) in Azure Monitor können Sie jetzt Ihre gesamten verschiedenen Warnungstypen in Azure, die mehrere Abonnements umfassen, in einem einzelnen Bereich anzeigen. Dieser Artikel führt Sie durch die Möglichkeiten, wie Sie Ihre Warnungsinstanzen anzeigen und wie Sie im Portal intensiv nach bestimmten Warnungsinstanzen zur Fehlerbehebung suchen können.

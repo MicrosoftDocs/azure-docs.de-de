@@ -7,14 +7,14 @@ manager: vijayts
 keywords: Sicherung wiederherstellen; Wiederherstellungsschritte; Wiederherstellungspunkt;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: b0408aa296dcbff0c73f2c192e24c290d51fec5f
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650715"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906509"
 ---
 # <a name="restore-azure-vms"></a>Wiederherstellen virtueller Azure-Computer
 
@@ -22,20 +22,36 @@ Dieser Artikel beschreibt, wie Sie Azure VM-Daten aus den Wiederherstellungspunk
 
 
 
-### <a name="restore-options"></a>Wiederherstellungsoptionen
+## <a name="restore-options"></a>Wiederherstellungsoptionen
 
 Azure Backup bietet eine Reihe von Möglichkeiten zum Wiederherstellen einer VM.
 
 **Wiederherstellungsoptionen** | **Details**
 --- | ---
-**Eine neue VM erstellen** | Sie können schnell eine einfache VM erstellen und können Sie über einen Wiederherstellungspunkt betriebsbereit machen.<br/><br/> Sie können einen Namen für die VM angeben, die Ressourcengruppe und das virtuelle Netzwerk (VNet) auswählen, in dem sie platziert werden soll, und einen Speichertyp angeben.
-**Datenträger wiederherstellen** | Stellt einen VM-Datenträger wieder her, der dann zum Erstellen einer neuen VM verwendet werden kann.<br/><br/> Azure Backup bietet eine Vorlage, mit der Sie eine VM anpassen und erstellen können. <br/><br/> Mit dieser Option werden virtuelle Festplatten in das von Ihnen angegebene Speicherkonto kopiert. Der Wiederherstellungsauftrag generiert eine Vorlage, die Sie herunterladen und verwenden können, um benutzerdefinierte VM-Einstellungen festzulegen und eine VM zu erstellen.<br/><br/> Das Konto sollte sich an demselben Speicherort wie der Tresor befinden. Erstellen Sie ein Speicherkonto, wenn Sie noch keines besitzen.<br/><br/> Der Replikationstyp des Speicherkontos wird angezeigt. Der zonenredundante Speicher (Zone Redundant Storage, ZRS) wird nicht unterstützt.<br/><br/> Alternativ können Sie den Datenträger an eine vorhandene VM anhängen oder mit PowerShell eine neue VM erstellen.<br/><br/> VM anpassen, Konfigurationseinstellungen hinzufügen möchten, die zum Zeitpunkt der Sicherung nicht vorhanden waren, oder Einstellungen hinzufügen möchten, die mithilfe der Vorlage oder von PowerShell konfiguriert werden müssen.
-**Vorhandene ersetzen** | Sie können einen Datenträger wiederherstellen und damit einen Datenträger auf der vorhandenen VM ersetzen.<br/><br/> Der aktuelle virtuelle Computer muss jedoch vorhanden sein. Wenn dieser gelöscht wurde, kann diese Option nicht verwendet werden.<br/><br/> Azure Backup erstellt vor dem Austausch des Datenträgers eine Momentaufnahme der vorhandenen VM. Die Momentaufnahme wird im Stagingspeicherort gespeichert, den Sie angeben. Die vorhandenen Datenträger, die mit dem virtuellen Computer verbunden sind, werden daraufhin durch den ausgewählten Wiederherstellungspunkt ersetzt.<br/><br/> Die aufgenommene Momentaufnahme wird in den Tresor kopiert und gemäß Ihrer angegebenen Aufbewahrungsrichtlinie beibehalten. <br/><br/> Die Option „Vorhandene ersetzen“ wird für nicht verschlüsselte verwaltete VMs unterstützt. Für nicht verwaltete Datenträger, [generalisierte VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) oder für virtuelle Computer, die mit [benutzerdefinierten Images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) erstellt wurden, wird sie nicht unterstützt.<br/><br/> Wenn der Wiederherstellungspunkt mehr oder weniger Datenträger als die aktuelle VM aufweist, dann spiegelt die Anzahl der Datenträger im Wiederherstellungspunkt nur die VM-Konfiguration wieder.<br/><br/>
+**Eine neue VM erstellen** | Sie können schnell eine einfache VM erstellen und können Sie über einen Wiederherstellungspunkt betriebsbereit machen.<br/><br/> Sie können einen Namen für die VM angeben, die Ressourcengruppe und das virtuelle Netzwerk (VNet) auswählen, in dem sie platziert werden soll, und ein Speicherkonto für die wiederhergestellte VM angeben.
+**Datenträger wiederherstellen** | Stellt einen VM-Datenträger wieder her, der dann zum Erstellen einer neuen VM verwendet werden kann.<br/><br/> Azure Backup bietet eine Vorlage, mit der Sie eine VM anpassen und erstellen können. <br/><br> Der Wiederherstellungsauftrag generiert eine Vorlage, die Sie herunterladen und verwenden können, um benutzerdefinierte VM-Einstellungen festzulegen und eine VM zu erstellen.<br/><br/> Die Datenträger werden in das von Ihnen angegebene Speicherkonto kopiert.<br/><br/> Alternativ können Sie den Datenträger an eine vorhandene VM anhängen oder mit PowerShell eine neue VM erstellen.<br/><br/> VM anpassen, Konfigurationseinstellungen hinzufügen möchten, die zum Zeitpunkt der Sicherung nicht vorhanden waren, oder Einstellungen hinzufügen möchten, die mithilfe der Vorlage oder von PowerShell konfiguriert werden müssen.
+**Vorhandene ersetzen** | Sie können einen Datenträger wiederherstellen und damit einen Datenträger auf der vorhandenen VM ersetzen.<br/><br/> Der aktuelle virtuelle Computer muss jedoch vorhanden sein. Wenn dieser gelöscht wurde, kann diese Option nicht verwendet werden.<br/><br/> Vor dem Ersetzen des Datenträgers erstellt Azure Backup eine Momentaufnahme der vorhandenen VM und speichert sie im von Ihnen Stagingspeicherort. Vorhandene Datenträger, die mit der VM verbunden sind, werden durch den ausgewählten Wiederherstellungspunkt ersetzt.<br/><br/> Die Momentaufnahme wird in den Tresor kopiert und entsprechend der Aufbewahrungsrichtlinie beibehalten. <br/><br/> Die Option „Vorhandene ersetzen“ wird für nicht verschlüsselte verwaltete VMs unterstützt. Für nicht verwaltete Datenträger, [generalisierte VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) oder für virtuelle Computer, die mit [benutzerdefinierten Images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) erstellt wurden, wird sie nicht unterstützt.<br/><br/> Wenn der Wiederherstellungspunkt mehr oder weniger Datenträger als die aktuelle VM aufweist, dann spiegelt die Anzahl der Datenträger im Wiederherstellungspunkt nur die VM-Konfiguration wieder.<br/><br/>
+
 
 > [!NOTE]
 > Sie können auch bestimmte Dateien und Ordner auf einer Azure-VM wiederherstellen. [Weitere Informationen](backup-azure-restore-files-from-vm.md)
 >
 > Wenn Sie die [neueste Version](backup-instant-restore-capability.md) von Azure Backup für Azure-VMs (bekannt als sofortige Wiederherstellung) verwenden, werden Momentaufnahmen bis zu sieben Tage lang aufbewahrt, und Sie können eine VM aus Momentaufnahmen wiederherstellen, bevor die Sicherungsdaten an den Tresor gesendet werden. Wenn Sie eine VM aus einer Sicherung der letzten sieben Tage wiederherstellen möchten, geht es schneller, sie aus der Momentaufnahme und nicht aus dem Tresor wiederherzustellen.
+
+## <a name="storage-accounts"></a>Speicherkonten
+
+Einige Details zu Speicherkonten:
+
+- **Virtuellen Computer erstellen:** Wenn Sie einen neuen virtuellen Computer erstellen, wird er im von Ihnen angegebenen Speicherkonto platziert.
+- **Datenträger wiederherstellen**: Wenn Sie einen Datenträger wiederherstellen, wird er in das von Ihnen angegebene Speicherkonto kopiert. Der Wiederherstellungsauftrag generiert eine Vorlage, die Sie herunterladen und verwenden können, um benutzerdefinierte VM-Einstellungen festzulegen. Diese Vorlage wird im angegebenen Speicherkonto platziert.
+- **Datenträger ersetzen**: Wenn Sie einen Datenträger auf einem vorhandenen virtuellen Computer ersetzen, erstellt Azure Backup eine Momentaufnahme von diesem Computer, bevor der Datenträger ersetzt wird. Die Momentaufnahme wird im von Ihnen angegebenen Stagingspeicherort (Speicherkonto) gespeichert. Dieses Speicherkonto wird zum vorübergehenden Speichern der Momentaufnahme während des Wiederherstellungsvorgangs verwendet. Wir empfehlen, dass Sie dafür ein neues Konto erstellen, dass später problemlos entfernt werden kann.
+- **Standort des Speicherkontos**: Das Speicherkonto muss sich in derselben Region wie der Tresor befinden. Nur diese Konten werden angezeigt. Wenn es am Standort keine Speicherkonten gibt, müssen Sie ein Konto erstellen.
+- **Speichertyp**: Blobspeicher wird nicht unterstützt.
+- **Speicherredundanz**: Der zonenredundante Speicher (Zone Redundant Storage, ZRS) wird nicht unterstützt. Die Informationen zu Replikation und Redundanz für das Konto stehen hinter in Klammern hinter dem Kontonamen. 
+- **Storage Premium**:
+    - Beim Wiederherstellen von Nicht-Premium-VMs werden Storage Premium-Konten nicht unterstützt.
+    - Beim Wiederherstellen von verwalteten VMs werden Storage Premium-Konten, die mit Netzwerkregeln konfiguriert wurden, nicht unterstützt.
+
 
 ## <a name="before-you-start"></a>Vorbereitung
 
@@ -73,7 +89,7 @@ Als eine der [Wiederherstellungsoptionen](#restore-options) können Sie von eine
 2. Geben Sie unter **Name des virtuellen Computers** einen virtuellen Computer an, der nicht im Abonnement vorhanden ist.
 3. Wählen Sie unter **Ressourcengruppe** eine vorhandene Ressourcengruppe für den neuen virtuellen Computer aus, oder erstellen Sie eine neue Ressourcengruppe mit einem global eindeutigen Namen. Wenn Sie einen Namen zuweisen, der bereits vorhanden ist, weist Azure der Gruppe denselben Namen wie der VM zu.
 4. Wählen Sie unter **Virtuelles Netzwerk** das virtuelle Netzwerk aus, in das der virtuelle Computer platziert wird. Alle dem Abonnement zugeordneten VNETs werden angezeigt. Wählen Sie das Subnetz aus. Das erste Subnetz wird standardmäßig ausgewählt.
-5. Geben Sie unter **Speicherort** den Speichertyp für die VM an.
+5. Geben Sie unter **Speicherort** das Speicherkonto für die VM an. [Weitere Informationen](#storage-accounts)
 
     ![Assistent für die Wiederherstellungskonfiguration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -90,7 +106,7 @@ Als eine der [Wiederherstellungsoptionen](#restore-options) können einen Datent
 
 1. Wählen Sie unter **Konfiguration wiederherstellen** > **Neu erstellen** > **Wiederherstellungstyp** die Option **Datenträger wiederherstellen** aus.
 2. Wählen Sie unter **Ressourcengruppe** eine vorhandene Ressourcengruppe für den wiederhergestellten Datenträger aus, oder erstellen Sie eine neue Ressourcengruppe mit einem global eindeutigen Namen.
-3. Geben Sie für das **Speicherkonto** das Konto an, in das die virtuellen Festplatten kopiert werden sollen. Stellen Sie sicher, dass sich das Konto in derselben Region wie der Tresor befindet.
+3. Geben Sie für das **Speicherkonto** das Konto an, in das die virtuellen Festplatten kopiert werden sollen. [Weitere Informationen](#storage-accounts)
 
     ![Konfiguration der Wiederherstellung abgeschlossen](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
@@ -125,7 +141,7 @@ Als eine der [Wiederherstellungsoptionen](#restore-options) können Sie einen vo
 
 1. Klicken Sie unter **Konfiguration wiederherstellen** auf **Vorhandene ersetzen**.
 2. Wählen Sie unter **Wiederherstellungstyp** die Option **Datenträger wiederherstellen**. Dies ist der Wiederherstellungspunkt, der zum Ersetzen vorhandener VM-Datenträger verwendet wird.
-3. Geben Sie für den **Stagingspeicherort** an, an dem Momentaufnahmen der aktuellen verwalteten Datenträger gespeichert werden sollen.
+3. Geben Sie unter **Stagingspeicherort** an, wo Momentaufnahmen der aktuellen verwalteten Datenträger während des Wiederherstellungsvorgangs gespeichert werden sollen. [Weitere Informationen](#storage-accounts)
 
    ![Assistent für die Wiederherstellungskonfiguration – Vorhandene ersetzen](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 

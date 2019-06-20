@@ -9,11 +9,11 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997260"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60534221"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Übersicht über allgemeine Muster zur automatischen Skalierung
 In diesem Artikel werden allgemeine Muster zur automatischen Skalierung Ihrer Ressource in Azure beschrieben.

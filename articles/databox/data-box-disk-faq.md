@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258775"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236347"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Was ist ein Azure Data Box-Datenträger?
 
@@ -56,13 +56,16 @@ A.  Unter [Regionale Verfügbarkeit](data-box-disk-overview.md#region-availabili
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F: In welchen Regionen kann ich Daten über Data Box-Datenträger speichern?
 A. Data Box Disk wird für alle Regionen in den USA, Kanada, Australien, Westeuropa und Nordeuropa sowie Korea und Japan unterstützt. Es werden nur die öffentlichen Azure-Cloudregionen unterstützt. Azure Government oder andere Sovereign Clouds werden nicht unterstützt.
 
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>F: Überquert Data Box Disk beim Versand Ländergrenzen?
+A. Data Box Disk-Geräte werden aus dem Bestimmungsland versendet, sie überqueren keine internationalen Grenzen. Die einzige Ausnahme betrifft Bestellungen innerhalb der Europäischen Union (EU), wo Datenträger in und aus beliebige(n) EU-Länder(n) gesendet werden können.
+
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>F: An wen sollte ich mich wenden, falls Probleme mit Data Box-Datenträgern auftreten?
 A. Falls Probleme mit Data Box-Datenträgern auftreten, wenden Sie sich an den [Microsoft-Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
 
 ## <a name="configure-and-connect"></a>Konfigurieren und Verbinden
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>F: Kann ich im Auftrag die Anzahl von Data Box-Datenträgern angeben?
-A.   Nein. Sie erhalten je nach Datenumfang und Verfügbarkeit einen oder mehrere Datenträger mit 8 TB Speicherplatz (maximal fünf Datenträger).  
+A.  Nein. Sie erhalten je nach Datenumfang und Verfügbarkeit einen oder mehrere Datenträger mit 8 TB Speicherplatz (maximal fünf Datenträger).  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>F: Wie entsperre ich die Data Box-Datenträger? 
 A.  Navigieren Sie im Azure-Portal zu Ihrem Auftrag für Data Box-Datenträger und dann zu **Gerätedetails**. Kopieren Sie den Hauptschlüssel. Laden Sie das Tool zum Entsperren von Data Box-Datenträgern für Ihr Betriebssystem über das Azure-Portal herunter, und extrahieren Sie es. Führen Sie das Tool auf dem Computer mit den Daten aus, die Sie auf die Datenträger kopieren möchten. Geben Sie den Hauptschlüssel an, um Ihre Datenträger zu entsperren. Alle Datenträger werden mit demselben Hauptschlüssel entsperrt. 
@@ -120,7 +123,7 @@ A.  Sie können den Kopiervorgang wie folgt beschleunigen:
 - Kopieren Sie die Dateien auf den Datenträger der VM.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>F: Kann ich mehrere Speicherkonten mit Data Box-Datenträgern verwenden?
-A.   Nein. Für Data Box-Datenträger wird derzeit nur ein Speicherkonto (allgemein oder klassisch) unterstützt. Es werden sowohl „heiße“ als auch „kalte“ Blobs unterstützt. Derzeit werden nur die Speicherkonten in den USA, Westeuropa und Nordeuropa unterstützt, die Teil der öffentlichen Azure-Cloud sind.
+A.  Nein. Für Data Box-Datenträger wird derzeit nur ein Speicherkonto (allgemein oder klassisch) unterstützt. Es werden sowohl „heiße“ als auch „kalte“ Blobs unterstützt. Derzeit werden nur die Speicherkonten in den USA, Westeuropa und Nordeuropa unterstützt, die Teil der öffentlichen Azure-Cloud sind.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>F: Was umfasst das Toolset, das für meine Daten für Data Box-Datenträger verfügbar ist?
 A. Das für Data Box Disk verfügbare Toolset enthält drei Tools:

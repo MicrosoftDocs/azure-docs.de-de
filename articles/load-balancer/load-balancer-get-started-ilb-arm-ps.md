@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 17753ba374475c19fee1a213654caf4a624088f8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 521f8f29e2f8475ab7308f5646b94c6fc0f6a01f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60398807"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Erstellen eines internen Lastenausgleichs mit dem Azure PowerShell-Modul
 

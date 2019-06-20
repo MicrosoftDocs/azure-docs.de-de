@@ -1,18 +1,18 @@
 ---
 title: Automatisches Skalieren von Windows Virtual Desktop-Sitzungshosts (Vorschauversion) – Azure
-description: Hier wird beschrieben, wie Sie das Skript für die automatische Skalierung für Windows Virtual Desktop-Sitzungshosts (Vorschauversion) einrichten.
+description: Es wird beschrieben, wie Sie das Skript für die automatische Skalierung für Windows Virtual Desktop-Sitzungshosts (Vorschauversion) einrichten.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410571"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66755133"
 ---
 # <a name="automatically-scale-session-hosts"></a>Automatisches Skalieren von Sitzungshosts
 
@@ -106,7 +106,7 @@ Geben Sie die relevanten Werte in die folgenden Felder ein, um die Skalierungssk
 Nach dem Konfigurieren der XML-Konfigurationsdatei müssen Sie den Taskplaner so konfigurieren, dass die Datei „basicScaler.ps1“ in regelmäßigen Abständen ausgeführt wird.
 
 1. Starten Sie den **Taskplaner**.
-2. Wählen Sie im Fenster **Taskplaner** die Option **Aufgabe erstellen…**.
+2. Wählen Sie im Fenster **Taskplaner** die Option **Aufgabe erstellen…** .
 3. Wählen Sie im Dialogfeld **Aufgabe erstellen** die Registerkarte **Allgemein**, geben Sie einen **Namen** (z. B. „Dynamischer RDSH“) ein, und wählen Sie **Unabhängig von der Benutzeranmeldung ausführen** und **Mit höchsten Berechtigungen ausführen** aus.
 4. Navigieren Sie zur Registerkarte **Trigger**, und wählen Sie **Neu…** aus.
 5. Aktivieren Sie im Dialogfeld **Neuer Trigger** unter **Erweiterte Einstellungen** die Option **Wiederholen jede**, und wählen Sie den entsprechenden Zeitraum und die Dauer aus (z. B. **15 Minuten** oder **Unbegrenzt**).

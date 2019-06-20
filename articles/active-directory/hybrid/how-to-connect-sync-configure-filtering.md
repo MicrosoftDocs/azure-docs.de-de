@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487314"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60243504"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-Synchronisierung: Konfigurieren der Filterung
 Per Filterung können Sie für Ihr lokales Verzeichnis steuern, welche Objekte in Azure Active Directory (Azure AD) angezeigt werden. Die Standardkonfiguration deckt alle Objekte in allen Domänen der konfigurierten Gesamtstrukturen ab. Dies ist die für den Normalfall empfohlene Konfiguration. Benutzer, die Office 365-Workloads wie etwa Exchange Online und Skype for Business verwenden, profitieren von einer vollständigen globalen Adressliste, die zum Senden von E-Mails und Anrufen anderer Personen genutzt werden kann. In der Standardkonfiguration erhalten diese Benutzer die gleiche Funktionalität wie bei einer lokalen Implementierung von Exchange oder Lync.
@@ -216,9 +216,9 @@ Bei der eingehenden Filterung wird die Standardkonfiguration genutzt, bei der f�
 
 Bei der eingehenden Filterung nutzen Sie die Leistungsfähigkeit des **Bereichs**, um zu ermitteln, welche Objekte synchronisiert werden sollen. Hierbei nehmen Sie die Anpassungen vor, um die Anforderungen Ihres Unternehmens zu erfüllen. Das Bereichsmodul verfügt über die Elemente **group** (Gruppe) und **clause** (Klausel), um zu bestimmen, wann eine Synchronisierungsregel zum Bereich gehören soll. Eine Gruppe enthält eine oder mehrere Klauseln. Ein logisches „Und“ wird zwischen mehreren Klauseln und ein logisches „Oder“ zwischen mehreren Gruppen verwendet.
 
-Beispiel:   
+Beispiel:  
 ![Umfang](./media/how-to-connect-sync-configure-filtering/scope.png)  
-Lesen Sie dieses Beispiel wie folgt: **(department = IT) OR (department = Sales AND c = US)**.
+Lesen Sie dieses Beispiel wie folgt: **(department = IT) OR (department = Sales AND c = US)** .
 
 In den folgenden Beispielen und Schritten verwenden Sie das Benutzerobjekt als Beispiel, aber Sie können es für alle Objekttypen nutzen.
 

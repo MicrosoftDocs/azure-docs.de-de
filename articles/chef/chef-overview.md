@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: 5c4e20177c1b334a34f7ce9328dfaa7bd8c66d3d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545734"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60656573"
 ---
 # <a name="using-chef-with-azure"></a>Verwenden von Chef mit Azure
 [Chef](https://www.chef.io) ist eine leistungsstarke Automatisierungsplattform, die die Infrastruktur des virtuellen Computers in Azure in Code transformiert. Chef automatisiert die Art, in der Infrastruktur in Ihrem Netzwerk – unabhängig von seiner Größe – konfiguriert, bereitgestellt und verwaltet wird.

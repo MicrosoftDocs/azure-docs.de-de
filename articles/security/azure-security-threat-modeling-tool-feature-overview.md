@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60588795"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Übersicht über die Funktionen des Threat Modeling Tools
 
@@ -207,5 +207,5 @@ Nachdem Sie das Ändern von Prioritäten und Aktualisieren des Status der einzel
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Senden Sie Ihre Fragen, Kommentare und Probleme an tmtextsupport@microsoft.com. **[Laden Sie das Threat Modeling Tool herunter](https://aka.ms/threatmodelingtool)**, um die ersten Schritte zu unternehmen.
+- Senden Sie Ihre Fragen, Kommentare und Probleme an tmtextsupport@microsoft.com. **[Laden Sie das Threat Modeling Tool herunter](https://aka.ms/threatmodelingtool)** , um die ersten Schritte zu unternehmen.
 - Informationen dazu, wie Sie eine Vorlage zur Community beitragen können, finden Sie auf unserer [GitHub](https://github.com/Microsoft/threat-modeling-templates)-Seite.

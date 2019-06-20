@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982674"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65789419"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Benutzerdefinierte Blobausgabepartitionierung in Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Durch Verwendung eines benutzerdefinierten Felds oder von Eingabeattributen ist 
 
 ### <a name="partition-key-options"></a>Optionen für den Partitionsschlüssel
 
-Der für die Partitionierung von Eingabedaten verwendete Partitionsschlüssel oder Spaltenname kann alphanumerische Zeichen mit Bindestrichen, Unterstrichen und Leerzeichen enthalten. Es ist nicht möglich, geschachtelte Felder als Partitionsschlüssel zu verwenden, es sei denn, sie werden in Verbindung mit Aliasen verwendet.
+Der für die Partitionierung von Eingabedaten verwendete Partitionsschlüssel oder Spaltenname kann alphanumerische Zeichen mit Bindestrichen, Unterstrichen und Leerzeichen enthalten. Es ist nicht möglich, geschachtelte Felder als Partitionsschlüssel zu verwenden, es sei denn, sie werden in Verbindung mit Aliasen verwendet. Der Partitionsschlüssel muss NVARCHAR(MAX) sein.
 
 ### <a name="example"></a>Beispiel
 
@@ -34,7 +34,7 @@ Angenommen, in einem Auftrag werden Eingabedaten von Live-Benutzersitzungen erfa
 
 ![Pfadmuster mit Client-ID](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
 
-Wenn es sich bei der Auftragseingabe um Sensordaten von Millionen Sensoren handelt und jedem Sensor ein **sensor_id**-Wert zugewiesen ist, lautet das Pfadmuster analog zum Beispiel oben **{sensor_id}**, um die jeweiligen Sensordaten in unterschiedlichen Ordnern zu partitionieren.  
+Wenn es sich bei der Auftragseingabe um Sensordaten von Millionen Sensoren handelt und jedem Sensor ein **sensor_id**-Wert zugewiesen ist, lautet das Pfadmuster analog zum Beispiel oben **{sensor_id}** , um die jeweiligen Sensordaten in unterschiedlichen Ordnern zu partitionieren.  
 
 
 Bei Verwendung der REST-API sieht der Ausgabeausschnitt einer für diese Anforderung verwendeten JSON-Datei beispielsweise wie folgt aus:  
@@ -58,11 +58,11 @@ Beachten Sie, dass jeder Datensatz im Blob die Spalte **client_id** enthält, di
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData}  
-
+   * cluster1/{date}/{time}/{aFieldInMyData} 
+   
 2. Bei Partitionsschlüsseln wird die Groß-/Kleinschreibung nicht beachtet, sodass Partitionsschlüssel wie „John“ und „john“ identisch sind. Außerdem können Ausdrücke nicht als Partitionsschlüssel verwendet werden. Beispielsweise kann **{columnA + columnB}** nicht verwendet werden.  
 
-3. Wenn ein Eingabestream aus Datensätzen mit einer Kardinalität des Partitionsschlüssels unter 8.000 besteht, werden die Datensätze an vorhandene Blobs angefügt und neue Blobs nur bei Bedarf erstellt. Wenn die Kardinalität über 8.000 liegt, gibt es keine Garantie dafür, dass Daten in vorhandene Blobs geschrieben und neue Blobs nicht für eine beliebige Anzahl von Datensätzen mit dem gleichen Partitionsschlüssel erstellt werden.  
+3. Wenn ein Eingabestream aus Datensätzen mit einer Kardinalität des Partitionsschlüssels unter 8.000 besteht, werden die Datensätze an vorhandene Blobs angefügt und neue Blobs nur bei Bedarf erstellt. Wenn die Kardinalität über 8.000 liegt, gibt es keine Garantie dafür, dass Daten in vorhandene Blobs geschrieben und neue Blobs nicht für eine beliebige Anzahl von Datensätzen mit dem gleichen Partitionsschlüssel erstellt werden.
 
 ## <a name="custom-datetime-path-patterns"></a>Benutzerdefinierte DateTime-Pfadmuster
 

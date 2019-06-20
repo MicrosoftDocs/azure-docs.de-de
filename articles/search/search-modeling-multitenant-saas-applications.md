@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
 ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632924"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61288701"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Entwurfsmuster für mehrinstanzenfähige SaaS-Anwendungen und Azure Search
 Eine mehrinstanzenfähige Anwendung bietet dieselben Dienste und Funktionen einer beliebigen Anzahl von Mandanten, die die Daten der anderen Mandaten nicht anzeigen oder mit diesen gemeinsam nutzen können. In diesem Dokument werden Strategien zur Isolierung von Mandanten für mehrinstanzenfähige Anwendungen erläutert, die mit Azure Search erstellt werden.
@@ -46,7 +46,7 @@ Azure Search bietet verschiedene [Tarife](https://azure.microsoft.com/pricing/de
 | Maximale Anzahl von Sucheinheiten (Replikate x Partitionen) pro Dienst |3 |36 |36 |36 |36 (max. 3 Partitionen) |
 | Maximale Speicherkapazität pro Dienst |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
 | Maximale Speicherkapazität pro Partition |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Maximale Anzahl von Indizes pro Dienst |5 |50 |200 |200 |3.000 (max. 1.000 Indizes/Partition) |
+| Maximale Anzahl von Indizes pro Dienst |5 |50 |200 |200 |3\.000 (max. 1.000 Indizes/Partition) |
 
 #### <a name="s3-high-density"></a>S3 High Density
 Der Azure Search-Tarif „S3“ bietet als Option einen HD-Modus (High Density), der speziell auf Szenarien mit mehreren Mandanten ausgelegt ist. In vielen Fällen ist es notwendig, eine große Zahl von kleineren Mandanten unter einem einzelnen Dienst zu unterstützen, um die Vorteile der Einfachheit und Kosteneffizienz nutzen zu können.

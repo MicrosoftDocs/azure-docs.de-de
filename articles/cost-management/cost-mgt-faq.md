@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0516c954bd23d5a2e339c5df447a923528e09d93
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011797"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002028"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Häufig gestellte Fragen zu Cloudyn
 
@@ -75,7 +75,7 @@ Nachdem Sie die vorherigen Schritte ausgeführt haben, können Sie innerhalb von
 Dies ist das häufigste Szenario, wie Benutzerkonten den Status *InitiallySuspended* erhalten.
 
 > Admin1 kann ein Microsoft Cloud Solution Provider oder Enterprise Agreement-Benutzer sein. Seine Organisation ist bereit, Cloudyn einzuführen.  Er registriert sich über das Azure-Portal und meldet sich im Cloudyn-Portal an. Da er den Cloudyn-Dienst registriert und sich im Cloudyn-Portal anmeldet, wird Admin1 zum *primären Administrator*. Admin1 erstellt keine Benutzerkonten. Mithilfe des Cloudyn-Portals erstellt er jedoch Azure-Konten und eine Entitätshierarchie. Admin1 informiert Admin2, einen Mandantenadministrator, dass er sich für Cloudyn registrieren und sich beim Cloudyn-Portal anmelden muss.
-> 
+>
 > Admin2 registriert sich über das Azure-Portal. Wenn er jedoch versucht, sich beim Cloudyn-Portal anzumelden, wird eine Fehlermeldung zurückgegeben, die besagt, dass sein Konto **gesperrt** ist. Der primäre Administrator, Admin1, wird über die Kontosperrung benachrichtigt. Admin1 muss das Konto von Admin2 aktivieren, *Administratorzugriff auf die richtigen Entitäten* gewähren, bestimmt Benutzerverwaltungszugriff und das Benutzerkonto aktivieren.
 
 
@@ -154,7 +154,7 @@ Nachdem Sie den Azure Resource Manager-Zugriff hinzugefügt haben und die Daten 
 
 ## <a name="is-cloudyn-agent-based"></a>Basiert Cloudyn auf Agents?
 
- Nein. Agents werden nicht verwendet. Metrikdaten für Azure-VMs werden von der Microsoft Insights-API erfasst. Wenn Sie metrische Daten von virtuellen Azure-Computern sammeln möchten, müssen für sie Diagnoseeinstellungen aktiviert sein.
+Nein. Agents werden nicht verwendet. Metrikdaten für Azure-VMs werden von der Microsoft Insights-API erfasst. Wenn Sie metrische Daten von virtuellen Azure-Computern sammeln möchten, müssen für sie Diagnoseeinstellungen aktiviert sein.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Zeigt ein einzelner Cloudyn-Bericht mehrere AD-Mandanten?
 

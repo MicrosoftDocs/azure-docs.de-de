@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60764363"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Programmierhandbuch für Azure Event Hubs
 Dieser Artikel erörtert einige gängige Szenarien zum Schreiben von Code mit Azure Event Hubs. Hierbei wird ein grundlegendes Verständnis von Event Hubs vorausgesetzt. Eine konzeptuelle Übersicht über Event Hubs finden Sie unter [Übersicht über Event Hubs](event-hubs-what-is-event-hubs.md).
@@ -58,7 +58,7 @@ Sie senden Ereignisse an einen Event Hub, indem Sie eine [EventHubClient][]-Inst
 
 ## <a name="event-serialization"></a>Ereignisserialisierung
 
-Die [EventData][]-Klasse verfügt über [zwei überladene Konstruktoren](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor), die verschiedene Parameter, Bytes oder ein Bytearray zur Darstellung der Ereignisdatennutzlast akzeptieren. Wenn Sie JSON mit [EventData][] verwenden, können Sie mit **Encoding.UTF8.GetBytes()** das Bytearray für eine JSON-codierte Zeichenfolge abrufen. Beispiel: 
+Die [EventData][]-Klasse verfügt über [zwei überladene Konstruktoren](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor), die verschiedene Parameter, Bytes oder ein Bytearray zur Darstellung der Ereignisdatennutzlast akzeptieren. Wenn Sie JSON mit [EventData][] verwenden, können Sie mit **Encoding.UTF8.GetBytes()** das Bytearray für eine JSON-codierte Zeichenfolge abrufen. Beispiel:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -107,7 +107,7 @@ Sie können [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ie
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Instanziieren Sie zum Starten der Ereignisverarbeitung die [EventProcessorHost][]-Klasse, und geben Sie die entsprechenden Parameter für Ihren Event Hub an. Beispiel: 
+Instanziieren Sie zum Starten der Ereignisverarbeitung die [EventProcessorHost][]-Klasse, und geben Sie die entsprechenden Parameter für Ihren Event Hub an. Beispiel:
 
 > [!NOTE]
 > EventProcessorHost und seine verwandten Klassen werden im **Microsoft.Azure.EventHubs.Processor**-Paket bereitgestellt. Fügen Sie das Paket anhand der Anweisungen in [diesem Artikel](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oder durch Eingabe des folgenden Befehls im Fenster der [Paket-Manager-Konsole](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) Ihrem Visual Studio-Projekt hinzu: `Install-Package Microsoft.Azure.EventHubs.Processor`.

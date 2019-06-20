@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901784"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808397"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Betriebssystemfunktionen für Azure App Service
 In diesem Artikel werden allgemeine, grundlegende Betriebssystemfunktionen beschrieben, die für alle Windows-Apps zur Verfügung stehen, die in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) ausgeführt werden. Diese Funktionen umfassen Zugriff auf Dateien, Netzwerke und Registrierung sowie Diagnoseprotokolle und Ereignisse. 
@@ -61,11 +61,11 @@ Im Grunde ist App Service ein Dienst, der auf der Azure-PaaS-Infrastruktur (Plat
 - Ein Anwendungslaufwerk mit den CSPKG-Dateien des Azure-Pakets, das ausschließlich von App Service verwendet wird (und auf das Kunden keinen Zugriff haben)
 - Ein „Benutzer-Laufwerk“ (Laufwerk C:\), dessen Größe von der Größe des virtuellen Computer abhängt. 
 
-Die Überwachung der Datenträgerauslastung ist wichtig, wenn Ihre Anwendung wächst. Wenn das Datenträgerkontingent erreicht ist, kann sich das negativ auf Ihre Anwendung auswirken. Beispiel:  
+Die Überwachung der Datenträgerauslastung ist wichtig, wenn Ihre Anwendung wächst. Wenn das Datenträgerkontingent erreicht ist, kann sich das negativ auf Ihre Anwendung auswirken. Beispiel: 
 
 - Die App gibt möglicherweise eine Fehlermeldung zurück, dass nicht genug Speicherplatz auf dem Datenträger vorhanden ist.
 - Wenn Sie die Kudu-Konsole durchsuchen, werden Ihnen möglicherweise Datenträgerfehler angezeigt.
-- Die Bereitstellung über VSTS oder Visual Studio funktioniert möglicherweise mit `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)` nicht.
+- Die Bereitstellung über Azure DevOps oder Visual Studio funktioniert möglicherweise mit `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)` nicht.
 - Ihrer App wird möglicherweise langsam ausgeführt.
 
 <a id="NetworkDrives"></a>

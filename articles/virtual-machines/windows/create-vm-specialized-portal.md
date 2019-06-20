@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163448"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61402303"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Erstellen eines virtuellen Computers anhand einer VHD mithilfe des Azure-Portals
 

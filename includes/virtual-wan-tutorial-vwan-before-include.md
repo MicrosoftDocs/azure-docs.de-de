@@ -9,11 +9,11 @@ ms.date: 09/12/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 66e21aefa5648262ca2fcc61501905f725ac0e4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457868"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150822"
 ---
 Vergewissern Sie sich vor Beginn der Konfiguration, dass die folgenden Voraussetzungen erfüllt sind bzw. Folgendes vorhanden ist:
 

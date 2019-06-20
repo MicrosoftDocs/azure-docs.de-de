@@ -1,0 +1,15 @@
+- name: Dokumentation zur sicheren Entwicklung
+  href: index.yml
+- name: Konzepte
+  expanded: true
+  items:
+    - name: Bewährte Methoden
+      items:
+        - name: Übersicht
+          href: secure-dev-overview.md
+        - name: Entwerfen sicherer Apps
+          href: secure-design.md
+        - name: Entwickeln sicherer Apps
+          href: secure-develop.md
+        - name: Bereitstellen sicherer Apps
+          href: secure-deploy.md

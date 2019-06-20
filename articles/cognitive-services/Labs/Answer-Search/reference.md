@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527318"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60721010"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referenz zu Project Answer Search v7
 
@@ -85,18 +85,18 @@ Die Anforderung kann die folgenden Abfrageparameter enthalten. Die erforderliche
   
 |NAME|Wert|Type|Erforderlich|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Der Markt, aus dem die Ergebnisse stammen. <br /><br />Eine Liste der möglichen Marktwerte finden Sie unter „Marktcodes“.<br /><br /> **HINWEIS:** Die URL-Vorschau-API unterstützt zurzeit nur den Markt und die Sprache „en-us“.<br /><br />|Zeichenfolge|Ja|  
-|<a name="query" />q|Die URL, für die eine Vorschau angezeigt werden soll.|Zeichenfolge|Ja|  
-|<a name="responseformat" />responseFormat|Der Medientyp, der für die Antwort verwendet werden soll. Die folgenden Werte (ohne Beachtung von Groß-/Kleinschreibung) sind möglich.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Der Standardwert ist JSON. Weitere Informationen zu den JSON-Objekten, die die Antwort enthält, finden Sie unter [Antwortobjekte](#response-objects).<br /><br />  Wenn Sie JsonLd angeben, enthält der Antworttext die JSON-LD-Objekte, die die Suchergebnisse enthalten. Informationen zu JSON-LD finden Sie unter [JSON-LD](https://json-ld.org/).|Zeichenfolge|Nein |  
-|<a name="safesearch" />safeSearch|Ein Filter für nicht jugendfreie Inhalte. Die folgenden Filterwerte (ohne Beachtung von Groß-/Kleinschreibung) sind möglich.<br /><ul><li>Off: Es werden Webseiten mit nicht jugendfreiem Text oder Bildern zurückgegeben.<br /><br/></li><li>Moderate: Webseiten mit nicht jugendfreiem Text werden zurückgegeben, nicht jugendfreie Bilder oder Videos jedoch nicht.<br /><br/></li><li>Strict: Es werden keine Webseiten mit nicht jugendfreiem Text bzw. nicht jugendfreien Bildern oder Videos zurückgegeben.</li></ul><br /> Die Standardeinstellung ist „Moderate“.<br /><br /> **HINWEIS:** Stammt die Anforderung aus einem Markt, für den laut Bing-Richtlinien zu nicht jugendfreien Inhalten für `safeSearch` die Einstellung „Strict“ erforderlich ist, ignoriert Bing den `safeSearch`-Wert und verwendet stattdessen „Strict“.<br/><br/>**HINWEIS:** Bei Verwendung des Abfrageoperators `site:` kann es vorkommen, dass die Antwort unabhängig von der Einstellung des `safeSearch`-Abfrageparameters nicht jugendfreie Inhalte enthält. Verwenden Sie `site:` nur, wenn Sie wissen, welche Inhalte die Website enthält, und wenn in Ihrem Szenario ggf. auch nicht jugendfreie Inhalte zulässig sind. |Zeichenfolge|Nein |  
-|<a name="setlang" />setLang|Die Sprache, die für Zeichenfolgen der Benutzeroberfläche verwendet werden soll. Geben Sie die Sprache mithilfe des zweistelligen Sprachcodes nach ISO 639-1 an. Der Sprachcode für Englisch lautet z.B. „EN“. Der Standardwert ist „EN“ (Englisch).<br /><br /> Auch wenn dies optional ist, sollten Sie immer eine Sprache angeben. In der Regel wird bei `setLang` dieselbe Sprache angegeben wie bei `mkt`, sofern der Benutzer die Zeichenfolgen der Benutzeroberfläche nicht in einer anderen Sprache anzeigen möchte.<br /><br /> Dieser Parameter und der Header [Accept-Language](#acceptlanguage) schließen sich gegenseitig aus. Geben Sie daher nicht beide an.<br /><br /> Eine Zeichenfolge der Benutzeroberfläche ist eine Zeichenfolge, die als Bezeichnung in einer Benutzeroberfläche verwendet wird. Die JSON-Antwortobjekte enthalten nur wenige Zeichenfolgen für Benutzeroberflächen. Die angegebene Sprache wird auch in Links zu Eigenschaften von „bing.com“ in den Antwortobjekten verwendet.|Zeichenfolge|Nein | 
+|<a name="mkt" />mkt|Der Markt, aus dem die Ergebnisse stammen. <br /><br />Eine Liste der möglichen Marktwerte finden Sie unter „Marktcodes“.<br /><br /> **HINWEIS:** Die URL-Vorschau-API unterstützt zurzeit nur den Markt und die Sprache „en-us“.<br /><br />|string|Ja|  
+|<a name="query" />q|Die URL, für die eine Vorschau angezeigt werden soll.|string|Ja|  
+|<a name="responseformat" />responseFormat|Der Medientyp, der für die Antwort verwendet werden soll. Die folgenden Werte (ohne Beachtung von Groß-/Kleinschreibung) sind möglich.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Der Standardwert ist JSON. Weitere Informationen zu den JSON-Objekten, die die Antwort enthält, finden Sie unter [Antwortobjekte](#response-objects).<br /><br />  Wenn Sie JsonLd angeben, enthält der Antworttext die JSON-LD-Objekte, die die Suchergebnisse enthalten. Informationen zu JSON-LD finden Sie unter [JSON-LD](https://json-ld.org/).|string|Nein|  
+|<a name="safesearch" />safeSearch|Ein Filter für nicht jugendfreie Inhalte. Die folgenden Filterwerte (ohne Beachtung von Groß-/Kleinschreibung) sind möglich.<br /><ul><li>Off: Es werden Webseiten mit nicht jugendfreiem Text oder Bildern zurückgegeben.<br /><br/></li><li>Moderate: Webseiten mit nicht jugendfreiem Text werden zurückgegeben, nicht jugendfreie Bilder oder Videos jedoch nicht.<br /><br/></li><li>Strict: Es werden keine Webseiten mit nicht jugendfreiem Text bzw. nicht jugendfreien Bildern oder Videos zurückgegeben.</li></ul><br /> Die Standardeinstellung ist „Moderate“.<br /><br /> **HINWEIS:** Stammt die Anforderung aus einem Markt, für den laut Bing-Richtlinien zu nicht jugendfreien Inhalten für `safeSearch` die Einstellung „Strict“ erforderlich ist, ignoriert Bing den `safeSearch`-Wert und verwendet stattdessen „Strict“.<br/><br/>**HINWEIS:** Bei Verwendung des Abfrageoperators `site:` kann es vorkommen, dass die Antwort unabhängig von der Einstellung des `safeSearch`-Abfrageparameters nicht jugendfreie Inhalte enthält. Verwenden Sie `site:` nur, wenn Sie wissen, welche Inhalte die Website enthält, und wenn in Ihrem Szenario ggf. auch nicht jugendfreie Inhalte zulässig sind. |string|Nein|  
+|<a name="setlang" />setLang|Die Sprache, die für Zeichenfolgen der Benutzeroberfläche verwendet werden soll. Geben Sie die Sprache mithilfe des zweistelligen Sprachcodes nach ISO 639-1 an. Der Sprachcode für Englisch lautet z.B. „EN“. Der Standardwert ist „EN“ (Englisch).<br /><br /> Auch wenn dies optional ist, sollten Sie immer eine Sprache angeben. In der Regel wird bei `setLang` dieselbe Sprache angegeben wie bei `mkt`, sofern der Benutzer die Zeichenfolgen der Benutzeroberfläche nicht in einer anderen Sprache anzeigen möchte.<br /><br /> Dieser Parameter und der Header [Accept-Language](#acceptlanguage) schließen sich gegenseitig aus. Geben Sie daher nicht beide an.<br /><br /> Eine Zeichenfolge der Benutzeroberfläche ist eine Zeichenfolge, die als Bezeichnung in einer Benutzeroberfläche verwendet wird. Die JSON-Antwortobjekte enthalten nur wenige Zeichenfolgen für Benutzeroberflächen. Die angegebene Sprache wird auch in Links zu Eigenschaften von „bing.com“ in den Antwortobjekten verwendet.|string|Nein| 
 
 
 ## <a name="response-objects"></a>Antwortobjekte  
 Das Antwortschema ist entweder eine [WebPage] oder ErrorResponse (wie in der Websuche-API). Wenn die Anforderung fehlschlägt, ist das Objekt auf oberster Ebene das [ErrorResponse](#errorresponse)-Objekt.
 
 
-|Objekt|BESCHREIBUNG|  
+|Object|BESCHREIBUNG|  
 |------------|-----------------|  
 |[WebPage]|Das JSON-Objekt auf oberster Ebene, das Attribute der Vorschau enthält.|  
 |[Fact]|Das JSON-Objekt auf oberster Ebene, das Fakten enthält.| 
@@ -108,12 +108,12 @@ Definiert den aufgetretenen Fehler.
   
 |Element|BESCHREIBUNG|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|Der Fehlercode, der die Kategorie des Fehlers angibt. Eine Liste der möglichen Codes finden Sie unter [Fehlercodes](#error-codes).|Zeichenfolge|  
-|<a name="error-message" />message|Eine Beschreibung des Fehlers.|Zeichenfolge|  
-|<a name="error-moredetails" />moreDetails|Eine Beschreibung, die zusätzliche Informationen zum Fehler enthält.|Zeichenfolge|  
-|<a name="error-parameter" />parameter|Der Abfrageparameter in der Anforderung, der den Fehler verursacht hat.|Zeichenfolge|  
-|<a name="error-subcode" />subCode|Der Fehlercode, der den Fehler identifiziert. Wenn `code` z.B. InvalidRequest ist, kann `subCode` ParameterInvalid oder ParameterInvalidValue sein. |Zeichenfolge|  
-|<a name="error-value" />value|Der Wert des Abfrageparameters, der ungültig war.|Zeichenfolge|  
+|<a name="error-code" />code|Der Fehlercode, der die Kategorie des Fehlers angibt. Eine Liste der möglichen Codes finden Sie unter [Fehlercodes](#error-codes).|string|  
+|<a name="error-message" />message|Eine Beschreibung des Fehlers.|string|  
+|<a name="error-moredetails" />moreDetails|Eine Beschreibung, die zusätzliche Informationen zum Fehler enthält.|string|  
+|<a name="error-parameter" />parameter|Der Abfrageparameter in der Anforderung, der den Fehler verursacht hat.|string|  
+|<a name="error-subcode" />subCode|Der Fehlercode, der den Fehler identifiziert. Wenn `code` z.B. InvalidRequest ist, kann `subCode` ParameterInvalid oder ParameterInvalidValue sein. |string|  
+|<a name="error-value" />value|Der Wert des Abfrageparameters, der ungültig war.|string|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
@@ -121,7 +121,7 @@ Das Objekt auf oberster Ebene, das die Antwort enthält, wenn die Anforderung fe
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Der Typhinweis.|Zeichenfolge|  
+|_type|Der Typhinweis.|string|  
 |<a name="errors" />errors|Eine Liste von Fehlern, die die Gründe beschreiben, warum die Anforderung fehlgeschlagen ist.|[Fehler](#error)|  
 
   
@@ -131,8 +131,8 @@ Definiert die Lizenz, unter der der Text oder das Foto verwendet werden kann.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|name|Der Name der Lizenz.|Zeichenfolge|  
-|URL|Die URL zu einer Website, auf der der Benutzer weitere Informationen zur Lizenz erhalten kann.<br /><br /> Verwenden Sie den Namen und die URL, um einen Link zu erstellen.|Zeichenfolge|  
+|name|Der Name der Lizenz.|string|  
+|url|Die URL zu einer Website, auf der der Benutzer weitere Informationen zur Lizenz erhalten kann.<br /><br /> Verwenden Sie den Namen und die URL, um einen Link zu erstellen.|string|  
   
 
 ### <a name="licenseattribution"></a>LicenseAttribution  
@@ -140,11 +140,11 @@ Definiert eine vertragliche Regel für die Lizenzzuordnung.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Ein Typhinweis, der auf LicenseAttribution festgelegt wird.|Zeichenfolge|  
+|_type|Ein Typhinweis, der auf LicenseAttribution festgelegt wird.|string|  
 |license|Die Lizenz, unter der der Inhalt verwendet werden kann.|[Lizenz](#license)|  
-|licenseNotice|Die Lizenz, die neben dem Zielfeld angezeigt wird. Beispiel: „Text unter CC-BY-SA-Lizenz“.<br /><br /> Verwenden Sie Namen und die URL im `license`-Feld, um einen Link zu der Website zu erstellen, die Details zur Lizenz beschreibt. Ersetzen Sie den Lizenznamen in der `licenseNotice`-Zeichenfolge (z.B. CC-BY-SA) durch den Link, die Sie soeben erstellt haben.|Zeichenfolge|  
-|mustBeCloseToContent|Ein boolescher Wert, der bestimmt, ob der Inhalt der Regel in großer Nähe zu dem Feld platziert werden muss, für das die Regel gilt. Wenn **TRUE**, muss der Inhalt in großer Nähe platziert werden. Wenn der Wert **FALSE** oder dieses Feld nicht vorhanden ist, kann der Inhalt nach dem Ermessen des Aufrufers platziert werden.|Boolescher Wert|  
-|targetPropertyName|Der Name des Felds, für das die Regel gilt.|Zeichenfolge|  
+|licenseNotice|Die Lizenz, die neben dem Zielfeld angezeigt wird. Beispiel: „Text unter CC-BY-SA-Lizenz“.<br /><br /> Verwenden Sie Namen und die URL im `license`-Feld, um einen Link zu der Website zu erstellen, die Details zur Lizenz beschreibt. Ersetzen Sie den Lizenznamen in der `licenseNotice`-Zeichenfolge (z.B. CC-BY-SA) durch den Link, die Sie soeben erstellt haben.|string|  
+|mustBeCloseToContent|Ein boolescher Wert, der bestimmt, ob der Inhalt der Regel in großer Nähe zu dem Feld platziert werden muss, für das die Regel gilt. Wenn **TRUE**, muss der Inhalt in großer Nähe platziert werden. Wenn der Wert **FALSE** oder dieses Feld nicht vorhanden ist, kann der Inhalt nach dem Ermessen des Aufrufers platziert werden.|Boolean|  
+|targetPropertyName|Der Name des Felds, für das die Regel gilt.|string|  
   
 
 ### <a name="link"></a>Link  
@@ -152,9 +152,9 @@ Definiert die Komponenten eines Links.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Der Typhinweis.|Zeichenfolge|  
-|text|Der Anzeigetext.|Zeichenfolge|  
-|URL|Eine URL. Verwenden Sie die URL und den Anzeigetext, um einen Link zu erstellen.|Zeichenfolge|  
+|_type|Der Typhinweis.|string|  
+|text|Der Anzeigetext.|string|  
+|url|Eine URL. Verwenden Sie die URL und den Anzeigetext, um einen Link zu erstellen.|string|  
   
 
 ### <a name="linkattribution"></a>LinkAttribution  
@@ -162,11 +162,11 @@ Definiert eine vertragliche Regel für die Linkzuordnung.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Ein Typhinweis, der auf LinkAttribution festgelegt wird.|Zeichenfolge|  
-|mustBeCloseToContent|Ein boolescher Wert, der bestimmt, ob der Inhalt der Regel in großer Nähe zu dem Feld platziert werden muss, für das die Regel gilt. Wenn **TRUE**, muss der Inhalt in großer Nähe platziert werden. Wenn der Wert **FALSE** oder dieses Feld nicht vorhanden ist, kann der Inhalt nach dem Ermessen des Aufrufers platziert werden.|Boolescher Wert|  
-|targetPropertyName|Der Name des Felds, für das die Regel gilt.<br /><br /> Wenn kein Ziel angegeben wird, gilt die Zuordnung für die Entität als Ganzes und sollte unmittelbar nach der Entitätspräsentation angezeigt werden. Wenn es mehrere Text- und Linkzuordnungsregeln gibt, die kein Ziel angeben, sollten Sie diese verketten und mithilfe einer „Data from:“-Bezeichnung anzeigen. Beispiel: „Data from <Anbietername1\> &#124; <Anbietername2\>“.|Zeichenfolge|  
-|text|Der Zuordnungstext.|Zeichenfolge|  
-|URL|Die URL zur Website des Anbieters. Verwenden Sie `text` und die URL, um den Link zu erstellen.|Zeichenfolge|  
+|_type|Ein Typhinweis, der auf LinkAttribution festgelegt wird.|string|  
+|mustBeCloseToContent|Ein boolescher Wert, der bestimmt, ob der Inhalt der Regel in großer Nähe zu dem Feld platziert werden muss, für das die Regel gilt. Wenn **TRUE**, muss der Inhalt in großer Nähe platziert werden. Wenn der Wert **FALSE** oder dieses Feld nicht vorhanden ist, kann der Inhalt nach dem Ermessen des Aufrufers platziert werden.|Boolean|  
+|targetPropertyName|Der Name des Felds, für das die Regel gilt.<br /><br /> Wenn kein Ziel angegeben wird, gilt die Zuordnung für die Entität als Ganzes und sollte unmittelbar nach der Entitätspräsentation angezeigt werden. Wenn es mehrere Text- und Linkzuordnungsregeln gibt, die kein Ziel angeben, sollten Sie diese verketten und mithilfe einer „Data from:“-Bezeichnung anzeigen. Beispiel: „Data from <Anbietername1\> &#124; <Anbietername2\>“.|string|  
+|text|Der Zuordnungstext.|string|  
+|url|Die URL zur Website des Anbieters. Verwenden Sie `text` und die URL, um den Link zu erstellen.|string|  
   
   
 ### <a name="mediaattribution"></a>MediaAttribution  
@@ -174,10 +174,10 @@ Definiert eine vertragliche Regel für die Medienzuordnung.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Ein Typhinweis, der auf MediaAttribution festgelegt wird.|Zeichenfolge|  
-|mustBeCloseToContent|Ein boolescher Wert, der bestimmt, ob der Inhalt der Regel in großer Nähe zu dem Feld platziert werden muss, für das die Regel gilt. Wenn **TRUE**, muss der Inhalt in großer Nähe platziert werden. Wenn der Wert **FALSE** oder dieses Feld nicht vorhanden ist, kann der Inhalt nach dem Ermessen des Aufrufers platziert werden.|Boolescher Wert|  
-|targetPropertyName|Der Name des Felds, für das die Regel gilt.|Zeichenfolge|  
-|URL|Die URL, die Sie zum Erstellen des Links der Medieninhalte verwenden. Wenn das Ziel ein Bild ist, würden Sie z.B. die URL verwenden, um das Bild klickbar zu machen.|Zeichenfolge|  
+|_type|Ein Typhinweis, der auf MediaAttribution festgelegt wird.|string|  
+|mustBeCloseToContent|Ein boolescher Wert, der bestimmt, ob der Inhalt der Regel in großer Nähe zu dem Feld platziert werden muss, für das die Regel gilt. Wenn **TRUE**, muss der Inhalt in großer Nähe platziert werden. Wenn der Wert **FALSE** oder dieses Feld nicht vorhanden ist, kann der Inhalt nach dem Ermessen des Aufrufers platziert werden.|Boolean|  
+|targetPropertyName|Der Name des Felds, für das die Regel gilt.|string|  
+|url|Die URL, die Sie zum Erstellen des Links der Medieninhalte verwenden. Wenn das Ziel ein Bild ist, würden Sie z.B. die URL verwenden, um das Bild klickbar zu machen.|string|  
   
   
   
@@ -188,8 +188,8 @@ Beachten Sie, dass ein Herausgeber möglicherweise seinen Namen oder seine Websi
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|name|Der Name des Herausgebers.|Zeichenfolge|  
-|URL|Die URL zur Website des Herausgebers.<br /><br /> Beachten Sie, dass der Herausgeber möglicherweise keine Website bereitstellt.|Zeichenfolge|  
+|name|Der Name des Herausgebers.|string|  
+|url|Die URL zur Website des Herausgebers.<br /><br /> Beachten Sie, dass der Herausgeber möglicherweise keine Website bereitstellt.|string|  
   
   
 
@@ -198,11 +198,11 @@ Definiert Informationen zu einer Webseite in der Vorschau.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|
-|name|Der Seitentitel, nicht notwendigerweise der HTML-Titel.|Zeichenfolge|
-|URL|Die URL, die tatsächlich durchforstet wurde (die Anforderung wurde möglicherweise weitergeleitet).|Zeichenfolge|  
-|Beschreibung|Kurze Beschreibung der Seite und des Inhalts|Zeichenfolge|  
+|name|Der Seitentitel, nicht notwendigerweise der HTML-Titel.|string|
+|url|Die URL, die tatsächlich durchforstet wurde (die Anforderung wurde möglicherweise weitergeleitet).|string|  
+|description|Kurze Beschreibung der Seite und des Inhalts|string|  
 |isFamilyFriendly|Am genauesten für Elemente im Webindex. Abrufvorgänge in Echtzeit führen diese Erkennung ausschließlich basierend auf der URL und nicht auf dem Seiteninhalt aus.|boolean|
-|primaryImageOfPage/contentUrl|Die URL zu einem repräsentativen Bild, das in die Vorschau eingeschlossen werden soll.|Zeichenfolge| 
+|primaryImageOfPage/contentUrl|Die URL zu einem repräsentativen Bild, das in die Vorschau eingeschlossen werden soll.|string| 
   
   
 ### <a name="querycontext"></a>QueryContext  
@@ -210,17 +210,17 @@ Definiert den Abfragekontext, den Bing für die Anforderung verwendet hat.
   
 |Element|BESCHREIBUNG|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Ein boolescher Wert, der angibt, ob die angegebene Abfrage nicht jugendfreie Inhalte aufweist. Der Wert ist **TRUE**, wenn die Abfrage nicht jugendfreie Inhalte aufweist, andernfalls ist er **FALSE**.|Boolescher Wert|  
-|alterationOverrideQuery|Die zu verwendende Abfragezeichenfolge, um Bing zu zwingen, die ursprüngliche Zeichenfolge zu verwenden. Wenn die Abfragezeichenfolge z.B. *saling downwind* lautet, lautet die Abfragezeichenfolge zum Überschreiben *+saling downwind*. Denken Sie daran, die Abfragezeichenfolge mit den Ergebnissen in *%2Bsaling+downwind* zu codieren.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|Zeichenfolge|  
-|alteredQuery|Die Abfragezeichenfolge, die von Bing verwendet wird, um die Abfrage auszuführen. Bing verwendet die geänderte Abfragezeichenfolge, wenn die ursprüngliche Abfragezeichenfolge Rechtschreibfehler enthielt. Wenn die Abfragezeichenfolge z.B. `saling downwind` lautet, lautet die geänderten Abfragezeichenfolge `sailing downwind`.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|Zeichenfolge|  
-|askUserForLocation|Ein boolescher Wert, der angibt, ob Bing den Standort des Benutzers benötigt, um genaue Ergebnisse bereitzustellen. Wenn Sie den Standort des Benutzers mithilfe der [X-MSEdge-ClientIP](#clientip)- und [X-Search-Location](#location)-Header angegeben haben, können Sie dieses Feld ignorieren.<br /><br /> Für standortaktivierte Abfragen (z.B. „Wetter heute“ oder „Restaurants in meiner Nähe“), die den Standort des Benutzers benötigen, um genaue Ergebnisse zu liefern, ist dieses Feld auf **TRUE** festgelegt.<br /><br /> Für standortaktivierte Abfragen, die den Standort beinhalten (z.B. „Wetter in Seattle“), ist dieses Feld auf **FALSE** festgelegt. Dieses Feld wird auch für Abfragen auf **FALSE** festgelegt, die nicht standortaktiviert sind, z.B. „Beste Verkäufer“.|Boolescher Wert|  
-|originalQuery|Die Abfragezeichenfolge wie in der Anforderung angegeben.|Zeichenfolge|  
+|adultIntent|Ein boolescher Wert, der angibt, ob die angegebene Abfrage nicht jugendfreie Inhalte aufweist. Der Wert ist **TRUE**, wenn die Abfrage nicht jugendfreie Inhalte aufweist, andernfalls ist er **FALSE**.|Boolean|  
+|alterationOverrideQuery|Die zu verwendende Abfragezeichenfolge, um Bing zu zwingen, die ursprüngliche Zeichenfolge zu verwenden. Wenn die Abfragezeichenfolge z.B. *saling downwind* lautet, lautet die Abfragezeichenfolge zum Überschreiben *+saling downwind*. Denken Sie daran, die Abfragezeichenfolge mit den Ergebnissen in *%2Bsaling+downwind* zu codieren.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|string|  
+|alteredQuery|Die Abfragezeichenfolge, die von Bing verwendet wird, um die Abfrage auszuführen. Bing verwendet die geänderte Abfragezeichenfolge, wenn die ursprüngliche Abfragezeichenfolge Rechtschreibfehler enthielt. Wenn die Abfragezeichenfolge z.B. `saling downwind` lautet, lautet die geänderten Abfragezeichenfolge `sailing downwind`.<br /><br /> Dieses Feld ist nur enthalten, wenn die ursprüngliche Abfragezeichenfolge einen Rechtschreibfehler enthält.|string|  
+|askUserForLocation|Ein boolescher Wert, der angibt, ob Bing den Standort des Benutzers benötigt, um genaue Ergebnisse bereitzustellen. Wenn Sie den Standort des Benutzers mithilfe der [X-MSEdge-ClientIP](#clientip)- und [X-Search-Location](#location)-Header angegeben haben, können Sie dieses Feld ignorieren.<br /><br /> Für standortaktivierte Abfragen (z.B. „Wetter heute“ oder „Restaurants in meiner Nähe“), die den Standort des Benutzers benötigen, um genaue Ergebnisse zu liefern, ist dieses Feld auf **TRUE** festgelegt.<br /><br /> Für standortaktivierte Abfragen, die den Standort beinhalten (z.B. „Wetter in Seattle“), ist dieses Feld auf **FALSE** festgelegt. Dieses Feld wird auch für Abfragen auf **FALSE** festgelegt, die nicht standortaktiviert sind, z.B. „Beste Verkäufer“.|Boolean|  
+|originalQuery|Die Abfragezeichenfolge wie in der Anforderung angegeben.|string|  
 
 ### <a name="identifiable"></a>Identifiable
 
 |NAME|Wert|Type|  
 |-------------|-----------------|----------|
-|id|Ein Ressourcenbezeichner.|Zeichenfolge|
+|id|Ein Ressourcenbezeichner.|string|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definiert eine Suchergebnisgruppe, z.B. „mainline“.
@@ -234,8 +234,8 @@ Definiert ein anzuzeigendes Suchergebniselement.
 
 |NAME|Wert|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Ein nullbasierter Index des Elements in der Antwort, das angezeigt werden soll. Wenn das Element dieses Feld nicht enthält, werden alle Elemente in der Antwort angezeigt. Beispielsweise werden alle Artikel in der News-Antwort angezeigt.|Ganze Zahl |
-|answerType|Die Antwort, die das anzuzeigende Element enthält. Beispiel: News.<br /><br />Verwenden Sie den Typ, um nach der Antwort im SearchResponse-Objekt zu suchen. Der Typ ist der Name eines SearchResponse-Felds.<br /><br /> Verwenden Sie diesen Antworttyp jedoch nur, wenn dieses Objekt das value-Feld enthält. Ignorieren Sie ihn andernfalls.|Zeichenfolge|
+|resultIndex|Ein nullbasierter Index des Elements in der Antwort, das angezeigt werden soll. Wenn das Element dieses Feld nicht enthält, werden alle Elemente in der Antwort angezeigt. Beispielsweise werden alle Artikel in der News-Antwort angezeigt.|Integer|
+|answerType|Die Antwort, die das anzuzeigende Element enthält. Beispiel: News.<br /><br />Verwenden Sie den Typ, um nach der Antwort im SearchResponse-Objekt zu suchen. Der Typ ist der Name eines SearchResponse-Felds.<br /><br /> Verwenden Sie diesen Antworttyp jedoch nur, wenn dieses Objekt das value-Feld enthält. Ignorieren Sie ihn andernfalls.|string|
 |textualIndex|Der Index der Antwort in textualAnswers, die angezeigt werden soll.| Ganze Zahl ohne Vorzeichen|
 |value|Die ID, die eine anzuzeigende Antwort oder ein anzuzeigendes Element einer Antwort identifiziert. Wenn die ID eine Antwort identifiziert, werden alle Elemente der Antwort angezeigt.|Identifiable|
 
@@ -256,7 +256,7 @@ Beachten Sie Folgendes: Wenn der Dienst einen Denial-of-Service-Angriff vermutet
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Der Typhinweis, der auf SearchResponse festgelegt wird.|Zeichenfolge|  
+|_type|Der Typhinweis, der auf SearchResponse festgelegt wird.|string|  
 |WebPage|Ein JSON-Objekt, das die Vorschau definiert.|Zeichenfolge|  
   
   
@@ -265,8 +265,8 @@ Definiert eine vertragliche Regel für die Nur-Text-Zuordnung.
   
 |NAME|Wert|Type|  
 |----------|-----------|----------|  
-|_type|Ein Typhinweis, der auf TextAttribution festgelegt wird.|Zeichenfolge|  
-|text|Der Zuordnungstext.<br /><br /> Die Textzuordnung gilt für die Entität als Ganzes und sollte unmittelbar nach der Entitätspräsentation angezeigt werden. Wenn es mehrere Text- oder Linkzuordnungsregeln gibt, die kein Ziel angeben, sollten Sie diese verketten und mithilfe einer „Data from:“-Bezeichnung anzeigen.|Zeichenfolge| 
+|_type|Ein Typhinweis, der auf TextAttribution festgelegt wird.|string|  
+|text|Der Zuordnungstext.<br /><br /> Die Textzuordnung gilt für die Entität als Ganzes und sollte unmittelbar nach der Entitätspräsentation angezeigt werden. Wenn es mehrere Text- oder Linkzuordnungsregeln gibt, die kein Ziel angeben, sollten Sie diese verketten und mithilfe einer „Data from:“-Bezeichnung anzeigen.|string| 
 
 
 ## <a name="error-codes"></a>Fehlercodes

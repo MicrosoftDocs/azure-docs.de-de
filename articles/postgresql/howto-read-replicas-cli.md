@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: 9a6a1a744a8441d2f082d4d14a3aba8aa1cfc09e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510235"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66306034"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Erstellen und Verwalten von Lesereplikaten über die Azure CLI
 
 In diesem Artikel erfahren Sie, wie Sie Lesereplikate in Azure Database for PostgreSQL über die Azure CLI erstellen und verwalten. Weitere Informationen zu Lesereplikaten finden Sie in der [Übersicht](concepts-read-replicas.md).
 
-> [!NOTE]
-> Die Azure-Befehlszeilenschnittstelle unterstützt noch nicht das Erstellen von Replikaten in einer anderen Region als der des Masterservers. Verwenden Sie das [Azure-Portal](howto-read-replicas-portal.md), um ein regionsübergreifendes Replikat zu erstellen.
+> [!IMPORTANT]
+> Sie können ein Lesereplikat in derselben Region wie Ihren Masterserver oder in einer anderen beliebigen Azure-Region erstellen. Die regionsübergreifende Replikation befindet sich derzeit in der öffentlichen Vorschauversion.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 - Ein [Azure Database for PostgreSQL-Server](quickstart-create-server-up-azure-cli.md), der als Masterserver verwendet wird
@@ -55,8 +55,16 @@ Der Befehl [az postgres server replica create](/cli/azure/postgres/server/replic
 | name | mydemoserver-replica | Der Name des neuen Replikatservers, der erstellt wird. |
 | source-server | mydemoserver | Der Name oder die Ressourcen-ID des vorhandenen Masterservers, von dem die Replikation erfolgt. |
 
+Im folgenden CLI-Beispiel wird das Replikat in der gleichen Region wie der Master erstellt.
+
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
+```
+
+Verwenden Sie den `--location`-Parameter, um ein regionsübergreifendes Lesereplikat zu erstellen. Im folgenden CLI-Beispiel wird das Replikat in der Region „USA, Westen“ erstellt.
+
+```azurecli-interactive
+az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 Wenn Sie den Parameter `azure.replication_support` auf einem universellen oder arbeitsspeicheroptimierten Masterserver nicht auf **REPLICA** festgelegt und den Server nicht neu gestartet haben, erhalten Sie einen Fehler. Führen Sie diese beiden Schritte aus, bevor Sie ein Replikat erstellen.

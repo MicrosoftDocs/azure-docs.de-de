@@ -10,11 +10,11 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61085324"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Problembehandlung bei Änderungsnachverfolgung und Inventur
 

@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852882"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60347253"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Verwalten von Azure Machine Learning Studio-Webdiensten mit API Management
 ## <a name="overview"></a>Übersicht
@@ -150,7 +150,7 @@ Operationen können direkt aus dem Entwicklerportal aufgerufen werden. Dies ist 
 
 4. Geben Sie als **Anforderungsparameter** Ihren **Arbeitsbereich** und **Dienst** sowie „2.0“ als **apiversion** und „true“ für **details** ein. Sie finden Ihren **Arbeitsbereich** und **Dienst** im Azure ML-Webdienstdashboard (siehe **Testen des Webdiensts** in Anhang A).
 
-   Klicken Sie für **Anforderungsheader** auf **Header hinzufügen**, und geben Sie „Content-Type“ und „application/json“ ein. Klicken Sie erneut auf **Header hinzufügen**, und geben Sie „Authorization“ und „Bearer *\<Ihr API-Schlüssel des Diensts\>*“ ein. Sie finden Ihren API-Schlüssel im Azure ML-Webdienstdashboard (siehe **Testen des Webdiensts** in Anhang A).
+   Klicken Sie für **Anforderungsheader** auf **Header hinzufügen**, und geben Sie „Content-Type“ und „application/json“ ein. Klicken Sie erneut auf **Header hinzufügen**, und geben Sie „Authorization“ und „Bearer *\<Ihr API-Schlüssel des Diensts\>* “ ein. Sie finden Ihren API-Schlüssel im Azure ML-Webdienstdashboard (siehe **Testen des Webdiensts** in Anhang A).
 
    Geben Sie unter **Anforderungstext** den Text `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}` ein.
 
@@ -166,7 +166,7 @@ Nach dem Aufruf der Operation zeigt das Entwicklerportal die **Angeforderte URL*
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Anhang A – Erstellen und Testen eines einfachen Azure ML-Webdiensts
 ### <a name="creating-the-experiment"></a>Erstellen des Experiments
-Im Folgenden finden Sie die Schritte, die zum Erstellen eines einfachen Azure ML-Experiments und zum Bereitstellen des Experiments als Webdienst erforderlich sind. Der Webdienst akzeptiert als Eingabe eine Spalte mit beliebigem Text und gibt einen Satz von Features zurück, die als Ganzzahlen dargestellt werden. Beispiel: 
+Im Folgenden finden Sie die Schritte, die zum Erstellen eines einfachen Azure ML-Experiments und zum Bereitstellen des Experiments als Webdienst erforderlich sind. Der Webdienst akzeptiert als Eingabe eine Spalte mit beliebigem Text und gibt einen Satz von Features zurück, die als Ganzzahlen dargestellt werden. Beispiel:
 
 | Text | Text im Hashformat |
 | --- | --- |

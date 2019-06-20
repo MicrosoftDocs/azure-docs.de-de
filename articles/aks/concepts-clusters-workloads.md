@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66514524"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Grundlegende Kubernetes-Konzepte für Azure Kubernetes Service (AKS)
 
@@ -70,9 +70,9 @@ Zum Ausführen Ihrer Anwendungen und der unterstützenden Dienste benötigen Sie
 
 Die Größe der Azure-VMs für Ihre Knoten definiert die Anzahl der CPUs, die Größe des Arbeitsspeichers und die Größe und den Typ des verfügbaren Speichers (z.B. hochleistungsfähige SSDs oder reguläre HDDs). Wenn Sie damit rechnen, dass Sie Anwendungen bereitstellen werden, die große Mengen an CPUs und Arbeitsspeicher oder hochleistungsfähigen Datenspeicher erfordern, planen Sie die Knotengröße entsprechend. Sie können auch die Anzahl von Knoten in Ihrem AKS-Cluster zentral hochskalieren, um Anforderungen zu erfüllen.
 
-In AKS basiert das VM-Image für die Knoten in Ihrem Cluster derzeit auf Ubuntu Linux. Wenn Sie einen AKS-Cluster erstellen oder die Anzahl von Knoten zentral hochskalieren, erstellt die Azure-Plattform die erforderliche Anzahl von VMs und konfiguriert diese. Sie müssen keine manuellen Konfigurationsaufgaben ausführen.
+In AKS basiert das VM-Image für die Knoten in Ihrem Cluster derzeit auf Ubuntu Linux oder Windows Server 2019. Wenn Sie einen AKS-Cluster erstellen oder die Anzahl von Knoten zentral hochskalieren, erstellt die Azure-Plattform die erforderliche Anzahl von VMs und konfiguriert diese. Sie müssen keine manuellen Konfigurationsaufgaben ausführen. Agent-Knoten werden als Standard-VMs in Rechnung gestellt, sodass alle etwaigen Rabatte, über die Sie auf die von Ihnen verwendete VM-Größe verfügen (einschließlich [Azure-Reservierungen][reservation-discounts]), automatisch angewendet werden.
 
-Wenn Sie ein anderes Hostbetriebssystem oder eine andere Containerruntime benötigen oder benutzerdefinierte Pakete verwenden müssen, können Sie mit [aks-engine][aks-engine] selbst einen Kubernetes-Cluster bereitstellen. Die `aks-engine`-Upstreamreleases stellen Konfigurationsoptionen bereit, bevor diese offiziell in AKS-Clustern unterstützt werden. Wenn Sie z.B. Windows-Container oder eine andere Containerruntime als Moby verwenden möchten, können Sie mithilfe von `aks-engine` einen Kubernetes-Cluster konfigurieren und bereitstellen, der Ihre aktuellen Anforderungen erfüllt.
+Wenn Sie ein anderes Hostbetriebssystem oder eine andere Containerruntime benötigen oder benutzerdefinierte Pakete verwenden müssen, können Sie mit [aks-engine][aks-engine] selbst einen Kubernetes-Cluster bereitstellen. Die `aks-engine`-Upstreamreleases stellen Konfigurationsoptionen bereit, bevor diese offiziell in AKS-Clustern unterstützt werden. Wenn Sie z.B. eine andere Containerruntime als Moby verwenden möchten, können Sie mithilfe von `aks-engine` einen Kubernetes-Cluster konfigurieren und bereitstellen, der Ihre aktuellen Anforderungen erfüllt.
 
 ### <a name="resource-reservations"></a>Ressourcenreservierungen
 
@@ -83,7 +83,7 @@ Sie müssen nicht die Kubernetes-Kernkomponenten auf jedem Knoten verwalten, z.B
 
 Diese Reservierungen führen dazu, dass möglicherweise eine geringere Menge verfügbarer CPU-Leistung und Arbeitsspeicher für Ihre Anwendungen angezeigt wird, als der eigentliche Knoten enthält. Wenn Ressourceneinschränkungen aufgrund der Anzahl von ausgeführten Anwendungen vorliegen, gewährleisten diese Reservierungen, dass für die Kubernetes-Kernkomponenten weiterhin CPU-Leistung und Arbeitsspeicher zur Verfügung stehen. Die Ressourcenreservierungen können nicht geändert werden.
 
-Beispiel: 
+Beispiel:
 
 - Knotengröße **Standard DS2 v2** mit 2 vCPUs und 7 GiB Arbeitsspeicher
     - 20 % von 7 GiB Arbeitsspeicher = 1,4 GiB
@@ -104,6 +104,27 @@ Knoten mit der gleichen Konfiguration werden in *Knotenpools* gruppiert. Ein Kub
 Wenn Sie einen AKS-Cluster skalieren oder ein Upgrade des Clusters durchführen, wird die Aktion im Standardknotenpool ausgeführt. Sie können auch auswählen, einen bestimmten Knotenpool zu skalieren oder ein Upgrade für diesen auszuführen. Bei Upgradevorgängen wird die Ausführung von Containern in anderen Knoten im Knotenpool geplant, bis das Upgrade für alle Knoten erfolgreich durchgeführt wurde.
 
 Weitere Informationen zur Verwendung mehrerer Knotenpools in AKS finden Sie unter [Create and manage multiple node pools for a cluster in AKS (Erstellen und Verwalten mehrerer Knotenpools für einen Cluster in AKS)][use-multiple-node-pools].
+
+### <a name="node-selectors"></a>Knotenselektoren
+
+In einem AKS-Cluster mit mehreren Knotenpools müssen Sie dem Kubernetes-Scheduler möglicherweise mitteilen, welcher Knotenpool für eine bestimmte Ressource verwendet werden soll. Beispielsweise sollten Eingangscontroller nicht auf Windows Server-Knoten (derzeit in der Vorschau in AKS) ausgeführt werden. Mit Knotenselektoren können Sie verschiedene Parameter festlegen, wie z.B. das Betriebssystem des Knotens, um zu steuern, wo ein Pod geplant werden soll.
+
+Das folgende einfache Beispiel plant eine NGINX-Instanz auf einem Linux-Knoten unter Verwendung des Knotenselektors *"beta.kubernetes.io/os": linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Weitere Informationen zum Steuern, wo Pods geplant werden, finden Sie unter [Best Practices für erweiterte Schedulerfunktionen in Azure Kubernetes Service (AKS)][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pods
 
@@ -248,3 +269,5 @@ In diesem Artikel wurden einige der wichtigsten Kubernetes-Komponenten sowie der
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 55d4f4bdf204453ccfe353e0d79abedb118bd9d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fb45d2e36939a53d6242cf7cd5a0b9f1990780c3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021604"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299048"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST-Tutorial: Aufrufen von Cognitive Services-APIs in einer Azure Search-Indizierungspipeline
 
@@ -45,13 +45,13 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 In diesem Tutorial werden die folgenden Dienste, Tools und Daten verwendet. 
 
-[Erstellen Sie einen Azure Search-Dienst](search-create-service-portal.md), oder suchen Sie in Ihrem aktuellen Abonnement [nach einem vorhandenen Dienst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). In diesem Tutorial können Sie einen kostenlosen Dienst verwenden.
++ [Erstellen Sie ein Azure-Speicherkonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) zum Speichern der Beispieldaten. Stellen Sie sicher, dass sich das Speicherkonto in der gleichen Region wie Azure Search befindet.
 
-[Erstellen Sie ein Azure-Speicherkonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) zum Speichern der Beispieldaten.
++ REST-Aufrufe für Azure Search werden mithilfe der [Postman-Desktop-App](https://www.getpostman.com/) durchgeführt.
 
-REST-Aufrufe für Azure Search werden mithilfe der [Postman-Desktop-App](https://www.getpostman.com/) durchgeführt.
++ Die [Beispieldaten](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) bestehen aus einem kleinen Satz Dateien verschiedenen Typs. 
 
-Die [Beispieldaten](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) bestehen aus einem kleinen Satz Dateien verschiedenen Typs. 
++ [Erstellen Sie einen Azure Search-Dienst](search-create-service-portal.md), oder suchen Sie in Ihrem aktuellen Abonnement [nach einem vorhandenen Dienst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). In diesem Tutorial können Sie einen kostenlosen Dienst verwenden.
 
 ## <a name="get-a-key-and-url"></a>Abrufen eines Schlüssels und einer URL
 
@@ -419,7 +419,7 @@ Aus der Antwort erfahren Sie, ob der Indexer noch ausgeführt wird. Verwenden Si
 
 Warnungen sind bei bestimmten Kombinationen aus Quelldatei und Qualifikation häufig und weisen nicht immer auf ein Problem hin. Im Rahmen dieses Tutorials sind die Warnungen gutartig (z.B. keine Texteingaben aus den JPEG-Dateien). Sie können die Statusantwort für ausführliche Informationen über Warnungen überprüfen, die während der Indizierung ausgegeben wurden.
  
-## <a name="verify-content"></a>Inhaltsüberprüfung
+## <a name="query-your-index"></a>Abfragen Ihres Index
 
 Führen Sie nach dem Abschluss der Indizierung Abfragen aus, die die Inhalte einzelner Felder zurückgeben. Standardmäßig gibt Azure Search die obersten 50 Ergebnisse zurück. Die Beispieldaten sind klein, so dass die Standardeinstellung gut funktioniert. Beim Arbeiten mit größeren Datensets müssen Sie jedoch möglicherweise Parameter in die Abfragezeichenfolge aufnehmen, um mehr Ergebnisse zurückzugeben. Anweisungen finden Sie unter [How to page results in Azure Search](search-pagination-page-layout.md) (Seitenweise Ausgabe von Ergebnissen in Azure Search).
 
@@ -445,74 +445,8 @@ Wiederholen Sie das Verfahren in dieser Übung für weitere Felder: „content�
 
 Sie können GET oder POST verwenden, abhängig von der Komplexität und Länge der Abfragezeichenfolge. Weitere Informationen finden Sie unter [Abfragen mithilfe der REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-<a name="access-enriched-document"></a>
 
-## <a name="accessing-the-enriched-document"></a>Zugreifen auf das angereicherte Dokument
 
-Mithilfe der kognitiven Suche können Sie die Struktur des angereicherten Dokuments anzeigen. Angereicherte Dokumente sind temporäre Strukturen, die während der Anreicherung erstellt und nach dem Abschluss des Vorgangs gelöscht werden.
-
-Um eine Momentaufnahme des angereicherten Dokuments zu erfassen, das während der Indizierung erstellt wird, fügen Sie Ihrem Index ein Feld ```enriched``` hinzu. Der Indexer gibt für alle Anreicherungen dieses Dokuments automatisch eine Zeichenfolgendarstellung im Feld aus.
-
-Das Feld ```enriched``` enthält eine Zeichenfolge, die eine logische Darstellung des im Speicher angereicherten Dokuments im JSON-Format ist.  Der Feldwert ist jedoch ein gültiges JSON-Dokument. Anführungszeichen werden mit Escapezeichen versehen, sodass Sie `\"` durch `"` ersetzen müssen, um das Dokument als formatierten JSON-Code anzuzeigen.  
-
-Das ```enriched```-Feld ist für Debugzwecke vorgesehen und soll Sie beim Verständnis der logischen Form der Inhalte unterstützen, für die Ausdrücke ausgewertet werden. Es kann ein nützliches Tool zum Verstehen und Debuggen Ihrer Qualifikationsgruppe sein.
-
-Wiederholen Sie die vorhergehende Übung, und schließen Sie ein `enriched`-Feld zum Erfassen der Inhalte eines angereicherten Dokuments ein:
-
-### <a name="request-body-syntax"></a>Syntax des Anforderungstexts
-```json
-{
-  "fields": [
-    {
-      "name": "id",
-      "type": "Edm.String",
-      "key": true,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false,
-      "sortable": true
-    },
-    {
-      "name": "content",
-      "type": "Edm.String",
-      "sortable": false,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "languageCode",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "keyPhrases",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "organizations",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "enriched",
-      "type": "Edm.String",
-      "searchable": false,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
-    }
-  ]
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Zurücksetzen und erneut ausführen

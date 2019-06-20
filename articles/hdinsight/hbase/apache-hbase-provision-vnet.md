@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
 ms.openlocfilehash: 85eaa81a0cfd7ccfe8ad3ae818f89966280d279e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730364"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Erstellen von Apache HBase-Clustern in HDInsight in Azure Virtual Network
@@ -34,7 +34,7 @@ Bevor Sie mit diesem Tutorial beginnen können, benötigen Sie Folgendes:
 In diesem Abschnitt erstellen Sie mit einer [Azure Resource Manager-Vorlage](../../azure-resource-manager/resource-group-template-deploy.md) einen Linux-basierten Apache HBase-Cluster mit dem abhängigen Azure Storage-Konto in einem virtuellen Azure-Netzwerk. Andere Methoden zur Erstellung von Clustern und Informationen zu den Einstellungen finden Sie unter [Erstellen von Linux-basierten Hadoop-Clustern in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Weitere Informationen zur Verwendung einer Vorlage zum Erstellen von Apache Hadoop-Clustern in HDInsight finden Sie unter [Erstellen Linux-basierter Apache Hadoop-Cluster in HDInsight mithilfe von Azure Resource Manager-Vorlagen](../hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 > [!NOTE]  
-> Einige Eigenschaften sind in der Vorlage hartcodiert. Beispiel: 
+> Einige Eigenschaften sind in der Vorlage hartcodiert. Beispiel:
 >
 > * **Standort:** USA (Ost) 2
 > * **Clusterversion:** 3.6
@@ -93,7 +93,7 @@ Führen Sie die Schritte unter [Erste Schritte mit einem Apache HBase-Beispiel i
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
      ```
 
-     Suchen Sie in den zurückgegebenen JSON-Daten (JavaScript Object Notation) den Eintrag "host_name". Er enthält den vollqualifizierten Domänennamen (FQDN) für die Knoten im Cluster. Beispiel: 
+     Suchen Sie in den zurückgegebenen JSON-Daten (JavaScript Object Notation) den Eintrag "host_name". Er enthält den vollqualifizierten Domänennamen (FQDN) für die Knoten im Cluster. Beispiel:
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -222,7 +222,7 @@ Führen Sie die Schritte unter [Erste Schritte mit einem Apache HBase-Beispiel i
 
 Führen Sie den Befehl `ping headnode0.<dns suffix>` auf dem virtuellen Computer aus, um zu überprüfen, ob der virtuelle Computer mit dem HBase-Cluster kommunizieren kann. Beispiel: ping headnode0.mycluster.b1.cloudapp.net.
 
-Führen Sie die unter [Erstellen von Java-Anwendungen für die Apache-HBase](./apache-hbase-build-java-maven-linux.md) beschriebenen Schritte aus, um diese Informationen in einer Java-Anwendung zu verwenden. Wenn die Anwendung eine Verbindung mit einem HBase-Remoteserver herstellen soll, müssen Sie den FQDN für Zookeeper in der Datei **hbase-site.xml** eintragen. Beispiel: 
+Führen Sie die unter [Erstellen von Java-Anwendungen für die Apache-HBase](./apache-hbase-build-java-maven-linux.md) beschriebenen Schritte aus, um diese Informationen in einer Java-Anwendung zu verwenden. Wenn die Anwendung eine Verbindung mit einem HBase-Remoteserver herstellen soll, müssen Sie den FQDN für Zookeeper in der Datei **hbase-site.xml** eintragen. Beispiel:
 
     <property>
         <name>hbase.zookeeper.quorum</name>

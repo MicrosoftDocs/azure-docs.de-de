@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
 ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006468"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60537954"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager-Vorlagen für Azure Container Instances
 
@@ -24,7 +24,7 @@ Informationen zu Bereitstellungsoptionen finden Sie im Abschnitt [Bereitstellung
 
 | | |
 |-|-|
-| **ANWENDUNGEN** ||
+| **Anwendungen** ||
 | [WordPress][app-wp] | Erstellt eine WordPress-Website und ihre MySQL-Datenbank in einer Containergruppe. Der Inhalt der WordPress-Website und MySQL-Datenbank werden persistent in einer Azure Files-Freigabe gespeichert. Erstellt auch ein Anwendungsgateway, um öffentlichen Netzwerkzugriff auf WordPress zu ermöglichen. |
 | [MS-NAV mit SQLServer und IIS][app-nav] | Stellt einen einzelnen Windows-Container mit einer vollständig ausgestatteten eigenständigen Dynamics NAV / Dynamics 365 Business Central-Umgebung bereit. |
 | **Volumes** ||

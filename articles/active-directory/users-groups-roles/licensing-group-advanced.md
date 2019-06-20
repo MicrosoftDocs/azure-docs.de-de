@@ -16,11 +16,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60471770"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Szenarien, Einschränkungen und bekannte Probleme mit der Verwendung von Gruppen zum Verwalten der Lizenzierung in Azure Active Directory
 
@@ -188,7 +188,7 @@ Wenn sich für eine Gruppe eine Lizenz ändert, beginnt Azure AD damit, die Änd
    > ```
 
 3. Legen Sie die folgenden Filter fest, um das vollständige Protokoll zur Verarbeitung einer Gruppe mit allen Benutzeränderungen anzuzeigen:
-   - **Initiiert von (Akteur)**: „Gruppenbasierte Microsoft Azure AD-Lizenzierung“
+   - **Initiiert von (Akteur)** : „Gruppenbasierte Microsoft Azure AD-Lizenzierung“
    - **Datumsbereich** (optional): Benutzerdefinierter Bereich für Verarbeitungsstart und -ende einer bestimmten Gruppe
 
 Diese Beispielausgabe zeigt den Start der Verarbeitung, alle sich ergebenden Benutzeränderungen und das Ende der Verarbeitung.

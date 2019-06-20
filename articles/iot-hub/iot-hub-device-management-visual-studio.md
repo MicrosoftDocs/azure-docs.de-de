@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
 ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791928"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60399555"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Verwenden des Cloud-Explorers für Visual Studio für die Geräteverwaltung mit Azure IoT Hub
 

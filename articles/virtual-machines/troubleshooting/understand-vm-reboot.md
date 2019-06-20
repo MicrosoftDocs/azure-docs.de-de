@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 70a6845349b90cf614a84e13680ebb6fc6b3e2a9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60443754"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Informationen zum Systemneustart für virtuelle Azure-Computer
 

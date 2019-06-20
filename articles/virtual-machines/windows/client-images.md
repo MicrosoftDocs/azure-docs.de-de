@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61403095"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Verwenden des Windows-Clients in Azure für Entwicklungs-/Testszenarien
 Sie können Windows 7, Windows 8 oder Windows 10 Enterprise (x64) in Azure für Entwicklungs-/Testszenarien verwenden, sofern Sie über ein entsprechendes Visual Studio-Abonnement (früher MSDN) verfügen. Dieser Artikel beschreibt die erforderlichen Berechtigungen für die Ausführung von Windows 7, Windows 8.1 und Windows 10 Enterprise in Azure und die Verwendung der folgenden Images aus dem Azure-Katalog.

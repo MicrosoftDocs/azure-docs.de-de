@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315129"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60825607"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Verwenden von Azure Media Analytics zum Konvertieren von Textinhalten in Videodateien in digitalen Text  
 ## <a name="overview"></a>Übersicht
@@ -105,7 +105,7 @@ Die Ausgabe enthält die folgenden Attribute:
 
 | Element | BESCHREIBUNG |
 | --- | --- |
-| Zeitskala |„Teilstriche“ pro Sekunde des Videos |
+| Timescale |„Teilstriche“ pro Sekunde des Videos |
 | Offset |Zeitoffset für Zeitstempel In Version 1.0 von Video-APIs wird dies immer 0 sein. |
 | Framerate |Frames pro Sekunde des Videos |
 | width |Breite des Videos in Pixel |

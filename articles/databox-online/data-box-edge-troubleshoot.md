@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 3a8d1f93930d2b298eeb7d10a73624b9a19bcc0e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007779"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60756208"
 ---
 # <a name="troubleshoot-your-azure-data-box-edge-issues"></a>Behandeln von Problemen mit Azure Data Box Edge 
 

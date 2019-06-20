@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006181"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235877"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Herstellen einer Verbindung zwischen einem MXChip IoT DevKit-Gerät und Ihrer Azure IoT Central-Anwendung
 
@@ -66,7 +66,7 @@ Wenn Sie das Gerät zuvor genutzt haben und es zur Verwendung eines anderen WLAN
 #### <a name="to-prepare-the-devkit-device"></a>So bereiten Sie das DevKit-Gerät vor
 
 1. Laden Sie die neueste vorgefertigte Azure IoT Central-Firmware für den MXChip von der Seite [Releases](https://aka.ms/iotcentral-docs-MXChip-releases) in GitHub herunter.
-1. Stellen Sie über ein USB-Kabel eine Verbindung zwischen dem DevKit-Gerät und dem Entwicklungscomputer her. Unter Windows wird ein Datei-Explorer-Fenster für ein Laufwerk geöffnet, das dem Speicher auf dem DevKit-Gerät zugeordnet ist. Das Laufwerk heißt beispielsweise **AZ3166 (D:)**.
+1. Stellen Sie über ein USB-Kabel eine Verbindung zwischen dem DevKit-Gerät und dem Entwicklungscomputer her. Unter Windows wird ein Datei-Explorer-Fenster für ein Laufwerk geöffnet, das dem Speicher auf dem DevKit-Gerät zugeordnet ist. Das Laufwerk heißt beispielsweise **AZ3166 (D:)** .
 1. Ziehen Sie die Datei **iotCentral.bin** auf das Laufwerksfenster. Wenn der Kopiervorgang abgeschlossen ist, wird das Gerät mit der neuen Firmware neu gestartet.
 
 1. Beim Neustart des DevKit-Geräts wird der folgende Bildschirm angezeigt:
@@ -208,12 +208,12 @@ Eine Anwendung, die mit der Anwendungsvorlage „Beispiel-DevKits“ erstellt wu
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Zustände 
-| NAME          | Anzeigename   | NORMAL | VORSICHT | GEFAHR | 
+| NAME          | `Display name`   | NORMAL | VORSICHT | GEFAHR | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Gerätestatus   | Grün  | Orange  | Rot    | 
 
 #### <a name="events"></a>Ereignisse 
-| NAME             | Anzeigename      | 
+| NAME             | `Display name`      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Schaltfläche „B“ gedrückt  | 
 
@@ -221,7 +221,7 @@ Eine Anwendung, die mit der Anwendungsvorlage „Beispiel-DevKits“ erstellt wu
 
 Numerische Einstellungen
 
-| Anzeigename | Feldname | Units | Dezimalstellen | Minimum | Maximum | Initial |
+| `Display name` | Feldname | Units | Dezimalstellen | Minimum | Maximum | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Spannung      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Aktuell      | setCurrent | Ampere  | 0              | 0       | 100     | 0       |
@@ -229,13 +229,13 @@ Numerische Einstellungen
 
 Einstellungen zum Ein-/Ausschalten
 
-| Anzeigename | Feldname | Text, wenn „eingeschaltet“ | Text, wenn „ausgeschaltet“ | Initial |
+| `Display name` | Feldname | Text, wenn „eingeschaltet“ | Text, wenn „ausgeschaltet“ | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | EIN      | OFF      | Aus     |
 
 ### <a name="properties"></a>Eigenschaften
 
-| Type            | Anzeigename | Feldname | Datentyp |
+| Type            | `Display name` | Feldname | Datentyp |
 | --------------- | ------------ | ---------- | --------- |
 | Geräteeigenschaft | Nummer   | dieNumber  | number    |
 | Geräteeigenschaft | Gerätestandort   | location  | location    |
@@ -243,11 +243,11 @@ Einstellungen zum Ein-/Ausschalten
 
 ### <a name="commands"></a>Befehle
 
-| Anzeigename | Feldname | Rückgabetyp | Anzeigename des Eingabefelds | Name des Eingabefelds | Typ des Eingabefelds |
+| `Display name` | Feldname | Rückgabetyp | Anzeigename des Eingabefelds | Name des Eingabefelds | Typ des Eingabefelds |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | Echo       | text        | value to display (Anzuzeigender Wert)         | displayedValue   | text             |
 | Countdown    | countdown  | number      | Count from (Zählen ab)               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Da Sie nun wissen, wie ein Raspberry Pi-Gerät mit Ihrer Azure IoT Central-Anwendung verbunden wird, empfiehlt sich als nächster Schritt das [Einrichten einer benutzerdefinierten Gerätevorlage](howto-set-up-template.md) für Ihr eigenes IoT-Gerät.
+Da Sie nun wissen, wie ein MXChip IoT DevKit mit Ihrer Azure IoT Central-Anwendung verbunden wird, empfiehlt sich als nächster Lernschritt das [Einrichten einer benutzerdefinierten Gerätevorlage](howto-set-up-template.md) für Ihr eigenes IoT-Gerät.

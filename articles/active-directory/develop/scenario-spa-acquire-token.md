@@ -16,10 +16,10 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4c842db8a0874d3619e0dc59b90aa12226cb984
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138811"
 ---
 # <a name="single-page-application---acquire-a-token-to-call-an-api"></a>Single-Page-Anwendung – Erwerben eines Tokens zum Aufrufen einer API

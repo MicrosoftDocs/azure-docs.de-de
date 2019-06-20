@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
 ms.openlocfilehash: d137576b4beb5cf36dce99ffb1869049f37b60b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60494642"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Übersicht über die Überwachung von Containern in Azure
 Mit Azure können Sie effizient Workloads überwachen und verwalten, die in Azure-Containern mit Kubernetes oder Docker bereitgestellt werden. Es ist wichtig zu verstehen, wie Container mit mehreren Microserviceanwendungen funktionieren, um einen zuverlässigen Dienst im großen Maßstab bereitstellen und Ihren Überwachungsplan unterstützen zu können. Dieser Artikel enthält eine kurze Übersicht über die Verwaltungs- und Überwachungsfunktionen in Azure, in denen ihre Eignung gemäß Ihren Anforderungen beschrieben werden.

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c3b9aa6fcf5cf96e3ef1f3bdd76e9f1d19be5c5c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329216"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400099"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Einrichten der Notfallwiederherstellung in Azure für physische lokale Server
 
@@ -152,7 +152,7 @@ Wählen Sie Zielressourcen aus, und überprüfen Sie sie.
 
 ## <a name="create-a-replication-policy"></a>Erstellen einer Replikationsrichtlinie
 
-1. Klicken Sie zum Erstellen einer neuen Replikationsrichtlinie auf **Site Recovery-Infrastruktur** > **Replikationsrichtlinien** > **+Replikationsrichtlinie**.
+1. Klicken Sie zum Erstellen einer neuen Replikationsrichtlinie auf **Site Recovery-Infrastruktur** > **Replikationsrichtlinien** >  **+Replikationsrichtlinie**.
 2. Geben Sie unter **Replikationsrichtlinie erstellen** einen Richtliniennamen an.
 3. Geben Sie in **RPO-Schwellenwert** den RPO-Grenzwert (Recovery Point Objective) an. Mit diesem Wert wird angegeben, wie oft Datenwiederherstellungspunkte erstellt werden. Wenn dieser Grenzwert bei der fortlaufenden Replikation überschritten wird, wird eine Warnung generiert.
 4. Geben Sie unter **Aufbewahrungszeitraum des Wiederherstellungspunkts** die Größe des Aufbewahrungszeitfensters für die einzelnen Wiederherstellungspunkte in Stunden an. Replizierte VMs können für jeden Punkt eines Zeitfensters wiederhergestellt werden. Für nach Storage Premium replizierte Computer wird eine Aufbewahrungsdauer von bis zu 24 Stunden unterstützt (72 Stunden für Standardspeicher).
@@ -170,7 +170,7 @@ Aktivieren Sie die Replikation für jeden Server.
 - Site Recovery installiert den Mobility Service, wenn die Replikation aktiviert wird.
 - Wenn Sie die Replikation für einen Server aktivieren, kann es länger als 15 Minuten dauern, bis die Änderungen wirksam sind und im Portal angezeigt werden.
 
-1. Klicken Sie auf **Replicate application (Anwendung replizieren)** > **Quelle**.
+1. Klicken Sie auf **Replicate application (Anwendung replizieren)**  > **Quelle**.
 2. Wählen Sie unter **Quelle** den Konfigurationsserver aus.
 3. Wählen Sie unter **Computertyp** die Option **Physische Computer** aus.
 4. Wählen Sie den Prozessserver (Konfigurationsserver) aus. Klicken Sie dann auf **OK**.

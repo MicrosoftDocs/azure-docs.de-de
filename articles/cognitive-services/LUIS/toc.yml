@@ -5,6 +5,8 @@
   items:
     - name: Worum handelt es sich bei Language Understanding?
       href: what-is-luis.md
+    - name: Neuigkeiten
+      href: whats-new.md
 - name: Schnellstarts
   items:
     - name: Hinzufügen einer App für eine vordefinierte Domäne
@@ -83,12 +85,24 @@
           displayName: roles
         - name: Extrahieren von Freiformdaten
           href: luis-tutorial-pattern-any.md
-    - name: Verwenden eines Bots
+    - name: Verwenden mit einem Bot
       items:
         - name: 'Mit C#'
-          href: luis-csharp-tutorial-bf-v4.md
+          items:
+            - name: 1. Erstellen eines Basisbots
+              href: luis-csharp-tutorial-bf-v4.md
+              displayName: 'bot framework, framework, sdk, abs'
+            - name: 2. Hinzufügen von Telemetrie zu Application Insights
+              href: luis-tutorial-bot-csharp-appinsights.md
+              displayName: 'Application insight, kusto'
         - name: Mit Node.js
-          href: luis-nodejs-tutorial-bf-v4.md
+          items:
+            - name: 1. Erstellen eines Basisbots
+              displayName: 'bot framework, framework, sdk, abs'
+              href: luis-nodejs-tutorial-bf-v4.md
+            - name: 2. Hinzufügen von Telemetrie zu Application Insights
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-nodejs-appinsights.md
 - name: Beispiele
   items:
     - name: Codebeispiele
@@ -197,25 +211,7 @@
         - name: Mit Bing-Rechtschreibprüfung v7
           href: luis-tutorial-bing-spellcheck.md
         - name: Mit Spracherkennungsdienst
-          href: luis-tutorial-speech-to-intent.md
-        - name: Mit einem Bot
-          items:
-            - name: Web-App-Bot
-              items:
-                - name: Node.js
-                  displayName: 'ABS, azure bot, service'
-                  href: luis-nodejs-tutorial-build-bot-framework-sample.md
-                - name: 'C#'
-                  displayName: 'ABS, azure bot, service'
-                  href: luis-csharp-tutorial-build-bot-framework-sample.md
-            - name: Application Insights
-              items:
-                - name: Node.js
-                  displayName: 'Application insight, kusto'
-                  href: luis-tutorial-function-appinsights.md
-                - name: 'C#'
-                  displayName: 'Application insight, kusto'
-                  href: luis-tutorial-bot-csharp-appinsights.md
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
     - name: Verbessern der Vorhersagegenauigkeit
       items:
         - name: Verwenden des Dashboards
@@ -274,11 +270,13 @@
   items:
     - name: Datenschutz
       href: luis-user-privacy.md
-    - name: Regionen
+    - name: Regions
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Grenzen
       href: luis-boundaries.md
+    - name: Anwendungseinstellungen
+      href: luis-reference-application-settings.md
     - name: Vordefinierter Entitätsverweis
       items:
         - name: Entitäten nach Kultur
@@ -412,6 +410,8 @@
       displayName: 'FAQ, import'
     - name: Preise und Einschränkungen
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
+    - name: Compliance
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice

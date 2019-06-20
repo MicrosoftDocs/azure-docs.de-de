@@ -1,21 +1,21 @@
 ---
-title: Verwendungsszenarios für den Abfragespeicher in Azure Database for PostgreSQL
-description: In diesem Artikel werden einige Szenarios für den Abfragespeicher in Azure Database for PostgreSQL beschrieben.
+title: 'Verwendungsszenarios für den Abfragespeicher in Azure Database for PostgreSQL: Einzelserver'
+description: In diesem Artikel werden einige Szenarios für den Abfragespeicher in Azure Database for PostgreSQL (Einzelserver) beschrieben.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 5/6/2019
+ms.openlocfilehash: 029c595ba983d3b758568fbacaf6577014d893db
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067342"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Verwendungsszenarios für den Abfragespeicher
 
-**Anwendungsbereich:** Azure Database for PostgreSQL 9.6 und 10
+**Anwendungsbereich:** Azure Database for PostgreSQL (Einzelserver) 9.6 und 10
 
 Sie können den Abfragespeicher in verschiedenen Szenarios verwenden, in denen das Nachverfolgen und Verwalten der vorhersagbaren Leistung einer Workload von Bedeutung ist. Betrachten Sie die folgenden Beispiele: 
 - Erkennen und Optimieren besonders aufwendiger Abfragen 

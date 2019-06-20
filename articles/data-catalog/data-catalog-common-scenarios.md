@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61003955"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Häufige Szenarien mit Azure Data Catalog
 In diesem Artikel werden übliche Szenarien vorgestellt, bei denen Azure Data Catalog Organisationen unterstützt, mehr Nutzen aus ihren vorhandenen Datenquellen zu ziehen.

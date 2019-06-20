@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799083"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Untersuchen der von der API erstellten Video Indexer-Ausgabe
@@ -112,7 +112,7 @@ In diesem Abschnitt wird die Zusammenfassung der Erkenntnisse angezeigt.
 |publishedUrlProxy|Eine URL, über die das Video gestreamt werden kann (für Apple-Geräte).|
 |viewToken|Ein kurzlebiges Anzeigetoken für das Streamen des Videos.|
 |sourceLanguage|Die Quellsprache des Videos.|
-|Language|Die tatsächliche Sprache des Videos (Übersetzung).|
+|language|Die tatsächliche Sprache des Videos (Übersetzung).|
 |indexingPreset|Die Voreinstellung, die zum Indizieren des Videos verwendet wird.|
 |streamingPreset|Die Voreinstellung, die zum Veröffentlichen des Videos verwendet wird.|
 |linguisticModelId|Das CRIS-Modell, das zum Transkribieren des Videos verwendet wird.|
@@ -152,7 +152,7 @@ Ein Gesicht kann eine ID, einen Namen, eine Miniaturansicht, andere Metadaten un
 |Version|Codeversion|
 |---|---|
 |sourceLanguage|Die Quellsprache des Videos (Annahme: eine Hauptsprache). Diese Angabe hat die Form einer [BCP-47](https://tools.ietf.org/html/bcp47)-Zeichenfolge.|
-|Language|Die Sprache der Erkenntnisse (Übersetzung aus der Quellsprache). Diese Angabe hat die Form einer [BCP-47](https://tools.ietf.org/html/bcp47)-Zeichenfolge.|
+|language|Die Sprache der Erkenntnisse (Übersetzung aus der Quellsprache). Diese Angabe hat die Form einer [BCP-47](https://tools.ietf.org/html/bcp47)-Zeichenfolge.|
 |Transkript|Die Dimension [transcript](#transcript).|
 |ocr|Die Dimension [OCR](#ocr).|
 |keywords|Die Dimension [keywords](#keywords).|
@@ -202,7 +202,7 @@ instances|Eine Liste mit Zeitbereichen dieses Blocks.|
 |---|---|
 |id|Die Zeilen-ID.|
 |text|Das Transkript selbst.|
-|Language|Die Sprache des Transkripts. Vorgesehen zur Unterstützung von Transkripts, bei denen jede Zeile eine andere Sprache enthalten kann.|
+|language|Die Sprache des Transkripts. Vorgesehen zur Unterstützung von Transkripts, bei denen jede Zeile eine andere Sprache enthalten kann.|
 |instances|Eine Liste der Zeitbereiche, in denen diese Zeile angezeigt wurde. Wenn die Instanz „transcript“ lautet, ist nur eine Instanz vorhanden.|
 
 Beispiel:
@@ -241,7 +241,7 @@ Beispiel:
 |id|Die OCR-Zeilen-ID.|
 |text|Der OCR-Text.|
 |confidence|Die Zuverlässigkeit der Erkennung.|
-|Language|Die OCR-Sprache.|
+|language|Die OCR-Sprache.|
 |instances|Eine Liste der Zeitbereiche, in denen diese OCR angezeigt wurde (die gleiche OCR kann mehrfach vorkommen).|
 |height|Die Höhe des OCR-Rechtecks.|
 |top|Die oberste Position in „px“.|
@@ -276,7 +276,7 @@ Beispiel:
 |id|Die Stichwort-ID.|
 |text|Der Stichworttext.|
 |confidence|Die Zuverlässigkeit der Erkennung des Stichworts.|
-|Language|Die Sprache des Stichworts (sofern übersetzt).|
+|language|Die Sprache des Stichworts (sofern übersetzt).|
 |instances|Eine Liste der Zeitbereiche, in denen dieses Stichwort angezeigt wurde (ein Stichwort kann mehrfach vorkommen).|
 
 ```json
@@ -351,7 +351,7 @@ Beispiel:
 |---|---|
 |id|Die Bezeichnungs-ID.|
 |name|Der Bezeichnungsname (z. B. „Computer“, „TV“).|
-|Language|Die Sprache des Bezeichnungsnamens (sofern übersetzt). BCP-47|
+|language|Die Sprache des Bezeichnungsnamens (sofern übersetzt). BCP-47|
 |instances|Eine Liste der Zeitbereiche, in denen diese Bezeichnung angezeigt wurde (eine Bezeichnung kann mehrfach vorkommen). Jedes Vorkommen weist ein Zuverlässigkeitsfeld auf. |
 
 
@@ -768,7 +768,7 @@ Video Indexer zieht in den Transkripten einen Rückschluss auf Hauptthemen. Fall
 |name|Der Name des Themas, z.B.: „Pharmazeutika“.|
 |referenceId|Brotkrümel, die die Hierarchie der Themen reflektieren. Beispiel:  „Gesundheit und Wohlbefinden/Medizin und Gesundheitswesen/Pharmazeutika“.|
 |confidence|Die Zuverlässigkeitsbewertung im Bereich [0,1]. Je höher, desto zuverlässiger.|
-|Language|Die im Thema verwendete Sprache.|
+|language|Die im Thema verwendete Sprache.|
 |iptcName|Falls erkannt, der Codename von IPTC-Medien.|
 |instances |Derzeit indiziert Video Indexer ein Thema nicht in Zeitintervallen, weshalb das gesamte Video als Intervall verwendet wird.|
 

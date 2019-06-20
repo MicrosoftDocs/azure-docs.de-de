@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 31357fa313cfa31c0f8a90c0f7722f627e4394d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62106166"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Überwachen und Verwalten von Trello mit Azure Logic Apps
 
@@ -57,7 +57,7 @@ Sie können Trigger verwenden, die Antworten von Ihrem Trello-Konto erhalten und
    Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 
    Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
 
 1. Wenn Sie zur Anmeldung bei Trello aufgefordert werden, autorisieren Sie den Zugriff für Ihre Logik-App, und melden Sie sich an.
 

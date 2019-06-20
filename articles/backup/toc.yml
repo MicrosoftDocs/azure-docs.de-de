@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: Sichern einer VM – CLI
       href: quick-backup-vm-cli.md
+    - name: 'Sichern einer VM: Resource Manager-Vorlage'
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: Lernprogramme
   items:
     - name: Sichern virtueller Azure-Computer nach Skalierung
@@ -219,18 +222,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Wiederherstellen des Systemstatus von Windows Server
           href: backup-azure-restore-system-state.md
-        - name: Überwachen und Verwalten von Recovery Services-Tresoren
-          href: backup-azure-manage-windows-server.md
     - name: Recovery Services-Tresor
       items:
         - name: Übersicht über Recovery Services-Tresore
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Aktualisieren eines Backup-Tresors auf einen Recovery Services-Tresor
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Erstellen eines Recovery Services-Tresors
+          href: backup-create-rs-vault.md
         - name: Löschen eines Recovery Services-Tresors
           href: backup-azure-delete-vault.md
         - name: Verschieben eines Recovery Services-Tresors
           href: backup-azure-move-recovery-services-vault.md
+        - name: Überwachen und Verwalten von Recovery Services-Tresoren
+          href: backup-azure-manage-windows-server.md
     - name: Problembehandlung
       items:
         - name: Azure-VM
@@ -249,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Systemstatus
+          href: backup-azure-system-state-troubleshoot.md
     - name: Überwachen von Azure Backup-Workloads
       items:
         - name: Verwenden des Azure-Portals

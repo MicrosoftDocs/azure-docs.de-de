@@ -1,20 +1,20 @@
 ---
-title: 'Schnellstart: Erfassen von Daten aus Kafka in Azure Data Explorer'
-description: In dieser Schnellstartanleitung erfahren Sie, wie Sie Daten aus Kafka in Azure Data Explorer erfassen (laden).
+title: Erfassen von Daten aus Kafka in Azure Data Explorer
+description: In diesem Artikel erfahren Sie, wie Sie Daten aus Kafka in Azure Data Explorer erfassen (laden).
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/19/2018
-ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047108"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497281"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Schnellstart: Erfassen von Daten aus Kafka in Azure Data Explorer
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Erfassen von Daten aus Kafka in Azure Data Explorer
  
 Azure-Daten-Explorer ist ein schneller und hochgradig skalierbarer Dienst zur Untersuchung von Daten (Protokoll- und Telemetriedaten). Azure Data Explorer ermöglicht die Erfassung (Laden von Daten) aus Kafka. Bei Kafka handelt es sich um eine verteilte Streamingplattform zum Erstellen von Echzeitstreaming-Datenpipelines, mit denen Daten auf zuverlässige Weise zwischen Systemen oder Anwendungen verschoben werden.
  
@@ -22,11 +22,11 @@ Azure-Daten-Explorer ist ein schneller und hochgradig skalierbarer Dienst zur Un
  
 * Wenn Sie über kein Azure-Abonnement verfügen, können Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen. 
  
-* [Einen Testcluster und eine Testdatenbank](create-cluster-database-portal.md)
+* [Ein Testcluster und eine Testdatenbank](create-cluster-database-portal.md)
  
 * [Eine Beispiel-App](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka), die Daten generiert und an Kafka sendet
 
-* [Visual Studio 2017, Version 15.3.2 oder höher](https://www.visualstudio.com/vs/) zum Ausführen der Beispiel-App
+* [Visual Studio-2019](https://visualstudio.microsoft.com/vs/) zum Ausführen der Beispielapp
  
 ## <a name="kafka-connector-setup"></a>Einrichtung des Kafka-Connectors
 
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Nächste Schritte
  
-> [!div class="nextstepaction"]
-> [Schnellstart: Abfragen von Daten in Azure Data Explorer](web-query-data.md)
+* [Abfragen von Daten in Azure Data Explorer](web-query-data.md)

@@ -1,19 +1,19 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-network
 author: jimdial
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/09/2018
-ms.author: jdial
+ms.date: 05/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124613"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178014"
 ---
 ## <a name="os-config"></a>Hinzufügen von IP-Adressen zu einem VM-Betriebssystem
 
@@ -51,7 +51,8 @@ ping -S 10.0.0.5 hotmail.com
 >[!NOTE]
 >Bei sekundären IP-Konfigurationen können Sie das Internet nur pingen, wenn der Konfiguration eine öffentliche IP-Adresse zugeordnet ist. Bei primären IP-Konfigurationen ist keine öffentliche IP-Adresse zum Pingen des Internets erforderlich.
 
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
+### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
+Es wird empfohlen, die neueste Version der Dokumentation für Ihre Linux-Distribution zu verwenden. 
 
 1. Öffnen Sie ein Terminalfenster.
 2. Stellen Sie sicher, dass Sie der root-Benutzer sind. Geben Sie andernfalls den folgenden Befehl ein:

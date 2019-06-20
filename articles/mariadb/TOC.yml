@@ -51,18 +51,28 @@
           href: concepts-ssl-connection-security.md
         - name: VNet
           href: concepts-data-access-security-vnet.md
+        - name: Verbindungsarchitektur
+          href: concepts-connectivity-architecture.md
     - name: Geschäftskontinuität
       items:
         - name: Übersicht
           href: concepts-business-continuity.md
         - name: Sichern und Wiederherstellen
           href: concepts-backup.md
-    - name: Überwachen
+    - name: Überwachen und Optimieren
       items:
         - name: Überwachen
           href: concepts-monitoring.md
-        - name: Serverprotokolle
+        - name: Protokolle für langsame Abfragen
           href: concepts-server-logs.md
+        - name: Überwachungsprotokolle
+          href: concepts-audit-logs.md
+        - name: Abfragespeicher
+          href: concepts-query-store.md
+        - name: Query Performance Insight
+          href: concepts-query-performance-insight.md
+        - name: Leistungsempfehlungen
+          href: concepts-performance-recommendations.md
     - name: Entwicklung
       items:
         - name: Kompatibilität von Treibern und Tools
@@ -73,6 +83,8 @@
       items:
         - name: Replikation eingehender Daten
           href: concepts-data-in-replication.md
+        - name: Lesereplikate
+          href: concepts-read-replicas.md
 - name: Anleitungen
   items:
     - name: Firewallregeln
@@ -105,12 +117,22 @@
           href: howto-server-parameters.md
         - name: Azure-Befehlszeilenschnittstelle
           href: howto-configure-server-parameters-cli.md
-    - name: Zugreifen auf Serverprotokolle
+    - name: Automatische Speichervergrößerung
       items:
         - name: Azure-Portal
-          href: howto-configure-server-logs-portal.md
-        - name: Azure-Befehlszeilenschnittstelle
-          href: howto-configure-server-logs-cli.md
+          href: howto-auto-grow-storage-portal.md
+    - name: Zugreifen auf Serverprotokolle
+      items:
+        - name: Protokolle für langsame Abfragen
+          items:
+            - name: Azure-Portal
+              href: howto-configure-server-logs-portal.md
+            - name: Azure-Befehlszeilenschnittstelle
+              href: howto-configure-server-logs-cli.md
+        - name: Überwachungsprotokolle
+          items:
+            - name: Azure-Portal
+              href: howto-configure-audit-logs-portal.md
     - name: Überwachen
       items:
         - name: Erstellen von Warnungen zu Metriken
@@ -119,6 +141,8 @@
       items:
         - name: Konfigurieren der Replikation eingehender Daten
           href: howto-data-in-replication.md
+        - name: Erstellen von Lesereplikaten im Azure-Portal
+          href: howto-read-replicas-portal.md
     - name: Problembehandlung
       items:
         - name: Beheben von Verbindungsproblemen

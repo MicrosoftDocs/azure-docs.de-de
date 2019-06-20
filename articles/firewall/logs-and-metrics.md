@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
 ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61065851"
 ---
 # <a name="azure-firewall-logs"></a>Azure Firewall-Protokolle
 

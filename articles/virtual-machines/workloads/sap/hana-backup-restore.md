@@ -15,10 +15,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 21232e5a678d6deed920e57cd0433a3b85ca4fdc
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64987914"
 ---
 # <a name="backup-and-restore"></a>Sichern und Wiederherstellen

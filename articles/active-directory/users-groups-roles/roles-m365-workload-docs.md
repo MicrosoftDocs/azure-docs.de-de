@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7460c3a7d957634d14186d313994c65d89fa4a32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217869"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60468180"
 ---
 # <a name="administrator-roles-for-microsoft-365-workloads"></a>Administratorrollen für Microsoft 365-Workloads
 

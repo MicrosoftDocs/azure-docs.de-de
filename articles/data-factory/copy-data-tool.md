@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60787696"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Tool zum Kopieren von Daten in Azure Data Factory
 Das Tool zum Kopieren von Daten in Azure Data Factory vereinfacht und optimiert die Verarbeitung der Sammelerfassung von Daten in einem Data Lake. Dies ist normalerweise ein erster Schritt in einem End-to-End-Szenario für die Datenintegration.  Sie sparen Zeit, insbesondere bei Verwendung von Azure Data Factory für die erstmalige Sammelerfassung von Daten aus einer Datenquelle. Die Verwendung dieses Tools ist z.B. mit den folgenden Vorteilen verbunden:
@@ -78,7 +78,7 @@ Der folgende Screenshot zeigt eine SQL-Abfrage zum Filtern der Daten.
 ![Filtern von Daten in einer Datenbank](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtern von Daten in einem Azure-Blobordner
-Sie können Variablen im Ordnerpfad verwenden, um Daten aus einem Ordner zu kopieren. Folgende Variablen werden unterstützt: **{year}**, **{month}**, **{day}**, **{hour}** und **{minute}**. Beispiel: Eingabeordner/{year}/{month}/{day}. 
+Sie können Variablen im Ordnerpfad verwenden, um Daten aus einem Ordner zu kopieren. Folgende Variablen werden unterstützt: **{year}** , **{month}** , **{day}** , **{hour}** und **{minute}** . Beispiel: Eingabeordner/{year}/{month}/{day}. 
 
 Angenommen, Sie haben Eingabeordner im folgenden Format: 
 
@@ -91,7 +91,7 @@ Angenommen, Sie haben Eingabeordner im folgenden Format:
 
 Klicken Sie auf die Schaltfläche **Durchsuchen** für **Datei oder Ordner**, navigieren Sie zu einem der Ordner (z.B. 2016->03->01->02), und klicken Sie auf **Auswählen**. Das Textfeld sollte jetzt „2016/03/01/02“ enthalten. 
 
-Ersetzen Sie nun **2016** durch **{year}**, **03** durch **{month}**, **01** durch **{day}**, **02** durch **{hour}**, und drücken Sie dann die **TAB**-TASTE. Daraufhin werden Dropdownlisten zum Auswählen des Formats für diese vier Variablen angezeigt:
+Ersetzen Sie nun **2016** durch **{year}** , **03** durch **{month}** , **01** durch **{day}** , **02** durch **{hour}** , und drücken Sie dann die **TAB**-TASTE. Daraufhin werden Dropdownlisten zum Auswählen des Formats für diese vier Variablen angezeigt:
 
 ![Filtern von Dateien oder Ordnern](./media/copy-data-tool/filter-file-or-folder.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: b97753e6f1b67e3c8d247281c5e5208033a56eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111288"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127177"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Verwenden Sie StorSimple Snapshot Manager zum Verwalten des Sicherungkatalogs
 
@@ -93,7 +93,7 @@ Verwenden Sie das folgende Verfahren, um ein Duplikat (Klon) eines Volumes oder 
    1. Geben Sie im Textfeld **Name** einen Namen für das geklonte Volume ein. Dieser Name wird im Knoten **Volumes** angezeigt. 
    2. (Optional) Wählen Sie **Laufwerk**aus, und anschließend einen Laufwerkbuchstaben aus der Dropdown-Liste.
    3. (Optional) Wählen Sie **Ordner (NTFS)** aus, und geben Sie einen Ordnerpfad ein oder klicken Sie auf „Durchsuchen“, und wählen dann einen Speicherort für den Ordner. 
-   4. Klicken Sie auf **Erstellen**.
+   4. Klicken Sie auf **Create**.
 5. Wenn der Klonvorgang abgeschlossen ist, müssen Sie das geklonte Volume initialisieren. Starten Sie den Server-Manager, und starten Sie dann die Datenträgerverwaltung. Ausführliche Anweisungen finden Sie unter [Laden von Volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Nach der Initialisierung wird das Volume unter dem Knoten **Volumes** im Fensterbereich **Bereich** aufgeführt. Wenn Sie das aufgeführte Volume nicht erscheint, aktualisieren Sie die Liste der Volumes (mit der rechten Maustaste auf den Knoten **Volumes** klicken, und dann auf **Aktualisieren**).
 
 ## <a name="delete-a-backup"></a>Löschen einer Sicherung
@@ -116,7 +116,7 @@ Wenn eine Datei versehentlich von einem Volume gelöscht wird, können Sie die D
 Bevor Sie loslegen, stellen Sie sicher, dass Sie über eine aktuelle Sicherung der Volumegruppe verfügen. Löschen Sie dann eine Datei auf einem der Volumes in der Volumegruppe. Gehen Sie schließlich folgendermaßen vor, um die gelöschte Datei aus der Sicherung wiederherzustellen. 
 
 #### <a name="to-recover-a-deleted-file"></a>So stellen Sie eine gelöschte Datei wieder her
-1. Klicken Sie auf das Desktopsymbol des StorSimple Snapshot Managers. Das Fenster der StorSimple Snapshot Manager-Konsole wird angezeigt. 
+1. Klicken Sie auf das StorSimple Snapshot Manager-Symbol auf Ihrem Desktop. Das Fenster der StorSimple Snapshot Manager-Konsole wird angezeigt. 
 2. Erweitern Sie im Fensterbereich **Bereich** den Knoten **Sicherungskatalog**, und navigieren Sie zu einer Momentaufnahme, die die gelöschte Datei enthält. In der Regel sollten Sie eine Momentaufnahme auswählen, die unmittelbar vor dem Löschvorgang erstellt wurde.
 3. Suchen Sie das Volume, das Sie klonen möchten, klicken Sie mit der rechten Maustaste darauf, und klicken Sie dann auf **Klonen**. Das Dialogfeld **Cloudmomentaufnahme klonen** wird angezeigt.
    
@@ -126,7 +126,7 @@ Bevor Sie loslegen, stellen Sie sicher, dass Sie über eine aktuelle Sicherung d
    1. Geben Sie im Textfeld **Name** einen Namen für das geklonte Volume ein. Dieser Name wird im Knoten **Volumes** angezeigt. 
    2. (Optional) Wählen Sie **Laufwerk**aus, und anschließend einen Laufwerkbuchstaben aus der Dropdown-Liste. 
    3. (Optional) Wählen Sie **Ordner (NTFS)** aus, und geben Sie einen Ordnerpfad ein, oder klicken Sie auf **Durchsuchen**, und wählen dann einen Speicherort für den Ordner. 
-   4. Klicken Sie auf **Erstellen**. 
+   4. Klicken Sie auf **Create**. 
 5. Wenn der Klonvorgang abgeschlossen ist, müssen Sie das geklonte Volume initialisieren. Starten Sie den Server-Manager, und starten Sie dann die Datenträgerverwaltung. Ausführliche Anweisungen finden Sie unter [Laden von Volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Nach der Initialisierung wird das Volume unter dem Knoten **Volumes** im Fensterbereich **Bereich** aufgeführt. 
    
     Wenn Sie das aufgeführte Volume nicht erscheint, aktualisieren Sie die Liste der Volumes (mit der rechten Maustaste auf den Knoten **Volumes** klicken, und dann auf **Aktualisieren**).
@@ -146,7 +146,7 @@ Sie sollten die StorSimple Snapshot Manager-Datenbank auf dem Hostcomputer regel
 2. Navigieren Sie auf dem Hostcomputer zu C:\ProgramData\Microsoft\StorSimple\BACatalog. 
    
    > [!NOTE]
-   > ProgramData ist ein versteckter Ordner.
+   > „ProgramData“ ist ein versteckter Ordner.
    > 
    > 
 3. Suchen Sie die XML-Katalogdatei, kopieren Sie die Datei, und speichern Sie die Kopie an einem sicheren Ort oder in der Cloud. Wenn der Host ausfällt, können Sie diese Sicherungsdatei verwenden, um Sicherungsrichtlinien wiederzuherstellen, die Sie im StorSimple Snapshot Manager erstellt haben.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66752888"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Hochladen von Dateien in ein Media Services-Konto mit REST  
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Nachdem Sie nun über die Upload-URL verfügen, müssen Sie mithilfe der Azure B
 
 - [Verwenden der Azure Storage-REST-API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Hochladen von Blobs in Blobspeicher](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Hochladen von Blobs in Blobspeicher](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Hochladen einer Datei mit Postman
 
@@ -185,7 +185,7 @@ Als Beispiel laden wir eine kleine MP4-Datei mit Postman hoch. Möglicherweise g
 Die Anforderung zum Hochladen ist nicht Teil der **AzureMedia**-Sammlung. 
 
 Erstellen Sie eine neue Anforderung, und richten Sie sie ein:
-1. Drücken Sie **+**, um eine neue Anforderungsregisterkarte zu erstellen.
+1. Drücken Sie **+** , um eine neue Anforderungsregisterkarte zu erstellen.
 2. Wählen Sie die **PUT**-Operation aus, und fügen Sie **{{UploadURL}}** in die URL ein.
 2. Lassen Sie die Registerkarte **Authorization** (Autorisierung) unverändert (legen Sie nicht das **Bearertoken** fest).
 3. Geben Sie auf der Registerkarte **Header** Folgendes an: **Key**: „x-ms-blob-type“ und **Value**: „BlockBlob“.

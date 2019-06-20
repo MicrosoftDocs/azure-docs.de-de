@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663416"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62118414"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Konfigurieren und Verwenden der Dienstaffinität in Service Fabric
 Affinität ist ein Steuerelement, das hauptsächlich bereitgestellt wird, um den Übergang von größeren monolithischen Anwendungen in die Welt der Cloud und Microservices zu vereinfachen. Sie wird auch zur Verbesserung der Leistung von Diensten verwendet, dies ist jedoch unter Umständen mit Nebenwirkungen verbunden.

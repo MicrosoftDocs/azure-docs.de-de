@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60527433"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Hinzufügen der Zwischenspeicherung zum Verbessern der Leistung in Azure API Management
 
@@ -57,7 +57,7 @@ Mit den Zwischenspeicherungsrichtlinien in diesem Beispiel gibt die erste Anford
 4. Klicken Sie in der API-Liste auf **Demo Conference API**.
 5. Wählen Sie **GetSpeakers** aus.
 6. Klicken Sie im oberen Seitenbereich auf die Registerkarte **Entwurf**.
-7. Klicken Sie im Abschnitt **Eingehende Verarbeitung** auf das Symbol **</>**.
+7. Klicken Sie im Abschnitt **Eingehende Verarbeitung** auf das Symbol **</>** .
 
     ![Code-Editor](media/api-management-howto-cache/code-editor.png)
 

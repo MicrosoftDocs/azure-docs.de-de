@@ -10,11 +10,11 @@ ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: seodec18
 ms.openlocfilehash: 1c9855f982b888e8e1d68bfe5233983db8c826ad
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61248014"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Verbinden von ModBus-TCP-Geräten über ein IoT Edge-Gerätegateway
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60477048"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Überprüfen und Problembehandlung beim Setup der SAP HANA-Hochverfügbarkeitskonfiguration zur horizontalen Skalierung unter SLES 12 SP3 
 
@@ -802,7 +802,7 @@ Die Befehle **SAPHanaSR-showAttr** und **crm status** machen keine Angaben zu de
 crm configure show
 </code></pre>
 
-In der Clusterkonfiguration finden Sie eine neue Speicherorteinschränkung, die durch die frühere manuelle Ressourcenmigration verursacht wurde. Dieser Beispieleintrag beginnt mit **location cli-**:
+In der Clusterkonfiguration finden Sie eine neue Speicherorteinschränkung, die durch die frühere manuelle Ressourcenmigration verursacht wurde. Dieser Beispieleintrag beginnt mit **location cli-** :
 
 <pre><code>
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0

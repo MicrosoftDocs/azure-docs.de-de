@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 4db95bdc5e83badef0170bfb3b1c52bb8610c655
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60514948"
 ---
 # <a name="bing-speech-client-samples"></a>Beispiele für den Bing-Spracheingabe-Client
 

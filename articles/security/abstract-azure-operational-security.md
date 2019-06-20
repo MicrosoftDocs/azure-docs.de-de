@@ -7,11 +7,11 @@ ms.date: 09/05/2018
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 834210e3416d30c4001214c0d3108709e910513e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242869"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60587664"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="abstract"></a>Zusammenfassung

@@ -4,6 +4,8 @@
   items:
     - name: Was ist Azure DNS?
       href: dns-overview.md
+    - name: Was ist privates Azure-DNS?
+      href: private-dns-overview.md
 - name: Schnellstarts
   expanded: true
   items:
@@ -20,7 +22,7 @@
     - name: Erstellen von benutzerdefinierten DNS-Einträgen für eine Web-App
       href: dns-web-sites-custom-domain.md
     - name: Erstellen einer privaten DNS-Zone und eines Eintrags
-      href: private-dns-getstarted-powershell.md
+      href: private-dns-portal.md
     - name: Aliaseinträge für Traffic Manager
       href: tutorial-alias-tm.md
     - name: Aliaseinträge für öffentliche IP-Adressen
@@ -33,6 +35,12 @@
       href: cli-samples.md
 - name: Konzepte
   items:
+    - name: Privates DNS
+      items:
+        - name: 'Häufig gestellte Fragen: Privates DNS'
+          href: dns-faq-private.md
+        - name: Privates DNS – Szenarien
+          href: private-dns-scenarios.md
     - name: Zonen und Einträge
       href: dns-zones-records.md
     - name: Aliaseinträge
@@ -41,10 +49,6 @@
       href: dns-domain-delegation.md
     - name: Häufig gestellte Fragen
       href: dns-faq.md
-    - name: Verwenden privater DNS-Zonen
-      href: private-dns-overview.md
-    - name: Privates DNS – Szenarien
-      href: private-dns-scenarios.md
     - name: DNS-Metriken und -Warnungen
       href: dns-alerts-metrics.md
     - name: Reverse-DNS
@@ -53,8 +57,12 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Anleitung
   items:
-    - name: 'Erstellen einer privaten DNS-Zone und eines Eintrags: Azure CLI'
-      href: private-dns-getstarted-cli.md
+    - name: Privates DNS
+      items:
+        - name: 'Erstellen einer privaten Zone: CLI'
+          href: private-dns-getstarted-cli.md
+        - name: 'Erstellen einer privaten Zone: PowerShell'
+          href: private-dns-getstarted-powershell.md
     - name: Aliaseinträge für Web-Apps mit Lastenausgleich
       href: dns-alias-appservice.md
     - name: Verwalten von DNS-Zonen

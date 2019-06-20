@@ -18,11 +18,11 @@ ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60839034"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Übersicht über den lokalen Cache von Azure App Service
 

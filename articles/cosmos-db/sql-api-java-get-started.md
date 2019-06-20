@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/22/2017
+ms.date: 12/22/2018
 ms.author: sngun
-ms.openlocfilehash: dbaafca8692b144b0032315c0b40eb02bec0e3ff
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 24de1fe0695d0f7634d8f20f1876b5000496dbea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438668"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475785"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL-Tutorial: Erstellen einer Java-Konsolenanwendung mit der SQL-API
 

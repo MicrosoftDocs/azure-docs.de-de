@@ -10,11 +10,11 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: 399b1ed735ce1b7a3fca1d27155863f6bfa18776
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791357"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60780877"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Übermitteln eines Workflows mit mehreren Eingaben aus dem gleichen Beispiel
 

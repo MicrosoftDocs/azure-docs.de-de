@@ -1,7 +1,7 @@
 ---
-title: Verwalten von Daten aus der Azure AI Gallery
+title: Verwalten von Daten aus dem Azure KI-Katalog
 titleSuffix: Azure Machine Learning Studio
-description: Sie können Ihre im Produkt enthaltenen Benutzerdaten in Azure AI Gallery über die Benutzeroberfläche oder die Katalog-API von AI Gallery exportieren und löschen. In diesem Artikel erfahren Sie, welche Schritte erforderlich sind.
+description: Sie können Ihre im Produkt enthaltenen Benutzerdaten im Azure KI-Katalog über die Benutzeroberfläche oder die Azure KI-Katalog-API exportieren und löschen. In diesem Artikel erfahren Sie, welche Schritte erforderlich sind.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,38 +12,38 @@ ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
 ms.openlocfilehash: 44ff2a5b723c086604acf39e9f975deb53759ae1
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648108"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60752044"
 ---
-# <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Anzeigen und Löschen von im Produkt enthaltenen Benutzerdaten in Azure AI Gallery
+# <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Anzeigen und Löschen von im Produkt enthaltenen Benutzerdaten im Azure KI-Katalog
 
-Sie können Ihre im Produkt enthaltenen Benutzerdaten in Azure AI Gallery über die Benutzeroberfläche oder die Katalog-API von AI Gallery anzeigen und löschen. In diesem Artikel erfahren Sie, wie das geht.
+Sie können Ihre im Produkt enthaltenen Benutzerdaten im Azure KI-Katalog über die Benutzeroberfläche oder die Azure KI-Katalog-API anzeigen und löschen. In diesem Artikel erfahren Sie, wie das geht.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="view-your-data-in-ai-gallery-with-the-ui"></a>Anzeigen Ihrer Daten in AI Gallery über die Benutzeroberfläche
+## <a name="view-your-data-in-ai-gallery-with-the-ui"></a>Anzeigen Ihrer Daten im KI-Katalog über die Benutzeroberfläche
 
-Sie können veröffentlichte Elemente über die Benutzeroberfläche der Azure AI Gallery-Website anzeigen. Benutzer können sowohl öffentliche als auch nicht aufgelistete Lösungen, Projekte, Experimente und andere veröffentlichte Elemente anzeigen:
+Sie können veröffentlichte Elemente über die Benutzeroberfläche der Azure KI-Katalog-Website anzeigen. Benutzer können sowohl öffentliche als auch nicht aufgelistete Lösungen, Projekte, Experimente und andere veröffentlichte Elemente anzeigen:
 
-1.  Melden Sie sich bei [Azure AI Gallery](https://gallery.azure.ai/) an.
+1.  Melden Sie sich beim [Azure KI-Katalog](https://gallery.azure.ai/) an.
 2.  Klicken Sie auf das Profilfoto in der oberen rechten Ecke und dann auf den Kontonamen, um Ihre Profilseite zu laden.
 3.  Die Profilseite enthält alle im Katalog veröffentlichten Elemente, einschließlich nicht aufgelisteter Einträge.
 
-## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Verwenden der Katalog-API von AI Gallery zum Anzeigen der Daten
+## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Verwenden der Azure KI-Katalog-API zum Anzeigen der Daten
 
-Sie können programmgesteuert über die Katalog-API von AI Gallery, die über https://catalog.cortanaanalytics.com/entities zugänglich ist, gesammelte Daten anzeigen. Zum Anzeigen der Daten benötigen Sie Ihre Autor-ID. Um nicht aufgelistete Entitäten über die Katalog-API anzuzeigen, benötigen Sie ein Zugriffstoken.
+Sie können programmgesteuert über die Katalog-API des KI-Katalogs, die über https://catalog.cortanaanalytics.com/entities zugänglich ist, gesammelte Daten anzeigen. Zum Anzeigen der Daten benötigen Sie Ihre Autor-ID. Um nicht aufgelistete Entitäten über die Katalog-API anzuzeigen, benötigen Sie ein Zugriffstoken.
 
 Katalogantworten werden im JSON-Format zurückgegeben.
 
 ### <a name="get-an-author-id"></a>Abrufen einer Autor-ID
-Die Autor-ID basiert auf der E-Mail-Adresse, die beim Veröffentlichen in Azure AI Gallery verwendet wurde. Sie wird nicht geändert:
+Die Autor-ID basiert auf der E-Mail-Adresse, die beim Veröffentlichen im Azure KI-Katalog verwendet wurde. Sie wird nicht geändert:
 
-1.  Melden Sie sich bei [Azure AI Gallery](https://gallery.azure.ai/) an.
+1.  Melden Sie sich beim [Azure KI-Katalog](https://gallery.azure.ai/) an.
 2.  Klicken Sie auf das Profilfoto in der oberen rechten Ecke und dann auf den Kontonamen, um Ihre Profilseite zu laden.
 3.  Die URL in der Adressleiste zeigt im Anschluss an `authorId=` die alphanumerische ID. Zum Beispiel für die URL: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
@@ -55,7 +55,7 @@ Um nicht aufgelistete Entitäten über die Katalog-API anzuzeigen, benötigen Si
 
 Um ein Zugriffstoken abzurufen, müssen Sie den Header `DataLabAccessToken` einer HTTP-Anforderung überprüfen, die der Browser an die Katalog-API sendet, während Sie angemeldet sind:
 
-1.  Melden Sie sich bei [Azure AI Gallery](https://gallery.azure.ai/) an.
+1.  Melden Sie sich beim [Azure KI-Katalog](https://gallery.azure.ai/) an.
 2.  Klicken Sie auf das Profilfoto in der oberen rechten Ecke und dann auf den Kontonamen, um Ihre Profilseite zu laden.
 3.  Öffnen Sie durch Drücken von F12 den Browserbereich „Entwicklertools“, wählen Sie die Registerkarte „Netzwerk“ aus, und aktualisieren Sie die Seite. 
 4. Filtern Sie die Anforderungen nach der Zeichenfolge *Katalog*, indem Sie diese im Textfeld „Filter“ eingeben.
@@ -78,13 +78,13 @@ eine Antwort wie folgt zurück:
 
 ### <a name="view-public-entities"></a>Anzeigen öffentlicher Entitäten
 
-Die Katalog-API speichert Informationen zu in Azure AI Gallery veröffentlichten Entitäten, die Sie auch direkt auf der [AI Gallery-Website](https://gallery.azure.ai/) anzeigen können. 
+Die Katalog-API speichert Informationen zu im Azure KI-Katalog veröffentlichten Entitäten, die Sie auch direkt auf der [KI-Katalog-Website](https://gallery.azure.ai/) anzeigen können. 
 
 Zum Anzeigen von veröffentlichten Entitäten rufen Sie die folgende URL auf, wobei Sie `[AuthorId]` durch die Autor-ID ersetzen, die Sie im Abschnitt [Abrufen einer Autor-ID](#get-an-author-id) weiter oben erhalten haben.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
-Beispiel: 
+Beispiel:
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 
@@ -97,4 +97,4 @@ Bei dieser Abfrage werden nur öffentliche Entitäten angezeigt. Um alle Entitä
 3.  Übergeben Sie die HTTP-Anforderung.
 
 > [!TIP]
-> Wenn nicht aufgelistete Entitäten in den Antworten der Katalog-API nicht angezeigt werden, hat der Benutzer möglicherweise ein ungültiges oder abgelaufenes Zugriffstoken verwendet. Melden Sie sich in Azure AI Gallery ab, und wiederholen Sie die unter [Abrufen eines Zugriffstokens](#get-your-access-token) beschriebenen Schritte, um das Token zu erneuern. 
+> Wenn nicht aufgelistete Entitäten in den Antworten der Katalog-API nicht angezeigt werden, hat der Benutzer möglicherweise ein ungültiges oder abgelaufenes Zugriffstoken verwendet. Melden Sie sich vom Azure KI-Katalog ab, und wiederholen Sie die unter [Abrufen eines Zugriffstokens](#get-your-access-token) beschriebenen Schritte, um das Token zu erneuern. 

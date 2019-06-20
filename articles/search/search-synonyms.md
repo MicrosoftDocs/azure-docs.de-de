@@ -11,10 +11,10 @@ manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024313"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonyme in Azure Search

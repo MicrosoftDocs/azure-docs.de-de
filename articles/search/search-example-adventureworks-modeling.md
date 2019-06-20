@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61291888"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Beispiel: Modellieren der AdventureWorks Inventory-Datenbank für Azure Search
 
@@ -43,7 +43,7 @@ Das Lösen dieses Problems ist schwieriger als das Verschieben des Zielindex in 
 
 ## <a name="use-a-collection-data-type"></a>Verwenden eines „Collection“-Datentyps
 
-Der „richtige Ansatz“ ist die Nutzung eines Suchschemafeatures, das im Datenbankmodell nicht über eine direkte Entsprechung verfügt: **Collection(Edm.String)**. Ein Collection-Datentyp wird verwendet, wenn Sie nicht über eine sehr lange (einzelne) Zeichenfolge verfügen, sondern über eine Liste mit individuellen Zeichenfolgen. Wenn Sie Tags oder Schlüsselwörter nutzen, würden Sie für dieses Feld einen Collection-Datentyp verwenden.
+Der „richtige Ansatz“ ist die Nutzung eines Suchschemafeatures, das im Datenbankmodell nicht über eine direkte Entsprechung verfügt: **Collection(Edm.String)** . Ein Collection-Datentyp wird verwendet, wenn Sie nicht über eine sehr lange (einzelne) Zeichenfolge verfügen, sondern über eine Liste mit individuellen Zeichenfolgen. Wenn Sie Tags oder Schlüsselwörter nutzen, würden Sie für dieses Feld einen Collection-Datentyp verwenden.
 
 Indem Sie Felder mit mehreren Werten vom Typ **Collection(Edm.String)** für „color“, „size“ und „image“ definieren, werden die Hilfsinformationen für die Facettierung und Filterung beibehalten, ohne dass im Index doppelte Einträge auftreten. Wenden Sie entsprechend Aggregatfunktionen auf die numerischen Felder von „Product“ an, und indizieren Sie **minListPrice** – anstatt **listPrice** für jedes einzelne Produkt.
 
@@ -163,6 +163,6 @@ WHERE
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Example: Multi-level facet taxonomies in Azure Search](search-example-adventureworks-multilevel-faceting.md) (Beispiel: Facet-Taxonomien mit mehreren Ebenen in Azure Search)
+> [Beispiel: Multi-level facet taxonomies in Azure Search](search-example-adventureworks-multilevel-faceting.md) (Beispiel: Facet-Taxonomien mit mehreren Ebenen in Azure Search)
 
 

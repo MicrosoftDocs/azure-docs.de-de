@@ -9,10 +9,10 @@ ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9c24f613de8bf26331f6fe328358aaf8a320d522
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794234"
 ---
 # <a name="create-a-blob-snapshot"></a>Erstellen einer Momentaufnahme eines Blobs

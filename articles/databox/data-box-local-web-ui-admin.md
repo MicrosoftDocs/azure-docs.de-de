@@ -1,25 +1,25 @@
 ---
-title: Verwaltung von Microsoft Azure Data Box auf der lokalen Webbenutzeroberfläche | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Ihr Data Box-Gerät auf der lokalen Webbenutzeroberfläche verwalten.
+title: Verwalten von Azure Data Box und Azure Data Box Heavy über die lokale Webbenutzeroberfläche | Microsoft-Dokumentation
+description: In diesem Artikel wird beschrieben, wie Sie Ihre Data Box- und Data Box Heavy-Geräte über die lokale Webbenutzeroberfläche verwalten.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 02/01/2019
+ms.topic: article
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404041"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496260"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Verwalten von Data Box auf der lokalen Webbenutzeroberfläche
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Verwalten von Data Box und Data Box Heavy über die lokale Webbenutzeroberfläche
 
-In diesem Artikel werden einige der Konfigurations- und Verwaltungsaufgaben beschrieben, die auf der Data Box ausgeführt werden können. Sie können die Data Box im Azure-Portal oder auf der lokalen Webbenutzeroberfläche des Geräts verwalten. Der Schwerpunkt dieses Artikels liegt auf den Aufgaben, die auf der lokalen Webbenutzeroberfläche ausgeführt werden können.
+In diesem Artikel werden einige der Konfigurations- und Verwaltungsaufgaben beschrieben, die für Data Box- und Data Box Heavy-Geräte ausgeführt werden können. Sie können Data Box- und Data Box Heavy-Geräte über die Azure-Portaloberfläche oder die lokale Webbenutzeroberfläche für das Gerät verwalten. Der Schwerpunkt dieses Artikels liegt auf den Aufgaben, die auf der lokalen Webbenutzeroberfläche ausgeführt werden können.
 
-Die lokale Webbenutzeroberfläche für das Data Box-Gerät dient zur Erstkonfiguration des Geräts. Sie können die lokale Webbenutzeroberfläche auch verwenden, um das Data Box-Gerät herunterzufahren oder neu zu starten, Diagnosetests durchzuführen, Software zu aktualisieren, Kopierprotokolle anzuzeigen und ein Protokollpaket für den Microsoft-Support zu erstellen.
+Die lokale Webbenutzeroberfläche für Data Box und Data Box Heavy dient zur Erstkonfiguration des Geräts. Sie können die lokale Webbenutzeroberfläche auch verwenden, um das Gerät herunterzufahren oder neu zu starten, Diagnosetests durchzuführen, Software zu aktualisieren, Kopierprotokolle anzuzeigen und ein Protokollpaket für den Microsoft-Support zu generieren. Bei einem Data Box Heavy-Gerät mit zwei unabhängigen Knoten können Sie für jeden Knoten des Geräts auf eine separate lokale Webbenutzeroberfläche zugreifen.
 
 Dieser Artikel enthält folgende Lernprogramme:
 
@@ -27,11 +27,11 @@ Dieser Artikel enthält folgende Lernprogramme:
 - Herunterfahren oder Neustarten des Geräts
 - Herunterladen von BOM- oder Manifestdateien
 - Anzeigen der verfügbaren Kapazität des Geräts
-- Überspringen der Überprüfung der Prüfsumme 
+- Überspringen der Überprüfung der Prüfsumme
 
 ## <a name="generate-support-package"></a>Erstellen eines Unterstützungspakets
 
-Wenn Sie Geräteprobleme haben, können Sie anhand der Systemprotokolle ein Unterstützungspaket erstellen. Der Microsoft-Support verwendet dieses Paket, um das Problem zu beheben. Führen Sie die folgenden Schritte aus, um ein Unterstützungspaket zu erstellen:
+Wenn Sie Geräteprobleme haben, können Sie anhand der Systemprotokolle ein Unterstützungspaket erstellen. Der Microsoft-Support verwendet dieses Paket, um das Problem zu beheben. Führen Sie die folgenden Schritte aus, um ein Supportpaket zu generieren:
 
 1. Wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Support kontaktieren**, und klicken Sie auf **Unterstützungspaket erstellen**.
 
@@ -52,9 +52,9 @@ Wenn Sie Geräteprobleme haben, können Sie anhand der Systemprotokolle ein Unte
 
 ## <a name="shut-down-or-restart-your-device"></a>Herunterfahren oder Neustarten des Geräts
 
-Sie können Ihre Data Box auf der lokalen Webbenutzeroberfläche herunterfahren oder neu starten. Wir empfehlen, vor dem Neustart die Freigaben auf dem Host und dann auf dem Gerät offline zu schalten. Dadurch wird das Risiko einer Datenbeschädigung minimiert. Vergewissern Sie sich, dass beim Herunterfahren des Geräts kein Datenkopiervorgang durchgeführt wird.
+Sie können Ihr Gerät über die lokale Webbenutzeroberfläche herunterfahren oder neu starten. Wir empfehlen, vor dem Neustart die Freigaben auf dem Host und dann auf dem Gerät offline zu schalten. Dadurch wird das Risiko einer Datenbeschädigung minimiert. Vergewissern Sie sich, dass beim Herunterfahren des Geräts kein Datenkopiervorgang durchgeführt wird.
 
-Führen Sie zum Herunterfahren Ihres Data Box-Geräts die folgenden Schritte aus.
+Führen Sie die folgenden Schritte aus, um Ihr Gerät herunterzufahren.
 
 1. Wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Herunterfahren oder neu starten**.
 2. Klicken Sie auf **Herunterfahren**.
@@ -80,11 +80,11 @@ Führen Sie zum Neustarten Ihres Data Box-Geräts die folgenden Schritte aus.
 
 ## <a name="download-bom-or-manifest-files"></a>Herunterladen von BOM- oder Manifestdateien
 
-Die BOM- oder Manifestdateien (Bill of Material, Stückliste) enthalten die Liste der Dateien, die auf die Data Box kopiert werden. Diese Dateien werden beim Vorbereiten der Data Box für den Versand generiert.
+Die Stückliste (Bill of Material, BOM) oder die Manifestdateien enthalten die Liste der Dateien, die auf das Data Box- oder Data Box Heavy-Gerät kopiert werden. Diese Dateien werden beim Vorbereiten des Geräts für den Versand generiert.
 
-Stellen Sie zunächst sicher, dass für Ihre Data Box der Schritt **Versandvorbereitung** ausgeführt wurde. Führen Sie zum Herunterladen der BOM- oder Manifestdateien die folgenden Schritte aus:
+Stellen Sie zunächst sicher, dass für Ihr Gerät der Schritt **Versandvorbereitung** ausgeführt wurde. Führen Sie zum Herunterladen der BOM- oder Manifestdateien die folgenden Schritte aus:
 
-1. Rufen Sie die lokale Webbenutzeroberfläche für Ihre Data Box auf. Dort sehen Sie, dass für die Data Box der Schritt „Versandvorbereitung“ abgeschlossen wurde. Wenn die Vorbereitung des Geräts abgeschlossen ist, ändert sich der Gerätestatus in **Bereit für den Versand**.
+1. Rufen Sie die lokale Webbenutzeroberfläche für Ihr Gerät auf. Dort sehen Sie, dass für das Gerät der Schritt zur Versandvorbereitung abgeschlossen wurde. Wenn die Vorbereitung des Geräts abgeschlossen ist, ändert sich der Gerätestatus in **Bereit für den Versand**.
 
     ![Gerät bereit für den Versand](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -109,6 +109,9 @@ Stellen Sie zunächst sicher, dass für Ihre Data Box der Schritt **Versandvorbe
     |mydbmdrg2_MDisk-BOM.txt     |Verwalteter Datenträger         |SMB/NFS         |
 
 Nach dem Zurücksenden der Data Box an das Azure-Datencenter können Sie anhand dieser Liste die in das Azure Storage-Konto hochgeladenen Dateien überprüfen. Nachfolgend sehen Sie eine Beispielmanifestdatei:
+
+> [!NOTE]
+> Bei einem Data Box Heavy-Gerät sind zwei Sätze mit Dateilisten (BOM-Dateien) vorhanden, entsprechend den beiden Knoten auf dem Gerät.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -150,25 +153,24 @@ Nach dem Zurücksenden der Data Box an das Azure-Datencenter können Sie anhand 
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Diese Datei enthält die Liste aller Dateien, die auf die Data Box kopiert wurden. In dieser Datei bezieht sich der Wert *crc64* auf die für die entsprechende Datei generierte Prüfsumme.
+Diese Datei enthält die Liste aller Dateien, die auf das Data Box- oder Data Box Heavy-Gerät kopiert wurden. In dieser Datei bezieht sich der Wert *crc64* auf die für die entsprechende Datei generierte Prüfsumme.
 
 ## <a name="view-available-capacity-of-the-device"></a>Anzeigen der verfügbaren Kapazität des Geräts
 
-Sie können auf dem Dashboard des Geräts die verfügbare und belegte Kapazität des Geräts anzeigen. 
+Sie können auf dem Dashboard des Geräts die verfügbare und belegte Kapazität des Geräts anzeigen.
 
 1. Wechseln Sie auf der lokalen Webbenutzeroberfläche zu **Dashboard anzeigen**.
 2. Unter **Verbindung herstellen und Daten kopieren** wird der freie und belegte Speicherplatz auf dem Gerät angezeigt.
 
     ![Anzeigen der verfügbaren Kapazität](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
-
 ## <a name="skip-checksum-validation"></a>Überspringen der Überprüfung der Prüfsumme
 
-Prüfsummen werden standardmäßig für Ihre Daten generiert, wenn Sie den Versand vorbereiten. In bestimmten seltenen Fällen kann die Leistung je nach Datentyp (kleine Dateigrößen) schlecht sein. In solchen Fällen können Sie die Prüfsumme überspringen. 
+Prüfsummen werden standardmäßig für Ihre Daten generiert, wenn Sie den Versand vorbereiten. In bestimmten seltenen Fällen kann die Leistung je nach Datentyp (kleine Dateigrößen) schlecht sein. In solchen Fällen können Sie die Prüfsumme überspringen.
 
 Es wird dringend empfohlen, die Prüfsumme nicht zu deaktivieren, es sei denn, die Leistung wird erheblich beeinträchtigt.
 
-1. Wechseln Sie rechts oben auf der lokalen Webbenutzeroberfläche Ihres Geräts zu „Einstellungen“.
+1. Klicken Sie auf der lokalen Webbenutzeroberfläche für Ihr Gerät in der oberen rechten Ecke auf **Einstellungen**.
 
     ![Prüfsumme deaktivieren](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -177,5 +179,5 @@ Es wird dringend empfohlen, die Prüfsumme nicht zu deaktivieren, es sei denn, d
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie mehr zum [Verwalten der Data Box im Azure-Portal](data-box-portal-admin.md).
+- Erfahren Sie mehr zum [Verwalten von Data Box und Data Box Heavy im Azure-Portal](data-box-portal-admin.md).
 

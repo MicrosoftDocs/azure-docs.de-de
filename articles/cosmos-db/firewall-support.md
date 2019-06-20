@@ -4,14 +4,14 @@ description: Erfahren Sie, wie Sie Azure Cosmos DB-Daten mit Richtlinien für di
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
-ms.openlocfilehash: c5c103fcb7f80533f6f34cb51fd661364d77d6ef
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 9398eb4038afcd17788e750fcb5c27c76e9f3f44
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549010"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241078"
 ---
 # <a name="ip-firewall-in-azure-cosmos-db"></a>IP-Firewall in Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Als Nächstes können Sie mit folgenden Dokumenten IP-Firewall- oder VNET-Dienst
 
 * [Konfigurieren der IP-Firewall für Ihr Azure Cosmos-Konto](how-to-configure-firewall.md)
 * [Zugreifen auf Azure Cosmos DB-Ressourcen über virtuelle Netzwerke](vnet-service-endpoint.md)
-* [Konfigurieren von Dienstendpunkten von virtuellen Netzwerken für Ihr Azure Cosmos-Konto](how-to-configure-vnet-service-endpoint.md)
+* [Konfigurieren von VNET-Dienstendpunkten für Ihr Azure Cosmos-Konto](how-to-configure-vnet-service-endpoint.md)
 
 
 

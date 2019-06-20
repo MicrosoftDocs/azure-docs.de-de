@@ -9,11 +9,11 @@ ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: c1ae8e1d06fca79b586208a3eaee0c5d26975ea1
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51628137"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119325"
 ---
 ## <a name="prerequisites"></a>Voraussetzungen
 

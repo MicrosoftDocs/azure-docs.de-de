@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60551727"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filter in Azure Monitor-Ansichten
 Mit **Filtern** in einer [Azure Monitor-Ansicht](view-designer.md) können Benutzer die Daten in der Ansicht anhand des Werts einer bestimmten Eigenschaft filtern, ohne die Ansicht selbst zu ändern.  Beispielsweise können Sie Benutzern Ihrer Ansicht ermöglichen, die Ansicht nach Daten nur von einem bestimmten Computer oder eine Gruppe von Computern zu filtern.  Sie können mehrere Filter für eine einzelne Ansicht erstellen, um Benutzern das Filtern nach mehreren Eigenschaften zu ermöglichen.  Dieser Artikel beschreibt, wie Sie Filter verwenden und einer benutzerdefinierten Ansicht hinzufügen.
@@ -28,7 +28,7 @@ Klicken Sie oben in der Ansicht auf den Datums-/Uhrzeitbereich, um die Dropdownl
 
 ![Filterbeispiel](media/view-designer-filters/filters-example-time.png)
 
-Klicken Sie auf **+**, um einen Filter mithilfe benutzerdefinierter Filter hinzuzufügen, die für die Ansicht definiert sind. Wählen Sie entweder einen Wert für den Filter aus der Dropdownliste, oder geben Sie einen Wert ein. Klicken Sie auf **+**, um weitere Filter hinzuzufügen. 
+Klicken Sie auf **+** , um einen Filter mithilfe benutzerdefinierter Filter hinzuzufügen, die für die Ansicht definiert sind. Wählen Sie entweder einen Wert für den Filter aus der Dropdownliste, oder geben Sie einen Wert ein. Klicken Sie auf **+** , um weitere Filter hinzuzufügen. 
 
 
 ![Filterbeispiel](media/view-designer-filters/filters-example-custom.png)

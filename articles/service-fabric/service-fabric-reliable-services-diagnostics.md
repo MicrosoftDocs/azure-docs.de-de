@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527049"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772957"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnosefunktionen für zustandsbehaftete Reliable Services
 Die StatefulServiceBase-Klasse der zustandsbehafteten zuverlässigen Dienste in Azure Service Fabric gibt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx)-Ereignisse aus. Diese können verwendet werden, um den Dienst zu debuggen, Einblicke in den Laufzeitbetrieb zu erhalten und Fehler zu beheben.
@@ -29,8 +29,8 @@ Der Name des EventSource-Ereignisses für die Klasse „StatefulServiceBase“ d
 
 Beispiele für Tools und Technologien, mit deren Hilfe EventSource-Ereignisse erfasst bzw. angezeigt werden können, sind [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) und [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Ereignisse
-| Ereignisname | Ereignis-ID | Ebene | Ereignisbeschreibung |
+## <a name="events"></a>Events
+| Ereignisname | Ereignis-ID | Level | Ereignisbeschreibung |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Information |Wird beim Start der RunAsync-Dienstaufgabe ausgegeben |
 | StatefulRunAsyncCancellation |2 |Information |Wird beim Abbruch der RunAsync-Dienstaufgabe ausgegeben |

@@ -50,6 +50,10 @@
       items:
         - name: DevTest Labs-Konzepte
           href: devtest-lab-concepts.md
+        - name: Bewährte Methoden für verteilte und gemeinsame Entwicklung
+          href: best-practices-distributive-collaborative-development-environment.md
+        - name: Integration mit Azure DevOps
+          href: devtest-lab-dev-ops.md
         - name: Szenarien
           items:
             - name: Gängige Szenarien für die Verwendung von DevTest Labs
@@ -92,6 +96,8 @@
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Aktivieren der Remotedesktopverbindung für Linux
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
+            - name: Festlegen oder Zurücksetzen von Kennwörtern für virtuelle Computer
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
     - name: DevTest Labs
       items:
         - name: Angeben der Ressourcengruppe für virtuelle Labcomputer
@@ -106,6 +112,8 @@
           href: personal-data-delete-export.md
         - name: Importieren von virtuellen Computern aus einem anderen Lab
           href: import-virtual-machines-from-another-lab.md
+        - name: Konfigurieren eines Labs zur Verwendung eines Remotedesktopgateways
+          href: configure-lab-remote-desktop-gateway.md
         - name: Erstellen einer Imagefactory
           href: image-factory-create.md
           items:
@@ -205,6 +213,8 @@
               href: devtest-lab-announcements.md
             - name: Hinzufügen von Supportinformationen zu einem Lab
               href: devtest-lab-internal-support-message.md
+            - name: Konfigurieren eines gemeinsamen Image-Katalogs in Azure DevTest Labs
+              href: configure-shared-image-gallery.md
         - name: Auswählen benutzerdefinierter Images oder Formeln
           href: devtest-lab-comparing-vm-base-image-types.md
         - name: Verwalten benutzerdefinierter Images

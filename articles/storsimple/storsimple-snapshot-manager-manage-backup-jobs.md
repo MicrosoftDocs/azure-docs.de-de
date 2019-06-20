@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 03e306b62250f2bb033cc14e856a59760b5406c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c34ff487f03d90b16b6660fbad77c3a16699e165
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719879"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Verwenden von StorSimple Snapshot Manager zum Anzeigen und Verwalten von Sicherungsaufträgen
 
@@ -58,7 +58,7 @@ Verwenden Sie das folgende Verfahren zum Anzeigen von Sicherungs- und Wiederhers
    * **Verstrichen**: die Zeitspanne zwischen den Zeiten **Gestartet** und **Beendet**.
    * **Status**: der Status des zuletzt abgeschlossenen Auftrags. **Erfolgreich**: Gibt an, dass die Sicherung erfolgreich erstellt wurde. **Fehler**: Gibt an, dass der Auftrag nicht erfolgreich ausgeführt wurde.
    * **Informationen**: die Ursache für den Fehler.
-   * **Verarbeitete Bytes (MB)**: die Menge der Daten aus der Volumegruppe, die (in MB) verarbeitet wurde. 
+   * **Verarbeitete Bytes (MB)** : die Menge der Daten aus der Volumegruppe, die (in MB) verarbeitet wurde. 
      
      ![Aufträge, die in den letzten 24 Stunden ausgeführt wurden](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Um zusätzliche Aktionen für einen bestimmten Auftrag durchzuführen, klicken Sie mit der rechten Maustaste auf den Namen des Auftrags im Bereich **Ergebnisse**, und wählen Sie aus den Menüoptionen.
@@ -85,6 +85,6 @@ Verwenden Sie das folgende Verfahren zum Anzeigen von Aufträgen, die derzeit au
 3. Um zusätzliche Aktionen für einen bestimmten Auftrag durchzuführen, klicken Sie mit der rechten Maustaste auf den Namen des Auftrags im Bereich **Ergebnisse** , und wählen Sie aus den Menüoptionen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-* Informationen zum [Verwenden von StorSimple Snapshot Manager zum Verwalten der StorSimple-Lösung](storsimple-snapshot-manager-admin.md).
+* Erfahren Sie mehr über das [Verwenden von StorSimple Snapshot Manager zum Verwalten der StorSimple-Lösung](storsimple-snapshot-manager-admin.md).
 * Informationen zum [Verwenden von StorSimple Snapshot Manager zum Verwalten des Sicherungkatalogs](storsimple-snapshot-manager-manage-backup-catalog.md).
 

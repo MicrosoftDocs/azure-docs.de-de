@@ -8,10 +8,10 @@ ms.author: cabailey
 manager: barbkess
 ms.date: 05/07/2019
 ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65080684"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Kunden-Lockbox für Microsoft Azure
@@ -64,7 +64,7 @@ Die folgenden Schritte beschreiben einen typischen Workflow für eine Kunden-Loc
     
     ![Azure Kunden-Lockbox – Anzeigen der ausstehenden Anforderung](./media/azure-customer-lockbox/customer-lockbox-pending-requests.png)
 
-10. Der festgelegte genehmigende Person kann auch die **DIENSTANFORDERUNGS-ID** auswählen, um die vom ursprünglichen Benutzer erstellte Supportticketanforderung anzuzeigen. Diese Informationen bieten einen Kontext für den Grund der Beteiligung des Microsoft-Supports und den Hintergrund des gemeldeten Problems. Beispiel: 
+10. Der festgelegte genehmigende Person kann auch die **DIENSTANFORDERUNGS-ID** auswählen, um die vom ursprünglichen Benutzer erstellte Supportticketanforderung anzuzeigen. Diese Informationen bieten einen Kontext für den Grund der Beteiligung des Microsoft-Supports und den Hintergrund des gemeldeten Problems. Beispiel:
     
     ![Azure Kunden-Lockbox – Anzeigen der Supportticketanforderung](./media/azure-customer-lockbox/customer-lockbox-support-ticket.png)
 

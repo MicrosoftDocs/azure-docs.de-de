@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0e592c03da222e5265ed53aab8ef73f3b477f33a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955743"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66475865"
 ---
 # <a name="security-in-azure-app-service"></a>Sicherheit in Azure App Service
 
@@ -113,7 +113,6 @@ Wenn Sie eine erweiterte Geheimnisverwaltung benötigen, können Sie Ihre App Se
 
 Mit Ausnahme des Tarifs **Isoliert** wird Ihre App bei allen Tarifen in der gemeinsam genutzten Netzwerkinfrastruktur in App Service ausgeführt. So werden beispielsweise die öffentlichen IP-Adressen und Front-End-Lastenausgleichsmodule gemeinsam mit anderen Mandanten genutzt. Im Tarif **Isoliert** werden Ihre Apps in einer dedizierten [App Service-Umgebung](environment/intro.md) ausgeführt, wodurch eine vollständige Netzwerkisolation erreicht wird. Eine App Service-Umgebung wird in Ihrer eigenen Instanz von [Azure Virtual Network](/azure/virtual-network/) betrieben. Dadurch haben Sie folgende Möglichkeiten: 
 
-- Sie können den Netzwerkdatenverkehr mithilfe von [Netzwerksicherheitsgruppen](../virtual-network/virtual-networks-dmz-nsg.md) einschränken. 
 - Sie können Ihre Apps über einen dedizierten öffentlichen Endpunkt mit dedizierten Front-Ends bereitstellen.
 - Sie können interne Anwendungen unter Verwendung eines internen Lastenausgleichsmoduls (internal load balancer, ILB) bereitstellen, wodurch der Zugriff nur innerhalb Ihrer Azure Virtual Network-Instanz möglich ist. Das interne Lastenausgleichsmodul besitzt eine IP-Adresse aus Ihrem privaten Subnetz, sodass Ihre Apps vollständig vom Internet isoliert sind.
 - Sie können [ein internes Lastenausgleichsmodul hinter einer Web Application Firewall (WAF) verwenden](environment/integrate-with-application-gateway.md). Die WAF bietet professionellen Schutz für Ihre öffentlichen Anwendungen – beispielsweise DDoS-Schutz, URI-Filterung und Verhinderung der Einschleusung von SQL-Befehlen.

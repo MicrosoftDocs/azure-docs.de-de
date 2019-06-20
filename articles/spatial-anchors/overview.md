@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 2451922f0eb49a5ccee036db72eb046760287dca
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628874"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60240478"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Azure Spatial Anchors-Übersicht
 

@@ -11,10 +11,10 @@ ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
 ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024549"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Bereitstellungsstrategien und bewährte Methoden zur Optimierung der Leistung in Azure Search

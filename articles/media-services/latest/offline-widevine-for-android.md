@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312256"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937220"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine-Offlinestreaming für Android
 
 Neben dem Schutz von Inhalten für Onlinestreaming bieten Abonnement- und Verleihdienste für Medieninhalte herunterladbare Inhalte, die genutzt werden können, wenn keine Internetverbindung besteht. Dadurch können Sie beispielsweise Inhalte auf Ihr Smartphone oder Tablet herunterladen und im Offlinemodus ansehen, wenn Sie mit dem Flugzeug unterwegs sind und keine Netzwerkverbindung verfügbar ist. Weitere Szenarien, in denen Sie möglicherweise Inhalte herunterladen möchten:
 
-- Einige Inhaltsanbieter verbieten möglicherweise die Bereitstellung von DRM-Lizenzen außerhalb bestimmter Landesgrenzen. Wenn ein Benutzer Inhalte ansehen möchte, während er ins Ausland reist, ist ein Offline-Download erforderlich.
-- In einigen Ländern ist die Verfügbarkeit und/oder Bandbreite des Internets begrenzt. Benutzer haben die Möglichkeit, Inhalte herunterzuladen, um sie in zufriedenstellender Auflösung ansehen zu können.
+- Einige Inhaltsanbieter verbieten möglicherweise die Bereitstellung von DRM-Lizenzen außerhalb einer Landesgrenze/Region. Wenn ein Benutzer Inhalte ansehen möchte, während er ins Ausland reist, ist ein Offline-Download erforderlich.
+- In einigen Ländern/Regionen ist die Verfügbarkeit und/oder Bandbreite des Internets begrenzt. Benutzer haben die Möglichkeit, Inhalte herunterzuladen, um sie in zufriedenstellender Auflösung ansehen zu können.
 
 In diesem Artikel erfahren Sie, wie Sie auf Android-Geräten die Wiedergabe im Offlinemodus für durch Widevine geschützte DASH-Inhalte implementieren. Dank Offline-DRM können Sie Abonnement-, Verleih- und Kaufmodelle für Ihre Inhalte anbieten, sodass die Kunden Ihrer Dienste Inhalte problemlos mitnehmen können, wenn sie über keine Internetverbindung verfügen.
 

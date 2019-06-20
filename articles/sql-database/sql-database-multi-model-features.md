@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892465"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64939517"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funktionen für mehrere Modelle in Azure SQL-Datenbank
 
@@ -90,7 +90,7 @@ In bestimmten Szenarien können Dokumentmodelle statt relationaler Modelle verwe
 
 ## <a name="spatial-features"></a>Räumliche Funktionen
 
-Räumliche Daten repräsentieren Daten zur physischen Position und Form geometrischer Objekte. Diese Objekte können Punktpositionen oder komplexere Objekte wie Länder, Straßen oder Seen sein.
+Räumliche Daten repräsentieren Daten zur physischen Position und Form geometrischer Objekte. Diese Objekte können Punktpositionen oder komplexere Objekte wie Länder/Regionen, Straßen oder Seen sein.
 
 Azure SQL-Datenbank unterstützt zwei Arten von räumlichen Daten: geometrische und geografische.
 - Der geometrische Datentyp stellt Daten in einem euklidischen (flachen) Koordinatensystem dar.

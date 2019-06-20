@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
 ms.openlocfilehash: dd4efcd2f1d4cbf497ad1fde6936088513cb5fd0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60759935"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics-Datensicherheit
 Dieses Dokument dient der Bereitstellung von spezifischen Informationen zu Log Analytics, einem Feature von Azure Monitor, in Ergänzung der Informationen im [Azure Trust Center](../../security/security-microsoft-trust-center.md).  

@@ -15,10 +15,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65414008"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Hinzufügen von Azure Active Directory mithilfe von verbundenen Diensten in Visual Studio
@@ -38,7 +38,7 @@ Derzeit unterstützt der verbundene Dienst für Active Directory keine ASP.NET C
 
 1. Erstellen oder öffnen Sie in Visual Studio ein ASP.NET MVC-Projekt oder ein ASP.NET-Web-API-Projekt. Sie können die Vorlagen „MVC“, „Web-API“, „Single-Page-Webanwendung“, „Azure-API-App“, „Azure Mobile App“ und „Azure Mobile Service“ verwenden.
 
-1. Wählen Sie den Menübefehl **Projekt > Verbundenen Dienst hinzufügen...**, oder doppelklicken Sie unter dem Projekt im Projektmappen-Explorer auf den Knoten **Verbundene Dienste**.
+1. Wählen Sie den Menübefehl **Projekt > Verbundenen Dienst hinzufügen...** , oder doppelklicken Sie unter dem Projekt im Projektmappen-Explorer auf den Knoten **Verbundene Dienste**.
 
 1. Wählen Sie auf der Seite **Verbundene Dienste** die Option **Authentifizierung mit Azure Active Directory**.
 
@@ -48,7 +48,7 @@ Derzeit unterstützt der verbundene Dienst für Active Directory keine ASP.NET C
 
     ![Seite „Einführung“](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Wählen Sie auf der Seite **Einmaliges Anmelden** in der Dropdownliste **Domäne** eine Domäne aus. Die Liste enthält alle Domänen, auf die mit den Konten zugegriffen werden kann, die im Visual Studio-Dialogfeld „Kontoeinstellungen“ (**Datei > Kontoeinstellungen...**) aufgeführt sind. Alternativ können Sie einen Domänennamen eingeben, wenn Sie den gewünschten nicht finden, beispielsweise `mydomain.onmicrosoft.com`. Sie können die Option zum Erstellen einer neuen Azure Active Directory-App auswählen oder die Einstellungen einer vorhandenen Azure Active Directory-App verwenden. Wählen Sie abschließend die Option **Weiter** aus.
+1. Wählen Sie auf der Seite **Einmaliges Anmelden** in der Dropdownliste **Domäne** eine Domäne aus. Die Liste enthält alle Domänen, auf die mit den Konten zugegriffen werden kann, die im Visual Studio-Dialogfeld „Kontoeinstellungen“ (**Datei > Kontoeinstellungen...** ) aufgeführt sind. Alternativ können Sie einen Domänennamen eingeben, wenn Sie den gewünschten nicht finden, beispielsweise `mydomain.onmicrosoft.com`. Sie können die Option zum Erstellen einer neuen Azure Active Directory-App auswählen oder die Einstellungen einer vorhandenen Azure Active Directory-App verwenden. Wählen Sie abschließend die Option **Weiter** aus.
 
     ![Seite „Einmaliges Anmelden“](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

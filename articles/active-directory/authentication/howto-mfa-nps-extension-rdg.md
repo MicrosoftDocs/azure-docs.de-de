@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44cd18be888b18e8b045114b420ddd48ec909e3e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64873427"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrieren Sie Ihre Remotedesktopgateway-Infrastruktur mit der Netzwerkrichtlinienserver-Erweiterung (Network Policy Server, NPS) und Azure AD
 
@@ -37,7 +37,7 @@ Die Netzwerkrichtlinien- und Zugriffsdienste (Network Policy and Access Services
 
 In der Regel verwenden Organisationen NPS (RADIUS) zur Vereinfachung und Zentralisierung der Verwaltung von VPN-Richtlinien. Viele Organisationen verwenden NPS jedoch auch zur Vereinfachung und Zentralisierung der Verwaltung der RD-Verbindungsautorisierungsrichtlinien (RD-CAPs, Remote Desktop Connection Authorization Policies).
 
-Organisationen können NPS auch in Azure MFA integrieren, um die Sicherheit zu erhöhen und ein hohes Maß an Kompatibilität bereitzustellen. Dadurch wird sichergestellt, dass Benutzer die zweistufige Überprüfung zur Anmeldung beim Remotedesktopgateway einrichten. Damit Benutzern Zugriff gewährt wird, müssen sie die von ihnen festgelegte Kombination aus Benutzername und Kennwort angeben. Diese Informationen müssen vertrauenswürdig und dürfen nicht problemlos duplizierbar sein, z.B. eine Mobiltelefonnummer, Festnetznummer, Anwendung auf einem mobilen Gerät usw. Weitere Informationen zu unterstützten Authentifizierungsmethoden finden Sie im Abschnitt [Bestimmen Sie die Authentifizierungsmethoden, die Ihre Benutzer verwenden können](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
+Organisationen können NPS auch in Azure MFA integrieren, um die Sicherheit zu erhöhen und ein hohes Maß an Kompatibilität bereitzustellen. Dadurch wird sichergestellt, dass Benutzer die zweistufige Überprüfung zur Anmeldung beim Remotedesktopgateway einrichten. Damit Benutzern Zugriff gewährt wird, müssen sie die von ihnen festgelegte Kombination aus Benutzername und Kennwort angeben. Diese Informationen müssen vertrauenswürdig und dürfen nicht problemlos duplizierbar sein, z.B. eine Mobiltelefonnummer, Festnetznummer, Anwendung auf einem mobilen Gerät usw. RDG unterstützt derzeit Telefonanruf- und Pushbenachrichtigungen von Microsoft Authenticator-App-Methoden für die zweistufige Authentifizierung (2FA). Weitere Informationen zu unterstützten Authentifizierungsmethoden finden Sie im Abschnitt [Bestimmen Sie die Authentifizierungsmethoden, die Ihre Benutzer verwenden können](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
 Vor der Verfügbarkeit der NPS-Erweiterung für Azure mussten Kunden, die die zweistufige Überprüfung für integrierte NPS- und Azure MFA-Umgebungen implementieren wollten, einen separaten MFA-Server in der lokalen Umgebung konfigurieren und verwalten, wie in [Remotedesktopgateway und Azure Multi-Factor Authentication-Server mithilfe von RADIUS](howto-mfaserver-nps-rdg.md) dokumentiert.
 
@@ -186,7 +186,7 @@ Verbindungsautorisierungsrichtlinien für Remotedesktop (RD-CAPs) geben die Anfo
 
 1. Öffnen Sie auf dem RD-Gatewayserver den **Server-Manager**.
 1. Klicken Sie auf der Menüleiste auf **Tools**, zeigen Sie auf **Remotedesktopdienste**, und klicken Sie dann auf **Remotedesktopgateway-Manager**.
-1. Klicken Sie im RD-Gateway-Manager mit der rechten Maustaste auf **\[Servername\] (Lokal)**, und klicken Sie auf **Eigenschaften**.
+1. Klicken Sie im RD-Gateway-Manager mit der rechten Maustaste auf **\[Servername\] (Lokal)** , und klicken Sie auf **Eigenschaften**.
 1. Wählen Sie im Dialogfeld „Eigenschaften“ die Registerkarte **RD-CAP-Speicher** aus.
 1. Wählen Sie auf der Registerkarte „RD-CAP-Speicher“ die Option **Zentraler NPS-Server**. 
 1. Geben Sie in das Feld **Name oder IP-Adresse für den Server mit NPS eingeben:** die IP-Adresse bzw. den Servernamen des Servers ein, auf dem Sie die NPS-Erweiterung installiert haben.
@@ -254,7 +254,7 @@ Die ordnungsgemäße Funktionsweise des NPS-Servers in diesem Szenario setzt sei
 
 1. Öffnen Sie auf dem NPS-Server den **Server-Manager**.
 1. Klicken Sie im Server-Manager auf **Tools** und dann auf **Netzwerkrichtlinienserver**.
-1. Klicken Sie in der Netzwerkrichtlinienserver-Konsole mit der rechten Maustaste auf **NPS (Lokal)**, und klicken Sie dann auf **Server in Active Directory registrieren**.
+1. Klicken Sie in der Netzwerkrichtlinienserver-Konsole mit der rechten Maustaste auf **NPS (Lokal)** , und klicken Sie dann auf **Server in Active Directory registrieren**.
 1. Klicken Sie zweimal auf **OK**.
 
    ![Registrieren des NPS-Servers in Active Directory](./media/howto-mfa-nps-extension-rdg/image16.png)
@@ -265,7 +265,7 @@ Die ordnungsgemäße Funktionsweise des NPS-Servers in diesem Szenario setzt sei
 
 Das Remotedesktopgateway muss als RADIUS-Client des NPS-Servers konfiguriert werden.
 
-1. Klicken Sie auf dem NPS-Server, wo die NPS-Erweiterung installiert ist, in der **NPS (Lokal)**-Konsole mit der rechten Maustaste auf **RADIUS-Clients**, und klicken Sie auf **Neu**.
+1. Klicken Sie auf dem NPS-Server, wo die NPS-Erweiterung installiert ist, in der **NPS (Lokal)** -Konsole mit der rechten Maustaste auf **RADIUS-Clients**, und klicken Sie auf **Neu**.
 
    ![Erstellen eines neuen RADIUS-Clients in der NPS-Konsole](./media/howto-mfa-nps-extension-rdg/image17.png)
 

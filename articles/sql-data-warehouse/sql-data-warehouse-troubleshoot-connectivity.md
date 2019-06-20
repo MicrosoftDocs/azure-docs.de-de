@@ -10,12 +10,12 @@ ms.component: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ddae39b7a2c76b5bb3f7caff1c0d5a8165c9d93a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f25d2ab5b2b988725d8f4fdf942854746f404d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66754850"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Behandlung von Konnektivitätsproblemen
 
@@ -57,7 +57,7 @@ Kontaktieren Sie andernfalls Ihren IT-Administrator, um auszuschließen, dass es
 
 ## <a name="check-your-firewall-settings"></a>Überprüfen der Firewalleinstellungen
 
-SQL Data Warehouse kommuniziert über Port 1433.   Wenn Sie versuchen, eine Verbindung über ein Unternehmensnetzwerk herzustellen, wird ausgehender Datenverkehr über Port 1433 von der Firewall Ihres Netzwerks unter Umständen nicht zugelassen. In diesem Fall können Sie nur dann eine Verbindung mit Ihrem Azure SQL-Datenbank-Server herstellen, wenn Ihre IT-Abteilung Port 1433 öffnet. [Hier](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal) finden Sie weitere Informationen zu den Firewallkonfigurationen.
+SQL Data Warehouse kommuniziert über Port 1433.   Wenn Sie versuchen, eine Verbindung über ein Unternehmensnetzwerk herzustellen, wird ausgehender Datenverkehr über Port 1433 von der Firewall Ihres Netzwerks unter Umständen nicht zugelassen. In diesem Fall können Sie nur dann eine Verbindung mit Ihrem Azure SQL-Datenbank-Server herstellen, wenn Ihre IT-Abteilung Port 1433 öffnet. [Hier](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal) finden Sie weitere Informationen zu den Firewallkonfigurationen.
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Überprüfen der Einstellungen für VNETs und Dienstendpunkte
 

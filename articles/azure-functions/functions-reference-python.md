@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438696"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571182"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Python-Entwicklerhandbuch für Azure Functions
 
@@ -28,7 +28,7 @@ Dieser Artikel ist eine Einführung in die Entwicklung von Azure Functions mithi
 
 ## <a name="programming-model"></a>Programmiermodell
 
-Eine Azure-Funktion sollte eine zustandslose Methode in Ihrem Python-Skript sein, die Eingaben verarbeitet und Ausgaben erzeugt. Standardmäßig erwartet die Runtime, dass dies als globale Methode namens `main()` in der `__init__.py`-Datei implementiert ist.
+Eine Azure-Funktion sollte eine zustandslose Methode in Ihrem Python-Skript sein, die Eingaben verarbeitet und Ausgaben erzeugt. Standardmäßig erwartet die Runtime, dass die Methode als globale Methode namens `main()` in der `__init__.py`-Datei implementiert ist.
 
 Sie können die Standardkonfiguration ändern, indem Sie die Eigenschaften `scriptFile` und `entryPoint` in der `function.json`-Datei angeben. Beispielsweise weist die unten stehende _function.json_ die Runtime an, die Methode _customentry()_ in der _main.py_-Datei als Einstiegspunkt für Ihre Azure-Funktion zu verwenden.
 
@@ -109,15 +109,16 @@ Freigegebener Code sollte in einem separaten Ordner gespeichert werden. Um auf M
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Die von der Functions-Runtime verwendeten Bindungserweiterungen sind in der Datei `extensions.csproj` definiert, wobei sich die eigentlichen Bibliotheksdateien im Ordner `bin` befinden. Wenn Sie lokal entwickeln, müssen Sie [Bindungserweiterungen registrieren](./functions-bindings-register.md#local-development-azure-functions-core-tools), indem Sie Azure Functions Core Tools verwenden. 
+Die von der Functions-Runtime verwendeten Bindungserweiterungen sind in der Datei `extensions.csproj` definiert, wobei sich die eigentlichen Bibliotheksdateien im Ordner `bin` befinden. Wenn Sie lokal entwickeln, müssen Sie [Bindungserweiterungen registrieren](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles), indem Sie Azure Functions Core Tools verwenden. 
 
 Wenn Sie ein Functions-Projekt in Ihrer Funktions-App in Azure bereitstellen, sollte der gesamte Inhalt des Ordners „FunctionApp“ in das Paket aufgenommen werden, aber nicht der Ordner selbst.
 
-## <a name="inputs"></a>Eingaben
+## <a name="triggers-and-inputs"></a>Trigger und Eingaben
 
-Eingaben werden in Azure Functions in zwei Kategorien unterteilt: Triggereingaben und zusätzliche Eingaben. Obwohl sie sich in `function.json` unterscheiden, ist ihre Verwendung im Python-Code identisch. Der folgende Codeausschnitt soll als Beispiel dienen:
+Eingaben werden in Azure Functions in zwei Kategorien unterteilt: Triggereingaben und zusätzliche Eingaben. Obwohl sie sich in `function.json` unterscheiden, ist ihre Verwendung im Python-Code identisch.  Verbindungszeichenfolgen für Trigger- und Eingabequellen sollten Werten in der Datei `local.settings.json` lokal sowie Anwendungseinstellungen bei der Ausführung in Azure zugeordnet werden. Der folgende Codeausschnitt soll als Beispiel dienen:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ Eingaben werden in Azure Functions in zwei Kategorien unterteilt: Triggereingabe
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Bei Aufruf der Funktion wird die HTTP-Anforderung als `req` an die Funktion übergeben. Es wird ein Eintrag, der auf der _id_ in der Routen-URL basiert, aus Azure Blob Storage abgerufen und als `obj` im Funktionstext verfügbar gemacht.
+Bei Aufruf der Funktion wird die HTTP-Anforderung als `req` an die Funktion übergeben. Es wird ein Eintrag, der auf der _ID_ in der Routen-URL basiert, aus Azure Blob Storage abgerufen und als `obj` im Funktionstext verfügbar gemacht.  Hier ist das angegebene Speicherkonto die Verbindungszeichenfolge, die sich in `AzureWebJobsStorage` befindet, wobei es sich um dasselbe Speicherkonto handelt, das von der Funktions-App verwendet wird.
+
 
 ## <a name="outputs"></a>Ausgaben
 

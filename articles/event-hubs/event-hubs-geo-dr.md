@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002696"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66754764"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: Georedundante Notfallwiederherstellung 
 
 Falls gesamte Azure-Regionen oder -Datencenter ausfallen (wenn keine [Verfügbarkeitszonen](../availability-zones/az-overview.md) verwendet werden), ist es von entscheidender Bedeutung, dass die Datenverarbeitung in einer anderen Region oder in einem anderen Datencenter fortgesetzt werden kann. Daher sind die *georedundante Notfallwiederherstellung* und die *Georeplikation* wichtige Funktionen für jedes Unternehmen. Azure Event Hubs unterstützt die georedundante Notfallwiederherstellung und die Georeplikation auf Namespaceebene. 
 
-Das Feature für die georedundante Notfallwiederherstellung ist für die Event Hubs Standard-SKU global verfügbar.
+Das Feature für die georedundante Notfallwiederherstellung ist sowohl für die Event Hubs Standard- als auch die Dedicated-SKU global verfügbar. Beachten Sie bitte, dass Sie Namespaces nur innerhalb desselben Tarifs der SKU geografisch koppeln können. Wenn Sie z. B. einen Namespace in einem Cluster haben, der nur in unserer Dedicated-SKU angeboten wird, kann dieser nur mit einem Namespace in einem anderen Cluster gekoppelt werden. 
 
 ## <a name="outages-and-disasters"></a>Ausfälle und Notfälle
 
@@ -98,7 +98,7 @@ Beachten Sie für diesen Release Folgendes:
  
 2. Die Tatsache, dass keine Daten repliziert werden, bedeutet, dass derzeit keine aktiven Sitzungen repliziert werden. Außerdem kann es sein, dass die Duplikaterkennung und geplante Nachrichten nicht funktionieren. Neue Sitzungen, neue geplante Nachrichten und neue Duplikate funktionieren. 
 
-3. Die Durchführung eines Failovers für eine komplexe verteilte Infrastruktur sollte mindestens einmal [durchgespielt](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) werden. 
+3. Die Durchführung eines Failovers für eine komplexe verteilte Infrastruktur sollte mindestens einmal [durchgespielt](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) werden. 
 
 4. Das Synchronisieren von Entitäten kann einige Zeit dauern (etwa eine Minute pro 50 bis 100 Entitäten).
 

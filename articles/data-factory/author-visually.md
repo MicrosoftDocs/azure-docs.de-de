@@ -13,10 +13,10 @@ ms.author: shlo
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507828"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuelles Erstellen in Azure Data Factory
@@ -115,7 +115,7 @@ Wenn Sie mit der Featurebereitstellung in Ihrem Featurebranch fertig sind, könn
 
 ### <a name="configure-publishing-settings"></a>Konfigurieren von Veröffentlichungseinstellungen
 
-Fügen Sie dem Stammordner im Kollaborationsbranch eine `publish_config.json`-Datei hinzu, um den Branch für die Veröffentlichung zu konfigurieren (der Branch, in dem Resource Manager-Vorlage gespeichert werden). Die Data Factory liest die Datei, sucht das Feld `publishBranch` und erstellt wenn nötig einen neuen Branch, mit dem angegebenen Wert. Anschließend speichert sie die Resource Manager-Vorlagen am angegebenen Ort. Beispiel: 
+Fügen Sie dem Stammordner im Kollaborationsbranch eine `publish_config.json`-Datei hinzu, um den Branch für die Veröffentlichung zu konfigurieren (der Branch, in dem Resource Manager-Vorlage gespeichert werden). Die Data Factory liest die Datei, sucht das Feld `publishBranch` und erstellt wenn nötig einen neuen Branch, mit dem angegebenen Wert. Anschließend speichert sie die Resource Manager-Vorlagen am angegebenen Ort. Beispiel:
 
 ```json
 {

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: asgang
 ms.openlocfilehash: 54a32d7f7aa4bcab73f5828da3e7eba9d25276be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160303"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Ausschließen von Datenträgern von der PowerShell-Replikation von Azure-VMs

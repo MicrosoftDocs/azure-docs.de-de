@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 87fd6b626efb60c7fc7ec8896f2c3758ae5cc33c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132858"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177898"
 ---
 ### <a name="app-service-plan"></a>App Service-Plan
 Erstellt den Dienstplan zum Hosten der Web-App. Geben Sie den Namen des Plans über den **hostingPlanName** -Parameter an. Der Speicherort des Plans ist mit demjenigen für die Ressourcengruppe identisch. Der Tarif und die Workergröße werden in den Parametern **sku** und **workerSize** angegeben.

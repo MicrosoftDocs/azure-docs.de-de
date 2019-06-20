@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: 85252680fcc4d2592d242762d01040c3859b14a2
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442070"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478632"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Schnellstart: Personalisieren Sie Inhalt mit C# 
 
@@ -36,11 +36,13 @@ Der Einstieg in die Personalisierung umfasst die folgenden Schritte:
 
 * Sie benötigen einen [Personalisierungsdienst](how-to-settings.md), um einen Abonnementschlüssel und die URL des Endpunktdiensts zu erhalten. 
 * [Visual Studio 2015 oder 2017](https://visualstudio.microsoft.com/downloads/)
-* Das SDK-NuGet-Paket „Microsoft.Azure.CognitiveServices.Personalizer“ Unten ist die Installationsanleitung angegeben.
+* Das SDK-NuGet-Paket [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272). Unten ist die Installationsanleitung angegeben.
 
 ## <a name="change-the-model-update-frequency"></a>Ändern der Häufigkeit der Modellaktualisierung
 
 Ändern Sie in der Personalisierungsressource im Azure-Portal die **Häufigkeit der Modellaktualisierung** in 10 Sekunden. Dadurch wird der Dienst schnell trainiert, und Sie können sehen, wie sich die oberste Aktion für jede Iteration ändert.
+
+Bei der Erstinstanziierung einer Personalisierungsschleife ist kein Modell vorhanden, da noch keine Relevanz-API-Aufrufe zum Trainieren ausgeführt wurden. Rangfolgeaufrufe geben gleiche Wahrscheinlichkeiten für jedes Element zurück. Ihre Anwendung sollte dem Inhalt dennoch immer anhand der Ausgabe von RewardActionId einen Rang zuweisen.
 
 ![Ändern der Häufigkeit der Modellaktualisierung](./media/settings/configure-model-update-frequency-settings.png)
 

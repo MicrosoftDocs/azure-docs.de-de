@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: c67d4979709fc8e72c560c9071b17f48b309e07d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e5d94fad5ddcfd0b34e36cb96727cff48b62ea0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730213"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurieren von Routenfiltern für das Microsoft-Peering: PowerShell
 > [!div class="op_single_selector"]
@@ -131,7 +131,7 @@ New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Lo
 Sie können eine Reihe von BGP-Communitys als eine durch Komma getrennte Liste angeben, wie im Beispiel gezeigt wird. Führen Sie den folgenden Befehl aus, um eine neue Regel zu erstellen:
  
 ```azurepowershell-interactive
-$rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList "12076:5010,12076:5040"
+$rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList 12076:5010,12076:5040
 ```
 
 ### <a name="3-add-the-rule-to-the-route-filter"></a>3. Hinzufügen der Regel zum Routenfilter

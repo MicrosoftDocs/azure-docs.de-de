@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002342"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356225"
 ---
 # <a name="log-analytics-faq"></a>Häufig gestellte Fragen zu Log Analytics
 
@@ -84,7 +84,7 @@ A: Die Liste mit den Ansichten und der installierten Lösungen ist im Azure-Port
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>F: Warum kann ich keine Arbeitsbereiche in der Region USA, Westen-Mitte erstellen? 
 
-A: Die Kapazität dieser Region ist vorübergehend ausgeschöpft. Es ist geplant, dieses Problem in der ersten Jahreshälfte 2019 zu lösen.
+A: Die Kapazität dieser Region ist vorübergehend ausgeschöpft. Diese Einschränkung soll bis Ende September 2019 angegangen werden.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>F: Verwendet Log Analytics denselben Agent wie das Azure Security Center?

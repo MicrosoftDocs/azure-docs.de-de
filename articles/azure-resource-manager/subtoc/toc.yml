@@ -14,7 +14,7 @@
   href: /azure/templates/microsoft.azurestack/allversions
 - name: Batch
   href: /azure/templates/microsoft.batch/allversions
-- name: Batch AI
+- name: Batch KI
   href: /azure/templates/microsoft.batchai/allversions
 - name: Botdienst
   href: /azure/templates/microsoft.botservice/allversions

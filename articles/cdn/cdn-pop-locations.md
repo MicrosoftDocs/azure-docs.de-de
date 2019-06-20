@@ -5,21 +5,21 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 33682727b84713b515bb68d34aa5cf8b72ce44fa
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007677"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65862477"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN-Abdeckung nach Metropolregion 
 > [!div class="op_single_selector"]
@@ -43,8 +43,8 @@ Dieser Artikel enthält die aktuellen Metropolregionen mit POP-Standorten (Point
 | Europa | Wien, Österreich<br />Brüssel, Belgien<br />Prag, Tschechien<br />Kopenhagen, Dänemark<br /> Helsinki, Finnland<br />Marseille, Frankreich<br />Paris, Frankreich<br />Berlin, Deutschland<br />Frankfurt, Deutschland<br />Athen, Griechenland<br />Budapest, Ungarn<br />Dublin, Irland<br />Mailand, Italien<br />Amsterdam, Niederlande<br />Warschau, Polen<br />Barcelona, Spanien<br />Madrid, Spanien<br />Stockholm, Schweden<br />Zürich, Schweiz<br />London, Großbritannien<br />Manchester, Großbritannien | Wien, Österreich<br />Kopenhagen, Dänemark<br />Helsinki, Finnland<br />Marseille, Frankreich<br />Paris, Frankreich<br />Frankfurt, Deutschland<br />Mailand, Italien<br />Riga, Lettland<br />Amsterdam, Niederlande<br />Warschau, Polen<br />Madrid, Spanien<br />Stockholm, Schweden<br />London, Großbritannien | Österreich<br />Bulgarien<br />Dänemark<br />Finnland<br />Frankreich<br />Deutschland<br />Griechenland<br />Irland<br />Italien<br />Niederlande<br />Polen<br />Russland<br />Spanien<br />Schweden<br />Schweiz<br />Vereinigtes Königreich |
 | Afrika | Kapstadt, Südafrika<br />Johannesburg, Südafrika | Johannesburg, Südafrika | Südafrika |
 | Naher Osten | Dubai, Vereinigte Arabische Emirate | Maskat, Oman<br />Fujirah, Vereinigte Arabische Emirate | Katar<br />Vereinigte Arabische Emirate |
-| Indien | Chennai, Indien<br />Mumbai, Indien<br />Neu-Delhi, Indien | Bengaluru (Bangalore), Indien<br />Chennai, Indien<br />Mumbai, Indien<br />Neu-Delhi, Indien<br /> | Indien |
-| Asien | Hongkong (SAR)<br />Osaka, Japan<br />Tokio, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Philippinen<br />Singapur<br />Busan, Südkorea<br />Seoul, Südkorea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong (SAR)<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokio, Japan<br />Singapur<br />Busan, Südkorea<br />Seoul, Südkorea<br />Kaohsiung, Taiwan | Hongkong (SAR)<br />Indonesien<br />Israel<br />Japan<br />Macau (SAR)<br />Malaysia<br />Philippinen<br />Singapur<br />Südkorea<br />Taiwan<br />Thailand<br />Türkei<br />Vietnam |
+| Indien | Chennai, Indien<br />Hyderabad, Indien<br />Mumbai, Indien<br />Neu-Delhi, Indien | Bengaluru (Bangalore), Indien<br />Chennai, Indien<br />Mumbai, Indien<br />Neu-Delhi, Indien<br /> | Indien |
+| Asien | Hongkong<br />Osaka, Japan<br />Tokio, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Philippinen<br />Singapur<br />Busan, Südkorea<br />Seoul, Südkorea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hongkong<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokio, Japan<br />Singapur<br />Busan, Südkorea<br />Seoul, Südkorea<br />Kaohsiung, Taiwan | Hongkong<br />Indonesien<br />Israel<br />Japan<br />Macau (SAR)<br />Malaysia<br />Philippinen<br />Singapur<br />Südkorea<br />Taiwan<br />Thailand<br />Türkei<br />Vietnam |
 | Australien und Neuseeland | Brisbane, Australien<br />Melbourne, Australien<br />Perth, Australien<br />Sydney, Australien<br />Auckland, Neuseeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Neuseeland | Australien<br />Neuseeland |
 
 

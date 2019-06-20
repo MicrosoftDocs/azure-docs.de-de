@@ -11,10 +11,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
 ms.openlocfilehash: cf1b0ba5d70ed0934418a147c09791725b5465bb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143364"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Schnellstart: Weiterleiten von Speicherereignissen an einen Webendpunkt per PowerShell

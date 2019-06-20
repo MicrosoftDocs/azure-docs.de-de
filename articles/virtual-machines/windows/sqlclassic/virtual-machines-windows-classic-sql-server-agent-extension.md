@@ -17,11 +17,11 @@ ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 2b719185aabd39cd70b9cb890a9599aa06ca4ff4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330533"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60334824"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatisieren von Verwaltungsaufgaben auf Azure Virtual Machines mit der SQL Server-Agent-Erweiterung (klassisch)
 > [!div class="op_single_selector"]

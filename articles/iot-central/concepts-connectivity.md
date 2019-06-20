@@ -7,13 +7,13 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+manager: philmea
+ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66693190"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Gerätekonnektivität in Azure IoT Central
 
@@ -66,7 +66,7 @@ In den folgenden Schritten wird das Herstellen der Verbindung von Geräten mit I
 
 1. In Ihrer IoT Central-Anwendung müssen Sie _das X.509-Zwischenzertifikat oder -Stammzertifikat hinzufügen und überprüfen_, das Sie zum Generieren von Gerätezertifikaten verwenden:
 
-    - Navigieren Sie zu **Verwaltung > Geräteverbindung > Zertifikate (X.509)**, und fügen Sie das X.509-Zwischenzertifikat oder -Stammzertifikat hinzu, das Sie zum Generieren der Blattgerätzertifikate verwenden.
+    - Navigieren Sie zu **Verwaltung > Geräteverbindung > Zertifikate (X.509)** , und fügen Sie das X.509-Zwischenzertifikat oder -Stammzertifikat hinzu, das Sie zum Generieren der Blattgerätzertifikate verwenden.
 
       ![Verbindungseinstellungen](media/concepts-connectivity/connection-settings.png)
 

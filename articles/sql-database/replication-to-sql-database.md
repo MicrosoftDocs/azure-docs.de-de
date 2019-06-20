@@ -13,11 +13,11 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60646799"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replikation zu SQL-Datenbank-Einzeldatenbanken und -Pooldatenbanken
 
@@ -107,7 +107,7 @@ Die folgenden Optionen werden für Azure SQL-Datenbank-Abonnements nicht unterst
 Erstellen Sie eine Veröffentlichung und ein Pushabonnement. Weitere Informationen finden Sie unter
   
 - [Erstellen einer Veröffentlichung](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Erstellen eines Pushabonnements](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) mit dem Namen des Azure SQL-Datenbank-Servers als Abonnent (z.B. **N'azuresqldbdns.database.windows.net'**) und dem Namen von Azure SQL-Datenbank als Zieldatenbank (z.B. **AdventureWorks**).  
+- [Erstellen eines Pushabonnements](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) mit dem Namen des Azure SQL-Datenbank-Servers als Abonnent (z. B. **N'azuresqldbdns.database.windows.net'** ) und dem Namen von Azure SQL-Datenbank als Zieldatenbank (z. B. **AdventureWorks**).  
 
 ## <a name="see-also"></a>Siehe auch  
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426272"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255697"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -56,22 +56,7 @@ ms.locfileid: "59426272"
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                           </li>
                                         </ul>
                                     </li>
                                     <li>
@@ -79,6 +64,12 @@ ms.locfileid: "59426272"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
+                                                        <h3>Neuerungen</h3>
+                                                        <p>
+                                                            <a href="./app/kubernetes.md">Überwachen von Kubernetes-Anwendungen</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Statusmonitor v2 für IIS-Apps</a><br>
+                                                        </p>
+                                                        <br><br>
                                                         <h3>Schnellstarts</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>

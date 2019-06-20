@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171552"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Erstellen und Veröffentlichen einer Definition für die verwaltete Anwendung
 

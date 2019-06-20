@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345719"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub-Vorgangsüberwachung (veraltet)
 

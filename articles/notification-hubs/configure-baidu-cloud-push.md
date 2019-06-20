@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 9942b1d4d8b5d538f5150a36e596753282039be7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60234266"
 ---
 # <a name="configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurieren von Baidu Cloud Push-Einstellungen (ADM) für einen Notification Hub im Azure Portal
 In diesem Artikel wird gezeigt, wie Sie Baidu Cloud Push-Einstellungen für einen Azure Notification Hub über das Azure-Portal konfigurieren. 

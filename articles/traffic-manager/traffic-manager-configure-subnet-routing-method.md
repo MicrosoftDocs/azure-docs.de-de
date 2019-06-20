@@ -3,7 +3,7 @@ title: Konfigurieren der Routingmethode für Subnetzdatenverkehr mit dem Azure T
 description: In diesem Artikel wird erläutert, wie der Traffic Manager so konfiguriert wird, dass Datenverkehr von bestimmten Subnetzen weitergeleitet wird.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: kumud
-ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: 1a7bc38a91dc7621a3b09d7901c70eecb21101d6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060967"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Weiterleiten von Datenverkehr an bestimmte Endpunkte mit dem Traffic Manager basierend auf einem Benutzersubnetz
 
@@ -56,7 +56,7 @@ In diesem Abschnitt erstellen Sie die beiden VMs *myEndpointVMEastUS* und *myEnd
     |Benutzername| Geben Sie den gewünschten Benutzernamen ein.|
     |Kennwort| Geben Sie das gewünschte Kennwort ein. Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) erfüllen.|
     |Ressourcengruppe| Klicken Sie auf **Neu**, und geben Sie *myResourceGroupTM1* ein.|
-    |Standort| Wählen Sie **USA, Osten** aus.|
+    |Location| Wählen Sie **USA, Osten** aus.|
     |||
 
 4. Wählen Sie unter **Größe auswählen** eine VM-Größe aus.
@@ -76,7 +76,7 @@ In diesem Abschnitt erstellen Sie die beiden VMs *myEndpointVMEastUS* und *myEnd
     |Einstellung|Wert|
     |---|---|
     |Ressourcengruppe | Klicken Sie auf **Neu**, und geben Sie *myResourceGroupTM2* ein.|
-    |Standort|Europa, Westen|
+    |Location|Europa, Westen|
     |VM-Name | myIISVMWEurope|
     |Virtuelles Netzwerk | Wählen Sie **Virtuelles Netzwerk** in **Virtuelles Netzwerk erstellen** aus, und geben Sie *myVNet2* für **Name** und *mySubnet* für das Subnetz ein.|
     |||

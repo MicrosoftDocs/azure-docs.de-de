@@ -16,11 +16,11 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528117"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60583640"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurieren einer Gatewayressource zum Weiterleiten von Anforderungen
 

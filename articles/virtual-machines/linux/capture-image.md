@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60542867"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Vorgehensweise zum Erstellen eines Image von einem virtuellen Computer oder einer VHD
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 4376db8cdfa90b8d29ecd9b210e683848b4c94b4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66742808"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Erstellen und Konfigurieren eines AKS-Clusters zur Verwendung von virtuellen Knoten im Azure-Portal
 
@@ -69,6 +69,7 @@ Die Funktionalität der virtuellen Knoten ist stark abhängig von den ACI-Featur
 * [Hostaliase](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
 * [Argumente](../container-instances/container-instances-exec.md#restrictions) für „exec“ in ACI.
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) stellen keine Pods auf dem virtuellen Knoten bereit.
+* [Windows Server-Knoten (derzeit in der Vorschau in AKS)](windows-container-cli.md) werden nicht zusammen mit virtuellen Knoten unterstützt. Sie können virtuelle Knoten verwenden, um Windows Server-Container zu planen, ohne Windows Server-Knoten in einem AKS-Cluster haben zu müssen.
 
 ## <a name="sign-in-to-azure"></a>Anmelden bei Azure
 
@@ -196,7 +197,7 @@ Installieren Sie `curl` mit `apt-get` im Pod:
 apt-get update && apt-get install -y curl
 ```
 
-Greifen Sie mithilfe von `curl` auf die Adresse Ihres Pods zu, z.B. *http://10.241.0.4*. Geben Sie Ihre eigene interne IP-Adresse an, die im vorherigen `kubectl get pods`-Befehl gezeigt wurde:
+Greifen Sie mithilfe von `curl` auf die Adresse Ihres Pods zu, z.B. *http://10.241.0.4* . Geben Sie Ihre eigene interne IP-Adresse an, die im vorherigen `kubectl get pods`-Befehl gezeigt wurde:
 
 ```azurecli-interactive
 curl -L http://10.241.0.4

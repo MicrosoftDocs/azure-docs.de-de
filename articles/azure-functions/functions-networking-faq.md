@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682201"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64572596"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Häufig gestellte Fragen zu Netzwerken in Azure Functions
 
@@ -28,11 +28,14 @@ Das Bereitstellen einer Funktion in einer App Service-Umgebung ist derzeit die 
 Zum Einschränken des Internetzugriffs stehen mehrere Möglichkeiten zur Verfügung:
 
 * [IP-Einschränkungen:](../app-service/app-service-ip-restrictions.md) Sie können den eingehenden Datenverkehr Ihrer Funktions-App mit einem IP-Adressbereich einschränken.
+    * Mit IP-Einschränkungen können Sie auch [Dienstendpunkte](../virtual-network/virtual-network-service-endpoints-overview.md) konfigurieren, die Ihre Funktion so einschränken, dass nur eingehender Datenverkehr von einem bestimmten virtuellen Netzwerk akzeptiert wird.
 * Entfernen aller HTTP-Trigger: Bei einigen Anwendungen genügt es, HTTP-Trigger einfach zu vermeiden und eine andere Ereignisquelle zum Auslösen der Funktion zu verwenden.
 
 Beachten Sie hierbei, dass für den Editor im Azure-Portal direkter Zugriff auf die ausgeführte Funktion erforderlich ist. Alle über das Azure-Portal vorgenommenen Codeänderungen erfordern, dass die IP-Adresse des Geräts, das Sie zum Navigieren im Portal verwenden, in der Whitelist enthalten ist. Sie können jedoch weiterhin alle Funktionen auf der Registerkarte „Plattformfeatures“ verwenden, wenn Netzwerkeinschränkungen eingerichtet wurden.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Wie beschränke ich meine Funktions-App auf ein virtuelles Netzwerk?
+
+Sie können **eingehenden** Datenverkehr für eine Funktions-App mithilfe von [Dienstendpunkten](./functions-networking-options.md#private-site-access) auf ein virtuelles Netzwerk einschränken. Diese Konfiguration ermöglicht der Funktions-App immer noch, ausgehende Aufrufe an das Internet zu senden.
 
 Die einzige Möglichkeit, eine Funktion so einzuschränken, dass der gesamte Datenverkehr durch ein virtuelles Netzwerk fließt, ist die Verwendung einer App Service-Umgebung mit internem Lastenausgleich. In diesem Fall wird die Website in einer dedizierten Infrastruktur in einem virtuellen Netzwerk bereitgestellt, und alle Trigger sowie der gesamte Datenverkehr werden über das virtuelle Netzwerk gesendet. 
 
@@ -48,8 +51,11 @@ Durch Verwendung der Integration des virtuellen Netzwerks (zurzeit als Vorschauv
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Wie kann ich eine Funktion über eine Ressource in einem virtuellen Netzwerk auslösen?
 
-Sie können eine Funktion über eine Ressource in einem virtuellen Netzwerk auslösen, indem Sie Ihre Funktions-App in einer App Service-Umgebung bereitstellen. Details zur Verwendung einer App Service-Umgebung finden Sie unter [Erstellen und Verwenden eines internen Lastenausgleichs mit einer App Service-Umgebung](../app-service/environment/create-ilb-ase.md).
+Sie können mithilfe von [Dienstendpunkten](./functions-networking-options.md#private-site-access) zulassen, dass HTTP-Trigger aus einem virtuellen Netzwerk aufgerufen werden. 
 
+Sie können eine Funktion auch über eine Ressource in einem virtuellen Netzwerk auslösen, indem Sie Ihre Funktions-App in einer App Service-Umgebung bereitstellen. Details zur Verwendung einer App Service-Umgebung finden Sie unter [Erstellen und Verwenden eines internen Lastenausgleichs mit einer App Service-Umgebung](../app-service/environment/create-ilb-ase.md).
+
+Der Premium- und der App Service-Plan unterstützen HTTP-Trigger aus einem virtuellen Netzwerk, aber nur eine App Service-Umgebung unterstützt alle anderen Funktionstriggertypen über ein virtuelles Netzwerk.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Wie kann ich meine Funktions-App in einem virtuellen Netzwerk bereitstellen?
 

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118049"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60395804"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Verbinden von Azure mit ITSM-Tools mithilfe des ITSM-Connectors
 
@@ -89,7 +89,7 @@ Abhängig von dem ITSM-Produkt mit dem die Verbindung hergestellt werden soll, f
 
 Nachdem Sie Ihre ITSM-Tools vorbereitet haben, führen Sie die folgenden Schritte zum Erstellen einer Verbindung aus:
 
-1. Wechseln Sie zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)**.
+1. Wechseln Sie zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)** .
 2. Klicken Sie im linken Bereich unter **ARBEITSBEREICHSDATENQUELLEN** auf **ITSM-Verbindungen**.
    ![ITSM-Verbindungen](media/itsmc-overview/itsm-connections.png)
 
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Erstellt von
 - Gelöst von
 - Geschlossen von
-- Quelle
+- `Source`
 - Zugewiesen zu
 - Category (Kategorie)
 - Titel
@@ -211,7 +211,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Service Desk-ID
 - Erstellt von
 - Geschlossen von
-- Quelle
+- `Source`
 - Zugewiesen zu
 - Titel
 - Type

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885671"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60198261"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Sichern von in Azure Data Lake Storage Gen1 gespeicherten Daten
 Das Schützen von Daten in Azure Data Lake Storage Gen1 ist ein Ansatz, der drei Schritte umfasst.  Die rollenbasierte Zugriffssteuerung (RBAC) sowie die Zugriffssteuerungslisten (ACLs) müssen so festgelegt werden, dass der Zugriff auf Daten für Benutzer und Sicherheitsgruppen vollständig aktiviert ist.
@@ -55,7 +55,7 @@ Wenn Sie Benutzer oder Sicherheitsgruppen Data Lake Storage Gen1-Konten zuweisen
 
 1. Öffnen Sie ein Data Lake Storage Gen1-Konto. Klicken Sie im linken Bereich auf **Alle Ressourcen** und dann auf dem Blatt „Alle Ressourcen“ auf den Namen des Kontos, dem Sie einen Benutzer oder eine Sicherheitsgruppe zuweisen möchten.
 
-2. Klicken Sie auf dem Blatt Ihres Data Lake Storage Gen1-Kontos auf **Zugriffssteuerung (IAM)**. Auf dem Blatt werden standardmäßig die Abonnementbesitzer als Besitzer aufgeführt.
+2. Klicken Sie auf dem Blatt Ihres Data Lake Storage Gen1-Kontos auf **Zugriffssteuerung (IAM)** . Auf dem Blatt werden standardmäßig die Abonnementbesitzer als Besitzer aufgeführt.
    
     ![Zuweisen einer Sicherheitsgruppe zum Azure Data Lake Storage Gen1-Konto](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Zuweisen einer Sicherheitsgruppe zum Azure Data Lake Storage Gen1-Konto")
 
@@ -127,7 +127,7 @@ Wenn Sie Sicherheitsgruppen aus Data Lake Storage Gen1-Konten entfernen, ändern
 
 Der Zugriff auf Daten ist unverändert und wird weiterhin über die ACLs verwaltet.  Eine Ausnahme bilden Benutzer oder Gruppen in der Rolle „Besitzer“.  Benutzer oder Gruppen, die aus der Rolle „Besitzer“ entfernt wurden, sind keine Administratoren mehr, und ihr Zugriff beschränkt sich auf den Zugriff auf ACL-Einstellungen. 
 
-1. Klicken Sie auf dem Blatt Ihres Data Lake Storage Gen1-Kontos auf **Zugriffssteuerung (IAM)**. 
+1. Klicken Sie auf dem Blatt Ihres Data Lake Storage Gen1-Kontos auf **Zugriffssteuerung (IAM)** . 
    
     ![Zuweisen einer Sicherheitsgruppe zum Data Lake Storage Gen1-Konto](./media/data-lake-store-secure-data/adl.select.user.icon.png "Zuweisen einer Sicherheitsgruppe zum Data Lake Storage Gen1-Konto")
 2. Klicken Sie auf dem Blatt **Zugriffssteuerung (IAM)** auf die Sicherheitsgruppe, die Sie entfernen möchten. Klicken Sie auf **Entfernen**.

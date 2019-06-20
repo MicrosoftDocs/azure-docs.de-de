@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918891"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472155"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Schützen von Azure CDN-Assets mit Tokenauthentifizierung
 
@@ -33,7 +33,7 @@ Die Tokenauthentifizierung ist ein Mechanismus, mit dem Sie verhindern können, 
 
 Bei der Tokenauthentifizierung wird überprüft, ob Anforderungen von einer vertrauenswürdigen Website generiert werden. Dazu müssen die Anforderungen einen Tokenwert mit codierten Informationen zur anfordernden Person enthalten. Inhalte werden der anfordernden Person nur bereitgestellt, wenn die codierten Informationen die erforderlichen Voraussetzungen erfüllen. Andernfalls werden die Anforderungen abgelehnt. Sie können die Anforderungen einrichten, indem Sie einen oder mehrere der folgenden Parameter verwenden:
 
-- Land: Lassen Sie Anforderungen zu, die aus den Ländern stammen, die durch den [Ländercode](/previous-versions/azure/mt761717(v=azure.100)) angegeben sind, oder verweigern Sie solche Anforderungen.
+- Land: Lassen Sie Anforderungen zu, die aus den Ländern/Regionen stammen, die durch den [Ländercode](/previous-versions/azure/mt761717(v=azure.100)) angegeben sind, oder verweigern Sie solche Anforderungen.
 - URL: Lassen Sie nur Anforderungen zu, die der angegebenen Ressource oder dem Pfad entsprechen.
 - Host: Lassen Sie Anforderungen zu, die die im Anforderungsheader angegebenen Hosts verwenden, oder verweigern Sie solche Anforderungen.
 - Verweiser: Lassen Sie Anforderungen vom angegebenen Verweiser zu, oder verweigern Sie solche Anforderungen.
@@ -72,7 +72,7 @@ Im folgenden Flussdiagramm wird veranschaulicht, wie Azure CDN eine Clientanford
 
       ```rand -hex <key length>```
 
-      Beispiel: 
+      Beispiel:
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -86,7 +86,7 @@ Im folgenden Flussdiagramm wird veranschaulicht, wie Azure CDN eine Clientanford
 
       ![CDN-Tokenauthentifizierung – Einrichten des Schlüssels](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Verwenden Sie das Verschlüsselungstool, um Verschlüsselungsparameter einzurichten und ein Token zu generieren. Mit dem Verschlüsselungstool können Sie Anforderungen basierend auf Ablaufzeit, Land, Verweiser, Protokoll und Client-IP (in beliebigen Kombinationen) zulassen oder ablehnen. Anzahl und Art der Parameter, die zur Bildung eines Tokens kombiniert werden können, sind zwar nicht beschränkt, die Gesamtlänge des Tokens darf jedoch maximal 512 Zeichen betragen. 
+   4. Verwenden Sie das Verschlüsselungstool, um Verschlüsselungsparameter einzurichten und ein Token zu generieren. Mit dem Verschlüsselungstool können Sie Anforderungen basierend auf Ablaufzeit, Land/Region, Verweiser, Protokoll und Client-IP (in beliebigen Kombinationen) zulassen oder ablehnen. Anzahl und Art der Parameter, die zur Bildung eines Tokens kombiniert werden können, sind zwar nicht beschränkt, die Gesamtlänge des Tokens darf jedoch maximal 512 Zeichen betragen. 
 
       ![CDN-Verschlüsselungstool](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ Im folgenden Flussdiagramm wird veranschaulicht, wie Azure CDN eine Clientanford
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Es sind nur Anforderungen zulässig, die aus einem oder mehreren der angegebenen Länder stammen. Anforderungen aus allen anderen Ländern werden abgelehnt. Verwenden Sie für jedes Land einen aus zwei Buchstaben bestehenden [Ländercode nach ISO 3166](/previous-versions/azure/mt761717(v=azure.100)). Trennen Sie alle Länder jeweils mit einem Komma voneinander, und fügen Sie keine Leerzeichen ein. Beispiel: Wenn Sie den Zugriff nur aus den USA und aus Frankreich zulassen möchten, geben Sie `US,FR` ein.</td>
+      >    <td>Es sind nur Anforderungen zulässig, die aus einem oder mehreren der angegebenen Länder/Regionen stammen. Anforderungen aus allen anderen Ländern/Regionen werden abgelehnt. Verwenden Sie für jedes Land einen aus zwei Buchstaben bestehenden [Ländercode nach ISO 3166](/previous-versions/azure/mt761717(v=azure.100)). Trennen Sie alle Länder jeweils mit einem Komma voneinander, und fügen Sie keine Leerzeichen ein. Beispiel: Wenn Sie den Zugriff nur aus den USA und aus Frankreich zulassen möchten, geben Sie `US,FR` ein.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Dient zum Ablehnen von Anforderungen, die aus einem oder mehreren angegebenen Ländern stammen. Anforderungen aus allen anderen Ländern werden zugelassen. Die Implementierung ist identisch mit dem <b>ec_country_allow</b>-Parameter. Ist ein Ländercode sowohl im <b>ec_country_allow</b>- als auch im <b>ec_country_deny</b>-Parameter vorhanden, dann hat der Parameter <b>ec_country_allow</b> Vorrang.</td>
+      >    <td>Dient zum Ablehnen von Anforderungen, die aus einem oder mehreren angegebenen Ländern/Regionen stammen. Anforderungen aus allen anderen Ländern/Regionen werden zugelassen. Die Implementierung ist identisch mit dem <b>ec_country_allow</b>-Parameter. Ist ein Ländercode sowohl im <b>ec_country_allow</b>- als auch im <b>ec_country_deny</b>-Parameter vorhanden, dann hat der Parameter <b>ec_country_allow</b> Vorrang.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -173,17 +173,17 @@ Im folgenden Flussdiagramm wird veranschaulicht, wie Azure CDN eine Clientanford
 3. Klicken Sie unter **HTTP Large** auf **Regel-Engine**. Sie verwenden die Regel-Engine, um Pfade zum Anwenden der Funktion zu definieren und die Tokenauthentifizierung sowie weitere Funktionen zur Tokenauthentifizierung zu aktivieren. Weitere Informationen finden Sie unter [Azure CDN-Regel-Engine](cdn-rules-engine-reference.md).
 
    1. Wählen Sie eine vorhandene Regel aus, oder erstellen Sie eine neue Regel, um das Asset oder den Pfad zu definieren, auf das bzw. den Sie die Tokenauthentifizierung anwenden möchten. 
-   2. Zum Aktivieren der Tokenauthentifizierung für eine Regel wählen Sie **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** aus der Liste **Features** und dann **Aktiviert** aus. Klicken Sie auf **Aktualisieren**, wenn Sie eine Regel aktualisieren, oder auf **Hinzufügen**, wenn Sie eine Regel erstellen.
+   2. Zum Aktivieren der Tokenauthentifizierung für eine Regel wählen Sie **[Token Auth](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** aus der Liste **Features** und dann **Aktiviert** aus. Klicken Sie auf **Aktualisieren**, wenn Sie eine Regel aktualisieren, oder auf **Hinzufügen**, wenn Sie eine Regel erstellen.
         
       ![Beispiel für die CDN-Regel-Engine: Tokenauthentifizierung aktiviert](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. In der Regel-Engine können Sie auch weitere Features im Zusammenhang mit der Tokenauthentifizierung aktivieren. Um die folgenden Features zu aktivieren, wählen Sie sie in der Liste **Features** aus, und wählen Sie dann **Aktiviert** aus.
     
-   - **[Token Auth Denial Code:](cdn-rules-engine-reference-features.md#token-auth-denial-code)** Gibt den Typ der Antwort an, die an einen Benutzer zurückgegeben wird, wenn eine Anforderung abgelehnt wird. Hier festgelegte Regeln setzen den Antwortcode außer Kraft, der im Abschnitt **Custom Denial Handling** auf der Seite für die tokenbasierte Authentifizierung festgelegt wurde.
+   - **[Token Auth Denial Code:](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** Gibt den Typ der Antwort an, die an einen Benutzer zurückgegeben wird, wenn eine Anforderung abgelehnt wird. Hier festgelegte Regeln setzen den Antwortcode außer Kraft, der im Abschnitt **Custom Denial Handling** auf der Seite für die tokenbasierte Authentifizierung festgelegt wurde.
 
-   - **[Token Auth Ignore URL Case:](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)** Legt fest, ob für die zum Überprüfen des Tokens verwendete URL die Groß-/Kleinschreibung berücksichtigt wird.
+   - **[Token Auth Ignore URL Case:](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** Legt fest, ob für die zum Überprüfen des Tokens verwendete URL die Groß-/Kleinschreibung berücksichtigt wird.
 
-   - **[Token Auth Parameter:](cdn-rules-engine-reference-features.md#token-auth-parameter)** Benennt den Parameter der Abfragezeichenfolge für die Tokenauthentifizierung, der in der angeforderten URL angezeigt wird, um. 
+   - **[Token Auth Parameter:](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** Benennt den Parameter der Abfragezeichenfolge für die Tokenauthentifizierung, der in der angeforderten URL angezeigt wird, um. 
         
      ![Beispiel für die CDN-Regel-Engine: Einstellungen der Tokenauthentifizierung](./media/cdn-token-auth/cdn-rules-engine2.png)
 

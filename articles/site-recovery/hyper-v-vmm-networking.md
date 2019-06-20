@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: c93f80ba93e84c93ddf58b46b4bbcf98c53478d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8e4dca61016adce209bdce356ea4280fee525c05
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794225"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397970"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Einrichten der IP-Adressierung zum Herstellen einer Verbindung mit einem sekundären lokalen Standort nach einem Failover
 

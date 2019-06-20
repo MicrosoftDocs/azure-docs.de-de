@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308855"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258816"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-Zugriffssteuerung mit Shared Access Signatures
 
@@ -71,10 +71,10 @@ Jeder Client mit Zugriff auf den Namen einer Autorisierungsregel und einen von d
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`**: Tokenablaufwert. Ganze Zahl, die die Sekunden seit der Epoche `00:00:00 UTC` am 1. Januar 1970 (UNIX-Epoche) darstellt, als Ablaufdatum des Tokens.
-* **`skn`**: Name der Autorisierungsregel.
-* **`sr`**: URI der Ressource, auf die zugegriffen wird.
-* **`sig`**: Signatur.
+* **`se`** : Tokenablaufwert. Ganze Zahl, die die Sekunden seit der Epoche `00:00:00 UTC` am 1. Januar 1970 (UNIX-Epoche) darstellt, als Ablaufdatum des Tokens.
+* **`skn`** : Name der Autorisierungsregel.
+* **`sr`** : URI der Ressource, auf die zugegriffen wird.
+* **`sig`** : Signatur.
 
 `signature-string` ist der SHA-256-Hash, der über den Ressourcen-URI berechnet wird (der im vorherigen Abschnitt beschriebene **Bereich**), und eine Zeichenfolgendarstellung des Tokenablaufwerts, getrennt durch CRLF.
 
@@ -86,7 +86,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Das Token enthält die Werte ohne Hash, sodass der Empfänger den Hash mit den gleichen Parametern neu berechnen und überprüfen kann, ob der Aussteller im Besitz eines gültigen Signaturschlüssels ist.
 
-Der Ressourcen-URI ist der vollständige URI der Service Bus-Ressource, auf die der Zugriff beansprucht wird.  Beispiel: `http://<namespace>.servicebus.windows.net/<entityPath>` oder `sb://<namespace>.servicebus.windows.net/<entityPath>`, also `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. Der URI muss als [Prozentwert codiert](https://msdn.microsoft.com/library/4fkewx0t.aspx) sein.
+Der Ressourcen-URI ist der vollständige URI der Service Bus-Ressource, auf die der Zugriff beansprucht wird. Beispiel: `http://<namespace>.servicebus.windows.net/<entityPath>` oder `sb://<namespace>.servicebus.windows.net/<entityPath>`, also `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+
+**Der URI muss als [Prozentwert codiert](https://msdn.microsoft.com/library/4fkewx0t.aspx) sein.**
 
 Die zum Signieren verwendete SAS-Autorisierungsregel muss für die durch diesen URI angegebene Entität oder eines seiner hierarchisch übergeordneten Elemente konfiguriert werden. Beispiel: `http://contoso.servicebus.windows.net/contosoTopics/T1` oder `http://contoso.servicebus.windows.net` im vorherigen Beispiel.
 

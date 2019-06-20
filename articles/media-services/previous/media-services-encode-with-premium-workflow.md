@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463901"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Erweiterte Codierung mit dem Media Encoder Premium Workflow
 > [!NOTE]
@@ -62,7 +62,7 @@ Es werden folgende Schritte ausgeführt:
     In den meisten Fällen die Konfigurationszeichenfolge für die Aufgabe leer (wie im folgenden Beispiel). Es gibt einige erweiterte Szenarien, bei denen Sie eine XML-Zeichenfolge an die Codierungsaufgabe bereitstellen (und Laufzeiteigenschaften dynamisch festlegen) müssen. Beispiele für solche Szenarios sind das Erstellen einer Überlagerung, das parallele oder sequenzielle Zusammenfügen von Medien und die Untertitelung.
 5. Hinzufügen von zwei Medienobjekten zur Aufgabe.
 
-   1. 1. – das Medienobjekt für den Workflow
+   1. 1\. – das Medienobjekt für den Workflow
    2. 2 – das Videomedienobjekt
 
       >[!NOTE]

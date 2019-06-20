@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62119509"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeiten Sie mit der Back-End-Server-SDK für Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -51,21 +51,21 @@ Wählen Sie auf dem Blatt *Erste Schritte* unter **Erstellen einer Tabellen-API*
 
 Installieren Sie die Azure-Workload über den Visual Studio-Installer, um im Azure Mobile Apps-Projekt aus Visual Studio zu veröffentlichen. Erstellen Sie nach dem Installieren des SDK mit den folgenden Schritten eine ASP.NET-Anwendung:
 
-1. Öffnen Sie das Dialogfeld **Neues Projekt** (über **Datei** > **Neu** > **Projekt...**).
-2. Erweitern Sie **Visual C#**, und wählen Sie **Web** aus.
+1. Öffnen Sie das Dialogfeld **Neues Projekt** (über **Datei** > **Neu** > **Projekt...** ).
+2. Erweitern Sie **Visual C#** , und wählen Sie **Web** aus.
 3. Wählen Sie **ASP.NET-Webanwendung (.NET Framework)** aus.
 4. Geben Sie den Projektnamen ein. Klicken Sie dann auf **OK**.
 5. Wählen Sie aus der Vorlagenliste **Azure Mobile App** aus.
 6. Klicken Sie auf **OK**, um die Projektmappe zu erstellen.
-7. Klicken Sie mit der rechten Maustaste auf das Projekt im **Projektmappen-Explorer**, und wählen Sie **Veröffentlichen...**. Wählen Sie dann **App Service** als Ziel für die Veröffentlichung.
+7. Klicken Sie mit der rechten Maustaste auf das Projekt im **Projektmappen-Explorer**, und wählen Sie **Veröffentlichen...** . Wählen Sie dann **App Service** als Ziel für die Veröffentlichung.
 8. Folgen Sie den Anweisungen zur Authentifizierung, und wählen Sie einen neuen oder bestehenden Azure App Service zur Veröffentlichung aus.
 
 ### <a name="create-a-net-backend-using-visual-studio-2015"></a>Erstellen eines .NET-Back-Ends mithilfe von Visual Studio 2015
 
 Installieren Sie das [Azure SDK für .NET][4] (Version 2.9.0 oder höher), um in Visual Studio ein Azure Mobile Apps-Projekt zu erstellen. Erstellen Sie nach dem Installieren des SDK mit den folgenden Schritten eine ASP.NET-Anwendung:
 
-1. Öffnen Sie das Dialogfeld **Neues Projekt** (über **Datei** > **Neu** > **Projekt...**).
-2. Erweitern Sie **Vorlagen** > **Visual C#**, und wählen Sie **Web** aus.
+1. Öffnen Sie das Dialogfeld **Neues Projekt** (über **Datei** > **Neu** > **Projekt...** ).
+2. Erweitern Sie **Vorlagen** > **Visual C#** , und wählen Sie **Web** aus.
 3. Wählen Sie **ASP.NET-Webanwendung**aus.
 4. Geben Sie den Projektnamen ein. Klicken Sie dann auf **OK**.
 5. Wählen Sie unter *ASP.NET 4.5.2-Vorlagen* die Option **Azure Mobile App** aus. Aktivieren Sie **In der Cloud hosten** , um ein mobiles Back-End in der Cloud zu erstellen, in der Sie dieses Projekt veröffentlichen können.
@@ -166,7 +166,7 @@ Definieren Sie einen Tabellencontroller, um eine SQL-Tabelle für mobile Clients
 2. Konfigurieren Sie einen Tabellenverweis in der Mobile-DbContext-Klasse.
 3. Erstellen Sie einen Tabellencontroller.
 
-Ein Datenübertragungsobjekt (DTO) ist ein einfaches C#-Objekt, das von `EntityData`erbt.  Beispiel: 
+Ein Datenübertragungsobjekt (DTO) ist ein einfaches C#-Objekt, das von `EntityData`erbt.  Beispiel:
 
     public class TodoItem : EntityData
     {
@@ -197,7 +197,7 @@ Das DTO wird zum Definieren der Tabelle in der SQL-Datenbank verwendet.  Fügen 
 
 Wenn Sie das Azure SDK installiert haben, können Sie jetzt wie folgt einen Tabellencontroller als Vorlage erstellen:
 
-1. Klicken Sie mit der rechten Maustaste auf den Ordner „Controllers“, und wählen Sie **Hinzufügen** > **Controller...**.
+1. Klicken Sie mit der rechten Maustaste auf den Ordner „Controllers“, und wählen Sie **Hinzufügen** > **Controller...** .
 2. Wählen Sie die Option **Azure Mobile Apps-Tabellencontroller**, und klicken Sie dann auf **Hinzufügen**.
 3. Im Dialogfeld **Controller hinzufügen** :
    * Wählen Sie in der Dropdownliste **Modellklasse** Ihr neues DTO-Element aus.
@@ -366,7 +366,7 @@ Sie können dem Serverprojekt Pushbenachrichtigungen hinzufügen, indem Sie das 
 
 1. Klicken Sie in Visual Studio mit der rechten Maustaste auf das Serverprojekt, klicken Sie auf **NuGet-Pakete verwalten**, und suchen Sie nach `Microsoft.Azure.Mobile.Server.Notifications`. Klicken Sie anschließend auf **Installieren**.
 2. Wiederholen Sie diesen Schritt zum Installieren des `Microsoft.Azure.NotificationHubs` -Pakets, das die Notification Hubs-Clientbibliothek enthält.
-3. Fügen Sie in „App_Start/Startup.MobileApp.cs“ einen Aufruf der **AddPushNotifications()**-Erweiterungsmethode während der Initialisierung hinzu:
+3. Fügen Sie in „App_Start/Startup.MobileApp.cs“ einen Aufruf der **AddPushNotifications()** -Erweiterungsmethode während der Initialisierung hinzu:
 
         new MobileAppConfiguration()
             // other features...

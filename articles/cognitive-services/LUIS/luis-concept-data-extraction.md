@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150694"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahieren von Daten aus dem Äußerungstext mit Absichten und Entitäten
@@ -48,7 +48,7 @@ Die wichtigste Angabe ist der **Name der Absicht** mit der höchsten Bewertung. 
 
 |Datenobjekt|Datentyp|Speicherort der Daten|Wert|
 |--|--|--|--|
-|Absicht|Zeichenfolge|topScoringIntent.intent|"GetStoreInfo"|
+|Absicht|string|topScoringIntent.intent|"GetStoreInfo"|
 
 Wenn Ihr Chatbot oder die App, die den Aufruf an LUIS durchgeführt hat, eine Entscheidung basierend auf mehreren Absichtsbewertungen trifft, geben Sie die Bewertungen aller Absichten zurück, indem Sie den QueryString-Parameter `verbose=true` festlegen. Die Endpunktantwort lautet:
 
@@ -77,8 +77,8 @@ Die Absichten werden von der höchsten zur niedrigsten Bewertung sortiert.
 
 |Datenobjekt|Datentyp|Speicherort der Daten|Wert|Punkte|
 |--|--|--|--|:--|
-|Absicht|Zeichenfolge|intents[0].intent|"GetStoreInfo"|0.984749258|
-|Absicht|Zeichenfolge|intents[1].intent|"None"|0.0168218873|
+|Absicht|string|intents[0].intent|"GetStoreInfo"|0.984749258|
+|Absicht|string|intents[1].intent|"None"|0.0168218873|
 
 Wenn Sie vordefinierte Domänen hinzufügen, gibt der Name der Absicht die Domäne, wie z.B. `Utilties` oder `Communication`, sowie die Absicht an:
 
@@ -108,9 +108,9 @@ Wenn Sie vordefinierte Domänen hinzufügen, gibt der Name der Absicht die Domä
 
 |Domäne|Datenobjekt|Datentyp|Speicherort der Daten|Wert|
 |--|--|--|--|--|
-|Versorgungsunternehmen|Absicht|Zeichenfolge|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Kommunikation|Absicht|Zeichenfolge|intents[1].intent|<b>Communication</b>.StartOver"|
-||Absicht|Zeichenfolge|intents[2].intent|"None"|
+|Versorgungsunternehmen|Absicht|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Kommunikation|Absicht|string|intents[1].intent|<b>Communication</b>.StartOver"|
+||Absicht|string|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Daten von Entitäten
@@ -408,17 +408,17 @@ Die Entitäten [PersonName](luis-reference-prebuilt-person.md) und [GeographyV2]
 
 ### <a name="names-of-people"></a>Namen von Personen
 
-Für Namen von Personen gelten je nach Sprache und Kultur nur wenige Formatvorgaben. Verwenden Sie entweder eine vordefinierte **[personName](luis-reference-prebuilt-person.md)**-Entität oder eine **[einfache Entität](luis-concept-entity-types.md#simple-entity)** mit [Rollen](luis-concept-roles.md) für Vor- und Nachname. 
+Für Namen von Personen gelten je nach Sprache und Kultur nur wenige Formatvorgaben. Verwenden Sie entweder eine vordefinierte **[personName](luis-reference-prebuilt-person.md)** -Entität oder eine **[einfache Entität](luis-concept-entity-types.md#simple-entity)** mit [Rollen](luis-concept-roles.md) für Vor- und Nachname. 
 
 Wenn Sie die einfache Entität verwenden, geben Sie unbedingt Beispiele an, bei denen die Vor- und Nachnamen an unterschiedlichen Positionen in der Äußerung, in Äußerungen von verschiedener Länge und in Äußerungen aller Absichten (einschließlich der Absicht „None“) verwendet werden. [Überprüfen](luis-how-to-review-endoint-utt.md) Sie die Endpunktäußerungen regelmäßig, um alle Namen zu bezeichnen, die nicht richtig vorhergesagt wurden.
 
 ### <a name="names-of-places"></a>Namen von Orten
 
-Namen von Orten sind feststehend und bekannt. Sie umfassen z. B. Städte, Landkreise, Bundesländer, Provinzen und Länder/Regionen. Verwenden Sie die vordefinierte Entität **[geographieV2](luis-reference-prebuilt-geographyv2.md)**, um Standortinformationen zu extrahieren.
+Namen von Orten sind feststehend und bekannt. Sie umfassen z. B. Städte, Landkreise, Bundesländer, Provinzen und Länder/Regionen. Verwenden Sie die vordefinierte Entität **[geographieV2](luis-reference-prebuilt-geographyv2.md)** , um Standortinformationen zu extrahieren.
 
 ### <a name="new-and-emerging-names"></a>Neue und sich entwickelnde Namen
 
-Einige Apps müssen in der Lage sein, neue oder sich entwickelnde Namen, z.B. von Produkten oder Unternehmen, finden zu können. Solche Namen sind am schwersten zu extrahieren. Beginnen Sie mit einer **[einfachen Entität](luis-concept-entity-types.md#simple-entity)**, und fügen Sie eine [Ausdrucksliste](luis-concept-feature.md) hinzu. [Überprüfen](luis-how-to-review-endoint-utt.md) Sie die Endpunktäußerungen regelmäßig, um alle Namen zu bezeichnen, die nicht richtig vorhergesagt wurden.
+Einige Apps müssen in der Lage sein, neue oder sich entwickelnde Namen, z.B. von Produkten oder Unternehmen, finden zu können. Solche Namen sind am schwersten zu extrahieren. Beginnen Sie mit einer **[einfachen Entität](luis-concept-entity-types.md#simple-entity)** , und fügen Sie eine [Ausdrucksliste](luis-concept-feature.md) hinzu. [Überprüfen](luis-how-to-review-endoint-utt.md) Sie die Endpunktäußerungen regelmäßig, um alle Namen zu bezeichnen, die nicht richtig vorhergesagt wurden.
 
 ## <a name="pattern-roles-data"></a>Daten von Musterrollen
 Rollen sind kontextabhängige Unterschiede von Entitäten.

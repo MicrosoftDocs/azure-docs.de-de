@@ -1,19 +1,19 @@
 ---
 title: Überwachen der Clusterleistung – Azure HDInsight
 description: Es wird beschrieben, wie Sie die Kapazität und Leistung eines HDInsight-Clusters überwachen.
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
-ms.openlocfilehash: 22484885663a4f9a908ae988882b87612129251a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/29/2019
+ms.author: hrasheed
+ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693224"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393415"
 ---
 # <a name="monitor-cluster-performance"></a>Überwachen der Clusterleistung
 
@@ -30,7 +30,7 @@ Melden Sie sich bei der [Ambari-Webbenutzeroberfläche](hdinsight-hadoop-manage-
 | Farbe | BESCHREIBUNG |
 | --- | --- |
 | Rot | Mindestens eine Master-Komponente auf dem Host ist ausgefallen. Zeigen Sie mit der Maus darauf, um eine QuickInfo mit den betroffenen Komponenten anzuzeigen. |
-| Orange | Mindestens eine untergeordnete Komponente auf dem Host ist ausgefallen. Zeigen Sie mit der Maus darauf, um eine QuickInfo mit den betroffenen Komponenten anzuzeigen. |
+| Orange | Mindestens eine sekundäre Komponente auf dem Host ist ausgefallen. Zeigen Sie mit der Maus darauf, um eine QuickInfo mit den betroffenen Komponenten anzuzeigen. |
 | Gelb | Ambari Server hat seit mehr als drei Minuten keinen Heartbeat vom Host empfangen. |
 | Grün | Normaler Ausführungszustand |
 

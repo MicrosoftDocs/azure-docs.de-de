@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: a5ab90baf06dce79248d5da90b01b8651ab498b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 517f9f89d7733aaa066c3fb2b487be0a67994d4e
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873324"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357094"
 ---
 # <a name="quickstart-change-model-using-python"></a>Schnellstart: Ändern des Modells mit Python
 
-[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

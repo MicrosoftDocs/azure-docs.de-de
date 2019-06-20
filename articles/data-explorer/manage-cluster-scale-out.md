@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60758663"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Verwalten der Clusterskalierung bei sich änderndem Bedarf
 

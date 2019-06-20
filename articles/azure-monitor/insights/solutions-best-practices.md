@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
 ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192691"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60596653"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Bewährte Methoden für das Erstellen von Verwaltungslösungen in Azure (Vorschau)
 > [!NOTE]

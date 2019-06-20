@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610aeec9e4c40d0aad0c28f02697e2cf01edbe4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60438690"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Zuweisen von Azure-Ressourcenrollen in PIM
 

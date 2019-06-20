@@ -10,11 +10,11 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.openlocfilehash: 21ed4e9a6b1da10d0ae4c276612459506e13d94f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61474367"
 ---
 # <a name="benchmarking-a-disk"></a>Benchmarktests für einen Datenträger
 

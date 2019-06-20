@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 0da5f503c13ce03854964c0d18edd0031e25bb62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: fa6ab58de09e26683cdd958ef77b0fa01d88e2e0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235607"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225586"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Leistungstipps für Azure Cosmos DB und Async Java
 

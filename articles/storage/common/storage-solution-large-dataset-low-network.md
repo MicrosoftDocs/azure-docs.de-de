@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849614"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60730689"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Datenübertragung für große Datasets mit geringer oder keiner Netzwerkbandbreite
  
@@ -52,7 +52,7 @@ In der folgenden Tabelle werden die Unterschiede der Schlüsselfunktionen zusamm
 |    Formfaktor                      |    5 SSDs pro Auftrag             |    1 x 22,7 kg Gerät in Desktopgröße pro Auftrag    |    1 x ca. 226,8 kg großes Gerät pro Auftrag    |    Bis zu 10 HDDs/SSDs pro Auftrag        |
 |    Für Anfangskonfiguration benötigte Zeit               |    Niedrig <br>(15 Min.)            |    Niedrig bis mittel <br> (< 30 Min.)               |    Moderat<br>(1 bis 2 Stunden)               |    Mittel bis schwierig<br>(variabel) |
 |    Senden von Daten an Azure               |    Ja                          |    Ja                                           |    Ja                                   |    Ja                                 |
-|    Exportieren von Daten aus Azure           |    Nein                            |    Nein                                             |    Nein                                     |    Ja                                 |
+|    Exportieren von Daten aus Azure           |    Nein                           |    Nein                                            |    Nein                                    |    Ja                                 |
 |    Verschlüsselung                       |    AES 128-Bit                  |    AES 256-Bit                                   |    AES 256-Bit                           |    AES 128-Bit                         |
 |    Hardware                         |     Von Microsoft bereitgestellt          |    Von Microsoft bereitgestellt                            |    Von Microsoft bereitgestellt                    |    Vom Kunden bereitgestellt                   |
 |    Netzwerkschnittstelle                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |

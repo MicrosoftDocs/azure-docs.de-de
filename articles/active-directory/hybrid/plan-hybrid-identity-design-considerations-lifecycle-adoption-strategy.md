@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433738"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950831"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Ermitteln der Strategie für die Übernahme des Hybrididentitätslebenszyklus
 In dieser Aufgabe definieren Sie die Identitätsverwaltungsstrategie für Ihre Hybrididentitätslösung, um die geschäftlichen Anforderungen zu erfüllen, die Sie in [Ermitteln von Aufgaben der Hybrididentitätsverwaltung](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)definiert haben.
@@ -42,7 +42,7 @@ Konten in anspruchsvollen IT-Unternehmen umfassen Hunderte von Parametern, die d
 
 ## <a name="role-based-access-control"></a>Rollenbasierte Zugriffssteuerung
 Rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) setzt Rollen- und Bereitstellungsrichtlinien zum Auswerten, Testen und Erzwingen Ihrer Geschäftsprozesse und Regeln für das Gewähren von Zugriffsrechten für Benutzer ein. Hauptadministratoren erstellen Bereitstellungsrichtlinien, weisen Benutzern Rollen zu und definieren für diese Rollen Sätze von Berechtigungen für Ressourcen. RBAC erweitert die Identitätsverwaltungslösung auf die Verwendung softwarebasierter Prozesse und Reduzierung der manuellen Benutzerinteraktion im Bereitstellungsprozess.
-Azure AD RBAC ermöglicht es Unternehmen, die Anzahl von Vorgängen zu beschränken, die eine einzelne Person im Azure-Portal ausführen kann. Durch Einsatz von RBAC zur Steuerung des Zugriffs auf das Portal können IT-Administratoren mithilfe folgender Ansätze zur Zugriffsverwaltung den Zugriff delegieren:
+Azure AD RBAC ermöglicht es Unternehmen, die Anzahl von Vorgängen zu beschränken, die eine einzelne Person über das Azure-Portal ausführen kann. Durch Einsatz von RBAC zur Steuerung des Zugriffs auf das Portal können IT-Administratoren mithilfe folgender Ansätze zur Zugriffsverwaltung den Zugriff delegieren:
 
 * **Gruppenbasierte Rollenzuweisung**: Sie können Azure AD-Gruppen den Zugriff zuweisen, die über das lokale Active Directory synchronisiert werden können. So können Sie die vorhandenen Investitionen nutzen, die Ihre Organisation in Tools und Prozesse zum Verwalten von Gruppen vorgenommen hat. Sie können auch das Feature zur delegierten Gruppenverwaltung von Azure AD Premium nutzen.
 * **Nutzen integrierter Rollen in Azure**: Sie können drei Rollen verwenden – Besitzer, Mitwirkender und Leser –, um sicherzustellen, dass Benutzer und Gruppen berechtigt sind, nur die Aufgaben auszuführen, die sie für ihre Arbeit benötigen.

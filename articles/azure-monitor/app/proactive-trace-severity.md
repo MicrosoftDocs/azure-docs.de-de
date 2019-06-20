@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
 ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60306393"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Verschlechterung des Schweregrads der Ablaufverfolgung (Vorschau)
 

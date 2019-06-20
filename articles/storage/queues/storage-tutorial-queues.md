@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233879"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797537"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Arbeiten mit Azure-Speicherwarteschlangen
 
@@ -129,18 +129,19 @@ Da die App Cloud-Ressourcen verwendet, wird der Code asynchron ausgeführt. Alle
 
 ## <a name="create-a-queue"></a>Erstellen einer Warteschlange
 
-1. Installieren Sie das Paket **WindowsAzure. Storage** mit dem Befehl `dotnet add package` im Projekt. Führen Sie den folgenden dotnet-Befehl aus dem Projektordner im Konsolenfenster aus.
+1. Installieren Sie die Pakete **Microsoft.Azure.Storage.Common** und **Microsoft.Azure.Storage.Queue** mit dem Befehl `dotnet add package` in das Projekt. Führen Sie die folgenden dotnet-Befehle aus dem Projektordner im Konsolenfenster aus.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. Fügen Sie am Anfang der Datei **Program.cs** die folgenden Namespaces direkt nach der Anweisung `using System;` hinzu. Diese App verwendet Typen aus diesen Namespaces zum Herstellen einer Verbindung mit Azure Storage und zum Arbeiten mit Warteschlangen.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. Speichern Sie die Datei **Program.cs**.
@@ -206,7 +207,7 @@ Fügen Sie die Verbindungszeichenfolge in die App ein, damit sie auf das Speiche
 
 ## <a name="insert-messages-into-the-queue"></a>Einfügen von Nachrichten in die Warteschlange
 
-Erstellen Sie eine neue Methode zum Senden einer Nachricht in die Warteschlange. Fügen Sie Ihrer **Program**-Klasse die folgende Methode hinzu. Diese Methode ruft einen Warteschlangenverweis ab und erstellt dann durch Aufrufen von [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet) eine neue Warteschlange, sofern es noch keine gibt. Anschließend fügt sie die Nachricht durch Aufrufen von [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet) zur Warteschlange hinzu.
+Erstellen Sie eine neue Methode zum Senden einer Nachricht in die Warteschlange. Fügen Sie Ihrer **Program**-Klasse die folgende Methode hinzu. Diese Methode ruft einen Warteschlangenverweis ab und erstellt dann durch Aufrufen von [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync) eine neue Warteschlange, sofern es noch keine gibt. Anschließend fügt sie die Nachricht durch Aufrufen von [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) zur Warteschlange hinzu.
 
 1. Fügen Sie Ihrer **Program**-Klasse die folgende **SendMessageAsync**-Methode hinzu.
 
@@ -229,7 +230,7 @@ Erstellen Sie eine neue Methode zum Senden einer Nachricht in die Warteschlange.
 
 ## <a name="dequeue-messages"></a>Entfernen von Nachrichten aus Warteschlangen
 
-Erstellen Sie eine neue Methode namens **ReceiveMessageAsync**. Diese Methode empfängt durch Aufrufen von [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet) eine Nachricht aus der Warteschlange. Sobald die Nachricht erfolgreich empfangen wurde, muss sie aus der Warteschlange gelöscht werden, damit sie nicht mehrmals verarbeitet wird. Löschen Sie die empfangene Nachricht daher durch Aufrufen von [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet) aus der Warteschlange.
+Erstellen Sie eine neue Methode namens **ReceiveMessageAsync**. Diese Methode empfängt durch Aufrufen von [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync) eine Nachricht aus der Warteschlange. Sobald die Nachricht erfolgreich empfangen wurde, muss sie aus der Warteschlange gelöscht werden, damit sie nicht mehrmals verarbeitet wird. Löschen Sie die empfangene Nachricht daher durch Aufrufen von [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync) aus der Warteschlange.
 
 1. Fügen Sie Ihrer **Program**-Klasse die folgende **ReceiveMessageAsync**-Methode hinzu.
 
@@ -343,8 +344,8 @@ Hier ist die vollständige Codeauflistung für dieses Projekt.
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

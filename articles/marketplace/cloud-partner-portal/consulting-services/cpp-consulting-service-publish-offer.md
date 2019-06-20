@@ -1,25 +1,18 @@
 ---
-title: 'Azure- und Dynamics 365-Beratungsdienstangebot: Veröffentlichung | Microsoft-Dokumentation'
-description: Dies ist ein Leitfaden für die Veröffentlichung eines Azure- oder Dynamics 365-Beratungsdienstangebots im Cloud-Partnerportal.
+title: 'Azure- und Dynamics 365-Beratungsdienstangebot: Veröffentlichung | Azure Marketplace'
+description: Veröffentlichen Sie ein Azure- oder Dynamics 365-Beratungsdienstangebot im Cloud-Partnerportal für den Azure Marketplace oder AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: dae86dcdd3ada10164be0120b49a8f5f7b642ccd
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.author: pabutler
+ms.openlocfilehash: 44fe7f11d365761c351e488d834a63392ea9cac1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942804"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Veröffentlichen eines Beratungsdienstangebots
 

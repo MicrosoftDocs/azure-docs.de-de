@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,11 +9,11 @@ ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119246"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177997"
 ---
 In der folgenden Tabelle werden die verfügbaren unterstützten Regionen für allgemein verfügbare Features aufgelistet.
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: aschhab
 ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846440"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60403940"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Nachrichtenübertragungen, Sperren und Abgleich
 

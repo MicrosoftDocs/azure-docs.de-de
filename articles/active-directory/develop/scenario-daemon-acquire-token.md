@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65080166"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-App, die Web-APIs aufruft – Aufruf eines Tokens
@@ -65,7 +65,7 @@ Der für die Clientanmeldeinformationen verwendete Bereich muss immer resourceId
 
 > [!IMPORTANT]
 > Wenn MSAL (v2.0-Endpunkt) bei einem Zugriffstoken nach einer Ressource fragt, die ein v1.0-Zugriffstoken akzeptiert, analysiert Azure AD die gewünschte Zielgruppe aus dem angeforderten Bereich, indem alles vor dem letzten Schrägstrich als Ressourcenbezeichner verwendet wird.
-> Wenn die Ressource wie Azure SQL (**https://database.windows.net**) daher eine Zielgruppe mit Schrägstrich am Ende erwartet (bei Azure SQL: `https://database.windows.net/`), müssen Sie den Bereich `https://database.windows.net//.default` anfordern (beachten Sie den doppelten Schrägstrich). Weitere Informationen finden Sie unter dem MSAL.NET-Issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure (Bei der URL der Ressource wurde der nachgestellte Schrägstrich entfernt, wodurch bei der SQL-Authentifizierung ein Fehler aufgetreten ist).
+> Wenn die Ressource wie Azure SQL ( **https://database.windows.net** ) daher eine Zielgruppe mit Schrägstrich am Ende erwartet (bei Azure SQL: `https://database.windows.net/` ), müssen Sie den Bereich `https://database.windows.net//.default` anfordern (beachten Sie den doppelten Schrägstrich). Weitere Informationen finden Sie unter dem MSAL.NET-Issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure (Bei der URL der Ressource wurde der nachgestellte Schrägstrich entfernt, wodurch bei der SQL-Authentifizierung ein Fehler aufgetreten ist).
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient-API
 

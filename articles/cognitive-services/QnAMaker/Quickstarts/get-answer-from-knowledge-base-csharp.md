@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 8ded7a86c1b4fb53ca81fc4e7b0c0d794c515ddf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 614d7c0b58ee318461cf3c97e934a77c84221ef7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886340"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827593"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Abrufen von Antworten auf Fragen aus einer Wissensdatenbank mit C#
 
@@ -36,7 +36,7 @@ Der Code für diesen Schnellstart ist im Repository unter [https://github.com/Az
 
 ## <a name="create-a-knowledge-base-project"></a>Erstellen eines Wissensdatenbank-Projekts
 
-1. Öffnen Sie Visual Studio 2017 Community Edition.
+1. Öffnen Sie Visual Studio 2019 Community Edition.
 1. Erstellen Sie ein neues Projekt vom Typ „Konsolen-App (.NET Core)“, und nennen Sie es „QnaMakerQuickstart“. Übernehmen Sie für die übrigen Einstellungen die Standardwerte.
 
 ## <a name="add-the-required-dependencies"></a>Hinzufügen der erforderlichen Abhängigkeiten
@@ -72,4 +72,4 @@ Erstellen Sie das Programm in Visual Studio, und führen Sie es dort aus. Das Pr
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [REST-API-Referenz für QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [REST-API-Referenz für QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

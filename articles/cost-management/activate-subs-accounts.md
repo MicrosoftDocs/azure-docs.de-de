@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: efc012e496045d3d5d12d6fe756b62e4ae19cc2a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9999518b81d264cb1e46f3c03ec65379d35aa603
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002142"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242442"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivieren von Azure-Abonnements und -Konten mit Cloudyn
 
@@ -64,7 +64,7 @@ Wenn Sie ein Konto hinzufügen oder ein Abonnement aktualisieren, gewähren Sie 
     2. Wählen Sie im Azure-Portal die Option **Azure Active Directory** aus.
     3. Wählen Sie zum Abrufen der Mandanten-ID die Option **Eigenschaften** für Ihren Azure AD-Mandanten aus.
     4. Kopieren Sie die „Verzeichnis-ID“. Dieser Wert ist Ihre Mandanten-ID.
-    Weitere Informationen finden Sie unter [Abrufen der Mandanten-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    Weitere Informationen finden Sie unter [Abrufen der Mandanten-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 3. Wählen Sie ggf. Ihre Abrechnungs-ID aus. Wenn Sie Ihre Abrechnungs-ID nicht kennen, führen Sie die folgenden Schritte aus, um sie nachzusehen.
     1. Klicken Sie oben rechts im Azure-Portal auf Ihre Benutzerinformationen und anschließend auf **Meine Rechnung anzeigen**.
     2. Klicken Sie unter **Abrechnungskonto** auf **Abonnements**.

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567127"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951500"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Erste Schritte mit temporalen Tabellen in der Azure SQL-Datenbank
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Schritt 2: Reguläres Ausführen Ihrer Workload
 Der Hauptvorteil von temporalen Tabellen ist, dass Sie Ihre Website zum Nachverfolgen von Änderungen in keiner Weise ändern oder anpassen müssen. Nach der Erstellung behalten temporale Tabellen jedes Mal transparent vorherige Zeilenversionen bei, wenn Sie Änderungen an Ihren Daten ausführen. 
 
-Um die automatische Änderungsnachverfolgung für dieses spezielle Szenario nutzen zu können, richten wir es ein, dass die Spalte **PagesVisited** jedes Mal aktualisiert wird, wenn der Benutzer seine Sitzung auf der Website beendet:
+Um die automatische Änderungsnachverfolgung für dieses spezielle Szenario nutzen zu können, richten wir es ein, dass die Spalte **PagesVisited** jedes Mal aktualisiert wird, wenn ein Benutzer seine Sitzung auf der Website beendet:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 

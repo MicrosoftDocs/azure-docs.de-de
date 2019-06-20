@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
 ms.openlocfilehash: b67fcb82bdcc94d7faeceedb7420a869e6578cad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007320"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61436390"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installieren von Update 0.4 für Ihre StorSimple Virtual Array-Lösung
 

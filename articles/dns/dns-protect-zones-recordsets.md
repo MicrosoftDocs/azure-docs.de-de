@@ -2,17 +2,16 @@
 title: Schützen von Azure DNS-Zonen und -Einträgen
 description: So schützen Sie DNS-Zonen und -Ressourceneintragsätze in Microsoft Azure DNS
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
 ms.topic: article
-origin.date: 12/4/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 12/4/2018
+ms.author: victorh
 ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121446"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>So schützen Sie DNS-Zonen und -Ressourceneintragssätze
@@ -118,7 +117,8 @@ Das folgende Beispiel zeigt eine benutzerdefinierte Rollendefinition für die Ve
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
     ],
     "NotActions": [
     ],

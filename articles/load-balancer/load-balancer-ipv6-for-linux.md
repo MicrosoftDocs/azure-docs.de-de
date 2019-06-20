@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: kumud
 ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60516549"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurieren von DHCPv6 für virtuelle Linux-Computer
 
@@ -56,7 +56,7 @@ Dieses Dokument beschreibt, wie DHCPv6 aktiviert wird, damit der virtuelle Linux
     ```
 Ab Ubuntu 17.10 ist [NETPLAN]( https://netplan.io) der Standardmechanismus für die Netzwerkkonfiguration.  Zum Zeitpunkt der Installation/Instanziierung liest NETPLAN die Netzwerkkonfiguration aus YAML-Konfigurationsdateien, die sich an folgendem Speicherort befinden: /{lib,etc,run}/netplan/*.yaml.
 
-Beziehen Sie für jede Ethernet-Schnittstelle in Ihrer Konfiguration eine *dhcp6:true*-Anweisung ein.  Beispiel: 
+Beziehen Sie für jede Ethernet-Schnittstelle in Ihrer Konfiguration eine *dhcp6:true*-Anweisung ein.  Beispiel:
   
         network:
           version: 2

@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718094"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60765122"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Erstellen einer Web-App in einer App Service-Umgebung v1
 

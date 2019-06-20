@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60936553"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>SAP HANA-Sicherung auf der Grundlage von Speichermomentaufnahmen
 

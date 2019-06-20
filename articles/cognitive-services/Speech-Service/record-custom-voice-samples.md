@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530738"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954643"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Aufzeichnen von Sprachbeispielen zum Erstellen einer benutzerdefinierten Stimme
 
@@ -53,7 +53,7 @@ Wählen Sie einen Sprecher aus, dessen natürliche Stimme Ihnen gefällt. Es ist
 
 Der wichtigste Faktor für die Auswahl des Sprechers ist Konsistenz. Ihr Aufzeichnungen sollten alle so klingen, als ob sie am selben Tag im selben Raum erstellt wurden. Sie können dieses Ideal über gute Aufzeichnungsverfahren und eine geeignete Technik erreichen.
 
-Ihr Sprecher ist die andere Hälfte der Gleichung. Er muss mit einheitlicher Geschwindigkeit, Lautstärke, Tonhöhe und Klangfarbe sprechen können. Eine deutliche Aussprache ist ein Muss. Der Sprecher muss außerdem Tonhöhenabweichungen, Stimmungen und sprachliche Angewohnheiten genau kontrollieren können.
+Ihr Sprecher ist die andere Hälfte der Gleichung. Sie müssen mit einheitlicher Geschwindigkeit, Lautstärke, Tonhöhe und Klangfarbe sprechen können. Eine deutliche Aussprache ist ein Muss. Die Sprecher müssen außerdem Tonhöhenabweichungen, Stimmungen und sprachliche Angewohnheiten genau kontrollieren können.
 
 Die Aufzeichnung von Beispielen für benutzerdefinierte Stimmen kann ermüdender als andere Arten von Sprecharbeiten sein. Die meisten Sprecher können für zwei oder drei Stunden pro Tag aufzeichnen. Beschränken Sie die Sitzungen auf drei oder vier pro Woche mit möglichst einem freien Tag dazwischen.
 
@@ -109,7 +109,7 @@ Glücklicherweise ist es möglich, diese Probleme vollständig zu vermeiden. Es 
 |-|-|
 |[CMU Arctic-Korpus](http://festvox.org/cmu_arctic/)|Etwa 1100 Sätze aus nicht urheberrechtlich geschützten Werken speziell für Sprachsyntheseprojekte. Ein ausgezeichneter Ausgangspunkt.|
 |Nicht länger urheberrechtlich<br>geschützte Werke|In der Regel Werke, die vor 1923 veröffentlicht wurden. Für Englisch bietet das [Project Gutenberg](https://www.gutenberg.org/) Zehntausende dieser Werke. Sie sollten sich allerdings auf neuere Werke konzentrieren, da die Sprache näher an der modernen Sprache ist.|
-|Werke von&nbsp;Behörden|Werke, die von US-Behörden erstellt wurden, sind in den USA nicht urheberrechtlich geschützt. Die Behörden könnten jedoch in anderen Ländern Urheberrechte einfordern.|
+|Werke von&nbsp;Behörden|Werke, die von US-Behörden erstellt wurden, sind in den USA nicht urheberrechtlich geschützt. Die Behörden könnten jedoch in anderen Ländern/Regionen Urheberrechte einfordern.|
 |Öffentlicher Bereich|Werke, für die Urheberrechte explizit ausgeschlossen wurden oder die frei zugänglich sein sollen. In einigen Rechtsprechungen kann möglicherweise nicht vollständig auf Urheberrechte verzichtet werden.|
 |Werke mit spezieller Lizenz|Werke, die mit einer Lizenz wie „Creative Commons“ oder „GNU Free Documentation License“ (GDFL) verteilt werden. Wikipedia verwendet GFDL. Einige Lizenzen können jedoch die Darbietung der lizenzierten Inhalte beschränken. Dies kann Einfluss auf die Erstellung eines benutzerdefinierten Stimmmodells haben. Lesen Sie die Lizenzbedingungen also sorgfältig durch.|
 
@@ -131,7 +131,7 @@ Sie können auch ein analoges Mikrofon verwenden. Viele Verleihhäuser bieten �
 
 Montieren Sie das Mikrofon auf einem Ständer oder Schwenkarm, und befestigen Sie einen Popschutz vor dem Mikrofon, um Störungen durch „plosiven“ Konsonanten wie „p“ und „b“ zu vermeiden. Einige Mikrofone verfügen über eine Aufhängung, die sie vor Vibrationen im Ständer isoliert. Dies ist hilfreich.
 
-Der Sprecher muss einen einheitlichen Abstand zum Mikrofon einhalten. Markieren Sie auf dem Boden mit Klebeband, wo der Sprecher stehen sollte. Wenn der Sprecher lieber sitzen möchte, kontrollieren Sie den Abstand zum Mikrofon besonders sorgfältig, und vermeiden Sie Geräusche durch den Stuhl.
+Der Sprecher muss einen einheitlichen Abstand zum Mikrofon einhalten. Markieren Sie auf dem Boden mit Klebeband, wo er stehen sollte. Wenn der Sprecher lieber sitzen möchte, kontrollieren Sie den Abstand zum Mikrofon besonders sorgfältig, und vermeiden Sie Geräusche durch den Stuhl.
 
 Verwenden Sie einen Ständer, um das Skript abzulegen. Der Ständer sollte nicht so stehen, dass er den Klang zum Mikrofon zurückwirft.
 

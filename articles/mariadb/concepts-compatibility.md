@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.openlocfilehash: 7a3d9a5f87a565625052fc54e3ecccc99fd928a7
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61386805"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB-Treiber und -Verwaltungstools, die mit Azure Database for MariaDB kompatibel sind
 

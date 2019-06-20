@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 857d29f407c9939143fbb8263be40dadb040efdc
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439216"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177916"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -23,7 +23,7 @@ RADIUS-Authentifizierung wird für die SKUs „VpnGw1“, „VpnGw2“ und „Vp
  
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>Wird die RADIUS-Authentifizierung für das klassische Bereitstellungsmodell unterstützt?
  
- Nein. Die RADIUS-Authentifizierung wird für das klassische Bereitstellungsmodell nicht unterstützt.
+Nein. Die RADIUS-Authentifizierung wird für das klassische Bereitstellungsmodell nicht unterstützt.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>Werden RADIUS-Server von Drittanbietern unterstützt?
 
@@ -35,7 +35,7 @@ Eine VPN-S2S-Verbindung mit dem lokalen Standort ist erforderlich. (Dabei müsse
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>Kann Datenverkehr für einen lokalen RADIUS-Server (vom Azure-VPN-Gateway) über eine ExpressRoute-Verbindung weitergeleitet werden?
 
- Nein. Er kann nur über eine S2S-Verbindung weitergeleitet werden.
+Nein. Er kann nur über eine S2S-Verbindung weitergeleitet werden.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Hat sich die Anzahl von SSTP-Verbindungen geändert, die mit RADIUS-Authentifizierung unterstützt werden? Wie viele SSTP- und IKEv2-Verbindungen werden maximal unterstützt?
 

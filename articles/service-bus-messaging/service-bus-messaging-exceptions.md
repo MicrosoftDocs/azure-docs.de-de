@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: b90e87310bf6dec505176b7f4d4cb9e15ac57c20
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60307776"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus-Messagingausnahmen
 In diesem Artikel werden einige Ausnahmen aufgelistet, die von den Microsoft Azure Service Bus-Messaging-APIs generiert werden. Diese Referenz kann geändert werden. Prüfen Sie darum bei Bedarf, ob Aktualisierungen vorgenommen wurden.
@@ -78,7 +78,7 @@ Die Meldung besagt, dass das Thema seine maximale Größe überschritten hat, in
 
 ### <a name="namespaces"></a>Namespaces
 
-Für Namespaces kann [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) angeben, dass eine Anwendung die maximale Anzahl der Verbindungen zu einem Namespace überschritten hat. Beispiel: 
+Für Namespaces kann [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) angeben, dass eine Anwendung die maximale Anzahl der Verbindungen zu einem Namespace überschritten hat. Beispiel:
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -90,7 +90,7 @@ ConnectionsQuotaExceeded for namespace xxx.
 #### <a name="common-causes"></a>Häufige Ursachen
 Es gibt zwei häufige Ursachen für diesen Fehler: die Warteschlange für unzustellbare Nachrichten und nicht funktionierende Nachrichtenempfänger.
 
-1. **[Warteschlange für unzustellbare Nachrichten](service-bus-dead-letter-queues.md)**: Ein Leser kann Nachrichten nicht abschließen, und die Nachrichten werden nach Ablauf der Sperre an die Warteschlange/das Thema zurückgegeben. Dies kann auftreten, wenn der Leser auf eine Ausnahme trifft, die den Aufruf von [BrokeredMessage.Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete)verhindert. Nachdem eine Nachricht 10 Mal gelesen wurde, wird sie standardmäßig in die Warteschlange für unzustellbare Nachrichten verschoben. Dieses Verhalten wird von der Eigenschaft [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) gesteuert, die standardmäßig den Wert 10 aufweist. Wenn sich Nachrichten in der Warteschlange für unzustellbare Nachrichten anhäufen, belegen sie Speicherplatz.
+1. **[Warteschlange für unzustellbare Nachrichten](service-bus-dead-letter-queues.md)** : Ein Leser kann Nachrichten nicht abschließen, und die Nachrichten werden nach Ablauf der Sperre an die Warteschlange/das Thema zurückgegeben. Dies kann auftreten, wenn der Leser auf eine Ausnahme trifft, die den Aufruf von [BrokeredMessage.Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete)verhindert. Nachdem eine Nachricht 10 Mal gelesen wurde, wird sie standardmäßig in die Warteschlange für unzustellbare Nachrichten verschoben. Dieses Verhalten wird von der Eigenschaft [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) gesteuert, die standardmäßig den Wert 10 aufweist. Wenn sich Nachrichten in der Warteschlange für unzustellbare Nachrichten anhäufen, belegen sie Speicherplatz.
    
     Um das Problem zu beheben, lesen und schließen Sie die Nachrichten in der Warteschlange für unzustellbare Nachrichten ab – genau wie in jeder anderen Warteschlange. Sie können die Methode [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) verwenden, die Sie beim Formatieren des Pfads für die Warteschlange für unzustellbare Nachrichten unterstützt.
 2. **Empfänger beendet**. Ein Empfänger hat den Empfang von Nachrichten aus einer Warteschlange oder einem Abonnement beendet. Dies können Sie anhand der Eigenschaft [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) feststellen, die die vollständige Aufschlüsselung der Nachrichten zeigt. Wenn die Eigenschaft [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) hoch ist oder anwächst, werden die Nachrichten nicht so schnell gelesen, wie sie geschrieben werden.

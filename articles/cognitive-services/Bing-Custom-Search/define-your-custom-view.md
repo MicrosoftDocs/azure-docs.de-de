@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236260"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390421"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurieren der Benutzeroberfläche für die benutzerdefinierte Bing-Suche
 
@@ -74,7 +74,7 @@ Nach dem Hinzufügen von Websegmenten zur Liste **Aktiv** werden im Portal für 
 
 ## <a name="search-for-images-and-videos"></a>Suchen nach Bildern und Videos
 
-Sie können nach Bildern und Videos auf ähnliche Weise wie nach Webinhalten suchen, indem Sie die [API für die benutzerdefinierte Bing-Bildersuche](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) bzw. die [API für die benutzerdefinierte Bing-Videosuche](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference) verwenden. Sie können diese Ergebnisse mit der [gehosteten Benutzeroberfläche](hosted-ui.md) oder den APIs anzeigen. 
+Sie können nach Bildern und Videos auf ähnliche Weise wie nach Webinhalten suchen, indem Sie die [API für die benutzerdefinierte Bing-Bildersuche](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) bzw. die [API für die benutzerdefinierte Bing-Videosuche](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) verwenden. Sie können diese Ergebnisse mit der [gehosteten Benutzeroberfläche](hosted-ui.md) oder den APIs anzeigen. 
 
 Diese APIs ähneln den APIs für die nicht benutzerdefinierte [Bing-Bildersuche](../Bing-Image-Search/overview.md) und [Bing-Videosuche](../Bing-Video-Search/search-the-web.md). Es wird aber das gesamte Web durchsucht, und der Abfrageparameter `customConfig` ist nicht erforderlich. In diesen Dokumentationssätzen finden Sie auch weitere Informationen zur Arbeit mit Bildern und Videos. 
 
@@ -83,7 +83,7 @@ Diese APIs ähneln den APIs für die nicht benutzerdefinierte [Bing-Bildersuche]
 Sie können Ihre Suchinstanz im Vorschaubereich auf der rechten Seite testen, um Suchabfragen zu übermitteln und die Ergebnisse anzuzeigen. 
 
 1. Wählen Sie unterhalb des Suchfelds die Option **Meine Instanz**. Sie können die Ergebnisse Ihrer Suchbenutzeroberfläche mit Bing vergleichen, indem Sie die Option **Bing** wählen. 
-2. Wählen Sie einen sicheren Suchfilter und den zu durchsuchenden Markt aus (siehe [Abfrageparameter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)).
+2. Wählen Sie einen sicheren Suchfilter und den zu durchsuchenden Markt aus (siehe [Abfrageparameter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Geben Sie eine Abfrage ein, und drücken Sie die EINGABETASTE, oder klicken Sie auf das Suchsymbol, um die Ergebnisse aus der aktuellen Konfiguration anzuzeigen. Sie können den Typ der von Ihnen durchgeführten Suche ändern, indem Sie auf **Web**, **Bild** oder **Video** klicken, um die entsprechenden Ergebnisse abzurufen. 
 
 <a name="adjustrank"></a>

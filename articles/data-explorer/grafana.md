@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66399911"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualisieren von Daten über Azure Data Explorer in Grafana
 
@@ -208,6 +208,6 @@ Nachdem Sie den Azure Data Explorer als Datenquelle für Grafana konfiguriert ha
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schreiben von Abfragen für den Azure-Daten-Explorer](write-queries.md)
+* [Schreiben von Abfragen für den Azure-Daten-Explorer](write-queries.md)
 
-[Tutorial: Visualisieren von Daten über Azure Data Explorer in Power BI](visualize-power-bi.md)
+* [Tutorial: Visualisieren von Daten über Azure Data Explorer in Power BI](visualize-power-bi.md)

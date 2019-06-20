@@ -1,9 +1,9 @@
 ---
-title: Erstellen eines Zertifikats für sicheres LDAP für eine über Azure AD Domain Services verwaltete Domäne | Microsoft-Dokumentation
+title: Erstellen einer PFX-Datei mit dem Zertifikat für sicheres LDAP (LDAPS) für eine Azure AD Domain Services-Domäne
 description: Erstellen eines Zertifikats für sicheres LDAP für eine über Azure AD Domain Services verwaltete Domäne
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,22 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 05/13/2019
+ms.author: mstephen
+ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883452"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235021"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Erstellen einer PFX-Datei mit dem Zertifikat für sicheres LDAP (LDAPS) für eine verwaltete Domäne
 
 ## <a name="before-you-begin"></a>Voraussetzungen
-Führen Sie [Aufgabe 1: Erwerben eines Zertifikats für sicheres LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) aus.
 
+Führen Sie [Aufgabe 1: Erwerben eines Zertifikats für sicheres LDAP](configure-ldaps.md) aus.
 
 ## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Aufgabe 2: Exportieren des Zertifikats für sicheres LDAP in eine PFX-Datei
+
 Rufen Sie vor dem Ausführen dieser Aufgabe das Zertifikat für sicheres LDAP von einer öffentlichen Zertifizierungsstelle ab, oder erstellen Sie ein selbstsigniertes Zertifikat.
 
 So exportieren Sie das LDAPS-Zertifikat in eine PFX-Datei
@@ -40,7 +41,7 @@ So exportieren Sie das LDAPS-Zertifikat in eine PFX-Datei
 3. Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.
 
     ![Hinzufügen des Snap-Ins zur MMC-Konsole](./media/active-directory-domain-services-admin-guide/secure-ldap-add-snapin.png)
-4. Wählen Sie im Dialogfeld **Snap-Ins hinzufügen bzw. entfernen** das Snap-In **Zertifikate** aus, und klicken Sie auf die Schaltfläche **Hinzufügen >**.
+4. Wählen Sie im Dialogfeld **Snap-Ins hinzufügen bzw. entfernen** das Snap-In **Zertifikate** aus, und klicken Sie auf die Schaltfläche **Hinzufügen >** .
 
     ![Hinzufügen des Zertifikat-Snap-Ins zur MMC-Konsole](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin.png)
 5. Wählen Sie im Assistenten **Zertifikat-Snap-In** die Option **Computerkonto** aus, und klicken Sie auf **Weiter**.
@@ -96,6 +97,6 @@ So exportieren Sie das LDAPS-Zertifikat in eine PFX-Datei
 
     ![Exportieren des Zertifikats – fertig](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## <a name="next-step"></a>Nächster Schritt
+
 [Aufgabe 3: Aktivieren von sicherem LDAP für die verwaltete Domäne](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

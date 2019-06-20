@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
 ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60199413"
 ---
 # <a name="pricing"></a>Preise
 Die folgenden Informationen gelten für Bash in Azure Cloud Shell und für PowerShell in Azure Cloud Shell.

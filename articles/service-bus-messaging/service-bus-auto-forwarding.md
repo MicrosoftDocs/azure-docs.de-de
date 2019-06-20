@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593385"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64686137"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Verketten von Service Bus-Entitäten mit automatischer Weiterleitung
 
@@ -46,6 +46,10 @@ Sie können die automatische Weiterleitung auch verwenden, um Nachrichtenabsende
 ![Szenario mit automatischer Weiterleitung][1]
 
 Wenn Alice im Urlaub ist, wird ihre persönliche Warteschlange gefüllt, nicht das ERP-Thema. Da in diesem Szenario kein Vertriebsmitarbeiter Nachrichten empfangen hat, erreicht keines der ERP-Themen je das Kontingent.
+
+> [!NOTE]
+> Wenn automatische Weiterleitung eingerichtet ist, wird der Wert für AutoDeleteOnIdle für das Ziel automatisch auf den Maximalwert des Datentyps festgelegt.
+> Dies erfolgt, um sicherzustellen, dass immer ein Ziel vorhanden ist, an das die Nachricht weitergeleitet werden kann.
 
 ## <a name="autoforwarding-considerations"></a>Überlegungen bei der automatischen Weiterleitung
 

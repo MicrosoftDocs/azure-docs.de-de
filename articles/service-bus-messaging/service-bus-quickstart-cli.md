@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500633"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400260"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Schnellstart: Erstellen einer Service Bus-Warteschlange mithilfe der Azure CLI
 In dieser Schnellstartanleitung wird beschrieben, wie Sie Nachrichten mit Service Bus senden und empfangen, indem Sie die Azure CLI und die Service Bus-Java-Bibliothek verwenden. Falls Sie an technischeren Details interessiert sind, können Sie auch die [Beschreibung](#understand-the-sample-code) der wichtigen Elemente des Beispielcodes lesen.
@@ -22,7 +22,7 @@ In dieser Schnellstartanleitung wird beschrieben, wie Sie Nachrichten mit Servic
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto][] erstellen, bevor Sie beginnen.
+Falls Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto][free account] erstellen, bevor Sie beginnen.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -367,6 +367,9 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 }
 ```
 
+> [!NOTE]
+> Sie können Service Bus-Ressourcen mit dem [Service Bus-Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/) verwalten. Mit dem Service Bus-Explorer können Benutzer eine Verbindung mit einem Service Bus-Namespace herstellen und Messagingentitäten auf einfache Weise verwalten. Das Tool stellt erweiterte Features wie Import-/Exportfunktionen oder Testmöglichkeiten für Themen, Warteschlangen, Abonnements, Relaydienste, Notification Hubs und Event Hubs zur Verfügung. 
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 In diesem Artikel haben Sie einen Service Bus-Namespace und weitere erforderliche Ressourcen zum Senden und Empfangen von Nachrichten für eine Warteschlange erstellt. Weitere Informationen zum Schreiben von Code und Senden und Empfangen von Nachrichten finden Sie in den Tutorials im Abschnitt **Senden und Empfangen von Nachrichten**. 
@@ -374,7 +377,7 @@ In diesem Artikel haben Sie einen Service Bus-Namespace und weitere erforderlich
 > [!div class="nextstepaction"]
 > [Senden und Empfangen von Nachrichten](service-bus-dotnet-get-started-with-queues.md)
 
-[kostenloses Konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

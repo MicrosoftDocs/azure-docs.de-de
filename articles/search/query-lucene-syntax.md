@@ -4,7 +4,7 @@ description: Referenz für die vollständige Lucene-Syntax, die mit Azure Search
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024206"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002247"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-Abfragesyntax in Azure Search
 Sie können für Azure Search basierend auf der umfassenden Syntax des [Lucene-Abfrageparsers](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) spezielle Abfragen schreiben: Platzhaltersuche, Fuzzysuche, NEAR-Suche und Suche mit regulären Ausdrücken sind einige Beispiele hierfür. Der Großteil der Syntax des Lucene-Abfrageparsers wird [in Azure Search unverändert implementiert](search-lucene-query-architecture.md). Die einzige Ausnahme sind *Bereichssuchen*, die in Azure Search mit `$filter`-Ausdrücken erstellt werden. 
@@ -79,7 +79,7 @@ Im obigen Beispiel geht es um das Tildezeichen (~), das gleiche Prinzip gilt jed
  Sonderzeichen müssen mit Escapezeichen versehen werden, damit sie als Teil des Suchtexts interpretiert werden. Als Escapezeichen können Sie Sonderzeichen den umgekehrten Schrägstrich (\\) voranstellen. Die folgenden Sonderzeichen müssen mit Escapezeichen versehen werden:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Verwenden Sie beispielsweise \\*, um ein Platzhalterzeichen mit Escapezeichen zu versehen.
+ Verwenden Sie beispielsweise \\\*, um ein Platzhalterzeichen mit Escapezeichen zu versehen.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codierung von unsicheren und reservierten Zeichen in URLs
 
@@ -121,16 +121,19 @@ Der NOT-Operator ist ein Ausrufezeichen oder ein Minuszeichen. Beispiel: `wifi !
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Bewerten von Platzhalterabfragen und Abfragen mit regulären Ausdrücken
  Azure Search verwendet die häufigkeitsbasierte Bewertung ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) für Textabfragen. Für Platzhalterabfragen und Abfragen mit regulären Ausdrücken, bei denen die Anzahl von Begriffen groß sein kann, wird der Häufigkeitsfaktor jedoch ignoriert. Dadurch wird verhindert, dass Übereinstimmungen für seltenere Begriffe bei der Rangzuweisung bevorzugt behandelt werden. Alle Übereinstimmungen werden bei Platzhalterabfragen und Abfragen mit regulären Ausdrücken gleich behandelt.
 
-##  <a name="bkmk_fields"></a> Feldbezogene Abfragen  
- Sie können ein `fieldname:searchterm`-Konstrukt angeben, um einen feldbezogenen Abfragevorgang zu definieren. Hierbei ist das Feld ein einzelnes Wort, und der Suchbegriff ist ebenfalls ein einzelnes Wort oder ein Ausdruck (optional mit booleschen Operatoren). Beispiele hierfür sind:  
+##  <a name="bkmk_fields"></a>Feldbezogene Suche  
+Sie können einen feldbezogenen Suchvorgang mit der `fieldName:searchExpression`-Syntax definieren, wobei es sich bei dem Suchausdruck um ein einzelnes Wort, einen einfachen Ausdruck oder einen komplexeren Ausdruck in Klammern handeln kann, optional mit booleschen Operatoren. Beispiele hierfür sind:  
 
 - genre:jazz NOT history  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  Achten Sie darauf, dass Sie mehrere Zeichenfolgen in Anführungszeichen setzen, wenn beide Zeichenfolgen als einzelne Entität ausgewertet werden sollen (in diesem Fall die Suche nach zwei verschiedenen Künstlern im Feld `artists`).  
+Achten Sie darauf, dass Sie mehrere Zeichenfolgen in Anführungszeichen setzen, wenn beide Zeichenfolgen als einzelne Entität ausgewertet werden sollen (in diesem Fall die Suche nach zwei verschiedenen Künstlern im Feld `artists`).  
 
-  Das in `fieldname:searchterm` angegebene Feld muss ein Feld vom Typ `searchable` sein.  Einzelheiten zur Verwendung von Indexattributen in Felddefinitionen finden Sie unter [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Erstellen eines Index).  
+Das in `fieldName:searchExpression` angegebene Feld muss ein Feld vom Typ `searchable` sein.  Einzelheiten zur Verwendung von Indexattributen in Felddefinitionen finden Sie unter [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Erstellen eines Index).  
+
+> [!NOTE]
+> Bei der Verwendung von feldbezogenen Suchausdrücken brauchen Sie den Parameter `searchFields` nicht zu verwenden, da in jedem feldbezogenen Suchausdruck explizit ein Feldname angegeben ist. Allerdings können Sie den Parameter `searchFields` trotzdem verwenden, wenn Sie eine Abfrage ausführen möchten, bei der einige Teile auf ein bestimmtes Feld beschränkt sind, der Rest sich jedoch auf mehrere Felder beziehen kann. Zum Beispiel würde `jazz` in der Abfrage `search=genre:jazz NOT history&searchFields=description` nur mit dem Feld `genre`, und `NOT history` mit dem Feld `description` abgeglichen werden. Der in `fieldName:searchExpression` angegebene Feldname hat immer Vorrang vor dem Parameter `searchFields`, weshalb `genre` in diesem Beispiel nicht in den Parameter `searchFields` aufgenommen werden muss.
 
 ##  <a name="bkmk_fuzzy"></a> Fuzzysuche  
  Bei einer Fuzzysuche werden Übereinstimmungen in Ausdrücken gefunden, die ähnlich aufgebaut sind. Laut [Lucene-Dokumentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) basiert die Fuzzysuche auf der [Damerau-Levenshtein-Distanz](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Durch eine Fuzzysuche kann ein Begriff auf bis zu 50 Begriffe erweitert werden, die den Distanzkriterien entsprechen. 

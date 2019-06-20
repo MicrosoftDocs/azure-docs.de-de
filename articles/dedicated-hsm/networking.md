@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: d6672827a87fbb949237d51310f1a9febc192ff2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 042ecabe38969a6a26c27622b8c3d25193b3e7c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62118033"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure-Dienst für dedizierte HSMs – Netzwerke
 

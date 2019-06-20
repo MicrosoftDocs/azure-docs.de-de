@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 4994687afbdd23f0265138cd1d4eff53bb47c163
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 43bd5248f1bb80c71a85935c585deac6152be78b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295882"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62105088"
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Erste Schritte mit dem Google Drive-Connector
 Verbinden Sie sich mit Google Drive, um Dateien zu erstellen, Zeilen abzurufen usw. Google Drive ermöglicht Folgendes: 

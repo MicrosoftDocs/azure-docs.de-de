@@ -11,11 +11,11 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57846955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60694259"
 ---
 # <a name="my-first-powershell-runbook"></a>Mein erstes PowerShell-Runbook
 

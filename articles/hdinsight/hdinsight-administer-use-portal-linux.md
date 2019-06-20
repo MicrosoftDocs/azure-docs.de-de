@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 528d2fd5b26e06478078711405bd5b9ca51feeda
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721924"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860000"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Verwalten von Apache Hadoop-Clustern in HDInsight mit dem Azure-Portal
 
@@ -204,7 +204,7 @@ Es gibt viele Methoden, mit denen Sie den Prozess programmieren können:
 
 * Verwenden Sie Azure Data Factory. Informationen zum Erstellen bedarfsgesteuerter verknüpfter HDInsight-Dienste finden Sie unter [Erstellen von bedarfsgesteuerten Linux-basierten Apache Hadoop-Clustern in HDInsight mit Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md).
 * Verwenden Sie Azure PowerShell.  Weitere Informationen hierzu finden Sie unter [Analysieren von Flugverspätungsdaten mit Hive in HDInsight](hdinsight-analyze-flight-delay-data-linux.md).
-* Verwenden Sie die klassische Azure-Befehlszeilenschnittstelle. Weitere Informationen hierzu finden Sie unter [Verwalten von Hadoop-Clustern in HDInsight mit der klassischen Azure CLI](hdinsight-administer-use-command-line.md).
+* Verwenden Sie die Azure-Befehlszeilenschnittstelle. Weitere Informationen finden Sie unter [Verwalten von Azure HDInsight-Clustern mit der Azure-Befehlszeilenschnittstelle](hdinsight-administer-use-command-line.md).
 * Verwenden das Sie HDInsight .NET-SDK. Weitere Informationen finden Sie unter [Übermitteln von Apache Hadoop-Aufträgen](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Die Preisinformationen finden Sie unter [HDInsight Preise](https://azure.microsoft.com/pricing/details/hdinsight/). Informationen zum Löschen eines Clusters aus dem Portal finden Sie unter [Löschen von Clustern](#delete-clusters)
@@ -284,7 +284,7 @@ In HDInsight-Clustern stehen die folgenden HTTP-Webdienste zur Verfügung (alle 
 * Oozie
 * Templeton
 
-Der Zugriff auf diese Dienste wird standardmäßig gewährt. Sie können den Zugriff mit der [klassischen Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) und mit [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access) widerrufen/gewähren.
+Der Zugriff auf diese Dienste wird standardmäßig gewährt. Sie können den Zugriff mit [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access) widerrufen/gewähren.
 
 ## <a name="find-the-subscription-id"></a>Ermitteln der Abonnement-ID
 Jeder Cluster ist mit einem Azure-Abonnement verknüpft.  Sie können die Azure-Abonnement-ID auf der [Cluster-Homepage](#homePage) einsehen.
@@ -316,7 +316,7 @@ Der Abschnitt **Nutzung** auf dem Blatt für den HDInsight-Cluster enthält Info
 In diesem Artikel haben Sie einige grundlegende administrative Funktionen kennengelernt. Weitere Informationen finden Sie in den folgenden Artikeln:
 
 * [Verwalten von HDInsight mit Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Verwalten von Hadoop-Clustern in HDInsight mit der klassischen Azure CLI](hdinsight-administer-use-command-line.md)
+* [Verwalten von HDInsight mit der Azure-CLI](hdinsight-administer-use-command-line.md)
 * [Erstellen von Hadoop-Clustern in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Verwalten von HDInsight-Clustern mithilfe der Apache Ambari-Webbenutzeroberfläche](hdinsight-hadoop-manage-ambari.md)
 * [Verwenden der Apache Ambari-REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)

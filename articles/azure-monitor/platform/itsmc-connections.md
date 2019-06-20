@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395569"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399775"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinden von ITSM-Produkten/-Diensten mit dem ITSM-Connector
 Dieser Artikel bietet Informationen dazu, wie Sie die Verbindung zwischen Ihrem ITSM-Produkt bzw. -Dienst und dem ITSM-Connector (ITSMC) in Log Analytics konfigurieren, um Arbeitselemente zentral zu verwalten. Weitere Informationen zu ITSMC finden Sie in der [Übersicht](../../azure-monitor/platform/itsmc-overview.md).
@@ -51,7 +51,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt werden:
 
 Verwenden Sie das folgende Verfahren zum Verbinden Ihrer System Center Service Manager-Instanz mit ITSMC:
 
-1. Navigieren Sie im Azure-Portal zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)**.
+1. Navigieren Sie im Azure-Portal zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)** .
 
 2.  Klicken Sie unter **ARBEITSBEREICHSDATENQUELLEN** auf **ITSM-Verbindungen**.
 
@@ -72,8 +72,8 @@ Verwenden Sie das folgende Verfahren zum Verbinden Ihrer System Center Service M
 | **Server-URL**   | Geben Sie die URL der Service Manager-Web-App ein. Weitere Informationen zur Service Manager-Web-App finden Sie [hier](#create-and-deploy-service-manager-web-app-service).
 | **Client-ID**   | Geben Sie die Client-ID ein, die Sie (mithilfe des automatischen Skripts) zum Authentifizieren der Web-App generiert haben. Weitere Informationen zum automatisierten Skript finden Sie [hier](../../azure-monitor/platform/itsmc-service-manager-script.md).|
 | **Geheimer Clientschlüssel**   | Geben Sie den für diese ID generierten geheimen Clientschlüssel ein.   |
-| **Datensynchronisierungsbereich**   | Wählen Sie die Service Manager-Arbeitselemente aus, die Sie über ITSMC synchronisieren möchten.  Diese Arbeitselemente werden in Log Analytics importiert. **Optionen:**  Incidents, Änderungsanforderungen.|
-| **Daten synchronisieren** | Geben Sie die Anzahl der vergangenen Tage ein, aus denen die Daten abgerufen werden sollen. **Maximales Limit**: 120 Tage. |
+| **Daten synchronisieren**   | Wählen Sie die Service Manager-Arbeitselemente aus, die Sie über ITSMC synchronisieren möchten.  Diese Arbeitselemente werden in Log Analytics importiert. **Optionen:**  Incidents, Änderungsanforderungen.|
+| **Datensynchronisierungsbereich** | Geben Sie die Anzahl der vergangenen Tage ein, aus denen die Daten abgerufen werden sollen. **Maximales Limit**: 120 Tage. |
 | **Erstellen des neuen Konfigurationselements in der ITSM-Lösung** | Wählen Sie diese Option, wenn Sie die Konfigurationselemente im ITSM-Produkt erstellen möchten. Bei Auswahl dieser Option erstellt Log Analytics die entsprechenden CIs als Konfigurationselemente (falls keine CIs vorhanden sind) im unterstützten ITSM-System. **Standard**: deaktiviert. |
 
 ![Service Manager-Verbindung](media/itsmc-connections/service-manager-connection.png)
@@ -185,11 +185,12 @@ Die folgenden Abschnitte enthalten ausführliche Informationen zum Verbinden Ihr
 ### <a name="prerequisites"></a>Voraussetzungen
 Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt werden:
 - ITSMC wurde installiert. Weitere Informationen: [Hinzufügen der IT Service Management Connector-Lösung](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Von ServiceNow unterstützte Versionen: London, Kingston, Jakarta, Istanbul, Helsinki, Genf.
+- Von ServiceNow unterstützte Versionen: Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Genf.
 
 **ServiceNow-Administratoren müssen in ihrer ServiceNow-Instanz die folgenden Schritte ausführen**:
 - Generieren der Client-ID und des geheimen Clientschlüssels für das ServiceNow-Produkt. Informationen zum Generieren der Client-ID und des geheimen Clientschlüssels finden Sie in dem für Sie zutreffenden Abschnitt:
 
+    - [OAuth-Setup für Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth-Setup für London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth-Setup für Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth-Setup für Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -205,7 +206,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt werden:
 Verwenden Sie das folgende Verfahren, um eine ServiceNow-Verbindung zu erstellen:
 
 
-1. Navigieren Sie im Azure-Portal zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)**.
+1. Navigieren Sie im Azure-Portal zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)** .
 
 2.  Klicken Sie unter **ARBEITSBEREICHSDATENQUELLEN** auf **ITSM-Verbindungen**.
     ![Neue Verbindung](media/itsmc-connections/add-new-itsm-connection.png)
@@ -300,7 +301,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt werden:
 
 Verwenden Sie das folgende Verfahren, um eine Provance-Verbindung zu erstellen:
 
-1. Navigieren Sie im Azure-Portal zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)**.
+1. Navigieren Sie im Azure-Portal zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)** .
 
 2.  Klicken Sie unter **ARBEITSBEREICHSDATENQUELLEN** auf **ITSM-Verbindungen**.
     ![Neue Verbindung](media/itsmc-connections/add-new-itsm-connection.png)
@@ -351,7 +352,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt werden:
 
 Verwenden Sie das folgende Verfahren, um eine Provance-Verbindung zu erstellen:
 
-1. Navigieren Sie im Azure-Portal zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)**.
+1. Navigieren Sie im Azure-Portal zu **Alle Ressourcen**, und suchen Sie nach **ServiceDesk(YourWorkspaceName)** .
 
 2.  Klicken Sie unter **ARBEITSBEREICHSDATENQUELLEN** auf **ITSM-Verbindungen**.
     ![Neue Verbindung](media/itsmc-connections/add-new-itsm-connection.png)
@@ -392,8 +393,8 @@ Weitere Informationen: [Erstellen von ITSM-Arbeitselementen aus Azure-Warnungen]
 Führen Sie folgende Schritte aus, um die Client-ID/den Schlüssel für Cherwell zu generieren:
 
 1. Melden Sie sich als Administrator bei Ihrer Cherwell-Instanz an.
-2. Klicken Sie auf **Sicherheit** > **Edit REST API client settings (REST-API-Clienteinstellungen bearbeiten)**.
-3. Wählen Sie **Create new client (Neuen Client erstellen)** > **Geheimer Clientschlüssel**.
+2. Klicken Sie auf **Sicherheit** > **Edit REST API client settings (REST-API-Clienteinstellungen bearbeiten)** .
+3. Wählen Sie **Create new client (Neuen Client erstellen)**  > **Geheimer Clientschlüssel**.
 
     ![Cherwell-Benutzer-ID](media/itsmc-connections/itsmc-cherwell-client-id.png)
 

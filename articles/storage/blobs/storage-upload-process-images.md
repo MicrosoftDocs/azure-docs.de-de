@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: 26b92db330c882aaf258b6e24560cbf2f7930a5f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e5be86f9f7fbaedeb8fbb10b89926644dcf8aac2
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237123"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835137"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Hochladen von Bilddaten in die Cloud mit Azure Storage
 
@@ -131,7 +131,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 App Service unterstützt verschiedene Möglichkeiten zum Bereitstellen von Inhalt für eine Web-App. In diesem Tutorial stellen Sie die Web-App aus einem [öffentlichen GitHub-Beispielrepository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp) bereit. Konfigurieren Sie die GitHub-Bereitstellung für die Web-App mit dem Befehl [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
-Das Beispielprojekt enthält eine [ASP.NET MVC](https://www.asp.net/mvc)-App. Die App akzeptiert ein Bild, speichert es unter einem Speicherkonto und zeigt Bilder aus einem Container mit Miniaturansichten an. Die Web-App verwendet die Namespaces [Microsoft.WindowsAzure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob) und Microsoft.WindowsAzure.Storage.Auth aus der Azure Storage-Clientbibliothek für die Interaktion mit Azure Storage.
+Das Beispielprojekt enthält eine [ASP.NET MVC](https://www.asp.net/mvc)-App. Die App akzeptiert ein Bild, speichert es unter einem Speicherkonto und zeigt Bilder aus einem Container mit Miniaturansichten an. Die Web-App verwendet die Namespaces [Microsoft.Azure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob) und „Microsoft.Azure.Storage.Auth“ aus der Azure Storage-Clientbibliothek für die Interaktion mit Azure Storage.
 
 ```azurecli-interactive
 az webapp deployment source config --name $webapp \
@@ -163,7 +163,7 @@ az webapp deployment source config --name $webapp \
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-Die Beispiel-Web-App verwendet die [Azure Storage-Clientbibliothek](/dotnet/api/overview/azure/storage?view=azure-dotnet) zum Anfordern von Zugriffstoken, die zum Hochladen von Bildern verwendet werden. Die vom Storage SDK verwendeten Anmeldeinformationen des Speicherkontos werden in den App-Einstellungen für die Web-App festgelegt. Fügen Sie der bereitgestellten App mit dem Befehl [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) App-Einstellungen hinzu.
+Die Beispiel-Web-App verwendet die [Azure Storage-Clientbibliothek](/dotnet/api/overview/azure/storage) zum Anfordern von Zugriffstoken, die zum Hochladen von Bildern verwendet werden. Die vom Storage SDK verwendeten Anmeldeinformationen des Speicherkontos werden in den App-Einstellungen für die Web-App festgelegt. Fügen Sie der bereitgestellten App mit dem Befehl [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) App-Einstellungen hinzu.
 
 ```azurecli-interactive
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -213,7 +213,7 @@ Wählen Sie den Bereich **Fotos hochladen** aus, um eine Datei auszuwählen und 
 
 ![ImageResizer-App](media/storage-upload-process-images/figure1.png)
 
-Im Beispielcode wird der Task `UploadFiletoStorage` in der Datei *Storagehelper.cs* verwendet, um die Bilder mit der [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)-Methode in den Container *images* des Speicherkontos hochzuladen. Das folgende Codebeispiel enthält einen Task „`UploadFiletoStorage`“.
+Im Beispielcode wird der Task `UploadFiletoStorage` in der Datei *Storagehelper.cs* verwendet, um die Bilder mit der [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync)-Methode in den Container *images* des Speicherkontos hochzuladen. Das folgende Codebeispiel enthält einen Task „`UploadFiletoStorage`“.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)

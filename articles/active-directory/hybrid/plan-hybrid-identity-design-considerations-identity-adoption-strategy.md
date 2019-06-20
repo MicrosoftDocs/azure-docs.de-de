@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193481"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496740"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definieren einer Strategie zur Hybrididentitätsübernahme
 In dieser Aufgabe definieren Sie die Strategie zur Hybrididentitätsübernahme für Ihre Hybrididentitätslösung, um die geschäftlichen Anforderungen zu erfüllen, die hier erörtert wurden:
@@ -37,7 +37,7 @@ Die erste Aufgabe ist, die Geschäftsanforderungen der Organisation zu ermitteln
 ## <a name="define-an-integration-strategy"></a>Definieren einer Integrationsstrategie
 Die drei wichtigsten Integrationsszenarien von Microsoft sind Cloudidentitäten, synchronisierte Identitäten und verbundene Identitäten.  Sie sollten eine dieser Integrationsstrategien anwenden.  Die Entscheidung für die zu verwendende Strategie kann unter anderem davon abhängen, welche Art von Benutzeroberfläche Sie bereitstellen möchten, ob bereits eine Infrastruktur vorhanden ist und welche Lösung die kostengünstigste ist.  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![Integrationsszenarien](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 In der obigen Abbildung sind folgende Szenarien definiert:
 
@@ -54,9 +54,9 @@ Die folgende Tabelle hilft Ihnen bei der Bestimmung der Vor- und Nachteile der f
 
 | Strategie | Vorteile | Nachteile |
 | --- | --- | --- |
-| **Cloudidentitäten** |Für kleine Organisationen einfacher zu verwalten. <br> Keine lokale Installation erforderlich. Keine zusätzliche Hardware erforderlich.<br>Problemlos deaktivierbar, wenn der Benutzer das Unternehmen verlässt |Benutzer müssen sich für den Zugriff auf Workloads in der Cloud anmelden <br>  Kennwörter können, müssen aber nicht für Cloud- und lokale Identitäten identisch sein |
-| **Synchronisiert** |Lokales Kennwort dient zur Authentifizierung sowohl bei lokalen als auch bei Cloudverzeichnissen <br>Einfacher zu verwalten für kleine, mittlere und große Organisationen <br>Benutzer können für einige Ressourcen einmaliges Anmelden (Single Sign-On, SSO) verwenden. <br> Von Microsoft bevorzugte Synchronisierungsmethode <br>  Einfacher zu verwalten |Einige Kunden sind aufgrund spezifischer Unternehmensrichtlinien möglicherweise zurückhaltend bezüglich der Synchronisierung ihrer Verzeichnisse mit der Cloud |
-| **Im Verbund** |Benutzer können einmaliges Anmelden (Single Sign-On, SSO) nutzen  <br>Wenn ein Benutzer aufhört oder das Unternehmen verlässt, kann das Konto sofort deaktiviert und der Zugriff widerrufen werden.<br> Unterstützt erweiterte Szenarien, die mit Synchronisierung nicht möglich sind |Mehr Schritte für Einrichtung und Konfiguration <br> Höherer Wartungsaufwand <br> Erfordert ggf. zusätzliche Hardware für die STS-Infrastruktur <br> Möglicherweise muss zusätzliche Hardware auf dem Verbundserver installiert werden. Bei Verwendung von AD FS ist zusätzliche Software erforderlich <br> Erfordert umfangreiches Einrichtung für SSO <br> Kritischer Point of Failure: Wenn der Verbundserver ausfällt, können sich die Benutzer nicht authentifizieren. |
+| **Cloudidentitäten** |Für kleine Organisationen einfacher zu verwalten. <br> Keine lokale Installation erforderlich. Keine zusätzliche Hardware erforderlich.<br>Problemlos deaktivierbar, wenn der Benutzer das Unternehmen verlässt |Benutzer müssen sich für den Zugriff auf Workloads in der Cloud anmelden <br> Kennwörter können, müssen aber nicht für Cloud- und lokale Identitäten identisch sein |
+| **Synchronisiert** |Lokales Kennwort dient zur Authentifizierung sowohl bei lokalen als auch bei Cloudverzeichnissen <br>Einfacher zu verwalten für kleine, mittlere und große Organisationen <br>Benutzer können für einige Ressourcen einmaliges Anmelden (Single Sign-On, SSO) verwenden. <br> Von Microsoft bevorzugte Synchronisierungsmethode <br> Einfacher zu verwalten |Einige Kunden sind aufgrund spezifischer Unternehmensrichtlinien möglicherweise zurückhaltend bezüglich der Synchronisierung ihrer Verzeichnisse mit der Cloud |
+| **Im Verbund** |Benutzer können einmaliges Anmelden (Single Sign-On, SSO) nutzen <br>Wenn ein Benutzer aufhört oder das Unternehmen verlässt, kann das Konto sofort deaktiviert und der Zugriff widerrufen werden.<br> Unterstützt erweiterte Szenarien, die mit Synchronisierung nicht möglich sind |Mehr Schritte für Einrichtung und Konfiguration <br> Höherer Wartungsaufwand <br> Erfordert ggf. zusätzliche Hardware für die STS-Infrastruktur <br> Möglicherweise muss zusätzliche Hardware auf dem Verbundserver installiert werden. Bei Verwendung von AD FS ist zusätzliche Software erforderlich <br> Erfordert umfangreiches Einrichtung für SSO <br> Kritischer Point of Failure: Wenn der Verbundserver ausfällt, können sich die Benutzer nicht authentifizieren. |
 
 ### <a name="client-experience"></a>Clienterfahrung
 Von der Strategie, die Sie verwenden, hängt die Benutzeranmeldung ab.  Die folgenden Tabellen zeigen Ihnen, wie die jeweilige Benutzeranmeldung aussieht.  Nicht alle Anbieter von Verbundidentität unterstützen SSO in allen Szenarien.
@@ -111,14 +111,14 @@ Im Laufe der Jahre wurden mehrere Synchronisierungstools für verschiedene Szena
 ### <a name="supported-topologies"></a>Unterstützte Topologien
 Bei der Definition einer Strategie für die Synchronisierung muss die verwendete Topologie bestimmt werden. Je nach den Informationen, die in Schritt 2 ermittelt wurden, können Sie bestimmen, welche Topologie die richtige ist. Die einzelne Gesamtstruktur, einzelne Azure AD-Topologie wird am häufigsten verwendet und besteht aus einer einzelnen Active Directory-Gesamtstruktur und einer einzelnen Instanz von Azure AD.  Sie wird in der Mehrzahl der Szenarien verwendet und ist die erwartete Topologie beim Einsatz der Expressinstallation von Azure AD Connect, wie in der folgenden Abbildung dargestellt.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png) Szenario mit einzelner Gesamtstruktur – Sie wird häufig bei großen und auch kleinen Organisationen gewählt, um mehrere Gesamtstrukturen zu haben, wie in Abbildung 5 dargestellt.
+![Unterstützte Topologien](./media/plan-hybrid-identity-design-considerations/single-forest.png) Szenario mit einzelner Gesamtstruktur – wird häufig bei großen und auch kleinen Organisationen verwendet, um mehrere Gesamtstrukturen zu haben, wie in Abbildung 5 dargestellt.
 
 > [!NOTE]
 > Weitere Informationen zu den verschiedenen lokalen und Azure AD-Topologien mit Azure AD Connect-Synchronisierung finden Sie im Artikel [Topologien für Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![Topologie mit mehreren Gesamtstrukturen](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Szenario mit mehreren Gesamtstrukturen
 
@@ -140,7 +140,7 @@ In diesem Fall empfiehlt sich ggf. die Verwendung der einzelnen Azure AD-Topolog
 
 Wenn die obigen nicht zutreffen und Sie mehrere aktive Konten oder Postfächer haben, wählt Azure AD Connect eines von ihnen aus und ignoriert die anderen.  Wenn Sie verknüpfte Postfächer, jedoch kein anderes Konto haben, werden diese Konten nicht in Azure AD exportiert, und dieser Benutzer wird nicht Mitglied einer Gruppe.  Dies ist ein beabsichtigter Unterschied zur früheren Situation mit DirSync und soll diese Szenarien mit mehreren Gesamtstrukturen besser unterstützen. Ein Szenario mit mehreren Gesamtstrukturen ist in der folgenden Abbildung dargestellt.
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![Mehrere Azure AD-Mandanten](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Szenario mit mehreren Gesamtstrukturen und mehreren Azure AD-Verzeichnissen**
 
@@ -148,7 +148,7 @@ In Azure AD sollte nur ein einzelnes Verzeichnis für eine Organisation vorhande
 
 Eine lokale Instanz von Active Directory wie in der folgenden Abbildung dargestellt mit mehreren Azure AD-Verzeichnissen zu verbinden, ist möglich und wird unterstützt:
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![Einzelne Gesamtstruktur mit Filterung](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Szenario einer einzelnen Gesamtstruktur mit Filterung**
 
@@ -199,8 +199,7 @@ Selbst wenn Sie sich für eine Lösung für Ihre Strategie entschieden haben, m�
 | Lokales AD |Multi-Factor Authentication-Server |
 
 > [!NOTE]
-> Sie sollten außerdem sicherstellen, dass die ausgewählte Entwurfsoption für die mehrstufige Authentifizierung die Features unterstützt, die für Ihren Entwurf erforderlich sind.  Weitere Informationen finden Sie unter [Auswählen der richtigen mehrstufigen Sicherheitslösung](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> Sie sollten außerdem sicherstellen, dass die ausgewählte Entwurfsoption für die mehrstufige Authentifizierung die Features unterstützt, die für Ihren Entwurf erforderlich sind.  Weitere Informationen finden Sie unter [Auswählen der richtigen mehrstufigen Sicherheitslösung](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Multi-Factor Authentication-Anbieter

@@ -10,11 +10,11 @@ ms.date: 08/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ms.openlocfilehash: bc237d0f78c77a6fbc89db4061ca38403c3d777b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60685186"
 ---
 # <a name="migrate-management-tool-resources-to-global-azure"></a>Migrieren von Verwaltungstoolressourcen zu Azure weltweit
 
@@ -61,7 +61,7 @@ Weitere Informationen finden Sie unter:
 
 ## <a name="network-watcher"></a>Network Watcher
 
-Das Migrieren einer Azure Network Watcher-Instanz von Azure Deutschland zu Azure weltweit wird zurzeit nicht unterstützt. Es empfiehlt sich, dass Sie eine neue Network Watcher-Instanz in Azure weltweit erstellen und konfigurieren. Vergleichen Sie dann die Ergebnisse zwischen der alten und der neuen Umgebung. 
+Das Migrieren einer Azure Network Watcher-Instanz von Azure Deutschland zu Azure weltweit wird derzeit nicht unterstützt. Es empfiehlt sich, dass Sie eine neue Network Watcher-Instanz in Azure weltweit erstellen und konfigurieren. Vergleichen Sie dann die Ergebnisse zwischen der alten und der neuen Umgebung. 
 
 Weitere Informationen finden Sie unter:
 

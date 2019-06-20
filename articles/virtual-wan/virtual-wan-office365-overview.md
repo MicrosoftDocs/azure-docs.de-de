@@ -7,12 +7,12 @@ services: virtual-wan
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 815b91295540e93f8f0ffbc002fcf02ce1c13365
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992675"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685268"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Office 365-Steuerebene in Virtual WAN
 
@@ -26,7 +26,7 @@ Virtual WAN-Kunden mit ausgewählten SDWAN-Geräten können im Azure-Portal Offi
 Mit dieser Funktion in Virtual WAN können Kunden nun die Office 365-Datenverkehrskategorien angeben, denen sie für den direkten Internetübergang vertrauen. Dieser vertrauenswürdige Office 365-Verkehr umgeht Proxys und wird direkt vom Benutzerstandort zum nächsten Microsoft POP geleitet. Dadurch wird Rücktransport von Datenverkehr und NAT-Loopback vermieden, was für eine optimale Benutzererfahrung und niedrigere WAN-Kosten sorgt. 
 
 ### <a name="what-are-the-office-365-traffic-categories"></a>Was sind die Kategorien von Office 365-Datenverkehr?
-Office 365-Endpunkte stellen Adressen und Subnetze dar. Endpunkte können URLs, IP-Adressen oder IP-Bereiche sein. URLs können entweder ein FQDN wie *account.office.net* oder eine Platzhalter-URL wie **.office365.com* sein. Endpunkte werden in drei Kategorien unterteilt, und zwar basierend auf ihrer Wichtigkeit in **Optimieren**, **Zulassen** und **Standard**. Weitere Details zu den Endpunktkategorien finden Sie [hier](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
+Office 365-Endpunkte stellen Adressen und Subnetze dar. Endpunkte können URLs, IP-Adressen oder IP-Bereiche sein. URLs können entweder ein FQDN wie *account.office.net* oder eine Platzhalter-URL wie * *.office365.com* sein. Endpunkte werden in drei Kategorien unterteilt, und zwar basierend auf ihrer Wichtigkeit in **Optimieren**, **Zulassen** und **Standard**. Weitere Details zu den Endpunktkategorien finden Sie [hier](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
 
 ### <a name="which-office-365-traffic-category-is-recommended-by-microsoft-for-direct-internet-breakout"></a>Welche Office 365-Datenverkehrskategorie wird von Microsoft für den direkten Internetübergang empfohlen?
 Die Kategorie **Optimieren** ist der kritischste Netzwerkendpunkt und wird benötigt, um SSL-Breaks zu umgehen und andere Netzwerksicherheitsgeräte zu prüfen. Diese Endpunkte sollten einen direkten Internetzugang in der Nähe der Benutzer haben. Diese Endpunkte stellen Office 365-Szenarien dar, die am empfindlichsten auf Netzwerkleistung, Latenz und Verfügbarkeit reagieren. Diese Kategorie umfasst eine kleine Gruppe (ca. 10) von Schlüssel-URLs und eine definierte Gruppe von IP-Subnetzen, die für die wichtigsten Office 365-Workloads wie Exchange Online, SharePoint Online, Skype for Business Online und Microsoft Teams bestimmt sind. 

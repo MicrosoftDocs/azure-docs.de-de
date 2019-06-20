@@ -1,19 +1,19 @@
 ---
-title: Verwenden des Azure Maps-Kartensteuerelements | Microsoft-Dokumentation
+title: Erste Schritte mit dem Web-Kartensteuerelement in Azure Maps | Microsoft-Dokumentation
 description: Hier wird beschrieben, wie Sie die clientseitige JavaScript-Bibliothek des Azure Maps-Kartensteuerelements verwenden.
-author: dsk-2015
-ms.author: dkshir
+author: walsehgal
+ms.author: v-musehg
 ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9e3a442a3d6c420c548979327c193628efbee5aa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549217"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957269"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Verwenden des Azure Maps-Kartensteuerelements
 
@@ -68,7 +68,7 @@ Sie können eine Karte in eine Webseite einbetten, indem Sie die clientseitige J
     </body>
     ```
 
-5. Definieren Sie zum Initialisieren des Kartensteuerelements im HTML-Text einen neuen Abschnitt, und erstellen Sie ein Skript. Verwenden Sie Ihren eigenen Azure Maps-Kontoschlüssel oder Ihre Azure Active Directory-Anmeldeinformationen (AAD), um die Karte mithilfe der [Authentifizierungsoptionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions) zu authentifizieren. Wenn Sie ein Konto erstellen oder Ihren Schlüssel ermitteln müssen, lesen Sie die Informationen unter [Verwalten Ihres Azure Maps-Kontos und der dazugehörigen Schlüssel](how-to-manage-account-keys.md). Die Option**language** gibt die Sprache an, die für Kartenbeschriftungen und Steuerelemente verwendet werden soll. Weitere Informationen zu unterstützten Sprachen finden Sie unter [Unterstützte Sprachen](supported-languages.md). Falls ein Abonnementschlüssel für die Authentifizierung verwendet wird:
+5. Definieren Sie zum Initialisieren des Kartensteuerelements im HTML-Text einen neuen Abschnitt, und erstellen Sie ein Skript. Übergeben Sie beim Erstellen einer Instanz der `Map`-Klasse die `id` der Karte `<div>` oder ein `HTMLElement` (z.B. `document.getElementById('myMap')`) als ersten Parameter. Verwenden Sie Ihren eigenen Azure Maps-Kontoschlüssel oder Ihre Azure Active Directory-Anmeldeinformationen (AAD), um die Karte mithilfe der [Authentifizierungsoptionen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions) zu authentifizieren. Wenn Sie ein Konto erstellen oder Ihren Schlüssel ermitteln müssen, lesen Sie die Informationen unter [Verwalten Ihres Azure Maps-Kontos und der dazugehörigen Schlüssel](how-to-manage-account-keys.md). Die Option**language** gibt die Sprache an, die für Kartenbeschriftungen und Steuerelemente verwendet werden soll. Weitere Informationen zu unterstützten Sprachen finden Sie unter [Unterstützte Sprachen](supported-languages.md). Falls ein Abonnementschlüssel für die Authentifizierung verwendet wird:
 
     ```HTML
     <script type="text/javascript">

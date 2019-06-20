@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 3e00179f0fe3bf079cde672c9c8e3579f8c957b7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 620e2ad66547939c24cbcf369705e4ab3ce59753
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238299"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383663"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Schnellstart: Suche nach Bildern mithilfe der Bing-Bildersuche-REST-API und Java
 
@@ -165,4 +165,4 @@ Antworten der Bing-Bildersuche-API werden im JSON-Format zurückgegeben. Diese B
 * [Details zu den Preisen](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) für die Bing-Suche-APIs 
 * [Abrufen eines kostenlosen Cognitive Services-Zugriffsschlüssels](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation zu Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referenz zur Bing-Bildersuche-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referenz zur Bing-Bildersuche-API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

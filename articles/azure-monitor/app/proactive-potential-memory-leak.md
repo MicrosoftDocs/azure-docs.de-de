@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
 ms.openlocfilehash: e430b1e976ac26f7320b28d50dd39923066cfa41
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60306342"
 ---
 # <a name="memory-leak-detection-preview"></a>Arbeitsspeicherverlusterkennung (Vorschau)
 

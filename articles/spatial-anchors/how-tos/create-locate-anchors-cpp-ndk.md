@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a78e58edb392ecf0e7c6918f7082da6e4843291b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7ed948bc0bbb109f2fef247beefb55a9c38fb677
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965055"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237394"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Erstellen von und Suchen nach Ankern mit Azure Spatial Anchors in C++/NDK
 
@@ -168,7 +168,7 @@ Erfahren Sie mehr über die [CloudSpatialAnchor](https://docs.microsoft.com/cpp/
     }
     ArHitResult* ar_hit = nullptr;
     ArHitResult_create(ar_session_, &ar_hit);
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     ArHitResultList_getItem(ar_session_, hit_result_list, 0, ar_hit);
     if (ArHitResult_acquireNewAnchor(ar_session_, ar_hit, &localAnchor) != AR_SUCCESS) return;

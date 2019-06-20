@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756809"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243419"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Erste Schritte mit Rollen, Berechtigungen und Sicherheit in Azure Monitor
 
@@ -28,11 +28,11 @@ Die in Azure Monitor integrierten Rollen unterstützen Sie dabei, den Zugriff au
 Personen, denen die Überwachungsleserrolle zugewiesen wird, können alle Überwachungsdaten in einem Abonnement anzeigen, aber keine Ressourcen ändern oder Einstellungen im Zusammenhang mit der Ressourcenüberwachung bearbeiten. Diese Rolle eignet sich für Benutzer in einer Organisation, beispielsweise Support- oder Betriebstechniker, die folgende Aufgaben erfüllen müssen:
 
 * Anzeigen von Überwachungsdashboards im Portal und Erstellen ihrer eigenen privaten Überwachungsdashboards.
-* Anzeigen von in [Azure-Warnungen](../../azure-monitor/platform/alerts-overview.md) definierten Warnungsregeln
-* Abfragen von Metriken über die [Azure Monitor-REST-API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md) oder die [plattformübergreifende Befehlszeilenschnittstelle](../../azure-monitor/platform/cli-samples.md).
+* Anzeigen von in [Azure-Warnungen](alerts-overview.md) definierten Warnungsregeln
+* Abfragen von Metriken über die [Azure Monitor-REST-API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-Cmdlets](powershell-quickstart-samples.md) oder die [plattformübergreifende Befehlszeilenschnittstelle](cli-samples.md).
 * Abfragen des Aktivitätsprotokolls über das Portal, die Azure Monitor-REST-API, PowerShell-Cmdlets oder die plattformübergreifende Befehlszeilenschnittstelle.
-* Anzeigen der [Diagnoseeinstellungen](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) für eine Ressource.
-* Anzeigen des [Protokollprofils](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) für ein Abonnement.
+* Anzeigen der [Diagnoseeinstellungen](diagnostic-logs-overview.md#diagnostic-settings) für eine Ressource.
+* Anzeigen des [Protokollprofils](activity-log-export.md) für ein Abonnement.
 * Anzeigen von Einstellungen für die automatische Skalierung.
 * Anzeigen von Warnaktivitäten und -einstellungen.
 * Zugreifen auf Application Insights-Daten und Anzeigen von Daten in der AI-Analyse.
@@ -52,11 +52,11 @@ Personen, denen die Überwachungsleserrolle zugewiesen wird, können alle Überw
 Personen, denen die Rolle für Überwachungsmitwirkende zugewiesen wird, können alle Überwachungsdaten in einem Abonnement anzeigen sowie Überwachungseinstellungen erstellen und ändern, aber keine weiteren Ressourcen ändern. Diese Rolle ist eine Obermenge der Überwachungsleserrolle und eignet sich für Mitglieder des Überwachungsteams einer Organisation oder für Anbieter verwalteter Dienste, die neben den oben genannten Berechtigungen auch folgende Aufgaben ausführen müssen:
 
 * Veröffentlichen von Überwachungsdashboards als freigegebenes Dashboard.
-* Festlegen von [Diagnoseeinstellungen](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) für eine Ressource.\*
-* Festlegen des [Protokollprofils](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) für ein Abonnement.\*
-* Festlegen der Aktivität und der Einstellungen für Warnungsregeln über [Azure-Warnungen](../../azure-monitor/platform/alerts-overview.md).
+* Festlegen von [Diagnoseeinstellungen](diagnostic-logs-overview.md#diagnostic-settings) für eine Ressource.\*
+* Festlegen des [Protokollprofils](activity-log-export.md) für ein Abonnement.\*
+* Festlegen der Aktivität und der Einstellungen für Warnungsregeln über [Azure-Warnungen](alerts-overview.md).
 * Erstellen von Application Insights-Webtests und -Komponenten.
-* Auflisten gemeinsam verwendeter Arbeitsbereichsschlüssel aus Log Analytics
+* Auflisten gemeinsam verwendeter Schlüssel für Log Analytics-Arbeitsbereiche
 * Aktivieren oder Deaktivieren von Überwachungspaketen im Log Analytics-Arbeitsbereich
 * Erstellen, Löschen und Ausführen gespeicherter Suchvorgänge im Log Analytics-Arbeitsbereich
 * Erstellen und Löschen der Speicherkonfiguration des Log Analytics-Arbeitsbereichs

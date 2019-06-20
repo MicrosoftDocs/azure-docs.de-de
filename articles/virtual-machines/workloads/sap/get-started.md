@@ -4,7 +4,7 @@ description: Erfahren Sie etwas über SAP-Lösungen auf virtuellen Windows-Compu
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f14110cec0650927f74dfe3a38f06187c6df39de
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b4ed11b5a0f463afee0dae149820bb546db0c53
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792659"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058715"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Verwenden von Azure zum Hosten und Ausführen von SAP-Workloadszenarien
 
@@ -36,15 +36,12 @@ Durch das Hosten von SAP-Workloadszenarien in Azure können auch Anforderungen a
 
 ## <a name="latest-changes"></a>Aktuelle Änderungen
 
+- Einführung von ExpressRoute Fast Path und Global Reach für HANA (große Instanzen) in [SAP HANA-Netzwerkarchitektur (große Instanzen)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) und verwandten Dokumenten
 - Veröffentlichung von [Steuerung von HANA in Azure (große Instanzen) über das Azure-Portal](hana-li-portal.md)
-
 - Veröffentlichung von [Hochverfügbarkeit für SAP NetWeaver auf Azure-VMs unter SUSE Linux Enterprise Server mit Azure NetApp Files für SAP-Anwendungen](high-availability-guide-suse-netapp-files.md)
-
 - Klarstellung zu den Einstellungen für den **Linux OS-Parameter net.ipv4.tcp_timestamps** in Kombination mit einer Azure Load Balancer-Instanz
 
-- Veröffentlichung von [SAP-Workloadkonfigurationen mit Azure-Verfügbarkeitszonen](sap-ha-availability-zones.md)
 
-- Freigabe der [Prüfliste für SAP-Workloadplanung und -bereitstellung](sap-deployment-checklist.md)
 
 
 

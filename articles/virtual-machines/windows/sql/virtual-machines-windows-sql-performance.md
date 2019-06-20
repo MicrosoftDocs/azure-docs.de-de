@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448573"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076914"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Leistungsrichtlinien für SQL Server in Azure Virtual Machines
 
@@ -55,7 +55,7 @@ Für leistungsabhängige Anwendungen empfiehlt sich die Verwendung der folgenden
 * **SQL Server Enterprise Edition**: DS3_v2 oder höher
 * **SQL Server Standard und Web Edition**: DS2_v2 oder höher
 
-VMs der [DSv2-Serie](../sizes-general.md#dsv2-series) unterstützen Storage Premium, was für eine optimale Leistung empfohlen wird. Die hier empfohlenen Größen sind Richtwerte, doch die tatsächliche VM-Größe hängt von den Anforderungen Ihrer Workloads ab. VMs der DSv2-Serie sind universelle VMs, die für eine Vielzahl von Workloads geeignet sind, während andere VM-Größen für bestimmte Workloadtypen optimiert sind. Die [M-Serie](../sizes-memory.md#m-series) bietet beispielsweise die höchste vCPU-Anzahl und Arbeitsspeicher für die größten SQL Server-Workloads. Die [GS-Serie](../sizes-memory.md#gs-series) und [DSv2-Serie 11-15](../sizes-memory.md#dsv2-series-11-15) sind für große Arbeitsspeicheranforderungen optimiert. Beide Serien sind auch mit [eingeschränkten Kerngrößen](../../windows/constrained-vcpu.md) erhältlich, was Kosten bei Workloads mit geringeren Computeanforderungen spart. VMs der [Ls-Serie](../sizes-storage.md) sind für hohen Datenträgerdurchsatz und hohe E/A-Werte optimiert. Es ist wichtig, Ihre spezifische SQL Server-Workload zu prüfen und diese bei der Auswahl der VM-Serie und -Größe zu berücksichtigen.
+VMs der [DSv2-Serie](../sizes-general.md#dsv2-series) unterstützen Storage Premium, was für eine optimale Leistung empfohlen wird. Die hier empfohlenen Größen sind Richtwerte, doch die tatsächliche VM-Größe hängt von den Anforderungen Ihrer Workloads ab. VMs der DSv2-Serie sind universelle VMs, die für eine Vielzahl von Workloads geeignet sind, während andere VM-Größen für bestimmte Workloadtypen optimiert sind. Die [M-Serie](../sizes-memory.md#m-series) bietet beispielsweise die höchste vCPU-Anzahl und Arbeitsspeicher für die größten SQL Server-Workloads. Die [GS-Serie](../sizes-previous-gen.md#gs-series) und [DSv2-Serie 11-15](../sizes-memory.md#dsv2-series-11-15) sind für große Arbeitsspeicheranforderungen optimiert. Beide Serien sind auch mit [eingeschränkten Kerngrößen](../../windows/constrained-vcpu.md) erhältlich, was Kosten bei Workloads mit geringeren Computeanforderungen spart. VMs der [Ls-Serie](../sizes-storage.md) sind für hohen Datenträgerdurchsatz und hohe E/A-Werte optimiert. Es ist wichtig, Ihre spezifische SQL Server-Workload zu prüfen und diese bei der Auswahl der VM-Serie und -Größe zu berücksichtigen.
 
 ## <a name="storage-guidance"></a>Leitfaden für Speicher
 
@@ -70,8 +70,8 @@ Außerdem sollten Sie Ihr Azure-Speicherkonto im selben Rechenzentrum wie Ihre S
 
 Es gibt drei Haupttypen von Datenträgern auf einer Azure-VM:
 
-* **Betriebssystemdatenträger**: Wenn Sie einen virtuellen Azure-Computer erstellen, fügt die Plattform dem virtuellen Computer mindestens einen Datenträger (mit der Bezeichnung Laufwerk **C:**) für das Betriebssystem hinzu. Bei diesem Datenträger handelt es sich um eine VHD, die als Seitenblob gespeichert wird.
-* **Temporärer Datenträger**: Virtuelle Azure-Computer enthalten einen weiteren Datenträger, der als temporärer Datenträger bezeichnet wird (Laufwerk **D:**). Dies ist ein Datenträger für temporären Speicherbereich auf dem Knoten.
+* **Betriebssystemdatenträger**: Wenn Sie einen virtuellen Azure-Computer erstellen, fügt die Plattform dem virtuellen Computer mindestens einen Datenträger (mit der Bezeichnung Laufwerk **C:** ) für das Betriebssystem hinzu. Bei diesem Datenträger handelt es sich um eine VHD, die als Seitenblob gespeichert wird.
+* **Temporärer Datenträger**: Virtuelle Azure-Computer enthalten einen weiteren Datenträger, der als temporärer Datenträger bezeichnet wird (Laufwerk **D:** ). Dies ist ein Datenträger für temporären Speicherbereich auf dem Knoten.
 * **Datenträger für Daten**: Sie können dem virtuellen Computer auch weitere Datenträger für Daten hinzufügen. Diese werden als Seitenblobs im Speicher gespeichert.
 
 In den folgenden Abschnitten werden Empfehlungen zur Verwendung dieser unterschiedlichen Datenträger erläutert.
@@ -84,7 +84,7 @@ Die für den Betriebssystem-Datenträger verwendete Caching-Standardrichtlinie e
 
 ### <a name="temporary-disk"></a>Temporärer Datenträger
 
-Das temporäre Speicherlaufwerk, das als Laufwerk **D:** bezeichnet wird, wird nicht in Azure Blob Storage beibehalten. Speichern Sie die Datenbank- oder Transaktionsprotokolldateien für Ihre Benutzer nicht auf Laufwerk **D:**.
+Das temporäre Speicherlaufwerk, das als Laufwerk **D:** bezeichnet wird, wird nicht in Azure Blob Storage beibehalten. Speichern Sie die Datenbank- oder Transaktionsprotokolldateien für Ihre Benutzer nicht auf Laufwerk **D:** .
 
 Das temporäre Laufwerk auf virtuellen Computern der D-Serie, Dv2-Serie und G-Serie ist SSD-basiert. Falls Ihre Workload intensiv TempDB nutzt (beispielsweise für temporäre Objekte oder komplexe Verknüpfungen), kann das Speichern von TempDB auf Laufwerk **D:** zu einem höheren Durchsatz und einer geringeren TempDB-Wartezeit führen. Ein Beispielszenario finden Sie in der TempDB-Diskussion im folgenden Blogbeitrag: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm) (Richtlinien zur Speicherkonfiguration für SQL Server auf einer Azure-VM).
 
@@ -179,11 +179,22 @@ Es gibt eine Ausnahme von dieser Empfehlung: _Wenn die „tempdb“-Auslastung s
 
 Für manche Bereitstellungen können durch Verwendung erweiterter Konfigurationsmethoden zusätzliche Leistungsvorteile erzielt werden. In der folgenden Liste sind einige SQL Server-Features zusammengestellt, mit denen Sie eine bessere Leistung erzielen können:
 
-* **Sicherung in Azure-Speicher**: Wenn Sie Sicherungen für eine SQL Server-Instanz durchführen, die auf virtuellen Azure-Computern ausgeführt wird, können Sie die [SQL Server-Sicherung über URLs](https://msdn.microsoft.com/library/dn435916.aspx) verwenden. Dieses Feature steht ab SQL Server 2012 SP1 CU2 zur Verfügung und wird für Sicherungen auf die angefügten Datenträgern für Daten empfohlen. Bei Sicherungen/Wiederherstellungen nach/von Azure Storage folgen Sie den Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](https://msdn.microsoft.com/library/jj919149.aspx)und „Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen“. Darüber hinaus können Sie diese Sicherungen mit [automatisierten Sicherungen für SQL Server auf virtuellen Azure-Computern](virtual-machines-windows-sql-automated-backup.md)automatisieren.
+### <a name="backup-to-azure-storage"></a>Sicherung in Azure Storage
+Wenn Sie Sicherungen für eine SQL Server-Instanz durchführen, die auf virtuellen Azure-Computern ausgeführt wird, können Sie die [SQL Server-Sicherung über URLs](https://msdn.microsoft.com/library/dn435916.aspx) verwenden. Dieses Feature steht ab SQL Server 2012 SP1 CU2 zur Verfügung und wird für Sicherungen auf die angefügten Datenträgern für Daten empfohlen. Bei Sicherungen/Wiederherstellungen nach/von Azure Storage folgen Sie den Empfehlungen unter [SQL Server-URL-Sicherung – bewährte Methoden und Problembehandlung](https://msdn.microsoft.com/library/jj919149.aspx)und „Wiederherstellen von in Microsoft Azure gespeicherten Sicherungen“. Darüber hinaus können Sie diese Sicherungen mit [automatisierten Sicherungen für SQL Server auf virtuellen Azure-Computern](virtual-machines-windows-sql-automated-backup.md)automatisieren.
 
-    In Versionen vor SQL Server 2012 können Sie das [Microsoft SQL Server Backup to Microsoft Azure Tool](https://www.microsoft.com/download/details.aspx?id=40740)verwenden. Dieses Tool hilft, den Sicherungsdurchsatz durch Verwenden mehrerer Sicherungsstripeset-Ziele zu erhöhen.
+In Versionen vor SQL Server 2012 können Sie das [Microsoft SQL Server Backup to Microsoft Azure Tool](https://www.microsoft.com/download/details.aspx?id=40740)verwenden. Dieses Tool hilft, den Sicherungsdurchsatz durch Verwenden mehrerer Sicherungsstripeset-Ziele zu erhöhen.
 
-* **SQL Server-Datendateien in Azure**: Das neue Feature [SQL Server-Datendateien in Azure](https://msdn.microsoft.com/library/dn385720.aspx) ist ab SQL Server 2014 verfügbar. Das Ausführen von SQL Server mit Datendateien in Azure zeigt vergleichbare Leistungseigenschaften wie die Verwendung von Azure-Datenträgern.
+### <a name="sql-server-data-files-in-azure"></a>SQL Server-Datendateien in Azure
+
+Das neue Feature [SQL Server-Datendateien in Azure](https://msdn.microsoft.com/library/dn385720.aspx) ist ab SQL Server 2014 verfügbar. Das Ausführen von SQL Server mit Datendateien in Azure zeigt vergleichbare Leistungseigenschaften wie die Verwendung von Azure-Datenträgern.
+
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Failoverclusterinstanz und Speicherplätze
+
+Wenn Sie Speicherplätze verwenden, deaktivieren Sie beim Hinzufügen von Knoten zum Cluster auf der Seite **Bestätigung** das Kontrollkästchen **Der gesamte geeignete Speicher soll dem Cluster hinzugefügt werden**. 
+
+![Deaktivieren von geeignetem Speicher](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+Wenn Sie Speicherplätze verwenden und das Kontrollkästchen **Der gesamte geeignete Speicher soll dem Cluster hinzugefügt werden.** nicht deaktivieren, trennt Windows die virtuellen Datenträger während des Clusterprozesses. Sie werden daher erst im Datenträger-Manager oder -Explorer angezeigt, nachdem die Speicherplätze aus dem Cluster entfernt und mithilfe von PowerShell erneut angefügt wurden. Mit Speicherplätzen werden mehrere Datenträger in Speicherpools gruppiert. Weitere Informationen finden Sie unter [Speicherplätze](/windows-server/storage/storage-spaces/overview).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

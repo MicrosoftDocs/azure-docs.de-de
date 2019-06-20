@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65796258"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Rollout der Integritätsintegration in Azure-Bereitstellungs-Manager (öffentliche Vorschau)
 
@@ -32,7 +32,7 @@ Um die Integritätsintegration so einfach wie möglich zu gestalten, hat Microso
 
 ## <a name="how-service-health-is-determined"></a>Ermittlung der Dienstintegrität
 
-[Anbieter für Systemüberwachung](#health-monitoring-providers) bieten mehrere Mechanismen für die Überwachung von Diensten und zur Benachrichtigung über Probleme mit der Dienstintegrität. [Azure Monitor](/services/monitor/) ist ein Beispiel für ein solches Angebot. Azure Monitor kann zum Erstellen von Warnungen verwendet werden, die Sie erhalten, wenn bestimmte Schwellenwerte überschritten werden. Beispielsweise übersteigt die Arbeitsspeicher- und CPU-Auslastung die erwarteten Werte, wenn Sie ein neues Update für Ihren Dienst bereitstellen. Wenn Sie benachrichtigt werden, können Sie Korrekturmaßnahmen ergreifen.
+[Anbieter für Systemüberwachung](#health-monitoring-providers) bieten mehrere Mechanismen für die Überwachung von Diensten und zur Benachrichtigung über Probleme mit der Dienstintegrität. [Azure Monitor](../azure-monitor/overview.md) ist ein Beispiel für ein solches Angebot. Azure Monitor kann zum Erstellen von Warnungen verwendet werden, die Sie erhalten, wenn bestimmte Schwellenwerte überschritten werden. Beispielsweise übersteigt die Arbeitsspeicher- und CPU-Auslastung die erwarteten Werte, wenn Sie ein neues Update für Ihren Dienst bereitstellen. Wenn Sie benachrichtigt werden, können Sie Korrekturmaßnahmen ergreifen.
 
 Diese Systemüberwachungsanbieter bieten in der Regel REST-APIs, damit der Status der Dienstmonitore programmgesteuert überprüft werden kann. Die REST-APIs können entweder mit einem einfachen Signal für den fehlerfreien/fehlerhaften Status (bestimmt durch den HTTP-Antwortcode) und/oder mit detaillierten Informationen über die empfangenen Signale antworten.
 
@@ -134,7 +134,7 @@ Der Flow zum Einrichten von Integritätsprüfungen im Azure-Bereitstellungs-Mana
     ]
     ```
 
-Unter [Tutorial: Verwenden der Integritätsprüfung im Azure-Bereitstellungs-Manager](./deployment-manager-health-check.md) werden Sie durch ein Beispiel geführt.
+Eine exemplarische Vorgehensweise anhand eines Beispiels finden Sie unter [Tutorial: Verwenden der Integritätsprüfung im Azure-Bereitstellungs-Manager (Public Preview)](./deployment-manager-health-check.md).
 
 ## <a name="phases-of-a-health-check"></a>Phasen einer Integritätsprüfung
 

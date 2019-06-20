@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
 ms.openlocfilehash: 4733a4c92a5bdfe2eabd2144a1c6c8738ac6693e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511692"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Compute-optimierte VM-Größen
 

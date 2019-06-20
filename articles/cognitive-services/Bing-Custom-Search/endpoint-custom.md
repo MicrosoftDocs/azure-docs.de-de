@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8c2c69a81597c2702d608ccac8dceed1e832aff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bc33d65972e12591130389e0c3cb8697898d1da9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790229"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390355"
 ---
 # <a name="custom-search"></a>Benutzerdefinierte Suche
 Die benutzerdefinierte Bing-Suche ermöglicht das Erstellen einer maßgeschneiderten Suchbenutzeroberfläche für Themen, die Sie interessieren. Ihre Benutzer sehen Suchergebnisse, die auf den gewünschten Inhalt zugeschnitten sind, anstatt durch allgemeine Suchergebnisse mit irrelevanten Inhalten blättern zu müssen.
@@ -28,10 +28,10 @@ Endpunkt: Gibt Suchvorschläge als JSON-Ergebnisse zurück, die für die mit `?q
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Beispiele, in denen das Einrichten von Quellen für die benutzerdefinierte Suche beschrieben wird, finden Sie im [Tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Weitere Informationen zu Headern, Parametern, Marktcodes, Antwortobjekten, Fehlern usw. finden Sie in der Referenz zur [API für die benutzerdefinierte Bing-Suche v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference).
+Beispiele, in denen das Einrichten von Quellen für die benutzerdefinierte Suche beschrieben wird, finden Sie im [Tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Weitere Informationen zu Headern, Parametern, Marktcodes, Antwortobjekten, Fehlern usw. finden Sie in der Referenz zur [API für die benutzerdefinierte Bing-Suche v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference).
 
 ## <a name="custom-search-response-json"></a>JSON-Antwort für die benutzerdefinierte Suche
-Eine benutzerdefinierte Suchanforderung gibt Ergebnisse als JSON-Objekte zurück (siehe [Antwortobjekte](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects)). 
+Eine benutzerdefinierte Suchanforderung gibt Ergebnisse als JSON-Objekte zurück (siehe [Antwortobjekte](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects)). 
 
 ## <a name="custom-autosuggest"></a>Benutzerdefinierte Vorschlagssuche
 Mit der API für die benutzerdefinierte Vorschlagssuche können Sie einen Teil eines Suchbegriffs an Bing senden und erhalten dann eine Liste mit vorgeschlagenen Begriffen zurück, die Sie konfigurieren können. Mit der benutzerdefinierten Vorschlagssuche fügen Sie Vorschläge hinzu, die von der API zurückgegeben werden, und können optional angeben, ob von Bing generierte Vorschläge eingefügt werden sollen.

@@ -10,11 +10,11 @@ ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5bb52e0547ed9bc18d67370ffb9db35942212aab
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887589"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61300271"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Verwalten von Runbooks in Azure Automation
 

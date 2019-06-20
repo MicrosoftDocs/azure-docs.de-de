@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
 ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60999617"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Erstellen und Verwalten von Integrationskonten für B2B-Lösungen mit Logik-Apps
 
@@ -58,8 +58,8 @@ Melden Sie sich mit den Anmeldeinformationen Ihres Azure-Kontos beim <a href="ht
    | Abonnement | Ja | <*Name des Azure-Abonnements*> | Der Name des zu verwendenden Azure-Abonnements | 
    | Ressourcengruppe | Ja | test-integration-account-rg | Der Name der [Azure-Ressourcengruppe](../azure-resource-manager/resource-group-overview.md), die zum Organisieren verwandter Ressourcen verwendet wird. Erstellen Sie für dieses Beispiel eine neue Ressourcengruppe mit dem angegebenen Namen. | 
    | Preisstufe | Ja | Kostenlos | Der Tarif, den Sie verwenden möchten. Wählen Sie für dieses Beispiel **Free** aus. Weitere Informationen finden Sie unter [Logic Apps-Grenzwerte und -Konfiguration](../logic-apps/logic-apps-limits-and-config.md) und [Logic Apps – Preise](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Standort | Ja | USA (Westen) | Die Region, in der die Informationen zu Ihrem Integrationskonto gespeichert werden sollen. Wählen Sie entweder den gleichen Standort wie für die Logik-App aus, oder erstellen Sie eine Logik-App am gleichen Standort wie das Integrationskonto. | 
-   | Log Analytics-Arbeitsbereich | Nein  | Aus | Behalten Sie die Einstellung **Aus** für die Diagnoseprotokollierung bei. | 
+   | Location | Ja | USA (Westen) | Die Region, in der die Informationen zu Ihrem Integrationskonto gespeichert werden sollen. Wählen Sie entweder den gleichen Standort wie für die Logik-App aus, oder erstellen Sie eine Logik-App am gleichen Standort wie das Integrationskonto. | 
+   | Log Analytics-Arbeitsbereich | Nein | Aus | Behalten Sie die Einstellung **Aus** für die Diagnoseprotokollierung bei. | 
    ||||| 
 
 4. Wählen Sie dann **An Dashboard anheften** und **Erstellen** aus.
@@ -125,7 +125,7 @@ Wenn Sie Ihre Logik-App mit einem anderen Integrationskonto verknüpfen oder kei
    },
    ```
 
-   Beispiel: 
+   Beispiel:
 
    ![Suchen der Eigenschaftendefinition „integrationAccount“](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

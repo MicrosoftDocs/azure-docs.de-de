@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 31c5feac577dc5e9e0eed9ced9ccfe25c12d3086
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b1b36ed5197aeb056c70200a49e09cc777d66d0b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670488"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237354"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Grundlegendes zur Konfiguration der regelmäßigen Sicherung in Azure Service Fabric
 
@@ -128,7 +128,7 @@ Eine Sicherungsrichtlinie besteht aus den folgenden Konfigurationen:
 >
 
 * **Aufbewahrungsrichtlinie**: Gibt die Richtlinie zum Aufbewahren von Sicherungen im konfigurierten Speicher an. Es wird nur die Aufbewahrungsrichtlinie „Basic“ unterstützt.
-    1. **Aufbewahrungsrichtlinie „Basic“**: Diese Aufbewahrungsrichtlinie ermöglicht die Sicherstellung einer optimalen Speicherauslastung, indem Sicherungsdateien entfernt werden, die nicht mehr benötigt werden. Über `RetentionDuration` kann die Zeitspanne festgelegt werden, für die Sicherungen im Speicher beibehalten werden müssen. `MinimumNumberOfBackups` ist ein optionaler Parameter, mit dem sichergestellt werden kann, dass unabhängig von `RetentionDuration` immer die angegebene Anzahl von Sicherungen beibehalten wird. Das nachstehende Beispiel zeigt eine Konfiguration, bei der Sicherungen für _10_ Tage beibehalten werden und die Anzahl von Sicherungen nicht unter _20_ fallen darf.
+    1. **Aufbewahrungsrichtlinie „Basic“** : Diese Aufbewahrungsrichtlinie ermöglicht die Sicherstellung einer optimalen Speicherauslastung, indem Sicherungsdateien entfernt werden, die nicht mehr benötigt werden. Über `RetentionDuration` kann die Zeitspanne festgelegt werden, für die Sicherungen im Speicher beibehalten werden müssen. `MinimumNumberOfBackups` ist ein optionaler Parameter, mit dem sichergestellt werden kann, dass unabhängig von `RetentionDuration` immer die angegebene Anzahl von Sicherungen beibehalten wird. Das nachstehende Beispiel zeigt eine Konfiguration, bei der Sicherungen für _10_ Tage beibehalten werden und die Anzahl von Sicherungen nicht unter _20_ fallen darf.
 
         ```json
         {
@@ -137,9 +137,6 @@ Eine Sicherungsrichtlinie besteht aus den folgenden Konfigurationen:
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!IMPORTANT]
-> Aufgrund eines Problems in der Runtime müssen Sie sicherstellen, dass die Beibehaltungsdauer in der Aufbewahrungsrichtlinie auf weniger als 24 Tage festgelegt ist. Andernfalls kommt es für den Sicherungs-/Wiederherstellungsdienst nach dem Replikatfailover zu einem Quorumsverlust.
 
 ## <a name="enable-periodic-backup"></a>Aktivieren der regelmäßigen Sicherung
 Nach der Definition der Sicherungsrichtlinie zur Erfüllung der Datensicherungsanforderungen sollte die Sicherungsrichtlinie entweder mit einer _Anwendung_, einem _Dienst_ oder einer _Partition_ verknüpft werden.

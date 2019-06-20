@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887181"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61437870"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions-Muster für Bindungsausdrücke
 

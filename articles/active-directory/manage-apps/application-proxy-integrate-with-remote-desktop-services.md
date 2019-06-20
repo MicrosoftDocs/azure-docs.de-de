@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 05/23/2019
 ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecd55cbb3a8eefc150db731901458561d90f033
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783402"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233724"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Veröffentlichen des Remotedesktops per Azure AD-Anwendungsproxy
 
@@ -68,11 +68,12 @@ Führen Sie nach der Einrichtung von RDS und des Azure AD-Anwendungsproxys für 
    - Interne URL: `https://\<rdhost\>.com/`, wobei `\<rdhost\>` das gemeinsame Stammverzeichnis ist, das von RD-Web und RD-Gateway gemeinsam genutzt wird.
    - Externe URL: Dieses Feld wird automatisch basierend auf dem Namen der Anwendung aufgefüllt. Sie können das Feld jedoch ändern. Ihre Benutzer werden beim Zugriff auf RDS an diese URL weitergeleitet.
    - Präauthentifizierungsmethode: Azure Active Directory
-   - URL-Header übersetzen: Nein 
+   - URL-Header übersetzen: Nein
 2. Weisen Sie Benutzern die veröffentlichte RD-Anwendung zu. Stellen Sie sicher, dass alle Benutzer auch Zugriff auf RDS haben.
 3. Legen Sie für die Methode zur einmaligen Anmeldung für die Anwendung **Azure AD-SSO deaktiviert** fest. Ihre Benutzer werden aufgefordert, sich einmal bei Azure AD und einmal bei RD-Web zu authentifizieren, verfügen jedoch über die Möglichkeit zur einmaligen Anmeldung beim RD-Gateway.
-4. Navigieren Sie zu **Azure Active Directory** > **App-Registrierungen** > *Ihre Anwendung* > **Einstellungen**.
-5. Wählen Sie **Eigenschaften**, und aktualisieren Sie das Feld **URL der Startseite**, sodass auf Ihren RD-Web-Endpunkt verwiesen wird (z.B. `https://\<rdhost\>.com/RDWeb`).
+4. Wählen Sie **Azure Active Directory** und dann **App-Registrierungen** aus. Wählen Sie Ihre App aus der Liste aus.
+5. Wählen Sie unter **Verwalten** die Option **Branding** aus.
+6. Aktualisieren Sie das Feld **URL der Startseite**, um auf Ihren RD-Web-Endpunkt zu verweisen (z.B. `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Weiterleiten des RDS-Datenverkehrs an den Anwendungsproxy
 

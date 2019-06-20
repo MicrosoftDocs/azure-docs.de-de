@@ -13,11 +13,11 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274427"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60326350"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Wiederherstellen eines einzelnen Mandanten mit einer SaaS-Anwendung mit einer Datenbank pro Mandant
 
@@ -76,7 +76,7 @@ Um diese Wiederherstellungsszenarien zu demonstrieren, müssen Sie zuerst ein Er
 
 1. Öffnen Sie „...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*“ in der PowerShell ISE, und legen Sie den folgenden Wert fest:
 
-   * **$DemoScenario** = **1** – *Löschen der letzten Veranstaltung (keine Ticketverkäufe)*.
+   * **$DemoScenario** = **1** – *Löschen der letzten Veranstaltung (keine Ticketverkäufe)* .
 2. Drücken Sie F5, um das Skript auszuführen und die letzte Veranstaltung zu löschen. Die folgende Bestätigungsmeldung wird angezeigt:
 
    ```Console

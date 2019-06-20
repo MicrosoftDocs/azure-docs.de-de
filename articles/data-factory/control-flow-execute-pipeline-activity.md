@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998723"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60808846"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Aktivität „Pipeline ausführen“ in Azure Data Factory
 Mit der Aktivität „Pipeline ausführen“ kann eine Data Factory-Pipeline eine andere Pipeline aufrufen.
@@ -62,11 +62,11 @@ Mit der Aktivität „Pipeline ausführen“ kann eine Data Factory-Pipeline ein
 
 Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich
 -------- | ----------- | -------------- | --------
-name | Name der Aktivität „Pipeline ausführen“. | Zeichenfolge | Ja
-type | Muss auf folgenden Wert festgelegt werden: **ExecutePipeline**. | Zeichenfolge | Ja
+name | Name der Aktivität „Pipeline ausführen“. | string | Ja
+type | Muss auf folgenden Wert festgelegt werden: **ExecutePipeline**. | string | Ja
 pipeline | Pipelineverweis auf die abhängige Pipeline, die diese Pipeline aufruft. Ein Pipelineverweisobjekt verfügt über zwei Eigenschaften: **referenceName** und **type**. Die Eigenschaft „referenceName“ gibt den Namen des Pipelineverweises an. Die Eigenschaft „type“ muss auf „PipelineReference“ festgelegt werden. | PipelineReference | Ja
-Parameter | Parameter, die an die aufgerufene Pipeline übergeben werden sollen | Ein JSON-Objekt, das Parameternamen Argumentwerten zuordnet | Nein 
-waitOnCompletion | Definiert, ob die Aktivitätsausführung wartet, bis die Ausführung der abhängigen Pipeline abgeschlossen ist. Die Standardeinstellung ist "false". | Boolescher Wert | Nein 
+parameters | Parameter, die an die aufgerufene Pipeline übergeben werden sollen | Ein JSON-Objekt, das Parameternamen Argumentwerten zuordnet | Nein
+waitOnCompletion | Definiert, ob die Aktivitätsausführung wartet, bis die Ausführung der abhängigen Pipeline abgeschlossen ist. Die Standardeinstellung ist "false". | Boolean | Nein
 
 ## <a name="sample"></a>Beispiel
 In diesem Szenario gibt es zwei Pipelines:

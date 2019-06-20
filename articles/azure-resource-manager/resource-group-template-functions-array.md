@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128694"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Array- und Objektfunktionen für Azure Resource Manager-Vorlagen
@@ -58,7 +58,7 @@ Konvertiert den Wert in ein Array.
 
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Ja |Ganze Zahl, Zeichenfolge, Array oder Objekt |Der Wert, der in ein Array konvertiert werden soll. |
+| convertToArray |Ja |int, string, array oder object |Der Wert, der in ein Array konvertiert werden soll. |
 
 ### <a name="return-value"></a>Rückgabewert
 
@@ -137,7 +137,7 @@ Gibt den ersten Wert aus den Parametern zurück, der nicht NULL ist. Leere Zeich
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |Ganze Zahl, Zeichenfolge, Array oder Objekt |Der erste Wert, der auf NULL getestet werden soll. |
-| weitere arg-Parameter |Nein  |Ganze Zahl, Zeichenfolge, Array oder Objekt |Weitere Werte, die auf NULL getestet werden sollen. |
+| weitere arg-Parameter |Nein |Ganze Zahl, Zeichenfolge, Array oder Objekt |Weitere Werte, die auf NULL getestet werden sollen. |
 
 ### <a name="return-value"></a>Rückgabewert
 
@@ -195,7 +195,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| stringOutput | Zeichenfolge | die Standardeinstellung |
+| stringOutput | string | die Standardeinstellung |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | Array | [1] |
@@ -225,7 +225,7 @@ Kombiniert mehrere Arrays und gibt das verkettete Array zurück oder kombiniert 
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |Array oder Zeichenfolge |Das erste Array bzw. die erste Zeichenfolge für die Verkettung. |
-| zusätzliche Argumente |Nein  |Array oder Zeichenfolge |Weitere Arrays bzw. Zeichenfolgen in sequenzieller Reihenfolge für die Verkettung. |
+| zusätzliche Argumente |Nein |Array oder Zeichenfolge |Weitere Arrays bzw. Zeichenfolgen in sequenzieller Reihenfolge für die Verkettung. |
 
 Diese Funktion akzeptiert eine beliebige Anzahl von Argumenten und Zeichenfolgen oder Arrays für die Parameter.
 
@@ -313,7 +313,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| concatOutput | Zeichenfolge | prefix-5yj4yjf5mbg72 |
+| concatOutput | string | prefix-5yj4yjf5mbg72 |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
 
@@ -433,7 +433,7 @@ Erstellt ein Array auf der Grundlage der Parameter.
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |Zeichenfolge, ganze Zahl, Array oder Objekt |Der erste Wert im Array. |
-| zusätzliche Argumente |Nein  |Zeichenfolge, ganze Zahl, Array oder Objekt |Weitere Werte im Array. |
+| zusätzliche Argumente |Nein |Zeichenfolge, ganze Zahl, Array oder Objekt |Weitere Werte im Array. |
 
 ### <a name="return-value"></a>Rückgabewert
 
@@ -630,8 +630,8 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| arrayOutput | Zeichenfolge | one |
-| stringOutput | Zeichenfolge | O |
+| arrayOutput | string | one |
+| stringOutput | string | O |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
 
@@ -658,7 +658,7 @@ Gibt ein einzelnes Array oder ein Objekt mit den gemeinsamen Elementen aus den P
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |Array oder Objekt |Der erste Wert für die Suche nach gemeinsamen Elementen. |
 | arg2 |Ja |Array oder Objekt |Der zweite Wert für die Suche nach gemeinsamen Elementen. |
-| zusätzliche Argumente |Nein  |Array oder Objekt |Weitere Werte für die Suche nach gemeinsamen Elementen. |
+| zusätzliche Argumente |Nein |Array oder Objekt |Weitere Werte für die Suche nach gemeinsamen Elementen. |
 
 ### <a name="return-value"></a>Rückgabewert
 
@@ -847,8 +847,8 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
-| arrayOutput | Zeichenfolge | three |
-| stringOutput | Zeichenfolge | e |
+| arrayOutput | string | three |
+| stringOutput | string | e |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
 
@@ -1204,7 +1204,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | Zeichenfolge | two three |
+| stringOutput | string | two three |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
 
@@ -1285,7 +1285,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | Zeichenfolge | on |
+| stringOutput | string | on |
 
 Stellen Sie diese Beispielvorlage mit der Azure CLI wie folgt bereit:
 
@@ -1312,7 +1312,7 @@ Gibt ein einzelnes Array oder Objekt mit allen Elementen aus den Parametern zur�
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |Array oder Objekt |Der erste zum Verknüpfen von Elementen zu verwendende Wert. |
 | arg2 |Ja |Array oder Objekt |Der zweite zum Verknüpfen von Elementen zu verwendende Wert. |
-| zusätzliche Argumente |Nein  |Array oder Objekt |Weitere zum Verknüpfen von Elementen zu verwendende Werte. |
+| zusätzliche Argumente |Nein |Array oder Objekt |Weitere zum Verknüpfen von Elementen zu verwendende Werte. |
 
 ### <a name="return-value"></a>Rückgabewert
 

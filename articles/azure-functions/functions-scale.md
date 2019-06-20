@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266926"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872741"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skalierung und Hosting von Azure Functions
 
@@ -165,3 +165,9 @@ Die Abrechnung des Verbrauchsplans wird detailliert auf der [Azure Functions –
 Nützliche Fragen und Informationen zum Verständnis Ihrer Verbrauchsrechnung finden Sie [in den häufig gestellten Fragen zur Abrechnung](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Azure Functions – Preise]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>Diensteinschränkungen
+
+In der folgenden Tabelle sind die Einschränkungen aufgeführt, die für Funktions-Apps gelten, wenn sie in den verschiedenen Hostingplänen ausgeführt werden:
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

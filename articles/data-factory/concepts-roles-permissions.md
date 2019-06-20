@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575714"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61261810"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rollen und Berechtigungen für Azure Data Factory
 
@@ -57,7 +57,7 @@ Berechtigungen für Azure Repos und GitHub sind unabhängig von Data Factory-Ber
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Benutzerdefinierte Szenarien und benutzerdefinierte Rollen
 
-Manchmal müssen Sie verschiedenen Data Factory-Benutzern den Zugriff auf verschiedenen Ebenen gewähren. Beispiel: 
+Manchmal müssen Sie verschiedenen Data Factory-Benutzern den Zugriff auf verschiedenen Ebenen gewähren. Beispiel:
 - Sie benötigen eine Gruppe, deren Mitglieder nur Berechtigungen für eine bestimmte Data Factory erhalten sollen.
 - Möglicherweise benötigen Sie auch eine Gruppe, deren Mitglieder eine Data Factory oder mehrere Factorys überwachen, aber nicht ändern dürfen.
 
@@ -78,7 +78,7 @@ Hier finden Sie einige Beispiele, die zeigen, was sich mit benutzerdefinierten R
   Dieses Szenario erfordert zwei Rollenzuweisungen.
 
   1. Weisen Sie die integrierte Rolle **Mitwirkender** auf Data Factory-Ebene zu.
-  2. Erstellen Sie eine benutzerdefinierte Rolle mit der Berechtigung **Microsoft.Resources/deployments/**. Sie können einem Benutzer diese benutzerdefinierte Rolle auf Ressourcengruppenebene zuweisen.
+  2. Erstellen Sie eine benutzerdefinierte Rolle mit der Berechtigung **Microsoft.Resources/deployments/** . Sie können einem Benutzer diese benutzerdefinierte Rolle auf Ressourcengruppenebene zuweisen.
 
 - Sie können es einem Benutzer ermöglichen, eine Data Factory über PowerShell oder das SDK zu aktualisieren, nicht aber über das Azure-Portal.
 

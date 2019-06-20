@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842310"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370156"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Grundlegendes zu Ihrer Microsoft Azure-Rechnung
-Um Ihre Azure-Rechnung besser zu verstehen, können Sie Ihre Rechnung mit der Datei mit den ausführlichen Daten zur täglichen Nutzung und den Kostenverwaltungsberichten im Azure-Portal vergleichen.
+Um Ihre Azure-Rechnung besser zu verstehen, können Sie sie mit der Datei, die die ausführlichen Angaben zur täglichen Nutzung enthält, und den Kostenverwaltungsberichten im Azure-Portal vergleichen.
 
 Dieser Artikel gilt nicht für Azure-Kunden mit einem Enterprise Agreement (EA-Kunden). Wenn Sie ein EA-Kunde sind, finden Sie weitere Informationen unter [Erläuterungen zur Rechnung für Azure-Kunden mit Enterprise Agreement](billing-understand-your-bill-ea.md).
 
@@ -48,7 +48,7 @@ Ihre Nutzungsgebühren werden auf der Ebene der Verbrauchseinheiten angezeigt. D
 |Billing Cycle | Billing Period |
  |NAME |Meter Category |
  |Type |Meter Subcategory |
- |Ressource |Meter Name |
+ |Resource |Meter Name |
  |Region |Meter Region |
  |Consumed |Consumed Quantity |
  |Enthalten |Included Quantity |

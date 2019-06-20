@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035252"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497154"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights-Übersichtsdashboard
 
@@ -60,9 +60,12 @@ Wählen Sie Folgendes, um zurück zur Übersichtsoberfläche zu navigieren:
 
 ![Schaltfläche „Übersicht“](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>Problembehandlung
+
+Wenn Sie **Kacheleinstellungen konfigurieren** auswählen und einen benutzerdefinierten Zeitbereich über 31 Tagen festlegen, werden im Dashboard keine Daten angezeigt, die über 31 Tage hinausgehen. Dies gilt selbst bei der standardmäßigen Datenaufbewahrung von 90 Tagen. Für dieses Verhalten gibt es derzeit keine Problemumgehung.
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Trichter](../../azure-monitor/app/usage-funnels.md)
 - [Aufbewahrung](../../azure-monitor/app/usage-retention.md)
 - [Benutzerabläufe](../../azure-monitor/app/usage-flows.md)
-- [Dashboards](../../azure-monitor/app/app-insights-dashboards.md)

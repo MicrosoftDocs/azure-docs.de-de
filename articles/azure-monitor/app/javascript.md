@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001186"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387272"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights für Webseiten
 Informieren Sie sich über die Leistung und Nutzung Ihrer Webseite oder App. Wenn Sie [Application Insights](app-insights-overview.md) Ihrem Seitenskript hinzufügen, erhalten Sie Zeitangaben zu Seitenladevorgängen und AJAX-Aufrufen, Anzahl und Details von Browserausnahmen und AJAX-Fehlern sowie die Anzahl von Benutzern und Sitzungen. Diese Informationen können jeweils nach Seite, Clientbetriebssystem und Browserversion, geografischer Position und anderen Dimensionen segmentiert werden. Sie können Warnungen für die Fehleranzahl oder das langsame Laden von Seiten festlegen. Und indem Sie Ablaufverfolgungsaufrufe in JavaScript-Code einfügen, können Sie nachverfolgen, wie die verschiedenen Funktionen Ihre Webseitenanwendung genutzt werden.
@@ -57,17 +57,17 @@ and before any other scripts. Your first data will appear
 automatically in just a few seconds.
 -->
 <script type="text/javascript">
-var appInsights=window.appInsights||function(a){
-  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
+  function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
   }({
       instrumentationKey:"<your instrumentation key>"
   });
-  
-window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+
+window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
-Fügen Sie das Skript direkt vor dem `</head>` -Tag jeder Seite ein, die Sie nachverfolgen möchten. Wenn Ihre Website über eine Masterseite verfügt, können Sie das Skript dort ablegen. Beispiel: 
+Fügen Sie das Skript direkt vor dem `</head>` -Tag jeder Seite ein, die Sie nachverfolgen möchten. Wenn Ihre Website über eine Masterseite verfügt, können Sie das Skript dort ablegen. Beispiel:
 
 * Bei einem ASP.NET MVC-Projekt fügen Sie es in `View\Shared\_Layout.cshtml`
 * Öffnen Sie in einer SharePoint-Website in der Systemsteuerung [Websiteeinstellungen / Masterseite](sharepoint.md).
@@ -86,7 +86,7 @@ Zum Festlegen dieser Parameter suchen Sie im Codeausschnitt nach dieser Zeile un
       // Insert here
     });
 
-Zu den [verfügbaren Parametern](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) gehören:
+Eine vollständige Liste der Konfigurationsparameter finden Sie auf der [GitHub-Seite](https://github.com/microsoft/applicationinsights-js#configuration). Zu den verfügbaren Parametern gehören:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -96,17 +96,21 @@ Zu den [verfügbaren Parametern](https://github.com/Microsoft/ApplicationInsight
     // Don't log browser exceptions.
     disableExceptionTracking: boolean,
 
+    // Set false to enable autocollection of [Fetch requests](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (disabled by default)
+    disableFetchTracking: boolean, // default is true
+    
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
 
     // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
-
+    
     // Time page load up to execution of first trackPageView().
     overridePageViewDuration: boolean,
 
     // Set dynamically for an authenticated user.
     accountId: string,
+    
 
 ## <a name="run"></a>Ausführen Ihrer App
 Führen Sie die Web-App aus, verwenden Sie sie eine Weile, um Telemetrie zu generieren, und warten Sie einige Sekunden. Sie können sie entweder durch Drücken von **F5** auf dem Entwicklungscomputer ausführen, oder Sie können sie veröffentlichen und von Benutzern testen lassen.
@@ -146,11 +150,11 @@ Beachten Sie die Anzahl der Seitenaufrufe und die Standardabweichung. Wenn die S
 
 Klicken Sie auf `...` , um eine Liste mit allen Eigenschaften für das Ereignis anzuzeigen, oder untersuchen Sie die Ajax-Aufrufe und die dazugehörigen Ereignisse. Langsame Ajax-Aufrufe beeinträchtigen die Gesamtdauer der Seitenladevorgänge, wenn sie synchron erfolgen. Zu den verwandten Ereignissen gehören Serveranforderungen für dieselbe URL (wenn Sie Application Insights auf Ihrem Webserver eingerichtet haben).
 
-**Seitenleistung in Abhängigkeit der Zeit:**  Wechseln Sie wieder zum Blatt „Browser“, und ändern Sie das Raster für die „Dauer der Seitenansicht“ in ein Liniendiagramm, um zu ermitteln, ob zu bestimmten Zeiten Spitzen aufgetreten sind:
+**Seitenleistung in Abhängigkeit der Zeit:** Wechseln Sie wieder zum Blatt „Browser“, und ändern Sie das Raster für die „Dauer der Seitenansicht“ in ein Liniendiagramm, um zu ermitteln, ob zu bestimmten Zeiten Spitzen aufgetreten sind:
 
 ![Klicken Sie auf den oberen Bereich des Rasters, und wählen Sie einen neuen Diagrammtyp aus.](./media/javascript/10-page-perf-area.png)
 
-**Segmentieren nach anderen Dimensionen:**  Es kann beispielsweise sein, dass Ihre Seiten für einen bestimmten Browser, ein Clientbetriebssystem oder einen Benutzerstandort langsamer geladen werden. Fügen Sie ein neues Diagramm hinzu, und experimentieren Sie mit der Dimension **Group-by** .
+**Segmentieren nach anderen Dimensionen:** Es kann beispielsweise sein, dass Ihre Seiten für einen bestimmten Browser, ein Clientbetriebssystem oder einen Benutzerstandort langsamer geladen werden. Fügen Sie ein neues Diagramm hinzu, und experimentieren Sie mit der Dimension **Group-by** .
 
 ![](./media/javascript/21.png)
 

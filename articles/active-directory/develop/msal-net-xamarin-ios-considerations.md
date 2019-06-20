@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf236bff2300129ec97d3b8946c4c2a2748bca77
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602130"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Spezielle Überlegungen für Xamarin iOS mit MSAL.NET
@@ -58,7 +58,7 @@ Sie müssen auch ein URL-Schema definieren, Berechtigungen anfordern, mit denen 
 
 Damit der Tokencache und die `AcquireTokenSilentAsync`-Methode funktionieren, müssen mehrere Schritte ausgeführt werden:
 1. Aktivieren Sie den Keychainzugriff in Ihrer *`* Entitlements.plist*-Datei, und geben Sie die **Keychaingruppen** in Ihrem Paketbezeichner an.
-2. Wählen Sie die *`*Entitlements.plist*`*-Datei im Feld **Benutzerdefinierte Berechtigungen** in der Ansicht **Bundlesignierung** des Fensters mit iOS-Projektoptionen aus.
+2. Wählen Sie die *`*Entitlements.plist*`* -Datei im Feld **Benutzerdefinierte Berechtigungen** in der Ansicht **Bundlesignierung** des Fensters mit iOS-Projektoptionen aus.
 3. Stellen Sie beim Signieren von Zertifikaten sicher, dass Xcode die gleiche Apple-ID verwendet.
 
 ## <a name="enable-token-cache-sharing-across-ios-applications"></a>Aktivieren der Tokencachefreigabe über iOS-Anwendungen hinweg

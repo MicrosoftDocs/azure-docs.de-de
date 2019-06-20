@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: aa6c154e14fbf5291e2493f4f27b9d4501ba18f4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117985"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60905618"
 ---
 # <a name="permissions-in-azure-security-center"></a>Berechtigungen in Azure Security Center
 
@@ -29,7 +29,7 @@ Security Center bewertet die Konfiguration Ihrer Ressourcen, um die Sicherheitsp
 
 Neben diesen Rollen gibt es zwei spezifische Security Center-Rollen:
 
-* **Benutzer mit Leseberechtigung für Sicherheitsfunktionen**: Ein Benutzer, der dieser Rolle angehört, verfügt über Anzeigerechte für Security Center. Der Benutzer kann Empfehlungen, Warnungen, Sicherheitsrichtlinien und Sicherheitszustände anzeigen, jedoch keine Änderungen vornehmen.
+* **Sicherheitsleseberechtigter**: Ein Benutzer, der dieser Rolle angehört, verfügt über Anzeigerechte für Security Center. Der Benutzer kann Empfehlungen, Warnungen, Sicherheitsrichtlinien und Sicherheitszustände anzeigen, jedoch keine Änderungen vornehmen.
 * **Sicherheitsadministrator**: Ein Benutzer, der dieser Rolle angehört, hat die gleichen Rechte wie der Sicherheitsleseberechtigte und kann darüber hinaus die Sicherheitsrichtlinie aktualisieren sowie Warnungen und Empfehlungen verwerfen.
 
 > [!NOTE]

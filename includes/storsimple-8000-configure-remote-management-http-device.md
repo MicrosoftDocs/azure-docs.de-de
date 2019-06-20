@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 473bc0a58fe49c7f454c81402b57ddce7fc745b2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159656"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178152"
 ---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>So konfigurieren Sie die Remoteverwaltung auf dem Cloudgerät
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726549"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Erste Schritte mit R in Azure Machine Learning Studio
@@ -930,7 +930,7 @@ outframe
 
 Die erste Codezeile ist etwas schwieriger, doch einige Erläuterungen sollten Ihnen helfen, sie zu verstehen. Wenn wir von innen nach außen vorgehen, erhalten wir Folgendes:
 
-1. Der '**[[**'-Operator wählt mit dem '**1**'-Argument den Vektor der Korrelationen an den Verzögerungen aus dem ersten Element der ccf-Objektliste aus.
+1. Der ' **[[** '-Operator wählt mit dem '**1**'-Argument den Vektor der Korrelationen an den Verzögerungen aus dem ersten Element der ccf-Objektliste aus.
 2. Die `do.call()`-Funktion wendet die `rbind()`-Funktion auf die Elemente der Liste an, die von `lapply()` zurückgegeben wird.
 3. Die `data.frame()`-Funktion wandelt das von `do.call()` erzeugte Ergebnis in ein Dataframe um.
 

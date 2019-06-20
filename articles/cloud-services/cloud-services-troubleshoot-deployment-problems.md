@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62106912"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Behandeln von Problemen mit der Clouddienstbereitstellung
 Wenn Sie ein Anwendungspaket für einen Clouddienst in Azure bereitstellen, können Sie im Bereich **Eigenschaften** des Azure-Portals Informationen zu der Bereitstellung abrufen. Mit den Informationen in diesem Bereich können Sie Probleme mit dem Clouddienst behandeln, und Sie können dem Azure-Support diese Informationen bereitstellen, wenn Sie eine neue Supportanfrage eröffnen.

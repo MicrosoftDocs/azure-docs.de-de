@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007016"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60754400"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Behandeln von Problemen mit Azure Data Box Gateway 
 

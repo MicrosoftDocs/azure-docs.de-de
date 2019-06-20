@@ -1,5 +1,5 @@
 ---
-title: 'Verschlüsselung ruhender Daten mit von Kunden verwalteten Schlüsseln in Azure Key Vault: Azure Search'
+title: Verschlüsselung ruhender Daten mit von Kunden verwalteten Schlüsseln in Azure Key Vault (Vorschau) – Azure Search
 description: Ergänzung der serverseitigen Verschlüsselung über Indizes und Synonymzuordnungen in Azure Search durch Schlüssel, die Sie in Azure Key Vault erstellen und verwalten.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66753945"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Verschlüsselung in Azure Search mit von Kunden verwalteten Schlüsseln in Azure Key Vault
+
+> [!Note]
+> Verschlüsselung mit vom Kunden verwalteten Schlüsseln befindet sich in der Vorschau und ist nicht für die Produktion ausgelegt. Dieses Feature wird durch die [REST-API-Version 2019-05-06-Preview](search-api-preview.md) bereitgestellt. Sie können auch die Vorschauversion 8.0 von .NET SDK verwenden.
+>
+> Dieses Feature ist nicht für kostenlose Dienste verfügbar. Sie müssen einen abrechenbaren Suchdienst verwenden, der am bzw. nach 1.1.2019 erstellt wurde. Für das Portal ist derzeit noch keine Unterstützung vorhanden.
 
 Standardmäßig werden in Azure Search ruhende Benutzerinhalte mit [dienstseitig verwalteten Schlüsseln](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models) verschlüsselt. Sie können die Standardverschlüsselung durch eine zusätzliche Verschlüsselungsebene ergänzen, indem Sie Schlüssel verwenden, die Sie in Azure Key Vault erstellen und verwalten. In diesem Artikel werden die entsprechenden Schritte beschrieben.
 
@@ -26,20 +31,17 @@ Die Verschlüsselung mit von Kunden verwalteten Schlüsseln wird auf Ebene von I
 
 Sie können verschiedene Schlüssel von verschiedenen Key Vault-Instanzen verwenden. Das bedeutet, dass ein einzelner Suchdienst zusammen mit Indizes oder Synonymzuordnungen, die nicht mit vom Kunden verwalteten Schlüsseln verschlüsselt sind, mehrere verschlüsselte Indizes oder Synonymzuordnungen hosten kann, die jeweils möglicherweise mit einem anderen vom Kunden verwalteten Schlüssel verschlüsselt sind. 
 
->[!Note]
-> **Funktionsverfügbarkeit:** Die Verschlüsselung mit von Kunden verwalteten Schlüsseln ist eine Previewfunktion, die für kostenlose Dienste nicht verfügbar ist. Für kostenpflichtige Dienste steht sie nur für Suchdienste zur Verfügung, die ab dem 01.01.2019 mit der neuesten API-Vorschauversion (2019-05-06-Preview) erstellt wurden. Derzeit wird diese Funktion im Portal nicht unterstützt.
-
 ## <a name="prerequisites"></a>Voraussetzungen
 
 In diesem Beispiel werden die folgenden Dienste verwendet. 
 
-[Erstellen Sie einen Azure Search-Dienst](search-create-service-portal.md), oder suchen Sie in Ihrem aktuellen Abonnement [nach einem vorhandenen Dienst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). In diesem Tutorial können Sie einen kostenlosen Dienst verwenden.
++ [Erstellen Sie einen Azure Search-Dienst](search-create-service-portal.md), oder suchen Sie in Ihrem aktuellen Abonnement [nach einem vorhandenen Dienst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). In diesem Tutorial können Sie einen kostenlosen Dienst verwenden.
 
-[Erstellen einer Azure Key Vault-Ressource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) oder Suchen eines vorhandenen Tresors in Ihrem Abonnement.
++ [Erstellen einer Azure Key Vault-Ressource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) oder Suchen eines vorhandenen Tresors in Ihrem Abonnement.
 
-Für Konfigurationsaufgaben wird [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) oder die [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-azure-cli) verwendet.
++ Für Konfigurationsaufgaben wird [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) oder die [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure/install-azure-cli) verwendet.
 
-Die Vorschau-REST-API kann mithilfe von [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) und [Azure Search SDK](https://aka.ms/search-sdk-preview) aufgerufen werden. Aktuell wird die von Kunden verwaltete Verschlüsselung im Portal und mit dem .NET SDK nicht unterstützt.
++ Die Vorschau-REST-API kann mithilfe von [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) und [Azure Search SDK](https://aka.ms/search-sdk-preview) aufgerufen werden. Aktuell wird die von Kunden verwaltete Verschlüsselung im Portal und mit dem .NET SDK nicht unterstützt.
 
 ## <a name="1---enable-key-recovery"></a>1: Aktivieren der Schlüsselwiederherstellung
 
@@ -225,7 +227,7 @@ So erstellen Sie eine AAD-Anwendung im Portal
 
 1. [Erstellen Sie eine Azure Active Directory-Anwendung.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
 
-1. [Rufen Sie die Anwendungs-ID und den Authentifizierungsschlüssel ab](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key), da diese zum Erstellen eines verschlüsselten Index benötigt werden. Zu den Werten, die Sie angeben müssen, gehören auch die **Anwendungs-ID** und der **Authentifizierungsschlüssel**.
+1. [Rufen Sie die Anwendungs-ID und den Authentifizierungsschlüssel ab](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), da diese zum Erstellen eines verschlüsselten Index benötigt werden. Zu den Werten, die Sie angeben müssen, gehören auch die **Anwendungs-ID** und der **Authentifizierungsschlüssel**.
 
 >[!Important]
 > Berücksichtigen Sie bei der Entscheidung, eine AAD-Anwendung zur Authentifizierung anstelle einer verwalteten Identität zu verwenden, auch, dass die AAD-Anwendung in Azure Search nicht in Ihrem Namen verwaltet werden kann und Sie selbst die AAD-Anwendung verwalten müssen, beispielsweise die regelmäßige Rotation des Anwendungsauthentifizierungsschlüssels.

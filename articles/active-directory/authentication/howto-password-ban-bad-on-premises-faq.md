@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917659"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Lokaler Azure AD-Kennwortschutz – häufig gestellte Fragen
@@ -76,7 +76,7 @@ Diese Anforderung wird durch das Kernverhalten von Windows verursacht.
 
 **F: Gibt es eine Möglichkeit, einen DC-Agent so zu konfigurieren, dass er einen bestimmten Proxyserver verwendet?**
 
- Nein. Da der Proxyserver zustandslos ist, spielt es keine Rolle, welcher Proxyserver genau verwendet wird.
+Nein. Da der Proxyserver zustandslos ist, spielt es keine Rolle, welcher Proxyserver genau verwendet wird.
 
 **F: Kann der Azure AD-Kennwortschutz-Proxydienst neben anderen Diensten wie Azure AD Connect bereitgestellt werden?**
 
@@ -96,19 +96,19 @@ Wenn Ihre aktuellen Domänencontroller allerdings bereits mit eingeschränkter L
 
 **F: Ich möchte den Azure AD-Kennwortschutz auf einigen wenigen Domänencontrollern in meiner Domäne testen. Kann ich erzwingen, dass für Kennwortänderungen durch Benutzer nur diese bestimmten Domänencontroller verwendet werden?**
 
- Nein. Das Windows-Clientbetriebssystem steuert, welcher Domänencontroller verwendet wird, wenn ein Benutzer sein Kennwort ändert. Der Domänencontroller wird anhand von Faktoren wie Active Directory-Standort und -Subnetzzuordnungen, der umgebungsspezifischen Netzwerkkonfiguration usw. ausgewählt. Der Azure AD-Kennwortschutz hat keine Kontrolle über diese Faktoren und kann nicht beeinflussen, welcher Domänencontroller für die Änderung eines Benutzerkennworts ausgewählt wird.
+Nein. Das Windows-Clientbetriebssystem steuert, welcher Domänencontroller verwendet wird, wenn ein Benutzer sein Kennwort ändert. Der Domänencontroller wird anhand von Faktoren wie Active Directory-Standort und -Subnetzzuordnungen, der umgebungsspezifischen Netzwerkkonfiguration usw. ausgewählt. Der Azure AD-Kennwortschutz hat keine Kontrolle über diese Faktoren und kann nicht beeinflussen, welcher Domänencontroller für die Änderung eines Benutzerkennworts ausgewählt wird.
 
 Eine Möglichkeit, um dieses Ziel zumindest teilweise zu erreichen, besteht darin, den Azure AD-Kennwortschutz auf allen Domänencontrollern in einem bestimmten Active Directory-Standort bereitzustellen. Dieses Vorgehen bietet eine angemessene Abdeckung für alle Windows-Clients, die diesem Standort zugewiesen sind, und damit auch für die Benutzer, die sich bei diesen Clients anmelden und ihre Kennwörter ändern.
 
 **F: Wenn ich den Domänencontroller-Agent-Dienst für den Azure AD-Kennwortschutz nur auf dem primären Domänencontroller (PDC) installiere, sind damit auch alle anderen Domänencontroller in der Domäne geschützt?**
 
- Nein. Wenn das Kennwort eines Benutzers auf einem Domänencontroller geändert wird, bei dem es sich nicht um den PDC handelt, wird das Klartextkennwort niemals an den PDC gesendet (dies ist eine weit verbreitete Fehlannahme). Sobald ein neues Kennwort auf einem bestimmten Domänencontroller akzeptiert wurde, verwendet dieser Domänencontroller das Kennwort, um die Kennworthashes für die verschiedenen Authentifizierungsprotokolle zu erstellen und speichert diese Hashes im Verzeichnis. Das Klartextkennwort wird nicht gespeichert. Die aktualisierten Hashes werden an den PDC repliziert. Benutzerkennwörter können in einigen Fällen direkt auf dem PDC geändert werden – auch dies hängt von verschiedenen Faktoren ab, wie z.B. der Netzwerktopologie und der Gestaltung des Active Directory-Standorts. (Siehe auch die Antwort auf die vorherige Frage.)
+Nein. Wenn das Kennwort eines Benutzers auf einem Domänencontroller geändert wird, bei dem es sich nicht um den PDC handelt, wird das Klartextkennwort niemals an den PDC gesendet (dies ist eine weit verbreitete Fehlannahme). Sobald ein neues Kennwort auf einem bestimmten Domänencontroller akzeptiert wurde, verwendet dieser Domänencontroller das Kennwort, um die Kennworthashes für die verschiedenen Authentifizierungsprotokolle zu erstellen und speichert diese Hashes im Verzeichnis. Das Klartextkennwort wird nicht gespeichert. Die aktualisierten Hashes werden an den PDC repliziert. Benutzerkennwörter können in einigen Fällen direkt auf dem PDC geändert werden – auch dies hängt von verschiedenen Faktoren ab, wie z.B. der Netzwerktopologie und der Gestaltung des Active Directory-Standorts. (Siehe auch die Antwort auf die vorherige Frage.)
 
 Zusammenfassend gesagt: Die Bereitstellung des Domänencontroller-Agent-Diensts für den Azure AD-Kennwortschutz auf dem PDC ist erforderlich, um eine 100-prozentige Sicherheitsabdeckung des Features in der gesamten Domäne zu erzielen. Wenn das Feature nur auf dem PDC bereitgestellt wird, können die anderen Domänencontroller in der Domäne nicht von den Sicherheitsvorteilen des Azure AD-Kennwortschutzes profitieren.
 
 **F: Ist für den Azure AD-Kennwortschutz ein System Center Operations Manager-Managementpack verfügbar?**
 
- Nein.
+Nein.
 
 **F: Warum lehnt Azure schwache Kennwörter weiterhin ab, obwohl ich für die Richtlinie den Überwachungsmodus konfiguriert habe?**
 

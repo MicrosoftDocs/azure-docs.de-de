@@ -2,26 +2,26 @@
 title: Informationen zur Anpassung der Benutzeroberfläche (UI) in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie die Benutzeroberfläche Ihrer Anwendungen anpassen, die Azure Active Directory B2C verwenden.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 26dea1b636fce9e7f5defddd5cf4bc4c7d78d5da
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682019"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511173"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Informationen zur Anpassung der Benutzeroberfläche (UI) in Azure Active Directory B2C
 
 Dass Sie die Möglichkeit haben, der Benutzeroberfläche (UI), die Azure Active Directory (Azure AD) B2C Ihren Anwendungen bereitstellt, ein Branding hinzuzufügen bzw. sie anzupassen, ist wichtig, um Ihrem Kunden eine nahtlose Benutzererfahrung bereitstellen zu können. Diese Erfahrungen umfassen Registrierung, Anmeldung, Profilbearbeitung und Kennwortzurücksetzung. Dieser Artikel enthält Informationen, um Ihnen bei der Anpassung der Benutzeroberfläche Ihrer Anwendungen zu helfen.
 
-Je nach Ihren Anforderungen hinsichtlich dieser Erfahrungen passen Sie die Benutzeroberfläche Ihrer Anwendung auf unterschiedliche Weise an. Beispiel: 
+Je nach Ihren Anforderungen hinsichtlich dieser Erfahrungen passen Sie die Benutzeroberfläche Ihrer Anwendung auf unterschiedliche Weise an. Beispiel:
 
 - Wenn Sie [Benutzerflows](active-directory-b2c-reference-policies.md) verwenden, um in Ihrer Anwendung Benutzeroberflächenfeatures für Registrierung oder Anmeldung, Kennwortzurücksetzung oder Profilbearbeitung bereitzustellen, verwenden Sie das [Azure-Portal zum Anpassen der Benutzeroberfläche](tutorial-customize-ui.md).
 - Wenn Sie einen V2-Benutzerflow verwenden, können Sie mithilfe einer [Seitenlayoutvorlage](#page-layout-templates) das Aussehen Ihrer Benutzerflowseiten ohne weitere Anpassung ändern. Sie können beispielsweise das Design „Ozeanblau“ oder „Schiefergrau“ auf alle Seiten in Ihrem Benutzerflow anwenden.

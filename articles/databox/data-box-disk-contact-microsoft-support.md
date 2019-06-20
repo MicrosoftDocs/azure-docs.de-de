@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: ''
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100444"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240144"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Öffnen eines Supporttickets für Azure Data Box 
 
-Dieser Artikel gilt für Azure Data Box und Azure Data Box Disk, die beide vom Azure Data Box-Dienst verwaltet werden. Wenn Probleme mit Ihrem Azure Data Box-Dienst auftreten, können Sie eine Serviceanfrage für den technischen Support erstellen. In diesem Artikel wird Folgendes beschrieben:
+Dieser Artikel gilt für Azure Data Box, Azure Data Box Heavy und Azure Data Box Disk, die alle vom Azure Data Box-Dienst verwaltet werden. Wenn Probleme mit Ihrem Azure Data Box-Dienst auftreten, können Sie eine Serviceanfrage für den technischen Support erstellen. In diesem Artikel wird Folgendes beschrieben:
 
 * Erstellen einer Supportanfrage
 * Verwalten des Lebenszyklus einer Supportanfrage innerhalb des Portals
@@ -34,7 +34,7 @@ Führen Sie die folgenden Schritte aus, um eine Supportanfrage zu erstellen.
     
     1. Wählen Sie aus der Dropdownliste **Problemtyp** den Eintrag **Technisch** aus.
     2. Wählen Sie Ihr **Abonnement** aus.
-    3. Aktivieren Sie unter **Dienst** die Option **Alle Dienste**. Wählen Sie in der Dropdownliste die Option **Data Box – Vorschau** aus. 
+    3. Aktivieren Sie unter **Dienst** die Option **Alle Dienste**. Wählen Sie in der Dropdownliste die Option **Data Box** aus. 
     4. Geben Sie Ihren **Supportplan** an.
     5. Klicken Sie auf **Weiter**.
 
@@ -56,7 +56,7 @@ Führen Sie die folgenden Schritte aus, um eine Supportanfrage zu erstellen.
 4. Klicken Sie unter **Neue Supportanfrage** auf Schritt 3 **Kontaktinformationen**. Führen Sie unter **Kontaktinformationen** folgende Schritte aus:
 
    1. Geben Sie in **Kontaktoptionen** Ihre bevorzugte Kontaktmethode (telefonisch oder per E-Mail) und die Sprache ein. Die Antwortzeit wird die anhand Ihres Abonnementplans automatisch ausgewählt.
-   2. Geben Sie in den **Kontaktinformationen** Ihren Namen, Ihre E-Mail-Adresse, einen optionalen Kontakt und das Land ein. Aktivieren Sie die Option **Änderungen an den Kontaktdaten für zukünftige Supportanfragen speichern**.
+   2. Geben Sie in den **Kontaktinformationen** Ihren Namen, Ihre E-Mail-Adresse, einen optionalen Kontakt und das Land/die Region ein. Aktivieren Sie die Option **Änderungen an den Kontaktdaten für zukünftige Supportanfragen speichern**.
    3. Klicken Sie auf **Create**.
    
        ![Kontaktinformationen](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
@@ -84,3 +84,5 @@ Nach dem Erstellen einer Supportanfrage können Sie den Lebenszyklus des Tickets
 ## <a name="next-steps"></a>Nächste Schritte
 
 Erfahren Sie mehr über das [Behandeln von Problemen mit Data Box Disk](data-box-disk-troubleshoot.md).
+Erfahren Sie mehr über das [Behandeln von Problemen mit Data Box](data-box-troubleshoot.md).
+Erfahren Sie mehr über das [Behandeln von Problemen mit Data Box-Blobspeicher](data-box-troubleshoot-rest.md).

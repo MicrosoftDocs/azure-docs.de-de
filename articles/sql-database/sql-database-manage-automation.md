@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60702094"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Verwalten von Azure SQL-Datenbanken mit Azure Automation
 
@@ -40,9 +40,9 @@ Azure Automation bietet außerdem die Möglichkeit, über die Ausgabe von SQL-Be
 Der [Azure Automation-Runbookkatalog](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) enthält eine Vielzahl von Runbooks von Produktteam und Community für den Einstieg in die Automatisierung der Verwaltung von Azure SQL-Datenbank, anderen Azure-Diensten und Drittanbietersystemen. Zu den Katalogrunbooks zählen:
 
 - [How to use a SQL Command in an Azure Automation Runbook (in englischer Sprache)](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
-- [Azure SQL Database: Vertically Scale (in englischer Sprache)](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+- [Azure SQL Database: Vertically Scale](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f) (Azure SQL-Datenbank: Vertikale Skalierung)
 - [Truncate table in SQL DB if DB is approaching max size (in englischer Sprache)](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
-- [Indexes tables in an Azure database if they have a high fragmentation (in englischer Sprache)](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
+- [Indexes tables in an Azure database if they have a high fragmentation](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea) (Indizieren von Tabellen in einer Azure-Datenbank mit hoher Fragmentierung)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

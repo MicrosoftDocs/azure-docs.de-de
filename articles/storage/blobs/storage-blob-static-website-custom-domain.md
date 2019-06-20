@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 05/22/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2b0bb94be2ba8ea983cda8fd015d05fcd532f2bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145058"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226083"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutorial: Verwenden von Azure CDN zum Aktivieren einer benutzerdefinierten Domäne mit SSL für eine statische Website
 
@@ -38,14 +38,27 @@ Melden Sie sich zunächst beim [Azure-Portal](https://portal.azure.com/) an.
 
 ## <a name="create-a-cdn-endpoint-on-the-static-website-endpoint"></a>Erstellen eines CDN-Endpunkts für den Endpunkt der statischen Website
 
-1. Wechseln Sie in Ihrem Webbrowser zum [Azure-Portal](https://portal.azure.com/). 
-1. Suchen Sie nach Ihrem Speicherkonto, und zeigen Sie die Kontoübersicht an.
+1. Suchen Sie im Azure-Portal nach Ihrem Speicherkonto, und zeigen Sie die Kontoübersicht an.
 1. Wählen Sie im Menü **Blob-Dienst** die Option **Azure CDN** aus, um Azure CDN zu konfigurieren.
-1. Füllen Sie im Abschnitt **Neuer Endpunkt** die Felder aus, um einen neuen CDN-Endpunkt zu erstellen.
-1. Geben Sie einen Endpunktnamen ein, z. B. *mystaticwebsiteCDN*.
-1. Geben Sie die Domäne Ihrer Website als Hostnamen für den CDN-Endpunkt ein.
-1. Geben Sie für den Hostnamen des Ursprungs den Endpunkt Ihrer statischen Website ein. Um den Endpunkt Ihrer statischen Website zu ermitteln, navigieren Sie zum Abschnitt **Statische Website** Ihres Speicherkontos, und kopieren Sie den Endpunkt. 
-1. Testen Sie Ihren CDN-Endpunkt, indem Sie in Ihrem Browser zu *mywebsitecdn.azureedge.net* navigieren.
+1. Geben Sie im Abschnitt **CDN-Profil** ein neues oder vorhandenes CDN-Profil an. Weitere Informationen finden Sie unter [Quickstart: Erstellen eines Azure CDN-Profils und -Endpunkts](../../cdn/cdn-create-new-endpoint.md).
+1. Geben Sie einen Tarif für den CDN-Endpunkt an. In diesem Tutorial wird der Tarif **Standard Akamai** verwendet, da die Verteilung bei diesem Tarif schnell erfolgt (in der Regel innerhalb weniger Minuten). Bei anderen Tarifen dauert die Verteilung möglicherweise länger, sie bieten jedoch u. U. andere Vorteile. Weitere Informationen finden Sie unter [Vergleichen von Azure CDN-Produktfeatures](../../cdn/cdn-features.md).
+1. Geben Sie im Feld **Name des CDN-Endpunkts** einen Namen für Ihren CDN-Endpunkt an. Der Name des CDN-Endpunkts muss innerhalb von Azure eindeutig sein.
+1. Geben Sie im Feld **Hostname des Ursprungs** den Endpunkt Ihrer statischen Website an. Navigieren Sie zum Ermitteln des Endpunkts Ihrer statischen Website zum Abschnitt **Statische Website** Ihres Speicherkontos. Kopieren Sie den primären Endpunkt, fügen Sie ihn in die CDN-Konfiguration ein, und entfernen Sie dabei die Protokoll-ID (*z. B.* HTTPS).
+
+    Die folgende Abbildung zeigt eine Beispiel-Endpunktkonfiguration:
+
+    ![Screenshot einer Beispiel-CDN-Endpunktkonfiguration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+
+1. Erstellen Sie den CDN-Endpunkt, und warten Sie, bis er verteilt wird.
+1. Überprüfen Sie, ob der CDN-Endpunkt korrekt konfiguriert ist. Klicken Sie dazu auf den Endpunkt, um die Einstellungen anzuzeigen. Suchen Sie wie in der folgenden Abbildung dargestellt in der CDN-Übersicht für Ihr Speicherkonto nach dem Endpunkthostnamen, und navigieren Sie zum Endpunkt. Das Format Ihres CDN-Endpunkts sieht in etwa wie folgt aus: `https://staticwebsitesamples.azureedge.net`.
+
+    ![Screenshot mit der Übersicht des CDN-Endpunkts](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+
+    Wenn Sie nach Abschluss der Verteilung zum CDN-Endpunkt navigieren, wird der Inhalt der Datei „index.html“ angezeigt, die Sie zuvor in Ihre statische Website hochgeladen haben.
+
+1. Navigieren Sie zum Überprüfen der Ursprungseinstellungen Ihres CDN-Endpunkts im Abschnitt **Einstellungen** für den CDN-Endpunkt zu **Ursprung**. Das Feld **Ursprungstyp** ist auf *Benutzerdefinierter Ursprung* festgelegt, und im Feld **Hostname des Ursprungs** wird der Endpunkt Ihrer statischen Website angezeigt.
+
+    ![Screenshot der Ursprungseinstellungen für den CDN-Endpunkt](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## <a name="enable-custom-domain-and-ssl"></a>Aktivieren der benutzerdefinierten Domäne und von SSL
 
@@ -53,17 +66,19 @@ Melden Sie sich zunächst beim [Azure-Portal](https://portal.azure.com/) an.
 
     ![Angeben des CNAME-Eintrags für die www-Unterdomäne](media/storage-blob-static-website-custom-domain/subdomain-cname-record.png)
 
-1. Klicken Sie im Azure-Portal auf den neu erstellten Endpunkt, um die benutzerdefinierte Domäne und das SSL-Zertifikat zu konfigurieren.
+1. Zeigen Sie im Azure-Portal die Einstellungen für Ihren CDN-Endpunkt an. Navigieren Sie unter **Einstellungen** zu **Benutzerdefinierte Domänen**, um die benutzerdefinierte Domäne und das SSL-Zertifikat zu konfigurieren.
 1. Wählen Sie **Benutzerdefinierte Domäne hinzufügen** aus, geben Sie Ihren Domänennamen ein, und klicken Sie dann auf **Hinzufügen**.
-1. Wählen Sie die neu erstellte benutzerdefinierte Domänenzuordnung aus, um ein SSL-Zertifikat bereitzustellen.
-1. Legen Sie **HTTPS für benutzerdefinierte Domänen** auf **EIN** fest. Wählen Sie **CDN verwaltet** aus, um Ihr SSL-Zertifikat von Azure CDN verwalten zu lassen. Klicken Sie auf **Speichern**.
-1. Testen Sie Ihre Website, indem Sie auf die URL der Website zugreifen.
+1. Wählen Sie die neue benutzerdefinierte Domänenzuordnung aus, um ein SSL-Zertifikat bereitzustellen.
+1. Legen Sie **HTTPS für benutzerdefinierte Domänen** auf **EIN** fest, und klicken Sie dann auf **Speichern**. Die Konfiguration Ihrer benutzerdefinierten Domäne nimmt mehrere Stunden in Anspruch. Der Status wird wie in der folgenden Abbildung dargestellt im Portal angezeigt.
+
+    ![Screenshot der Anzeige des Status der Konfiguration der benutzerdefinierten Domäne](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
+
+1. Testen Sie die Zuordnung zwischen Ihrer statischen Website und Ihrer benutzerdefinierten Domäne, indem Sie auf die URL für Ihre benutzerdefinierte Domäne zugreifen.
+
+Weitere Informationen zum Aktivieren von HTTPS für benutzerdefinierte Domänen finden Sie unter [Tutorial: Konfigurieren von HTTPS in einer benutzerdefinierten Azure CDN-Domäne](../../cdn/cdn-custom-ssl.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Im zweiten Teil dieses Tutorials haben Sie erfahren, wie Sie eine benutzerdefinierte Domäne mit SSL in Azure CDN für Ihre statische Website konfigurieren.
 
-Unter dem folgenden Link erfahren Sie mehr über das Hosten statischer Websites in Azure Storage.
-
-> [!div class="nextstepaction"]
-> [Weitere Informationen zu statischen Websites](storage-blob-static-website.md)
+Weitere Informationen zum Konfigurieren und Verwenden von Azure CDN finden Sie unter [Was ist ein Content Delivery Network in Azure?](../../cdn/cdn-overview.md).

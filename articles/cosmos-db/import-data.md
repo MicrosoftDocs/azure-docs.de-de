@@ -4,14 +4,14 @@ description: Erfahren Sie, wie Sie das Open-Source-basierte Azure Cosmos DB-Date
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.author: dech
-ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 792dca41a052930bf2c853846cdd0c09661c5cd3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315809"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954505"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Migrieren Ihrer Daten zu Azure Cosmos DB mithilfe des Datenmigrationstools
 
@@ -85,6 +85,19 @@ Nachdem Sie das Tool installiert haben, können Ihre Daten importiert werden. We
 Mit der Importprogrammoption für JSON-Dateiquellen können Sie eine oder mehrere JSON-Dateien mit einem einzelnen Dokument oder JSON-Dateien, die jeweils ein Array von JSON-Dokumenten enthalten, importieren. Wenn Sie Ordner hinzufügen, die zu importierende JSON-Dateien enthalten, können Sie in den Unterordnern rekursiv nach Dateien suchen.
 
 ![Screenshot der Optionen für JSON-Dateiquellen – Datenbank-Migrationstools](./media/import-data/jsonsource.png)
+
+Die Verbindungszeichenfolge hat folgendes Format:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* `<CosmosDB Endpoint>` ist der Endpunkt-URI. Diesen Wert können Sie im Azure-Portal ermitteln. Navigieren Sie zu Ihrem Azure Cosmos-Konto. Öffnen Sie den Bereich **Übersicht**, und kopieren Sie den Wert von **URI**.
+* `<AccountKey>` ist das „Kennwort“ oder der **PRIMÄRSCHLÜSSEL**. Diesen Wert können Sie im Azure-Portal ermitteln. Navigieren Sie zu Ihrem Azure Cosmos-Konto. Öffnen Sie einen der Bereiche **Verbindungszeichenfolgen** oder **Schlüssel**, und kopieren Sie das „Kennwort“ oder den Wert von **PRIMÄRSCHLÜSSEL**.
+* `<CosmosDB Database>` ist der Name der Cosmos DB-Datenbank.
+
+Beispiel: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Verwenden Sie den Verify-Befehl, um sicherzustellen, dass auf das im Feld „Verbindungszeichenfolge“ angegebene Cosmos DB-Konto zugegriffen werden kann.
 
 Hier finden Sie einige Befehlszeilenbeispiele zum Importieren von JSON-Dateien:
 

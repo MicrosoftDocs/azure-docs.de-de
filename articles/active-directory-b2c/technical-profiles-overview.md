@@ -2,20 +2,20 @@
 title: Informationen zu technischen Profilen in benutzerdefinierten Azure Active Directory B2C-Richtlinien | Microsoft-Dokumentation
 description: Erfahren Sie, wie technische Profile in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C verwendet werden.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8865da2f39f574656fe7f018eb1f1900b913391c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 80b8969ba657506705db2b1a3bbc5b389d0a992c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710896"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512453"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informationen zu technischen Profilen in benutzerdefinierten Azure Active Directory B2C-Richtlinien
 
@@ -49,7 +49,7 @@ Allen Typen von technischen Profilen liegt das gleiche Konzept zugrunde. Sie sen
  
 1. **InputClaimsTransformation** – Die Eingabeansprüche jeder [Eingabeanspruchstransformation](claimstransformations.md) werden dem Anspruchsbehälter entnommen, und nach der Ausführung werden die Ausgabeansprüche wieder im Anspruchsbehälter abgelegt. Bei den Ausgabeansprüchen einer Eingabeanspruchstransformation kann es sich um Eingabeansprüche einer nachfolgenden Eingabeanspruchstransformation handeln.
 2. **InputClaims** – Ansprüche werden dem Anspruchsbehälter entnommen und für das technische Profil verwendet. Ein [selbstbestätigtes technisches Profil](self-asserted-technical-profile.md) verwendet beispielsweise die Eingabeansprüche, um die Ausgabeansprüche im Vorhinein auszufüllen, die der Benutzer angibt. Ein technisches REST-API-Profil verwendet die Eingabeansprüche, um Eingabeparameter an den REST-API-Endpunkt zu senden. Azure Active Directory verwendet einen Eingabeanspruch als eindeutigen Bezeichner zum Lesen, Aktualisieren oder Löschen eines Kontos.
-3. **Ausführung des technischen Profils** – Das technische Profil tauscht die Ansprüche mit der konfigurierten Partei aus. Beispiel: 
+3. **Ausführung des technischen Profils** – Das technische Profil tauscht die Ansprüche mit der konfigurierten Partei aus. Beispiel:
     - Der Benutzer wird an den Identitätsanbieter umgeleitet, um die Anmeldung abzuschließen. Nach der erfolgreichen Anmeldung kehrt der Benutzer zurück, und die Ausführung des technischen Profils wird fortgesetzt.
     - Rufen Sie eine REST-API auf, während Sie Parameter als InputClaims senden und Informationen als OutputClaims zurückerhalten.
     - Erstellen oder aktualisieren Sie das Benutzerkonto.
@@ -57,7 +57,7 @@ Allen Typen von technischen Profilen liegt das gleiche Konzept zugrunde. Sie sen
 4. **ValidationTechnicalProfiles** – Für ein [selbstbestätigtes technisches Profil](self-asserted-technical-profile.md) können Sie eine Eingabe für ein [technisches Validierungsprofil](validation-technical-profile.md) aufrufen. Das technische Validierungsprofil überprüft die vom Benutzer profilierten Daten und gibt eine Fehlermeldung oder „OK“ mit oder ohne Ausgabeansprüche zurück. Beispiel: Bevor Azure AD B2C ein neues Konto erstellt, wird überprüft, ob der Benutzer bereits in den Verzeichnisdiensten vorhanden ist. Sie können ein technisches REST-API-Profil aufrufen, um Ihre eigene Geschäftslogik hinzuzufügen.<p>Der Umfang der Ausgabeansprüche eines technischen Validierungsprofils ist auf das technische Profil, das das technische Validierungsprofil aufruft, und andere technische Validierungsprofile unter demselben technischen Profil beschränkt. Wenn Sie die Ausgabeansprüche im nächsten Orchestrierungsschritt verwenden möchten, müssen Sie die Ausgabeansprüche zu dem technischen Profil hinzufügen, das das technische Validierungsprofil aufruft.
 5. **OutputClaims**: Ansprüche werden an den Anspruchsbehälter zurückgegeben. Sie können diese Ansprüche im nächsten Orchestrierungsschritt bzw. Transformationen von Ausgabeansprüchen verwenden.
 6. **OutputClaimsTransformations** – Die Eingabeansprüche jeder [Ausgabeanspruchstransformation](claimstransformations.md) werden dem Anspruchsbehälter entnommen. Bei den Ausgabeansprüchen des technischen Profils aus den vorherigen Schritten kann es sich um Eingabeansprüche einer Ausgabeanspruchstransformation handeln. Nach der Ausführung werden die Ausgabeansprüche wieder im Anspruchsbehälter abgelegt. Bei den Ausgabeansprüchen einer Ausgabeanspruchstransformation kann es sich auch um Eingabeansprüche einer nachfolgenden Ausgabeanspruchstransformation handeln.
-7. **Sitzungsverwaltung für einmaliges Anmelden (Single Sign-On, SSO)** - [Die SSO-Sitzungsverwaltung](active-directory-b2c-reference-sso-custom.md) steuert die Interaktion mit einem Benutzer, nachdem der Benutzer bereits authentifiziert wurde. Der Administrator kann z. B. steuern, ob die Auswahl von Identitätsanbietern angezeigt wird, oder ob lokale Kontodetails erneut eingegeben werden müssen.
+7. **Sitzungsverwaltung für einmaliges Anmelden (Single Sign-On, SSO)**  - [Die SSO-Sitzungsverwaltung](active-directory-b2c-reference-sso-custom.md) steuert die Interaktion mit einem Benutzer, nachdem der Benutzer bereits authentifiziert wurde. Der Administrator kann z. B. steuern, ob die Auswahl von Identitätsanbietern angezeigt wird, oder ob lokale Kontodetails erneut eingegeben werden müssen.
 
 Ein technisches Profil kann von einem anderen technischen Profil erben, um Einstellungen zu ändern oder neue Funktionalität hinzuzufügen.  Das Element **IncludeTechnicalProfile** ist ein Verweis auf das technische Basisprofil, von dem ein technisches Profil abgeleitet wird.  
 

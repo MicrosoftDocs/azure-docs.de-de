@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 8f110a88558b4479d8fdadb2967c7dedeca60ce9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62113934"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Ausführen von U-SQL-Skripts auf dem lokalen Computer
 
@@ -27,7 +27,7 @@ In der folgenden Aufstellung sind die Komponenten für die lokale Ausführung un
 
 |Komponente|Lokaler Testlauf|Ausführung in der Cloud|
 |---------|---------|---------|
-|Speicher|Lokaler Datenstammordner|Azure Data Lake Store-Standardkonto|
+|Storage|Lokaler Datenstammordner|Azure Data Lake Store-Standardkonto|
 |Compute|Engine für lokale U-SQL-Ausführung|Azure Data Lake Analytics-Dienst|
 |Ausführungsumgebung|Arbeitsverzeichnis auf dem lokalen Computer|Azure Data Lake Analytics-Cluster|
 

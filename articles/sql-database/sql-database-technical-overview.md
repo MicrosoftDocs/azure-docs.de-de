@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073616"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Worum handelt es sich beim Azure SQL-Datenbank-Dienst?
@@ -39,11 +39,11 @@ Die folgende Abbildung stellt diese Bereitstellungsoptionen dar:
 
 SQL-Datenbank nutzt diese Codebasis gemeinsam mit der [Microsoft SQL Server-Datenbank-Engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Mit der Cloud-First-Strategie von Microsoft werden die neuesten Funktionen von SQL Server zunächst in SQL-Datenbank und erst dann in SQL Server selbst veröffentlicht. Durch diesen Ansatz verfügen Sie immer über die neuesten Features von SQL Server – ohne den Mehraufwand für Patches oder Updates –, die in Millionen von Datenbanken getestet wurden. Informationen zu angekündigten neuen Funktionen finden Sie unter:
 
-- **[Azure-Roadmap für SQL-Datenbank](https://azure.microsoft.com/roadmap/?category=databases)**:
+- **[Azure-Roadmap für SQL-Datenbank](https://azure.microsoft.com/roadmap/?category=databases)** :
 
   Hier finden Sie Informationen zu neuen und geplanten Funktionen.
 
-- **[Azure SQL-Datenbank-Blog](https://azure.microsoft.com/blog/topics/database)**:
+- **[Azure SQL-Datenbank-Blog](https://azure.microsoft.com/blog/topics/database)** :
 
   Hier schreiben die Mitglieder von SQL Server-Produktteams Beiträge zu News und Features von SQL-Datenbank.
 
@@ -120,7 +120,7 @@ Durch die Unterstützung eines globalen Netzwerks von durch Microsoft verwaltete
 - **[Aktive Georeplikation:](sql-database-active-geo-replication.md)**
 
   Bei Einzel- und Pooldatenbanken können Sie bis zu vier lesbare sekundäre Datenbanken konfigurieren – im gleichen Azure-Rechenzentrum oder in weltweit verteilten Azure-Rechenzentren.  Wenn Sie beispielsweise über eine SaaS-Anwendung mit einer Katalogdatenbank verfügen, die eine große Anzahl gleichzeitiger schreibgeschützter Transaktionen umfasst, können Sie mithilfe der aktiven Georeplikation eine globale Skalierung für das Lesen aktivieren und so Engpässe in der primären Datenbank beseitigen, die durch hohe Workloads aufgrund der Lesevorgänge verursacht werden. Verwenden Sie für verwaltete Instanzen Autofailover-Gruppen.
-- **[Autofailover-Gruppen](sql-database-auto-failover-group.md)**:
+- **[Autofailover-Gruppen](sql-database-auto-failover-group.md)** :
 
   Alle Bereitstellungsoptionen von SQL-Datenbank ermöglichen die Verwendung von Failovergruppen, um Hochverfügbarkeit und Lastenausgleich auf globaler Ebene zu gewährleisten, einschließlich transparenter Georeplikation, Failovern großer Mengen von Datenbanken, Pools für elastische Datenbanken und verwalteter Instanzen. Failovergruppen erlauben das Erstellen von weltweit verteilten SaaS-Anwendungen mit minimalem Verwaltungsaufwand, bei dem alle komplexen Aufgaben für Überwachung, Weiterleitung und Failoverorchestrierung von SQL-Datenbank erledigt werden.
 - **[Zonenredundante Datenbanken:](sql-database-high-availability.md)**
@@ -214,7 +214,7 @@ Die aktuelle Version von SQL-Datenbank ist V12. Version V11 wurde eingestellt.
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>Kann ich den Zeitpunkt der Ausfallzeiten beim Patchen steuern?
 
- Nein. Die Auswirkungen vom Patchen sind im Allgemeinen nicht merklich, wenn Sie in Ihrer App [Wiederholungslogik einsetzen](sql-database-develop-overview.md#resiliency). Weitere Informationen zur Vorbereitung auf geplante Wartungsereignisse in Azure SQL-Datenbank finden Sie unter [Planen von Azure-Wartungsereignissen in Azure SQL-Datenbank](sql-database-planned-maintenance.md).
+Nein. Die Auswirkungen vom Patchen sind im Allgemeinen nicht merklich, wenn Sie in Ihrer App [Wiederholungslogik einsetzen](sql-database-develop-overview.md#resiliency). Weitere Informationen zur Vorbereitung auf geplante Wartungsereignisse in Azure SQL-Datenbank finden Sie unter [Planen von Azure-Wartungsereignissen in Azure SQL-Datenbank](sql-database-planned-maintenance.md).
 
 ### <a name="azure-hybrid-benefit-questions"></a>Fragen zum Azure-Hybridvorteil
 

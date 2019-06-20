@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025064"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definieren von benutzerdefinierten R-Modulen für Azure Machine Learning Studio
@@ -26,7 +26,7 @@ In diesem Thema erfahren Sie, wie ein benutzerdefiniertes R-Studio erstellt und 
 ## <a name="what-is-a-custom-r-module"></a>Was ist ein benutzerdefiniertes R-Modul?
 Ein **benutzerdefiniertes Modul** ist ein vom Benutzer bestimmtes Modul, dass in Ihrem Arbeitsbereich hochgeladen und als Teil eines Azure Machine Learning Studio-Experiments ausgeführt werden kann. Ein **benutzerdefiniertes R-Modul** ist ein benutzerdefiniertes Modul, das eine vom Benutzer erstellte R-Funktion ausführt. **R** ist eine Programmiersprache für statistische Berechnungen und Grafiken, die häufig von Statistikern und Datenanalysten für die Implementierung von Algorithmen verwendet wird. Derzeit wird in benutzerdefinierten Modulen ausschließlich R unterstützt, für zukünftige Versionen sind jedoch bereits weitere Sprachen geplant.
 
-Benutzerdefinierte Module haben in Azure Machine Learning Studio einen **erstrangigen Status** und können somit genau wie andere Module verwendet werden. Sie können mit anderen Modulen ausgeführt sowie in veröffentlichte Experimente oder in Visualisierungen eingeschlossen werden. Sie haben die Kontrolle über den vom Modul implementierten Algorithmus, die verwendeten Eingangs- und Ausgangsports, die Parameter für die Modellierung und andere Laufzeitmerkmale. Ein Experiment, das benutzerdefinierte Module enthält, kann auch im Azure AI-Katalog veröffentlicht werden, sodass es einfach freigegeben werden kan.
+Benutzerdefinierte Module haben in Azure Machine Learning Studio einen **erstrangigen Status** und können somit genau wie andere Module verwendet werden. Sie können mit anderen Modulen ausgeführt sowie in veröffentlichte Experimente oder in Visualisierungen eingeschlossen werden. Sie haben die Kontrolle über den vom Modul implementierten Algorithmus, die verwendeten Eingangs- und Ausgangsports, die Parameter für die Modellierung und andere Laufzeitmerkmale. Ein Experiment, das benutzerdefinierte Module enthält, kann auch im Azure KI-Katalog veröffentlicht werden, sodass es einfach freigegeben werden kann.
 
 ## <a name="files-in-a-custom-r-module"></a>Dateien in einem benutzerdefinierten R-Modul
 Ein benutzerdefiniertes R-Modul wird durch eine ZIP-Datei definiert, die mindestens zwei Dateien enthält:
@@ -286,7 +286,7 @@ Ein Modul-Parameter wird mithilfe des untergeordneten**Arg**-Elements des Abschn
     * Numeric
     * Boolean
     * Kategorisch
-    * Zeichenfolge
+    * string
     * Bezeichnung
     * Feature
     * Punkte

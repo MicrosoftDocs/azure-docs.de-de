@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
 ms.openlocfilehash: e54a096bd27efddaa9eafb8619e787178550a6e0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759254"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60553960"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Erste Schritte mit HTTP-Anforderungen von Relay Hybrid Connections in Node
 

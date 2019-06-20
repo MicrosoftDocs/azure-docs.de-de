@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61363461"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Verstehen und Verwenden von Modulzwillingen in IoT Hub
 
@@ -113,7 +113,7 @@ Im vorherigen Beispiel enthält der Modulzwilling eine `batteryLevel`-Eigenschaf
 
 ### <a name="desired-property-example"></a>Beispiel für eine gewünschte Eigenschaft
 
-Im vorherigen Beispiel werden die gewünschten und gemeldeten Eigenschaften des Modulzwillings `telemetryConfig` vom Lösungs-Back-End und von der Modul-App verwendet, um die Telemetriekonfiguration für dieses Modul zu synchronisieren. Beispiel: 
+Im vorherigen Beispiel werden die gewünschten und gemeldeten Eigenschaften des Modulzwillings `telemetryConfig` vom Lösungs-Back-End und von der Modul-App verwendet, um die Telemetriekonfiguration für dieses Modul zu synchronisieren. Beispiel:
 
 1. Das Lösungs-Back-End legt die gewünschte Eigenschaft mit dem gewünschten Konfigurationswert fest. Hier sehen Sie den Teil des Dokuments mit der festgelegten gewünschten Eigenschaft:
 
@@ -275,7 +275,7 @@ IoT Hub gibt für alle Vorgänge, die die Größe dieser Dokumente über den Gre
 ## <a name="module-twin-metadata"></a>Metadaten des Modulzwillings
 
 IoT Hub verwaltet den Zeitstempel der letzten Aktualisierung für jedes JSON-Objekt in den gewünschten und gemeldeten Eigenschaften des Modulzwillings. Zeitstempel verwenden UTC und sind im [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)-Format codiert: `YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Beispiel: 
+Beispiel:
 
 ```json
 {

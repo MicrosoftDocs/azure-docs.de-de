@@ -90,6 +90,8 @@
               href: concepts-data-access-and-security-threat-protection.md
             - name: Virtuelles Netzwerk
               href: concepts-data-access-and-security-vnet.md
+            - name: Verbindungsarchitektur
+              href: concepts-connectivity-architecture.md
         - name: Geschäftskontinuität
           items:
             - name: Übersicht
@@ -188,6 +190,10 @@
           href: howto-configure-server-parameters-using-portal.md
         - name: Azure-Befehlszeilenschnittstelle
           href: howto-configure-server-parameters-using-cli.md
+    - name: Automatische Speichervergrößerung
+      items:
+        - name: Azure-Portal
+          href: howto-auto-grow-storage-portal.md
     - name: Zugreifen auf Serverprotokolle
       items:
         - name: Azure-Portal

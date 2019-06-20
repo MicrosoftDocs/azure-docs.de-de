@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50228838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62104900"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Verwalten von Nachrichten in Twilio mit Azure Logic Apps
 
@@ -54,7 +54,7 @@ Mit Azure Logic Apps und dem Twilio-Connector können Sie automatisierte Aufgabe
        Oder
 
      * Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-     Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+     Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
      
        Geben Sie im Suchfeld den Begriff „Twilio“ als Filter ein. 
        Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.

@@ -11,11 +11,11 @@ ms.date: 04/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60748769"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Überwachen Ihrer Workload mit dynamischen Verwaltungssichten
 In diesem Artikel wird beschrieben, wie Sie dynamische Verwaltungssichten (DMVs) verwenden, um Ihre Workload zu überwachen. Dazu gehört auch die Untersuchung der Abfrageausführung in Azure SQL Data Warehouse.

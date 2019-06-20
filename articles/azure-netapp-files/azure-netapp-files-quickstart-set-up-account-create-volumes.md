@@ -1,6 +1,6 @@
 ---
-title: Einrichten von Azure NetApp Files und Erstellen eines Volumes | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie auf schnelle Weise Azure NetApp Files einrichten und ein Volume erstellen.
+title: Schnellstart – Einrichten von Azure NetApp Files und Erstellen eines NFS-Volumes | Microsoft-Dokumentation
+description: Schnellstart – Hier erfahren Sie, wie Sie auf schnelle Weise Azure NetApp Files einrichten und ein Volume erstellen.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,38 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 634f23cf3161fff09f21c79fd8300cb269dcc5b7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4ea511bec75557bc6f7d37b1724b4b0db65ba9cc
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546575"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299414"
 ---
-# <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Einrichten von Azure NetApp Files und Erstellen eines Volumes 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Schnellstart: Einrichten von Azure NetApp Files und Erstellen eines NFS-Volumes 
 
 In diesem Artikel erfahren Sie, wie Sie auf schnelle Weise Azure NetApp Files einrichten und ein Volume erstellen. 
 
+In dieser Schnellstartanleitung wird Folgendes eingerichtet:
+
+- Registrierung für Azure NetApp Files und NetApp-Ressourcenanbieter
+- NetApp-Konto
+- Kapazitätspool
+- NFS-Volume für Azure NetApp Files
+
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
+
 ## <a name="before-you-begin"></a>Voraussetzungen 
 
-Sie müssen am Public Preview-Programm teilnehmen und auf der Whitelist für den Zugriff auf den Ressourcenanbieter „Microsoft.NetApp“ stehen. Nähere Informationen zur Teilnahme am Public Preview-Programm finden Sie auf der [Registrierungsseite für Azure NetApp Files Public Preview](https://aka.ms/nfspublicpreview). 
+> [!IMPORTANT] 
+> Sie müssen Zugriff auf den Azure NetApp Files-Dienst erhalten.  Informationen zum Anfordern des Zugriffs auf den Dienst finden Sie auf der Seite für die [Übermittlung der Azure NetApp Files-Warteliste](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Sie müssen auf eine offizielle Bestätigungs-E-Mail des Azure NetApp Files-Teams warten, bevor Sie fortfahren können. 
 
 ## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registrieren für Azure NetApp Files und NetApp-Ressourcenanbieter
 
 1. Klicken Sie im Azure-Portal in der rechten oberen Ecke auf das Azure Cloud Shell-Symbol.
 
-      ![Azure Cloud Shell-Symbol](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
+    ![Azure Cloud Shell-Symbol](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell-window.png)
 
 2. Geben Sie das Abonnement an, das für Azure NetApp Files in die Whitelist aufgenommen wurde:
     
@@ -47,7 +57,7 @@ Sie müssen am Public Preview-Programm teilnehmen und auf der Whitelist für den
 
 ## <a name="create-a-netapp-account"></a>Erstellen eines NetApp-Kontos
 
-1. Geben Sie im Suchfeld des Azure-Portals **Azure NetApp Files** ein, und wählen Sie in der daraufhin angezeigten Liste die Option **Azure NetApp Files (Vorschauversion)** aus.
+1. Geben Sie im Suchfeld des Azure-Portals **Azure NetApp Files** ein, und wählen Sie in der daraufhin angezeigten Liste die Option **Azure NetApp Files** aus.
 
       ![Auswählen von „Azure NetApp Files“](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
@@ -88,7 +98,7 @@ Sie müssen am Public Preview-Programm teilnehmen und auf der Whitelist für den
 
 5. Klicken Sie auf **OK**.
 
-## <a name="create-a-volume-for-azure-netapp-files"></a>Erstellen eines Volumes für Azure NetApp Files
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Erstellen eines NFS-Volumes für Azure NetApp Files
 
 1. Klicken Sie auf dem Azure NetApp Files-Verwaltungsblatt Ihres NetApp-Kontos auf **Volumes**.
 
@@ -100,7 +110,6 @@ Sie müssen am Public Preview-Programm teilnehmen und auf der Whitelist für den
 
 3. Geben Sie im Fenster „Volume erstellen“ Informationen für das Volume an: 
    1. Geben Sie **myvol1** als Volumename ein. 
-   2. Geben Sie **myfilepath1** als Dateipfad zum Erstellen des Exportpfads für das Volume an.
    3. Wählen Sie Ihren Kapazitätspool (**mypool1**) aus.
    4. Übernehmen Sie für das Kontingent den Standardwert. 
    5. Klicken Sie unter „Virtuelles Netzwerk“ auf **Neu erstellen**, um ein neues virtuelles Azure-Netzwerk (VNET) zu erstellen.  Geben Sie anschließend folgende Informationen an:
@@ -116,7 +125,13 @@ Sie müssen am Public Preview-Programm teilnehmen und auf der Whitelist für den
 
       ![Fenster „Virtuelles Netzwerk erstellen“](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Klicken Sie auf **Überprüfen + erstellen**.
+4. Klicken Sie auf **Protokoll**, und wählen Sie dann **NFS** als Protokolltyp für das Volume aus.   
+
+    Geben Sie **myfilepath1** als Dateipfad zum Erstellen des Exportpfads für das Volume an. 
+
+    ![Angeben des NFS-Protokolls für den Schnellstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+
+5. Klicken Sie auf **Überprüfen + erstellen**.
 
     ![Fenster „Überprüfen + erstellen“](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 
@@ -125,7 +140,31 @@ Sie müssen am Public Preview-Programm teilnehmen und auf der Whitelist für den
 
     ![Volume erstellt](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
+
+Wenn Sie fertig sind, können Sie die Ressourcengruppe bei Bedarf löschen. Das Löschen einer Ressourcengruppe kann nicht rückgängig gemacht werden.  
+
+> [!IMPORTANT]
+> Alle Ressourcen innerhalb der Ressourcengruppen werden permanent gelöscht und der Vorgang kann nicht rückgängig gemacht werden. 
+
+1. Geben Sie im Suchfeld des Azure-Portals **Azure NetApp Files** ein, und wählen Sie in der daraufhin angezeigten Liste die Option **Azure NetApp Files** aus.
+
+2. Klicken Sie in der Liste der Abonnements auf die Ressourcengruppe (myRG1), die Sie löschen möchten. 
+
+    ![Navigieren zu Ressourcengruppen](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+
+
+3. Klicken Sie auf der Seite für die Ressourcengruppe auf die Option **Ressourcengruppe löschen**.
+
+    ![Ressourcengruppe löschen](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+
+    Ein Fenster mit der Warnung, dass die Ressourcen mit der Ressourcengruppe gelöscht werden, wird geöffnet.
+
+4. Geben Sie den Namen der Ressourcengruppe (myRG1) ein, um zu bestätigen, dass Sie die Ressourcengruppe und alle darin enthaltenen Ressourcen permanent löschen möchten, und klicken Sie dann auf **Löschen**.
+
+    ![Ressourcengruppe löschen](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+
 ## <a name="next-steps"></a>Nächste Schritte  
 
-* [Grundlegendes zur Speicherhierarchie von Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Verwalten von Volumes mithilfe von Azure NetApp Files](azure-netapp-files-manage-volumes.md) 
+> [!div class="nextstepaction"]
+> [Verwalten von Volumes mithilfe von Azure NetApp Files](azure-netapp-files-manage-volumes.md)  

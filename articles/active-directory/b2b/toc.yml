@@ -51,6 +51,8 @@
     - name: Anleitungen
       expanded: true
       items:
+        - name: Verwalten der B2B-Freigabe
+          href: delegate-invitations.md
         - name: Verwalten von Einladungen
           items:
             - name: 'Administratoren, die B2B-Benutzer hinzufügen'
@@ -61,8 +63,6 @@
               href: google-federation.md
             - name: Authentifizierung mit Einmalkennung
               href: one-time-passcode.md
-            - name: B2B-Freigaberichtlinien
-              href: delegate-invitations.md
             - name: Zulassen oder Blockieren von Einladungen
               href: allow-deny-list.md
             - name: Hinzufügen von B2B-Benutzern ohne Einladung

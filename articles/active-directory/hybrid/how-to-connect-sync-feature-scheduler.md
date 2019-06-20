@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65139290"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-Synchronisierung: Scheduler
@@ -72,7 +72,7 @@ Die Konfiguration des Schedulers wird in Azure AD gespeichert. Wenn Sie über e
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Syntax: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
- T - Tage, HH - Stunden, mm - Minuten, ss - Sekunden
+T - Tage, HH - Stunden, mm - Minuten, ss - Sekunden
 
 Beispiel: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 Ändert den Scheduler so, dass er alle drei Stunden ausgeführt wird.

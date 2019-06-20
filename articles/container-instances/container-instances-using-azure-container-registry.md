@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 515dc8ed4a2fc9b3d2973d393c6894d8c7cef8f0
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337922"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729379"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Bereitstellen in Azure Container Instances aus Azure Container Registry
 
@@ -163,7 +163,7 @@ Weitere Informationen zur Azure Container Registry-Authentifizierung finden Sie 
 
 <!-- LINKS - External -->
 [cloud-shell-bash]: https://shell.azure.com/bash
-[cloud-shell-powershell]: https://shell.azure.com/powershell
+[cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
 [az-acr-show]: /cli/azure/acr#az-acr-show

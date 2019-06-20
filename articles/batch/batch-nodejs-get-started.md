@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
 ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60775229"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Erste Schritte mit dem Batch SDK für Node.js
 

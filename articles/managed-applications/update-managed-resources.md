@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7c2b38055771dae458e4a3a56c2c98231335ae03
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304969"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61043406"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Verwenden von Ressourcen in der verwalteten Ressourcengruppe für eine verwaltete Azure-Anwendung
 

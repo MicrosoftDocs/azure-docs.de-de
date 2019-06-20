@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: kumud
 ms.openlocfilehash: 328471292ea6cbe07e96cc18af7f9c524407de3d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809469"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60930289"
 ---
 # <a name="high-availability-ports-overview"></a>Übersicht über Hochverfügbarkeitsports
 

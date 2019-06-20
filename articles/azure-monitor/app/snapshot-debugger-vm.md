@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
 ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877737"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60783499"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Aktivieren des Momentaufnahmedebuggers für.NET-Anwendungen in Azure Service Fabric, Cloud Service und Virtual Machines
 

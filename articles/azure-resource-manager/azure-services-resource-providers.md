@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 04/25/2019
 ms.author: tomfitz
 ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235577"
 ---
 # <a name="resource-providers-for-azure-services"></a>Ressourcenanbieter für Azure-Dienste

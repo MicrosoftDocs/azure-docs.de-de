@@ -7,12 +7,12 @@ manager: carmonm
 ms.date: 06/12/2018
 ms.topic: include
 ms.custom: include file
-ms.openlocfilehash: 1d7d9bf40c0765ee9479bb533c2211c2b21169a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f4f8882952dbc4da64c3f7d601be59abd49601b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47002248"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122189"
 ---
 > [!IMPORTANT]
 > Dieser Artikel weist Inhalte auf, für die die klassische Azure CLI erforderlich ist. Dies ist eine ältere Version der Azure CLI, die nur mit dem klassischen Azure-Bereitstellungsmodell verwendet werden sollte.

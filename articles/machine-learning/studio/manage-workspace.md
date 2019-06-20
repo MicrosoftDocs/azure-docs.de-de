@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
 ms.openlocfilehash: a947f9a94dd4ceed624e6b04a671b21b8926d25e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080742"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60322786"
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>Verwalten eines Azure Machine Learning Studio-Arbeitsbereichs
 

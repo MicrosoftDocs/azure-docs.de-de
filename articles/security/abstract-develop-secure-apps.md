@@ -1,6 +1,6 @@
 ---
-title: Entwickeln sicherer Anwendungen in Azure | Microsoft-Dokumentation
-description: Ein Leitfaden zum Entwickeln sichererer Anwendungen für die Cloud.
+title: Entwickeln von sicheren Cloudanwendungen in Azure – Microsoft Azure
+description: Eine Anleitung für die Sicherheitsfragen und Steuerelemente, die beim Entwickeln von Anwendungen für die Cloud in den einzelnen Phasen des Softwareentwicklungszyklus zu berücksichtigen sind.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 4c4c2cc3356a10eacbb5460fae27a0a8a66ddd35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 710d7a12db3b38a6cecffb33ade6b60eb50d03c7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109094"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428291"
 ---
-# <a name="develop-secure-applications-on-azure"></a>Entwickeln sicherer Anwendungen in Azure
+# <a name="develop-secure-cloud-applications-on-azure"></a>Entwickeln von sicheren Cloudanwendungen in Azure
 ## <a name="abstract"></a>Zusammenfassung
 Dieses Dokument ist ein allgemeiner Leitfaden und behandelt die Sicherheitsfragen und Steuerelemente, die Sie beim Entwickeln von Anwendungen für die Cloud in den einzelnen Phasen des Softwareentwicklungszyklus berücksichtigen sollten. Das Implementieren dieser Konzepte vor der Veröffentlichung Ihres Produkts hilft Ihnen dabei, sicherere Software zu erstellen. Die Empfehlungen in diesem Dokument lassen sich auf unsere Erfahrungen mit der Sicherheit in Azure und die Erkenntnisse unserer Kunden zurückführen.
 

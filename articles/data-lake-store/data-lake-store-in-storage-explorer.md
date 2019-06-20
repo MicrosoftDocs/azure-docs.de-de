@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: bf2af67bb9498d4814f63fa66fdd50171ce0b4a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 18ef1f182611a9c8fbf24cd08026633f5449bbe9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60613536"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Verwalten von Azure Data Lake Storage Gen1-Ressourcen mit Storage-Explorer
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884345"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977305"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Beseitigen falscher Kennwörter in Ihrer Organisation
 
@@ -75,7 +75,7 @@ Jedes der obigen Kennwörter entspricht nicht spezifisch dem verbotenen Kennwort
 
 Der Abgleich der Teilzeichenfolge wird für das normalisierte Kennwort verwendet, um den Vor- und Nachnamen des Benutzers sowie den Mandantennamen zu überprüfen (beachten Sie, dass der Abgleich des Mandantennamens nicht durchgeführt wird, wenn Kennwörter auf einem Active Directory-Domänencontroller überprüft werden).
 
-Beispiel: Nehmen wir an, wir haben einen Benutzer John Doe, der sein Kennwort auf „J0hn123fb“ zurücksetzen möchte. Nach der Normalisierung würde dieses Kennwort „john123fb“ lauten. Durch den Abgleich der Teilzeichenfolge wird festgestellt, dass das Kennwort den Vornamen des Benutzers, „John“, enthält. Obwohl „J0hn123fb“ auf keiner Liste der verbotenen Kennwörter stand, hat der Abgleich der Teilzeichenfolgen „John“ im Kennwort gefunden. Aus diesem Grund würde dieses Kennwort zurückgewiesen werden.
+Beispiel: Der Benutzer Pol möchte sein Kennwort auf „P0l123fb“ zurücksetzen. Nach der Normalisierung würde dieses Kennwort „pol123fb“ lauten. Durch den Abgleich der Teilzeichenfolge wird festgestellt, dass das Kennwort den Vornamen des Benutzers, „Pol“, enthält. Obwohl „P0l123fb“ in keiner Liste gesperrter Kennwörter enthalten war, wurde beim Abgleich der Teilzeichenfolgen „Pol“ im Kennwort gefunden. Aus diesem Grund würde dieses Kennwort zurückgewiesen werden.
 
 #### <a name="score-calculation"></a>Bewertungsberechnung
 

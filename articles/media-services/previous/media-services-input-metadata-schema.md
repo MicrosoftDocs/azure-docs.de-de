@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fa4487b07f130947ac5da2a5dbae6776b06acbe7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463768"
 ---
 # <a name="input-metadata"></a>Eingeben von Metadaten 
 
@@ -70,7 +70,7 @@ Ein XML-Beispiel finden Sie am Ende dieses Artikels: [XML-Beispiel](media-servic
 | **Programs**<br /><br /> minOccurs="0" | |Sammlung mit allen [Programs-Elementen](media-services-input-metadata-schema.md#Programs), wenn die Assetdatei das Format MPEG-TS hat. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Jede physische Medienobjektdatei kann null oder mehr Videospuren enthalten, die zu einem entsprechenden Containerformat zusammengeführt werden. Dieses Element enthält eine Sammlung mit allen [VideoTracks](media-services-input-metadata-schema.md#VideoTracks), die Teil der Medienobjektdatei sind. |
 | **AudioTracks**<br /><br /> minOccurs="0" | |Jede physische Assetdatei kann null oder mehr Audiospuren enthalten, die zu einem entsprechenden Containerformat zusammengeführt werden. Dieses Element enthält eine Sammlung mit allen [AudioTracks](media-services-input-metadata-schema.md#AudioTracks), die Teil der Medienobjektdatei sind. |
-| **Metadaten**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Darstellung der Metadaten einer Assetdatei als Schlüssel-Wert-Zeichenfolge. Beispiel: <br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
+| **Metadaten**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Darstellung der Metadaten einer Assetdatei als Schlüssel-Wert-Zeichenfolge. Beispiel:<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
 Ein XML-Beispiel finden Sie am Ende dieses Artikels: [XML-Beispiel](media-services-input-metadata-schema.md#xml).  

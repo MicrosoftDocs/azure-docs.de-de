@@ -3,8 +3,8 @@ title: Probleme beim Hinzufügen einer Azure AD-Kataloganwendung | Microsoft-Dok
 description: Informationen zu den häufig auftretenden Problemen beim Hinzufügen von Azure AD-Kataloganwendungen und zur Behebung dieser Probleme
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784426"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Probleme beim Hinzufügen einer Azure AD-Kataloganwendung
 
@@ -48,7 +48,7 @@ Zudem finden Sie weitere Informationen zur Verwendung und Funktionsweise des ein
 
 Sie können die Details von Portalbenachrichtigungen anzeigen, indem Sie folgende Schritte ausführen:
 
-1.  Wählen Sie in der rechten oberen Ecke des Azure-Portals das Symbol **Benachrichtigungen** (Glockensymbol) aus.
+1.  Wählen Sie im Azure-Portal in der rechten oberen Ecke das Symbol **Benachrichtigungen** (Glockensymbol) aus.
 
 2.  Wählen Sie eine Benachrichtigung mit einem **Fehlerstatus** aus (mit einem roten (!) neben dem Namen).
 

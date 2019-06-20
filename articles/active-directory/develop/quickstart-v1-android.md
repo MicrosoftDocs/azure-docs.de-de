@@ -3,9 +3,8 @@ title: Benutzeranmeldung und Aufrufen der Microsoft Graph-API aus einer Android-
 description: Erfahren Sie, wie Sie Benutzer anmelden und die Microsoft Graph-API aus einer Android-App aufrufen können.
 services: active-directory
 documentationcenter: android
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.date: 05/21/2019
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9537748f8dd3ee027236c73e9587ff6b78ded7f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207584"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121995"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Schnellstart: Benutzeranmeldung und Aufrufen der Microsoft Graph-API aus einer Android-App
 
@@ -86,18 +85,17 @@ Sie müssen eine systemeigene Clientanwendung über das [Azure-Portal](https://p
     - Klicken Sie auf ***Azure Active Directory*** > ***App-Registrierungen***.
 
 2. Erstellen der App
-    - Wählen Sie **Registrierung einer neuen Anwendung** aus.
+    - Wählen Sie **Neue Registrierung** aus.
     - Geben Sie im Feld **Name** einen Namen für die App ein.
-    - Wählen Sie **Systemeigen** als **Anwendungstyp** aus.
-    - Geben Sie **als**Umleitungs-URI`http://localhost` ein.
+    - Wählen Sie unter **Unterstützte Kontotypen** **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten** aus.
+    - Wählen Sie in **Umleitungs-URI** in der Dropdownliste den Eintrag **Öffentlicher Client (Mobilgerät und Desktop)** aus, und geben Sie dann `http://localhost` ein.
+    - Klicken Sie auf **Registrieren**.
 
 3. Konfigurieren von Microsoft Graph
-    - Wählen Sie **Einstellungen > Erforderliche Berechtigungen** aus.
-    - Wählen Sie **Hinzufügen** aus, und wählen Sie dann unter **API auswählen** die Option ***Microsoft Graph*** aus.
-    - Wählen Sie die Berechtigung **Anmelden und Benutzerprofil lesen** aus, und klicken Sie dann auf **Auswählen**, um Ihre Auswahl zu speichern.
-        - Durch diese Berechtigung erfolgt eine Zuordnung zum `User.Read`-Bereich.
-    - Optional: Entfernen Sie unter **Erforderliche Berechtigungen > Windows Azure Active Directory** die ausgewählte Berechtigung **Anmelden und Benutzerprofil lesen**. Dadurch wird vermieden, dass die Berechtigung auf der Seite der Benutzerzustimmungen doppelt aufgeführt wird.
-
+    - Wählen Sie **API-Berechtigungen anfordern** aus.
+    - Wählen Sie **Berechtigung hinzufügen** aus, und wählen Sie dann in **Hiermit wählen Sie eine API aus** die Option ***Microsoft Graph*** aus.
+    - Wählen Sie unter **Delegierte Berechtigungen** die Berechtigung **User.Read** aus, und klicken Sie dann auf **Hinzufügen**, um den Vorgang zu speichern.        
+    
 4. Glückwunsch! Ihre App wurde erfolgreich konfiguriert. Im nächsten Abschnitt benötigen Sie:
     - `Application ID`
     - `Redirect URI`

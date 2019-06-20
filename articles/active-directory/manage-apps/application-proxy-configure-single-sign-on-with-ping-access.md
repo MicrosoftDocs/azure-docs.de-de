@@ -3,185 +3,236 @@ title: Headerbasierte Authentifizierung mit PingAccess für Azure AD-Anwendungsp
 description: Veröffentlichen von Anwendungen mit PingAccess und App-Proxy zum Unterstützen der headerbasierten Authentifizierung.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2017
+ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882789"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472799"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Headerbasierte Authentifizierung für einmaliges Anmelden mit Anwendungsproxy und PingAccess
 
-Der Azure Active Directory-Anwendungsproxy und PingAccess arbeiten nun zusammen, um Azure Active Directory-Kunden einen Zugriff auf noch mehr Anwendungen bereitzustellen. PingAccess erweitert die [vorhandenen Angebote für den Anwendungsproxy](application-proxy.md), um den Zugriff per einmaligem Anmelden auf Anwendungen zu ermöglichen, die Header für die Authentifizierung verwenden.
+Der Azure Active Directory-Anwendungsproxy (Azure AD) wurde mit PingAccess kombiniert, damit Ihre Azure AD-Kunden auf weitere Ihrer Anwendungen zugreifen können. PingAccess erweitert die [vorhandenen Angebote für den Anwendungsproxy](application-proxy.md), um den Zugriff per einmaligem Anmelden auf Anwendungen zu ermöglichen, die Header für die Authentifizierung verwenden.
 
-## <a name="what-is-pingaccess-for-azure-ad"></a>Was ist PingAccess für Azure AD?
+## <a name="whats-pingaccess-for-azure-ad"></a>Was ist PingAccess für Azure AD?
 
-PingAccess für Azure Active Directory ist ein Angebot von PingAccess, mit dem Sie für Benutzer den Zugriff und das einmalige Anmelden für Anwendungen ermöglichen können, bei denen für die Authentifizierung Header verwendet werden. Der Anwendungproxy behandelt diese Apps wie alle anderen und verwendet Azure AD zum Authentifizieren des Zugriffs und zum Leiten des Datenverkehrs durch den Connectordienst. PingAccess ist den Apps vorgelagert und übersetzt das Zugriffstoken aus Azure AD in einen Header, sodass die Anwendung die Authentifizierung in einem Format empfängt, das sie lesen kann.
+Mit PingAccess für Azure AD können Benutzer auf Anwendungen zugreifen, die Header für die Authentifizierung verwenden, und sich bei diesen einmalig anmelden. Der Anwendungproxy behandelt diese Anwendungen wie alle anderen und verwendet Azure AD zum Authentifizieren des Zugriffs und zum Leiten des Datenverkehrs durch den Connectordienst. PingAccess ist den Anwendungen vorgelagert und übersetzt das Zugriffstoken von Azure AD in einen Header. Die Anwendung empfängt dann die Authentifizierung in dem Format, das sie lesen kann.
 
-Ihre Benutzer bemerken keinen Unterschied, wenn sie sich anmelden, um Ihre Unternehmens-Apps zu nutzen. Sie können weiterhin überall und auf beliebigen Geräten arbeiten. 
-
-Da die Anwendungsproxyconnectors Remotedatenverkehr zu allen Apps unabhängig von deren Authentifizierungstyp weiterleiten, sorgen sie auch weiter für einen automatischen Lastenausgleich.
+Ihre Benutzer bemerken keinen Unterschied, wenn sie sich für die Nutzung Ihrer Unternehmensanwendungen anmelden. Sie können weiterhin überall und auf beliebigen Geräten arbeiten. Da die Anwendungsproxyconnectors Remotedatenverkehr zu allen Apps unabhängig von deren Authentifizierungstyp weiterleiten, sorgen sie auch weiter automatisch für Lastenausgleich.
 
 ## <a name="how-do-i-get-access"></a>Wie erhalte ich Zugriff?
 
-Da dieses Szenario im Rahmen einer Partnerschaft von Azure Active Directory und PingAccess angeboten wird, benötigen Sie Lizenzen für beide Dienste. Azure Active Directory Premium-Abonnements enthalten aber eine grundlegende PingAccess-Lizenz, die bis zu 20 Anwendungen abdeckt. Falls Sie mehr als 20 headerbasierte Anwendungen veröffentlichen müssen, können Sie bei PingAccess eine weitere Lizenz erwerben. 
+Da dieses Szenario im Rahmen einer Partnerschaft von Azure Active Directory und PingAccess angeboten wird, benötigen Sie Lizenzen für beide Dienste. Azure Active Directory Premium-Abonnements enthalten aber eine grundlegende PingAccess-Lizenz, die bis zu 20 Anwendungen abdeckt. Falls Sie mehr als 20 headerbasierte Anwendungen veröffentlichen müssen, können Sie bei PingAccess eine weitere Lizenz erwerben.
 
 Weitere Informationen finden Sie unter [Azure Active Directory-Editionen](../fundamentals/active-directory-whatis.md).
 
 ## <a name="publish-your-application-in-azure"></a>Veröffentlichen der Anwendung in Azure
 
-Dieser Artikel richtet sich an Personen, die in diesem Szenario erstmals eine App veröffentlichen. Zusätzlich zu den Schritten für die Veröffentlichung durchlaufen Sie die ersten Schritte mit dem Anwendungsproxy und PingAccess. Falls Sie bereits beide Dienste konfiguriert haben, aber eine Auffrischung zu den Veröffentlichungsschritten erhalten möchten, können Sie die Connectorinstallation überspringen und mit [Hinzufügen Ihrer App zu Azure AD mit Anwendungsproxy](#add-your-app-to-azure-ad-with-application-proxy) fortfahren.
+Dieser Artikel richtet sich an Personen, die in diesem Szenario erstmals eine Anwendung veröffentlichen. Neben der Erläuterung der Veröffentlichungsschritte werden Sie auch durch die ersten Schritte mit sowohl Anwendungsproxy als auch PingAccess geführt. Falls Sie bereits beide Dienste konfiguriert haben, aber eine Auffrischung zu den Veröffentlichungsschritten erhalten möchten, fahren Sie mit [Hinzufügen Ihrer App zu Azure AD mit Anwendungsproxy](#add-your-application-to-azure-ad-with-application-proxy) fort.
 
->[!NOTE]
->Da dieses Szenario auf einer Partnerschaft von Azure AD und PingAccess beruht, gelten einige der Anweisungen für die Ping Identity-Website.
+> [!NOTE]
+> Da dieses Szenario auf einer Partnerschaft von Azure AD und PingAccess beruht, gelten einige der Anweisungen für die Ping Identity-Website.
 
 ### <a name="install-an-application-proxy-connector"></a>Installieren eines Anwendungsproxyconnectors
 
-Wenn Sie den Anwendungsproxy bereits aktiviert und einen Connector installiert haben, können Sie diesen Abschnitt überspringen und mit [Hinzufügen Ihrer App zu Azure AD mit Anwendungsproxy](#add-your-app-to-azure-ad-with-application-proxy) fortfahren.
+Wenn Sie bereits Anwendungsproxy aktiviert und einen Connector installiert haben, können Sie diesen Abschnitt überspringen und mit [Hinzufügen Ihrer Anwendung zu Azure AD mit Anwendungsproxy](#add-your-application-to-azure-ad-with-application-proxy) fortfahren.
 
-Der Anwendungsproxyconnector ist ein Windows Server-Dienst, der den Datenverkehr von den Remotemitarbeitern zu Ihren veröffentlichten Apps weiterleitet. Ausführlichere Installationsanweisungen finden Sie unter [Aktivieren des Anwendungsproxys über das Azure-Portal](application-proxy-add-on-premises-application.md).
+Der Anwendungsproxyconnector ist ein Windows Server-Dienst, der den Datenverkehr von den Remotemitarbeitern zu Ihren veröffentlichten Anwendungen weiterleitet. Ausführlichere Installationsanweisungen finden Sie unter [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
-1. Melden Sie sich als Anwendungsadministrator beim [Azure-Portal](https://portal.azure.com) an.
-2. Wählen Sie **Azure Active Directory** > **Anwendungsproxy** aus.
-3. Wählen Sie **Connector herunterladen** aus, um den Anwendungsproxyconnector herunterzuladen. Folgen Sie den Installationsanweisungen.
+1. Melden Sie sich beim [Azure Active Directory-Portal](https://aad.portal.azure.com/) als Anwendungsadministrator an. Die Seite **Azure Active Directory Admin Center** wird angezeigt.
+2. Wählen Sie **Azure Active Directory** > **Anwendungsproxy** > **Connectordienst herunterladen** aus. Die Seite **Download des Anwendungsproxyconnectors** wird angezeigt.
 
-   ![Aktivieren des Anwendungsproxys und Herunterladen des Connectors](./media/application-proxy-configure-single-sign-on-with-ping-access/install-connector.png)
+   ![Download des Anwendungsproxyconnectors](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
+3. Folgen Sie den Installationsanweisungen.
 
-4. Nach dem Herunterladen des Connectors sollte der Anwendungsproxy automatisch für Ihr Verzeichnis aktiviert sein. Falls nicht, können Sie **Anwendungsproxy aktivieren** auswählen.
+Nach Herunterladen des Connectors sollte der Anwendungsproxy automatisch für Ihr Verzeichnis aktiviert sein. Falls nicht, können Sie **Anwendungsproxy aktivieren** auswählen.
 
+### <a name="add-your-application-to-azure-ad-with-application-proxy"></a>Hinzufügen Ihrer Anwendung zu Azure AD mit Anwendungsproxy
 
-### <a name="add-your-app-to-azure-ad-with-application-proxy"></a>Hinzufügen Ihrer App zu Azure AD mit Anwendungsproxy
+Im Azure-Portal müssen Sie zwei Aktionen durchführen. Zuerst veröffentlichen Sie Ihre Anwendung mit dem Anwendungsproxy. Anschließend erfassen Sie einige Informationen zur Anwendung, die Sie während der PingAccess-Schritte benötigen.
 
-Im Azure-Portal müssen Sie zwei Aktionen durchführen. Zuerst veröffentlichen Sie Ihre Anwendung mit dem Anwendungsproxy. Anschließend stellen Sie einige Informationen zur App zusammen, die Sie während der PingAccess-Schritte verwenden können.
+#### <a name="publish-your-application"></a>Veröffentlichen der Anwendung
 
-Führen Sie diese Schritte aus, um Ihre App zu veröffentlichen. Eine ausführlichere Beschreibung der Schritte 1 bis 8 finden Sie unter [Veröffentlichen von Anwendungen mit Azure AD-Anwendungsproxy](application-proxy-add-on-premises-application.md).
+Zuerst müssen Sie die Anwendung veröffentlichen. Dieser Vorgang umfasst Folgendes:
 
-1. Melden Sie sich als Anwendungsadministrator beim [Azure-Portal](https://portal.azure.com) an, sofern Sie diesen Schritt nicht im letzten Abschnitt ausgeführt haben.
-2. Wählen Sie **Azure Active Directory** > **Unternehmensanwendungen** aus.
-3. Wählen Sie oben auf dem Blatt **Hinzufügen** aus.
-4. Wählen Sie **Lokale Anwendung** aus.
-5. Füllen Sie die Pflichtfelder mit Informationen zur neuen App aus. Befolgen Sie diese Anleitung für die folgenden Einstellungen:
-   - **Interne URL**: Normalerweise geben Sie die URL an, über die Sie zur Anmeldeseite der App gelangen, wenn Sie sich im Unternehmensnetzwerk befinden. Für dieses Szenario muss der Connector den PingAccess-Proxy als Startseite der App verwenden. Verwenden Sie dieses Format: `https://<host name of your PA server>:<port>`. Der Standardport ist 3000, Sie können diesen aber in PingAccess konfigurieren.
+- Hinzufügen Ihrer lokalen Anwendungen zu Azure AD
+- Zuweisen eines Benutzers zum Testen der Anwendung und Auswählen von headerbasiertem einmaligen Anmelden
+- Einrichten des Umleitungs-URL der Anwendung
+- Erteilen von Berechtigungen für Benutzer und andere Anwendungen zur Verwendung Ihrer lokalen Anwendung
 
-     > [!WARNING]
-     > Für diesen SSO-Typ muss die interne URL HTTPS anstelle von HTTP verwenden.
+So veröffentlichen Sie Ihre eigene lokale Anwendung
 
-   - **Methode für die Vorauthentifizierung**: Azure Active Directory
-   - **URL in Headern übersetzen**: Nein 
+1. Melden Sie sich als Anwendungsadministrator beim [Azure Active Directory-Portal](https://aad.portal.azure.com/) an, sofern nicht im letzten Abschnitt erfolgt.
+2. Wählen Sie **Unternehmensanwendungen** > **Neue Anwendung** > **Lokale Anwendung** aus. Die Seite **Fügen Sie Ihre eigene lokale Anwendung hinzu** wird angezeigt.
 
-   >[!NOTE]
-   >Wenn dies Ihre erste Anwendung ist, verwenden Sie Port 3000, um zu beginnen, und kehren wieder zu dieser Einstellung zurück, um sie bei einer Änderung der PingAccess-Konfiguration zu aktualisieren. Wenn dies Ihre zweite oder höhere App ist, muss sie dem Listener entsprechen, den Sie in PingAccess konfiguriert haben. Erfahren Sie mehr über [Listener in PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).
+   ![Fügen Sie Ihre eigene lokale Anwendung hinzu](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
+3. Füllen Sie die Pflichtfelder mit Informationen zur neuen Anwendung aus. Befolgen Sie zum Festlegen der Einstellungen die nachstehenden Anweisungen.
 
-6. Klicken Sie unten auf dem Blatt auf **Hinzufügen**. Ihre Anwendung wird hinzugefügt, das Schnellstartmenü wird geöffnet.
-7. Wählen Sie im Schnellstartmenü **Zuweisen eines Benutzers zu Testzwecken** aus, und fügen Sie der Anwendung mindestens einen Benutzer hinzu. Stellen Sie sicher, dass dieses Testkonto auf die lokale Anwendung zugreifen kann.
-8. Wählen Sie **Zuweisen** aus, um die Zuweisung des Testbenutzers zu speichern.
-9. Wählen Sie auf dem Blatt „App-Verwaltung“ **Einmaliges Anmelden** aus.
-10. Wählen Sie im Dropdownmenü **Headerbasierte Anmeldung** aus. Wählen Sie **Speichern** aus.
+   > [!NOTE]
+   > Eine ausführliche exemplarische Vorgehensweise dieses Schritts finden Sie unter [Hinzufügen einer lokalen App zu Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
 
-    >[!TIP]
-    >Wenn Sie das headerbasierte einmalige Anmelden zum ersten Mal verwenden, müssen Sie PingAccess installieren. Verwenden Sie den Link auf dieser SSO-Seite zum Herunterladen von PingAccess, um sicherzustellen, dass Ihr Azure-Abonnement automatisch Ihrer PingAccess-Installation zugeordnet wird. Sie können die Download-Website jetzt öffnen oder später zu dieser Seite zurückkehren. 
+   1. **Interne URL:** Normalerweise geben Sie die URL an, über die Sie zur Anmeldeseite der App gelangen, wenn Sie sich im Unternehmensnetzwerk befinden. Für dieses Szenario muss der Connector den PingAccess-Proxy als Einstiegsseite der Anwendung verwenden. Verwenden Sie dieses Format: `https://<host name of your PingAccess server>:<port>`. Der Standardport ist 3000, Sie können diesen aber in PingAccess konfigurieren.
 
-    ![Auswählen der headerbasierten Anmeldung](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+      > [!WARNING]
+      > Für diese Art von einmaligem Anmelden muss in der internen URL `https` und darf auf keinen Fall `http` verwendet werden.
 
-11. Schließen Sie das Blatt „Unternehmensanwendungen“, oder scrollen Sie ganz nach links, um zum Menü „Azure Active Directory“ zurückzukehren.
-12. Wählen Sie **App-Registrierungen** aus.
+   2. **Methode für die Vorauthentifizierung:** Wählen Sie **Azure Active Directory** aus.
+   3. **URL in Headern übersetzen**: Wählen Sie **Nein**.
 
-    ![Auswählen von „App-Registrierungen“](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+   > [!NOTE]
+   > Wenn dies Ihre erste Anwendung ist, verwenden Sie Port 3000, um zu beginnen, und kehren wieder zu dieser Einstellung zurück, um sie bei einer Änderung der PingAccess-Konfiguration zu aktualisieren. Bei nachfolgenden Anwendungen muss der Port dem Listener entsprechen, den Sie in PingAccess konfiguriert haben. Erfahren Sie mehr über [Listener in PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).
+4. Wählen Sie **Hinzufügen**. Die Übersichtsseite für die neue Anwendung wird angezeigt.
 
-13. Wählen Sie die App aus, die Sie gerade hinzugefügt haben. Klicken Sie dann auf **Antwort-URLs**.
+Ordnen Sie nun einen Benutzer für das Testen der Anwendung zu, und wählen Sie headerbasiertes einmaliges Anmelden aus:
 
-    ![Auswählen von „Antwort-URLs“](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+1. Wählen Sie auf der Randleiste der Anwendung **Benutzer und Gruppen** > **Benutzer hinzufügen** > **Benutzer und Gruppen (ausgewählte \<Anzahl>)** aus. Eine Liste mit Benutzern und Gruppen wird angezeigt, in der Sie wählen können.
 
-14. Prüfen Sie, ob die externe URL, die Sie Ihrer App in Schritt 5 zugewiesen haben, in der Liste „Antwort-URLs“ enthalten ist. Falls nicht, fügen Sie sie jetzt hinzu.
-15. Wählen Sie auf der Blatt „App-Einstellungen“ **Erforderliche Berechtigungen** aus.
+   ![Benutzer und Gruppen](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
+2. Wählen Sie einen Benutzer zum Testen der Anwendung aus, und klicken Sie auf **Auswählen**. Stellen Sie sicher, dass dieses Testkonto auf die lokale Anwendung zugreifen kann.
+3. Wählen Sie **Zuweisen** aus.
+4. Wählen Sie auf der Randleiste der Anwendung auf **Einmaliges Anmelden** > **Headerbasiert**.
 
-    ![Auswählen von „Erforderliche Berechtigungen“](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+   > [!TIP]
+   > Wenn Sie das headerbasierte einmalige Anmelden zum ersten Mal verwenden, müssen Sie PingAccess installieren. Verwenden Sie den Link auf dieser SSO-Seite zum Herunterladen von PingAccess, um sicherzustellen, dass Ihr Azure-Abonnement automatisch Ihrer PingAccess-Installation zugeordnet wird. Sie können die Download-Website jetzt öffnen oder später zu dieser Seite zurückkehren.
 
-16. Wählen Sie **Hinzufügen**. Wählen Sie für die API **Microsoft Azure Active Directory** aus, und klicken Sie dann auf **Auswählen**. Wählen Sie für die Berechtigungen die Optionen **Lesen und schreiben: Alle Anwendungen** und **Anmelden und Benutzerprofil lesen** aus. Klicken Sie dann auf **Auswählen** und **Fertig**.  
+   ![Headerbasierte Anmeldung](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
+5. Wählen Sie **Speichern** aus.
 
-    ![Auswählen von Berechtigungen](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+Stellen Sie dann sicher, dass Ihre Umleitungs-URL auf Ihre externe URL festgelegt ist:
 
-17. Erteilen Sie Berechtigungen, bevor Sie den Berechtigungenbildschirm schließen. 
-    ![Erteilen von Berechtigungen](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+1. Wählen Sie auf der Randleiste von **Azure Active Directory-Verwaltungscenter** nacheinander **Azure Active Directory** > **App-Registrierungen** aus. Eine Liste mit Anwendungen wird eingeblendet.
 
-### <a name="collect-information-for-the-pingaccess-steps"></a>Erfassen von Informationen für die Schritte in PingAccess
+   ![App-Registrierungen](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+2. Wählen Sie Ihre Anwendung aus.
+3. Klicken Sie auf den Link neben **Umleitungs-URIs**, über den die Anzahl der Umleitungs-URIs gezeigt wird, die für Web- und öffentliche Clients eingerichtet wurden. Die Seite **\<Anwendungsname> – Authentifizierung** wird eingeblendet.
+4. Prüfen Sie, ob sich die externe URL, die Sie Ihrer Anwendung zuvor zugewiesen haben, in der Liste **Umleitungs-URIs** befindet. Falls nicht, fügen Sie die externe URL jetzt mit dem Umleitungs-URI-Typ **Web** hinzu, und klicken Sie auf **Speichern**.
 
-1. Wählen Sie auf dem Blatt mit den App-Einstellungen die Option **Eigenschaften**. 
+Richten Sie schließlich Ihre lokale Anwendung so ein, dass Benutzer Lesezugriff und andere Anwendungen Lese-/Schreibzugriff haben:
 
-   ![Auswählen von „Eigenschaften“](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+1. Wählen Sie auf der Randleiste von **App-Registrierungen** für Ihre Anwendung **API-Berechtigungen** > **Berechtigung hinzufügen** > **Microsoft-APIs** > **Microsoft Graph** aus. Die Seite **API-Berechtigungen anfordern** für **Microsoft Graph** wird angezeigt, die die APIs für Azure Active Directory enthält.
 
-2. Speichern Sie den Wert **Anwendungs-ID**. Dieser wird für die Client-ID verwendet, wenn Sie PingAccess konfigurieren.
-3. Wählen Sie auf dem Blatt „App-Einstellungen“ die Option **Schlüssel** aus.
+   ![API-Berechtigungen anfordern](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+2. Wählen Sie **Delegierte Berechtigungen** > **Benutzer** > **User.Read** aus.
+3. Wählen Sie **Anwendungsberechtigungen** > **Anwendung** > **Application.ReadWrite.All** aus.
+4. Wählen Sie **Berechtigungen hinzufügen** aus.
+5. Klicken Sie auf der Seite **API-Berechtigungen** auf **Administratorzustimmung für \<Name Ihres Verzeichnisses> erteilen**.
 
-   ![Auswählen von „Schlüssel“](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+#### <a name="collect-information-for-the-pingaccess-steps"></a>Erfassen von Informationen für die Schritte in PingAccess
 
-4. Erstellen Sie einen Schlüssel, indem Sie eine Schlüsselbeschreibung eingeben und im Dropdownmenü ein Ablaufdatum wählen.
-5. Wählen Sie **Speichern** aus. Im Feld **Wert** wird eine GUID angezeigt.
+Sie müssen diese drei Informationen (alle GUIDs) sammeln, um Ihre Anwendung mit PingAccess einzurichten:
 
-   Speichern Sie diesen Wert nun, da sie ihn nicht erneut anzeigen können, nachdem dieses Fenster geschlossen wurde.
+| Name des Azure AD-Felds | Name des PingAccess-Felds | Datenformat |
+| --- | --- | --- |
+| **Anwendungs-ID (Client)** | **Client-ID** | GUID |
+| **Verzeichnis-ID (Mandant)** | **Aussteller** | GUID |
+| `PingAccess key` | **Geheimer Clientschlüssel** | Zufallszeichenfolge |
 
-   ![Erstellen eines neuen Schlüssels](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+So erfassen Sie diese Informationen
 
-6. Schließen Sie das Blatt „App-Registrierungen“, oder scrollen Sie ganz nach links, um zum Menü „Azure Active Directory“ zurückzukehren.
-7. Wählen Sie **Eigenschaften** aus.
-8. Speichern Sie die GUID **Verzeichnis-ID**.
+1. Wählen Sie auf der Randleiste von **Azure Active Directory-Verwaltungscenter** nacheinander **Azure Active Directory** > **App-Registrierungen** aus. Eine Liste mit Anwendungen wird eingeblendet.
+2. Wählen Sie Ihre Anwendung aus. Die Seite **App-Registrierungen** für Ihre Anwendung wird angezeigt.
 
-### <a name="optional---update-graphapi-to-send-custom-fields"></a>Optional – Aktualisieren von GraphAPI zum Senden von benutzerdefinierten Feldern
+   ![Übersicht über die Registrierung für eine Anwendung](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
+3. Klicken Sie neben dem Wert **Anwendungs-ID (Client)** auf das Symbol **In Zwischenablage kopieren**. Kopieren und speichern Sie den Wert. Sie geben diesen Wert später als Client-ID von PingAccess an.
+4. Klicken Sie auch neben dem Wert **Verzeichnis-ID (Mandant)** auf das Symbol **In Zwischenablage kopieren**. Kopieren und speichern Sie den Wert. Sie geben diesen Wert später als Aussteller von PingAccess an.
+5. Klicken Sie auf der Randleiste von **App-Registrierungen** für Ihre Anwendung auf **Zertifikate und Geheimnisse** > **Neuer geheimer Clientschlüssel**. Die Seite **Geheimen Clientschlüssel hinzufügen** wird angezeigt.
 
-Eine Liste von Sicherheitstoken, die Azure AD für die Authentifizierung sendet, finden Sie unter [Azure AD-Tokenreferenz](../develop/v1-id-and-access-tokens.md). Wenn Sie einen benutzerdefinierten Anspruch benötigen, der andere Token sendet, legen Sie mit dem Graph-Tester oder dem Manifest für die Anwendung im Azure-Portal das App-Feld *acceptMappedClaims* auf **True** fest.    
+   ![Geheimen Clientschlüssel hinzufügen](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
+6. Geben Sie `PingAccess key` in **Beschreibung** ein.
+7. Wählen Sie unter **Läuft ab** aus, wann der PingAccess-Schlüssel ablaufen soll: **In 1 Jahr**, **In 2 Jahren** oder **Nie**.
+8. Wählen Sie **Hinzufügen**. Der PingAccess-Schlüssel wird in der Tabelle der geheimen Clientschlüssel mit einer Zufallszeichenfolge angezeigt, die automatisch in das Feld **VALUE** eingetragen wird.
+9. Klicken Sie neben dem Feld **VALUE** des PingAccess-Schlüssels auf das Symbol **In die Zwischenablage kopieren**. Kopieren und speichern Sie den Wert. Sie geben diesen Wert später als geheimen Clientschlüssel von PingAccess an.
 
-In diesem Beispiel wird der Graph-Tester verwendet:
+### <a name="update-graphapi-to-send-custom-fields-optional"></a>Aktualisieren von GraphAPI zum Senden von benutzerdefinierten Feldern (optional)
+
+Wenn Sie einen benutzerdefinierten Anspruch benötigen, der andere Token innerhalb des von PingAccess genutzten „access_token“ sendet, legen Sie für das Anwendungsfeld `acceptMappedClaims` `True` fest. Sie können Graph-Tester oder das Anwendungsmanifest des Azure AD-Portals nutzen, um diese Änderung vornehmen.
+
+**In diesem Beispiel wird der Graph-Tester verwendet:**
 
 ```
-PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application> 
+PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
 
 {
   "acceptMappedClaims":true
 }
 ```
-In diesem Beispiel wird das [Azure-Portal](https://portal.azure.com) zum Aktualisieren des Felds *acceptedMappedClaims* verwendet:
-1. Melden Sie sich als Anwendungsadministrator beim [Azure-Portal](https://portal.azure.com) an.
-2. Klicken Sie auf **Azure Active Directory** > **App-Registrierungen**.
-3. Wählen Sie Ihre Anwendung und dann **Manifest** aus.
-4. Wählen Sie **Bearbeiten** aus, suchen Sie nach dem Feld *acceptedMappedClaims*, und ändern Sie den Wert in **true**.
-![App-Manifest](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-ping-access-manifest.PNG)
-1. Wählen Sie **Speichern** aus.
 
->[!NOTE]
->Um einen benutzerdefinierten Anspruch zu verwenden, benötigen Sie auch eine für diese Anwendung definierte und ihr zugewiesene benutzerdefinierte Richtlinie.  Diese Richtlinie sollte alle erforderlichen benutzerdefinierten Attribute enthalten.
+**In diesem Beispiel wird das `acceptMappedClaims`Feld** im [Azure Active Directory-Portal](https://aad.portal.azure.com/) aktualisiert:
+
+1. Melden Sie sich beim [Azure Active Directory-Portal](https://aad.portal.azure.com/) als Anwendungsadministrator an.
+2. Klicken Sie auf **Azure Active Directory** > **App-Registrierungen**. Eine Liste mit Anwendungen wird eingeblendet.
+3. Wählen Sie Ihre Anwendung aus.
+4. Klicken Sie auf der Randleiste der Seite **App-Registrierungen** für Ihre Anwendung auf **Manifest**. Der JSON-Code des Manifests für die Registrierung Ihrer Anwendung wird angezeigt.
+5. Suchen Sie das Feld `acceptMappedClaims`, und ändern Sie den Wert in `True`.
+6. Wählen Sie **Speichern** aus.
+
+
+### <a name="use-of-optional-claims-optional"></a>Verwenden optionaler Ansprüche (optional)
+Mit optionalen Ansprüchen können Sie standardmäßige Ansprüche, die aber nicht standardmäßig enthalten sind, allen Benutzern und Mandanten hinzufügen. Sie können optionale Ansprüche für Ihre Anwendung konfigurieren, indem Sie das Anwendungsmanifest ändern. Weitere Informationen finden Sie im Artikel [Grundlegendes zum Azure AD-Anwendungsmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/).
+
+Beispiel zum Einschließen der E-Mail-Adresse in das „access_token“, das PingAccess nutzt:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>Verwenden der Anspruchszuordnungsrichtlinie (optional)
+[Anspruchszuordnungsrichtlinie (Vorschau)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) für Attribute, die nicht in Azure AD vorhanden sind. Durch Zuordnung von Ansprüchen können Sie alte lokale Apps zur Cloud migrieren, indem Sie zusätzliche benutzerdefinierte Ansprüche hinzufügen, die von Ihrem ADFS oder Benutzerobjekten gesichert werden.
+
+Damit Ihre Anwendung einen benutzerdefinierten Anspruch verwenden und zusätzliche Felder enthalten kann, achten Sie darauf, dass Sie auch [eine Richtlinie für die Zuordnung benutzerdefinierter Ansprüche erstellt und der Anwendung zugeordnet haben](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+> [!NOTE]
+> Um einen benutzerdefinierten Anspruch zu verwenden, benötigen Sie auch eine für diese Anwendung definierte und ihr zugewiesene benutzerdefinierte Richtlinie. Diese Richtlinie sollte alle erforderlichen benutzerdefinierten Attribute enthalten.
 >
->Richtliniendefinition und Zuweisung können über PowerShell, Azure AD Graph Explorer oder MS Graph ausgeführt werden.  Wenn Sie dies in PowerShell ausführen, müssen Sie möglicherweise zuerst `New-AzureADPolicy` verwenden und die Richtlinie dann der Anwendung mit `Set-AzureADServicePrincipalPolicy` zuweisen.  Weitere Informationen finden Sie unter [Zuweisung von Anspruchszuordnungsrichtlinien](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> Richtliniendefinition und Zuweisung können über PowerShell, Azure AD Graph-Tester oder Microsoft Graph erfolgen. Wenn diese Aufgaben über PowerShell erfolgen, müssen Sie möglicherweise zuerst `New-AzureADPolicy` verwenden und die Richtlinie dann der Anwendung mit `Add-AzureADServicePrincipalPolicy` zuweisen. Weitere Informationen finden Sie unter [Zuweisung von Anspruchszuordnungsrichtlinien](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
-### <a name="optional---use-a-custom-claim"></a>Optional – Verwenden eines benutzerdefinierten Anspruchs
-Damit Ihre Anwendung einen benutzerdefinierten Anspruch verwenden und zusätzliche Felder beinhalten kann, achten Sie darauf, dass Sie auch [eine Richtlinie für die Zuordnung benutzerdefinierter Ansprüche erstellt und der Anwendung zugeordnet haben ](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Beispiel:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
 
-## <a name="download-pingaccess-and-configure-your-app"></a>Herunterladen von PingAccess und Konfigurieren der App
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
 
-Nachdem Sie nun alle Schritte des Azure Active Directory-Setups ausgeführt haben, können Sie mit dem Konfigurieren von PingAccess fortfahren. 
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>Aktivieren von PingAccess, um benutzerdefinierte Ansprüche zu verwenden (optional, jedoch erforderlich, wenn Sie erwarten, dass die Anwendung zusätzliche Ansprüche nutzt)
+Wenn Sie im folgenden Schritt PingAccess konfigurieren, muss in der Websitzung, die Sie erstellen (Einstellungen->Zugriff->Websitzungen) **Anforderungsprofil** deaktiviert und **Benutzerattribute aktualisieren** auf **Nein** gesetzt sein.
 
-Die ausführlichen Anleitungen für den PingAccess-Teil dieses Szenarios werden in der Ping Identity-Dokumentation unter [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html) fortgesetzt.
+## <a name="download-pingaccess-and-configure-your-application"></a>Herunterladen von PingAccess und Konfigurieren Ihrer Anwendung
 
-Diese Anleitungen begleiten Sie durch das Einrichten eines PingAccess-Kontos, sofern noch nicht vorhanden, das Installieren des PingAccess-Servers und das Erstellen einer Azure AD OIDC-Anbieterverbindung mithilfe der Verzeichnis-ID, die Sie aus dem Azure-Portal kopiert haben. Anschließend nutzen Sie die Anwendungs-ID und Schlüsselwerte zum Erstellen einer Websitzung auf PingAccess. Danach können Sie die Identitätszuordnung einrichten und einen virtuellen Host, einen virtuellen Standort und eine virtuelle Anwendung erstellen.
+Nachdem Sie nun alle Schritte des Azure Active Directory-Setups ausgeführt haben, können Sie mit dem Konfigurieren von PingAccess fortfahren.
 
-### <a name="test-your-app"></a>Testen Ihrer App
+Die ausführlichen Anleitungen für den PingAccess-Teil dieses Szenarios werden in der Ping Identity-Dokumentation fortgesetzt. Befolgen Sie auf der Ping Identity-Website die Anweisungen unter [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html) (Konfigurieren von PingAccess für Azure AD zum Schutz von Anwendungen, die mit Microsoft Azure AD-Anwendungsproxy veröffentlicht wurden).
 
-Nachdem Sie alle Schritte abgeschlossen haben, sollte Ihre App betriebsbereit sein. Um sie zu testen, öffnen Sie einen Browser und navigieren zur externen URL, die Sie erstellt haben, als Sie die App in Azure veröffentlicht haben. Melden Sie sich mit dem Testkonto an, das Sie der App zugewiesen haben.
+Diese Schritte helfen Ihnen, PingAccess zu installieren und ein PingAccess-Konto einzurichten (falls Sie noch keines haben). Um dann eine Azure AD OpenID Connect-Verbindung (OIDC) herzustellen, richten Sie einen Tokenanbieter mit dem Wert von **Verzeichnis-ID (Mandant)** ein, den Sie aus dem Azure AD-Portal kopiert haben. Als Nächstes verwenden Sie zum Erstellen einer Websitzung für PingAccess die Werte **Anwendungs-ID (Client)** und `PingAccess key`. Danach können Sie die Identitätszuordnung einrichten und einen virtuellen Host, einen virtuellen Standort und eine virtuelle Anwendung erstellen.
+
+### <a name="test-your-application"></a>Testen Ihrer Anwendung
+
+Nachdem Sie alle Schritte abgeschlossen haben, sollte Ihre Anwendung betriebsbereit sein. Um sie zu testen, öffnen Sie einen Browser und navigieren zur externen URL, die Sie erstellt haben, als Sie die Anwendung in Azure veröffentlicht haben. Melden Sie sich mit dem Testkonto an, das Sie der Anwendung zugewiesen haben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html) (Konfigurieren von PingAccess für Azure AD)
-- [Wie stellt der Azure AD-Anwendungsproxy das einmalige Anmelden bereit?](application-proxy-single-sign-on.md)
-- [Problembehandlung von Anwendungsproxys](application-proxy-troubleshoot.md)
+- [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html) (Konfigurieren von PingAccess für Azure AD zum Schutz von Anwendungen, die mit Microsoft Azure AD-Anwendungsproxy veröffentlicht wurden)
+- [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](what-is-single-sign-on.md)
+- [Beheben von Problemen mit Anwendungsproxys und Fehlermeldungen](application-proxy-troubleshoot.md)

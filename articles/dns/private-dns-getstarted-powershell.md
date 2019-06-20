@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b4d75c7a6db89b19d88cddcc564fd4e6a9ad0f49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b88454f06d2e2d42298e52feeaa26ae9d1a4902
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65916863"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730258"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Tutorial: Erstellen einer privaten Azure DNS-Zone mithilfe von Azure PowerShell
 
@@ -41,7 +41,7 @@ These instructions assume you have already installed and signed in to Azure Powe
 
 <!---[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)] -->
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>Ressourcengruppe erstellen
 

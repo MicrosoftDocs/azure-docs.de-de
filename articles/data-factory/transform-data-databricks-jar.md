@@ -13,11 +13,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60860984"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformieren von Daten durch Ausführen einer JAR-Aktivität in Azure Databricks
 
@@ -59,11 +59,11 @@ Die folgende Tabelle beschreibt die JSON-Eigenschaften, die in der JSON-Definiti
 |Eigenschaft|BESCHREIBUNG|Erforderlich|
 |:--|---|:-:|
 |name|Der Name der Aktivität in der Pipeline.|Ja|
-|Beschreibung|Ein Text, der beschreibt, was mit der Aktivität ausgeführt wird.|Nein |
+|description|Ein Text, der beschreibt, was mit der Aktivität ausgeführt wird.|Nein|
 |type|Bei JAR-Aktivitäten in Databricks lautet der Aktivitätstyp DatabricksSparkJar.|Ja|
 |linkedServiceName|Der Name des verknüpften Databricks-Diensts, in dem die JAR-Aktivität ausgeführt wird. Weitere Informationen zu diesem verknüpften Dienst finden Sie im Artikel  [Von Azure Data Factory unterstützte Compute-Umgebungen](compute-linked-services.md).|Ja|
 |mainClassName|Der vollständige Name der Klasse, die die auszuführende Hauptmethode enthält. Diese Klasse muss in einer JAR-Datei enthalten sein, die als Bibliothek bereitgestellt wird.|Ja|
-|Parameter|Parameter, die an die Hauptmethode übergeben werden.  Es handelt sich um einen Array von Zeichenfolgen.|Nein |
+|parameters|Parameter, die an die Hauptmethode übergeben werden.  Es handelt sich um einen Array von Zeichenfolgen.|Nein|
 |libraries|Eine Liste der Bibliotheken, die in dem Cluster installiert werden, der den Auftrag ausführen wird. Es kann ein Array vom Typ <Zeichenfolge, Objekt> sein.|Ja (mindestens eine mit der mainClassName-Methode)|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Unterstützte Bibliotheken für Databricks-Aktivitäten

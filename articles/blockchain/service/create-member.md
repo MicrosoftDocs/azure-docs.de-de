@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 51775c5534a13fb2515fafa182658beafd38c1eb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029938"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417495"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Schnellstart: Erstellen eines Azure Blockchain-Diensts über das Azure-Portal
 
@@ -40,11 +40,12 @@ Ein Azure Blockchain-Dienst wird mit einer definierten Gruppe von Compute- und S
     Abonnement | Wählen Sie das Azure-Abonnement aus, das Sie für Ihren Dienst verwenden möchten. Falls Sie über mehrere Abonnements verfügen, wählen Sie das Abonnement aus, über das die Ressource abgerechnet wird.
     Ressourcengruppe | Ein neuer Ressourcengruppenname oder ein bereits vorhandener Name aus Ihrem Abonnement
     Region | Der Speicherort muss für alle Mitglieder des Konsortiums identisch sein.
-    Mitgliedskontokennwort | Geben Sie ein neues Kennwort für das Mitgliedskonto an. Das Mitgliedskontokennwort wird verwendet, um den öffentlichen Endpunkt des Blockchainmitglieds zu authentifizieren. Hierzu wird die Standardauthentifizierung verwendet.
+    Mitgliedskontokennwort | Das Mitgliedskontokennwort wird zum Verschlüsseln des privaten Schlüssels für das Ethereum-Konto verwendet, das für Ihr Mitglied erstellt wird. Sie verwenden das Mitgliedskonto und das Mitgliedskontokennwort für die Verwaltung des Konsortiums.
     Konsortiumsname | Geben Sie für ein neues Konsortium einen eindeutigen Namen ein. Wenn Sie einem Konsortium über eine Einladung beitreten, entspricht der Wert dem Konsortium, dem Sie beitreten.
     BESCHREIBUNG | Beschreibung des Konsortiums.
     Protocol |  Die Vorschauversion unterstützt das Quorum-Protokoll.
-    Preise | Die Knotenkonfiguration für Ihren neuen Dienst. Wählen Sie **Standard** aus. 2 Validierungsknoten und 1 Transaktionsknoten entsprechen der Standardeinstellung.
+    Preise | Die Knotenkonfiguration für Ihren neuen Dienst. Wählen Sie **Standard** aus. Die Standardeinstellung umfasst zwei Validierungsknoten und einen Transaktionsknoten.
+    Kennwort des Transaktionsknotens | Das Kennwort für den Standardtransaktionsknoten des Mitglieds. Verwenden Sie das Kennwort für die Standardauthentifizierung, wenn Sie eine Verbindung mit dem öffentlichen Endpunkt des Standardtransaktionsknotens des Blockchainmitglieds herstellen.
 
 1. Wählen Sie **Erstellen** aus, um den Dienst bereitzustellen. Die Bereitstellung dauert ungefähr 10 Minuten.
 1. Klicken Sie in der Symbolleiste auf **Benachrichtigungen**, um den Bereitstellungsprozess zu überwachen.

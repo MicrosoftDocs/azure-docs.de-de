@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7aaa0de87ffa8280a6db34c5497779a5ded41c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4bd3e7d47b6e3083af6f388a5cd750da240a76b6
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545867"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392881"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Übersicht über die Microsoft-Authentifizierungsbibliothek (MSAL)
 Mithilfe der Microsoft-Authentifizierungsbibliothek (MSAL) können Entwickler [Token](developer-glossary.md#security-token) vom Microsoft Identity Platform-Endpunkt abrufen, um auf geschützte Web-APIs zuzugreifen. Bei diesen Web-APIs kann es sich um Microsoft Graph, andere Microsoft APIs, Web-APIs von Drittanbietern oder Ihre eigene Web-API handeln. MSAL ist für .NET, JavaScript, Android und iOS verfügbar, die viele verschiedene Anwendungsarchitekturen und -plattformen unterstützen.
@@ -55,7 +55,7 @@ MSAL kann in vielen Anwendungsszenarien verwendet werden, darunter:
 | Bibliothek | Unterstützte Plattformen und Frameworks|
 | --- | --- | 
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universelle Windows-Plattform|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js (Vorschau)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript-/TypeScript-Frameworks wie AngularJS, Ember.js oder Durandal.js|
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript-/TypeScript-Frameworks wie AngularJS, Ember.js oder Durandal.js|
 | ![MSAL für Android](media/sample-v2-code/logo_Android.png) <br/>[MSAL für Android (Vorschau)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | ![MSAL für iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C (Vorschau)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
 

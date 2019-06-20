@@ -2,21 +2,23 @@
 title: Programmgesteuertes Erstellen von Azure Enterprise-Abonnements | Microsoft Docs
 description: Erfahren Sie, wie Sie zusätzliche Azure Enterprise- oder Enterprise Dev/Test-Abonnements programmgesteuert erstellen können.
 services: azure-resource-manager
-author: tfitzmac
+author: jureid
+manager: jureid
+editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/10/2019
+ms.author: jureid
+ms.openlocfilehash: 7985451eb2bb5e9fd4fbcfb3d2fcf35149122c15
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65796076"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmgesteuertes Erstellen von Azure Enterprise-Abonnements (Vorschau)
 
@@ -40,9 +42,9 @@ Nachdem Sie einer Azure-EA-Registrierung als Kontobesitzer hinzugefügt wurden, 
 
 Um die folgenden Befehle ausführen zu können, müssen Sie im *Basisverzeichnis* des Kontobesitzers angemeldet sein. Dies ist das Verzeichnis, in dem Abonnements standardmäßig erstellt werden.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+## <a name="resttabrest"></a>[REST](#tab/rest)
 
-Anforderung zum Auflisten aller Registrierungskonten:
+Fordern Sie eine Liste aller Registrierungskonten an, auf die Sie zugreifen können:
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
@@ -73,7 +75,11 @@ Azure gibt eine Liste aller Registrierungskonten zurück, auf die Sie zugreifen 
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Verwenden Sie die `principalName`-Eigenschaft zum Identifizieren des Kontos, in dem Abonnements abgerechnet werden sollen. Kopieren Sie den `name`-Wert dieses Kontos. Wenn Sie beispielsweise Abonnements unter dem Registrierungskonto SignUpEngineering@contoso.com erstellen wollten, müssten Sie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` kopieren. Dies ist die Objekt-ID des Registrierungskontos. Kopieren Sie diesen Wert, um ihn im nächsten Schritt als `enrollmentAccountObjectId`-Wert zu verwenden.
+
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Öffnen Sie [Azure Cloud Shell](https://shell.azure.com/), und wählen Sie PowerShell aus.
 
 Verwenden Sie das Cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) zum Auflisten aller Registrierungskonten, auf die Sie zugreifen können.
 
@@ -81,15 +87,16 @@ Verwenden Sie das Cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing
 Get-AzEnrollmentAccount
 ```
 
-Azure gibt eine Liste der Objekt-IDs und E-Mail-Adressen von Konten zurück.
+Azure gibt eine Liste aller Registrierungskonten zurück, auf die Sie zugreifen können:
 
 ```azurepowershell
 ObjectId                               | PrincipalName
 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
+Verwenden Sie die `principalName`-Eigenschaft zum Identifizieren des Kontos, in dem Abonnements abgerechnet werden sollen. Kopieren Sie den `ObjectId`-Wert dieses Kontos. Wenn Sie beispielsweise Abonnements unter dem Registrierungskonto SignUpEngineering@contoso.com erstellen wollten, müssten Sie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` kopieren. Kopieren Sie diese Objekt-ID, um sie im nächsten Schritt als `enrollmentAccountObjectId`-Wert zu verwenden.
 
-# <a name="azure-clitabazure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
+## <a name="azure-clitabazure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
 Verwenden Sie den Befehl [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) zum Auflisten aller Registrierungskonten, auf die Sie zugreifen können.
 
@@ -97,45 +104,39 @@ Verwenden Sie den Befehl [az billing enrollment-account list](https://aka.ms/EAS
 az billing enrollment-account list
 ```
 
-Azure gibt eine Liste der Objekt-IDs und E-Mail-Adressen von Konten zurück.
+Azure gibt eine Liste aller Registrierungskonten zurück, auf die Sie zugreifen können:
 
 ```json
-{
-  "value": [
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "SignUpEngineering@contoso.com"
-      }
-    },
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "BillingPlatformTeam@contoso.com"
-      }
-    }
-  ]
-}
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
 ```
+
+Verwenden Sie die `principalName`-Eigenschaft zum Identifizieren des Kontos, in dem Abonnements abgerechnet werden sollen. Kopieren Sie den `name`-Wert dieses Kontos. Wenn Sie beispielsweise Abonnements unter dem Registrierungskonto SignUpEngineering@contoso.com erstellen wollten, müssten Sie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` kopieren. Dies ist die Objekt-ID des Registrierungskontos. Kopieren Sie diesen Wert, um ihn im nächsten Schritt als `enrollmentAccountObjectId`-Wert zu verwenden.
 
 ---
 
-Verwenden Sie die `principalName`-Eigenschaft zum Identifizieren des Kontos, in dem Abonnements abgerechnet werden sollen. Verwenden Sie die `id` als den `enrollmentAccount`-Wert, den Sie zum Erstellen des Abonnements im nächsten Schritt verwenden.
+## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Erstellen von Abonnements unter einem bestimmten Registrierungskonto
 
-## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Erstellen von Abonnements unter einem bestimmten Registrierungskonto 
-
-Das folgende Beispiel erstellt eine Anforderung zum Erstellen eines Abonnements namens *Dev Team Subscription*. Das Abonnementangebot lautet *MS-AZR-0017P* (reguläres EA-Abonnement). Das Registrierungskonto ist `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (Platzhalterwert, dieser Wert ist eine GUID), also das Registrierungskonto für SignUpEngineering@contoso.com. Es werden optional auch zwei Benutzer als RBAC-Besitzer für das Abonnement hinzugefügt.
+Im folgenden Beispiel wird ein Abonnement namens *Dev Team Subscription* in Registrierungskonto erstellt, das im vorherigen Schritt ausgewählt wurde. Bei dem Abonnementangebot handelt es sich um *MS-AZR-0017P* (reguläres Microsoft Enterprise Agreement). Es werden optional auch zwei Benutzer als RBAC-Besitzer für das Abonnement hinzugefügt.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
-Verwenden Sie die `id` des `enrollmentAccount` im Pfad der Anforderung, um das Abonnement zu erstellen.
+Führen Sie die folgende Anforderung aus, und ersetzen Sie dabei `<enrollmentAccountObjectId>` durch den `name`-Wert, den Sie im ersten Schritt (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) kopiert haben. Wie Sie Besitzer festlegen, erfahren Sie [hier](grant-access-to-create-subscription.md#userObjectId).
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -153,51 +154,51 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 | Elementname  | Erforderlich | Typ   | BESCHREIBUNG                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Nein       | Zeichenfolge | Der Anzeigename des Abonnements. Wenn kein Anzeigename angegeben wird, wird er auf den Namen des Angebots festgelegt, z.B. auf „Microsoft Azure Enterprise“.                                 |
-| `offerType`   | Ja      | Zeichenfolge | Das Angebot des Abonnements. Die beiden Optionen für EA sind [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (Verwendung in der Produktion) und [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (Dev/Test, muss [mit dem EA-Portal aktiviert werden](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `owners`      | Nein        | Zeichenfolge | Die Objekt-ID eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird.  |
+| `displayName` | Nein      | string | Der Anzeigename des Abonnements. Wenn kein Anzeigename angegeben wird, wird er auf den Namen des Angebots festgelegt, z.B. auf „Microsoft Azure Enterprise“.                                 |
+| `offerType`   | Ja      | string | Das Angebot des Abonnements. Die beiden Optionen für EA sind [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (Verwendung in der Produktion) und [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (Dev/Test, muss [mit dem EA-Portal aktiviert werden](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `owners`      | Nein       | string | Die Objekt-ID eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird.  |
 
 In der Antwort wird ein `subscriptionOperation`-Objekt für die Überwachung zurückgegeben. Nach Abschluss der Erstellung des Abonnements gibt das `subscriptionOperation`-Objekt ein `subscriptionLink`-Objekt zurück, das die Abonnement-ID enthält.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Um dieses Vorschaumodul zu verwenden, installieren Sie es zunächst durch Ausführen von `Install-Module Az.Subscription -AllowPrerelease`. Um sicherzustellen, dass `-AllowPrerelease` funktioniert, installieren Sie eine aktuelle Version von PowerShellGet aus [PowerShellGet-Modul abrufen](/powershell/gallery/installing-psget).
+Installieren Sie zunächst das Vorschaumodul, indem Sie `Install-Module Az.Subscription -AllowPrerelease` ausführen. Um sicherzustellen, dass `-AllowPrerelease` funktioniert, installieren Sie eine aktuelle Version von PowerShellGet aus [PowerShellGet-Modul abrufen](/powershell/gallery/installing-psget).
 
-Verwenden Sie [New-AzSubscription](/powershell/module/az.subscription) zusammen mit der Objekt-ID `enrollmentAccount` als Parameter `EnrollmentAccountObjectId`, um ein neues Abonnement zu erstellen. 
+Führen Sie den folgenden [New-AzSubscription](/powershell/module/az.subscription)-Befehl aus, und ersetzen Sie dabei `<enrollmentAccountObjectId>` durch den `ObjectId`-Wert, den Sie im ersten Schritt (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) abgerufen haben. Wie Sie Besitzer festlegen, erfahren Sie [hier](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurepowershell-interactive
-New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
 | Elementname  | Erforderlich | Typ   | BESCHREIBUNG                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `Name` | Nein       | Zeichenfolge | Der Anzeigename des Abonnements. Wenn kein Anzeigename angegeben wird, wird er auf den Namen des Angebots festgelegt, z.B. auf „Microsoft Azure Enterprise“.                                 |
-| `OfferType`   | Ja      | Zeichenfolge | Das Angebot des Abonnements. Die beiden Optionen für EA sind [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (Verwendung in der Produktion) und [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (Dev/Test, muss [mit dem EA-Portal aktiviert werden](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Ja       | Zeichenfolge | Die Objekt-ID des Registrierungskontos, unter dem das Abonnement erstellt und abgerechnet wird. Dieser Wert ist eine GUID, die Sie von `Get-AzEnrollmentAccount` abrufen. |
-| `OwnerObjectId`      | Nein        | Zeichenfolge | Die Objekt-ID eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird.  |
-| `OwnerSignInName`    | Nein        | Zeichenfolge | Die E-Mail-Adresse eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird. Sie können diesen Parameter anstelle von `OwnerObjectId` verwenden.|
-| `OwnerApplicationId` | Nein        | Zeichenfolge | Die Anwendungs-ID eines Dienstprinzipals, den Sie als RBAC-Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird. Sie können diesen Parameter anstelle von `OwnerObjectId` verwenden. Wenn Sie diesen Parameter verwenden zu können, benötigt das Dienstprinzipal [Lesezugriff auf das Verzeichnis](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
+| `Name` | Nein      | string | Der Anzeigename des Abonnements. Wenn kein Anzeigename angegeben wird, wird er auf den Namen des Angebots festgelegt, z.B. auf „Microsoft Azure Enterprise“.                                 |
+| `OfferType`   | Ja      | string | Das Angebot des Abonnements. Die beiden Optionen für EA sind [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (Verwendung in der Produktion) und [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (Dev/Test, muss [mit dem EA-Portal aktiviert werden](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Ja       | string | Die Objekt-ID des Registrierungskontos, unter dem das Abonnement erstellt und abgerechnet wird. Dieser Wert ist eine GUID, die Sie von `Get-AzEnrollmentAccount` abrufen. |
+| `OwnerObjectId`      | Nein       | string | Die Objekt-ID eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird.  |
+| `OwnerSignInName`    | Nein       | string | Die E-Mail-Adresse eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird. Sie können diesen Parameter anstelle von `OwnerObjectId` verwenden.|
+| `OwnerApplicationId` | Nein       | string | Die Anwendungs-ID eines Dienstprinzipals, den Sie als RBAC-Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird. Sie können diesen Parameter anstelle von `OwnerObjectId` verwenden. Wenn Sie diesen Parameter verwenden zu können, benötigt das Dienstprinzipal [Lesezugriff auf das Verzeichnis](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 Wenn Sie eine vollständige Liste aller Parameter anzeigen möchten, finden Sie weitere Informationen unter [New-AzSubscription](/powershell/module/az.subscription.preview).
 
 # <a name="azure-clitabazure-cli"></a>[Azure-Befehlszeilenschnittstelle](#tab/azure-cli)
 
-Um diese Vorschauerweiterung zu verwenden, installieren Sie sie zunächst durch Ausführen von `az extension add --name subscription`.
+Installieren Sie zunächst die Vorschauerweiterung, indem Sie `az extension add --name subscription` ausführen.
 
-Verwenden Sie [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) zusammen mit der Objekt-ID `enrollmentAccount` als `enrollment-account-object-id`-Parameter, um ein neues Abonnement zu erstellen.
+Führen Sie den folgenden [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create)-Befehl aus, und ersetzen Sie dabei `<enrollmentAccountObjectId>` durch den `name`-Wert, den Sie im ersten Schritt (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) kopiert haben. Wie Sie Besitzer festlegen, erfahren Sie [hier](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Elementname  | Erforderlich | Typ   | BESCHREIBUNG                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `display-name` | Nein       | Zeichenfolge | Der Anzeigename des Abonnements. Wenn kein Anzeigename angegeben wird, wird er auf den Namen des Angebots festgelegt, z.B. auf „Microsoft Azure Enterprise“.                                 |
-| `offer-type`   | Ja      | Zeichenfolge | Das Angebot des Abonnements. Die beiden Optionen für EA sind [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (Verwendung in der Produktion) und [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (Dev/Test, muss [mit dem EA-Portal aktiviert werden](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | Ja       | Zeichenfolge | Die Objekt-ID des Registrierungskontos, unter dem das Abonnement erstellt und abgerechnet wird. Dieser Wert ist eine GUID, die Sie von `az billing enrollment-account list` abrufen. |
-| `owner-object-id`      | Nein        | Zeichenfolge | Die Objekt-ID eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird.  |
-| `owner-upn`    | Nein        | Zeichenfolge | Die E-Mail-Adresse eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird. Sie können diesen Parameter anstelle von `owner-object-id` verwenden.|
-| `owner-spn` | Nein        | Zeichenfolge | Die Anwendungs-ID eines Dienstprinzipals, den Sie als RBAC-Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird. Sie können diesen Parameter anstelle von `owner-object-id` verwenden. Wenn Sie diesen Parameter verwenden zu können, benötigt das Dienstprinzipal [Lesezugriff auf das Verzeichnis](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
+| `display-name` | Nein      | string | Der Anzeigename des Abonnements. Wenn kein Anzeigename angegeben wird, wird er auf den Namen des Angebots festgelegt, z.B. auf „Microsoft Azure Enterprise“.                                 |
+| `offer-type`   | Ja      | string | Das Angebot des Abonnements. Die beiden Optionen für EA sind [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (Verwendung in der Produktion) und [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (Dev/Test, muss [mit dem EA-Portal aktiviert werden](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Ja       | string | Die Objekt-ID des Registrierungskontos, unter dem das Abonnement erstellt und abgerechnet wird. Dieser Wert ist eine GUID, die Sie von `az billing enrollment-account list` abrufen. |
+| `owner-object-id`      | Nein       | string | Die Objekt-ID eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird.  |
+| `owner-upn`    | Nein       | string | Die E-Mail-Adresse eines Benutzers, den Sie als RBAC Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird. Sie können diesen Parameter anstelle von `owner-object-id` verwenden.|
+| `owner-spn` | Nein       | string | Die Anwendungs-ID eines Dienstprinzipals, den Sie als RBAC-Besitzer für das Abonnement hinzufügen möchten, wenn es erstellt wird. Sie können diesen Parameter anstelle von `owner-object-id` verwenden. Wenn Sie diesen Parameter verwenden zu können, benötigt das Dienstprinzipal [Lesezugriff auf das Verzeichnis](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 Wenn Sie eine vollständige Liste aller Parameter anzeigen möchten, finden Sie weitere Informationen unter [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
@@ -206,7 +207,7 @@ Wenn Sie eine vollständige Liste aller Parameter anzeigen möchten, finden Sie 
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Einschränkungen der Azure Enterprise-Abonnementerstellungs-API
 
 - Nur Azure Enterprise-Abonnements können mithilfe dieser API erstellt werden.
-- Es sind maximal 50 Abonnements pro Konto möglich. Weitere Abonnements können nur mithilfe des Kontocenters erstellt werden.
+- Es gilt eine anfängliche Grenze von 50 Abonnements pro Registrierungskonto, jedoch können Sie [eine Supportanfrage erstellen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), um die Grenze auf 200 zu erhöhen. Weitere Abonnements können nur über das Kontocenter erstellt werden.
 - Es muss mindestens ein EA- oder EA Dev/Test-Abonnement unter dem Konto vorhanden sein. Dies bedeutet, dass der Kontobesitzer den manuellen Registrierungsvorgang mindestens ein Mal durchlaufen hat.
 - Benutzer, die keine Kontobesitzer sind, jedoch einem Registrierungskonto über RBAC hinzugefügt wurden, können keine Abonnements mithilfe des Kontocenters erstellen.
 - Sie können den Mandanten nicht auswählen, in dem das Abonnement erstellt werden soll. Das Abonnement wird immer im Basismandanten des Kontobesitzers erstellt. Wenn Sie das Abonnement in einen anderen Mandanten verschieben möchten, finden Sie weitere Informationen unter [Ändern des Abonnementmandanten](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

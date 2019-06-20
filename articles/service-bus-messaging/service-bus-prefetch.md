@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: aschhab
 ms.openlocfilehash: c63e6bf66e4832a1a5b0b5e6fc3dfbbf02d1e490
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125847"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Vorabruf von Azure Service Bus-Nachrichten
 

@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
 ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402744"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60835599"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentifizierung und Autorisierung in Azure App Service
 

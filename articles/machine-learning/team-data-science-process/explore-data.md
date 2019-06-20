@@ -12,11 +12,11 @@ ms.date: 11/08/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d4d2bc3292926144f13508780885e082f2b1fdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57866308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60303620"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Untersuchen von Daten im Team Data Science-Prozess
 

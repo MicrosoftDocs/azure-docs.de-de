@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: e0513bc18f1cf14beb4c1becfc1835235a5ddc96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61483093"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Erstellen eines Exportauftrags für den Azure Import/Export-Dienst
 Zum Erstellen eines Exportauftrags für den Microsoft Azure Import/Export-Dienst per REST-API sind die folgenden Schritte erforderlich:

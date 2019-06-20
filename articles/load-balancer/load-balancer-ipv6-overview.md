@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: kumud
 ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161932"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60861945"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Übersicht über IPv6 für Azure Load Balancer
 

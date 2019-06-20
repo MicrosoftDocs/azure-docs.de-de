@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60609464"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server-Business Intelligence in Azure Virtual Machines
 > [!IMPORTANT] 
@@ -79,10 +79,10 @@ In der folgenden Tabelle sind die Business Intelligence-Features zusammengefasst
 | BI-Funktion von SQL Server | In Katalogimage installiert | Notizen |
 | --- | --- | --- |
 | **Reporting Services – Einheitlicher Modus** |Ja |Installiert, erfordert aber eine Konfiguration, einschließlich Berichts-Manager-URL. Siehe Abschnitt [Konfigurieren von Reporting Services](#configure-reporting-services). |
-| **Reporting Services – SharePoint-Modus** |Nein  |Das Image des Microsoft Azure Virtual Machine-Katalogs enthält weder SharePoint noch SharePoint-Installationsdateien. <sup>1</sup> |
+| **Reporting Services – SharePoint-Modus** |Nein |Das Image des Microsoft Azure Virtual Machine-Katalogs enthält weder SharePoint noch SharePoint-Installationsdateien. <sup>1</sup> |
 | **Analysis Services – Mehrdimensional und Data Mining (OLAP)** |Ja |Als standardmäßige Analysis Services-Instanz installiert und konfiguriert |
-| **Analysis Services – Tabellarisch** |Nein  |In SQL Server 2012-, 2014- und 2016-Images unterstützt, aber nicht standardmäßig installiert. Installieren Sie eine weitere Instanz von Analysis Services. Weitere Informationen hierzu finden Sie im Abschnitt „Installieren anderer SQL Server-Dienste und -Features“ in diesem Thema. |
-| **Analysis Services Power Pivot für SharePoint** |Nein  |Das Image des Microsoft Azure Virtual Machine-Katalogs enthält weder SharePoint noch SharePoint-Installationsdateien. <sup>1</sup> |
+| **Analysis Services – Tabellarisch** |Nein |In SQL Server 2012-, 2014- und 2016-Images unterstützt, aber nicht standardmäßig installiert. Installieren Sie eine weitere Instanz von Analysis Services. Weitere Informationen hierzu finden Sie im Abschnitt „Installieren anderer SQL Server-Dienste und -Features“ in diesem Thema. |
+| **Analysis Services Power Pivot für SharePoint** |Nein |Das Image des Microsoft Azure Virtual Machine-Katalogs enthält weder SharePoint noch SharePoint-Installationsdateien. <sup>1</sup> |
 
 <sup>1</sup> Weitere Informationen zu SharePoint und virtuellen Azure-Computern finden Sie unter [Microsoft Azure-Architekturen für SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) und [SharePoint-Bereitstellung auf Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
@@ -94,7 +94,7 @@ In der folgenden Tabelle sind die Business Intelligence-Features zusammengefasst
 * Die empfohlene Minimalgröße für einen virtuellen Computer bei Verwendung von SQL Server Enterprise Edition ist **A3** . **A4** wird als Größe für einen virtuellen Computer empfohlen, wenn SQL Server-BI-Bereitstellungen von Analysis Services und Reporting Services verwendet werden.
   
     Informationen zu den aktuellen Größen virtueller Computer finden Sie unter [Größen virtueller Computer unter Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Eine bewährte Methode für die Datenträgerverwaltung ist das Speichern von Daten-, Protokoll- und Sicherungsdateien auf anderen Laufwerken als **C:** und **D:**. Erstellen Sie beispielsweise die Datenträger **E:** und **F:** für Daten.
+* Eine bewährte Methode für die Datenträgerverwaltung ist das Speichern von Daten-, Protokoll- und Sicherungsdateien auf anderen Laufwerken als **C:** und **D:** . Erstellen Sie beispielsweise die Datenträger **E:** und **F:** für Daten.
   
   * Die Laufwerk-Cacherichtlinie für das Standardlaufwerk **C:** ist für die Verwendung von Daten nicht optimal.
   * Das Laufwerk **D:** ist ein temporäres Laufwerk, das hauptsächlich für die Auslagerungsdatei verwendet wird. Das Laufwerk **D:** wird nicht beibehalten und nicht in Blob Storage gespeichert. Bei Verwaltungsaufgaben, z.B. einer Änderung der Größe des virtuellen Computers, wird das Laufwerk **D:** zurückgesetzt. Es wird empfohlen, das Laufwerk **D:** **NICHT** für Datenbankdateien zu verwenden, einschließlich „tempdb“.
@@ -224,7 +224,7 @@ Wenn Sie über einen Remotecomputer eine Verbindung mit dem Webportal oder Beric
 
 1. Erstellen Sie einen Endpunkt für den virtuellen Computer von TCP-Port 80. Weitere Informationen finden Sie im Abschnitt [Endpunkte und Firewallports von virtuellen Computern](#virtual-machine-endpoints-and-firewall-ports) in diesem Dokument.
 2. Öffnen Sie Port 80 in der Firewall des virtuellen Computers.
-3. Navigieren Sie zum Webportal oder Berichts-Manager, indem Sie den **DNS-Namen** des virtuellen Azure-Computers als Servernamen in der URL verwenden. Beispiel: 
+3. Navigieren Sie zum Webportal oder Berichts-Manager, indem Sie den **DNS-Namen** des virtuellen Azure-Computers als Servernamen in der URL verwenden. Beispiel:
    
     **Berichtsserver**: http://uebi.cloudapp.net/reportserver  **Webportal**: http://uebi.cloudapp.net/reports
    
@@ -268,7 +268,7 @@ Sie können auch „C:\SQLServer_13.0_full\setup.exe“, „C:\SQLServer_12.0_fu
 > 
 
 ### <a name="to-install-analysis-services-tabular-mode"></a>So installieren Sie Analysis Services im tabellarischen Modus
-Die Schritte in diesem Abschnitt sind eine **Zusammenfassung** der Installation von Analysis Services im tabellarischen Modus. Weitere Informationen finden Sie unter 
+Die Schritte in diesem Abschnitt sind eine **Zusammenfassung** der Installation von Analysis Services im tabellarischen Modus. Weitere Informationen finden Sie unter
 
 * [Installieren von Analysis Services im Tabellenmodus](https://msdn.microsoft.com/library/hh231722.aspx)
 * [Tabellenmodellierung (Adventure Works-Tutorial)](https://msdn.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)

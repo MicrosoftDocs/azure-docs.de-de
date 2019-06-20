@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
 ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60552592"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Erstellen und Freigeben von Dashboards im Azure-Portal
 Sie können mehrere Dashboards erstellen und für andere Benutzer freigeben, die Zugriff auf Ihre Azure-Abonnements haben.  In diesem Artikel werden die Grundlagen der Erstellung, Bearbeitung, Veröffentlichung und Verwaltung des Zugriffs auf Dashboards beschrieben.

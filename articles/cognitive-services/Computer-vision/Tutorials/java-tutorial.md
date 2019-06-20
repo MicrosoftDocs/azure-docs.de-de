@@ -12,10 +12,10 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
 ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232636"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Verwenden von Maschinelles Sehen-Features mit REST-API und Java
@@ -63,8 +63,8 @@ Importieren Sie die Datei **cognitive-services-java-computer-vision-tutorial-mas
 1. Klicken Sie in NetBeans auf **Datei** > **Projekt importieren** > **Aus ZIP-Datei**. Daraufhin wird das Dialogfeld **Projekte aus ZIP-Datei importieren** angezeigt.
 1. Klicken Sie im Feld **ZIP-Datei:** auf die Schaltfläche **Durchsuchen**, um die Datei **cognitive-services-java-computer-vision-tutorial-master.zip** zu finden, und klicken Sie dann auf **Öffnen**.
 1. Klicken Sie im Dialogfeld **Projekte aus ZIP-Datei importieren** auf **Importieren**.
-1. Erweitern Sie im Bereich **Projekte** **ComputerVision** > **Quellpakete** > **&lt;Standardpaket&gt;**. 
-   Einige NetBeans-Versionen verwenden **src** anstelle von **Quellpakete** > **&lt;Standardpaket&gt;**. Erweitern Sie in diesem Fall **src**.
+1. Erweitern Sie im Bereich **Projekte** **ComputerVision** > **Quellpakete** >  **&lt;Standardpaket&gt;** . 
+   Einige NetBeans-Versionen verwenden **src** anstelle von **Quellpakete** >  **&lt;Standardpaket&gt;** . Erweitern Sie in diesem Fall **src**.
 1. Doppelklicken Sie auf **MainFrame.java**, um die Datei in den NetBeans-Editor zu laden. Daraufhin wird die Registerkarte **Entwurf** der **MainFrame.java**-Datei angezeigt.
 1. Klicken Sie auf die Registerkarte **Quelle**, um den Java-Quellcode anzuzeigen.
 

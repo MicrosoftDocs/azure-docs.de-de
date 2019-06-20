@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64710416"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Verwenden der Linux-Diagnoseerweiterung zum Überwachen von Metriken und Protokollen
 
@@ -257,7 +257,7 @@ Element | Wert
 eventVolume | (optional:) Steuert die Anzahl der Partitionen, die innerhalb der Speichertabelle erstellt werden. Muss `"Large"`, `"Medium"` oder `"Small"` sein. Wenn Sie hier nichts angeben, lautet der Standardwert `"Medium"`.
 sampleRateInSeconds | (optional:) Das Standardintervall zwischen der Erfassung von unformatierten (nicht aggregierten) Metriken. Die kleinste unterstützte Erfassungsrate beträgt 15 Sekunden. Wenn Sie hier nichts angeben, lautet der Standardwert `15`.
 
-#### <a name="metrics"></a>Metriken
+#### <a name="metrics"></a>metrics
 
 ```json
 "metrics": {
@@ -271,7 +271,7 @@ sampleRateInSeconds | (optional:) Das Standardintervall zwischen der Erfassung v
 
 Element | Wert
 ------- | -----
-Ressourcen-ID | Die Azure Resource Manager-Ressourcen-ID des virtuellen Computers oder der VM-Skalierungsgruppe, zu der der virtuelle Computer gehört. Diese Einstellung muss ebenfalls angegeben werden, wenn in der Konfiguration eine JsonBlob-Senke verwendet wird.
+resourceId | Die Azure Resource Manager-Ressourcen-ID des virtuellen Computers oder der VM-Skalierungsgruppe, zu der der virtuelle Computer gehört. Diese Einstellung muss ebenfalls angegeben werden, wenn in der Konfiguration eine JsonBlob-Senke verwendet wird.
 scheduledTransferPeriod | Die Häufigkeit, mit der aggregierte Metriken berechnet und an den Azure-Metrikendienst übertragen werden, als ein Zeitintervall im Format ISO 8601. Das kleinste Übertragungsintervall ist 60 Sekunden, d.h. PT1M. Sie müssen mindestens einen scheduledTransferPeriod-Wert angeben.
 
 Die Werte für die Metriken, die im Abschnitt performanceCounters angegeben wurden, werden alle 15 Sekunden oder in der explizit für den Leistungsindikator festgelegten Häufigkeit erfasst. Wenn mehrere scheduledTransferPeriod-Werte (wie im Beispiel) angegeben wurden, wird jede Aggregation unabhängig von den anderen berechnet.
@@ -388,7 +388,7 @@ Element | Wert
 ------- | -----
 Namespace | (optional:) Der OMI-Namespace, in dem die Abfrage ausgeführt werden soll. Falls keine Angabe erfolgt, lautet der Standardwert „root/scx“, der von den [plattformübergreifenden System Center-Anbietern](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation) implementiert wird.
 query | Die OMI-Abfrage, die ausgeführt werden soll.
-Tabelle | (optional:) Die Azure Storage-Tabelle im angegebenen Speicherkonto (siehe [geschützte Einstellungen](#protected-settings)).
+table | (optional:) Die Azure Storage-Tabelle im angegebenen Speicherkonto (siehe [geschützte Einstellungen](#protected-settings)).
 frequency | (optional:) Die Anzahl von Sekunden zwischen der Ausführung der Abfrage. Der Standardwert ist 300 (fünf Minuten), der Mindestwert beträgt 15 Sekunden.
 sinks | (optional:) Eine durch Trennzeichen getrennte Liste der Namen von zusätzlichen Senken, an die unformatierte Metrikergebnisse veröffentlicht werden sollen. Es erfolgt keine Aggregation dieser unformatierten Daten durch die Erweiterung oder den Azure-Metrikendienst.
 
@@ -411,7 +411,7 @@ Steuert die Erfassung von Protokolldateien. LAD erfasst neue Textzeilen so, wie 
 Element | Wert
 ------- | -----
 file | Der vollständige Pfadname der Protokolldatei, die überwacht und erfasst werden soll. Beim Pfadnamen muss es sich um eine einzelne Datei handeln. Er darf keinen Verzeichnisnamen oder Platzhalter enthalten.
-Tabelle | (optional:) Die Azure Storage-Tabelle im angegebenen Speicherkonto (wie in der geschützten Konfiguration angegeben), in die neue Zeilen vom Ende der Datei geschrieben werden.
+table | (optional:) Die Azure Storage-Tabelle im angegebenen Speicherkonto (wie in der geschützten Konfiguration angegeben), in die neue Zeilen vom Ende der Datei geschrieben werden.
 sinks | (optional:) Eine durch Trennzeichen getrennte Liste der Namen zusätzlicher Senken, an die Protokollzeilen gesendet werden.
 
 Sie müssen „table“ und/oder „sinks“ angeben.
@@ -500,7 +500,9 @@ ReadsPerSecond | Lesevorgänge pro Sekunde
 WritesPerSecond | Schreibvorgänge pro Sekunde
 TransfersPerSecond | Lese- oder Schreibvorgänge pro Sekunde
 
-Aggregierte Werte für alle Dateisysteme erhalten Sie, indem Sie `"condition": "IsAggregate=True"` festlegen. Werte für ein bestimmtes eingebundenes Dateisystem, wie z.B. „/mnt“, erhalten Sie, indem Sie `"condition": 'Name="/mnt"'` angeben.
+Aggregierte Werte für alle Dateisysteme erhalten Sie, indem Sie `"condition": "IsAggregate=True"` festlegen. Werte für ein bestimmtes eingebundenes Dateisystem, wie z.B. „/mnt“, erhalten Sie, indem Sie `"condition": 'Name="/mnt"'` angeben. 
+
+**HINWEIS**: Wenn Sie nicht JSON, sondern das Azure-Portal verwenden, ist „Name='/mnt'“ die richtige Form des Bedingungsfelds.
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Integrierte Metriken der Datenträgerklasse
 

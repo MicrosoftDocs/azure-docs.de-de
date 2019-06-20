@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609466"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297476"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Protokollieren von Metriken während Trainingsausführungen in Azure Machine Learning
 
@@ -67,7 +67,7 @@ Das folgende Beispiel trainiert ein einfaches Sklearn Ridge-Modell lokal in eine
 
 1. Erstellen Sie ein Trainingsskript in einem lokalen Jupyter-Notebook. 
 
-   ``` python
+   ```python
    # load diabetes dataset, a well-known small dataset that comes with scikit-learn
    from sklearn.datasets import load_diabetes
    from sklearn.linear_model import Ridge

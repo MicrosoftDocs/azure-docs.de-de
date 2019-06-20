@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
 ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024128"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Beispiel: Facets auf mehreren Ebenen in Azure Search
@@ -39,7 +39,7 @@ LEFT JOIN
 
 ## <a name="indexing-to-a-collection-field"></a>Indizierung nach einem Collection-Feld
 
-Erstellen Sie in dem Index, der diese Struktur enthält, im Azure Search-Schema zum Speichern dieser Daten ein **Collection(Edm.String)**-Feld, um sicherzustellen, dass die Feldattribute durchsuchbar, filterbar, facettierbar und abrufbar vorhanden sind.
+Erstellen Sie in dem Index, der diese Struktur enthält, im Azure Search-Schema zum Speichern dieser Daten ein **Collection(Edm.String)** -Feld, um sicherzustellen, dass die Feldattribute durchsuchbar, filterbar, facettierbar und abrufbar vorhanden sind.
 
 Senden Sie nun beim Indizieren von Inhalten, die sich auf eine bestimmte Taxonomiekategorie beziehen, die Taxonomie als Array mit Text aus jeder Ebene. Senden Sie z.B. für eine Entität mit `ProductCategoryId = 5 (Mountain Bikes)` das Feld als `[ "Bikes", "Bikes|Mountain Bikes"]`.
 
@@ -87,7 +87,7 @@ Mit dem **categories**-Objekt kann jetzt eine reduzierbare Taxonomiestruktur mit
   ![Facettierter Filter mit mehreren Ebenen](./media/search-example-adventureworks/multi-level-facet.png "Facettierter Filter mit mehreren Ebenen")
 
  
-Jeder Link in der Struktur sollte den verknüpften Filter anwenden. Beispiel: 
+Jeder Link in der Struktur sollte den verknüpften Filter anwenden. Beispiel:
 
 + **taxonomy/any**`(x:x eq 'Accessories')` gibt alle Dokumente in der Verzweigung „Accessories“ zurück
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` gibt nur Dokumente mit einer Unterkategorie „Bike Racks“ unter der Verzweigung „Accessories“ zurück.

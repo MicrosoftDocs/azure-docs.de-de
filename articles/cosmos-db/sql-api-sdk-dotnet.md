@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
 ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510720"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK für SQL-API: Download und Anmerkungen zum Release
@@ -318,7 +318,7 @@ ms.locfileid: "65510720"
 * LINQ-Anbieterunterstützung für bedingte, „Coalesce“- und „CompareTo“-Methoden für Zeichenfolgen
 * **[Korrigiert]** LINQ-Anbieter--&gt; „Contains“-Methode in „List“ implementiert, um für „IEnumerable“ und „Array“ dieselbe SQL zu generieren.
 * **[Korrigiert]** „BackoffRetryUtility“ verwendet die gleiche „HttpRequestMessage“ erneut, anstatt bei einer Wiederholung eine neue zu erstellen.
-* **[Veraltet]**„UriFactory.CreateCollection“ --&gt; „UriFactory.CreateDocumentCollection“ sollte stattdessen verwendet werden.
+* **[Veraltet]** „UriFactory.CreateCollection“ --&gt; „UriFactory.CreateDocumentCollection“ sollte stattdessen verwendet werden.
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 * **[Korrigiert]** Lokalisierungsprobleme bei Verwenden nicht englischer Kulturinformationen wie beispielsweise nl-NL usw. 
@@ -375,63 +375,63 @@ Anforderungen an Azure Cosmos DB mithilfe eines deaktivierten SDK werden vom Die
 
 | Version | Herausgabedatum | Deaktivierungstermine |
 | --- | --- | --- |
-| [2.4.0](#2.4.0) |5. Mai 2019 |--- |
-| [2.3.0](#2.3.0) |4. April 2019 |--- |
-| [2.2.3](#2.2.3) |11. Februar 2019 |--- |
-| [2.2.2](#2.2.2) |6. Februar 2019 |--- |
-| [2.2.1](#2.2.1) |24. Dezember 2018 |--- |
-| [2.2.0](#2.2.0) |07. Dezember 2018 |--- |
-| [2.1.3](#2.1.3) |15. Oktober 2018 |--- |
-| [2.1.2](#2.1.2) |4. Oktober 2018 |--- |
-| [2.1.1](#2.1.1) |27. September 2018 |--- |
-| [2.1.0](#2.1.0) |21. September 2018 |--- |
-| [2.0.0](#2.0.0) |07. September 2018 |--- |
-| [1.22.0](#1.22.0) |19. April 2018 |--- |
-| [1.21.1](#1.20.1) |09. März 2018 |--- |
-| [1.20.2](#1.20.1) |21. Februar 2018 |--- |
-| [1.20.1](#1.20.1) |05. Februar 2018 |--- |
-| [1.19.1](#1.19.1) |16. November 2017 |--- |
-| [1.19.0](#1.19.0) |10. November 2017 |--- |
-| [1.18.1](#1.18.1) |07. November 2017 |--- |
-| [1.18.0](#1.18.0) |17. Oktober 2017 |--- |
-| [1.17.0](#1.17.0) |10. August 2017 |--- |
-| [1.16.1](#1.16.1) |07. August 2017 |--- |
-| [1.16.0](#1.16.0) |02. August 2017 |--- |
-| [1.15.0](#1.15.0) |30. Juni 2017 |--- |
-| [1.14.1](#1.14.1) |23. Mai 2017 |--- |
-| [1.14.0](#1.14.0) |10. Mai 2017 |--- |
-| [1.13.4](#1.13.4) |09. Mai 2017 |--- |
-| [1.13.3](#1.13.3) |06. Mai 2017 |--- |
-| [1.13.2](#1.13.2) |19. April 2017 |--- |
-| [1.13.1](#1.13.1) |29. März 2017 |--- |
-| [1.13.0](#1.13.0) |24. März 2017 |--- |
-| [1.12.2](#1.12.2) |20. März 2017 |--- |
-| [1.12.1](#1.12.1) |14. März 2017 |--- |
-| [1.12.0](#1.12.0) |15. Februar 2017 |--- |
-| [1.11.4](#1.11.4) |6. Februar 2017 |--- |
-| [1.11.3](#1.11.3) |26. Januar 2017 |--- |
-| [1.11.1](#1.11.1) |21. Dezember 2016 |--- |
-| [1.11.0](#1.11.0) |8. Dezember 2016 |--- |
-| [1.10.0](#1.10.0) |27. September 2016 |--- |
-| [1.9.5](#1.9.5) |1. September 2016 |--- |
-| [1.9.4](#1.9.4) |24. August 2016 |--- |
-| [1.9.3](#1.9.3) |15. August 2016 |--- |
-| [1.9.2](#1.9.2) |23. Juli 2016 |--- |
-| [1.8.0](#1.8.0) |14. Juni 2016 |--- |
-| [1.7.1](#1.7.1) |6. Mai 2016 |--- |
-| [1.7.0](#1.7.0) |26. April 2016 |--- |
-| [1.6.3](#1.6.3) |8. April 2016 |--- |
-| [1.6.2](#1.6.2) |29. März 2016 |--- |
-| [1.5.3](#1.5.3) |19. Februar 2016 |--- |
-| [1.5.2](#1.5.2) |14. Dezember 2015 |--- |
-| [1.5.1](#1.5.1) |23. November 2015 |--- |
+| [2.4.0](#2.4.0) |5\. Mai 2019 |--- |
+| [2.3.0](#2.3.0) |4\. April 2019 |--- |
+| [2.2.3](#2.2.3) |11\. Februar 2019 |--- |
+| [2.2.2](#2.2.2) |6\. Februar 2019 |--- |
+| [2.2.1](#2.2.1) |24\. Dezember 2018 |--- |
+| [2.2.0](#2.2.0) |07\. Dezember 2018 |--- |
+| [2.1.3](#2.1.3) |15\. Oktober 2018 |--- |
+| [2.1.2](#2.1.2) |4\. Oktober 2018 |--- |
+| [2.1.1](#2.1.1) |27\. September 2018 |--- |
+| [2.1.0](#2.1.0) |21\. September 2018 |--- |
+| [2.0.0](#2.0.0) |07\. September 2018 |--- |
+| [1.22.0](#1.22.0) |19\. April 2018 |--- |
+| [1.21.1](#1.20.1) |09\. März 2018 |--- |
+| [1.20.2](#1.20.1) |21\. Februar 2018 |--- |
+| [1.20.1](#1.20.1) |05\. Februar 2018 |--- |
+| [1.19.1](#1.19.1) |16\. November 2017 |--- |
+| [1.19.0](#1.19.0) |10\. November 2017 |--- |
+| [1.18.1](#1.18.1) |07\. November 2017 |--- |
+| [1.18.0](#1.18.0) |17\. Oktober 2017 |--- |
+| [1.17.0](#1.17.0) |10\. August 2017 |--- |
+| [1.16.1](#1.16.1) |07\. August 2017 |--- |
+| [1.16.0](#1.16.0) |02\. August 2017 |--- |
+| [1.15.0](#1.15.0) |30\. Juni 2017 |--- |
+| [1.14.1](#1.14.1) |23\. Mai 2017 |--- |
+| [1.14.0](#1.14.0) |10\. Mai 2017 |--- |
+| [1.13.4](#1.13.4) |09\. Mai 2017 |--- |
+| [1.13.3](#1.13.3) |06\. Mai 2017 |--- |
+| [1.13.2](#1.13.2) |19\. April 2017 |--- |
+| [1.13.1](#1.13.1) |29\. März 2017 |--- |
+| [1.13.0](#1.13.0) |24\. März 2017 |--- |
+| [1.12.2](#1.12.2) |20\. März 2017 |--- |
+| [1.12.1](#1.12.1) |14\. März 2017 |--- |
+| [1.12.0](#1.12.0) |15\. Februar 2017 |--- |
+| [1.11.4](#1.11.4) |6\. Februar 2017 |--- |
+| [1.11.3](#1.11.3) |26\. Januar 2017 |--- |
+| [1.11.1](#1.11.1) |21\. Dezember 2016 |--- |
+| [1.11.0](#1.11.0) |8\. Dezember 2016 |--- |
+| [1.10.0](#1.10.0) |27\. September 2016 |--- |
+| [1.9.5](#1.9.5) |1\. September 2016 |--- |
+| [1.9.4](#1.9.4) |24\. August 2016 |--- |
+| [1.9.3](#1.9.3) |15\. August 2016 |--- |
+| [1.9.2](#1.9.2) |23\. Juli 2016 |--- |
+| [1.8.0](#1.8.0) |14\. Juni 2016 |--- |
+| [1.7.1](#1.7.1) |6\. Mai 2016 |--- |
+| [1.7.0](#1.7.0) |26\. April 2016 |--- |
+| [1.6.3](#1.6.3) |8\. April 2016 |--- |
+| [1.6.2](#1.6.2) |29\. März 2016 |--- |
+| [1.5.3](#1.5.3) |19\. Februar 2016 |--- |
+| [1.5.2](#1.5.2) |14\. Dezember 2015 |--- |
+| [1.5.1](#1.5.1) |23\. November 2015 |--- |
 | [1.5.0](#1.5.0) |5 Oktober 2015 |--- |
-| [1.4.1](#1.4.1) |25. August 2015 |--- |
-| [1.4.0](#1.4.0) |13. August 2015 |--- |
-| [1.3.0](#1.3.0) |5. August 2015 |--- |
-| [1.2.0](#1.2.0) |6. Juli 2015 |--- |
-| [1.1.0](#1.1.0) |30. April 2015 |--- |
-| [1.0.0](#1.0.0) |8. April 2015 |--- |
+| [1.4.1](#1.4.1) |25\. August 2015 |--- |
+| [1.4.0](#1.4.0) |13\. August 2015 |--- |
+| [1.3.0](#1.3.0) |5\. August 2015 |--- |
+| [1.2.0](#1.2.0) |6\. Juli 2015 |--- |
+| [1.1.0](#1.1.0) |30\. April 2015 |--- |
+| [1.0.0](#1.0.0) |8\. April 2015 |--- |
 
 
 ## <a name="faq"></a>Häufig gestellte Fragen

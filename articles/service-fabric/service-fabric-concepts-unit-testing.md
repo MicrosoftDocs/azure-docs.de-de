@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
 ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595502"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Ausführen von Unittests für zustandsbehaftete Dienste in Service Fabric

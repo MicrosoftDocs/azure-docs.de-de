@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65522851"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Verwenden von Autofailover-Gruppen für ein transparentes und koordiniertes Failover mehrerer Datenbanken
 
@@ -42,7 +42,7 @@ Wenn Sie echte Geschäftskontinuität erreichen möchten, ist das Bereitstellen 
 
 - **Failovergruppe**
 
-  Eine Failovergruppe ist eine Gruppe von Datenbanken, die von einem einzelnen SQL-Datenbank-Server oder innerhalb einer einzelnen verwalteten Instanz verwaltet werden. Diese Datenbanken sind eine Einheit, für die ein Failover in eine andere Region durchgeführt werden kann, falls alle oder einige primäre Datenbanken aufgrund eines Ausfalls in der primären Region nicht mehr verfügbar sind. Wenn eine Failovergruppe für verwaltete Instanzen erstellt wird, enthält sie alle Benutzerdatenbanken in der Instanz, und darum kann nur eine Failovergruppe auf einer Instanz konfiguriert werden.
+  Eine Failovergruppe ist eine Gruppe von Datenbanken, die von einem einzelnen SQL-Datenbank-Server oder innerhalb einer einzelnen verwalteten Instanz verwaltet werden. Diese Datenbanken sind eine Einheit, für die ein Failover in eine andere Region durchgeführt werden kann, falls alle oder einige primäre Datenbanken aufgrund eines Ausfalls in der primären Region nicht mehr verfügbar sind. Wenn eine Failovergruppe für verwaltete Instanzen erstellt wird, enthält sie alle Benutzerdatenbanken in der Instanz. Deshalb kann nur eine Failovergruppe auf einer Instanz konfiguriert werden.
 
 - **SQL-Datenbank-Server**
 

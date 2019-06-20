@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 7832691812d8f10342dc7df20a7cfab7265f2d9d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60775711"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governance der Azure DevTest Labs-Infrastruktur – Verwalten der Kosten und des Besitzes
 Kosten und Besitz sind zentrale Überlegungen beim Aufbau Ihrer Entwicklungs- und Testumgebungen. In diesem Abschnitt finden Sie Informationen, die Ihnen beim Optimieren der Kosten und beim Festlegen des Besitzes in Ihrer gesamten Umgebung helfen.

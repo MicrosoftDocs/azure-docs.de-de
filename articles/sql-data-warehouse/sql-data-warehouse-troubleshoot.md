@@ -11,10 +11,10 @@ ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154267"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Problembehandlung bei Azure SQL Data Warehouse

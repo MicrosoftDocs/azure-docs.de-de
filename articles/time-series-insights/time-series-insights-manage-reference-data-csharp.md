@@ -4,20 +4,20 @@ description: Dieser Artikel beschreibt, wie Sie Verweisdaten für eine Azure Tim
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0a482ae44c796e1519ffad0a604510166b1ac63c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510049"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165606"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Verwalten von GA-Referenzdaten für eine Azure Time Series Insights-Umgebung mithilfe von C#
 
@@ -36,7 +36,7 @@ Führen Sie vor dem Kompilieren und Ausführen des Beispielcodes die folgenden S
 1. Ersetzen Sie am Anfang des Beispielcodes die durch **#DUMMY#** markierten Beispielkonstanten.
 
 > [!NOTE]
-> Den GA-Beispielcode finden Sie unter [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> Den GA-Beispielcode finden Sie unter [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Projektabhängigkeiten
 

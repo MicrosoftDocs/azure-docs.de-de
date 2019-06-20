@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad8ddf7e9e324bbcc48f15c95870a24fe7476828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209730"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237766"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Übersicht zur Azure Active Directory-Authentifizierung über SMB für Azure Files (Vorschau)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,7 +26,7 @@ Es ist hilfreich, einige wichtige Begriffe im Zusammenhang mit Azure AD-Authenti
     Azure Active Directory (Azure AD) ist der mehrinstanzenfähige cloudbasierte Verzeichnis- und Identitätsverwaltungsdienst von Microsoft. Azure AD kombiniert grundlegende Verwaltungsdienste, Zugriffsverwaltung für Anwendungen und Identitätsgovernance in einer einzigen Lösung. Weitere Informationen finden Sie unter [Was ist Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md).
 
 -   **Azure AD Domain Services**  
-    Azure AD Domain Services stellen verwaltete Domänendienste bereit, z.B. Domänenbeitritt, Gruppenrichtlinie, LDAP und Kerberos/NTLM-Authentifizierung. Diese Dienste sind vollständig kompatibel mit Windows Server Active Directory. Weitere Informationen finden Sie unter [Azure Active Directory-Domänendienste (AD)](../../active-directory-domain-services/active-directory-ds-overview.md).
+    Azure AD Domain Services stellen verwaltete Domänendienste bereit, z.B. Domänenbeitritt, Gruppenrichtlinie, LDAP und Kerberos/NTLM-Authentifizierung. Diese Dienste sind vollständig kompatibel mit Windows Server Active Directory. Weitere Informationen finden Sie unter [Azure Active Directory-Domänendienste (AD)](../../active-directory-domain-services/overview.md).
 
 -   **Rollenbasierte Zugriffssteuerung in Azure (Role-Based Access Control, RBAC)**  
     Die rollenbasierte Access Control in Azure (RBAC) ermöglicht eine präzise Zugriffsverwaltung für Azure. Mit RBAC können Sie den Zugriff auf Ressourcen verwalten, indem Sie Benutzern die Mindestberechtigungen zum Ausführen ihrer Aufgaben erteilen. Weitere Informationen zu Rollen finden Sie unter [Was ist die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC)?](../../role-based-access-control/overview.md).
@@ -60,7 +60,7 @@ Wenn eine Identität, die mit einer auf einem virtuellen Computer ausgeführten 
 ### <a name="enable-azure-ad-authentication-over-smb"></a>Aktivieren der Azure AD-Authentifizierung per SMB
 Sie können die Azure AD-Authentifizierung über SMB für Azure Files auf Ihren neuen und vorhandenen Speicherkonten, die nach dem 24. September 2018 erstellt wurden, aktivieren. 
 
-Stellen Sie vor dem Aktivieren der Azure AD-Authentifizierung über SMB sicher, dass Azure AD Domain Services für den primären Azure AD-Mandanten bereitgestellt wurde, mit dem Ihr Speicherkonto verknüpft ist. Wenn Sie Azure AD Domain Services noch nicht eingerichtet haben, befolgen Sie die schrittweise Anleitung in [Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+Stellen Sie vor dem Aktivieren der Azure AD-Authentifizierung über SMB sicher, dass Azure AD Domain Services für den primären Azure AD-Mandanten bereitgestellt wurde, mit dem Ihr Speicherkonto verknüpft ist. Wenn Sie Azure AD Domain Services noch nicht eingerichtet haben, befolgen Sie die schrittweise Anleitung in [Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals](../../active-directory-domain-services/create-instance.md).
 
 Die Bereitstellung von Azure AD Domain Services dauert normalerweise 10 bis 15 Minuten. Sobald Azure AD Domain Services bereitgestellt ist, können Sie die Azure AD-Authentifizierung für Azure Files über SMB aktivieren. Weitere Informationen finden Sie unter [Aktivieren der Azure Active Directory-Authentifizierung über SMB für Azure Files (Vorschau)](storage-files-active-directory-enable.md). 
 

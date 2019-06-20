@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: d5a287a8da884290e94e9ac1c864abe28e47d53d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508140"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475650"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Vorschau: Automatisches Skalieren eines Clusters zur Erfüllung von Anwendungsanforderungen in Azure Kubernetes Service (AKS)
 
@@ -21,17 +21,18 @@ Um die Anwendungsanforderungen in Azure Kubernetes Service (AKS) zu erfüllen, m
 In diesem Artikel wird gezeigt, wie Sie die Autoskalierung für Cluster in einem AKS-Cluster aktivieren und verwalten. Der Autoskalierung für Cluster sollte nur in der Vorschauversion auf AKS-Clustern mit einem einzelnen Knotenpool getestet werden.
 
 > [!IMPORTANT]
-> AKS-Previewfunktionen stehen gemäß dem Self-Service- und Aktivierungsprinzip zur Verfügung. Vorschauversionen werden zum Sammeln von Feedback und Fehlern mithilfe unserer Community bereitgestellt. Allerdings werden sie vom technischen Support von Azure nicht unterstützt. Wenn Sie einen Cluster erstellen oder diese Features zu einem vorhandenen Cluster hinzufügen, wird der entsprechende Cluster erst dann unterstützt, wenn das Feature sich nicht mehr in der Vorschau befindet und in die allgemeine Verfügbarkeit übergegangen ist.
+> AKS-Previewfunktionen stehen gemäß dem Self-Service- und Aktivierungsprinzip zur Verfügung. Sie werden zum Sammeln von Feedback und Fehlern mithilfe unserer Community bereitgestellt. In der Vorschauversion sind diese Features nicht für den Einsatz in der Produktion vorgesehen. Features in der öffentlichen Vorschau unterliegen dem Prinzip des „bestmöglichen Supports“. Unterstützung durch die Teams für den technischen AKS-Support steht nur während der Geschäftszeiten in der Zeitzone „Pacific Standard Time“ (PST) zur Verfügung. Weitere Informationen hierzu finden Sie in den folgenden Supportartikeln:
 >
-> Wenn Sie Probleme mit Vorschaufunktionen haben, [eröffnen Sie ein Ticket im GitHub-Repository von AKS ][aks-github], und geben Sie den Namen des Vorschaufeatures im Fehlertitel an.
+> * [Unterstützungsrichtlinien für Azure Kubernetes Service][aks-support-policies]
+> * [Häufig gestellte Fragen zum Azure-Support][aks-faq]
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Für den Artikel müssen Sie mindestens Version 2.0.55 der Azure-Befehlszeilenschnittstelle (Azure CLI) ausführen. Führen Sie `az --version` aus, um die Version zu finden. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie unter [Installieren von Azure CLI 2.0][azure-cli-install] Informationen dazu.
+Der Artikel setzt voraus, dass Sie mindestens Version 2.0.65 der Azure-Befehlszeilenschnittstelle (Azure CLI) ausführen. Führen Sie `az --version` aus, um die Version zu finden. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie unter [Installieren von Azure CLI 2.0][azure-cli-install] Informationen dazu.
 
 ### <a name="install-aks-preview-cli-extension"></a>Installieren der CLI-Erweiterung „aks-preview“
 
-AKS-Cluster mit Unterstützung der Autoskalierung für Cluster müssen VM-Skalierungsgruppen verwenden und Kubernetes-Version *1.12.4* oder höher ausführen. Die Unterstützung von Skalierungsgruppen befindet sich in der Vorschau. Um dieses Feature zu aktivieren und Cluster mit Verwendung von Skalierungsgruppen zu erstellen, installieren Sie zuerst die Azure CLI-Erweiterung *aks-preview* mit dem Befehl [az extension add][az-extension-add], wie im folgenden Beispiel gezeigt:
+AKS-Cluster mit Unterstützung der Autoskalierung für Cluster müssen VM-Skalierungsgruppen verwenden und Kubernetes-Version *1.12.7* oder höher ausführen. Die Unterstützung von Skalierungsgruppen befindet sich in der Vorschau. Um dieses Feature zu aktivieren und Cluster mit Verwendung von Skalierungsgruppen zu erstellen, installieren Sie zuerst die Azure CLI-Erweiterung *aks-preview* mit dem Befehl [az extension add][az-extension-add], wie im folgenden Beispiel gezeigt:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -62,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Einschränkungen
 
-Die folgenden Einschränkungen gelten für die Erstellung und Verwaltung von AKS-Clustern, die VM-Skalierungsgruppen verwenden:
+Die folgenden Einschränkungen gelten für die Erstellung und Verwaltung von AKS-Clustern, die die automatische Clusterskalierung verwenden:
 
 * Das Add-On für das HTTP-Anwendungsrouting kann nicht verwendet werden.
+* Zurzeit können nicht mehrere Knotenpools verwendet werden (derzeit als Vorschau in AKS).
 
 ## <a name="about-the-cluster-autoscaler"></a>Grundlegendes zur Autoskalierung für Cluster
 
@@ -181,7 +183,8 @@ In diesem Artikel wurde gezeigt, wie Sie die Anzahl von AKS-Knoten automatisch s
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[aks-github]: https://github.com/azure/aks/issues
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

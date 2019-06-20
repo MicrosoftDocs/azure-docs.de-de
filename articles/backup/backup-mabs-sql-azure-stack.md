@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
 ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60254480"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Sichern von SQL Server in Stack
 Verwenden Sie diesen Artikel, um Microsoft Azure Backup Server (MABS) zum Schutz von SQL Server-Datenbanken auf Azure Stack zu konfigurieren.
@@ -41,7 +41,7 @@ Die Verwaltung der Sicherung und Wiederherstellung von SQL-Datenbanken in und au
 
     ![Auswählen des Schutzgruppentyp – "Server"](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. Auf dem Bildschirm **Gruppenmitglieder auswählen** zeigt die Liste „Verfügbare Mitglieder“ die verschiedenen Datenquellen an. Klicken Sie auf **+**, um einen Ordner zu erweitern und die Unterordner anzuzeigen. Aktivieren Sie das Kontrollkästchen, um ein Element auszuwählen.
+4. Auf dem Bildschirm **Gruppenmitglieder auswählen** zeigt die Liste „Verfügbare Mitglieder“ die verschiedenen Datenquellen an. Klicken Sie auf **+** , um einen Ordner zu erweitern und die Unterordner anzuzeigen. Aktivieren Sie das Kontrollkästchen, um ein Element auszuwählen.
 
     ![Auswählen einer SQL-Datenbank](./media/backup-azure-backup-sql/pg-databases.png)
 

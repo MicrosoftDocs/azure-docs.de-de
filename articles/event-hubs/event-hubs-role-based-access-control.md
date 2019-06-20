@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540078"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978306"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Rollenbasierte Zugriffssteuerung in Active Directory (Vorschau)
 
@@ -27,8 +27,13 @@ Bei Azure Event Hubs ist die Verwaltung der Namespaces und aller zugehörigen Re
 Eine Anwendung, die die rollenbasierte Zugriffssteuerung von Azure AD verwendet, muss keine SAS-Regeln und Schlüssel oder andere Zugriffstoken für Event Hubs verarbeiten. Die Client-App interagiert mit Azure AD, um einen Authentifizierungskontext herzustellen, und erwirbt ein Zugriffstoken für Event Hubs. Bei Domänenbenutzerkonten, die eine interaktive Anmeldung erfordern, verarbeitet die Anwendung die Anmeldeinformationen niemals direkt.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs-Rollen und -Berechtigungen
+Azure stellt die folgenden integrierten Rollen für die rollenbasierte Zugriffssteuerung zum Autorisieren des Zugriffs auf einen Event Hubs-Namespace bereit:
 
-In der ersten öffentlichen Vorschauversion können Sie Azure AD-Konten und -Dienstprinzipale nur zu den Rollen „Besitzer“ und „Mitwirkender“ eines Event Hubs-Namespace hinzufügen. Damit erhält die Identität vollständige Kontrolle über alle Entitäten im Namespace. Verwaltungsvorgänge, bei denen die Namespacetopologie geändert wird, werden anfänglich nur über die Azure-Ressourcenverwaltung unterstützt, nicht über die native Event Hubs-REST-Verwaltungsschnittstelle. Das bedeutet auch, dass das .NET Framework-Clientobjekt [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nicht mit einem Azure AD-Konto verwendet werden kann.  
+Die Rolle [Event Hubs-Datenbesitzer (Preview)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) ermöglicht den Datenzugriff auf einen Event Hubs-Namespace und seine Entitäten (Warteschlangen, Themen, Abonnements und Filter).
+
+>[!IMPORTANT]
+> Früher haben wir das Hinzufügen einer verwalteten Identität zur Rolle **Besitzer** oder **Mitwirkender** unterstützt. Die Berechtigungen für den Datenzugriff für die Rolle **Besitzer** und **Mitwirkender** werden jedoch nicht mehr berücksichtigt. Wenn Sie die Rolle **Besitzer** oder **Mitwirkender** verwenden, wechseln Sie zur Verwendung der Rolle **Event Hubs-Datenbesitzer**.
+
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Verwenden von Event Hubs mit einem Azure AD-Domänenbenutzerkonto
 
@@ -44,7 +49,7 @@ Wenn Sie dennoch ein spezifisches Konto für dieses Szenario erstellen möchten,
 
 ### <a name="create-an-event-hubs-namespace"></a>Erstellen eines Event Hubs-Namespace
 
-Als Nächstes [erstellen Sie einen Event Hubs-Namespace](event-hubs-create.md) in einer der Azure-Regionen, die Vorschauunterstützung für die rollenbasierte Zugriffssteuerung für Event Hubs bieten: **USA, Osten**, **USA, Osten 2** oder **Europa, Westen**. 
+Als Nächstes [erstellen Sie einen Event Hubs-Namespace](event-hubs-create.md). 
 
 Wenn der Namespace erstellt wurde, navigieren Sie im Portal zur Seite **Zugriffssteuerung (IAM)** des Namespace, und klicken Sie auf **Rollenzuweisung hinzufügen**, um das Azure AD-Benutzerkonto der Rolle „Besitzer“ hinzuzufügen. Wenn Sie Ihr eigenes Benutzerkonto verwenden und den Namespace selbst erstellt haben, befinden Sie sich bereits in der Rolle „Besitzer“. Um der Rolle ein anderes Konto hinzuzufügen, suchen Sie im Bereich **Berechtigungen hinzufügen** im Feld **Auswählen** nach dem Namen der Webanwendung, und klicken Sie auf den entsprechenden Eintrag. Klicken Sie anschließend auf **Speichern**. Das Benutzerkonto verfügt jetzt über Zugriff auf den Event Hubs-Namespace und den zuvor erstellten Event Hub.
  

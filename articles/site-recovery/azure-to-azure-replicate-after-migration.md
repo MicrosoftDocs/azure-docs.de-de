@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 4b764c8e7c3d97ff521add05033265f705c4136f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66399523"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Einrichten der Notfallwiederherstellung für Azure-VMs nach der Migration in Azure 
 

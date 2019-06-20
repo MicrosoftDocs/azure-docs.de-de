@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.openlocfilehash: 0e85d2b2c7e9a3022e7fea2063ffa0aa915abb53
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939055"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Kopieren von Daten zwischen Azure Storage-Blobs und Azure Data Lake Storage Gen2 mit DistCp
@@ -25,7 +25,7 @@ DistCp bietet eine Vielzahl von Befehlszeilenparametern. Wir empfehlen Ihnen dri
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * **Ein Azure-Abonnement**. Siehe [Kostenlose Azure-Testversion](https://azure.microsoft.com/pricing/free-trial/).
-* **Ein vorhandenes Azure Storage-Konto ohne aktivierte Data Lake Storage Gen2-Funktionen (hierarchischer Namespace)**.
+* **Ein vorhandenes Azure Storage-Konto ohne aktivierte Data Lake Storage Gen2-Funktionen (hierarchischer Namespace)** .
 * **Ein Azure Storage-Konto mit aktiviertem Feature Azure Data Lake Storage Gen2**. Anweisungen zum Erstellen eines solchen Speicherkontos finden Sie unter [Erstellen eines Azure Data Lake Storage Gen2-Speicherkontos](data-lake-storage-quickstart-create-account.md).
 * **Ein Dateisystem**, das im Speicherkonto mit aktiviertem hierarchischen Namespace erstellt wird.
 * **Azure HDInsight-Cluster** mit Zugriff auf ein Speicherkonto mit aktiviertem Data Lake Storage Gen2. Siehe [Verwenden von Azure Data Lake Storage Gen2 mit Azure HDInsight-Clustern](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Stellen Sie sicher, dass Remotedesktop für den Cluster aktiviert ist.

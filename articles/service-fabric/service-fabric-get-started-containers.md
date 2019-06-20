@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 2cf5bf26dbe18d7b4c6e3b1a93aa38d7748dc5a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119108"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428112"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Erstellen Ihrer ersten Service Fabric-Containeranwendung unter Windows
 
@@ -38,7 +38,7 @@ Zum Ausführen einer vorhandenen Anwendung eines Windows-Containers in einem Ser
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Ein Entwicklungscomputer, auf dem Folgendes ausgeführt wird:
-  * Visual Studio 2015 oder Visual Studio 2017
+  * Visual Studio 2015 oder Visual Studio 2019.
   * [Service Fabric-SDK und -Tools](service-fabric-get-started.md)
   *  Docker für Windows [Laden Sie „Docker CE for Windows (stable)“ herunter](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Klicken Sie nach dem Installieren und Starten von Docker mit der rechten Maustaste auf das Taskleistensymbol, und wählen Sie **Switch to Windows containers** (Zu Windows-Containern wechseln). Dieser Schritt ist für die Ausführung Windows-basierter Docker-Images erforderlich.
 
@@ -175,7 +175,7 @@ docker rm my-web-site
 
 Wenn Sie überprüft haben, ob der Container auf dem Entwicklungscomputer ausgeführt wird, übertragen Sie das Image mithilfe von Push an Ihre Registrierung in Azure Container Registry.
 
-Führen Sie ``docker login`` aus, um sich mit Ihren [Registrierungsanmeldeinformationen](../container-registry/container-registry-authentication.md) an der Containerregistrierung anzumelden.
+Führen Sie ``docker login`` aus, um sich mit Ihren [Registrierungsanmeldeinformationen](../container-registry/container-registry-authentication.md) bei der Containerregistrierung anzumelden.
 
 Im folgenden Beispiel werden die ID und das Kennwort eines Azure Active Directory-[Dienstprinzipals](../active-directory/develop/app-objects-and-service-principals.md) übergeben. Angenommen, Sie haben Ihrer Registrierung für ein Automatisierungsszenario einen Dienstprinzipal zugewiesen. Alternativ können Sie sich mit Ihrem für die Registrierung verwendeten Benutzernamen und Kennwort anmelden.
 
@@ -308,8 +308,6 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
 Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
-
-# Add the certificate to all the VMs in the cluster.
 Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
 Verschlüsseln Sie das Kennwort mithilfe des Cmdlets [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps).
@@ -421,7 +419,11 @@ Die [Ressourcenkontrolle](service-fabric-resource-governance.md) beschränkt die
 ```
 ## <a name="configure-docker-healthcheck"></a>Konfigurieren von „docker HEALTHCHECK“ 
 
-Beim Starten von Version 6.1 integriert Service Fabric automatisch [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck)-Ereignisse in seinen Bericht zur Systemintegrität. Wenn für Ihren Container **HEALTHCHECK** aktiviert ist, bedeutet dies Folgendes: Von Service Fabric wird die Dienstintegrität immer dann gemeldet, wenn sich der Integritätsstatus des Containers gemäß Meldung durch Docker ändert. Die Integritätsmeldung **OK** wird in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) angezeigt, wenn für *health_status* die Meldung *healthy* erfolgt, und **WARNING**, wenn für *health_status* die Meldung *unhealthy* erfolgt. Die Anweisung **HEALTHCHECK**, die auf die tatsächliche Prüfung zur Überwachung der Containerintegrität verweist, muss in der Dockerfile-Datei enthalten sein, die beim Generieren des Containerimages verwendet wurde. 
+Beim Starten von Version 6.1 integriert Service Fabric automatisch [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck)-Ereignisse in seinen Bericht zur Systemintegrität. Wenn für Ihren Container **HEALTHCHECK** aktiviert ist, bedeutet dies Folgendes: Von Service Fabric wird die Dienstintegrität immer dann gemeldet, wenn sich der Integritätsstatus des Containers gemäß Meldung durch Docker ändert. Die Integritätsmeldung **OK** wird in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) angezeigt, wenn für *health_status* die Meldung *healthy* erfolgt, und **WARNING**, wenn für *health_status* die Meldung *unhealthy* erfolgt. 
+
+Ab dem neuesten Aktualisierungsrelease v6.4 können Sie festlegen, dass Docker-HEALTHCHECK-Auswertungen als Fehler gemeldet werden. Wenn diese Option aktiviert ist, wird die Integritätsmeldung **OK** angezeigt, wenn *health_status* als *healthy* gemeldet wird, bzw. **ERROR**, wenn *health_status* als *unhealthy* gemeldet wird.
+
+Die Anweisung **HEALTHCHECK**, die auf die tatsächliche Prüfung zur Überwachung der Containerintegrität verweist, muss in der Dockerfile-Datei enthalten sein, die beim Generieren des Containerimages verwendet wurde.
 
 ![HealthCheckHealthy][3]
 
@@ -436,12 +438,18 @@ Sie können das **HEALTHCHECK**-Verhalten für jeden Container konfigurieren, in
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+              RestartContainerOnUnhealthyDockerHealthStatus="false" 
+              TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-*IncludeDockerHealthStatusInSystemHealthReport* ist standardmäßig auf **true** und *RestartContainerOnUnhealthyDockerHealthStatus* auf **false** festgelegt. Wenn *RestartContainerOnUnhealthyDockerHealthStatus* auf **true** festgelegt ist, wird ein Container, für den wiederholt ein nicht fehlerfreier Zustand (unhealthy) gemeldet wird, neu gestartet (ggf. auf anderen Knoten).
+*IncludeDockerHealthStatusInSystemHealthReport* ist standardmäßig auf **true**, *RestartContainerOnUnhealthyDockerHealthStatus* auf **false** und *TreatContainerUnhealthyStatusAsError* auf **false** festgelegt. 
+
+Wenn *RestartContainerOnUnhealthyDockerHealthStatus* auf **true** festgelegt ist, wird ein Container, für den wiederholt ein nicht fehlerfreier Zustand (unhealthy) gemeldet wird, neu gestartet (ggf. auf anderen Knoten).
+
+Wenn *TreatContainerUnhealthyStatusAsError* auf **true** festgelegt ist, werden Integritätsmeldungen als **ERROR** angezeigt, wenn der *health_status* des Containers *unhealthy* lautet.
 
 Falls Sie die **HEALTHCHECK**-Integration für den gesamten Service Fabric-Cluster deaktivieren möchten, müssen Sie [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) auf **false** festlegen.
 
@@ -471,15 +479,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Kompatibilität zwischen Containerbetriebssystem und Hostbetriebssystem bei Windows Server
 
-Windows Server-Container sind nicht mit allen Versionen eines Hostbetriebssystems kompatibel. Beispiel: 
+Windows Server-Container sind nicht mit allen Versionen eines Hostbetriebssystems kompatibel. Beispiel:
  
 - Windows Server-Container, die mit Windows Server Version 1709 erstellt wurden, funktionieren nicht auf Hosts unter Windows Server 2016. 
-- Windows Server-Container, die mit Windows Server 2016 erstellt wurden, funktionieren im hyperv-Isolationsmodus nur auf Hosts unter Windows Server Version 1709. 
+- Windows Server-Container, die mit Windows Server 2016 erstellt wurden, funktionieren im Hyper-V-Isolationsmodus nur auf Hosts unter Windows Server Version 1709. 
 - Mit Windows Server-Containern, die mit Windows Server 2016 erstellt wurden, ist es möglicherweise erforderlich, sicherzustellen, dass die Revision des Containerbetriebssystems und des Hostbetriebssystems sind identisch, sofern die Ausführung im Isolationsmodus auf einem Host unter Windows Server 2016 erfolgt.
  
 Weitere Informationen finden Sie unter [Versionskompatibilität von Windows-Containern](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Beachten Sie die Kompatibilität von Hostbetriebssystem und Containerbetriebssystem beim Erstellen und Bereitstellen von Containern in Ihrem Service Fabric-Cluster. Beispiel: 
+Beachten Sie die Kompatibilität von Hostbetriebssystem und Containerbetriebssystem beim Erstellen und Bereitstellen von Containern in Ihrem Service Fabric-Cluster. Beispiel:
 
 - Stellen Sie sicher, dass Sie Container mit einem Betriebssystem bereitstellen, das kompatibel mit dem Betriebssystem auf den Clusterknoten ist.
 - Stellen Sie sicher, dass der für Ihre Container-App angegebene Isolationsmodus mit dem für das Containerbetriebssystem auf dem Knoten, auf dem sie bereitgestellt wird, übereinstimmt.
@@ -726,15 +734,6 @@ Ab Version 6.2 der Service Fabric-Runtime können Sie den Docker-Daemon mit benu
 ## <a name="next-steps"></a>Nächste Schritte
 * Weitere Informationen zum Ausführen von [Containern in Service Fabric](service-fabric-containers-overview.md)
 * Lesen Sie sich das Tutorial [Bereitstellen einer .NET-App in einem Container in Azure Service Fabric](service-fabric-host-app-in-a-container.md) durch.
-* Weitere Informationen zum [Anwendungslebenszyklus](service-fabric-application-lifecycle.md) von Service Fabric
-* [Codebeispiele zu Service Fabric-Containern](https://github.com/Azure-Samples/service-fabric-containers) in GitHub
-
-[1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
-[2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
-[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
-[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
-[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
-c-host-app-in-a-container.md) tutorial.
 * Weitere Informationen zum [Anwendungslebenszyklus](service-fabric-application-lifecycle.md) von Service Fabric
 * [Codebeispiele zu Service Fabric-Containern](https://github.com/Azure-Samples/service-fabric-containers) in GitHub
 

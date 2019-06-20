@@ -11,16 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/17/2018
-ms.date: 05/10/2019
-ms.author: v-junlch
+ms.date: 09/17/2018
+ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: a00bc7a05af9e329494a11f9bee444827cbebf38
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199087"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121824"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Einrichten Ihres Webservers oder Projekts
 
@@ -50,12 +49,12 @@ Die Anweisungen in diesem Leitfaden basieren auf Node.js und Visual Studio 2017.
 > ### <a name="option-2-visual-studio"></a>Option 2: Visual Studio
 > Wenn Sie Visual Studio verwenden und ein neues Projekt erstellen, führen Sie die folgenden Schritte aus, um eine neue Visual Studio-Projektmappe zu erstellen:
 > 1.    In Visual Studio:  **„Datei“ > „Neu“ > „Projekt“**
-> 2.    Wählen Sie unter **Visual C#\Web** die Option **ASP.NET-Webanwendung (.NET Framework)**.
+> 2.    Wählen Sie unter **Visual C#\Web** die Option **ASP.NET-Webanwendung (.NET Framework)** .
 > 3.    Geben Sie einen Namen für Ihre Anwendung ein, und wählen Sie **OK**.
 > 4.    Wählen Sie unter **Neue ASP.NET-Webanwendung** die Option **Leer**.
 
 ## <a name="create-your-single-page-applications-ui"></a>Erstellen der Benutzeroberfläche für die Einzelseitenanwendung
-1. Erstellen Sie die Datei `index.html` für Ihre JavaScript-SPA. Wenn Sie Visual Studio verwenden, wählen Sie das Projekt aus (Stammordner des Projekts), klicken Sie mit der rechten Maustaste, und wählen Sie Folgendes aus: **„Hinzufügen“ > „Neues Element“ > „HTML-Seite“**, und nennen Sie es „index.html“.
+1. Erstellen Sie die Datei `index.html` für Ihre JavaScript-SPA. Wenn Sie Visual Studio verwenden, wählen Sie das Projekt aus (Stammordner des Projekts), klicken Sie mit der rechten Maustaste, und wählen Sie Folgendes aus: **„Hinzufügen“ > „Neues Element“ > „HTML-Seite“** , und nennen Sie es „index.html“.
 
 2. Fügen Sie Ihrer Seite den folgenden Code hinzu:
    ```html
@@ -64,7 +63,7 @@ Die Anweisungen in diesem Leitfaden basieren auf Node.js und Visual Studio 2017.
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.parter.microsoftonline-p.cn/lib/1.0.0-preview.4/js/msal.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
    </head>
    <body>
        <h2>Welcome to MSAL.js Quickstart</h2><br/>
@@ -80,4 +79,3 @@ Die Anweisungen in diesem Leitfaden basieren auf Node.js und Visual Studio 2017.
 
    > [!TIP]
    > Sie können die Version von „MSAL.js“ im obigen Skript durch die letzte veröffentlichte Version unter [MSAL.js-Releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases) ersetzen.
-

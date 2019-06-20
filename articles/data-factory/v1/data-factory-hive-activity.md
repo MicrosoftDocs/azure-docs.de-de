@@ -76,7 +76,7 @@ Die HDInsight Hive-Aktivität in einer Data Factory-[Pipeline](data-factory-crea
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 | --- | --- | --- |
 | name |Der Name der Aktivität |Ja |
-| Beschreibung |Ein Text, der beschreibt, wofür die Aktivität verwendet wird. |Nein  |
+| description |Ein Text, der beschreibt, wofür die Aktivität verwendet wird. |Nein  |
 | type |HDInsightHive |Ja |
 | inputs |Von der Hive-Aktivität genutzte Eingaben |Nein  |
 | outputs |Von der Hive-Aktivität erzeugte Ausgaben |Ja |

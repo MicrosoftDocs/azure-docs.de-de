@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa253f95c01e35505e154d9709ca88033735fa52
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090524"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390466"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Schnellstart: Durchführen einer Neuigkeitensuche mit PHP und der REST-API der Bing-News-Suche
 
@@ -34,7 +34,7 @@ Siehe auch [Cognitive Services-Preise – Bing-Suche-API](https://azure.microsof
 
 ## <a name="run-the-application"></a>Ausführen der Anwendung
 
-Die [Bing-News-Suche-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) gibt Newsergebnisse der Bing-Suche-Engine zurück.
+Die [Bing-News-Suche-API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) gibt Newsergebnisse der Bing-Suche-Engine zurück.
 
 1. Achten Sie darauf, dass die Unterstützung des sicheren Hypertext Transfer-Protokolls (HTTP) in Ihrer `php.ini`-Datei aktiviert ist wie im Codekommentar beschrieben.
 2. Erstellen Sie in Ihrer bevorzugten IDE ein neues PHP-Projekt.

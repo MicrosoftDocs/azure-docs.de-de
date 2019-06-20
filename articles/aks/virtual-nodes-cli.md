@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7631a2d6aef2efedf30c0b9015913c89949d4c29
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66742785"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Erstellen und Konfigurieren eines AKS-Clusters zur Verwendung von virtuellen Knoten mithilfe der Azure CLI
 
@@ -69,6 +69,7 @@ Die Funktionalität der virtuellen Knoten ist stark abhängig von den ACI-Featur
 * [Hostaliase](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
 * [Argumente](../container-instances/container-instances-exec.md#restrictions) für „exec“ in ACI.
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) stellen keine Pods auf dem virtuellen Knoten bereit.
+* [Windows Server-Knoten (derzeit in der Vorschau in AKS)](windows-container-cli.md) werden nicht zusammen mit virtuellen Knoten unterstützt. Sie können virtuelle Knoten verwenden, um Windows Server-Container zu planen, ohne Windows Server-Knoten in einem AKS-Cluster haben zu müssen.
 
 ## <a name="launch-azure-cloud-shell"></a>Starten von Azure Cloud Shell
 
@@ -280,7 +281,7 @@ Installieren Sie `curl` mit `apt-get` im Pod:
 apt-get update && apt-get install -y curl
 ```
 
-Greifen Sie mithilfe von `curl` auf die Adresse Ihres Pods zu, z.B. *http://10.241.0.4*. Geben Sie Ihre eigene interne IP-Adresse an, die im vorherigen `kubectl get pods`-Befehl gezeigt wurde:
+Greifen Sie mithilfe von `curl` auf die Adresse Ihres Pods zu, z.B. *http://10.241.0.4* . Geben Sie Ihre eigene interne IP-Adresse an, die im vorherigen `kubectl get pods`-Befehl gezeigt wurde:
 
 ```console
 curl -L http://10.241.0.4

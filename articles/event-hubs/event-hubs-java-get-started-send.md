@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 0487cac6a0cf7d37befdf0d7cfab33ad6a62cf7f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679637"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60822908"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Senden von Ereignissen an oder Empfangen von Ereignissen von Event Hubs mithilfe von Java
 
@@ -206,7 +206,7 @@ Die Java-Clientbibliothek für Event Hubs steht für die Verwendung in Maven-Pro
 </dependency>
 ```
 
-Für unterschiedliche Arten von Buildumgebungen können Sie explizit die zuletzt veröffentlichten JAR-Dateien aus dem [zentralen Maven-Repository][https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22] abrufen.  
+Für unterschiedliche Arten von Buildumgebungen können Sie explizit die zuletzt veröffentlichten JAR-Dateien aus dem [zentralen Maven-Repository][https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 ] abrufen.  
 
 1. Erstellen Sie für das folgende Beispiel zuerst ein neues Maven-Projekt für eine Konsolen-/Shellanwendung in Ihrer bevorzugten Java-Entwicklungsumgebung. Die Klasse hat die Bezeichnung `ErrorNotificationHandler`.     
    

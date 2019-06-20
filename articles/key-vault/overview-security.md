@@ -11,10 +11,10 @@ ms.date: 04/18/2019
 ms.author: barclayn
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ms.openlocfilehash: 5b32e4897e718e0e411caf9ba76b036f1352bde0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715273"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault – Sicherheit

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
 ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60924493"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Verwenden der Azure Digital Twins-Verwaltungs-APIs
 

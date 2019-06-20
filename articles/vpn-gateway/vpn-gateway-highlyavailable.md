@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
 ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353276"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60760278"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Standortübergreifende Verbindungen und VNet-zu-VNet-Verbindungen mit hoher Verfügbarkeit
 In diesem Artikel erhalten Sie einen Überblick über Optionen zur Konfiguration der hohen Verfügbarkeit für standortübergreifende Verbindungen und VNet-zu-VNet-Verbindungen mit Azure-VPN-Gateways.

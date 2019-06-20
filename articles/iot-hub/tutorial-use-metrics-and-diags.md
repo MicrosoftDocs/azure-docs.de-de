@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162283"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Einrichten und Verwenden von Metriken und Diagnoseprotokollen mit einem IoT-Hub
 
@@ -163,7 +163,7 @@ Richten Sie als Nächstes einige Metriken ein, um zu überwachen, wann Nachricht
 
 1. Klicken Sie im Einstellungsbereich für den IoT-Hub im Abschnitt **Überwachung** auf die Option **Metriken**.
 
-2. Klicken Sie am oberen Bildschirmrand auf **Letzte 24 Stunden (Automatisch)**. Wählen Sie im daraufhin angezeigten Dropdownfeld unter **Zeitbereich** die Option **Letzte 4 Stunden** aus, und legen Sie die **Zeitgranularität** auf **1 Minute** (Ortszeit) fest. Klicken Sie auf **Anwenden**, um die Einstellungen zu speichern. 
+2. Klicken Sie am oberen Bildschirmrand auf **Letzte 24 Stunden (Automatisch)** . Wählen Sie im daraufhin angezeigten Dropdownfeld unter **Zeitbereich** die Option **Letzte 4 Stunden** aus, und legen Sie die **Zeitgranularität** auf **1 Minute** (Ortszeit) fest. Klicken Sie auf **Anwenden**, um die Einstellungen zu speichern. 
 
    ![Screenshot: Zeiteinstellungen für Metriken](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 
@@ -196,25 +196,25 @@ IoT Hub wurde noch nicht zu den [Metriken in Azure Monitor](/azure/azure-monitor
 
     Füllen Sie die Felder aus: 
 
-    **Abonnement:** Behalten Sie in diesem Feld Ihr aktuelles Abonnement bei.
+    **Abonnement**: Behalten Sie in diesem Feld Ihr aktuelles Abonnement bei.
 
-    **Quelle:** Legen Sie dieses Feld auf *Metriken* fest.
+    **Quelle**: Legen Sie dieses Feld auf *Metriken* fest.
 
-    **Ressourcengruppe:** Legen Sie dieses Feld auf Ihre aktuelle Ressourcengruppe (*ContosoResources*) fest. 
+    **Ressourcengruppe**: Legen Sie dieses Feld auf Ihre aktuelle Ressourcengruppe (*ContosoResources*) fest. 
 
     **Ressourcentyp:** Legen Sie dieses Feld auf „IoT Hub“ fest. 
 
     **Ressource:** Wählen Sie Ihren IoT-Hub (*ContosoTestHub*) aus.
 
-3. Klicken Sie auf **Metrikwarnung hinzufügen (klassisch)**, um eine neue Warnung einzurichten.
+3. Klicken Sie auf **Metrikwarnung hinzufügen (klassisch)** , um eine neue Warnung einzurichten.
 
     Füllen Sie die Felder aus:
 
-    **Name:** Geben Sie einen Namen für Ihre Warnungsregel ein (beispielsweise *telemetry-messages*).
+    **Name**: Geben Sie einen Namen für Ihre Warnungsregel ein (beispielsweise *telemetry-messages*).
 
     **Beschreibung:** Geben Sie eine Beschreibung für Ihre Warnung ein. Beispiel: *alert when there are 1000 telemetry messages sent* (Warnen, wenn mehr als 1.000 Telemetrienachrichten gesendet wurden) 
 
-    **Quelle:** Legen Sie diese Option auf *Metriken* fest.
+    **Quelle**: Legen Sie diese Option auf *Metriken* fest.
 
     **Abonnement**, **Ressourcengruppe** und **Ressource** müssen auf die Werte festgelegt werden, die Sie auf dem Bildschirm **Klassische Warnungen anzeigen** ausgewählt haben. 
 
@@ -226,7 +226,7 @@ IoT Hub wurde noch nicht zu den [Metriken in Azure Monitor](/azure/azure-monitor
 
    **Bedingung:** Legen Sie diese Option auf *Ist größer als* fest.
 
-   **Schwellenwert:** Legen Sie diesen Wert auf „1.000“ fest.
+   **Schwellenwert**: Legen Sie diesen Wert auf „1.000“ fest.
 
    **Zeitraum:** Legen Sie diesen Wert auf *In den letzten 5 Minuten* fest.
 
@@ -238,13 +238,13 @@ IoT Hub wurde noch nicht zu den [Metriken in Azure Monitor](/azure/azure-monitor
 
 5. Richten Sie nun eine weitere Warnung für *Total number of messages used* (Gesamtanzahl verwendeter Nachrichten) ein. Diese Metrik ist hilfreich, um eine Warnung zu senden, wenn sich die Anzahl verwendeter Nachrichten dem Kontingent für den IoT-Hub nähert, damit Sie wissen, dass der Hub bald keine Nachrichten mehr akzeptiert.
 
-   Klicken Sie auf dem Bildschirm **Klassische Warnungen anzeigen** auf **Metrikwarnung hinzufügen (klassisch)**, und füllen Sie im Bereich **Regel hinzufügen** die folgenden Felder aus:
+   Klicken Sie auf dem Bildschirm **Klassische Warnungen anzeigen** auf **Metrikwarnung hinzufügen (klassisch)** , und füllen Sie im Bereich **Regel hinzufügen** die folgenden Felder aus:
 
-   **Name:** Geben Sie einen Namen für Ihre Warnungsregel ein (beispielsweise *number-of-messages-used*).
+   **Name**: Geben Sie einen Namen für Ihre Warnungsregel ein (beispielsweise *number-of-messages-used*).
 
    **Beschreibung:** Geben Sie eine Beschreibung für Ihre Warnung ein. Beispiel: *alert when getting close to quota* (Warnen, wenn das Kontingent fast erreicht ist)
 
-   **Quelle:** Legen Sie dieses Feld auf *Metriken* fest.
+   **Quelle**: Legen Sie dieses Feld auf *Metriken* fest.
 
     **Abonnement**, **Ressourcengruppe** und **Ressource** müssen auf die Werte festgelegt werden, die Sie auf dem Bildschirm **Klassische Warnungen anzeigen** ausgewählt haben. 
 
@@ -254,7 +254,7 @@ IoT Hub wurde noch nicht zu den [Metriken in Azure Monitor](/azure/azure-monitor
 
    **Bedingung:** Legen Sie diese Option auf *Ist größer als* fest.
 
-   **Schwellenwert:** Legen Sie diesen Wert auf „1.000“ fest.
+   **Schwellenwert**: Legen Sie diesen Wert auf „1.000“ fest.
 
    **Zeitraum:** Legen Sie dieses Feld auf *In den letzten 5 Minuten* fest. 
 
@@ -274,7 +274,7 @@ IoT Hub wurde noch nicht zu den [Metriken in Azure Monitor](/azure/azure-monitor
 
 Weiter oben im Abschnitt zum Skriptsetup haben Sie ein Gerät für die Simulation mithilfe eines IoT-Geräts eingerichtet. In diesem Abschnitt laden Sie eine .NET-Konsolen-App herunter, die ein Gerät simuliert, das Gerät-zu-Cloud-Nachrichten an eine IoT Hub-Instanz sendet.  
 
-Laden Sie die Lösung für die [IoT-Gerätesimulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) herunter. Dieser Link lädt ein Repository mit zahlreichen Anwendungen herunter. Die von Ihnen benötigte Lösung befindet sich unter „iot-hub/Tutorials/Routing/SimulatedDevice/“.
+Laden Sie die Lösung für die [IoT-Gerätesimulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) herunter. Dieser Link lädt ein Repository mit zahlreichen Anwendungen herunter. Die von Ihnen benötigte Lösung befindet sich unter „iot-hub/Tutorials/Routing/“.
 
 Doppelklicken Sie auf die Lösungsdatei (SimulatedDevice.sln), um den Code in Visual Studio zu öffnen. Öffnen Sie anschließend „Program.cs“. Ersetzen Sie `{iot hub hostname}` durch den IoT Hub-Hostnamen. Das Format des IoT Hub-Hostnamens ist **{iot-hub-name}.azure-devices.net**. Für dieses Tutorial lautet der Hubhostname **ContosoTestHub.azure-devices.net**. Ersetzen Sie jetzt `{device key}` durch den Geräteschlüssel, den Sie zuvor beim Einrichten des simulierten Geräts gespeichert haben. 
 
@@ -298,7 +298,7 @@ Führen Sie die Konsolenanwendung aus. Warten Sie etwa zehn bis 15 Minuten. Die 
 
 ### <a name="see-the-metrics-in-the-portal"></a>Anzeigen der Metriken im Portal
 
-Öffnen Sie Ihre Metriken über das Dashboard. Legen Sie die Zeitwerte auf *Letzte 30 Minuten* mit einer Zeitgranularität von *1 Minute* fest. Daraufhin werden die Anzahl gesendeter Telemetrienachrichten und die Gesamtanzahl verwendeter Nachrichten im Diagramm angezeigt (mit den neuesten Zahlen am unteren Rand des Diagramms). 
+Öffnen Sie Ihre Metriken über das Dashboard. Legen Sie die Zeitwerte auf *Letzte 30 Minuten* mit einer Zeitgranularität von *1 Minute* fest. Daraufhin werden die Anzahl gesendeter Telemetrienachrichten und die Gesamtanzahl verwendeter Nachrichten im Diagramm angezeigt (mit den neuesten Zahlen am unteren Rand des Diagramms).
 
    ![Screenshot: Metriken](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +385,4 @@ In diesem Tutorial haben Sie gelernt, wie Sie Metriken und Diagnoseprotokolle ve
 Fahren Sie mit dem nächsten Tutorial fort, um zu erfahren, wie Sie den Status eines IoT-Geräts verwalten. 
 
 > [!div class="nextstepaction"]
-[Konfigurieren Ihrer Geräte über einen Back-End-Dienst](tutorial-device-twins.md)
+> [Konfigurieren Ihrer Geräte über einen Back-End-Dienst](tutorial-device-twins.md)

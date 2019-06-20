@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05e687ab31b6c19193076033e1350952549d26e0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 42ad7bc10cb7b93bd4db9260f950ae4ca12aba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330748"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61126892"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrieren von Amazon Web Services (AWS) und anderen Plattformen zu Managed Disks in Azure
 
@@ -55,7 +55,7 @@ Dieser Abschnitt hilft Ihnen, hinsichtlich VM- und Datenträgertypen die beste E
 
 Wenn Sie eine Migration von nicht verwalteten Datenträgern zu verwalteten Datenträgern planen, müssen Sie beachten, dass Benutzer mit der Rolle [Mitwirkender von virtuellen Computern](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) danach die Größe des virtuellen Computers nicht mehr ändern können (was vor dem Wechsel möglich war). Der Grund dafür ist, dass virtuelle Computer mit verwalteten Datenträgern erfordern, dass der Benutzer über die Berechtigung „Microsoft.Compute/disks/write“ für die Betriebssystemdatenträger verfügt.
 
-### <a name="location"></a>Standort
+### <a name="location"></a>Location
 
 Wählen Sie einen Standort, an dem Azure Managed Disks verfügbar sind. Wenn Sie zu Premium Managed Disks migrieren, stellen Sie außerdem sicher, dass Storage Premium in der Region verfügbar ist, in die die Migration erfolgen soll. Aktuelle Informationen zu verfügbaren Standorten finden Sie unter [Azure-Dienste nach Region](https://azure.microsoft.com/regions/#services).
 
@@ -73,7 +73,7 @@ Es gibt sieben verwaltete Premium-Datenträgertypen, die Sie mit Ihrer VM verwen
 | Premium-Datenträgertyp  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Datenträgergröße           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS pro Datenträger       | 120   | 240   | 500   | 1100  |2.300              | 5.000              | 7.500              | 7.500              | 
+| IOPS pro Datenträger       | 120   | 240   | 500   | 1100  |2\.300              | 5\.000              | 7\.500              | 7\.500              | 
 | Durchsatz pro Datenträger | 25 MB pro Sekunde  | 50 MB pro Sekunde  | 100 MB pro Sekunde | 125 MB pro Sekunde |150 MB pro Sekunde | 200 MB pro Sekunde | 250 MB pro Sekunde | 250 MB pro Sekunde |
 
 **Verwaltete Standard-Datenträger**

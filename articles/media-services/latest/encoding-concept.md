@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472453"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761881"
 ---
 # <a name="encoding-with-media-services"></a>Codierung mit Media Services
 
-Azure Media Services ermöglicht das Codieren Ihrer hochwertigen digitalen Mediendateien in MP4-Dateien mit adaptiven Bitraten, sodass Ihre Inhalte mit einer Vielzahl von Browsern und Geräten wiedergegeben werden können. Durch einen erfolgreichen Media Services-Codierungsauftrag wird ein Ausgabemedienobjekt mit einer Gruppe von MP4-Dateien mit adaptiven Bitraten und Streaming-Konfigurationsdateien erstellt. Die Konfigurationsdateien enthalten ISM-, ISMC-, MPI- und andere Dateien, die Sie nicht ändern sollten. Sobald der Codierungsauftrag abgeschlossen ist, können Sie von [dynamischer Paketerstellung](dynamic-packaging-overview.md) profitieren und mit dem Streaming beginnen.
+Der Begriff Codierung beschreibt in Media Services den Prozess der Konvertierung von Dateien, die digitale Videos und/oder Audiodateien enthalten, von einem Format in ein anderes Format. Ziel ist es, (a) die Größe der Dateien zu reduzieren und/oder (b) ein Format zu erstellen, das mit vielen Geräten und Anwendungen kompatibel ist. Dieser Prozess wird auch als Videokomprimierung oder Transcodierung bezeichnet. Weitere Erläuterungen zu diesem Konzept finden Sie unter [Datenkomprimierung](https://en.wikipedia.org/wiki/Data_compression) und [Was bedeutet Codierung und Transcodierung?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx).
 
-Um Videos im Ausgabemedienobjekt für die Wiedergabe durch Kunden verfügbar zu machen, müssen Sie einen **Streaminglocator** und Streaming-URLs erstellen. Basierend auf dem im Manifest angegebenen Format, empfangen Ihre Kunden dann den Stream im ausgewählten Protokoll.
+Das Übermitteln der Videos an Geräte und Anwendungen erfolgt in der Regel durch [progressiven Download](https://en.wikipedia.org/wiki/Progressive_download) oder über [Adaptive Bitrate Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-Das nachstehende Diagramm zeigt das On-Demand-Streaming mit dem Workflow zur dynamischen Paketerstellung.
+* Zur Bereitstellung per progressivem Download können Sie Azure Media Services zum Konvertieren Ihrer digitalen Mediendatei (Mezzanine) in eine [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)-Datei verwenden, die das Video, das mit dem [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC)-Codec codiert wurde, und die Audiodatei, die mit dem [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)-Codec codiert wurde, enthält. Diese MP4-Datei wird in ein Medienobjekt in Ihrem Speicherkonto geschrieben. Sie können die Azure Storage-APIs oder -SDKs verwenden (z. B. [Storage-REST-API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) oder .[NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)), um die Datei direkt herunterzuladen. Wenn Sie das Ausgabemedienobjekt mit einem bestimmten Containernamen im Speicher erstellt haben, verwenden Sie die diesen Speicherort. Andernfalls können Sie Media Services verwenden, um [die Medienobjektcontainer-URLs aufzulisten](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Die Mezzanine-Datei muss mit mehreren Bitraten (hoch bis niedrig) codiert werden, um Inhalte für die Übermittlung durch das Adaptive Bitrate Streaming vorzubereiten. Mit abnehmender Bitrate wird auch die Auflösung des Videos verringert, um eine gleichmäßige Qualitätsminderung zu gewährleisten. Dies führt zu einer sogenannten Codierungsleiter, also einer Tabelle mit Auflösungen und Bitraten. Weitere Informationen hierzu erhalten Sie unter [auto-generated adaptive bitrate ladder (Automatisches Generieren einer Reihe von adaptiven Bitraten)](autogen-bitrate-ladder.md). Sie können Media Services zum Codieren Ihrer Mezzanine-Dateien mit mehreren Bitraten verwenden. Dabei erhalten Sie einige MP4-Dateien und zugeordnete Streaming-Konfigurationsdateien, die in ein Medienobjekt in Ihrem Speicherkonto geschrieben werden. Sie können dann die Funktion [Dynamische Paketerstellung](dynamic-packaging-overview.md) in Media Services verwenden, um das Video über Streamingprotokolle wie [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) oder [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) bereitzustellen. Dazu müssen Sie einen [Streaminglocator](streaming-locators-concept.md) und Streaming-URLs erstellen, die dem unterstützten Protokoll entsprechen. Dieses kann dann je nach Funktionen von Geräten/Anwendungen an diese übergeben werden.
 
-![Dynamische Paketerstellung](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+Das folgende Diagramm zeigt den Workflow für bedarfsgesteuerte Codierung mit der dynamischen Paketerstellung.
+
+![Dynamische Paketerstellung](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 In diesem Thema erhalten Sie Anleitungen zum Codieren Ihrer Inhalte mit Media Services v3.
 
 ## <a name="transforms-and-jobs"></a>Transformationen und Aufträge
 
-Um mit Media Services v3 codieren zu können, müssen Sie eine [Transformation](https://docs.microsoft.com/rest/api/media/transforms) und einen [Auftrag](https://docs.microsoft.com/rest/api/media/jobs) erstellen. Eine Transformation definiert die Anweisung für die Codierungseinstellungen und -ausgaben, der Auftrag ist eine Instanz der Anweisung. Weitere Informationen finden Sie unter [Transformationen und Aufträge](transforms-jobs-concept.md).
+Um mit Media Services v3 codieren zu können, müssen Sie eine [Transformation](https://docs.microsoft.com/rest/api/media/transforms) und einen [Auftrag](https://docs.microsoft.com/rest/api/media/jobs) erstellen. Die Transformation definiert eine Anweisung für die Codierungseinstellungen und -ausgaben. Der Auftrag ist eine Instanz der Anweisung. Weitere Informationen finden Sie unter [Transformationen und Aufträge](transforms-jobs-concept.md).
 
 Bei der Codierung mit Media Services verwenden Sie Voreinstellungen, um dem Encoder mitzuteilen, wie die eingegebenen Mediendateien verarbeitet werden sollen. Beispielsweise können Sie die gewünschte Videoauflösung und/oder die Anzahl der Audiokanäle für den codierten Inhalt angeben. 
 

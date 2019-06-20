@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471733"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61477585"
 ---
 # <a name="repairing-an-import-job"></a>Reparieren eines Importauftrags
 Der Microsoft Azure Import/Export-Dienst kann möglicherweise einige Ihrer Dateien oder Teile einer Datei nicht in den Windows Azure-Blobdienst kopieren. Mögliche Fehlerursachen sind:  
@@ -32,15 +32,15 @@ Die folgenden Parameter können mit **RepairImport** angegeben werden:
   
 |||  
 |-|-|  
-|**/r:**&lt;Reparaturdatei\>|**Erforderlich.** Pfad zur Reparaturdatei, die den Status der Reparatur verfolgt und das Fortsetzen einer unterbrochenen Reparatur ermöglicht. Jedes Laufwerk muss über genau eine Reparaturdatei verfügen. Wenn Sie mit der Reparatur eines bestimmten Laufwerks beginnen, übergeben Sie den Pfad zu einer noch nicht vorhandenen Reparaturdatei. Zum Fortsetzen einer unterbrochenen Reparatur müssen Sie den Namen einer vorhandenen Reparaturdatei übergeben. Die Reparaturdatei für das Ziellaufwerk muss immer angegeben werden.|  
-|**/logdir:**&lt;Protokollverzeichnis\>|**Optional.** Das Protokollverzeichnis. In dieses Verzeichnis werden ausführliche Protokolldateien geschrieben. Wird kein Protokollverzeichnis angegeben, wird das aktuelle Verzeichnis als Protokollverzeichnis verwendet.|  
-|**/d:**&lt;Zielverzeichnisse\>|**Erforderlich.** Eine oder mehrere, durch Semikolons getrennte Verzeichnisse, die die ursprünglichen Dateien enthalten, die importiert wurden. Das Importlaufwerk kann auch verwendet werden, wird aber nicht benötigt, wenn alternative Speicherorte der ursprünglichen Dateien verfügbar sind.|  
-|**/bk:**&lt;BitLocker-Schlüssel\>|**Optional.** Sie müssen den BitLocker-Schlüssel angeben, wenn das Tool ein verschlüsseltes Laufwerk entsperren soll, auf dem die ursprünglichen Dateien verfügbar sind.|  
-|**/sn:**&lt;Speicherkontoname\>|**Erforderlich.** Der Name des Speicherkontos für den Importauftrag.|  
-|**/sk:**&lt;Speicherkontoschlüssel\>|Nur **Erforderliche**, wenn keine Container-SAS angegeben wurde. Der Kontoschlüssel des Speicherkontos für den Importauftrag.|  
-|**/csas:**&lt;Container-SAS\>|Nur **Erforderliche**, wenn kein Speicherkontoschlüssel angegeben wurde. Die Container-SAS für den Zugriff auf die Blobs, die dem Importauftrag zugeordnet sind.|  
-|**/CopyLogFile:**&lt;Laufwerk-Kopierprotokolldatei\>|**Erforderlich.** Pfad zur Laufwerk-Kopierprotokolldatei (entweder ausführliches Protokoll oder Fehlerprotokoll). Die Datei wird vom Windows Azure Import/Export-Dienst generiert und kann aus dem Blobspeicher heruntergeladen werden, der dem Auftrag zugeordnet ist. Die Kopierprotokolldatei enthält Informationen zu fehlerhaften Blobs oder Dateien, die repariert werden müssen.|  
-|**/PathMapFile:**&lt;Laufwerkpfad-Zuordnungsdatei\>|**Optional.** Pfad zu einer Textdatei, mit deren Hilfe Mehrdeutigkeiten aufgelöst werden können, wenn im selben Auftrag mehrere Dateien mit dem gleichen Namen importiert werden. Beim ersten Ausführen des Tools kann diese Datei mit allen mehrdeutigen Namen gefüllt werden. Bei nachfolgenden Ausführungen des Tools wird diese Datei verwendet, um die Mehrdeutigkeiten aufzulösen.|  
+|**/r:** &lt;Reparaturdatei\>|**Erforderlich.** Pfad zur Reparaturdatei, die den Status der Reparatur verfolgt und das Fortsetzen einer unterbrochenen Reparatur ermöglicht. Jedes Laufwerk muss über genau eine Reparaturdatei verfügen. Wenn Sie mit der Reparatur eines bestimmten Laufwerks beginnen, übergeben Sie den Pfad zu einer noch nicht vorhandenen Reparaturdatei. Zum Fortsetzen einer unterbrochenen Reparatur müssen Sie den Namen einer vorhandenen Reparaturdatei übergeben. Die Reparaturdatei für das Ziellaufwerk muss immer angegeben werden.|  
+|**/logdir:** &lt;Protokollverzeichnis\>|**Optional.** Das Protokollverzeichnis. In dieses Verzeichnis werden ausführliche Protokolldateien geschrieben. Wird kein Protokollverzeichnis angegeben, wird das aktuelle Verzeichnis als Protokollverzeichnis verwendet.|  
+|**/d:** &lt;Zielverzeichnisse\>|**Erforderlich.** Eine oder mehrere, durch Semikolons getrennte Verzeichnisse, die die ursprünglichen Dateien enthalten, die importiert wurden. Das Importlaufwerk kann auch verwendet werden, wird aber nicht benötigt, wenn alternative Speicherorte der ursprünglichen Dateien verfügbar sind.|  
+|**/bk:** &lt;BitLocker-Schlüssel\>|**Optional.** Sie müssen den BitLocker-Schlüssel angeben, wenn das Tool ein verschlüsseltes Laufwerk entsperren soll, auf dem die ursprünglichen Dateien verfügbar sind.|  
+|**/sn:** &lt;Speicherkontoname\>|**Erforderlich.** Der Name des Speicherkontos für den Importauftrag.|  
+|**/sk:** &lt;Speicherkontoschlüssel\>|Nur **Erforderliche**, wenn keine Container-SAS angegeben wurde. Der Kontoschlüssel des Speicherkontos für den Importauftrag.|  
+|**/csas:** &lt;Container-SAS\>|Nur **Erforderliche**, wenn kein Speicherkontoschlüssel angegeben wurde. Die Container-SAS für den Zugriff auf die Blobs, die dem Importauftrag zugeordnet sind.|  
+|**/CopyLogFile:** &lt;Laufwerk-Kopierprotokolldatei\>|**Erforderlich.** Pfad zur Laufwerk-Kopierprotokolldatei (entweder ausführliches Protokoll oder Fehlerprotokoll). Die Datei wird vom Windows Azure Import/Export-Dienst generiert und kann aus dem Blobspeicher heruntergeladen werden, der dem Auftrag zugeordnet ist. Die Kopierprotokolldatei enthält Informationen zu fehlerhaften Blobs oder Dateien, die repariert werden müssen.|  
+|**/PathMapFile:** &lt;Laufwerkpfad-Zuordnungsdatei\>|**Optional.** Pfad zu einer Textdatei, mit deren Hilfe Mehrdeutigkeiten aufgelöst werden können, wenn im selben Auftrag mehrere Dateien mit dem gleichen Namen importiert werden. Beim ersten Ausführen des Tools kann diese Datei mit allen mehrdeutigen Namen gefüllt werden. Bei nachfolgenden Ausführungen des Tools wird diese Datei verwendet, um die Mehrdeutigkeiten aufzulösen.|  
   
 ## <a name="using-the-repairimport-command"></a>Verwenden des RepairImport-Befehls  
 Um Importdaten durch das Streamen der Daten über das Netzwerk zu reparieren, müssen Sie die Verzeichnisse angeben, die die ursprünglichen Dateien enthalten, die Sie mithilfe des Parameters `/d` importiert haben. Sie müssen außerdem die Kopierprotokolldatei angeben, die Sie aus Ihrem Speicherkonto heruntergeladen haben. Eine typische Befehlszeile zum Reparieren eines Importauftrags mit Teilfehlern sieht wie folgt aus:  

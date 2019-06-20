@@ -2,20 +2,20 @@
 title: Definieren eines technischen OAuth1-Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein technisches OAuth1-Profil in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C definieren.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 993fc8b2e318b59775f61de391ac75fa765485f0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66513114"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines technischen OAuth1-Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -70,12 +70,12 @@ Das technische Profil gibt auch Ansprüche zurück, die vom Identitätsanbieter 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | client_id | Ja | Die Anwendungs-ID des Identitätsanbieters. |
-| ProviderName | Nein  | Der Name des Identitätsanbieters. |
+| ProviderName | Nein | Der Name des Identitätsanbieters. |
 | request_token_endpoint | Ja | Die URL des Endpunkts für das Anforderungstoken gemäß RFC 5849. |
 | authorization_endpoint | Ja | Die URL des Autorisierungsendpunkts gemäß RFC 5849. |
 | access_token_endpoint | Ja | Die URL des Tokenendpunkts gemäß RFC 5849. |
-| ClaimsEndpoint | Nein  | Die URL des Endpunkts für Benutzerinformationen. | 
-| ClaimsResponseFormat | Nein  | Das Antwortformat für Ansprüche.|
+| ClaimsEndpoint | Nein | Die URL des Endpunkts für Benutzerinformationen. | 
+| ClaimsResponseFormat | Nein | Das Antwortformat für Ansprüche.|
 
 ## <a name="cryptographic-keys"></a>Kryptografische Schlüssel
 

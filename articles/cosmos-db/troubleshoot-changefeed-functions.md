@@ -3,16 +3,16 @@ title: Diagnostizieren und Behandeln von Problemen bei Verwendung des Azure Cosm
 description: Häufig auftretende Probleme, Problemumgehungen und Diagnoseschritte bei Verwendung des Azure Cosmos DB-Triggers mit Azure Functions
 author: ealsur
 ms.service: cosmos-db
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510529"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66734512"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostizieren und Behandeln von Problemen bei Verwendung des Azure Cosmos DB-Triggers in Azure Functions
 
@@ -88,6 +88,12 @@ Wenn Sie feststellen, dass einige Änderungen vom Trigger überhaupt nicht empfa
 Sie können ein solches Szenario auch überprüfen, wenn Ihnen bekannt ist, wie viele Instanzen der Azure-Funktions-App ausgeführt werden. Wenn Sie Ihren Leases-Container untersuchen und die Anzahl der darin enthaltenen Lease-Elemente zählen, müssen die eindeutigen Werte der enthaltenen `Owner`-Eigenschaft gleich der Anzahl der Instanzen Ihrer Funktions-App sein. Wenn andere Besitzer als die bekannten Azure-Funktions-App-Instanzen vorhanden sind, heißt das, dass diese zusätzlichen Besitzer die Änderungen „stehlen“.
 
 Eine einfache Möglichkeit, diese Situation zu umgehen, besteht darin, ein `LeaseCollectionPrefix/leaseCollectionPrefix` mit einem neuen/anderen Wert auf die Funktion anzuwenden oder alternativ eine Überprüfung mit einem neuen Leases-Container durchzuführen.
+
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bindung kann nur mit IReadOnlyList<Document> oder JArray erfolgen
+
+Dieser Fehler tritt auf, wenn Ihr Azure Functions-Projekt (oder ein beliebiges Projekt, auf das verwiesen wird) einen manuelle NuGet-Verweis auf das Azure Cosmos DB-SDK mit einer anderen Version als die durch die [Azure Functions Cosmos DB-Erweiterung](./troubleshoot-changefeed-functions.md#dependencies) bereitgestellte Version enthält.
+
+Zum Umgehen dieses Problems entfernen Sie den hinzugefügten manuellen NuGet-Verweis, und lassen Sie den Azure Cosmos DB-SDK-Verweis über das Azure Functions Cosmos DB-Erweiterungspaket auflösen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

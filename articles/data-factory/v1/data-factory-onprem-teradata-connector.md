@@ -67,8 +67,8 @@ Die folgende Tabelle enthält eine Beschreibung der JSON-Elemente, die für den 
 | type |Die type-Eigenschaft muss auf Folgendes festgelegt werden: **OnPremisesTeradata**. |Ja |
 | server |Name des Teradata-Servers. |Ja |
 | authenticationType |Typ der Authentifizierung für die Verbindung mit der Teradata-Datenbank. Mögliche Werte: „Anonymous“, „Basic“ und „Windows“. |Ja |
-| username |Geben Sie den Benutzernamen an, wenn Sie die Standard- oder Windows-Authentifizierung verwenden. |Nein  |
-| password |Geben Sie das Kennwort für das Benutzerkonto an, das Sie für den Benutzernamen angegeben haben. |Nein  |
+| username |Geben Sie den Benutzernamen an, wenn Sie die Standard- oder Windows-Authentifizierung verwenden. |Nein |
+| password |Geben Sie das Kennwort für das Benutzerkonto an, das Sie für den Benutzernamen angegeben haben. |Nein |
 | gatewayName |Name des Gateways, das der Data Factory-Dienst zum Herstellen einer Verbindung mit der lokalen Teradata-Datenbank verwenden soll. |Ja |
 
 ## <a name="dataset-properties"></a>Dataset-Eigenschaften
@@ -275,7 +275,7 @@ Die Pipeline enthält eine Kopieraktivität, die für die Verwendung der Ein- un
     }
 }
 ```
-## <a name="type-mapping-for-teradata"></a>Typzuordnung für Teradata 
+## <a name="type-mapping-for-teradata"></a>Typzuordnung für Teradata
 Wie im Artikel [Datenverschiebungsaktivitäten](data-factory-data-movement-activities.md) beschrieben, führt die Kopieraktivität automatische Typkonvertierungen von Quelltypen in Senkentypen mithilfe des folgenden aus zwei Schritten bestehenden Ansatzes durch:
 
 1. Konvertieren von systemeigenen Quelltypen in den .NET-Typ
@@ -285,11 +285,11 @@ Beim Verschieben von Daten in Teradata werden die folgenden Zuordnungen zwischen
 
 | Typ "Teradata-Datenbank" | Typ ".NET Framework" |
 | --- | --- |
-| Char |Zeichenfolge |
-| Clob |Zeichenfolge |
-| Graphic |Zeichenfolge |
-| VarChar |Zeichenfolge |
-| VarGraphic |Zeichenfolge |
+| Char |String |
+| Clob |String |
+| Graphic |String |
+| VarChar |String |
+| VarGraphic |String |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
@@ -297,13 +297,13 @@ Beim Verschieben von Daten in Teradata werden die folgenden Zuordnungen zwischen
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| Ganze Zahl  |Int32 |
+| Integer |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
-| Datum |DateTime |
+| Date |DateTime |
 | Time |TimeSpan |
-| Time With Time Zone |Zeichenfolge |
-| Zeitstempel |DateTime |
+| Time With Time Zone |String |
+| Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
@@ -315,15 +315,15 @@ Beim Verschieben von Daten in Teradata werden die folgenden Zuordnungen zwischen
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |Zeichenfolge |
-| Interval Year To Month |Zeichenfolge |
-| Interval Month |Zeichenfolge |
-| Period(Date) |Zeichenfolge |
-| Period(Time) |Zeichenfolge |
-| Period(Time With Time Zone) |Zeichenfolge |
-| Period(Timestamp) |Zeichenfolge |
-| Period(Timestamp With Time Zone) |Zeichenfolge |
-| xml |Zeichenfolge |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
+| xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Zuordnen von Quell- zur Senkenspalten
 Weitere Informationen zum Zuordnen von Spalten im Quelldataset zu Spalten im Senkendataset finden Sie unter [Zuordnen von Datasetspalten in Azure Data Factory](data-factory-map-columns.md).

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
 ms.openlocfilehash: d1da180d3b30b57ca2b69985bf3d0261b8d70c39
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205521"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Tutorial: Untersuchen von Fällen mit Azure Sentinel Preview

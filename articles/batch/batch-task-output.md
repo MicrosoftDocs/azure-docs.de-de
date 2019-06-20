@@ -15,11 +15,11 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bc579cd372616563b61e5ba04fe32612f3efb1c7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541246"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60549943"
 ---
 # <a name="persist-job-and-task-output"></a>Persistente Aufträge und Aufgabenausgabe
 

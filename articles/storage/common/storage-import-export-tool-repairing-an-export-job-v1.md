@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61477942"
 ---
 # <a name="repairing-an-export-job"></a>Reparieren eines Exportauftrags
 Nach Abschluss eines Exportauftrags können Sie das Microsoft Azure Import/Export-Tool lokal ausführen, um folgende Vorgänge durchzuführen:  

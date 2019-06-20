@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
 ms.openlocfilehash: e162d838cb4895841428a827b56bec28e3e16b8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66160926"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurieren von Reverse-DNS für in Azure gehostete Dienste
 
@@ -224,7 +224,7 @@ Ja. Sobald Sie die Reverse-DNS-Eigenschaft für Ihren Azure-Dienst festlegen, ve
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>Werden für meine Azure-Dienste Standard-Reverse-DNS-Einträge erstellt?
 
- Nein. Reverse-DNS ist eine optionale Funktion. Es werden keine Standard-DNS-Einträge erstellt, wenn Sie keine konfigurieren.
+Nein. Reverse-DNS ist eine optionale Funktion. Es werden keine Standard-DNS-Einträge erstellt, wenn Sie keine konfigurieren.
 
 ### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>Wie sieht das Format für den vollqualifizierten Domänennamen (FQDN) aus?
 
@@ -236,15 +236,15 @@ Wenn bei der Reverse-DNS-Überprüfung ein Fehler auftritt, tritt beim Konfiguri
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Kann ich Reverse-DNS für Azure App Service konfigurieren?
 
- Nein. Reverse-DNS wird für Azure App Service nicht unterstützt.
+Nein. Reverse-DNS wird für Azure App Service nicht unterstützt.
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Kann ich für meinen Azure-Dienst mehrere Reverse-DNS-Einträge konfigurieren?
 
- Nein. Azure unterstützt für jeden Azure-Clouddienst und jede öffentliche IP-Adresse nur einen Reverse-DNS-Eintrag.
+Nein. Azure unterstützt für jeden Azure-Clouddienst und jede öffentliche IP-Adresse nur einen Reverse-DNS-Eintrag.
 
 ### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>Kann ich Reverse-DNS für öffentliche IPv6-IP-Adressressourcen konfigurieren?
 
- Nein. Azure unterstützt derzeit Reverse-DNS nur für öffentliche IPv4-IP-Adressressourcen und -Clouddienste.
+Nein. Azure unterstützt derzeit Reverse-DNS nur für öffentliche IPv4-IP-Adressressourcen und -Clouddienste.
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Kann ich aus Azure Compute Services heraus E-Mails an externe Domänen senden?
 

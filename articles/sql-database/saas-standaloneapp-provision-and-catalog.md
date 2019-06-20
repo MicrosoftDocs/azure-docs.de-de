@@ -13,11 +13,11 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896941"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61484541"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Bereitstellen und Katalogisieren neuer Mandanten mithilfe des SaaS-Musters für eine Anwendung pro Mandant
 
@@ -98,7 +98,7 @@ Nach Abschluss des Skripts ist der Katalog vorhanden, und alle Beispielmandanten
 
 Sehen Sie sich nun die von Ihnen erstellten Ressourcen an.
 
-1. Öffnen Sie das [Azure-Portal](https://portal.azure.com/), und durchsuchen Sie die Ressourcengruppen.  Öffnen Sie die Ressourcengruppe **wingtip-sa-catalog-\<Benutzer\>**, und notieren Sie sich den Katalogserver und die Katalogdatenbank.
+1. Öffnen Sie das [Azure-Portal](https://portal.azure.com/), und durchsuchen Sie die Ressourcengruppen.  Öffnen Sie die Ressourcengruppe **wingtip-sa-catalog-\<Benutzer\>** , und notieren Sie sich den Katalogserver und die Katalogdatenbank.
 1. Öffnen Sie die Datenbank im Portal, und wählen Sie im linken Menü die Option *Daten-Explorer* aus.  Klicken Sie auf den Befehl für die Anmeldung, und geben Sie dann das Kennwort = **P\@ssword1** ein.
 
 

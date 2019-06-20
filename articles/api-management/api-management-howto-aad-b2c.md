@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089606"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696731"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Autorisieren von Entwicklerkonten mithilfe von Azure Active Directory B2C in Azure API Management
 
@@ -69,29 +69,20 @@ Bei Azure Active Directory B2C handelt es sich um eine Lösung zur Cloudidentit�
    ![Anwendungs-ID 1][api-management-howto-aad-b2c-app-id]
 
 9. Wechseln Sie zum API Management-Bereich **Identitätsanbieter hinzufügen**, und fügen Sie die ID in das Textfeld **Client-ID** ein.
-
-   ![Anwendungs-ID 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Wechseln Sie zur B2C-Anwendungsregistrierung zurück, klicken Sie auf die Schaltfläche **Schlüssel** und anschließend auf **Schlüssel generieren**. Klicken Sie auf **Speichern** , um die Konfiguration zu speichern und den **App-Schlüssel** anzuzeigen. Kopieren Sie den Schlüssel in die Zwischenablage.
 
     ![App-Schlüssel 1][api-management-howto-aad-b2c-app-key]
 
 11. Wechseln Sie zum API Management-Bereich **Identitätsanbieter hinzufügen** zurück, und fügen Sie den Schlüssel in das Textfeld **Geheimer Clientschlüssel** ein.
+    
+12. Geben Sie in **Anmeldemandant** den Domänennamen des Azure Active Directory B2C-Mandanten an.
 
-    ![App-Schlüssel 2][api-management-howto-aad-b2c-client-secret]
+13. Über das Feld **Autorität** können Sie steuern, welche Azure AD B2C-Anmelde-URL verwendet wird. Legen Sie den Wert auf **<Name_Ihres_b2c_Mandanten>.b2clogin.com** fest.
 
-12. Geben Sie unter **Zulässiger Mandant** den Domänennamen des Azure Active Directory B2C-Mandanten an.
+14. Geben Sie die **Registrierungsrichtlinie** und die **Anmelderichtlinie** aus den Richtlinien des B2C-Mandanten an. Optional können Sie auch die Richtlinien für die **Profilbearbeitung** und die **Kennwortzurücksetzung** angeben.
 
-    ![Zulässiger Mandant][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Geben Sie die **Registrierungsrichtlinie** und die **Anmelderichtlinie** aus den Richtlinien des B2C-Mandanten an. Optional können Sie auch die Richtlinien für die **Profilbearbeitung** und die **Kennwortzurücksetzung** angeben.
-
-    ![Richtlinien][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > Weitere Informationen finden Sie unter [Azure Active Directory B2C: Erweiterbares Richtlinienframework].
-
-14. Klicken Sie auf **Speichern**, nachdem Sie die gewünschte Konfiguration angegeben haben.
+15. Klicken Sie auf **Speichern**, nachdem Sie die gewünschte Konfiguration angegeben haben.
 
     Nach dem Speichern der Änderungen können Entwickler neue Konten erstellen und sich am Entwicklerportal anmelden, indem sie Azure Active Directory B2C verwenden.
 

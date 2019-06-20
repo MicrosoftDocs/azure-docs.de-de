@@ -14,11 +14,11 @@ ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
 ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121242"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61294055"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Intelligente Erkennung – Leistungsabweichungen
 
@@ -69,7 +69,7 @@ Pro Tag und Application Insights-Ressource wird nur eine E-Mail zu Leistungsanom
 ## <a name="faq"></a>Häufig gestellte Fragen
 
 * *Microsoft-Mitarbeiter sehen sich also meine Daten an?*
-  *  Nein. Der Dienst ist vollständig automatisch. Nur Sie erhalten die Benachrichtigungen. Ihre Daten sind [privat](../../azure-monitor/app/data-retention-privacy.md).
+  * Nein. Der Dienst ist vollständig automatisch. Nur Sie erhalten die Benachrichtigungen. Ihre Daten sind [privat](../../azure-monitor/app/data-retention-privacy.md).
 * *Werden alle der von Application Insights erfassten Daten analysiert?*
   * Derzeit nicht. Gegenwärtig werden Antwortzeiten auf Anforderungen, Reaktionszeiten von Abhängigkeiten und Seitenladezeiten analysiert. Ein Analysen von zusätzlichen Metriken finden Sie in unserem Backlog.
 
@@ -85,7 +85,7 @@ Pro Tag und Application Insights-Ressource wird nur eine E-Mail zu Leistungsanom
 
   * Die Analyse der Telemetriedaten vom Vortag wird täglich ausgeführt (ganzer Tag in Zeitzone UTC).
 * *Ersetzt dies also die [Metrikwarnungen](../../azure-monitor/app/alerts.md)?*
-  *  Nein.  Wir können nicht gewährleisten, dass jedes Verhalten erkannt wird, das Sie möglicherweise als ungewöhnlich erachten.
+  * Nein.  Wir können nicht gewährleisten, dass jedes Verhalten erkannt wird, das Sie möglicherweise als ungewöhnlich erachten.
 
 
 * *Erhalte ich eine Erinnerung, wenn ich nach einer Benachrichtigung nichts unternehme?*

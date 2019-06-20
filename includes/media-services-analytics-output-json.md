@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160952"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178505"
 ---
 Mit dem Auftrag wird eine JSON-Ausgabedatei erzeugt, die Metadaten zu erkannten und nachverfolgten Gesichtern enthält. Die Metadaten enthalten Koordinaten, die die Position der Gesichter sowie eine Gesichts-ID angeben, um die Nachverfolgung einer einzelnen Person kenntlich zu machen. Gesichts-IDs können zurückgesetzt werden, wenn die Frontalansicht des Gesichts verloren geht oder im Frame überlappt wird, sodass einigen Personen möglicherweise mehrere IDs zugewiesen werden.
 
@@ -30,7 +30,7 @@ Die JSON-Ausgabe enthält die folgenden Elemente:
 
 |Element|BESCHREIBUNG|
 |---|---|
-| Start |Die Startzeit des ersten Ereignisses in „Ticks“. |
+| start |Die Startzeit des ersten Ereignisses in „Ticks“. |
 | duration |Die Länge des Fragments in „Ticks“. |
 | index | Definiert den Frameindex des aktuellen Ereignisses (gilt nur für Azure Media Redactor). |
 | interval |Das Intervall jedes Ereigniseintrags innerhalb des Fragments in „Ticks“. |

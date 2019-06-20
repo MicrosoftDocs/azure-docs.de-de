@@ -14,11 +14,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60723491"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-Fehlercodes für SQL-Datenbank-Clientanwendungen: Datenbankverbindungsfehler und andere Probleme
 
@@ -86,7 +86,7 @@ Die folgenden Fehler können beim Kopieren einer Datenbank in Azure SQL-Datenban
 
 ## <a name="resource-governance-errors"></a>Fehler bei der Ressourcenkontrolle
 
-Die folgenden Fehler treten beim Arbeiten mit Azure SQL-Datenbank bei der übermäßigen Nutzung von Ressourcen auf. Beispiel: 
+Die folgenden Fehler treten beim Arbeiten mit Azure SQL-Datenbank bei der übermäßigen Nutzung von Ressourcen auf. Beispiel:
 
 * Eine Transaktion war zu lange geöffnet.
 * Eine Transaktion enthält zu viele Sperren.
@@ -216,7 +216,7 @@ Die folgenden Fehler fallen in keine der vorherigen Kategorien.
 | 40652 |16 |Der Server kann nicht verschoben oder erstellt werden, weil das Abonnement (Abonnement-ID) das Serverkontingent überschreitet. |
 | 40671 |17 |Kommunikationsfehler zwischen dem Gateway und dem Verwaltungsdienst. Versuchen Sie es später noch mal. |
 | 40852 |16 |Die von der Anmeldung angeforderte Datenbank „%.\*ls“ auf Server „%.\*ls“ kann nicht geöffnet werden. Der Zugriff auf die Datenbank ist nur mit einer Verbindungszeichenfolge mit aktivierter Sicherheit zulässig. Um auf diese Datenbank zuzugreifen, ändern Sie die Verbindungszeichenfolgen so, dass der Server-FQDN „secure“ enthält – „Servername.database.windows.net“ muss in „Servername.database`secure`.windows.net“ geändert werden. |
-| 40914 | 16 | Der bei der Anmeldung angeforderte Server „*[Servername]*“ kann nicht geöffnet werden. Dem Client ist der Zugriff auf den Server nicht gestattet.<br /><br />Um das Problem zu beheben, fügen Sie ggf. eine [VNET-Regel](sql-database-vnet-service-endpoint-rule-overview.md) hinzu. |
+| 40914 | 16 | Der bei der Anmeldung angeforderte Server „ *[Servername]* “ kann nicht geöffnet werden. Dem Client ist der Zugriff auf den Server nicht gestattet.<br /><br />Um das Problem zu beheben, fügen Sie ggf. eine [VNET-Regel](sql-database-vnet-service-endpoint-rule-overview.md) hinzu. |
 | 45168 |16 |Das SQL Azure-System ist ausgelastet und richtet eine Obergrenze bei den gleichzeitigen DB CRUD-Vorgängen für einen einzelnen SQL-Datenbank-Server ein (z.B. CREATE DATABASE). Für den in der Fehlermeldung angegebenen Server wurde die maximale Anzahl von gleichzeitigen Verbindungen überschritten. Versuchen Sie es später erneut. |
 | 45169 |16 |Das SQL Azure-System ist ausgelastet und richtet eine Obergrenze für die Anzahl der gleichzeitigen CRUD-Vorgänge für ein Abonnement ein (z.B. CREATE SERVER). Für das in der Fehlermeldung angegebene Abonnement wurde die maximale Anzahl von gleichzeitigen Verbindungen überschritten, und die Anforderung wurde verweigert. Versuchen Sie es später erneut. |
 

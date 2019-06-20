@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 743e4c5bebefbf6727c49257551b8c958eb6f031
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8eac70db0c563f102dfa0e3fcece9d4604582cce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595647"
 ---
 # <a name="understand-iot-hub-metrics"></a>Grundlegendes zu IoT Hub-Metriken
 
@@ -66,6 +66,8 @@ IoT Hub bietet mehrere Metriken, um Ihnen einen Überblick über die Integrität
 |d2c<br>.endpoints<br>.latency<br>.storage|Routing: Nachrichtenwartezeit für Speicher|Millisekunden|Durchschnitt|Durchschnittliche Wartezeit (Millisekunden) zwischen dem Eingang der Nachricht beim IoT Hub und dem Eingang der Nachricht bei einem Speicherendpunkt.|Keine Dimensionen|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|Routing: An den Speicher übermittelte Daten|Byte|Gesamt|Die Datenmenge (Bytes), die das IoT Hub-Routing an die Speicherendpunkte übermittelt.|Keine Dimensionen|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|Routing: An den Speicher übermittelte Blobs|Count|Gesamt|Die Häufigkeit, mit der das IoT Hub-Routing Blobs an Speicherendpunkte übermittelt hat.|Keine Dimensionen|
+|EventGridDeliveries|Event Grid-Übermittlungen (Vorschau)|Count|Gesamt|Die Anzahl von Anforderungen für IoT Hub zum Ausgeben von Ereignissen an Event Grid. Diese Anzahl umfasst erfolgreiche und fehlgeschlagene Anforderungen. Verwenden Sie die Dimension „Result“ für die Anzahl der verschiedenen Antworttypen. Wenn Sie sehen möchten, woher die Anforderungen stammen, verwenden Sie die Dimension „EventType“.|Result, EventType|
+|EventGridLatency|Event Grid-Wartezeit (Vorschau)|Millisekunden|Durchschnitt|Die durchschnittliche Wartezeit (in Millisekunden) zwischen dem Ereigniseingang bei IoT Hub und dem Ereigniseingang in Event Grid. Diese Zahl ist ein Durchschnittswert für alle Ereignistypen. Verwenden Sie die Dimension „EventType“, um die Wartezeit für einen bestimmten Ereignistyp anzuzeigen.|EventType|
 |d2c<br>.twin<br>.read<br>.success|Successful twin reads from devices (Erfolgreiche Zwillingslesevorgänge von Geräten)|Count|Gesamt|Gibt die Anzahl von erfolgreichen Zwillingslesevorgängen an, die vom Gerät initiiert wurden.|Keine Dimensionen|
 |d2c<br>.twin<br>.read<br>.failure|Failed twin reads from devices (Nicht erfolgreiche Zwillingslesevorgänge von Geräten)|Count|Gesamt|Gibt die Anzahl von nicht erfolgreichen Zwillingslesevorgängen an, die vom Gerät initiiert wurden.|Keine Dimensionen|
 |d2c<br>.twin<br>.read<br>.size|Response size of twin reads from devices (Antwortgröße von Zwillingslesevorgängen von Geräten)|Byte|Durchschnitt|Durchschnitts-, Minimal- und Maximalwert für alle erfolgreichen Zwillingslesevorgänge, die vom Gerät initiiert wurden.|Keine Dimensionen|
@@ -99,8 +101,7 @@ IoT Hub bietet mehrere Metriken, um Ihnen einen Überblick über die Integrität
 |jobs<br>.failed|Fehlerhafte Aufträge|Count|Gesamt|Gibt die Anzahl aller fehlerhaften Aufträge an.|Keine Dimensionen|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|Anzahl von Drosselungsfehlern|Count|Gesamt|Anzahl von Drosselungsfehlern aufgrund von Drosselungen des Gerätedurchsatzes|Keine Dimensionen|
 |dailyMessage<br>QuotaUsed|Gesamtzahl verwendeter Nachrichten|Count|Durchschnitt|Gesamtzahl der heute verwendeten Nachrichten. Dies ist ein kumulativer Wert, der jeden Tag um 00:00 Uhr UTC auf 0 zurückgesetzt wird.|Keine Dimensionen|
-|deviceDataUsage|Gerätedatennutzung gesamt (veraltet)|Byte|Gesamt|Zu und von allen mit IotHub verbundenen Geräten übertragene Bytes|Keine Dimensionen|
-|deviceDataUsageV2|Gerätedatennutzung gesamt (Vorschau)|Byte|Gesamt|Zu und von allen mit IotHub verbundenen Geräten übertragene Bytes|Keine Dimensionen|
+|deviceDataUsage|Gerätedatennutzung gesamt|Byte|Gesamt|Zu und von allen mit IotHub verbundenen Geräten übertragene Bytes|Keine Dimensionen|
 |totalDeviceCount|Geräte gesamt (Vorschau)|Count|Durchschnitt|Die Anzahl von Geräten, die beim IoT Hub registriert sind|Keine Dimensionen|
 |connected<br>DeviceCount|Verbundene Geräte (Vorschau)|Count|Durchschnitt|Die Anzahl von Geräten, die mit dem IoT Hub verbunden sind|Keine Dimensionen|
 |Konfigurationen|Konfigurationsmetriken|Count|Gesamt|Metriken für Konfigurationsvorgänge|Keine Dimensionen|

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142721"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297089"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Herstellen einer Verbindung zwischen einer Anwendung und einer verwalteten Azure SQL-Datenbank-Instanz
 
@@ -56,7 +56,7 @@ Es gibt zwei Optionen für die lokale Verbindung mit dem Azure-VNET:
 - Site-to-Site-VPN-Verbindung ([Azure-Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md)-Verbindung  
 
-Wenn Sie eine lokale Verbindung mit Azure hergestellt haben und keine Verbindung mit der verwalteten Instanz herstellen können, sollten Sie überprüfen, ob für die Firewall eine geöffnete ausgehende Verbindung am SQL-Port 1433 und ein geöffneter Portbereich 11000-12000 für die Umleitung festgelegt sind.
+Wenn Sie eine lokale Verbindung mit Azure hergestellt haben und keine Verbindung mit der verwalteten Instanz herstellen können, sollten Sie überprüfen, ob für die Firewall eine geöffnete ausgehende Verbindung am SQL-Port 1433 und ein geöffneter Portbereich 11000-11999 für die Umleitung festgelegt sind.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Herstellen einer Verbindung mit einer Anwendung in der Entwicklerbox
 
@@ -96,7 +96,7 @@ Dieses Szenario ist in der folgenden Abbildung dargestellt:
 
 Prüfen Sie zur Behandlung von Konnektivitätsproblemen Folgendes:
 
-- Wenn Sie im gleichen VNET keine Verbindung zwischen einem virtuellen Azure-Computer und einer verwalteten Instanz herstellen können, überprüfen Sie, ob eine Netzwerksicherheitsgruppe im VM-Subnetz festgelegt ist, das den Zugriff möglicherweise blockiert. Beachten Sie außerdem, dass Sie ausgehende Verbindungen an SQL-Port 1433 sowie Ports im Bereich von 11000-12000 öffnen müssen, da diese zum Herstellen einer Verbindung per Umleitung innerhalb von Azure benötigt werden.
+- Wenn Sie im gleichen VNET keine Verbindung zwischen einem virtuellen Azure-Computer und einer verwalteten Instanz herstellen können, überprüfen Sie, ob eine Netzwerksicherheitsgruppe im VM-Subnetz festgelegt ist, das den Zugriff möglicherweise blockiert. Beachten Sie außerdem, dass Sie ausgehende Verbindungen an SQL-Port 1433 sowie Ports im Bereich von 11000-11999 öffnen müssen, da diese zum Herstellen einer Verbindung per Umleitung innerhalb von Azure benötigt werden.
 - Stellen Sie sicher, dass die BGP-Weitergabe für die Routingtabelle, die dem VNET zugeordnet ist, auf **Aktiviert** festgelegt ist.
 - Wenn Sie ein P2S-VPN verwenden, überprüfen Sie, ob in der Konfiguration im Azure-Portal Zahlen zu **Eingehend/ausgehend** angezeigt werden. Zahlen ungleich 0 geben an, dass Datenverkehr von Azure in bzw. aus lokalen Umgebungen weitergeleitet wird.
 

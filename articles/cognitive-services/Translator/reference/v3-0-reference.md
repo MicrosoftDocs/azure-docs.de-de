@@ -3,19 +3,19 @@ title: Referenz für die Textübersetzungs-API Version 3.0
 titlesuffix: Azure Cognitive Services
 description: Referenzdokumentation für die Textübersetzungs-API Version 3.0
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: v-pawal
+ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918806"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387510"
 ---
 # <a name="translator-text-api-v30"></a>Textübersetzungs-API Version 3.0
 
@@ -144,7 +144,7 @@ Der Fehlercode ist eine 6-stellige Zahl, die aus dem 3-stelligen HTTP-Statuscode
 | 400036| Der Zielsprache (Feld „To“) fehlt oder ist ungültig.|
 | 400042| Eine der angegebenen Optionen (Feld „Optionen“) ist ungültig.|
 | 400043| Die Clientablaufverfolgungs-ID (Feld „ClientTraceId“ oder X-ClientTranceId-Header) fehlt oder ist ungültig.|
-| 400050| Der Eingabetext ist zu lang.|
+| 400050| Der Eingabetext ist zu lang. Informieren Sie sich unter [Anforderungsgrenzwerte](../request-limits.md).|
 | 400064| Der translation-Parameter fehlt oder ist ungültig.|
 | 400070| Die Anzahl der Zielskripts (ToScript-Parameter) entspricht nicht der Anzahl von Zielsprachen (To-Parameter).|
 | 400071| Der Wert ist für TextType ungültig.|
@@ -152,16 +152,17 @@ Der Fehlercode ist eine 6-stellige Zahl, die aus dem 3-stelligen HTTP-Statuscode
 | 400073| Der script-Parameter ist ungültig.|
 | 400074| Der Anforderungstext ist kein gültiger JSON-Code.|
 | 400075| Die Kombination aus Sprachpaar und Kategorie ist ungültig.|
-| 400077| Die maximale Anforderungsgröße wurde überschritten.|
+| 400077| Die maximale Anforderungsgröße wurde überschritten. Informieren Sie sich unter [Anforderungsgrenzwerte](../request-limits.md).|
 | 400079| Das für die Übersetzung zwischen Ausgangs- und Zielsprache angeforderte benutzerdefinierte System ist nicht vorhanden.|
 | 401000| Die Anforderung wurde nicht autorisiert, da die Anmeldeinformationen fehlen oder ungültig sind.|
 | 401015| „Die angegebenen Anmeldeinformationen gelten für die SAPI. Diese Anforderung erfordert Anmeldeinformationen für die Text-API. Verwenden Sie ein Abonnement für die Textübersetzungs-API.“|
 | 403000| Der Vorgang ist nicht zulässig.|
 | 403001| Der Vorgang ist nicht zulässig, da das kostenlose Kontingent für das Abonnement überschritten wurde.|
 | 405000| Die Anforderungsmethode wird für die angeforderte Ressource nicht unterstützt.|
-| 408001| Das angeforderte benutzerdefinierte Übersetzungssystem ist noch nicht verfügbar. Versuchen Sie es in einigen Minuten erneut.|
+| 408001| Das angeforderte Übersetzungssystem wird vorbereitet. Versuchen Sie es in einigen Minuten erneut.|
+| 408002| Anforderungstimeout beim Warten auf den eingehenden Datenstrom. Der Client hat innerhalb des Zeitraums, in dem der Server vorbereitet war, zu warten, keine Anforderung erzeugt. Der Client kann die Anforderung ohne Änderungen zu einem späteren Zeitpunkt wiederholen.|
 | 415000| Der Content-Type-Header fehlt oder ist ungültig.|
-| 429000, 429001, 429002| Der Server hat die Anforderung abgelehnt, da der Client zu viele Anforderungen sendet. Reduzieren Sie die Häufigkeit der Anforderungen, um eine Drosselung zu vermeiden.|
+| 429000, 429001, 429002| Der Server hat die Anforderung abgelehnt, da der Client die Anforderungsgrenzwerte überschritten hat.|
 | 500000| Ein unerwarteter Fehler ist aufgetreten. Wenn der Fehler weiterhin besteht, melden Sie ihn, und geben Sie dabei Folgendes an: Datum und Zeitpunkt des Fehlers, Anforderungsbezeichner aus dem Antwortheader X-RequestId und Clientbezeichner aus dem Anforderungsheader X-ClientTraceId.|
 | 503000| Service is temporarily unavailable. (Der Dienst ist vorübergehend nicht verfügbar.) Versuchen Sie es erneut. Wenn der Fehler weiterhin besteht, melden Sie ihn, und geben Sie dabei Folgendes an: Datum und Zeitpunkt des Fehlers, Anforderungsbezeichner aus dem Antwortheader X-RequestId und Clientbezeichner aus dem Anforderungsheader X-ClientTraceId.|
 

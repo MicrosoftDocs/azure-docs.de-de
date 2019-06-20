@@ -2,24 +2,17 @@
 title: Azure Marketplace- und AppSource-Beratungsdienste
 description: Dieser Artikel beschreibt die Eignungskriterien und Veröffentlichungsbedingungen für neue Beratungsdienstangebote im Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078758"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964112"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Beratungsdienste für Azure Marketplace und AppSource
 Mit Beratungsdiensten in Azure Marketplace und AppSource können Microsoft-Partner eine Verbindung zwischen Kunden und Diensten herstellen, um die Nutzung von Azure zu unterstützen und auszuweiten und den Kunden beim Erreichen ihrer Unternehmensziele zu helfen. 
@@ -48,7 +41,7 @@ Die auf Microsoft Dynamics 365, Office 365 und Power BI basierenden Dienstangebo
 > [!TIP]
 > Zur Veröffentlichung in der digitalen Azure Marketplace-Ladenzeile wählen Sie im Cloud-Partnerportal im Dropdownmenü „Primäres Produkt“ die Option „Azure“ aus. Zur Veröffentlichung auf AppSource wählen Sie im Cloud-Partnerportal im Dropdownmenü „Primäres Produkt“ entweder „Dynamics 365“, „Power BI“ oder „Power Apps“.
 
-## <a name="eligible-partners-and-supported-countries"></a>Geeignete Partner und unterstützte Länder
+## <a name="eligible-partners-and-supported-countriesregions"></a>Geeignete Partner und unterstützte Länder/Regionen
 
 Partner müssen über eine **Silver- oder Gold-Kompetenz** im entsprechenden Bereich für ihren Dienst verfügen. 
 
@@ -74,9 +67,9 @@ Partner müssen über eine **Silver- oder Gold-Kompetenz** im entsprechenden Ber
 <b> Weitere Informationen finden Sie unter [Kompetenzen über das Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**SI-Partner können Beratungsdienstangebote für die folgenden 18 Länder übermitteln.**
+**SI-Partner können Beratungsdienstangebote für die folgenden 18 Länder/Regionen übermitteln.**
 
-|Qualifizierte Länder |   |   |   |
+|Qualifizierte Länder/Regionen |   |   |   |
 |---------|----------|----------|----------|
 |Australien |Frankreich  |     Mexiko          |Spanien       |
 |Belgien   |Deutschland |     Niederlande     |Schweden       |
@@ -84,10 +77,10 @@ Partner müssen über eine **Silver- oder Gold-Kompetenz** im entsprechenden Ber
 |Dänemark   |Italien   |     Norwegen          |USA |
 |Finnland   |Japan   |     Polen          
 
-Der Start von Beratungsdiensten wird in bestimmten geografischen Region live geschaltet. Der erste Start findet statt in: USA, Kanada, Großbritannien und Australien. Die Kataloge für andere Länder werden online verfügbar sein, sobald eine bedeutende Anzahl und überzeugende Auswahl von Dienstangeboten von Partnern übermittelt und von Microsoft genehmigt wurden.
+Der Start von Beratungsdiensten wird in bestimmten geografischen Region live geschaltet. Der erste Start findet statt in: USA, Kanada, Großbritannien und Australien. Die Kataloge für andere Länder/Regionen werden online verfügbar sein, sobald eine bedeutende Anzahl und überzeugende Auswahl von Dienstangeboten von Partnern übermittelt und von Microsoft genehmigt wurden.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Registrieren für Beratungsdienste in Azure Marketplace und AppSource
-[Registrieren](https://azuremarketplace.microsoft.com/sell/signup) Sie zunächst ihre Unternehmensinformationen in Azure Marketplace. Unter [Ihr Weg zum Herausgeber im Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) finden Herausgeber eine vollständige Prüfliste der Registrierungsanforderungen. 
+[Registrieren](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) Sie zunächst ihre Unternehmensinformationen in Azure Marketplace. Unter [Ihr Weg zum Herausgeber im Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) finden Herausgeber eine vollständige Prüfliste der Registrierungsanforderungen. 
 
 **Was erwartet Sie nach der Registrierung?** Das Onboardingteam sendet Ihnen innerhalb von 1 bis 3 Arbeitstagen eine Willkommens-E-Mail mit Ihren Anmeldeinformationen für das Cloud-Partnerportal (CPP). Das [Cloud-Partnerportal](https://cloudpartner.azure.com) ist das Portal für die Angebotsauflistung, über das Herausgeber Auflistungsinformationen und Einreichungen übermitteln. 
 
@@ -124,7 +117,7 @@ Die folgenden Schritte sind erforderlich, um Ihr Beratungsdienstangebot in Azure
 3. **Übermittlung:** Geben Sie die erforderlichen Informationen ein, wie in den Anweisungen aufgeführt. Alle Inhalte und Begleitmaterialien müssen in englischer Sprache übermittelt werden. 
 4. **Überprüfung:** Unser Marketing- und Redaktionsteam überprüft die von Ihnen übermittelten Angaben und optimiert diese, um deren Lesbarkeit, Grammatik und Effizienz zu verbessern. 
 5. **Staging:** Ihre übermittelten Angaben werden für Sie zur Durchsicht bereitgestellt. 
-6. **Veröffentlichung:** Wenn Sie und Microsoft mit dem bereitgestellten Inhalt zufrieden sind, kann Ihr Listing in Marketplace online geschaltet werden. Das Datum, an dem das Listing live geschaltet wird, hängt von dem Land ab, das in Ihrem Angebot angegeben wurde. Wenn der Katalog für das ausgewählte Land bereits in Azure Marketplace oder AppSource aktiv ist, wird Ihr Listing innerhalb weniger Stunden angezeigt. Andernfalls wird das Listing erst angezeigt, wenn der Katalog live geschaltet wird.
+6. **Veröffentlichung:** Wenn Sie und Microsoft mit dem bereitgestellten Inhalt zufrieden sind, kann Ihr Listing in Marketplace online geschaltet werden. Das Datum, an dem das Listing live geschaltet wird, hängt von dem Land bzw. der Region ab, das/die in Ihrem Angebot angegeben wurde. Wenn der Katalog für das ausgewählte Land bzw. die ausgewählte Region bereits in Azure Marketplace oder AppSource aktiv ist, wird Ihr Listing innerhalb weniger Stunden angezeigt. Andernfalls wird das Listing erst angezeigt, wenn der Katalog live geschaltet wird.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Kriterien für Angebotslisten und Überprüfung des Inhalts
 Angebote müssen von einem der folgenden fünf Diensttypen sein (Sie können mehr als einen auflisten): 

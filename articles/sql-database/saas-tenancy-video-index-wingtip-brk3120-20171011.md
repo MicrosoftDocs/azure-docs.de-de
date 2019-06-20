@@ -13,11 +13,11 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61486949"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Indiziertes und kommentiertes Video für mehrinstanzenfähige SaaS-App mit Azure SQL-Datenbank
 

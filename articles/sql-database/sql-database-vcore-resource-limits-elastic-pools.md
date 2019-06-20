@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/22/2019
-ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/23/2019
+ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507940"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240351"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Ressourcenlimits für Pools für elastische Datenbanken, die das vCore-basierte Kaufmodell verwenden
 
@@ -44,6 +44,7 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Hardwaregeneration|4|4|4|4|4|4|
 |V-Kerne|1|2|3|4|5|6|
 |Arbeitsspeicher (GB)|7|14|21|28|35|42|
+|Max. Anzahl Datenbanken pro Pool|100|200|500|500|500|500|
 |Columnstore-Unterstützung|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-Memory-OLTP-Speicher (GB)|–|–|–|–|–|–|
 |Maximale Datengröße (GB)|512|756|756|1536|1536|1536|
@@ -56,7 +57,6 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Max. gleichzeitige Worker pro Pool (Anforderungen) * |210|420|630|840|1050|1260|
 |Max. gleichzeitige Anmeldungen pro Pool * |210|420|630|840|1050|1260|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|
-|Max. Anzahl Datenbanken pro Pool|100|200|300|500|500|500|
 |Min/Max. V-Kern-Auswahl pro Datenbank für Pools für elastische Datenbanken|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
 |Anzahl von Replikaten|1|1|1|1|1|1|
 |Multi-AZ|–|–|–|–|–|–|
@@ -72,6 +72,7 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Hardwaregeneration|4|4|4|4|4|4|
 |V-Kerne|7|8|9|10|16|24|
 |Arbeitsspeicher (GB)|49|56|63|70|112|168|
+|Max. Anzahl Datenbanken pro Pool|500|500|500|500|500|500|
 |Columnstore-Unterstützung|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-Memory-OLTP-Speicher (GB)|–|–|–|–|–|–|
 |Maximale Datengröße (GB)|1536|2048|2048|2048|3.584|4096|
@@ -84,7 +85,6 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Max. gleichzeitige Worker pro Pool (Anforderungen) *|1470|1680|1890|2100|3360|5.040|
 |Max. gleichzeitige Anmeldungen (Anforderungen) *|1470|1680|1890|2100|3360|5.040|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|
-|Max. Anzahl Datenbanken pro Pool|200|500|500|500|500|500|
 |Min/Max. V-Kern-Auswahl pro Datenbank für Pools für elastische Datenbanken|0, 0,25, 0,5, 1...7|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...9|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...10, 16|0, 0,25, 0,5, 1...10, 16, 24|
 |Anzahl von Replikaten|1|1|1|1|1|1|
 |Multi-AZ|–|–|–|–|–|–|
@@ -100,6 +100,7 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Hardwaregeneration|5|5|5|5|5|5|5|
 |V-Kerne|2|4|6|8|10|12|14|
 |Arbeitsspeicher (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Max. Anzahl Datenbanken pro Pool|100|200|500|500|500|500|500|
 |Columnstore-Unterstützung|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-Memory-OLTP-Speicher (GB)|–|–|–|–|–|–|–|
 |Maximale Datengröße (GB)|512|756|756|1536|1536|1536|
@@ -112,7 +113,6 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Max. gleichzeitige Worker pro Pool (Anforderungen) *|210|420|630|840|1050|1260|1470|
 |Max. gleichzeitige Anmeldungen pro Pool (Anforderungen) *|210|420|630|840|1050|1260|1470|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|30000|
-|Max. Anzahl Datenbanken pro Pool|200|500|500|500|500|500|500|
 |Min/Max. V-Kern-Auswahl pro Datenbank für Pools für elastische Datenbanken|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
 |Anzahl von Replikaten|1|1|1|1|1|1|1|
 |Multi-AZ|–|–|–|–|–|–|–|
@@ -128,6 +128,7 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Hardwaregeneration|5|5|5|5|5|5|5|
 |V-Kerne|16|18|20|24|32|40|80|
 |Arbeitsspeicher (GB)|81,6|91,8|102|122,4|163,2|204|408|
+|Max. Anzahl Datenbanken pro Pool|500|500|500|500|500|500|500|
 |Columnstore-Unterstützung|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-Memory-OLTP-Speicher (GB)|–|–|–|–|–|–|–|
 |Maximale Datengröße (GB)|2048|2048|3072|3072|4096|4096|4096|
@@ -139,7 +140,6 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Grenzwerte für die Protokollrate (MB/s)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
 |Max. gleichzeitige Worker pro Pool (Anforderungen) *|1680|1890|2100|2.520|33600|4.200|8.400|
 |Max. gleichzeitige Anmeldungen pro Pool (Anforderungen) *|1680|1890|2100|2.520|33600|4.200|8.400|
-|Max. Anzahl Datenbanken pro Pool|500|500|500|500|500|500|500|
 |Min/Max. V-Kern-Auswahl pro Datenbank für Pools für elastische Datenbanken|0, 0,25, 0,5, 1...16|0, 0,25, 0,5, 1...18|0, 0,25, 0,5, 1...20|0, 0,25, 0,5, 1...20, 24|0, 0,25, 0,5, 1...20, 24, 32|0, 0,25, 0,5, 1...16, 24, 32, 40|0, 0,25, 0,5, 1...16, 24, 32, 40, 80|
 |Anzahl von Replikaten|1|1|1|1|1|1|1|
 |Multi-AZ|–|–|–|–|–|–|–|
@@ -157,6 +157,7 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Hardwaregeneration|4|4|4|4|4|4|
 |V-Kerne|1|2|3|4|5|6|
 |Arbeitsspeicher (GB)|7|14|21|28|35|42|
+|Max. Anzahl Datenbanken pro Pool|Nur einzelne Datenbanken werden für diese Computegröße unterstützt|50|100|100|100|100|
 |Columnstore-Unterstützung|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-Memory-OLTP-Speicher (GB)|1|2|3|4|5|6|
 |Speichertyp|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
@@ -169,7 +170,6 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Max. gleichzeitige Worker pro Pool (Anforderungen) *|210|420|630|840|1050|1260|
 |Max. gleichzeitige Anmeldungen pro Pool (Anforderungen) *|210|420|630|840|1050|1260|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|
-|Max. Anzahl Datenbanken pro Pool|Nur einzelne Datenbanken werden für diese Computegröße unterstützt|50|100|100|100|100|
 |Min/Max. V-Kern-Auswahl pro Datenbank für Pools für elastische Datenbanken|–|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
 |Anzahl von Replikaten|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -185,6 +185,7 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Hardwaregeneration|4|4|4|4|4|4|
 |V-Kerne|7|8|9|10|16|24|
 |Arbeitsspeicher (GB)|81,6|91,8|102|122,4|163,2|204|
+|Max. Anzahl Datenbanken pro Pool|100|100|100|100|100|100|
 |Columnstore-Unterstützung|–|–|–|–|–|–|
 |In-Memory-OLTP-Speicher (GB)|7|8|9,5|11|20|36|
 |Speichertyp|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
@@ -197,7 +198,6 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Max. gleichzeitige Worker pro Pool (Anforderungen) *|1470|1680|1890|2100|3360|5.040|
 |Max. gleichzeitige Anmeldungen pro Pool (Anforderungen) *|1470|1680|1890|2100|3360|5.040|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|
-|Max. Anzahl Datenbanken pro Pool|100|100|100|100|100|100|
 |Min/Max. V-Kern-Auswahl pro Datenbank für Pools für elastische Datenbanken|0, 0,25, 0,5, 1...7|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...9|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...10, 16|0, 0,25, 0,5, 1...10, 16, 24|
 |Anzahl von Replikaten|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -213,6 +213,7 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Hardwaregeneration|5|5|5|5|5|5|5|
 |V-Kerne|2|4|6|8|10|12|14|
 |Arbeitsspeicher (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
+|Max. Anzahl Datenbanken pro Pool|Nur einzelne Datenbanken werden für diese Computegröße unterstützt|50|100|100|100|100|100|
 |Columnstore-Unterstützung|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-Memory-OLTP-Speicher (GB)|1,571|3,142|4,713|6,284|8,655|11,026|13,397|
 |Maximale Datengröße (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -225,7 +226,6 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Max. gleichzeitige Worker pro Pool (Anforderungen) *|210|420|630|840|1050|1260|1470|
 |Max. gleichzeitige Anmeldungen pro Pool (Anforderungen) *|210|420|630|840|1050|1260|1470|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|30000|
-|Max. Anzahl Datenbanken pro Pool|Nur einzelne Datenbanken werden für diese Computegröße unterstützt|50|100|100|100|100|100|
 |Min/Max. V-Kern-Auswahl pro Datenbank für Pools für elastische Datenbanken|–|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
 |Anzahl von Replikaten|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -241,6 +241,7 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Hardwaregeneration|5|5|5|5|5|5|5|
 |V-Kerne|16|18|20|24|32|40|80|
 |Arbeitsspeicher (GB)|81,6|91,8|102|122,4|163,2|204|408|
+|Max. Anzahl Datenbanken pro Pool|100|100|100|100|100|100|100|
 |Columnstore-Unterstützung|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-Memory-OLTP-Speicher (GB)|15,768|18,139|20,51|25,252|37,936|52,22|131,64|
 |Maximale Datengröße (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -253,7 +254,6 @@ Sie können im [Azure-Portal](sql-database-elastic-pool-manage.md#azure-portal-m
 |Max. gleichzeitige Worker pro Pool (Anforderungen) *|1680|1890|2100|2.520|3360|4.200|8.400|
 |Max. gleichzeitige Anmeldungen pro Pool (Anforderungen) *|1680|1890|2100|2.520|3360|4.200|8.400|
 |Maximal zulässige Sitzungen|30000|30000|30000|30000|30000|30000|30000|
-|Max. Anzahl Datenbanken pro Pool|100|100|100|100|100|100|100|
 |Min/Max. V-Kern-Auswahl pro Datenbank für Pools für elastische Datenbanken|0, 0,25, 0,5, 1...16|0, 0,25, 0,5, 1...18|0, 0,25, 0,5, 1...20|0, 0,25, 0,5, 1...20, 24|0, 0,25, 0,5, 1...20, 24, 32|0, 0,25, 0,5, 1...20, 24, 32, 40|0, 0,25, 0,5, 1...20, 24, 32, 40, 80|
 |Anzahl von Replikaten|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|

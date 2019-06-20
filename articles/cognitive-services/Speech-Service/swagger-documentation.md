@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
-ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580987"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743207"
 ---
 # <a name="swagger-documentation"></a>Swagger-Dokumentation
 

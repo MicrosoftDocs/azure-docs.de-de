@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884799"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61336965"
 ---
 # <a name="json-search-syntax"></a>JSON-Suchsyntax
 
@@ -33,7 +33,7 @@ ms.locfileid: "55884799"
 }
 ```
 
-Die Knotennamen in einem Abfragepfad (_v0, v1, ..._) dienen als Knotennamen, die im Abfrageobjekt referenziert werden können; die Edgenamen (_e0, e1, ..._) im Pfad repräsentieren die entsprechenden Edgetypen. Wir können ein Sternchen _*_ als Knoten- oder Edgenamen verwenden (außer für den Startknoten, der angegeben werden muss), um zu erklären, dass es keine Einschränkungen für ein solches Element gibt. Beispielsweise ruft ein Abfragepfad `/v0/*/v1/e1/*/` Pfade aus dem Diagramm ab, ohne den Edgetypen _(v0, v1)_ einzuschränken. Die Abfrage hat auch keine Einschränkungen für das Ziel (den letzten Knoten) des Pfades.
+Die Knotennamen in einem Abfragepfad (_v0, v1, ..._ ) dienen als Knotennamen, die im Abfrageobjekt referenziert werden können; die Edgenamen (_e0, e1, ..._ ) im Pfad repräsentieren die entsprechenden Edgetypen. Wir können ein Sternchen _*_ als Knoten- oder Edgenamen verwenden (außer für den Startknoten, der angegeben werden muss), um zu erklären, dass es keine Einschränkungen für ein solches Element gibt. Beispielsweise ruft ein Abfragepfad `/v0/*/v1/e1/*/` Pfade aus dem Diagramm ab, ohne den Edgetypen _(v0, v1)_ einzuschränken. Die Abfrage hat auch keine Einschränkungen für das Ziel (den letzten Knoten) des Pfades.
 
 Wenn ein Pfad nur einen Knoten enthält, z.B. _v0_, gibt die Abfrage einfach alle Entitäten zurück, die die Einschränkungen erfüllen. Ein auf den Startknoten angewandtes Einschränkungsobjekt heißt *Starting Query Object*, dessen Spezifikation wie folgt lautet.
 

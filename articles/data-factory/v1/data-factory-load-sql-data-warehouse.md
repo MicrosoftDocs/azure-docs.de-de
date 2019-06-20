@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077019"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60825283"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Laden von 1 TB in Azure SQL Data Warehouse in weniger als 15 Minuten mit Data Factory
 > [!NOTE]
@@ -70,11 +70,11 @@ Dieser Artikel enthält Schrittweise Anleitungen zum Verschieben von Daten in Az
 
     ![Schieberegler „Performance“ (Leistung)](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
-    Bei einer vorhandenen Datenbank, die nicht mit 6.000 DWUs konfiguriert wurde, können Sie mithilfe des Azure-Portals eine Hochskalierung durchführen.  Navigieren Sie zu der Datenbank in Azure-Portal. Dort gibt es eine Schaltfläche **Scale (Skalieren)** im Bereich **Overview (Übersicht)**, wie in der folgenden Abbildung gezeigt:
+    Bei einer vorhandenen Datenbank, die nicht mit 6.000 DWUs konfiguriert wurde, können Sie mithilfe des Azure-Portals eine Hochskalierung durchführen.  Navigieren Sie zu der Datenbank in Azure-Portal. Dort gibt es eine Schaltfläche **Scale (Skalieren)** im Bereich **Overview (Übersicht)** , wie in der folgenden Abbildung gezeigt:
 
     ![Schaltfläche „Skalieren“](media/data-factory-load-sql-data-warehouse/scale-button.png)    
 
-    Klicken Sie auf die Schaltfläche **Scale** um den folgenden Bereich zu öffnen, bewegen Sie den Schieberegler auf den Höchstwert, und klicken Sie auf die Schaltfläche **Save (Speichern)**.
+    Klicken Sie auf die Schaltfläche **Scale** um den folgenden Bereich zu öffnen, bewegen Sie den Schieberegler auf den Höchstwert, und klicken Sie auf die Schaltfläche **Save (Speichern)** .
 
     ![Scale-Dialogfeld](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 

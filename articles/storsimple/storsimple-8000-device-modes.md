@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: dd160ede1189b0de544c8cf5db3b13228d212419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108538"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60576088"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Ändern des Gerätemodus auf Ihrem StorSimple-Gerät
 

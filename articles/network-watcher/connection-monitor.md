@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715818"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233888"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Überwachen der Netzwerkkommunikation zwischen zwei virtuellen Computern über das Azure-Portal
 
@@ -77,7 +77,7 @@ Führen Sie die Schritte in [Erstellen des ersten virtuellen Computers](#create-
 | 3 | NAME                                  | myVm2                                                                   |
 | 3 | Authentifizierungsart                   | Fügen Sie Ihren öffentlichen SSH-Schlüssel ein, oder wählen Sie **Kennwort** aus, und geben Sie ein Kennwort ein. |
 | 3 | Ressourcengruppe                        | Wählen Sie **Vorhandene verwenden** und dann **myResourceGroup** aus.                 |
-| 6 | Erweiterungen                            | **Netzwerk-Agent für Linux**                                             |
+| 6 | Erweiterungen                            | **Network Watcher-Agent für Linux**                                             |
 
 Die Bereitstellung des virtuellen Computers dauert einige Minuten. Warten Sie, bis die Bereitstellung des virtuellen Computers abgeschlossen ist, bevor Sie mit den weiteren Schritten fortfahren.
 

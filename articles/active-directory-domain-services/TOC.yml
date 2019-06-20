@@ -1,147 +1,133 @@
 - name: Dokumentation zu Azure AD Domain Services
   href: index.yml
 - name: Übersicht
+  expanded: true
   items:
     - name: Was ist Azure AD Domain Services?
-      href: active-directory-ds-overview.md
-    - name: Häufig gestellte Fragen
-      href: active-directory-ds-faqs.md
-    - name: Ist der Dienst für Sie geeignet?
-      items:
-        - name: Vergleichen mit Windows Server AD
-          href: active-directory-ds-comparison.md
-        - name: Vergleichen mit Azure AD Join
-          href: active-directory-ds-compare-with-azure-ad-join.md
-    - name: Neuerungen
-      href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
+      href: overview.md
+    - name: Vergleichen mit Windows Server AD
+      href: comparison.md
+    - name: Vergleichen mit Azure AD Join
+      href: active-directory-ds-compare-with-azure-ad-join.md
     - name: Features
       href: active-directory-ds-features.md
-    - name: Szenarien
-      href: active-directory-ds-scenarios.md
-    - name: Funktionsweise der Synchronisierung
-      href: active-directory-ds-synchronization.md
-    - name: Kompatible Drittanbietersoftware
-      href: active-directory-ds-compatible-software.md
-- name: Erste Schritte
+- name: Beispiele
   items:
-    - name: 'Aufgabe 1: Grundeinstellungen konfigurieren'
-      href: active-directory-ds-getting-started.md
-    - name: 'Aufgabe 2: Konfigurieren der Netzwerkeinstellungen'
-      href: active-directory-ds-getting-started-network.md
-    - name: 'Aufgabe 3: Konfigurieren der Administratorgruppe und Aktivieren von Azure AD Domain Services'
-      href: active-directory-ds-getting-started-admingroup.md
-    - name: 'Aufgabe 4: Aktualisieren der DNS-Einstellungen für das virtuelle Netzwerk'
-      href: active-directory-ds-getting-started-dns.md
-    - name: 'Aufgabe 5: Aktivieren der Kennworthashsynchronisierung'
-      href: active-directory-ds-getting-started-password-sync.md
+    - name: "Erstellen einer Azure AD\_DS-Instanz mit Azure PowerShell"
+      href: powershell-create-instance.md
+- name: Konzepte
+  items:
+    - name: Funktionsweise der Synchronisierung
+      href: synchronization.md
 - name: Anleitung
   items:
-    - name: Überprüfen der Integrität einer verwalteten Domäne
-      href: active-directory-ds-check-health.md
-    - name: Verwenden von Azure AD Domain Services in Azure CSP-Abonnements
-      href: active-directory-ds-csp.md
-    - name: Aktivieren von Azure AD Domain Services mit PowerShell
-      href: active-directory-ds-enable-using-powershell.md
-    - name: Konfigurieren der bereichsbezogenen Synchronisierung von Azure AD mit einer verwalteten Domäne
-      href: active-directory-ds-scoped-synchronization.md
-    - name: Schützen Ihrer verwalteten Domäne
-      href: active-directory-ds-secure-your-domain.md
-    - name: Erstellen einer Organisationseinheit für eine verwaltete Domäne
-      href: active-directory-ds-admin-guide-create-ou.md
-    - name: Erstellen eines gruppenverwalteten Dienstkontos in einer verwalteten Domäne
-      href: active-directory-ds-create-gmsa.md
-    - name: Verwalten von Gruppenrichtlinien für eine verwaltete Domäne
-      href: active-directory-ds-admin-guide-administer-group-policy.md
-    - name: Konfigurieren von Kennwortrichtlinien für eine verwaltete Domäne
-      href: active-directory-ds-password-policy.md
-    - name: Auswählen eines virtuellen Netzwerks
-      href: active-directory-ds-networking.md
-    - name: Bereitstellen von Anwendungen
+    - name: Erstellen einer Azure AD DS-Instanz
+      items:
+        - name: 'Aufgabe 1: Konfigurieren der Grundeinstellungen'
+          href: create-instance.md
+        - name: 'Aufgabe 2: Konfigurieren der Netzwerkeinstellungen'
+          href: active-directory-ds-getting-started-network.md
+        - name: 'Aufgabe 3: Konfigurieren der Administratorgruppe und Aktivieren von Azure AD Domain Services'
+          href: active-directory-ds-getting-started-admingroup.md
+        - name: 'Aufgabe 4: Aktualisieren der DNS-Einstellungen für das virtuelle Netzwerk'
+          href: active-directory-ds-getting-started-dns.md
+        - name: 'Aufgabe 5: Aktivieren der Kennworthashsynchronisierung'
+          href: active-directory-ds-getting-started-password-sync.md
+    - name: Planen für Azure AD DS
+      items:
+        - name: Szenarien
+          href: scenarios.md
+        - name: Auswählen eines virtuellen Netzwerks
+          href: network-considerations.md
+    - name: Verwalten von Azure AD DS
+      items:
+        - name: Überprüfen der Integrität einer verwalteten Domäne
+          href: check-health.md
+        - name: Konfigurieren der bereichsbezogenen Synchronisierung von Azure AD mit einer verwalteten Domäne
+          href: scoped-synchronization.md
+        - name: Schützen Ihrer verwalteten Domäne
+          href: secure-your-domain.md
+        - name: Erstellen einer Organisationseinheit für eine verwaltete Domäne
+          href: create-ou.md
+        - name: Erstellen eines gruppenverwalteten Dienstkontos in einer verwalteten Domäne
+          href: create-gmsa.md
+        - name: Verwalten von Gruppenrichtlinien für Azure AD Domain Services
+          href: manage-group-policy.md
+        - name: Konfigurieren von Kennwortrichtlinien für eine verwaltete Domäne
+          href: password-policy.md
+        - name: Löschen einer verwalteten Domäne
+          href: delete-aadds.md
+        - name: Erstellen eines virtuellen Azure AD DS-Verwaltungscomputers
+          href: manage-domain.md
+        - name: Verwalten von DNS für Azure AD Domain Services
+          href: manage-dns.md
+        - name: Aktualisieren von E-Mail-Benachrichtigungen
+          href: notifications.md
+        - name: Konfigurieren von sicherem LDAP (LDAPS) in einer Azure AD Domain Services-Domäne
+          href: configure-ldaps.md
+          items:
+            - name: 'Aufgabe 2: Exportieren des Zertifikats für Secure LDAP'
+              href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
+            - name: 'Aufgabe 3: Aktivieren von Secure LDAP für die verwaltete Domäne über das Azure-Portal'
+              href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
+            - name: 'Aufgabe 4: Konfigurieren von DNS für den Zugriff auf die verwaltete Domäne über das Internet'
+              href: active-directory-ds-ldaps-configure-dns.md
+            - name: 'Aufgabe 5: Binden an die verwaltete Domäne und Sperren des Secure LDAP-Zugriffs'
+              href: active-directory-ds-ldaps-bind-lockdown.md
+    - name: Bereitstellen von Anwendungen in Azure AD DS
       items:
         - name: Konfigurieren der Unterstützung für die Profilsynchronisierung für SharePoint Server
-          href: active-directory-ds-enable-sharepoint-profile-sync.md
+          href: deploy-sp-profile-sync.md
         - name: Konfigurieren der eingeschränkten Kerberos-Delegierung
-          href: active-directory-ds-enable-kcd.md
+          href: deploy-kcd.md
         - name: Bereitstellen eines Azure AD-Anwendungsproxys
-          href: active-directory-ds-deploy-azure-app-proxy.md
-    - name: Löschen einer verwalteten Domäne
-      href: active-directory-ds-disable-aadds.md
-- name: Beitreten zu einer verwalteten Domäne
-  items:
-    - name: Virtueller Windows Server-Computer
-      href: active-directory-ds-admin-guide-join-windows-vm-portal.md
-    - name: Virtueller Windows Server-Computer aus einer Vorlage
-      href: active-directory-ds-join-windows-vm-template.md
-    - name: CentOS
-      href: active-directory-ds-join-centos-linux-vm.md
-    - name: CoreOS
-      href: active-directory-ds-join-coreos-linux-vm.md
-    - name: Red Hat Enterprise Linux
-      href: active-directory-ds-join-rhel-linux-vm.md
-    - name: Ubuntu Server
-      href: active-directory-ds-join-ubuntu-linux-vm.md
-- name: Verwalten einer verwalteten Domäne
-  items:
-    - name: Verwalten einer verwalteten Domäne
-      href: active-directory-ds-admin-guide-administer-domain.md
-    - name: Verwalten des DNS in einer verwalteten Domäne
-      href: active-directory-ds-admin-guide-administer-dns.md
-    - name: Aktualisieren von E-Mail-Benachrichtigungen
-      href: active-directory-ds-notifications.md
-- name: Konfigurieren von sicherem LDAP für eine verwaltete Domäne
-  items:
-    - name: 'Aufgabe 1: Erwerben eines Zertifikats für Secure LDAP'
-      href: active-directory-ds-admin-guide-configure-secure-ldap.md
-    - name: 'Aufgabe 2: Exportieren des Zertifikats für Secure LDAP'
-      href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-    - name: 'Aufgabe 3: Aktivieren von Secure LDAP für die verwaltete Domäne über das Azure-Portal'
-      href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-    - name: 'Aufgabe 4: Konfigurieren von DNS für den Zugriff auf die verwaltete Domäne über das Internet'
-      href: active-directory-ds-ldaps-configure-dns.md
-    - name: 'Aufgabe 5: Binden an die verwaltete Domäne und Sperren des Secure LDAP-Zugriffs'
-      href: active-directory-ds-ldaps-bind-lockdown.md
-    - name: Problembehandlung für Secure LDAP
-      href: active-directory-ds-ldaps-troubleshoot.md
-- name: Problembehandlung
-  items:
-    - name: Handbuch zur Problembehandlung
-      href: active-directory-ds-troubleshooting.md
-    - name: Problembehandlung für Warnungen
-      href: active-directory-ds-troubleshoot-alerts.md
+          href: deploy-azure-app-proxy.md
+    - name: Hinzufügen virtueller Computer zu Azure AD DS
       items:
-        - name: Korrigieren einer fehlerhaften NSG-Konfiguration
-          href: active-directory-ds-troubleshoot-nsg.md
-        - name: Wiederherstellen fehlender Dienstprinzipale
-          href: active-directory-ds-troubleshoot-service-principals.md
-        - name: Fehler im Zusammenhang mit Secure LDAP
-          href: active-directory-ds-troubleshoot-ldaps.md
-    - name: Beheben von Fehlern durch nicht übereinstimmende Mandanten
-      href: active-directory-ds-mismatched-tenant-error.md
-    - name: Angehaltene Domänen
-      href: active-directory-ds-suspension.md
-- name: Verweis
-  items:
-    - name: Codebeispiele
-      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
-- name: Verwandte Themen
-  items:
-    - name: Azure Active Directory
-      href: ../active-directory/fundamentals/active-directory-whatis.md
-    - name: Azure Active Directory B2C
-      href: ../active-directory-b2c/active-directory-b2c-overview.md
-    - name: Multi-Factor Authentication
-      href: ../active-directory/authentication/multi-factor-authentication.md
+        - name: Virtueller Windows Server-Computer
+          href: join-windows-vm.md
+        - name: Virtueller Windows Server-Computer aus einer Vorlage
+          href: join-windows-vm-template.md
+        - name: CentOS
+          href: join-centos-linux-vm.md
+        - name: CoreOS
+          href: join-coreos-linux-vm.md
+        - name: Red Hat Enterprise Linux
+          href: join-rhel-linux-vm.md
+        - name: Ubuntu Server
+          href: join-ubuntu-linux-vm.md
+    - name: Problembehandlung für Azure AD DS
+      items:
+        - name: Handbuch zur Problembehandlung
+          href: troubleshoot.md
+        - name: Problembehandlung für Warnungen
+          href: troubleshoot-alerts.md
+          items:
+            - name: Korrigieren einer fehlerhaften NSG-Konfiguration
+              href: alert-nsg.md
+            - name: Wiederherstellen fehlender Dienstprinzipale
+              href: alert-service-principal.md
+            - name: Fehler im Zusammenhang mit Secure LDAP
+              href: alert-ldaps.md
+        - name: Beheben von Fehlern durch nicht übereinstimmende Mandanten
+          href: mismatched-tenant-error.md
+        - name: Angehaltene Domänen
+          href: suspension.md
+        - name: Problembehandlung für Secure LDAP
+          href: tshoot-ldaps.md
 - name: Ressourcen
   items:
-    - name: Azure AD-Feedbackforum
-      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Azure-Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
-    - name: Kontakt
-      href: active-directory-ds-contact-us.md
-    - name: Preise
-      href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
-    - name: Preisrechner
-      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Häufig gestellte Fragen
+      href: faqs.md
     - name: Dienstupdates
       href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
+    - name: Kompatible Drittanbietersoftware
+      href: compatible-software.md
+    - name: Preise
+      href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
+    - name: Azure AD-Feedbackforum
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Kontakt
+      href: contact-us.md
+    - name: Verwenden von Azure AD Domain Services in Azure CSP-Abonnements
+      href: csp.md

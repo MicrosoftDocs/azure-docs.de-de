@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 856d03b1ecc1c7a3bd527eb265061f9a305d8f50
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5b7858793ec75d20bb367a6cf49b59fa9906ec9b
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315632"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396482"
 ---
 # <a name="about-migration"></a>Informationen zur Migration
 

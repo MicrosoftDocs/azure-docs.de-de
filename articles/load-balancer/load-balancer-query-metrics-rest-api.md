@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
 ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60734540"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Abrufen von Metriken zur Load Balancer-Nutzung über die REST-API
 
@@ -38,8 +38,8 @@ Die folgenden Header sind erforderlich:
 
 |Anforderungsheader|BESCHREIBUNG|  
 |--------------------|-----------------|  
-|*Inhaltstyp*:|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
-|*Autorisierung*:|Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |  
+|*Content-Type:*|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
+|*Authorization:*|Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |  
 
 ### <a name="uri-parameters"></a>URI-Parameter
 

@@ -14,11 +14,11 @@ ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272381"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60773807"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Gängige Szenarien für die Verwendung von Azure DevTest Labs
 Basierend auf den jeweiligen Anforderungen eines Unternehmens kann DevTest Labs so konfiguriert werden, dass die unterschiedlichen Bedürfnisse erfüllt werden.  In diesem Artikel werden die gängigen Szenarien beschrieben. In jedem Szenario geht es um die Vorteile, die sich durch die Verwendung von DevTest Labs und der entsprechenden Ressourcen zur Implementierung der Szenarien ergeben.  

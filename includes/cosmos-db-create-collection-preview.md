@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
@@ -8,36 +8,31 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: dech
 ms.custom: include file
-ms.openlocfilehash: c3cbfda674abaeea1adf35c3ee0d2b5ddf6b2f84
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 331886f01345aba576cd8f96f95077f9bbdae704
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853331"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754324"
 ---
-Sie können nun mithilfe des Daten-Explorer-Tools im Azure-Portal eine Datenbank und eine Sammlung erstellen. 
+Sie können nun mithilfe des Daten-Explorer-Tools im Azure-Portal eine Datenbank und einen Container erstellen. 
 
-1. Klicken Sie auf **Daten-Explorer** > **Neue Sammlung**. 
+1. Klicken Sie auf **Daten-Explorer** > **Neuer Container**. 
     
-    Der Bereich **Sammlung hinzufügen** wird ganz rechts angezeigt. Möglicherweise müssen Sie nach rechts scrollen, damit Sie ihn sehen.
+    Der Bereich **Container hinzufügen** wird ganz rechts angezeigt. Möglicherweise müssen Sie nach rechts scrollen, damit Sie ihn sehen.
 
-    ![Daten-Explorer im Azure-Portal, Blatt „Sammlung hinzufügen“](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection-preview.png)
+    ![Daten-Explorer im Azure-Portal, Blatt „Container hinzufügen“](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection-preview.png)
 
-2. Geben Sie auf der Seite **Sammlung hinzufügen** die Einstellungen für die neue Sammlung ein.
+2. Geben Sie auf der Seite **Container hinzufügen** die Einstellungen für den neuen Container ein.
 
-    Einstellung|Empfohlener Wert|BESCHREIBUNG
-    ---|---|---
-    Datenbank-ID|*Aufgaben*|Geben Sie *Tasks* als Namen für die neue Datenbank ein. Datenbanknamen müssen zwischen 1 und 255 Zeichen lang sein und dürfen weder /, \\, #, ? noch nachgestellte Leerzeichen enthalten.
-    Sammlungs-ID|*Elemente*|Geben Sie *Items* als Namen für die neue Sammlung ein. Für Sammlungs-IDs gelten dieselben Zeichenanforderungen wie für Datenbanknamen.
-    Bereitstellen des Datenbankdurchsatzes|Nicht ausfüllen|Azure Cosmos DB kann Durchsatz entweder auf Datenbankebene (alle Sammlungen in einer Datenbank haben den gleichen Durchsatz) oder auf Sammlungsebene bereitstellen. Lassen Sie die Einstellung leer, um für diese bestimmte Sammlung Durchsatz auf Sammlungsebene bereitzustellen.
-    Speicherkapazität|*Unbegrenzt*|Wählen Sie als Speicherkapazität **Unbegrenzt** aus. 
-    Partitionsschlüssel|*/category*|Geben Sie „/category“ als Partitionsschlüssel ein. Indem Sie einen Partitionsschlüssel festlegen, kann Azure Cosmos DB Ihre Sammlung skalieren, um die Speicher- und Durchsatzanforderungen Ihrer Anwendung zu erfüllen. Im Allgemeinen wird ein Partitionsschlüssel empfohlen, der eine Vielzahl unterschiedlicher Werte umfasst und eine gleichmäßige Verteilung des Speicher- und Anforderungsvolumens in Ihrer Workload bewirkt. [Weitere Informationen zur Partitionierung](../articles/cosmos-db/partitioning-overview.md)
-    Throughput|*400 RU/s*|Ändern Sie den Durchsatz in 400 Anforderungseinheiten pro Sekunde (RU/s). Sie können den Durchsatz später zentral hochskalieren, wenn Sie Wartezeiten reduzieren möchten. 
+    |Einstellung|Empfohlener Wert|BESCHREIBUNG
+    |---|---|---|
+    |**Datenbank-ID**|Aufgaben|Geben Sie *Tasks* als Namen für die neue Datenbank ein. Datenbanknamen müssen zwischen 1 und 255 Zeichen lang sein und dürfen weder /, \\, #, ? noch nachgestellte Leerzeichen enthalten. Aktivieren Sie die Option **Provision database throughput** (Datenbankdurchsatz bereitstellen). Diese Option ermöglicht es Ihnen, den für die Datenbank bereitgestellten Durchsatz auf alle Container in der Datenbank zu verteilen. Darüber hinaus hilft sie Ihnen dabei, Kosten zu sparen. |
+    |**Durchsatz**|400|Belassen Sie den Durchsatz bei 400 Anforderungseinheiten pro Sekunde (RU/s). Sie können den Durchsatz später zentral hochskalieren, wenn Sie Wartezeiten reduzieren möchten.| 
+    |**Container-ID**|Items|Geben Sie *Items* als Namen für den neuen Container ein. Für Container-IDs gelten dieselben Zeichenanforderungen wie für Datenbanknamen.|
+    |**Partitionsschlüssel**| /category| Das in diesem Artikel beschriebene Beispiel verwendet */category* als Partitionsschlüssel. Indem Sie einen Partitionsschlüssel festlegen, kann Azure Cosmos DB Ihre Sammlung skalieren, um die Speicher- und Durchsatzanforderungen Ihrer Anwendung zu erfüllen. Im Allgemeinen wird ein Partitionsschlüssel empfohlen, der eine Vielzahl unterschiedlicher Werte umfasst und eine gleichmäßige Verteilung des Speicher- und Anforderungsvolumens in Ihrer Workload bewirkt. [Weitere Informationen zur Partitionierung](../articles/cosmos-db/partitioning-overview.md)|
     
-    Zusätzlich zu den zuvor beschriebenen Einstellungen können Sie optional auch **eindeutige Schlüssel** für die Sammlung hinzufügen. In diesem Beispiel lassen wir das Feld leer. Eindeutige Schlüssel bieten Entwicklern die Möglichkeit, ihrer Datenbank eine zusätzliche Datenintegritätsebene hinzuzufügen. Durch das Erstellen einer Richtlinie für eindeutige Schlüssel beim Erstellen einer Sammlung wird die Eindeutigkeit von einem oder mehreren Werten pro Partitionsschlüssel gewährleistet. Weitere Informationen finden Sie im Artikel [Eindeutige Schlüssel in Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
+    Zusätzlich zu den zuvor beschriebenen Einstellungen können Sie optional auch **eindeutige Schlüssel** für den Container hinzufügen. In diesem Beispiel lassen wir das Feld leer. Eindeutige Schlüssel bieten Entwicklern die Möglichkeit, ihrer Datenbank eine zusätzliche Datenintegritätsebene hinzuzufügen. Durch das Erstellen einer Richtlinie für eindeutige Schlüssel beim Erstellen eines Containers wird die Eindeutigkeit von einem oder mehreren Werten pro Partitionsschlüssel gewährleistet. Weitere Informationen finden Sie im Artikel [Eindeutige Schlüssel in Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
     
-    Klicken Sie auf **OK**.
+    Klicken Sie auf **OK**. Im Daten-Explorer werden die neue Datenbank und der neue Container angezeigt.
 
-    Im Daten-Explorer werden die neue Datenbank und die neue Sammlung angezeigt.
-
-    ![Daten-Explorer mit der neuen Datenbank und der neuen Sammlung](./media/cosmos-db-create-collection/azure-cosmos-db-data-explorer-preview.png)

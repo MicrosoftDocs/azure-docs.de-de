@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661699"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60516772"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Verwalten von Ressourcenverbrauch und Auslastung in Service Fabric mit Metriken
 *Metriken* die Ressourcen, die für Ihre Dienste wichtig sind und die von den Knoten im Cluster bereitgestellt werden. Eine Metrik ist ein beliebiges Element, das Sie verwalten möchten, um die Leistung Ihrer Dienste zu verbessern oder zu steuern. Sie können beispielsweise den Arbeitsspeicherverbrauch überwachen, um festzustellen, ob Ihr Dienst überlastet ist. Eine weitere Verwendungsmöglichkeit: Sie können ermitteln, ob der Dienst an eine andere Position verschoben werden kann, bei der eine geringere Arbeitsspeicherauslastung gegeben ist, um die Leistung zu steigern.
@@ -144,7 +144,7 @@ Zur Erinnerung: Falls Sie nur die Standardmetriken verwenden möchten, müssen S
 Im Folgenden betrachten wir jede dieser Einstellungen eingehender und diskutieren das Verhalten, das von ihnen beeinflusst wird.
 
 ## <a name="load"></a>Laden
-Metriken werden definiert, um eine Auslastung darzustellen. Die *Auslastung* gibt an, welcher Anteil einer bestimmten Metrik von einer Dienstinstanz oder von einem Replikat auf einem bestimmten Knoten verbraucht wird. Die Auslastung kann an beinahe jedem Punkt konfiguriert werden. Beispiel: 
+Metriken werden definiert, um eine Auslastung darzustellen. Die *Auslastung* gibt an, welcher Anteil einer bestimmten Metrik von einer Dienstinstanz oder von einem Replikat auf einem bestimmten Knoten verbraucht wird. Die Auslastung kann an beinahe jedem Punkt konfiguriert werden. Beispiel:
 
   - Die Auslastung kann beim Erstellen eines Diensts definiert werden. Hierbei wird von der _Standardauslastung_ gesprochen.
   - Die Metrikinformationen für einen Dienst, einschließlich der Standardauslastungen, können nach dem Erstellen des Diensts aktualisiert werden. Dies wird als _Aktualisieren eines Diensts_ bezeichnet. 

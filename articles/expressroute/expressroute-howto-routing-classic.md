@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d1662d17f37e668e989103989df9de49036bab6a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045712"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726215"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Erstellen und Ändern des Peerings für eine ExpressRoute-Verbindung (klassisch)
 > [!div class="op_single_selector"]
@@ -188,12 +188,16 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 
 Dieser Abschnitt enthält Anweisungen zum Erstellen, Abrufen, Aktualisieren und Löschen der öffentlichen Azure-Peeringkonfiguration für eine ExpressRoute-Verbindung.
 
+> [!NOTE]
+> Öffentliches Azure-Peering gilt für neue Leitungen als veraltet.
+>
+
 ### <a name="to-create-azure-public-peering"></a>So erstellen Sie ein öffentliches Azure-Peering
 
 1. **Erstellen Sie eine ExpressRoute-Verbindung.**
 
    Führen Sie die Schritte zum Erstellen einer [ExpressRoute-Verbindung](expressroute-howto-circuit-classic.md) aus, und lassen Sie sie vom Konnektivitätsanbieter bereitstellen. Wenn Ihr Konnektivitätsanbieter verwaltete Layer 3-Dienste im Angebot hat, können Sie die Aktivierung für das private Azure-Peering anfordern. In diesem Fall müssen Sie die Anweisungen in den nächsten Abschnitten nicht befolgen. Falls Ihr Konnektivitätsanbieter das Routing für Sie nicht verwaltet, müssen Sie nach dem Erstellen der Verbindung die unten angegebenen Anweisungen befolgen.
-2. **Überprüfen der ExpressRoute-Verbindung, um sicherzustellen, dass sie bereitgestellt wurde**
+2. **Überprüfen Sie die ExpressRoute-Verbindung, um sicherzustellen, dass sie bereitgestellt wurde.**
 
    Sie müssen zuerst überprüfen, ob die ExpressRoute-Verbindung bereitgestellt (Provisioned) und aktiviert (Enabled) wurde.
 
@@ -220,7 +224,7 @@ Dieser Abschnitt enthält Anweisungen zum Erstellen, Abrufen, Aktualisieren und 
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **Konfigurieren des öffentlichen Azure-Peering für die Verbindung**
+4. **Konfigurieren Sie das öffentliche Azure-Peering für die Verbindung.**
    
    Stellen Sie vorab sicher, dass die folgenden Informationen vorliegen:
    
@@ -297,7 +301,7 @@ Dieser Abschnitt enthält Anweisungen zum Erstellen, Abrufen, Aktualisieren und 
 1. **Erstellen Sie eine ExpressRoute-Verbindung.**
   
    Führen Sie die Schritte zum Erstellen einer [ExpressRoute-Verbindung](expressroute-howto-circuit-classic.md) aus, und lassen Sie sie vom Konnektivitätsanbieter bereitstellen. Wenn Ihr Konnektivitätsanbieter verwaltete Layer 3-Dienste im Angebot hat, können Sie anfordern, dass der Anbieter für Sie das private Azure-Peering aktiviert. In diesem Fall müssen Sie die Anweisungen in den nächsten Abschnitten nicht befolgen. Falls Ihr Konnektivitätsanbieter das Routing für Sie nicht verwaltet, müssen Sie nach dem Erstellen der Verbindung die unten angegebenen Anweisungen befolgen.
-2. **Überprüfen der ExpressRoute-Verbindung, um sicherzustellen, dass sie bereitgestellt wurde**
+2. **Überprüfen Sie die ExpressRoute-Verbindung, um sicherzustellen, dass sie bereitgestellt wurde.**
 
    Vergewissern Sie sich, dass für die Verbindung „Provisioned“ und „Enabled“ angezeigt wird. 
    
@@ -324,7 +328,7 @@ Dieser Abschnitt enthält Anweisungen zum Erstellen, Abrufen, Aktualisieren und 
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **Konfigurieren des Microsoft-Peering für die Verbindung**
+3. **Konfigurieren Sie das Microsoft-Peering für die Verbindung.**
    
     Stellen Sie vorab sicher, dass die folgenden Informationen vorliegen:
    

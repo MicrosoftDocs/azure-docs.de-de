@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64939644"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Behandeln von Problemen mit Azure Data Box Disk
 
@@ -54,12 +54,12 @@ Um zum Pfad zum Kopieren der Protokolle zu navigieren, navigieren Sie zu dem Spe
 Verwenden Sie die Aktivitätsprotokolle zum Ermitteln eines Fehlers oder zum Nachverfolgen, welche Änderungen an einer Ressource ein Benutzer in Ihrer Organisation vorgenommen hat. Mithilfe von Aktivitätsprotokollen können Sie Folgendes ermitteln:
 
 - Welche Vorgänge in den Ressourcen in Ihrem Abonnement ausgeführt wurden.
-- Der Benutzer oder das System, von dem der Vorgang initiiert wurde. 
+- Der Benutzer oder das System, von dem der Vorgang initiiert wurde.
 - Wann der Vorgang ausgeführt wurde.
 - Der Status des Vorgangs.
 - Werte anderer Eigenschaften, mit denen Sie den Vorgang ggf. untersuchen können.
 
-Das Aktivitätsprotokoll enthält alle Schreibvorgänge (z.B. PUT, POST, DELETE) für Ihre Ressourcen, nicht aber die Lesevorgänge (z.B. GET). 
+Das Aktivitätsprotokoll enthält alle Schreibvorgänge (z.B. PUT, POST, DELETE) für Ihre Ressourcen, nicht aber die Lesevorgänge (z.B. GET).
 
 Aktivitätsprotokolle werden 90 Tage lang aufbewahrt. Sie können beliebige Datumsbereiche abfragen, das Startdatum darf jedoch maximal 90 Tage zurückliegen. Sie können auch mit einer der integrierten Abfragen in Insights filtern. Klicken Sie z.B. auf „Fehler“, und klicken Sie dann auf bestimmte Fehler, um die Grundursache zu verstehen.
 
@@ -79,7 +79,7 @@ Aktivitätsprotokolle werden 90 Tage lang aufbewahrt. Sie können beliebige Dat
 
 |Fehlermeldung/Warnungen  |Empfehlungen |
 |---------|---------|
-|[Info] Retrieving bitlocker password for volume: m <br>[Error] Exception caught while retrieving bitlocker key for volume m:<br> Sequence contains no elements. ([Information] BitLocker-Kennwort für folgendes Volume wird abgerufen: M.[Fehler] Ausnahme beim Abrufen des BitLocker-Schlüssels für das Volume M abgefangen:Die Sequenz enthält keine Elemente.)|Dieser Fehler tritt auf, wenn das Data Box Disk-Ziel offline ist. <br> Verwenden Sie das Tool `diskmgmt.msc`, um Datenträger online zu schalten.|
+|[Info] Retrieving BitLocker password for volume: m <br>[Error] Exception caught while retrieving BitLocker key for volume m:<br> Sequence contains no elements. ([Information] BitLocker-Kennwort für folgendes Volume wird abgerufen: M.[Fehler] Ausnahme beim Abrufen des BitLocker-Schlüssels für das Volume M abgefangen:Die Sequenz enthält keine Elemente.)|Dieser Fehler tritt auf, wenn das Data Box Disk-Ziel offline ist. <br> Verwenden Sie das Tool `diskmgmt.msc`, um Datenträger online zu schalten.|
 |[Error] Exception thrown: WMI operation failed:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=The format of the recovery password provided is invalid. <br>BitLocker recovery passwords are 48 digits. <br>Verify that the recovery password is in the correct format and then try again.([Fehler] Eine Ausnahme wurde ausgelöst: Fehler beim WMI-Vorgang: Methode: UnlockWithNumericalPassword, Rückgabewert: 2150694965, Win32-Meldung: Das Format des angegebenen Wiederherstellungskennworts ist ungültig. BitLocker-Wiederherstellungskennwörter müssen 48-stellig sein. Vergewissern Sie sich, dass das Wiederherstellungskennwort das richtige Format hat, und wiederholen Sie den Vorgang.)|Entsperren Sie die Datenträger zunächst mit dem Data Box Disk-Tool zum Entsperren, und führen Sie den Befehl anschließend erneut aus. Weitere Informationen finden Sie unter: <li> [Entsperren von Datenträgern auf Windows-Client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) </li><li> [Entsperren von Datenträgern auf Linux-Client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client) </li>|
 |[Error] Exception thrown: A DriveManifest.xml file exists on the target drive. <br> This indicates the target drive may have been prepared with a different journal file. <br>To add more data to the same drive, use the previous journal file. To delete existing data and reuse target drive for a new import job, delete the DriveManifest.xml on the drive. Rerun this command with a new journal file. ([Fehler] Eine Ausnahme wurde ausgelöst: Auf dem Ziellaufwerk befindet sich eine Datei vom Typ „DriveManifest.xml“. Das Ziellaufwerk wurde möglicherweise mit einer anderen Journaldatei vorbereitet. Wenn Sie dem gleichen Laufwerk weitere Daten hinzufügen möchten, verwenden Sie die vorherige Journaldatei. Wenn Sie die vorhandenen Daten löschen und das Ziellaufwerk für einen neuen Importauftrag verwenden möchten, löschen Sie die Datei „DriveManifest.xml“ auf dem Laufwerk, und führen Sie diesen Befehl mit einer neuen Journaldatei aus.)| Dieser Fehler tritt auf, wenn Sie versuchen, die gleiche Gruppe von Laufwerken für mehrere Importsitzungen zu verwenden. <br> Verwenden Sie pro Aufteilungs-/Kopiersitzung immer nur eine Gruppe von Laufwerken.|
 |[Error] Exception thrown: CopySessionId importdata-sept-test-1 refers to a previous copy session and cannot be reused for a new copy session. ([Fehler] Eine Ausnahme wurde ausgelöst: „CopySessionId importdata-sept-test-1“ bezieht sich auf eine vorherige Kopiersitzung und kann nicht für diese neue Kopiersitzung wiederverwendet werden.)|Dieser Fehler tritt auf, wenn Sie versuchen, den Auftragsnamen eines bereits erfolgreich abgeschlossenen Auftrags für einen neuen Auftrag zu verwenden.<br> Weisen Sie Ihrem neuen Auftrag einen eindeutigen Namen zu.|
@@ -96,7 +96,7 @@ In diesem Abschnitt werden einige der wichtigsten Probleme bei der Bereitstellun
 
 Dies kann auf ein fehlerhaftes Dateisystem zurückzuführen sein. 
 
-Das erneute Einbinden eines Laufwerks mit Lese-/Schreibzugriff funktioniert nicht mit Data Box Disk-Datenträgern. Dieses Szenario wird mit Laufwerken, die mit dislocker entschlüsselt werden, nicht unterstützt. Möglicherweise haben Sie das Gerät mithilfe des folgenden Befehls erfolgreich erneut eingebunden: 
+Das erneute Einbinden eines Laufwerks mit Lese-/Schreibzugriff funktioniert nicht mit Data Box Disk-Datenträgern. Dieses Szenario wird mit Laufwerken, die mit dislocker entschlüsselt werden, nicht unterstützt. Möglicherweise haben Sie das Gerät mithilfe des folgenden Befehls erfolgreich erneut eingebunden:
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ Das erneute Einbinden war zwar erfolgreich, die Daten werden jedoch nicht beibeh
 
 **Lösung**
 
-Wenn der oben angegebene Fehler angezeigt wird, können Sie eine der folgenden Lösungen ausprobieren:
+Führen Sie die folgenden Schritte auf Ihrem Linux-System durch:
 
-- Installieren Sie [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (verfügbar im Paket `ntfsprogs`), und führen Sie es für die entsprechende Partition aus.
+1. Installieren Sie das `ntfsprogs`-Paket für das Hilfsprogramm ntfsfix.
+2. Heben Sie die Einbindung der Bereitstellungspunkte für das Laufwerk mit dem Tool zum Entsperren auf. Die Anzahl der Bereitstellungspunkte variiert bei Laufwerken.
 
-- Bei Zugriff auf ein Windows-System
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - Laden Sie das Laufwerk in das Windows-System.
-    - Öffnen Sie eine Eingabeaufforderung mit Administratorberechtigungen. Führen Sie `chkdsk` auf dem Volume aus.
-    - Entfernen Sie das Volume sicher, und versuchen Sie es erneut.
+3. Führen Sie `ntfsfix` im entsprechenden Pfad aus. Die hervorgehobene Anzahl sollte mit Schritt 2 übereinstimmen.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. Führen Sie den folgenden Befehl aus, um die Metadaten für den Ruhezustand zu entfernen, die möglicherweise Ursache des Bereitstellungsproblems sind.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. Heben Sie die Bereitstellung auf.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. Führen Sie die Entsperrung und die Bereitstellung durch.
+7. Testen Sie den Bereitstellungspunkt durch das Schreiben einer Datei.
+8. Heben Sie die Bereitstellung auf und führen Sie sie anschließend erneut durch, um die Dateipersistenz zu überprüfen.
+9. Fahren Sie mit der Datenkopie fort.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problem: Fehler mit Daten, die nach dem Kopieren nicht beibehalten werden
  

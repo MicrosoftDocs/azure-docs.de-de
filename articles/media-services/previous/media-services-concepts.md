@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681558"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-Konzepte 
@@ -190,7 +190,7 @@ Der progressive Download ermöglicht die Wiedergabe von Medien, bevor die gesamt
 >[!NOTE]
 >Verschlüsselte Medienobjekte müssen entschlüsselt werden, wenn diese für den progressiven Download verfügbar sein sollen.
 
-Um Benutzern URLs für den progressiven Download bereitzustellen, müssen Sie zuerst einen OnDemandOrigin-Locator erstellen. Beim Erstellen des Locators erhalten Sie den Basispfad für das Medienobjekt. Anschließend müssen Sie den Namen der MP4-Datei anhängen. Beispiel: 
+Um Benutzern URLs für den progressiven Download bereitzustellen, müssen Sie zuerst einen OnDemandOrigin-Locator erstellen. Beim Erstellen des Locators erhalten Sie den Basispfad für das Medienobjekt. Anschließend müssen Sie den Namen der MP4-Datei anhängen. Beispiel:
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

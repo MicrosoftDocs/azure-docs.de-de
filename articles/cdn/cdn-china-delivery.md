@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: da59e9bb5cfffea734cb1dc4725cef9ea6296aa2
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093544"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872930"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Inhaltsübermittlung nach China mit Azure CDN
 
@@ -63,7 +63,7 @@ Weitere Informationen zu Azure CDN China finden Sie unter:
 
 - [Verwenden von Azure CDN](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Azure-Dienstverfügbarkeit in China](https://docs.microsoft.com/azure/china/china-get-started-service-availability)
+- [Azure-Dienstverfügbarkeit in China](https://docs.microsoft.com/azure/china/concepts-service-availability)
 
 
 

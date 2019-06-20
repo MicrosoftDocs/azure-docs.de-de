@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175335"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384886"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Upgrade der Bing-Websuche-API von Version 5 auf Version 7
 
@@ -75,14 +75,14 @@ Blockiert|InvalidRequest.Blocked
 
 ### <a name="headers"></a>Header
 
-- Der optionale Anforderungsheader [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) wurde hinzugefügt. Als Standardeinstellung gibt Bing zwischengespeicherte Inhalte (sofern vorhanden) zurück. Wenn Sie dies verhindern möchten, legen Sie den Pragma-Header auf „no-cache“ fest (z.B. „Pragma: no-cache“).
+- Der optionale Anforderungsheader [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) wurde hinzugefügt. Als Standardeinstellung gibt Bing zwischengespeicherte Inhalte (sofern vorhanden) zurück. Wenn Sie dies verhindern möchten, legen Sie den Pragma-Header auf „no-cache“ fest (z.B. „Pragma: no-cache“).
 
 ### <a name="query-parameters"></a>Abfrageparameter
 
-- Der Abfrageparameter [AnswerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) wurde hinzugefügt. Verwenden Sie diesen Parameter, um die Anzahl der Antworten anzugeben, die enthalten sein sollen. Die Antworten werden basierend auf der Rangfolge ausgewählt. Wenn Sie diesen Parameter beispielsweise auf drei (3) festlegen, sind die drei Antworten mit den höchsten Rangfolgenwerten enthalten.  
+- Der Abfrageparameter [AnswerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) wurde hinzugefügt. Verwenden Sie diesen Parameter, um die Anzahl der Antworten anzugeben, die enthalten sein sollen. Die Antworten werden basierend auf der Rangfolge ausgewählt. Wenn Sie diesen Parameter beispielsweise auf drei (3) festlegen, sind die drei Antworten mit den höchsten Rangfolgenwerten enthalten.  
 
-- Der Abfrageparameter [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) wurde hinzugefügt. Verwenden Sie diesen Parameter zusammen mit `answerCount`, um einen oder mehrere Antworttypen unabhängig von der jeweiligen Rangfolge explizit einzuschließen. Wenn Sie beispielsweise Videos und Bilder zur Aufnahme in die Antwort höherstufen möchten, legen Sie diesen Parameter auf *videos,images* fest. Die Liste der Antworten, die Sie höherstufen möchten, zählt nicht für den `answerCount`-Grenzwert. Wenn z.B. `answerCount` den Wert 2 hat und `promote` auf *videos,images* festgelegt ist, kann die Antwort Webseiten, News, Videos und Bilder enthalten.
+- Der Abfrageparameter [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) wurde hinzugefügt. Verwenden Sie diesen Parameter zusammen mit `answerCount`, um einen oder mehrere Antworttypen unabhängig von der jeweiligen Rangfolge explizit einzuschließen. Wenn Sie beispielsweise Videos und Bilder zur Aufnahme in die Antwort höherstufen möchten, legen Sie diesen Parameter auf *videos,images* fest. Die Liste der Antworten, die Sie höherstufen möchten, zählt nicht für den `answerCount`-Grenzwert. Wenn z.B. `answerCount` den Wert 2 hat und `promote` auf *videos,images* festgelegt ist, kann die Antwort Webseiten, News, Videos und Bilder enthalten.
 
 ### <a name="object-changes"></a>Änderungen an Objekten
 
-- Das Feld `someResultsRemoved` wurde zum [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer)-Objekt hinzugefügt. Das Feld enthält einen booleschen Wert, der angibt, ob bei der Antwort einige Ergebnisse aus der Webantwort ausgeschlossen wurden.  
+- Das Feld `someResultsRemoved` wurde zum [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer)-Objekt hinzugefügt. Das Feld enthält einen booleschen Wert, der angibt, ob bei der Antwort einige Ergebnisse aus der Webantwort ausgeschlossen wurden.  

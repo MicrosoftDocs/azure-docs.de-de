@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105721"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64875608"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassen der SQL Information Protection-Richtlinie im Azure Security Center (Vorschau)
  
@@ -41,12 +41,11 @@ Information Protection umfasst eine integrierte Gruppe von Bezeichnungen und Typ
 ## <a name="customize-the-information-protection-policy"></a>Anpassen der Information Protection-Richtlinie
 Um die Information Protection-Richtlinie für Ihren Azure-Mandanten anpassen zu können, benötigen Sie [Administratorrechte für die Stammverwaltungsgruppe des Mandanten](security-center-management-groups.md). 
  
-1. Wählen Sie im Hauptmenü von Security Center die Option **Sicherheitsrichtlinie** aus.
-2. Wählen Sie **Hierarchische Ansicht (Vorschau)**, und klicken Sie dann unter **Mandantenstammgruppe** auf **Einstellungen bearbeiten**.
- 
+1. Navigieren Sie im Security Center-Hauptmenü unter **RESSOURCENSICHERHEIT** zu **Daten & Speicherung**, und klicken Sie auf die Schaltfläche **SQL Information Protection**.
+
    ![Konfigurieren der Information Protection-Richtlinie](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. Klicken Sie unter **Richtlinienkomponenten** auf **Information Protection**. Auf der Seite **Information Protection-Einstellungen** sehen Sie die aktuelle Gruppe von Bezeichnungen. Dies sind die wichtigsten Klassifizierungsattribute, die verwendet werden, um die Vertraulichkeitsstufe Ihrer Daten zu kategorisieren. In dieser Ansicht können Sie die **Information Protection-Bezeichnungen** und **Informationstypen** für den Mandanten konfigurieren. 
+2. Auf der Seite **SQL Information Protection** sehen Sie die aktuelle Gruppe von Bezeichnungen. Dies sind die wichtigsten Klassifizierungsattribute, die verwendet werden, um die Vertraulichkeitsstufe Ihrer Daten zu kategorisieren. In dieser Ansicht können Sie die **Information Protection-Bezeichnungen** und **Informationstypen** für den Mandanten konfigurieren. 
  
 ### <a name="customizing-labels"></a>Anpassen von Bezeichnungen
  

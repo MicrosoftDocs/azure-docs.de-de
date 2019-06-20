@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: a1fbc8a42492b4a9c2254ccea2ddc2909219ad23
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969343"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244327"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informationen zum Azure Site Recovery-Bereitstellungsplaner für VMware in Azure
 Dieser Artikel ist der Leitfaden zum Azure Site Recovery-Bereitstellungsplaner für Bereitstellungen von „VMware zu Azure“ in der Produktion.
@@ -121,7 +121,7 @@ Wählen Sie eine der folgenden Vorgehensweisen, wenn Sie über eine vorherige Ve
 
 ## <a name="version-history"></a>Versionsverlauf
 Die aktuelle Version des Site Recovery-Bereitstellungsplaners ist 2.4.
-Auf der Seite [Site Recovery Deployment Planner version history](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner-history) (Site Recovery-Bereitstellungsplaner – Versionsverlauf) finden Sie Informationen zu den Fehlerbehebungen, die in den einzelnen Updates hinzugefügt werden.
+Auf der Seite [Site Recovery Deployment Planner version history](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) (Site Recovery-Bereitstellungsplaner – Versionsverlauf) finden Sie Informationen zu den Fehlerbehebungen, die in den einzelnen Updates hinzugefügt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 [Ausführen von Azure Site Recovery-Bereitstellungsplaner für „VMware zu Azure“](site-recovery-vmware-deployment-planner-run.md)

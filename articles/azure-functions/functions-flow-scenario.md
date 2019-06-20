@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787675"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Aufrufen einer Funktion von Microsoft Flow
 
@@ -36,6 +36,8 @@ In diesem Thema lernen Sie Folgendes:
 > * Erstellen eines Workflows, um E-Mails zu senden, wenn eine Reparatur kostengünstig ist.
 > * Ausführen des Workflows.
 
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
+
 ## <a name="prerequisites"></a>Voraussetzungen
 
 + Ein aktives [Microsoft Flow-Konto](https://flow.microsoft.com/documentation/sign-up-sign-in/) mit den gleichen Anmeldeinformationen wie Ihr Azure-Konto. 
@@ -48,7 +50,7 @@ Erstellen Sie zunächst eine Liste, die Sie als Datenquelle für den Workflow ve
 | Listenspalte     | Datentyp           | Notizen                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Titel**           | Einzelne Textzeile | Name der Turbine                      |
-| **LastServiceDate** | Datum                |                                          |
+| **LastServiceDate** | Date                |                                          |
 | **MaxOutput**       | Number              | Ausgabe der Turbine in KwH            |
 | **ServiceRequired** | Ja/Nein              |                                          |
 | **EstimatedEffort** | Number              | Geschätzte Zeit für die Reparatur in Stunden |
@@ -132,7 +134,7 @@ Erstellen Sie zunächst einen Datenfluss ohne Vorlage, und fügen Sie einen *Tri
 
     ![Bedingung hinzufügen](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow fügt zwei Verzweigungen zum Datenfluss hinzu: **Falls Ja** und **Falls Nein**. Nachdem Sie die Bedingung definiert haben, die übereinstimmen sollen, fügen Sie Schritte zu einer oder beiden Verzweigungen hinzu.
+    Microsoft Flow fügt zwei Verzweigungen zum Datenfluss hinzu: **Wenn ja** und **Wenn nein**. Nachdem Sie die Bedingung definiert haben, die übereinstimmen sollen, fügen Sie Schritte zu einer oder beiden Verzweigungen hinzu.
 
     ![Bedingungsverzweigungen](media/functions-flow-scenario/condition-branches.png)
 
@@ -229,7 +231,7 @@ Nun, da der Workflow abgeschlossen ist, fügen Sie eine Zeile zur SharePoint-Lis
     | **Titel**           | Turbine 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | JA |
+    | **ServiceRequired** | Ja |
     | **EstimatedEffort** | 10 |
 
 3. Klicken Sie auf **Fertig**.

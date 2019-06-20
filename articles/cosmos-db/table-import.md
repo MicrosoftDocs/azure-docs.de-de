@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876816"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242568"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrieren Ihrer Daten zum Azure Cosmos DB-Konto für die Tabellen-API
 
@@ -109,7 +109,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 
 ## <a name="migrate-data-by-using-azcopy"></a>Migrieren von Daten mithilfe von AzCopy
 
-Die andere Option zum Migrieren von Daten aus Azure Table Storage in die Table-API von Azure Cosmos DB ist das AzCopy-Befehlszeilenprogramm. Bei Verwendung von AzCopy exportieren Sie Ihre Daten zunächst wie in [Exportieren von Daten aus Table Storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage) beschrieben und importieren sie anschließend wie in [Tabellen-API von Azure Cosmos DB](../storage/common/storage-use-azcopy.md#import-data-into-table-storage) beschrieben in Azure Cosmos DB.
+Die andere Option zum Migrieren von Daten aus Azure Table Storage in die Table-API von Azure Cosmos DB ist das AzCopy-Befehlszeilenprogramm. Bei Verwendung von AzCopy exportieren Sie Ihre Daten zunächst wie in [Exportieren von Daten aus Table Storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage) beschrieben und importieren sie anschließend wie in [Tabellen-API von Azure Cosmos DB](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage) beschrieben in Azure Cosmos DB.
 
 Das folgende Beispiel zeigt das Importieren in Azure Cosmos DB. Beachten Sie, dass für „/dest“ der Wert „cosmosdb“ und nicht „core“ verwendet wird.
 

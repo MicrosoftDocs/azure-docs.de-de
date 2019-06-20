@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
 ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60627404"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Vorabladen von Assets auf einen Azure CDN-Endpunkt
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de2f7cb90e004673c59282a8023d55df364220a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140861"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Azure Active Directory-Integration mit Alibaba Cloud Service (rollenbasiertes SSO)
 
@@ -81,13 +81,13 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD mit Alibaba Cloud Service (rollenbasiertes SSO) zu konfigurieren und zu testen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des rollenbasierten SSOs in Alibaba Cloud Service](#configure-role-based-single-sign-on-in-alibaba-cloud-service)**, um Ihre Benutzer verwenden dieses Feature zu aktivieren.
-2. **[Konfigurieren des einmaligen Anmeldens für Alibaba Cloud Service (rollenbasiertes SSO)](#configure-alibaba-cloud-service-role-based-sso-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines Testbenutzers für Alibaba Cloud Service (rollenbasiertes SSO)](#create-alibaba-cloud-service-role-based-sso-test-user)**, um in Alibaba Cloud Service (rollenbasiertes SSO) eine Entsprechung von Britta Simon zu erhalten, die mit ihrer Benutzerdarstellung in Azure AD verknüpft ist.
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des rollenbasierten SSOs in Alibaba Cloud Service](#configure-role-based-single-sign-on-in-alibaba-cloud-service)** , um Ihre Benutzer verwenden dieses Feature zu aktivieren.
+2. **[Konfigurieren des einmaligen Anmeldens für Alibaba Cloud Service (rollenbasiertes SSO)](#configure-alibaba-cloud-service-role-based-sso-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines Testbenutzers für Alibaba Cloud Service (rollenbasiertes SSO)](#create-alibaba-cloud-service-role-based-sso-test-user)** , um in Alibaba Cloud Service (rollenbasiertes SSO) eine Entsprechung von Britta Simon zu erhalten, die mit ihrer Benutzerdarstellung in Azure AD verknüpft ist.
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -135,8 +135,8 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD 
 
     | NAME | Namespace | Quellattribut|
     | ---------------| ------------| --------------- |
-    | Rolle | https://www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
-    | RoleSessionName | https://www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
+    | Rolle | https:\//www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
+    | RoleSessionName | https:\//www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
 
     > [!NOTE]
     > Klicken Sie bitte [hier](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management), um herauszufinden, wie Sie die **Rolle** in Azure AD konfigurieren.

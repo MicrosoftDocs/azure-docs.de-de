@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515422"
 ---
 # <a name="bing-text-to-speech-api"></a>Text-to-Speech-API von Bing
 
@@ -31,7 +32,7 @@ Mit der Text-to-Speech-API von Bing kann Ihre Anwendung HTTP-Anforderungen an ei
 
 Jede Sprachsyntheseanforderung erfordert ein JWT-Zugriffstoken (JSON Web Token). Das JWT-Zugriffstoken wird über den Sprachanforderungsheader übergeben. Das Token ist zehn Minuten lang gültig. Informationen zum Abonnieren und Beziehen von API-Schlüsseln für den Abruf gültiger JWT-Zugriffstoken finden Sie unter [Cognitive Services ausprobieren](https://azure.microsoft.com/try/cognitive-services/).
 
-Der API-Schlüssel wird an den Tokendienst übergeben. Beispiel: 
+Der API-Schlüssel wird an den Tokendienst übergeben. Beispiel:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -44,7 +45,7 @@ NAME| Format | BESCHREIBUNG
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | Your subscription key (Ihr Abonnementschlüssel)
 
-Der Tokendienst gibt das JWT-Zugriffstoken im Format `text/plain` zurück. Das JWT wird dann im Format `Base64 access_token` mit der Präfixzeichenfolge `Bearer` als Autorisierungsheader an den Sprachendpunkt übergeben. Beispiel: 
+Der Tokendienst gibt das JWT-Zugriffstoken im Format `text/plain` zurück. Das JWT wird dann im Format `Base64 access_token` mit der Präfixzeichenfolge `Bearer` als Autorisierungsheader an den Sprachendpunkt übergeben. Beispiel:
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -61,16 +62,16 @@ Die folgende Tabelle enthält die HTTP-Header für Sprachsyntheseanforderungen:
 
 Header |Wert |Kommentare
 ----|----|----
-Content-Typ | application/ssml+xml | Der Inhaltstyp der Eingabe.
+Content-Type | application/ssml+xml | Der Inhaltstyp der Eingabe.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | Das Audioformat der Ausgabe.
 X-Search-AppId | Eine GUID (nur hexadezimal, keine Bindestriche) | Eine ID zur eindeutigen Identifizierung der Clientanwendung. Hierbei kann es sich um die Shop-ID für Apps handeln. Sollte keine verfügbar sein, kann die ID für eine Anwendung vom Benutzer generiert werden.
 X-Search-ClientID | Eine GUID (nur hexadezimal, keine Bindestriche) | Eine ID zur eindeutigen Identifizierung einer Anwendungsinstanz für jede Installation.
-Benutzer-Agent | Anwendungsname | Der Anwendungsname ist erforderlich und muss weniger als 255 Zeichen umfassen.
-Autorisierung | Autorisierungstoken |  Informationen hierzu finden Sie im Abschnitt <a href="#Subscription">Authentifizierungstoken</a>.
+User-Agent | Anwendungsname | Der Anwendungsname ist erforderlich und muss weniger als 255 Zeichen umfassen.
+Authorization | Autorisierungstoken |  Informationen hierzu finden Sie im Abschnitt <a href="#Subscription">Authentifizierungstoken</a>.
 
 ### <a name="InputParam"></a>Eingabeparameter
 
-Anforderungen für die Text-to-Speech-API von Bing werden in Form von HTTP POST-Aufrufen vorgenommen. Die Header sind im vorherigen Abschnitt angegeben. Der Hauptteil enthält eine SSML-Eingabe (Speech Synthesis Markup Language, Markupsprache für Sprachsynthese), die den umzuwandelnden Text darstellt. Eine Beschreibung des Markups zur Steuerung von Sprachaspekten wie Sprache und Geschlecht des Sprechers finden Sie in der [SSML-W3C-Spezifikation](http://www.w3.org/TR/speech-synthesis/).
+Anforderungen für die Text-to-Speech-API von Bing werden in Form von HTTP POST-Aufrufen vorgenommen. Die Header sind im vorherigen Abschnitt angegeben. Der Hauptteil enthält eine SSML-Eingabe (Speech Synthesis Markup Language, Markupsprache für Sprachsynthese), die den umzuwandelnden Text darstellt. Eine Beschreibung des Markups zur Steuerung von Sprachaspekten wie Sprache und Geschlecht des Sprechers finden Sie in der [SSML-W3C-Spezifikation](https://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
 >Eine SSML-Eingabe darf maximal 1.024 Zeichen (einschließlich aller Tags) umfassen.
@@ -140,43 +141,43 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Ändern der Sprachausgabe per SSML
 
-Die Text-to-Speech-API von Microsoft unterstützt SSML 1.0 gemäß W3C-Definition ([Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)). Dieser Abschnitt enthält Beispiele für das Ändern bestimmter Eigenschaften der generierten Sprachausgabe wie Sprechgeschwindigkeit und Aussprache mithilfe von SSML-Tags.
+Die Text-to-Speech-API von Microsoft unterstützt SSML 1.0 gemäß W3C-Definition ([Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)). Dieser Abschnitt enthält Beispiele für das Ändern bestimmter Eigenschaften der generierten Sprachausgabe wie Sprechgeschwindigkeit und Aussprache mithilfe von SSML-Tags.
 
 1. Hinzufügen einer Pause
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
+   ```
 
 2. Ändern der Sprechgeschwindigkeit
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 3. Aussprache
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
+   ```
 
 4. Ändern der Lautstärke
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 5. Ändern der Tonhöhe
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 6. Ändern des Satzrhythmus
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
+   ```
 
 > [!NOTE]
 > Beachten Sie, dass die Audiodaten in 8k- oder 16k-WAV-Dateien im folgenden Format vorliegen müssen: **CRC-Code** (CRC-32): 4 Bytes (DWORD) mit gültigen Bereich 0x00000000 ~ 0xFFFFFFFF; **Audioformatflag**: 4 Bytes (DWORD) mit gültigen Bereich 0x00000000 ~ 0xFFFFFFFF; **Beispielzahl**: 4 Bytes (DWORD) mit gültigen Bereich 0x00000000 ~ 0x7FFFFFFF; **Größe des binären Texts**: 4 Bytes (DWORD) mit gültigen Bereich 0x00000000 ~ 0x7FFFFFFF; **Binärer Text**: n Bytes.
@@ -269,6 +270,7 @@ zh-HK | Male | Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apoll
 zh-TW | Female | Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)
 zh-TW | Female | Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)
 zh-TW | Male | Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)
+
  *ar-EG unterstützt modernes Hocharabisch (Modern Standard Arabic, MSA).
 
 > [!NOTE]

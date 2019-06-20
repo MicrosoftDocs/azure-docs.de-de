@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60921209"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Zurücksetzen von Remotedesktopdienste oder dem zugehörigen Administratorkennwort auf einer Windows-VM
 Wenn Sie keine Verbindung mit einem virtuellen Windows-Computer herstellen können, können Sie Ihr lokales Administratorkennwort oder die Konfiguration von Remotedesktopdienste zurücksetzen (für Windows-Domänencontroller nicht unterstützt). Verwenden Sie zum Zurücksetzen des Kennworts entweder das Azure-Portal oder die VM-Zugriffserweiterung in Azure PowerShell. Setzen Sie das Kennwort für diesen lokalen Administrator zurück, nachdem Sie sich am virtuellen Computer angemeldet haben.  

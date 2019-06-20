@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
 ms.openlocfilehash: 51a97443f6b9ba2a37fa2db708b8520a9c450000
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60594799"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows zeigt beim Starten einer Azure-VM „Dateisystem wird überprüft“ an.
 

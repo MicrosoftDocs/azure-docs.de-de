@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60576858"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Austauschen eines Festplattenlaufwerks in einem Gerät der StorSimple 8000-Serie
 
@@ -53,7 +53,7 @@ In dieser Vorgehensweise wird erläutert, wie die Zugangssperren eines StorSimpl
 2. Drehen Sie den Schlüssel gegen den Uhrzeigersinn, bis das rote Kennzeichen nicht mehr in der Öffnung über dem Schlüssel zu sehen ist.
 3. Entfernen Sie den Schlüssel.
    
-    ![ Entriegeltes Laufwerk](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![Entriegeltes Laufwerk](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Abbildung 2** Entriegeltes Laufwerk
 4. Das Laufwerk kann nun ausgebaut werden.

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64415834"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Worum handelt es sich bei der Anomalieerkennungs-API?
 
@@ -43,7 +43,7 @@ Führen Sie die folgenden Schritte aus, um die Demo anzusehen:
 
 1. Holen Sie sich einen gültigen Abonnementschlüssel für die Anomalieerkennungs-API sowie einen API-Endpunkt. Im folgenden Abschnitt finden Sie Anweisungen zur Registrierung. 
 2. Melden Sie sich an, und klicken Sie rechts oben in der Ecke auf „Klon“.
-3. Klicken Sie auf **Run on free compute (Mit kostenlosem Compute ausführen)**.
+3. Klicken Sie auf **Run on free compute (Mit kostenlosem Compute ausführen)** .
 4. Wählen Sie für dieses Beispiel eines der Notebooks aus.
 5. Fügen Sie Ihren gültigen Abonnementschlüssel für die Anomalieerkennungs-API zur Variablen `subscription_key` hinzu. Ändern Sie die Variable `endpoint` in Ihren Endpunkt. Beispiel: `https://westus2.api.cognitive.microsoft.com`
 1. Klicken Sie auf der oberen Menüleiste auf **Zelle** und dann auf **Alle ausführen**.

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 08bf7950ada5db90d2b8bfea751b39ffc21f3ee9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161490"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950852"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Bestimmen der Anforderungen an Reaktionen auf Vorfälle für Ihre Hybrid-Identitätslösung
 Große und mittelgroße Unternehmen verfügen meist über einen Plan für [Reaktionen auf Vorfälle](https://technet.microsoft.com/library/cc700825.aspx) , damit das IT-Personal je nach Schweregrad des Vorfalls die passenden Maßnahmen ergreifen kann. Das System für die Identitätsverwaltung ist eine wichtige Komponente des Prozesses für Reaktionen auf Vorfälle, weil damit identifiziert werden kann, wer eine bestimmte Aktion für das Ziel durchgeführt hat. Die Hybrid-Identitätslösung muss Funktionen für Überwachung und Berichterstellung bereitstellen können, die von der IT-Abteilung genutzt werden können, um Maßnahmen zur Identifizierung und Minimierung einer potenziellen Bedrohung zu ergreifen. Ein typischer Plan für Reaktionen auf Vorfälle enthält die folgenden Phasen:

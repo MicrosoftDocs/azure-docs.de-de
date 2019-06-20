@@ -7,11 +7,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359777"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61269164"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mapping Data Flow: Ausdrucks-Generator
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 55a0a1a8097ea46c7a3407b5f42824973edcf1a2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666119"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60882332"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Herstellung einer Verbindung mit Diensten in Service Fabric und die Kommunikation mit diesen Diensten
 In Service Fabric wird ein Dienst an irgendeinem Ort in einem Service Fabric-Cluster ausgeführt, der sich in der Regel auf mehreren virtuellen Computern befindet. Er kann entweder vom Dienstbesitzer oder automatisch von Service Fabric von einem Standort an einen anderen verschoben werden. Dienste sind nicht statisch an einen bestimmten Computer oder eine bestimmte Adresse gefunden.

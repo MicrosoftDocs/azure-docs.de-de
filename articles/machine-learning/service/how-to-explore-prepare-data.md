@@ -1,5 +1,5 @@
 ---
-title: Untersuchen und Aufbereiten von Daten (Dataset-Klasse)
+title: Untersuchen und Transformieren von Daten (Dataset-Klasse)
 titleSuffix: Azure Machine Learning service
 description: Untersuchen Sie Daten mithilfe von zusammenfassenden Statistiken, und bereiten Sie Daten durch Datenbereinigung, Transformation und Feature Engineering auf.
 services: machine-learning
@@ -10,20 +10,20 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.date: 05/23/2019
+ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66753057"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Untersuchen und Aufbereiten von Daten mit der Dataset-Klasse (Vorschau)
 
-Erfahren Sie, wie Sie mit dem [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) Daten untersuchen und aufbereiten können. Die [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)-Klasse (Vorschau) ermöglicht Ihnen das Untersuchen und Aufbereiten der Daten durch die Bereitstellung von Funktionen (z.B. Stichprobenentnahme, zusammenfassende Statistiken und intelligente Transformationen). Transformationsschritte werden in [Dataset-Definitionen](how-to-manage-dataset-definitions.md) mit der Möglichkeit gespeichert, mehrere große Dateien mit unterschiedlichen Schemas in einer hochgradig skalierbaren Weise zu verarbeiten.
+Erfahren Sie, wie Sie Daten untersuchen und aufbereiten können, indem Sie das „azureml-datasets“-Paket aus dem [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) verwenden. Die [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)-Klasse (Vorschau) ermöglicht Ihnen das Untersuchen und Aufbereiten der Daten durch die Bereitstellung von Funktionen (z.B. Stichprobenentnahme, zusammenfassende Statistiken und intelligente Transformationen). Transformationsschritte werden in [Dataset-Definitionen](how-to-manage-dataset-definitions.md) mit der Möglichkeit gespeichert, mehrere große Dateien mit unterschiedlichen Schemas in einer hochgradig skalierbaren Weise zu verarbeiten.
 
 > [!Important]
-> Einige Dataset-Klassen (Vorschau) weisen Abhängigkeiten zum Datenaufbereitungs-SDK (GA) auf. Während Transformationsfunktionen direkt mit den allgemein verfügbaren [Funktionen des Datenaufbereitungs-SDK](how-to-transform-data.md) durchgeführt werden können, empfehlen wir die in diesem Artikel beschriebenen Dataset-Paketwrapper, wenn Sie eine neue Lösung erstellen. Azure Machine Learning Datasets (Vorschau) ermöglicht es Ihnen nicht nur, Ihre Daten zu transformieren, sondern auch [Momentaufnahmen von Daten](how-to-create-dataset-snapshots.md) zu erstellen und [mit einer Versionsangabe versehene Dataset-Definitionen](how-to-manage-dataset-definitions.md) zu speichern. Datasets ist die nächste Version des Datenaufbereitungs-SDK und bietet erweiterte Funktionen zum Verwalten von Datasets in KI-Lösungen.
+> Einige Dataset-Klassen (Vorschauversion) haben Abhängigkeiten zu dem [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)-Paket (GA). Während Transformationsfunktionen direkt mit den allgemein verfügbaren [Funktionen der Datenaufbereitung](how-to-transform-data.md) ausgeführt werden können, empfehlen wir die in diesem Artikel beschriebenen Dataset-Paketwrapper, wenn Sie eine neue Lösung erstellen. Azure Machine Learning Datasets (Vorschau) ermöglicht es Ihnen nicht nur, Ihre Daten zu transformieren, sondern auch [Momentaufnahmen von Daten](how-to-create-dataset-snapshots.md) zu erstellen und [mit einer Versionsangabe versehene Dataset-Definitionen](how-to-manage-dataset-definitions.md) zu speichern. Datasets ist die nächste Version des Datenaufbereitungs-SDK und bietet erweiterte Funktionen zum Verwalten von Datasets in KI-Lösungen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -33,7 +33,7 @@ Zum Untersuchen und Vorbereiten der Daten benötigen Sie Folgendes:
 
 * Ein Azure Machine Learning-Dienstbereich. Siehe [Erstellen eines Azure Machine Learning Service-Arbeitsbereichs](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* Das Azure Machine Learning SDK für Python (Version 1.0.21 oder höher). Wie Sie die neueste Version des SDK installieren oder auf diese aktualisieren, erfahren Sie unter [Installieren des Azure Machine Learning SDK für Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* Das Azure Machine Learning-SDK für Python (Version 1.0.21 oder höher), in dem das Paket „azureml-datasets“ enthalten ist. Wie Sie die neueste Version des SDK installieren oder auf diese aktualisieren, erfahren Sie unter [Installieren des Azure Machine Learning SDK für Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * Das Datenaufbereitungs-SDK von Azure Machine Learning. Unter [Installieren des Datenaufbereitungs-SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install) erfahren Sie, wie die aktuelle Version installiert oder ein Update darauf ausgeführt wird.
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Fallnummer|Datum|Block|IUCR|Primärer Typ|...|
+||ID|Fallnummer|Date|Block|IUCR|Primärer Typ|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|DECEPTIVE PRACTICE|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Fallnummer|Datum|Block|IUCR|Primärer Typ|...|
+||ID|Fallnummer|Date|Block|IUCR|Primärer Typ|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Fallnummer|Datum|Block|IUCR|Primärer Typ|...|
+||ID|Fallnummer|Date|Block|IUCR|Primärer Typ|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
@@ -121,9 +121,9 @@ dataset.get_profile()
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10,0|0.0|10,0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 Fallnummer|FieldType.STRING|HZ239907|HZ278872|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-Datum|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
+Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Block|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
-IUCR|FieldType.INTEGER|810|1154|10,0|0.0|10,0|0.0|0.0|0.0|810|850|810|890|1.136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
+IUCR|FieldType.INTEGER|810|1154|10,0|0.0|10,0|0.0|0.0|0.0|810|850|810|890|1\.136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Primärer Typ|FieldType.STRING|DECEPTIVE PRACTICE|THEFT|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 BESCHREIBUNG|FieldType.STRING|BOGUS CHECK|OVER $500|10,0|0.0|10,0|0.0|0.0|0.0||||||||||||||
 Standortbeschreibung|FieldType.STRING||SCHOOL, PUBLIC, BUILDING|10,0|0.0|10,0|0.0|0.0|1.0||||||||||||||
@@ -148,7 +148,7 @@ In Datasets werden NULL-Werte, NaN-Werte und die Werte, die keinen Inhalt enthal
 
 Aus dem im vorhergehenden Abschnitt generierten Dataset-Profil können wir ersehen, dass die Spalten `Latitude` und `Longitude` einen hohen Prozentsatz an fehlenden Werten aufweisen. In diesem Beispiel berechnen wir den Mittelwert und imputieren fehlende Werte für diese beiden Spalten.
 
-Rufen Sie zunächst die neueste Definition des Datasets mit [`get_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) ab, und verringern Sie die Daten mit [`keep_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), sodass wir nur die Spalten anzeigen, die wir behandeln möchten.
+Rufen Sie zunächst die neueste Definition des Datasets mit [`get_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) ab, und verringern Sie die Daten mit [`keep_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow), sodass wir nur die Spalten anzeigen, die wir behandeln möchten.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -288,13 +288,13 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|Fallnummer|Datum|Block|...|
+||ID|Fallnummer|Date|Block|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|...
 
-Angenommen, Sie müssen das Format für Datum und Uhrzeit in „2016-04-04 10PM-12AM“ transformieren. Geben Sie im Argument [`derive_column_by_example()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) Beispiele für Ihre gewünschte Ausgabe im Parameter `example_data` im folgenden Format an: *(Originalausgabe, gewünschte Ausgabe)*.
+Angenommen, Sie müssen das Format für Datum und Uhrzeit in „2016-04-04 10PM-12AM“ transformieren. Geben Sie im Argument [`derive_column_by_example()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) Beispiele für Ihre gewünschte Ausgabe im Parameter `example_data` im folgenden Format an: *(Originalausgabe, gewünschte Ausgabe)* .
 
 Der folgende Code enthält zwei Beispiele für die gewünschte Ausgabe: ("2016-04-04 23:56:00", "2016-04-04 10PM-12AM") und ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM").
 
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 Beachten Sie, dass in der folgenden Tabelle eine neue Spalte (Date_Time_Range) Datensätze im angegebenen Format enthält.
 
-||ID|Datum|Date_Time_Range
+||ID|Date|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10PM-12AM
 1|10516598|2016-04-15 17:00:00|2016-04-15 4PM-6PM

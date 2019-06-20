@@ -4,7 +4,7 @@ description: Dieser Artikel beschreibt, wie durch Codieren einer in der .NET-Spr
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ebd5cb92b510da56446ca9e559b03a56cb2af7cf
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: fc5f35aedd52e206433afb0f556bc1cde8296232
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515052"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237472"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Abfragen von Daten aus der Azure Time Series Insights Preview-Umgebung mit C#
 

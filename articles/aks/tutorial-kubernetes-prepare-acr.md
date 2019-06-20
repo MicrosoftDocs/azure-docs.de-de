@@ -2,18 +2,18 @@
 title: 'Tutorial zu Kubernetes in Azure: Erstellen einer Containerregistrierung'
 description: In diesem Azure Kubernetes Service-Tutorial (AKS) erstellen Sie eine Azure Container Registry-Instanz und laden das Containerimage einer Beispielanwendung hoch.
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 1ba320a523d21beebe089084f40efff4b36dc4af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1bd41dc464c251a2e7dab3087f3feffb15db785f
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753570"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304406"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Bereitstellen und Verwenden von Azure Container Registry
 

@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66126800"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum-PoA-Konsortium
 
@@ -220,7 +220,7 @@ Abonnement|Das Abonnement, für das das Konsortiumsnetzwerk bereitgestellt wird.
 Ressourcengruppe|Die Ressourcengruppe, für die das Konsortiumsnetzwerk bereitgestellt wird.||Nicht verfügbar
 Standort|Die Azure-Region für die Ressourcengruppe.||Nicht verfügbar
 
-Nachfolgend finden Sie ein Beispiel für eine Bereitstellung: ![Blatt mit Grundlagen](./media/ethereum-poa-deployment/basic-blade.png)
+Unten ist ein Beispiel für eine Bereitstellung angegeben: ![Blatt mit Grundlagen](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### <a name="deployment-regions"></a>Bereitstellungsregionen
 
@@ -237,7 +237,7 @@ Hier ist eine ausführliche Beschreibung der einzelnen Parameter angegeben:
   Vierte Region|Die vierte Region, in der das Konsortiumsnetzwerk bereitgestellt wird (wird nur angezeigt, wenn für die Anzahl der Regionen „4“ ausgewählt wurde).|Alle zulässigen Azure-Regionen|Nicht verfügbar
   Fünfte Region|Die fünfte Region, in der das Konsortiumsnetzwerk bereitgestellt wird (wird nur angezeigt, wenn für die Anzahl der Regionen „5“ ausgewählt wurde).|Alle zulässigen Azure-Regionen|Nicht verfügbar
 
-Nachfolgend finden Sie ein Beispiel für eine Bereitstellung: ![Bereitstellungsregionen](./media/ethereum-poa-deployment/deployment-regions.png)
+Hier ist ein Beispiel für eine Bereitstellung angegeben: ![Bereitstellungsregionen](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### <a name="network-size-and-performance"></a>Netzwerkgröße und -leistung
 
@@ -264,7 +264,7 @@ Virtuelle Computer und die Speicherebene haben Auswirkungen auf die Netzwerkleis
   D2_v3|SSD Standard|mittel|mittel|mittel
   F16s|SSD Premium|high|high|niedrig
 
-Nachfolgend finden Sie ein Beispiel für eine Bereitstellung: ![Netzwerkgröße und-leistung](./media/ethereum-poa-deployment/network-size-and-performance.png)
+Hier ist ein Beispiel für eine Bereitstellung angegeben: ![Netzwerkgröße und-leistung](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### <a name="ethereum-settings"></a>Ethereum-Einstellungen
 
@@ -283,7 +283,7 @@ Block Gas Limit (Erweiterte Optionen = Aktivieren)|Das anfängliche block gas-Li
 Zeitraum für erneute Blockversiegelung (Sek.)|Die Häufigkeit, mit der leere Blöcke erstellt werden, wenn im Netzwerk keine Transaktionen vorhanden sind. Eine höhere Häufigkeit führt zu einer schnelleren Finalität, jedoch auch zu erhöhten Speicherkosten.|Beliebiger numerischer Wert|15
 Vertrag zu Transaktionsberechtigungen (Erweiterte Optionen = Aktivieren)|Bytecode für den Vertrag zur Berechtigungsvergabe für Transaktionen. Beschränkt die Smart Contract-Bereitstellung und -Ausführung auf eine berechtigungsbasierte Liste mit Ethereum-Konten.|Bytecode für Vertrag|Nicht verfügbar
 
-Nachfolgend finden Sie ein Beispiel für eine Bereitstellung: ![Ethereum-Einstellungen](./media/ethereum-poa-deployment/ethereum-settings.png)
+Hier ist ein Beispiel für eine Bereitstellung angegeben: ![Ethereum-Einstellungen](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>Überwachung
 
@@ -300,7 +300,7 @@ Existing log analytics workspace ID (Connect to existing Azure Monitor logs = Jo
 Existing log analytics primary key (Connect to existing Azure Monitor logs = Join Existing) (Vorhandener Log Analytics-Primärschlüssel (Mit vorhandener Azure Monitor-Protokollinstanz verbinden = Vorhandener beitreten))|Der Primärschlüssel, der zum Herstellen einer Verbindung mit der vorhandenen Azure Monitor-Protokollinstanz verwendet wird.||Nicht verfügbar
 
 
-Nachfolgend finden Sie ein Beispiel für eine Bereitstellung: ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
+Unten ist ein Beispiel für eine Bereitstellung angegeben: ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>Zusammenfassung
 

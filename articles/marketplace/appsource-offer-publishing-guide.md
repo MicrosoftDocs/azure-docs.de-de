@@ -1,25 +1,18 @@
 ---
-title: Leitfaden für die Veröffentlichung von AppSource-Angeboten für die AppsSource-Storefront des Cloud-Marketplace einschließlich Office 365, Dynamics 365, Power BI und Power Apps sowie Azure
+title: Veröffentlichungsleitfaden für AppSource-Angebote für AppsSource Storefront | Azure Marketplace
 description: Schrittanleitung und Prüflisten für die Veröffentlichung von Apps in der AppSource-Storefront für Office 365, Dynamics 365, Power BI und Power Apps
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: ''
 author: ellacroi
-manager: nunoc
-editor: ellacroi
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 943f3a4739e5dffb2a7d218bf3a82a4e882538a6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 38175bd2365ee9ab7246f0d967c364912efda37d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935690"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Leitfaden für die Veröffentlichung von Angeboten für Office 365, Dynamics 365, Power Apps und Power BI
 

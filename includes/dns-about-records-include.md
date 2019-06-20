@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331032"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178721"
 ---
 ### <a name="record-names"></a>Eintragsnamen
 
@@ -21,7 +21,7 @@ Ein Eintrag an der *Zonenspitze* ist ein DNS-Eintrag im Stamm (oder der *Spitze*
 
 Jeder DNS-Eintrag hat einen Namen und einen Typ. Datensätze werden anhand der darin enthaltenen Daten nach verschiedenen Typen unterteilt. Der häufigste Typ ist ein „A“-Eintrag, der einer IPv4-Adresse einen Namen zuordnet. Ein weiterer gängiger Typ ist ein „MX“-Eintrag, der einem E-Mail-Server einen Namen zuordnet.
 
-Azure DNS unterstützt alle allgemeinen DNS-Eintragstypen: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV und TXT. Beachten Sie, dass [SPF-Datensätze mithilfe von TXT-Einträgen dargestellt werden](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS unterstützt alle gängigen DNS-Eintragstypen: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV und TXT. Beachten Sie, dass [SPF-Datensätze mithilfe von TXT-Einträgen dargestellt werden](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Ressourceneintragssätze
 

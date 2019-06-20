@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60505968"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Verwalten von StorSimple-Gerätecontrollern
 

@@ -9,11 +9,11 @@ ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60238005"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Streamen von Azure-Diagnoseprotokollen an einen Log Analytics-Arbeitsbereich in Azure Monitor
 

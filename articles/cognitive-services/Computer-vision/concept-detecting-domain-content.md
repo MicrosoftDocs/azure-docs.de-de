@@ -12,11 +12,11 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368073"
 ---
 # <a name="detect-domain-specific-content"></a>Erkennen domänenspezifischer Inhalte
 

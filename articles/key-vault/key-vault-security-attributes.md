@@ -2,23 +2,22 @@
 title: Häufig verwendete Sicherheitsattribute für den Azure Key Vault
 description: Eine Prüfliste allgemeiner Sicherheitsattribute für die Auswertung von Azure Key Vault
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fa36a3c1eb6bda109c7985fa7cade496d2ccf9f4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 1c2265ff5f4c444121bf70c35145703f1b9fe981
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677798"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000192"
 ---
-# <a name="common-security-attributes-for-azure-key-vault"></a>Häufig verwendete Sicherheitsattribute für den Azure Key Vault
+# <a name="security-attributes-for-azure-key-vault"></a>Sicherheitsattribute für den Azure Key Vault
 
-Sicherheit ist ein wesentlicher Bestandteil jedes Azure-Diensts. In diesem Artikel werden die im Azure Key Vault integrierten Sicherheitsattribute beschrieben. 
+In diesem Artikel werden die in Azure Key Vault integrierten Sicherheitsattribute beschrieben. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -36,10 +35,10 @@ Sicherheit ist ein wesentlicher Bestandteil jedes Azure-Diensts. In diesem Artik
 
 | Sicherheitsattribut | Ja/Nein | Notizen |
 |---|---|--|
-| Unterstützung des Dienstendpunkts| Ja | Mithilfe von Dienstendpunkten im virtuellen Netzwerk (VNet) |
-| vNET Injection-Unterstützung| Nein  |  |
-| Netzwerkisolation/Firewallunterstützung| Ja | Mithilfe von VNet-Firewallregeln |
-| Unterstützung für Tunnelerzwingung | Nein  |  |
+| Unterstützung des Dienstendpunkts| Ja | Mithilfe von Dienstendpunkten im virtuellen Netzwerk (VNET) |
+| Unterstützung der VNet-Einschleusung| Nein |  |
+| Unterstützung von Netzwerkisolation und Firewall| Ja | Mithilfe von VNET-Firewallregeln |
+| Unterstützung der Tunnelerzwingung| Nein |  |
 
 ## <a name="detection"></a>Erkennung
 
@@ -47,12 +46,12 @@ Sicherheit ist ein wesentlicher Bestandteil jedes Azure-Diensts. In diesem Artik
 |---|---|--|
 | Unterstützung der Azure-Überwachung (Log Analytics, Application Insights usw.)| Ja | Mithilfe von Log Analytics |
 
-## <a name="iam-support"></a>IAM-Unterstützung
+## <a name="identity-and-access-management"></a>Identitäts- und Zugriffsverwaltung
 
 | Sicherheitsattribut | Ja/Nein | Notizen|
 |---|---|--|
-| Zugriffsverwaltung – Authentifizierung| Ja | Die Authentifizierung erfolgt über Azure Active Directory. |
-| Zugriffsverwaltung – Autorisierung| Ja | Mithilfe der Schlüsseltresor-Zugriffsrichtlinie |
+| Authentication| Ja | Die Authentifizierung erfolgt über Azure Active Directory. |
+| Autorisierung| Ja | Mithilfe der Schlüsseltresor-Zugriffsrichtlinie |
 
 
 ## <a name="audit-trail"></a>Überwachungspfad
@@ -60,7 +59,7 @@ Sicherheit ist ein wesentlicher Bestandteil jedes Azure-Diensts. In diesem Artik
 | Sicherheitsattribut | Ja/Nein | Notizen|
 |---|---|--|
 | Steuerungs-/Verwaltungsebene – Protokollierung und Überwachung| Ja | Mithilfe von Log Analytics |
-| Datenebene – Protokollierung und Überwachung| Ja | Mithilfe von Log Analytics |
+| Protokollierung und Überwachung auf Datenebene| Ja | Mithilfe von Log Analytics |
 
 ## <a name="access-controls"></a>Zugriffssteuerung
 

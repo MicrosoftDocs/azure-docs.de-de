@@ -10,11 +10,11 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
 ms.openlocfilehash: f7e5881b5b046379b4c79252489a4b3dd8eb1cad
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60502092"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio"></a>Support und Schulungen für Azure Machine Learning Studio
 

@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001846"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368039"
 ---
 # <a name="detect-common-objects-in-images"></a>Erkennen von alltäglichen Objekten in Bildern
 

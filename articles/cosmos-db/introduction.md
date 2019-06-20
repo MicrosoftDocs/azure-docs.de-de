@@ -4,14 +4,14 @@ description: Hier finden Sie Informationen zu Azure Cosmos DB. Diese global vert
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: rimman
-ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a338cec213b82d54b08f2a11a969ddecf72ea7e5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280943"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953905"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Willkommen bei Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Cosmos DB wurde mit transparenter horizontaler Partitionierung und Multimasterre
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Weltweit garantiert niedrige Latenz im 99. Quantil
 
-Mit Cosmos DB können Sie global nutzbare Anwendungen mit hoher Reaktionsfähigkeit erstellen. Dank des neuen Protokolls für die Multimasterreplikation und der [schreiboptimierten Datenbank-Engine](index-policy.md) ohne Latches garantiert Cosmos DB Latenzen von unter 10 ms sowohl für Lesevorgänge als auch für (indizierte) Schreibvorgänge auf der ganzen Welt im 99. Quantil. Diese Funktion ermöglicht eine nachhaltige Erfassung von Daten und blitzschnelle Abfragen für hochgradig reaktive Anwendungen.
+Mit Cosmos DB können Sie global nutzbare Anwendungen mit hoher Reaktionsfähigkeit erstellen. Dank des neuen Protokolls für die Multimasterreplikation und der [schreiboptimierten Datenbank-Engine](index-policy.md) ohne Latches garantiert Cosmos DB Latenzen von unter 10 ms sowohl für (indizierte) Lesevorgänge als auch für Schreibvorgänge auf der ganzen Welt im 99. Quantil. Diese Funktion ermöglicht eine nachhaltige Erfassung von Daten und blitzschnelle Abfragen für hochgradig reaktive Anwendungen.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Genau definiert, mehrere Konsistenzoptionen
 

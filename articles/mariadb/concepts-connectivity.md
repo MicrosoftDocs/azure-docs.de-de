@@ -8,11 +8,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: f5f5915e6fdb240fa519ee10526c935a524cb5b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61042215"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Behandeln vorübergehender Konnektivitätsfehler für Azure Database for MariaDB
 

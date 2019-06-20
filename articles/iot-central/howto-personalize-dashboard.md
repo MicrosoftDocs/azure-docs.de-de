@@ -3,17 +3,17 @@ title: Erstellen persönlicher Dashboards für Azure IoT Central | Microsoft-Dok
 description: Erfahren Sie, wie Sie als Benutzer Ihre persönlichen Dashboards erstellen und verwalten.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: fb74669dcaa802ad06a9c4dff3ffdf25726f518c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a1641c4f3ae4eaa175657db8ff4064fa2202aea6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053013"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>Erstellen und Verwalten persönlicher Dashboards
 

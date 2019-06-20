@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787730"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492745"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Verwalten und Überwachen gesicherter SQL Server-Datenbanken
 
@@ -31,7 +31,7 @@ Azure Backup zeigt alle manuell ausgelösten Aufträge im Portal **Sicherungsauf
 > Im Portal **Sicherungsaufträge** werden keine geplanten Sicherungsaufträge angezeigt. Verwenden Sie SQL Server Management Studio, um geplante Sicherungsaufträge zu überwachen, wie im nächsten Abschnitt beschrieben.
 >
 
-Ausführliche Informationen zu Überwachungsszenarios finden Sie unter [Monitoring in Azure Portal](backup-azure-monitoring-built-in-monitor.md) (Überwachung im Azure-Portal) und [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) (Überwachung mithilfe von Azure Monitor).  
+Ausführliche Informationen zu Überwachungsszenarios finden Sie unter [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) (Überwachung im Azure-Portal) und [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) (Überwachung mithilfe von Azure Monitor).  
 
 
 ## <a name="view-backup-alerts"></a>Anzeigen von Sicherungswarnungen
@@ -90,6 +90,14 @@ Gehen Sie wie folgt vor, um den Schutz für eine Datenbank zu beenden:
 
 6. Wählen Sie **Sicherung beenden** aus.
 
+>
+> [!NOTE]
+Weitere Informationen zur Option zum Löschen von Daten finden Sie in den folgenden häufig gestellten Fragen: <br/>
+* [Was passiert mit den Sicherungen, wenn ich eine Datenbank von einer automatisch geschützten Instanz lösche?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+* [Welches Verhalten ergibt sich, wenn ich den Vorgang „Sicherung beenden“ für eine automatisch geschützte Datenbank durchführe?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>
+
 
 ## <a name="resume-protection-for-a-sql-database"></a>Fortsetzen des Schutzes für eine SQL-­Datenbank-Instanz
 
@@ -129,9 +137,9 @@ Heben Sie die Registrierung einer SQL Server-Instanz auf, nachdem Sie den Schutz
 
 3. Wählen Sie unter **Geschützte Server** den Server aus, dessen Registrierung Sie aufheben möchten. Um den Tresor zu löschen, müssen Sie die Registrierung aller Server aufheben.
 
-4. Klicken Sie mit der rechten Maustaste auf den geschützten Server und dann auf **Löschen**.
+4. Klicken Sie mit der rechten Maustaste auf den geschützten Server, und wählen Sie **Registrierung aufheben** aus.
 
-   ![Auswählen von „Löschen“](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Auswählen von „Löschen“](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Erneutes Registrieren einer Erweiterung auf der SQL Server-VM
 

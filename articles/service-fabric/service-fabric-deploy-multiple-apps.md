@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60583861"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Bereitstellen mehrerer ausführbarer Gastanwendungsdateien
 In diesem Artikel erfahren Sie, wie Sie mehrere ausführbare Gastanwendungsdateien packen und für Azure Service Fabric bereitstellen. Informationen zum Erstellen und Bereitstellen eines einzelnen Service Fabric-Pakets finden Sie im Abschnitt [Bereitstellen einer ausführbaren Gastanwendungsdatei in Service Fabric](service-fabric-deploy-existing-app.md).

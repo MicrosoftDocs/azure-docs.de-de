@@ -12,11 +12,11 @@ ms.date: 11/19/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 51037e66ec649fc275a746c9f5316b91d82e186a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60776270"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ausführen von Containeranwendungen in Azure Batch
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574081"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65790405"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Einstellung der Premium RS-Dienstebene (Vorschau) in Azure SQL-Datenbank – Optionen für die Migration
 
@@ -27,7 +27,7 @@ Nachfolgend finden Sie eine Auflistung der Migrationsziele und Preisoptionen, di
 
 - V-Kern-Dienstebenen
 
-  Die Dienstebenen **Universell** und **Unternehmenskritisch** im [vCore-basierten Kaufmodell](sql-database-service-tiers-vcore.md). Diese beiden Dienstebenen sind allgemein verfügbar. Das vCore-basierte Kaufmodell umfasst auch die Dienstebene **Hyperscale** (in der öffentlichen Vorschau), die eine bedarfsgerechte Anpassung entsprechend den Anforderungen Ihrer Workload mit automatischer Skalierung auf bis zu 100 TB pro Datenbank ermöglicht. Die Hyperscale-Dienstebene bietet E/A-Leistung vergleichbar mit der Premium-Dienstebene im [DTU-basierten Kaufmodell](sql-database-service-tiers-dtu.md) zu einem Preis, der eher der Premium RS-Dienstebene ähnelt.
+  Die Dienstebenen **Universell** und **Unternehmenskritisch** im [vCore-basierten Kaufmodell](sql-database-service-tiers-vcore.md). Diese beiden Dienstebenen sind allgemein verfügbar. Das vCore-basierte Kaufmodell umfasst auch die Dienstebene **Hyperscale**, die eine bedarfsgerechte Anpassung entsprechend den Anforderungen Ihrer Workload mit automatischer Skalierung auf bis zu 100 TB pro Datenbank ermöglicht. Die Hyperscale-Dienstebene bietet E/A-Leistung vergleichbar mit der Premium-Dienstebene im [DTU-basierten Kaufmodell](sql-database-service-tiers-dtu.md) zu einem Preis, der eher der Premium RS-Dienstebene ähnelt.
 - Preise für Dev/Test
 
   [Preise für Dev/Test](https://azure.microsoft.com/pricing/dev-test/) bieten Einsparungen von bis zu 55 % gegenüber Tarifen mit enthaltenen Lizenzen für Ihr Visual Studio-Abonnement.
@@ -70,10 +70,10 @@ Es wird empfohlen, E/A-intensive Einzeldatenbanken zur V-Kern-basierten Diensteb
 
 |**Derzeitige Dienstebene**|**Migration zu vergleichbarer V-Kern-basierter Dienstebene**|**Migration zu vergleichbarer DTU-basierter Dienstebene**|
 |---|---|---|
-|Premium RS 1|(Vorschau) Hyperscale, 1 virtueller Kern (Gen 4) oder Unternehmenskritisch, 1 virtueller Kern (Gen 4)|Premium 1|
-|Premium RS 2|(Vorschau) Hyperscale, 2 virtuelle Kerne (Gen 4) oder Unternehmenskritisch, 2 virtuelle Kerne (Gen 4)|Premium 2|
-|Premium RS 4|(Vorschau) Hyperscale, 4 virtuelle Kerne (Gen 4) oder Unternehmenskritisch, 4 virtuelle Kerne (Gen 4)|Premium 4
-|Premium RS 6|(Vorschau) Hyperscale, 6 virtuelle Kerne (Gen 4) oder Unternehmenskritisch, 6 virtuelle Kerne (Gen 4)|Premium 6|
+|Premium RS 1| Hyperscale, 1 virtueller Kern (Gen 4) oder Unternehmenskritisch, 1 virtueller Kern (Gen 4)|Premium 1|
+|Premium RS 2| Hyperscale, 2 virtuelle Kerne (Gen 4) oder Unternehmenskritisch, 2 virtuelle Kerne (Gen 4)|Premium 2|
+|Premium RS 4| Hyperscale, 4 virtuelle Kerne (Gen 4) oder Unternehmenskritisch, 4 virtuelle Kerne (Gen 4)|Premium 4
+|Premium RS 6| Hyperscale, 6 virtuelle Kerne (Gen 4) oder Unternehmenskritisch, 6 virtuelle Kerne (Gen 4)|Premium 6|
 
 |**Derzeitige Dienstebene**|**Migration zu vergleichbarer V-Kern-basierter Dienstebene**|**Migration zu vergleichbarer DTU-basierter Dienstebene**|
 |---|---|---|

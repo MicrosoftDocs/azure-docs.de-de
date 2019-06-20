@@ -13,18 +13,18 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618140"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66152763"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Beitreten einer Azure-SSIS-Integrationslaufzeit zu einem virtuellen Netzwerk
 Verknüpfen Sie in folgenden Szenarien Ihre Azure SSIS-Integration Runtime (IR) mit einem virtuellen Azure-Netzwerk: 
 
 - Sie möchten aus SSIS-Paketen, die in einer Azure-SSIS-Integrationslaufzeit ausgeführt werden, eine Verbindung mit lokalen Datenspeichern herstellen. 
 
-- Sie hosten die SQL Server Integration Services-Katalogdatenbank (SSIS) in Azure SQL-Datenbank mit Dienstendpunkten virtueller Netzwerke/verwalteter Instanz. 
+- Sie hosten die SQL Server Integration Services-Katalogdatenbank (SSIS) in Azure SQL-Datenbank mit VNET-Dienstendpunkten/verwalteter Instanz. 
 
   Mit Azure Data Factory können Sie Ihre Azure SSIS-Integration Runtime mit einem virtuellen Netzwerk verknüpfen, das über das klassische Bereitstellungsmodell oder das Azure Resource Manager-Bereitstellungsmodell erstellt wurde. 
 
@@ -44,13 +44,13 @@ Folgende wichtige Punkte sind zu beachten:
  
 - Wenn ein virtuelles Azure Resource Manager-Netzwerk an einem anderen Standort als Ihre Azure SSIS-IR mit Ihrem lokalen Netzwerk verbunden ist, können Sie zuerst ein [virtuelles Azure Resource Manager-Netzwerk](../virtual-network/quick-create-portal.md##create-a-virtual-network) erstellen, in das dann die Azure SSIS-IR eingebunden werden kann. Konfigurieren Sie dann eine Verbindung zwischen den virtuellen Azure Resource Manager-Netzwerken. Alternativ können Sie auch ein [klassisches virtuelles Netzwerk](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) für die Verknüpfung Ihrer Azure SSIS-IR erstellen. Konfigurieren Sie dann eine [Verbindung zwischen dem klassischen virtuellen Netzwerk und dem virtuellen Azure Resource Manager-Netzwerk](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md). 
 
-## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>Hosten der SSIS-Katalogdatenbank in einer Azure SQL-Datenbank-Instanz mit Dienstendpunkten virtueller Netzwerke/verwalteter Instanz
-Wenn der SSIS-Katalog in einer Azure SQL-Datenbank-Instanz mit Dienstendpunkten virtueller Netzwerke oder in verwalteter SQL-Datenbank-Instanz gehostet wird, können Sie eine Azure SSIS IR mit folgenden Netzwerken verknüpfen: 
+## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>Hosten der SSIS-Katalogdatenbank in einer Azure SQL-Datenbank-Instanz mit VNET-Dienstendpunkten/verwalteter Instanz
+Wenn der SSIS-Katalog in einer Azure SQL-Datenbank-Instanz mit VNET-Dienstendpunkten oder in einer verwalteten Instanz gehostet wird, können Sie Azure-SSIS IR mit folgenden Netzwerken verknüpfen: 
 
 - Demselben virtuellen Netzwerk 
 - Einem anderen virtuellen Netzwerk, das über eine Netzwerk-zu-Netzwerk-Verbindung mit dem Netzwerk verfügt, das für die verwaltete Instanz verwendet wird 
 
-Wenn Sie Ihren SSIS-Katalog in Azure SQL-Datenbank mit virtuellen Netzwerk-Dienstendpunkten hosten, stellen Sie sicher, dass Sie Ihre Azure-SSIS IR mit demselben virtuellen Netzwerk und Subnetz verknüpfen.
+Wenn Sie Ihren SSIS-Katalog in Azure SQL-Datenbank mit VNET-Dienstendpunkten hosten, stellen Sie sicher, dass Sie Azure-SSIS IR mit demselben virtuellen Netzwerk und Subnetz verknüpfen.
 
 Wenn Sie Ihre Azure-SSIS IR mit demselben virtuellen Netzwerk verknüpfen wie die verwaltete Instanz, stellen Sie sicher, dass sich die Azure-SSIS IR in einem anderen Subnetz als die verwaltete Instanz befindet. Wenn Sie die Azure-SSIS IR mit einem anderen virtuellen Netzwerk verknüpfen als die verwaltete Instanz, empfiehlt sich das Peering virtueller Netzwerke (begrenzt auf die gleiche Region) oder eine Verbindung zwischen den virtuellen Netzwerken. Weitere Informationen finden Sie unter [Herstellen einer Verbindung zwischen einer Anwendung und einer verwalteten Azure SQL-Datenbank-Instanz](../sql-database/sql-database-managed-instance-connect-app.md).
 
@@ -83,7 +83,7 @@ Der Benutzer, der Azure-SSIS Integration Runtime erstellt, muss über die folgen
 
 - Wenn Sie Ihre SSIS IR in ein virtuelles Azure Resource Manager-Netzwerk einbinden, haben Sie zwei Möglichkeiten:
 
-  - Verwenden Sie die integrierte Rolle *Netzwerkmitwirkender*. Diese Rolle umfasst die Berechtigung _Microsoft.Network/\*_, die jedoch einen deutlich größeren Umfang als erforderlich hat.
+  - Verwenden Sie die integrierte Rolle *Netzwerkmitwirkender*. Diese Rolle umfasst die Berechtigung _Microsoft.Network/\*_ , die jedoch einen deutlich größeren Umfang als erforderlich hat.
 
   - Erstellen Sie eine benutzerdefinierte Rolle, die nur die erforderliche Berechtigung _Microsoft.Network/virtualNetworks/\*/join/action_ aufweist. 
 
@@ -110,7 +110,7 @@ Weitere Informationen finden Sie unter [Namensauflösung mithilfe eines eigenen 
 ### <a name="nsg"></a> Netzwerksicherheitsgruppe
 Wenn Sie eine Netzwerksicherheitsgruppe (NSG) für das Subnetz implementieren müssen, das die Azure-SSIS Integration Runtime verwendet, lassen Sie eingehenden/ausgehenden Datenverkehr über die folgenden Ports zu: 
 
-| Richtung | Transportprotokoll | Quelle | Quellportbereich | Ziel | Zielportbereich | Kommentare |
+| Direction | Transportprotokoll | `Source` | Quellportbereich | Ziel | Zielportbereich | Kommentare |
 |---|---|---|---|---|---|---|
 | Eingehend | TCP | AzureCloud<br/>(oder im größeren Umfang wie z.B. im Internet) | * | VirtualNetwork | 29876, 29877 (wenn Sie die IR mit einem virtuellen Azure Resource Manager-Netzwerk verknüpfen) <br/><br/>10100, 20100, 30100 (wenn Sie die IR mit einem klassischen virtuellen Netzwerk verknüpfen)| Der Data Factory-Dienst nutzt diese Ports für die Kommunikation mit den Knoten Ihrer Azure SSIS-Integration Runtime im virtuellen Netzwerk. <br/><br/> Unabhängig davon, ob Sie eine NSG auf Subnetzebene erstellen, konfiguriert Data Factory immer eine NSG auf der Ebene der Netzwerkschnittstellenkarten (NICs), die den virtuellen Computern angefügt sind, auf denen die Azure-SSIS IR gehostet wird. Nur eingehenden Datenverkehr von Data Factory-IP-Adressen für die angegebenen Ports wird durch diese NSG auf NIC-Ebene zugelassen. Auch wenn Sie diese Ports für den Internetdatenverkehr auf Subnetzebene öffnen, wird Datenverkehr von anderen IP-Adressen als Data Factory-IP-Adressen auf NIC-Ebene blockiert. |
 | Ausgehend | TCP | VirtualNetwork | * | AzureCloud<br/>(oder im größeren Umfang wie z.B. im Internet) | 443 | Die Knoten Ihrer Azure SSIS-Integration Runtime im virtuellen Netzwerk verwenden diesen Port für den Zugriff auf Azure-Dienste wie Azure Storage oder Azure Event Hubs. |
@@ -185,7 +185,7 @@ Sie müssen ein virtuelles Netzwerk konfigurieren, bevor Sie eine Azure SSIS-IR 
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. 
 
-1. Wählen Sie **Weitere Dienste**. Filtern Sie nach **Virtuelle Netzwerke (klassisch)**, und wählen Sie die Option aus. 
+1. Wählen Sie **Weitere Dienste**. Filtern Sie nach **Virtuelle Netzwerke (klassisch)** , und wählen Sie die Option aus. 
 
 1. Filtern Sie nach Ihrem virtuellen Netzwerk, und wählen Sie es in der Liste aus. 
 
@@ -201,7 +201,7 @@ Sie müssen ein virtuelles Netzwerk konfigurieren, bevor Sie eine Azure SSIS-IR 
 
 1. Verknüpfen Sie **MicrosoftAzureBatch** mit der Rolle **Mitwirkender für klassische virtuelle Computer** für das virtuelle Netzwerk. 
 
-    a. Klicken Sie im Menü links auf **Zugriffssteuerung (IAM)**, und wählen Sie dann die Registerkarte **Rollenzuweisung hinzufügen** aus. 
+    a. Klicken Sie im Menü links auf **Zugriffssteuerung (IAM)** , und wählen Sie dann die Registerkarte **Rollenzuweisung hinzufügen** aus. 
 
     ![Schaltflächen „Zugriffssteuerung“ und „Hinzufügen“](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
@@ -384,6 +384,6 @@ Das Abschließen dieses Befehls dauert 20 bis 30 Minuten.
 Weitere Informationen zur Azure SSIS-Runtime finden Sie in den folgenden Themen: 
 - [Azure SSIS-Integration Runtime:](concepts-integration-runtime.md#azure-ssis-integration-runtime) Dieser Artikel enthält allgemeine konzeptionelle Informationen zu Integration Runtimes, einschließlich der Azure SSIS-IR. 
 - [Tutorial: Bereitstellen von SSIS-Paketen in Azure](tutorial-create-azure-ssis-runtime-portal.md): Dieser Artikel enthält ausführliche Anweisungen zum Erstellen einer Azure SSIS-IR. Dabei wird Azure SQL-Datenbank zum Hosten des SSIS-Katalogs verwendet. 
-- [Erstellen einer Azure-SSIS Integration Runtime in Azure Data Factory | Microsoft-Dokumentation](create-azure-ssis-integration-runtime.md). In diesem Artikel wird das Tutorial vertieft, und er enthält Anweisungen zur Verwendung einer Azure SQL-Datenbank-Instanz mit Dienstendpunkten virtueller Netzwerke/verwalteter Instanz zum Hosten des SSIS-Katalogs und Verknüpfen der IR mit einem virtuellen Netzwerk. 
+- [Erstellen einer Azure-SSIS Integration Runtime in Azure Data Factory | Microsoft-Dokumentation](create-azure-ssis-integration-runtime.md). In diesem Artikel wird das Tutorial vertieft, und er enthält Anweisungen zur Verwendung einer Azure SQL-Datenbank-Instanz mit VNET-Dienstendpunkten/verwalteter Instanz zum Hosten des SSIS-Katalogs und Verknüpfen der IR mit einem virtuellen Netzwerk. 
 - [Überwachen einer Azure-SSIS-Integrationslaufzeit](monitor-integration-runtime.md#azure-ssis-integration-runtime): In diesem Artikel wird das Abrufen von Informationen zu einer Azure-SSIS-Integrationslaufzeit veranschaulicht, und er enthält Beschreibungen der Status in den zurückgegebenen Informationen. 
 - [Verwalten einer Azure-SSIS-Integrationslaufzeit](manage-azure-ssis-integration-runtime.md): In diesem Artikel wird beschrieben, wie Sie eine Azure-SSIS-Integrationslaufzeit beenden, starten oder entfernen. Außerdem wird gezeigt, wie Sie Ihre Azure SSIS-IR horizontal hochskalieren, indem Sie weitere Knoten hinzufügen. 

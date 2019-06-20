@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359027"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60947199"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery-Bereitstellungsplaner-Bericht zur Kostenvorkalkulation 
 
@@ -125,7 +125,7 @@ Gehen Sie wie folgt vor, um VMs manuell hinzuzufügen:
 
     i. **Azure-Hybridnutzungsvorteil**
 
-1. Sie können auf alle VMs der Tabelle den gleichen Wert anwenden, indem Sie für **Number of DR drills in a year**, **Each DR drill duration (Days)**, **Data redundancy** und **Azure Hybrid Use Benefit** die Option **Apply to all** (Auf alle anwenden) wählen.
+1. Sie können auf alle VMs der Tabelle den gleichen Wert anwenden, indem Sie für **Number of DR drills in a year**, **Each DR drill duration (Days)** , **Data redundancy** und **Azure Hybrid Use Benefit** die Option **Apply to all** (Auf alle anwenden) wählen.
 
 1. Wählen Sie **Re-calculate cost** (Kosten erneut berechnen), um die Kosten zu aktualisieren.
 

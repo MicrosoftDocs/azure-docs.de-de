@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64570982"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Ändern Ihres Azure-Abonnements mit nutzungsbasierter Bezahlung in ein anderes Angebot
 
@@ -86,7 +86,7 @@ Wenn die Schaltfläche **Zu einem anderen Angebot wechseln** nicht angezeigt wir
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>Warum wird die Meldung „Zurzeit sind keine Angebote in Ihrer Region bzw. Ihrem Land verfügbar.“ angezeigt?
 
 * Möglicherweise sind Sie nicht für Angebotsumstellungen berechtigt. Überprüfen Sie die [Liste der verfügbaren Umstellungen](#whats-supported), und stellen Sie sicher, dass Sie die richtigen Vorteile mit Visual Studio oder Bizspark aktiviert haben.
-* Einige Angebote sind möglicherweise nicht in allen Ländern verfügbar.
+* Einige Angebote sind möglicherweise nicht in allen Ländern/Regionen verfügbar.
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Welche Auswirkungen hat ein Wechsel zwischen Azure-Angeboten auf meinen Dienst und meine Abrechnung?
 
@@ -116,4 +116,4 @@ An dem Tag, an dem Sie das Angebot wechseln, wird für alle ausstehenden Gebühr
 
 ## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Wenden Sie sich an uns.
 
-Wenn Sie Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
+Wenn Sie weitere Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).

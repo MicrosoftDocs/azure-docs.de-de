@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247720"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60626956"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Rollen von X.509-Gerätezertifikaten
 

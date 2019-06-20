@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61346854"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Aktivität „Metadaten abrufen“ in Azure Data Factory
 
@@ -89,7 +89,7 @@ Die folgenden Metadatentypen können im Feld zur Aktivität „Metadaten abrufen
 
 ## <a name="syntax"></a>Syntax
 
-**Aktivität „Metadaten abrufen“**:
+**Aktivität „Metadaten abrufen“** :
 
 ```json
 {

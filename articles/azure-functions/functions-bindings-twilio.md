@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993062"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511795"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-Bindung für Azure Functions
 

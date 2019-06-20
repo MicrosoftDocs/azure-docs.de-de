@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8b8b6758cc2df7a092ce36e9507f84ac534d0e3d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027714"
 ---
 # <a name="convert-to-csv-module"></a>Modul „Convert to CSV (Konvertieren in das CSV-Format)
@@ -27,7 +27,7 @@ Nutzen Sie dieses Modul, um ein Dataset in ein CSV-Format konvertieren, das heru
 
 Das CSV-Format (Comma-Separated Values) ist ein Dateiformat, das von vielen externen Tools für maschinelles Lernen verwendet wird. CSV ist ein gängiges Austauschformat bei der Arbeit mit Open-Source-Sprachen wie R oder Python.
 
-Auch wenn Sie den größten Teil der Arbeit in Azure Machine Learning erledigen, gibt es Situationen, in denen es sinnvoll sein kann, Ihr Dataset in das CSV-Format zu konvertieren, um es in externen Tools zu verwenden. Beispiel: 
+Auch wenn Sie den größten Teil der Arbeit in Azure Machine Learning erledigen, gibt es Situationen, in denen es sinnvoll sein kann, Ihr Dataset in das CSV-Format zu konvertieren, um es in externen Tools zu verwenden. Beispiel:
 
 + Laden Sie die CSV-Datei herunter, um sie in Excel zu öffnen, oder importieren Sie sie in eine relationale Datenbank.  
 + Speichern Sie die CSV-Datei im Cloudspeicher, und verbinden Sie sie mit Power BI, um Visualisierungen zu erstellen.  
@@ -53,7 +53,7 @@ Doppelklicken Sie auf die Ausgabe von [Convert to CSV](./convert-to-csv.md), und
 
  + **Result Dataset -> Save as Dataset** (Ergebnisdataset -> Als Dataset speichern): Speichert die CSV-Datei als separates Dataset in den Azure ML-Arbeitsbereich zurück.
 
- + **Generate Data Access Code** (Datenzugriffscode generieren): Azure ML generiert zwei Codesätze, damit Sie auf die Daten zugreifen können, entweder mithilfe von Python oder R. Um auf die Daten zuzugreifen, kopieren Sie den Codeausschnitt in Ihre Anwendung. (*„Generate data access code“ wird in Kürze verfügbar sein.*)
+ + **Generate Data Access Code** (Datenzugriffscode generieren): Azure ML generiert zwei Codesätze, damit Sie auf die Daten zugreifen können, entweder mithilfe von Python oder R. Um auf die Daten zuzugreifen, kopieren Sie den Codeausschnitt in Ihre Anwendung. ( *„Generate data access code“ wird in Kürze verfügbar sein.* )
 
 ## <a name="next-steps"></a>Nächste Schritte
 

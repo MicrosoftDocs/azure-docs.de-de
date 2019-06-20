@@ -10,11 +10,11 @@ ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60749573"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Implementieren von „Datenverkehrsanalyse durchsuchen“ in Azure Search
 „Datenverkehrsanalyse durchsuchen“ ist ein Muster für das Implementieren einer Feedbackschleife für Ihren Suchdienst. Dieses Muster beschreibt die erforderlichen Daten, und wie Sie sie mit Application Insights sammeln, einem branchenführenden Tool für die Überwachung von Diensten auf mehrere Plattformen.

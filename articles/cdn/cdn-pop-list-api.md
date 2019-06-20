@@ -16,11 +16,11 @@ ms.date: 06/22/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 2b34f6bcbf37a48fb49a2a64d727fc9330b0d735
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882254"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60627251"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Abrufen der aktuellen Verizon-POP-Liste für Azure CDN
 

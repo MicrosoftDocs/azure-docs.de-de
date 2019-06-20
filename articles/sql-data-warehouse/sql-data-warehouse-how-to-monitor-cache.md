@@ -11,11 +11,11 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61474398"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Überwachen des Gen2-Cache
 In der Gen2-Speicherarchitektur werden die am häufigsten abgefragten Columnstore-Segmente automatisch in einem Cache eingeordnet, der sich auf NVMe-basierten SSDs befindet, die für Gen2-Data Warehouses entwickelt wurden. Es wird eine bessere Leistung erreicht, wenn bei Ihren Abfragen Segmente abgerufen werden, die sich im Cache befinden. In diesem Artikel wird beschrieben, wie eine langsame Abfrageleistung überwacht und behoben wird, indem bestimmt wird, ob die Workload den Gen2-Cache optimal nutzt.  

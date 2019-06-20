@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 2a27ec63ea4ae25823c604612bd3bcf3a057da61
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: ae5a1708b56db45bec38a4482b5dfd936bdedd4a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "61249948"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901237"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Schnellstart: Bereitstellen eines simulierten X.509-Geräts mithilfe des Azure IoT C SDK
 
@@ -35,7 +35,7 @@ In diesem Artikel werden individuelle Registrierungen veranschaulicht.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Visual Studio 2015 oder [Visual Studio 2017](https://www.visualstudio.com/vs/) mit der aktivierten Workload ["Desktopentwicklung mit C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/).
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 oder höher mit aktivierter Workload [Desktopentwicklung mit C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/).
 * Die neueste Version von [Git](https://git-scm.com/download/) ist installiert.
 
 
@@ -112,7 +112,7 @@ Sie verwenden Beispielcode aus dem Azure IoT C SDK, um das Zertifikat zu erstell
 
     Im Ausgabefenster wird ein lokal generiertes selbstsigniertes X.509-Zertifikat für Ihr simuliertes Gerät angezeigt. Kopieren Sie die Ausgabe zwischen **-----BEGIN CERTIFICATE-----** und dem ersten Vorkommen von **-----END CERTIFICATE-----** in die Zwischenablage, und schließen Sie dabei auch diese beiden Zeile mit ein. Sie benötigen nur das erste Zertifikat aus dem Ausgabefenster.
  
-5. Speichern Sie das Zertifikat mithilfe eines Text-Editors in einer neuen Datei namens **_X509testcert.pem_**. 
+5. Speichern Sie das Zertifikat mithilfe eines Text-Editors in einer neuen Datei namens **_X509testcert.pem_** . 
 
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Erstellen eines Geräteregistrierungseintrags im Portal
@@ -124,7 +124,7 @@ Sie verwenden Beispielcode aus dem Azure IoT C SDK, um das Zertifikat zu erstell
 3. Geben Sie unter **Registrierung hinzufügen** die folgenden Informationen ein, und klicken Sie auf die Schaltfläche **Speichern**.
 
     - **Mechanismus**: Wählen Sie **X.509** als *Mechanismus* für den Nachweis der Identität.
-    - **Primäres Zertifikat (PEM- oder CER-Datei)**: Klicken Sie auf **Datei auswählen**, und wählen Sie die zuvor erstellte Zertifikatdatei „X509testcert.pem“ aus.
+    - **Primäres Zertifikat (PEM- oder CER-Datei)** : Klicken Sie auf **Datei auswählen**, und wählen Sie die zuvor erstellte Zertifikatdatei „X509testcert.pem“ aus.
     - **IoT Hub-Geräte-ID**: Geben Sie **test-docs-cert-device** ein, um dem Gerät eine ID zuzuweisen.
 
       [![Hinzufügen einer individuellen Registrierung für den X.509-Nachweis im Portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
@@ -141,7 +141,7 @@ Aktualisieren Sie in diesem Abschnitt den Beispielcode, um die Startsequenz des 
 
 
 
-1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning Service, und notieren Sie sich den Wert unter **_ID-Bereich_**.
+1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning Service, und notieren Sie sich den Wert unter **_ID-Bereich_** .
 
     ![Extrahieren von Informationen zum Device Provisioning Service-Endpunkt aus dem Portalblatt](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

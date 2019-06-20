@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265065"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60935890"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Hochverfügbarkeit von Azure Virtual Machines für SAP NetWeaver
 

@@ -3,23 +3,23 @@ title: Azure AD-App-Proxy und Qlik Sense | Microsoft-Dokumentation
 description: Aktivieren Sie den Anwendungsproxy über das Azure-Portal, und installieren Sie die Connectors für den Reverseproxy.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107388"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859535"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Anwendungsproxy und Qlik Sense 
 Die Partnerschaft von Azure Active Directory-Anwendungsproxy und Qlik Sense soll sicherstellen, dass Sie mit dem Anwendungsproxy problemlos Remotezugriff für Ihre Qlik Sense-Bereitstellung bereitstellen können.  
@@ -60,7 +60,9 @@ Führen Sie die gleichen Schritte aus wie für Anwendung 1 – mit folgenden Aus
 Ihre Anwendung kann jetzt getestet werden. Greifen Sie auf die externe URL zu, die Sie zum Veröffentlichen von Qlik Sense in Anwendung 1 verwendet haben, und melden Sie sich als Benutzer an, der beiden Anwendungen zugewiesen ist.  
 
 ## <a name="additional-references"></a>Zusätzliche Verweise
-Weitere Informationen zum Veröffentlichen von Qlik Sense mit dem Anwendungsproxy finden Sie im Artikel der Qlik-Community: [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense (Azure AD mit integrierter Windows-Authentifizierung unter Verwendung einer eingeschränkten Kerberos-Delegierung mit Qlik Sense)](https://community.qlik.com/docs/DOC-20183).
+Weitere Informationen zum Veröffentlichen von Qlik Sense mit dem Anwendungsproxy finden Sie im Artikel der Qlik-Community: 
+- [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183) (Azure AD mit integrierter Windows-Authentifizierung unter Verwendung einer eingeschränkten Kerberos-Delegierung mit Qlik Sense)
+- [Qlik Sense-Integration mit Azure AD-Anwendungsproxy](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

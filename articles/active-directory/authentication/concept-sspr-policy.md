@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/16/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d99169fc38f3976b35a0ebbdd6605450fbd3e2e9
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412876"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65823405"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Kennwortrichtlinien und -einschränkungen in Azure Active Directory
 
@@ -81,9 +81,9 @@ Die folgende Tabelle beschreibt die Kennwortrichtlinieneinstellungen, die auf di
 
 | Eigenschaft | Requirements (Anforderungen) |
 | --- | --- |
-| Zulässige Zeichen |<ul><li>A – Z</li><li>a – z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
-| Unzulässige Zeichen |<ul><li>Unicode-Zeichen</li><li>Leerzeichen</li><li> Darf keinen Punkt (.) unmittelbar vor dem \@\"-Symbol enthalten.</li></ul> |
-| Kennworteinschränkungen |<ul><li>Mindestens 8 Zeichen und höchstens 16 Zeichen.</li><li>Muss drei der folgenden vier Elemente enthalten:<ul><li>Kleinbuchstaben</li><li>Großbuchstaben</li><li>Zahlen (0 bis 9)</li><li>Symbole (siehe die vorherigen Kennworteinschränkungen)</li></ul></li></ul> |
+| Zulässige Zeichen |<ul><li>A – Z</li><li>a – z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>Leerraum</li></ul> |
+| Unzulässige Zeichen |<ul><li>Unicode-Zeichen</li><li> Darf keinen Punkt (.) unmittelbar vor dem \@\"-Symbol enthalten.</li></ul> |
+| Kennworteinschränkungen |<ul><li>Mindestens 8 Zeichen und höchstens 256 Zeichen.</li><li>Muss drei der folgenden vier Elemente enthalten:<ul><li>Kleinbuchstaben</li><li>Großbuchstaben</li><li>Zahlen (0 bis 9)</li><li>Symbole (siehe die vorherigen Kennworteinschränkungen)</li></ul></li></ul> |
 | Zeitraum bis zum Ablauf des Kennworts |<ul><li>Standardwert: **90** Tage</li><li>Der Wert kann im Azure Active Directory-Modul für Windows PowerShell mit dem Cmdlet `Set-MsolPasswordPolicy` konfiguriert werden.</li></ul> |
 | Benachrichtigung bei Ablauf des Kennworts |<ul><li>Standardwert: **14** Tage (bevor das Kennwort abläuft)</li><li>Der Wert kann mit dem Cmdlet `Set-MsolPasswordPolicy` konfiguriert werden.</li></ul> |
 | Ablauf des Kennworts |<ul><li>Standardwert: **false** Tage (gibt an, dass Kennwortablauf aktiviert ist)</li><li>Der Wert kann mit dem Cmdlet `Set-MsolUser` für einzelne Benutzerkonten konfiguriert werden.</li></ul> |
@@ -99,7 +99,6 @@ Diese Anleitung gilt für andere Anbieter wie Intune und Office 365, die ebenfal
 
 > [!NOTE]
 > Nur Kennwörter für Benutzerkonten, die nicht über die Verzeichnissynchronisierung synchronisiert werden, können so konfiguriert werden, dass sie nicht ablaufen. Weitere Informationen zur Verzeichnissynchronisierung finden Sie unter [Integrieren Ihrer lokalen Verzeichnisse in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Festlegen oder Überprüfen der Kennwortrichtlinien mithilfe von PowerShell
 
@@ -157,7 +156,7 @@ Zunächst müssen Sie [das Azure AD PowerShell-Modul herunterladen und installie
    ```
 
    > [!WARNING]
-   > Kennwörter, die auf `-PasswordPolicies DisablePasswordExpiration` festgelegt sind, altern trotzdem entsprechend dem `pwdLastSet`-Attribut. Wenn Sie für die Benutzerkennwörter festlegen, dass sie nie ablaufen, und dann 90+ Tage vergangen sind, laufen die Kennwörter ab. Entsprechend dem `pwdLastSet`-Attribut ergibt sich, wenn Sie das Ablaufen in `-PasswordPolicies None` ändern, dass jedes Kennwort, dessen `pwdLastSet` älter als 90 Tage ist, vom Benutzer bei seiner nächster Anmeldung geändert werden muss. Diese Änderung kann eine große Anzahl von Benutzern betreffen. 
+   > Kennwörter, die auf `-PasswordPolicies DisablePasswordExpiration` festgelegt sind, altern trotzdem entsprechend dem `pwdLastSet`-Attribut. Wenn Sie für die Benutzerkennwörter festlegen, dass sie nie ablaufen, und dann 90+ Tage vergangen sind, laufen die Kennwörter ab. Entsprechend dem `pwdLastSet`-Attribut ergibt sich, wenn Sie das Ablaufen in `-PasswordPolicies None` ändern, dass jedes Kennwort, dessen `pwdLastSet` älter als 90 Tage ist, vom Benutzer bei seiner nächster Anmeldung geändert werden muss. Diese Änderung kann eine große Anzahl von Benutzern betreffen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

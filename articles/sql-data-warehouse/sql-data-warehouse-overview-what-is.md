@@ -1,28 +1,29 @@
 ---
 title: Was ist Azure SQL Data Warehouse? | Microsoft-Dokumentation
-description: Verteilte Datenbank der Enterprise-Klasse, die mehrere Petabyte an relationalen und nicht relationalen Daten verarbeiten kann Sie ist das branchenweit erste Cloud-Data Warehouse mit Funktionen zum Vergrößern, Verkleinern und Anhalten innerhalb weniger Sekunden.
+description: Verteilte Datenbank der Unternehmensklasse, die relationale und nicht relationale Daten im Petabytebereich verarbeiten kann. Es handelt sich um das branchenweit erste Data Warehouse für die Cloud, das innerhalb weniger Sekunden, vergrößert, verkleinert und angehalten werden kann.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: nicw
+ms.date: 05/30/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+mscustom: sqlfreshmay19
+ms.openlocfilehash: a9126e9023091dd8c3df71f2aa2558a01227a8be
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790853"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428033"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Was ist Azure SQL Data Warehouse?
 
-SQL Data Warehouse ist ein cloudbasiertes Enterprise Data Warehouse (EDW) mit Massively Parallel Processing (MPP) zur schnellen Ausführung komplexer Abfragen für mehrere Petabytes an Daten. Verwenden Sie SQL Data Warehouse als Schlüsselkomponente einer Big Data-Lösung. Importieren Sie große Datenmengen mit einfachen [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest)-T-SQL-Abfragen in SQL Data Warehouse, und nutzen Sie dann die Vorteile von MPP für aufwendige Analysen. Im Zuge von Integrationen und Analysen wird das Data Warehouse zur Single Version of Truth, auf die sich Ihr Unternehmen bei der Gewinnung von Erkenntnissen verlassen kann.  
-
+SQL Data Warehouse ist ein cloudbasiertes Enterprise Data Warehouse (EDW), das Massively Parallel Processing (MPP) zur schnellen Ausführung komplexer Abfragen für mehrere Petabytes an Daten nutzt. Verwenden Sie SQL Data Warehouse als Schlüsselkomponente einer Big Data-Lösung. Importieren Sie große Datenmengen mit einfachen [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest)-T-SQL-Abfragen in SQL Data Warehouse, und nutzen Sie dann die Vorteile von MPP für aufwendige Analysen. Im Zuge von Integrationen und Analysen wird das Data Warehouse zur Single Version of Truth, auf die sich Ihr Unternehmen bei der Gewinnung von Erkenntnissen verlassen kann.  
 
 ## <a name="key-component-of-big-data-solution"></a>Schlüsselkomponente für Big Data-Lösungen
+
 SQL Data Warehouse ist eine Schlüsselkomponente einer umfassenden Big Data-Lösung in der Cloud.
 
 ![Data Warehouse-Lösung](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
@@ -33,19 +34,21 @@ SQL Data Warehouse speichert Daten in relationalen Tabellen mit spaltenbasiertem
 
 Die Analyseergebnisse können an Berichtsdatenbanken oder Anwendungen auf der ganzen Welt übermittelt werden. Business Analysts können so Erkenntnisse gewinnen und fundierte Geschäftsentscheidungen treffen.
 
-
 ## <a name="next-steps"></a>Nächste Schritte
-Nachdem Sie sich mit den Grundlagen von SQL Data Warehouse vertraut gemacht haben, können Sie sich nun darüber informieren, wie Sie schnell [eine SQL Data Warehouse-Instanz erstellen][create a SQL Data Warehouse] und [Beispieldaten][load sample data] laden. Falls Sie mit Azure noch nicht vertraut sind und auf neue Terminologie stoßen, ist das [Azure-Glossar][Azure glossary] sehr nützlich. Weitere SQL Data Warehouse-Ressourcen:  
 
-* [Kundenerfolgsgeschichten]
-* [Blogs]
-* [Funktionsanfragen]
-* [Videos]
-* [Customer Advisory Team-Blogs]
+- Erkunden der [Azure SQL Data Warehouse-Architektur](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- Schnelles [Erstellen einer SQL Data Warehouse-Instanz][create a SQL Data Warehouse]
+- [Laden von Beispieldaten][load sample data]
+- Ansehen von [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+
+Weitere SQL Data Warehouse-Ressourcen:  
+* Suche in [Blogs]
+* Übermitteln von [Funktionsanfragen]
+* Suche in [Customer Advisory Team-Blogs]
 * [Erstellen eines Supporttickets]
-* [MSDN-Forum]
-* [Stack Overflow-Forum]
-* [Twitter]
+* Suche im [MSDN-Forum]
+* Suche im [Stack Overflow-Forum]
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -63,7 +66,6 @@ Nachdem Sie sich mit den Grundlagen von SQL Data Warehouse vertraut gemacht habe
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Kundenerfolgsgeschichten]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Customer Advisory Team-Blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Funktionsanfragen]: https://feedback.azure.com/forums/307516-sql-data-warehouse

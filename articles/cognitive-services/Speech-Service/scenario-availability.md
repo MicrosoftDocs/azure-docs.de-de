@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: a1bd8ba36f208936ce52b3a46a72516da89a0e9a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: d844b171ff99dc97e5d1107bcb745f9e8d5b3e9d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507874"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65519825"
 ---
 # <a name="scenario-availability"></a>Szenarioverfügbarkeit
 
@@ -34,8 +34,9 @@ Das Speech-Dienst-SDK bietet zahlreiche Szenarien für eine Vielzahl von Program
   - Java/Windows und Linux und Android (Speech Devices SDK)
   - Die Funktionalität für das Aktivierungswort (Keyword Spotter/KWS) kann u. U. mit jedem Mikrofontyp verwendet werden, offiziell wird KWS derzeit jedoch nur für die Mikrofonarrays in der Azure Kinect DK-Hardware oder im Speech Devices SDK unterstützt.
 - **Virtueller Voice-First-Assistent**
-  - C#/UWP
-  - Java/Windows
+  - C++/Windows und Linux und macOS
+  - C#/Windows
+  - Java/Windows und Linux und macOS und Android (Speech Devices SDK)
 - **Unterhaltungstranskription**
   - C++/Windows und Linux
   - C# (Framework und .NET Core)/Windows und UWP und Linux

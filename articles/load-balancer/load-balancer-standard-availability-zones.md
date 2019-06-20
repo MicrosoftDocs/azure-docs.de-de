@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
 ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579358"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60734455"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard und Verfügbarkeitszonen
 

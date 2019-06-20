@@ -9,11 +9,11 @@ ms.date: 05/15/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466909"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60346320"
 ---
 # <a name="smart-groups"></a>Intelligente Gruppen
 Eine häufige Herausforderung beim Umgang mit Warnungen ist das Durchsuchen der nicht relevanten Informationen, um die relevanten Warnungen zu ermitteln – intelligente Gruppen sind als Lösung für dieses Problem vorgesehen.  
@@ -49,7 +49,7 @@ Die Detailseite für die intelligente Gruppe wird angezeigt, wenn Sie auf eine i
 
 Die Detailseite für die intelligente Gruppe enthält die folgenden Abschnitte.
 
-| Abschnitt | BESCHREIBUNG |
+| `Section` | BESCHREIBUNG |
 |:---|:---|
 | Alerts | Listet die einzelnen Warnungen auf, die in der intelligenten Gruppe enthalten sind. Klicken Sie auf eine Warnung, um deren Detailseite zu öffnen. |
 | Verlauf | Listet die einzelnen Aktionen, die von der intelligenten Gruppe ausgeführt wurden, und alle daran vorgenommenen Änderungen auf. Dies ist derzeit auf Statusänderungen und Änderungen der Warnungsmitgliedschaft beschränkt. |

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 35659a77f80bd3b3d105b9ea91513784dbca01c4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b5653ffbfeb22bc59c48dd92b558178fcd89b2de
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539002"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384497"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Schnellstart für die Bing-Entitätssuche-API mit Ruby
 
@@ -146,4 +146,4 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 > [Erstellen einer Einzelseiten-Web-App](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Was ist die Bing-Entitätssuche-API?](../search-the-web.md)
-* [Referenz zur Bing-Entitätssuche-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Referenz zur Bing-Entitätssuche-API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

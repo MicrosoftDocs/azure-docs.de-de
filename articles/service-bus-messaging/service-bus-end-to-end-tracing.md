@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60311002"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Verteilte Ablaufverfolgung und Korrelation über Service Bus-Messaging
 
@@ -139,7 +139,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 In diesem Beispiel werden die Dauer, das Ergebnis, der eindeutige Bezeichner und die Startzeit der einzelnen Service Bus-Vorgänge vom Listener protokolliert.
 
-#### <a name="events"></a>Ereignisse
+#### <a name="events"></a>Events
 
 Für jeden Vorgang werden zwei Ereignisse gesendet: „Start“ und „Stop“. In den meisten Fällen kommt es nur auf die Stop-Ereignisse an. Diese enthalten neben dem Ergebnis des Vorgangs die Startzeit und die Dauer in Form von Activity-Eigenschaften.
 

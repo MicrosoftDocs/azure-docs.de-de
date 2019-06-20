@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66118133"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178144"
 ---
 #### <a name="to-create-a-volume"></a>So erstellen Sie ein Volume
 1. Wählen Sie auf dem Blatt **Geräte** in der tabellarischen Geräteauflistung Ihr Gerät aus. Klicken Sie auf **+ Volume hinzufügen**.

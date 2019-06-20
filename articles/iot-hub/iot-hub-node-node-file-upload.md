@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 7ad2c9dd89843a36a786eeefee8403d32027e11c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65596627"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Hochladen von Dateien von Ihrem Gerät in die Cloud mit IoT Hub
 
@@ -26,7 +26,7 @@ Dieses Tutorial baut auf dem Code im Tutorial [Senden von Cloud-zu-Gerät-Nachri
 - 
 - Verwenden der IoT Hub-Dateihochlade-Benachrichtigungen zum Auslösen der Dateiverarbeitung in Ihrem App-Back-End.
 
-Das Tutorial [Herstellen einer Verbindung zwischen dem simulierten Gerät und Ihrem IoT-Hub mit Node](quickstart-send-telemetry-node.md) veranschaulicht die grundlegenden Gerät-zu-Cloud-Messagingfunktionen von IoT Hub. In einigen Szenarien können Sie allerdings nicht einfach die Daten, die Ihre Geräte senden, den relativ kleinen D2C-Nachrichten zuordnen, die IoT Hub akzeptiert. Beispiel: 
+Das Tutorial [Herstellen einer Verbindung zwischen dem simulierten Gerät und Ihrem IoT-Hub mit Node](quickstart-send-telemetry-node.md) veranschaulicht die grundlegenden Gerät-zu-Cloud-Messagingfunktionen von IoT Hub. In einigen Szenarien können Sie allerdings nicht einfach die Daten, die Ihre Geräte senden, den relativ kleinen D2C-Nachrichten zuordnen, die IoT Hub akzeptiert. Beispiel:
 
 *  Große Dateien, die Bilder enthalten
 *  Videos
@@ -46,7 +46,7 @@ Am Ende dieses Tutorials führen Sie zwei Node.js-Konsolen-Apps aus:
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Node.js Version 4.0.x oder höher
+* Node.js, Version 10.0.x oder höher.
 
 * Ein aktives Azure-Konto. (Wenn Sie nicht über ein Konto verfügen, können Sie in nur wenigen Minuten ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) erstellen.)
 

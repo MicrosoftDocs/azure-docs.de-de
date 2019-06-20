@@ -10,11 +10,11 @@ ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168084"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60738331"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Grundlagen der wichtigsten Windows PowerShell-Workflowkonzepte für Automation-Runbooks
 
@@ -43,7 +43,7 @@ Zum Hinzufügen von Parametern für den Workflow verwenden Sie das Schlüsselwor
 
 Der PowerShell-Workflowcode sieht bis auf einige signifikante Änderungen fast genauso wie PowerShell-Skriptcode aus.  In den folgenden Abschnitten werden Änderungen beschrieben, die Sie an einem PowerShell-Skript vornehmen müssen, damit es in einem Workflow ausgeführt werden kann.
 
-### <a name="activities"></a>Aktivitäten
+### <a name="activities"></a>activities
 
 Eine Aktivität ist eine bestimmte Aufgabe in einem Workflow. Ebenso wie ein Skript aus einem oder mehreren Befehlen zusammengesetzt ist, setzt sich ein Workflow aus einer oder mehreren Aktivitäten zusammen, die in einer bestimmten Reihenfolge ausgeführt werden. Windows PowerShell Workflow konvertiert viele der Windows PowerShell-Cmdlets automatisch in Aktivitäten, wenn ein Workflow ausgeführt wird. Wenn Sie eines dieser Cmdlets in Ihrem Runbook angeben, wird von Windows Workflow Foundation die entsprechende Aktivität ausgeführt. Für Cmdlets ohne entsprechende Aktivität führt Windows PowerShell Workflow das Cmdlet automatisch in einer [InlineScript](#inlinescript) -Aktivität aus. Es gibt einen Satz Cmdlets, der hiervon ausgeschlossen ist und nicht in einem Workflow verwendet werden kann – es sei denn, Sie schließen diese Cmdlets explizit in einen InlineScript-Block ein. Weitere Informationen zu diesen Konzepten finden Sie unter [Verwenden von Aktivitäten in Skriptworkflows](https://technet.microsoft.com/library/jj574194.aspx).
 

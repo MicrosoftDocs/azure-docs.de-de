@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501961"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389112"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Lösung zum Starten/Beenden von VMs außerhalb der Geschäftszeiten in Azure Automation
 
@@ -49,7 +49,7 @@ Es wird empfohlen, für die Lösung zum Starten/Beenden von VMs ein separates Au
 
 ### <a name="permissions-needed-to-deploy"></a>Für die Bereitstellung erforderliche Berechtigungen
 
-Ein Benutzer muss über bestimmte Berechtigungen verfügen, um die Lösung für das Starten/Beenden von VMs außerhalb der Geschäftszeiten bereitzustellen. Diese Berechtigungen sind unterschiedlich – je nachdem, ob ein vorab erstelltes Automation-Konto und ein vorab erstellter Log Analytics-Arbeitsbereich verwendet oder beides während der Bereitstellung neu erstellt wird.
+Ein Benutzer muss über bestimmte Berechtigungen verfügen, um die Lösung für das Starten/Beenden von VMs außerhalb der Geschäftszeiten bereitzustellen. Diese Berechtigungen sind unterschiedlich – je nachdem, ob ein vorab erstelltes Automation-Konto und ein vorab erstellter Log Analytics-Arbeitsbereich verwendet oder beides während der Bereitstellung neu erstellt wird. Wenn Sie Mitwirkender im Abonnement und globaler Administrator in Ihrem Azure Active Directory-Mandanten sind, müssen Sie die folgenden Berechtigungen nicht konfigurieren. Wenn Sie nicht über diese Rechte verfügen oder eine benutzerdefinierte Rolle konfigurieren müssen, finden Sie weiter unten die erforderlichen Berechtigungen.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Bereits vorhandenes Automation- und Log Analytics-Konto
 
@@ -71,7 +71,8 @@ Um die Lösung für das Starten/Beenden von VMs außerhalb der Geschäftszeiten 
 | Microsoft.OperationsManagement/solutions/write | Ressourcengruppe |
 | Microsoft.OperationalInsights/workspaces/* | Ressourcengruppe |
 | Microsoft.Insights/diagnosticSettings/write | Ressourcengruppe |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Ressourcengruppe |
+| Microsoft.Insights/ActionGroups/Write | Ressourcengruppe |
+| Microsoft.Insights/ActionGroups/read | Ressourcengruppe |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Ressourcengruppe |
 | Microsoft.Resources/deployments/* | Ressourcengruppe |
 
@@ -79,41 +80,21 @@ Um die Lösung für das Starten/Beenden von VMs außerhalb der Geschäftszeiten 
 
 Um die Lösung für das Starten/Beenden von VMs außerhalb der Geschäftszeiten für ein neues Automation-Konto und einen neuen Log Analytics-Arbeitsbereich bereitzustellen, benötigt der Benutzer, der die Lösung bereitstellt, neben den im obigen Abschnitt beschriebenen Berechtigungen zusätzlich die folgenden Berechtigungen:
 
-- Co-Administrator für das Abonnement – Dies ist erforderlich, um das klassische ausführende Konto zu erstellen.
-- Er muss Teil der Rolle **Anwendungsentwickler** sein. Weitere Informationen zum Konfigurieren von ausführenden Konten finden Sie unter [Berechtigungen zum Konfigurieren von ausführenden Konten](manage-runas-account.md#permissions).
+- Co-Administrator für das Abonnement: nur erforderlich, um das klassische ausführende Konto zu erstellen
+- Mitglied der Rolle [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **Anwendungsentwickler**. Weitere Informationen zum Konfigurieren von ausführenden Konten finden Sie unter [Berechtigungen zum Konfigurieren von ausführenden Konten](manage-runas-account.md#permissions).
+- Mitwirkender im Abonnement oder die folgenden Berechtigungen.
 
 | Berechtigung |`Scope`|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Abonnement|
+| Microsoft.Authorization/permissions/read |Abonnement|
 | Microsoft.Authorization/roleAssignments/read | Abonnement |
 | Microsoft.Authorization/roleAssignments/write | Abonnement |
+| Microsoft.Authorization/roleAssignments/delete | Abonnement |
 | Microsoft.Automation/automationAccounts/connections/read | Ressourcengruppe |
 | Microsoft.Automation/automationAccounts/certificates/read | Ressourcengruppe |
 | Microsoft.Automation/automationAccounts/write | Ressourcengruppe |
 | Microsoft.OperationalInsights/workspaces/write | Ressourcengruppe |
-
-### <a name="region-mappings"></a>Regionszuordnungen
-
-Wenn Sie „VMs außerhalb der Geschäftszeiten starten/beenden“ aktivieren, werden nur bestimmte Regionen zum Verknüpfen mit einem Log Analytics-Arbeitsbereich und einem Automation-Konto unterstützt.
-
-Die folgende Tabelle zeigt die unterstützten Zuordnungen:
-
-|**Log Analytics-Arbeitsbereichsregion**|**Azure Automation-Region**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|Europa, Westen|Europa, Westen|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP- und EastUS-Zuordnungen für Log Analytics-Arbeitsbereiche zu Automation-Konten sind keine exakten Region-zu-Region-Zuordnungen, jedoch handelt es sich um die richtige Zuordnung.
-
-<sup>2</sup> Aufgrund von Kapazitätseinschränkungen ist die Region nicht verfügbar, wenn neue Ressourcen erstellt werden. Dies umfasst auch Automation-Konten und Log Analytics-Arbeitsbereiche. Allerdings sollten bereits in der Region vorhandene verknüpfte Ressourcen weiterhin funktionieren.
 
 ## <a name="deploy-the-solution"></a>Bereitstellen der Lösung
 
@@ -141,6 +122,11 @@ Führen Sie die folgenden Schritte aus, um die Lösung zum Starten/Beenden von V
    - Wählen Sie einen **Speicherort**aus. Derzeit sind nur die Standorte **Australien, Südosten**, **Kanada, Mitte**, **Indien, Mitte**, **USA, Osten**, **Japan, Osten**, **Asien, Südosten**, **Vereinigtes Königreich, Süden**, **Europa, Westen** und **USA, Westen 2** verfügbar.
    - Wählen Sie einen **Tarif**aus. Wählen Sie die Option **Pro GB (eigenständig)** aus. Für Azure Monitor-Protokolle wurden die [Preise](https://azure.microsoft.com/pricing/details/log-analytics/) aktualisiert, und der Tarif „Pro GB“ ist die einzige Option.
 
+   > [!NOTE]
+   > Wenn Sie Lösungen aktivieren, werden nur bestimmte Regionen zum Verknüpfen mit einem Log Analytics-Arbeitsbereich und einem Automation-Konto unterstützt.
+   >
+   > Eine Liste der unterstützten Zuordnungspaare finden Sie unter [Regionszuordnung für Automation-Konto und Log Analytics-Arbeitsbereich](how-to/region-mappings.md).
+
 5. Klicken Sie nach dem Bereitstellen der erforderlichen Informationen auf der Seite **Log Analytics-Arbeitsbereich** auf **Erstellen**. Sie können den Status unter **Benachrichtigungen** über das Menü nachverfolgen, und nach Abschluss des Vorgangs gelangen Sie zurück zur Seite **Lösung hinzufügen**.
 6. Wählen Sie auf der Seite **Lösung hinzufügen** die Option **Automation-Konto** aus. Wenn Sie einen neuen Log Analytics-Arbeitsbereich erstellen, können Sie ein neues Automation-Konto erstellen, das diesem zugeordnet wird, oder ein vorhandenes Automation-Konto auswählen, das nicht bereits mit einem Log Analytics-Arbeitsbereich verknüpft ist. Wählen Sie ein vorhandenes Automation-Konto aus, oder klicken Sie auf **Automation-Konto erstellen**, und geben Sie auf der Seite **Automation-Konto hinzufügen** Folgendes an:
    - Geben Sie im Feld **Name** den Namen des Automation-Kontos ein.
@@ -162,7 +148,7 @@ Führen Sie die folgenden Schritte aus, um die Lösung zum Starten/Beenden von V
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > Der Standardwert für **ResourceGroup-Zielnamen** ist ein **&ast;**. Dies betrifft alle VMs in einem Abonnement. Wenn die Lösung nicht alle VMs als Zielversion in Ihrem Abonnement festlegen soll, muss dieser Wert vor der Aktivierung der Zeitpläne auf eine Liste der Ressourcengruppennamen aktualisiert werden.
+     > Der Standardwert für **ResourceGroup-Zielnamen** ist ein **&ast;** . Dies betrifft alle VMs in einem Abonnement. Wenn die Lösung nicht alle VMs als Zielversion in Ihrem Abonnement festlegen soll, muss dieser Wert vor der Aktivierung der Zeitpläne auf eine Liste der Ressourcengruppennamen aktualisiert werden.
 
 8. Nachdem Sie die erforderlichen Anfangseinstellungen für die Lösung konfiguriert haben, klicken Sie auf **OK**, um die Seite **Parameter** zu schließen, und wählen Sie dann **Erstellen** aus. Nachdem alle Einstellungen überprüft wurden, wird die Lösung für Ihr Abonnement bereitgestellt. Dieser Vorgang kann einige Sekunden dauern, und Sie können den Fortschritt im Menü unter **Benachrichtigungen** nachverfolgen.
 
@@ -433,7 +419,9 @@ Wenn Sie die Lösung nicht mehr benötigen, können Sie sie aus dem Automation-K
 
 Führen Sie die folgenden Schritte aus, um die Lösung zu löschen:
 
-1. Wählen Sie in Ihrem Automation-Konto auf der linken Seite die Option **Arbeitsbereich** aus.
+1. Wählen Sie in Ihrem Automation-Konto unter **Verwandte Ressourcen** die Option **Verknüpfter Arbeitsbereich** aus.
+1. Klicken Sie auf **Zu Arbeitsbereich wechseln**.
+1. Klicken Sie unter **Allgemein** auf **Lösungen**. 
 1. Wählen Sie auf der Seite **Lösungen** die Lösung **Start-Stop-VM[Workspace]** aus. Wählen Sie auf der Seite **VMManagementSolution[Workspace]** im Menü die Option **Löschen**.<br><br> ![Löschen der VM-Mgmt-Lösung](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. Bestätigen Sie im Fenster **Lösung löschen**, dass Sie die Lösung löschen möchten.
 1. Während die Informationen überprüft werden und die Lösung gelöscht wird, können Sie den Fortschritt im Menü unter **Benachrichtigungen** nachverfolgen. Nachdem der Vorgang zum Löschen der Lösung begonnen hat, kehren Sie zur Seite **Lösungen** zurück.

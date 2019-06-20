@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61459367"
 ---
 # <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Richtlinieneinstellungen für Web Application Firewall mit Azure Front Door
 

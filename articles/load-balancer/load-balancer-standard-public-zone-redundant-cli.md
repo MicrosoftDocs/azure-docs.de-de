@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
 ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147681"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Lastenausgleich für VMs über alle Verfügbarkeitszonen hinweg mithilfe der Azure CLI

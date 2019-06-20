@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: d71d52257b6e8cfa243207c9bfdb5c7de7d3dd37
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804098"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178772"
 ---
 1. Fügen Sie in der Projektdatei "MainPage.xaml.cs" die folgenden **using** -Anweisungen hinzu:
    

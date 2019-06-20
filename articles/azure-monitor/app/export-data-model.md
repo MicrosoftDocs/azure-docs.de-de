@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119271"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053291"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights-Exportdatenmodell
 In dieser Tabelle sind die Eigenschaften der Telemetriedaten aufgelistet, die von [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDKs an das Portal gesendet werden.
@@ -114,7 +114,7 @@ Beachten Sie Folgendes:
 ## <a name="context"></a>Kontext
 Alle Telemetriedatentypen umfassen einen Kontextabschnitt. Nicht alle dieser Felder werden mit jedem Datenpunkt übertragen.
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |Schlüssel-Wert-Paare, die über benutzerdefinierte Eigenschaftenparameter festgelegt werden. Maximale Länge des Schlüssels: 100, maximale Länge des Werts: 1024. Mehr als 100 eindeutige Werte, die Eigenschaft kann durchsucht, aber nicht zur Segmentierung verwendet werden. Maximal 200 Schlüssel pro „ikey“. |
 | context.custom.metrics [0] |object [ ] |Schlüssel-Wert-Paare, die über benutzerdefinierte Messparameter und über TrackMetrics festgelegt werden. Maximale Länge des Schlüssels: 100, Werte können numerisch sein. |
@@ -158,10 +158,10 @@ Alle Telemetriedatentypen umfassen einen Kontextabschnitt. Nicht alle dieser Fel
 | internal.data.documentVersion |Zeichenfolge | |
 | internal.data.id |Zeichenfolge | Eindeutige ID, die beim Erfassen eines Elements in Application Insights zugewiesen wird. |
 
-## <a name="events"></a>Ereignisse
+## <a name="events"></a>Events
 Von [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)generierte benutzerdefinierte Ereignisse.
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | event [0] count |integer |100/([Stichproben](../../azure-monitor/app/sampling.md) -Prozentsatz). Beispiel: 4 =&gt; 25 %. |
 | event [0] name |Zeichenfolge |Ereignisname.  Länge: 250 |
@@ -172,7 +172,7 @@ Von [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackeve
 ## <a name="exceptions"></a>Ausnahmen
 Melden [Ausnahmen](../../azure-monitor/app/asp-net-exceptions.md) auf dem Server und im Browser.
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | basicException [0] assembly |Zeichenfolge | |
 | basicException [0] count |integer |100/([Stichproben](../../azure-monitor/app/sampling.md) -Prozentsatz). Beispiel: 4 =&gt; 25 %. |
@@ -201,7 +201,7 @@ Melden [Ausnahmen](../../azure-monitor/app/asp-net-exceptions.md) auf dem Server
 ## <a name="trace-messages"></a>Ablaufverfolgungsmeldungen
 Gesendet von [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) und über die [Protokollierungsadapter](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | message [0] loggerName |Zeichenfolge | |
 | message [0] parameters |Zeichenfolge | |
@@ -211,7 +211,7 @@ Gesendet von [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#t
 ## <a name="remote-dependency"></a>Remoteabhängigkeit
 Gesendet von TrackDependency. Wird zum Berichten von Leistung und Nutzung von [Aufrufen von abhängigen Komponenten](../../azure-monitor/app/asp-net-dependencies.md) auf dem Server sowie von AJAX-Aufrufen im Browser verwendet.
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |Zeichenfolge | |
@@ -232,7 +232,7 @@ Gesendet von TrackDependency. Wird zum Berichten von Leistung und Nutzung von [A
 ## <a name="requests"></a>Requests
 Gesendet von [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Die Standardmodule verwenden TrackRequest zum Berichten der Serverantwortzeit, gemessen auf dem Server.
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | request [0] count |integer |100/([Stichproben](../../azure-monitor/app/sampling.md) -Prozentsatz). Beispiel:  4 =&gt; 25 %. |
 | request [0] durationMetric.value |number |Zeit vom Empfang der Anforderung bis zur Antwort. 1e7 == 1s |
@@ -250,7 +250,7 @@ Gesendet vom Browser. Misst die Zeit zum Verarbeiten einer Seite, von der Initia
 
 Kontextwerte zeigen Clientbetriebssystem und Browserversion.
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |Zeit vom vollständigen Empfang der HTML-Daten bis zur Anzeige der Seite. |
 | clientPerformance [0] name |Zeichenfolge | |
@@ -267,7 +267,7 @@ Kontextwerte zeigen Clientbetriebssystem und Browserversion.
 ## <a name="page-views"></a>Seitenaufrufe
 Gesendet von trackPageView() oder [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | view [0] count |integer |100/([Stichproben](../../azure-monitor/app/sampling.md) -Prozentsatz). Beispiel: 4 =&gt; 25 %. |
 | view [0] durationMetric.value |integer |Wert optional in trackPageView() oder über startTrackPage() - stopTrackPage() festgelegt. Ist nicht dasselbe wie die clientPerformance-Werte. |
@@ -280,7 +280,7 @@ Gesendet von trackPageView() oder [stopTrackPage](../../azure-monitor/app/api-cu
 ## <a name="availability"></a>Verfügbarkeit
 Liefert Berichtdaten zu [Verfügbarkeitswebtests](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| path | Typ | Notizen |
+| `Path` | Type | Notizen |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |Zeichenfolge |Verfügbarkeit |
 | availability [0] availabilityMetric.value |number |1.0 oder 0.0 |
@@ -296,12 +296,12 @@ Liefert Berichtdaten zu [Verfügbarkeitswebtests](../../azure-monitor/app/monito
 | availability [0] testRunId |Zeichenfolge | |
 | availability [0] testTimestamp |Zeichenfolge | |
 
-## <a name="metrics"></a>Metriken
+## <a name="metrics"></a>metrics
 Generiert von TrackMetric().
 
 Der Metrikwert befindet sich in context.custom.metrics[0].
 
-Beispiel: 
+Beispiel:
 
     {
      "metric": [ ],
@@ -327,7 +327,7 @@ Beispiel:
     }
 
 ## <a name="about-metric-values"></a>Grundlegendes zu Metrikwerten
-Informationen zu Metrikwerten werden, sowohl in Metrikberichten als auch an anderer Stelle, mit einer Standardobjektstruktur bereitgestellt. Beispiel: 
+Informationen zu Metrikwerten werden, sowohl in Metrikberichten als auch an anderer Stelle, mit einer Standardobjektstruktur bereitgestellt. Beispiel:
 
       "durationMetric": {
         "name": "contoso.org",

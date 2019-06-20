@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878782"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Dateisystemvorgänge in Azure Data Lake Storage Gen1 mit der REST-API
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ In diesem Artikel erfahren Sie, wie Sie mit WebHDFS-REST-APIs und Data Lake Stor
 
 * **Ein Azure Data Lake Storage Gen1-Konto**. Befolgen Sie die Anweisungen unter [Erste Schritte mit Azure Data Lake Storage Gen1 über das Azure-Portal](data-lake-store-get-started-portal.md).
 
-* **[cURL](https://curl.haxx.se/)**. Dieser Artikel zeigt anhand von cURL, wie Sie REST-API-Aufrufe eines Data Lake Storage Gen1-Kontos ausführen.
+* **[cURL](https://curl.haxx.se/)** . Dieser Artikel zeigt anhand von cURL, wie Sie REST-API-Aufrufe eines Data Lake Storage Gen1-Kontos ausführen.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Wie authentifiziere ich mich mithilfe von Azure Active Directory?
 Zur Authentifizierung mit Azure Active Directory können Sie zwischen zwei Ansätzen wählen.

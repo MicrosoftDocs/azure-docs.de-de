@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556582"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178759"
 ---
 Wenn Sie in einer Nicht-DHCP-Umgebung starten, führen Sie diese Schritte aus, um den virtuellen Computer für Ihr Data Box Gateway bereitzustellen.
 

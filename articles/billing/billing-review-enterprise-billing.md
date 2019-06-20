@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
 ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60371035"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Überprüfen von Abrechnungsdaten der Enterprise-Registrierung mit REST-APIs
 
@@ -43,8 +43,8 @@ Die folgenden Header sind erforderlich:
 
 |Anforderungsheader|BESCHREIBUNG|  
 |--------------------|-----------------|  
-|*Inhaltstyp*:|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
-|*Autorisierung*:|Erforderlich. Legen Sie diese Option auf einen gültigen `Bearer`-[API-Schlüssel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) fest. |  
+|*Content-Type:*|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
+|*Authorization:*|Erforderlich. Legen Sie diese Option auf einen gültigen `Bearer`-[API-Schlüssel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) fest. |  
 
 In diesem Beispiel wird ein synchroner Aufruf gezeigt, der Details für den aktuellen Abrechnungszyklus zurückgibt. Aus Leistungsgründen geben synchrone Aufrufe Informationen des letzten Monats zurück.  Sie können auch die [API asynchron](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) aufrufen, um Daten von 36 Monaten zurückzugeben.
 
@@ -96,8 +96,8 @@ Die folgenden Header sind erforderlich:
 
 |Anforderungsheader|BESCHREIBUNG|  
 |--------------------|-----------------|  
-|*Inhaltstyp*:|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
-|*Autorisierung*:|Erforderlich. Legen Sie diese Option auf einen gültigen `Bearer`-[API-Schlüssel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) fest. |  
+|*Content-Type:*|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
+|*Authorization:*|Erforderlich. Legen Sie diese Option auf einen gültigen `Bearer`-[API-Schlüssel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) fest. |  
 
 In diesem Beispiel wird ein synchroner Aufruf gezeigt, der Details für den aktuellen Abrechnungszyklus zurückgibt. Aus Leistungsgründen geben synchrone Aufrufe Informationen des letzten Monats zurück.  Sie können auch die [API asynchron](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) aufrufen, um Daten von 36 Monaten zurückzugeben.
 
@@ -152,8 +152,8 @@ Die folgenden Header sind erforderlich:
 
 |Anforderungsheader|BESCHREIBUNG|  
 |--------------------|-----------------|  
-|*Inhaltstyp*:|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
-|*Autorisierung*:|Erforderlich. Legen Sie diese Option auf einen gültigen `Bearer`-[API-Schlüssel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) fest. |  
+|*Content-Type:*|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
+|*Authorization:*|Erforderlich. Legen Sie diese Option auf einen gültigen `Bearer`-[API-Schlüssel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) fest. |  
 
 In diesem Beispiel wird ein synchroner Aufruf gezeigt, der Details für den aktuellen Abrechnungszyklus zurückgibt. Aus Leistungsgründen geben synchrone Aufrufe Informationen des letzten Monats zurück.  Sie können auch die [API asynchron](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) aufrufen, um Daten von 36 Monaten zurückzugeben.
 

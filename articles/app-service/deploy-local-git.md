@@ -15,10 +15,10 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956067"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-Bereitstellung in Azure App Service
@@ -114,7 +114,7 @@ Klicken Sie im linken Navigationsbereich Ihrer App-Seite auf **Bereitstellungsce
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Klicken Sie auf **Azure Pipelines (Vorschau)** > **Weiter**.
+Klicken Sie auf **Azure Pipelines (Vorschau)**  > **Weiter**.
 
 ![](media/app-service-deploy-local-git/pipeline-builds.png)
 
@@ -172,7 +172,7 @@ Die folgenden Fehler und Probleme treten häufig auf, wenn Git zum Veröffentlic
 
 **Ursache**: Dieser Fehler kann auftreten, wenn Sie während `git push` keine Verzweigung angeben, oder wenn Sie den Wert `push.default` in `.gitconfig` nicht festgelegt haben.
 
-**Lösung**: Führen Sie `git push` erneut aus, und geben Sie dabei den Masterbranch an. Beispiel: 
+**Lösung**: Führen Sie `git push` erneut aus, und geben Sie dabei den Masterbranch an. Beispiel:
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **Ursache**: Dieser Fehler kann auftreten, wenn Sie versuchen, etwas per Push auf eine andere Verzweigung als die Hauptverzweigung auf dem Remoterepository „azure“ zu übertragen.
 
-**Lösung**: Führen Sie `git push` erneut aus, und geben Sie dabei den Masterbranch an. Beispiel: 
+**Lösung**: Führen Sie `git push` erneut aus, und geben Sie dabei den Masterbranch an. Beispiel:
 
 ```bash
 git push azure master

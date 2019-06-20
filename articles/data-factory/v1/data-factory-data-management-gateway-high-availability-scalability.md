@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60488635"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Datenverwaltungsgateway – Hochverfügbarkeit und Skalierbarkeit (Vorschauversion)
 > [!NOTE]
@@ -165,7 +165,7 @@ Hier sind die Anforderungen für das TLS/SSL-Zertifikat angegeben, das zum Schü
 - Jeder Integration Runtime-Knoten muss diesem Zertifikat und dem Clientcomputer, der die Anwendung für die Anmeldeinformationsverwaltung ausführt, vertrauen. 
   > [!NOTE]
   > Die Anwendung für die Anmeldeinformationsverwaltung wird beim sicheren Festlegen von Anmeldeinformationen über den Kopier-Assistenten/das Azure-Portal verwendet. Dies kann auf jedem Computer im gleichen Netzwerk wie der lokale/private Datenspeicher ausgelöst werden.
-- Platzhalterzertifikate werden unterstützt. Wenn der FQDN **node1.domain.contoso.com** lautet, können Sie ***.domain.contoso.com** als Antragstellernamen des Zertifikats verwenden.
+- Platzhalterzertifikate werden unterstützt. Wenn der FQDN **node1.domain.contoso.com** lautet, können Sie * **.domain.contoso.com** als Antragstellernamen des Zertifikats verwenden.
 - SAN-Zertifikate sind nicht empfehlenswert, da nur das letzte Element des alternativen Antragstellernamens verwendet wird und alle anderen aufgrund von aktuellen Einschränkungen ignoriert werden. Beispiel: Wenn Sie ein SAN-Zertifikat mit den SANs **node1.domain.contoso.com** und **node2.domain.contoso.com** haben, können Sie dieses Zertifikat nur auf dem Computer mit dem FQDN **node2.domain.contoso.com** verwenden.
 - Unterstützt alle Schlüsselgrößen, die von Windows Server 2012 R2 für SSL-Zertifikate unterstützt werden.
 - Zertifikate mit CNG-Schlüsseln werden nicht unterstützt.

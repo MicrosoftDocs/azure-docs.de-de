@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
 ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361284"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60828646"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Sperren von Containerimages in einer Azure-Containerregistrierung
 

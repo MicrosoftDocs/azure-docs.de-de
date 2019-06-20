@@ -15,13 +15,22 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595386"
 ---
+> [!NOTE] 
+> Die in diesem Artikel beschriebenen Benutzerkonten unterscheiden sich aus Sicherheitsgründen von den Benutzerkonten für RDP (Remote Desktop Protocol) oder SSH (Secure Shell). 
+>
+> Um eine Verbindung mit einem Knoten herzustellen, auf dem die Linux-VM-Konfiguration über SSH ausgeführt wird, lesen Sie den Artikel [Installieren und Konfigurieren von Remotedesktop zum Herstellen einer Verbindung mit einem virtuellen Linux-Computer in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Um eine Verbindung mit Knoten herzustellen, auf denen Windows über RDP ausgeführt wird, lesen Sie den Artikel [Gewusst wie: Herstellen einer Verbindung mit einem virtuellen Azure-Computer unter Windows und Anmelden auf diesem Computer](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Um eine Verbindung mit einem Knoten herzustellen, auf dem die Clouddienstkonfiguration über RDP ausgeführt wird, lesen Sie den Artikel [Aktivieren einer Remotedesktopverbindung für eine Rolle in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ausführen von Aufgaben unter Benutzerkonten in Batch
 
 Eine Aufgabe wird in Azure Batch immer unter einem Benutzerkonto ausgeführt. Standardmäßig werden Aufgaben unter Standardbenutzerkonten ohne Administratorberechtigungen ausgeführt. Diese standardmäßigen Benutzerkontoeinstellungen sind in der Regel ausreichend. Für bestimmte Szenarien ist es jedoch hilfreich, in der Lage zu sein, das Benutzerkonto zu konfigurieren, unter dem eine Aufgabe ausgeführt werden soll. Dieser Artikel beschreibt die Typen von Benutzerkonten, und wie Sie sie für Ihr Szenario konfigurieren können.
@@ -36,14 +45,6 @@ Azure Batch bietet zwei Typen von Benutzerkonten zum Ausführen von Aufgaben an:
 
 > [!IMPORTANT] 
 > Mit der Batch-Dienstversion 2017-01-01.4.0 wird eine entscheidende Änderung eingeführt, die erfordert, dass Sie den Code zum Aufrufen dieser Version aktualisieren. Wenn Sie Code von einer älteren Batch-Version migrieren, beachten Sie, dass die **runElevated**-Eigenschaft in den REST-API- oder Batch-Clientbibliotheken nicht mehr unterstützt wird. Verwenden Sie die neue **userIdentity**-Eigenschaft einer Aufgabe, um die Rechteerweiterungsebene anzugeben. Im Abschnitt [Aktualisieren Ihres Codes auf die aktuelle Batch-Clientbibliothek](#update-your-code-to-the-latest-batch-client-library) finden Sie kurze Richtlinien für die Aktualisierung des Batch-Codes, wenn Sie eine der Clientbibliotheken verwenden.
->
->
-
-> [!NOTE] 
-> Die in diesem Artikel erläuterten Benutzerkonten unterstützen aus Sicherheitsgründen weder Remote Desktop Protocol (RDP) noch Secure Shell (SSH). 
->
-> Um eine Verbindung mit einem Knoten herzustellen, auf dem die Linux-VM-Konfiguration über SSH ausgeführt wird, lesen Sie den Artikel [Installieren und Konfigurieren von Remotedesktop zum Herstellen einer Verbindung mit einem virtuellen Linux-Computer in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Um eine Verbindung mit Knoten herzustellen, auf denen Windows über RDP ausgeführt wird, lesen Sie den Artikel [Gewusst wie: Herstellen einer Verbindung mit einem virtuellen Azure-Computer unter Windows und Anmelden auf diesem Computer](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Um eine Verbindung mit einem Knoten herzustellen, auf dem die Clouddienstkonfiguration über RDP ausgeführt wird, lesen Sie den Artikel [Aktivieren einer Remotedesktopverbindung für eine Rolle in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 

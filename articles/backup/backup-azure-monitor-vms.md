@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310157"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399747"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Überwachen von Warnungen für Sicherungen von virtuellen Azure-Computern
 
@@ -70,7 +70,7 @@ So richten Sie E-Mail-Benachrichtigungen für Warnungen ein
    | Warnstufe | Gesendete Warnungen |
    | --- | --- |
    | Kritisch | Für Sicherungsfehler, Wiederherstellungsfehler |
-   | Warnung | Für erfolgreiche Sicherungen mit Warnungen (z.B. einige fehlerhafte Schreibvorgänge beim Erstellen einer Momentaufnahme) |
+   | Warnung | Derzeit sind keine Warnungen für Azure-VM-Sicherungen verfügbar (z. B. einige fehlerhafte Schreibvorgänge beim Erstellen einer Momentaufnahme). |
    | Information | Aktuell sind keine Informationsmeldungen für die Azure-VM-Sicherung verfügbar. |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Fälle, in denen keine E-Mail gesendet wird, auch wenn Benachrichtigungen konfiguriert wurden

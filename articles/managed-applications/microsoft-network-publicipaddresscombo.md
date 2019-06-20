@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: c3e8c99f6648f0f4927140f3215978566afb9eb8
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60251097"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Benutzeroberflächenelement „Microsoft.Network.PublicIpAddressCombo“
 Eine Gruppe von Steuerelementen zum Auswählen einer neuen oder vorhandenen öffentlichen IP-Adresse.

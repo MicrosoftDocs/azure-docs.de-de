@@ -10,10 +10,10 @@ ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786195"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variable Objekte in Azure Automation
@@ -41,9 +41,9 @@ Sie können mehrere Werte in einer einzigen Variable speichern, indem Sie ein Ar
 
 Im Folgenden finden Sie eine Liste von in Automation verfügbaren Variablentypen:
 
-* Zeichenfolge
+* string
 * Integer
-* Datetime
+* DateTime
 * Boolean
 * Null
 
@@ -58,11 +58,11 @@ Die Cmdlets in der folgenden Tabelle werden für AzureRM zum Erstellen und Verwa
 |[Remove-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationVariable)|Entfernt eine vorhandene Variable.|
 |[Set-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable)|Legt den Wert für eine vorhandene Variable fest.|
 
-## <a name="activities"></a>Aktivitäten
+## <a name="activities"></a>activities
 
 Die Aktivitäten in der folgenden Tabelle werden für den Zugriff auf Anmeldeinformationen in einem Runbook und DSC-Konfigurationen verwendet.
 
-| Aktivitäten | BESCHREIBUNG |
+| activities | BESCHREIBUNG |
 |:---|:---|
 |Get-AutomationVariable|Ruft den Wert einer vorhandenen Variable ab.|
 |Set-AutomationVariable|Legt den Wert für eine vorhandene Variable fest.|

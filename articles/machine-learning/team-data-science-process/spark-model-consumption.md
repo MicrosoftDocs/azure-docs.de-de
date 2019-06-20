@@ -12,11 +12,11 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60253175"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operationalisieren von Machine Learning-Modellen, die mit Spark erstellt wurden
 
@@ -526,7 +526,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 ## <a name="consume-spark-models-through-a-web-interface"></a>Verwenden von Spark-Modellen über eine Weboberfläche
 Spark stellt einen Mechanismus zur Remoteübermittlung von Batchaufträgen oder interaktiven Abfragen über eine REST-Schnittstelle mit einer Komponente namens Livy bereit. Livy ist standardmäßig auf dem HDInsight Spark-Cluster aktiviert. Weitere Informationen zu Livy finden Sie hier: [Remoteübermittlung von Spark-Aufträgen mithilfe von Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
-Livy können Sie zur Remoteübermittlung eines Auftrags verwenden, der eine Datei im Batch bewertet, die in einem Azure-Blob gespeichert ist, und dann die Ergebnisse in einen anderen Blob schreibt. Laden Sie zu diesem Zweck das Python-Skript von   
+Livy können Sie zur Remoteübermittlung eines Auftrags verwenden, der eine Datei im Batch bewertet, die in einem Azure-Blob gespeichert ist, und dann die Ergebnisse in einen anderen Blob schreibt. Laden Sie zu diesem Zweck das Python-Skript von  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) in das Blob des Spark-Clusters hoch. Sie können zum Kopieren des Skripts in das Clusterblob ein Tool wie **Microsoft Azure Storage-Explorer** oder **AzCopy** verwenden. In unserem Fall haben wir das Skript in ***wasb:///example/python/ConsumeGBNYCReg.py*** hochgeladen.   
 
 > [!NOTE]

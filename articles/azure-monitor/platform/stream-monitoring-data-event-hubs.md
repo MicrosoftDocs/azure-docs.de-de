@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850074"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243467"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Streamen von Azure-Überwachungsdaten an einen Event Hub für die Verwendung durch ein externes Tool
 
@@ -117,7 +117,7 @@ Die Weiterleitung Ihrer Überwachungsdaten an einen Event Hub mit Azure Monitor 
 * **Syslog-Server:** Wenn Sie Azure Monitor-Daten direkt an einen Syslog-Server streamen möchten, können Sie sich [dieses GitHub-Repository](https://github.com/miguelangelopereira/azuremonitor2syslog/) ansehen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Archivieren Sie das Aktivitätsprotokoll mithilfe eines Speicherkontos.](../../azure-monitor/platform/archive-activity-log.md)
+* [Archivieren Sie das Aktivitätsprotokoll in einem Speicherkonto.](../../azure-monitor/platform/archive-activity-log.md)
 * [Lesen Sie die Übersicht über das Azure-Aktivitätsprotokoll.](../../azure-monitor/platform/activity-logs-overview.md)
 * [Richten Sie eine Warnung ein, die auf einem Aktivitätsprotokollereignis basiert.](../../azure-monitor/platform/alerts-log-webhook.md)
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401103"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64727914"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Erstellen von Profilen für Azure Service Fabric-Liveanwendungen mit Application Insights
 
@@ -32,7 +32,7 @@ Application Insights Profiler ist in Azure-Diagnose enthalten. Sie können die A
 
 Zum Einrichten Ihrer Umgebung führen Sie folgende Schritte aus:
 
-1. Zum Sicherstellen, dass [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) oder höher verwendet wird, ist es ausreichend, zu bestätigen, dass das bereitgestellte Betriebssystem `Windows Server 2012 R2` oder höher ist.
+1. Der Profiler unterstützt .NET Framework und .Net Core. Wenn Sie .NET Framework verwenden, stellen Sie sicher, dass Sie [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) oder höher verwenden. Es ist ausreichend zu bestätigen, dass das bereitgestellte Betriebssystem `Windows Server 2012 R2` oder höher ist. Der Profiler unterstützt .NET Core 2.1 und neuere Anwendungen.
 
 1. Suchen Sie nach der [Azure-Diagnoseerweiterung](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) in der Bereitstellungsvorlagendatei.
 
@@ -59,7 +59,6 @@ Zum Einrichten Ihrer Umgebung führen Sie folgende Schritte aus:
 
 1. Stellen Sie Ihre Anwendung erneut bereit.
 
-> [TIPP] Für virtuelle Computer gibt es folgende Alternative zu den zuvor genannten JSON-basierten Schritten: Navigieren Sie im Azure-Portal zu **Virtuelle Computer** > **Diagnoseeinstellungen** > **Senken**>. **Aktivieren Sie das Senden von Diagnosedaten an Application Insights**, und wählen Sie dann entweder ein Application Insights-Konto oder einen bestimmten iKey aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
 ms.openlocfilehash: a05f75a7e38ee7cd4dc056629d9acaacad875e08
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608231"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60730224"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timer in Durable Functions (Azure Functions)
 

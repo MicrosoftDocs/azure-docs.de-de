@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: cf43e29e967ee6f920eb38feb9c73d70f9621ea4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62123313"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Benutzerinteraktion in Durable Functions: Beispiel zur Telefonüberprüfung
 

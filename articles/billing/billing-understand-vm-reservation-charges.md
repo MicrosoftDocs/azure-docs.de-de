@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: b112dd881d4b2e87e617111d00bc82c6151d7750
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011196"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370072"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Anwendung des Rabatts für Azure-Reservierungen auf virtuelle Computer
 
@@ -41,7 +41,7 @@ In der folgenden Tabelle sind die Kosten für virtuelle Computer nach dem Kauf e
 
 Reservierungsrabatte funktionieren nach dem Prinzip „*use-it-or-lose-it*“. Das heißt, wenn Sie für eine Stunde nicht über die entsprechenden Ressourcen verfügen, verlieren Sie eine Reservierungsmenge für diese Stunde. Sie können ungenutzte reservierte Stunden nicht übertragen.
 
-Wenn Sie eine Ressource beenden, wird der Reservierungsrabatt automatisch auf eine andere entsprechende Ressource im angegebenen Reservierungsumfang angewendet. Wenn keine übereinstimmenden Ressourcen im angegebenen Reservierungsumfang gefunden werden, gehen die reservierten Stunden *verloren*.
+Wenn Sie eine Ressource beenden, wird der Reservierungsrabatt automatisch auf eine andere entsprechende Ressource im angegebenen Reservierungsumfang angewandt. Wenn keine übereinstimmenden Ressourcen im angegebenen Reservierungsumfang gefunden werden, gehen die reservierten Stunden *verloren*.
 
 ## <a name="reservation-discount-for-non-windows-vms"></a>Reservierungsrabatte für virtuelle Nicht-Windows-Computer
 

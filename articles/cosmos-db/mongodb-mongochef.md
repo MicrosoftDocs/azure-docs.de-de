@@ -10,11 +10,11 @@ author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
 ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61331949"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Herstellen einer Verbindung mit einem Cosmos-Konto mithilfe von Studio 3T
 

@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: cb93c29ae4cb8d365cd128c52ee726c10c94bc19
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61023573"
 ---
 # <a name="connect-with-power-bi"></a>Herstellen einer Verbindung mit Power BI
 

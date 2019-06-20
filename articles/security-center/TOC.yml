@@ -6,6 +6,8 @@
       href: security-center-intro.md
     - name: Unterstützte Plattformen und Funktionen in Security Center
       href: security-center-os-coverage.md
+    - name: 'Endpoint Protection: Bewertung und Empfehlungen'
+      href: security-center-endpoint-protection.md
 - name: Schnellstarts
   expanded: true
   items:
@@ -43,6 +45,8 @@
       href: security-center-onboarding.md
     - name: Serverschutz mit Windows Defender ATP
       href: security-center-wdatp.md
+    - name: Advanced Data Security für IaaS
+      href: security-center-iaas-advanced-data.md
     - name: Schützen von App Service
       href: security-center-app-services.md
     - name: Arbeiten mit Sicherheitsrichtlinien
@@ -55,24 +59,24 @@
       href: security-center-powershell-onboarding.md
     - name: Security Center-Einstellungen
       href: security-center-policies-overview.md
-      items:
-        - name: Datensammlung
-          href: security-center-enable-data-collection.md
-        - name: Advanced Data Security für IaaS
-          href: security-center-iaas-advanced-data.md
-        - name: Integrierte Sicherheitsrichtlinien
-          href: security-center-policy-definitions.md
-        - name: E-Mail-Benachrichtigungen
-          href: security-center-provide-security-contact-details.md
-        - name: Tarif
-          href: security-center-pricing.md
-        - name: Sicherheitskonfigurationen
-          href: security-center-customize-os-security-config.md
-        - name: Mandantenweite Sichtbarkeit
-          href: security-center-management-groups.md
+    - name: Vergleichen der Baselines mithilfe der Dateiintegritätsüberwachung
+      href: security-center-file-integrity-monitoring-baselines.md
+    - name: Datensammlung
+      href: security-center-enable-data-collection.md
+    - name: Integrierte Sicherheitsrichtlinien
+      href: security-center-policy-definitions.md
+    - name: E-Mail-Benachrichtigungen
+      href: security-center-provide-security-contact-details.md
+    - name: Tarif
+      href: security-center-pricing.md
+    - name: Sicherheitskonfigurationen
+      href: security-center-customize-os-security-config.md
+    - name: Mandantenweite Sichtbarkeit
+      href: security-center-management-groups.md
     - name: Implementieren von Sicherheitsempfehlungen
-      href: security-center-recommendations.md
       items:
+        - name: Was sind Sicherheitsempfehlungen?
+          href: security-center-recommendations.md
         - name: Stärken des Sicherheitsstatus
           href: security-center-monitoring.md
         - name: Schützen Ihrer Computer und Apps
@@ -178,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: Verwalten von Benutzerdaten
       href: security-center-privacy.md
+    - name: Verwalten von IoT
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: Häufig gestellte Fragen
       href: security-center-faq.md
     - name: Azure Security

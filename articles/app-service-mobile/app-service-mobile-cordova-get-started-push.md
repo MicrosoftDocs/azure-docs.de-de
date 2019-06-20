@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62114339"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Hinzufügen von Pushbenachrichtigungen zu Ihrer Apache Cordova-App
 
@@ -316,7 +316,7 @@ Wenn die App-ID, die Sie in Ihrem Apple Developer-Konto erstellt haben, bereits 
    > [!NOTE]
    > Bei der erstmaligen Ausführung fordert die App eine Bestätigung für Pushbenachrichtigungen an.
 
-3. Geben Sie in der App eine Aufgabe ein, und klicken Sie dann auf das Pluszeichen (**+**).
+3. Geben Sie in der App eine Aufgabe ein, und klicken Sie dann auf das Pluszeichen ( **+** ).
 4. Überprüfen Sie, ob eine Benachrichtigung empfangen wurde. Wählen Sie dann **OK**, um die Benachrichtigung zu verwerfen.
 
 ## <a name="optional-configure-and-run-on-windows"></a>(Optional) Konfigurieren und Ausführen unter Windows
@@ -373,7 +373,7 @@ Stellen Sie in Visual Studio sicher, dass eine Windows-Plattform als Bereitstell
 
 1. Klicken Sie auf die Schaltfläche **Ausführen**, um das Projekt zu erstellen und die App zu starten.
 
-2. Geben Sie in der App einen Namen für ein neues TodoItem ein, und klicken Sie dann auf das Pluszeichen (**+**), um es hinzuzufügen.
+2. Geben Sie in der App einen Namen für ein neues TodoItem ein, und klicken Sie dann auf das Pluszeichen ( **+** ), um es hinzuzufügen.
 
 Überprüfen Sie, ob beim Hinzufügen des Elements eine Benachrichtigung empfangen wird.
 

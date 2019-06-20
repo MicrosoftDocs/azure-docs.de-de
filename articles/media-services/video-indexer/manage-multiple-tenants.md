@@ -7,17 +7,18 @@ author: ika-microsoft
 manager: femila
 editor: ''
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733298"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949468"
 ---
 # <a name="manage-multiple-tenants"></a>Verwalten mehrerer Mandanten
 

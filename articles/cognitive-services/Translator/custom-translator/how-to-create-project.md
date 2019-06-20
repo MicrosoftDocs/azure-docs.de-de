@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 456860c74810a692b4839e4204ec0b78d5620864
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762703"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383011"
 ---
 # <a name="create-a-project"></a>Erstellen eines Projekts
 

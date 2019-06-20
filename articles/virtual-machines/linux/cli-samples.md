@@ -17,11 +17,11 @@ ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: fdbf402d14d3f1b3565866045a697212b6b76492
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60387144"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Azure CLI-Beispiele für Linux-VMs
 

@@ -8,14 +8,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: dc45847f3dc2e11af9b7cf566fdd6780ec2b9dac
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 312688ddccd6a65745b919e4c396a95f40a58d3e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762159"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382333"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Definition: Custom Translator-Arbeitsbereich
 

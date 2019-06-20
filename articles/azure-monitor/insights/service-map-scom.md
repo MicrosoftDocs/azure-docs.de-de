@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: magoedte
 ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110102"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60402539"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integration von Service Map in System Center Operations Manager
 
@@ -110,7 +110,7 @@ Sie können den konfigurierten Arbeitsbereich im Bereich der **Service Map-Über
 
 Aktuell können Sie nur einen Log Analytics-Arbeitsbereich konfigurieren.
 
-![Der Bereich zum Bearbeiten des Arbeitsbereichs im Operations Manager ](media/service-map-scom/scom-edit-workspace.png)
+![Der Bereich zum Bearbeiten des Arbeitsbereichs im Operations Manager](media/service-map-scom/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>Konfigurieren von Regeln und Außerkraftsetzungen
 Die Regel _Microsoft.SystemCenter.ServiceMapImport.Rule_ wird erstellt, um regelmäßig Informationen von Service Map abzurufen. Um die Zeitsteuerungen der Synchronisierung zu ändern, können Sie Außerkraftsetzungen der Regel (Bereich **Erstellung** > **Regeln** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) konfigurieren.

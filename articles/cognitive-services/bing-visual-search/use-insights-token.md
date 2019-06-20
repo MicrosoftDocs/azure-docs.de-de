@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1860b788b9f33a6a2ec806be68a67aa2df10cbd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493874"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914275"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Verwenden eines Erkenntnistokens zum Gewinnen von Erkenntnissen zu einem Bild
 
@@ -64,7 +64,7 @@ Beispiele, die das Erkenntnistoken verwenden, finden Sie hier: [C#](#use-with-c)
 
 ### <a name="c-prerequisites"></a>C#-Voraussetzungen
 
-- Sie benötigen eine beliebige Version von [Visual Studio 2017](https://www.visualstudio.com/downloads/), um diesen Code unter Windows ausführen zu können.
+- Sie benötigen eine beliebige Version von [Visual Studio 2019](https://www.visualstudio.com/downloads/), um diesen Code unter Windows ausführen zu können.
 - Ein Azure-Abonnement. Für diesen Schnellstart können Sie den Schlüssel eines [kostenlosen Testabonnements](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) oder eines kostenpflichtigen Abonnements verwenden.
 
 ## <a name="run-the-application"></a>Ausführen der Anwendung
@@ -475,8 +475,8 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Erstellen einer Single-Page-Web-App für die visuelle Suche](tutorial-bing-visual-search-single-page-app.md)  
-[Was ist die API für die visuelle Bing-Suche?](overview.md)  
+[Erstellen einer Single-Page-Web-App für die Visuelle Suche](tutorial-bing-visual-search-single-page-app.md)  
+[Was ist die API für die Visuelle Bing-Suche?](overview.md)  
 [Ausprobieren von Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
-[Erhalten Sie einen Zugriffsschlüssel einer kostenlosen Testversion.](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Holen Sie sich einen Zugriffsschlüssel einer kostenlosen Testversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Bilder: visuelle Suche](https://aka.ms/bingvisualsearchreferencedoc)

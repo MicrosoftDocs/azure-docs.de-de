@@ -13,11 +13,11 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: f75de635f08ae06db349387a436c636c149ec9f2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141585"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60720228"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Angeben von Umgebungsvariablen für Dienste in Service Fabric
 

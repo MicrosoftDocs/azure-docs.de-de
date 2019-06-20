@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561993"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60556225"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Erstellen von Berichten für horizontal hochskalierte Clouddatenbanken
 

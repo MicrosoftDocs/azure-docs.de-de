@@ -2,7 +2,7 @@
 title: Datenabfragen in Azure Time Series Insights Preview | Microsoft-Dokumentation
 description: Datenabfragen in Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bbf682df2df7a8cdc9fedb36aa4244fc5c0e9488
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244004"
 ---
 # <a name="data-querying"></a>Datenabfragen
 

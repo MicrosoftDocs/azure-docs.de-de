@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231429"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Verwenden der Erkennung benannter Entitäten in der Textanalyse
@@ -52,14 +52,14 @@ Zum Verwenden der Entitätsverknüpfung in verschiedenen Sprachen ist die Nutzun
 | Menge      | Currency      | „€10,99“     | 
 | Menge      | Dimension     | „10 Kilometer“, „40 cm“     | 
 | Menge      | Temperatur   | „32 Grad“    |
-| Datetime      | N/V\*         | „18:30 4. Februar 2012“      | 
-| Datetime      | Datum          | „2. Mai 2017“ und „02/05/2017“   | 
-| Datetime      | Time          | „8:00“, „8 Uhr“  | 
-| Datetime      | DateRange     | „2. Mai bis 5. Mai“    | 
-| Datetime      | TimeRange     | „18: 00 Uhr bis 19 Uhr“     | 
-| Datetime      | Duration      | „1 Minute und 45 Sekunden“   | 
-| Datetime      | Set           | „jeden Dienstag“     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | N/V\*         | „18:30 4. Februar 2012“      | 
+| DateTime      | Date          | „2. Mai 2017“ und „02/05/2017“   | 
+| DateTime      | Time          | „8:00“, „8 Uhr“  | 
+| DateTime      | DateRange     | „2. Mai bis 5. Mai“    | 
+| DateTime      | TimeRange     | „18: 00 Uhr bis 19 Uhr“     | 
+| DateTime      | Duration      | „1 Minute und 45 Sekunden“   | 
+| DateTime      | Set           | „jeden Dienstag“     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/V\*         | "https:\//www.bing.com"    |
 | E-Mail         | N/V\*         | "support@contoso.com" |
 

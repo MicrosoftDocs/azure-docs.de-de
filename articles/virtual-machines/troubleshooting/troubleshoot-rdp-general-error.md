@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100410"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60319512"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Beheben eines allgemeinen RDP-Fehlers auf einer Azure-VM
 

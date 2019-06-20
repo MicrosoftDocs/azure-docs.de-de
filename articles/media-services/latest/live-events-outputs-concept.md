@@ -11,18 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: 87620cb0c7aafb78b2c8fe610f42ad092313d305
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f7f6aa000101f4c0de69d4d0922624b4020af8fb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153478"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688672"
 ---
 # <a name="live-events-and-live-outputs"></a>Liveereignisse und Liveausgaben
 
-Mit Azure Media Services können Sie Ihren Kunden Liveereignisse in der Azure Cloud anbieten. Um Ihre Livestreamingereignisse in Media Services v3 zu konfigurieren, müssen Sie die in diesem Artikel besprochenen Konzepte verstehen. <br/>Die Liste der Abschnitte ist auf der rechten Seite aufgelistet.
+Mit Azure Media Services können Sie Ihren Kunden Liveereignisse in der Azure Cloud anbieten. Um Ihre Livestreamingereignisse in Media Services v3 zu konfigurieren, müssen Sie die in diesem Artikel besprochenen Konzepte verstehen.
+
+> [!TIP]
+> Für Kunden, die von Media Services v2-APIs migrieren, ersetzt die **Liveereignis**-Entität **Channel** in v2, und **Liveausgabe** ersetzt**Programm**.
+
 
 ## <a name="live-events"></a>Liveereignisse
 
@@ -75,15 +79,17 @@ Wenn das Liveereignis erstellt wurde, können Sie Erfassungs-URLs abrufen, die S
 
 Sie können Nicht-Vanity-URLs oder Vanity-URLs verwenden. 
 
+> [!NOTE] 
+> Damit eine Erfassungs-URL vorhersagbar ist, legen Sie den Vanitymodus fest.
+
 * Nicht-Vanity-URL
 
     Die Nicht-Vanity-URL ist der Standardmodus in AMS v3. Sie erhalten das Liveereignis potenziell schnell, aber die Erfassungs-URL ist erst bekannt, wenn das Liveereignis gestartet wurde. Die URL ändert sich, wenn Sie das Liveereignis starten/beenden. <br/>Nicht-Vanity-URLs sind in Szenarien nützlich, in denen ein Endbenutzer das Streaming mithilfe einer App durchführen möchte, die App auf ein Liveereignis wartet und eine dynamische Erfassungs-URL kein Problem darstellt.
 * Vanity-URL
 
     Der Vanitymodus wird von großen Medienanstalten bevorzugt, die Hardware-Rundfunkencoder verwenden und diese nicht beim Starten des Liveereignisses neu konfigurieren möchten. Dabei wird eine vorhersagbare Erfassungs-URL gewünscht, die sich nicht im Lauf der Zeit ändert.
-
-> [!NOTE] 
-> Damit eine Erfassungs-URL vorhersagbar ist, müssen Sie den Vanitymodus verwenden und ein eigenes Zugriffstoken übergeben (um ein zufälliges Token in der URL zu vermeiden).
+    
+    Zum Festlegen dieses Modus setzen Sie `vanityUrl` zum Zeitpunkt der Erstellung auf `true` (der Standardwert ist `false`). Sie müssen auch Ihr eigenes Zugriffstoken übergeben (um ein zufälliges Token in der URL zu vermeiden). Legen Sie `LiveEventInput.accessToken` zum Zeitpunkt der Erstellung auf einen eindeutigen Bezeichner fest. Sobald der Modus festgelegt ist, kann er nicht aktualisiert werden.
 
 ### <a name="live-ingest-url-naming-rules"></a>Benennungsregeln für Liveerfassungs-URLs
 

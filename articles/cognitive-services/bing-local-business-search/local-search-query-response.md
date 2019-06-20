@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
 ms.openlocfilehash: 45f7adab684b7b6097328a42abb60c8d58c1acc2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796780"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Senden und Verwenden von Abfragen und Antworten der API für die Bing-Suche nach ortsansässigen Unternehmen
@@ -22,7 +22,7 @@ Sie können mit der API für die Bing-Suche nach ortsansässigen Unternehmen lok
 
 ## <a name="creating-a-request"></a>Erstellen einer Anforderung
 
-Um eine Anforderung an die API für die Bing-Suche nach ortsansässigen Unternehmen zu senden, fügen Sie einen Suchbegriff an den Parameter `q=` an, bevor Sie ihn dem API-Endpunkt hinzufügen, einschließlich des Headers `Ocp-Apim-Subscription-Key`. Beispiel: 
+Um eine Anforderung an die API für die Bing-Suche nach ortsansässigen Unternehmen zu senden, fügen Sie einen Suchbegriff an den Parameter `q=` an, bevor Sie ihn dem API-Endpunkt hinzufügen, einschließlich des Headers `Ocp-Apim-Subscription-Key`. Beispiel:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 

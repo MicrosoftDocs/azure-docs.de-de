@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524045"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573774"
 ---
-# <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-Leitfaden für Predictive Maintenance-Lösungen
+# <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure KI-Leitfaden für Predictive Maintenance-Lösungen
 
 ## <a name="summary"></a>Zusammenfassung
 
-Predictive Maintenance (**PdM**) ist eine beliebte Anwendung aus dem Predictive Analytics-Bereich, mit der Unternehmen verschiedener Branchen eine hohe Ressourcennutzung und Einsparungen bei den Betriebskosten erzielen können. In diesem Leitfaden sind die geschäftlichen und analysebezogenen Richtlinien sowie die bewährten Methoden zusammengefasst, die für eine erfolgreiche Entwicklung und Bereitstellung von PdM-Lösungen über die Technologie der [Microsoft Azure AI-Plattform](https://azure.microsoft.com/overview/ai-platform) eingesetzt werden.
+Predictive Maintenance (**PdM**) ist eine beliebte Anwendung aus dem Predictive Analytics-Bereich, mit der Unternehmen verschiedener Branchen eine hohe Ressourcennutzung und Einsparungen bei den Betriebskosten erzielen können. In diesem Leitfaden sind die geschäftlichen und analysebezogenen Richtlinien sowie die bewährten Methoden zusammengefasst, die für eine erfolgreiche Entwicklung und Bereitstellung von PdM-Lösungen über die Technologie der [Microsoft Azure KI-Plattform](https://azure.microsoft.com/overview/ai-platform) eingesetzt werden.
 
-Zunächst werden in diesem Leitfaden branchenspezifische Geschäftsszenarien und der Prozess zur Qualifizierung dieser Szenarien für PdM vorgestellt. Außerdem werden die Datenanforderungen und Modellierungsverfahren für die Erstellung von PdM-Lösungen beschrieben. Der Schwerpunkt des Leitfadens liegt auf dem Data Science-Prozess, der Schritte wie die Datenaufbereitung, Featureentwicklung, Modellerstellung und Modelloperationalisierung umfasst. Als Ergänzung zu diesen wichtigen Konzepten ist in diesem Leitfaden ein Satz mit Lösungsvorlagen angegeben, die zur Beschleunigung bei der Entwicklung von PdM-Anwendungen dienen. Zudem wird im Leitfaden auf nützliche Schulungsressourcen für die Praxis verwiesen, die weitere Informationen zur künstlichen Intelligenz (AI) im Hintergrund der Data Science-Komponenten enthalten. 
+Zunächst werden in diesem Leitfaden branchenspezifische Geschäftsszenarien und der Prozess zur Qualifizierung dieser Szenarien für PdM vorgestellt. Außerdem werden die Datenanforderungen und Modellierungsverfahren für die Erstellung von PdM-Lösungen beschrieben. Der Schwerpunkt des Leitfadens liegt auf dem Data Science-Prozess, der Schritte wie die Datenaufbereitung, Featureentwicklung, Modellerstellung und Modelloperationalisierung umfasst. Als Ergänzung zu diesen wichtigen Konzepten ist in diesem Leitfaden ein Satz mit Lösungsvorlagen angegeben, die zur Beschleunigung bei der Entwicklung von PdM-Anwendungen dienen. Zudem wird im Leitfaden auf nützliche Schulungsressourcen für die Praxis verwiesen, die weitere Informationen zu KI im Hintergrund der Data Science-Komponenten enthalten. 
 
 ### <a name="data-science-guide-overview-and-target-audience"></a>Data Science-Leitfaden – Übersicht und Zielgruppe
 In der ersten Hälfte dieses Leitfadens werden typische geschäftliche Probleme und die Vorteile der PdM-Implementierung zur Behebung dieser Probleme beschrieben und häufige Anwendungsfälle aufgeführt. Diese Inhalte sind für Personen hilfreich, die in Unternehmen geschäftliche Entscheidungen treffen (Business Decision Makers, BDMs). Im zweiten Teil wird die Data Science-Technologie beschrieben, auf der PdM basiert, und eine Liste mit PdM-Lösungen bereitgestellt, die anhand der in diesem Leitfaden beschriebenen Prinzipien erstellt wurden. Außerdem sind Lernpfade und Verweise auf Schulungsmaterial angegeben. Diese Inhalte sind für Personen hilfreich, die in Unternehmen technische Entscheidungen treffen (Technical Decision Makers, TDMs).
@@ -32,12 +32,12 @@ In der ersten Hälfte dieses Leitfadens werden typische geschäftliche Probleme 
 | Empfohlener Abschnitt | Zielgruppe |
 |:---------------|:---------------|
 | [Business Case für Predictive Maintenance](#business-case-for-predictive-maintenance) |Business Decision Makers (BDMs), die Ausfallzeiten und Betriebskosten senken und die Nutzungsdauer der Ausrüstung verbessern möchten |
-| [Data Science für Predictive Maintenance](#data-science-for-predictive-maintenance) |Technical Decision Makers (TDMs), die die PdM-Technologie evaluieren, um die einzigartigen Datenverarbeitungs- und AI-Anforderungen in Bezug auf Predictive Maintenance zu verstehen |
-| [Lösungsvorlagen für Predictive Maintenance](#solution-templates-for-predictive-maintenance)|Softwarearchitekten oder AI-Entwickler, die in kurzer Zeit eine Demo oder ein Proof-of-Concept-Dokument erstellen möchten |
+| [Data Science für Predictive Maintenance](#data-science-for-predictive-maintenance) |Technical Decision Makers (TDMs), die die PdM-Technologie evaluieren, um die einzigartigen Datenverarbeitungs- und KI-Anforderungen in Bezug auf Predictive Maintenance zu verstehen |
+| [Lösungsvorlagen für Predictive Maintenance](#solution-templates-for-predictive-maintenance)|Softwarearchitekten oder KI-Entwickler, die in kurzer Zeit eine Demo oder ein Proof-of-Concept-Dokument erstellen möchten |
 | [Schulungsressourcen für Predictive Maintenance](#training-resources-for-predictive-maintenance) | Alle obigen Personen, die sich über die Grundlagen der Data Science-Technologie, Tools und Verfahren informieren möchten
 
 ### <a name="prerequisite-knowledge"></a>Vorkenntnisse
-In Bezug auf die BDM-Inhalte wird nicht vorausgesetzt, dass der Leser bereits über Data Science-Vorkenntnisse verfügt. In Bezug auf die TDM-Inhalte sind Grundkenntnisse in den Bereichen Statistik und Data Science hilfreich. Kenntnisse in den Bereichen Azure-Daten- und AI-Dienste, Python, R, XML und JSON sind empfehlenswert. AI-Verfahren werden in Form von Python- und R-Paketen implementiert. Lösungsvorlagen werden mithilfe von Azure-Diensten, Entwicklungstools und SDKs implementiert.
+In Bezug auf die BDM-Inhalte wird nicht vorausgesetzt, dass der Leser bereits über Data Science-Vorkenntnisse verfügt. In Bezug auf die TDM-Inhalte sind Grundkenntnisse in den Bereichen Statistik und Data Science hilfreich. Kenntnisse in den Bereichen Azure-Daten- und KI-Dienste, Python, R, XML und JSON sind empfehlenswert. KI-Verfahren werden in Form von Python- und R-Paketen implementiert. Lösungsvorlagen werden mithilfe von Azure-Diensten, Entwicklungstools und SDKs implementiert.
 
 ## <a name="business-case-for-predictive-maintenance"></a>Business Case für Predictive Maintenance
 
@@ -92,7 +92,7 @@ In diesem Abschnitt geht es um Anwendungsfälle für Predictive Maintenance aus 
 |**Finanzen** |                         |
 |_Ausfälle von Geldautomaten_ sind ein häufiges Problem in der Bankbranche. Hierbei besteht das Problem darin, die Wahrscheinlichkeit zu ermitteln, mit der der Abhebevorgang von Geld am Automaten aufgrund eines Papierstaus oder eines Teilefehlers in der Ausgabeeinheit unterbrochen wird. Basierend auf der Vorhersage von Fehlern bei diesen Transaktionen können Geldautomaten proaktiv gewartet werden, um das Auftreten von Fehlern zu verhindern.| Anstatt zuzulassen, dass es während einer Transaktion zu einem Fehler im Automaten kommt, wird dieser so programmiert, dass die Transaktion aufgrund der Vorhersage verweigert wird.|
 |**Energieversorgung** |                          |
-|_Ausfall von Windturbinen_: Windturbinen sind in Ländern, die auf eine umweltfreundliche Energieerzeugung achten, eine wichtige Energiequelle und mit hohem Investitionsaufwand verbunden. Eine Schlüsselkomponente von Windturbinen ist der Generatormotor. Wenn er ausfällt, kann die Turbine keine Energie mehr liefern. Außerdem ist die Reparatur sehr teuer.|Durch das Vorhersagen von KPIs, z.B. die mittlere Zeitspanne bis zum Ausfall (Mean Time To Failure, MTTF), können Unternehmen der Windenergiebranche Ausfälle von Turbinen verhindern und die Ausfallzeiten gering halten. Mit den Ausfallwahrscheinlichkeiten erhalten Techniker Informationen zur Überwachung von Turbinen, die voraussichtlich in Kürze ausfallen, sodass die zeitbasierte Wartung geplant werden kann. Vorhersagemodelle liefern Erkenntnisse zu verschiedenen Faktoren, die zum Ausfall beitragen. Mit diesen Informationen können Techniker die Grundursachen von Problemen besser verstehen.|
+|_Ausfall von Windturbinen_: Windturbinen sind in Ländern/Regionen, die auf eine umweltfreundliche Energieerzeugung achten, eine wichtige Energiequelle und mit hohem Investitionsaufwand verbunden. Eine Schlüsselkomponente von Windturbinen ist der Generatormotor. Wenn er ausfällt, kann die Turbine keine Energie mehr liefern. Außerdem ist die Reparatur sehr teuer.|Durch das Vorhersagen von KPIs, z.B. die mittlere Zeitspanne bis zum Ausfall (Mean Time To Failure, MTTF), können Unternehmen der Windenergiebranche Ausfälle von Turbinen verhindern und die Ausfallzeiten gering halten. Mit den Ausfallwahrscheinlichkeiten erhalten Techniker Informationen zur Überwachung von Turbinen, die voraussichtlich in Kürze ausfallen, sodass die zeitbasierte Wartung geplant werden kann. Vorhersagemodelle liefern Erkenntnisse zu verschiedenen Faktoren, die zum Ausfall beitragen. Mit diesen Informationen können Techniker die Grundursachen von Problemen besser verstehen.|
 |_Ausfälle von Leistungsschutzschaltern_: Zur Versorgung von Wohnhäusern und Unternehmen mit Elektrizität müssen Stromleitungen jederzeit betriebsbereit sein, damit der Strom ankommt. Mithilfe von Leitungsschutzschaltern können Schäden an Stromleitungen bei Überlast oder schwierigen Wetterbedingungen eingeschränkt oder vermieden werden. Das Geschäftsproblem ist hierbei die Vorhersage von Ausfällen der Leistungsschutzschalter.| PdM-Lösungen tragen zur Reduzierung von Reparaturkosten bei und verlängern die Lebensdauer von Ausrüstungsteilen, z.B. Leistungsschutzschaltern. Sie verbessern die Qualität des Stromnetzwerks, indem unerwartete Fehler und Ausfälle reduziert werden.|
 |**Transport und Logistik** |    |
 |_Ausfälle von Aufzugtüren_: Große Anbieter von Aufzügen stellen einen umfassenden Service für Millionen von weltweit betriebenen Aufzügen bereit. Die Hauptanliegen der Kunden sind die Sicherheit, die Zuverlässigkeit und der unterbrechungsfreie Betrieb der Aufzüge. Diese Unternehmen verfolgen diese und verschiedene andere Attribute über Sensoren, um Instandsetzungsmaßnahmen und die vorbeugende Wartung zu unterstützen. Bei einem Aufzug ist das häufigste Kundenproblem die Fehlfunktion der Aufzugtüren. Das Geschäftsproblem besteht in diesem Fall darin, eine Knowledge Base-Vorhersageanwendung bereitzustellen, mit der die potenziellen Ursachen von Türausfällen vorhergesagt werden können.| Aufzüge stellen meist Investitionen mit einer Lebensdauer von 20 bis 30 Jahren dar. Jeder Verkaufsvorgang ist in der Regel also stark umkämpft, und die Erwartungen an den Service und Support sind hoch. Durch Predictive Maintenance können diese Unternehmen in Bezug auf die Produkt- und Serviceangebote einen Wettbewerbsvorteil gegenüber der Konkurrenz erzielen.|
@@ -103,10 +103,10 @@ Im nächsten Abschnitt sind die Details dazu enthalten, wie Sie die oben beschri
 
 ## <a name="data-science-for-predictive-maintenance"></a>Data Science für Predictive Maintenance
 
-Dieser Abschnitt enthält allgemeine Richtlinien zu Data Science-Prinzipien und PdM-Methoden. Die Informationen sollen TDMs, Lösungsarchitekten und Entwicklern ein besseres Verständnis der Voraussetzungen und des Prozesses zum Entwickeln von End-to-End-AI-Anwendungen für PdM ermöglichen. Sie können beim Lesen dieses Abschnitts auch die Demos und Proof-of-Concept-Vorlagen unter [Lösungsvorlagen für Predictive Maintenance](#solution-templates-for-predictive-maintenance) nutzen. Anschließend können Sie diese Prinzipien und bewährten Methoden verwenden, um Ihre PdM-Lösung in Azure zu implementieren.
+Dieser Abschnitt enthält allgemeine Richtlinien zu Data Science-Prinzipien und PdM-Methoden. Die Informationen sollen TDMs, Lösungsarchitekten und Entwicklern ein besseres Verständnis der Voraussetzungen und des Prozesses zum Entwickeln von End-to-End-KI-Anwendungen für PdM ermöglichen. Sie können beim Lesen dieses Abschnitts auch die Demos und Proof-of-Concept-Vorlagen unter [Lösungsvorlagen für Predictive Maintenance](#solution-templates-for-predictive-maintenance) nutzen. Anschließend können Sie diese Prinzipien und bewährten Methoden verwenden, um Ihre PdM-Lösung in Azure zu implementieren.
 
 > [!NOTE]
-> Ziel dieses Leitfadens ist es NICHT, den Leser in Bezug auf Data Science zu schulen. Im Abschnitt [Schulungsressourcen für Predictive Maintenance](#training-resources-for-predictive-maintenance) finden Sie mehrere hilfreiche Quellen mit weiterem Lesematerial. Mit den in diesem Leitfaden angegebenen [Lösungsvorlagen](#solution-templates-for-predictive-maintenance) werden einige dieser AI-Verfahren für bestimmte PdM-Probleme veranschaulicht.
+> Ziel dieses Leitfadens ist es NICHT, den Leser in Bezug auf Data Science zu schulen. Im Abschnitt [Schulungsressourcen für Predictive Maintenance](#training-resources-for-predictive-maintenance) finden Sie mehrere hilfreiche Quellen mit weiterem Lesematerial. Mit den in diesem Leitfaden angegebenen [Lösungsvorlagen](#solution-templates-for-predictive-maintenance) werden einige dieser KI-Verfahren für bestimmte PdM-Probleme veranschaulicht.
 
 ## <a name="data-requirements-for-predictive-maintenance"></a>Datenanforderungen für Predictive Maintenance
 
@@ -227,7 +227,7 @@ Technische Spezifikationen der Ausrüstung, z.B. Herstellungsdatum, Modellnummer
 
 Die bisher beschriebenen Schritte zur Datenaufbereitung sollten ergeben, dass die Daten wie unten dargestellt organisiert werden. Trainings-, Test- und Validierungsdaten sollten über dieses logische Schema verfügen (in diesem Beispiel wird die Zeiteinheit „Tage“ verwendet).
 
-| Asset-ID | Zeit | \<Featurespalten> | Bezeichnung |
+| Asset-ID | Time | \<Featurespalten> | Bezeichnung |
 | ---- | ---- | --- | --- |
 | A123 |Tag 1 | . . . | . |
 | A123 |Tag 2 | . . . | . |
@@ -291,7 +291,7 @@ Hier wird die folgende Frage gestellt: „Wie hoch ist die Wahrscheinlichkeit, d
 
 ![Abbildung 5: Bezeichnungen für die Klassifizierung mit mehreren Klassen zur Vorhersage des Fehlerzeitpunkts](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Abbildung 5. Bezeichnungen für die Klassifizierung mit mehreren Klassen zur Vorhersage des Fehlerzeitpunkts
 
-Hier wird die folgende Frage gestellt: „Wie hoch ist die Wahrscheinlichkeit, dass die Ressource innerhalb der nächsten X Zeiteinheiten aufgrund der Grundursache bzw. des Problems _P<sub>i</sub>_ ausfällt?“ Hierbei steht _i_ für die Anzahl von möglichen Grundursachen. Bezeichnen Sie zur Beantwortung dieser Frage X Datensätze vor dem Ausfall einer Ressource als „Ausfall wahrscheinlich aufgrund von Grundursache _P<sub>i</sub>_“ (label = _P<sub>i</sub>_). Bezeichnen Sie alle anderen Datensätze als „normal“ (label = 0). Auch bei dieser Methode sind die Bezeichnungen kategoriebezogen (siehe Abbildung 6).
+Hier wird die folgende Frage gestellt: „Wie hoch ist die Wahrscheinlichkeit, dass die Ressource innerhalb der nächsten X Zeiteinheiten aufgrund der Grundursache bzw. des Problems _P<sub>i</sub>_ ausfällt?“ Hierbei steht _i_ für die Anzahl von möglichen Grundursachen. Bezeichnen Sie zur Beantwortung dieser Frage X Datensätze vor dem Ausfall einer Ressource als „Ausfall wahrscheinlich aufgrund von Grundursache _P<sub>i</sub>_ “ (label = _P<sub>i</sub>_ ). Bezeichnen Sie alle anderen Datensätze als „normal“ (label = 0). Auch bei dieser Methode sind die Bezeichnungen kategoriebezogen (siehe Abbildung 6).
 
 ![Abbildung 6: Bezeichnungen für die Klassifizierung mit mehreren Klassen zur Vorhersage der Grundursache](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Abbildung 6. Bezeichnung für die Klassifizierung mit mehreren Klassen zur Vorhersage des Fehlerzeitpunkts
 
@@ -407,7 +407,7 @@ Für PdM wird dagegen die _Batchbewertung_ verwendet. Damit sie mit der Modellsi
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Lösungsvorlagen für Predictive Maintenance
 
-Der letzte Abschnitt dieses Leitfadens enthält eine Liste mit den PdM-Lösungsvorlagen, Tutorials und Experimenten, die in Azure implementiert sind. Diese PdM-Anwendungen können in einigen Fällen innerhalb weniger Minuten in einem Azure-Abonnement bereitgestellt werden. Sie können als Proof-of-Concept-Demos, Sandboxes zum Experimentieren mit Alternativen oder Beschleuniger für tatsächliche Produktionsimplementierungen verwendet werden. Diese Vorlagen befinden sich im [Azure AI-Katalog](https://gallery.azure.ai) oder auf [Azure GitHub](https://github.com/Azure). Die unterschiedlichen Beispiele werden im Laufe der Zeit in diese Lösungsvorlage eingebunden.
+Der letzte Abschnitt dieses Leitfadens enthält eine Liste mit den PdM-Lösungsvorlagen, Tutorials und Experimenten, die in Azure implementiert sind. Diese PdM-Anwendungen können in einigen Fällen innerhalb weniger Minuten in einem Azure-Abonnement bereitgestellt werden. Sie können als Proof-of-Concept-Demos, Sandboxes zum Experimentieren mit Alternativen oder Beschleuniger für tatsächliche Produktionsimplementierungen verwendet werden. Diese Vorlagen befinden sich im [Azure KI-Katalog](https://gallery.azure.ai) oder auf [Azure GitHub](https://github.com/Azure). Die unterschiedlichen Beispiele werden im Laufe der Zeit in diese Lösungsvorlage eingebunden.
 
 | # | Titel | BESCHREIBUNG |
 |--:|:------|-------------|
@@ -415,7 +415,7 @@ Der letzte Abschnitt dieses Leitfadens enthält eine Liste mit den PdM-Lösungsv
 | 3 | [Deep Learning for Predictive Maintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) (Deep Learning für Predictive Maintenance) | Azure Notebook mit einer Demolösung für die Verwendung von LSTM-Netzwerken (Long Short-Term Memory) – einer Klasse von wiederkehrenden neuronalen Netzwerken – für Predictive Maintenance mit einem [Blogbeitrag für dieses Beispiel](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Predictive Maintenance Modeling Guide in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) (Predictive Maintenance – Leitfaden zur Modellierung in R) | Leitfaden zur PdM-Modellierung mit Skripts in R.|
 | 5 | [Azure Predictive Maintenance for Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) (Azure Predictive Maintenance für die Luft- und Raumfahrt) | Eine der ersten PdM-Lösungsvorlagen, die auf Azure ML v1.0 für die Wartung von Flugzeugen basieren. Dieser Leitfaden ist aus diesem Projekt entstanden. |
-| 6 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) (Azure AI-Toolkit für IoT Edge) | AI für IoT Edge mit TensorFlow. Im Toolkit sind Deep Learning-Modelle in Azure IoT Edge-kompatiblen Docker-Containern verpackt, und die Modelle werden als REST-APIs verfügbar gemacht.
+| 6 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) (Azure KI-Toolkit für IoT Edge) | KI für IoT Edge mit TensorFlow. Im Toolkit sind Deep Learning-Modelle in Azure IoT Edge-kompatiblen Docker-Containern verpackt, und die Modelle werden als REST-APIs verfügbar gemacht.
 | 7 | [Azure IoT Predictive Maintenance](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS (Preconfigured Solution, vorkonfigurierte Lösung). PdM-Vorlage für die Flugzeugwartung mit IoT Suite. Nutzen Sie auch [ein weiteres Dokument](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) und die [exemplarische Vorgehensweise](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) für dasselbe Projekt. |
 | 8 | [Predictive Maintenance template using SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) (Predictive Maintenance-Vorlage mit SQL Server R Services) | Demo des Szenarios mit einer verbleibenden Nutzungsdauer basierend auf R Services. |
 | 9 | [Predictive Maintenance Modeling Guide (Modellhandbuch für die vorbeugende Wartung)](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Datasetfeature für die Wartung von Flugzeugen, das mit R erstellt wurde und über [Experimente](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) und [Datasets](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) sowie ein [Azure Notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) und [Experimente](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) in AzureML v1.0 verfügt.|
@@ -430,11 +430,11 @@ Microsoft Azure bietet Lernpfade für die grundlegenden Konzepte, die hinter PdM
 | [Lernpfad für PdM mithilfe von Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Öffentlich |
 | [AI Developer in Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Öffentlich |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Öffentlich |
-| [Azure AI-Lernmaterial auf GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Öffentlich |
+| [Azure KI-Lernmaterial auf GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Öffentlich |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Öffentlich |
-| [Microsoft AI – YouTube-Webinare](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Öffentlich |
-| [Microsoft AI-Show](https://channel9.msdn.com/Shows/AI-Show) | Öffentlich |
+| [Microsoft KI – YouTube-Webinare](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Öffentlich |
+| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Öffentlich |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partner |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partner |
 
-Zusätzlich werden kostenlose MOOCs (Massive Open Online Courses) zu AI von akademischen Institutionen wie Stanford und MIT sowie anderen Bildungseinrichtungen angeboten.
+Zusätzlich werden kostenlose MOOCs (Massive Open Online Courses) zu KI von akademischen Institutionen wie Stanford und MIT sowie anderen Bildungseinrichtungen angeboten.

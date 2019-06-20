@@ -10,11 +10,11 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61226962"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookausgabe und -meldungen in Azure Automation
 Die meisten Azure Automation-Runbooks besitzen eine Form von Ausgabe. Diese Ausgabe ist möglicherweise eine Fehlermeldung für den Benutzer oder ein komplexes Objekt, das Sie mit einem anderen Runbook verwenden möchten. Windows PowerShell bietet [mehrere Datenströme](/powershell/module/microsoft.powershell.core/about/about_redirection) zum Senden der Ausgabe eines Skripts oder Workflows. Azure Automation verwendet jeden dieser Datenströme anders. Sie sollten beim Erstellen eines Runbooks die bewährten Methoden für die Verwendung der einzelnen Datenströme befolgen.
@@ -208,7 +208,7 @@ Für grafische Runbooks steht eine zusätzliche Protokollierung in Form einer Ab
 
 ![Ansicht der Auftragsdatenströme bei der grafischen Inhaltserstellung](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-Im Screenshot oben sehen Sie, dass bei aktivierter ausführlicher Protokollierung und Ablaufverfolgung für grafische Runbooks in der Ansicht der Datenströme für die Produktionsaufträge deutlich mehr Informationen zur Verfügung stehen. Diese zusätzlichen Informationen können für die Behandlung von Produktionsproblemen mit einem Runbook von wesentlicher Bedeutung sein. Deshalb sollten sie nur zu diesem Zweck und nicht als allgemeine Maßnahme aktiviert werden. Die Anzahl von Ablaufverfolgungsdatensätzen kann erheblich sein. Bei der Ablaufverfolgung für grafische Runbooks können Sie zwei bis vier Datensätze pro Aktivität erhalten – abhängig davon, ob Sie die Ablaufverfolgung der Stufe „Standard“ oder „Ausführlich“ konfiguriert haben. Sofern Sie diese Informationen nicht zur Nachverfolgung des Fortschritts eines Runbooks im Rahmen der Problembehandlung benötigen, sollten Sie die Ablaufverfolgung deaktiviert lassen. 
+Im Screenshot oben sehen Sie, dass bei aktivierter ausführlicher Protokollierung und Ablaufverfolgung für grafische Runbooks in der Ansicht der Datenströme für die Produktionsaufträge deutlich mehr Informationen zur Verfügung stehen. Diese zusätzlichen Informationen können für die Behandlung von Produktionsproblemen mit einem Runbook von wesentlicher Bedeutung sein. Deshalb sollten sie nur zu diesem Zweck und nicht als allgemeine Maßnahme aktiviert werden. Die Anzahl von Ablaufverfolgungsdatensätzen kann erheblich sein. Bei der Ablaufverfolgung für grafische Runbooks können Sie zwei bis vier Datensätze pro Aktivität erhalten – abhängig davon, ob Sie die Ablaufverfolgung der Stufe „Standard“ oder „Ausführlich“ konfiguriert haben. Sofern Sie diese Informationen nicht zur Nachverfolgung des Fortschritts eines Runbooks im Rahmen der Problembehandlung benötigen, sollten Sie die Ablaufverfolgung deaktiviert lassen.
 
 **Führen Sie die folgenden Schritte aus, um die Ablaufverfolgung auf Aktivitätsebene zu aktivieren:**
 

@@ -10,11 +10,11 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317611"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61468225"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(VERALTET) Verwalten eines Azure Container Service-DC/OS-Clusters über die Marathon-Webbenutzeroberfläche
 
@@ -55,7 +55,7 @@ Klicken Sie zum Bereitstellen eines neuen Containers mit Marathon auf **Anwendun
 | Image |nginx |
 | Netzwerk |Überbrückt |
 | Hostport |80 |
-| Protokoll |TCP |
+| Protocol |TCP |
 
 ![Neue Anwendungsbenutzeroberfläche – Allgemein](./media/container-service-mesos-marathon-ui/dcos4.png)
 
@@ -81,7 +81,7 @@ Klicken Sie dann auf **Anwendung erstellen**.
 
 ![Neue Anwendungsbenutzeroberfläche – Einstellung für öffentlichen Agent](./media/container-service-mesos-marathon-ui/dcos14.png)
 
-Auf der Marathon-Hauptseite können Sie den Bereitstellungsstatus für den Container anzeigen. Zu Beginn wird der Status **Wird bereitgestellt...** angezeigt. Nach erfolgreicher Bereitstellung ändert sich der Status in **Wird ausgeführt...**.
+Auf der Marathon-Hauptseite können Sie den Bereitstellungsstatus für den Container anzeigen. Zu Beginn wird der Status **Wird bereitgestellt...** angezeigt. Nach erfolgreicher Bereitstellung ändert sich der Status in **Wird ausgeführt...** .
 
 ![Hauptseite der Marathon-Benutzeroberfläche – Containerbereitstellungsstatus](./media/container-service-mesos-marathon-ui/dcos7.png)
 

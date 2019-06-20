@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: yegu
 ms.openlocfilehash: 4254175955c3560c7bd0fdd08c6b60c318238b76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991579"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60552350"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Vorgehensweise zum Konfigurieren der Georeplikation für Azure Cache for Redis
 

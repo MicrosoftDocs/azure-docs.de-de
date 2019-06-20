@@ -2,20 +2,20 @@
 title: TechnicalProfiles | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie das TechnicalProfiles-Element einer benutzerdefinierten Richtlinie in Azure Active Directory B2C angeben.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da769093794a559e4b856f7ae4f211c3900632c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711050"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512278"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -109,7 +109,7 @@ Das **Protocol**-Element enthält die folgenden Attribute:
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | Name | Ja | Der Name eines gültigen Protokolls, das von Azure AD B2C unterstützt und als Teil des technischen Profils verwendet wird. Mögliche Werte: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` oder `None`. |
-| Handler | Nein  | Wenn der Name des Protokolls auf `Proprietary` festgelegt ist, geben Sie den vollqualifizierten Namen der Assembly an, die von Azure AD B2C zum Bestimmen des Protokollhandlers verwendet wird. |
+| Handler | Nein | Wenn der Name des Protokolls auf `Proprietary` festgelegt ist, geben Sie den vollqualifizierten Namen der Assembly an, die von Azure AD B2C zum Bestimmen des Protokollhandlers verwendet wird. |
 
 ### <a name="metadata"></a>Metadaten
 
@@ -141,7 +141,7 @@ Das **Key**-Element enthält das folgende Attribut:
 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
-| id | Nein  | Ein eindeutiger Bezeichner eines bestimmten Schlüsselpaars, auf das von anderen Elementen in der Richtliniendatei verwiesen wird. |
+| id | Nein | Ein eindeutiger Bezeichner eines bestimmten Schlüsselpaars, auf das von anderen Elementen in der Richtliniendatei verwiesen wird. |
 | StorageReferenceId | Ja | Ein Bezeichner eines Speicherschlüsselcontainers, auf den von anderen Elementen in der Richtliniendatei verwiesen wird. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
@@ -175,8 +175,8 @@ Das **InputClaim**-Element enthält die folgenden Attribute:
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Der Bezeichner eines Anspruchstyps, der bereits im ClaimsSchema-Abschnitt der Richtliniendatei oder der übergeordneten Richtliniendatei definiert ist. |
-| DefaultValue | Nein  | Ein Standardwert, der verwendet wird, um einen Anspruch zu erstellen, wenn der von ClaimTypeReferenceId angegebene Anspruch nicht vorhanden ist, sodass der resultierende Anspruch vom technischen Profil als Eingabeanspruch verwendet werden kann. |
-| PartnerClaimType | Nein  | Der Bezeichner des Anspruchstyps des externen Partners, dem der angegebene Anspruchstyp der Richtlinie zugeordnet ist. Wenn das PartnerClaimType-Attribut nicht angegeben wurde, wird der angegebene Anspruchstyp der Richtlinie dem Partneranspruchstyp mit dem gleichen Namen zugeordnet. Verwenden Sie diese Eigenschaft, wenn sich der Name des Anspruchstyps vom dem der anderen Partei unterscheidet. Der erste Anspruchsname lautet beispielsweise „givenName“, während der Partner einen Anspruch mit dem Namen „first_name“ verwendet. |
+| DefaultValue | Nein | Ein Standardwert, der verwendet wird, um einen Anspruch zu erstellen, wenn der von ClaimTypeReferenceId angegebene Anspruch nicht vorhanden ist, sodass der resultierende Anspruch vom technischen Profil als Eingabeanspruch verwendet werden kann. |
+| PartnerClaimType | Nein | Der Bezeichner des Anspruchstyps des externen Partners, dem der angegebene Anspruchstyp der Richtlinie zugeordnet ist. Wenn das PartnerClaimType-Attribut nicht angegeben wurde, wird der angegebene Anspruchstyp der Richtlinie dem Partneranspruchstyp mit dem gleichen Namen zugeordnet. Verwenden Sie diese Eigenschaft, wenn sich der Name des Anspruchstyps vom dem der anderen Partei unterscheidet. Der erste Anspruchsname lautet beispielsweise „givenName“, während der Partner einen Anspruch mit dem Namen „first_name“ verwendet. |
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
@@ -193,8 +193,8 @@ Das **PersistedClaim**-Element enthält die folgenden Attribute:
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Der Bezeichner eines Anspruchstyps, der bereits im ClaimsSchema-Abschnitt der Richtliniendatei oder der übergeordneten Richtliniendatei definiert ist. |
-| DefaultValue | Nein  | Ein Standardwert, der verwendet wird, um einen Anspruch zu erstellen, wenn der von ClaimTypeReferenceId angegebene Anspruch nicht vorhanden ist, sodass der resultierende Anspruch vom technischen Profil als Eingabeanspruch verwendet werden kann. |
-| PartnerClaimType | Nein  | Der Bezeichner des Anspruchstyps des externen Partners, dem der angegebene Anspruchstyp der Richtlinie zugeordnet ist. Wenn das PartnerClaimType-Attribut nicht angegeben wurde, wird der angegebene Anspruchstyp der Richtlinie dem Partneranspruchstyp mit dem gleichen Namen zugeordnet. Verwenden Sie diese Eigenschaft, wenn sich der Name des Anspruchstyps vom dem der anderen Partei unterscheidet. Der erste Anspruchsname lautet beispielsweise „givenName“, während der Partner einen Anspruch mit dem Namen „first_name“ verwendet. |
+| DefaultValue | Nein | Ein Standardwert, der verwendet wird, um einen Anspruch zu erstellen, wenn der von ClaimTypeReferenceId angegebene Anspruch nicht vorhanden ist, sodass der resultierende Anspruch vom technischen Profil als Eingabeanspruch verwendet werden kann. |
+| PartnerClaimType | Nein | Der Bezeichner des Anspruchstyps des externen Partners, dem der angegebene Anspruchstyp der Richtlinie zugeordnet ist. Wenn das PartnerClaimType-Attribut nicht angegeben wurde, wird der angegebene Anspruchstyp der Richtlinie dem Partneranspruchstyp mit dem gleichen Namen zugeordnet. Verwenden Sie diese Eigenschaft, wenn sich der Name des Anspruchstyps vom dem der anderen Partei unterscheidet. Der erste Anspruchsname lautet beispielsweise „givenName“, während der Partner einen Anspruch mit dem Namen „first_name“ verwendet. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -211,9 +211,9 @@ Das **OutputClaim**-Element enthält die folgenden Attribute:
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Der Bezeichner eines Anspruchstyps, der bereits im ClaimsSchema-Abschnitt der Richtliniendatei oder der übergeordneten Richtliniendatei definiert ist. |
-| DefaultValue | Nein  | Ein Standardwert, der verwendet wird, um einen Anspruch zu erstellen, wenn der von ClaimTypeReferenceId angegebene Anspruch nicht vorhanden ist, sodass der resultierende Anspruch vom technischen Profil als Eingabeanspruch verwendet werden kann. |
-|AlwaysUseDefaultValue |Nein  |Erzwingt die Verwendung des Standardwerts.  |
-| PartnerClaimType | Nein  | Der Bezeichner des Anspruchstyps des externen Partners, dem der angegebene Anspruchstyp der Richtlinie zugeordnet ist. Wenn das PartnerClaimType-Attribut nicht angegeben wurde, wird der angegebene Anspruchstyp der Richtlinie dem Partneranspruchstyp mit dem gleichen Namen zugeordnet. Verwenden Sie diese Eigenschaft, wenn sich der Name des Anspruchstyps vom dem der anderen Partei unterscheidet. Der erste Anspruchsname lautet beispielsweise „givenName“, während der Partner einen Anspruch mit dem Namen „first_name“ verwendet. |
+| DefaultValue | Nein | Ein Standardwert, der verwendet wird, um einen Anspruch zu erstellen, wenn der von ClaimTypeReferenceId angegebene Anspruch nicht vorhanden ist, sodass der resultierende Anspruch vom technischen Profil als Eingabeanspruch verwendet werden kann. |
+|AlwaysUseDefaultValue |Nein |Erzwingt die Verwendung des Standardwerts.  |
+| PartnerClaimType | Nein | Der Bezeichner des Anspruchstyps des externen Partners, dem der angegebene Anspruchstyp der Richtlinie zugeordnet ist. Wenn das PartnerClaimType-Attribut nicht angegeben wurde, wird der angegebene Anspruchstyp der Richtlinie dem Partneranspruchstyp mit dem gleichen Namen zugeordnet. Verwenden Sie diese Eigenschaft, wenn sich der Name des Anspruchstyps vom dem der anderen Partei unterscheidet. Der erste Anspruchsname lautet beispielsweise „givenName“, während der Partner einen Anspruch mit dem Namen „first_name“ verwendet. |
 
 ### <a name="outputclaimstransformations"></a>OutputClaimsTransformations
 

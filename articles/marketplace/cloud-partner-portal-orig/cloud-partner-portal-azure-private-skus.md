@@ -1,25 +1,18 @@
 ---
-title: Private SKUs und Pläne | Microsoft-Dokumentation
+title: Private-SKUs und -Pläne | Azure Marketplace
 description: Erfahren Sie, wie Sie private SKUs verwenden, um die Angebotsverfügbarkeit zu verwalten.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: dcc8b9fef75ba13b607d7fdda5bd55cc710165b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 6efdb1c28777d9230727066fdba03d2850be62b0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837013"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935906"
 ---
 <a name="private-skus-and-plans"></a>Private SKUs und Pläne
 ============

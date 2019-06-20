@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
-ms.openlocfilehash: d6860cdfb2e453a2151b4c5e425cfe0b12d88f8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: a94fda5a1f3aedd5842bad92b5348a77177b4137
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050474"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302462"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändern des Clusters von „Zertifikatfingerabdruck“ zu „Allgemeiner Name“
 Keine zwei Zertifikate können den gleichen Fingerabdruck haben, was ein Clusterzertifikatrollover oder die Verwaltung erschwert. Mehrere Zertifikate können jedoch den gleichen allgemeinen Namen oder den gleichen Antragsteller haben.  Durch den Wechsel von „Zertifikatfingerabdruck“ zu „Allgemeiner Name“ bei einem bereitgestellten Cluster wird die Zertifikatverwaltung vereinfacht. In diesem Artikel wird beschrieben, wie Sie einen aktuell ausgeführten Service Fabric-Cluster für die Verwendung des allgemeinen Namens (anstelle des Zertifikatfingerabdrucks) aktualisieren.
@@ -102,7 +102,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > Geheimnisse von VM-Skalierungsgruppen unterstützen nicht die gleiche Ressourcen-ID für zwei separate Geheimnisse, da jedes Geheimnis eine eindeutige Ressource mit Versionsverwaltung ist. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Herunterladen der Vorlage aus dem Portal und Aktualisieren der Vorlage
-Das Zertifikat wurde zwar in der zugrundeliegenden Skalierungsgruppe installiert, Sie müssen aber auch den Service Fabric-Cluster aktualisieren, damit er dieses Zertifikat und den entsprechenden allgemeinen Namen verwendet.  Laden Sie nun die Vorlage für die Clusterbereitstellung herunter.  Melden Sie sich im [Azure-Portal](https://portal.azure.com) an, und navigieren Sie zu der Ressourcengruppe, die den Cluster hostet.  Wählen Sie unter **Einstellungen** die Option **Bereitstellungen** aus.  Wählen Sie die neueste Bereitstellung aus, und klicken Sie auf **Vorlage anzeigen**.
+Das Zertifikat wurde zwar in der zugrundeliegenden Skalierungsgruppe installiert, Sie müssen aber auch den Service Fabric-Cluster aktualisieren, damit er dieses Zertifikat und den entsprechenden allgemeinen Namen verwendet.  Laden Sie nun die Vorlage für die Clusterbereitstellung herunter.  Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an, und navigieren Sie zu der Ressourcengruppe, die den Cluster hostet.  Wählen Sie unter **Einstellungen** die Option **Bereitstellungen** aus.  Wählen Sie die neueste Bereitstellung aus, und klicken Sie auf **Vorlage anzeigen**.
 
 ![Anzeigen von Vorlagen][image1]
 
@@ -127,7 +127,7 @@ Laden Sie die Vorlagedatei und die JSON-Parameterdatei auf Ihren lokalen Compute
     },
     ```
 
-    Außerdem könnten Sie *certificateThumbprint* entfernen, da dieser Parameter wahrscheinlich nicht mehr benötigt wird.
+    Außerdem könnten Sie *certificateThumbprint* entfernen, da dieser Parameter in der Resource Manager-Vorlage wahrscheinlich nicht mehr referenziert wird.
 
 2. Aktualisieren Sie in der Ressource **Microsoft.Compute/virtualMachineScaleSets** die VM-Erweiterung, damit in den Zertifikateinstellungen anstelle des Fingerabdrucks der allgemeine Name verwendet wird.  Fügen Sie unter **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate** den Eintrag `"commonNames": ["[parameters('certificateCommonName')]"],` hinzu, und entfernen Sie `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
@@ -203,6 +203,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 ## <a name="next-steps"></a>Nächste Schritte
 * Erfahren Sie mehr über [Clustersicherheit](service-fabric-cluster-security.md).
 * Erfahren Sie, wie Sie einen [Rollover für ein Cluster-Zertifikat ausführen](service-fabric-cluster-rollover-cert-cn.md).
-* [Verwalten von Clusterzertifikaten](service-fabric-cluster-security-update-certs-azure.md)
+* [Aktualisieren und Verwalten von Clusterzertifikaten](service-fabric-cluster-security-update-certs-azure.md)
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

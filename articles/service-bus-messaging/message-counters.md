@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: adfd8c5849cfee69805715378a3f56ec9f685b00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050746"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60403957"
 ---
 # <a name="message-counters"></a>Nachrichtenzähler
 

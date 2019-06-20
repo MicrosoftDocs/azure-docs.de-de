@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891585"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60750456"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Auswerten der Modellleistung in Azure Machine Learning Studio
 
@@ -41,7 +41,7 @@ Alternativ können Sie mithilfe der Kreuzvalidierung automatisch mehrere Trainin
 In den folgenden Abschnitten werden einfache Regressions- und Klassifizierungsmodelle erstellt, und deren Leistung wird evaluiert. Dazu werden die beiden Module [Evaluate Model][evaluate-model] und [Cross-Validate Model][cross-validate-model] verwendet.
 
 ## <a name="evaluating-a-regression-model"></a>Auswerten eines Regressionsmodells
-Angenommen, wir möchten den Preis eines Fahrzeugs anhand seiner Eigenschaften wie z.B. Abmessungen, Pferdestärke, Motorisierung usw. vorhersagen. Dies ist ein typischer Regressionsfall, bei dem die Zielvariable (*price*) ein beständiger Zahlenwert ist. Dazu kann ein einfaches lineares Regressionsmodell angepasst werden, das mit den Eigenschaftenwerten eines bestimmten Fahrzeugs den Preis des Fahrzeugs vorhersagen kann. Mit diesem Regressionsmodell kann das gleiche Dataset bewertet werden, das für das Training verwendet wurde. Wenn die vorhergesagten Preise für alle Fahrzeuge vorliegen, kann die Leistung des Modells ausgewertet werden, indem wir uns ansehen, inwieweit die Vorhersagen im Durchschnitt von den tatsächlichen Preisen abweichen. Zur Veranschaulichung verwenden wir das im Abschnitt **Saved Datasets** in Azure Machine Learning Studio bereitgestellte Dataset *Automobile price data (Raw)*.
+Angenommen, wir möchten den Preis eines Fahrzeugs anhand seiner Eigenschaften wie z.B. Abmessungen, Pferdestärke, Motorisierung usw. vorhersagen. Dies ist ein typischer Regressionsfall, bei dem die Zielvariable (*price*) ein beständiger Zahlenwert ist. Dazu kann ein einfaches lineares Regressionsmodell angepasst werden, das mit den Eigenschaftenwerten eines bestimmten Fahrzeugs den Preis des Fahrzeugs vorhersagen kann. Mit diesem Regressionsmodell kann das gleiche Dataset bewertet werden, das für das Training verwendet wurde. Wenn die vorhergesagten Preise für alle Fahrzeuge vorliegen, kann die Leistung des Modells ausgewertet werden, indem wir uns ansehen, inwieweit die Vorhersagen im Durchschnitt von den tatsächlichen Preisen abweichen. Zur Veranschaulichung verwenden wir das im Abschnitt **Saved Datasets** in Azure Machine Learning Studio bereitgestellte Dataset *Automobile price data (Raw)* .
 
 ### <a name="creating-the-experiment"></a>Erstellen des Experiments
 Fügen Sie Ihrem Arbeitsbereich in Azure Machine Learning Studio die folgenden Module hinzu:

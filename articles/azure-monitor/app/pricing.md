@@ -3,22 +3,22 @@ title: Verwalten von Nutzung und Kosten für Azure Application Insights | Micros
 description: Verwalten Sie Telemetriedatenvolumen, und überwachen Sie Kosten in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: DaleKoetke
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: Dale.Koetke
-ms.date: 12/21/2018
-ms.author: mbullwin
-ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.reviewer: mbullwin
+ms.date: 05/29/2019
+ms.author: dalek
+ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110279"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357263"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Verwalten der Nutzung und der Kosten für Application Insights
 
@@ -132,10 +132,6 @@ Verwenden Sie eine [Analytics-Abfrage](analytics.md), um den tatsächlichen Proz
 
 In jedem beibehaltenen Datensatz gibt `itemCount` die Anzahl ursprünglicher Datensätze an, die der Datensatz darstellt. Diese entspricht 1 + Anzahl der vorherigen verworfenen Datensätze. 
 
-## <a name="automation"></a>Automation
-
-Sie können mit der Azure-Ressourcenverwaltung ein Skript schreiben, um den Tarif festzulegen. [Weitere Informationen](powershell.md#price).
-
 ## <a name="limits-summary"></a>Zusammenfassung der Grenzwerte
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
@@ -144,45 +140,48 @@ Sie können mit der Azure-Ressourcenverwaltung ein Skript schreiben, um den Tari
 
 Um die E-Mails zum täglichen Volumenobergrenze zu ändern, klicken Sie im Abschnitt **Konfigurieren** Ihrer Application Insights-Ressource auf der Seite **Nutzung und geschätzte Kosten** auf **Tägliche Obergrenze**. Es gibt Einstellungen zum Senden von E-Mail bei Erreichen der Obergrenze sowie zum Senden bei Erreichen einer anpassbaren Warnstufe. Wenn Sie alle E-Mails zur täglichen Volumenobergrenze deaktivieren möchten, deaktivieren Sie beide Kontrollkästchen.
 
-## <a name="legacy-enterprise-pricing-plan"></a>Älterer Enterprise-Tarif
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>Älterer Enterprise-Tarif (pro Knoten)
 
-Für Kunden, die Azure Application Insights schon lange nutzen, gibt es weiterhin zwei mögliche Tarife: Basic und Enterprise. Der Basic-Tarif entspricht der obigen Beschreibung und ist der Standardtarif. Er umfasst alle Features des Enterprise-Tarifs, die ohne Aufpreis genutzt werden können. Im Basic-Tarif wird in erster Linie das Volumen der erfassten Daten abgerechnet. 
+Für Kunden, die schon lange Azure Application Insights nutzen, gibt es weiterhin zwei mögliche Tarife: Basic und Enterprise. Der Basic-Tarif entspricht der obigen Beschreibung und ist der Standardtarif. Er umfasst alle Features des Enterprise-Tarifs ohne zusätzliche Kosten. Im Basic-Tarif wird in erster Linie das Volumen der erfassten Daten abgerechnet. 
 
-Für den Enterprise-Tarif gilt eine knotenbasierte Gebühr, und jedem Knoten wird ein tägliches Datenkontingent zugewiesen. Im Enterprise-Tarif werden die Daten, die über das enthaltene Datenkontingent hinausgehen, berechnet. Wenn Sie die Operations Management Suite verwenden, sollten Sie den Enterprise-Tarif wählen. 
+> [!NOTE]
+> Diese älteren Tarife wurden umbenannt: Der Enterprise-Tarif heißt jetzt **Pro Knoten**, der Basic-Tarif heißt jetzt **Pro GB**. Diese neuen Namen werden nachfolgend und im Azure-Portal verwendet.  
+
+Für den Tarif „Pro Knoten“ (ehemals „Enterprise“) wird eine knotenbasierte Gebühr erhoben, und jedem Knoten ist ein tägliches Datenkontingent zugewiesen. Im Tarif „Pro Knoten“ werden die Daten, die über das enthaltene Datenkontingent hinausgehen, berechnet. Bei Verwendung der Operations Management Suite sollten Sie sich für den Tarif „Pro Knoten“ entscheiden. 
 
 Aktuelle Preise in Ihrer Währung und für Ihre Region finden Sie auf der Seite [Application Insights – Preise](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
 > Im April 2018 haben wir ein [neues Preismodell für die Azure-Überwachung eingeführt](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/). Bei diesem Modell gilt für das gesamte Portfolio der Überwachungsdienste das einfache Prinzip der nutzungsbasierten Bezahlung. Erfahren Sie mehr über das [neue Preismodell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), die [Bewertung der Auswirkungen einer Migration zu diesem Modell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) basierend auf Ihren Verwendungsmustern und [die Auswahl des neuen Modells](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model).
 
-### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>Enterprise-Tarif und Berechtigungen für Operations Management Suite-Abonnements
+### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Tarif „Pro Knoten“ und Berechtigungen für Operations Management Suite-Abonnements
 
-Wie [bereits angekündigt](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/) können Kunden, die Operations Management Suite E1 und E2 erwerben, Application Insights Enterprise ohne weitere Kosten als zusätzliche Komponente erhalten. Jede Einheit der Operations Management Suite-Pläne E1 und E2 umfasst eine Berechtigung für einen Knoten des Application Insights Enterprise-Tarifs. Jeder Application Insights-Knoten ermöglicht das Erfassen von bis zu 200 MB Daten pro Tag (getrennt von der Log Analytics-Datenerfassung) bei einer Datenaufbewahrungsdauer von 90 Tagen ohne zusätzliche Kosten. Der Tarif wird weiter unten in diesem Artikel ausführlicher erläutert. 
+Wie [bereits angekündigt](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/) können Kunden, die Operations Management Suite E1 und E2 erwerben, Application Insights mit dem Tarif „Pro Knoten“ als zusätzliche Komponente ohne weitere Kosten erhalten. Jede Einheit von Operations Management Suite E1 und E2 beinhaltet eine Berechtigung für einen Knoten mit dem Application Insights-Tarif „Pro Knoten“. Jeder Application Insights-Knoten ermöglicht das Erfassen von bis zu 200 MB Daten pro Tag (getrennt von der Log Analytics-Datenerfassung) bei einer Datenaufbewahrungsdauer von 90 Tagen ohne zusätzliche Kosten. Der Tarif wird weiter unten in diesem Artikel ausführlicher erläutert. 
 
-Da dieser Tarif nur für Kunden mit einem Operations Management Suite-Abonnement gilt, sehen Kunden ohne Operations Management Suite-Abonnement keine Option zum Auswählen dieses Tarifs.
+Da dieser Tarif nur für Kunden mit einem Operations Management Suite-Abonnement gilt, wird für Kunden ohne Operations Management Suite-Abonnement keine Option für diesen Tarif angezeigt.
 
 > [!NOTE]
-> Um sicherzustellen, dass Sie diese Berechtigung erhalten, muss für Ihre Application Insights-Ressourcen der Enterprise-Tarif gelten. Diese Berechtigung gilt nur basierend auf Knoten. Für Application Insights-Ressourcen im Basic-Tarif werden keine Vorteile gewährt. Diese Berechtigung ist nicht in den geschätzten Kosten ausgewiesen, die im Bereich **Nutzung und geschätzte Kosten** gezeigt werden. Wenn Sie zudem ein Abonnement im April 2018 zum neuen Preismodell für die Azure-Überwachung migriert haben, ist der Basic-Tarif der einzige verfügbare Tarif. Wenn Sie über ein Operations Management Suite-Abonnement verfügen, wird davon abgeraten, dieses zum neuen Preismodell für die Azure-Überwachung zu migrieren.
+> Um diese Berechtigung zu erhalten, muss für Ihre Application Insights-Ressourcen der Tarif „Pro Knoten“ gelten. Diese Berechtigung gilt nur basierend auf Knoten. Für Application Insights-Ressourcen im Tarif „Pro GB“ werden keine Vorteile gewährt. Diese Berechtigung ist nicht in den geschätzten Kosten ausgewiesen, die im Bereich **Nutzung und geschätzte Kosten** gezeigt werden. Außerdem gilt: Wenn Sie im April 2018 ein Abonnement zum neuen Preismodell für die Azure-Überwachung migriert haben, ist nur der Tarif „Pro GB“ verfügbar. Wenn Sie über ein Operations Management Suite-Abonnement verfügen, wird davon abgeraten, dieses zum neuen Preismodell für die Azure-Überwachung zu migrieren.
 
-### <a name="how-the-enterprise-plan-works"></a>So funktioniert der Enterprise-Tarif
+### <a name="how-the-per-node-tier-works"></a>Funktionsweise des Tarifs „Pro Knoten“
 
-* Sie bezahlen für jeden Knoten, der Telemetriedaten für irgendwelche Apps im Enterprise-Tarif sendet.
+* Sie bezahlen für jeden Knoten, der Telemetriedaten für Apps mit dem Tarif „Pro Knoten“ sendet.
   * Ein *Knoten* ist entweder ein physischer oder ein virtueller Servercomputer oder eine PaaS-Rolleninstanz (Platform-as-a-Service), der bzw. die Ihre App hostet.
   * Entwicklungscomputer, Clientbrowser und mobile Geräte zählen nicht als Knoten.
   * Wenn die App mehrere Komponenten aufweist, die Telemetriedaten senden, z. B. ein Webdienst und ein Back-End-Worker, werden die Komponenten separat gezählt.
   * [Live Metrics Stream](../../azure-monitor/app/live-stream.md)-Daten werden bei der Preisgestaltung nicht berechnet. In einem Abonnement fallen die Gebühren pro Knoten und nicht pro App an. Wenn Sie fünf Knoten haben, die Telemetriedaten für 12 Apps senden, wird die Gebühr für fünf Knoten berechnet.
 * Obwohl Gebühren pro Monat angegeben sind, müssen Sie nur für jede Stunde bezahlen, in der ein Knoten Telemetriedaten von einer App sendet. Die Stundengebühr entspricht der angegebenen Monatsgebühr, die durch 744 (die Anzahl der Stunden eines Monats mit 31 Tagen) dividiert wurde.
 * Eine Datenvolumenzuteilung von 200 MB pro Tag ist für jeden erkannten Knoten vorgesehen (mit stundenbezogener Granularität). Eine nicht genutzte Datenzuteilung wird nicht von einem Tag auf den nächsten übertragen.
-  * Wenn Sie sich für den Enterprise-Tarif entscheiden, wird jedem Abonnement basierend auf der Anzahl von Knoten, die in diesem Abonnement Telemetriedaten an Application Insights-Ressourcen senden, ein tägliches Datenkontingent zugeordnet. Wenn Sie also fünf Knoten haben, die den ganzen Tag Daten senden, wird Ihnen insgesamt 1 GB für alle Application Insights-Ressourcen in diesem Abonnement zugeteilt. Es ist dabei unerheblich, ob bestimmte Knoten mehr Daten senden als andere, da die enthaltene Datenmenge für alle Knoten zusammen berechnet wird. Wenn die Application Insights-Ressourcen an einem bestimmten Tag mehr Daten empfangen, als in der täglichen Datenzuteilung für dieses Abonnement vorgesehen ist, gelten Gebühren pro GB Überschreitungsdaten. 
+  * Wenn Sie sich für den Tarif „Pro Knoten“ entscheiden, wird jedem Abonnement basierend auf der Anzahl von Knoten, die in diesem Abonnement Telemetriedaten an Application Insights-Ressourcen senden, ein tägliches Datenkontingent zugeordnet. Wenn Sie also fünf Knoten haben, die den ganzen Tag Daten senden, wird Ihnen insgesamt 1 GB für alle Application Insights-Ressourcen in diesem Abonnement zugeteilt. Es ist dabei unerheblich, ob bestimmte Knoten mehr Daten senden als andere, da die enthaltene Datenmenge für alle Knoten zusammen berechnet wird. Wenn die Application Insights-Ressourcen an einem Tag mehr Daten empfangen als in der täglichen Datenzuteilung für dieses Abonnement vorgesehen ist, gelten die Überschreitungsgebühren pro GB. 
   * Das tägliche Datenkontingent wird berechnet aus der Anzahl der Stunden pro Tag (nach UTC), die jeder Knoten Telemetriedaten sendet, dividiert durch 24 und multipliziert mit 200 MB. Wenn Sie also vier Knoten haben, die an 15 Stunden des Tages Telemetriedaten senden, sind für diesen Tag ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB an Daten enthalten. Bei einem Preis von 2,30 USD pro GB für Datenüberschreitung wäre die Gebühr 1,15 USD, wenn die Knoten an diesem Tag 1 GB an Daten senden.
-  * Das tägliche Kontingent des Enterprise-Tarifs wird nicht für Anwendungen verwendet, für die Sie den Basic-Tarif gewählt haben. Ein nicht verwendetes Kontingent wird nicht von Tag zu Tag übernommen. 
+  * Das tägliche Kontingent des Tarifs „Pro Knoten“ wird nicht für Anwendungen verwendet, für die Sie den Tarif „Pro GB“ gewählt haben. Ein nicht verwendetes Kontingent wird nicht von Tag zu Tag übernommen. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Beispiele, wie unterschiedliche Anzahlen von Knoten bestimmt werden
 
 | Szenario                               | Gesamtanzahl der Knoten pro Tag |
 |:---------------------------------------|:----------------:|
 | 1 Anwendung verwendet 3 Azure App Service-Instanzen und 1 virtuellen Server | 4 |
-| 3 Anwendungen, die auf 2 virtuellen Computern ausgeführt werden; die Application Insights-Ressourcen für diese Anwendungen befinden sich im selben Abonnement und gehören zum Enterprise-Tarif | 2 | 
+| Drei Anwendungen, die auf zwei virtuellen Computern ausgeführt werden; die Application Insights-Ressourcen für diese Anwendungen gehören zum gleichen Abonnement und unterliegen dem Tarif „Pro Knoten“. | 2 | 
 | 4-Anwendungen, deren Insights-Ressourcen sich im selben Abonnement befinden; jede Anwendung wird in 2 Instanzen in 16 Nebenstunden und in 4 Instanzen in 8 Spitzenstunden ausgeführt | 13,33 | 
 | Clouddienste mit 1 Workerrolle und 1 Webrolle, die je 2 Instanzen ausführen | 4 | 
 | Ein Service Fabric-Cluster mit 5 Knoten, in dem 50 Microservices ausgeführt werden; jeder Microservice führt 3 Instanzen aus | 5|
@@ -192,6 +191,11 @@ Da dieser Tarif nur für Kunden mit einem Operations Management Suite-Abonnement
   * Für frühere Versionen des SDK verhält sich das [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) wie die neueren SDK-Versionen, das [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) meldet jedoch nur einen Knoten, unabhängig von der Anzahl der Anwendungshosts. 
   * Wird in Ihrer Anwendung das SDK verwendet, um **roleInstance** auf einen benutzerdefinierten Wert festzulegen, wird standardmäßig dieser Wert verwendet, um die Anzahl der Knoten zu bestimmen. 
   * Wenn Sie eine neue SDK-Version mit einer App verwenden, die auf Clientcomputern oder Mobilgeräten ausgeführt wird, kann für die Anzahl der Knoten eine sehr große Zahl zurückgegeben werden (wegen der großen Anzahl von Clientcomputern oder Mobilgeräten). 
+
+## <a name="automation"></a>Automation
+
+Sie können mit der Azure-Ressourcenverwaltung ein Skript schreiben, um den Tarif festzulegen. [Weitere Informationen](powershell.md#price).
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

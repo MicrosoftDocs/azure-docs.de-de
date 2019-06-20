@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62121655"
 ---
 # <a name="azure-sql-database-security-features"></a>Sicherheitsfeatures für Azure SQL-Datenbank    
 Azure SQL-Datenbank stellt einen relationalen Datenbankdienst in Azure bereit. Zum Schutz von Kundendaten und zum Bereitstellen verlässlicher Sicherheitsfeatures, die Kunden von einem relationalen Datenbankdienst erwarten, verfügt SQL-Datenbank über eigene Sicherheitsfunktionen. Diese Funktionen bauen auf den Steuerelementen auf, die von Azure geerbt werden.

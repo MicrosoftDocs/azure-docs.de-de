@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4b3922ea97391a83d729bcf8b25c489a45119046
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667377"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302436"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Bereitstellen einer Service Fabric-Anwendung in einem Cluster in Azure
 
@@ -44,7 +44,7 @@ In dieser Tutorialreihe lernen Sie Folgendes:
 Bevor Sie mit diesem Tutorial beginnen können, müssen Sie Folgendes tun:
 
 * Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen.
-* [Installieren Sie Visual Studio 2017](https://www.visualstudio.com/) und die Workloads **Azure-Entwicklung** und **ASP.NET und Webentwicklung**.
+* [Installieren Sie Visual Studio 2019](https://www.visualstudio.com/) und die Workloads **Azure-Entwicklung** und **ASP.NET und Webentwicklung**.
 * [Installieren Sie das Service Fabric SDK.](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Herunterladen der Beispielanwendung „Voting“
@@ -86,7 +86,7 @@ Geben Sie auf der Registerkarte **Cluster** unter **Clustername** einen Namen (e
 
 ![Erstellen eines Clusters](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-Geben Sie auf der Registerkarte **Zertifikat** das Kennwort und den Ausgabepfad für das Clusterzertifikat ein. Ein selbstsigniertes Zertifikat wird als PFX-Datei erstellt und am angegebenen Ausgabepfad gespeichert.  Das Zertifikat wird für sowohl die Knoten-zu-Knoten-Sicherheit als auch für die Client-zu-Knoten-Sicherheit verwendet.  Für Produktionscluster sollte kein selbstsigniertes Zertifikat verwendet werden.  Dieses Zertifikat wird von Visual Studio für die Authentifizierung beim Cluster und für die Bereitstellung von Anwendungen verwendet. Wählen Sie **Zertifikat importieren**, um die PFX-Datei auf Ihrem Computer unter „CurrentUser\My certificate store“ zu installieren.  Klicken Sie auf **Weiter**.
+Geben Sie auf der Registerkarte **Zertifikat** das Kennwort und den Ausgabepfad für das Clusterzertifikat ein. Ein selbstsigniertes Zertifikat wird als PFX-Datei erstellt und am angegebenen Ausgabepfad gespeichert.  Das Zertifikat wird für sowohl die Knoten-zu-Knoten-Sicherheit als auch für die Client-zu-Knoten-Sicherheit verwendet.  Verwenden Sie kein selbstsigniertes Zertifikat für Produktionscluster.  Dieses Zertifikat wird von Visual Studio für die Authentifizierung beim Cluster und für die Bereitstellung von Anwendungen verwendet. Wählen Sie **Zertifikat importieren**, um die PFX-Datei auf Ihrem Computer unter „CurrentUser\My certificate store“ zu installieren.  Klicken Sie auf **Weiter**.
 
 ![Erstellen eines Clusters](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: blobs
 ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148932"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Konfigurieren eines benutzerdefinierten Domänennamens für Ihr Azure-Speicherkonto
@@ -36,8 +36,8 @@ Die folgende Tabelle enthält einige Beispiel-URLs für Blobdaten, die sich in e
 | --- | --- | --- |
 | Speicherkonto | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Stammcontainer | http://mystorageaccount.blob.core.windows.net/myblob oder http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob oder http://www.contoso.com/$root/myblob |
-| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] oder http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] oder http://mystorageaccount.[zone].web.core.windows.net/$web oder http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web oder http://www.contoso.com/ oder http://www.contoso.com/$web/[indexdoc] oder http://www.contoso.com/[indexdoc] |
+| Stammcontainer | http://mystorageaccount.blob.core.windows.net/myblob oder http://mystorageaccount.blob.core.windows.net/ $root/myblob| http://www.contoso.com/myblob oder http://www.contoso.com/ $root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] oder http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] oder http://mystorageaccount.[zone].web.core.windows.net/$web oder http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/ $web oder http://www.contoso.com/ oder http://www.contoso.com/ $web/[indexdoc] oder http://www.contoso.com/ [indexdoc] |
 
 > [!NOTE]  
 > Wie in den folgenden Abschnitten gezeigt gelten alle Beispiele für den Blobdienstendpunkt auch für den Webdienstendpunkt.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60454105"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Sammeln von Daten in Log Analytics mit einem Azure Automation-Runbook
 
@@ -66,9 +66,9 @@ Der PowerShell-Katalog bietet jedoch eine schnelle Möglichkeit, ein Modul direk
 | Eigenschaft | Wert der Arbeitsbereichs-ID | Wert des Arbeitsbereichsschlüssels |
 |:--|:--|:--|
 | NAME | WorkspaceId | WorkspaceKey |
-| Type | Zeichenfolge | Zeichenfolge |
+| Type | string | string |
 | Wert | Fügen Sie die Arbeitsbereichs-ID Ihres Log Analytics-Arbeitsbereichs ein. | Fügen Sie den primären oder sekundären Schlüssel Ihres Log Analytics-Arbeitsbereichs ein. |
-| Verschlüsselt | Nein  | Ja |
+| Verschlüsselt | Nein | Ja |
 
 ## <a name="3-create-runbook"></a>3. Runbook erstellen
 
@@ -185,7 +185,7 @@ Die gängigste Methode zum Starten eines Runbooks, das Überwachungsdaten sammel
 | Startet | Wählen Sie eine Zeit aus, die mindestens 5 Minuten in der Zukunft liegt. |
 | Serie | Serie |
 | Wiederholen alle | 1 Stunde |
-| Ablaufdatum festlegen | Nein  |
+| Ablaufdatum festlegen | Nein |
 
 Nachdem der Zeitplan erstellt wurde, müssen Sie die Parameterwerte festlegen, die jedes Mal verwendet werden, wenn dieser Zeitplan das Runbook startet.
 

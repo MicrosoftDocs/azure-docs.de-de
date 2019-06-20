@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/29/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409366"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356426"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Verwenden des Azure Import/Export-Diensts zum Importieren von Daten in Azure Blob Storage
 
@@ -58,7 +58,7 @@ Führen Sie zum Vorbereiten der Laufwerke die folgenden Schritte aus.
 6.  Um den Datenträger vorzubereiten, führen Sie den folgenden Befehl aus: **Dies kann je nach Größe der Daten mehrere Stunden bis Tage dauern.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
     ```
     Eine Journaldatei wird in demselben Ordner erstellt, in dem Sie das Tool ausgeführt haben. Es werden noch zwei weitere Dateien erstellt: eine *XML*-Datei (im Ordner, in dem Sie das Tool ausführen) und die Datei *LaufwerkManifest.xml* (im Ordner, in dem sich die Daten befinden).
     
@@ -68,12 +68,12 @@ Führen Sie zum Vorbereiten der Laufwerke die folgenden Schritte aus.
     |---------|---------|
     |/j:     |Der Name der Journaldatei mit der Erweiterung „.jrn“. Eine Journaldatei wird pro Laufwerk generiert. Es wird empfohlen, die Seriennummer des Datenträgers als Journaldateinamen zu verwenden.         |
     |/id:     |Die Sitzungs-ID. Verwenden Sie für jede Instanz des Befehls eine eindeutige Sitzungsnummer.      |
-    |/sk:     |Der Azure Storage-Kontoschlüssel         |
     |/t:     |Der Laufwerksbuchstabe des auszuliefernden Datenträgers. Beispiel: Laufwerk `D`         |
     |/bk:     |Der BitLocker-Schlüssel für das Laufwerk Sein numerisches Kennwort aus der Ausgabe von `manage-bde -protectors -get D:`      |
     |/srcdir:     |Der Laufwerksbuchstabe des auszuliefernden Datenträgers gefolgt von `:\`. Beispiel: `D:\`.         |
     |/dstdir:     |Der Name des Zielcontainers in Azure Storage.         |
     |/skipwrite:     |Option, die angibt, dass keine neuen Daten kopiert werden müssen und vorhandene Daten auf dem Datenträger vorbereitet werden sollen.          |
+    |/enablecontentmd5:     |Wird die Option aktiviert, wird damit sichergestellt, dass MD5 während des Hochladens von Blockblobs in Azure berechnet wird.          |
 7. Wiederholen Sie den vorherigen Schritt für jeden Datenträger, der versendet werden muss. Für jede Ausführung an der Befehlszeile wird eine Journaldatei mit dem bereitgestellten Namen erstellt.
     
     > [!IMPORTANT]

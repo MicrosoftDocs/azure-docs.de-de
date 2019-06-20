@@ -7,24 +7,23 @@ ms.subservice: management
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: danimir
+ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-manager: digimobile
-origin.date: 05/07/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+manager: craigg
+ms.date: 05/07/2019
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65791374"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Löschen des Subnetzes nach Löschen der verwalteten Azure SQL-Datenbank-Instanz
 
 Dieser Artikel enthält Richtlinien zum manuellen Löschen des Subnetzes nach Löschen der letzten darin enthaltenen verwalteten Azure SQL-Datenbank-Instanz.
 
-Der [virtuelle Cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture), der die gelöschte verwaltete Instanz enthalten hat, wird 12 Stunden lang vor der Instanzlöschung bewahrt. Der virtuelle Cluster wird mit Absicht aktiv gehalten, um eine schnellere Erstellung verwalteter Instanzen im selben Subnetz zu ermöglichen. Während dieses Zeitraums kann der mit dem Subnetz verbundene virtuelle Cluster nicht gelöscht werden.
+Der [virtuelle Cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture), der die gelöschte verwaltete Instanz enthalten hat, wird 12 Stunden lang vor der Instanzlöschung bewahrt. Der virtuelle Cluster wird mit Absicht aktiv gehalten, um eine schnellere Erstellung verwalteter Instanzen im selben Subnetz zu ermöglichen. Das Beibehalten eines leeren virtuellen Clusters ist kostenlos. Während dieses Zeitraums kann der mit dem Subnetz verbundene virtuelle Cluster nicht gelöscht werden.
 
 Die sofortige Freigabe des von einem leeren virtuellen Cluster benutzten Subnetzes ist über das manuelle Löschen des virtuellen Clusters möglich. Das Löschen des virtuellen Clusters kann über das Azure-Portal oder die API für virtuelle Cluster durchgeführt werden.
 

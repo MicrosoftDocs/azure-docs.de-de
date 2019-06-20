@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903645"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953357"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Verwalten von Data Box Disk über das Azure-Portal
 

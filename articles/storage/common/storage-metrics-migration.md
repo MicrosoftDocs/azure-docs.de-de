@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 58ac15c1aba715c9a5b67e723401b531e76608b2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153598"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migration von Azure Storage-Metriken
@@ -113,7 +113,7 @@ Wenn Sie klassische Warnungsregeln basierend auf alten Speichermetriken erstellt
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>Werden neue Metrikdaten standardmäßig im selben Speicherkonto gespeichert?
 
- Nein. Wenn Sie die Metrikdaten in einem Speicherkonto archivieren möchten, verwenden Sie die [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate) (Diagnoseeinstellung-Anwendungsprogrammierschnittstelle in Azure Monitor).
+Nein. Wenn Sie die Metrikdaten in einem Speicherkonto archivieren möchten, verwenden Sie die [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate) (Diagnoseeinstellung-Anwendungsprogrammierschnittstelle in Azure Monitor).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

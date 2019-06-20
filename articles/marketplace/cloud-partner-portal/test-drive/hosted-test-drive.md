@@ -1,25 +1,19 @@
 ---
-title: Gehostete Testversion | Microsoft-Dokumentation
+title: Gehostete Testversion | Azure Marketplace
 description: Einrichten einer Verwalten einer im Marketplace gehosteten Testversion
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: pabutler
+ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64939998"
 ---
 # <a name="hosted-test-drive"></a>Gehostete Testversion
 
@@ -47,7 +41,7 @@ Geben Sie die folgenden Felder im Abschnitt \'Technische Konfiguration\' an:
 
 - **Typ der Testversion**: Wählen Sie die Option \'Von Microsoft gehostet (Beispiel: Dynamics 365 for Customer Engagement) aus. Dies weist darauf hin, dass Microsoft den Dienst hosten und warten wird, der die Bereitstellung und das Aufheben der Bereitstellung von Benutzern der Testversion durchführt.
 - **Maximale Anzahl gleichzeitiger Testversionen**: Legen Sie in diesem Feld die Anzahl der Benutzer fest, die gleichzeitig zu einem bestimmten Zeitpunkt eine aktive Testversion verwenden können. Jeder Benutzer verwendet eine Dynamics-Lizenz, während seine Testversion aktiv ist, sodass Sie sicherstellen müssen, dass Sie mindestens so viele Dynamics-Lizenzen für die Benutzer der Testversionen zur Verfügung stellen. Empfohlener Wert liegt zwischen 3 und 5.
-- **Dauer der Testversion (Stunden)**: Legen Sie in diesem Feld die Anzahl der Stunden fest, für die die Testversion des Benutzers aktiv sein soll. Nach dieser Anzahl von Stunden wird die Bereitstellung des Benutzers für Ihren Mandanten aufgehoben. Empfohlener Wert von 2 bis 24 Stunden, abhängig von der Komplexität Ihrer App. Der Benutzer kann jederzeit eine weitere Testversion anfordern, wenn seine Zeit abgelaufen ist und er erneut auf die Testversion zugreifen möchte.
+- **Dauer der Testversion (Stunden)** : Legen Sie in diesem Feld die Anzahl der Stunden fest, für die die Testversion des Benutzers aktiv sein soll. Nach dieser Anzahl von Stunden wird die Bereitstellung des Benutzers für Ihren Mandanten aufgehoben. Empfohlener Wert von 2 bis 24 Stunden, abhängig von der Komplexität Ihrer App. Der Benutzer kann jederzeit eine weitere Testversion anfordern, wenn seine Zeit abgelaufen ist und er erneut auf die Testversion zugreifen möchte.
 - **Instanz-URL**: Geben Sie eine URL an, zu der der Benutzer der Testversion beim Start der Testversion zunächst navigiert wird. Dies ist in der Regel die URL Ihrer Dynamics 365-Instanz, auf der Ihre App und Beispieldaten installiert sind. Beispielwert: https:\//testdrive.crm.dynamics.com
 - **Azure AD-Mandanten-ID**: Geben Sie die ID des Azure-Mandanten für Ihre Dynamics 365-Instanz an. Um diesen Wert abzurufen, melden Sie sich am Azure-Portal an und navigieren Sie zu \'Azure Active Directory\' -\> Wählen Sie „Eigenschaften“ auf dem Menüblatt -\> aus. Kopieren Sie die Verzeichnis-ID. Beispielwert: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD-App-ID**: ID der Azure AD-App, die Sie in Schritt 7 erstellt haben. \ Beispielwert: 53852862-a2ae-4e43-9461-faa49650a096

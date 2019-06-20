@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996761"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242368"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Wiederherstellen von SQL Server-Datenbanken auf virtuellen Azure-Computern
 
@@ -41,6 +41,7 @@ Beachten Sie vor dem Wiederherstellen einer Datenbank Folgendes:
     - Die Verbindung kann nur vom angegebenen Clientnamen geöffnet werden.
 - Beenden Sie für alle Systemdatenbanken („model“, „master“, „msdb“) vor dem Auslösen der Wiederherstellung den SQL Server-Agent-Dienst.
 - Schließen Sie alle Anwendungen, die ggf. versuchen, eine Verbindung mit einer dieser Datenbanken zu verwenden.
+- Wenn auf einem Server mehrere Instanzen ausgeführt werden, müssen alle Instanzen aktiv sein. Andernfalls wird der Server nicht in der Liste mit den Zielservern für die Datenbankwiederherstellung angezeigt.
 
 ## <a name="restore-a-database"></a>Wiederherstellen einer Datenbank
 
@@ -152,6 +153,13 @@ Wenn Sie **Vollständig und differenziell** als Wiederherstellungstyp ausgewähl
 1. Verfolgen Sie den Fortschritt der Wiederherstellung im Bereich **Benachrichtigungen**, oder wählen Sie im Datenbankmenü die Option **Wiederherstellungsaufträge** aus.
 
     ![Fortschritt des Wiederherstellungsauftrags](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>Wiederherstellen von Datenbanken mit zahlreichen Dateien
+
+Wenn die gesamte Zeichenfolgengröße von Dateien in einer Datenbank einen [bestimmten Grenzwert](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path) übersteigt, speichert Azure Backup die Liste mit den Datenbankdateien in einer anderen PIT-Komponente, sodass Sie während des Wiederherstellungsvorgangs den Wiederherstellungszielpfad nicht angegeben können. Die Dateien werden stattdessen am SQL-Standardpfad wiederhergestellt.
+
+  ![Wiederherstellen einer Datenbank mit großer Datei](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
 ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606194"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Erstellen von Linux-basierten Clustern in HDInsight mit dem .NET SDK

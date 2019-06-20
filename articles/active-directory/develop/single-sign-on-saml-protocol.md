@@ -3,8 +3,8 @@ title: Azure-SAML-Protokoll für einmaliges Anmelden | Microsoft Docs
 description: In diesem Artikel wird das SAML-Protokoll für einmaliges Anmelden in Azure Active Directory beschrieben.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437882"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545276"
 ---
 # <a name="single-sign-on-saml-protocol"></a>SAML-Protokoll für einmaliges Anmelden
 
@@ -90,7 +90,7 @@ Wenn `NameIDPolicy` angegeben ist, können Sie sein optionales `Format`-Attribut
 Das `AllowCreate` -Attribut wird von Azure AD ignoriert.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-Das `RequestedAuthnContext` -Element gibt die gewünschten Authentifizierungsmethoden an. In `AuthnRequest` -Elementen, die an Azure AD gesendet werden, ist es optional. Azure AD unterstützt nur den folgenden `AuthnContextClassRef`-Wert: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+Das `RequestedAuthnContext` -Element gibt die gewünschten Authentifizierungsmethoden an. In `AuthnRequest` -Elementen, die an Azure AD gesendet werden, ist es optional. Azure AD unterstützt `AuthnContextClassRef`-Werte wie `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Bereichsdefinition
 Das `Scoping`-Element enthält eine Liste mit Identitätsanbietern und ist bei `AuthnRequest`-Elementen, die an Azure AD gesendet werden, optional.
@@ -100,7 +100,7 @@ Wenn Sie sich für die Angabe entscheiden, schließen Sie nicht das `ProxyCount`
 ### <a name="signature"></a>Signatur
 Schließen Sie in `AuthnRequest`-Elementen kein `Signature`-Element ein, da Azure AD nicht signierte Authentifizierungsanforderungen unterstützt.
 
-### <a name="subject"></a>Antragsteller
+### <a name="subject"></a>Subject
 Azure AD ignoriert das `Subject`-Element von `AuthnRequest`-Elementen.
 
 ## <a name="response"></a>response
@@ -211,7 +211,7 @@ Azure AD verwendet den im `IDPSSODescriptor` -Element des Metadatendokuments fes
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Antragsteller
+#### <a name="subject"></a>Subject
 
 Legt den Prinzipal fest, der Betreff der Anweisungen in der Assertion ist. Er enthält ein `NameID`-Element, das den authentifizierten Benutzer darstellt. Der `NameID`-Wert ist ein gezielter Bezeichner, der nur an den Dienstanbieter gerichtet ist, welcher die Zielgruppe für das Token darstellt. Er ist persistent – er kann widerrufen werden, eine erneute Zuweisung ist jedoch nicht mehr möglich. Er ist zudem nicht transparent, d.h. Informationen über den Benutzer werden nicht preisgegeben, und er kann nicht als Bezeichner für Attributabfragen verwendet werden.
 

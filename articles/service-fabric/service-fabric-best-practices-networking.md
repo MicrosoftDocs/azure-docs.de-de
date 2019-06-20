@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804956"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237323"
 ---
 # <a name="networking"></a>Netzwerk
 
@@ -71,6 +71,8 @@ Die Erweiterung der Infrastruktur ist erforderlich, um beschleunigten Netzwerkbe
 * Verwenden Sie zum Ausführen von Windows-Containerworkloads den [offenen Netzwerkmodus](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), um die Kommunikation zwischen Diensten zu erleichtern.
 
 * Verwenden Sie einen Reverseproxy wie [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) oder den [Service Fabric-Reverseproxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy), um allgemeine Anwendungsports wie 80 oder 443 bereitzustellen.
+
+* Setzen Sie bei Windows-Containern, die auf Air-Gap-Computern gehostet werden, die keine Basisebenen aus dem Azure-Cloudspeicher pullen können, das Verhalten der fremden Ebene außer Kraft. Verwenden Sie dazu das Flag [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) im Docker-Daemon.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

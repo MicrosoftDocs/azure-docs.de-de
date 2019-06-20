@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
@@ -9,11 +9,11 @@ ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56740921"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178193"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Anpassen und Erweitern der Geräteverwaltungsaktionen
 

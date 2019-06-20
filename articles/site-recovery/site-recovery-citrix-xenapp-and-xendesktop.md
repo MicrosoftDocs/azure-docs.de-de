@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310511"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61038232"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Einrichten der Notfallwiederherstellung für eine Citrix XenDesktop- und XenApp-Bereitstellung mit mehreren Ebenen
 
@@ -56,9 +56,9 @@ Für diesen Artikel wurden für das DR-Setup Citrix-Bereitstellungen auf virtuel
 
 **Szenario** | **Am sekundären Standort** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Nicht zutreffend | JA
-**VMware** | Nicht zutreffend | JA
-**Physischer Server** | Nicht zutreffend | JA
+**Hyper-V** | Nicht zutreffend | Ja
+**VMware** | Nicht zutreffend | Ja
+**Physischer Server** | Nicht zutreffend | Ja
 
 ### <a name="versions"></a>Versionen
 Kunden können XenApp-Komponenten als virtuelle Computer unter Hyper-V oder VMware oder als physische Server bereitstellen. Mit Azure Site Recovery können physische und virtuelle Bereitstellungen in Azure geschützt werden.
@@ -92,7 +92,7 @@ Die folgenden Komponenten der Citrix XenApp-Bereitstellung müssen geschützt we
 
 Unter [Schützen von Active Directory und DNS mit Azure Site Recovery](site-recovery-active-directory.md) finden Sie Informationen zum Replizieren und Konfigurieren eines Domänencontrollers in Azure.
 
-**Replikation des SQL-Datenbankservers**
+**Replikation des SQL-Datenbank-Servers**
 
 Unter [Schützen von SQL Server mit der Notfallwiederherstellung von SQL Server und Azure Site Recovery](site-recovery-sql.md) finden Sie technische Informationen zu den empfohlenen Optionen für den Schutz von SQL-Servern.
 

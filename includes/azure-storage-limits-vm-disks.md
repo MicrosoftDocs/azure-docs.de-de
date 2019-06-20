@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261426"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178081"
 ---
 Sie können eine Reihe von Datenträgern an einen virtuellen Azure-Computer anfügen. Basierend auf den Skalierbarkeits- und Leistungszielen für Datenträger eines virtuellen Computers können Sie die Anzahl und den Typ der Datenträger festlegen, die Sie benötigen, um Ihre Anforderungen an Leistung und Kapazität zu erfüllen.
 
@@ -20,7 +20,7 @@ Sie können eine Reihe von Datenträgern an einen virtuellen Azure-Computer anf�
 
 In der folgenden Tabelle sind die standardmäßigen und maximal zulässigen Limits für die Anzahl der Ressourcen pro Region und pro Abonnement aufgeführt.
 
-> | Ressource | Standardlimit  | Maximales Limit |
+> | Resource | Standardlimit  | Maximales Limit |
 > | --- | --- | --- |
 > | Verwaltete Standarddatenträger | 25.000 | 50.000 |
 > | Verwaltete SSD Standard-Datenträger | 25.000 | 50.000 |

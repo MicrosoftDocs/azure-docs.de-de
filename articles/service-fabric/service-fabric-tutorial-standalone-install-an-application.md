@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 17bb5f5d8fe7ee407caf0ea5c34dc5380dbd79b0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670302"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302420"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: Bereitstellen einer Anwendung in Ihrem eigenständigen Service Fabric-Cluster
 
@@ -38,7 +38,7 @@ Im dritten Teil der Serie lernen Sie Folgendes:
 
 Bevor Sie mit diesem Tutorial beginnen können, müssen Sie Folgendes tun:
 
-* [Installieren Sie Visual Studio 2017](https://www.visualstudio.com/) und die Workloads **Azure-Entwicklung** und **ASP.NET und Webentwicklung**.
+* [Installieren Sie Visual Studio 2019](https://www.visualstudio.com/) und die Workloads **Azure-Entwicklung** und **ASP.NET und Webentwicklung**.
 * [Installieren Sie das Service Fabric SDK](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>Herunterladen der Beispielanwendung „Voting“

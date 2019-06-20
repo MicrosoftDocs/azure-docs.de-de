@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
 ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60195849"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Trainieren Ihrer aktiven Version der LUIS-App 
 

@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
 ms.openlocfilehash: 388a5d8c80c3e2462602959e9d5cbc1452974d1f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027616"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Übersicht über die Entwicklung mit dem Azure Blockchain-Dienst

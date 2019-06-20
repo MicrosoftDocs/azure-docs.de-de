@@ -4,14 +4,14 @@ description: Erfahren Sie, wie Sie einen Container in Azure Cosmos DB mit eine
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 46df484303237722f4eb66099748f2fcef8240b4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 33f871564b7c8435395db6b97122ba6a75800271
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205829"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225996"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Erstellen von Containern mit großen Partitionsschlüsseln
 
@@ -54,6 +54,9 @@ Die Schlüssel für große Partitionen werden mit den folgenden Mindestversionen
 |.Net     |    1.18     |
 |Java sync     |   2.4.0      |
 |Java Async   |  2.5.0        |
+| REST-API | Version höher als `2017-05-03` unter Verwendung des Anforderungsheaders `x-ms-version`.|
+
+Derzeit können Sie in Power BI und Azure Logic Apps keine Container mit großem Partitionsschlüssel verwenden. Sie können Container ohne große Partitionsschlüssel in diesen Anwendungen verwenden. 
  
 ## <a name="next-steps"></a>Nächste Schritte
 

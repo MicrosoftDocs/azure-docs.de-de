@@ -2,31 +2,24 @@
 title: Überprüfen des VPN-Durchsatzes zu einem Microsoft Azure Virtual Network | Microsoft-Dokumentation
 description: Dieses Dokument ist dafür vorgesehen, einen Benutzer beim Überprüfen des Netzwerkdurchsatzes von seinen lokalen Ressourcen zu einem virtuellen Azure-Computer zu helfen.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821660"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388609"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Überprüfen des VPN-Durchsatzes zu einem virtuellen Netzwerk
 
 Mit einer VPN-Gateway-Verbindung sorgen Sie für sichere, standortübergreifende Konnektivität in Ihrem virtuellen Netzwerk innerhalb der Azure-Infrastruktur und Ihrer lokalen IT-Infrastruktur.
 
-In diesem Artikel wird die Überprüfung des Netzwerkdurchsatzes von lokalen Ressourcen zu einem virtuellen Azure-Computer (VM) beschrieben. Darüber hinaus enthält er Informationen zur Problembehandlung.
+In diesem Artikel wird die Überprüfung des Netzwerkdurchsatzes von lokalen Ressourcen zu einem virtuellen Azure-Computer (VM) beschrieben. Darüber hinaus enthält er Informationen zur Problembehandlung. 
 
 >[!NOTE]
 >Dieser Artikel ist dazu gedacht, bei der Diagnose und beim Beheben von häufigen Problemen zu helfen. Wenn Sie das Problem nicht mithilfe der folgenden Informationen beheben können, [wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -127,7 +120,7 @@ Bei der Verwendung von Windows-Explorer oder beim Drag & Drop in einer RDP-Sitzu
 - Unzureichende Lese-/Schreibgeschwindigkeiten des Datenträgers des virtuellen Computers. Weitere Informationen finden Sie unter [Problembehandlung für Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Nach außen gerichtete Schnittstelle für lokale Geräte
-Wenn die über das Internet zugängliche IP-Adresse des lokalen VPN-Geräts in der [LAN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)-Definition in Azure enthalten ist, kann es vorkommen, dass das VPN nicht angesprochen werden kann, dass sporadische Unterbrechungen oder Leistungsprobleme auftreten.
+Wenn die über das Internet zugängliche IP-Adresse des lokalen VPN-Geräts in der [LAN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)-Adressraumdefinition in Azure enthalten ist, kann es vorkommen, dass das VPN nicht angesprochen werden kann oder dass sporadische Unterbrechungen oder Leistungsprobleme auftreten.
 
 ## <a name="checking-latency"></a>Überprüfen der Latenz
 Mithilfe von „tracert“ können Sie die Ablaufverfolgung zum Microsoft Azure-Randberät ausführen, um zu ermitteln, ob es zwischen Hops zu Verzögerungen kommt, die 100 ms überschreiten.

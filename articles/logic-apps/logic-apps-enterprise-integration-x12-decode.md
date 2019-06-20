@@ -4,18 +4,18 @@ description: Überprüfen von EDI und Generieren von Bestätigungen mit dem X12-
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4a19462f4f849602fd14fe1204f1c7e3c01e6ec4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121644"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64701450"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Decodieren von X12-Nachrichten in Azure Logic Apps mit Enterprise Integration Pack
 
@@ -59,7 +59,7 @@ Sie benötigen Folgendes:
 
     ![Integrationskontoverbindung erstellt](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    Beispiel: 
+    Beispiel:
 
     ![Zu decodierende X12-Flatfilenachricht auswählen](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
@@ -89,9 +89,9 @@ Der Connector „X12-Nachricht decodieren“ führt folgende Aufgaben aus:
   * Überprüfen der Gruppenkontrollnummer in Bezug auf andere Gruppenkontrollnummern im Austausch
   * Überprüfen der Transaktionssatz-Kontrollnummer in Bezug auf andere Transaktionssatz-Kontrollnummern in dieser Gruppe
 * Trennen des Austauschs in Transaktionssätze oder Beibehalten des gesamten Austauschs:
-  * Austausch in Transaktionssätze trennen – Transaktionssätze bei Fehler anhalten: Trennt jeden Austausch in Transaktionssätze und analysiert jeden Transaktionssatz. 
+  * Trennen des Austauschs in Transaktionssätze – Transaktionssätze bei Fehler anhalten: Trennt den Austausch in Transaktionssätze und analysiert die einzelnen Transaktionssätze. 
   Die Aktion „X12 decodieren“ gibt nur die Transaktionssätze, die die Überprüfung nicht bestehen, in `badMessages` und die restlichen Transaktionssätze in `goodMessages` aus.
-  * Austausch in Transaktionssätze trennen – Austausch bei Fehler anhalten: Trennt jeden Austausch in Transaktionssätze und analysiert jeden Transaktionssatz. 
+  * Trennen des Austauschs in Transaktionssätze – Austausch bei Fehler anhalten: Trennt den Austausch in Transaktionssätze und analysiert die einzelnen Transaktionssätze. 
   Wenn mindestens ein Transaktionssatz im Austausch die Überprüfung nicht besteht, gibt die Aktion „X12 decodieren“ alle Transaktionssätze in diesem Austausch in `badMessages` aus.
   * Austausch beibehalten – Transaktionssätze bei Fehler anhalten: Behält den Austausch bei und verarbeitet den gesamten Batchaustausch. 
   Die Aktion „X12 decodieren“ gibt nur die Transaktionssätze, die die Überprüfung nicht bestehen, in `badMessages` und die restlichen Transaktionssätze in `goodMessages` aus.

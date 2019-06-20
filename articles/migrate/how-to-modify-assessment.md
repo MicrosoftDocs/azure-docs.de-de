@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62129822"
 ---
 # <a name="customize-an-assessment"></a>Anpassen einer Bewertung
 

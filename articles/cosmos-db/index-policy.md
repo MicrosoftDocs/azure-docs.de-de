@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: thweiss
-ms.openlocfilehash: c45beb3ed6f87e95d171e2299c533b4be2827f27
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954036"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431179"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indizierungsrichtlinien in Azure Cosmos DB
 
@@ -94,7 +94,7 @@ Betrachten Sie das folgende Beispiel, bei dem ein zusammengesetzter Index für d
 
 | **Zusammengesetzter Index**     | **Beispiel einer `ORDER BY`-Abfrage**      | **Vom Index unterstützt?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
 | ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |

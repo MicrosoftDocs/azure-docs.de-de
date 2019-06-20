@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143299"
 ---
 # <a name="data-management-gateway"></a>Gateway zur Datenverwaltung
@@ -280,7 +280,7 @@ Sie können das Feature für die automatische Aktualisierung wie folgt deaktivie
 
 [Für Gateways mit einem Knoten]
 1. Starten Sie Windows PowerShell auf dem Gatewaycomputer.
-2. Wechseln Sie zum Ordner *C:\\\\Programme\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*.
+2. Wechseln Sie zum Ordner *C:\\\\Programme\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
 3. Führen Sie den folgenden Befehl aus, um das Feature für die automatische Aktualisierung zu deaktivieren.
 
     ```powershell
@@ -293,7 +293,7 @@ Sie können das Feature für die automatische Aktualisierung wie folgt deaktivie
     ```
    [Für hochverfügbare und skalierbare Gateways mit mehreren Knoten](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Starten Sie Windows PowerShell auf dem Gatewaycomputer.
-2. Wechseln Sie zum Ordner *C:\\\\Programme\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*.
+2. Wechseln Sie zum Ordner *C:\\\\Programme\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
 3. Führen Sie den folgenden Befehl aus, um das Feature für die automatische Aktualisierung zu deaktivieren.
 
     Für ein Gateway mit Hochverfügbarkeit ist ein zusätzlicher AuthKey-Parameter erforderlich.
@@ -511,7 +511,7 @@ Dieser Abschnitt beschreibt das Erstellen und Registrieren eines Gateways mit Az
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Wechseln Sie in Azure PowerShell zum Ordner: *C:\\\\Programme\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Führen Sie *RegisterGateway.ps1* mit der lokalen Variable **$Key** aus, wie im folgenden Befehl gezeigt. Dieses Skript registriert den auf dem Computer installierten Client-Agent bei dem logischen Gateway, das Sie zuvor erstellt haben.
+1. Wechseln Sie in Azure PowerShell zum Ordner: *C:\\\\Programme\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Führen Sie *RegisterGateway.ps1* mit der lokalen Variable **$Key** aus, wie im folgenden Befehl gezeigt. Dieses Skript registriert den auf dem Computer installierten Client-Agent bei dem logischen Gateway, das Sie zuvor erstellt haben.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

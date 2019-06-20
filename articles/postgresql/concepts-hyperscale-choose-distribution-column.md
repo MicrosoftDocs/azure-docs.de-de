@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: e9fba14b8979f739fd29bc277e32fb544221d08a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65080646"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Auswählen von Verteilungsspalten in Azure Database for PostgreSQL – Hyperscale (Citus) (Vorschauversion)

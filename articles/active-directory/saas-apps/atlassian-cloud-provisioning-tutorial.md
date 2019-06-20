@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
-ms.openlocfilehash: f4e76121f7815702270d6601413ff7a4c2c25839
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4e028429ca8a22915eff2b90ca63c6d05a67741b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270301"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64692236"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren der automatischen Benutzerbereitstellung f체r Atlassian Cloud
 
@@ -37,7 +37,7 @@ Das diesem Tutorial zu Grunde liegende Szenario setzt voraus, dass Sie bereits �
 
 * Einen Azure AD-Mandanten
 * [Einen Atlassian Cloud-Mandanten](https://www.atlassian.com/licensing/cloud)
-* Ein Benutzerkonto in Atlassian Cloud mit Administratorrechten
+* Ein Benutzerkonto in Atlassian Cloud mit Administratorrechten.
 
 > [!NOTE]
 > Die Azure AD-Bereitstellungsintegration basiert auf der **Atlassian Cloud-SCIM-API**, die f체r Atlassian Cloud-Teams verf체gbar ist.
@@ -172,7 +172,7 @@ Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden S
 
 ## <a name="next-steps"></a>N채chste Schritte
 
-* [Tutorial: Berichterstellung zur automatischen Benutzerkontobereitstellung](../manage-apps/check-status-user-account-provisioning.md)
+* [Erfahren Sie, wie Sie Protokolle 체berpr체fen und Berichte zu Bereitstellungsaktivit채ten abrufen.](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png

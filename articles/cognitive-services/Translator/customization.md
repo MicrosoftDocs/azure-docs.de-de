@@ -3,19 +3,19 @@ title: Anpassen der Übersetzung – Textübersetzungs-API
 titlesuffix: Azure Cognitive Services
 description: Verwenden Sie den Microsoft Translator-Hub zum Erstellen Ihres eigenen Systems für die maschinelle Übersetzung mit der Terminologie und dem Stil, den Sie bevorzugen.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: a04f6fab26a47b87bf55f1714522cad648dc5fad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/04/2019
+ms.author: v-pawal
+ms.openlocfilehash: cb15ae375f412a66b9d7939b6a580ebb95f2f7a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205920"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66515098"
 ---
 # <a name="customize-your-text-translations"></a>Anpassen von Textübersetzungen
 
@@ -51,9 +51,9 @@ Weitere Informationen über die verschiedenen Anpassungsstufen basierend auf ver
 |:-----|:----:|:----:|
 |Status des Anpassungsfeatures   | Allgemeine Verfügbarkeit  | Allgemeine Verfügbarkeit |
 | Version der Text-API  | Nur V2   | Nur V3 |
-| SMT-Anpassung | Ja   | Nein  |
-| NMT-Anpassung | Nein     | Ja |
-| Neue einheitliche Anpassung der Sprachdienste | Nein     | Ja |
+| SMT-Anpassung | Ja   | Nein |
+| NMT-Anpassung | Nein    | Ja |
+| Neue einheitliche Anpassung der Sprachdienste | Nein    | Ja |
 | [No Trace (Keine Ablaufverfolgung)](https://www.aka.ms/notrace) | Ja  | Ja |
 
 ## <a name="collaborative-translations-framework"></a>Framework für kollaborative Übersetzungen

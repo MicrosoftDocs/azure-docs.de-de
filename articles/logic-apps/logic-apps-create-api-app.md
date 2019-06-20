@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60681826"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Erstellen benutzerdefinierter APIs, die über Azure Logic Apps aufgerufen werden können
 
@@ -175,7 +175,7 @@ Um beispielsweise Ihren Dienst in regelmäßigen Abständen auf neue Dateien zu 
 
 | Anforderung enthält `triggerState`? | API-Antwort | 
 | -------------------------------- | -------------| 
-| Nein  | Zurückgeben eines HTTP-`202 ACCEPTED`-Status zuzüglich eines `location`-Headers, wobei `triggerState` auf den aktuellen Zeitpunkt und das `retry-after`-Intervall auf 15 Sekunden festgelegt ist. | 
+| Nein | Zurückgeben eines HTTP-`202 ACCEPTED`-Status zuzüglich eines `location`-Headers, wobei `triggerState` auf den aktuellen Zeitpunkt und das `retry-after`-Intervall auf 15 Sekunden festgelegt ist. | 
 | Ja | Überprüfen Ihres Diensts auf Dateien, die nach `DateTime` für `triggerState` hinzugefügt wurden. | 
 ||| 
 

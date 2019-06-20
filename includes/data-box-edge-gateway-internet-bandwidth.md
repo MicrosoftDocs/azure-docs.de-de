@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306876"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178539"
 ---
 Die Geräte sind so konzipiert, dass sie weiterhin ausgeführt werden, wenn Ihre Internetverbindung langsam ist oder unterbrochen wird. Unter normalen Betriebsbedingungen empfehlen wir Folgendes: 
 

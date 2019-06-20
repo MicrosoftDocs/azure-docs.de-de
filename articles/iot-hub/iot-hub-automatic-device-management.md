@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59011555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61333644"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Automatische bedarfsgerechte IoT-Geräteverwaltung über das Azure-Portal
 
@@ -88,7 +88,7 @@ Metriken bieten zusammenfassende Angaben zu den verschiedenen Zuständen, die ei
 
 2. Geben Sie eine Abfrage unter **Metrikkriterien** ein.  Diese Abfrage beruht auf den gemeldeten Gerätezwillingseigenschaften.  Die Metrik stellt die Anzahl der von der Abfrage zurückgegebenen Zeilen dar.
 
-Beispiel: 
+Beispiel:
 
 ```sql
 SELECT deviceId FROM devices 
@@ -178,7 +178,7 @@ Gehen Sie wie folgt vor, um Änderungen an einer Konfiguration vorzunehmen:
    * Zielbedingung 
    * Bezeichnungen 
    * Priorität 
-   * Metriken
+   * metrics
 
 4. Wählen Sie **Speichern** aus.
 
@@ -208,8 +208,8 @@ In diesem Artikel haben Sie erfahren, wie IoT-Geräte bedarfsgerecht konfigurier
 
 Weitere Informationen zu den Funktionen von IoT Hub finden Sie unter:
 
-* [Entwicklerhandbuch für IoT Hub](iot-hub-devguide.md)
-* [Bereitstellen von KI auf Edgegeräten mit Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Entwicklungsleitfaden für IoT Hub](iot-hub-devguide.md)
+* [Bereitstellen von KI auf Edge-Geräten mit Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Informationen, die Sie beim Erforschen der Verwendung des IoT Hub Device Provisioning-Diensts für die Just-in-Time-Bereitstellung ohne Benutzereingriff unterstützen, finden Sie in: 
 

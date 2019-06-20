@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545466"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235191"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Dienst-zu-Dienst-Aufrufe unter Verwendung einer delegierten Benutzeridentität im Im-Auftrag-von-Fluss
 
@@ -58,31 +58,32 @@ Registrieren Sie den Diensts auf der mittleren Ebene und die Clientanwendung in 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie auf der oberen Leiste Ihr Konto aus, und wählen Sie in der Liste **Verzeichnis** einen Active Directory-Mandanten für Ihre Anwendung aus.
 1. Wählen Sie im linken Bereich **Weitere Dienste** und dann **Azure Active Directory** aus.
-1. Wählen Sie **App-Registrierungen** und dann **Neue Anwendungsregistrierung** aus.
+1. Wählen Sie **App-Registrierungen** und dann **Neue Registrierung** aus.
 1. Geben Sie einen Anzeigenamen für die Anwendung ein, und wählen Sie den Anwendungstyp aus.
-    1. Legen Sie abhängig vom Anwendungstyp entweder die Anmelde-URL oder die Umleitungs-URL auf die Basis-URL fest.
-    1. Klicken Sie auf **Erstellen**, um die Anwendung zu erstellen.
+1. Wählen Sie unter **Unterstützte Kontotypen** **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten** aus.
+1. Legen Sie als Umleitungs-URI die Basis-URL fest.
+1. Wählen Sie **Registrieren** aus, um die Anwendung zu erstellen.
 1. Generieren Sie einen geheimen Clientschlüssel, bevor Sie das Azure-Portal beenden.
-   1. Wählen Sie im Azure-Portal Ihre Anwendung und dann **Einstellungen** aus.
-   1. Wählen Sie im Menü „Einstellungen“ die Option **Schlüssel** aus, und fügen Sie einen Schlüssel mit einer Schlüsseldauer von einem oder zwei Jahren hinzu.
-   1. Wenn Sie diese Seite speichern, zeigt das Azure-Portal den Schlüsselwert an. Kopieren Sie den Schlüsselwert, und speichern Sie ihn an einem sicheren Ort.
+1. Wählen Sie im Azure-Portal Ihre Anwendung und dann **Zertifikate & Geheimnisse** aus.
+1. Wählen Sie **Neuer geheimer Clientschlüssel** aus, und fügen Sie einen Geheimnis (geheimen Schlüssel) mit einer Dauer von einem Jahr oder zwei Jahren hinzu.
+1. Wenn Sie diese Seite speichern, zeigt das Azure-Portal den Wert des Geheimnisses an. Kopieren Sie den Geheimniswert, und speichern Sie ihn an einem sicheren Ort.
 
-      > [!IMPORTANT]
-      > Sie benötigen den Schlüssel zum Konfigurieren der Anwendungseinstellungen in Ihrer Implementierung. Dieser Wert wird nicht erneut angezeigt, und er kann auf keine andere Weise abgerufen werden. Notieren Sie ihn, wenn er im Azure-Portal angezeigt wird.
+> [!IMPORTANT]
+> Sie benötigen das Geheimnis zum Konfigurieren der Anwendungseinstellungen in Ihrer Implementierung. Dieser Geheimniswert wird nicht erneut angezeigt und kann auch auf keine andere Weise abgerufen werden. Notieren Sie ihn, wenn er im Azure-Portal angezeigt wird.
 
 ### <a name="register-the-client-application"></a>Registrieren der Clientanwendung
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Wählen Sie auf der oberen Leiste Ihr Konto aus, und wählen Sie in der Liste **Verzeichnis** einen Active Directory-Mandanten für Ihre Anwendung aus.
 1. Wählen Sie im linken Bereich **Weitere Dienste** und dann **Azure Active Directory** aus.
-1. Wählen Sie **App-Registrierungen** und dann **Neue Anwendungsregistrierung** aus.
+1. Wählen Sie **App-Registrierungen** und dann **Neue Registrierung** aus.
 1. Geben Sie einen Anzeigenamen für die Anwendung ein, und wählen Sie den Anwendungstyp aus.
-   1. Legen Sie abhängig vom Anwendungstyp entweder die Anmelde-URL oder die Umleitungs-URL auf die Basis-URL fest.
-   1. Klicken Sie auf **Erstellen**, um die Anwendung zu erstellen.
-1. Konfigurieren Sie die Berechtigungen für Ihre Anwendung.
-   1. Wählen Sie im Menü „Einstellungen“ den Abschnitt **Erforderliche Berechtigungen** und dann **Hinzufügen** und **Hiermit wählen Sie eine API aus** aus.
-   1. Geben Sie den Namen des Diensts der mittleren Ebene in das Textfeld ein.
-   1. Wählen Sie **Berechtigungen auswählen** und dann **Auf den Dienstnamen zugreifen** aus.
+1. Wählen Sie unter **Unterstützte Kontotypen** **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten** aus.
+1. Legen Sie als Umleitungs-URI die Basis-URL fest.
+1. Wählen Sie **Registrieren** aus, um die Anwendung zu erstellen.
+1. Konfigurieren Sie die Berechtigungen für Ihre Anwendung. Wählen Sie unter **API-Berechtigungen** die Option **Berechtigung hinzufügen** und dann **Meine APIs** aus.
+1. Geben Sie den Namen des Diensts der mittleren Ebene in das Textfeld ein.
+1. Wählen Sie **Berechtigungen auswählen** und dann **Zugreifen<service name>** aus.
 
 ### <a name="configure-known-client-applications"></a>Konfigurieren der bekannten Clientanwendungen
 

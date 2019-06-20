@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64922243"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Überwachen, Erstellen und Verwalten von SFTP-Dateien mithilfe von SSH und Azure Logic Apps
 
@@ -32,7 +32,7 @@ Falls Sie noch nicht mit Logik-Apps vertraut sind, finden Sie weitere Informatio
 
 ## <a name="limits"></a>Einschränkungen
 
-* SFTP-SSH-Aktionen können Dateien lesen bzw. in Dateien schreiben, die *1 GB oder kleiner* sind, indem sie die Daten *in Teilen zu 50 MB* und nicht als 1-GB-Teil verwalten.
+* SFTP-SSH-Aktionen können Dateien lesen bzw. in Dateien schreiben, die *1 GB oder kleiner* sind, indem sie die Daten *in Teilen zu 15 MB* und nicht als 1-GB-Teil verwalten.
 
 * Bei Dateien, die *größer als 1 GB* sind, können Aktionen auf [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) zurückgreifen. SFTP-SSH-Trigger unterstützen derzeit keine Blockerstellung.
 
@@ -44,7 +44,7 @@ Weitere Unterschiede finden Sie unter [Vergleichen von SFTP-SSH und SFTP](#compa
 
 Hier sind weitere wesentliche Unterschiede zwischen dem SFTP-SSH-Connector und dem SFTP-Connector, bei denen der SFTP-SSH-Connector diese Funktionen bietet:
 
-* Er verwendet die <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>-Bibliothek, die eine Open Source-SSH-Bibliothek (Secure Shell) mit Unterstützung für .NET ist.
+* Er verwendet die [SSH.NET](https://github.com/sshnet/SSH.NET)-Bibliothek, die eine Open Source-SSH-Bibliothek (Secure Shell) mit Unterstützung für .NET ist.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ Hier sind weitere wesentliche Unterschiede zwischen dem SFTP-SSH-Connector und d
   > * **Verschlüsselungsalgorithmen**: DES-EDE3-CBC, DES EDE3 CFB, DES-CBC, AES-128-CBC, AES-192-CBC und AES-256-CBC
   > * **Fingerabdruck**: MD5
 
-* Im Vergleich zum SFTP-Connector können Aktionen Dateien lesen bzw. in Dateien schreiben, die *bis zu 1 GB* groß sind, verarbeiten die Daten jedoch in Teilen von 50 MB, nicht als 1-GB-Teil. Bei Dateien, die größer als 1 GB sind, können Aktionen auch auf [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) zurückgreifen. SFTP-SSH-Trigger unterstützen derzeit keine Blockerstellung.
+* Im Vergleich zum SFTP-Connector können Aktionen Dateien lesen bzw. in Dateien schreiben, die *bis zu 1 GB* groß sind, verarbeiten die Daten jedoch in Teilen von 15 MB, nicht als 1-GB-Teil. Bei Dateien, die größer als 1 GB sind, können Aktionen auch auf [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) zurückgreifen. SFTP-SSH-Trigger unterstützen derzeit keine Blockerstellung.
 
 * Er stellt die Aktion **Ordner erstellen** bereit, wodurch ein Ordner unter dem angegebenen Pfad auf dem SFTP-Server erstellt wird.
 
@@ -99,7 +99,7 @@ Hier sind weitere wesentliche Unterschiede zwischen dem SFTP-SSH-Connector und d
    Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 
    Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
 
 1. Geben Sie die erforderlichen Informationen für Ihre Verbindung ein.
 
@@ -136,9 +136,9 @@ Die SFTP-SSH-Trigger rufen das SFTP-Dateisystem ab und suchen nach jeder Datei, 
 
 Wenn ein Trigger eine neue Datei findet, überprüft er, ob die neue Datei vollständig ist und nicht nur teilweise geschrieben wurde. Zum Beispiel werden bei einer Datei möglicherweise gerade Änderungen vorgenommen, wenn der Trigger den Dateiserver überprüft. Um zu vermeiden, dass eine nur zum Teil geschriebene Datei zurückgegeben wird, vermerkt der Trigger den Zeitstempel für die Datei mit den kürzlichen Änderungen, gibt diese Datei jedoch nicht sofort zurück. Der Trigger gibt die Datei erst dann zurück, wenn der Server erneut abgerufen wird. Dieses Verhalten kann in manchen Fällen zu Verzögerungen führen, die bis zu zweimal länger als das Abrufintervall des Triggers sein können. 
 
-Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind: 
+Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 15 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 15 MB sind: 
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt über Pfad abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 
@@ -152,9 +152,9 @@ Dieser Trigger startet einen Logik-App-Workflow, wenn auf einem SFTP-Server eine
 
 **Beispiel für Unternehmen**: Sie können mit diesem Trigger beispielsweise einen SFTP-Ordner auf neue Dateien überwachen, die Kundenbestellungen darstellen. Anschließend können Sie eine SFTP-Aktion wie etwa **Dateiinhalt abrufen** verwenden, um den Inhalt einer Bestellung zur weiteren Verarbeitung abzurufen und in einer Bestelldatenbank zu speichern.
 
-Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind: 
+Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 15 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 15 MB sind: 
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt anhand des Pfads abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 
@@ -164,9 +164,9 @@ Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer al
 
 Diese Aktion ruft den Inhalt einer Datei auf einem SFTP-Server ab. Sie können z.B. den Trigger aus dem vorherigen Beispiel sowie eine Bedingung hinzufügen, die vom Dateiinhalt erfüllt werden muss. Wenn die Bedingung als TRUE ausgewertet wird, kann die Aktion ausgeführt werden, die den Inhalt abruft. 
 
-Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind: 
+Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 15 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 15 MB sind: 
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt über Pfad abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 

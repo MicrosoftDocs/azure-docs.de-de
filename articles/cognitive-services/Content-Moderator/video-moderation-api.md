@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60605315"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysieren von Videoinhalten auf anstößiges Material in C#
 
@@ -54,7 +54,7 @@ Der Azure Media Services Explorer ist ein benutzerfreundliches Front-End für AM
 
 ## <a name="create-the-visual-studio-project"></a>Erstellen des Visual Studio-Projekts
 
-1. Erstellen Sie in Visual Studio ein neues Projekt vom Typ **Konsolen-App (.NET Framework)**, und nennen Sie es **VideoModeration**. 
+1. Erstellen Sie in Visual Studio ein neues Projekt vom Typ **Konsolen-App (.NET Framework)** , und nennen Sie es **VideoModeration**. 
 1. Sollte Ihre Projektmappe noch andere Projekte enthalten, wählen Sie dieses Projekt als das alleinige Startprojekt aus.
 1. Rufen Sie die erforderlichen NuGet-Pakete ab. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Projekt, wählen Sie **NuGet-Pakete verwalten** aus, suchen Sie nach den folgenden Paketen, und installieren Sie sie:
     - windowsazure.mediaservices
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Wenn Sie eine lokale Videodatei verwenden möchten (einfachster Fall), fügen Sie sie dem Projekt hinzu und geben Sie ihren Pfad als Wert `INPUT_FILE` ein (relative Pfade sind relativ zum Ausführungsverzeichnis).
 
-Sie müssen auch die Datei _preset.json_ im aktuellen Verzeichnis erstellen und damit eine Versionsnummer angeben. Beispiel: 
+Sie müssen auch die Datei _preset.json_ im aktuellen Verzeichnis erstellen und damit eine Versionsnummer angeben. Beispiel:
 
 ```JSON
 {
@@ -365,7 +365,7 @@ Nachdem der Content Moderator-Auftrag abgeschlossen ist, analysieren Sie die JSO
 
 - Zusammenfassung der Videoinformationen
 - **Screenshots** als "**fragments**"
-- **Keyframes** als "**events**" mit dem Flag **reviewRecommended" (= true or false)"**, das auf **adultScore** und **racyScore** basiert.
+- **Keyframes** als "**events**" mit dem Flag **reviewRecommended" (= true or false)"** , das auf **adultScore** und **racyScore** basiert.
 - **start**, **duration**, **totalDuration** und **timestamp** werden in „Takten“ angegeben. Teilen Sie diese Werte durch **timescale**, um die Anzahl in Sekunden zu erhalten.
  
 > [!NOTE]

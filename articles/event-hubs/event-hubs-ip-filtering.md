@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507534"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60821676"
 ---
 # <a name="use-firewall-rules"></a>Verwenden Sie Firewallregeln
 
@@ -54,7 +54,7 @@ IP-Filterregeln werden der Reihe nach angewendet, und die erste Regel, die eine 
 > - Azure-Daten-Explorer
 >
 > Die folgenden Microsoft-Dienste müssen in einem virtuellen Netzwerk ausgeführt werden:
-> - Azure-Web-Apps 
+> - Azure-Web-Apps
 > - Azure-Funktionen
 
 ### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Erstellen einer Firewallregel mit Azure Resource Manager-Vorlagen
@@ -149,7 +149,7 @@ Gehen Sie zum Bereitstellen der Vorlage gemäß der Anleitung für [Azure Resour
 
 Informationen zum Einschränken des Event Hubs-Zugriffs für virtuelle Azure-Netzwerke finden Sie unter dem folgenden Link:
 
-- [Dienstendpunkte virtueller Netzwerke für Event Hubs][lnk-vnet]
+- [VNET-Dienstendpunkte für Event Hubs][lnk-vnet]
 
 <!-- Links -->
 

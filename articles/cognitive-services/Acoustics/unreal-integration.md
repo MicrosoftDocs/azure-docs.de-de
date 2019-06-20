@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61436019"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Integration von Projekt Akustik in Unreal und Wwise
 Diese exemplarische Vorgehensweise beschreibt die Schritte zur Integration des Projekt Akustik-Plug-In-Pakets in Ihr vorhandenes Unreal- und Wwise-Spieleprojekt. 
@@ -65,7 +65,7 @@ Stellen Sie Wwise erneut in Ihrem Spiel bereit, auch wenn Sie Wwise bereits inte
 
 * Klicken Sie dann auf **Integrate Wwise in Project** (Wwise in Projekt integrieren) oder **Modify Wwise in Project** (Wwise in Projekt ändern). Mit diesem Schritt werden die Binärdateien von Wwise (erneut) in Ihr Projekt integriert, das jetzt das Projekt Akustik-Mixer-Plug-In enthält.
 
-* **Engine-Plug-In**: Wenn Sie Wwise als Engine-Plug-In verwenden und das Dummyprojekt wie oben beschrieben erstellt haben, kopieren Sie den von Wwise bereitgestellten Ordner `[DummyUProject]\Plugins\Wwise`, und fügen Sie ihn oberhalb von `[UESource]\Engine\Plugins\Wwise` ein. `[DummyUProject]` ist der leere Unreal-C++Projektpfad, und `[UESource]` ist das Verzeichnis, in dem Sie die Unreal Engine-Quellen installiert haben. Wenn Sie mit dem Kopieren fertig sind, können Sie das Dummyprojekt löschen.
+* **Engine-Plug-In**: Wenn Sie Wwise als Engine-Plug-In verwenden und das Dummyprojekt wie oben beschrieben erstellt haben, kopieren Sie den von Wwise bereitgestellten Ordner `[DummyUProject]\Plugins\Wwise`, und fügen Sie ihn oberhalb von `[UESource]\Engine\Plugins\Wwise` ein. `[DummyUProject]` ist der leere Unreal-C++Projektpfad, und `[UESource]` ist das Verzeichnis, in dem Sie die Unreal-Engine-Quellen installiert haben. Wenn Sie mit dem Kopieren fertig sind, können Sie das Dummyprojekt löschen.
 
 ## <a name="3-add-the-project-acoustics-unreal-plugin-to-your-game"></a>3. Hinzufügen des Projekt Akustik-Unreal-Plug-Ins zu Ihrem Spiel
  
@@ -80,7 +80,7 @@ Stellen Sie Wwise erneut in Ihrem Spiel bereit, auch wenn Sie Wwise bereits inte
 
     ![Screenshot des Windows-Explorer-Fensters mit hervorgehobenem Skript zum Patchen von Wwise](media/patch-wwise-script.png)
 
-* Wenn das DirectX SDK nicht installiert ist, müssen Sie die Zeile mit „DXSDK_DIR“ auskommentieren. Sie finden Sie in `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Wenn das DirectX SDK nicht installiert ist, müssen Sie in `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` die Zeile mit „DXSDK_DIR“ auskommentieren.
 
     ![Screenshot des Code-Editors mit der auskommentierten DXSDK-Zeile](media/directx-sdk-comment.png)
 

@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000775"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60998800"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Tastenkombinationen für Azure Data Catalog
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Tastenkombinationen für das Data Catalog-Datenquellen-Registrierungstool

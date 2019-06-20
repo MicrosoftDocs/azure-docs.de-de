@@ -12,11 +12,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: 125da95349fce0e75b44b5619baba28d34a74be1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60822479"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Erstellen von Apache Kafka-fähigen Event Hubs
 

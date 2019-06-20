@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: df1ffa07c9b813ee3da4952bbcc394f43c69b7ac
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204235"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001037"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Sicherheitsattribute für Azure SQL-Datenbank
 
@@ -38,9 +38,9 @@ Azure SQL-Datenbank umfasst Konzepte für [Einzeldatenbanken](sql-database-singl
 | Sicherheitsattribut | Ja/Nein | Notizen |
 |---|---|--|
 | Unterstützung des Dienstendpunkts| Ja | Gilt nur für eine [Einzeldatenbank](sql-database-single-index.yml). |
-| vNET Injection-Unterstützung| Ja | Gilt nur für eine [verwaltete Instanz](sql-database-managed-instance.md). |
-| Netzwerkisolation/Firewallunterstützung| Ja | Firewall auf Datenbank- und Serverebene; Netzwerkisolation nur für eine [verwaltete Instanz](sql-database-managed-instance.md) |
-| Unterstützung für Tunnelerzwingung | Ja | [Verwaltete Instanz](sql-database-managed-instance.md) über [Azure ExpressRoute](../expressroute/index.yml)-VPN |
+| Unterstützung der VNET-Einschleusung| Ja | Gilt nur für eine [verwaltete Instanz](sql-database-managed-instance.md). |
+| Unterstützung von Netzwerkisolation und Firewall| Ja | Firewall auf Datenbank- und Serverebene; Netzwerkisolation nur für eine [verwaltete Instanz](sql-database-managed-instance.md) |
+| Unterstützung der Tunnelerzwingung| Ja | [Verwaltete Instanz](sql-database-managed-instance.md) über [Azure ExpressRoute](../expressroute/index.yml)-VPN |
 
 ## <a name="detection"></a>Erkennung
 
@@ -52,22 +52,22 @@ Azure SQL-Datenbank umfasst Konzepte für [Einzeldatenbanken](sql-database-singl
 
 | Sicherheitsattribut | Ja/Nein | Notizen|
 |---|---|--|
-| Zugriffsverwaltung – Authentifizierung| Ja | Azure Active Directory |
-| Zugriffsverwaltung – Autorisierung| Ja |  |
+| Authentication| Ja | Azure Active Directory |
+| Autorisierung| Ja |  |
 
 
 ## <a name="audit-trail"></a>Überwachungspfad
 
 | Sicherheitsattribut | Ja/Nein | Notizen|
 |---|---|--|
-| Steuerungs-/Verwaltungsebene – Protokollierung und Überwachung| Ja | Ja, für einige Ereignisse. |
-| Datenebene – Protokollierung und Überwachung | Ja | Über [SQL-Überwachung](sql-database-auditing.md). |
+| Steuerungs-/Verwaltungsebene: Protokollierung und Überwachung| Ja | Ja, für einige Ereignisse. |
+| Datenebene: Protokollierung und Überwachung | Ja | Über [SQL-Überwachung](sql-database-auditing.md). |
 
 ## <a name="configuration-management"></a>Konfigurationsverwaltung
 
 | Sicherheitsattribut | Ja/Nein | Notizen|
 |---|---|--|
-| Unterstützung der Konfigurationsverwaltung (Versionsverwaltung der Konfiguration usw.)| Nein   | | 
+| Unterstützung der Konfigurationsverwaltung (Versionsverwaltung der Konfiguration usw.)| Nein  | | 
 
 ## <a name="additional-security-attributes-for-sql-database"></a>Zusätzliche Sicherheitsattribute für SQL-Datenbank
 

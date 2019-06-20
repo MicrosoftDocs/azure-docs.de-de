@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619721"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133121"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrieren von Lösungen für die Updateverwaltung, Änderungsnachverfolgung und den Bestand von einem virtuellen Azure-Computer
 
@@ -51,7 +51,7 @@ Falls der ausgewählte Arbeitsbereich nicht die Lösungen „Updateverwaltung“
 
 Verfügt der ausgewählte Arbeitsbereich bereits über die Lösung, wird die Lösung nicht erneut bereitgestellt, und die Bereichskonfiguration wird nicht hinzugefügt.
 
-Wählen Sie die Auslassungspunkte (**...**) bei einer Konfiguration und dann **Bearbeiten** aus. Wählen Sie im Bereich **Bereichskonfiguration bearbeiten** die Option **Computergruppen auswählen** aus. Im Bereich **Computergruppen** werden die gespeicherten Suchvorgänge angezeigt, die zum Erstellen der Bereichskonfiguration verwendet werden.
+Wählen Sie die Auslassungspunkte ( **...** ) bei einer Konfiguration und dann **Bearbeiten** aus. Wählen Sie im Bereich **Bereichskonfiguration bearbeiten** die Option **Computergruppen auswählen** aus. Im Bereich **Computergruppen** werden die gespeicherten Suchvorgänge angezeigt, die zum Erstellen der Bereichskonfiguration verwendet werden.
 
 ## <a name="saved-searches"></a>Gespeicherte Suchvorgänge
 
@@ -104,6 +104,8 @@ Wenn Sie die Lösung „Starten und Beenden von VMs außerhalb der Kernzeit“ v
 * Starten und beenden Sie Zeitpläne für VM-Runbooks.
 * Starten und beenden Sie VM-Runbooks.
 * Variables
+
+Alternativ können Sie Ihren Arbeitsbereich auch von Ihrem Automation-Konto in Ihrem Log Analytics-Arbeitsbereich trennen. Wählen Sie in Ihrem Arbeitsbereich unter **Verwandte Ressourcen** die Option **Automation-Konto** aus. Klicken Sie auf der Seite „Automation-Konto“ auf **Verknüpfung zu diesem Konto aufheben**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

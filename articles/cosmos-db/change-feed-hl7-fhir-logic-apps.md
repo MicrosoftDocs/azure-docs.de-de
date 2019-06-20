@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/08/2017
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 49ef63969bd603c25d120dc5cb93ed30dda04241
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354483"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257268"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Benachrichtigen von Patienten über Änderungen an HL7 FHIR-Krankenakten mithilfe von Logic Apps und Azure Cosmos DB
 

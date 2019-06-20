@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60193712"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-Ends und Back-End-Pools in Azure Front Door Service
 In diesem Artikel werden die Konzepte für die Zuordnung Ihrer App-Bereitstellung zu Azure Front Door Service beschrieben. Darüber hinaus werden die verschiedenen Begriffe erläutert, die bei der Front Door-Konfiguration rund um App-Back-Ends verwendet werden.
@@ -71,7 +71,7 @@ Front Door Service sendet regelmäßige HTTP/HTTPS-Testanforderungen an jedes ko
 
 - **Protokoll**. Legt fest, ob die Integritätstestanforderungen von Front Door Service an Ihre Back-Ends über das HTTP-Protokoll oder das HTTPS-Protokoll gesendet werden.
 
-- **Intervall (Sekunden)**: Definiert die Häufigkeit der Integritätstests für Ihre Back-Ends bzw. die Intervalle, in denen die einzelnen Front Door-Umgebungen einen Test senden.
+- **Intervall (Sekunden)** : Definiert die Häufigkeit der Integritätstests für Ihre Back-Ends bzw. die Intervalle, in denen die einzelnen Front Door-Umgebungen einen Test senden.
 
     >[!NOTE]
     >Für schnellere Failover sollten Sie das Intervall auf einen niedrigeren Wert festlegen. Je niedriger der Wert, desto größer ist jedoch das Integritätstestvolumen, das Ihre Back-Ends empfangen. Wenn beispielsweise bei 90 Front Door-Umgebungen bzw. globalen POPs das Intervall auf 30 Sekunden festgelegt ist, empfängt jedes Back-End etwa 3 bis 5 Testanforderungen pro Sekunde.
@@ -85,7 +85,7 @@ Anhand der Einstellungen für den Lastenausgleich für den Back-End-Pool wird de
 
 - **Erfolgreiche Stichprobengröße**: Definiert die zuvor erwähnte Stichprobengröße, d.h. die Anzahl der erfolgreichen Stichproben, die erforderlich sind, um das Back-End als fehlerfrei zu bezeichnen. Angenommen, das Intervall für Front Door-Integritätstests ist auf 30 Sekunden, die Stichprobengröße auf 5 und die erfolgreiche Stichprobengröße auf 3 festgelegt. Jedes Mal, wenn Integritätstests für Ihr Back-End ausgewertet werden, werden die letzten fünf Stichproben innerhalb von 150 Sekunden (5 x 30) betrachtet. Mindestens drei erfolgreiche Stichproben sind erforderlich, um Ihr Back-End als fehlerfrei zu deklarieren.
 
-- **Wartezeitenaktivität (zusätzliche Wartezeit)**: Definiert, ob Front Door die Anforderung an Back-Ends innerhalb des Aktivitätsbereichs der Wartezeitmessung senden oder die Anforderung an das nächstgelegene Back-End weiterleiten soll.
+- **Wartezeitenaktivität (zusätzliche Wartezeit)** : Definiert, ob Front Door die Anforderung an Back-Ends innerhalb des Aktivitätsbereichs der Wartezeitmessung senden oder die Anforderung an das nächstgelegene Back-End weiterleiten soll.
 
 Weitere Informationen finden Sie unter [Datenverkehrsrouting auf Grundlage der niedrigsten Latenzen](front-door-routing-methods.md#latency).
 

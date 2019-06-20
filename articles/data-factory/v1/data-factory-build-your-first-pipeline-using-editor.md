@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535993"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573825"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Erstellen der ersten Data Factory mit dem Azure-Portal
 > [!div class="op_single_selector"]
 > * [Übersicht und Voraussetzungen](data-factory-build-your-first-pipeline.md)
-> * [Azure-Portal](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Azure Resource Manager-Vorlage](data-factory-build-your-first-pipeline-using-arm.md)
@@ -209,16 +209,16 @@ In diesem Schritt erstellen Sie Datasets, um die Eingabe- und Ausgabedaten für 
     ```
     Die folgende Tabelle enthält eine Beschreibung der JSON-Eigenschaften, die im Codeausschnitt verwendet werden:
 
-   | Eigenschaft | BESCHREIBUNG |
-   |:--- |:--- |
-   | type |Die Type-Eigenschaft wird auf **AzureBlob** festgelegt, da sich Daten im Blobspeicher befinden. |
-   | linkedServiceName |Diese Eigenschaft verweist auf den AzureStorageLinkedService-Dienst, den Sie zuvor erstellt haben. |
-   | folderPath | Diese Eigenschaft gibt den Blobcontainer und den Ordner an, der Eingabeblobs enthält. | 
-   | fileName |Diese Eigenschaft ist optional. Wenn Sie diese Eigenschaft nicht angeben, werden alle Dateien in „folderPath“ übernommen. In diesem Tutorial wird nur die Datei „input.log“ verarbeitet. |
-   | type |Da die Protokolldateien im Textformat vorliegen, verwenden Sie **TextFormat**. |
-   | columnDelimiter |Spalten werden in den Protokolldateien per Komma (`,`) voneinander getrennt. |
-   | frequency/interval |„frequency“ wird auf **Month** und „interval“ auf **1** festgelegt, was bedeutet, dass die Eingabeslices monatlich verfügbar sind. |
-   | external | Diese Eigenschaft wird auf **true** festgelegt, wenn die Daten nicht von dieser Pipeline generiert werden. In diesem Tutorial wird die Datei „input.log“ nicht von dieser Pipeline generiert. Daher wird die Eigenschaft auf **true** festgelegt. |
+   | Eigenschaft | Geschachtelt unter | BESCHREIBUNG |
+   |:--- |:--- |:--- |
+   | type | properties |Die Type-Eigenschaft wird auf **AzureBlob** festgelegt, da sich Daten im Blobspeicher befinden. |
+   | linkedServiceName | format |Diese Eigenschaft verweist auf den AzureStorageLinkedService-Dienst, den Sie zuvor erstellt haben. |
+   | folderPath | typeProperties | Diese Eigenschaft gibt den Blobcontainer und den Ordner an, der Eingabeblobs enthält. | 
+   | fileName | typeProperties |Diese Eigenschaft ist optional. Wenn Sie diese Eigenschaft nicht angeben, werden alle Dateien in „folderPath“ übernommen. In diesem Tutorial wird nur die Datei „input.log“ verarbeitet. |
+   | type | format |Da die Protokolldateien im Textformat vorliegen, verwenden Sie **TextFormat**. |
+   | columnDelimiter | format |Spalten werden in den Protokolldateien per Komma (`,`) voneinander getrennt. |
+   | frequency/interval | availability |„frequency“ wird auf **Month** und „interval“ auf **1** festgelegt, was bedeutet, dass die Eingabeslices monatlich verfügbar sind. |
+   | external | properties | Diese Eigenschaft wird auf **true** festgelegt, wenn die Daten nicht von dieser Pipeline generiert werden. In diesem Tutorial wird die Datei „input.log“ nicht von dieser Pipeline generiert. Daher wird die Eigenschaft auf **true** festgelegt. |
 
     Weitere Informationen zu diesen JSON-Eigenschaften finden Sie unter [Azure Blob-Connector](data-factory-azure-blob-connector.md#dataset-properties).
 

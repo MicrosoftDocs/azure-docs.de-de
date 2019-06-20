@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f1f102307256852ac92616c7fb707e0e2739e5d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544153"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Einmaliges Anmelden mit MSAL.js
@@ -91,7 +91,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 
 **Mit einem Anmeldehinweis**
 
-Wenn kein SID-Anspruch konfiguriert wurde oder die Aufforderung zur Kontoauswahl auch bei interaktiven Authentifizierungen umgangen werden soll, geben Sie in den Anforderungsparametern einen `login_hint` an, und stellen Sie optional einen `domain_hint` als `extraQueryParameters` in den interaktiven MSAL.js-Methoden (`loginPopup`, `loginRedirect`, `acquireTokenPopup` und `acquireTokenRedirect`) bereit. Beispiel: 
+Wenn kein SID-Anspruch konfiguriert wurde oder die Aufforderung zur Kontoauswahl auch bei interaktiven Authentifizierungen umgangen werden soll, geben Sie in den Anforderungsparametern einen `login_hint` an, und stellen Sie optional einen `domain_hint` als `extraQueryParameters` in den interaktiven MSAL.js-Methoden (`loginPopup`, `loginRedirect`, `acquireTokenPopup` und `acquireTokenRedirect`) bereit. Beispiel:
 
 ```javascript
 var request = {

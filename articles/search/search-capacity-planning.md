@@ -10,11 +10,11 @@ ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60308727"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Skalieren von Partitionen und Replikaten für Abfrage und Indizierung von Arbeitslasten in Azure Search
 Nach dem [Auswählen eines Tarifs](search-sku-tier.md) und dem [Bereitstellen eines Suchdiensts](search-create-service-portal.md) kann im nächsten Schritt optional die Anzahl der von dem Dienst verwendeten Replikate oder Partitionen erhöht werden. Jeder Tarif bietet eine feste Anzahl von Abrechnungseinheiten. In diesem Artikel wird erläutert, wie Sie diese Einheiten für eine optimale Konfiguration zuordnen, bei der Ihre Anforderungen für die Abfrageausführung, Indizierung und Speicherung ausgeglichen sind.
@@ -29,7 +29,7 @@ Bei Verwendung von weniger Sucheinheiten fällt die Rechnung entsprechend niedri
 ## <a name="terminology-replicas-and-partitions"></a>Terminologie: Replikate und Partitionen
 Ein Suchdienst basiert in erster Linie auf Replikaten und Partitionen.
 
-| Ressource | Definition |
+| Resource | Definition |
 |----------|------------|
 |*Partitionen* | Partitionen stellen Indexspeicher und E/A für Lese-/Schreibvorgänge (beispielsweise bei der Neuerstellung oder Aktualisierung eines Index) bereit.|
 |*Replikate* | Replikate sind Instanzen des Suchdiensts und dienen in erster Linie zum Lastenausgleich bei Abfragevorgängen. Jedes Replikat hostet jeweils eine Kopie eines Index. Wenn Sie über 12 Replikate verfügen, stehen für jeden im Dienst geladenen Index 12 Kopien zur Verfügung.|

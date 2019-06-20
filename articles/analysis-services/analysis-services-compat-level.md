@@ -9,11 +9,11 @@ ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 67a6c99253c549f0b8d3b55809b35b81756843eb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803492"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61032604"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Kompatibilitätsgrad für tabellarische Analysis Services-Modelle
 

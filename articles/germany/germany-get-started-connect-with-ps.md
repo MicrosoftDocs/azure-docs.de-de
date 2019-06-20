@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/13/2017
 ms.author: ralfwi
 ms.openlocfilehash: 38ff91fe9ac50a85d684895d0ccb6333f6257284
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488249"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66155811"
 ---
 # <a name="connect-to-azure-germany-by-using-powershell"></a>Herstellen einer Verbindung mit Azure Deutschland über PowerShell
 Zur Verwendung von Azure PowerShell mit Azure Deutschland müssen Sie anstelle einer Verbindung mit der globalen Azure-Umgebung eine Verbindung mit Azure Deutschland herstellen. Sie können Azure PowerShell zum Verwalten eines umfangreichen Abonnements über Skripts oder für den Zugriff auf Features verwenden, die derzeit im Azure-Portal nicht verfügbar sind. Wenn Sie PowerShell bereits in der globalen Azure-Umgebung verwendet haben, ist dies größtenteils identisch. In Azure Deutschland bestehen folgende Unterschiede:
@@ -47,7 +47,7 @@ Sie können auch die Option `Environment` verwenden, wenn Sie eine Verbindung mi
 Nach erfolgreicher Verbindungsherstellung besteht ein weiterer Unterschied in den verfügbaren Zielregionen für einen Dienst. Jeder Cloud Service von Azure verfügt über unterschiedliche Regionen. Diese sind auf der Seite für die Dienstverfügbarkeit aufgeführt. Normalerweise verwenden Sie die Region im Parameter `Location` für einen Befehl.
 
 
-| Allgemeiner Name | Anzeigename | Standortname |
+| Allgemeiner Name | `Display name` | Standortname |
 | --- | --- | --- |
 | Deutschland, Mitte |`Germany Central` | `germanycentral` |
 | Deutschland, Nordosten |`Germany Northeast` | `germanynortheast` |

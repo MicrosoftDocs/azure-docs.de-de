@@ -10,16 +10,16 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 891d0f88158b7d315b5908a7e1c0f73215b4b09e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3c1bf9c6f2c1b38b9cf9729b769c9198da56147a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66388584"
 ---
 # <a name="paging-webpages"></a>Durchsuchen von Webseiten 
 
-Wenn Sie die API für die benutzerdefinierte Suche aufrufen, gibt Bing eine Liste mit Ergebnissen zurück. Bei der Liste handelt es sich um eine Teilmenge der gesamten Ergebnisse, die für die Abfrage relevant sein könnten. Um die geschätzte Gesamtzahl der verfügbaren Ergebnisse aufzurufen, greifen Sie auf das Feld [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#totalestimatedmatches) des Antwortobjekts zu.  
+Wenn Sie die API für die benutzerdefinierte Suche aufrufen, gibt Bing eine Liste mit Ergebnissen zurück. Bei der Liste handelt es sich um eine Teilmenge der gesamten Ergebnisse, die für die Abfrage relevant sein könnten. Um die geschätzte Gesamtzahl der verfügbaren Ergebnisse aufzurufen, greifen Sie auf das Feld [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#totalestimatedmatches) des Antwortobjekts zu.  
   
 Das folgende Beispiel zeigt das `totalEstimatedMatches`-Feld mit einer Webantwort.  
   
@@ -34,7 +34,7 @@ Das folgende Beispiel zeigt das `totalEstimatedMatches`-Feld mit einer Webantwor
 }  
 ```  
   
-Wenn Sie die verfügbaren Webseiten durchblättern möchten, verwenden Sie die Abfrageparameter [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#count) und [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#offset).  
+Wenn Sie die verfügbaren Webseiten durchblättern möchten, verwenden Sie die Abfrageparameter [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#count) und [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#offset).  
   
 Der `count`-Parameter gibt die Anzahl der Ergebnisse an, die in der Antwort zurückgegeben werden sollen. Die maximale Anzahl an Ergebnissen, die Sie in der Antwort anfordern können, ist 50. Der Standardwert ist 10. Die tatsächlich gelieferte Anzahl kann geringer sein als angefordert.
 

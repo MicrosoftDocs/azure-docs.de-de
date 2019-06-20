@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785896"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478406"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API für benutzerdefinierte Ereignisse und Metriken
 
@@ -55,11 +55,11 @@ Gehen Sie wie folgt vor, falls Sie noch nicht über einen Verweis auf das Applic
   * [JavaScript auf jeder Webseite](../../azure-monitor/app/javascript.md) 
 * Schließen Sie Folgendes in den Geräte- oder Webservercode ein:
 
-    *C#:*`using Microsoft.ApplicationInsights;`
+    *C#:* `using Microsoft.ApplicationInsights;`
 
-    *Visual Basic:*`Imports Microsoft.ApplicationInsights`
+    *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
-    *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
     *Node.js:* `var applicationInsights = require("applicationinsights");`
 
@@ -529,7 +529,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-Die meisten wichtigen Stapelinformationen wurden bereits in separate Variablen extrahiert, Sie können jedoch die Struktur `details` analysieren, um weitere Informationen zu erhalten. Da es sich hierbei um eine dynamische Struktur handelt, muss das Ergebnis in den erwarteten Typ umgewandelt werden. Beispiel: 
+Die meisten wichtigen Stapelinformationen wurden bereits in separate Variablen extrahiert, Sie können jedoch die Struktur `details` analysieren, um weitere Informationen zu erhalten. Da es sich hierbei um eine dynamische Struktur handelt, muss das Ergebnis in den erwarteten Typ umgewandelt werden. Beispiel:
 
 ```kusto
 exceptions
@@ -592,7 +592,7 @@ Sie können nach Nachrichteninhalt suchen, aber (anders als bei Eigenschaftswert
 Die Größenbeschränkung für `message` liegt wesentlich höher als der Grenzwert für Eigenschaften.
 Ein Vorteil von TrackTrace ist, dass relativ lange Daten in die Nachricht eingefügt werden können. Sie können dort beispielsweise POST-Daten codieren.  
 
-Darüber hinaus können Sie Ihrer Nachricht einen Schweregrad hinzufügen. Wie bei anderen Telemetriedaten auch können Sie Eigenschaftswerte hinzufügen, um zu filtern oder nach verschiedenen Ablaufverfolgungen zu suchen. Beispiel: 
+Darüber hinaus können Sie Ihrer Nachricht einen Schweregrad hinzufügen. Wie bei anderen Telemetriedaten auch können Sie Eigenschaftswerte hinzufügen, um zu filtern oder nach verschiedenen Ablaufverfolgungen zu suchen. Beispiel:
 
 *C#*
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Leeren von Daten
 
-Normalerweise sendet das SDK Daten zu bestimmten Zeiten, um den Benutzer möglichst wenig zu beeinträchtigen. In einigen Fällen empfiehlt es sich aber, den Puffer zu leeren – beispielsweise bei der Verwendung des SDK in einer Anwendung, die heruntergefahren wird.
+Normalerweise sendet das SDK Daten in festen Intervallen (in der Regel 30 Sekunden) oder wenn der Puffer voll ist (in der Regel 500 Elemente). In einigen Fällen empfiehlt es sich aber, den Puffer zu leeren – beispielsweise bei der Verwendung des SDK in einer Anwendung, die heruntergefahren wird.
 
 *C#*
 
@@ -1155,7 +1155,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient besitzt eine Context-Eigenschaft mit Werten, die zusammen mit allen Telemetriedaten gesendet werden. Sie werden normalerweise von den Standardtelemetriemodulen festgelegt, aber Sie können sie auch selbst einstellen. Beispiel: 
+TelemetryClient besitzt eine Context-Eigenschaft mit Werten, die zusammen mit allen Telemetriedaten gesendet werden. Sie werden normalerweise von den Standardtelemetriemodulen festgelegt, aber Sie können sie auch selbst einstellen. Beispiel:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1172,7 +1172,7 @@ Wenn Sie diese Werte selbst festlegen, empfiehlt es sich, die entsprechende Zeil
   * **Name:** Ein Bezeichner, in der Regel die URL der HTTP-Anforderung.
   * **SyntheticSource:** Wenn diese Zeichenfolge nicht NULL oder leer ist, wird damit angegeben, dass die Quelle der Anforderung als Roboter oder Webtest identifiziert wurde. Standardmäßig wird sie von Berechnungen im Metrik-Explorer ausgeschlossen.
 * **Properties:** Eigenschaften, die mit allen Telemetriedaten gesendet werden. Kann in einzelnen Track*-Aufrufen außer Kraft gesetzt werden.
-* **Sitzung (Session)**: Die Sitzung des Benutzers. Die ID wird auf einen generierten Wert festgelegt, der geändert wird, wenn der Benutzer für eine Weile nicht aktiv ist.
+* **Sitzung (Session)** : Die Sitzung des Benutzers. Die ID wird auf einen generierten Wert festgelegt, der geändert wird, wenn der Benutzer für eine Weile nicht aktiv ist.
 * **User:** Benutzerinformationen.
 
 ## <a name="limits"></a>Einschränkungen

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772923"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services – Benachrichtigungen
 Mit Benachrichtigungen können Clients Änderungen an einem Objekt verfolgen, an dem sie interessiert sind. Zwei Typen von Objekten unterstützen Benachrichtigungen: *Reliable State Manager* und *Reliable Dictionary*.

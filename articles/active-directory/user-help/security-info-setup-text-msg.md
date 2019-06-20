@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341033"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60482256"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Einrichten der Sicherheitsinformationen (Vorschau) zur Verwendung von SMS-Nachrichten
 Mit diesen Schritten können Sie Ihre Methoden für die zweistufige Überprüfung und die Kennwortzurücksetzung hinzufügen. Nachdem Sie die Ersteinrichtung abgeschlossen haben, können Sie zur Seite **Sicherheitsinformation** zurückkehren, um Sicherheitsinformationen hinzuzufügen, zu aktualisieren oder zu löschen.
@@ -86,11 +86,11 @@ Wenn Sie SMS-Nachrichten als Standardmethode für das Anmelden bei Ihrem Geschä
 
     ![Link zum Ändern der Standardanmeldemethode](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Wählen Sie aus der Dropdownliste der verfügbaren Methoden die Option **Telefon – SMS (*_Ihre_Telefonnummer_*)** aus, und klicken Sie dann auf **Bestätigen**.
+2. Wählen Sie aus der Dropdownliste der verfügbaren Methoden die Option **Telefon – SMS ( *_Ihre_Telefonnummer_* )** aus, und klicken Sie dann auf **Bestätigen**.
 
     ![Standardmäßige Anmeldemethode auswählen](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    Die Standardmethode für Anmeldungen ändert sich zu **Telefon – SMS (*_Ihre_Telefonnummer_*)**.
+    Die Standardmethode für Anmeldungen ändert sich zu **Telefon – SMS ( *_Ihre_Telefonnummer_* )** .
 
 ## <a name="additional-security-info-methods"></a>Weitere Methoden für Sicherheitsinformationen
 Basierend auf der Aktion, die Sie ausführen möchten, stehen zusätzliche Möglichkeiten zur Verfügung, wie Ihre Organisation sich mit Ihnen in Verbindung setzen kann, um Ihre Identität zu überprüfen. Die Optionen lauten:

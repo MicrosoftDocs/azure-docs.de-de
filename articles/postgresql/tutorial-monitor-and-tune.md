@@ -1,19 +1,19 @@
 ---
-title: Tutorial zur Überwachung und Optimierung in Azure Database for PostgreSQL
-description: Dieses Tutorial erläutert die Überwachung und Optimierung in Azure Database for PostgreSQL.
+title: Tutorial zur Überwachung und Optimierung in Azure Database for PostgreSQL (Einzelserver)
+description: Dieses Tutorial erläutert die Überwachung und Optimierung in Azure Database for PostgreSQL (Einzelserver).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: f05e0eef7680b08ce116cc0243d944f6a1db597c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: dcd8363db33809e2a33885f43e570c53807505fd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536440"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073085"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Tutorial: Überwachung und Optimierung in Azure Database for PostgreSQL
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Überwachung und Optimierung in Azure Database for PostgreSQL – Einzelserver
 
 Azure Database for PostgreSQL umfasst Features,mit denen Sie die Leistung Ihres Servers verstehen und verbessern können. In diesem Lernprogramm lernen Sie Folgendes:
 > [!div class="checklist"]

@@ -1,27 +1,22 @@
 ---
-title: Installieren und Verwenden von Giraph in HDInsight (Hadoop) – Azure
-description: Erfahren Sie, wie Sie Giraph auf Linux-basierten HDInsight-Clustern mit Skriptaktionen installieren. Mit Skriptaktionen können Sie den Cluster während der Erstellung anpassen, indem Sie die Clusterkonfiguration ändern oder Dienste und Hilfsprogramme installieren.
-services: hdinsight
+title: Installieren und Verwenden von Giraph in Azure HDInsight
+description: Erfahren Sie, wie Sie Giraph auf HDInsight-Clustern mit Skriptaktionen installieren. Sie können mit Giraph die Grafikverarbeitung in Apache Hadoop in der Azure-Cloud durchführen.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: hrasheed
-ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 04/22/2019
+ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201720"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64697603"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installieren von Apache Giraph in HDInsight Hadoop-Clustern und Verwenden von Giraph zur Verarbeitung großer Diagramme
 
 In diesem Artikel wird erläutert, wie Sie Apache Giraph in einem HDInsight-Cluster installieren. Das Skriptaktionenfeature von HDInsight ermöglicht Ihnen die Anpassung des Clusters durch Ausführen eines Bash-Skripts. Mithilfe von Skripts können Sie Cluster während und nach der Erstellung anpassen.
-
-> [!IMPORTANT]  
-> Die Schritte in diesem Dokument erfordern einen HDInsight-Cluster mit Linux. Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. Weitere Informationen finden Sie unter [Welche Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Was ist Giraph?
 
@@ -58,7 +53,7 @@ Dieser Abschnitt enthält Anweisungen zur Verwendung des Beispielskripts währen
 > [!NOTE]  
 > Eine Skriptaktion kann mit einer der folgenden Methoden angewendet werden:
 > * Azure PowerShell
-> * Klassische Azure-Befehlszeilenschnittstelle
+> * Die Azure-CLI
 > * Das HDInsight .NET SDK
 > * Azure-Ressourcen-Manager-Vorlagen
 > 

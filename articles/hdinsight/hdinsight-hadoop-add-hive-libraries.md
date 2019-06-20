@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: fe8f97368531ed572083834256d84cd1ed6dd8a1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c3ef5362c4d97b8d805212f9cf813c7bc9c8c18c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687227"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059446"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Hinzufügen benutzerdefinierter Apache Hive-Bibliotheken beim Erstellen des HDInsight-Clusters
 
@@ -39,9 +39,6 @@ Für **Linux-basierte Cluster**: [https://hdiconfigactions.blob.core.windows.net
 
 Für **Windows-basierte Cluster**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. Weitere Informationen finden Sie unter [Welche Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 **Anforderungen**
 
 * Die Skripts müssen sowohl auf die **Hauptknoten** als auch die **Workerknoten** angewendet werden.
@@ -50,7 +47,7 @@ Für **Windows-basierte Cluster**: [https://hdiconfigactions.blob.core.windows.n
 
 * Das Speicherkonto mit der Bibliothek von JAR-Dateien **muss** bei der Erstellung mit dem HDInsight-Cluster verknüpft werden. Dies muss entweder das Standardspeicherkonto sein oder ein über die __optionale Konfiguration__ hinzugefügtes Konto.
 
-* Der WASB-Pfad zum Container muss als Parameter für die Skriptaktion angegeben werden. Wenn sich die JAR-Dateien beispielsweise in einem Container namens **libs** in einem Speicherkonto namens **mystorage** befinden, lautet der Parameter **wasb://libs\@mystorage.blob.core.windows.net/**.
+* Der WASB-Pfad zum Container muss als Parameter für die Skriptaktion angegeben werden. Wenn sich die JAR-Dateien beispielsweise in einem Container namens **libs** in einem Speicherkonto namens **mystorage** befinden, lautet der Parameter **wasb://libs\@mystorage.blob.core.windows.net/** .
 
   > [!NOTE]  
   > Es wird vorausgesetzt, dass Sie bereits ein Speicherkonto und einen Blobcontainer erstellt und die Dateien darin hochgeladen haben.
@@ -78,7 +75,7 @@ Für **Windows-basierte Cluster**: [https://hdiconfigactions.blob.core.windows.n
 
    * **ZOOKEEPER**: Lassen Sie diese Einstellung leer.
 
-   * **PARAMETER**: Geben Sie die WASB-Adresse des Containers und Speicherkontos an, das die JAR-Dateien enthält. Beispielsweise **wasb://libs\@mystorage.blob.core.windows.net/**.
+   * **PARAMETER**: Geben Sie die WASB-Adresse des Containers und Speicherkontos an, das die JAR-Dateien enthält. Beispielsweise **wasb://libs\@mystorage.blob.core.windows.net/** .
 
 3. Verwenden Sie am unteren Rand der **Skriptaktionen** die Schaltfläche **Auswählen**, um die Konfiguration zu speichern.
 

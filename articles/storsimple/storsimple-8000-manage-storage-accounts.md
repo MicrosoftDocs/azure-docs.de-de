@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60632696"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Verwalten von Anmeldeinformationen für Speicherkonten mithilfe des StorSimple-Geräte-Manager-Diensts
 
@@ -157,7 +157,7 @@ Um den StorSimple-Geräte-Manager-Dienst über die Änderung zu informieren, mü
 
     ![Synchronisieren von Schlüsseln](./media/storsimple-8000-manage-storage-accounts/syncaccesskey1.png)
 
-3. Klicken Sie auf **Mehr...**, und wählen Sie dann **Zugriffsschlüssel synchronisieren** aus.   
+3. Klicken Sie auf **Mehr...** , und wählen Sie dann **Zugriffsschlüssel synchronisieren** aus.   
 
     ![Synchronisieren von Schlüsseln](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 

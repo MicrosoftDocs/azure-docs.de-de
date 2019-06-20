@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
 ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873252"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60996572"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML-Nachrichten und Flatfiles in Azure Logic Apps mit Enterprise Integration Pack
 

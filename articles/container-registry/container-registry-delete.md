@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: danlep
 ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60430796"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Löschen von Containerimages in Azure Container Registry
 
@@ -164,7 +164,7 @@ Are you sure you want to continue? (y/n): y
 
 Ein [Manifest Digest](#manifest-digest) kann einem, aber nicht mehrere Tags zugeordnet werden. Beim Löschen nach Digest werden alle vom Manifest zugeordneten Tags gelöscht, da Ebenendaten für alle Ebenen für das Bild eindeutig sind. Freigegebene Ebenendaten werden nicht gelöscht.
 
-Zum Löschen nach Digest listen Sie zuerst die Manifest-Digests für das Repository mit den zu löschenden Bildern auf. Beispiel: 
+Zum Löschen nach Digest listen Sie zuerst die Manifest-Digests für das Repository mit den zu löschenden Bildern auf. Beispiel:
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld

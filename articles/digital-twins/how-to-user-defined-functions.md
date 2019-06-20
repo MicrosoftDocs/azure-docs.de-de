@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 06/06/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b5e230f45fd5889e216f2993f58adf6940ef7679
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072914"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Erstellen von benutzerdefinierten Funktionen in Azure Digital Twins
 

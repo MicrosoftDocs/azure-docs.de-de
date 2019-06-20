@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60304271"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Hinzufügen eines Artefakts zu einer VM
 Beim Erstellen eines virtuellen Computers können Sie diesem vorhandene Artefakte hinzufügen. Diese Artefakte können entweder aus dem [öffentlichen Git-Repository für DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) oder Ihrem eigenen Git-Repository stammen. In diesem Artikel erfahren Sie, wie Sie im Azure-Portal Artefakte hinzufügen sowie mithilfe von Azure PowerShell. 
@@ -166,7 +166,7 @@ if ($virtualMachine -ne $null) {
 ## <a name="next-steps"></a>Nächste Schritte
 Entsprechende Informationen finden Sie in den folgenden Artikeln zu Artefakten:
 
-- [Festlegen verbindlicher Artefakte für Ihr Lab](devtest-lab-mandatory-artifacts.md)
+- [Angeben verbindlicher Artefakte für Ihr Lab](devtest-lab-mandatory-artifacts.md)
 - [Erstellen benutzerdefinierter Artefakte](devtest-lab-artifact-author.md)
 - [Hinzufügen eines Artefaktrepositorys zu einem Lab](devtest-lab-artifact-author.md)
 - [Diagnostizieren von Artefaktfehlern](devtest-lab-troubleshoot-artifact-failure.md)

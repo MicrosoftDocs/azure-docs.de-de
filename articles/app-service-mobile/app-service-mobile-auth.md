@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715784"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60859123"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Authentifizierung und Autorisierung in Azure App Service für mobile Apps
 

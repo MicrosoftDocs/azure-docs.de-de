@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65541002"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Hinzufügen von Geplauder zu einer Wissensdatenbank
 
@@ -24,17 +24,19 @@ Das Hinzufügen von Geplauder zu Ihrem Bot macht ihn unterhaltsamer und interess
 
 Dieses Dataset enthält rund 100 Geplauderszenarios mit den Stimmen mehrerer Personen wie „Professionell“, „Freundlich“ oder „Witzig“. Wählen Sie die Persona aus, die dem Sprachstil Ihres Bots am nächsten kommt. Bei einer Benutzerabfrage versucht QnA Maker, sie mit der nächsten bekannten Geplauder-QnA abzugleichen.  
 
-Einige Beispiele für die verschiedenen Persönlichkeiten finden Sie unten. Sie können alle Persönlichkeiten-Datasets einschließlich Details der Persönlichkeiten [hier](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) anzeigen.
+Einige Beispiele für die verschiedenen Persönlichkeiten finden Sie unten. Sie können alle Persönlichkeiten-[Datasets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) einschließlich Details der Persönlichkeiten anzeigen.
+
+Für die Benutzerabfrage von `When is your birthday?` hat jede Persönlichkeit eine stilisierte Antwort:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Benutzerabfrage|Professionell|Freundlich|Witzig|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|Persönlichkeit|Beispiel|
+|--|--|
+|Professionell|Das Alter trifft auf mich nicht wirklich zu.|
+|Freundlich|Ich habe nicht wirklich ein Lebensalter.|
+|Witzig|Ich bin alterslos.|
+|Mitfühlend|Ich habe kein Alter.|
+|Begeistert|Ich bin ein Bot, also habe ich kein Alter.|
+||
 
 > [!NOTE]
 > Unterstützung für Geplauder ist zurzeit nur in englischer Sprache verfügbar. 

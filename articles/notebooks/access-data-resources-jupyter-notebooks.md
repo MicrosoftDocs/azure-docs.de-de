@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60634341"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Zugreifen auf Clouddaten in einem Notebook
 

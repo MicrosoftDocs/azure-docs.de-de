@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158064"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388999"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Azure DevOps-Aufgabe für Azure Data Explorer
 
@@ -67,7 +67,7 @@ Erstellen Sie die folgenden Beispielordner (*Funktionen*, *Richtlinien*, *Tabell
 
     ![Variable erstellen](media/devops/create-variable.png)
 
-    Um Ihre Endpoint_URL zu finden, enthält die Übersichtsseite Ihres **Azure Data Explorer-Cluster** im Azure-Portal die URI des Azure Data Explorer-Cluster. Erstellen Sie den URI im folgenden Format `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Zum Beispiel, https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Um Ihre Endpoint_URL zu finden, enthält die Übersichtsseite Ihres **Azure Data Explorer-Cluster** im Azure-Portal die URI des Azure Data Explorer-Cluster. Erstellen Sie den URI im folgenden Format `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Beispiel: https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Azure Data Explorer-Cluster-URI](media/devops/adx-cluster-uri.png)
 
@@ -85,7 +85,7 @@ Erstellen Sie die folgenden Beispielordner (*Funktionen*, *Richtlinien*, *Tabell
 
 1. Klicken Sie links auf **Kusto-Befehl**, und aktualisieren Sie die Aufgabe mit den folgenden Informationen:
     * **Anzeigename**: Der Name der Aufgabe.
-    * **Dateipfad**: Geben Sie in der Aufgabe **Tabellen** */Tables/*.csl an, da sich die Dateien zur Tabellenerstellung im Ordner *Tabelle* befinden.
+    * **Dateipfad**: Geben Sie in der Aufgabe **Tabellen** */Tables/* .csl an, da sich die Dateien zur Tabellenerstellung im Ordner *Tabelle* befinden.
     * **Endpunkt-URL**: geben Sie die im vorherigen Schritt erstellte `EndPoint URL`-Variable ein.
     * Wählen Sie **Dienstendpunkt verwenden**, und wählen Sie **+ Neu**.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64866004"
 ---
 # <a name="cross-network-connectivity"></a>Netzwerkübergreifende Verbindungen
 
@@ -119,7 +119,7 @@ Die folgende Tabelle zeigt die Routingtabelle des privaten Peerings der ExpressR
 
 Antworten auf weitere Fragen zu VNETs und zum VNET-Peering finden Sie unter [FAQs zu virtuellen Netzwerken][VNet-FAQ]. Antworten auf weitere Fragen zu ExpressRoute und zur VNET-Konnektivität finden Sie unter [ExpressRoute – FAQ][ER-FAQ].
 
-Global Reach wurde noch nicht in allen Ländern eingeführt. Ob Global Reach in den gewünschten Ländern verfügbar ist, erfahren Sie unter [ExpressRoute Global Reach (Vorschau)][Global Reach].
+Global Reach wurde noch nicht in allen Ländern/Regionen eingeführt. Ob Global Reach in den gewünschten Ländern/Regionen verfügbar ist, erfahren Sie unter [ExpressRoute Global Reach][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "Das Anwendungsszenario"

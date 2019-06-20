@@ -8,16 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209577"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497578"
 ---
 # <a name="vlans-and-subnets-overview"></a>Übersicht über VLANs und Subnetze
 
 CloudSimple stellt ein Netzwerk pro Region bereit, in der Ihr CloudSimple-Dienst bereitgestellt wird.  Das Netzwerk ist ein einzelner TCP-Schicht-3-Adressraum mit standardmäßig aktiviertem Routing.  Alle privaten Clouds und Subnetze, die in dieser Region erstellt wurden, können ohne zusätzliche Konfiguration miteinander kommunizieren.  Sie können mit den VLANs verteilte Portgruppen im vCenter erstellen.
+
+![CloudSimple-Netzwerktopologie](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLANs
 
@@ -34,6 +36,10 @@ Alle Subnetze können standardmäßig miteinander kommunizieren, wodurch der Kon
 Eine private Cloud wird als isolierte VMware-Stapelumgebung (ESXi-Hosts, vCenter, vSAN und NSX) erstellt, die von einem vCenter-Server verwaltet wird.  Verwaltungskomponenten werden in dem Netzwerk bereitgestellt, das für **vSphere/vSAN-Subnetze-CIDR** ausgewählt ist.  Der Netzwerk CIDR-Bereich wird während der Bereitstellung in unterschiedliche Subnetze aufgeteilt.
 
 Mindestpräfix für einen vSphere/vSAN-Subnetze-CIDR-Bereich: **/24** Maximales Präfix für einen vSphere/vSAN-Subnetze-CIDR-Bereich: **/21**
+
+> [!CAUTION]
+> IP-Adressen im vSphere/vSAN CIDR-Bereich sind zur Verwendung durch die private Cloudinfrastruktur reserviert. Verwenden Sie keine IP-Adresse in diesem Bereich auf einem virtuellen Computer.
+
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>Grenzwerte für vSphere/vSAN-Subnetze-CIDR
 

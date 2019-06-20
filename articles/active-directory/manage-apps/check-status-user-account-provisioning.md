@@ -3,8 +3,8 @@ title: Meldung zur automatischen Benutzerkontobereitstellung in Azure Active Dir
 description: In diesem Artikel erfahren Sie, wie Sie den Status von Aufträgen zu automatischen Benutzerkontobereitstellungen überprüfen und Probleme bei der Bereitstellung einzelner Benutzer behandeln.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: celested
-ms.reviewer: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70ca1e2f4fd831619cc3cd443d98018a35f4e1ef
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206989"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963078"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Berichterstellung zur automatischen Benutzerkontobereitstellung
 

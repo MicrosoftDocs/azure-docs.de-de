@@ -2,20 +2,20 @@
 title: Tutorial zum Erstellen eines Azure Active Directory B2C-Mandanten | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie sich auf die Registrierung Ihrer Anwendungen vorbereiten können, indem Sie einen Azure Active Directory B2C-Mandanten über das Azure-Portal erstellen.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 12ce37579a6f93ba600c39416c7566ac673e9560
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f6c93880be2fe322d0d4583af538f43cf7f76f6
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723328"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512177"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Erstellen eines Azure Active Directory B2C-Mandanten
 
@@ -40,7 +40,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 3. Wählen Sie im Azure-Portal oben links die Option **Ressource erstellen** aus.
 4. Suchen Sie nach **Active Directory B2C**, wählen Sie dies aus, und klicken Sie dann auf **Erstellen**.
-5. Wählen Sie **Neuen Azure AD B2C-Mandanten erstellen** aus, geben Sie einen Organisationsnamen und einen anfänglichen Domänennamen ein, der im Mandantennamen verwendet wird, wählen Sie das Land aus (dieses kann später nicht mehr geändert werden), und klicken Sie dann auf **Erstellen**.
+5. Wählen Sie **Neuen Azure AD B2C-Mandanten erstellen** aus, geben Sie einen Organisationsnamen und einen anfänglichen Domänennamen ein, der im Mandantennamen verwendet wird, wählen Sie das Land/die Region aus (dies kann später nicht mehr geändert werden), und klicken Sie dann auf **Erstellen**.
 
     ![Erstellen eines Mandanten](./media/tutorial-create-tenant/create-tenant.png)
 

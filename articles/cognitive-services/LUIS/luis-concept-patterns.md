@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523102"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813574"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Verbessern der Vorhersagegenauigkeit mit Mustern
 Muster werden entworfen, um die Genauigkeit zu erhöhen, wenn mehrere Äußerungen sehr ähnlich sind.  Ein Muster ermöglicht es Ihnen, größere Genauigkeit für eine Absicht zu erreichen, ohne viele weitere Äußerungen anzugeben. 
@@ -100,7 +100,7 @@ Bei der Kombination von **Gruppierungssyntax** und **optionaler** Syntax gilt ei
 |Zulässig|Beispiel|
 |--|--|
 |Ja|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
-|Nein |( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
+|Nein|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Schachtelungsbegrenzungen für eine Gruppierung mit ODER-Syntax (|)
 
@@ -109,7 +109,7 @@ Bei der Kombination von **Gruppierungssyntax** mit **or-ing**-Syntax gilt ein Gr
 |Zulässig|Beispiel|
 |--|--|
 |Ja|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
-|Nein |( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
+|Nein|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntax zum Hinzufügen einer Entität zu einer Mustervorlage
 Um der Mustervorlage eine Entität hinzuzufügen, schließen Sie den Namen der Entität in geschweiften Klammern ein, wie hier: `Who does {Employee} manage?`. 
@@ -170,7 +170,7 @@ Kennzeichnen Sie optionalen Text in der Äußerung mithilfe der Syntax für ecki
 |Muster mit optionalem Text|Bedeutung|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` und `from {person}` sind optional.|
-|`Können Sie mir weiterhelfen[?]|Das Satzzeichen ist optional|
+|`Can you help me[?] (Können Sie mir weiterhelfen[?])|Das Satzzeichen ist optional|
 
 Satzzeichen (`?`, `!`, `.`) sollten ignoriert werden. Dies erreichen Sie, indem Sie die Syntax mit eckigen Klammern in Mustern verwenden. 
 

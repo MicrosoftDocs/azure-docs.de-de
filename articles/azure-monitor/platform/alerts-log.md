@@ -5,15 +5,15 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: f758007a0fa0d7fb619873d94d762e7019077e05
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006948"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427451"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Erstellen, Anzeigen und Verwalten von Protokollwarnungen mithilfe von Azure Monitor
 
@@ -119,7 +119,7 @@ Benutzer können ihre Analyseabfrage auch in [Logs Analytics](../log-query/porta
     > Protokollwarnungsregeln bestehen aus einer benutzerdefinierten, abfragebasierten Logik, die von Benutzern bereitgestellt wird und somit keinen aufgelösten Zustand aufweisen. Daher wird sie jedes Mal ausgelöst, wenn die in der Protokollwarnungsregel festgelegten Bedingungen erfüllt sind.
 
 1. Wählen Sie in der oberen Leiste die Schaltfläche **Regeln verwalten** aus, um zum Abschnitt „Regelverwaltung“ zu navigieren, wobei alle erstellten Warnungsregeln sowie deaktivierte Warnungen aufgeführt sind.
-    ![ Verwalten von Warnungsregeln](media/alerts-log/manage-alert-rules.png)
+    ![Verwalten von Warnungsregeln](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Verwalten von Protokollwarnungen mithilfe von Azure-Ressourcenvorlagen
 
@@ -308,31 +308,46 @@ Im Folgenden sehen Sie die Struktur für die auf der [Scheduled Query Rules-Erst
 
 Das JSON-Beispiel oben kann im Rahmen dieser exemplarischen Vorgehensweise z.B. als „sampleScheduledQueryRule.json“ gespeichert und mithilfe von [Azure Resource Manager im Azure-Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) bereitgestellt werden.
 
-## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Verwalten von Protokollwarnungen mit PowerShell, CLI oder API
+## <a name="managing-log-alerts-using-powershell"></a>Verwalten von Protokollwarnungen mit PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor – API für geplante Abfrageregeln](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) ist eine REST-API und vollständig kompatibel mit der Azure Resource Manager-REST-API. Daher kann es über Powershell mit dem Resource Manager-Cmdlet und der Azure CLI verwendet werden.
+Azure Monitor – [API für geplante Abfrageregeln](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) ist eine REST-API und vollständig kompatibel mit der Azure Resource Manager-REST-API. Die unten aufgeführten PowerShell-Cmdlets stehen zur Nutzung der [API für Regeln für geplante Abfragen](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) zur Verfügung.
+
+1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule): PowerShell-Cmdlet zum Erstellen einer neuen Protokollwarnungsregel.
+1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule): PowerShell-Cmdlet zum Aktualisieren einer vorhandenen Protokollwarnungsregel.
+1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource): PowerShell-Cmdlet zum Erstellen oder Aktualisieren von Objekten, mit denen Quellparameter für eine Protokollwarnung angegeben werden. Wird von den Cmdlets [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) und [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) als Eingabe verwendet.
+1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): PowerShell-Cmdlet zum Erstellen oder Aktualisieren von Objekten, mit denen Planungsparameter für eine Protokollwarnung angegeben werden. Wird von den Cmdlets [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) und [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) als Eingabe verwendet.
+1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction): PowerShell-Cmdlet zum Erstellen oder Aktualisieren von Objekten, mit denen Aktionsparameter für eine Protokollwarnung angegeben werden. Wird von den Cmdlets [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) und [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) als Eingabe verwendet.
+1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup): PowerShell-Cmdlet zum Erstellen oder Aktualisieren von Objekten, mit denen Aktionsgruppenparameter für eine Protokollwarnung angegeben werden. Wird vom Cmdlet [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) als Eingabe verwendet.
+1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition): PowerShell-Cmdlet zum Erstellen oder Aktualisieren von Objekten, mit denen Auslöserbedingungsparameter für eine Protokollwarnung angegeben werden. Wird vom Cmdlet [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) als Eingabe verwendet.
+1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger): PowerShell-Cmdlet zum Erstellen oder Aktualisieren von Objekten, mit denen Metrik-Auslöserbedingungsparameter für [Warnungsregeln des Typs „Metrische Maßeinheit“](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) angegeben werden. Wird vom Cmdlet [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) als Eingabe verwendet.
+1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule): PowerShell-Cmdlet zum Auflisten von vorhandenen Protokollwarnungsregeln oder einer bestimmten Protokollwarnungsregel.
+1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule): PowerShell-Cmdlet zum Aktivieren oder Deaktivieren von Protokollwarnungsregeln.
+1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell-Cmdlet zum Löschen einer vorhandenen Protokollwarnungsregel.
+
+> [!NOTE]
+> Mit ScheduledQueryRules-PowerShell-Cmdlets können nur Regeln verwaltet werden, die vom Cmdlet selbst oder mit der [API für Regeln für geplante Abfragen](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) von Azure Monitor erstellt werden. Protokollwarnungsregeln, die mit der [Legacy-API für Warnungen von Log Analytics](api-alerts.md) und mit Legacyvorlagen von [gespeicherten Log Analytics-Suchen und -Warnungen](../insights/solutions-resources-searches-alerts.md) erstellt wurden, können erst dann mit ScheduledQueryRules-PowerShell-Cmdlets verwaltet werden, wenn der Benutzer die [API-Einstellung für Protokollwarnungen wechselt](alerts-log-api-switch.md).
+
+## <a name="managing-log-alerts-using-cli-or-api"></a>Verwalten von Protokollwarnungen per CLI oder API
+
+Azure Monitor – [API für geplante Abfrageregeln](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) ist eine REST-API und vollständig kompatibel mit der Azure Resource Manager-REST-API. Daher ist die Verwendung über PowerShell mit Resource Manager-Befehlen für die Azure CLI möglich.
 
 
 > [!NOTE]
 > Protokollwarnungen für Log Analytics können zudem über die [Legacywarnungs-API von Log Analytics](api-alerts.md) sowie über Legacyvorlagen von [gespeicherten Log Analytics-Suchen und -Warnungen](../insights/solutions-resources-searches-alerts.md) verwaltet werden. Weitere Informationen zur standardmäßigen Verwendung der hier beschriebenen neuen ScheduledQueryRules-API finden Sie unter [Wechseln zur neuen API für Log Analytics-Warnungen](alerts-log-api-switch.md).
 
-Protokollwarnungen verfügen derzeit über keine dedizierten PowerShell- oder CLI-Befehle. Sie können jedoch wie nachfolgend veranschaulicht über das PowerShell-Cmdlet von Azure Resource Manager für die weiter oben im Abschnitt „Ressourcenvorlage“ dargestellte Ressourcenvorlage (sampleScheduledQueryRule.json) verwendet werden:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
-```
-
-Nachfolgend wird die Verwendung über den Azure Resource Manager-Befehl in der Azure CLI für die weiter oben im Abschnitt „Ressourcenvorlage“ dargestellte Ressourcenvorlage (sampleScheduledQueryRule.json) veranschaulicht:
+Protokollwarnungen verfügen derzeit nicht über dedizierte CLI-Befehle. Sie können aber über den CLI-Befehl von Azure Resource Manager für die weiter oben im Abschnitt „Ressourcenvorlage“ dargestellte Ressourcenvorlage (sampleScheduledQueryRule.json) verwendet werden. Dies ist hier dargestellt:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
+```
 
-## Next steps
+Bei erfolgreicher Ausführung wird 201 zurückgegeben, wenn eine neue Warnungsregel erstellt wurde, bzw. 200, wenn eine vorhandene Warnungsregel geändert wurde.
 
-* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
-* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
-* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [log queries](../log-query/log-query-overview.md).
+## <a name="next-steps"></a>Nächste Schritte
+
+* Erfahren Sie mehr über [Protokollwarnungen in Azure-Warnungen](../../azure-monitor/platform/alerts-unified-log.md).
+* Machen Sie sich mit [Webhookaktionen für Protokollwarnungen](../../azure-monitor/platform/alerts-log-webhook.md) vertraut.
+* Weitere Informationen zu [Application Insights](../../azure-monitor/app/analytics.md)
+* Weitere Informationen zum [Analysieren von Protokolldaten in Azure Monitor](../log-query/log-query-overview.md).

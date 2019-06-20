@@ -9,11 +9,11 @@ ms.date: 03/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
 ms.openlocfilehash: f38cd0565b2e90fe0803d8e815c622e22e954a18
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60459849"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Standorte von Virtual WAN-Partnern und -Hubs
 

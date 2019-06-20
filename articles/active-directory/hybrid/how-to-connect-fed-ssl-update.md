@@ -17,11 +17,11 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39ac0e9cf11a0c6c212c4beadb6635ad2b6b056d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734709"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60244741"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Aktualisieren des SSL-Zertifikats für eine Active Directory-Verbunddienste-Farm (AD FS)
 

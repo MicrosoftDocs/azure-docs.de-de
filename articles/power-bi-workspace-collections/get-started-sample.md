@@ -3,17 +3,17 @@ title: Erste Schritte mit einem Beispiel
 description: Dieser Artikel enthält eine Einführung in das Beispiel für die ersten Schritte mit Power BI-Arbeitsbereichssammlungen.
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 6c80dc2ca4d0062fcb98aeb6431566ce6ca39411
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519492"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64714508"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Beispiel für die ersten Schritte mit Power BI-Arbeitsbereichssammlungen
 
@@ -209,7 +209,7 @@ public ActionResult Reports()
 }
 ```
 
-Task<ActionResult> Report(string reportId)
+Task\<ActionResult> Report(string reportId)
 
 ```csharp
 public async Task<ActionResult> Report(string reportId)

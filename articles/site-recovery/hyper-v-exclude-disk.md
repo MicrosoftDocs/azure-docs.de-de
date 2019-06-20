@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
 ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60773890"
 ---
 # <a name="exclude-disks-from-replication"></a>Ausschließen von Datenträgern von der Replikation
 In diesem Artikel wird beschrieben, wie Datenträger von der Replikation ausgeschlossen werden. Durch diesen Ausschluss können die beanspruchte Replikationsbandbreite oder die zielseitigen Ressourcen optimiert werden, die solche Datenträger verwenden.
@@ -22,7 +22,7 @@ In diesem Artikel wird beschrieben, wie Datenträger von der Replikation ausgesc
 
 **Feature** | **VMware zu Azure** | **Hyper-V in Azure** | **Azure zu Azure**| **Hyper-V zu Hyper-V** 
 --|--|--|--|--
-Ausschließen von Datenträgern | Ja | Ja | Nein  | Nein 
+Ausschließen von Datenträgern | Ja | Ja | Nein | Nein
 
 ## <a name="why-exclude-disks-from-replication"></a>Gründe für das Ausschließen von Datenträgern von der Replikation
 Das Ausschließen von Datenträgern von der Replikation ist häufig aus folgenden Gründen erforderlich:

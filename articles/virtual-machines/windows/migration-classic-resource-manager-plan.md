@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3e1995682569e5ef7b356bd85ad6c7dba6cdbdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112516"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689489"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planen der Migration von IaaS-Ressourcen vom klassischen Bereitstellungsmodell zu Azure Resource Manager
 Azure Resource Manager bietet zwar zahlreiche praktische Features, die Migration muss jedoch sorgfältig geplant werden, damit alles reibungslos funktioniert. Eine gründliche Planung gewährleistet, dass beim Ausführen der Migrationsaktivitäten keine Probleme auftreten.
@@ -116,7 +116,7 @@ Die folgenden Probleme wurden in vielen größeren Migrationen festgestellt. Hie
 
 - **Web-/Workerrollenbereitstellungen:** Cloud Services mit Web- und Workerrollen können nicht zu Azure Resource Manager migriert werden. Die Web-/Workerrollen müssen vor Beginn der Migration aus dem virtuellen Netzwerk entfernt werden.  Dazu können die Instanzen der Web-/Workerrollen in ein separates klassisches virtuelles Netzwerk verschoben werden, das ebenfalls mit einer ExpressRoute-Leitung verknüpft ist. Alternativ können Sie den Code zu neueren PaaS-App Services migrieren. (Diese Diskussion ist jedoch nicht Gegenstand dieses Dokuments.) Erstellen Sie im ersteren Fall ein neues klassisches virtuelles Netzwerk, verschieben Sie die Web-/Workerrollen in dieses neue virtuelle Netzwerk (oder stellen Sie sie dort neu bereit), und löschen Sie anschließend die Bereitstellungen aus dem zu verschiebenden virtuellen Netzwerk. Codeänderungen sind nicht erforderlich. Mit dem neuen [Peering in virtuellen Netzwerken](../../virtual-network/virtual-network-peering-overview.md) können Sie das klassische virtuelle Netzwerk, das die Web-/Workerrollen enthält, mit anderen virtuellen Netzwerken in der gleichen Azure-Region – beispielsweise das zu migrierende virtuelle Netzwerk – zusammenfassen (**nach Abschluss der Migration des virtuellen Netzwerks, da virtuelle Netzwerke mit Peering nicht migriert werden können**). So können Sie die gleichen Funktionen ohne Leistungsverlust und ohne Wartezeit/Beeinträchtigung der Bandbreite bereitstellen. Dank des [Peerings in virtuellen Netzwerken](../../virtual-network/virtual-network-peering-overview.md) können Web-/Workerrollenbereitstellungen nun problemlos korrigiert werden, sodass sie die Migration zu Azure Resource Manager nicht blockieren.
 
-- **Azure Resource Manager-Kontingente:** In Azure-Regionen gelten für das klassische Bereitstellungsmodell und für Azure Resource Manager separate Kontingente/Grenzwerte. In einem Migrationsszenario wird zwar keine neue Hardware genutzt *(wir tauschen vorhandene virtuelle Computer des klassischen Bereitstellungsmodells gegen virtuelle Computer des Azure Resource Manager-Bereitstellungsmodells)*, vor der Migration müssen aber trotzdem Azure Resource Manager-Kontingente mit ausreichender Kapazität vorhanden sein. Im Anschluss sind die wichtigsten Grenzwerte aufgeführt, die nach unserer Erfahrung Probleme verursachen können.  Erstellen Sie ein kontingentbezogenes Supportticket, um die Grenzwerte zu erhöhen.
+- **Azure Resource Manager-Kontingente:** In Azure-Regionen gelten für das klassische Bereitstellungsmodell und für Azure Resource Manager separate Kontingente/Grenzwerte. In einem Migrationsszenario wird zwar keine neue Hardware genutzt *(wir tauschen vorhandene virtuelle Computer des klassischen Bereitstellungsmodells gegen virtuelle Computer des Azure Resource Manager-Bereitstellungsmodells)* , vor der Migration müssen aber trotzdem Azure Resource Manager-Kontingente mit ausreichender Kapazität vorhanden sein. Im Anschluss sind die wichtigsten Grenzwerte aufgeführt, die nach unserer Erfahrung Probleme verursachen können.  Erstellen Sie ein kontingentbezogenes Supportticket, um die Grenzwerte zu erhöhen.
 
     > [!NOTE]
     > Diese Grenzwerte müssen in der Region erhöht werden, in der sich die aktuelle Umgebung befindet, die Sie migrieren möchten.
@@ -132,7 +132,7 @@ Die folgenden Probleme wurden in vielen größeren Migrationen festgestellt. Hie
 
     Die aktuellen Azure Resource Manager-Kontingente können mithilfe der folgenden Befehle mit der neuesten Version von Azure PowerShell überprüft werden:
     
-    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
     **Compute** *(Kerne, Verfügbarkeitsgruppen)*
 

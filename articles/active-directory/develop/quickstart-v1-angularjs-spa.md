@@ -3,8 +3,8 @@ title: Erstellen einer AngularJS-Single-Page-App für das An- und Abmelden mit A
 description: Erfahren Sie, wie eine AngularJS-Single-Page-Webanwendung erstellt wird, die für die Anmeldung in Azure AD integriert wird und über OAuth durch Azure AD geschützte APIs aufruft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544939"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001212"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Schnellstart: Erstellen einer AngularJS-Single-Page-Webanwendung für das An- und Abmelden mit Azure Active Directory
 
@@ -63,20 +63,15 @@ Sie müssen die App zuerst in Ihrem Azure AD-Mandanten registrieren, um damit Be
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Wenn Sie in mehreren Verzeichnissen angemeldet sind, müssen Sie ggf. prüfen, ob Sie das richtige Verzeichnis anzeigen. Klicken Sie dazu auf der oberen Leiste auf Ihr Konto. Wählen Sie in der **Verzeichnisliste** den Azure AD-Mandanten aus, bei dem Sie Ihre Anwendung registrieren möchten.
 1. Klicken Sie im linken Bereich auf **Alle Dienste**, und wählen Sie **Azure Active Directory** aus.
-1. Klicken Sie auf **App-Registrierungen**, und wählen Sie **Hinzufügen** aus.
-1. Folgen Sie den Bildschirmaufforderungen, und erstellen Sie eine neue Webanwendung und/oder Web-API.
-
-    * **Name**: Beschreibt die Anwendung für Benutzer.
-    * Die **Anmelde-URL** gibt den Speicherort an, an dem Azure AD Token zurückgibt. Der Standardspeicherort für dieses Beispiel lautet `https://localhost:44326/`.
-
-1. Nach Abschluss der Registrierung weist Azure AD Ihrer App eine eindeutige Anwendungs-ID zu. Diesen Wert benötigen Sie in den nächsten Abschnitten. Daher sollten Sie ihn von der Registerkarte „Anwendung“ kopieren.
-1. Für „adal.js“ wird der implizite OAuth-Fluss genutzt, um mit Azure AD zu kommunizieren. Sie müssen den impliziten Fluss für Ihre Anwendung aktivieren:
-
-    1. Klicken Sie auf die Anwendung, und wählen Sie **Manifest**, um den Inline-Manifest-Editor zu öffnen.
-    1. Suchen Sie die `oauth2AllowImplicitFlow`-Eigenschaft. Legen Sie den Wert der Eigenschaft auf `true`fest.
-    1. Klicken Sie auf **Speichern**, um das Manifest zu speichern.
-
-1. Erteilen Sie in Ihrem gesamten Mandanten Berechtigungen für Ihre Anwendung. Wechseln Sie zu **Einstellungen > Erforderliche Berechtigungen**, und klicken Sie auf der oberen Leiste auf die Schaltfläche **Berechtigungen erteilen**.
+1. Klicken Sie auf **App-Registrierungen**, und wählen Sie dann **Registrierung einer neuen Anwendung** aus.
+1. Geben Sie auf der daraufhin angezeigten Seite **Anwendung registrieren** einen Namen für Ihre Anwendung ein.
+1. Wählen Sie unter **Unterstützte Kontotypen** **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten** aus.
+1. Wählen Sie die **Webplattform** unter dem Abschnitt **Umleitungs-URI** aus, und legen Sie den Wert auf `https://localhost:44326/` (den Speicherort, an den Azure AD Token zurückgibt) fest.
+1. Wenn Sie so weit sind, klicken Sie auf **Registrieren**. Notieren Sie sich auf der Seite **Übersicht** den Wert von **Anwendungsclient-ID**.
+1. Für „adal.js“ wird der implizite OAuth-Fluss genutzt, um mit Azure AD zu kommunizieren. Sie müssen den impliziten Fluss für Ihre Anwendung aktivieren. Wählen Sie im linken Navigationsbereich der registrierten Anwendung **Authentifizierung** aus.
+1. Aktivieren Sie unter **Erweiterte Einstellungen** und **Implizite Gewährung** die Kontrollkästchen **ID-Token** und **Zugriffstoken**. ID-Token und Zugriffstoken sind erforderlich, da diese App Benutzer anmelden und eine API aufrufen muss.
+1. Wählen Sie **Speichern** aus.
+1. Erteilen Sie in Ihrem gesamten Mandanten Berechtigungen für Ihre Anwendung. Wechseln Sie zu **API-Berechtigungen**, und wählen Sie unter **Administratoreinwilligung erteilen** die Schaltfläche **Einwilligung erteilen** aus.
 1. Klicken Sie auf **Ja**, um zu bestätigen.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Schritt 2: Installieren von ADAL und Konfigurieren der Single-Page-Webanwendung

@@ -47,24 +47,34 @@
       href: concept-point-time-snapshot.md
     - name: Funktionsverwaltung
       href: concept-feature-management.md
+    - name: Behandlung von Ereignissen
+      href: concept-app-configuration-event.md
+    - name: Hochverfügbarkeit
+      items:
+        - name: Resilienz und Notfallwiederherstellung
+          href: concept-disaster-recovery.md
 - name: Anleitungen
   items:
     - name: Integrieren in eine verwaltete Azure-Dienstidentität
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importieren oder Exportieren von Konfigurationsdaten
       href: howto-import-export-data.md
+    - name: Routing von Ereignissen an einen benutzerdefinierten Endpunkt
+      href: howto-app-configuration-event.md
     - name: Bewährte Methoden
       href: howto-best-practices.md
 - name: Verweis
   items:
     - name: Konfiguration
       items:
-        - name: ".NET\_Core-Konfigurationsanbieter"
+        - name: Azure-Befehlszeilenschnittstelle
+          href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
+        - name: .NET Core-Anbieter
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-        - name: .NET Framework-Konfigurationsgenerator
+        - name: .NET Framework-Generator
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: "Java\_Spring-Konfigurationsanbieter"
-          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: Java Spring-Anbieter
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: .NET Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: REST
@@ -73,13 +83,15 @@
       items:
         - name: .NET Core-Bibliothek
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
-        - name: ASP.NET Core-Bibliothek
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: .NET Core-Filterbibliothek
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: Ressourcen
   items:
-    - name: Video zu den ersten Schritten
-      href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    - name: Videos
+      items:
+        - name: Erste Schritte
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+        - name: Funktionsverwaltung
+          href: 'https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement'
     - name: Abgeben von Produktfeedback
       href: 'https://github.com/Azure/AppConfiguration/issues'

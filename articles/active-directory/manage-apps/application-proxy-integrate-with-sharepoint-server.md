@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783444"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473780"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivieren des Remotezugriffs auf SharePoint per Azure AD-Anwendungsproxy
 
@@ -114,8 +114,8 @@ Wiederholen Sie zum Konfigurieren von KCD die folgenden Schritte für jeden Conn
 
 Nachdem Sie KCD konfiguriert haben, können Sie nun den Azure AD-Anwendungsproxy konfigurieren.
 
-1. Veröffentlichen Sie die SharePoint-Website mit den folgenden Einstellungen. Eine ausführliche Anleitung finden Sie unter [Veröffentlichen von Anwendungen mit Azure AD-Anwendungsproxy](application-proxy-publish-azure-portal.md).
-   * **Interne URL**: Die interne SharePoint-URL, die zuvor ausgewählt wurde, z. B. **<https://SharePoint/>**.
+1. Veröffentlichen Sie die SharePoint-Website mit den folgenden Einstellungen. Eine ausführliche Anleitung finden Sie unter [Veröffentlichen von Anwendungen mit Azure AD-Anwendungsproxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   * **Interne URL**: Die interne SharePoint-URL, die zuvor ausgewählt wurde, z. B. **<https://SharePoint/>** .
    * **Methode für die Vorauthentifizierung**: Azure Active Directory
    * **URL in Headern übersetzen**: NO
 

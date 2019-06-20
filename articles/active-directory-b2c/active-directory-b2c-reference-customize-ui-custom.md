@@ -2,20 +2,20 @@
 title: Anpassen der UI einer User Journey mit benutzerdefinierten Richtlinien | Microsoft-Dokumentation
 description: Erfahren Sie mehr über benutzerdefinierte Azure Active Directory B2C-Richtlinien.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1cd3fa11df9bd9c87b84985f7acad6ba0a5e8838
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509604"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassen der UI einer User Journey mit benutzerdefinierten Richtlinien
 
@@ -150,7 +150,7 @@ Die folgende Tabelle beschreibt den Zweck der HTML5-Seiten.
 
 Sie können für Ihre User Journey einen Link hinzufügen, der zu Ihren HTML5/CSS-Vorlagen führt, indem Sie eine benutzerdefinierte Richtlinie direkt bearbeiten.
 
-Die benutzerdefinierten HTML5/CSS-Vorlagen für Ihre User Journey müssen in einer Liste mit Inhaltsdefinitionen angegeben werden, die in diesen User Journeys verwendet werden können. Zu diesem Zweck muss in der XML-Datei für Ihre benutzerdefinierte Richtlinie im Abschnitt *\<BuildingBlocks>* ein optionales *\<ContentDefinitions>*-XML-Element deklariert werden.
+Die benutzerdefinierten HTML5/CSS-Vorlagen für Ihre User Journey müssen in einer Liste mit Inhaltsdefinitionen angegeben werden, die in diesen User Journeys verwendet werden können. Zu diesem Zweck muss in der XML-Datei für Ihre benutzerdefinierte Richtlinie im Abschnitt *\<BuildingBlocks>* ein optionales *\<ContentDefinitions>* -XML-Element deklariert werden.
 
 Die folgende Tabelle beschreibt die IDs der Inhaltsdefinitionen, die von der Azure AD B2C Identity Experience Engine erkannt werden, und den Typ der entsprechenden Seiten.
 
@@ -159,10 +159,10 @@ Die folgende Tabelle beschreibt die IDs der Inhaltsdefinitionen, die von der Azu
 | *api.error* | **Fehlerseite**: Diese Seite wird angezeigt, wenn eine Ausnahme oder ein Fehler auftreten. |
 | *api.idpselections* | **Seite zur Auswahl des Identitätsanbieters**: Diese Seite enthält eine Liste mit den Identitätsanbietern, unter denen der Benutzer bei der Anmeldung wählen kann. Hierbei handelt es sich um Unternehmensidentitätsanbieter, Identitätsanbieter sozialer Netzwerke wie Facebook und Google+ oder lokale Konten (basierend auf E-Mail-Adresse oder Benutzername). |
 | *api.idpselections.signup* | **Seite zur Auswahl des Identitätsanbieters für die Registrierung**: Diese Seite enthält eine Liste mit den Identitätsanbietern, aus denen der Benutzer bei der Registrierung auswählen kann. Hierbei handelt es sich um Unternehmensidentitätsanbieter, Identitätsanbieter sozialer Netzwerke wie Facebook und Google+ oder lokale Konten (basierend auf E-Mail-Adresse oder Benutzername). |
-| *api.localaccountpasswordreset* | **Seite „Kennwort vergessen“**: Diese Seite enthält ein Formular, das vom Benutzer ausgefüllt werden muss, um die Kennwortzurücksetzung zu initiieren.  |
+| *api.localaccountpasswordreset* | **Seite „Kennwort vergessen“** : Diese Seite enthält ein Formular, das vom Benutzer ausgefüllt werden muss, um die Kennwortzurücksetzung zu initiieren.  |
 | *api.localaccountsignin* | **Seite für Anmeldung mit lokalem Konto**: Diese Seite enthält ein Anmeldeformular. Es muss vom Benutzer bei der Anmeldung für ein lokales Konto ausgefüllt werden, das auf einer E-Mail-Adresse oder einem Benutzernamen basiert. Das Formular kann ein Texteingabefeld und ein Kennworteingabefeld enthalten. |
-| *api.localaccountsignup* | **Seite für Registrierung mit lokalem Konto**: Diese Seite enthält ein Registrierungsformular, das der Benutzer bei der Registrierung für ein lokales Konto ausfüllen muss, das auf einer E-Mail-Adresse oder einem Benutzernamen basiert.  Das Formular kann verschiedene Eingabesteuerelemente enthalten, z. B. Texteingabefelder, Kennworteingabefelder, Optionsfelder, Dropdownfelder mit einer Auswahlmöglichkeit und Kontrollkästchen mit mehreren Optionen. |
-| *api.phonefactor* | **Seite „Multi-Factor Authentication“**: Auf dieser Seite können Benutzer während der Registrierung oder Anmeldung ihre Telefonnummern überprüfen (per SMS oder Sprachnachricht). |
+| *api.localaccountsignup* | **Seite für Registrierung mit lokalem Konto**: Diese Seite enthält ein Registrierungsformular, das der Benutzer bei der Registrierung für ein lokales Konto ausfüllen muss, das auf einer E-Mail-Adresse oder einem Benutzernamen basiert. Das Formular kann verschiedene Eingabesteuerelemente enthalten, z. B. Texteingabefelder, Kennworteingabefelder, Optionsfelder, Dropdownfelder mit einer Auswahlmöglichkeit und Kontrollkästchen mit mehreren Optionen. |
+| *api.phonefactor* | **Seite „Multi-Factor Authentication“** : Auf dieser Seite können Benutzer während der Registrierung oder Anmeldung ihre Telefonnummern überprüfen (per SMS oder Sprachnachricht). |
 | *api.selfasserted* | **Seite zur Registrierung über Konto für soziales Netzwerk**: Diese Seite enthält ein Registrierungsformular, das der Benutzer ausfüllen muss, wenn die Registrierung mit einem vorhandenen Konto bei einem sozialen Netzwerk wie Facebook oder Google+ als Identitätsanbieter erfolgt. Mit Ausnahme der Felder zum Eingeben des Kennworts ähnelt diese Seite der obigen „Seite zur Registrierung über Konto für soziales Netzwerk“. |
 | *api.selfasserted.profileupdate* | **Seite für Profilaktualisierung**: Diese Seite enthält ein Formular, das vom Benutzer zum Aktualisieren des Profils verwendet werden kann. Mit Ausnahme der Felder zum Eingeben des Kennworts ähnelt diese Seite der obigen „Seite zur Registrierung über Konto für soziales Netzwerk“. |
 | *api.signuporsignin* | **Einheitliche Seite für Registrierung oder Anmeldung**:  Auf dieser Seite wird sowohl die Registrierung als auch die Anmeldung von Benutzern verarbeitet, die dafür Unternehmensidentitätsanbieter, Identitätsanbieter sozialer Netzwerke, z.B. Facebook oder Google+, oder lokale Konten verwenden können.

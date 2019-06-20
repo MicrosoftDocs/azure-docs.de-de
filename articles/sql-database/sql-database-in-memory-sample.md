@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61035726"
 ---
 # <a name="in-memory-sample"></a>In-Memory-Beispiel
 
@@ -52,7 +52,7 @@ Eine einfachere, aber visuell ansprechendere Demo der Leistung von In-Memory-OLT
 
 3. Kopieren Sie das [In-Memory OLTP Transact-SQL-Skript](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) in die Zwischenablage. Das T-SQL-Skript erstellt die erforderlichen In-Memory-Objekte in der in Schritt 1 erstellten Beispieldatenbank „AdventureWorksLT“.
 
-4. Fügen Sie das T-SQL-Skript in SSMS ein, und führen Sie es aus. Unerlässlich ist die `MEMORY_OPTIMIZED = ON`-Klausel in den CREATE TABLE-Anweisungen. Beispiel: 
+4. Fügen Sie das T-SQL-Skript in SSMS ein, und führen Sie es aus. Unerlässlich ist die `MEMORY_OPTIMIZED = ON`-Klausel in den CREATE TABLE-Anweisungen. Beispiel:
 
 
 ```sql
@@ -287,9 +287,9 @@ Für Echtzeitanalysen einer OLTP-Workload empfiehlt es sich häufig, einen nicht
 
 3. Fügen Sie das T-SQL-Skript in SSMS ein, und führen Sie es aus. Unerlässlich ist das Schlüsselwort **COLUMNSTORE** in einer **CREATE INDEX**-Anweisung wie in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
-4. Legen Sie „AdventureWorksLT“ auf den Kompatibilitätsgrad 130 fest: <br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+4. Legen Sie „AdventureWorksLT“ auf den Kompatibilitätsgrad 130 fest:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
 
-    Der Kompatibilitätsgrad 130 steht nicht in direkter Beziehung mit den In-Memory-Features  Doch der Grad 130 bietet im Allgemeinen eine höhere Abfrageleistung als 120.
+    Der Kompatibilitätsgrad 130 steht nicht in direkter Beziehung mit den In-Memory-Features Doch der Grad 130 bietet im Allgemeinen eine höhere Abfrageleistung als 120.
 
 
 #### <a name="key-tables-and-columnstore-indexes"></a>Wichtige Tabellen und Columnstore-Indizes

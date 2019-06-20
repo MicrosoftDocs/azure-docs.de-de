@@ -10,11 +10,11 @@ ms.service: genomics
 ms.topic: article
 ms.date: 01/11/2019
 ms.openlocfilehash: 2037bcf173951769f1627f809352ef60afce2d50
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260276"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60780949"
 ---
 # <a name="version-release-history"></a>Verlauf der Versionsveröffentlichungen
 Das Microsoft Genomics-Team aktualisiert regelmäßig den Microsoft Genomics-Python-Client um Fehlerbehebungen und neue Funktionen einzuführen. 
@@ -39,4 +39,4 @@ Version 0.7.4 bietet Unterstützung für das Akzeptieren von SAS-Token anstelle 
 Version 0.7.3 enthält Behebungen geringfügiger Programmfehler.
 
 ### <a name="version-072"></a>Version 0.7.2
-0.7.2 ist die erste Version. Sie wurde am 1. November 2017 veröffentlicht.
+0\.7.2 ist die erste Version. Sie wurde am 1. November 2017 veröffentlicht.

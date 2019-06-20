@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772256"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Einrichten von IP-Adressen für Verbindungen mit virtuellen Azure-Computern nach einem Failover
 

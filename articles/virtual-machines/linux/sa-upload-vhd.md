@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.openlocfilehash: 368fec658dd1f063c45f3d00d42a4549ca9dfd83
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996743"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60771157"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Hochladen und Erstellen eines virtuellen Linux-Computers auf der Grundlage eines benutzerdefinierten Datenträgers mithilfe der Azure CLI
 
@@ -114,7 +114,7 @@ Azure unterstützt eine Vielzahl von Linux-Distributionen (siehe [Unterstützte 
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Sonstige – nicht unterstützte Distributionen](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-Beachten Sie auch die **[Installationshinweise für Linux](create-upload-generic.md#general-linux-installation-notes)**. Diese enthalten allgemeine Tipps zur Vorbereitung von Linux-Images für Azure.
+Beachten Sie auch die **[Installationshinweise für Linux](create-upload-generic.md#general-linux-installation-notes)** . Diese enthalten allgemeine Tipps zur Vorbereitung von Linux-Images für Azure.
 
 > [!NOTE]
 > Die [Azure Platform-SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) gilt nur dann für virtuelle Computer unter Linux, wenn eine der unterstützten Distributionen mit Konfigurationsdetails verwendet wird, die im Abschnitt mit den unterstützten Versionen unter [Linux auf von Azure unterstützten Verteilungen](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) angegeben sind.

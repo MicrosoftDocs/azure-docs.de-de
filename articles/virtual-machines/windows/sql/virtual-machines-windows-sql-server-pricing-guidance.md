@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330788"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393856"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Preisinformationen für virtuelle Azure-Computer mit SQL Server
 
@@ -61,7 +61,7 @@ Für umfangreichere Arbeitsauslastungen in der Produktion verwenden Sie eine der
 | Standard | Kleine bis mittelgroße Arbeitsauslastungen |
 | Enterprise | Umfangreiche oder geschäftskritische Arbeitsauslastungen|
 
-Es gibt zwei Möglichkeiten, für die Lizenzierung dieser SQL Server-Editionen zu zahlen: *Nutzungsbasierte Bezahlung* oder *BYOL (Bring Your Own License)*.
+Es gibt zwei Möglichkeiten, für die Lizenzierung dieser SQL Server-Editionen zu zahlen: *Nutzungsbasierte Bezahlung* oder *BYOL (Bring Your Own License)* .
 
 ## <a name="pay-per-usage"></a>Nutzungsbasierte Bezahlung
 
@@ -96,10 +96,10 @@ Informationen zum Erstellen eines virtuellen Azure-Computers mit SQL Server 2017
 
 ## <a id="byol"></a> BYOL (Bring Your Own License)
 
-Das Konzept der **Verwendung eigener SQL-Lizenzen über die „Lizenzmobilität“**, auch als **BYOL** bezeichnet, bedeutet, dass Sie eine vorhandene SQL Server-Volumenlizenz mit Software Assurance auf einem virtuellen Azure-Computer nutzen. Bei einem virtuellen SQL Server-Computer mit BYOL-Modell werden nur die Kosten für die Ausführung des Computers berechnet, nicht für die SQL Server-Lizenzierung. Dies setzt voraus, dass Sie bereits über ein Volumenlizenzprogramm Lizenzen und Software Assurance erworben haben.
+Das Konzept der **Verwendung eigener SQL-Lizenzen über die „Lizenzmobilität“** , auch als **BYOL** bezeichnet, bedeutet, dass Sie eine vorhandene SQL Server-Volumenlizenz mit Software Assurance auf einem virtuellen Azure-Computer nutzen. Bei einem virtuellen SQL Server-Computer mit BYOL-Modell werden nur die Kosten für die Ausführung des Computers berechnet, nicht für die SQL Server-Lizenzierung. Dies setzt voraus, dass Sie bereits über ein Volumenlizenzprogramm Lizenzen und Software Assurance erworben haben.
 
 > [!IMPORTANT]
-> BYOL-Images erfordern ein Enterprise Agreement mit Software Assurance. Sie sind derzeit nicht im Rahmen von Azure Cloud Solution Partner (CSP) verfügbar.
+> BYOL-Images erfordern ein Enterprise Agreement mit Software Assurance. Sie sind derzeit nicht im Rahmen von Azure Cloud Solution Partner (CSP) verfügbar. CSP-Kunden können eigene Lizenzen nutzen, indem sie ein Image mit nutzungsbasierter Bezahlung bereitstellen und dann den [Azure-Hybridvorteil](virtual-machines-windows-sql-ahb.md) aktivieren.
 
 > [!NOTE]
 > BYOL-Images sind zurzeit nur für virtuelle Windows-Computer verfügbar. Sie können SQL Server jedoch manuell auf einem virtuellen Nur-Linux-Computer installieren. Weitere Informationen finden Sie in den Richtlinien in den [Häufig gestellten Fragen (FAQ) zu virtuellen Linux-Computern](../../linux/sql/sql-server-linux-faq.md).
@@ -143,8 +143,8 @@ Es sind neue Größen für Computer verfügbar, die für bestimmte Arten von SQL
 
 | Größe des virtuellen Computers | vCPUs | Arbeitsspeicher | Max. Anzahl Datenträger | Maximaler E/A-Durchsatz | SQL-Lizenzierungskosten | Gesamtkosten (Compute und Lizenzierung) |
 |---|---|---|---|---|---|---|
-| **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOPS oder 768 MB/s | | |
-| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOPS oder 768 MB/s | 75 % niedriger | 57 % niedriger |
+| **Standard_DS14v2** | 16 | 112 GB | 32 | 51\.200 IOPS oder 768 MB/s | | |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51\.200 IOPS oder 768 MB/s | 75 % niedriger | 57 % niedriger |
 
 > [!IMPORTANT]
 > Dies ist ein Point-in-Time-Beispiel. Die neuesten Spezifikationen finden Sie in den Artikeln zu den Computergrößen und auf der Azure-Preisseite für [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) und [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).

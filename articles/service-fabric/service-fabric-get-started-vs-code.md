@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60946569"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric für Visual Studio Code
 

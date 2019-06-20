@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 803fcc0161f2a092006e60db5a98f5bf18dce1c1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60381177"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Aktualisieren der Windows Azure Active Directory-Synchronisierung und Azure Active Directory-Synchronisierung
 Azure AD Connect bietet die beste Möglichkeit, um Ihr lokales Verzeichnis mit Azure AD und Office 365 zu verbinden. Da Windows Azure Active Directory Sync (DirSync) und Azure AD Sync veraltet sind und der Support für diese Tools am 13. April 2017 endete, ist dies ein guter Zeitpunkt, um ein Upgrade auf Azure AD Connect durchzuführen.
@@ -35,11 +35,11 @@ Das letzte Release von DirSync wurde im Juli 2014 veröffentlicht, das letzte Re
 Azure AD Connect ist der Nachfolger von DirSync und Azure AD Sync. Diese Lösung vereint alle Szenarien, die von den beiden Vorgängerprodukten unterstützt wurden. Weitere Informationen finden Sie unter [Integrieren Ihrer lokalen Identitäten in Azure Active Directory](whatis-hybrid-identity.md).
 
 ## <a name="deprecation-schedule"></a>Zeitplan für die Einstellung
-| Datum | Comment |
+| Date | Comment |
 | --- | --- |
-| 13. April 2016 |Windows Azure Active Directory-Synchronisierungstool („DirSync“) und Microsoft Azure Active Directory-Synchronisierungstool („Azure AD Sync“) als veraltet bekanntgegeben. |
-| 13. April 2017 |Ende des Supports. Um Supportanfragen zu übermitteln, müssen Kunden zunächst ein Upgrade auf Azure AD Connect durchführen. |
-|31. Dezember 2017|Azure AD akzeptiert möglicherweise keine Kommunikation mehr vom Windows Azure Active Directory-Synchronisierungstool („DirSync“) und vom Microsoft Azure Active Directory-Synchronisierungstool („Azure AD Sync“).
+| 13\. April 2016 |Windows Azure Active Directory-Synchronisierungstool („DirSync“) und Microsoft Azure Active Directory-Synchronisierungstool („Azure AD Sync“) als veraltet bekanntgegeben. |
+| 13\. April 2017 |Ende des Supports. Um Supportanfragen zu übermitteln, müssen Kunden zunächst ein Upgrade auf Azure AD Connect durchführen. |
+|31\. Dezember 2017|Azure AD akzeptiert möglicherweise keine Kommunikation mehr vom Windows Azure Active Directory-Synchronisierungstool („DirSync“) und vom Microsoft Azure Active Directory-Synchronisierungstool („Azure AD Sync“).
 
 ## <a name="how-to-transition-to-azure-ad-connect"></a>So führen Sie ein Upgrade auf Azure AD Connect durch
 Beim Ausführen von DirSync haben Sie zwei Möglichkeiten, wie Sie das Upgrade durchführen können: direktes Upgrade und parallele Bereitstellung. Ein direktes Upgrade wird für die meisten Kunden empfohlen sowie für Kunden mit einem aktuellen Betriebssystem und weniger als 50.000 Objekten. In anderen Fällen wird eine parallele Bereitstellung empfohlen, bei der Ihre DirSync-Konfiguration auf einen neuen Server mit Azure AD Connect verschoben wird.
@@ -63,7 +63,7 @@ Die Benachrichtigung wurde auch an Kunden gesendet, die Azure AD Connect mit Bui
 DirSync/Azure AD Sync funktionieren am 13. April 2017 weiterhin.  Azure AD akzeptiert jedoch ab dem 31. Dezember 2017 möglicherweise keine Kommunikation mehr von DirSync/Azure AD Sync.
 
 **F: Von welchen DirSync-Versionen kann ich ein Upgrade durchführen?**  
- Ein Upgrade kann von allen aktuell verwendeten DirSync-Versionen durchgeführt werden. 
+Ein Upgrade kann von allen aktuell verwendeten DirSync-Versionen durchgeführt werden. 
 
 **F: Und was ist mit dem Azure AD-Connector für FIM/MIM?**  
 Der Azure AD-Connector für FIM/MIM wurde **nicht** als veraltet bekanntgegeben. Dabei handelt es sich lediglich um ein **Feature Freeze**, d.h., es wird keine neue Funktionalität hinzugefügt, und es werden keine Programmfehlerbehebungen bereitgestellt. Kunden, die den Connector verwenden, sollten eine Migration zu Azure AD Connect planen. Es wird dringend empfohlen, keine neuen Bereitstellungen mit diesem Connector durchzuführen. Dieser Connector wird in der Zukunft als veraltet bekanntgegeben.

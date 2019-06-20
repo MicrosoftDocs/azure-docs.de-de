@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
 ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60702952"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Getting started with JSON features in Azure SQL Database (Erste Schritte mit JSON-Features in der Azure SQL-Datenbank)
 In Azure SQL-Datenbank können Sie Daten analysieren und abfragen, die im JavaScript Object Notation-Format [(JSON)](https://www.json.org/) dargestellt werden, und Ihre relationalen Daten als JSON-Text exportieren. Die folgenden JSON-Szenarien stehen in Azure SQL-Datenbank zur Verfügung:

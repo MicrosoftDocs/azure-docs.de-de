@@ -12,11 +12,11 @@ ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7611f5f16111b5d8b0d2d293750f658125e50837
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878204"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60535433"
 ---
 # <a name="constituency-parsing"></a>Konstituentenanalyse
 

@@ -4,7 +4,7 @@ description: Erfahren Sie mehr über die Unterschiede zwischen der Microsoft-Aut
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2576121bfc945b90ce8ec0260ea30ec110e14dd8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138829"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785217"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrieren von Anwendungen zu MSAL.NET
 
@@ -116,10 +116,10 @@ Die folgenden Gewährungstypen werden in ADAL.NET und MSAL.NET für Desktop- und
 
 Gewährung | ADAL.NET | MSAL.NET
 ----- |----- | -----
-Interaktiv | [Interaktive Authentifizierung](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Interaktiver Abruf von Token in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
+Interactive | [Interaktive Authentifizierung](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Interaktiver Abruf von Token in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
 Integrierte Windows-Authentifizierung | [Integrierte Authentifizierung in Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Integrierte Windows-Authentifizierung](msal-authentication-flows.md#integrated-windows-authentication)
 Benutzername und Kennwort | [Abruf von Token mit Benutzername und Kennwort](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Authentifizierung mit Benutzername und Kennwort](msal-authentication-flows.md#usernamepassword)
-Gerätecodeflow | [Geräteprofil für Geräte ohne Webbrowser](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Gerätecodeflow](msal-authentication-flows.md#device-code)
+Gerätecodefluss | [Geräteprofil für Geräte ohne Webbrowser](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Gerätecodeflow](msal-authentication-flows.md#device-code)
 
 #### <a name="confidential-client-applications"></a>Vertrauliche Clientanwendungen
 
@@ -129,7 +129,7 @@ Anwendungstyp | Gewährung | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
 Web-App, Web-API, Daemon | Clientanmeldeinformationen | [Flow von Clientanmeldeinformationen in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Flow von Clientanmeldeinformationen in MSAL.NET](msal-authentication-flows.md#client-credentials)
 Web-API | OBO (Im Namen von) | [Dienst-zu-Dienst-Aufrufe im Namen des Benutzers mit ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [OBO in MSAL.NET](msal-authentication-flows.md#on-behalf-of)
-Web-App | Authentifizierungscode | [Abrufen von Token mit Autorisierungscodes für Web-Apps mit ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Abrufen von Token mit Autorisierungscodes für Web-Apps mit MSAL.NET](msal-authentication-flows.md#authorization-code)
+Web App | Authentifizierungscode | [Abrufen von Token mit Autorisierungscodes für Web-Apps mit ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Abrufen von Token mit Autorisierungscodes für Web-Apps mit MSAL.NET](msal-authentication-flows.md#authorization-code)
 
 ### <a name="cache-persistence"></a>Cachepersistenz
 
@@ -192,7 +192,7 @@ Dies liegt daran, dass die Resource Manager-API einen Schrägstrich im `aud`-Ans
 Die von Azure AD verwendete Logik lautet wie folgt:
 - Für einen ADAL (v1.0)-Endpunkt mit einem v1.0-Zugriffstoken (einzige Möglichkeit): aud=resource
 - Für einen MSAL (v2.0)-Endpunkt, der ein Zugriffstoken für eine Ressource abfragt, die v2.0-Token akzeptiert: aud=resource.AppId
-- Für einen MSAL (v2.0)-Endpunkt, der ein Zugriffstoken für eine Ressource abfragt, die ein v1.0-Zugriffstoken akzeptiert (wie im Fall oben), analysiert Azure AD die gewünschte Zielgruppe aus dem angeforderten Geltungsbereich, indem alles vor dem letzten Schrägstrich als Ressourcenbezeichner interpretiert wird. Daher müssen Sie, wenn https://database.windows.net die Zielgruppe https://database.windows.net/ erwartet, den Geltungsbereich https://database.windows.net//.default anfordern. Siehe auch Problem [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure #747 (Bei der URL der Ressource wurde der nachgestellte Schrägstrich entfernt, wodurch bei der SQL-Authentifizierung Fehler 747 aufgetreten ist.)
+- Für einen MSAL (v2.0)-Endpunkt, der ein Zugriffstoken für eine Ressource abfragt, die ein v1.0-Zugriffstoken akzeptiert (wie im Fall oben), analysiert Azure AD die gewünschte Zielgruppe aus dem angeforderten Geltungsbereich, indem alles vor dem letzten Schrägstrich als Ressourcenbezeichner interpretiert wird. Wenn „https:\//database.windows.net“ die Zielgruppe „https://database.windows.net/“ erwartet, müssen Sie daher den Geltungsbereich „https:\//database.windows.net//.default“ anfordern. Siehe auch Problem [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure #747 (Bei der URL der Ressource wurde der nachgestellte Schrägstrich entfernt, wodurch bei der SQL-Authentifizierung Fehler 747 aufgetreten ist.)
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Geltungsbereiche, mit denen der Zugriff auf alle Berechtigungen einer v1.0-Anwendung angefordert wird

@@ -5,14 +5,14 @@ ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b7633b75bbb6d37c68a562560a6459e35d03b810
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034725"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242540"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Überwachen und Debuggen mit Metriken in Azure Cosmos DB
 

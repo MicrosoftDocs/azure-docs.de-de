@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 5/16/2019
-ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 94988f4f287730c69b51e44bcbfa4e3d63d139fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069188"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515699"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Entwerfen einer Azure Database for PostgreSQL – Einzelserver unter Verwendung des Azure-Portals
 
@@ -42,7 +42,7 @@ Führen Sie die folgenden Schritte aus, um eine Azure-Datenbank für PostgreSQL-
 
 3. Wählen Sie die Bereitstellungsoption **Einzelserver** aus.
 
-   ![Auswählen der Azure Database for PostgreSQL – Einzelserver-Bereitstellungsoption](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
+   ![Auswählen der Bereitstellungsoption für einen Azure Database for PostgreSQL-Einzelserver](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
 4. Füllen Sie dann das Formular **Grundlagen** mit den folgenden Informationen aus:
 
@@ -65,6 +65,9 @@ Führen Sie die folgenden Schritte aus, um eine Azure-Datenbank für PostgreSQL-
    > 
 
     ![Der Bereich „Tarif“](./media/quickstart-create-database-portal/2-pricing-tier.png)
+
+    > [!TIP]
+    > Ist **Automatische Vergrößerung** aktiviert, erhöht Ihr Server den Speicher, wenn Sie sich dem zugeordneten Grenzwert nähern. Ihre Workload wird dadurch nicht beeinträchtigt.
 
 5. Wählen Sie **Überprüfen + erstellen** aus, um ihre Auswahl zu überprüfen. Wählen Sie **Erstellen** aus, um den Server bereitzustellen. Dieser Vorgang kann einige Minuten dauern.
 

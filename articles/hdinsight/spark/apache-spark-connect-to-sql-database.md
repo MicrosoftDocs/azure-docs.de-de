@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
-ms.openlocfilehash: 84946083146517146ad9aeb48693230aaaaf7943
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/21/2019
+ms.openlocfilehash: 3812cf55a26a12ef110b8acf14edd0e8bfd36851
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701177"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236530"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Verwenden eines HDInsight Spark-Clusters zum Lesen und Schreiben von Daten in einer Azure SQL-Datenbank
 
-In diesem Artikel wird erläutert, wie Sie eine Verbindung zwischen einem Apache Spark-Cluster in Azure HDInsight und einer Azure SQL-Datenbank herstellen und dann Daten in der SQL-Datenbank lesen, schreiben und streamen. In diesem Artikel wird ein [Jupyter Notebook](https://jupyter.org/) zum Ausführen der Scala-Codeausschnitte verwendet. Sie können jedoch auch eine eigenständige Anwendung in Scala oder Python erstellen und die gleichen Aufgaben ausführen. 
+In diesem Artikel wird erläutert, wie Sie eine Verbindung zwischen einem Apache Spark-Cluster in Azure HDInsight und einer Azure SQL-Datenbank herstellen und dann Daten in der SQL-Datenbank lesen, schreiben und streamen. In diesem Artikel wird ein [Jupyter Notebook](https://jupyter.org/) zum Ausführen der Scala-Codeausschnitte verwendet. Sie können jedoch auch eine eigenständige Anwendung in Scala oder Python erstellen und die gleichen Aufgaben ausführen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -36,7 +36,7 @@ In diesem Artikel wird erläutert, wie Sie eine Verbindung zwischen einem Apache
 Erstellen Sie zunächst ein dem Spark-Cluster zugeordnetes [Jupyter Notebook](https://jupyter.org/). Sie verwenden dieses Notebook, um die in diesem Artikel verwendeten Codeausschnitte auszuführen. 
 
 1. Öffnen Sie Ihren Cluster im [Azure-Portal](https://portal.azure.com/).
-1. Wählen Sie auf der rechten Seite unterhalb von **Clusterdashboards** die Option **Jupyter Notebook** aus.  Sollte **Clusterdashboards** nicht angezeigt werden, klicken Sie im linken Menü des Blatts auf **Übersicht**. Geben Sie die Administratoranmeldeinformationen für den Cluster ein, wenn Sie dazu aufgefordert werden.
+1. Wählen Sie auf der rechten Seite unterhalb von **Clusterdashboards** die Option **Jupyter Notebook** aus.  Sollte **Clusterdashboards** nicht angezeigt werden, wählen Sie im linken Menü die Option **Übersicht** aus. Geben Sie die Administratoranmeldeinformationen für den Cluster ein, wenn Sie dazu aufgefordert werden.
 
     ![Jupyter-Notebook unter Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter-Notebook unter Spark")
    
@@ -164,7 +164,7 @@ In diesem Abschnitt werden Daten in die Tabelle **hvactable** gestreamt, die Sie
 
 1. Stellen Sie in einem ersten Schritt sicher, dass in **hvactable** keine Datensätze vorhanden sind. Führen Sie unter Verwendung von SSMS die folgende Abfrage für die Tabelle aus.
 
-       DELETE FROM [dbo].[hvactable]
+       TRUNCATE TABLE [dbo].[hvactable]
 
 1. Erstellen Sie ein neues Jupyter Notebook im HDInsight Spark-Cluster. Fügen Sie den folgenden Codeausschnitt in einer Codezelle ein, und drücken Sie **UMSCHALT+EINGABE**:
 
@@ -174,7 +174,7 @@ In diesem Abschnitt werden Daten in die Tabelle **hvactable** gestreamt, die Sie
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. Die Daten aus der Datei **HVAC.csv** werden in die Tabelle „hvactable“ gestreamt. Die Datei „HVAC.csv“ ist im Cluster unter */HdiSamples/HdiSamples/SensorSampleData/HVAC/* verfügbar. Mit dem folgenden Codeausschnitt wird zunächst das Schema der zu streamenden Daten abgerufen. Anschließend wird unter Verwendung dieses Schemas ein Streaming-Dataframe erstellt. Fügen Sie den Codeausschnitt in einer Codezelle ein, und drücken Sie **UMSCHALT+EINGABE**, um sie auszuführen.
+1. Die Daten aus der Datei **HVAC.csv** werden in die Tabelle „hvactable“ gestreamt. Die Datei „HVAC.csv“ ist auf dem Cluster unter `/HdiSamples/HdiSamples/SensorSampleData/HVAC/` verfügbar. Mit dem folgenden Codeausschnitt wird zunächst das Schema der zu streamenden Daten abgerufen. Anschließend wird unter Verwendung dieses Schemas ein Streaming-Dataframe erstellt. Fügen Sie den Codeausschnitt in einer Codezelle ein, und drücken Sie **UMSCHALT+EINGABE**, um sie auszuführen.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 

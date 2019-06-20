@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784958"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245076"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor – Übersicht
 
@@ -38,7 +38,7 @@ Alle von Azure Monitor gesammelten Daten gehören einem von zwei Grundtypen an, 
 
 Für viele Azure-Ressourcen können die von Azure Monitor gesammelten Daten direkt auf ihrer Übersichtsseite im Azure-Portal angezeigt werden. Werfen Sie beispielsweise einen Blick auf eine beliebige VM, dann sehen Sie eine Reihe von Diagrammen, die Leistungsmetriken darstellen. Klicken Sie auf eines dieser Diagramme, um die Daten im Azure-Portal im [Metrik-Explorer](platform/metrics-charts.md) anzuzeigen. Hier können Sie die Werte mehrerer Metriken im zeitlichen Verlauf als Diagramm darstellen.  Sie können die Diagramme interaktiv nutzen oder an ein Dashboard anheften, um sie mit anderen Visualisierungstools anzuzeigen.
 
-![Metriken](media/overview/metrics.png)
+![metrics](media/overview/metrics.png)
 
 Die in Azure Monitor gesammelten Protokolldaten können mit [Abfragen](log-query/log-query-overview.md) analysiert werden, die die gesammelten Daten schnell abrufen, konsolidieren und analysieren.  Sie können Abfragen mit [Log Analytics](log-query/portals.md) im Azure-Portal erstellen und testen und die Daten dann entweder mit diesen Tools direkt analysieren oder Abfragen zur Verwendung mit [Visualisierungen](visualizations.md) oder [Warnungsregeln](platform/alerts-overview.md) speichern.
 

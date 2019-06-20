@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: d1011a8fd8f181233be8e1fa27c3bfaea3d86141
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685170"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Erste Schritte mit Microsoft Power BI-Arbeitsbereichssammlungen

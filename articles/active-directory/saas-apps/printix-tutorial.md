@@ -16,11 +16,11 @@ ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e883833f7998c073b574c892ed5c7777e01faab4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62111444"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: Azure Active Directory-Integration mit Printix
 
@@ -89,10 +89,10 @@ Weisen Sie in Printix den Wert für **Benutzername** in Azure AD als Wert für *
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens in Azure AD mit Printix müssen Sie die folgenden Bausteine ausführen:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieser Funktion zu ermöglichen.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieser Funktion zu ermöglichen.
 1. **[Erstellen eines Azure AD-Testbenutzers](#creating-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD mit der Testbenutzerin Britta Simon zu testen.
-1. **[Erstellen eines Printix-Testbenutzers](#creating-a-printix-test-user)**, um eine Entsprechung von Britta Simon in Printix zu erhalten, die mit der Darstellung dieses Benutzers in Azure AD verknüpft ist.
-1. **[Zuweisen des Azure AD-Testbenutzers](#assigning-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+1. **[Erstellen eines Printix-Testbenutzers](#creating-a-printix-test-user)** , um eine Entsprechung von Britta Simon in Printix zu erhalten, die mit der Darstellung dieses Benutzers in Azure AD verknüpft ist.
+1. **[Zuweisen des Azure AD-Testbenutzers](#assigning-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens von Azure AD

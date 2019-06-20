@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 4c7b4733d05f18d3c30e45fd08c3cf9c50354ebc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816091"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872808"
 ---
 # <a name="what-are-durable-functions"></a>Was ist Durable Functions?
 
@@ -43,13 +43,13 @@ Der primäre Anwendungsfall für Durable Functions ist die Vereinfachung komplex
 
 Durable Functions unterstützt derzeit die folgenden Sprachen:
 
-* **C#**: sowohl [vorkompilierte Klassenbibliotheken](../functions-dotnet-class-library.md) als auch [ C#-Skript](../functions-reference-csharp.md).
-* **F#**: vorkompilierte Klassenbibliotheken und F#-Skript. F#-Skript wird nur für Version 1.x der Azure Functions-Runtime unterstützt.
+* **C#** : sowohl [vorkompilierte Klassenbibliotheken](../functions-dotnet-class-library.md) als auch [ C#-Skript](../functions-reference-csharp.md).
+* **F#** : vorkompilierte Klassenbibliotheken und F#-Skript. F#-Skript wird nur für Version 1.x der Azure Functions-Runtime unterstützt.
 * **JavaScript**: nur für Version 2.x der Azure Functions-Runtime unterstützt. Erfordert mindestens Version 1.7.0 der Durable Functions-Erweiterung. 
 
 Das Ziel von Durable Functions ist die Unterstützung aller [Azure Functions-Sprachen](../supported-languages.md). In der [Liste der Durable Functions-Probleme](https://github.com/Azure/azure-functions-durable-extension/issues) finden Sie den aktuellen Status der Arbeit, um zusätzliche Sprachen zu unterstützen.
 
-Wie bei Azure Functions sind Vorlagen verfügbar, um Sie bei der Entwicklung von dauerhaften Funktionen mit [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md) und dem [Azure-Portal](durable-functions-create-portal.md) zu unterstützen.
+Wie bei Azure Functions sind Vorlagen verfügbar, um Sie bei der Entwicklung von Durable Functions mit [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md) und dem [Azure-Portal](durable-functions-create-portal.md) zu unterstützen.
 
 ## <a name="billing"></a>Abrechnung
 
@@ -59,7 +59,7 @@ Durable Functions wird genau wie Azure Functions in Rechnung gestellt. Weitere I
 
 Sie können die ersten Schritte mit Durable Functions in weniger als 10 Minuten durchführen, indem Sie eines dieser sprachspezifischen Schnellstarttutorials abschließen:
 
-* [C# mit Visual Studio 2017](durable-functions-create-first-csharp.md)
+* [C# mit Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript mit Visual Studio Code](quickstart-js-vscode.md)
 
 In beiden Schnellstarts erstellen Sie lokal eine dauerhafte „Hallo Welt“-Funktion und testen diese. Anschließend veröffentlichen Sie den Funktionscode in Azure. Mit der von Ihnen erstellten Funktion werden Aufrufe anderer Funktionen orchestriert und miteinander verkettet.

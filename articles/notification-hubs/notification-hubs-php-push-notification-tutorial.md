@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 054edaf321d90015840fd84e1697fca742fd7e1e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838594"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60872176"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Verwenden von Notification Hubs von PHP aus
 

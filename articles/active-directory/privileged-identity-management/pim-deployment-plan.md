@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60440610"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Bereitstellen von Azure AD Privileged Identity Management (PIM)
 
@@ -183,7 +183,7 @@ Das Priorisieren des Schutzes von Azure AD-Rollen mit der höchsten Anzahl von B
 1. Exchange-Administrator
 1. SharePoint-Administrator
 1. Intune-Administrator
-1. Benutzer mit Leseberechtigung für Sicherheitsfunktionen
+1. Sicherheitsleseberechtigter
 1. Dienstadministrator
 1. Rechnungsadministrator
 1. Skype for Business-Administrator
@@ -198,7 +198,7 @@ Wenn Rollen vorhanden sind, denen Gastbenutzer zugewiesen sind, sind sie besonde
 > [!TIP]
 > :heavy_check_mark: **Microsoft-Empfehlung**: Verwalten Sie alle Rollen für Gastbenutzer mit PIM, um Risiken im Zusammenhang mit kompromittierten Gastbenutzerkonten zu reduzieren.
 
-Leserrollen wie „Verzeichnis lesen“, „Nachrichtencenter-Leser“ und „Sicherheit lesen“ gelten bisweilen als weniger wichtig als andere Rollen, da sie keine Schreibberechtigung haben. Allerdings ist uns bekannt, dass einige Kunden auch diese Rollen schützen, da Angreifer, die Zugriff auf diese Konten erlangt haben, möglicherweise sensible Daten wie beispielsweise personenbezogene Informationen lesen können. Dies sollten Sie bei der Entscheidung, ob Leserrollen in Ihrer Organisation mit PIM verwaltet werden müssen, berücksichtigen.
+Leserrollen wie „Verzeichnis lesen“, „Nachrichtencenter-Leser“ und „Sicherheitsleseberechtigter“ gelten bisweilen als weniger wichtig als andere Rollen, da sie keine Schreibberechtigung haben. Allerdings ist uns bekannt, dass einige Kunden auch diese Rollen schützen, da Angreifer, die Zugriff auf diese Konten erlangt haben, möglicherweise sensible Daten wie beispielsweise personenbezogene Informationen lesen können. Dies sollten Sie bei der Entscheidung, ob Leserrollen in Ihrer Organisation mit PIM verwaltet werden müssen, berücksichtigen.
 
 #### <a name="azure-resource-roles"></a>Azure-Ressourcenrollen
 
@@ -353,7 +353,7 @@ Wenn PIM in der Produktionsumgebung nicht wie gewünscht funktioniert, helfen Ih
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 1. Öffnen Sie **Azure AD Privileged Identity Management**.
 1. Klicken Sie auf **Azure AD-Rollen** und dann auf **Rollen**.
-1. Klicken Sie für jede von Ihnen konfigurierte Rolle für alle Benutzer mit einer berechtigten Zuweisung auf die Auslassungspunkte (**...** ).
+1. Klicken Sie für jede von Ihnen konfigurierte Rolle für alle Benutzer mit einer berechtigten Zuweisung auf die Auslassungspunkte ( **...** ).
 1. Klicken Sie auf die Option **Als permanent festlegen**, um die Zuweisung dauerhaft einzurichten.
 
 #### <a name="azure-resource-roles"></a>Azure-Ressourcenrollen
@@ -362,7 +362,7 @@ Wenn PIM in der Produktionsumgebung nicht wie gewünscht funktioniert, helfen Ih
 1. Öffnen Sie **Azure AD Privileged Identity Management**.
 1. Klicken Sie auf **Azure-Ressourcen**, und klicken Sie dann auf ein Abonnement oder eine Ressource, für das bzw. die Sie ein Rollback ausführen möchten.
 1. Klicken Sie auf **Rollen**.
-1. Klicken Sie für jede von Ihnen konfigurierte Rolle für alle Benutzer mit einer berechtigten Zuweisung auf die Auslassungspunkte (**...** ).
+1. Klicken Sie für jede von Ihnen konfigurierte Rolle für alle Benutzer mit einer berechtigten Zuweisung auf die Auslassungspunkte ( **...** ).
 1. Klicken Sie auf die Option **Als permanent festlegen**, um die Zuweisung dauerhaft einzurichten.
 
 ## <a name="step-4-next-steps-after-deploying-pim"></a>Schritt 4: Nächste Schritte nach der Bereitstellung von PIM

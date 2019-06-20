@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 3ea502477cc5b380c99a183d9270c2b2e94375a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67049349"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Zscaler für die automatische Benutzerbereitstellung
 
@@ -47,7 +47,7 @@ Das in diesem Tutorial beschriebene Szenario setzt voraus, dass Sie bereits übe
 
 Bevor Sie Zscaler für die automatische Benutzerbereitstellung mit Azure AD konfigurieren, müssen Sie Zscaler aus dem Azure AD-Anwendungskatalog der Liste mit den verwalteten SaaS-Anwendungen hinzufügen.
 
-**Führen Sie die folgenden Schritte aus, um Zscaler aus dem Azure AD-Anwendungskatalog hinzuzufügen:**
+**Führen Sie die folgenden Schritte aus, um Zscaler aus dem Azure AD-Anwendungskatalog hinzuzufügen:**
 
 1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
 
@@ -162,12 +162,12 @@ Weitere Informationen zum Lesen von Azure AD-Bereitstellungsprotokollen finden S
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Managing user account provisioning for Enterprise Apps (Verwalten der Benutzerkontobereitstellung für Unternehmens-Apps)](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Verwalten der Benutzerkontobereitstellung für Unternehmens-Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Tutorial: Berichterstellung zur automatischen Benutzerkontobereitstellung](../active-directory-saas-provisioning-reporting.md)
+* [Erfahren Sie, wie Sie Protokolle überprüfen und Berichte zu Bereitstellungsaktivitäten abrufen.](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-provisioning-tutorial/tutorial-general-01.png

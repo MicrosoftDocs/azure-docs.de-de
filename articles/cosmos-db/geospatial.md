@@ -4,14 +4,14 @@ description: Grundlegendes zum Erstellen, Indizieren und Abfragen räumlicher Ob
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/01/2017
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d0571608e154915a473145374ce007854aaa57f1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770736"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480124"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Verwenden von Geodaten und Standortdaten im GeoJSON-Format im Azure Cosmos DB-SQL-API-Konto
 
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Wenn Sie die Informationen zu Breiten- und Längengrad nicht haben, aber über die physischen Adressen und Standortnamen wie Stadt oder Land verfügen, können Sie die tatsächlichen Koordinaten mithilfe eines Geocodierungsdiensts wie Bing Maps REST Services nachschlagen. [Hier](https://msdn.microsoft.com/library/ff701713.aspx)erfahren Sie mehr zur Bing Maps-Geocodierung.
+Wenn Sie die Informationen zu Breiten- und Längengrad nicht haben, aber über die physischen Adressen und Standortnamen wie Stadt oder Land/Region verfügen, können Sie die tatsächlichen Koordinaten mithilfe eines Geocodierungsdiensts wie Bing Maps REST Services nachschlagen. [Hier](https://msdn.microsoft.com/library/ff701713.aspx)erfahren Sie mehr zur Bing Maps-Geocodierung.
 
 ## <a name="querying-spatial-types"></a>Abfragen räumlicher Datentypen
 Nachdem wir einen Blick auf das Einfügen von Geodaten geworfen haben, wollen wir uns nun das Abfragen dieser Daten mithilfe von Azure Cosmos DB sowie SQL und LINQ ansehen.
@@ -254,7 +254,7 @@ Hier ist ein Beispiel einer LINQ-Abfrage, die alle Dokumente in der Azure Cosmos
 **LINQ-Abfrage der Entfernung**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

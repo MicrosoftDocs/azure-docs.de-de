@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 0e2d4b783068cfd14385eb1712ea246c94dc9500
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877268"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827160"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>Schnellstart: URL-Vorschauabfrage in C#
 
@@ -23,7 +23,7 @@ Im folgenden C#-Beispiel wird eine URL-Vorschau für die SwiftKey-Website erstel
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Sie benötigen [Visual Studio 2017](https://www.visualstudio.com/downloads/), um diesen Code unter Windows ausführen zu können. (Die kostenlose Community Edition ist hierfür geeignet.)
+Sie benötigen [Visual Studio 2017 oder höher](https://www.visualstudio.com/downloads/), um diesen Code unter Windows ausführen zu können. (Die kostenlose Community Edition ist hierfür geeignet.)
 
 Rufen Sie einen Zugriffsschlüssel für die kostenlose Testversion von [Cognitive Services Labs](https://aka.ms/answersearchsubscription) ab.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
 ms.openlocfilehash: bfac14c598b405a398cad916787aa3312589bfd1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669944"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60393578"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Packen und Bereitstellen einer vorhandenen ausführbaren Datei für Service Fabric
 Beim Packen einer vorhandenen ausführbaren Datei als [ausführbare Gastanwendungsdatei](service-fabric-guest-executables-introduction.md) können Sie wählen, ob Sie eine Visual Studio-Projektvorlage verwenden oder das [Anwendungspaket manuell erstellen](#manually). Mit Visual Studio werden die Anwendungspaketstruktur und Manifestdateien mit der neuen Projektvorlage für Sie erstellt.

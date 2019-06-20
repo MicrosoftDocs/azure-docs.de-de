@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141696"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241707"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>So implementieren Sie die Notfallwiederherstellung mit Sichern und Wiederherstellen von Diensten in Azure API Management
 
@@ -74,7 +74,7 @@ Alle Aufgaben, die Sie mithilfe von Azure Resource Manager für Ressourcen ausf�
 
     ![Hinzufügen von Berechtigungen](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Klicken Sie neben der neu hinzugefügten Anwendung auf **Delegierte Berechtigungen**, und aktivieren Sie das Kontrollkästchen **Access Azure Service Management (Vorschau)**.
+7. Klicken Sie neben der neu hinzugefügten Anwendung auf **Delegierte Berechtigungen**, und aktivieren Sie das Kontrollkästchen **Access Azure Service Management (Vorschau)** .
 8. Drücken Sie **Auswählen**.
 9. Klicken Sie auf **Berechtigungen erteilen**.
 
@@ -124,7 +124,7 @@ Ersetzen Sie `{tenant id}`, `{application id}` und `{redirect uri}` entsprechend
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Aufrufen der Sicherungs- und Wiederherstellungsvorgänge
 
-Die REST-APIs sind [API Management-Dienst – Backup](/rest/api/apimanagement/apimanagementservice/backup) und [API Management-Dienst – Restore](/rest/api/apimanagement/apimanagementservice/restore).
+Die REST-APIs sind [API Management-Dienst – Backup](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) und [API Management-Dienst – Restore](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
 
 Legen Sie vor dem Aufrufen der in den folgenden Abschnitten beschriebenen Vorgänge zur Sicherung und Wiederherstellung den Autorisierungsanforderungsheader für den REST-Aufruf fest.
 

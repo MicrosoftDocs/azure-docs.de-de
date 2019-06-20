@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881442"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60877821"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Authentifizierung von Endbenutzern bei Azure Data Lake Storage Gen1 mithilfe der REST-API
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ In diesem Artikel erfahren Sie, wie Sie mithilfe der REST-API die Authentifizier
 
 * **Erstellen einer nativen Azure Active Directory-Anwendung.** Sie müssen die Schritte unter [Authentifizierung von Endbenutzern bei Azure Data Lake Storage Gen1 mithilfe von Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md) ausgeführt haben.
 
-* **[cURL](https://curl.haxx.se/)**. Dieser Artikel zeigt anhand von cURL, wie Sie REST-API-Aufrufe eines Data Lake Storage Gen1-Kontos ausführen.
+* **[cURL](https://curl.haxx.se/)** . Dieser Artikel zeigt anhand von cURL, wie Sie REST-API-Aufrufe eines Data Lake Storage Gen1-Kontos ausführen.
 
 ## <a name="end-user-authentication"></a>Authentifizierung von Endbenutzern
 Die Authentifizierung von Endbenutzern wird empfohlen, wenn sich ein Benutzer mithilfe von Azure AD bei Ihrer Anwendung anmelden soll. Die Anwendung kann mit der gleichen Zugriffsstufe wie der angemeldete Benutzer auf Azure-Ressourcen zugreifen. Der Benutzer muss seine Anmeldeinformationen in regelmäßigen Abständen eingeben, um weiter Zugriff zu haben.
@@ -49,7 +49,7 @@ In diesem Szenario wird der Benutzer in der Anwendung zum Anmelden aufgefordert.
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > \<REDIRECT-URI&gt; muss für die Verwendung in einer URL codiert werden. Für https://localhost verwenden Sie also `https%3A%2F%2Flocalhost`).
+   > \<REDIRECT-URI&gt; muss für die Verwendung in einer URL codiert werden. Für https://localhost verwenden Sie also `https%3A%2F%2Flocalhost` ).
 
     In diesem Tutorial können Sie die Platzhalterwerte in der URL oben ersetzen und in der Adressleiste des Webbrowsers einfügen. Sie werden umgeleitet und authentifizieren sich mit Ihrer Azure-Anmeldung. Nachdem Sie sich erfolgreich angemeldet haben, wird die Antwort in der Adressleiste des Browsers angezeigt. Die Antwort wird im folgenden Format angezeigt:
 

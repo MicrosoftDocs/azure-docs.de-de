@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
 ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61322853"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importieren virtueller Computer aus einem anderen Lab in Azure DevTest Labs
 In diesem Artikel erfahren Sie, wie Sie virtuelle Computer aus einem anderen Lab in Ihr Lab importieren.
@@ -62,7 +62,7 @@ Zur Ausführung dieses PowerShell-Skripts müssen Sie die Quell-VM und das Ziell
 ```
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Importieren aller VMs aus dem Quelllab mit PowerShell
-Wenn kein virtueller Quellcomputer angegeben ist, importiert das Skript automatisch alle VMs in die DevTest Labs-Umgebung.  Beispiel: 
+Wenn kein virtueller Quellcomputer angegeben ist, importiert das Skript automatisch alle VMs in die DevTest Labs-Umgebung.  Beispiel:
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `

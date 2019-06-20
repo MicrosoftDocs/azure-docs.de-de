@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: b916cbf690544d5887569e052a0456ca952140c8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3e1f64aa00ea0d78eca8a994814a91600b91239f
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409537"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190695"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installieren von Apache Hadoop-Anwendungen von Drittanbietern in Azure HDInsight
 
@@ -32,7 +32,7 @@ Die folgende Liste zeigt die veröffentlichten Anwendungen:
 |[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark, HBase, Storm, Kafka |Die Beibehaltung der Datenkonsistenz in einer verteilten Umgebung ist eine große Herausforderung für Datenvorgänge. WANdisco Fusion ist eine professionelle Softwareplattform, die dieses Problem löst, indem unstrukturierte Datenkonsistenz zwischen beliebigen Umgebungen ermöglicht wird. |
 |[H2O SparklingWater für HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water unterstützt die folgenden verteilten Algorithmen: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomalieerkennung und Autoencoders. |
 |[Striim für Echtzeitdatenintegration in HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/striim.hdinsightintegration) |Hadoop, HBase, Storm, Spark, Kafka |Striim (Aussprache: Stream) ist eine End-to-End-Integrations- und Intelligence-Plattform für Streamingdaten, die eine kontinuierliche Erfassung, Verarbeitung und Analyse unterschiedlicher Datenströme ermöglicht. |
-|[Jumbune – BigData-Analyse für Unternehmensbeschleunigung](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |Jumbune unterstützt Unternehmen im Allgemeinen wie folgt: 1. Beschleunigt die Workloadleistung von Tez, MapReduce & Spark-basiertes Hive, Java, und Scala. 2. Überwacht Hadoop-Cluster proaktiv. 3. Richtet Datenqualitätsverwaltung für verteilte Dateisysteme ein. |
+|[Jumbune – BigData-Analyse für Unternehmensbeschleunigung](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |Jumbune unterstützt Unternehmen im Allgemeinen wie folgt: 1\. Beschleunigt die Workloadleistung von Tez, MapReduce & Spark-basiertes Hive, Java, und Scala. 2. Überwacht Hadoop-Cluster proaktiv. 3\. Richtet Datenqualitätsverwaltung für verteilte Dateisysteme ein. |
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kyligence.kyligence) |Hadoop, HBase, Spark |Unterstützt von Apache Kylin ermöglicht Kyligence Enterprise Business Intelligence für Big Data. Kyligence Enterprise ist eine professionelle OLAP-Engine für Hadoop, mit der Business Analysten Business Intelligence für Hadoop mit Data Warehouse- und BI-Methoden entwerfen können, die dem Industriestandard entsprechen. |
 |[Spark Job Server für KNIME Spark Executor](https://azuremarketplace.microsoft.com/marketplace/apps/knime.spark-job-server-for-knime-spark-executor) |Spark |Spark Job Server for KNIME Spark Executor wird zum Verbinden der KNIME Analytics-Plattform mit HDInsight-Clustern verwendet. |
 |[Starburst Presto für Azure HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto ist eine schnelle und skalierbare verteilte SQL-Abfrage-Engine. Dank der architekturbedingten Trennung der Speicher- und Computekomponenten eignet sich Presto perfekt zum Abfragen von Daten in Azure Data Lake Storage, Azure Blob Storage, SQL- und NoSQL-Datenbanken sowie in anderen Datenquellen. |
@@ -40,7 +40,7 @@ Die folgende Liste zeigt die veröffentlichten Anwendungen:
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise für HDInsight unterstützt unternehmensweites Data Wrangling für Daten bei jeder Skalierung. Beim Ausführen von Trifacta in Azure entstehen die Kosten aus den Kosten für das Trifacta-Abonnement und den Kosten Azure-Infrastrukturkosten für die virtuellen Computer. |
 |[Unifi Data Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-platform) |Hadoop, HBase, Storm, Spark |Unifi Data Platform ist eine nahtlos integrierte Sammlung von Self-Service-Datentools, mit der Unternehmensbenutzer datenbezogene Herausforderungen bewältigen können, um höhere Umsätze zu erzielen, Kosten zu senken oder die Komplexität des Betriebs zu verringern. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Unravel Data-App für HDInsight Spark-Cluster. |
-|[Waterline – KI-gesteuerter Datenkatalog](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline katalogisiert, strukturiert und steuert Daten und nutzt künstliche Intelligenz, um Daten automatisch mit geschäftlichen Begriffen zu markieren. Der Geschäftsdatenkatalog von Waterline in eine wichtige Erfolgskomponente für Self-Service-Analysen, Compliance und Governance sowie für IT-Verwaltungsinitiativen. |
+|[Waterline – KI-gesteuerter Datenkatalog](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline katalogisiert, strukturiert und steuert Daten und nutzt KI, um Daten automatisch mit geschäftlichen Begriffen zu markieren. Der Geschäftsdatenkatalog von Waterline in eine wichtige Erfolgskomponente für Self-Service-Analysen, Compliance und Governance sowie für IT-Verwaltungsinitiativen. |
 
 Für die Anleitungen in diesem Artikel wird das Azure-Portal verwendet. Sie können die Azure Resource Manager-Vorlage auch aus dem Portal exportieren oder eine Kopie der Resource Manager-Vorlage von Anbietern erhalten und Azure PowerShell und die klassische Azure-Befehlszeilenschnittstelle zum Bereitstellen der Vorlage verwenden.  Weitere Informationen finden Sie unter [Erstellen von Apache Hadoop-Clustern in HDInsight mit Resource Manager-Vorlagen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 

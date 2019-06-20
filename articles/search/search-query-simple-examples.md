@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024532"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Abfragebeispiele mit „einfacher“ Suchsyntax in Azure Search
@@ -151,7 +151,7 @@ Weitere Informationen zu dieser Funktion finden Sie unter [„search.ismatch“ 
 
 ## <a name="example-4-range-filters"></a>Beispiel 4: Bereichsfilter
 
-Die Bereichsfilterung wird durch **`$filter`**-Ausdrücke für jeden Datentyp unterstützt. In den folgenden Beispielen werden numerische und Zeichenfolgenfelder durchsucht. 
+Die Bereichsfilterung wird durch **`$filter`** -Ausdrücke für jeden Datentyp unterstützt. In den folgenden Beispielen werden numerische und Zeichenfolgenfelder durchsucht. 
 
 Datentypen sind bei Bereichsfiltern wichtig und funktionieren am besten bei numerischen Daten in numerischen Feldern und Zeichenfolgendaten in Zeichenfolgenfeldern. Numerische Daten in Zeichenfolgenfeldern eignen sich nicht für Bereiche, da sich numerische Zeichenfolgen in Azure Search nicht vergleichen lassen. 
 

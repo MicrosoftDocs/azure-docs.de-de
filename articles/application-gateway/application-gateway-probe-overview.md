@@ -6,14 +6,13 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/06/2018
-ms.date: 04/16/2019
-ms.author: v-junlch
+ms.date: 8/6/2018
+ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135189"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Systemüberwachung des Application Gateways – Übersicht
@@ -45,7 +44,7 @@ Abgleichskriterien:
 
 Abgleichskriterien können mithilfe des Cmdlets `New-AzApplicationGatewayProbeHealthResponseMatch` angegeben werden.
 
-Beispiel: 
+Beispiel:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -105,5 +104,3 @@ Außerdem kann die Internetkonnektivität in ausgehender Richtung nicht blockier
 Nachdem Sie sich mit der Systemüberwachung von Application Gateway vertraut gemacht haben, können Sie einen [benutzerdefinierten Integritätstest](application-gateway-create-probe-portal.md) im Azure-Portal oder einen [benutzerdefinierten Integritätstest](application-gateway-create-probe-ps.md) mit PowerShell und dem Azure Resource Manager-Bereitstellungsmodell konfigurieren.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-
-<!-- Update_Description: wording update -->

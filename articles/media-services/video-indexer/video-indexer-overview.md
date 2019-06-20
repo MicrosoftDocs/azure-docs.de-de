@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2c72c7c493c0a887adab147054c725a2e1c0659f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799138"
 ---
 # <a name="what-is-video-indexer"></a>Was ist Video Indexer?
 
@@ -37,8 +38,8 @@ Microsoft Video Indexer ist eine Cloudanwendung, die auf Azure Media Analytics, 
 
 ## <a name="audio-insights"></a>Erkenntnisse aus Audioaufnahmen
 
-- **Automatische Sprachenerkennung:** Die Lösung identifiziert automatisch die vorherrschend gesprochene Sprache. Unterstützt werden Chinesisch (vereinfacht), Deutsch, Englisch, Französisch, Italienisch, Japanisch, Portugiesisch (Brasilien), Spanisch und Russisch. Wenn die Sprache nicht erkannt werden kann, wird Englisch als Fallbacksprache verwendet.
-- **Audiotranskription:** konvertiert Sprache in Text in 12 Sprachen und lässt Erweiterungen zu. Unterstützt werden Arabisch, Chinesisch (vereinfacht), Deutsch, Englisch, Französisch, Italienisch, Japanisch, Portugiesisch (Brasilien), Spanisch, Russisch, Hindi und Koreanisch.
+- **Automatische Sprachenerkennung:** Die Lösung identifiziert automatisch die vorherrschend gesprochene Sprache. Unterstützte Sprachen sind Englisch, Spanisch, Französisch, Deutsch, Italienisch, Chinesisch (vereinfacht), Japanisch, Russisch und brasilianisches Portugiesisch. Englisch wird verwendet, wenn die Sprache nicht erkannt wird.
+- **Audiotranskription:** konvertiert Sprache in Text in 12 Sprachen und lässt Erweiterungen zu. Unterstützt werden Arabisch, Chinesisch (vereinfacht), Deutsch, Englisch, Französisch, Italienisch, Japanisch, brasilianisches Portugiesisch, Spanisch, Russisch, Hindi und Koreanisch.
 - **Untertitelung:** erstellt Untertitel in drei Formaten: VTT, TTML und SRT.
 - **Verarbeitung von zwei Kanälen:** erkennt automatisch ein getrenntes Transkript und sorgt für eine Zusammenführung auf einer einzelnen Zeitachse.
 - **Rauschunterdrückung:** bereinigt (basierend auf Skype-Filtern) Telefonaudio oder verrauschte Aufnahmen.
@@ -47,7 +48,7 @@ Microsoft Video Indexer ist eine Cloudanwendung, die auf Azure Media Analytics, 
 - **Sprecherstatistiken:** bietet Statistiken zum Verhältnis zwischen Sprechern und ihrem Anteil an der Konversation.
 - **Moderation von Textinhalten:** erkennt im Transkript des Audios anstößigen Text.
 - **Audioeffekte:** erkennt Audioeffekte wie Händeklatschen, Sprache und Stille.
-- **Emotionserkennung:** erkennt Emotionen basierend auf Sprache und Audiosignalen. Bei den Emotionen kann es sich um Freude, Trauer, Wut oder Angst handeln.
+- **Emotionserkennung:** Erkennt Emotionen basierend auf Sprache (was gesagt wird) und Tonalität der Stimme (wie etwas gesagt wird).  Bei den Emotionen kann es sich um Freude, Trauer, Wut oder Angst handeln.
 - **Übersetzung:** erstellt Übersetzungen des Audiotranskripts in 54 Sprachen.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Erkenntnisse aus Audio- und Videoaufnahmen (mehrere Kanäle)

@@ -10,10 +10,10 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070867"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Beheben von häufigen Problemen in Azure Container Instances
@@ -28,7 +28,7 @@ Wenn Sie Ihre Containerspezifikation definieren, erfordern bestimmte Parameter d
 | --- | --- | --- | --- | --- | --- |
 | Containergruppenname | 1-64 |Groß-/Kleinschreibung nicht beachten |Alphanumerisch und Bindestrich (beliebig), außer das erste oder letzte Zeichen |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Containername | 1-64 |Groß-/Kleinschreibung nicht beachten |Alphanumerisch und Bindestrich (beliebig), außer das erste oder letzte Zeichen |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Containerports | Zwischen 1 und 65535 |Ganze Zahl  |Eine ganze Zahl zwischen 1 und 65535 |`<port-number>` |`443` |
+| Containerports | Zwischen 1 und 65535 |Integer |Eine ganze Zahl zwischen 1 und 65535 |`<port-number>` |`443` |
 | DNS-Namensbezeichnung | 5–63 |Groß-/Kleinschreibung nicht beachten |Alphanumerisch und Bindestrich (beliebig), außer das erste oder letzte Zeichen |`<name>` |`frontend-site1` |
 | Umgebungsvariable | 1 - 63 |Groß-/Kleinschreibung nicht beachten |Alphanumerisch und Unterstrich (beliebig), außer das erste oder letzte Zeichen |`<name>` |`MY_VARIABLE` |
 | Volumename | 5–63 |Groß-/Kleinschreibung nicht beachten |Kleinbuchstaben, Zahlen und Bindestriche (beliebig), außer das erste oder letzte Zeichen. Zwei aufeinanderfolgende Bindestriche sind nicht erlaubt. |`<name>` |`batch-output-volume` |

@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067619"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Metrikwarnungen mit dynamischen Schwellenwerten in Azure Monitor (Public Preview)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Metrikwarnungen mit dynamischen Schwellenwerten in Azure Monitor
 
 Die Metrikwarnung mit Erkennung dynamischer Schwellenwerte nutzt erweitertes Machine Learning (ML), um das bisherige Verhalten von Metriken zu erfassen sowie Muster und Anomalien zu erkennen, die auf mögliche Probleme hinweisen. Benutzer profitieren von einer einfachen Benutzeroberfläche sowie von skalierbaren Vorgängen und können über die Azure Resource Manager-API vollständig automatisierte Warnungsregeln konfigurieren.
 
@@ -49,9 +49,9 @@ Die Schwellenwerte werden so ausgewählt, dass eine Abweichung von diesen Schwel
 Mit der Empfindlichkeit des Schwellenwerts legen Sie fest, bei welcher Abweichung vom Metrikverhalten eine Warnung ausgelöst werden soll.
 Diese Option erfordert kein Domänenwissen zur Metrik, z.B. statische Schwellenwerte. Die verfügbaren Optionen sind:
 
-- Hoch – Die Schwellenwerte sind streng und nah am Muster der Metrikreihe. Die Warnungsregel wird schon bei der kleinsten Abweichung ausgelöst, sodass mehr Warnungen auftreten.
+- Hoch – Die Schwellenwerte sind streng und nah am Muster der Metrikreihe. Eine Warnungsregel wird schon bei der kleinsten Abweichung ausgelöst, sodass mehr Warnungen auftreten.
 - Mittel – Weniger strenge und ausgewogenere Schwellenwerte, sodass weniger Warnungen auftreten als bei der hohen Empfindlichkeit (Standard).
-- Niedrig – Die Schwellenwerte werden mit zunehmender Distanz zum Muster der Metrikreihe lockerer. Die Warnungsregel wird nur bei großen Abweichungen ausgelöst, was zu weniger Warnungen führt.
+- Niedrig – Die Schwellenwerte werden mit zunehmender Distanz zum Muster der Metrikreihe lockerer. Eine Warnungsregel wird nur bei großen Abweichungen ausgelöst, was zu weniger Warnungen führt.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Was bedeuten die „Operator“-Einstellungen in dynamischen Schwellenwerten?
 
@@ -64,7 +64,7 @@ Sie können die Warnung bei einer der drei folgenden Bedingungen auslösen:
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>Was bedeuten die erweiterten Einstellungen im dynamischen Schwellenwerten?
 
-**Zeiträume, die Fehler ausweisen** – Mit dem dynamischen Schwellenwert können Sie die „Anzahl von Verstößen zum Auslösen der Warnung“ festlegen. Damit bestimmen Sie, ab wie vielen Abweichungen innerhalb eines bestimmten Zeitfensters das System eine Warnung auslöst (Das Zeitfenster ist standardmäßig auf vier Abweichungen in 20 Minuten festgelegt). Der Benutzer kann Zeiträume, die Fehler aufweisen, konfigurieren und die Warnungen auswählen, indem er die Zeiträume, die Fehler aufweisen, und das Zeitfenster auswählt. So reduzieren Sie überflüssige Warnungen als Reaktion auf vorübergehende Spitzen. Beispiel: 
+**Zeiträume, die Fehler ausweisen** – Mit dem dynamischen Schwellenwert können Sie die „Anzahl von Verstößen zum Auslösen der Warnung“ festlegen. Damit bestimmen Sie, ab wie vielen Abweichungen innerhalb eines bestimmten Zeitfensters das System eine Warnung auslöst (Das Zeitfenster ist standardmäßig auf vier Abweichungen in 20 Minuten festgelegt). Der Benutzer kann Zeiträume, die Fehler aufweisen, konfigurieren und die Warnungen auswählen, indem er die Zeiträume, die Fehler aufweisen, und das Zeitfenster auswählt. So reduzieren Sie überflüssige Warnungen als Reaktion auf vorübergehende Spitzen. Beispiel:
 
 Mit den folgenden Einstellungen wird eine Warnung ausgelöst, wenn das Problem 20 Minuten lang (viermal hintereinander in einem Zeitraum von jeweils fünf Minuten) aufgetreten ist:
 
@@ -112,7 +112,7 @@ In den folgenden bewährten Methoden wird gezeigt, wie Sie für einige dieser Me
     > [!TIP]
     > Die meisten Ressourcenblätter verfügen auch über **Warnungen** in ihrem Ressourcenmenü (unter **Überwachung**). Sie können auch von dort aus Benachrichtigungen erstellen.
 
-3. Klicken Sie auf **Ziel auswählen** und wählen Sie im geladenen Kontextbereich eine Zielressource aus, für die Sie eine Warnungsregel erstellen möchten. Verwenden Sie die Dropdownlisten **Abonnement** und **Ressourcentyp „Virtual Machines“**, um die zu überwachende Ressource zu finden. Sie können auch die Suchleiste verwenden, um Ihre Ressource zu finden.
+3. Klicken Sie auf **Ziel auswählen** und wählen Sie im geladenen Kontextbereich eine Zielressource aus, für die Sie eine Warnungsregel erstellen möchten. Verwenden Sie die Dropdownlisten **Abonnement** und **Ressourcentyp „Virtual Machines“** , um die zu überwachende Ressource zu finden. Sie können auch die Suchleiste verwenden, um Ihre Ressource zu finden.
 
 4. Nachdem Sie eine Zielressource ausgewählt haben, klicken Sie auf **Bedingung hinzufügen**.
 
@@ -149,7 +149,7 @@ In den folgenden bewährten Methoden wird gezeigt, wie Sie für einige dieser Me
     > [!TIP]
     > Die meisten Ressourcenblätter verfügen auch über **Warnungen** in ihrem Ressourcenmenü (unter **Überwachung**). Sie können auch von dort aus Benachrichtigungen erstellen.
 
-3. Klicken Sie auf **Ziel auswählen** und wählen Sie im geladenen Kontextbereich eine Zielressource aus, für die Sie eine Warnungsregel erstellen möchten. Verwenden Sie die Dropdownlisten **Abonnement** und **Ressourcentyp „Application Insights“**, um die zu überwachende Ressource zu finden. Sie können auch die Suchleiste verwenden, um Ihre Ressource zu finden.
+3. Klicken Sie auf **Ziel auswählen** und wählen Sie im geladenen Kontextbereich eine Zielressource aus, für die Sie eine Warnungsregel erstellen möchten. Verwenden Sie die Dropdownlisten **Abonnement** und **Ressourcentyp „Application Insights“** , um die zu überwachende Ressource zu finden. Sie können auch die Suchleiste verwenden, um Ihre Ressource zu finden.
 
 4. Nachdem Sie eine Zielressource ausgewählt haben, klicken Sie auf **Bedingung hinzufügen**.
 

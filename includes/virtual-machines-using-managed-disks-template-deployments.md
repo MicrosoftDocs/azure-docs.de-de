@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: storage
 author: jboeshart
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261371"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178026"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Verwenden verwalteter Datenträger mit Resource Manager-Vorlagen
 
@@ -202,7 +202,7 @@ Innerhalb des VM-Objekts verweisen Sie auf das anzufügende Datenträgerobjekt. 
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Erstellen verwalteter Verfügbarkeitsgruppen mit virtuellen Computern mit verwalteten Datenträgern
 
-Fügen Sie zum Erstellen verwalteter Verfügbarkeitsgruppen mit virtuellen Computern, die verwaltete Datenträger verwenden, das Objekt `sku` zur Ressource der Verfügbarkeitsgruppe hinzu, und legen Sie die Eigenschaft `name` auf `Aligned` fest. Durch diese Eigenschaft wird sichergestellt, dass die Datenträger für jeden virtuellen Computer ausreichend voneinander isoliert sind, um einzelne Fehlerquellen zu vermeiden. Beachten Sie, dass die `apiVersion` für die Verfügbarkeitsgruppenressource auf `2017-03-30` festgelegt ist.
+Fügen Sie zum Erstellen verwalteter Verfügbarkeitsgruppen mit virtuellen Computern, die verwaltete Datenträger verwenden, das Objekt `sku` zur Ressource der Verfügbarkeitsgruppe hinzu, und legen Sie die Eigenschaft `name` auf `Aligned` fest. Durch diese Eigenschaft wird sichergestellt, dass die Datenträger für jeden virtuellen Computer ausreichend voneinander isoliert sind, um einzelne Fehlerquellen zu vermeiden. Beachten Sie, dass die `apiVersion` für die Verfügbarkeitsgruppenressource auf `2018-10-01` festgelegt ist.
 
 ```json
 {

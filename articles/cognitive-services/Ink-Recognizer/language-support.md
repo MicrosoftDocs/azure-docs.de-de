@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025754"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Sprach- und Regionsunterstützung für die Freihanderkennungs-API

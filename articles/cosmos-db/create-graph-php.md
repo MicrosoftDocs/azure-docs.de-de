@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 01/05/2018
+ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082754"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480604"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Schnellstart: Erstellen einer Graphdatenbank in Azure Cosmos DB mit PHP und dem Azure-Portal
 

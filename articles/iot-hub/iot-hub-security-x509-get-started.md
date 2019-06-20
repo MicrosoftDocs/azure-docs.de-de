@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.openlocfilehash: 5795cde35d53a64620c4fdb6c3af99a7f56b12d9
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571136"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65779924"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Einrichten der X.509-Sicherheit in Ihrem Azure IoT Hub
 
@@ -33,9 +33,12 @@ Die auf dem X.509-Zertifikat basierende Sicherheit in IoT Hub erfordert, dass Si
 
 Sie haben folgende Möglichkeiten, Ihre Zertifikate abzurufen:
 
-* Erwerben Sie X.509-Zertifikate von einer *Stammzertifizierungsstelle (CA)*. Dies wird für die Produktionsumgebung empfohlen.
+* Erwerben Sie X.509-Zertifikate von einer *Stammzertifizierungsstelle (CA)* . Dies wird für die Produktionsumgebung empfohlen.
 
 * Erstellen Sie eigene X.509-Zertifikate mithilfe eines Drittanbietertools wie [OpenSSL](https://www.openssl.org/). Dies ist gut für Test- und Entwicklungszwecke. Unter [Managing test CA certificates for samples and tutorials (Verwalten von Test-ZS-Zertifikaten für Beispiele und Tutorials)](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) finden Sie Informationen zum Generieren von Test-ZS-Zertifikaten mithilfe von PowerShell oder Bash. Im restlichen Teil dieses Tutorials werden Test-ZS-Zertifikate verwendet, die mithilfe der Anweisungen in [Managing test CA certificates for samples and tutorials (Verwalten von Test-ZS-Zertifikaten für Beispiele und Tutorials)](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) generiert wurden.
+
+* Generieren Sie ein [X.509-Zertifikat der Zwischenzertifizierungsstelle](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust), das durch ein vorhandenes Zertifikat der Stammzertifizierungsstelle signiert wurde, und laden Sie es auf den IoT Hub hoch. Sobald das Zwischenzertifikat entsprechend den nachstehenden Anweisungen hochgeladen und überprüft wurde, kann es statt eines (unten erwähnten) Zertifikats der Stammzertifizierungsstelle verwendet werden. Mithilfe von Tools wie OpenSSL ([openssl req](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) und [openssl ca](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) kann ein Zertifikat der Zwischenzertifizierungsstelle generiert und signiert werden.
+
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registrieren der X.509-Zertifizierungsstellenzertifikate bei IoT Hub
 
@@ -112,7 +115,7 @@ Als Nächstes erfahren Sie, wie Sie eine C#-Anwendung zum Simulieren des für Ih
         private static Random rnd = new Random();
     ```
 
-     Verwenden Sie den Anzeigenamen, den Sie im vorherigen Abschnitt verwendet haben, anstelle des Platzhalters _<your_device_id>_.
+     Verwenden Sie den Anzeigenamen, den Sie im vorherigen Abschnitt verwendet haben, anstelle des Platzhalters _<your_device_id>_ .
 
 5. Fügen Sie die folgende Funktion zum Erstellen von Zufallszahlen für Temperatur- und Luftfeuchtigkeitswerte und Senden dieser Werte an den Hub hinzu:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: fe1adc0aef80066721ce0b80419c787fe25346a9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045387"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190813"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Bereitstellen eines Service Fabric-Clusters mit allgemeinem Zertifikatnamen anstelle eines Fingerabdrucks
 Keine zwei Zertifikate können den gleichen Fingerabdruck haben, was ein Clusterzertifikatrollover oder die Verwaltung erschwert. Mehrere Zertifikate können jedoch den gleichen allgemeinen Namen oder den gleichen Antragsteller haben.  Cluster mit allgemeinen Zertifikatnamen vereinfachen die Zertifikatverwaltung. In diesem Artikel wird beschrieben, wie Sie einen Service Fabric-Cluster für die Verwendung des allgemeinen Zertifikatnamens (anstelle des Zertifikatfingerabdrucks) bereitstellen.
@@ -84,12 +84,18 @@ In diesem Artikel werden die Beispielvorlage für einen [Sicherheitscluster mit 
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+},
 ```
 
 Legen Sie anschließend die Parameterwerte *certificateCommonName*, *sourceVaultValue* und *certificateUrlValue* auf die Werte fest, die vom vorhergehenden Skript zurückgegeben werden:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
+},
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 },
 "sourceVaultValue": {
   "value": "/subscriptions/<subscription>/resourceGroups/testvaultgroup/providers/Microsoft.KeyVault/vaults/testvault"
@@ -108,6 +114,12 @@ Legen Sie anschließend die Parameterwerte *certificateCommonName*, *sourceVault
       "type": "string",
       "metadata": {
         "description": "Certificate Commonname"
+      }
+    },
+    "certificateIssuerThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Authority Issuer Thumpbrint for Commonname cert"
       }
     },
     ```
@@ -213,10 +225,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 ## <a name="next-steps"></a>Nächste Schritte
 * Erfahren Sie mehr über [Clustersicherheit](service-fabric-cluster-security.md).
 * Erfahren Sie, wie Sie einen [Rollover für ein Cluster-Zertifikat ausführen](service-fabric-cluster-rollover-cert-cn.md).
-* [Verwalten von Clusterzertifikaten](service-fabric-cluster-security-update-certs-azure.md)
+* [Aktualisieren und Verwalten von Clusterzertifikaten](service-fabric-cluster-security-update-certs-azure.md)
 * Vereinfachen der Zertifikatverwaltung durch [Ändern des Clusters aus „Fingerabdruck“ in „Allgemeiner Name“](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
-
-[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
-ic-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

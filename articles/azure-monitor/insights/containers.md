@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60496107"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Containerüberwachungslösung in Azure Monitor
 

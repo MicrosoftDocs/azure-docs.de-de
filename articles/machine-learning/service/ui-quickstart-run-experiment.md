@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440936"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475946"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Schnellstart: Vorbereiten und Visualisieren von Daten in Azure Machine Learning ohne Schreiben von Code
 
-Bereiten Sie Ihre Daten auf der Visuellen Drag-&-Drop-Oberfläche in (Vorschauversion) für Azure Machine Learning vor, und visualisieren Sie sie. Die Daten, die Sie verwenden, enthalten Einträge für eine Reihe verschiedener Automobile, einschließlich Informationen wie Marke, Modell, technische Angaben und Preis.  
+Bereiten Sie Ihre Daten auf der Visuellen Drag-&-Drop-Oberfläche in (Vorschauversion) für Azure Machine Learning vor, und visualisieren Sie sie. Die Daten, die Sie verwenden, enthalten Einträge für eine Reihe verschiedener Automobile, einschließlich Informationen wie Marke, Modell, technische Angaben und Preis. Nachdem Sie diese Schnellstartanleitung abgeschlossen haben, können Sie mithilfe dieser Daten den Preis eines Autos vorhersagen. 
 
-In diesem Schnellstart untersuchen Sie Daten und bereiten sie auf:
+Bevor Sie ein Machine Learning-Modell trainieren, müssen Sie die Daten verstehen und vorbereiten.  In dieser Schnellstartanleitung führen Sie die folgenden Schritte aus:
 
 - Erstellen Ihres ersten Experiments zum Hinzufügen von Daten und Anzeigen einer Vorschau
 - Aufbereiten der Daten durch das Entfernen von fehlenden Werten
@@ -99,13 +99,13 @@ Wählen Sie die Datenspalten aus, mit denen Sie arbeiten möchten.  Konfiguriere
    
 1. Wählen Sie das Modul **Select Columns in Dataset** aus.
 
-1. Wählen Sie im Bereich **Eigenschaften** rechts neben dem Experimentbereich **Launch column selector** (Spaltenauswahl starten) aus.
+1. Wählen Sie im Bereich **Eigenschaften** rechts neben der Canvas **Spalten bearbeiten** aus.
 
     Wählen Sie im Dialogfeld **Select columns** (Spalten auswählen) die Option **ALL COLUMNS** (Alle Spalten) aus, und schließen Sie **alle Features** ein. Das Dialogfeld sollte wie folgt aussehen:
 
      ![Spaltenauswahl](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. Klicken Sie unten rechts auf die Schaltfläche mit dem Häkchen („OK“), um die Spaltenauswahl zu schließen.
+1. Wählen Sie unten rechts **OK** aus, um die Spaltenauswahl zu schließen.
 
 ## <a name="run-the-experiment"></a>Ausführen des Experiments
 
@@ -131,7 +131,7 @@ Nachdem Sie nun Ihr erstes Experiment durchgeführt haben, können Sie die Daten
 
      ![Vorschau der Daten](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Klicken Sie auf jede Spalte, um mehr über das Dataset zu erfahren.
+1. Klicken Sie auf jede Spalte, um weitere Informationen zum Dataset zu erhalten, und überlegen Sie, ob die Spalten hilfreich sind, um den Preis eines Autos vorherzusagen.
 
 ## <a name="prepare-data"></a>Vorbereiten von Daten
 
@@ -146,13 +146,13 @@ Entfernen Sie zunächst die Spalte **normalized-losses** vollständig.
 
 1. Wählen Sie das Modul **Select Columns in Dataset** aus.
 
-1. Wählen Sie im Bereich **Eigenschaften** rechts neben dem Experimentbereich **Launch column selector** (Spaltenauswahl starten) aus.
+1. Wählen Sie im Bereich **Eigenschaften** rechts neben der Canvas **Spalten bearbeiten** aus.
 
     * Lassen Sie **With rules** (Mit Regeln) und **ALL COLUMNS** (Alle Spalten) ausgewählt.
 
     * Wählen Sie in den Dropdownlisten die Optionen **Ausschließen** und **Spaltennamen** aus, und klicken Sie auf das Textfeld. Geben Sie **normalized-losses** ein.
 
-    * Klicken Sie unten rechts auf die Schaltfläche mit dem Häkchen („OK“), um die Spaltenauswahl zu schließen.
+    * Wählen Sie unten rechts **OK** aus, um die Spaltenauswahl zu schließen.
 
     ![Ausschließen einer Spalte](./media/ui-quickstart-run-experiment/exclude-column.png)
         
@@ -176,7 +176,7 @@ Entfernen Sie zunächst die Spalte **normalized-losses** vollständig.
 
 ### <a name="clean-missing-data"></a>Fehlende Daten bereinigen
 
-Fügen Sie nun ein weiteres Modul hinzu, mit dem alle verbleibenden Zeilen entfernt werden, in denen Daten fehlen.
+Wenn Sie ein Modell trainieren, müssen Sie etwas bezüglich der fehlenden Daten unternehmen.  In diesem Fall fügen Sie ein Modul hinzu, um alle restlichen Zeilen zu entfernen, in denen Daten fehlen.  
 
 1. Geben Sie im Suchfeld das Wort **Clean** ein, um nach dem Modul **Clean Missing Data** (Fehlende Daten bereinigen) zu suchen.
 
@@ -216,7 +216,7 @@ Da Sie Änderungen an den Modulen in Ihrem Experiment vorgenommen haben, hat sic
 
     Es gibt jetzt 193 Zeilen und 25 Spalten.
 
-    Wenn Sie auf **num-of-doors** klicken, sehen Sie, dass diese Spalte noch immer 2 eindeutige Werte aufweist, aber 0 fehlende Werte.  
+    Wenn Sie auf **num-of-doors** klicken, sehen Sie, dass diese Spalte noch immer 2 eindeutige Werte aufweist, aber 0 fehlende Werte. Klicken Sie auf die restlichen Spalten, um zu überprüfen, ob das Dataset noch fehlende Daten aufweist. 
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
@@ -228,7 +228,7 @@ In diesem Schnellstart haben Sie Folgendes gelernt:
 
 - Erstellen Ihres ersten Experiments zum Hinzufügen von Daten und Anzeigen einer Vorschau
 - Aufbereiten der Daten durch das Entfernen von fehlenden Werten
-- Visualisieren der sich ergebenden Daten
+- Visualisieren der vorbereiteten Daten
 
 Fahren Sie mit dem folgenden Tutorial fort, um diese Daten zu verwenden, um den Preis eines Autos vorherzusagen.
 

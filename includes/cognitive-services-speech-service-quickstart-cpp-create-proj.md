@@ -4,20 +4,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: af61d975b540787b9b54d9fdea66773c10aeb6ac
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 27fcf32a9a268488da318567d3edc55d23bd8967
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020787"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482422"
 ---
-1. Starten Sie Visual Studio 2017.
+1. Starten Sie Visual Studio 2019.
 
 1. Stellen Sie sicher, dass die Workload **Desktopentwicklung mit C++** verfügbar ist. Wählen Sie **Tools** > **Tools und Features abrufen** in der Visual Studio-Menüleiste aus, um den Visual Studio-Installer zu öffnen. Wenn diese Workload bereits aktiviert ist, fahren Sie mit dem nächsten Schritt fort.
 
     ![Screenshot der Registerkarte „Visual Studio-Workloads“](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
-    Aktivieren Sie andernfalls das Kontrollkästchen neben **Desktopentwicklung mit C++**.
+    Aktivieren Sie andernfalls das Kontrollkästchen neben **Desktopentwicklung mit C++** .
 
 1. Stellen Sie sicher, dass die Komponente **NuGet-Paket-Manager** verfügbar ist. Wechseln Sie zur Registerkarte **Einzelne Komponenten** des Dialogfelds „Visual Studio-Installer“, und wählen Sie **NuGet-Paket-Manager** aus, wenn diese Option nicht bereits aktiviert ist.
 
@@ -25,7 +25,7 @@ ms.locfileid: "65020787"
 
 1. Wenn Sie entweder die C++-Workload oder NuGet aktivieren mussten, wählen Sie **Ändern** (in der unteren rechten Ecke des Dialogfelds) aus. Die Installation der neuen Features nimmt etwas Zeit in Anspruch. Wenn beide Features bereits aktiviert wurden, schließen Sie stattdessen das Dialogfeld.
 
-1. Erstellen Sie eine neue Windows-Konsolenanwendung in Visual C++ unter Windows Desktop. Wählen Sie zunächst **Datei** > **Neu** > **Projekt** aus dem Menü aus. Erweitern Sie im Dialogfeld **Neues Projekt** die Option **Installiert** > **Visual C++** > **Windows Desktop** im linken Bereich. Wählen Sie dann **Windows-Konsolenanwendung** aus. Geben Sie als Projektnamen *helloworld* ein.
+1. Erstellen Sie eine neue Windows-Konsolenanwendung in Visual C++ unter Windows Desktop. Wählen Sie zunächst **Datei** > **Neu** > **Projekt** aus dem Menü aus. Erweitern Sie im Dialogfeld **Neues Projekt** die Option **Installiert** > **Visual C++**  > **Windows Desktop** im linken Bereich. Wählen Sie dann **Windows-Konsolenanwendung** aus. Geben Sie als Projektnamen *helloworld* ein.
 
     ![Screenshot: Dialogfeld „Neues Projekt“](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)
 

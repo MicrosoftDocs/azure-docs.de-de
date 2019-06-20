@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 40d1af6e6258b5026853532f7963a76d4fc389db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469226"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837884"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Lebenszyklus des Team Data Science-Prozesses
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791625"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241693"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Verwenden von benannten Werten in Azure API Management-Richtlinien
 API Management-Richtlinien sind eine leistungsfähige Funktion des Systems, mit der das Azure-Portal das Verhalten der API über eine Konfiguration ändern kann. Richtlinien sind eine Sammlung von Anweisungen, die sequenziell bei Anfragen oder Antworten einer API ausgeführt werden. Richtlinienanweisungen können mithilfe von literalen Textwerten, Richtlinienausdrücken und benannten Werten erstellt werden. 
@@ -28,9 +28,9 @@ Jede API Management-Dienstinstanz weist eine Eigenschaftensammlung von Schlüsse
 | Attribut | Type | BESCHREIBUNG |
 | --- | --- | --- |
 | `Display name` |Zeichenfolge |Alphanumerische Zeichenfolge zum Verweis auf die Eigenschaft in den Richtlinien |
-| `Value` |Zeichenfolge |Der Wert der Eigenschaft. Er darf nicht leer sein oder nur aus Leerzeichen bestehen. |
-|`Secret`|boolean|Bestimmt, ob der Wert ein geheimer Schlüssel ist und ob er verschlüsselt werden sollte.|
-| `Tags` |Array von Zeichenfolgen |Optionale Tags, die zum Filtern der Eigenschaftenliste verwendet werden können, wenn sie bereitgestellt werden. |
+| `Value`        |Zeichenfolge |Der Wert der Eigenschaft. Er darf nicht leer sein oder nur aus Leerzeichen bestehen. |
+| `Secret`       |boolean|Bestimmt, ob der Wert ein geheimer Schlüssel ist und ob er verschlüsselt werden sollte.|
+| `Tags`         |Array von Zeichenfolgen |Optionale Tags, die zum Filtern der Eigenschaftenliste verwendet werden können, wenn sie bereitgestellt werden. |
 
 ![Benannte Werte](./media/api-management-howto-properties/named-values.png)
 
@@ -55,7 +55,7 @@ Eigenschaftswerte können Literalzeichenfolgen und [Richtlinienausdrücke](/azur
 
 Sobald die Eigenschaft erstellt wurde, können Sie sie bearbeiten, indem Sie darauf klicken. Wenn Sie den Namen der Eigenschaft ändern, werden alle Richtlinien, die auf diese Eigenschaft verweisen, automatisch aktualisiert, sodass sie den neuen Namen verwenden.
 
-Informationen zum Bearbeiten einer Eigenschaft mithilfe der REST-API finden Sie unter [Bearbeiten einer Eigenschaft mit der REST-API](/rest/api/apimanagement/property?Patch).
+Informationen zum Bearbeiten einer Eigenschaft mithilfe der REST-API finden Sie unter [Bearbeiten einer Eigenschaft mit der REST-API](/rest/api/apimanagement/2019-01-01/property?patch).
 
 ## <a name="to-delete-a-property"></a>So löschen Sie eine Eigenschaft
 
@@ -66,7 +66,7 @@ Klicken Sie zum Löschen einer Eigenschaft neben der zu löschenden Eigenschaft 
 > 
 > 
 
-Informationen zum Löschen einer Eigenschaft mithilfe der REST-API finden Sie unter [Löschen einer Eigenschaft mit der REST-API](/rest/api/apimanagement/property?Delete).
+Informationen zum Löschen einer Eigenschaft mithilfe der REST-API finden Sie unter [Löschen einer Eigenschaft mit der REST-API](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>So suchen und filtern Sie benannte Werte:
 

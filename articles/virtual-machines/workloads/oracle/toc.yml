@@ -1,7 +1,11 @@
 - name: Übersicht
   items:
-    - name: Überlegungen zu virtuellen Oracle-Computern
-      href: oracle-considerations.md
+    - name: Übersicht über Oracle-Lösungen
+      href: oracle-overview.md
+    - name: Lösungen auf virtuellen Azure-Computern
+      href: oracle-vm-solutions.md
+    - name: 'Lösungen mit OCI: Vorschauversion'
+      href: oracle-oci-overview.md
 - name: Schnellstarts
   items:
     - name: Erstellen einer Oracle Database
@@ -10,7 +14,7 @@
   items:
     - name: Konfigurieren von Oracle ASM
       href: configure-oracle-asm.md
-    - name: Konfigurieren von Oracle DataGuard
+    - name: Konfigurieren von Oracle Data Guard
       href: configure-oracle-dataguard.md
     - name: Konfigurieren von Oracle GoldenGate
       href: configure-oracle-golden-gate.md

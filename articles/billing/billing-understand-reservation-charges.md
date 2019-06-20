@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 4b4c6b390e9b3a0cf764f998523fe3c1cdc66026
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997426"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370286"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Anwendung eines Rabatts für Reservierungen auf Azure SQL-Datenbanken
 
@@ -29,7 +29,7 @@ Weitere Informationen zu reservierten VM-Instanzen finden Sie unter [Grundlegend
 
 Reservierungsrabatte funktionieren nach dem Prinzip „*use-it-or-lose-it*“. Das heißt, wenn Sie für eine Stunde nicht über die entsprechenden Ressourcen verfügen, verlieren Sie eine Reservierungsmenge für diese Stunde. Sie können ungenutzte reservierte Stunden nicht übertragen.
 
-Wenn Sie eine Ressource beenden, wird der Reservierungsrabatt automatisch auf eine andere entsprechende Ressource im angegebenen Reservierungsumfang angewendet. Wenn keine übereinstimmenden Ressourcen im angegebenen Reservierungsumfang gefunden werden, gehen die reservierten Stunden *verloren*.
+Wenn Sie eine Ressource beenden, wird der Reservierungsrabatt automatisch auf eine andere entsprechende Ressource im angegebenen Reservierungsumfang angewandt. Wenn keine übereinstimmenden Ressourcen im angegebenen Reservierungsumfang gefunden werden, gehen die reservierten Stunden *verloren*.
 
 ## <a name="discount-applied-to-sql-databases"></a>Anwendung des Rabatts auf SQL-Datenbank-Instanzen
 

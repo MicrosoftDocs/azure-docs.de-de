@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: 0ed14cc0978baaea5e334eef14d0354d8d6edcfb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ebcb58e0cdfc896ae90115fab58cc6d11fe7ef09
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60844222"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Eingeschränkte vCPU-fähige VM-Größen
 

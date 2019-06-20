@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525125"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65594280"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Häufig gestellte Fragen (FAQ) zu Azure App Service unter Linux
 
@@ -31,7 +31,7 @@ Wenn Sie eine Frage haben, schreiben Sie einen Kommentar zu diesem Artikel.
 
 ## <a name="built-in-images"></a>Integrierte Images
 
- **Ich möchte die integrierten Docker-Container nutzen, die von der Plattform bereitgestellt werden. Wo finde ich diese Dateien?**
+**Ich möchte die integrierten Docker-Container nutzen, die von der Plattform bereitgestellt werden. Wo finde ich diese Dateien?**
 
 Sie finden alle Docker-Dateien auf [GitHub](https://github.com/azure-app-service). Sie finden alle Docker-Container auf [Docker Hub](https://hub.docker.com/u/appsvc/).
 
@@ -39,13 +39,15 @@ Sie finden alle Docker-Dateien auf [GitHub](https://github.com/azure-app-service
 
 **Welche Werte sind beim Konfigurieren des Laufzeitstapels im Abschnitt „Startdatei“ anzugeben?**
 
-| Stapel     | Erwarteter Wert                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | ein Befehl zum Starten Ihrer `.jar`-Anwendung                                    |
-| Tomcat    | der Speicherort eines Skripts, um beliebige Konfigurationen für Ihre App auszuführen          |
-| Node.js   | die PM2-Konfigurationsdatei oder Ihre Skriptdatei                                |
-| .NET Core | der Name der kompilierten DLL-Datei als `dotnet <myapp>.dll`                                 |
-| Ruby      | das Ruby-Skript, mit dem Sie Ihre App initialisieren möchten                     |
+| Stapel           | Erwarteter Wert                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | der Befehl, mit dem Ihre JAR-App gestartet wird (z. B. `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | der Speicherort eines Skripts zum Ausführen aller erforderlichen Konfigurationen (z. B. `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | die PM2-Konfigurationsdatei oder Ihre Skriptdatei                                |
+| .NET Core       | der Name der kompilierten DLL-Datei als `dotnet <myapp>.dll`                                 |
+| Ruby            | das Ruby-Skript, mit dem Sie Ihre App initialisieren möchten                     |
+
+Diese Befehle oder Skripts werden ausgeführt, nachdem der integrierte Docker-Container gestartet ist, aber bevor der Code Ihrer Anwendung gestartet wird.
 
 ## <a name="management"></a>Verwaltung
 
@@ -136,7 +138,7 @@ Fügen Sie den vollständigen Namen hinzu, einschließlich der URL der privaten 
 
 **Kann ich mehr als einen Port in meinem benutzerdefinierten Containerimage verfügbar machen?**
 
-Momentan kann nur ein Port verfügbar gemacht werden.
+Es kann nur ein Port verfügbar gemacht werden.
 
 **Kann ich meinen eigenen Speicher verwenden?**
 
@@ -154,11 +156,11 @@ Die Porterkennung erfolgt automatisch. Sie können auch eine Anwendungseinstellu
 
 Nein. Die Plattform handhabt die HTTPS-Beendigung an den freigegebenen Front-Ends.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Mehrere Container mit Docker Compose und Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Mehrere Container mit Docker Compose
 
 **Wie kann ich die Azure Container Registry (ACR) für die Verwendung mehrerer Container konfigurieren?**
 
-Um ACR mit mehreren Containern zu verwenden, müssen **alle Containerimages** auf dem gleichen ACR-Registrierungsserver gehostet sein. Sobald sie sich auf dem gleichen Registrierungsserver befinden, müssen Sie Anwendungseinstellungen erstellen und dann die Konfigurationsdatei von Docker Compose oder Kubernetes mit den Namen der ACR-Images aktualisieren.
+Um ACR mit mehreren Containern zu verwenden, müssen **alle Containerimages** auf dem gleichen ACR-Registrierungsserver gehostet sein. Sobald sie sich auf dem gleichen Registrierungsserver befinden, müssen Sie Anwendungseinstellungen erstellen und dann die Konfigurationsdatei von Docker Compose mit den Namen der ACR-Images aktualisieren.
 
 Erstellen Sie die folgenden Anwendungseinstellungen:
 

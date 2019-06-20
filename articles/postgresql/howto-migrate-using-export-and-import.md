@@ -1,20 +1,20 @@
 ---
-title: Migrieren einer Datenbank mittels Import und Export in Azure Database for PostgreSQL
+title: 'Migrieren einer Datenbank mittels Import und Export in Azure Database for PostgreSQL: Einzelserver'
 description: Hier wird beschrieben, wie Sie eine PostgreSQL-Datenbank in eine Skriptdatei extrahieren und die Daten aus dieser Datei in die Zieldatenbank importieren.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/01/2018
-ms.openlocfilehash: ecd7dc225379fc9d3eda6fb2e80e3c47a73db49b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: 785e9ec77dea749546e3f1d59007706eac14f2ea
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547625"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067024"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrieren der PostgreSQL-Datenbank mit Export und Import
-Sie können mit [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) eine PostgreSQL-Datenbank in eine Skriptdatei extrahieren und die Daten mit [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) aus dieser Datei in die Zieldatenbank importieren.
+Sie können mit [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) eine PostgreSQL-Datenbank in eine Skriptdatei extrahieren und die Daten mit [psql](https://www.postgresql.org/docs/current/static/app-psql.html) aus dieser Datei in die Zieldatenbank importieren.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Zum Ausführen der Schritte in dieser Anleitung benötigen Sie Folgendes:

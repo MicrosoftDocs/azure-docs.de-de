@@ -3,19 +3,19 @@ title: Transliterate-Methode der Textübersetzungs-API
 titlesuffix: Azure Cognitive Services
 description: Verwenden Sie die Transliterate-Methode der Textübersetzungs-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: v-pawal
+ms.openlocfilehash: 138a04cca1bbbaf7b59f628f491a5f13d73fb6f7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577836"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387388"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Textübersetzungs-API 3.0: Transliterate
 
@@ -41,7 +41,7 @@ Die folgenden Anforderungsparameter werden in der Abfragezeichenfolge übergeben
     <td>*Erforderlicher Parameter*.<br/>Die vom Client angeforderte Version der API. Der Wert muss `3.0` sein.</td>
   </tr>
   <tr>
-    <td>Language</td>
+    <td>language</td>
     <td>*Erforderlicher Parameter*.<br/>Gibt die Sprache des Texts an, der von einem Skript in ein anderes konvertiert werden soll. Mögliche Sprachen sind im `transliteration`-Bereich aufgeführt, der durch Abfrage des Diensts nach den [unterstützten Sprachen](./v3-0-languages.md) abgerufen wird.</td>
   </tr>
   <tr>
@@ -147,7 +147,7 @@ Im Folgenden finden Sie die möglichen HTTP-Statuscodes, die eine Anforderung zu
   </tr>
   <tr>
     <td>429</td>
-    <td>Der Aufrufer sendet zu viele Anforderungen.</td>
+    <td>Der Server hat die Anforderung abgelehnt, da der Client die Anforderungsgrenzwerte überschritten hat.</td>
   </tr>
   <tr>
     <td>500</td>

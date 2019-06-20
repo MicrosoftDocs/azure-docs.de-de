@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878966"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Azure Active Directory-Integration mit G Suite
 
@@ -87,7 +87,7 @@ Um die Schritte in diesem Tutorial zu testen, sollten Sie folgende Empfehlungen 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
 * G Suite unterstützt das **SP-initiierte** einmalige Anmelden.
-* G Suite unterstützt die **[automatische Benutzerbereitstellung](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)**.
+* G Suite unterstützt die **[automatische Benutzerbereitstellung](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)** .
 
 ## <a name="adding-g-suite-from-the-gallery"></a>Hinzufügen von G Suite aus dem Katalog
 
@@ -118,12 +118,12 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Um einmaliges Anmelden in Azure AD mit G Suite zu konfigurieren und zu testen, müssen Sie die folgenden Bausteine ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für G Suite](#configure-g-suite-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines G Suite-Testbenutzers](#create-g-suite-test-user)**, um ein Pendant von Britta Simon in G Suite zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für G Suite](#configure-g-suite-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines G Suite-Testbenutzers](#create-g-suite-test-user)** , um ein Pendant von Britta Simon in G Suite zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -239,11 +239,11 @@ Um einmaliges Anmelden von Azure AD mit G Suite zu konfigurieren, führen Sie di
 
     a. Wählen Sie **Einmaliges Anmelden mit externem Identitätsanbieter einrichten**.
 
-    b. Fügen Sie in G Suite im Feld **URL der Anmeldeseite** den Wert der  **Anmelde-URL**  ein, den Sie aus dem Azure-Portal kopiert haben.
+    b. Fügen Sie in G Suite im Feld **URL der Anmeldeseite** den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-    c. Fügen Sie in G Suite im Feld **URL der Abmeldeseite** den Wert der  **Abmelde-URL**  ein, den Sie aus dem Azure-Portal kopiert haben.
+    c. Fügen Sie in G Suite im Feld **URL der Abmeldeseite** den Wert der **Abmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-    d. Fügen Sie in G Suite im Feld **Kennwort-URL ändern** den Wert von  **Kennwort-URL ändern**  ein, den Sie aus dem Azure-Portal kopiert haben.
+    d. Fügen Sie in G Suite im Feld **Kennwort-URL ändern** den Wert von **Kennwort-URL ändern** ein, den Sie aus dem Azure-Portal kopiert haben.
 
     e. Laden Sie in G Suite für das **Verifizierungszertifikat** das Zertifikat hoch, das Sie aus dem Azure-Portal heruntergeladen haben.
 

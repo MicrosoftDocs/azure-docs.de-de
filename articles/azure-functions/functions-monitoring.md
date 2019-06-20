@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64922966"
 ---
 # <a name="monitor-azure-functions"></a>Überwachen von Azure Functions
 
 [Azure Functions](functions-overview.md) bietet von Haus aus Integration in [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) zum Überwachen von Funktionen. In diesem Artikel wird veranschaulicht, wie Sie Azure Functions zum Senden von systemseitig generierten Protokolldateien an Application Insights konfigurieren.
 
-Es wird empfohlen, Protokoll-, Leistungs- und Fehlerdaten mithilfe von Application Insights zu erfassen. Der Dienst erkennt Leistungsanomalien automatisch und verfügt über leistungsstarke Analysetools, mit denen Sie Probleme untersuchen und nachvollziehen können, wie Ihre Funktionen verwendet werden. Der Dienst unterstützt Sie bei der kontinuierlichen Verbesserung der Leistung und Benutzerfreundlichkeit Ihrer App. Sie können Application Insights auch während der lokalen Entwicklung an Funktions-App-Projekten verwenden. Weitere Informationen finden Sie unter [Was ist Application Insights?](../azure-monitor/app/app-insights-overview.md)
+Es wird empfohlen, Protokoll-, Leistungs- und Fehlerdaten mithilfe von Application Insights zu erfassen. Der Dienst erkennt Leistungsanomalien automatisch und verfügt über leistungsstarke Analysetools, mit denen Sie Probleme untersuchen und nachvollziehen können, wie Ihre Funktionen verwendet werden. Der Dienst unterstützt Sie bei der kontinuierlichen Verbesserung der Leistung und Benutzerfreundlichkeit Ihrer App. Sie können Application Insights auch während der lokalen Entwicklung an Funktions-App-Projekten verwenden. Weitere Informationen finden Sie unter [Was ist Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 Da die erforderliche Instrumentierung von Application Insights in Azure Functions integriert ist, benötigen Sie lediglich einen gültigen Instrumentierungsschlüssel, um Ihre Funktions-App mit einer Application Insights-Ressource zu verbinden.
 
@@ -626,7 +626,7 @@ Dadurch wird Ihre App mit dem Protokollstreamingdienst verbunden, woraufhin Anwe
 
 ### <a name="azure-cli"></a>Azure-Befehlszeilenschnittstelle
 
-Sie können Streamingprotokolle über die [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/install-azure-cli) aktivieren. Verwenden Sie für die Azure CLI die folgenden Befehle, um sich anzumelden, Ihr Abonnement auszuwählen und Protokolldateien zu streamen:
+Sie können Streamingprotokolle mithilfe der [Azure CLI](/cli/azure/install-azure-cli) aktivieren. Verwenden Sie die folgenden Befehle, um sich anzumelden, Ihr Abonnement auszuwählen und Protokolldateien zu streamen:
 
 ```azurecli
 az login

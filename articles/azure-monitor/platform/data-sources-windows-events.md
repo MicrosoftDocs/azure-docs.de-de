@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522709"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60236915"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Datenquellen für Windows-Ereignisprotokolle in Azure Monitor
 Windows-Ereignisprotokolle sind eine der häufigsten [Datenquellen](agent-data-sources.md) zum Sammeln von Daten mithilfe von Windows-Agents, da viele Anwendungen Daten in das Windows-Ereignisprotokoll schreiben.  Sie können Ereignisse aus Standardprotokollen wie beispielsweise dem System- und dem Anwendungsprotokoll sammeln und darüber hinaus benutzerdefinierte Protokolle angeben, die von den zu überwachenden Anwendungen erstellt werden.
@@ -56,7 +56,7 @@ Windows-Ereignisdatensätze weisen den Typ **Event** auf und besitzen die in der
 | ParameterXml |Ereignisparameterwerte in XML-Format. |
 | ManagementGroupName |Name der Verwaltungsgruppe für System Center Operations Manager-Agents.  Bei anderen Agents lautet dieser Wert „`AOI-<workspace ID>`“. |
 | RenderedDescription |Ereignisbeschreibung mit Parameterwerten. |
-| Quelle |Quelle des Ereignisses. |
+| `Source` |Quelle des Ereignisses. |
 | SourceSystem |Typ des Agents, auf dem das Ereignis gesammelt wurde. <br> OpsManager: Windows-Agent (entweder Direktverbindung oder von Operations Manager verwaltet) <br> Linux: Alle Linux-Agents  <br> AzureStorage – Azure-Diagnose |
 | TimeGenerated |Datum und Uhrzeit, zu der das Ereignis in Windows erstellt wurde. |
 | UserName |Benutzername des Kontos, in dem das Ereignis protokolliert wurde. |

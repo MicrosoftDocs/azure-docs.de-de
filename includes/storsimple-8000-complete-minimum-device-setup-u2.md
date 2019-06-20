@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c44effe0bde3c7e880e53706fcb59d91a8605e7b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66118253"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178142"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>So führen Sie die mindestens erforderliche StorSimple-Gerätekonfiguration aus
 

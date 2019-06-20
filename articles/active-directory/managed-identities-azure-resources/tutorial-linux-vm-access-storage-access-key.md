@@ -16,11 +16,11 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d53f625cec6aee980155711ddeb4d1e1761b91d7
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66236148"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Verwenden einer systemseitig zugewiesenen verwalteten Identität eines virtuellen Linux-Computers für den Zugriff auf Azure Storage über Zugriffsschlüssel
 
@@ -65,7 +65,7 @@ Später werden wir eine Datei in das neue Speicherkonto hoch- und daraus herunte
 In diesem Schritt gewähren Sie der systemseitig zugewiesenen verwalteten Identität Ihres virtuellen Computers Zugriff auf die Schlüssel des Speicherkontos.   
 
 1. Navigieren Sie zurück zum neu erstellten Speicherkonto.
-2. Klicken Sie im linken Bereich auf den Link **Zugriffssteuerung (IAM)**.  
+2. Klicken Sie im linken Bereich auf den Link **Zugriffssteuerung (IAM)** .  
 3. Klicken Sie oben auf der Seite auf **+ Rollenzuweisung hinzufügen**, um dem virtuellen Computer eine neue Rollenzuweisung hinzuzufügen.
 4. Legen Sie **Rolle** rechts auf der Seite auf „Dienstrolle Speicherkonto-Schlüsseloperator“ fest. 
 5. Legen Sie in der nächsten Dropdownliste **Zugriff zuweisen zu** auf die Ressource „Virtueller Computer“ fest.  

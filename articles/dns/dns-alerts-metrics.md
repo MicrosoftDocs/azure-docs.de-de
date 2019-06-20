@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683029"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699152"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-Metriken und -Warnungen
 Azure DNS ist ein Hostingdienst für DNS-Domänen, der die Namensauflösung mithilfe der Microsoft Azure-Infrastruktur ausführt. Dieser Artikel beschreibt die Metriken und Warnungen für den Azure DNS-Dienst.
@@ -36,7 +36,7 @@ Sie können auch die [Definition dieser Metriken](../azure-monitor/platform/metr
 >[!NOTE]
 > Zurzeit sind diese Metriken nur für öffentliche DNS-Zonen verfügbar, die in Azure DNS gehostet werden. Wenn Sie private Zonen verwenden, die in Azure DNS gehostet werden, stellen diese Metriken keine Daten für diese Zonen bereit. Die Metriken und das Warnungsfeature werden darüber hinaus nur in der Azure Public Cloud unterstützt. Unterstützung für unabhängige Clouds wird zu einem späteren Zeitpunkt bereitgestellt. 
 
-Die genaue Ebene der Dimension für diese Metriken ist die DNS-Zone.
+Das detaillierteste Element, für das Metriken angezeigt werden können, ist eine DNS-Zone. Derzeit können keine Metriken für einzelne Ressourcendatensätze innerhalb einer Zone angezeigt werden.
 
 ### <a name="query-volume"></a>Abfragevolumen
 

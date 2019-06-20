@@ -9,11 +9,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60447873"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Kopieren von Daten in Azure Data Explorer mithilfe von Azure Data Factory 
 

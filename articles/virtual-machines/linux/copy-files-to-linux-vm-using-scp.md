@@ -17,11 +17,11 @@ ms.date: 07/12/2017
 ms.author: danlep
 ms.subservice: disks
 ms.openlocfilehash: 7d5b2d2ee7e7320fb8bf91c8a62a0f46c403c977
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60328764"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Verschieben von Dateien für eine Linux-VM per SCP
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 9c0c4fc21f6f4b23b14c8020ecd7e95c63dedcbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510284"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66388547"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Aufrufen Ihrer Instanz der benutzerdefinierten Bing-Suche über das Portal
 
@@ -26,7 +26,7 @@ Nachdem Sie Ihre benutzerdefinierte Suche konfiguriert haben, können Sie sie im
 
 Wählen Sie nach der Anmeldung beim [Portal](https://customsearch.ai) für die benutzerdefinierte Bing-Suche Ihre Suchinstanz aus, und klicken Sie auf die Registerkarte **Produktion**. Wählen Sie unter **Endpunkte** einen API-Endpunkt aus (etwa die Web-API). Welche Endpunkte angezeigt werden, hängt von Ihrem Abonnement ab.
 
-Geben Sie zum Erstellen einer Suchabfrage die Parameterwerte für Ihren Endpunkt ein. Beachten Sie, dass die im Portal angezeigten Parameter je nach gewähltem Endpunkt variieren können. Weitere Informationen finden Sie in der [Referenz zur API für die benutzerdefinierte Suche](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). Um das von Ihrer Suchinstanz verwendete Abonnement zu ändern, fügen Sie den entsprechenden Abonnementschlüssel hinzu, und aktualisieren Sie die entsprechenden Parameter für den Markt und/oder die Sprache.
+Geben Sie zum Erstellen einer Suchabfrage die Parameterwerte für Ihren Endpunkt ein. Beachten Sie, dass die im Portal angezeigten Parameter je nach gewähltem Endpunkt variieren können. Weitere Informationen finden Sie in der [Referenz zur API für die benutzerdefinierte Suche](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters). Um das von Ihrer Suchinstanz verwendete Abonnement zu ändern, fügen Sie den entsprechenden Abonnementschlüssel hinzu, und aktualisieren Sie die entsprechenden Parameter für den Markt und/oder die Sprache.
 
 Im Anschluss finden Sie einige wichtige Parameter:
 
@@ -48,6 +48,10 @@ Wenn Sie auf **Zusätzliche Parameter** klicken, werden die folgenden Parameter 
 |Offset    | Die Anzahl von Ergebnissen, die übersprungen werden sollen, bevor Ergebnisse zurückgegeben werden. Nur für Endpunkte für die Web-, Bilder- und Videosuche verfügbar.        |
     
 Nachdem Sie alle erforderlichen Optionen angegeben haben, klicken Sie auf **Aufrufen**, um die JSON-Antwort im rechten Bereich anzuzeigen. Wenn Sie den Endpunkt für die gehostete Benutzeroberfläche auswählen, können Sie die Suche im unteren Bereich testen.
+
+## <a name="change-your-bing-custom-search-subscription"></a>Ändern Ihres Abonnements für die benutzerdefinierte Bing-Suche
+
+Sie können das Abonnement ändern, das Ihrer benutzerdefinierten Bing-Suchinstanz zugeordnet ist, ohne eine neue Instanz zu erstellen. Damit API-Aufrufe an ein neues Abonnement gesendet und für dieses berechnet werden, erstellen Sie eine neue Ressource für die benutzerdefinierte Bing-Suche im Azure-Portal. Verwenden Sie den neuen Abonnementschlüssel in Ihren API-Anforderungen zusammen mit der benutzerdefinierten Konfigurations-ID Ihrer Instanz.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

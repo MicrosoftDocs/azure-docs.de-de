@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
 ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62107669"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Schützen der Dienstremotingkommunikation in einem C#-Dienst
 > [!div class="op_single_selector"]

@@ -14,12 +14,14 @@
       href: virtual-wan-point-to-site-portal.md
 - name: Konzepte
   items:
-    - name: Standorte und Partner
+    - name: Informationen zu Standorten und Partnern
       href: virtual-wan-locations-partners.md
-    - name: Globale Übertragungsnetzwerkarchitektur
+    - name: Informationen zur globalen Übertragungsnetzwerkarchitektur
       href: virtual-wan-global-transit-network-architecture.md
-    - name: Office 365-Steuerebene in Virtual WAN
+    - name: Informationen zur Office 365-Steuerungsebene in Virtual WAN
       href: virtual-wan-office365-overview.md
+    - name: Informationen zu IPsec-Richtlinien
+      href: virtual-wan-ipsec.md
 - name: Anleitungen
   items:
     - name: Weiterleiten von Datenverkehr von einem virtuellen Hub an ein virtuelles Netzwerkgerät

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 807045089f70e117d46754412d974be7fba5a77a
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832502"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751915"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Entwicklung der Microsoft Identity Platform
 
@@ -58,7 +58,7 @@ Die **Anwendungs-API in Microsoft Graph** ist derzeit als Vorschauversion verfü
 
 ### <a name="msal-libraries"></a>MSAL-Bibliotheken
 
-Sie können die MSAL-Bibliothek zum Erstellen von Anwendungen nutzen, die sämtliche Microsoft-Identitäten authentifizieren. Die MSAL-Bibliotheken in .NET sind allgemein verfügbar. MSAL-Bibliotheken für JavaScript, iOS und Android befinden sich in der Vorschau und sind für die Verwendung in einer Produktionsumgebung geeignet. Wir bieten für MSAL-Bibliotheken in der Vorschau denselben professionellen Produktionssupport wie wir für allgemein verfügbare MSAL- und ADAL-Versionen.
+Sie können die MSAL-Bibliothek zum Erstellen von Anwendungen nutzen, die sämtliche Microsoft-Identitäten authentifizieren. Die MSAL-Bibliotheken in .NET und JavaScript sind allgemein verfügbar. MSAL-Bibliotheken für iOS und Android befinden sich in der Vorschauphase und sind für die Verwendung in einer Produktionsumgebung geeignet. Wir bieten für MSAL-Bibliotheken in der Vorschau denselben professionellen Produktionssupport wie wir für allgemein verfügbare MSAL- und ADAL-Versionen.
 
 Sie können die MSAL-Bibliotheken auch verwenden, um Ihre Anwendung in Azure AD B2C zu integrieren.
 

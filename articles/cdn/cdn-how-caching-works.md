@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60636808"
 ---
 # <a name="how-caching-works"></a>Funktionsweise der Zwischenspeicherung
 

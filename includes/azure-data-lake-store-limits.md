@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: storage
 author: twooley
 ms.service: storage
@@ -9,11 +9,11 @@ ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: f328de00d206b58037fda800354e9634b1c374d6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553552"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178482"
 ---
 Azure Data Lake Storage Gen1 ist ein unternehmensweites Repository mit Hyperskalierung für Big Data-Analyseworkloads. Sie können mit Data Lake Storage Gen1 Daten von beliebiger Größe, Art und Erfassungsgeschwindigkeit zur Durchführung operativer und explorativer Analysen an einem einzigen Ort erfassen. Es gibt keine Beschränkung für die Datenmenge, die Sie in einem Data Lake Storage Gen1-Konto speichern können.
 

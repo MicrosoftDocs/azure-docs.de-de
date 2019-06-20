@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 92476f9ac48c168c3bbe85d4da49b6afe034c117
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 6cccae343e0a06af88c2e996c37910de72138c60
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66475045"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Bereitstellen von Ressourcen mit Azure Resource Manager-Vorlagen und Azure-CLI
 
@@ -42,6 +42,8 @@ Für die Bereitstellung in einem **Abonnement** verwenden Sie [az deployment cre
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
+
+Derzeit werden Verwaltungsgruppenbereitstellungen nur über die REST-API unterstützt. Weitere Informationen finden Sie unter [Bereitstellen von Ressourcen mit Resource Manager-Vorlagen und Resource Manager-REST-API](resource-group-template-deploy-rest.md).
 
 Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Weitere Informationen zu Abonnementbereitstellungen finden Sie unter [Erstellen von Ressourcengruppen und Ressourcen auf Abonnementebene](deploy-to-subscription.md).
 
@@ -102,11 +104,11 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Erneute Bereitstellung bei Bereitstellungsfehlern
 
-Dieses Feature ist auch bekannt als *Rollback bei Fehler*. Wenn eine Bereitstellung fehlschlägt, können Sie automatisch eine frühere, erfolgreiche Bereitstellung aus Ihrem Bereitstellungsverlauf bereitstellen. Zum Angeben einer erneuten Bereitstellung verwenden Sie den Parameter `--rollback-on-error` im Bereitstellungsbefehl. Diese Funktion ist nützlich, wenn Sie einen bekannten guten Zustand für die Infrastrukturbereitstellung haben und dieser wiederhergestellt werden soll. Es gibt eine Reihe von Vorbehalten und Einschränkungen:
+Dieses Feature ist auch bekannt als *Rollback bei Fehler*. Wenn eine Bereitstellung fehlschlägt, können Sie automatisch eine frühere, erfolgreiche Bereitstellung aus Ihrem Bereitstellungsverlauf bereitstellen. Zum Angeben einer erneuten Bereitstellung verwenden Sie den Parameter `--rollback-on-error` im Bereitstellungsbefehl. Diese Funktionalität ist nützlich, wenn es einen bekannten guten Zustand für die Infrastrukturbereitstellung gibt, der wiederhergestellt werden soll. Es gibt eine Reihe von Vorbehalten und Einschränkungen:
 
 - Die Bereitstellung wird genauso wie zuvor mit denselben Parametern ausgeführt. Sie können die Parameter nicht ändern.
 - Die vorherige Bereitstellung wird im [vollständigen Modus](./deployment-modes.md#complete-mode) ausgeführt. Alle in der vorherigen Bereitstellung nicht enthaltenen Ressourcen werden gelöscht, und alle Ressourcenkonfigurationen werden auf ihren vorherigen Zustand zurückgesetzt. Sorgen Sie dafür, dass Sie die [Bereitstellungsmodi](./deployment-modes.md) vollständig verstehen.
-- Die erneute Bereitstellung wirkt sich nur auf die Ressourcen aus; Datenänderungen sind davon nicht betroffen.
+- Die erneute Bereitstellung wirkt sich nur auf die Ressourcen aus. Datenänderungen sind davon nicht betroffen.
 - Dieses Feature wird nur bei Bereitstellungen von Ressourcengruppen unterstützt, nicht bei Bereitstellungen auf Abonnementebene. Weitere Informationen zu Bereitstellungen auf Abonnementebene finden Sie unter [Erstellen von Ressourcengruppen und Ressourcen auf Abonnementebene](./deploy-to-subscription.md).
 
 Zur Verwendung dieser Option müssen die Bereitstellungen eindeutige Namen aufweisen, damit sie im Verlauf identifiziert werden können. Wenn die Bereitstellungen keine eindeutigen Namen aufweisen, wird die vorherige erfolgreich ausgeführte Bereitstellung im Verlauf möglicherweise durch die aktuelle fehlerhafte Bereitstellung überschrieben. Diese Option kann nur für Bereitstellungen auf Stammebene verwendet werden. Bereitstellungen aus einer geschachtelten Vorlage können nicht erneut bereitgestellt werden.

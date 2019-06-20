@@ -17,28 +17,28 @@ ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699252"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60836116"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines – DBMS-Bereitstellung für SAP-Workload
-[1114181]:https://launchpad.support.sap.com/#/notes/1114181
-[1409604]:https://launchpad.support.sap.com/#/notes/1409604
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
-[2171857]:https://launchpad.support.sap.com/#/notes/2171857
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1114181]: https://launchpad.support.sap.com/#/notes/1114181
+[1409604]: https://launchpad.support.sap.com/#/notes/1409604
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2039619]: https://launchpad.support.sap.com/#/notes/2039619
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2171857]: https://launchpad.support.sap.com/#/notes/2171857
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [deployment-guide]:deployment-guide.md
 [deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
 [planning-guide]:planning-guide.md

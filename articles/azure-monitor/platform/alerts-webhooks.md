@@ -9,11 +9,11 @@ ms.date: 04/03/2017
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345776"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Benachrichtigung eines nicht unter Azure ausgeführten Systems durch eine klassische Metrikwarnung mithilfe eines Webhooks
 Mithilfe von Webhooks können Benutzer eine Azure-Warnbenachrichtigung zur Nachbearbeitung oder Ausführung benutzerdefinierter Aktionen an andere Systeme weiterleiten. Sie können einen Webhook für eine Warnung verwenden, um sie an Dienste weiterzuleiten, die SMS-Nachrichten versenden, um Fehler zu protokollieren, um ein Team per Chat-/Messagingdienst zu benachrichtigen oder um verschiedene andere Aktionen auszuführen. 
@@ -76,7 +76,7 @@ Der POST-Vorgang enthält für alle metrikbasierten Warnungen die folgende JSON-
 | timestamp |J | |Der Zeitpunkt, an dem die Warnung ausgelöst wurde. |
 | id |J | |Jede Warnungsregel verfügt über eine eindeutige ID. |
 | name |J | |Der Name der Warnung. |
-| Beschreibung |J | |Eine Beschreibung der Warnung. |
+| description |J | |Eine Beschreibung der Warnung. |
 | conditionType |J |Metric, Event |Zwei Arten von Warnungen werden unterstützt: Metrik- und Ereigniswarnungen. Metrikwarnungen basieren auf einer Metrikbedingung. Ereigniswarnungen basieren auf einem Ereignis im Aktivitätsprotokoll. Überprüfen Sie mithilfe dieses Werts, ob die Warnung auf einer Metrik oder einem Ereignis basiert. |
 | condition |J | |Die spezifischen Felder, die anhand des Werts von **conditionType** überprüft werden. |
 | metricName |Für Metrikwarnungen | |Der Name der Metrik, die definiert, welche Elemente mit der Regel überwacht werden. |
@@ -90,10 +90,10 @@ Der POST-Vorgang enthält für alle metrikbasierten Warnungen die folgende JSON-
 | resourceGroupName |J | |Der Name der Ressourcengruppe für die betroffene Ressource. |
 | resourceName |J | |Der Ressourcenname der betroffenen Ressource. |
 | resourceType |J | |Der Ressourcentyp der betroffenen Ressource. |
-| Ressourcen-ID |J | |Die Ressourcen-ID der betroffenen Ressource. |
+| resourceId |J | |Die Ressourcen-ID der betroffenen Ressource. |
 | resourceRegion |J | |Die Region oder der Speicherort der betroffenen Ressource. |
 | portalLink |J | |Ein direkter Link zur Ressourcenzusammenfassungsseite des Portals. |
-| Eigenschaften |N |Optional |Ein Satz von Schlüssel-Wert-Paaren mit Details zum Ereignis. Beispiel: `Dictionary<String, String>`. Das Feld "properties" ist optional. Auf einer angepassten Benutzeroberfläche oder in einem Workflow, der auf der Logik-App beruht, können Benutzer Schlüssel-Wert-Paare eingeben, die über die Nutzlast übergeben werden können. Alternativ können benutzerdefinierte Eigenschaften direkt über den Webhook-URI an den Webhook zurückgegeben werden (als Abfrageparameter). |
+| properties |N |Optional |Ein Satz von Schlüssel-Wert-Paaren mit Details zum Ereignis. Beispiel: `Dictionary<String, String>`. Das Feld "properties" ist optional. Auf einer angepassten Benutzeroberfläche oder in einem Workflow, der auf der Logik-App beruht, können Benutzer Schlüssel-Wert-Paare eingeben, die über die Nutzlast übergeben werden können. Alternativ können benutzerdefinierte Eigenschaften direkt über den Webhook-URI an den Webhook zurückgegeben werden (als Abfrageparameter). |
 
 > [!NOTE]
 > Das Feld **properties** kann nur mithilfe der [Azure Monitor REST-APIs](https://msdn.microsoft.com/library/azure/dn933805.aspx) festgelegt werden.

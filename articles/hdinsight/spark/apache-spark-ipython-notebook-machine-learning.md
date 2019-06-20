@@ -6,20 +6,20 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 87efac96aa0120bfcc804f7a2a49a5ac3da1036b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ed6a8f83d2ef31513aeadbc6741dd77c30c30070
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719072"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252879"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Erstellen einer Apache Spark-Machine Learning-Anwendung in HDInsight 
 
 In diesem Tutorial lernen Sie, wie Sie mit [Jupyter Notebook](https://jupyter.org/) eine [Apache Spark](https://spark.apache.org/)-Machine Learning-Anwendung für Azure HDInsight erstellen. 
 
-[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) ist die skalierbare Machine Learning-Bibliothek von Spark mit gängigen Lernalgorithmen und Hilfsprogrammen – einschließlich Klassifizierung, Regression, Clustering, kombinierten Filtern und Reduktion der Anzahl von Dimensionen sowie zugrunde liegenden Optimierungsprimitiven.
+[MLib](https://spark.apache.org/docs/latest/ml-guide.html) ist die skalierbare Machine Learning-Bibliothek von Spark mit gängigen Lernalgorithmen und Hilfsprogrammen – einschließlich Klassifizierung, Regression, Clustering, kombinierten Filtern und Reduktion der Anzahl von Dimensionen sowie zugrunde liegenden Optimierungsprimitiven.
 
 In diesem Tutorial lernen Sie Folgendes:
 > [!div class="checklist"]
@@ -27,15 +27,15 @@ In diesem Tutorial lernen Sie Folgendes:
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
-## <a name="prerequisites"></a>Voraussetzungen:
+## <a name="prerequisites"></a>Voraussetzungen
 
-Sie benötigen das folgende Element:
+* Ein Apache Spark-Cluster unter HDInsight. Weitere Informationen finden Sie unter [Erstellen eines Apache Spark-Clusters](./apache-spark-jupyter-spark-sql-use-portal.md).
 
-* Schließen Sie das [Erstellen eines Apache Spark-Clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md) ab.
+* Kenntnisse im Umgang mit Jupyter Notebooks mit Spark in HDInsight. Weitere Informationen finden Sie unter [Tutorial: Laden von Daten und Ausführen von Abfragen auf einem Apache Spark-Cluster in Azure HDInsight](./apache-spark-load-data-run-query.md).
 
 ## <a name="understand-the-data-set"></a>Grundlegendes zum Dataset
 
-Für die Anwendung werden die HVAC.csv-Beispieldaten genutzt, die standardmäßig auf allen Clustern verfügbar sind. Die Datei befindet sich unter **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Die Daten zeigen die Zieltemperatur und die Ist-Temperatur von Gebäuden an, in denen HVAC-Systeme installiert sind. Die Spalte **System** enthält die System-ID und die Spalte **SystemAge** eine Angabe in Jahren, wie lange das HVAC-System im Gebäude bereits verwendet wird. Mit diesen Daten können Sie vorhersagen, ob es in einem Gebäude basierend auf der Zieltemperatur zu warm oder zu kalt ist. Hierfür werden die System-ID und das Alter des Systems verwendet.
+Für die Anwendung werden die HVAC.csv-Beispieldaten genutzt, die standardmäßig auf allen Clustern verfügbar sind. Die Datei befindet sich unter `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Die Daten zeigen die Zieltemperatur und die Ist-Temperatur von Gebäuden an, in denen HVAC-Systeme installiert sind. Die Spalte **System** enthält die System-ID und die Spalte **SystemAge** eine Angabe in Jahren, wie lange das HVAC-System im Gebäude bereits verwendet wird. Mit diesen Daten können Sie vorhersagen, ob es in einem Gebäude basierend auf der Zieltemperatur zu warm oder zu kalt ist. Hierfür werden die System-ID und das Alter des Systems verwendet.
 
 ![Momentaufnahme der für das Spark-Machine Learning-Beispiel verwendeten Daten](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Momentaufnahme der für das Spark-Machine Learning-Beispiel verwendeten Daten")
 
@@ -60,6 +60,7 @@ In dieser Anwendung verwenden Sie eine Spark [ML-Pipeline](https://spark.apache.
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
+
 3. Lasen Sie die Daten (hvac.csv), analysieren Sie sie, und verwenden Sie sie zum Trainieren des Modells. 
 
     ```PySpark
@@ -96,7 +97,7 @@ In dieser Anwendung verwenden Sie eine Spark [ML-Pipeline](https://spark.apache.
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    Weitere Informationen zur Pipeline und ihrer Funktionsweise finden Sie unter <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark machine learning pipeline</a> (Apache Spark-Machine Learning-Pipeline).
+    Weitere Informationen zur Pipeline und ihrer Funktionsweise finden Sie unter [Apache Spark machine learning pipeline](https://spark.apache.org/docs/latest/ml-pipeline.html) (Apache Spark-Machine Learning-Pipeline).
 
 5. Passen Sie die Pipeline an das Schulungsdokument an.
    
@@ -187,12 +188,7 @@ Apache Spark-Cluster in HDInsight enthalten Anaconda-Bibliotheken. Dazu gehört 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Tutorial haben Sie Folgendes gelernt:
-
-* Entwickeln einer Apache Spark-Machine Learning-Anwendung
-
-Im nächsten Tutorial erfahren Sie, wie Sie IntelliJ IDEA für Spark-Aufträge verwenden. 
+In diesem Tutorial haben Sie gelernt, wie Sie mit Jupyter Notebook eine Apache Spark-Machine Learning-Anwendung für Azure HDInsight erstellen. Im nächsten Tutorial erfahren Sie, wie Sie IntelliJ IDEA für Spark-Aufträge verwenden. 
 
 > [!div class="nextstepaction"]
 > [Erstellen einer Scala Maven-Anwendung mit IntelliJ](./apache-spark-create-standalone-application.md)
-

@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: reference
-ms.openlocfilehash: b257a8d15eeed5989db2b69f64bf6e756a73a1fd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ae9b17dde20913c5d8d1201e66fcc924ce26a2b1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767514"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389333"
 ---
 # <a name="glossary"></a>Glossar
 

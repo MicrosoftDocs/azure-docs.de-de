@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: cc66630f57af32e18916e0662a400b38f27000a9
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 6f4b13e5fb2dc8ed595999bfc8a2abe4db15dcbb
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472598"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393908"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Schnellstart: Erstellen eines Objekterkennungsprojekts mit dem Custom Vision SDK für .NET
 
@@ -109,7 +109,7 @@ Console.WriteLine("Making a prediction:");
 var imageFile = Path.Combine("Images", "test", "test_image.jpg");
 using (var stream = File.OpenRead(imageFile))
 {
-        var result = endpoint.DetectImage(project.Id, publishedModelName, File.OpenRead(imageFile));
+        var result = endpoint.DetectImage(project.Id, publishedModelName, stream);
 
         // Loop over each prediction and write out the results
         foreach (var c in result.Predictions)
@@ -133,7 +133,7 @@ Making a prediction:
         scissors: 1.2% [ 0.112389535, 0.119195729, 0.658031344, 0.7023591 ]
 ```
 
-Daraufhin können Sie sich vergewissern, dass das Testbild (unter **Images/Test/**) ordnungsgemäß gekennzeichnet und die Erkennungsregion korrekt ist. Drücken Sie eine beliebige Taste, um die Anwendung zu beenden.
+Daraufhin können Sie sich vergewissern, dass das Testbild (unter **Images/Test/** ) ordnungsgemäß gekennzeichnet und die Erkennungsregion korrekt ist. Drücken Sie eine beliebige Taste, um die Anwendung zu beenden.
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]
 

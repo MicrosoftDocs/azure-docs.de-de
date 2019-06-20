@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61065047"
 ---
 # <a name="monitor-server-metrics"></a>Überwachen von Servermetriken
 
@@ -46,7 +46,7 @@ Bestimmen Sie mit dieser Tabelle, welche Metriken für Ihr Überwachungsszenario
 |mashup_engine_memory_metric|M-Engine – Arbeitsspeicher|Byte|Durchschnitt|Arbeitsspeichernutzung durch Mashup-Engine-Prozesse|
 |mashup_engine_qpu_metric|M-Engine – QPU|Count|Durchschnitt|QPU-Nutzung durch Mashup-Engine-Prozesse|
 |memory_metric|Arbeitsspeicher|Byte|Durchschnitt|Arbeitsspeicher. Bereich: 0–25 GB für S1, 0–50 GB für S2 und 0–100 GB für S4|
-|memory_thrashing_metric|Arbeitsspeicherüberlastung|Prozent|Durchschnitt|Durchschnittliche Arbeitsspeicherüberlastung.|
+|memory_thrashing_metric|Arbeitsspeicherüberlastung|Percent|Durchschnitt|Durchschnittliche Arbeitsspeicherüberlastung.|
 |CleanerCurrentPrice|Arbeitsspeicher: Bereinigung – aktueller Preis|Count|Durchschnitt|Aktueller Preis des Arbeitsspeichers, $/Byte/Zeit, normalisiert auf 1000.|
 |CleanerMemoryNonshrinkable|Arbeitsspeicher: Bereinigung – nicht verkleinerbarer Arbeitsspeicher|Byte|Durchschnitt|Die Menge des Arbeitsspeichers in Byte, die nicht durch den Hintergrundbereinigungsprozess bereinigt wird.|
 |CleanerMemoryShrinkable|Arbeitsspeicher: Bereinigung – verkleinerbarer Arbeitsspeicher|Byte|Durchschnitt|Die Menge des Arbeitsspeichers in Byte, die durch den Hintergrundbereinigungsprozess bereinigt wird.|

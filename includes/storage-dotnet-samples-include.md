@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 15ed78095cf3ff465b24d181d2fb2d4c4dde2f69
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114753"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178300"
 ---
 ## <a name="net-sample-code-repositories"></a>Repositorys mit .NET-Beispielcode
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60322871"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopieren von Daten aus Spark mithilfe von Azure Data Factory 
 
@@ -41,21 +41,21 @@ Folgende Eigenschaften werden für den mit Spark verknüpften Dienst unterstütz
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **Spark** | JA |
-| host | IP-Adresse oder Hostname des Spark-Servers  | JA |
-| port | Der TCP-Port, den der Spark-Server verwendet, um auf Clientverbindungen zu lauschen. Geben Sie beim Herstellen einer Verbindung mit Azure HDInsights als Port 443 an. | JA |
-| serverType | Der Typ des Spark-Servers. <br/>Zulässige Werte sind: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nein  |
-| thriftTransportProtocol | Das auf der Thrift-Ebene zu verwendende Transportprotokoll. <br/>Zulässige Werte sind: **Binary**, **SASL**, **HTTP** | Nein  |
-| authenticationType | Die Authentifizierungsmethode für den Zugriff auf den Spark-Server. <br/>Zulässige Werte sind: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | JA |
-| username | Der Benutzername für den Zugriff auf den Spark-Server.  | Nein  |
-| password | Das Kennwort für den Benutzer. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein  |
-| httpPath | Die Teil-URL, die dem Spark-Server entspricht.  | Nein  |
-| enableSsl | Gibt an, ob die Verbindungen mit dem Server mit SSL verschlüsselt werden. Der Standardwert ist „false“.  | Nein  |
-| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn SSL in einer selbstgehostetem IR verwendet wird. Der Standardwert ist die Datei „cacerts.pem“, die mit der IR installiert wird.  | Nein  |
-| useSystemTrustStore | Gibt an, ob ein Zertifizierungsstellenzertifikat aus dem Vertrauensspeicher des Systems oder aus einer angegebenen PEM-Datei verwendet werden soll. Der Standardwert ist „false“.  | Nein  |
-| allowHostNameCNMismatch | Gibt an, ob ein von der Zertifizierungsstelle ausgestellter SSL-Zertifikatsname erforderlich ist, der mit dem Hostnamen des Servers übereinstimmt, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert ist „false“.  | Nein  |
-| allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „false“.  | Nein  |
-| connectVia | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Sie können die selbstgehostete Integration Runtime oder Azure Integration Runtime verwenden (sofern Ihr Datenspeicher öffentlich zugänglich ist). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein  |
+| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **Spark** | Ja |
+| host | IP-Adresse oder Hostname des Spark-Servers  | Ja |
+| port | Der TCP-Port, den der Spark-Server verwendet, um auf Clientverbindungen zu lauschen. Geben Sie beim Herstellen einer Verbindung mit Azure HDInsights als Port 443 an. | Ja |
+| serverType | Der Typ des Spark-Servers. <br/>Zulässige Werte sind: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nein |
+| thriftTransportProtocol | Das auf der Thrift-Ebene zu verwendende Transportprotokoll. <br/>Zulässige Werte sind: **Binary**, **SASL**, **HTTP** | Nein |
+| authenticationType | Die Authentifizierungsmethode für den Zugriff auf den Spark-Server. <br/>Zulässige Werte sind: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| userName | Der Benutzername für den Zugriff auf den Spark-Server.  | Nein |
+| password | Das Kennwort für den Benutzer. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein |
+| httpPath | Die Teil-URL, die dem Spark-Server entspricht.  | Nein |
+| enableSsl | Gibt an, ob die Verbindungen mit dem Server mit SSL verschlüsselt werden. Der Standardwert ist „false“.  | Nein |
+| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn SSL in einer selbstgehostetem IR verwendet wird. Der Standardwert ist die Datei „cacerts.pem“, die mit der IR installiert wird.  | Nein |
+| useSystemTrustStore | Gibt an, ob ein Zertifizierungsstellenzertifikat aus dem Vertrauensspeicher des Systems oder aus einer angegebenen PEM-Datei verwendet werden soll. Der Standardwert ist „false“.  | Nein |
+| allowHostNameCNMismatch | Gibt an, ob ein von der Zertifizierungsstelle ausgestellter SSL-Zertifikatsname erforderlich ist, der mit dem Hostnamen des Servers übereinstimmt, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert ist „false“.  | Nein |
+| allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „false“.  | Nein |
+| connectVia | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Sie können die selbstgehostete Integration Runtime oder Azure Integration Runtime verwenden (sofern Ihr Datenspeicher öffentlich zugänglich ist). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein |
 
 **Beispiel:**
 
@@ -86,7 +86,7 @@ Legen Sie zum Kopieren von Daten aus Spark die „type“-Eigenschaft des Datase
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **SparkObject** | JA |
+| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **SparkObject** | Ja |
 | tableName | Name der Tabelle. | Nein (wenn „query“ in der Aktivitätsquelle angegeben ist) |
 
 **Beispiel**
@@ -115,7 +115,7 @@ Legen Sie zum Kopieren von Daten aus Spark den Quelltyp in der Kopieraktivität 
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **SparkSource** | JA |
+| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **SparkSource** | Ja |
 | query | Verwendet die benutzerdefinierte SQL-Abfrage zum Lesen von Daten. Beispiel: `"SELECT * FROM MyTable"`. | Nein (wenn „tableName“ im Dataset angegeben ist) |
 
 **Beispiel:**

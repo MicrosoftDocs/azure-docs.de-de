@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409364"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Einbinden des Avere vFXT-Clusters  
 

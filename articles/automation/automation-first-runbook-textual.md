@@ -11,11 +11,11 @@ ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60739956"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mein erstes PowerShell-Workflow-Runbook
 
@@ -61,7 +61,7 @@ Sie können entweder direkt Code in das Runbook eingeben, oder Sie wählen Cmdle
    }
    ```
 
-1. Geben Sie zwischen den geschweiften Klammern *Write-Output "Hello World."*  ein.
+1. Geben Sie zwischen den geschweiften Klammern *Write-Output "Hello World."* ein.
 
    ```powershell-interactive
    Workflow MyFirstRunbook-Workflow

@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886096"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751661"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Erläuterungen zur Net#-Spezifikationssprache für neuronale Netzwerke für Azure Machine Learning Studio
 
@@ -89,17 +89,17 @@ Mit der folgenden Anweisung wird beispielsweise die Konstante `x` definiert:
 
 `Const X = 28;`
 
-Um zwei oder mehr Konstanten gleichzeitig zu definieren, schließen Sie die Bezeichnernamen und -werte in geschweifte Klammern ein, und verwenden Sie Semikolons als Trennzeichen. Beispiel: 
+Um zwei oder mehr Konstanten gleichzeitig zu definieren, schließen Sie die Bezeichnernamen und -werte in geschweifte Klammern ein, und verwenden Sie Semikolons als Trennzeichen. Beispiel:
 
 `Const { X = 28; Y = 4; }`
 
-Bei der rechten Seite eines Zuweisungsausdrucks kann es sich um eine ganze Zahl, eine reelle Zahl, einen booleschen Wert (True oder False) oder einen mathematischen Ausdruck handeln. Beispiel: 
+Bei der rechten Seite eines Zuweisungsausdrucks kann es sich um eine ganze Zahl, eine reelle Zahl, einen booleschen Wert (True oder False) oder einen mathematischen Ausdruck handeln. Beispiel:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Schichtdeklaration
 
-Die Schichtdeklaration ist erforderlich. Sie definiert die Größe und die Quelle der Schicht, einschließlich ihrer Verbindungsbündel und Attribute. Die Deklarationsanweisung beginnt mit den Namen der Schicht (input, hidden oder output), gefolgt von den Dimensionen der Schicht (ein Tupel positiver ganzer Zahlen). Beispiel: 
+Die Schichtdeklaration ist erforderlich. Sie definiert die Größe und die Quelle der Schicht, einschließlich ihrer Verbindungsbündel und Attribute. Die Deklarationsanweisung beginnt mit den Namen der Schicht (input, hidden oder output), gefolgt von den Dimensionen der Schicht (ein Tupel positiver ganzer Zahlen). Beispiel:
 
 ```Net#
 input Data auto;

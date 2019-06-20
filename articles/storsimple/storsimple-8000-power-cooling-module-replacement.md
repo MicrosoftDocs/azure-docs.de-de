@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 7d181e6e434c998573dbea4b541cfacf7a28ee66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108598"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60632464"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Austauschen eines Moduls für Stromversorgung und Kühlung eines StorSimple-Geräts
 ## <a name="overview"></a>Übersicht
@@ -61,7 +61,7 @@ Gehen Sie entsprechend der folgenden Anleitung vor, wenn Sie ein Modul für Stro
    
      **Abbildung 1** Vorderseite des Geräts  
    
-   | Bezeichnung | Beschreibung |
+   | Bezeichnung | BESCHREIBUNG |
    |:--- |:--- |
    | 1 |Taste zum Stummschalten |
    | 2 |Systemstromversorgung |
@@ -74,7 +74,7 @@ Gehen Sie entsprechend der folgenden Anleitung vor, wenn Sie ein Modul für Stro
    
      **Abbildung 2** Rückseite eines PCM mit Indikator-LEDs
    
-   | Bezeichnung | Beschreibung |
+   | Bezeichnung | BESCHREIBUNG |
    |:--- |:--- |
    | 1 |Stromausfall (Wechselstrom) |
    | 2 |Lüfterausfall |
@@ -88,7 +88,7 @@ Gehen Sie entsprechend der folgenden Anleitung vor, wenn Sie ein Modul für Stro
    
      **Abbildung 3** Rückseite des Geräts mit Steckmodulen 
    
-   | Bezeichnung | Beschreibung |
+   | Bezeichnung | BESCHREIBUNG |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

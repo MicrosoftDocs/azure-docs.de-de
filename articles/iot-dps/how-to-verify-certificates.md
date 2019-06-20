@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "54913613"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Nachweis des Besitzes für X.509-Zertifizierungsstellenzertifikate mit Ihrem Device Provisioning-Dienst
@@ -66,7 +66,7 @@ Die in der Dokumentation und den SDKs bereitgestellten PowerShell- und Bash-Skri
 
 1. Laden Sie die resultierende Signatur als Verifizierungszertifikat in Ihren Bereitstellungsdienst im Portal hoch. Verwenden Sie unter **Zertifikatdetails** im Azure-Portal das Symbol _Datei-Explorer_ neben dem Feld **PEM- oder CER-Verifizierungszertifikatsdatei**, um das signierte Verifizierungszertifikat von Ihrem System hochzuladen.
 
-2. Nachdem das Zertifikat hochgeladen wurde, klicken Sie auf **Überprüfen**. Der **STATUS** Ihres Zertifikats in der Liste **Zertifikate** wechselt zu **_Überprüft_**. Klicken Sie auf **Aktualisieren**, wenn es nicht automatisch aktualisiert wird.
+2. Nachdem das Zertifikat hochgeladen wurde, klicken Sie auf **Überprüfen**. Der **STATUS** Ihres Zertifikats in der Liste **Zertifikate** wechselt zu **_Überprüft_** . Klicken Sie auf **Aktualisieren**, wenn es nicht automatisch aktualisiert wird.
 
    ![Hochladen der Zertifikatprüfung](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547984"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60769514"
 ---
 # <a name="add-a-shape-to-a-map"></a>Hinzufügen einer Form zu einer Karte
 
@@ -126,7 +126,7 @@ Die Polygonebene verfügt nur über ein paar Formatierungsoptionen. Hier ist ein
 
 ## <a name="add-a-circle-to-the-map"></a>Hinzufügen eines Kreises zur Karte
 
-Azure Maps verwendet eine erweiterte Version des GeoJSON-Schemas, das eine Definition für Kreise bereitstellt, wie [hier](extend-geojson.md#circle) beschrieben. Ein Kreis kann auf der Karte gerendert werden, indem ein `Point`-Feature erstellt wird, die eine `subType`-Eigenschaft mit einem Wert von `"Circle"` und eine `radius`-Eigenschaft mit einer Zahl aufweist, die den Radius in Metern darstellt. Beispiel: 
+Azure Maps verwendet eine erweiterte Version des GeoJSON-Schemas, das eine Definition für Kreise bereitstellt, wie [hier](extend-geojson.md#circle) beschrieben. Ein Kreis kann auf der Karte gerendert werden, indem ein `Point`-Feature erstellt wird, die eine `subType`-Eigenschaft mit einem Wert von `"Circle"` und eine `radius`-Eigenschaft mit einer Zahl aufweist, die den Radius in Metern darstellt. Beispiel:
 
 ```javascript
 {

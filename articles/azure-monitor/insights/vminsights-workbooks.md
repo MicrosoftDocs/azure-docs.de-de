@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287589"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61387157"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Erstellen interaktiver Berichte mit Azure Monitor-Arbeitsmappen
 
@@ -33,7 +33,7 @@ Arbeitsmappen sind beispielsweise für folgende Szenarien hilfreich:
 
 Azure Monitor für VMs enthält mehrere Arbeitsmappen, um Ihnen den Einstieg zu erleichtern. Diese sind in der folgenden Tabelle zusammengefasst:
 
-| Arbeitsmappe | BESCHREIBUNG | Bereich |
+| Arbeitsmappe | BESCHREIBUNG | `Scope` |
 |----------|-------------|-------|
 | Leistung | Eine anpassbare Version unserer Top-N-Liste und der Diagrammansicht in einer einzelnen Arbeitsmappe, die alle von Ihnen aktivierten Log Analytics-Leistungsindikatoren nutzt.| Skalierbar |
 | Leistungsindikatoren | Eine Top-N-Diagrammansicht für ein breites Spektrum von Leistungsindikatoren. | Skalierbar |
@@ -117,9 +117,9 @@ Jeder Abschnitt verfügt über eigene erweiterte Einstellungen, auf die über da
 
 |         |          |
 | ---------------- |:-----|
-| **Benutzerdefinierte Breite für dieses Element festlegen**    | Legt ein Element auf eine beliebige Größe fest. Dadurch können Sie zahlreiche Elemente in einer einzelnen Zeile platzieren und Ihre Diagramme und Tabellen besser als umfassende interaktive Berichte strukturieren.  |
-| **Dieses Element bedingt sichtbar machen** | Verwenden Sie diese Option, um Schritte im Lesemodus auf der Grundlage eines Parameters auszublenden. |
-| **Bei Auswahl eines Elements Parameter exportieren**| Mit dieser Option können durch Auswählen einer Zeile im Raster oder Diagramm die Werte späterer Schritte geändert oder spätere Schritte sichtbar gemacht werden.  |
+| **Benutzerdefinierte Breite**    | Legt ein Element auf eine beliebige Größe fest. Dadurch können Sie zahlreiche Elemente in einer einzelnen Zeile platzieren und Ihre Diagramme und Tabellen besser als umfassende interaktive Berichte strukturieren.  |
+| **Bedingt sichtbar** | Verwenden Sie diese Option, um Schritte im Lesemodus auf der Grundlage eines Parameters auszublenden. |
+| **Parameter exportieren**| Mit dieser Option können durch Auswählen einer Zeile im Raster oder Diagramm die Werte späterer Schritte geändert oder spätere Schritte sichtbar gemacht werden.  |
 | **Abfrage anzeigen, wenn keine Bearbeitung erfolgt** | Zeigt die Abfrage oberhalb des Diagramms oder der Tabelle an, auch wenn der Lesemodus aktiv ist.
 | **Schaltfläche „In Analyse öffnen“ anzeigen, wenn gerade keine Bearbeitung erfolgt** | Fügt in der rechten Ecke des Diagramms das blaue Analytics-Symbol hinzu, um mit einem Klick auf Analytics zugreifen zu können.|
 
@@ -173,7 +173,7 @@ Aktuell werden vier verschiedene Arten von Parametern unterstützt:
 
 ### <a name="using-a-text-parameter"></a>Verwenden eines Textparameters
 
-Der Wert, den ein Benutzer in das Textfeld eingibt, wird direkt in der Abfrage ersetzt (ohne Escape- oder Anführungszeichen). Wenn der benötigte Wert eine Zeichenfolge ist, sollte die Abfrage den Parameter in Anführungszeichen setzen (z. B. **'{parameter}'**).
+Der Wert, den ein Benutzer in das Textfeld eingibt, wird direkt in der Abfrage ersetzt (ohne Escape- oder Anführungszeichen). Wenn der benötigte Wert eine Zeichenfolge ist, sollte die Abfrage den Parameter in Anführungszeichen setzen (z. B. **'{parameter}'** ).
 
 Mit dem Textparameter kann der Wert eines Textfelds überall verwendet werden. Er kann ein Tabellenname, Spaltenname, Funktionsname, Operator usw. sein.  Der Parametertyp „Text“ verfügt über die Einstellung **Standardwert aus Analyseabfrage abrufen**, die es dem Ersteller der Arbeitsmappe ermöglicht, eine Abfrage zu verwenden, um den Standardwert für das Textfeld aufzufüllen.
 

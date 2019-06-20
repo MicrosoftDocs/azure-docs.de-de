@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524366"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243268"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Einbinden von geschäftlichen Geräten in das Netzwerk der Organisation
 Binden Sie Ihr unternehmenseigenes Windows 10-Gerät in das Netzwerk Ihrer Organisation ein, sodass Sie auf möglicherweise eingeschränkte Ressourcen zugreifen können.
@@ -116,3 +116,4 @@ Nachdem Sie Ihr Gerät in das Netzwerk der Organisation eingebunden haben, sollt
 
 - Wenn in Ihrer Organisation gewünscht wird, dass Sie sich mit Ihrem persönlichen Gerät, also etwa mit Ihrem Telefon, registrieren, finden Sie die entsprechenden Informationen unter [Register your personal device on your organization's network (Registrieren des persönlichen Geräts im Netzwerk der eigenen Organisation)](user-help-register-device-on-network.md).
 
+- Wenn Ihre Organisation mithilfe von Microsoft Intune verwaltet wird und Sie Fragen zur Registrierung, Anmeldung und zu einem anderen Problem im Zusammenhang mit Intune haben, finden Sie die Antworten im [Inhalt der Intune-Benutzerhilfe](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

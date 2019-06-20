@@ -13,10 +13,10 @@ ms.reviewer: GeneMi
 ms.date: 03/12/2019
 manager: craigg
 ms.openlocfilehash: bc7274308b8a349d16866f107eac4a57e115be9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160853"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Herstellen einer Verbindung zu Azure SQL-Datenbank mit Azure Multi-Factor Authentication
@@ -122,7 +122,7 @@ Damit das C#-Programm erfolgreich ausgeführt wird, müssen Sie statischen Felde
 | AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **Benutzer** > **Neuer Gastbenutzer** |
 | Initial_DatabaseName | „myDatabase“ | **SQL-Server** > **SQL-Datenbanken** |
 | ClientApplicationID | „a94f9c62-97fe-4d19-b06d-111111111111“ | **Azure Active Directory** > **App-Registrierungen** > **Nach Namen suchen** > **Anwendungs-ID** |
-| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App-Registrierungen** > **Nach Namen suchen** > *[Ihre-App-Registrierung]* > **Einstellungen** > **RedirectURIs**<br /><br />Im Rahmen dieses Artikels ist jeder gültige Wert für RedirectUri geeignet, da er hier nicht verwendet wird. |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App-Registrierungen** > **Nach Namen suchen** >  *[Ihre-App-Registrierung]*  > **Einstellungen** > **RedirectURIs**<br /><br />Im Rahmen dieses Artikels ist jeder gültige Wert für RedirectUri geeignet, da er hier nicht verwendet wird. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>Durchführen einer Überprüfung mit SQL Server Management Studio

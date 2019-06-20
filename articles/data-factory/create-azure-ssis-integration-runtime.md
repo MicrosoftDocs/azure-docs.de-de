@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155195"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Erstellen von Azure-SSIS Integration Runtime in Azure Data Factory
@@ -51,7 +51,7 @@ Wenn Sie Azure-SSIS IR bereitstellen, werden auch das Azure Feature Pack für SS
 
     Vergewissern Sie sich, dass der Azure SQL-Datenbank-Server/die verwaltete Instanz nicht bereits über eine SSIDB verfügt. Für die Bereitstellung der Azure-SSIS IR wird die Verwendung einer vorhandenen SSISDB nicht unterstützt.
 
-- **Virtuelles Azure Resource Manager-Netzwerk (optional)**. Sie benötigen ein virtuelles Azure Resource Manager-Netzwerk, wenn mindestens eine der folgenden Bedingungen zutrifft:
+- **Virtuelles Azure Resource Manager-Netzwerk (optional)** . Sie benötigen ein virtuelles Azure Resource Manager-Netzwerk, wenn mindestens eine der folgenden Bedingungen zutrifft:
 
   - Sie hosten SSISDB auf einem Azure SQL-Datenbank-Server mit VNET-Dienstendpunkten oder in einer verwalteten Instanz, die sich in einem virtuellen Netzwerk befindet.
   - Sie möchten aus SSIS-Paketen, die in der Azure-SSIS IR ausgeführt werden, eine Verbindung mit lokalen Datenspeichern herstellen.

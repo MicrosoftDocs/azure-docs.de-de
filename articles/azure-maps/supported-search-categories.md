@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437342"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64727145"
 ---
 # <a name="azure-maps-supported-categories"></a>Unterstützte Kategorien in Azure Maps
 
@@ -105,7 +105,7 @@ Zum Erstellen einer [Suchkategorie](https://docs.microsoft.com/rest/api/maps/sea
 | REPAIR\_FACILITY | Karosseriewerkstätten, Reifendienste, Reparaturwerkstätten, Reparaturwerkstätten für Fahrzeugglas, allgemeine Autoreparaturen, Verkaufseinrichtung für Autozubehör, Motorradreparatur, LKW-Reparaturdienst, Reparatureinrichtung |
 | RESEARCH\_FACILITY | Forschungseinrichtung |
 | RESIDENTIAL\_ACCOMMODATION | Seniorensiedlung, Reihenhauskomplex, Wohnungen/Apartmentkomplex, Kondominiumkomplex, Wohngebiet, Wohnheime |
-| RESTAURANT | Deutsch, Cajun-kreolisch, Holländisch, Bankettsaal, Bistro, Israelisch, Slowakisch, Jamaikanisch, Vegetarisch, Meeresfrüchte, Vietnamesisch, Maltesisch, Sichuan, Walisisch, Chinesisch, Japanisch, Algerisch, Kalifornisch, Fusion, Shandong, Salatbar, Savoyisch, Spanisch, Äthiopisch, Taiwanesisch, Doughnuts, Iranisch, Kanadisch, Amerikanisch, Norwegisch, Französisch, Hunan, Polynesisch, Afghanisch, Street Food, Orientalisch, Schweizerisch, Erotisch, Crêperie, Surinamisch, Ägyptisch, Ungarisch, Nepalesisch, Grillfest, Eintopf, Hamburger, Mediterran, Lateinamerikanisch, Tapas, Britisch, Mexikanisch, Guangdong, Asiatisch (sonstige), Buffet, Sushi, Mongolisch, International, Muscheln, Thai, Venezolanisch, Rumänisch, Huhn, Suppe, Koscher, Steakhouse, Joghurt-/Saftbar, Italienisch, Koreanisch, Zyprisch, Bosnisch, Bolivianisch, Dominikanisch, Belgisch, Tunesisch, Schottisch, Englisch, Pakistanisch, Tschechisch, Hawaiisch, Maghreb, Tibetisch, Arabisch, Nahöstlich, Chilenisch, Shanghai, Polnisch, Philippinisch, Sudanesisch, Armenisch, Burmesisch, Brasilianisch, Skandinavisch, Bulgarisch, Soul Food, Kolumbianisch, Jüdisch, Pizza, Sizilianisch, Organisch, Griechisch, Baskisch, Uruguayisch, Cafeterias, Dongbei, Russisch, Grill, Take-away, Fast Food, Australisch, Irisch, rustikale Küche, Fondue, Libanesisch, Indonesisch, Dänisch, Provenzalisch, Teppanyaki, Indisch, Mauritisch, Westlich Kontinental, Peruanisch, Kambodschanisch, Snacks, Schwedisch, Makrobiotisch, Eisdiele, Slawisch, Türkisch, Argentinisch, Österreichisch, Exotisch, Portugiesisch, Luxemburgisch, Marokkanisch, Sandwich, Kubanisch, Restaurant |
+| RESTAURANT | Deutsch, Cajun-kreolisch, Niederländisch, Bankettsaal, Bistro, Israelisch, Slowakisch, Jamaikanisch, Vegetarisch, Meeresfrüchte, Vietnamesisch, Maltesisch, Sichuan, Walisisch, Chinesisch, Japanisch, Algerisch, Kalifornisch, Fusion, Shandong, Salatbar, Savoyisch, Spanisch, Äthiopisch, Taiwanesisch, Doughnuts, Iranisch, Kanadisch, Amerikanisch, Norwegisch, Französisch, Hunan, Polynesisch, Afghanisch, Street Food, Orientalisch, Schweizerisch, Erotisch, Crêperie, Surinamisch, Ägyptisch, Ungarisch, Nepalesisch, Grillfest, Eintopf, Hamburger, Mediterran, Lateinamerikanisch, Tapas, Britisch, Mexikanisch, Guangdong, Asiatisch (sonstige), Buffet, Sushi, Mongolisch, International, Muscheln, Thai, Venezolanisch, Rumänisch, Huhn, Suppe, Koscher, Steakhouse, Joghurt-/Saftbar, Italienisch, Koreanisch, Zyprisch, Bosnisch, Bolivianisch, Dominikanisch, Belgisch, Tunesisch, Schottisch, Englisch, Pakistanisch, Tschechisch, Hawaiisch, Maghreb, Tibetisch, Arabisch, Nahöstlich, Chilenisch, Shanghai, Polnisch, Philippinisch, Sudanesisch, Armenisch, Burmesisch, Brasilianisch, Skandinavisch, Bulgarisch, Soul Food, Kolumbianisch, Jüdisch, Pizza, Sizilianisch, Organisch, Griechisch, Baskisch, Uruguayisch, Cafeterias, Dongbei, Russisch, Grill, Take-away, Fast Food, Australisch, Irisch, rustikale Küche, Fondue, Libanesisch, Indonesisch, Dänisch, Provenzalisch, Teppanyaki, Indisch, Mauritisch, Westlich Kontinental, Peruanisch, Kambodschanisch, Snacks, Schwedisch, Makrobiotisch, Eisdiele, Slawisch, Türkisch, Argentinisch, Österreichisch, Exotisch, Portugiesisch, Luxemburgisch, Marokkanisch, Sandwich, Kubanisch, Restaurant |
 | RESTAURANT\_AREA | Restaurantbereich |
 | REST\_AREA | Rastplatz |
 | SCENIC\_PANORAMIC\_VIEW | malerisch/Panoramablick, Beobachtungspunkt |

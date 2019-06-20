@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60768655"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-Aktivität in Azure Data Factory
 
@@ -53,14 +53,15 @@ Die folgenden Datenquellen werden für die Lookup-Aktivität unterstützt. Von d
 ```
 
 ## <a name="type-properties"></a>Typeigenschaften
-NAME | BESCHREIBUNG | Typ | Erforderlich?
+
+NAME | BESCHREIBUNG | Type | Erforderlich?
 ---- | ----------- | ---- | --------
-dataset | Enthält die Datasetreferenz für die Lookupaktivität. Details finden Sie in den entsprechenden Connectorartikeln im Abschnitt **Dataset-Eigenschaften**. | Schlüssel-Wert-Paar | JA
-Quelle | Enthält spezifische Quelleneigenschaften für das Dataset, identisch mit der Quelle der Kopieraktivität. Details finden Sie in jedem entsprechenden Connectorartikel im Abschnitt **Eigenschaften der Kopieraktivität**. | Schlüssel-Wert-Paar | JA
-firstRowOnly | Gibt an, ob nur die erste Zeile oder alle Zeilen zurückgegeben werden sollen. | Boolescher Wert |  Nein. Der Standardwert lautet `true`.
+dataset | Enthält die Datasetreferenz für die Lookupaktivität. Details finden Sie in den entsprechenden Connectorartikeln im Abschnitt **Dataset-Eigenschaften**. | Schlüssel-Wert-Paar | Ja
+source | Enthält spezifische Quelleneigenschaften für das Dataset, identisch mit der Quelle der Kopieraktivität. Details finden Sie in jedem entsprechenden Connectorartikel im Abschnitt **Eigenschaften der Kopieraktivität**. | Schlüssel-Wert-Paar | Ja
+firstRowOnly | Gibt an, ob nur die erste Zeile oder alle Zeilen zurückgegeben werden sollen. | Boolean | Nein. Der Standardwert lautet `true`.
 
 > [!NOTE]
-
+> 
 > * Quellspalten mit dem Typ **ByteArray** werden nicht unterstützt.
 > * In der Datasetdefinition wird keine **Struktur** unterstützt. Bei Textformatdateien geben Sie den Spaltennamen in der Kopfzeile an.
 > * Wenn es sich bei Ihrer Lookup-Quelle um eine JSON-Datei handelt, wird die `jsonPathDefinition`-Einstellung zur Neugestaltung des JSON-Objekts nicht unterstützt. Die gesamten Objekte werden abgerufen.

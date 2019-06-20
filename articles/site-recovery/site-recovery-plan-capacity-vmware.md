@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358012"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64924846"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planen der Kapazität und Skalierung der VMware-Notfallwiederherstellung für Azure
 
@@ -120,7 +120,7 @@ Bevor Sie die Site Recovery-Infrastruktur einrichten, greifen Sie auf die Umgebu
 
 ## <a name="deploy-additional-process-servers"></a>Bereitstellen zusätzlicher Prozessserver
 
-Wenn Sie Ihre Bereitstellung über 200 Quellcomputer oder eine gesamte tägliche Änderungsrate von 2 TB hinaus horizontal hochskalieren, müssen Sie weitere Prozessserver zur Bewältigung des Datenverkehrsaufkommens hinzufügen. Informationen zum Einrichten des Prozessservers finden Sie unter [Skalieren für Failback durch Verwenden zusätzlicher Prozessserver](vmware-azure-set-up-process-server-scale.md). Nachdem Sie den Prozessserver eingerichtet haben, können Sie Quellcomputer migrieren, damit diese ihn verwenden.
+Wenn Sie Ihre Bereitstellung über 200 Quellcomputer oder eine gesamte tägliche Änderungsrate von 2 TB hinaus horizontal hochskalieren, müssen Sie weitere Prozessserver zur Bewältigung des Datenverkehrsaufkommens hinzufügen. Wir haben das Produkt in Version 9.24 erweitert, um beim Einrichten eines Prozessservers für die horizontale Skalierung das [Verarbeiten von Serverwarnungen](vmware-physical-azure-monitor-process-server.md#process-server-alerts) zu ermöglichen. [Richten Sie den Prozessserver so ein](vmware-azure-set-up-process-server-scale.md), dass er neue Quellcomputer schützt oder [für einen Lastenausgleich sorgt](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrieren der Computer für die Verwendung des neuen Prozessservers
 

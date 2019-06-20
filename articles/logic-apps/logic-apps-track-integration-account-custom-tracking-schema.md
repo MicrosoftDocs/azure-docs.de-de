@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: f919e9a7cca210fa5920bcc6bed05a9a41fba8bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 1e75e0be5404ca7107d3f3201d248088b48da12c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192383"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067893"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Erstellen benutzerdefinierter Nachverfolgungsschemas zur Überwachung von End-to-End-Workflows in Azure Logic Apps
 
@@ -59,15 +59,15 @@ Dieser Artikel enthält benutzerdefinierten Code, den Sie in den Ebenen außerha
 | Eigenschaft | Typ | BESCHREIBUNG |
 | --- | --- | --- |
 | sourceType |   | Typ der Ausführungsquelle Zulässige Werte sind **Microsoft.Logic/workflows** und **custom** (benutzerdefiniert). (Erforderlich) |
-| Quelle |   | Wenn der Quelltyp **Microsoft.Logic/workflows** ist, müssen die Quellinformationen diesem Schema folgen. Wenn der Quelltyp **custom** ist, ist das Schema ist ein JToken. (Erforderlich) |
-| systemId | Zeichenfolge | System-ID der Logik-App (Erforderlich) |
-| runId | Zeichenfolge | Ausführungs-ID der Logik-App (Erforderlich) |
-| operationName | Zeichenfolge | Name des Vorgangs (z.B. Aktion oder Trigger) (Erforderlich) |
-| repeatItemScopeName | Zeichenfolge | Elementnamen wiederholen, wenn sich die Aktion innerhalb einer `foreach`/`until`-Schleife befindet. (Erforderlich) |
-| repeatItemIndex | Ganze Zahl  | Gibt an, ob sich die Aktion innerhalb einer `foreach`/`until`-Schleife befindet. Gibt den Index des Wiederholungselements an. (Erforderlich) |
-| trackingId | Zeichenfolge | Überwachungs-ID zum Korrelieren der Nachrichten (Optional) |
-| correlationId | Zeichenfolge | Korrelations-ID zum Korrelieren der Nachrichten (Optional) |
-| clientRequestId | Zeichenfolge | Kann vom Client zum Korrelieren von Nachrichten ausgefüllt werden. (Optional) |
+| source |   | Wenn der Quelltyp **Microsoft.Logic/workflows** ist, müssen die Quellinformationen diesem Schema folgen. Wenn der Quelltyp **custom** ist, ist das Schema ist ein JToken. (Erforderlich) |
+| systemId | string | System-ID der Logik-App (Erforderlich) |
+| runId | string | Ausführungs-ID der Logik-App (Erforderlich) |
+| operationName | string | Name des Vorgangs (z.B. Aktion oder Trigger) (Erforderlich) |
+| repeatItemScopeName | string | Elementnamen wiederholen, wenn sich die Aktion innerhalb einer `foreach`/`until`-Schleife befindet. (Erforderlich) |
+| repeatItemIndex | Integer | Gibt an, ob sich die Aktion innerhalb einer `foreach`/`until`-Schleife befindet. Gibt den Index des Wiederholungselements an. (Erforderlich) |
+| trackingId | string | Überwachungs-ID zum Korrelieren der Nachrichten (Optional) |
+| correlationId | string | Korrelations-ID zum Korrelieren der Nachrichten (Optional) |
+| clientRequestId | string | Kann vom Client zum Korrelieren von Nachrichten ausgefüllt werden. (Optional) |
 | eventLevel |   | Ebene des Ereignisses. (Erforderlich) |
 | eventTime |   | Zeit des Ereignisses im UTC-Format YYYY-MM-DDTHH:MM:SS.00000Z. (Erforderlich) |
 | recordType |   | Typ des Nachverfolgungsdatensatzes Der zulässige Wert ist **custom**. (Erforderlich) |

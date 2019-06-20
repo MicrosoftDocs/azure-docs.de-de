@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409803"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258684"
 ---
 # <a name="azure-database-security-best-practices"></a>Bewährte Methoden für die Azure-Datenbanksicherheit
 In diesem Artikel werden bewährte Methoden für die Datenbanksicherheit beschrieben.
@@ -165,6 +165,10 @@ Wenn Sie diese Funktionen aktivieren, werden Sie bei Folgendem unterstützt:
 - Erkennen von und Reagieren auf Bedrohungen.
 
 Darüber hinaus integriert die Bedrohungserkennung Warnungen in das Azure Security Center, damit Sie an einer Stelle einen Überblick über den Sicherheitsstatus Ihrer Azure-Ressourcen erhalten.
+
+## <a name="enable-feature-restrictions"></a>Aktivieren der Featureeinschränkungen
+
+Die in Ihren Datenbanken enthaltenen Daten können Angreifern über Angriffsvektoren zugänglich gemacht werden, die Datenbankfehler und Abfrageausführungszeiten nutzen. Azure SQL-Datenbank bietet eine Reihe von Featureeinschränkungsmechanismen zum Schutz Ihrer Datenbank. Weitere Informationen finden Sie unter [Einschränkungen für SQL-Datenbankfeatures](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere bewährte Methoden für die Sicherheit, die Sie beim Entwerfen, Bereitstellen und Verwalten Ihrer Cloudlösungen mithilfe von Azure verwenden können, finden Sie unter [Sicherheit in Azure: bewährte Methoden und Muster](security-best-practices-and-patterns.md).

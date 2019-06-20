@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: b1a99f2872a69e01232c69a73f36319552429ca0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60486599"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformieren von Data in Azure Data Factory
 > [!div class="op_single_selector"]

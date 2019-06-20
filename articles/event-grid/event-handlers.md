@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478466"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305043"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Ereignishandler in Azure Event Grid
 
@@ -71,6 +71,28 @@ Verwenden Sie Logic Apps, um Geschäftsprozesse für die Reaktion auf Ereignisse
 | [Tutorial: Überwachen von Änderungen an einem virtuellen Computer mit Azure Event Grid und Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Eine Logik-App überwacht die Änderungen an einem virtuellen Computer und sendet E-Mails zu diesen Änderungen. |
 | [Tutorial: Senden von E-Mail-Benachrichtigungen zu Azure IoT Hub-Ereignissen mit Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Eine Logik-App sendet jedes Mal eine E-Mail-Benachrichtigung, wenn Ihrer IoT Hub-Instanz ein Gerät hinzugefügt wird. |
 | [Tutorial: Beispiele für die Integration von Azure Service Bus in Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sendet Nachrichten von einem Service Bus-Thema an eine Funktions-App und an eine Logik-App. |
+
+## <a name="service-bus-queue-preview"></a>Service Bus-Warteschlange (Vorschauversion)
+
+Verwenden Sie Service Bus als Ereignishandler, um die Ereignisse in Event Grid direkt an Service Bus-Warteschlangen für die Verwendung in Puffer- oder Befehls- und Kontrollszenarien in Unternehmensanwendungen weiterzuleiten. Die Vorschauversion funktioniert nicht mit Service Bus-Themen und -Sitzungen, aber mit allen Tarifen von Service Bus-Warteschlangen.
+
+Beachten Sie, dass Sie, solange sich Service Bus als Handler in der öffentlichen Vorschauphase befindet, die CLI oder PowerShell-Erweiterung installieren müssen, wenn Sie diese zum Erstellen von Ereignisabonnements verwenden.
+
+### <a name="using-cli"></a>Verwenden von CLI
+
+Für Azure CLI abonniert und verbindet das folgende Beispiel ein Event Grid-Thema mit einer Service Bus-Warteschlange:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
 
 ## <a name="queue-storage"></a>Queue Storage
 

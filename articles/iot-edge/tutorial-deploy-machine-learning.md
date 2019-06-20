@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6c48aaf404803c45122ed3fad0d6af1345406f7b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142759"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239665"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Bereitstellen von Azure Machine Learning als IoT Edge-Modul (Vorschauversion)
 
@@ -145,7 +145,7 @@ Die folgenden Schritte zeigen, wie Sie Visual Studio Code einrichten, um Gerät-
 
 3. Geben Sie in das Textfeld, das sich oben auf der Seite öffnet, die Verbindungszeichenfolge „iothubowner“ für Ihren IoT Hub ein. Ihr IoT Edge-Gerät sollte in der Liste der IoT Hub-Geräte angezeigt werden.
 
-4. Wähle Sie **...** erneut aus, und wählen Sie anschließend **Start monitoring D2C message** (Überwachung von D2C-Nachricht starten).
+4. Wählen Sie erneut die Ellipse ( **...** ) und anschließend die Option **Start Monitoring Built-in Event Endpoint** (Überwachung des integrierten Ereignisendpunkts starten) aus.
 
 5. Beobachten Sie die ankommenden Nachrichten von tempSensor alle fünf Sekunden. Der Nachrichtentext enthält die **anomaly**-Eigenschaft, die vom Machine Learning-Modul den Wert TRUE oder FALSE erhält. Die **AzureMLResponse**-Eigenschaft enthält den Wert „OK“, wenn das Modell erfolgreich ausgeführt wurde.
 

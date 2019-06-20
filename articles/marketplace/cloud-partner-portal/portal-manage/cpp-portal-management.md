@@ -1,25 +1,18 @@
 ---
-title: Verwaltung im Cloud-Partnerportal – Azure Marketplace | Microsoft-Dokumentation
+title: Verwaltung im Cloud-Partnerportal | Azure Marketplace
 description: Beschreibung der Arten von Vorgängen, die zur Verwaltung von Konten für das Cloud-Partnerportal für den Azure Marketplace zur Verfügung stehen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 539bc7861a487e6eb563f565d3475efdda99b093
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798178"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257493"
 ---
 # <a name="cloud-partner-portal-management"></a>Verwaltung im Cloud-Partnerportal
 
@@ -31,7 +24,7 @@ In diesem Abschnitt werden die Arten von Vorgängen beschrieben, die zum Erstell
 Vor der Verwendung des Cloud-Partnerportals sollten Sie die folgenden Artikel lesen:
 
 - Unter [Richtlinien und Nutzungsbedingungen für Azure Marketplace](../../policies-terms.md) sind die verschiedenen rechtlichen und technischen Anforderungen und Regeln aufgeführt, die für Benutzer und Herausgeber im [Azure Marketplace](https://azuremarketplace.microsoft.com) und in [AppSource](https://appsource.microsoft.com) gelten.
-- Der Artikel [Weg zum Cloud Marketplace-Herausgeber](../../become-publisher.md) bietet eine Übersicht über alle Schritte, die erforderlich sind, um offizieller Microsoft Cloud-Herausgeber zu werden.
+- Der Artikel [Weg zum Cloud Marketplace-Herausgeber](https://docs.microsoft.com/azure/marketplace/become-publisher) bietet eine Übersicht über alle Schritte, die erforderlich sind, um offizieller Microsoft Cloud-Herausgeber zu werden.
 
 
 ## <a name="account-creation-and-management"></a>Erstellung und Verwaltung von Konten

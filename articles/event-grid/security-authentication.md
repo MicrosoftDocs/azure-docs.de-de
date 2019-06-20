@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755509"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117025"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid – Sicherheit und Authentifizierung 
 
@@ -35,15 +35,18 @@ Wie viele andere Dienste, die Webhooks unterstützen, müssen Sie bei Event Grid
 
 Falls Sie einen anderen Typ von Endpunkt nutzen, z. B. eine auf einem HTTP-Trigger basierende Azure-Funktion, muss Ihr Endpunktcode an einem Überprüfungshandshake mit Event Grid beteiligt sein. Event Grid unterstützt zwei Methoden zur Überprüfung des Abonnements.
 
-1. **ValidationCode-Handshake (programmgesteuert)**: Wenn Sie den Quellcode für Ihren Endpunkt kontrollieren, wird diese Methode empfohlen. Zum Zeitpunkt der Erstellung des Ereignisabonnements sendet Event Grid ein Ereignis zur Überprüfung des Abonnements an Ihren Endpunkt. Das Schema dieses Ereignisses ähnelt dem aller anderen Event Grid-Ereignisse. Der Datenteil dieses Ereignisses umfasst eine `validationCode`-Eigenschaft. Ihre Anwendung überprüft, ob es sich bei der Überprüfungsanforderung um ein erwartetes Ereignisabonnement handelt, und gibt den Überprüfungscode an Event Grid zurück. Dieser Handshakemechanismus wird in allen Event Grid-Versionen unterstützt.
+1. **ValidationCode-Handshake (programmgesteuert)** : Wenn Sie den Quellcode für Ihren Endpunkt kontrollieren, wird diese Methode empfohlen. Zum Zeitpunkt der Erstellung des Ereignisabonnements sendet Event Grid ein Ereignis zur Überprüfung des Abonnements an Ihren Endpunkt. Das Schema dieses Ereignisses ähnelt dem aller anderen Event Grid-Ereignisse. Der Datenteil dieses Ereignisses umfasst eine `validationCode`-Eigenschaft. Ihre Anwendung überprüft, ob es sich bei der Überprüfungsanforderung um ein erwartetes Ereignisabonnement handelt, und gibt den Überprüfungscode an Event Grid zurück. Dieser Handshakemechanismus wird in allen Event Grid-Versionen unterstützt.
 
-2. **ValidationURL-Handshake (manuell)**: In bestimmten Fällen können Sie nicht auf den Quellcode des Endpunkts zugreifen, um den ValidationCode-Handshake zu implementieren. Wenn Sie beispielsweise einen Drittanbieterdienst nutzen (z. B. [Zapier](https://zapier.com) oder [IFTTT](https://ifttt.com/)), können Sie unter Umständen nicht programmgesteuert mit dem Überprüfungscode antworten.
+2. **ValidationURL-Handshake (manuell)** : In bestimmten Fällen können Sie nicht auf den Quellcode des Endpunkts zugreifen, um den ValidationCode-Handshake zu implementieren. Wenn Sie beispielsweise einen Drittanbieterdienst nutzen (z. B. [Zapier](https://zapier.com) oder [IFTTT](https://ifttt.com/)), können Sie unter Umständen nicht programmgesteuert mit dem Überprüfungscode antworten.
 
    Ab Version 2018-05-01-preview unterstützt Event Grid einen manuellen Überprüfungshandshake. Wenn Sie ein Ereignisabonnement mit einem SDK oder Tool erstellen, für die diese neue API-Version (2018-05-01-preview oder höher) verwendet wird, sendet Event Grid im Datenteil des Abonnementüberprüfungsereignisses eine `validationUrl`-Eigenschaft. Um den Handshake abzuschließen, suchen Sie diese URL in den Ereignisdaten und senden Sie ihr manuell eine GET-Anforderung. Sie können entweder einen REST-Client oder Ihren Webbrowser verwenden.
 
    Die angegebene URL ist fünf Minuten lang gültig. Während dieser Zeit lautet der Bereitstellungsstatus des Ereignisabonnements `AwaitingManualAction`. Wenn Sie die manuelle Überprüfung nicht innerhalb von 5 Minuten abschließen, wird der Bereitstellungsstatus auf `Failed` eingestellt. Sie müssen das Ereignisabonnement erneut erstellen, bevor Sie mit der manuellen Überprüfung beginnen.
 
     Dieser Authentifizierungsmechanismus erfordert auch, dass der Webhookendpunkt einen HTTP-Statuscode von 200 zurückgibt, um sicherzustellen, dass das POST für das Überprüfungsereignis akzeptiert wurde, bevor er in den manuellen Überprüfungsmodus gewechselt wird. Mit anderen Worten: Wenn der Endpunkt 200 zurückgibt, aber programmgesteuert keine Überprüfungsantwort zurückgibt, wird der Modus in den manuellen Überprüfungsmodus überführt. Wenn innerhalb von 5 Minuten ein GET auf die Überprüfungs-URL folgt, gilt der Überprüfungshandshake als erfolgreich.
+
+> [!NOTE]
+> Die Verwendung von selbstsignierten Zertifikaten wird nicht unterstützt. Verwenden Sie stattdessen ein Zertifikat von einer Zertifizierungsstelle.
 
 ### <a name="validation-details"></a>Überprüfungsdetails
 
@@ -64,8 +67,8 @@ Ein Beispiel für „SubscriptionValidationEvent“ finden Sie im folgenden Beis
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
+    "validationCode": "0000000000-0000-0000-0000-00000000000000",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -201,7 +204,7 @@ Event Grid stellt zwei integrierte Rollen zum Verwalten von Ereignisabonnements 
 
 Sie können [diese Rollen einem Benutzer oder Gruppen zuweisen](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Mitwirkender (Vorschau)**: Verwalten von Event Grid-Abonnementvorgängen
+**EventGrid EventSubscription Mitwirkender (Vorschau)** : Verwalten von Event Grid-Abonnementvorgängen
 
 ```json
 [
@@ -237,7 +240,7 @@ Sie können [diese Rollen einem Benutzer oder Gruppen zuweisen](../role-based-ac
 ]
 ```
 
-**EventGrid EventSubscription Reader (Vorschau)**: Lesen von Event Grid-Abonnements
+**EventGrid EventSubscription Reader (Vorschau)** : Lesen von Event Grid-Abonnements
 
 ```json
 [

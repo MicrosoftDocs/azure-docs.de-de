@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524768"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949632"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Erstellen einer Smooth Streaming Windows Store-Anwendung  
 
@@ -71,7 +71,7 @@ Weitere Informationen zum Entwickeln von Windows Store-Anwendungen finden Sie un
     | Vorlagengruppe |Installed/Templates/Visual C#/Windows Store |
     | Vorlage |Leere App (XAML) |
     | NAME |SSPlayer |
-    | Standort |C:\SSTutorials |
+    | Location |C:\SSTutorials |
     | Projektmappenname |SSPlayer |
     | Verzeichnis für Lösung erstellen |(aktiviert) |
 
@@ -507,7 +507,7 @@ Die gleichen Ereignisse stehen auch auf der Ebene des Managers für adaptive Que
    ```
 
    > [!NOTE]
-   > Mit CoreDispatcher werden Änderungen am UI-Thread aus dem Nicht-UI-Thread übernommen. Bei einem Engpass des Dispatcher-Threads kann der Entwickler festlegen, das vom Dispatcher bereitgestellte UI-Element zu verwenden, das aktualisiert werden soll.  Beispiel: 
+   > Mit CoreDispatcher werden Änderungen am UI-Thread aus dem Nicht-UI-Thread übernommen. Bei einem Engpass des Dispatcher-Threads kann der Entwickler festlegen, das vom Dispatcher bereitgestellte UI-Element zu verwenden, das aktualisiert werden soll.  Beispiel:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ Eine Smooth Streaming-Präsentation kann mehrere Videodateien enthalten, die in 
          </ListBox>
          </StackPanel>
    ```
-3. Drücken Sie **STRG+S** , um die Änderungen zu speichern.
+3. Drücken Sie **STRG+S**, um die Änderungen zu speichern.
 
 ### <a name="to-modify-the-code-behind-file"></a>So ändern Sie die CodeBehind-Datei
 

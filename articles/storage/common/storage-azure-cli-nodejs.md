@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147040"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Verwenden der klassischen Azure CLI mit Azure Storage
@@ -79,11 +79,11 @@ Unter [Zuweisen von Administratorrollen in Azure Active Directory (Azure AD)](ht
 5. Öffnen Sie auf Ihrem lokalen Computer Ihren bevorzugten Texteditor (z. B. Vim). Geben Sie das obige Skript in den Texteditor ein.
 6. Nun müssen Sie die Skriptvariablen auf Basis der Konfigurationseinstellungen aktualisieren.
 
-   * **&lt;storage_account_name&gt;**: Verwenden Sie den im Skript angegebenen Namen, oder geben Sie einen neuen Namen für Ihr Speicherkonto ein. **Wichtig:** Der Name des Speicherkontos muss in Azure eindeutig sein. Er darf außerdem nur aus Kleinbuchstaben bestehen!
-   * **&lt;storage_account_key&gt;**: Der Zugriffsschlüssel für Ihr Speicherkonto.
-   * **&lt;container_name&gt;**: Verwenden Sie den im Skript angegebenen Namen, oder geben Sie einen neuen Namen für Ihren Container ein.
-   * **&lt;image_to_upload&gt;**: Geben Sie einen Pfad zu einem Bild auf dem lokalen Computer ein. Beispiel: „~/images/HelloWorld.png“.
-   * **&lt;destination_folder&gt;**: Geben Sie den Pfad zu einem lokalen Verzeichnis zum Speichern von Dateien ein, die aus Azure Storage heruntergeladen werden. Beispiel: „~/downloadImages“.
+   * **&lt;storage_account_name&gt;** : Verwenden Sie den im Skript angegebenen Namen, oder geben Sie einen neuen Namen für Ihr Speicherkonto ein. **Wichtig:** Der Name des Speicherkontos muss in Azure eindeutig sein. Er darf außerdem nur aus Kleinbuchstaben bestehen!
+   * **&lt;storage_account_key&gt;** : Der Zugriffsschlüssel für Ihr Speicherkonto.
+   * **&lt;container_name&gt;** : Verwenden Sie den im Skript angegebenen Namen, oder geben Sie einen neuen Namen für Ihren Container ein.
+   * **&lt;image_to_upload&gt;** : Geben Sie einen Pfad zu einem Bild auf dem lokalen Computer ein. Beispiel: „~/images/HelloWorld.png“.
+   * **&lt;destination_folder&gt;** : Geben Sie den Pfad zu einem lokalen Verzeichnis zum Speichern von Dateien ein, die aus Azure Storage heruntergeladen werden. Beispiel: „~/downloadImages“.
 7. Nachdem Sie die erforderlichen Variablen in Vim aktualisiert haben, drücken Sie die Tastenkombinationen `ESC`, `:`, `wq!`, um das Skript zu speichern.
 8. Zum Ausführen des Skripts geben Sie einfach den Namen der Skripdatei in der Bash-Konsole ein. Nachdem das Skript ausgeführt wird, sollten Sie über einen lokalen Zielordner verfügen, der die heruntergeladene Image-Datei enthält. Der folgende Screenshot zeigt eine Beispielausgabe:
 
@@ -194,7 +194,7 @@ Ein Verzeichnis enthält eine optionale hierarchische Struktur für eine Azure-D
 azure storage directory create myshare myDir
 ```
 
-Beachten Sie, dass dieser Verzeichnispfad mehrere Ebenen enthalten kann, *z.B.*, **a/b**. Sie müssen allerdings sicherstellen, dass alle übergeordneten Verzeichnisse vorhanden sind. Zum Beispiel müssen Sie für Pfad **a/b**, zuerst Verzeichnis **a** und anschließend Verzeichnis **b** erstellen.
+Beachten Sie, dass dieser Verzeichnispfad mehrere Ebenen enthalten kann, *z.B.* , **a/b**. Sie müssen allerdings sicherstellen, dass alle übergeordneten Verzeichnisse vorhanden sind. Zum Beispiel müssen Sie für Pfad **a/b**, zuerst Verzeichnis **a** und anschließend Verzeichnis **b** erstellen.
 
 ### <a name="upload-a-local-file-to-directory"></a>Hochladen einer lokalen Datei in das Verzeichnis
 Im folgenden Beispiel wird eine Datei aus **~/temp/samplefile.txt** in das Verzeichnis **myDir** hochgeladen. Bearbeiten Sie den Dateipfad so, dass er auf eine gültige Datei auf Ihrem lokalen Computer verweist:

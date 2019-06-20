@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496442"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447096"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Hinzufügen eines benutzerdefinierten Rasters zur Webbenutzeroberfläche des Solution Accelerators für die Remoteüberwachung
 
@@ -35,8 +35,8 @@ Um die Schritte in diesem Leitfaden abzuschließen, muss die folgende Software a
 
 Sie sollten die Schritte in den folgenden Artikeln ausführen, bevor Sie fortfahren:
 
-- [Hinzufügen einer benutzerdefinierten Seite zur Webbenutzeroberfläche des Accelerators für Remoteüberwachung](iot-accelerators-remote-monitoring-customize-page.md).
-- [Hinzufügen eines benutzerdefinierten Dienstes zur Webbenutzeroberfläche des Accelerators für Remoteüberwachung](iot-accelerators-remote-monitoring-customize-service.md).
+- [Hinzufügen einer benutzerdefinierten Seite zur Webbenutzeroberfläche des Solution Accelerators für die Remoteüberwachung](iot-accelerators-remote-monitoring-customize-page.md).
+- [Hinzufügen eines benutzerdefinierten Dienstes zur Webbenutzeroberfläche des Solution Accelerators für die Remoteüberwachung](iot-accelerators-remote-monitoring-customize-service.md).
 
 ## <a name="add-a-grid"></a>Hinzufügen eines Rasters
 

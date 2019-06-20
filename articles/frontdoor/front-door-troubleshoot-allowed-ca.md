@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
 ms.openlocfilehash: 5cf94079dcd68887d9725ffbe9124f9b6c897dd0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736155"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door-service"></a>Zulässige Zertifizierungsstellen für die Aktivierung von benutzerdefiniertem HTTPS für Azure Front Door Service
 

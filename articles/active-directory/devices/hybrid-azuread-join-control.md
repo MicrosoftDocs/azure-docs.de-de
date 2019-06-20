@@ -1,136 +1,102 @@
 ---
-title: Steuern von Azure AD Hybrid Join für Ihre Geräte | Microsoft-Dokumentation
-description: Erfahren Sie mehr zum Steuern von Azure AD Hybrid Join für Ihre Geräte in Azure Active Directory.
+title: Kontrollierte Überprüfung von Azure AD Hybrid Join – Azure AD
+description: Hier erfahren Sie, wie Sie eine kontrollierte Überprüfung von Azure AD Hybrid Join vornehmen, bevor Sie den Dienst in der gesamten Organisation aktivieren.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 05/30/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cd5b388f92a875fb2635037a6eae3ff3b6a95793
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518166"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513287"
 ---
-# <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Steuern der Azure AD-Hybrideinbindung für Ihre Geräte
+# <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollierte Überprüfung der Azure AD-Hybrideinbindung
 
-Azure Active Directory (Azure AD) Hybrid Join ist ein Prozess für die automatische Registrierung Ihrer lokalen in die Domäne eingebundenen Geräte bei Azure AD. Es kann auch vorkommen, dass Sie nicht alle Ihre Geräte automatisch registrieren möchten. Dies gilt beispielsweise während des anfänglichen Rollouts, um sicherzustellen, dass alles wie erwartet funktioniert.
+Wenn alle Voraussetzungen erfüllt sind, werden Windows-Geräte automatisch als Geräte bei Ihrem Azure AD-Mandanten registriert. Der Zustand dieser Geräteidentitäten in Azure AD wird als Azure AD Hybrid Join bezeichnet. Weitere Informationen zu den in diesem Artikel beschriebenen Konzepten finden Sie in den Artikeln [Was ist eine Geräteidentität?](overview.md) und [Anleitung: Planen der Implementierung einer Azure Active Directory-Hybrideinbindung](hybrid-azuread-join-plan.md).
 
-Dieser Artikel enthält Anleitungen zum Steuern von Azure AD Hybrid Join für Ihre Geräte. 
+Organisationen sollten eine kontrollierte Überprüfung von Azure AD Hybrid Join durchführen, bevor sie den Dienst in der gesamten Organisation aktivieren. In diesem Artikel erfahren Sie, wie Sie eine kontrollierte Überprüfung von Azure AD Hybrid Join durchführen.
 
-
-## <a name="prerequisites"></a>Voraussetzungen
-
-In diesem Artikel wird davon ausgegangen, dass Sie mit Folgendem vertraut sind:
-
--  [Einführung in die Geräteverwaltung in Azure Active Directory](../device-management-introduction.md)
- 
--  [Planen der Implementierung von Azure Active Directory (Azure AD) Hybrid Join](hybrid-azuread-join-plan.md)
-
--  [Konfigurieren von Azure Active Directory Hybrid Join für verwaltete Domänen](hybrid-azuread-join-managed-domains.md) oder [Konfigurieren von Azure Active Directory Hybrid Join für Verbunddomänen](hybrid-azuread-join-federated-domains.md)
-
-
-
-## <a name="control-windows-current-devices"></a>Steuern aktueller Windows-Geräte
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Kontrollierte Überprüfung von Azure AD Hybrid Join für aktuelle Windows-Geräte
 
 Für Geräte, auf denen das Windows-Desktopbetriebssystem ausgeführt wird, wird die Version Windows 10 Anniversary Update (Version 1607) oder höher unterstützt. Es wird empfohlen, ein Upgrade auf die aktuelle Version von Windows 10 durchzuführen.
 
-Alle aktuellen Windows-Geräte werden beim Gerätestart oder der Benutzeranmeldung automatisch bei Azure AD registriert. Sie können dieses Verhalten entweder mit einem Gruppenrichtlinienobjekt (GPO) oder System Center Configuration Manager steuern.
+Voraussetzungen für eine kontrollierte Überprüfung von Azure AD Hybrid Join für aktuelle Windows-Geräte:
 
-Zum Steuern aktueller Windows-Geräte müssen Sie: 
-
-
-1.  **Für alle Geräte**: Deaktivieren der automatischen Geräteregistrierung.
-2.  **Für ausgewählte Geräte**: Aktivieren der automatischen Geräteregistrierung.
-
-Wenn Sie sichergestellt haben, dass alles wie erwartet funktioniert, können Sie die automatische Geräteregistrierung für alle Geräte erneut aktivieren.
+1. Entfernen Sie den Eintrag des Dienstverbindungspunkts (Service Connection Point, SCP) aus Active Directory (AD), sofern vorhanden.
+1. Konfigurieren Sie mithilfe eines Gruppenrichtlinienobjekts (Group Policy Object, GPO) die clientseitige Registrierungseinstellung für SCP auf Ihren in die Domäne eingebundenen Computern.
+1. Bei Verwendung von AD FS müssen Sie mithilfe eines Gruppenrichtlinienobjekts auch die clientseitige Registrierungseinstellung für SCP auf Ihrem AD FS-Server konfigurieren.  
 
 
 
-### <a name="group-policy-object"></a>Gruppenrichtlinienobjekt 
+### <a name="clear-the-scp-from-ad"></a>Entfernen des SCP aus AD
 
-Sie können das Verhalten der Geräteregistrierung Ihrer Geräte durch das Bereitstellen der folgenden GPO steuern: **In die Domäne eingebundene Computer als Geräte registrieren**.
+Verwenden Sie zum Ändern der SCP-Objekte in AD den Schnittstellen-Editor der Active Directory-Dienste (ADSI Edit).
 
-Festlegen des GPO:
+1. Starten Sie die Desktopanwendung **ADSI Edit** als Unternehmensadministrator auf einer Verwaltungsarbeitsstation oder auf einem Domänencontroller.
+1. Stellen Sie eine Verbindung mit dem **Konfigurationsnamenskontext** Ihrer Domäne her.
+1. Navigieren Sie zu **CN=Configuration,DC=contoso,DC=com** > **CN=Services** > **CN=Device Registration Configuration**.
+1. Klicken Sie unter **CN=Device Registration Configuration** mit der rechten Maustaste auf das Blattobjekt, und wählen Sie **Eigenschaften** aus.
+   1. Wählen Sie im Fenster **Attribut-Editor** die Option **Schlüsselwörter** aus, und klicken Sie auf **Bearbeiten**
+   1. Wählen Sie nacheinander die Werte **azureADId** und **azureADName** aus, und klicken Sie auf **Entfernen**
+1. Schließen Sie **ADSI Edit**.
 
-1.  Öffnen Sie den **Server-Manager**, und navigieren Sie zu **Tools** > **Gruppenrichtlinienverwaltung**.
 
-2.  Wechseln Sie zum Domänenknoten, der der Domäne entspricht, in der Sie die automatische Registrierung (de)aktivieren möchten.
+### <a name="configure-client-side-registry-setting-for-scp"></a>Konfigurieren der clientseitigen Registrierungseinstellung für SCP
 
-3.  Klicken Sie mit der rechten Maustaste auf **Gruppenrichtlinienobjekte**, und wählen Sie dann **Neu** aus.
+Verwenden Sie das folgende Beispiel, um ein Gruppenrichtlinienobjekt (Group Policy Object, GPO) für die Bereitstellung einer Registrierungseinstellung zu erstellen, die in der Registrierung Ihrer Geräte einen SCP-Eintrag konfiguriert.
 
-4.  Geben Sie einen Namen (z.B. **Azure AD Hybrid Join**) für das Gruppenrichtlinienobjekt ein. 
+1. Öffnen Sie eine Gruppenrichtlinien-Verwaltungskonsole, und erstellen Sie ein neues Gruppenrichtlinienobjekt in Ihrer Domäne.
+   1. Geben Sie Ihrem neu erstellten Gruppenrichtlinienobjekt einen Namen (beispielsweise „ClientSideSCP“).
+1. Bearbeiten Sie das Gruppenrichtlinienobjekt, und suchen Sie nach dem folgenden Pfad: **Computerkonfiguration** > **Voreinstellungen** > **Windows-Einstellungen** > **Registrierung**
+1. Klicken Sie mit der rechten Maustaste auf die Registrierung, und wählen Sie **Neu** > **Registrierungselement** aus.
+   1. Konfigurieren Sie auf der Seite **Allgemein** Folgendes:
+      1. Aktion: **Aktualisieren**
+      1. Hive: **HKEY_LOCAL_MACHINE**
+      1. Schlüsselpfad: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Wertname: **TenantId**
+      1. Werttyp: **REG_SZ**
+      1. Wertdaten: Die GUID oder **Verzeichnis-ID** Ihrer Azure AD-Instanz. (Dieser Wert befindet sich unter **Azure-Portal** > **Azure Active Directory** > **Eigenschaften** > **Verzeichnis-ID**.)
+   1. Klicken Sie auf **OK**
+1. Klicken Sie mit der rechten Maustaste auf die Registrierung, und wählen Sie **Neu** > **Registrierungselement** aus.
+   1. Konfigurieren Sie auf der Seite **Allgemein** Folgendes:
+      1. Aktion: **Aktualisieren**
+      1. Hive: **HKEY_LOCAL_MACHINE**
+      1. Schlüsselpfad: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Wertname: **TenantName**
+      1. Werttyp: **REG_SZ**
+      1. Wertdaten: Ihr überprüfter **Domänenname** in Azure AD (beispielsweise `contoso.onmicrosoft.com` oder ein anderer überprüfter Domänenname in Ihrem Verzeichnis).
+   1. Klicken Sie auf **OK**.
+1. Schließen Sie den Editor für das neu erstellte Gruppenrichtlinienobjekt.
+1. Verknüpfen Sie das neu erstellte Gruppenrichtlinienobjekt mit der gewünschten Organisationseinheit, die die in die Domäne eingebundenen Computer Ihrer kontrollierten Rolloutelemente enthält.
 
-5.  Klicken Sie auf **OK**.
+### <a name="configure-ad-fs-settings"></a>Konfigurieren von AD FS-Einstellungen
 
-6.  Klicken Sie mit der rechten Maustaste auf Ihr GPO, und wählen Sie dann **Bearbeiten** aus.
+Bei Verwendung von AD FS müssen Sie gemäß der weiter oben angegebenen Anleitung zunächst den clientseitigen SCP konfigurieren. Dabei muss das Gruppenrichtlinienobjekt allerdings mit Ihren AD FS-Servern verknüpft werden. Diese Konfiguration ist erforderlich, damit AD FS die Quelle für Geräteidentitäten als Azure AD einrichten kann.
 
-7.  Navigieren Sie zu **Computerkonfiguration** > **Richtlinien** > **Administrative Vorlagen** > **Windows-Komponenten** > **Geräteregistrierung**. 
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Kontrollierte Überprüfung von Azure AD Hybrid Join für kompatible Windows-Geräte
 
-8.  Klicken Sie mit der rechten Maustaste auf **In die Domäne eingebundene Computer als Geräte registrieren**, und wählen Sie dann die Option **Bearbeiten**.
+Zur Registrierung von kompatiblen Windows-Geräten müssen Organisationen [Microsoft Workplace Join für Computer installieren, auf denen nicht Windows 10 ausgeführt wird](https://www.microsoft.com/download/details.aspx?id=53554) (verfügbar im Microsoft Download Center).
 
-    > [!NOTE] 
-    > In früheren Versionen der Gruppenrichtlinien-Verwaltungskonsole hatte diese Gruppenrichtlinienvorlage einen anderen Namen. Wenn Sie eine frühere Version der Konsole verwenden, navigieren Sie zu **Computerkonfiguration** > **Richtlinien** > **Administrative Vorlagen** > **Windows-Komponenten** > **Geräteregistrierung** > **Computer, der der Domäne beigetreten ist, als Gerät registrieren**. 
+Sie können das Paket mithilfe eines Softwareverteilungssystems wie  [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) bereitstellen. Das Paket unterstützt die Standardoptionen für die Installation im Hintergrund unter Verwendung des quiet-Parameters. Configuration Manager Current Branch bietet zusätzliche Vorteile gegenüber früheren Versionen, z.B. die Möglichkeit zur Nachverfolgung abgeschlossener Registrierungen.
 
-9.  Wählen Sie eine der folgenden Einstellungen und dann **Anwenden** aus:
+Das Installationsprogramm erstellt einen geplanten Task für das System, der im Kontext des Benutzers ausgeführt wird. Der Task wird ausgelöst, wenn sich der Benutzer bei Windows anmeldet. Nach der Authentifizierung durch Azure AD verknüpft die Aufgabe das Gerät unter Verwendung der Benutzeranmeldeinformationen mit Azure AD.
 
-    - **Deaktiviert**: Zum Verhindern der automatischen Geräteregistrierung.
-    - **Enabled**: Zum Aktivieren der automatischen Geräteregistrierung.
+Zur Kontrolle der Registrierung dürfen Sie das Windows Installer-Paket nur für Ihre spezifische Gruppe kompatibler Windows-Geräte bereitstellen.
 
-10. Klicken Sie auf **OK**.
+> [!NOTE]
+> Ist in AD kein SCP konfiguriert, müssen Sie gemäß der Anleitung zum [Konfigurieren der clientseitigen Registrierungseinstellung für SCP](#configure-client-side-registry-setting-for-scp) vorgehen, um die Konfiguration auf Ihren in die Domäne eingebundenen Computern mithilfe eines Gruppenrichtlinienobjekts (Group Policy Object, GPO) vorzunehmen.
 
-Sie müssen das GPO mit einem Speicherort Ihrer Wahl verknüpfen. Beispiel: Zum Festlegen dieser Richtlinie für alle aktuell in die Domäne eingebundenen Geräten in Ihrer Organisation verknüpfen Sie das GPO mit der Domäne. Für eine gesteuerte Bereitstellung legen Sie diese Richtlinie auf aktuell in die Domäne eingebundene Windows-Geräte fest, die zu einer Organisationseinheit oder Sicherheitsgruppe gehören.
 
-### <a name="configuration-manager-controlled-deployment"></a>Gesteuerte Bereitstellung über den Konfigurations-Manager 
-
-Sie können das Verhalten der Geräteregistrierung Ihrer aktuellen Geräte durch das Konfigurieren der folgenden Clienteinstellung steuern: **Neue, in die Domäne eingebundene Windows 10-Geräte automatisch bei Azure Active Directory registrieren**.
-
-Konfigurieren der Clienteinstellung:
-
-1.  Öffnen Sie den **Configuration Manager**, wählen Sie **Verwaltung** aus, und navigieren Sie zu **Clienteinstellungen**.
-
-2.  Öffnen Sie die Eigenschaften für **Clientstandardeinstellungen**, und wählen Sie **Clouddienste** aus.
-
-3.  Wählen Sie unter **Geräteeinstellungen** eine der folgenden Einstellungen für **Neue, in die Domäne eingebundene Windows 10-Geräte automatisch bei Azure Active Directory registrieren** aus:
-
-    - **Nein**: Zum Verhindern der automatischen Geräteregistrierung.
-    - **Ja**: Zum Aktivieren der automatischen Geräteregistrierung.
-
-4.  Klicken Sie auf **OK**.
-
-Sie müssen diese Clienteinstellung mit einem Speicherort Ihrer Wahl verknüpfen. Beispiel: Zum Konfigurieren dieser Clienteinstellung für alle aktuellen Windows-Geräte in Ihrer Organisation verknüpfen Sie die Clienteinstellung mit der Domäne. Für eine gesteuerte Bereitstellung können Sie die Clienteinstellung für aktuell in die Domäne eingebundene Windows-Geräte konfigurieren, die zu einer Organisationseinheit oder Sicherheitsgruppe gehören.
-
-> [!Important]
-> Die vorstehende Konfiguration schließt zwar die in vorhandenen in die Domäne eingebundenen Windows 10-Geräte ein, neue Geräte, die in die Domäne eingebunden werden, versuchen möglicherweise trotzdem, aufgrund der etwaigen Verzögerung bei der Anwendung der Gruppenrichtlinie oder Configuration Manager-Einstellungen auf den Geräten ein Azure AD Hybrid Join abzuschließen. 
->
-> Um dies zu vermeiden, empfehlen wir Ihnen, ein neues Sysprep-Image zu erstellen (als Beispiel für eine Bereitstellungsmethode). Erstellen Sie es von einem Gerät, für das Azure AD Hybrid Join noch nicht durchgeführt wurde, und beim den die Gruppenrichtlinien- oder Configuration Manager-Clienteinstellung bereits angewendet wurde. Darüber hinaus müssen Sie das neue Image für die Bereitstellung neuer Computer verwenden, die in die Domäne Ihrer Organisation eingebunden werden. 
-
-## <a name="control-windows-down-level-devices"></a>Steuern kompatibler Windows-Geräte
-
-Zum Registrieren von kompatiblen Windows-Geräten müssen Sie dieses Windows Installer-Paket (.msi) über die Seite [Microsoft Workplace Join für Computer mit einem anderen Betriebssystem als Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) aus dem Download Center herunterladen und installieren.
-
-Sie können das Paket mithilfe eines Softwareverteilungssystems wie [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) bereitstellen. Das Paket unterstützt die Standardoptionen für die Installation im Hintergrund unter Verwendung des quiet-Parameters. Configuration Manager Current Branch bietet zusätzliche Vorteile gegenüber früheren Versionen, z.B. die Möglichkeit zur Nachverfolgung abgeschlossener Registrierungen.
-
-Das Installationsprogramm erstellt einen geplanten Task auf dem System, der im Kontext des Benutzers ausgeführt wird. Der Task wird ausgelöst, wenn sich der Benutzer bei Windows anmeldet. Nach der Authentifizierung durch Azure AD verknüpft die Aufgabe das Gerät unter Verwendung der Benutzeranmeldeinformationen mit Azure AD.
-
-Zum Steuern der Registrierung dürfen Sie das Windows Installer-Paket nur für eine ausgewählte Gruppe von kompatiblen Windows-Geräten bereitstellen. Wenn Sie sichergestellt haben, dass alles wie erwartet funktioniert, können Sie den Rollout des Pakets für alle kompatiblen Geräte durchführen.
-
+Nachdem Sie sich vergewissert haben, dass alles wie erwartet funktioniert, können Sie Ihre restlichen aktuellen und kompatiblen Windows-Geräte automatisch bei Azure AD registrieren, indem Sie [SCP mithilfe von Azure AD Connect konfigurieren](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Einführung in die Geräteverwaltung in Azure Active Directory](../device-management-introduction.md)
-
-
-
+[Planen der Implementierung von Azure Active Directory (Azure AD) Hybrid Join](hybrid-azuread-join-plan.md)

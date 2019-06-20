@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60307315"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Die Netzwerkschnittstelle für den virtuellen Windows-Computer in Azure zurücksetzen 
 

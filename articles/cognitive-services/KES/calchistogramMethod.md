@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860455"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814174"
 ---
 # <a name="calchistogram-method"></a>calchistogram-Methode
 Die *calchistogram*-Methode berechnet die Objekte, die einem strukturierten Abfrageausdruck entsprechen, und berechnet die Verteilung ihrer Attributwerte.

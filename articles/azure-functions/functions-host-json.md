@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331216"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521392"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>host.json-Referenz für Azure Functions 2.x  
 
@@ -35,7 +35,6 @@ Einige Einstellungen in host.json werden nur bei lokaler Ausführung in der [loc
 ## <a name="sample-hostjson-file"></a>host.json-Beispieldatei
 
 Für die folgenden *host.json*-Beispieldateien sind alle möglichen Optionen angegeben.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ Für die folgenden *host.json*-Beispieldateien sind alle möglichen Optionen ang
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -194,6 +196,9 @@ Steuert das Protokollierungsverhalten der Funktions-App, einschließlich Applica
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
@@ -263,7 +268,7 @@ Konfigurationseinstellungen für das Singleton-Sperrverhalten. Weitere Informati
 |lockAcquisitionTimeout|00:01:00|Die maximale Zeitspanne, in der die Laufzeit versucht, eine Sperre abzurufen.| 
 |lockAcquisitionPollingInterval|–|Das Intervall zwischen den Versuchen, eine Sperre abzurufen.| 
 
-## <a name="version"></a>Version
+## <a name="version"></a>version
 
 Die Versionszeichenfolge `"version": "2.0"` ist für Funktions-App mit der v2-Runtime als Ziel erforderlich.
 
@@ -274,6 +279,18 @@ Eine Reihe von [Verzeichnissen mit freigegebenem Code](functions-reference-cshar
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+Verwaltete Abhängigkeit ist eine Previewfunktion (Vorschaufeature), die derzeit nur mit PowerShell-basierten Funktionen unterstützt wird. Sie ermöglicht, dass Abhängigkeiten automatisch vom Dienst verwaltet werden können. Ist die enabled-Eigenschaft auf „true“ festgelegt, wird die Datei [requirements.psd1](functions-reference-powershell.md#dependency-management) verarbeitet. Abhängigkeiten werden aktualisiert, wenn irgendwelche Nebenversionen veröffentlicht werden.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

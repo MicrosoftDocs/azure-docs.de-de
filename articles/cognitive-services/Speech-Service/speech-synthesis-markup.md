@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9871e0106ee6caf11c5a1e24459fbd2044f5f3d7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a748250a25c483f61489351943e8ef29a5d5edbe
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021440"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165064"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -42,7 +42,7 @@ Standardmäßig synthetisiert die Sprachsynthese Text in einem neutralen Stil. D
 | `en-US-JessaNeural` | type=`cheerful` | Drückt eine positive und glückliche Emotion aus |
 | | type=`empathy` | Drückt ein Gefühl von Anteilnahme und Verständnis aus |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Drückt einen formalen Ton ähnlich wie bei Nachrichtensendungen aus |
-| | type=`sentiment ` | Vermittelt eine anrührende Botschaft oder Geschichte |
+| | type=`sentiment` | Vermittelt eine anrührende Botschaft oder Geschichte |
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">

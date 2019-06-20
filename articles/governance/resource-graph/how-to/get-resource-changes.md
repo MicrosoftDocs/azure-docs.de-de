@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551537"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236508"
 ---
 # <a name="get-resource-changes"></a>Abrufen von Ressourcenänderungen
 
@@ -29,7 +29,7 @@ Die Erkennung und die Details von Änderungen sind in folgenden Beispielszenarie
 - Wenn eine Datenbank für die Konfigurationsverwaltung (Configuration Management Database, CMDB) auf dem neuesten Stand gehalten werden soll. Anstatt alle Ressourcen und die zugehörigen vollständigen Eigenschaftensätze in einem festgelegten Intervall zu aktualisieren, können Sie nur die Änderungen abrufen.
 - Ermitteln, welche anderen Eigenschaften sich unter Umständen geändert haben, wenn der Konformitätszustand einer Ressource geändert wurde. Die Auswertung dieser zusätzlichen Eigenschaften kann Einblicke in andere Eigenschaften bieten, die möglicherweise über eine Azure Policy-Definition verwaltet werden müssen.
 
-In diesem Artikel wird erläutert, wie diese Informationen über das Resource Graph-SDK erfasst werden. Beachten Sie für das Anzeigen dieser Informationen im Azure-Portal die Beschreibung unter [Änderungsverlauf](../../policy/how-to/determine-non-compliance.md#change-history-preview) von Azure Policy bzw. [Änderungsverlauf](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history) des Azure-Aktivitätsprotokolls.
+In diesem Artikel wird erläutert, wie diese Informationen über das Resource Graph-SDK erfasst werden. Beachten Sie für das Anzeigen dieser Informationen im Azure-Portal die Beschreibung unter [Änderungsverlauf](../../policy/how-to/determine-non-compliance.md#change-history-preview) von Azure Policy bzw. [Änderungsverlauf](../../../azure-monitor/platform/activity-log-view.md#azure-portal) des Azure-Aktivitätsprotokolls.
 
 > [!NOTE]
 > Die Änderungsdetails in Resource Graph beziehen sich auf Resource Manager-Eigenschaften. Informationen zur Nachverfolgung von Änderungen in einem virtuellen Computer finden Sie unter [Änderungsnachverfolgung](../../../automation/automation-change-tracking.md) für Azure Automation oder unter [Guest Configuration für virtuelle Computer](../../policy/concepts/guest-configuration.md) für Azure Policy.

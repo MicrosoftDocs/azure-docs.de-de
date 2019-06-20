@@ -12,11 +12,11 @@ ms.date: 05/22/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: d99149f8112c19a07208523a1ee26ba1c36e5362
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62103553"
 ---
 # <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Erstellen einer Continuous Integration-Pipeline in Azure mit Docker, Kubernetes und der Python Flask-Anwendung
 Für eine KI-Anwendung gibt es häufig zwei Arbeitsbereiche: Data Scientists, die Modelle für maschinelles Lernen erstellen, und App-Entwickler, die die Anwendung programmieren und den Endbenutzern zur Verfügung stellen. In diesem Artikel wird veranschaulicht, wie Sie eine Pipeline für Continuous Integration (CI) bzw. Continuous Delivery (CD) für eine KI-Anwendung implementieren. Eine KI-Anwendung ist eine Kombination aus Anwendungscode, der mit einem vortrainierten Modell für maschinelles Lernen (MK) eingebettet ist. In diesem Artikel wird ein vortrainiertes Modell aus einem privaten Azure Blob Storage-Konto genutzt, wobei auch ein AWS S3-Konto verwendet werden könnte. Zudem wird eine einfache Python Flask-Webanwendung in diesem Artikel verwendet.

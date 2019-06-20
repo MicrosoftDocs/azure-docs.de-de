@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 784d3ce9d8f926b00ac1c6fbf48a05c0b04f900a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60578221"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Verwenden der Übersicht über Geräte im StorSimple-Geräte-Manager-Dienst
 

@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682114"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896865"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD-Aktivitätsprotokolle in Azure Monitor
 
@@ -107,6 +107,23 @@ Die folgende Tabelle enthält die ungefähren monatlichen Kosten für einen einf
 | Anmeldungen | 1.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | 11,06 $ |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Kostenüberlegungen zu Azure Monitor-Protokollen
+
+
+
+| Protokollkategorie       | Anzahl an Benutzern | Ereignisse pro Tag | Ereignisse pro Monat (30 Tage) | Kosten pro Monat in US-Dollar (geschätzt) |
+| :--                | ---             | ---            | ---                        | --:                          |
+| Überwachung und Anmeldungen | 100.000         | 16.500.000     | 495.000.000                |  1093,00 US-Dollar                       |
+| Audit              | 100.000         | 1.500.000      | 45.000.000                 |  246,66 US-Dollar                     |
+| Anmeldungen           | 100.000         | 15.000.000     | 450.000.000                |  847,28 US-Dollar                     |
+
+
+
+
+
+
+
+
+
 
 Informationen zum Überprüfen der Kosten im Zusammenhang mit der Verwaltung von Azure Monitor-Protokollen finden Sie unter [Verwalten der Kosten durch Steuerung der Datenmenge und -aufbewahrung in Azure Monitor-Protokollen](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 

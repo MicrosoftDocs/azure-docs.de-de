@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7c0f19d6680eef7492faaaab0d45e0c70011f01
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099068"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428077"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Schnellstart: Bereitstellen einer .NET Reliable Services-Anwendung in Service Fabric
 
@@ -43,7 +43,7 @@ Mithilfe dieser Anwendung erfahren Sie Folgendes:
 
 So führen Sie diesen Schnellstart durch:
 
-1. [Installieren Sie Visual Studio 2017](https://www.visualstudio.com/) mit den Workloads **Azure-Entwicklung** und **ASP.NET und Webentwicklung**.
+1. [Installieren Sie Visual Studio 2019](https://www.visualstudio.com/) mit den Workloads **Azure-Entwicklung** und **ASP.NET und Webentwicklung**.
 2. [Installation von Git](https://git-scm.com/)
 3. [Installieren Sie das Microsoft Azure Service Fabric-SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK).
 4. Führen Sie den folgenden Befehl aus, um für Visual Studio die Bereitstellung im lokalen Service Fabric-Cluster zu ermöglichen:
@@ -123,7 +123,7 @@ Beim Abstimmen in der Anwendung treten die folgenden Ereignisse ein:
 
 ## <a name="debug-in-visual-studio"></a>Debuggen in Visual Studio
 
-Die Anwendung sollte reibungslos funktionieren. Sie können jedoch den Debugger verwenden, um die Funktion wichtiger Komponenten der Anwendung zu überprüfen. Beim Debuggen der Anwendung in Visual Studio verwenden Sie einen lokalen Service Fabric-Entwicklungscluster. Sie haben die Möglichkeit, Ihre Oberfläche für das Debuggen an Ihr Szenario anzupassen. In dieser Anwendung werden Daten mithilfe eines zuverlässigen Wörterbuchs in einem Back-End-Dienst gespeichert. Standardmäßig wird die Anwendung von Visual Studio entfernt, wenn Sie den Debugger beenden. Die Entfernung der Anwendung führt dazu, dass auch die Daten im Back-End-Dienst entfernt werden. Um die Daten zwischen den Debugsitzungen beizubehalten, können Sie den **Debugmodus für die Anwendung** als Eigenschaft im Projekt **Voting** in Visual Studio ändern.
+Die Anwendung sollte reibungslos funktionieren. Sie können jedoch den Debugger verwenden, um die Funktion wichtiger Komponenten der Anwendung zu überprüfen. Beim Debuggen der Anwendung in Visual Studio verwenden Sie einen lokalen Service Fabric-Entwicklungscluster. Sie können Ihre Oberfläche für das Debuggen an Ihr Szenario anpassen. In dieser Anwendung werden Daten mithilfe eines zuverlässigen Wörterbuchs in einem Back-End-Dienst gespeichert. Standardmäßig wird die Anwendung von Visual Studio entfernt, wenn Sie den Debugger beenden. Die Entfernung der Anwendung führt dazu, dass auch die Daten im Back-End-Dienst entfernt werden. Um die Daten zwischen den Debugsitzungen beizubehalten, können Sie den **Debugmodus für die Anwendung** als Eigenschaft im Projekt **Voting** in Visual Studio ändern.
 
 Führen Sie die folgenden Schritte aus, um zu ermitteln, was im Code passiert:
 
@@ -132,13 +132,13 @@ Führen Sie die folgenden Schritte aus, um zu ermitteln, was im Code passiert:
 2. Öffnen Sie die Datei **/VotingData/Controllers/VoteDataController.cs**, und legen Sie in der **Put**-Methode dieser Web-API (Zeile 54) einen Breakpoint fest.
 
 3. Wechseln Sie zurück in den Browser, und klicken Sie auf eine Abstimmungsoption, oder fügen Sie eine neue Abstimmungsoption hinzu. Der erste Breakpoint befindet sich im API-Controller des Web-Front-Ends.
-   * An diesem Punkt sendet das JavaScript im Browser eine Anforderung an den Web-API-Controller im Front-End-Dienst.
+   * Bei diesem Schritt sendet das JavaScript im Browser eine Anforderung an den Web-API-Controller im Front-End-Dienst.
 
      ![Front-End-Dienst „Stimme hinzufügen“](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Erstellen Sie zunächst die URL zum Reverseproxy für den Back-End-Dienst **(1)**.
-   * Senden Sie anschließend die HTTP-Anforderung PUT an den Reverseproxy **(2)**.
-   * Geben Sie zum Schluss die Antwort vom Back-End-Dienst an den Client zurück **(3)**.
+   * Erstellen Sie zunächst die URL zum Reverseproxy für den Back-End-Dienst **(1)** .
+   * Senden Sie anschließend die HTTP-Anforderung PUT an den Reverseproxy **(2)** .
+   * Geben Sie zum Schluss die Antwort vom Back-End-Dienst an den Client zurück **(3)** .
 
 4. Drücken Sie **F5**, um fortzufahren.
    - Gewähren Sie bei entsprechender Aufforderung durch den Browser der Gruppe „ServiceFabricAllowedUsers“ Lese- und Ausführungsberechtigungen für den Debugmodus.
@@ -148,7 +148,7 @@ Führen Sie die folgenden Schritte aus, um zu ermitteln, was im Code passiert:
 
    - In der ersten Zeile der Methode **(1)** wird das `StateManager`-Element verwendet, um ein zuverlässiges Wörterbuch mit dem Namen `counts` abzurufen bzw. hinzuzufügen.
    - Für alle Interaktionen mit Werten in einem zuverlässigen Wörterbuch ist eine Transaktion erforderlich. Diese Transaktion wird mithilfe der Anweisung **(2)** erstellt.
-   - Aktualisieren Sie in der Transaktion den Wert des relevanten Schlüssels für die Abstimmungsoption, und committen Sie den Vorgang **(3)**. Nachdem die Rückgabe für die Commit-Methode durchgeführt wurde, werden die Daten im Wörterbuch aktualisiert und auf anderen Knoten im Cluster repliziert. Die Daten sind jetzt sicher im Cluster gespeichert, und der Back-End-Dienst kann das Failover auf andere Knoten durchführen, während die Daten weiterhin verfügbar sind.
+   - Aktualisieren Sie in der Transaktion den Wert des relevanten Schlüssels für die Abstimmungsoption, und committen Sie den Vorgang **(3)** . Nachdem die Rückgabe für die Commit-Methode durchgeführt wurde, werden die Daten im Wörterbuch aktualisiert und auf anderen Knoten im Cluster repliziert. Die Daten sind jetzt sicher im Cluster gespeichert, und der Back-End-Dienst kann das Failover auf andere Knoten durchführen, während die Daten weiterhin verfügbar sind.
 5. Drücken Sie **F5**, um fortzufahren.
 
 Drücken Sie **UMSCHALT+F5**, um die Debugsitzung zu beenden.

@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258530"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751757"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Erstellen und Ausführen einer Jupyter Notebook-Datei mit Python
 
@@ -128,7 +128,7 @@ Da die Datendatei nun bereit ist und die Projektumgebung festgelegt ist, können
 1. Da Sie in den Umgebungseinstellungen über eine *requirements.txt*-Datei verfügen, wird die folgende Meldung angezeigt: „Waiting for your container to finish being prepared“ (Auf die Vorbereitung Ihres Containers wird gewartet). Sie können auf **OK** klicken, um die Meldung zu schließen und mit der Arbeit im Notebook fortzufahren. Allerdings können Sie keine Codezellen ausführen, bis die Umgebung vollständig eingerichtet ist.
 1. Das Notebook wird standardmäßig mit einer einzelnen leeren Codezelle in der Jupyter-Schnittstelle geöffnet.
 
-    [![IAnfangsansicht eines neuen Notebooks in Azure Notebooks(media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Anfängliche Ansicht eines neuen Notebooks in Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Einführung in die Notebook-Schnittstelle
 
@@ -144,7 +144,7 @@ Am oberen Rand des Fensters finden Sie folgende Elemente:
 (F) Ein Indikator, der angibt, ob das Notebook vertrauenswürdig ist (der Standardwert ist **Not Trusted** (Nicht vertrauenswürdig)).
 (G) Der Kernel, der zum Ausführen des Notebooks verwendet wird, mit einem Indikator für die Aktivität.
 
-[![PHauptbereiche der Benutzeroberfläche der Jupyter-Schnittstelle(media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Hauptbereiche der Benutzeroberfläche der Jupyter-Schnittstelle](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter stellt eine integrierte Einführung für die primären Benutzeroberflächenelemente bereit. Diese Einführung können Sie starten, indem Sie auf **Help** > **User Interface Tour** (Hilfe > Einführung in die Benutzeroberfläche) klicken. Dann können Sie sich durch die angezeigten Popupfenster klicken.
 
@@ -307,7 +307,7 @@ Wenn unerwartete Ergebnisse angezeigt werden (was aller Wahrscheinlichkeit nach 
 
     With two independent variables you can imagine a three-dimensional plot with a line fitted to the data. At three or more independent variables, however, it's no longer easy to visualize the fit, but you get the idea. In the end, it's all just mathematics, which a computer can handle easily without having to form a mental picture!
 
-    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept`).
+    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
 1. Die Codezelle zeigt die Ausgabe `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)` an, wenn sie ausgeführt wird.
@@ -326,7 +326,7 @@ Wenn unerwartete Ergebnisse angezeigt werden (was aller Wahrscheinlichkeit nach 
 
     With the regressor in hand, we can predict the test set results using its `predict` method. That method takes a vector of independent variables for which you want predictions.
 
-    Because the regressor is fit to the data by virtue of `coef_` and `intercept_` and `coef_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
+    Because the regressor is fit to the data by virtue of `coef_` and `intercept_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
 
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```
@@ -421,7 +421,7 @@ Zusätzliche Funktionen von Visual Studio Code für Jupyter-Notebooks werden auc
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Informationen zu Beispielnotebooks](azure-notebooks-samples.md)
+- [Erkunden von Beispielnotebooks](azure-notebooks-samples.md)
 
 Gewusst-wie-Artikel:
 

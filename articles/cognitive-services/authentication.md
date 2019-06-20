@@ -1,6 +1,6 @@
 ---
 title: Authentication
-titleSuffix: Cognitive Services - Azure
+titleSuffix: Azure Cognitive Services
 description: 'Es gibt drei Möglichkeiten zum Authentifizieren einer Anforderung an eine Azure Cognitive Services-Ressource: einen Abonnementschlüssel, ein Bearertoken und ein Abonnement für mehrere Dienste. In diesem Artikel erfahren Sie mehr über die einzelnen Methoden und das Ausführen einer Anforderung.'
 services: cognitive-services
 author: erhopf
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 06cc5509598cb6227a64e2cf375a5686c89312eb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240761"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163675"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifizieren von Anforderungen an Azure Cognitive Services
 
@@ -29,7 +29,7 @@ Jede Anforderung an Azure Cognitive Service muss einen Authentifizierungsheader 
 Damit Sie eine Anforderung übermitteln können, benötigen Sie ein Azure-Konto und ein Azure Cognitive Services-Abonnement. Wenn Sie bereits über ein Konto verfügen, können Sie mit dem nächsten Abschnitt fortfahren. Wenn Sie noch kein Konto haben, sind Sie mit der folgenden Anleitung in wenigen Minuten startbereit: [Erstellen eines Cognitive Services-Kontos für Azure](cognitive-services-apis-create-account.md).
 
 Sie können Ihren Abonnementschlüssel über das [Azure-Portal](cognitive-services-apis-create-account.md#access-your-resource) abrufen, nachdem Sie Ihr Konto erstellt oder eine [kostenlose Testversion](https://azure.microsoft.com/try/cognitive-services/my-apis) aktiviert haben.
- 
+
 ## <a name="authentication-headers"></a>Authentifizierungsheader
 
 Betrachten wir zunächst kurz die verfügbaren Authentifizierungsheader für die Verwendung mit Azure Cognitive Services.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099051"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479985"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installieren eines Linux-Masterzielservers für Failbacks
 Nach dem Failover Ihrer virtuellen Computer zu Azure können Sie für die virtuellen Computer ein Failback zum lokalen Standort durchführen. Für ein Failback müssen Sie den virtuellen Computer von Azure zum lokalen Standort erneut schützen. Für diesen Prozess benötigen Sie einen lokalen Masterzielserver, der den Datenverkehr empfängt. 
@@ -83,7 +83,7 @@ Legen Sie den Datenträger mit dem ISO-Image für Ubuntu 16.04.2 minimal 64 Bit 
 1. Wählen Sie **No** (die Standardoption) aus, und drücken Sie die **EINGABETASTE**.
 
      ![Tastatur konfigurieren](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Wählen Sie **English (USA)** als Ursprungsland für die Tastatur aus, und drücken Sie die **EINGABETASTE**.
+1. Wählen Sie **English (USA)** als Ursprungsland/-region für die Tastatur aus, und drücken Sie die **EINGABETASTE**.
 
 1. Wählen Sie **English (USA)** als Tastaturlayout aus, und drücken Sie die **EINGABETASTE**.
 
@@ -245,7 +245,7 @@ Führen Sie die folgenden Schritte aus, um einen Aufbewahrungsdatenträger zu er
 
     ![Multipfad-ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatieren Sie das Laufwerk, und erstellen Sie auf dem neuen Laufwerk ein Dateisystem: **mkfs.ext4 /dev/mapper/<Multipfad-ID des Aufbewahrungsdatenträgers>**.
+3. Formatieren Sie das Laufwerk, und erstellen Sie auf dem neuen Laufwerk ein Dateisystem: **mkfs.ext4 /dev/mapper/<Multipfad-ID des Aufbewahrungsdatenträgers>** .
     
     ![Dateisystem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -262,7 +262,7 @@ Führen Sie die folgenden Schritte aus, um einen Aufbewahrungsdatenträger zu er
     
     Drücken Sie **EINFG**, um mit der Bearbeitung der Datei zu beginnen. Erstellen Sie eine neue Zeile, und fügen Sie den folgenden Text ein. Bearbeiten Sie die Multipfad-ID des Datenträgers auf Basis der hervorgehobenen Multipfad-ID aus dem vorherigen Befehl.
 
-    **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+    **/dev/Mapper/\<Multipfad-ID des Aufbewahrungsdatenträgers> /mnt/retention ext4 rw 0 0**
 
     Drücken Sie **ESC**, und geben Sie **:wq** (Schreiben und Beenden) ein, um das Editor-Fenster zu schließen.
 

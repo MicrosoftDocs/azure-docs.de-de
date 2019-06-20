@@ -16,11 +16,11 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33079303f7f2239b7de4d8a92e78acaf205bfbd5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66236095"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Verwenden einer systemseitig zugewiesenen verwalteten Identität eines virtuellen Windows-Computers für den Zugriff auf Resource Manager
 
@@ -41,7 +41,7 @@ Mithilfe von verwalteten Identitäten für Azure-Ressourcen kann der Code Zugrif
 
 1.  Navigieren Sie zu der Registerkarte für die **Ressourcengruppen**. 
 2.  Wählen Sie die **Ressourcengruppe** aus, die Sie für den **virtuellen Windows-Computer** erstellt haben. 
-3.  Wechseln Sie im linken Bereich zu **Zugriffssteuerung (IAM)**. 
+3.  Wechseln Sie im linken Bereich zu **Zugriffssteuerung (IAM)** . 
 4.  Klicken Sie dann auf **Rollenzuweisung hinzufügen**, um dem **virtuellen Windows-Computer** eine neue Rollenzuweisung hinzuzufügen.  Wählen Sie die **Rolle** **Leser** aus. 
 5.  Wählen Sie in der nächsten Dropdownliste für die Option **Zugriff zuweisen zu** die Ressource **Virtueller Computer** aus. 
 6.  Stellen Sie dann sicher, dass in der Dropdownliste **Abonnement** das richtige Abonnement aufgeführt wird. Wählen Sie unter **Ressourcengruppe** die Option **Alle Ressourcengruppen**. 

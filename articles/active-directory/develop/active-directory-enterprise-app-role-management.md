@@ -4,7 +4,7 @@ description: Erfahren Sie, wie Sie im SAML-Token ausgestellte Rollenansprüche f
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990510"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65544631"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Gewusst wie: Konfigurieren von im SAML-Token ausgestellten Rollenansprüchen für Unternehmensanwendungen
 
@@ -152,7 +152,7 @@ Wenn die Anwendung erwartet, dass benutzerdefinierte Rollen in einer SAML-Antwor
 
 8. Aktualisieren Sie die Tabelle **Attribute**, um eine benutzerdefinierte Zuordnung des Rollenanspruchs zu definieren.
 
-9. Konfigurieren Sie das SAML-Tokenattribut im Abschnitt **Benutzerattribute und Ansprüche** des Dialogfelds **Einmaliges Anmelden** wie in der Abbildung gezeigt, und führen Sie die folgenden Schritte aus.
+9. Führen Sie im Dialogfeld **Benutzerattribute** im Abschnitt **Benutzeransprüche** die folgenden Schritte aus, um das SAML-Tokenattribut wie in der folgenden Tabelle gezeigt hinzuzufügen:
 
     | Attributname | Attributwert |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ Wenn die Anwendung erwartet, dass benutzerdefinierte Rollen in einer SAML-Antwor
     >[!NOTE]
     >Wenn der Anspruchswert der Rolle NULL ist, sendet Azure AD diesen Wert nicht im Token. Dies ist der entwurfsgemäße Standard.
 
-    a. Klicken Sie auf die Schaltfläche **Bearbeiten**, um das Dialogfeld **Benutzerattribute** zu öffnen.
+    a. Klicken Sie auf das Symbol **Bearbeiten**, um das Dialogfeld **Benutzerattribute und Ansprüche** zu öffnen.
 
       ![Schaltfläche „Attribut hinzufügen“](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Wählen Sie **Attribut hinzufügen** zum Öffnen des Bereichs **Benutzeransprüche verwalten** aus.
+    b. Fügen Sie im Dialogfeld **Benutzeransprüche verwalten** das SAML-Tokenattribut hinzu, indem Sie auf **Neuen Anspruch hinzufügen** klicken.
 
       ![Schaltfläche „Attribut hinzufügen“](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605454"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Verwenden der Azure Data Lake-Tools für Visual Studio mit der Hortonworks Sandbox
@@ -120,7 +120,7 @@ Sie können auch ein Projekt erstellen, das mehrere Hive-Skripts enthält. Verwe
 
 1. Wählen Sie in Visual Studio die Option **Datei**, **Neu** und dann **Projekt**.
 
-2. Erweitern Sie in der Liste mit den Projekten die Option **Vorlagen**, erweitern Sie **Azure Data Lake**, und wählen Sie dann **HIVE (HDInsight)**. Wählen Sie in der Liste mit den Vorlagen die Option **Hive-Beispiel** aus. Geben Sie einen Namen und einen Speicherort ein, und klicken Sie anschließend auf **OK**.
+2. Erweitern Sie in der Liste mit den Projekten die Option **Vorlagen**, erweitern Sie **Azure Data Lake**, und wählen Sie dann **HIVE (HDInsight)** . Wählen Sie in der Liste mit den Vorlagen die Option **Hive-Beispiel** aus. Geben Sie einen Namen und einen Speicherort ein, und klicken Sie anschließend auf **OK**.
 
     ![Screenshot des Fensters „Neues Projekt“ mit hervorgehobenem Azure Data Lake, HIVE, Hive-Beispiel und OK](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 

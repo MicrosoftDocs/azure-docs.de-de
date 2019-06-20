@@ -12,11 +12,11 @@ ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60541508"
 ---
 # <a name="try-speech-services-for-free"></a>Kostenloses Testen von Speech Services
 

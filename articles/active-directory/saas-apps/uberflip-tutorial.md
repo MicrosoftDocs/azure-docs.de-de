@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 69e86e486a9cdb058b972bda5176c14e15f4630a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682726"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Azure Active Directory-Integration mit Uberflip
 
@@ -72,16 +72,16 @@ Zum Konfigurieren der Integration von Uberflip in Azure AD müssen Sie Uberflip 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit Uberflip mithilfe eines Testbenutzers namens **Britta Simon**. Damit einmaliges Anmelden funktioniert, muss eine Verknüpfung zwischen einem Azure AD-Benutzer und einem entsprechenden Benutzer in Uberflip eingerichtet werden.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Uberflip mithilfe eines Testbenutzers namens **B Simon**. Damit einmaliges Anmelden funktioniert, muss eine Verknüpfung zwischen einem Azure AD-Benutzer und einem entsprechenden Benutzer in Uberflip eingerichtet werden.
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei Uberflip müssen Sie die folgenden Schritte ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieser Funktion zu ermöglichen.
-1. **[Konfigurieren des einmaligen Anmeldens für Uberflip](#configure-uberflip-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
-1. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit der Testbenutzerin Britta Simon zu testen.
-1. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-1. **[Erstellen eines Uberflip-Testbenutzers](#create-an-uberflip-test-user)**, damit in Uberflip ein Benutzer namens „Britta Simon“ vorhanden ist, der mit dem Azure AD-Benutzer namens „Britta Simon“ verknüpft ist.
-1. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieser Funktion zu ermöglichen.
+1. **[Konfigurieren des einmaligen Anmeldens für Uberflip](#configure-uberflip-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
+1. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD mit dem Testbenutzer B. Simon zu testen.
+1. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um B. Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+1. **[Erstellen eines Uberflip-Testbenutzers](#create-an-uberflip-test-user)** , damit in Uberflip ein Benutzer namens B. Simon vorhanden ist, der mit dem Azure AD-Benutzer namens B. Simon verknüpft ist.
+1. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -136,7 +136,7 @@ Zum Konfigurieren des einmaligen Anmeldens aufseiten von Uberflip müssen Sie di
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
-In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin mit dem Namen Britta Simon.
+In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer mit dem Namen B. Simon.
 
 1. Wählen Sie im linken Bereich des Azure-Portals **Azure Active Directory** > **Benutzer** > **Alle Benutzer** aus.
 
@@ -150,9 +150,9 @@ In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin mit dem Na
 
     ![Der Bereich „Benutzer“](common/user-properties.png)
 
-    1. Geben Sie in das Feld **Name** den Namen **BrittaSimon** ein.
+    1. Geben Sie in das Feld **Name** den Namen **BSimon** ein.
   
-    1. Geben Sie im Feld **Benutzername** den **brittasimon\@\<ihreunternehmensdomäne>.\<erweiterung>** ein. Beispiel: **BrittaSimon\@contoso.com**.
+    1. Geben Sie in das Feld **Benutzername** den Eintrag **BSimon\@\<IhreUnternehmensdomäne>.\<Erweiterung>** ein. Beispiel: **BSimon\@contoso.com**
 
     1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert aus dem Feld **Kennwort**.
 
@@ -160,7 +160,7 @@ In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin mit dem Na
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Uberflip gewähren.
+In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihm Zugriff auf Uberflip gewähren.
 
 1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** > **Uberflip** aus.
 
@@ -178,7 +178,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
-1. Wählen Sie im Bereich **Benutzer und Gruppen** in der Liste **Benutzer** den Eintrag **Britta Simon** und anschließend unten im Bereich **Auswählen** aus.
+1. Wählen Sie im Bereich **Benutzer und Gruppen** in der Liste **Benutzer** den Eintrag **B Simon** und anschließend unten im Bereich **Auswählen** aus.
 
 1. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Bereich **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Wählen Sie unten im Bereich die Option **Auswählen**.
 
@@ -186,7 +186,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
 ### <a name="create-an-uberflip-test-user"></a>Erstellen eines Uberflip-Testbenutzers
 
-Ein Benutzer namens „Britta Simon“ wird jetzt in Uberflip erstellt. Sie müssen nichts tun, um diesen Benutzer erstellen. Uberflip unterstützt die Just-in-Time-Benutzerbereitstellung (standardmäßig aktiviert). Ist noch kein Benutzer namens „Britta Simon“ noch nicht in Uberflip vorhanden, wird nach der Authentifizierung ein neuer Benutzer erstellt.
+Ein Benutzer namens B. Simon wird jetzt in Uberflip erstellt. Sie müssen nichts tun, um diesen Benutzer erstellen. Uberflip unterstützt die Just-in-Time-Benutzerbereitstellung (standardmäßig aktiviert). Ist noch kein Benutzer namens B. Simon in Uberflip vorhanden, wird nach der Authentifizierung ein neuer Benutzer erstellt.
 
 > [!NOTE]
 > Setzen Sie sich mit dem [Supportteam von Uberflip](mailto:support@uberflip.com) in Verbindung, wenn Sie einen Benutzer manuell erstellen müssen.

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051469"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497306"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Erstellen einer Klassifizierung mit Custom Vision
 
@@ -87,7 +87,7 @@ In diesem Abschnitt laden Sie Bilder hoch und kennzeichnen diese manuell, um die
     ![Das Steuerelement zum Hinzufügen von Bildern wird oben links und als Schaltfläche unten in der Mitte angezeigt.](./media/getting-started-build-a-classifier/add-images01.png)
 
 
-1. Zum Erstellen eines Tags geben Sie Text in das Feld __My Tags__ (Meine Tags) ein, und drücken Sie die EINGABETASTE. Wenn das Tag bereits vorhanden ist, wird es in einem Dropdownmenü angezeigt. In einem Projekt mit mehreren Bezeichnungen können Sie Ihren Bildern mehrere Tags hinzufügen. In einem Projekt mit mehreren Klassen können Sie jedoch nur eins hinzufügen. Verwenden Sie die Schaltfläche __Upload [number] files ([Anzahl] Dateien hochladen)__, um den Upload der Bilder abzuschließen. 
+1. Zum Erstellen eines Tags geben Sie Text in das Feld __My Tags__ (Meine Tags) ein, und drücken Sie die EINGABETASTE. Wenn das Tag bereits vorhanden ist, wird es in einem Dropdownmenü angezeigt. In einem Projekt mit mehreren Bezeichnungen können Sie Ihren Bildern mehrere Tags hinzufügen. In einem Projekt mit mehreren Klassen können Sie jedoch nur eins hinzufügen. Verwenden Sie die Schaltfläche __Upload [number] files ([Anzahl] Dateien hochladen)__ , um den Upload der Bilder abzuschließen. 
 
     ![Bild der Seite zum Hochladen und Kategorisieren](./media/getting-started-build-a-classifier/add-images03.png)
 

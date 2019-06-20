@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65603481"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Informationen zu virtuellen Voice-First-Assistenten (Vorschauversion)
 
@@ -24,7 +24,9 @@ Individuelle virtuelle Assistenten, die Azure Speech-Dienste verwenden, ermögli
 
    ![Konzeptionelle Darstellung des Orchestrierungsdienst-Flows](media/voice-first-virtual-assistants/overview.png "Der Flow des Speech-Kanals")
 
-Direct Line Speech und die damit verbundene Funktionalität für benutzerdefinierte virtuelle Voice-First-Assistenten sind eine ideale Ergänzung zur [Lösung für virtuelle Assistenten](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) und der [Unternehmensvorlage](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Direct Line Speech kann zwar mit jedem kompatiblen Bot verwendet werden, diese Ressourcen bieten jedoch eine wiederverwendbare Baseline für qualitativ hochwertige Konversationsumgebungen sowie gemeinsame unterstützende Fähigkeiten und Modelle für einen schnellen Einstieg.
+
+Direct Line Speech und die damit verbundene Funktionalität für benutzerdefinierte virtuelle Voice-First-Assistenten sind eine ideale Ergänzung zur [Lösung für virtuelle Assistenten](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) und der Unternehmensvorlage. Direct Line Speech kann zwar mit jedem kompatiblen Bot verwendet werden, diese Ressourcen bieten jedoch eine wiederverwendbare Baseline für qualitativ hochwertige Konversationsumgebungen sowie gemeinsame unterstützende Fähigkeiten und Modelle für einen schnellen Einstieg.
+
 
 ## <a name="core-features"></a>Wichtige Funktionen
 

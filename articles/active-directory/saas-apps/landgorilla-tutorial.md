@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199509"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Azure Active Directory-Integration mit Land Gorilla Client
 
@@ -87,7 +87,7 @@ Zum Konfigurieren der Integration von Land Gorilla Client in Azure AD müssen Si
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurieren und Testen der einmaligen Anmeldung von Azure AD
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden über Azure AD bei Land Gorilla Client mithilfe eines Testbenutzers namens Britta Simon.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden über Azure AD bei Land Gorilla Client mithilfe eines Testbenutzers namens B. Simon.
 
 Damit das einmalige Anmelden funktioniert, muss Azure AD wissen, welcher Benutzer in Land Gorilla Client als Entsprechung für einen Benutzer in Azure AD fungiert. Anders ausgedrückt: Zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Land Gorilla Client muss eine Linkbeziehung eingerichtet werden.
 
@@ -95,11 +95,11 @@ Diese Linkbeziehung wird hergestellt, indem Sie den Wert des **Benutzernamens** 
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens bei Land Gorilla Client über Azure AD müssen Sie die folgenden Bausteine ausführen:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieser Funktion zu ermöglichen.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieser Funktion zu ermöglichen.
 1. **[Erstellen eines Azure AD-Testbenutzers](#creating-an-azure-ad-test-user)** – um das einmalige Anmelden über Azure AD mit einer begrenzten Gruppe zu testen.
-1. **[Erstellen eines Land Gorilla-Testbenutzers](#creating-a-land-gorilla-test-user)** – um das einmalige Anmelden über Azure AD mit dem Testbenutzer Britta Simon zu testen.
-1. **[Zuweisen des Azure AD-Testbenutzers](#assigning-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Erstellen eines Land Gorilla-Testbenutzers](#creating-a-land-gorilla-test-user)** – um das einmalige Anmelden über Azure AD mit dem Testbenutzer B. Simon zu testen.
+1. **[Zuweisen des Azure AD-Testbenutzers](#assigning-the-azure-ad-test-user)** , um B. Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+1. **[Testen der einmaligen Anmeldung](#testing-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens von Azure AD
 
@@ -150,7 +150,7 @@ In diesem Abschnitt aktivieren Sie das einmalige Anmelden über Azure AD im Azur
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
-In diesem Abschnitt wird im Azure-Verwaltungsportal eine Testbenutzerin namens Britta Simon erstellt.
+In diesem Abschnitt wird im Azure-Verwaltungsportal eine Testbenutzerin namens B. Simon erstellt.
 
 ![Azure AD-Benutzer erstellen][100]
 
@@ -172,9 +172,9 @@ In diesem Abschnitt wird im Azure-Verwaltungsportal eine Testbenutzerin namens B
  
     ![Erstellen eines Azure AD-Testbenutzers](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. Geben Sie in das Textfeld **Name** den Namen **BrittaSimon** ein.
+    a. Geben Sie im Textfeld **Name** den Text **B. Simon** ein.
 
-    b. Geben Sie in das Textfeld **Benutzername** die **E-Mail-Adresse** von Britta Simon ein.
+    b. Geben Sie im Textfeld **Benutzername** die **E-Mail-Adresse** von B. Simon ein.
 
     c. Wählen Sie **Kennwort anzeigen** aus, und notieren Sie sich den Wert des **Kennworts**.
 
@@ -186,11 +186,11 @@ Wenden Sie sich an das [Supportteam von Land Gorilla](https://www.landgorilla.co
     
 ### <a name="assigning-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Land Gorilla Client gewähren.
+In diesem Abschnitt ermöglichen Sie B. Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Land Gorilla Client gewähren.
 
 ![Benutzer zuweisen][200] 
 
-**Um Britta Simon zu Land Gorilla Client zuzuweisen, führen Sie die folgenden Schritte aus:**
+**Um B. Simon zu Land Gorilla Client zuzuweisen, führen Sie die folgenden Schritte aus:**
 
 1. Öffnen Sie im Azure-Verwaltungsportal die Anwendungsansicht, navigieren Sie zur Verzeichnisansicht, wechseln Sie dann zu **Unternehmensanwendungen**, und klicken Sie auf **Alle Anwendungen**.
 
@@ -208,7 +208,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
     ![Benutzer zuweisen][203]
 
-1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste **Britta Simon** aus.
+1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste **B. Simon** aus.
 
 1. Klicken Sie im Dialogfeld **Benutzer und Gruppen** auf die Schaltfläche **Auswählen**.
 

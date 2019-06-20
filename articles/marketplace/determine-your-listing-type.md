@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
 ms.openlocfilehash: cb306a32a9388113a9c81fa363a6e1ee2c3b30ad
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938114"
 ---
 # <a name="determine-your-publishing-option"></a>Bestimmung Ihrer Veröffentlichungsoption

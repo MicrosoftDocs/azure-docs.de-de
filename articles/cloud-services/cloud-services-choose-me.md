@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60337516"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Übersicht zu Azure Cloud Services
 Azure Cloud Services sind ein Beispiel für [Platform-as-a-Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Diese Technologie unterstützt genau wie [Azure App Service](../app-service/overview.md) skalierbare und zuverlässige Anwendungen mit geringen Betriebskosten. Azure Cloud Services werden wie App Service auf virtuellen Computern (VMs) gehostet. Sie haben jedoch mehr Kontrolle über die virtuellen Computer. Sie können Ihre eigene Software auf virtuellen Computern installieren, die Azure Cloud Services verwenden, und remote darauf zugreifen.

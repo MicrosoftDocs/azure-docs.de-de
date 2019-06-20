@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473266"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236280"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Häufig gestellte Fragen
 
@@ -183,6 +183,9 @@ A. Wenn Ihr Gerät beschädigt zugestellt wurde oder es Anzeichen von Manipulati
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>F: Kann ich für den Versand der Data Box meinen eigenen Zustelldienst nutzen?
 A. Beim Data Box-Dienst übernimmt Microsoft den Versand zum und aus dem Azure Rechenzentrum. Wenn Sie Ihren eigenen Zustelldienst nutzen möchten, können Sie den Azure Import/Export-Dienst verwenden. Weitere Informationen finden Sie unter [Was ist der Azure Import/Export-Dienst?](../storage/common/storage-import-export-service.md)
 
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>F: Überqueren meine Data Box-Geräte beim Versand Ländergrenzen?
+A. Alle Data Box-Geräte werden aus dem Bestimmungsland versendet, sie überqueren keine internationalen Grenzen. Die einzige Ausnahme betrifft Bestellungen innerhalb der Europäischen Union (EU), wo Geräte in und aus beliebigen EU-Länder(n) gesendet werden können. Dies gilt sowohl für Data Box- als auch für Data Box Heavy-Geräte.
+
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>F: In der E-Ink-Anzeige wird das Rücksendeetikett nicht angezeigt. Wie sollte ich vorgehen?
 A. Führen Sie die folgenden Schritte aus, wenn in der E-Ink-Anzeige das Rücksendeetikett nicht angezeigt wird:
 - Entfernen Sie das alte Adressetikett und alle zur vorherigen Lieferung gehörigen Etiketten.
@@ -244,7 +247,7 @@ A.  Die folgende Art der Berichterstellung ist zur Unterstützung von Rückverfo
 A.  Die Sendungsverfolgungsprotokolle des Zustelldiensts werden im Data Box-Auftragsverlauf erfasst. Dieser Bericht steht Ihnen zur Verfügung, nachdem das Gerät an das Azure-Rechenzentrum zurückgesendet wurde und die Daten auf den Datenträgern des Geräts bereinigt wurden. Bei dringendem Bedarf können Sie auch direkt die Website des Zustelldiensts besuchen, die Sendungsverfolgungsnummer eingeben und die Sendungsverfolgungsinformationen abrufen.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Kann ich die Data Box selbst zum Azure-Rechenzentrum transportieren? 
-A.   Nein. Derzeit nimmt das Azure-Rechenzentrum die Zustellung der Data Box von Kunden oder anderen Zustelldiensten als UPS nicht an.
+A.  Nein. Derzeit nimmt das Azure-Rechenzentrum die Zustellung der Data Box von Kunden oder anderen Zustelldiensten als UPS nicht an.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

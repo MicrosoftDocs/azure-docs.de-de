@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432106"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357390"
 ---
 # <a name="what-is-computer-vision"></a>Worum handelt es sich bei maschinellem Sehen?
 
@@ -46,7 +46,7 @@ Sie können Bilder analysieren, um visuelle Merkmale und Eigenschaften zu erkenn
 
 Mit maschinellem Sehen können Sie Text aus einem Bild unter Verwendung von [optischer Zeichenerkennung (Optical Character Recognition, OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) in eine computerlesbare Zeichenfolge extrahieren. Bei Bedarf korrigiert die optische Zeichenerkennung die Drehung des erkannten Texts und liefert die Frame-Koordinaten der einzelnen Wörter. Die optische Zeichenerkennung unterstützt 25 Sprachen und ermittelt automatisch die Sprache des erkannten Texts.
 
-Sie können auch die [Read-API](concept-recognizing-text.md#read-api) verwenden, um sowohl gedruckten als auch handschriftlichen Text aus Bildern und textlastigen Dokumenten zu extrahieren. Die Read-API verwendet aktualisierte Modelle und kann für verschiedene Objekte mit unterschiedlichen Oberflächen und Hintergründen verwendet werden. Hierzu zählen etwa Belege, Poster, Visitenkarten, Briefe und Whiteboards. Momentan befindet sich die Read-API in der Vorschauphase und unterstützt nur die englische Sprache.
+Sie können auch die [Read-API](concept-recognizing-text.md#read-api) verwenden, um sowohl gedruckten als auch handschriftlichen Text aus Bildern und textlastigen Dokumenten zu extrahieren. Die Read-API verwendet aktualisierte Modelle und kann für verschiedene Objekte mit unterschiedlichen Oberflächen und Hintergründen verwendet werden. Hierzu zählen etwa Belege, Poster, Visitenkarten, Briefe und Whiteboards. Englisch ist derzeit die einzige unterstützte Sprache.
 
 ## <a name="moderate-content-in-images"></a>Moderieren von Bildinhalten
 

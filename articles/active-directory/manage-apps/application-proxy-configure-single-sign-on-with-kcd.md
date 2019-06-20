@@ -3,25 +3,25 @@ title: Einmaliges Anmelden mit Anwendungsproxy | Microsoft Docs
 description: Erläutert das Bereitstellen von einmaligem Anmelden mit Azure AD-Anwendungsproxy.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: celested
+ms.date: 05/17/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2461240b398a2b23bb2b2aedc524277d6b9771
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652517"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859622"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Eingeschränkte Delegierung von Kerberos für die einmalige Anmeldung zu Ihren Apps mit dem Anwendungsproxy
 
@@ -59,7 +59,8 @@ Die Active Directory-Konfiguration variiert in Abhängigkeit davon, ob Ihr Anwen
 2. Wählen Sie den Server aus, der den Connector ausführt.
 3. Klicken Sie mit der rechten Maustaste, und wählen Sie **Eigenschaften** > **Delegierung** aus.
 4. Wählen Sie **Computer nur bei Delegierungen angegebener Dienste vertrauen**. 
-5. Fügen Sie unter **Dienste, für die dieses Konto delegierte Anmeldeinformationen verwenden kann** den Wert für die Dienstprinzipalnamen-Identität (SPN) des Anwendungsservers hinzu. Auf diese Weise kann der Anwendungsproxy-Connector die Identität von Benutzern in AD für die Anwendungen annehmen, die in der Liste definiert sind.
+5. Wählen Sie die Option **Beliebiges Authentifizierungsprotokoll verwenden** aus.
+6. Fügen Sie unter **Dienste, für die dieses Konto delegierte Anmeldeinformationen verwenden kann** den Wert für die Dienstprinzipalnamen-Identität (SPN) des Anwendungsservers hinzu. Auf diese Weise kann der Anwendungsproxy-Connector die Identität von Benutzern in AD für die Anwendungen annehmen, die in der Liste definiert sind.
 
    ![Screenshot des Connector-SVR-Eigenschaftenfensters](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 

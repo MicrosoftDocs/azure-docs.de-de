@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: jonbeck
 ms.openlocfilehash: c27b338dc5eb7856c076433a2d0ad0f6c55c54e4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509837"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Speicheroptimierte VM-Größen

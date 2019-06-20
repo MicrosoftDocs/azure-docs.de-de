@@ -2,20 +2,20 @@
 title: Single-Page-Anmeldung mit implizitem Fluss – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie die Single-Page-Anmeldung mithilfe des impliziten OAuth 2.0-Flusses mit Azure Active Directory B2C hinzufügen.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06156b1050bbf77fbbd5be8559b3c1683c2ced24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698945"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508976"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Single-Page-Anmeldung mithilfe des impliziten OAuth 2.0-Flusses in Azure Active Directory B2C
 
@@ -83,13 +83,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | --------- | -------- | ----------- |
 | client_id | Ja | Die Anwendungs-ID, die das [Azure-Portal](https://portal.azure.com/) Ihrer Anwendung zugewiesen hat. |
 | response_type | Ja | Muss das `id_token` für die OpenID Connect-Anmeldung enthalten. Kann auch den Antworttyp `token` enthalten. Mithilfe von `token` kann Ihre App ein Zugriffstoken direkt vom Autorisierungsendpunkt abrufen, ohne dass eine zweite Anforderung an den Autorisierungsendpunkt erforderlich ist.  Wenn Sie den Antworttyp `token` verwenden, muss der Parameter `scope` einen Bereich enthalten, in dem angegeben wird, für welche Ressource das Token ausgegeben wird. |
-| redirect_uri | Nein  | Der Umleitungs-URI der App, in dem Authentifizierungsantworten gesendet und von der App empfangen werden können. Er muss genau mit einem der Umleitungs-URIs übereinstimmen, den Sie im Portal registriert haben, mit dem Unterschied, dass er URL-codiert sein muss. |
-| response_mode | Nein  | Gibt die Methode an, die zum Zurücksenden des resultierenden Tokens an Ihre App verwendet wird.  Verwenden Sie `fragment` für implizite Flüsse. |
+| redirect_uri | Nein | Der Umleitungs-URI der App, in dem Authentifizierungsantworten gesendet und von der App empfangen werden können. Er muss genau mit einem der Umleitungs-URIs übereinstimmen, den Sie im Portal registriert haben, mit dem Unterschied, dass er URL-codiert sein muss. |
+| response_mode | Nein | Gibt die Methode an, die zum Zurücksenden des resultierenden Tokens an Ihre App verwendet wird.  Verwenden Sie `fragment` für implizite Flüsse. |
 | scope | Ja | Eine durch Leerzeichen getrennte Liste von Bereichen. Ein einzelner Bereichswert gibt Azure AD an, dass beide Berechtigungen angefordert werden. Der `openid`-Bereich gibt eine Berechtigung für das Anmelden des Benutzers und das Abrufen von Daten über den Benutzer in Form von ID-Token an. Der `offline_access` -Bereich ist für Web-Apps optional. Er gibt an, dass Ihre App ein Aktualisierungstoken für den dauerhaften Zugriff auf Ressourcen benötigt. |
-| state | Nein  | Ein in der Anforderung enthaltener Wert, der ebenfalls in der Tokenantwort zurückgegeben wird. Es kann sich um eine Zeichenfolge mit jedem beliebigen zu verwendenden Inhalt handeln. Normalerweise wird ein zufällig generierter eindeutiger Wert verwendet, um eine websiteübergreifende Anforderungsfälschung zu verhindern. Der Status wird auch zum Codieren von Informationen über den Status des Benutzers in der App vor der Authentifizierungsanforderung verwendet, z.B. für Informationen zu der Seite, die der Benutzer besucht hat. |
+| state | Nein | Ein in der Anforderung enthaltener Wert, der ebenfalls in der Tokenantwort zurückgegeben wird. Es kann sich um eine Zeichenfolge mit jedem beliebigen zu verwendenden Inhalt handeln. Normalerweise wird ein zufällig generierter eindeutiger Wert verwendet, um eine websiteübergreifende Anforderungsfälschung zu verhindern. Der Status wird auch zum Codieren von Informationen über den Status des Benutzers in der App vor der Authentifizierungsanforderung verwendet, z.B. für Informationen zu der Seite, die der Benutzer besucht hat. |
 | nonce | Ja | Ein (von der App generierter) Wert in der Anforderung, der im resultierenden ID-Token als Anspruch enthalten ist. Die App kann diesen Wert dann überprüfen, um die Gefahr von Tokenwiedergabeangriffen zu vermindern. Der Wert ist eine zufällige, eindeutige Zeichenfolge, die verwendet werden kann, um den Ursprung der Anforderung zu identifizieren. |
 | p | Ja | Die auszuführende Richtlinie. Dies ist der Name einer Richtlinie (eines Benutzerflows), die (der) in Ihrem Azure AD B2C-Mandanten erstellt wird. Der Wert für den Richtliniennamen muss mit **b2c\_1\_** beginnen. |
-| prompt | Nein  | Der Typ der erforderlichen Benutzerinteraktion. Derzeit ist `login` der einzige gültige Wert. Durch diesen Parameter wird der Benutzer dazu gezwungen, die Anmeldeinformationen bei dieser Anforderung einzugeben. Einmaliges Anmelden wird nicht berücksichtigt. |
+| prompt | Nein | Der Typ der erforderlichen Benutzerinteraktion. Derzeit ist `login` der einzige gültige Wert. Durch diesen Parameter wird der Benutzer dazu gezwungen, die Anmeldeinformationen bei dieser Anforderung einzugeben. Einmaliges Anmelden wird nicht berücksichtigt. |
 
 An diesem Punkt wird der Benutzer aufgefordert, den Workflow der Richtlinie abzuschließen. Der Benutzer muss möglicherweise seinen Benutzernamen und sein Kennwort eingeben, sich mit einer Social-Media-Identität anmelden, sich für das Verzeichnis registrieren oder andere Schritte ausführen. Die Benutzeraktionen hängen davon ab, wie der Benutzerflow definiert ist.
 
@@ -152,7 +152,7 @@ Es gibt zwei Möglichkeiten zum Ermitteln, welcher Benutzerflow zum Signieren ei
 Nachdem Sie das Metadatendokument aus dem OpenID Connect-Metadatenendpunkt erhalten haben, können Sie die öffentlichen RSA-256-Schlüssel (die sich an diesem Endpunkt befinden) zum Überprüfen der Signatur des ID-Tokens verwenden. Es gibt möglicherweise zu einem bestimmten Zeitpunkt mehrere Schlüssel an diesem Endpunkt. Sie werden jeweils durch eine `kid` identifiziert. Der Header der `id_token` enthält auch einen `kid`-Anspruch. Er gibt an, mit welchem dieser Schlüssel das ID-Token signiert wurde. Weitere Informationen finden Sie im [Azure AD B2C-Tokenverweis](active-directory-b2c-reference-tokens.md). Dort finden Sie auch Einzelheiten zum [Überprüfen von Token](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
 
-Nach der Überprüfung der Signatur des ID-Tokens müssen auch einige Ansprüche überprüft werden. Beispiel: 
+Nach der Überprüfung der Signatur des ID-Tokens müssen auch einige Ansprüche überprüft werden. Beispiel:
 
 * Überprüfen Sie den `nonce`-Anspruch, um Tokenwiederholungsangriffe zu verhindern. Dessen Wert sollte dem in der Anmeldeanforderung angegebenen Wert entsprechen.
 * Überprüfen Sie den `aud`-Anspruch, um sicherzustellen, dass das ID-Token für Ihre App ausgegeben wurde. Der Wert sollte der Anwendungs-ID der App entsprechen.
@@ -248,7 +248,7 @@ ID-Token und Zugriffstoken laufen nach einem kurzen Zeitraum ab. Ihre App muss d
 ## <a name="send-a-sign-out-request"></a>Senden einer Abmeldeanforderung
 Wenn Sie einen Benutzer von der App abmelden möchten, leiten Sie den Benutzer zum Abmelden an Azure AD weiter. Wenn der Benutzer nicht umgeleitet wird, kann er sich möglicherweise erneut für Ihre Anwendung authentifizieren, ohne die Anmeldeinformationen erneut einzugeben, da er nach wie vor über eine gültige SSO-Sitzung bei Azure AD verfügt.
 
-Sie können den Benutzer einfach an den `end_session_endpoint` umleiten, der im gleichen OpenID Connect-Metadatendokument aufgeführt wird, das weiter oben im Abschnitt [Überprüfen des ID-Tokens](#validate-the-id-token) beschrieben wird. Beispiel: 
+Sie können den Benutzer einfach an den `end_session_endpoint` umleiten, der im gleichen OpenID Connect-Metadatendokument aufgeführt wird, das weiter oben im Abschnitt [Überprüfen des ID-Tokens](#validate-the-id-token) beschrieben wird. Beispiel:
 
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?

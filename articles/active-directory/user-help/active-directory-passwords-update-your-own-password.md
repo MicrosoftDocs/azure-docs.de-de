@@ -15,11 +15,11 @@ ms.author: lizross
 ms.custom: end-user
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60862205"
 ---
 # <a name="reset-your-work-or-school-password"></a>Zurücksetzen des Kennworts eines Geschäfts-, Schul- oder Unikontos
 
@@ -38,7 +38,7 @@ Möglicherweise können Sie aus einem der folgenden Gründe nicht auf Ihr Azure 
 
 Führen Sie die folgenden Schritte aus, um die Self-Service-Kennwortzurücksetzung von Azure AD zu nutzen und wieder Zugriff auf Ihr Konto zu erhalten.
 
-1. Klicken Sie auf einer beliebigen **Anmeldeseite** für ein Geschäfts-, Schul- oder Unikonto auf den Link **Sie können nicht auf Ihr Konto zugreifen?**, und klicken Sie anschließend auf **Geschäfts-, Schul- oder Unikonto**, oder rufen Sie direkt die [Seite für die Kennwortzurücksetzung](https://passwordreset.microsoftonline.com/) auf.
+1. Klicken Sie auf einer beliebigen **Anmeldeseite** für ein Geschäfts-, Schul- oder Unikonto auf den Link **Sie können nicht auf Ihr Konto zugreifen?** , und klicken Sie anschließend auf **Geschäfts-, Schul- oder Unikonto**, oder rufen Sie direkt die [Seite für die Kennwortzurücksetzung](https://passwordreset.microsoftonline.com/) auf.
 
     ![Sie können nicht auf Ihr Konto zugreifen?][Login]
 
@@ -115,7 +115,7 @@ Wählen Sie den Link **Kennwort zurücksetzen** aus, um die Oberfläche für die
 
 Sie sollten jetzt auf Ihr Konto zugreifen können. Andernfalls wenden Sie sich an das IT-Team Ihrer Organisation, um weitere Hilfe zu erhalten.
 
-## <a name="common-problems-and-their-solutions"></a>häufige Probleme und Lösungen
+## <a name="common-problems-and-their-solutions"></a>Häufige Probleme und Lösungen
 
  Hier finden Sie einige häufige Fehler und die passenden Lösungen:
 

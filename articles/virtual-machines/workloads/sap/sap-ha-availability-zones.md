@@ -18,11 +18,11 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125307"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-Workloadkonfigurationen mit Azure-Verfügbarkeitszonen
 [Azure-Verfügbarkeitszonen](https://docs.microsoft.com/azure/availability-zones/az-overview) sind eines der Hochverfügbarkeitsfeatures von Azure. Die Verwendung von Verfügbarkeitszonen verbessert die allgemeine Verfügbarkeit von SAP-Workloads in Azure. Dieses Feature steht bereits in einigen [Azure-Regionen](https://azure.microsoft.com/global-infrastructure/regions/) zur Verfügung. Künftig wird es in weiteren Regionen verfügbar sein.

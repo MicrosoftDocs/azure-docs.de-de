@@ -1,25 +1,18 @@
 ---
-title: Preise für VM-Angebote | Microsoft-Dokumentation
+title: Preise für VM-Angebote | Azure Marketplace
 description: Erläutert die drei Methoden zum Festlegen der Preise für VM-Angebote.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.author: pabutler
+ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935725"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Preise für VM-Angebote
 ==================================
@@ -97,7 +90,7 @@ Der Herausgeber kann auch seine Preistabelle an einen temporären Speicherort ho
      }
 ```
 
-<a name="regions"></a>Regionen
+<a name="regions"></a>Regions
 -------
 
 Die folgende Tabelle zeigt die verschiedenen Regionen, die Sie für angepasste Kernpreise angeben können, und ihre entsprechenden Währungscodes.

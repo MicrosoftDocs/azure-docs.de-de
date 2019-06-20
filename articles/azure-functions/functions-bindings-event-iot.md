@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426102"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511346"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure IoT Hub-Bindungen für Azure Functions
 

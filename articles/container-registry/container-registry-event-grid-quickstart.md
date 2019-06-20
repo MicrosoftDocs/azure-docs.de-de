@@ -9,11 +9,11 @@ ms.date: 08/23/2018
 ms.author: danlep
 ms.custom: seodec18
 ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60427651"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Schnellstart: Senden von Ereignissen aus der privaten Containerregistrierung an Event Grid
 

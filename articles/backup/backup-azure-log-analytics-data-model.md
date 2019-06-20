@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
 ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075269"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61234920"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-Datenmodell für Azure Backup-Daten
 
@@ -34,7 +34,7 @@ Diese Tabelle enthält Details zu warnungsbezogenen Feldern.
 | AlertUniqueId_s |Text |Eindeutiger Bezeichner der generierten Warnung |
 | AlertType_s |Text |Typ der Warnung, z.B. Sicherung |
 | AlertStatus_s |Text |Status der Warnung, z.B. „Aktiv“ |
-| AlertOccurrenceDateTime_s |Datum/Uhrzeit |Datum und Uhrzeit der Warnungserstellung |
+| AlertOccurrenceDateTime_s |Date/Time |Datum und Uhrzeit der Warnungserstellung |
 | AlertSeverity_s |Text |Schweregrad der Warnung, z.B. „Kritisch“ |
 |AlertTimeToResolveInMinutes_s    | Number        |Zeit, die benötigt wurde, um eine Warnung zu klären. Leer für aktive Warnungen.         |
 |AlertConsolidationStatus_s   |Text         |Erkennen, ob die Warnung eine konsolidierte Warnung ist oder nicht         |
@@ -47,13 +47,13 @@ Diese Tabelle enthält Details zu warnungsbezogenen Feldern.
 | SchemaVersion_s |Text |Aktuelle Version des Schemas, z. B. **V2** |
 | State_s |Text |Aktueller Status des Warnungsobjekts, z.B. „Aktiv“, „Gelöscht“ |
 | BackupManagementType_s |Text |Anbietertyp für die Sicherung, zu der diese Warnung gehört, z.B. IaaSVM, FileFolder |
-| NameVorgang |Text |Name des aktuellen Vorgangs, z.B. Warnung |
+| OperationName |Text |Name des aktuellen Vorgangs, z.B. Warnung |
 | Category (Kategorie) |Text |Kategorie der Diagnosedaten, die mithilfe von Push in Azure Monitor-Protokolle übertragen werden Immer „AzureBackupReport“ |
-| Ressource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
+| Resource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
 | ProtectedServerUniqueId_s |Text |Eindeutiger Bezeichner des geschützten Servers, der der Warnung zugeordnet ist |
 | VaultUniqueId_s |Text |Eindeutiger Bezeichner des geschützten Tresors, der der Warnung zugeordnet ist |
 | SourceSystem |Text |Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text |Eindeutiger Bezeichner der Ressource, zu der Daten gesammelt werden. Beispiel: eine Ressourcen-ID des Recovery Services-Tresors |
+| resourceId |Text |Eindeutiger Bezeichner der Ressource, zu der Daten gesammelt werden. Beispiel: eine Ressourcen-ID des Recovery Services-Tresors |
 | SubscriptionId |Text |Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceGroup |Text |Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceProvider |Text |Ressourcenanbieter, für den Daten gesammelt werden. Beispiel: Microsoft.RecoveryServices |
@@ -77,11 +77,11 @@ Diese Tabelle enthält Details zu Feldern in Bezug auf Sicherungselemente.
 | SchemaVersion_s |Text |Version des Schemas, z. B. **V2** |
 | State_s |Text |Status des Sicherungselementobjekts, z.B. „Aktiv“ oder „Gelöscht“ |
 | BackupManagementType_s |Text |Anbietertyp für die Sicherung, zu der dieses Sicherungselement gehört, z.B. IaaSVM, FileFolder |
-| NameVorgang |Text |Name des Vorgangs, z.B. „BackupItem“ |
+| OperationName |Text |Name des Vorgangs, z.B. „BackupItem“ |
 | Category (Kategorie) |Text |Kategorie der Diagnosedaten, die mithilfe von Push in Azure Monitor-Protokolle übertragen werden Immer „AzureBackupReport“ |
-| Ressource |Text |Ressource, für die Daten erfasst werden; z.B. der Name des Recovery Services-Tresors |
+| Resource |Text |Ressource, für die Daten erfasst werden; z.B. der Name des Recovery Services-Tresors |
 | SourceSystem |Text |Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text |Ressourcen-ID, für die Daten erfasst werden; z.B. die Ressourcen-ID des Recovery Services-Tresors |
+| resourceId |Text |Ressourcen-ID, für die Daten erfasst werden; z.B. die Ressourcen-ID des Recovery Services-Tresors |
 | SubscriptionId |Text |Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor) für Daten, die erfasst werden |
 | ResourceGroup |Text |Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor) für Daten, die erfasst werden |
 | ResourceProvider |Text |Ressourcenanbieter für Daten, die erfasst werden; z.B. „Microsoft.RecoveryServices“ |
@@ -101,13 +101,13 @@ Diese Tabelle enthält Details zur Zuordnung von Sicherungselementen zu verschie
 | BackupItemSourceSize_s |Text | Front-End-Größe des Sicherungselements |
 | BackupManagementServerUniqueId_s |Text | Feld, um den Server für die Sicherungsverwaltung, durch den das Sicherungselement geschützt wird, eindeutig zu bestimmen (wenn zutreffend) |
 | Category (Kategorie) |Text |Dieses Feld repräsentiert die Kategorie der Diagnosedaten, die an Log Analytics übermittelt werden: AzureBackupReport |
-| NameVorgang |Text |Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: BackupItemAssociation |
-| Ressource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
+| OperationName |Text |Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: BackupItemAssociation |
+| Resource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
 | PolicyUniqueId_g |Text |Eindeutiger Bezeichner der Richtlinie, die dem Sicherungselement zugeordnet ist |
 | ProtectedServerUniqueId_s |Text |Eindeutiger Bezeichner des geschützten Servers, der dem Sicherungselement zugeordnet ist |
 | VaultUniqueId_s |Text |Eindeutiger Bezeichner des Tresors, der das Sicherungselement enthält |
 | SourceSystem |Text |Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
+| resourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
 | SubscriptionId |Text |Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor), für die Daten gesammelt werden |
 | ResourceGroup |Text |Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor), für die Daten gesammelt werden |
 | ResourceProvider |Text |Ressourcenanbieter für Daten, die erfasst werden; z.B. „Microsoft.RecoveryServices“ |
@@ -126,7 +126,7 @@ Diese Tabelle enthält Details zur Zuordnung von Sicherungselementen zu verschie
 |BackupManagementServerType_s     |Text         |Typ des Sicherungsverwaltungsserver, z. B. MABS oder SC DPM|
 |BackupManagementServerUniqueId_s     |Text         |Feld, um den Sicherungsverwaltungsserver eindeutig zu bestimmen       |
 | SourceSystem |Text |Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
+| resourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
 | SubscriptionId |Text |Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor), für die Daten gesammelt werden |
 | ResourceGroup |Text |Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor), für die Daten gesammelt werden |
 | ResourceProvider |Text |Ressourcenanbieter für Daten, die erfasst werden; z.B. „Microsoft.RecoveryServices“ |
@@ -143,16 +143,16 @@ Diese Tabelle enthält Details zu auftragsbezogenen Feldern.
 | SchemaVersion_s |Text |Version des Schemas, z. B. **V2** |
 | State_s |Text |Aktueller Status des Auftragsobjekts, z.B. „Aktiv“, „Gelöscht“ |
 | BackupManagementType_s |Text |Anbietertyp für den Server zur Durchführung des Sicherungsjobs, z.B. IaaSVM, FileFolder |
-| NameVorgang |Text |Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: Auftrag |
+| OperationName |Text |Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: Auftrag |
 | Category (Kategorie) |Text |Dieses Feld repräsentiert die Kategorie der Diagnosedaten, die an Azure Monitor-Protokolle übermittelt werden: AzureBackupReport |
-| Ressource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
+| Resource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
 | ProtectedServerUniqueId_s |Text |Eindeutiger Bezeichner des geschützten Servers, der dem Job zugeordnet ist |
 | ProtectedContainerUniqueId_s |Text | Eindeutige ID, um den geschützten Container zu bestimmen, in dem der Auftrag ausgeführt wird |
 | VaultUniqueId_s |Text |Eindeutiger Bezeichner des geschützten Tresors |
 | JobOperation_s |Text |Vorgang, für den Auftrag ausgeführt wird, z.B. Sicherung, Wiederherstellung, Sicherungskonfiguration |
 | JobStatus_s |Text |Status des beendeten Auftrags, z.B. „Abgeschlossen“, „Fehler“ |
 | JobFailureCode_s |Text |Zeichenfolge mit dem Fehlercode zum Angeben des Grunds des Auftragsfehlers |
-| JobStartDateTime_s |Datum/Uhrzeit |Datum und Uhrzeit des Starts des Auftrags |
+| JobStartDateTime_s |Date/Time |Datum und Uhrzeit des Starts des Auftrags |
 | BackupStorageDestination_s |Text |Ziel des Sicherungsspeichers, z.B. Cloud, Datenträger  |
 | AdHocOrScheduledJob_s |Text | Feld, um anzugeben, ob der Auftrag „Ad-hoc“ oder „Geplant“ ist |
 | JobDurationInSecs_s | Number |Gesamtdauer des Auftrags in Sekunden |
@@ -162,7 +162,7 @@ Diese Tabelle enthält Details zu auftragsbezogenen Feldern.
 | RecoveryJobRPDateTime_s |DateTime | Datum und Uhrzeit, wann der Wiederherstellungspunkt, der wiederhergestellt wird, erstellt wurde |
 | RecoveryJobRPLocation_s |Text | Ort, an dem der Wiederherstellungspunkt, der wiederhergestellt wird, gespeichert wurde|
 | SourceSystem |Text |Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors|
+| resourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors|
 | SubscriptionId |Text |Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceGroup |Text |Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceProvider |Text |Ressourcenanbieter, für den Daten gesammelt werden. Beispiel: Microsoft.RecoveryServices |
@@ -178,9 +178,9 @@ Diese Tabelle enthält Details zu richtlinienbezogenen Feldern.
 | SchemaVersion_s |Text ||Dieses Feld gibt die aktuelle Version des Schemas an: **V2** |
 | State_s |Text ||Aktueller Status des Richtlinienobjekts, z.B. „Aktiv“, „Gelöscht“ |
 | BackupManagementType_s |Text ||Anbietertyp für den Server zur Durchführung des Sicherungsjobs, z.B. IaaSVM, FileFolder |
-| NameVorgang |Text ||Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: Richtlinie |
+| OperationName |Text ||Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: Richtlinie |
 | Category (Kategorie) |Text ||Dieses Feld repräsentiert die Kategorie der Diagnosedaten, die an Azure Monitor-Protokolle übermittelt werden: AzureBackupReport |
-| Ressource |Text ||Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
+| Resource |Text ||Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
 | PolicyUniqueId_g |Text ||Eindeutige ID zur Bezeichnung der Richtlinie |
 | PolicyName_s |Text ||Name der definierten Richtlinie |
 | BackupFrequency_s |Text ||Häufigkeit, mit der Sicherungen erfolgen, z.B. täglich, wöchentlich |
@@ -204,13 +204,13 @@ Diese Tabelle enthält Details zu richtlinienbezogenen Feldern.
 | YearlyRetentionDaysOfTheMonth_s |Text ||Datumsangaben des Monats, die für die jährliche Beibehaltung ausgewählt sind |
 | SynchronisationFrequencyPerDay_s |Ganze Zahl |V2|Anzahl der Male, die eine Dateisicherung pro Tag mit SC DPM und MABS synchronisiert wird |
 | DiffBackupFormat_s |Text |V2|Format für differenzielle Sicherungen für SQL in Sicherungen von Azure-VMs |
-| DiffBackupTime_s |Zeit |V2|Zeit für differenzielle Sicherungen für SQL im Azure Backup-Dienst für VMs|
+| DiffBackupTime_s |Time |V2|Zeit für differenzielle Sicherungen für SQL im Azure Backup-Dienst für VMs|
 | DiffBackupRetentionDuration_s |Dezimalzahl |V2|Aufbewahrungsdauer für differenzielle Sicherungen für SQL im Azure Backup-Dienst für VMs|
 | LogBackupFrequency_s |Dezimalzahl |V2|Häufigkeit von Protokollsicherungen für SQL|
 | LogBackupRetentionDuration_s |Dezimalzahl |V2|Aufbewahrungsdauer für Protokollsicherungen für SQL im Azure Backup-Dienst für VMs|
 | DiffBackupDaysofTheWeek_s |Text |V2|Wochentage für differenzielle Sicherungen für SQL im Azure Backup-Dienst für VMs|
 | SourceSystem |Text ||Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text ||Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
+| resourceId |Text ||Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
 | SubscriptionId |Text ||Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceGroup |Text ||Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceProvider |Text ||Ressourcenanbieter, für den Daten gesammelt werden. Beispiel: Microsoft.RecoveryServices |
@@ -226,14 +226,14 @@ Diese Tabelle enthält Details zur Zuordnung von Richtlinien zu verschiedenen En
 | SchemaVersion_s |Text ||Dieses Feld gibt die aktuelle Version des Schemas an: **V2** |
 | State_s |Text ||Aktueller Status des Richtlinienobjekts, z.B. „Aktiv“, „Gelöscht“ |
 | BackupManagementType_s |Text ||Anbietertyp für den Server zur Durchführung des Sicherungsjobs, z.B. IaaSVM, FileFolder |
-| NameVorgang |Text ||Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: PolicyAssociation |
+| OperationName |Text ||Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: PolicyAssociation |
 | Category (Kategorie) |Text ||Dieses Feld repräsentiert die Kategorie der Diagnosedaten, die an Azure Monitor-Protokolle übermittelt werden: AzureBackupReport |
-| Ressource |Text ||Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
+| Resource |Text ||Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
 | PolicyUniqueId_g |Text ||Eindeutige ID zur Bezeichnung der Richtlinie |
 | VaultUniqueId_s |Text ||Eindeutige ID des Tresors, zu dem diese Richtlinie gehört |
 | BackupManagementServerUniqueId_s |Text |V2 |Feld, um den Server für die Sicherungsverwaltung, durch den das Sicherungselement geschützt wird, eindeutig zu bestimmen (wenn zutreffend)        |
 | SourceSystem |Text ||Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text ||Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
+| resourceId |Text ||Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
 | SubscriptionId |Text ||Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceGroup |Text ||Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceProvider |Text ||Ressourcenanbieter, für den Daten gesammelt werden. Beispiel: Microsoft.RecoveryServices |
@@ -269,13 +269,13 @@ Diese Tabelle enthält Details zu speicherbezogenen Feldern.
 | SchemaVersion_s |Text |Dieses Feld gibt die aktuelle Version des Schemas an: **V2** |
 | State_s |Text |Aktueller Status des Speicherobjekts, z.B. „Aktiv“, „Gelöscht“ |
 | BackupManagementType_s |Text |Anbietertyp für den Server zur Durchführung des Sicherungsjobs, z.B. IaaSVM, FileFolder |
-| NameVorgang |Text |Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: Speicher |
+| OperationName |Text |Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: Speicher |
 | Category (Kategorie) |Text |Dieses Feld repräsentiert die Kategorie der Diagnosedaten, die an Azure Monitor-Protokolle übermittelt werden: AzureBackupReport |
-| Ressource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
+| Resource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
 | ProtectedServerUniqueId_s |Text |Eindeutige ID des geschützten Servers, für den der Speicher berechnet wird |
 | VaultUniqueId_s |Text |Eindeutige ID des Tresors, für den der Speicher berechnet wird |
 | SourceSystem |Text |Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
+| resourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
 | SubscriptionId |Text |Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceGroup |Text |Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceProvider |Text |Ressourcenanbieter, für den Daten gesammelt werden. Beispiel: Microsoft.RecoveryServices |
@@ -304,15 +304,15 @@ Diese Tabelle enthält Details zu tresorbezogenen Feldern.
 | EventName_s |Text |Dieses Feld stellt den Namen des Ereignisses dar, es lautet immer „AzureBackupCentralReport“ |
 | SchemaVersion_s |Text |Dieses Feld gibt die aktuelle Version des Schemas an: **V2** |
 | State_s |Text |Aktueller Status des Tresorobjekts, z.B. „Aktiv“, „Gelöscht“ |
-| NameVorgang |Text |Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: Tresor |
+| OperationName |Text |Dieses Feld repräsentiert den Namen des aktuellen Vorgangs: Tresor |
 | Category (Kategorie) |Text |Dieses Feld repräsentiert die Kategorie der Diagnosedaten, die an Azure Monitor-Protokolle übermittelt werden: AzureBackupReport |
-| Ressource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
+| Resource |Text |Die Ressource, für die Daten erfasst werden; zeigt den Recovery Services-Tresornamen an |
 | VaultUniqueId_s |Text |Eindeutige ID des Tresors |
 | VaultName_s |Text |Name des Tresors |
 | AzureDataCenter_s |Text |Rechenzentrum, in dem sich der Tresor befindet |
 | StorageReplicationType_s |Text |Typ der Speicherreplikation für den Tresor, z.B. GeoRedundant |
 | SourceSystem |Text |Quellsystem der aktuellen Daten: Azure |
-| ResourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
+| resourceId |Text |Ressourcenbezeichner der Daten, die erfasst werden. Beispiel: Ressourcen-ID des Recovery Services-Tresors |
 | SubscriptionId |Text |Abonnementbezeichner der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceGroup |Text |Ressourcengruppe der Ressource (z.B. Recovery Services-Tresor), zu der Daten gesammelt werden |
 | ResourceProvider |Text |Ressourcenanbieter, für den Daten gesammelt werden. Beispiel: Microsoft.RecoveryServices |

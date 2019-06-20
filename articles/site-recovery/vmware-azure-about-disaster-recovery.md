@@ -5,14 +5,14 @@ author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 3/18/2019
+ms.date: 5/30/2019
 ms.author: raynew
-ms.openlocfilehash: 9d7b94500320315c1379ba3dfb8b6460bc105b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a00c129126886bd71c82940aa340a8db29cf7a0e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311197"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417799"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informationen zur Notfallwiederherstellung von virtuellen VMware-Computern in Azure
 

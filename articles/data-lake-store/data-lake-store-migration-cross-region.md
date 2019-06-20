@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60518454"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Regionsübergreifendes Migrieren von Azure Data Lake Storage Gen1
 

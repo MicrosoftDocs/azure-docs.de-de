@@ -168,7 +168,7 @@ Beim Kopieren von Daten aus SAP HANA werden die folgenden Zuordnungen von SAP HA
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
 | DATE | DateTime |
-| DECIMAL | Decimal |
+| Decimal | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | String |

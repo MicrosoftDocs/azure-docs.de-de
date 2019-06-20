@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 1eb24d90c3aefa81f53a3e31c0bd460f45e5a250
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617698"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515657"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Entwerfen einer Azure Database for MariaDB-Datenbank mithilfe des Azure-Portals
 
@@ -58,11 +58,14 @@ Sie erstellen einen Azure Database for MariaDB-Server mit einer definierten Grup
     Serveradministratoranmeldung | **myadmin** | Ein Anmeldekonto für die Verbindungsherstellung mit dem Server. Der Administratoranmeldename darf nicht **azure_superuser**, **admin**, **administrator**, **root**, **guest** oder **public** lauten.
     Kennwort | *Beliebig* | Geben Sie ein neues Kennwort für das Serveradministratorkonto ein. Es muss zwischen acht und 128 Zeichen lang sein. Das Kennwort muss Zeichen aus drei der folgenden Kategorien enthalten: Englische Großbuchstaben, englische Kleinbuchstaben, Zahlen (0-9) und nicht alphanumerische Zeichen (!, $, #, % usw.).
     Kennwort bestätigen | *Beliebig*| Bestätigen Sie das Kennwort des Administratorkontos.
-    Standort | *Die Region, die Ihren Benutzern am nächsten ist*| Wählen Sie den Standort aus, der Ihren Benutzern oder Ihren anderen Azure-Anwendungen am nächsten ist.
+    Location | *Die Region, die Ihren Benutzern am nächsten ist*| Wählen Sie den Standort aus, der Ihren Benutzern oder Ihren anderen Azure-Anwendungen am nächsten ist.
     Version | *Die aktuelle Version*| Die aktuelle Version (es sei denn, Sie haben besondere Anforderungen, die eine andere Version erfordern).
     Tarif | Siehe Beschreibung. | Die Compute-, Speicher- und Sicherungskonfigurationen für Ihren neuen Server. Klicken Sie auf **Tarif** > **Universell**. Übernehmen Sie die Standardwerte für die folgenden Einstellungen:<br><ul><li>**Computegeneration** (Gen 5)</li><li>**Virtuelle Kerne** (4 virtuelle Kerne)</li><li>**Speicher** (100 GB)</li><li>**Aufbewahrungszeit für Sicherung** (sieben Tage)</li></ul><br>Wählen Sie zum Aktivieren der Serversicherungen in georedundantem Speicher unter **Optionen für Sicherungsredundanz** die Option **Georedundant** aus. <br><br>Klicken Sie auf **OK**, um die Tarifauswahl zu speichern. Der nächste Screenshot zeigt die gewählten Optionen.
     
    ![Tarif](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > Ist **Automatische Vergrößerung** aktiviert, erhöht Ihr Server den Speicher, wenn Sie sich dem zugeordneten Grenzwert nähern. Ihre Workload wird dadurch nicht beeinträchtigt.
 
 4. Klicken Sie auf **Erstellen**. In ein oder zwei Minuten wird ein neuer Azure Database for MariaDB-Server in der Cloud ausgeführt. Klicken Sie auf der Symbolleiste auf **Benachrichtigungen**, um den Bereitstellungsprozess zu überwachen.
 
@@ -94,7 +97,7 @@ In unserem Beispiel lautet der Servername **mydemoserver.mariadb.database.azure.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Herstellen einer Verbindung mit dem Server mit MySQL
 
-Verwenden Sie das [MySQL-Befehlszeilentool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html), um eine Verbindung mit Ihrem Azure Database for MariaDB-Server herzustellen. Sie können das MySQL-Befehlszeilentool über Azure Cloud Shell im Browser oder auf Ihrem Computer über die lokal installierten MySQL-Tools ausführen. Um Azure Cloud Shell zu öffnen, klicken Sie in einem Codeblock in diesem Artikel auf die Schaltfläche **Ausprobieren**, oder besuchen Sie das Azure-Portal, und klicken Sie auf der Symbolleiste oben rechts auf das Symbol **>_**. 
+Verwenden Sie das [MySQL-Befehlszeilentool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html), um eine Verbindung mit Ihrem Azure Database for MariaDB-Server herzustellen. Sie können das MySQL-Befehlszeilentool über Azure Cloud Shell im Browser oder auf Ihrem Computer über die lokal installierten MySQL-Tools ausführen. Um Azure Cloud Shell zu öffnen, klicken Sie in einem Codeblock in diesem Artikel auf die Schaltfläche **Ausprobieren**, oder besuchen Sie das Azure-Portal, und klicken Sie auf der Symbolleiste oben rechts auf das Symbol **>_** . 
 
 Geben Sie den Befehl zum Herstellen einer Verbindung ein:
 

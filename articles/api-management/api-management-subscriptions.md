@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526587"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243260"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnements in Azure API Management
 
@@ -42,7 +42,7 @@ Abonnements können verschiedenen Bereichen zugeordnet werden: einem Produkt, al
 
 ### <a name="subscriptions-for-a-product"></a>Abonnements für ein Produkt
 
-Traditionell wurden Abonnements in APIM als Bereich immer einem einzelnen [API-Produkt](api-management-terminology.md) zugeordnet. Entwickler fanden die Liste der Produkte im Entwicklerportal. Dann sendeten sie Abonnementanforderungen für die Produkte, die sie verwenden wollten. Nachdem eine Abonnementanforderung genehmigt wurde – entweder automatisch oder durch den API-Herausgeber – können die Entwickler die Schlüssel darin für den Zugriff auf alle APIs im Produkt verwenden.
+Traditionell wurden Abonnements in APIM als Bereich immer einem einzelnen [API-Produkt](api-management-terminology.md) zugeordnet. Entwickler fanden die Liste der Produkte im Entwicklerportal. Dann sendeten sie Abonnementanforderungen für die Produkte, die sie verwenden wollten. Nachdem eine Abonnementanforderung genehmigt wurde – entweder automatisch oder durch den API-Herausgeber – können die Entwickler die Schlüssel darin für den Zugriff auf alle APIs im Produkt verwenden. Zurzeit werden im Entwicklerportal nur die Produktbereichsabonnements unter dem Benutzerprofilabschnitt angezeigt. 
 
 ![Produktabonnements](./media/api-management-subscriptions/product-subscription.png)
 

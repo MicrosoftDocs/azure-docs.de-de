@@ -17,11 +17,11 @@ ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171848"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Erstellen und Verwalten virtueller Linux-Computer mit der Azure-Befehlszeilenschnittstelle
 
@@ -54,7 +54,7 @@ Die Ressourcengruppe wird beim Erstellen oder Ändern eines virtuellen Computers
 
 Erstellen Sie mit dem Befehl [az vm create](https://docs.microsoft.com/cli/azure/vm) einen virtuellen Computer. 
 
-Beim Erstellen eines virtuellen Computers stehen mehrere Optionen zur Verfügung – beispielsweise Betriebssystemimage, Datenträgergröße und Administratoranmeldeinformationen. Im folgenden Beispiel wird ein virtueller Computer namens *myVM* mit Ubuntu Server erstellt. Auf dem virtuellen Computer wird ein Benutzerkonto namens *azureuser* erstellt. Außerdem werden SSH-Schlüssel generiert, sofern sie am Standardspeicherort für Schlüssel (*~/.ssh*) nicht vorhanden sind:
+Beim Erstellen eines virtuellen Computers stehen mehrere Optionen zur Verfügung – beispielsweise Betriebssystemimage, Datenträgergröße und Administratoranmeldeinformationen. Im folgenden Beispiel wird ein virtueller Computer namens *myVM* mit Ubuntu Server erstellt. Auf dem virtuellen Computer wird ein Benutzerkonto namens *azureuser* erstellt. Außerdem werden SSH-Schlüssel generiert, sofern sie am Standardspeicherort für Schlüssel ( *~/.ssh*) nicht vorhanden sind:
 
 ```azurecli-interactive
 az vm create \

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60931227"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Verwenden des E-Mail-Diensts SendGrid aus PHP
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 55cb9564205c99abc868413ebf43e575999198ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef72e7f5a4974a9da96d03dc74bc7a8b01ff4d10
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183695"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515085"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Schnellstart: Nachschlagen von Wörtern im bilingualen Wörterbuch mithilfe von Python
 

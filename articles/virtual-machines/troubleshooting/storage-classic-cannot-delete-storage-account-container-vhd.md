@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926230"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Behebung von Problemen beim Löschen klassischer Speicherressourcen
@@ -99,7 +99,7 @@ Im Portal sind möglicherweise zwei Benutzeroberflächen vorhanden, abhängig vo
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Wenn der Benutzer versucht, den Löschvorgang mit PowerShell durchzuführen, tritt folgender Fehler auf. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : Der Remoteserver hat einen Fehler zurückgegeben: (412) Es ist derzeit eine Lease für das Blob vorhanden, und in der Anforderung wurde keine Lease-ID angegeben. HTTP-Statuscode: 412 – HTTP-Fehlermeldung: Es ist derzeit eine Lease für das Blob vorhanden, und in der Anforderung wurde keine Lease-ID angegeben.</span>
 

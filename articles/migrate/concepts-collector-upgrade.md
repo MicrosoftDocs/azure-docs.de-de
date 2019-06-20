@@ -8,11 +8,11 @@ ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
 ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60685918"
 ---
 # <a name="collector-appliance-updates"></a>Updates für die Collectorappliance
 

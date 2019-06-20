@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/07/2018
-ms.author: gracez
-ms.openlocfilehash: f915a03e2596e6439cbe184bfc8405910f56e2bd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.date: 05/22/2019
+ms.author: wellsi
+ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66751812"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Versionshinweise zum Cognitive Services Speech-Geräte-SDK
 In den folgenden Abschnitten sind Änderungen in den neuesten Versionen aufgeführt.
+
+## <a name="speech-devices-sdk-151"></a>Speech Devices SDK 1.5.1:
+
+*   [Unterhaltungstranskription](conversation-transcription-service.md) wurde in die Beispiel-App aufgenommen.
+*   Die [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference)-Komponente wurde auf Version 1.5.1 aktualisiert. Weitere Informationen finden Sie in den [Versionshinweisen](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Cognitive Services Speech Devices SDK 1.5.0: Release von Mai 2019
 
@@ -44,7 +49,7 @@ In den folgenden Abschnitten sind Änderungen in den neuesten Versionen aufgefü
 
 **Wichtige Änderungen** 
 
-*   [Das Installieren eines Aktivierungsworts](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) wurde vereinfacht und ist jetzt Teil der App. Es ist keine separate Installation auf dem Gerät erforderlich.
+*   [Das Installieren eines Aktivierungsworts](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) wurde vereinfacht und ist jetzt Teil der App. Es ist keine separate Installation auf dem Gerät erforderlich.
 *   Die Erkennung des Aktivierungsworts wurde geändert, und es werden zwei Ereignisse unterstützt.
     - RecognizingKeyword: Gibt an, dass das Ergebnis der Spracherkennung (nicht überprüften) Schlüsselworttext enthält.
     - RecognizedKeyword: Gibt an, dass die Schlüsselworterkennung abgeschlossen und das angegebene Schlüsselwort erkannt wurde.

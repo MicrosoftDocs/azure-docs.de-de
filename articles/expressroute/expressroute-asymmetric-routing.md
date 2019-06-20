@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
 ms.custom: seodec18
-ms.openlocfilehash: 6ece48d892f46a4f8bbeb66d3ebda9f532b621b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b2b678cad50e45660fb763c2a1f9194500edf8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076650"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730199"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrisches Routing mit mehreren Netzwerkpfaden
 In diesem Artikel erfahren Sie, wie ausgehender und eingehender Netzwerkdatenverkehr über unterschiedliche Routen abgewickelt werden kann, wenn zwischen Netzwerkquelle und -ziel mehrere Pfade verfügbar sind.
@@ -50,7 +50,7 @@ Wir sehen uns nun einige Fälle an, um die Auswirkung dieser beiden Änderungen 
 
 Anschließend aktivieren Sie ExpressRoute und nutzen Dienste, die von Microsoft über ExpressRoute angeboten werden. Alle anderen Dienste von Microsoft werden über die Internetverbindung genutzt. Sie stellen im Edgebereich der ExpressRoute-Verbindung eine separate Firewall bereit. Für bestimmte Dienste kündigt Microsoft Ihrem Netzwerk gegenüber per ExpressRoute spezifischere Präfixe an. Für diese Präfixe verwendet Ihre Routinginfrastruktur ExpressRoute als bevorzugten Pfad. Wenn Sie Ihre öffentlichen IP-Adressen Microsoft gegenüber nicht per ExpressRoute ankündigen, kommuniziert Microsoft mit Ihren öffentlichen IP-Adressen über die Internetverbindung. Beim Weiterleiten von Datenverkehr aus Ihrem Netzwerk an Microsoft wird ExpressRoute verwendet, und für den Datenverkehr von Microsoft in umgekehrter Richtung wird die Internetverbindung genutzt. Falls bei der Edgefirewall ein Antwortpaket für einen Datenfluss eingeht, der nicht in der Zustandstabelle gefunden wird, wird der eingehende Datenverkehr verworfen.
 
-Wenn Sie für ExpressRoute und Internet den gleichen Pool für die Netzwerkadressübersetzung (NAT) verwenden, treten ähnliche Probleme für die Clients in Ihrem Netzwerk mit privaten IP-Adressen auf. Anforderungen für Dienste wie Windows Update werden über die Internetverbindung abgewickelt, da IP-Adressen für diese Dienste nicht per ExpressRoute angekündigt werden. Der eingehende Datenverkehr wird hingegen über ExpressRoute zurückgegeben. Wenn Microsoft über die Internet- und die ExpressRoute-Verbindung eine IP-Adresse mit der gleichen Subnetzmaske erhält, wird ExpressRoute der Internetverbindung vorgezogen. Wenn einer Firewall oder einem anderen zustandsbehafteten Gerät im ExpressRoute zugewandten Edgebereich des Netzwerks noch keine Informationen zu dem Datenfluss vorliegen, werden die Pakete des betreffenden Datenflusses verworfen.
+Wenn Sie für ExpressRoute und Internet den gleichen Pool für die Netzwerkadressübersetzung (NAT) ankündigen, treten ähnliche Probleme für die Clients in Ihrem Netzwerk mit privaten IP-Adressen auf. Anforderungen für Dienste wie Windows Update werden über die Internetverbindung abgewickelt, da IP-Adressen für diese Dienste nicht per ExpressRoute angekündigt werden. Der eingehende Datenverkehr wird hingegen über ExpressRoute zurückgegeben. Wenn Microsoft über die Internet- und die ExpressRoute-Verbindung eine IP-Adresse mit der gleichen Subnetzmaske erhält, wird ExpressRoute der Internetverbindung vorgezogen. Wenn einer Firewall oder einem anderen zustandsbehafteten Gerät im ExpressRoute zugewandten Edgebereich des Netzwerks noch keine Informationen zu dem Datenfluss vorliegen, werden die Pakete des betreffenden Datenflusses verworfen.
 
 ## <a name="asymmetric-routing-solutions"></a>Lösungen für asymmetrisches Routing
 Sie haben zwei Möglichkeiten, wie Sie das Problem des asymmetrischen Routings lösen können. Eine Lösung basiert auf dem Routing, und die andere Lösung ist die quellenbasierte NAT (SNAT).

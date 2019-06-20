@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 4b6aeb2968d7642881535753cb6c8434cfe10886
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534070"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699678"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installieren von .NET in Rollen in Azure Cloud Services
 Dieser Artikel beschreibt die Installation von .NET Framework-Versionen, die nicht im Funktionsumfang des Azure-Gastbetriebssystems vorhanden sind. Sie können .NET im Gastbetriebssystem zum Konfigurieren Ihrer Clouddienstweb- und -workerrollen nutzen.
@@ -34,6 +34,7 @@ Zum Installieren von .NET für Ihre Web- und Workerrollen fügen Sie Ihrem Cloud
 ## <a name="add-the-net-installer-to-your-project"></a>Das Installationsprogramm für .NET zu Ihrem Projekt hinzufügen
 Laden Sie den Webinstaller der .NET Framework-Version herunter, die Sie installieren möchten:
 
+* [Webinstaller für .NET 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
 * [Webinstaller für .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Webinstaller für .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
@@ -102,7 +103,8 @@ Mit Startaufgaben können Sie Vorgänge ausführen, bevor eine Rolle gestartet w
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
    set netfx="NDP472"
-   
+   REM ***** To install .NET 4.8 set the variable netfx to "NDP48" ***** https://dotnet.microsoft.com/download/thank-you/net48
+      
    REM ***** Set script start timestamp *****
    set timehour=%time:~0,2%
    set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%

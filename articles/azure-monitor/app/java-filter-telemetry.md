@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/23/2016
+ms.date: 3/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: ee50a0e9c7fca8f01f12b3508c86d901b5315120
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 9cf939b241da01be55c1b2ba5f00a5131ab94c06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061159"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtern von Telemetriedaten in einer Java-Web-App
 

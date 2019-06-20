@@ -16,11 +16,11 @@ ms.workload: media
 ms.date: 10/15/2018
 ms.author: juliako
 ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60326509"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Erstellen und Überwachen von Media Services-Ereignissen mit Event Grid über das Azure-Portal
 

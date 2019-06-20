@@ -2,24 +2,17 @@
 title: Leadverwaltung für Cloud Marketplace | Azure Marketplace und AppSource
 description: Eine Übersicht über verschiedene Themen zur Veröffentlichung von Angeboten und technischen Artefakten für Azure Marketplace und AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nunoc
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 810298fc45becf132da6f082df7ad33e7af828aa
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4055b1a30c1868f701de281b5de8d648d576219e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735540"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937905"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Leadverwaltung für Cloud Marketplace
 
@@ -138,7 +131,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Offer Name> 
 
 oid = 00Do0000000ZHog 
 

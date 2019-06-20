@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
 ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787614"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60534139"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Rollenbasierte Zugriffssteuerung in Azure Digital Twins
 

@@ -11,11 +11,11 @@ ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
 ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439533"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157852"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamentwicklung mit Azure Dev Spaces
 

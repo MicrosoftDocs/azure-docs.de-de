@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522076"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474683"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Video- und Transkriptmoderation
 
@@ -44,15 +44,15 @@ Dieses Tutorial veranschaulicht folgende Vorgehensweisen:
 
 Bearbeiten Sie die Datei `App.config`, und fügen Sie den Active Directory-Mandantennamen, Dienstendpunkte und Abonnementschlüssel (mit `#####` gekennzeichnet) hinzu. Sie benötigen die folgenden Informationen:
 
-    |Schlüssel|BESCHREIBUNG|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Endpunkt für die AMS-API (Azure Media Services)|
-    |`ClientSecret`|Abonnementschlüssel für Azure Media Services|
-    |`ClientId`|Client-ID für Azure Media Services|
-    |`AzureAdTenantName`|Active Directory-Mandantenname für Ihre Organisation|
-    |`ContentModeratorReviewApiSubscriptionKey`|Abonnementschlüssel für die Content Moderator-Überprüfungs-API|
-    |`ContentModeratorApiEndpoint`|Endpunkt für die Content Moderator-API|
-    |`ContentModeratorTeamId`|Content Moderator-Team-ID|
+|Schlüssel|BESCHREIBUNG|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Endpunkt für die AMS-API (Azure Media Services)|
+|`ClientSecret`|Abonnementschlüssel für Azure Media Services|
+|`ClientId`|Client-ID für Azure Media Services|
+|`AzureAdTenantName`|Active Directory-Mandantenname für Ihre Organisation|
+|`ContentModeratorReviewApiSubscriptionKey`|Abonnementschlüssel für die Content Moderator-Überprüfungs-API|
+|`ContentModeratorApiEndpoint`|Endpunkt für die Content Moderator-API|
+|`ContentModeratorTeamId`|Content Moderator-Team-ID|
 
 ## <a name="examine-the-main-code"></a>Untersuchen des Hauptcodes
 

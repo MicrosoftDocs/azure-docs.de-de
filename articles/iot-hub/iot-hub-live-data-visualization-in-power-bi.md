@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677985"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479872"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Verwenden von Power BI zum Visualisieren von Sensordaten in Azure IoT Hub in Echtzeit
 
@@ -25,7 +25,7 @@ ms.locfileid: "59677985"
 
 ## <a name="what-you-learn"></a>Lerninhalt
 
-Sie erfahren, wie Sie mit Power BI von Azure IoT Hub empfangene Sensordaten in Echtzeit visualisieren. Wenn Sie versuchen möchten, die Daten in Ihrem IoT Hub mit Web-Apps visuell darzustellen, helfen Ihnen die Informationen unter [Visualisieren von Sensordaten in Azure IoT Hub in Echtzeit mit Azure-Web-Apps](iot-hub-live-data-visualization-in-web-apps.md) weiter.
+Sie erfahren, wie Sie mit Power BI von Azure IoT Hub empfangene Sensordaten in Echtzeit visualisieren. Wenn Sie versuchen möchten, die Daten in Ihrem IoT Hub mit einer Web-App visuell darzustellen, helfen Ihnen die Informationen unter [Visualisieren von Sensordaten in Azure IoT Hub in Echtzeit mit einer Web-App](iot-hub-live-data-visualization-in-web-apps.md) weiter.
 
 ## <a name="what-you-do"></a>Aufgaben
 
@@ -179,6 +179,6 @@ Microsoft bietet auch die [mobilen Power BI-Apps](https://powerbi.microsoft.com/
 
 Sie haben Power BI erfolgreich eingesetzt, um Sensordaten in Ihrem Azure IoT Hub in Echtzeit zu visualisieren.
 
-Es gibt eine alternative Möglichkeit zum Anzeigen von Daten in Ihrem Azure IoT Hub. Siehe [Visualisieren von Sensordaten in Azure IoT Hub in Echtzeit mit Azure-Web-Apps](iot-hub-live-data-visualization-in-web-apps.md).
+Eine andere Möglichkeit zur Visualisierung von Daten aus Azure IoT Hub finden Sie unter [Visualisieren von Sensordaten aus Azure IoT Hub in Echtzeit mit einer Web-App](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

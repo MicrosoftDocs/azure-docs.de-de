@@ -163,25 +163,29 @@
       items:
         - name: Übersicht über Indexer
           href: search-indexer-overview.md
-        - name: Blobspeicher-Indexer
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Tabellenspeicher-Indexer
+        - name: Azure Table Storage-Indexer
           href: search-howto-indexing-azure-tables.md
-        - name: SQL DB-Indexer
+        - name: Azure SQL DB-Indexer
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Cosmos DB-Indexer
+        - name: Azure Cosmos DB-Indexer
           href: search-howto-index-cosmosdb.md
-        - name: '1: n-Blob-Indizierung'
-          href: search-howto-index-one-to-many-blobs.md
-        - name: CSV-Blob-Indizierung
-          href: search-howto-index-csv-blobs.md
-        - name: JSON-Blob-Indizierung
-          href: search-howto-index-json-blobs.md
+        - name: Azure Blob Storage-Indexer
+          items:
+            - name: Einrichten eines Blobindexers
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: 'Indizieren von 1:n-Blobs'
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Indizieren von CSV-Blobs
+              href: search-howto-index-csv-blobs.md
+            - name: Indizieren von JSON-Blobs
+              href: search-howto-index-json-blobs.md
+        - name: Zeitplanindexer
+          href: search-howto-schedule-indexers.md
+        - name: Zuordnen von Feldern
+          href: search-indexer-field-mappings.md
         - name: Herstellen einer Verbindung mit virtuellen SQL Server-Computern
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Feldzuordnungen
-          href: search-indexer-field-mappings.md
-        - name: Behandeln allgemeiner Probleme
+        - name: Häufig auftretende Probleme und Problembehandlung
           href: search-indexer-troubleshooting.md
     - name: Anreichern mit KI
       items:
@@ -229,7 +233,7 @@
           href: search-query-lucene-examples.md
         - name: moreLikeThis (Vorschau)
           href: search-more-like-this.md
-    - name: Filtern und Sortieren von Daten
+    - name: Verwenden von Filtern
       items:
         - name: Übersicht über Filter
           href: search-filters.md
@@ -237,8 +241,10 @@
           href: search-filters-facets.md
         - name: Hinzufügen der Facettennavigation
           href: search-faceted-navigation.md
-        - name: Syntax und Beispiele für Filter- und OrderBy-Ausdrücke
-          href: query-odata-filter-orderby-syntax.md
+        - name: Problembehandlung für Sammlungsfilter
+          href: search-query-troubleshoot-collection-filters.md
+        - name: Grundlegendes zu Sammlungsfiltern
+          href: search-query-understand-collection-filters.md
     - name: Verarbeiten von Ergebnissen
       items:
         - name: Seitenbezogene Features
@@ -279,6 +285,32 @@
       href: search-api-preview.md
     - name: Resource Manager-Vorlage
       href: /azure/templates/microsoft.search/searchservices
+    - name: OData-Sprachreferenz
+      items:
+        - name: Übersicht
+          href: query-odata-filter-orderby-syntax.md
+        - name: $filter
+          href: search-query-odata-filter.md
+        - name: $orderby
+          href: search-query-odata-orderby.md
+        - name: $select
+          href: search-query-odata-select.md
+        - name: 'any, all'
+          href: search-query-odata-collection-operators.md
+        - name: 'eq, ne, gt, lt, ge, le'
+          href: search-query-odata-comparison-operators.md
+        - name: 'search.ismatch, search.ismatchscoring'
+          href: search-query-odata-full-text-search-functions.md
+        - name: 'geo.distance, geo.intersects'
+          href: search-query-odata-geo-spatial-functions.md
+        - name: 'and, or, not'
+          href: search-query-odata-logical-operators.md
+        - name: search.in
+          href: search-query-odata-search-in-function.md
+        - name: search.score
+          href: search-query-odata-search-score-function.md
+        - name: Grammatik der OData-Sprache
+          href: search-query-odata-syntax-reference.md
     - name: Referenz zu kognitiven Qualifikationen
       href: cognitive-search-predefined-skills.md
       items:

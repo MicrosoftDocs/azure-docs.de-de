@@ -1,24 +1,21 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: ''
 author: KumudD
 ms.service: ''
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/09/2019
 ms.author: ''
 ms.custom: include file
-ms.openlocfilehash: 301ea649f127be1650b0d2236421d9110f19b50e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 37748258b1e9b7f922934edd715202cacbb793e0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553762"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178463"
 ---
-| Ressource | Standardlimit |
+| Resource | Standard/maximales Limit |
 | --- | --- |
-| Profile pro Abonnement |200<sup>1</sup> |
+| Profile pro Abonnement |200 |
 | Endpunkte pro Profil |200 |
-
-<sup>1</sup> Wenden Sie sich an den Azure-Support, falls Sie diese Grenzwerte erhöhen müssen.
-

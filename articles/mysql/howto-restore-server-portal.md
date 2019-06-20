@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867230"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61423253"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Sichern und Wiederherstellen eines Servers in Azure Database for MySQL mit dem Azure-Portal
 

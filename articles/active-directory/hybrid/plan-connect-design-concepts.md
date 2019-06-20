@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60382285"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Entwurfskonzepte
 Hier erfahren Sie, welche Aspekte bei der Planung der Implementierung von Azure AD Connect berücksichtigt werden müssen. Dieses Dokument enthält ausführliche Informationen zu bestimmten Aspekten, und diese Konzepte werden auch in anderen Dokumenten kurz beschrieben.
@@ -145,7 +145,7 @@ Von „objectGUID“ zu „ConsistencyGuid“ als „SourceAnchor“-Attribut we
 
    ![Aktivieren Sie „ConsistencyGuid“ für die vorhandene Bereitstellung – Schritt 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
-5. Klicken Sie auf dem **Ready to Configure (Bereit für die Konfiguration)**-Bildschirm auf **Konfigurieren**, um die Konfigurationsänderung vorzunehmen.
+5. Klicken Sie auf dem **Ready to Configure (Bereit für die Konfiguration)** -Bildschirm auf **Konfigurieren**, um die Konfigurationsänderung vorzunehmen.
 
    ![Aktivieren Sie „ConsistencyGuid“ für die vorhandene Bereitstellung – Schritt 5](./media/plan-connect-design-concepts/consistencyguidexistingdeployment03.png)
 

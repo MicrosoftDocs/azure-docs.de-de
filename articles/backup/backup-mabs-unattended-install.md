@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: raynew
 ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60253838"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Ausführen einer unbeaufsichtigten Installation von Azure Backup Server
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461985"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Schnellstart: Erstellen einer Front Door-Instanz für eine hoch verfügbare globale Webanwendung
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Schnellstart: Erstellen Sie eine „Front Door“ für eine hoch verfügbare globale Webanwendung.
 
 In diesem Schnellstart wird beschrieben, wie Sie ein Front Door-Profil erstellen, das Hochverfügbarkeit und hohe Leistung für Ihre globale Webanwendung sicherstellt. 
 
@@ -42,7 +42,7 @@ Für diesen Schnellstart müssen Sie zwei Instanzen einer Webanwendung bereitges
      | NAME           | Geben Sie einen eindeutigen Namen für Ihre Web-App ein.  |
      | Ressourcengruppe          | Wählen Sie **Neu** aus, und geben Sie *myResourceGroupFD1* ein. |
      | App Service-Plan/Standort         | Wählen Sie **Neu**aus.  Geben Sie als App Service-Plan *myAppServicePlanEastUS* ein, und klicken Sie dann auf **OK**. 
-     |      Standort  |   USA (Ost)        |
+     |      Location  |   USA (Ost)        |
     |||
 
 3. Klicken Sie auf **Erstellen**.
@@ -54,7 +54,7 @@ Für diesen Schnellstart müssen Sie zwei Instanzen einer Webanwendung bereitges
      | NAME           | Geben Sie einen eindeutigen Namen für Ihre Web-App ein.  |
      | Ressourcengruppe          | Wählen Sie **Neu** aus, und geben Sie *myResourceGroupFD2* ein. |
      | App Service-Plan/Standort         | Wählen Sie **Neu**aus.  Geben Sie als App Service-Plan *myAppServicePlanWestEurope* ein, und klicken Sie dann auf **OK**. 
-     |      Standort  |   Europa, Westen      |
+     |      Location  |   Europa, Westen      |
     |||
 
 

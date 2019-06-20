@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495975"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60402316"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-Ausgabe an Azure Cosmos DB  
 Stream Analytics kann für die JSON-Ausgabe auf [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) ausgerichtet werden, was eine Datenarchivierung und Abfragen unstrukturierter JSON-Daten mit geringer Latenz ermöglicht. In diesem Dokument werden einige bewährte Implementierungsmethoden für diese Konfiguration behandelt.
@@ -88,5 +88,5 @@ Beim Erstellen einer Cosmos DB-Datenbank als Ausgabe in Stream Analytics wird ei
 |Konto-ID      | Der Name oder Endpunkt-URI des Azure Cosmos DB-Kontos.|
 |Kontoschlüssel     | Der Schlüssel für den gemeinsamen Zugriff für das Azure Cosmos DB-Konto.|
 |Datenbank        | Der Name der Azure Cosmos DB-Datenbank.|
-|Muster des Sammlungsnamen | Der Sammlungsname für die zu verwendende Sammlung. `MyCollection` ist eine gültige Beispieleingabe. Eine Sammlung mit dem Namen `MyCollection` muss vorhanden sein.  |
+|Muster des Sammlungsnamen | Der Sammlungsname für die zu verwendende Sammlung. `MyCollection` ist eine gültige Beispieleingabe – es muss eine Sammlung mit dem Namen `MyCollection` vorhanden sein.  |
 |Dokument-ID     | Optional. Der Spaltenname in Ausgabeergebnissen, der als eindeutiger Schlüssel verwendet wird, auf dem Einfüge- oder Aktualisierungsvorgänge basieren müssen. Wenn das Feld leer gelassen wird, werden sämtliche Ereignisse eingefügt, ohne Update-Option.|

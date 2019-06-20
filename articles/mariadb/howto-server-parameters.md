@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: c618a4035e9ec9b1ca1986e898ea1060ac05712d
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60922525"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Konfigurieren von Serverparametern in Azure Database for MariaDB über das Azure-Portal
 
@@ -40,17 +40,17 @@ Die Liste der unterstützten Serverparameter wächst ständig. Verwenden Sie die
 |**Tarif**| **vCore(s)**|**InnoDB-Pufferpool (MB)**| **Max. Anzahl von Verbindungen**|
 |---|---|---|---|
 |Basic| 1| 1024| 50|
-|Basic| 2| 2.560| 100|
-|Allgemeiner Zweck| 2| 3.584| 300|
-|Allgemeiner Zweck| 4| 7.680| 625|
+|Basic| 2| 2\.560| 100|
+|Allgemeiner Zweck| 2| 3\.584| 300|
+|Allgemeiner Zweck| 4| 7\.680| 625|
 |Allgemeiner Zweck| 8| 15360| 1250|
-|Allgemeiner Zweck| 16| 31.232| 2500|
-|Allgemeiner Zweck| 32| 62.976| 5.000|
+|Allgemeiner Zweck| 16| 31\.232| 2500|
+|Allgemeiner Zweck| 32| 62\.976| 5\.000|
 |Allgemeiner Zweck| 64| 125952| 10000|
 |Arbeitsspeicheroptimiert| 2| 7168| 600|
 |Arbeitsspeicheroptimiert| 4| 15360| 1250|
 |Arbeitsspeicheroptimiert| 8| 30720| 2500|
-|Arbeitsspeicheroptimiert| 16| 62464| 5.000|
+|Arbeitsspeicheroptimiert| 16| 62464| 5\.000|
 |Arbeitsspeicheroptimiert| 32| 125952| 10000|
 
 Diese zusätzlichen Serverparameter sind im System nicht konfigurierbar:

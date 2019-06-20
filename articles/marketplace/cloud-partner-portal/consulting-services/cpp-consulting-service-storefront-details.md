@@ -1,25 +1,18 @@
 ---
-title: 'Beratungsdienstangebot von Azure und Dynamics 365: Eingeben der Details für Ihre Storefront | Microsoft-Dokumentation'
-description: Dies ist ein Leitfaden für die Definition von Details für die digitale Ladenzeile (Storefront) in einem Azure- oder Dynamics 365-Beratungsdienstangebot im Cloud-Partnerportal.
+title: Eingeben von Details der digitalen Ladenzeile für das Beratungsangebot | Azure Marketplace
+description: Definieren Sie Details für die digitale Ladenzeile (Storefront) in einem Azure- oder Dynamics 365-Beratungsdienstangebot im Cloud-Partnerportal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942710"
 ---
 # <a name="storefront-details-tab"></a>Registerkarte „Storefront Details“ (Storefrontdetails)
 
@@ -32,14 +25,16 @@ In diesem Artikel erfahren Sie, wie Sie die Details für Ihre Storefront eingebe
 
 ![Erstellen eines neuen Beratungsdienstangebots: Registerkarte „Details der digitalen Ladenzeile“](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Angebotsdetails
 
 Der Abschnitt **Angebotsdetails** enthält folgende Felder:
 
--   **Angebotszusammenfassung**
--   **Beschreibung des Angebots**
+-   **Angebotszusammenfassung\***
+-   **Angebotsbeschreibung\***
 
-### <a name="offer-summary"></a>Angebotszusammenfassung
+
+### <a name="offer-summary"></a>Angebotszusammenfassung\*
 
 Die Angebotszusammenfassung ist eine kurze Beschreibung Ihres Angebots, die direkt unter dem Angebotsnamen angezeigt wird. Geben Sie die Angebotszusammenfassung im Nur-Text-Format ohne Zeilenumbrüche ein. Im Anschluss finden Sie Beispiele für gute Angebotszusammenfassungen und entsprechende Angebotsnamen:
 
@@ -61,14 +56,15 @@ Die Angebotszusammenfassung ist eine kurze Beschreibung Ihres Angebots, die dire
 *Beispiel 4*
 
 -   **Angebotsname:** Einstieg in Power BI: Vierstündiger Workshop
--   **Angebotszusammenfassung**: Sie erstellen und konfigurieren Ihr erstes Dashboard und lernen bewährte Methoden kennen. Für bis zu 12 Teilnehmer; Durchführung vor Ort.
+-   **Angebotszusammenfassung:** Sie erstellen und konfigurieren Ihr erstes Dashboard und lernen bewährte Methoden kennen. Für bis zu 12 Teilnehmer; Durchführung vor Ort.
 
 *Beispiel 5*
 
 -   **Angebotsname:** Dynamics und Projekte: Dreitägige Bewertung
--   **Angebotszusammenfassung**: Anforderungserfassung und -bewertung für eine ERP-Lösung, die für Dienstleistungsunternehmen und projektorientierte Unternehmen konzipiert ist.
+-   **Angebotszusammenfassung:** Anforderungserfassung und -bewertung für eine ERP-Lösung, die für Dienstleistungsunternehmen und projektorientierte Unternehmen konzipiert ist.
 
-### <a name="offer-description"></a>Beschreibung des Angebots
+
+### <a name="offer-description"></a>Angebotsbeschreibung\*
 
 Geben Sie die Beschreibung des Beratungsdienstangebots in das Feld für die **Angebotsbeschreibung** ein. Eine gute Angebotsbeschreibung enthält genaue Angaben dazu, wie das Projekt aussieht und welches Endergebnis der Kunde erwarten kann. Der Beschreibung sollte ein Kunde klar entnehmen können, welche Leistung er bekommt. Geben Sie an, in welchem Zusammenhang Ihr Angebot mit dem Microsoft-Produkt steht, für das Sie Beratungsdienste anbieten.
 
@@ -84,7 +80,7 @@ Das folgende Beispiel zeigt eine gut gestaltete Angebotsbeschreibung und den daz
 
 **Angebotsname:** Cloud-Analysen: Dreitägiger Workshop
 
-**Angebotszusammenfassung**: Übersicht über Microsoft Azure und Power BI, Bewertung der aktuellen Umgebung und Mini-PoC.
+**Angebotszusammenfassung:** Übersicht über Microsoft Azure und Power BI, Bewertung der aktuellen Umgebung und Mini-PoC.
 
 **Angebotsbeschreibung:** Dieser dreitägige Workshop ist für technische und geschäftliche Führungskräfte vorgesehen und findet in den Räumlichkeiten des Kunden statt.
 
@@ -144,6 +140,7 @@ Geben Sie Ihre neue Partner Center-ID ein (sofern vorhanden).
 Geben Sie einen geheimen Schlüssel ein, um eine Vorschau Ihres Angebots in AppSource anzuzeigen, bevor das Angebot online geschaltet wird.
 Diese ID ist kein Kennwort.
 
+
 ## <a name="listing-details"></a>Auflistungsdetails
 
 **Typ des Beratungsdiensts**
@@ -166,13 +163,13 @@ Es gibt die folgenden fünf Angebotstypen:
 Wählen Sie das Land und die Region aus, in dem bzw. in der dieses Beratungsdienstangebot verfügbar ist. Ein einzelnes Angebot kann nicht in mehreren Ländern oder Regionen veröffentlicht werden. Es muss für jedes Land oder jede Region ein neues Angebot erstellt werden.
 
 >[!Note]
->AppSource-Beratungsdienste stehen derzeit in den USA, im Vereinigten Königreich und in Kanada zur Verfügung. Sie können ein Angebot für ein Land übermitteln, in dem AppSource noch nicht verfügbar ist. Das Angebot wird geprüft und zur Veröffentlichung vorbereitet. Ein neues Land wird erst hinzugefügt, wenn genügend veröffentlichungsbereite Angebote vorhanden sind. Daher sind Angebote für Länder, die noch nicht live geschaltet wurden, äußerst willkommen.
+>AppSource-Beratungsdienste stehen derzeit in den USA, im Vereinigten Königreich und in Kanada zur Verfügung. Sie können ein Angebot für ein Land bzw. eine Region übermitteln, in dem AppSource noch nicht verfügbar ist. Das Angebot wird geprüft und zur Veröffentlichung vorbereitet. Ein neues Land bzw. eine neue Region wird erst hinzugefügt, wenn genügend veröffentlichungsbereite Angebote vorhanden sind. Daher sind Angebote für Länder/Regionen, die noch nicht live geschaltet wurden, äußerst willkommen.
 
 **Branchen**
 
 Wählen Sie die Branchen aus, für die Ihr Beratungsdienstangebot am geeignetsten ist.
 
-**Dauer**
+**Duration**
 
 Wählen Sie unter **Dauer** eine Zahl (beispielsweise 3 oder 4) und anschließend **Stunde**, **Tag** oder **Woche** aus.
 
@@ -188,13 +185,13 @@ Wählen Sie die Kompetenzen aus, die für dieses Angebot relevant sind, damit si
 
 ## <a name="marketing-artifacts"></a>Marketingartefakte
 
-**Unternehmenslogo (PNG-Format, 48 × 48 Pixel)**
+**Unternehmenslogo (PNG-Format, 48 x 48 Pixel)**
 
-Laden Sie ein Bild hoch, das auf der Kachel Ihres Angebots auf der Katalogseite für Angebote angezeigt werden soll. Das Bild muss ein PNG-Bild mit einer Auflösung von 48 × 48 Pixel sein.
+Laden Sie ein Bild hoch, das auf der Kachel Ihres Angebots auf der Katalogseite für Angebote angezeigt werden soll. Das Bild muss ein PNG-Bild mit einer Auflösung von 48 x 48 Pixel sein.
 
 **Unternehmenslogo (PNG-Format, 216 × 216 Pixel)**
 
-Laden Sie ein Bild hoch, das auf der Detailseite Ihres Angebots angezeigt werden soll. Das Bild muss ein PNG-Bild mit einer Auflösung von 216 × 216 Pixel sein.
+Laden Sie ein Bild hoch, das auf der Detailseite Ihres Angebots angezeigt werden soll. Das Bild muss ein PNG-Bild mit einer Auflösung von 216 x 216 Pixel sein.
 
 **Videos (maximal vier)**
 
@@ -207,6 +204,7 @@ Laden Sie die Marketingbroschüre hoch, in der Ihr Beratungsdienstangebot ausfü
 **Screenshots (maximal fünf)**
 
 Laden Sie bis zu fünf Bilder mit weiteren Informationen zum Angebot, zu den Angebotsleistungen oder zu Ihrem Unternehmen hoch. Dies kann beispielsweise ein Ausschnitt aus Ihrer Marketingbroschüre, eine relevante Folie aus einer Präsentation oder ein Bild sein, das die Dynamik oder Kompetenz Ihres Unternehmens veranschaulicht.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

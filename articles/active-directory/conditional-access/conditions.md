@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518234"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861542"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Was sind Bedingungen beim bedingten Zugriff in Azure Active Directory? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Was sind Bedingungen beim bedingten Zugriff in Azure Active Directory?
 
-Mit dem [bedingten Zugriff von Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) können Sie den Zugriff von Benutzern auf Ihre Cloud-Apps steuern. Bei einer Richtlinie für bedingten Zugriff definieren Sie die Reaktion („Then do this“) für den Grund der Auslösung Ihrer Richtlinie („When this happens“). 
+Mit dem [bedingten Zugriff von Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) können Sie den Zugriff von Benutzern auf Ihre Cloud-Apps steuern. Bei einer Richtlinie für bedingten Zugriff definieren Sie die Reaktion („Then do this“) für den Grund der Auslösung Ihrer Richtlinie („When this happens“).
 
 ![Ursache und Reaktion](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ Im Kontext des bedingten Zugriffs ist **When this happens** eine **Bedingung**. 
 ![Richtlinie für bedingten Zugriff](./media/conditions/61.png)
 
 
-Bedingungen, die Sie nicht in einer Richtlinie für bedingten Zugriff konfigurieren, werden nicht angewendet. Einige Bedingungen sind [obligatorisch](best-practices.md) für die Anwendung einer Richtlinie für bedingten Zugriff auf eine Umgebung. 
+Bedingungen, die Sie nicht in einer Richtlinie für bedingten Zugriff konfigurieren, werden nicht angewendet. Einige Bedingungen sind [obligatorisch](best-practices.md) für die Anwendung einer Richtlinie für bedingten Zugriff auf eine Umgebung.
 
 Dieser Artikel bietet eine Übersicht über die Bedingungen und ihre Verwendung in einer Richtlinie für bedingten Zugriff. 
 
@@ -57,29 +57,23 @@ Wenn Sie **Benutzer und Gruppen auswählen** auswählen, können Sie die folgend
 
 * Mit **Benutzer und Gruppen** können Sie bestimmte Benutzergruppen adressieren. Beispielsweise können Sie eine Gruppe auswählen, die alle Mitglieder der HR-Abteilung enthält, wenn eine HR-App als Cloud-App ausgewählt wurde. Als Gruppe gilt eine beliebige Gruppe in Azure AD, einschließlich dynamischer oder zugewiesener Sicherheits- und Verteilungsgruppen.
 
-Sie können bestimmte Benutzer und Gruppen auch aus einer Richtlinie ausschließen. Ein häufiger Anwendungsfall sind Dienstkonten, falls bei Ihrer Richtlinie die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) erzwungen wird. 
+Sie können bestimmte Benutzer und Gruppen auch aus einer Richtlinie ausschließen. Ein häufiger Anwendungsfall sind Dienstkonten, falls bei Ihrer Richtlinie die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA) erzwungen wird.
 
-Die Ausrichtung auf bestimmte Gruppen von Benutzern ist für die Bereitstellung einer neuen Richtlinie nützlich. Bei einer neuen Richtlinie sollten Sie nur eine Ausrichtung auf eine Anfangsgruppe von Benutzern festlegen, um das Verhalten der Richtlinie zu überprüfen. 
+Die Ausrichtung auf bestimmte Gruppen von Benutzern ist für die Bereitstellung einer neuen Richtlinie nützlich. Bei einer neuen Richtlinie sollten Sie nur eine Ausrichtung auf eine Anfangsgruppe von Benutzern festlegen, um das Verhalten der Richtlinie zu überprüfen.
 
+## <a name="cloud-apps-and-actions"></a>Cloud-Apps oder -aktionen
 
+Eine Cloud-App ist eine Website, ein Dienst oder Endpunkt, die bzw. der durch den Azure AD-Anwendungsproxy geschützt wird. Eine ausführliche Beschreibung der unterstützten Cloud-Apps finden Sie unter [Zuweisungen von Cloud-Apps](technical-reference.md#cloud-apps-assignments). Die Bedingung **Cloud-Apps oder -aktionen** ist in einer Richtlinie für bedingten Zugriff obligatorisch. In Ihrer Richtlinie können Sie entweder **Alle Cloud-Apps** auswählen oder mithilfe von **Apps auswählen** bestimmte Apps angeben.
 
-## <a name="cloud-apps"></a>Cloud-Apps 
+Organisationen können zwischen folgenden Optionen auswählen:
 
-Eine Cloud-App ist eine Website oder ein Dienst. Websites, die durch den Azure AD-Anwendungsproxy geschützt sind, sind ebenfalls Cloud-Apps. Eine ausführliche Beschreibung der unterstützten Cloud-Apps finden Sie unter [Zuweisungen von Cloud-Apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Alle Cloud-Apps**, wenn Basisrichtlinien angewendet werden, die für die gesamte Organisation gelten sollen. Verwenden Sie diese Auswahl für Richtlinien, die eine Multi-Factor Authentication erfordern, wenn für eine Cloud-App ein Anmelderisiko erkannt wird. Eine auf alle Cloud-Apps angewendete Richtlinie gilt für den Zugriff auf alle Websites und Dienste. Diese Einstellung ist nicht auf die Cloud-Apps in der Liste „Apps auswählen“ beschränkt.
+* **Apps auswählen**, um bestimmte Dienste als Ziel der Richtlinie festzulegen. Sie können beispielsweise vorgeben, dass Benutzer über ein konformes Gerät verfügen müssen, um auf SharePoint Online zuzugreifen. Diese Richtlinie wird auch auf andere Dienste angewendet, wenn diese auf SharePoint-Inhalte zugreifen. Ein Beispiel ist Microsoft Teams.
 
-Die Bedingung für **Cloud-Apps** ist in einer Richtlinie für bedingten Zugriff obligatorisch. In Ihrer Richtlinie können Sie die Option **Alle Cloud-Apps** oder bestimmte Apps wählen.
+> [!NOTE]
+> Sie können bestimmte Apps von einer Richtlinie ausschließen. Diese Apps unterliegen jedoch weiterhin den Richtlinien, die für die Dienste gelten, auf die sie zugreifen.
 
-![Einschließen von Cloud-Apps](./media/conditions/03.png)
-
-Auswahl:
-
-- **Alle Cloud-Apps** als Basisoption für Richtlinien, die auf die gesamte Organisation angewandt werden sollen. Verwenden Sie diese Auswahl für Richtlinien, die eine mehrstufige Authentifizierung erfordern, wenn für eine Cloud-App ein Anmelderisiko erkannt wird. Eine auf **Alle Cloud-Apps** angewendete Richtlinie gilt für den Zugriff auf alle Websites und Dienste. Diese Einstellung beschränkt sich nicht auf die Cloud-Apps in der Liste **Cloud-Apps auswählen**. 
-
-- **Apps auswählen**, um bestimmte Dienste als Ziel der Richtlinie festzulegen. Sie können beispielsweise vorgeben, dass Benutzer über ein [konformes Gerät](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) verfügen müssen, um auf SharePoint Online zuzugreifen. Diese Richtlinie wird auch auf andere Dienste angewendet, wenn diese auf SharePoint-Inhalte zugreifen. Ein Beispiel ist Microsoft Teams. 
-
-Sie können bestimmte Apps von einer Richtlinie ausschließen. Diese Apps unterliegen jedoch weiterhin den Richtlinien, die für die Dienste gelten, auf die sie zugreifen. 
-
-
+**Benutzeraktionen** sind Aufgaben, die von einem Benutzer ausgeführt werden können. Die einzige derzeit unterstützte Aktion ist **Sicherheitsinformationen registrieren (Vorschau)** . Dadurch kann eine Richtlinie für bedingten Zugriff angewendet werden, wenn Benutzer, für die die kombinierte Registrierung aktiviert ist, versuchen, ihre Sicherheitsinformationen zu registrieren. Weitere Informationen finden Sie im Artikel [Aktivieren der kombinierten Registrierung von Sicherheitsinformationen (Vorschauversion)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Anmelderisiko
 
@@ -138,16 +132,16 @@ Weitere Informationen finden Sie unter [Was sind Standortbedingungen beim beding
 
 Standardmäßig wird eine Richtlinie für bedingten Zugriff auf die folgenden Apps angewendet:
 
-- **[Browser-Apps](technical-reference.md#supported-browsers)**: Hierzu zählen Websites mit den SAML-, WS-Verbund- oder OpenID Connect-Web-SSO-Protokollen. Dies umfasst auch alle Websites oder Webdienste, die als vertraulicher OAuth-Client registriert wurden. Ein Beispiel hierfür ist eine Office 365 SharePoint-Website. 
+- **[Browser-Apps](technical-reference.md#supported-browsers)** : Hierzu zählen Websites mit den SAML-, WS-Verbund- oder OpenID Connect-Web-SSO-Protokollen. Dies umfasst auch alle Websites oder Webdienste, die als vertraulicher OAuth-Client registriert wurden. Ein Beispiel hierfür ist eine Office 365 SharePoint-Website. 
 
-- **[Mobile Apps und Desktop-Apps mit moderner Authentifizierung](technical-reference.md#supported-mobile-applications-and-desktop-clients)**: Hierzu zählen die Office-Desktop-Apps und -Smartphone-Apps. 
+- **[Mobile Apps und Desktop-Apps mit moderner Authentifizierung](technical-reference.md#supported-mobile-applications-and-desktop-clients)** : Hierzu zählen die Office-Desktop-Apps und -Smartphone-Apps. 
 
 
 Darüber hinaus können Sie eine Richtlinie auf bestimmte Client-Apps anwenden, die keine moderne Authentifizierung verwenden, beispielsweise:
 
-- **[Exchange ActiveSync-Clients](conditions.md#exchange-activesync-clients)**: Wenn eine Richtlinie Exchange ActiveSync blockiert, erhalten betroffene Benutzer eine einzelne Quarantäne-E-Mail mit Informationen zum Grund für die Blockierung. Bei Bedarf enthält die E-Mail Anweisungen für die Registrierung des Geräts bei Intune.
+- **[Exchange ActiveSync-Clients](conditions.md#exchange-activesync-clients)** : Wenn eine Richtlinie Exchange ActiveSync blockiert, erhalten betroffene Benutzer eine einzelne Quarantäne-E-Mail mit Informationen zum Grund für die Blockierung. Bei Bedarf enthält die E-Mail Anweisungen für die Registrierung des Geräts bei Intune.
 
-- **[Andere Clients](block-legacy-authentication.md)**: Zu diesen Apps zählen Clients, die die Standardauthentifizierung mit E-Mail-Protokollen wie IMAP, MAPI, POP und SMTP nutzen, sowie ältere Office-Apps, die keine moderne Authentifizierung verwenden. Weitere Informationen finden Sie unter [So funktioniert die moderne Authentifizierung für Office 2013- und Office 2016-Client-Apps](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- **[Andere Clients](block-legacy-authentication.md)** : Zu diesen Apps zählen Clients, die die Standardauthentifizierung mit E-Mail-Protokollen wie IMAP, MAPI, POP und SMTP nutzen, sowie ältere Office-Apps, die keine moderne Authentifizierung verwenden. Weitere Informationen finden Sie unter [So funktioniert die moderne Authentifizierung für Office 2013- und Office 2016-Client-Apps](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Client-Apps](./media/conditions/41.png)
 

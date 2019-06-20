@@ -16,11 +16,11 @@ ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773723"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60722581"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Erstellen eines Batch-Kontos mit dem Azure-Portal
 
@@ -92,7 +92,7 @@ Wenn Sie Ihr erstes Batch-Konto im Modus „Benutzerabonnement“ erstellen, mü
 
     ![Registrieren des Microsoft.Batch-Anbieters][register_provider]
 
-1. Wählen Sie auf der Seite **Abonnement** die Optionen **Zugriffssteuerung (IAM)** > **Rollenzuweisungen** > **Rollenzuweisung hinzufügen** aus.
+1. Wählen Sie auf der Seite **Abonnement** die Optionen **Zugriffssteuerung (IAM)**  > **Rollenzuweisungen** > **Rollenzuweisung hinzufügen** aus.
 
     ![Abonnementzugriffssteuerung][subscription_access]
 

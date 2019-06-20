@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Installieren eines physischen Azure Data Box Edge-Geräts | Microsoft-Dokumentation'
+title: Tutorial zum Installieren – Entpacken, Montieren, Verkabelndes physischen Azure Data Box Edge-Geräts | Microsoft-Dokumentation
 description: Das zweite Tutorial zur Installation von Azure Data Box Edge enthält Informationen zum Auspacken, zur Rackmontage und zur Verkabelung des physischen Geräts.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/20/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278478"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476940"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Installieren von Azure Data Box Edge
 
@@ -70,7 +70,7 @@ Dieses Gerät wird in einem einzelnen Karton ausgeliefert. Führen Sie die folge
 1. Legen Sie den Karton auf einen flachen, ebenen Untergrund.
 2. Überprüfen Sie den Karton und das Verpackungsmaterial auf Risse, Schnitte, Wasserschäden oder anderweitige offensichtliche Beschädigungen. Sollte der Karton oder die Verpackung stark beschädigt sein, öffnen Sie den Karton bzw. die Verpackung nicht. Wenden Sie sich an den Microsoft-Support, um zu ermitteln, ob das Gerät funktionstüchtig ist.
 3. Packen Sie den Karton aus. Stellen Sie nach dem Auspacken des Kartons sicher, dass Folgendes vorhanden ist:
-    - Ein Edgegerät (einzelnes Gehäuse)
+    - Ein Data Box Edge-Gerät (einzelnes Gehäuse)
     - Zwei Netzkabel
     - Eine Schienenbaugruppe
     - Ein Booklet mit Informationen zu Sicherheit, Umwelt und rechtlichen Aspekten
@@ -100,7 +100,7 @@ Für die Installation der Schienenbaugruppe benötigen Sie folgende Komponenten:
 1. Zwei Gleitschienen vom Typ „A7 Dell ReadyRails II“
 2. Zwei Klettbänder
 
-![Überprüfen des Inhalts des Schienensatzes](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Überprüfen des Inhalts des Schienensatzes](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installieren und Entfernen der Schienen ohne Werkzeug (Racks mit Vierkant- oder Rundlöchern)
 
@@ -112,7 +112,7 @@ Für die Installation der Schienenbaugruppe benötigen Sie folgende Komponenten:
 3. Schieben Sie das hintere Ende der Schiene in Richtung des vertikalen Rackflanschs, bis es einrastet. Wiederholen Sie die gleiche Prozedur, um das vordere Endstück am vertikalen Rackflansch anzubringen.
 4. Wenn Sie die Schienen entfernen möchten, betätigen Sie jeweils die Entriegelung in der Mitte des Endstücks, und entnehmen Sie die Schiene.
 
-![Installieren und Entfernen der Schienen ohne Werkzeug](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
+    ![Installieren und Entfernen der Schienen ohne Werkzeug](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installieren und Entfernen der Schienen mit Werkzeug (Racks mit Gewindelöchern)
 
@@ -124,7 +124,7 @@ Für die Installation der Schienenbaugruppe benötigen Sie folgende Komponenten:
 3. Befestigen Sie die linke und die rechte Schiene mit jeweils zwei Schrauben an den vorderen vertikalen Rackflanschen.
 4. Schieben Sie die linke und die rechte hintere Klammer von hinten gegen die hinteren vertikalen Rackflansche, und befestigen Sie sie ebenfalls mit jeweils zwei Schrauben.
 
-![Installieren und Entfernen der Schienen mit Werkzeug](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Installieren und Entfernen der Schienen mit Werkzeug](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Installieren des Systems in einem Rack
 
@@ -133,7 +133,7 @@ Für die Installation der Schienenbaugruppe benötigen Sie folgende Komponenten:
 3. Drücken Sie das System nach innen, bis die Arretierhebel einrasten.
 4. Drücken Sie auf den Schienenentriegelungsmechanismus an beiden Schienen, und schieben Sie das System in das Rack.
 
-![Installieren des Systems in einem Rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+    ![Installieren des Systems in einem Rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
 
 ### <a name="remove-the-system-from-the-rack"></a>Entfernen des Systems aus dem Rack
 
@@ -141,17 +141,18 @@ Für die Installation der Schienenbaugruppe benötigen Sie folgende Komponenten:
 2. Entriegeln Sie den Mechanismus, indem Sie die Hebel jeweils nach oben in die geöffnete Position drehen.
 3. Halten Sie beide Seiten des Systems gut fest, und ziehen Sie das System nach vorn, bis sich die Schienenabstandhalter an der Vorderseite der J-förmigen Schlitze befinden. Heben Sie das System nach oben aus dem Rack heraus, und legen Sie es auf einer ebenen Fläche ab.
 
-![Entfernen des Systems aus dem Rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+    ![Entfernen des Systems aus dem Rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
 
 ### <a name="engage-and-release-the-slam-latch"></a>Verwenden des Schnappmechanismus (Einrasten und Entriegeln)
 
-HINWEIS:  Bei Systemen ohne Schnappmechanismus muss das System wie in Schritt 3 beschrieben mit Schrauben befestigt werden.
+> [!NOTE]
+> Bei Systemen ohne Schnappmechanismus muss das System wie in Schritt 3 beschrieben mit Schrauben befestigt werden.
 
 1. Suchen Sie an der Vorderseite auf beiden Seiten des Systems nach dem Schnappmechanismus.
 2. Der Mechanismus rastet automatisch ein, wenn das System in das Rack geschoben wird. Zur Entriegelung müssen die beiden Riegel nach oben gezogen werden.
 3. Falls Sie das Rack transportieren möchten, während sich das System darin befindet, oder es in einer instabilen Umgebung verwenden möchten, können Sie die unter den beiden Riegeln befindlichen Befestigungsschrauben mit einem passenden Kreuzschlitzschraubendreher (#2) anziehen.
 
-![Verwenden des Schnappmechanismus (Einrasten und Lösen)](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Verwenden des Schnappmechanismus (Einrasten und Lösen)](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 ### <a name="route-the-cables"></a>Verlegen der Kabel
 
@@ -163,16 +164,16 @@ HINWEIS:  Bei Systemen ohne Schnappmechanismus muss das System wie in Schritt 3
 3. Führen Sie die Klettbänder durch die Schlitze an der Außenseite der CMA-Klammern auf beiden Seiten des Systems, um die Kabelbündel zu befestigen.
 
 
-![Verlegen der Kabel](./media/data-box-edge-deploy-install/routing-cables.png)
+    ![Verlegen der Kabel](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Verkabeln des Geräts
 
-In diesem Abschnitt erfahren Sie, wie Sie Ihr Edgegerät an die Stromversorgung und an das Netzwerk anschließen.
+In diesem Abschnitt erfahren Sie, wie Sie Ihr Data Box Edge-Gerät an die Stromversorgung und an das Netzwerk anschließen.
 
 Bevor Sie mit der Verkabelung Ihres Geräts beginnen, benötigen Sie Folgendes:
 
-- Das physische Edgegerät (ausgepackt und im Rack montiert)
-- Zwei Netzkabel 
+- Das physische Data Box Edge-Gerät (ausgepackt und im Rack montiert)
+- Zwei Netzkabel
 - Mindestens ein Netzwerkkabel (1 GbE, RJ45) zum Anschließen an die Verwaltungsschnittstelle. Das Gerät verfügt über zwei 1-GbE-Netzwerkschnittstellen: eine für die Verwaltung und eine für Daten.
 - Ein SFP+-Kupferkabel (25 GbE) für jede zu konfigurierende Datennetzwerkschnittstelle. Mindestens eine Datennetzwerkschnittstelle („PORT 2“, „PORT 3“, „PORT 4“, „PORT 5“ oder PORT 6“) muss mit dem Internet verbunden sein und über Azure-Konnektivität verfügen.  
 - Zugang zu zwei PDUs (Power Distribution Units) (empfohlen)
@@ -180,34 +181,46 @@ Bevor Sie mit der Verkabelung Ihres Geräts beginnen, benötigen Sie Folgendes:
 > [!NOTE]
 > - Wenn Sie nur eine einzelne Datennetzwerkschnittstelle nutzen, sollten Sie eine 25/10-GbE-Netzwerkschnittstelle wie „PORT 3“, „PORT 4“, „PORT 5“ oder „PORT 6“ verwenden, um Daten an Azure zu senden. 
 > - Aus Leistungsgründen und für die Verarbeitung großer Datenmengen empfiehlt es sich, alle Datenports zu verwenden.
-> - Das Edgegerät sollte mit dem Datencenternetzwerk verbunden sein, um Daten von Datenquellservern erfassen zu können.
+> - Das Data Box Edge-Gerät sollte mit dem Datencenternetzwerk verbunden sein, um Daten von Datenquellservern erfassen zu können.
 
-Ihr Edgegerät verfügt über acht NVMe-SSDs. Am vorderen Bedienfeld befinden sich außerdem Status-LEDs und Netzschalter. An der Rückseite des Geräts befinden sich redundante Netzteile (Power Supply Units, PSUs). Ihr Gerät verfügt über sechs Netzwerkschnittstellen:
+Informationen zu Ihrem Data Box Edge-Gerät:
 
-- Zwei Schnittstellen mit jeweils 1 GBit/s
-- Vier Schnittstellen mit jeweils 25 GBit/s, die auch als Schnittstellen mit 10 GBit/s fungieren können
-- Ein Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC) 
+- Auf der Vorderseite befinden sich Laufwerke und ein Netzschalter.
 
-Machen Sie sich mit den verschiedenen Anschlüssen an der Geräterückseite vertraut.
- 
-  ![Rückseite eines verkabelten Geräts](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    - Es stehen zehn Datenträgerslots zur Verfügung.
+    - In Slot 0 befindet sich ein SATA-Laufwerk mit 240 GB, das als Betriebssystem-Datenträger fungiert. Slot 1 ist leer, und die Slots 2 bis 9 enthalten NVMe-SSDs, die als reguläre Datenträger fungieren.
+- Auf der Rückseite befinden sich redundante Netzteile (Power Supply Units, PSUs).
+- Auf der Rückseite stehen sechs Netzwerkschnittstellen zur Verfügung:
 
-Das Gerät verfügt über zwei Netzwerkkarten für die sechs Ports: 
+    - Zwei Schnittstellen mit jeweils 1 GBit/s
+    - Vier Schnittstellen mit jeweils 25 GBit/s, die auch als Schnittstellen mit 10 GBit/s fungieren können
+    - Ein Baseboard-Verwaltungscontroller (Baseboard Management Controller, BMC)
 
- - QLogic FastLinQ 41264
- - QLogic FastLinQ 41262
+- Auf der Rückseite befinden sich zwei Netzwerkkarten für die sechs Ports:
+
+    - QLogic FastLinQ 41264
+    - QLogic FastLinQ 41262
 
 Eine vollständige Liste der unterstützten Kabel, Switches und Transceiver für diese Netzwerkkarten finden Sie in der [Interoperabilitätsmatrix für die Cavium FastlinQ 41000-Reihe](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Gehen Sie wie folgt vor, um Ihr Gerät an die Stromversorgung und an das Netzwerk anzuschließen:
 
-1. Schließen Sie die Netzkabel an die PSUs des Gehäuses an. Zur Gewährleistung hoher Verfügbarkeit müssen beide PSUs installiert und an unterschiedliche Stromquellen angeschlossen werden.
+1. Machen Sie sich mit den verschiedenen Anschlüssen auf der Geräterückseite vertraut.
 
-2. Schließen Sie die Netzkabel an die PDUs des Racks an. Stellen Sie sicher, dass die beiden PSUs separate Stromquellen verwenden.
+    ![Rückseite eines verkabelten Geräts](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-3. Verbinden Sie die 1-GbE-Netzwerkschnittstelle „PORT 1“ mit dem Computer, der zum Konfigurieren des physischen Geräts verwendet wird. „PORT 1“ ist die dedizierte Verwaltungsschnittstelle.
+2. Machen Sie die Datenträgerslots und den Netzschalter auf der Vorderseite des Geräts ausfindig.
 
-4. Verbinden Sie mindestens einen der Ports 2, 3, 4, 5 oder 6 mit dem Datencenternetzwerk/Internet. Wenn Sie sich für „PORT 2“ entscheiden, verwenden Sie das RJ45-Netzwerkkabel. Verwenden Sie für die 10/25-GbE-Netzwerkschnittstellen die SFP+-Kupferkabel.  
+    ![Vorderseite eines Geräts](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+
+3. Schließen Sie die Netzkabel an die PSUs des Gehäuses an. Zur Gewährleistung hoher Verfügbarkeit müssen beide PSUs installiert und an unterschiedliche Stromquellen angeschlossen werden.
+4. Schließen Sie die Netzkabel an die PDUs des Racks an. Stellen Sie sicher, dass die beiden PSUs separate Stromquellen verwenden.
+5. Drücken Sie den Netzschalter, um das Gerät einzuschalten.
+6. Verbinden Sie die 1-GbE-Netzwerkschnittstelle „PORT 1“ mit dem Computer, der zum Konfigurieren des physischen Geräts verwendet wird. „PORT 1“ ist die dedizierte Verwaltungsschnittstelle.
+7. Verbinden Sie mindestens einen der Ports 2, 3, 4, 5 oder 6 mit dem Datencenternetzwerk/Internet.
+
+    - Wenn Sie sich für „PORT 2“ entscheiden, verwenden Sie das RJ45-Netzwerkkabel.
+    - Verwenden Sie für die 10/25-GbE-Netzwerkschnittstellen die SFP+-Kupferkabel.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -222,5 +235,3 @@ Im nächsten Tutorial erfahren Sie, wie Sie Ihr Gerät verbinden, einrichten und
 
 > [!div class="nextstepaction"]
 > [Tutorial: Verbinden, Einrichten und Aktivieren von Azure Data Box Edge (Vorschauversion)](./data-box-edge-deploy-connect-setup-activate.md)
-
-

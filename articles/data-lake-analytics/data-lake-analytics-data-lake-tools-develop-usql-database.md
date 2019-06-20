@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60628757"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Entwickeln einer U-SQL-Datenbank für Azure Data Lake mithilfe eines U-SQL-Datenbankprojekts
 
@@ -27,7 +27,7 @@ Das U-SQL-Datenbankprojekt ist ein Projekttyp in Visual Studio, mit dem Entwickl
 
 ## <a name="create-a-u-sql-database-project"></a>Erstellen eines U-SQL-Datenbankprojekts
 
-In Azure Data Lake Tools für Visual Studio nach Version 2.3.3000.0 wurde eine neue Projektvorlage für U-SQL-Datenbankprojekte hinzugefügt. Klicken Sie zum Erstellen eines U-SQL-Projekts auf **Datei > Neu > Projekt**. Das U-SQL-Datenbankprojekt befindet sich unter **Azure Data Lake > Knoten „U-SQL“**.
+In Azure Data Lake Tools für Visual Studio nach Version 2.3.3000.0 wurde eine neue Projektvorlage für U-SQL-Datenbankprojekte hinzugefügt. Klicken Sie zum Erstellen eines U-SQL-Projekts auf **Datei > Neu > Projekt**. Das U-SQL-Datenbankprojekt befindet sich unter **Azure Data Lake > Knoten „U-SQL“** .
 
 ![Data Lake Tools für Visual Studio: Erstellen eines U-SQL-Datenbankprojekts](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-usql-database-project-creation.png) 
 
@@ -101,7 +101,7 @@ Sie können eine U-SQL-Datenbank über ein U-SQL-Datenbankprojekt oder ein .usql
 Ein U-SQL-Projekt kann auf ein U-SQL-Datenbankprojekt verweisen. Der Verweis wirkt sich auf zwei Workloads aus:
 
 - *Projekterstellung*: Richten Sie die referenzierten Datenbankumgebungen ein, bevor Sie die U-SQL-Skripts erstellen. 
-- *Lokale Ausführungen mit einem Konto (local-project)*: Die referenzierten Datenbankumgebungen werden vor dem Ausführen der U-SQL-Skripts in einem Konto (local-project) bereitgestellt. [Hier](data-lake-analytics-data-lake-tools-local-run.md) erfahren Sie mehr über die lokale Ausführung und den Unterschied zwischen dem Konto „(Local-machine)“ und dem Konto „(Local-project)“.
+- *Lokale Ausführungen mit einem Konto (local-project)* : Die referenzierten Datenbankumgebungen werden vor dem Ausführen der U-SQL-Skripts in einem Konto (local-project) bereitgestellt. [Hier](data-lake-analytics-data-lake-tools-local-run.md) erfahren Sie mehr über die lokale Ausführung und den Unterschied zwischen dem Konto „(Local-machine)“ und dem Konto „(Local-project)“.
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>So fügen Sie einen U-SQL-Datenbankverweis hinzu
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: b332c11e76ad335772cc607edcf569f896acb873
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939175"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951398"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Zugreifen auf Daten vom Typ „Data Lake Storage Gen2“ mit Azure Databricks unter Verwendung von Spark
 
@@ -48,7 +48,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
   > [!IMPORTANT]
   > Achten Sie darauf, die Rolle im Kontext des Data Lake Storage Gen2-Kontos zuzuweisen. Sie können eine Rolle der übergeordneten Ressourcengruppe oder dem übergeordneten Abonnement zuweisen. In diesem Fall tritt jedoch ein Berechtigungsfehler auf, bis die Rollenzuweisungen an das Speicherkonto weitergegeben wurden.
 
-  :heavy_check_mark: Fügen Sie beim Ausführen der Schritte im Abschnitt [Abrufen von Werten für die Anmeldung](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) des Artikels die Werte für Mandanten-ID, Anwendungs-ID und Authentifizierungsschlüssel in eine Textdatei ein. Sie benötigen sie in Kürze.
+  :heavy_check_mark: Fügen Sie beim Ausführen der Schritte im Abschnitt [Abrufen von Werten für die Anmeldung](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) des Artikels die Werte für Mandanten-ID, App-ID und Kennwort in eine Textdatei ein. Sie benötigen sie in Kürze.
 
 ### <a name="download-the-flight-data"></a>Herunterladen der Flugdaten
 
@@ -82,11 +82,9 @@ In diesem Abschnitt erstellen Sie einen Azure Databricks-Dienst über das Azure-
 
     ![Erstellen eines Azure Databricks-Arbeitsbereichs](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Erstellen eines Azure Databricks-Diensts")
 
-3. Aktivieren Sie das Kontrollkästchen **An Dashboard anheften**, und klicken Sie anschließend auf **Erstellen**.
+3. Die Kontoerstellung dauert einige Minuten. Den Status des Vorgangs können Sie anhand der Statusanzeige im oberen Bereich verfolgen.
 
-4. Die Kontoerstellung dauert einige Minuten. Während der Erstellung des Kontos wird im Portal auf der rechten Seite die Kachel **Bereitstellung für "Azure Databricks" wird gesendet** angezeigt. Den Status des Vorgangs können Sie anhand der Statusanzeige im oberen Bereich verfolgen.
-
-    ![Kachel zur Bereitstellung von Databricks](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Kachel zur Bereitstellung von Databricks")
+4. Aktivieren Sie das Kontrollkästchen **An Dashboard anheften**, und klicken Sie anschließend auf **Erstellen**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Erstellen eines Spark-Clusters in Azure Databricks
 
@@ -110,6 +108,32 @@ In diesem Abschnitt erstellen Sie einen Azure Databricks-Dienst über das Azure-
 
     * Klicken Sie auf **Cluster erstellen**. Wenn der Cluster ausgeführt wird, können Sie Notebooks an den Cluster anfügen und Spark-Aufträge ausführen.
 
+## <a name="ingest-data"></a>Erfassen von Daten
+
+### <a name="copy-source-data-into-the-storage-account"></a>Kopieren von Quelldaten in das Speicherkonto
+
+Kopieren Sie mithilfe von AzCopy Daten aus Ihrer *CSV*-Datei in Ihr Data Lake Storage Gen2-Konto.
+
+1. Öffnen Sie ein Eingabeaufforderungsfenster, und geben Sie den folgenden Befehl ein, um sich bei Ihrem Speicherkonto anzumelden:
+
+   ```bash
+   azcopy login
+   ```
+
+   Folgen Sie den Anweisungen im Eingabeaufforderungsfenster, um Ihr Benutzerkonto zu authentifizieren.
+
+2. Geben Sie den folgenden Befehl ein, um Daten aus der *CSV*-Datei zu kopieren:
+
+   ```bash
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   ```
+
+   * Ersetzen Sie den Platzhalterwert `<csv-folder-path>` durch den Pfad zu der *CSV*-Datei.
+
+   * Ersetzen Sie den Platzhalterwert `<storage-account-name>` durch den Namen Ihres Speicherkontos.
+
+   * Ersetzen Sie den Platzhalter `<file-system-name>` durch einen beliebigen Namen für Ihr Dateisystem.
+
 ## <a name="create-a-file-system-and-mount-it"></a>Erstellen und Einbinden eines Dateisystems
 
 In diesem Abschnitt erstellen Sie ein Dateisystem und einen Ordner in Ihrem Speicherkonto.
@@ -129,9 +153,9 @@ In diesem Abschnitt erstellen Sie ein Dateisystem und einen Ordner in Ihrem Spei
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
@@ -140,46 +164,24 @@ In diesem Abschnitt erstellen Sie ein Dateisystem und einen Ordner in Ihrem Spei
     extra_configs = configs)
     ```
 
-18. Ersetzen Sie in diesem Codeblock die Platzhalterwerte `application-id`, `authentication-id`, `tenant-id` und `storage-account-name` durch die Werte, die Sie bei der Vorbereitung dieses Tutorials gesammelt haben. Ersetzen Sie den Platzhalterwert `file-system-name` durch den gewünschten Namen für das Dateisystem.
+18. Ersetzen Sie in diesem Codeblock die Platzhalterwerte `appId`, `password`, `tenant` und `storage-account-name` durch die Werte, die Sie bei der Vorbereitung dieses Tutorials gesammelt haben. Ersetzen Sie den Platzhalterwert `file-system-name` durch den Namen, den Sie dem Azure Data Lake Storage-Dateisystem im vorherigen Schritt gegeben haben.
 
-   * `application-id` und `authentication-id` stammen aus der App, die Sie im Rahmen der Dienstprinzipalerstellung bei Active Directory registriert haben.
+Verwenden Sie die nachstehenden Werte zum Ersetzen der genannten Platzhalter.
+
+   * `appId` und `password` stammen aus der App, die Sie im Rahmen der Dienstprinzipalerstellung bei Active Directory registriert haben.
 
    * `tenant-id` stammt aus Ihrem Abonnement.
 
    * `storage-account-name` ist der Name Ihres Azure Data Lake Storage Gen2-Speicherkontos.
 
+   * Ersetzen Sie den Platzhalter `file-system-name` durch einen beliebigen Namen für Ihr Dateisystem.
+
    > [!NOTE]
-   > In einer Produktionsumgebung empfiehlt es sich, Ihren Authentifizierungsschlüssel in Azure Databricks zu speichern. Fügen Sie dem Codeblock dann einen Suchschlüssel anstelle des Authentifizierungsschlüssels hinzu. Sehen Sie sich nach Abschluss dieses Schnellstarts die Beispiele für diesen Ansatz im Artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) auf der Azure Databricks-Website an.
+   > In einer Produktionsumgebung empfiehlt es sich, Ihr Kennwort in Azure Databricks zu speichern. Fügen Sie dem Codeblock dann einen Suchschlüssel anstelle des Kennworts hinzu. Sehen Sie sich nach Abschluss dieses Schnellstarts die Beispiele für diesen Ansatz im Artikel [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) auf der Azure Databricks-Website an.
 
 19. Drücken Sie **UMSCHALT+EINGABE**, um den Code in diesem Block auszuführen.
 
    Lassen Sie dieses Notebook geöffnet, da Sie ihm später Befehle hinzufügen.
-
-## <a name="ingest-data"></a>Erfassen von Daten
-
-### <a name="copy-source-data-into-the-storage-account"></a>Kopieren von Quelldaten in das Speicherkonto
-
-Kopieren Sie mithilfe von AzCopy Daten aus Ihrer *CSV*-Datei in Ihr Data Lake Storage Gen2-Konto.
-
-1. Öffnen Sie ein Eingabeaufforderungsfenster, und geben Sie den folgenden Befehl ein, um sich bei Ihrem Speicherkonto anzumelden:
-
-   ```bash
-   azcopy login
-   ```
-
-   Befolgen Sie die Anweisungen, die im Eingabeaufforderungsfenster angezeigt werden, um Ihr Benutzerkonto zu authentifizieren.
-
-2. Geben Sie den folgenden Befehl ein, um Daten aus der *CSV*-Datei zu kopieren:
-
-   ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
-   ```
-
-   * Ersetzen Sie den Platzhalterwert `<csv-folder-path>` durch den Pfad zu der *CSV*-Datei.
-
-   * Ersetzen Sie den Platzhalterwert `storage-account-name` durch den Namen Ihres Speicherkontos.
-
-   * Ersetzen Sie den Platzhalter `file-system-name` durch einen beliebigen Namen für Ihr Dateisystem.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Verwenden des Databricks-Notebooks zum Konvertieren von CSV in Parquet
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
 ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60999088"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Empfangen von B2B-Daten mit Azure Logic Apps und Enterprise Integration Pack
 

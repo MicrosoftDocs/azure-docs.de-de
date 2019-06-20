@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6636c87493230e3e392c29ffaf182b489ab0ba34
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967760"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730408"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Referenzdokumentation: Azure Digital Twins-Swagger
 
@@ -42,15 +42,15 @@ Das automatisch generierte Swagger-Referenzmaterial enthält eine schnelle Über
 
 Eine präzise Zusammenfassung beschreibt die API.
 
-![Swagger-Einstieg][1]
+[![Swagger-Einstieg](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
 
 Verwaltungs-API-Objektmodelle werden ebenfalls aufgelistet.
 
-![Swagger-Modelle][2]
+[![Swagger-Modelle](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
 
 Sie können jedes aufgelistete Objektmodell auswählen, um eine detailliertere Zusammenfassung der Schlüsselattribute zu erhalten.
 
-![Swagger-Modell][3]
+[![Swagger-Modell](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
 
 Die generierten Swaggerobjektmodelle eignen sich ideal zum Anzeigen aller verfügbaren [Objekte und APIs](./concepts-objectmodel-spatialgraph.md) von Azure Digital Twins. Entwickler können diese Ressource verwenden, wenn sie Lösungen in Azure Digital Twins erstellen.
 
@@ -64,7 +64,7 @@ Für jeden aufgelisteten Endpunkt werden auch die erforderlichen Anforderungsinf
 * Datentypen der erforderlichen Parameter
 * HTTP-Methode zum Zugreifen auf die Ressource
 
-![Swagger-Endpunkte][4]
+[![Swagger-Endpunkte](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
 
 Wählen Sie eine Ressource aus, um eine detailliertere Übersicht zu erhalten.
 
@@ -74,11 +74,11 @@ Eine der leistungsstarken Funktionalitäten von Swagger besteht darin, einen API
 
 Nachdem Sie einen bestimmten Endpunkt ausgewählt haben, wird **Jetzt ausprobieren** angezeigt.
 
-![Swagger vor Test][5]
+[![Swagger vor Test](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
 
 Erweitern Sie diesen Abschnitt, um Eingabefelder für jeden erforderlichen und optionalen Parameter anzuzeigen. Geben Sie die richtigen Werte ein, und wählen Sie **Ausführen** aus.
 
-![Swagger nach Test][6]
+[![Swagger nach Test](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
 
 Wenn Sie den Test ausgeführt haben, können Sie die Antwortdaten überprüfen.
 
@@ -86,7 +86,7 @@ Wenn Sie den Test ausgeführt haben, können Sie die Antwortdaten überprüfen.
 
 Jeder aufgelistete Endpunkt enthält auch Antworttextdaten, um Ihre Entwicklung und Tests zu überprüfen. Diese Beispiele enthalten die Statuscodes und JSON-Objekte, die für erfolgreiche HTTP-Anforderungen angezeigt werden sollen.
 
-![Swagger-Antwort][7]
+[![Swagger-Antwort](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
 
 Die Beispiele enthalten auch Fehlercodes zur Unterstützung beim Debuggen oder Verändern von fehlgeschlagenen Tests.
 
@@ -118,31 +118,22 @@ Weitere Informationen zum interaktiven Testen von Anforderungen, die durch OAuth
 
 5. Kopieren Sie die ID Ihrer Azure AD-App.
 
-6. Klicken Sie auf Swagger-Seite auf die Schaltfläche „Autorisieren“.
+Nach Abschluss der Azure Active Directory-Registrierung:
 
-    ![Swagger-Schaltfläche „Autorisieren“](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+6. Klicken Sie auf Ihrer Swagger-Seite auf die Schaltfläche **Autorisieren**.
 
-7. Fügen Sie die Anwendungs-ID in das Feld „client_id“ ein.
+    [![Auf die Swagger-Schaltfläche „Autorisieren“ klicken](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-    ![Swagger-Feld „client_id“](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+7. Fügen Sie die Anwendungs-ID in das Feld **client_id** ein.
 
-    ![Erteilen von Anwendungsberechtigungen in Swagger](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+    [![Swagger-Feld „client_id“](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. Jetzt sollten das im Autorisierungsheader übergebene Bearer-Authentifizierungstoken sowie die Identität des angemeldeten Benutzers im Ergebnis angezeigt werden.
+8. Sie werden dann zum folgenden Erfolgsmodal umgeleitet.
 
-    ![Swagger-Tokenergebnis](../../includes/media/digital-twins-permissions/swagger-token-example.png)
+    [![Swagger-Umleitungsmodal](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Weitere Informationen zu Azure Digital Twins-Objektmodellen und zum Raumintelligenzgraph finden Sie unter [Grundlegendes zum Azure Digital Twins-Objektmodell](./concepts-objectmodel-spatialgraph.md).
 
 - Wie eine Authentifizierung über Ihre Verwaltungs-API erfolgt, erfahren Sie unter [Authentifizieren über APIs](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.PNG
-[2]: media/how-to-use-swagger/swagger_management_models.PNG
-[3]: media/how-to-use-swagger/swagger_management_model.PNG
-[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
-[5]: media/how-to-use-swagger/swagger_management_try.PNG
-[6]: media/how-to-use-swagger/swagger_management_tried.PNG
-[7]: media/how-to-use-swagger/swagger_management_response.PNG

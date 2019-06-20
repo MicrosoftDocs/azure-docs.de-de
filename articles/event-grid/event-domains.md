@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472856"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304295"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Grundlegendes zu Ereignisdomänen für die Verwaltung von Event Grid-Themen
 
@@ -22,8 +22,6 @@ Dieser Artikel beschreibt, wie Sie Ereignisdomänen verwenden, um den Fluss benu
 * Verwalten der Autorisierung und Authentifizierung.
 * Partitionieren von Themen, ohne diese einzeln zu verwalten.
 * Vermeiden der individuellen Veröffentlichung für jeden einzelnen Themaendpunkt.
-
-Dieses Feature befindet sich in der Vorschauphase. Sie müssen eine Vorschauerweiterung oder ein Vorschaumodul installieren, um es zu verwenden. Anweisungen finden Sie unter [Verwalten von Themen und Veröffentlichen von Ereignissen mithilfe von Ereignisdomänen](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Übersicht über Ereignisdomänen
 
@@ -49,7 +47,7 @@ RBAC in Ereignisdomänen funktioniert auf dieselbe Weise wie die [verwaltete Zug
 
 ### <a name="built-in-roles"></a>Integrierte Rollen
 
-Event Grid verfügt über zwei integrierte Rollendefinitionen, um die Nutzung von RBAC in Ereignisdomänen zu vereinfachen. Diese Rollen sind **EventGrid EventSubscription-Mitwirkender (Vorschau)** und **EventGrid EventSubscription-Leser (Vorschau)**. Sie können diese Rollen zu Benutzern zuweisen, die Themen in der Ereignisdomäne abonnieren müssen. Sie können die Rollenzuweisung auf das Thema beschränken, das Benutzer abonnieren müssen.
+Event Grid verfügt über zwei integrierte Rollendefinitionen, um die Nutzung von RBAC in Ereignisdomänen zu vereinfachen. Diese Rollen sind **EventGrid EventSubscription-Mitwirkender (Vorschau)** und **EventGrid EventSubscription-Leser (Vorschau)** . Sie können diese Rollen zu Benutzern zuweisen, die Themen in der Ereignisdomäne abonnieren müssen. Sie können die Rollenzuweisung auf das Thema beschränken, das Benutzer abonnieren müssen.
 
 Weitere Informationen zu diesen Rollen finden Sie unter [Integrierte Rollen für Event Grid](security-authentication.md#built-in-roles).
 
@@ -99,18 +97,18 @@ Beispielsweise würde die Veröffentlichung des folgenden Arrays von Ereignissen
 Ereignisdomänen übernehmen die Veröffentlichung von Themen für Sie. Anstatt Ereignisse für jedes Thema, das Sie verwalten, einzeln zu veröffentlichen, können Sie alle Ihre Ereignisse im Endpunkt der Domäne veröffentlichen. Event Grid stellt sicher, dass jedes Ereignis an das richtige Thema gesendet wird.
 
 ## <a name="limits-and-quotas"></a>Grenzen und Kontingente
+Im Anschluss sind die Grenzwerte und Kontingente für Ereignisdomänen angegeben:
 
-### <a name="control-plane"></a>Steuerungsebene
+- 100\.000 Themen pro Ereignisdomäne 
+- 100 Ereignisdomänen pro Azure-Abonnement 
+- 500 Ereignisabonnements pro Thema innerhalb einer Ereignisdomäne
+- 50 Domänenbereichabonnements 
+- 5\.000 Ereignisse pro Sekunde (Rate für die Erfassung in einer Domäne)
 
-Während der Vorschau sind Ereignisdomänen auf 1.000 Themen in einer Domäne und 50 Ereignisabonnements pro Thema in einer Domäne begrenzt. Ereignisdomänenbereich-Abonnements sind ebenfalls auf 50 beschränkt.
-
-### <a name="data-plane"></a>Datenebene
-
-Während der Vorschau wird der Ereignisdurchsatz für eine Ereignisdomäne auf die gleichen 5.000 Ereignisse pro Sekunde Erfassungsrate beschränkt, auf die benutzerdefinierte Themen beschränkt sind.
+Sollten diese Grenzwerte für Sie nicht geeignet sein, wenden Sie sich an das Produktteam, indem Sie entweder ein Supportticket erstellen oder eine E-Mail an [askgrid@microsoft.com](mailto:askgrid.microsoft.com) senden. 
 
 ## <a name="pricing"></a>Preise
-
-Während der Vorschau gelten für Ereignisdomänen die gleichen [Betriebspreise](https://azure.microsoft.com/pricing/details/event-grid/) wie für alle anderen Features in Event Grid.
+Für Ereignisdomänen gelten die gleichen [Betriebspreise](https://azure.microsoft.com/pricing/details/event-grid/) wie für alle anderen Features in Event Grid.
 
 Vorgänge funktionieren in Ereignisdomänen wie in benutzerdefinierten Themen. Jede Erfassung eines Ereignisses in einer Ereignisdomäne ist ein Vorgang, und jeder Zustellungsversuch für ein Ereignis ist ein Vorgang.
 

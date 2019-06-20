@@ -4,7 +4,7 @@ description: Erfahren Sie, wie Sie einer vorhandenen Vorlage für eine Azure-VM-
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,22 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 04/26/2018
 ms.author: manayar
-ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739640"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64869110"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Hinzufügen eines benutzerdefinierten Images zu einer Azure-Skalierungsgruppenvorlage
 
-In diesem Artikel erfahren Sie, wie die [Vorlage für eine kleinstmögliche Skalierungsgruppe](./virtual-machine-scale-sets-mvss-start.md) geändert wird, um die Bereitstellung über ein benutzerdefiniertes Image durchzuführen.
+In diesem Artikel erfahren Sie, wie die [Vorlage für eine grundlegende Skalierungsgruppe](virtual-machine-scale-sets-mvss-start.md) geändert wird, um die Bereitstellung über ein benutzerdefiniertes Image durchzuführen.
 
 ## <a name="change-the-template-definition"></a>Ändern der Vorlagendefinition
-
-Die Vorlage für die kleinstmögliche Skalierungsgruppe ist [hier](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) zu finden, und die Vorlage für die Bereitstellung der Skalierungsgruppe aus einem benutzerdefinierten Image ist [hier](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json) zu finden. Sehen wir uns die Diff zum Erstellen dieser Vorlage (`git diff minimum-viable-scale-set custom-image`) Stück für Stück an:
+In einem [vorherigen Artikel](virtual-machine-scale-sets-mvss-start.md) haben wir eine grundlegende Vorlage für eine Skalierungsgruppe erstellt. Wir verwenden nun diese frühere Vorlage und ändern sie, um eine Vorlage zu erstellen, die eine Skalierungsgruppe aus einem benutzerdefinierten Image bereitstellt.  
 
 ### <a name="creating-a-managed-disk-image"></a>Erstellen eines Images für einen verwalteten Datenträger
 
@@ -58,7 +57,7 @@ Fügen Sie als Nächstes eine Ressource vom Typ `Microsoft.Compute/images` hinzu
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -83,7 +82,7 @@ Fügen Sie in der Skalierungsgruppenressource eine `dependsOn`-Klausel mit Verwe
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",

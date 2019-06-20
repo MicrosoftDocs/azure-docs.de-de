@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 0b1e3b98fe5b934b712db2a5549ebdc865523bfb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61412566"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Bewährte Methoden für die SQL-Datensynchronisierung 
 
@@ -163,7 +163,7 @@ Es kann passieren, dass Änderungen aus einem der folgenden Gründe nicht vertei
 Prüfen Sie über das Portal und die Protokollschnittstelle regelmäßig die Integrität der Synchronisierungsgruppe und der Datenbank.
 
 
-## <a name="maintenance"></a>Wartung 
+## <a name="maintenance"></a>Wartung
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Vermeiden veralteter Datenbanken und Synchronisierungsgruppen
 

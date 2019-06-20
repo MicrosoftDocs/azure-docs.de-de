@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
 ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481398"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60743075"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testen der Bandbreite / des Durchsatzes (NTTTCP)
 

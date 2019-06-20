@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521593"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827469"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Übergang von einem Gatewayzertifikat einer öffentlichen Zertifizierungsstelle für P2S
 
@@ -29,17 +29,7 @@ Bisher musste das selbstsignierte Zertifikat für das Gateway (im Hintergrund vo
 Von dieser Änderung sind nur ältere Gateways betroffen. Wenn Ihr Gatewayzertifikat umgestellt werden muss, erhalten Sie im Azure-Portal eine (Popup-) Benachrichtigung. Sie können anhand der in diesem Artikel beschriebenen Schritte überprüfen, ob Ihr Gateway betroffen ist.
 
 > [!IMPORTANT]
-> Der Übergang ist für den 12.03.2019 um 18:00 Uhr (UTC) geplant. Wenn Sie ein anderes Zeitfenster bevorzugen, können Sie eine Supportanfrage stellen. Stellen Sie Ihre Supportanfrage mindestens 24 Stunden im Voraus.  Sie können eines der folgenden Zeitfenster anfordern:
->
-> * 06:00 Uhr (UTC) am 25. Februar
-> * 18:00 Uhr (UTC) am 25. Februar
-> * 06:00 (UTC) am 1. März
-> * 18:00 (UTC) am 1. März
->
-> **Alle verbleibenden Gateways werden am 12 März 2019 ab 18:00 Uhr (UTC) umgestellt**.
->
-> Kunden erhalten eine E-Mail, wenn der Übergangsprozess für ihr Gateway abgeschlossen ist.
-> 
+> Die Umstellung auf öffentliche ZS-Zertifikate wurde am 12. Mai 2019 abgeschlossen. **Dieses Dokument wird am 31. Mai 2019 entfernt.**
 
 ## <a name="1-verify-your-certificate"></a>1. Überprüfen Ihres Zertifikats
 

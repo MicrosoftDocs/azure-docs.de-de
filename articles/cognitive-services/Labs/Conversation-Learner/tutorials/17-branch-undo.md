@@ -3,19 +3,19 @@ title: Verwenden von Branching- und Rückgängig-Aktionen in einem Unterhaltungs
 titleSuffix: Azure
 description: Erfahren Sie, wie Sie Branching- und Rückgängig-Aktionen in einem Unterhaltungslernmodell verwenden.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206729"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389890"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Verwenden von Vorgängen zum Branchen und Rückgängigmachen
 In diesem Tutorial befassen wir uns mit Rückgängig- und Branching-Vorgängen.

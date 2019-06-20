@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc82f69c8dee4cc8c45e9fcf7fbf6fa184ad72b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783054"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Platzhalteranwendungen im Azure Active Directory-Anwendungsproxy 

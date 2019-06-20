@@ -13,11 +13,11 @@ ms.reviewer: carlr
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 4c6799372f203f021a07ae52a1d7f591aae5afad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60339005"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Verwenden eines Singleton in Azure SQL-Datenbank
 

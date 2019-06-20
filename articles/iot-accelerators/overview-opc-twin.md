@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496810"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730267"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Was ist die OPC-Geräteverwaltung (Open Platform Communications) von Azure IoT?
+# <a name="what-is-opc-twin"></a>Was ist OPC-Zwilling?
 
 OPC Twin umfasst Microservices, die über Azure IoT Edge und IoT Hub eine Verbindung zwischen der Cloud und dem Fabriknetzwerk herstellen. OPC-Zwilling bietet Erkennungs- und Registrierungsfunktionen und ermöglicht die Fernsteuerung von Industriegeräten über Rest-APIs. OPC-Zwilling erfordert kein OPC UA SDK (Unified Architecture), ist unabhängig von der Programmiersprache und kann in einen serverlosen Workflow integriert werden. In diesem Artikel werden einige Anwendungsfälle für OPC-Zwilling beschrieben.
 

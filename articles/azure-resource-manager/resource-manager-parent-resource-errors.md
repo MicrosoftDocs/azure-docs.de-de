@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3042ea1a523f12ae0311545a1b9bc67306f266dd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 19642138105f3de0e2bda3f0f80e12cf74a35709
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447301"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61059989"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Beheben von Fehlern bei übergeordneten Ressourcen
 

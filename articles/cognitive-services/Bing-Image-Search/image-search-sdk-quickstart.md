@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa009ed99b2067b5a3cbde910a7265f42ea478f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 0a50ca8dfda1e51cdc27728975e40dcbf8ce6dbd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337447"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384206"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Schnellstart: Suchen nach Bildern mit dem Bing-Bildersuche-SDK für C#
 
@@ -25,10 +25,10 @@ Führen Sie mithilfe dieses Schnellstarts Ihre erste Bildersuche mit dem Bing-Bi
 Der Quellcode für dieses Beispiel ist auf [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) mit zusätzlichen Fehlerbehandlungen und Anmerkungen verfügbar.
 
 ## <a name="prerequisites"></a>Voraussetzungen
-* Eine beliebige [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/)-Edition.
+* Eine beliebige Edition von [Visual Studio 2017 oder höher](https://visualstudio.microsoft.com/vs/whatsnew/).
 * Das [NuGet-Paket für die Cognitive Services-Bildersuche](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0)
 
-Um das Bing-Bildersuche-SDK in Visual Studio zu installieren, verwenden Sie die `Manage NuGet Packages`-Option im Projektmappen-Explorer in Visual Studio.
+Um das Bing-Bildersuche-SDK in Visual Studio zu installieren, verwenden Sie die Option **NuGet-Pakete verwalten** im **Projektmappen-Explorer**.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -101,4 +101,4 @@ if (imageResults != null)
 * [Abrufen eines kostenlosen Cognitive Services-Zugriffsschlüssels](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [.NET-Beispiele für das Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
 * [Dokumentation zu Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referenz zur Bing-Bildersuche-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referenz zur Bing-Bildersuche-API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: redis-cache
 author: wesmc7777
 ms.service: cache
@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132857"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177897"
 ---
 1. Melden Sie sich zum Erstellen eines Cache zunächst beim [Azure-Portal](https://portal.azure.com) an. Wählen Sie anschließend die Option **Ressource erstellen** > **Datenbanken** > **Azure Cache for Redis**.
 

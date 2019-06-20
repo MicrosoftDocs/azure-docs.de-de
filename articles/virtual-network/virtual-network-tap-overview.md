@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
 ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60593181"
 ---
 # <a name="virtual-network-tap"></a>TAP eines virtuellen Netzwerks
 

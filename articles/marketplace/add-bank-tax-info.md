@@ -1,25 +1,19 @@
 ---
-title: Hinzufügen von Bank- und Steuerinformationen | Azure
+title: Hinzufügen von Bank- und Steuerinformationen | Azure Marketplace
 description: Fügen Sie Ihrem Dev Center-Konto Bank- und Steuerinformationen hinzu.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
 ms.service: marketplace
-ms.assetid: ''
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: f194b02e5b92ca2de5b58a033c38d4f2e35f93f6
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b435260edcbb132adc19f65b6bfcab7edd3afb9e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935677"
 ---
 # <a name="add-bank-and-tax-information"></a>Hinzufügen der Bank- und Steuerinformationen  
 Bank- und Steuerinformationen sind für alle kommerziellen Angebote erforderlich, die den Listentyp „Transaktion“ verwenden.  

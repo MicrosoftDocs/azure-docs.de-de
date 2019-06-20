@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bb5c4d508344f391d610aeaa7e0be54a93c997dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905714"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080016"
 ---
 # <a name="azure-dns-faq"></a>Häufig gestellte Fragen zu Azure DNS
 
@@ -194,87 +194,6 @@ Ja. Azure DNS-Namenserver verfügen über einen dualen Stapel. Dies bedeutet, da
 Bei internationalen Domänennamen (IDNs) wird jeder DNS-Name mit [Punycode](https://en.wikipedia.org/wiki/Punycode) codiert. DNS-Abfragen werden mit diesen per Punycode codierten Namen durchgeführt.
 
 Konvertieren Sie den Zonennamen oder den Namen des Ressourceneintragssatzes in Punycode, um IDNs in Azure DNS zu konfigurieren. Azure DNS unterstützt die integrierte Konvertierung in bzw. aus Punycode gegenwärtig nicht.
-
-## <a name="private-dns"></a>Privates DNS
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
-
-### <a name="does-azure-dns-support-private-domains"></a>Unterstützt Azure DNS „private“ Domänen?
-
-Unterstützung für „private“ Domänen wird mit dem Feature für private Zonen implementiert. Dieses Feature ist derzeit in der Public Preview-Version verfügbar. Private Zonen werden verwaltet, indem die gleichen Tools wie für Azure DNS-Zonen mit Internetzugriff verwendet werden. Sie können aber nur innerhalb der von Ihnen angegebenen virtuellen Netzwerke aufgelöst werden. Weitere Informationen finden Sie in der [Übersicht](private-dns-overview.md).
-
-Derzeit werden private Zonen im Azure-Portal nicht unterstützt.
-
-Informationen zu anderen internen DNS-Optionen in Azure finden Sie unter [Namensauflösung für virtuelle Computer und Rolleninstanzen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>Was ist der Unterschied zwischen einem virtuellen Registrierungsnetzwerk und einem virtuellen Auflösungsnetzwerk im Kontext von privaten Zonen?
-
-Sie können virtuelle Netzwerke als virtuelles Registrierungsnetzwerk oder als virtuelles Auflösungsnetzwerk mit einer privaten DNS-Zone verknüpfen. In beiden Fällen werden virtuelle Computer im virtuellen Netzwerk anhand von Einträgen in der privaten Zone erfolgreich aufgelöst. Bei einem virtuellen Registrierungsnetzwerk werden DNS-Einträge automatisch in der Zone für die virtuellen Computer im virtuellen Netzwerk registriert. Wenn ein virtueller Computer in einem virtuellen Registrierungsnetzwerk gelöscht wird, wird der entsprechende DNS-Eintrag automatisch aus der verknüpften privaten Zone entfernt. 
-
-### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Funktioniert Azure DNS Private Zones übergreifend in allen Azure-Regionen?
-
-Ja. Private Zonen werden für die DNS-Auflösung zwischen virtuellen Netzwerken übergreifend für Azure-Regionen unterstützt. Private Zonen funktionieren auch ohne explizites Peering der virtuellen Netzwerke. Alle virtuellen Netzwerke müssen als virtuelle Auflösungsnetzwerke für die private Zone angegeben werden. Kunden benötigen unter Umständen ein Peering der virtuellen Netzwerke, damit der TCP/HTTP-Datenverkehr von einer Region zu einer anderen weitergeleitet werden kann.
-
-### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>Ist für private Zonen eine Verbindung mit dem Internet aus virtuellen Netzwerken erforderlich?
-
-Nein. Private Zonen funktionieren mit virtuellen Netzwerken. Sie werden von Kunden genutzt, um Domänen für virtuelle Computer oder andere Ressourcen in virtuellen Netzwerken (auch übergreifend) zu verwalten. Für die Namensauflösung ist keine Internetverbindung erforderlich. 
-
-### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Kann die gleiche private Zone für mehrere virtuelle Netzwerke zur Auflösung verwendet werden?
-
-Ja. Kunden können einer einzelnen privaten Zone bis zu zehn virtuelle Auflösungsnetzwerke zuordnen.
-
-### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Kann ein virtuelles Netzwerk, das zu einem anderen Abonnement gehört, einer privaten Zone als virtuelles Auflösungsnetzwerk hinzugefügt werden?
-
-Ja. Sie müssen über eine Schreibvorgangsberechtigung für die virtuellen Netzwerke und die private DNS-Zone verfügen. Die Schreibberechtigung kann mehreren RBAC-Rollen gewährt werden. Beispielsweise weist die RBAC-Rolle „Mitwirkender von klassischem Netzwerk“ Schreibberechtigungen für virtuelle Netzwerke auf. Weitere Informationen zu RBAC-Rollen finden Sie unter [Rollenbasierte Zugriffssteuerung](../role-based-access-control/overview.md).
-
-### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Werden die automatisch registrierten DNS-Einträge virtueller Computer in einer privaten Zone automatisch gelöscht, wenn die virtuellen Computer vom Kunden gelöscht werden?
-
-Ja. Wenn Sie einen virtuellen Computer in einem virtuellen Registrierungsnetzwerk löschen, werden die DNS-Einträge, die in der Zone registriert waren, automatisch gelöscht. 
-
-### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Kann ein automatisch registrierter Eintrag für einen virtuellen Computer in einer privaten Zone von einem virtuellen Registrierungsnetzwerk manuell gelöscht werden?
-
-Nein. Die DNS-Einträge virtueller Computer, die in einer privaten Zone von einem virtuellen Registrierungsnetzwerk automatisch registriert werden, sind für Kunden nicht sichtbar und können nicht bearbeitet werden. Sie können die automatisch registrierten DNS-Einträge aber durch einen manuell erstellten DNS-Eintrag in der Zone überschreiben. Dies wird in den folgenden Frage/Antwort-Informationen beschrieben.
-
-### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>Was geschieht bei dem Versuch, einen neuen DNS-Eintrag manuell in einer privaten Zone zu erstellen, die den gleichen Hostnamen wie eine automatisch registrierte vorhandene VM in einem virtuellen Registrierungsnetzwerk aufweist?
-
-Sie versuchen, einen neuen DNS-Eintrag manuell in einer privaten Zone zu erstellen, die den gleichen Hostnamen wie eine automatisch registrierte vorhandene VM in einem virtuellen Registrierungsnetzwerk aufweist. Wenn Sie dies tun, überschreibt der neue DNS-Eintrag den automatisch registrierten Eintrag für die VM. Wenn Sie versuchen, diesen manuell erstellten DNS-Eintrag wieder aus der Zone zu löschen, ist der Löschvorgang erfolgreich. Die automatische Registrierung wird so lange durchgeführt, wie der virtuelle Computer noch vorhanden ist und über eine zugeordnete private IP-Adresse verfügt. Der DNS-Eintrag wird in der Zone automatisch neu erstellt.
-
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-will-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-too"></a>Was geschieht, wenn ich die Verknüpfung eines virtuellen Registrierungsnetzwerks mit einer privaten Zone aufhebe? Werden auch die automatisch registrierten Einträge virtueller Computer des virtuellen Netzwerks aus der Zone entfernt?
-
-Ja. Um die Verknüpfung eines virtuellen Registrierungsnetzwerks mit einer privaten Zone aufzuheben, aktualisieren Sie die DNS-Zone, um das zugeordnete virtuelle Registrierungsnetzwerk zu entfernen. Bei diesem Prozess werden die Einträge virtueller Computer, die automatisch registriert wurden, aus der Zone entfernt. 
-
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>Was geschieht, wenn ich ein virtuelles Registrierungs- oder Auflösungsnetzwerk lösche, das mit einer privaten Zone verknüpft ist? Muss ich die private Zone manuell aktualisieren, um die Verknüpfung des virtuellen Netzwerks mit der Zone als virtuelles Registrierungs- oder Auflösungsnetzwerk aufzuheben?
-
-Ja. Wenn Sie ein virtuelles Registrierungs- oder Auflösungsnetzwerk löschen, ohne dafür zuerst die Verknüpfung mit einer privaten Zone zu löschen, ist Ihr Löschvorgang erfolgreich. Die Verknüpfung des virtuellen Netzwerks wird, falls vorhanden, für Ihre private Zone aber nicht automatisch aufgehoben. Sie müssen die Verknüpfung des virtuellen Netzwerks mit der privaten Zone manuell aufheben. Aus diesem Grund sollten Sie die Verknüpfung Ihres virtuellen Netzwerks mit Ihrer privaten Zone aufheben, bevor Sie es löschen.
-
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>Funktioniert die DNS-Auflösung mithilfe des Standard-FQDN (internal.cloudapp.net) auch, wenn eine private Zone (z.B. „private.contoso.com“) mit einem virtuellen Netzwerk verknüpft ist?
-
-Ja. Für private Zonen werden die DNS-Standardauflösungen nicht ersetzt, indem die von Azure bereitgestellte Zone „internal.cloudapp.net“ genutzt wird. Dies wird als zusätzliches Feature bzw. als Erweiterung angeboten. Verwenden Sie den FQDN der Zone, für die Sie die Auflösung durchführen möchten, unabhängig davon, ob Sie die von Azure bereitgestellte Zone „internal.cloudapp.net“ oder Ihre eigene private Zone nutzen. 
-
-### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Wird das DNS-Suffix auf virtuellen Computern in einem verknüpften virtuellen Netzwerk in das Suffix der privaten Zone geändert?
-
-Nein. Es wird weiterhin das von Azure bereitgestellte Standardsuffix (*.internal.cloudapp.net) als DNS-Suffix auf den virtuellen Computern in Ihrem verknüpften virtuellen Netzwerk verwendet. Sie können dieses DNS-Suffix auf Ihren virtuellen Computern manuell in das der privaten Zone ändern. 
-
-### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Gibt es Einschränkungen für private Zonen während dieser Vorschauphase?
-
-Ja. Während der öffentlichen Vorschauphase gelten die folgenden Einschränkungen:
-* Ein virtuelles Registrierungsnetzwerk pro privater Zone.
-* Bis zu zehn virtuelle Auflösungsnetzwerke pro privater Zone.
-* Ein bestimmtes virtuelles Netzwerk ist nur mit genau einer privaten Zone als virtuelles Registrierungsnetzwerk verknüpft.
-* Ein bestimmtes virtuelles Netzwerk ist mit bis zu zehn privaten Zonen als virtuelles Auflösungsnetzwerk verknüpft.
-* Wenn ein virtuelles Registrierungsnetzwerk angegeben wird, können die DNS-Einträge für die VMs dieses virtuellen Netzwerks, die für die private Zone registriert sind, nicht über PowerShell, die CLI oder APIs angezeigt oder abgerufen werden. Die VM-Datensätze werden registriert und erfolgreich aufgelöst.
-* Reverse-DNS funktioniert nur für den privaten IP-Bereich im virtuellen Netzwerk für die Registrierung.
-* Reverse-DNS für eine private IP-Adresse, die nicht in der privaten Zone registriert ist, gibt „internal.cloudapp.net“ als DNS-Suffix zurück. Dieses Suffix kann nicht aufgelöst werden. Ein Beispiel ist eine private IP-Adresse für einen virtuellen Computer in einem virtuellen Netzwerk, das als virtuelles Auflösungsnetzwerk mit einer privaten Zone verknüpft ist.
-* Ein virtuelles Netzwerk muss leer sein, wenn es zum ersten Mal die Verknüpfung mit einer privaten Zone als virtuelles Registrierungs- oder Auflösungsnetzwerk herstellt. Bei anschließenden Verknüpfungen mit anderen privaten Zonen als virtuelles Registrierungs- oder Auflösungsnetzwerk ist es dann nicht erforderlich, dass das virtuelle Netzwerk leer ist.
-* Die bedingte Weiterleitung wird nicht unterstützt, z.B. zum Ermöglichen der Auflösung zwischen Azure und lokalen Netzwerken. Informieren Sie sich darüber, wie Kunden dieses Szenario mit anderen Mechanismen realisieren können. Informationen hierzu finden Sie unter [Namensauflösung für virtuelle Computer und Rolleninstanzen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Gibt es Kontingente oder Grenzwerte in Bezug auf Zonen oder Einträge für private Zonen?
-
-Es gibt keine Beschränkung in Bezug auf die Anzahl von Zonen, die pro Abonnement für private Zonen zulässig sind. Es gibt keine Beschränkung in Bezug auf die Anzahl von Eintragssätzen, die pro Zone für private Zonen zulässig sind. Sowohl öffentliche als auch private Zonen unterliegen den allgemeinen DNS-Grenzwerten. Weitere Informationen finden Sie unter [Einschränkungen für Azure-Abonnements und Dienste, Kontingente und Einschränkungen](../azure-subscription-service-limits.md#azure-dns-limits).
-
-### <a name="is-there-portal-support-for-private-zones"></a>Besteht Portalunterstützung für private Zonen?
-
-Private Zonen, die bereits über APIs, PowerShell, die CLI und SDKs erstellt werden, werden im Azure-Portal angezeigt. Kunden können aber keine neuen privaten Zonen erstellen oder Zuordnungen mit virtuellen Netzwerken verwalten. Für virtuelle Netzwerke, die als virtuelle Registrierungsnetzwerke zugeordnet werden, können die automatisch registrierten Einträge für virtuelle Computer im Portal nicht angezeigt werden. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

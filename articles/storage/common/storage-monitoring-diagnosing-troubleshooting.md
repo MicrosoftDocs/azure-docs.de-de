@@ -9,12 +9,12 @@ ms.date: 05/11/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192167"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912366"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure-Speicher: Überwachung, Diagnose und Problembehandlung
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -426,7 +426,7 @@ Wenn die Metrik **PercentThrottlingError** einen Anstieg des Prozentsatzes der A
 Ein Anstieg bei **PercentThrottlingError** erfolgt oft gleichzeitig mit einem Anstieg der Anzahl an Speicheranfragen oder tritt auf, wenn Sie Ihre Anwendung zu Beginn Lasttests unterziehen. Dies kann sich auch im Client als HTTP-Status-Meldungen "503 Server Busy" oder "500 Operation Timeout" bei Speicheroperationen äußern.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Vorübergehender Anstieg bei PercentThrottlingError
-Im Fall der Übereinstimmung der Wertespitzen von **PercentThrottlingError** mit Zeiträumen hoher Aktivität für die Anwendung implementieren Sie eine exponentielle (nicht lineare) Backoff-Strategie für Wiederholungen in Ihrem Client. Backoff-Wiederholungen reduzieren die sofortige Auslastung auf der Partition und unterstützen Ihre Anwendung beim Ausgleich von Lastspitzen. Weitere Informationen zur Implementierung von Wiederholungsrichtlinien unter Verwendung der Speicher-Clientbibliothek finden Sie unter [Microsoft.WindowsAzure.Storage.RetryPolicies-Namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
+Im Fall der Übereinstimmung der Wertespitzen von **PercentThrottlingError** mit Zeiträumen hoher Aktivität für die Anwendung implementieren Sie eine exponentielle (nicht lineare) Backoff-Strategie für Wiederholungen in Ihrem Client. Backoff-Wiederholungen reduzieren die sofortige Auslastung auf der Partition und unterstützen Ihre Anwendung beim Ausgleich von Lastspitzen. Weitere Informationen zur Implementierung von Wiederholungsrichtlinien unter Verwendung der Speicher-Clientbibliothek finden Sie unter [Microsoft.Azure.Storage.RetryPolicies namespace](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > Es können auch Spitzen in den Werten von **PercentThrottlingError** auftreten, die nicht mit Zeiträumen hoher Aktivität für die Anwendung übereinstimmen. Die wahrscheinlichste Ursache ist hier die Verschiebung von Partitionen durch den Speicherdienst zur Verbesserung des Lastausgleichs.
@@ -469,15 +469,15 @@ Wenn Ihre Clientanwendung einen HTTP 403 (Verboten)-Fehler ausgibt, ist eine wa
 
 | `Source` | Ausführlichkeit | Ausführlichkeit | Clientanfrage-ID | Operation Text |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Vorgang mit Primärspeicherort pro Speicherortmodus PrimaryOnly starten. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Synchrone Anforderung starten an <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Warten auf Antwort. |
-| Microsoft.WindowsAzure.Storage |Warnung |2 |85d077ab-… |Beim Warten auf Antwort ausgelöste Ausnahme: Der Remoteserver hat einen Fehler zurückgegeben: (403) Verboten: |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Antwort erhalten. Statuscode = 403, Anfrage-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Warnung |2 |85d077ab-… |Während des Vorgangs ausgelöste Ausnahme: Der Remoteserver hat einen Fehler zurückgegeben: (403) Verboten: |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Prüfung, ob Vorgang wiederholt werden sollte. Wiederholungsanzahl = 0, HTTP-Statuscode = 403, Ausnahme = Der Remoteserver hat einen Fehler zurückgegeben: (403) Verboten: |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Der nächste Speicherort wurde auf Primär gesetzt, basierend auf dem Speicherortmodus. |
-| Microsoft.WindowsAzure.Storage |Error |1 |85d077ab-… |Wiederholungsrichtlinie hat keinen erneuten Versuch erlaubt. Scheitern mit: Der Remoteserver hat einen Fehler zurückgegeben: (403) Verboten: |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Vorgang mit Primärspeicherort pro Speicherortmodus PrimaryOnly starten. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Synchrone Anforderung starten an <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Warten auf Antwort. |
+| Microsoft.Azure.Storage |Warnung |2 |85d077ab-… |Beim Warten auf Antwort ausgelöste Ausnahme: Der Remoteserver hat einen Fehler zurückgegeben: (403) Verboten. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Antwort erhalten. Statuscode = 403, Anfrage-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Warnung |2 |85d077ab-… |Während des Vorgangs ausgelöste Ausnahme: Der Remoteserver hat einen Fehler zurückgegeben: (403) Verboten: |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Prüfung, ob Vorgang wiederholt werden sollte. Wiederholungsanzahl = 0, HTTP-Statuscode = 403, Ausnahme = Der Remoteserver hat einen Fehler zurückgegeben: (403) Verboten: |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Der nächste Speicherort wurde auf Primär gesetzt, basierend auf dem Speicherortmodus. |
+| Microsoft.Azure.Storage |Error |1 |85d077ab-… |Wiederholungsrichtlinie hat keinen erneuten Versuch erlaubt. Scheitern mit: Der Remoteserver hat einen Fehler zurückgegeben: (403) Verboten: |
 
 In diesem Szenario sollten Sie untersuchen, warum der SAS-Token abläuft, bevor der Client den Token an den Server sendet:
 

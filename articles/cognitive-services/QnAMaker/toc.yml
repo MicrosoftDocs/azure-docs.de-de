@@ -96,9 +96,9 @@
         - name: Erstellen und Veröffentlichen einer Wissensdatenbank
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: Abrufen der Antwort
+        - name: Abrufen der Antwort mithilfe von Metadaten
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
         - name: Erstellen von Bots mit aktivierter Wissensdatenbank
           href: Tutorials/integrate-qnamaker-luis.md
         - name: Erstellen einer Wissensdatenbank in einer anderen Sprache
@@ -184,6 +184,8 @@
   items:
     - name: Regionale Verfügbarkeit
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Compliance
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure-Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preise und Einschränkungen

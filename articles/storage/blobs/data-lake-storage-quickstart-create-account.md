@@ -2,18 +2,19 @@
 title: Erstellen eines Azure Data Lake Storage Gen2-Speicherkontos | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie über das Azure-Portal, Azure PowerShell oder die Azure-Befehlszeilenschnittstelle (Azure CLI) ein neues Speicherkonto mit Zugriff auf Data Lake Storage Gen2 erstellen.
 services: storage
-author: jamesbak
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
-ms.author: jamesbak
-ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: normesta
+ms.reviewer: jamesbak
+ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995675"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939423"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Schnellstart: Erstellen eines Azure Data Lake Storage Gen2-Speicherkontos
 
@@ -105,7 +106,7 @@ Das Speicherkonto wird jetzt über das Portal erstellt.
 So entfernen Sie eine Ressourcengruppe über das Azure-Portal:
 
 1. Erweitern Sie im Azure-Portal das Menü auf der linken Seite, um das Menü mit den Diensten zu öffnen, und klicken Sie auf **Ressourcengruppen**, um die Liste mit Ihren Ressourcengruppen anzuzeigen.
-2. Suchen Sie die zu löschende Ressourcengruppe, und klicken Sie mit der rechten Maustaste rechts neben dem Eintrag auf die Schaltfläche **Mehr** (**...**).
+2. Suchen Sie die zu löschende Ressourcengruppe, und klicken Sie mit der rechten Maustaste rechts neben dem Eintrag auf die Schaltfläche **Mehr** ( **...** ).
 3. Klicken Sie auf **Ressourcengruppe löschen**, und bestätigen Sie den Vorgang.
 
 ## <a name="create-an-account-using-powershell"></a>Erstellen eines Kontos mithilfe von PowerShell

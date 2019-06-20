@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227967"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620001"
 ---
 # <a name="action-rules-preview"></a>Aktionsregeln (Vorschau)
 
-In diesem Artikel wird erläutert, was Aktionsregeln sind und wie sie konfiguriert und verwaltet werden können.
-
-## <a name="what-are-action-rules"></a>Was sind Aktionsregeln?
-
 Mit Aktionsregeln können Sie Aktionen (oder die Unterdrückung von Aktionen) in jedem Resource Manager-Bereich (Abonnement, Ressourcengruppe und Ressource) definieren. Sie verfügen über eine Reihe von Filtern zum Eingrenzen auf eine bestimmte Teilmenge von Warnungsinstanzen, auf die Sie reagieren möchten. 
 
-Mit Aktionsregeln können Sie folgende Vorgänge ausführen:
+## <a name="why-and-when-should-you-use-action-rules"></a>Wann und wieso sollten Sie Aktionsregeln verwenden?
 
-* Unterdrücken von Aktionen und Benachrichtigungen für geplante Wartungszeiträume oder für Wochenenden/Feiertage, sodass Sie nicht jede einzelne Warnungsregel einzeln deaktivieren müssen.
-* Definieren von Aktionen und Benachrichtigungen im benötigten Umfang: Anstatt eine Aktionsgruppe einzeln für jede Warnungsregel zu definieren, können Sie nun eine Aktionsgruppe definieren, die für Warnungen ausgelöst wird, die in einem beliebigen Bereich generiert wurden. Sie können beispielsweise angeben, dass die Aktionsgruppe „ContosoActionGroup“ für jede Warnung ausgelöst wird, die in Ihrem Abonnement generiert wurde.
+### <a name="suppression-of-alerts"></a>Unterdrückung von Warnungen
+
+In vielen häufig auftretenden Szenarios wäre es nützlich, die Benachrichtigungen von Warnungen zu unterdrücken. Dies variiert von Unterdrückungen während geplanter Wartungen bis hin zu Unterdrückungen außerhalb der Geschäftszeiten. Angenommen das Team von „ContosoVM“ möchte Warnungsbenachrichtigungen für das kommende Wochenende Unterdrücken, weil eine Wartung geplant ist. Sie können zwar alle einzelnen Warnungsregeln manuell deaktivieren, die für „ContosoVM“ konfiguriert sind (und diese nach der Wartung wieder deaktivieren), was jedoch kein einfacher Ablauf ist. Mit Aktionsregeln können Sie die Unterdrückung von Warnungen nach Maß definieren, sodass Sie den Zeitraum für die Unterdrückung flexibel konfigurieren können. Im zuvor beschriebenen Beispiel kann das Team nun eine Aktionsregel für „ContosoVM“ definieren, die alle Warnungsbenachrichtigungen für das Wochenende unterdrückt.
+
+
+### <a name="actions-at-scale"></a>Aktionen nach Maß
+
+Zwar können Sie mit Warnungsregeln die Aktionsgruppe definieren, die ausgelöst wird, wenn eine Warnung generiert wird, jedoch verfügen Kunden meist über eine allgemeine Aktionsgruppe für den gesamten Umfang ihrer Vorgänge. Beispielsweise würde ein Team, das für die Ressourcengruppe „ContosoRG“ zuständig ist, vermutlich dieselbe Aktionsgruppe für alle innerhalb von definierten „ContosoRG“ Warnungsregeln definieren. Mit Aktionsregeln können Sie diesen Prozess vereinfachen, indem Sie Aktionen nach Maß definieren, sodass eine Aktionsgruppe für jede Warnung ausgelöst werden kann, die im konfigurierten Bereich generiert wird. So könnte das Team aus dem zuvor beschriebenen Beispiel nun eine Aktionsregel für „ContosoRG“ definieren, die die gleiche Aktionsgruppe für alle darin generierten Warnungen auslöst.
+
 
 ## <a name="configuring-an-action-rule"></a>Konfigurieren einer Aktionsregel
 
@@ -64,7 +67,7 @@ Die folgenden Filter sind verfügbar:
 * **Warnungsregel-ID**: Ermöglicht Ihnen das Filtern nach bestimmten Warnungsregeln anhand der Resource Manager-ID der Warnungsregel.
 * **Überwachungsbedingung**: Hiermit können Sie nach Warnungsinstanzen mit der Überwachungsbedingung „Ausgelöst“ oder „Aufgelöst“ filtern.
 * **Beschreibung:** Abgleich von regulären Ausdrücken in der Beschreibung, die als Teil der Warnungsregel definiert wurde.
-* **Warnungskontext (Nutzlast)**: Abgleich von regulären Ausdrücken in den [Warnungskontext](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)-Feldern einer Warnungsinstanz.
+* **Warnungskontext (Nutzlast)** : Abgleich von regulären Ausdrücken in den [Warnungskontext](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)-Feldern einer Warnungsinstanz.
 
 Diese Filter werden in Verbindung miteinander angewendet. Wenn Sie beispielsweise „Ressourcentyp' = „Virtual Machines“ und „Schweregrad“ = „Sev0“ festlegen, wird nach allen Sev0-Warnungen ausschließlich auf Ihren VMs gefiltert. 
 

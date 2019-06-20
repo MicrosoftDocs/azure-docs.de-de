@@ -17,10 +17,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: 1b760612d8d9a5ed0817ce662ed190f3477cd125
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235851"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Erstellen eines Katalogs mit freigegebenen Images über das Azure-Portal

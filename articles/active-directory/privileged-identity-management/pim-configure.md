@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496077"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473685"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Was ist Azure AD Privileged Identity Management?
 
@@ -41,15 +41,6 @@ PIM unterstützt Sie im Grunde dabei, das „Wer?“, „Was?“, „Wann?“, �
 - Erhalten von **Benachrichtigungen**, wenn privilegierte Rollen aktiviert werden
 - Durchführen von **Zugriffsüberprüfungen**, um zu prüfen, ob Benutzer die Rollen weiterhin benötigen
 - Herunterladen eines **Überwachungsverlaufs** zur internen oder externen Überwachung
-
-## <a name="prerequisites"></a>Voraussetzungen
-
-Um PIM verwenden zu können, müssen Sie über eine der folgenden kostenpflichtigen Lizenzen oder Testlizenzen verfügen. Weitere Informationen finden Sie unter [Was ist Azure Active Directory?](../fundamentals/active-directory-whatis.md).
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-Weitere Informationen zu Lizenzen für Benutzer finden Sie unter [License requirements to use PIM](subscription-requirements.md) (Lizenzanforderungen für die Verwendung von PIM).
 
 ## <a name="terminology"></a>Begriff
 
@@ -104,6 +95,12 @@ PIM unterstützt folgende Szenarien:
 - Anfordern der Aktivierung einer Rolle, die genehmigt werden muss
 - Anzeigen des Status Ihrer Aktivierungsanforderung
 - Fertigstellen Ihrer Aufgabe in Azure AD, wenn die Aktivierung genehmigt wurde
+
+## <a name="license-requirements"></a>Lizenzanforderungen
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Weitere Informationen zu Lizenzen für Benutzer finden Sie unter [License requirements to use PIM](subscription-requirements.md) (Lizenzanforderungen für die Verwendung von PIM).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

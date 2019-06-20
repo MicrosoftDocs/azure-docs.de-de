@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
 ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090099"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128380"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurieren einer VNET-zu-VNET-VPN-Gatewayverbindung über das Azure-Portal
 
@@ -190,7 +190,7 @@ Nach Abschluss der Vorgänge für die virtuellen Netzwerkgateways für „TestVN
 
      - Wählen Sie das Gateway für virtuelle Netzwerke aus, mit dem Sie eine Verbindung herstellen möchten.
 
-     - **Gemeinsam verwendeter Schlüssel (PSK)**: Geben Sie in diesem Feld einen gemeinsam verwendeten Schlüssel für die Verbindung ein. Diesen Schlüssel können Sie selbst generieren oder erstellen. Bei einer Site-to-Site-Verbindung wird für Ihr lokales Gerät und für Ihre Verbindung mit dem Gateway für virtuelle Netzwerke der gleiche Schlüssel verwendet. Das Konzept ist hier ähnlich, nur dass diesmal keine Verbindung mit einem VPN-Gerät hergestellt wird, sondern mit einem anderen Gateway für virtuelle Netzwerke.
+     - **Gemeinsam verwendeter Schlüssel (PSK)** : Geben Sie in diesem Feld einen gemeinsam verwendeten Schlüssel für die Verbindung ein. Diesen Schlüssel können Sie selbst generieren oder erstellen. Bei einer Site-to-Site-Verbindung wird für Ihr lokales Gerät und für Ihre Verbindung mit dem Gateway für virtuelle Netzwerke der gleiche Schlüssel verwendet. Das Konzept ist hier ähnlich, nur dass diesmal keine Verbindung mit einem VPN-Gerät hergestellt wird, sondern mit einem anderen Gateway für virtuelle Netzwerke.
     
 4. Klicken Sie zum Speichern der Änderungen auf **OK** .
 

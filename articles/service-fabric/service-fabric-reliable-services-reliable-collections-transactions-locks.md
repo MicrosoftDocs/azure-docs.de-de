@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
 ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60774062"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transaktionen und Sperrmodi in Azure Service Fabric Reliable Collections
 
@@ -28,7 +28,7 @@ Eine Transaktion ist eine Folge von Vorgängen, die als einzelne logische Arbeit
 Eine Transaktion muss die folgenden ACID-Eigenschaften aufweisen. (Siehe https://technet.microsoft.com/library/ms190612).)
 * **Unteilbarkeit**: Eine Transaktion muss eine unteilbare Arbeitseinheit sein. Dies bedeutet, dass entweder alle oder keine Datenänderungen ausgeführt werden.
 * **Konsistenz**: Nach dem Abschluss der Transaktion müssen alle Daten in einem konsistenten Zustand belassen werden. Alle internen Datenstrukturen müssen am Ende der Transaktion korrekt sein.
-* **Isolation:**: Änderungen, die von parallelen Transaktionen durchgeführt werden, müssen von den Änderungen aller anderen parallelen Transaktionen isoliert werden. Die Isolationsstufe, die innerhalb einer ITransaction für einen Vorgang verwendet wird, ist durch den IReliableState festgelegt, der den betreffenden Vorgang ausführt.
+* **Isolation:** : Änderungen, die von parallelen Transaktionen durchgeführt werden, müssen von den Änderungen aller anderen parallelen Transaktionen isoliert werden. Die Isolationsstufe, die innerhalb einer ITransaction für einen Vorgang verwendet wird, ist durch den IReliableState festgelegt, der den betreffenden Vorgang ausführt.
 * **Dauerhaftigkeit**: Nach dem Abschluss einer Transaktion sind deren Auswirkungen dauerhaft im System vorhanden. Die Änderungen bleiben sogar auch bei Systemausfällen erhalten.
 
 ### <a name="isolation-levels"></a>Isolationsgrade

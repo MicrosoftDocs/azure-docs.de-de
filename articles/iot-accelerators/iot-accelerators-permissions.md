@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447433"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Verwenden der azureiotsolutions.com-Website zum Bereitstellen Ihres Solution Accelerators
 
@@ -66,7 +66,7 @@ Wenn Sie ein Hardwarehersteller sind, klicken Sie auf **Partner werden**, um meh
 
 Sehen Sie sich die Schnellstarts an, wenn Sie einen der IoT-Solution Accelerators testen möchten:
 
-* [Testen einer Lösung für die Remoteüberwachung](quickstart-remote-monitoring-deploy.md)
+* [Testen einer Remoteüberwachungslösung](quickstart-remote-monitoring-deploy.md)
 * [Testen einer Lösung für verbundene Factorys](quickstart-connected-factory-deploy.md)
 * [Testen einer Predictive Maintenance-Lösung](quickstart-predictive-maintenance-deploy.md)
 * [Testen einer Gerätesimulationslösung](quickstart-device-simulation-deploy.md)

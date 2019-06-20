@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/18/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 91e94c70444430725ffec836d1663aef99eb5496
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003359"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418113"
 ---
 # <a name="what-is-azure-application-gateway"></a>Was ist Azure Application Gateway?
 
@@ -21,48 +21,29 @@ Azure Application Gateway ist ein Lastenausgleich für Webdatenverkehr, mit dem 
 
 ![Application Gateway-Konzepte](media/overview/figure1-720.png)
 
-Application Gateway bietet eine höhere Präzision. So können Sie beispielsweise Datenverkehr basierend auf der eingehenden URL weiterleiten. Falls die eingehende URL also `/images` enthält, können Sie Datenverkehr an eine bestimmte Gruppe von Servern (einen so genannten Pool) weiterleiten, die für Bilder konfiguriert sind. Falls die URL `/video` enthält, wird der Datenverkehr an einen anderen Pool weitergeleitet, der für Videos optimiert ist.
+Mit Application Gateway können Sie Routingentscheidungen treffen, basierend auf zusätzlichen Attributen einer HTTP-Anforderung, z. B. URI-Pfad oder Hostkopfzeilen. So können Sie beispielsweise Datenverkehr basierend auf der eingehenden URL weiterleiten. Falls die eingehende URL also `/images` enthält, können Sie Datenverkehr an eine bestimmte Gruppe von Servern (einen so genannten Pool) weiterleiten, die für Bilder konfiguriert sind. Falls die URL `/video` enthält, wird dieser Datenverkehr an einen anderen Pool weitergeleitet, der für Videos optimiert ist.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
-Diese Art des Routings wird als Lastenausgleich auf Anwendungsebene (OSI-Schicht 7) bezeichnet. Per Azure Application Gateway kann das URL-basierte Routing und noch mehr durchgeführt werden. 
+Diese Art des Routings wird als Lastenausgleich auf Anwendungsebene (OSI-Schicht 7) bezeichnet. Per Azure Application Gateway kann das URL-basierte Routing und noch mehr durchgeführt werden.
 
 Im Anschluss sind die verfügbaren Features von Azure Application Gateway aufgeführt:
 
-## <a name="autoscaling-public-preview"></a>Öffentliche Vorschau für die automatische Skalierung
+## <a name="secure-sockets-layer-ssltls-termination"></a>SSL/TLS-Beendigung (Secure Sockets Layer)
 
-Zusätzlich zu den in diesem Artikel beschriebenen Features verfügt Application Gateway auch über eine öffentliche Vorschauversion einer neuen SKU [Standard_V2], die eine automatische Skalierung ermöglicht und weitere wichtige Leistungsverbesserungen enthält.
+Application Gateway unterstützt die SSL/TLS-Beendigung am Gateway, wonach der Datenverkehr in der Regel unverschlüsselt zu den Back-End-Servern gelangt. Mit diesem Feature können Webserver vom kostspieligen Verschlüsselungs- und Entschlüsselungsaufwand befreit werden. Manchmal ist die unverschlüsselte Kommunikation mit den Servern allerdings keine akzeptable Option. Der Grund hierfür können Sicherheits- oder Complianceanforderungen sein, oder dass die Anwendung nur eine sichere Verbindung akzeptiert. Für Anwendungen dieser Art unterstützt Application Gateway die End-to-End-Verschlüsselung mit SSL/TLS.
 
-- **Automatische Skalierung**: Für Application Gateway- oder WAF-Bereitstellungen unter der SKU mit automatischer Skalierung ist nun das zentrale Hochskalieren und Herunterskalieren je nach Veränderung der Netzwerkdatenverkehr-Auslastungsmuster möglich. Durch die automatische Skalierung entfällt auch die Notwendigkeit, während des Bereitstellens eine Bereitstellungsgröße oder eine Anzahl von Instanzen auszuwählen. 
+## <a name="autoscaling"></a>Automatische Skalierung
 
-- **Zonenredundanz**: Eine Application Gateway- oder WAF-Bereitstellung kann sich über mehrere Verfügbarkeitszonen erstrecken, sodass nicht mehr in jeder Zone mit einem Traffic Manager separate Application Gateway-Instanzen bereitgestellt und eingerichtet werden müssen.
+Application Gateway- oder WAF-Bereitstellungen unter der Standard_v2- oder WAF_v2-SKU unterstützen automatische Skalierung und können zentral hoch- und herunterskalieren, je nach Veränderung der Datenverkehr-Auslastungsmuster. Durch die automatische Skalierung entfällt auch die Notwendigkeit, während des Bereitstellens eine Bereitstellungsgröße oder eine Anzahl von Instanzen auszuwählen. Weitere Informationen zu den standard_v2- und WAF_v2-Features von Application Gateway finden Sie unter [Automatische Skalierung der v2-SKU](application-gateway-autoscaling-zone-redundant.md).
 
-- **Statische VIP:** Die Anwendungsgateway-VIP unterstützt nun exklusiv den statischen VIP-Typ. Dadurch wird sichergestellt, dass die dem Anwendungsgateway zugeordnete VIP selbst nach einem Neustart unverändert bleibt.
+## <a name="zone-redundancy"></a>Zonenredundanz
 
-- **Kürzere Bereitstellungs- und Updatedauer** im Vergleich zur allgemein verfügbaren SKU. 
+Eine Application Gateway- oder WAF-Bereitstellung unter Standard_v2- oder WAF_v2-SKU kann sich über mehrere Verfügbarkeitszonen erstrecken und so höhere Fehlerresilienz bieten sowie die Notwendigkeit beseitigen, in jeder Zone separate Application Gateways bereitstellen zu müssen.
 
-- **Um das Fünffache erhöhte Leistung in Bezug auf die SSL-Auslagerung** im Vergleich zur allgemein verfügbaren SKU.
+## <a name="static-vip"></a>Statische VIP
 
-Weitere Informationen zu den Application Gateway-Features der öffentlichen Vorschauversion finden Sie unter [Automatische Skalierung und zonenredundantes Application Gateway (öffentliche Vorschau)](application-gateway-autoscaling-zone-redundant.md).
-
-## <a name="secure-sockets-layer-ssl-termination"></a>SSL-Beendigung (Secure Sockets Layer)
-
-Application Gateway unterstützt die SSL-Beendigung am Gateway, wonach der Datenverkehr in der Regel unverschlüsselt zu den Back-End-Servern gelangt. Mit diesem Feature können Webserver vom kostspieligen Verschlüsselungs- und Entschlüsselungsaufwand befreit werden. Manchmal ist die unverschlüsselte Kommunikation mit den Servern allerdings keine akzeptable Option. Dies kann beispielsweise der Fall sein, wenn Sicherheits- oder Complianceanforderungen erfüllt werden müssen oder die Anwendung nur eine sichere Verbindung akzeptiert. Für Anwendungen dieser Art unterstützt Application Gateway die End-to-End-SSL-Verschlüsselung.
-
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>AKS-Eingangscontroller (Azure Kubernetes Service) – Vorschauversion 
-
-Der Application Gateway-Eingangscontroller wird als Pod im AKS-Cluster ausgeführt und ermöglicht es dem Application Gateway, als Eingang zu einem AKS-Cluster zu fungieren. Dies wird nur mit v2 Application Gateway unterstützt.
-
-Weitere Informationen finden Sie unter [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Azure Application Gateway-Eingangscontroller).
-
-## <a name="connection-draining"></a>Verbindungsausgleich
-
-Mit dem Verbindungsausgleich können Sie eine korrekte Entfernung von Mitgliedern des Back-End-Pools bei geplanten Dienstupdates erzielen. Diese Einstellung wird über die HTTP-Einstellung des Back-Ends aktiviert und kann bei der Erstellung einer Regel auf alle Mitglieder eines Back-End-Pools angewendet werden. Nach der Aktivierung stellt Application Gateway sicher, dass alle Instanzen eines Back-End-Pools, deren Registrierung aufgehoben wird, keine neuen Anforderungen mehr erhalten, während vorhandene Anforderungen innerhalb eines konfigurierten Zeitlimits abgeschlossen werden können. Dies gilt sowohl für Back-End-Instanzen, die per API-Aufruf explizit aus dem Back-End-Pool entfernt werden, als auch für Back-End-Instanzen, die von den Integritätstests als fehlerhaft gemeldet werden.
-
-## <a name="custom-error-pages"></a>Benutzerdefinierte Fehlerseiten
-Mit Application Gateway können Sie benutzerdefinierte Fehlerseiten erstellen, anstatt Standardfehlerseiten anzuzeigen. Sie können für eine benutzerdefinierte Fehlerseite Ihr eigenes Branding und Layout verwenden.
-
-Weitere Informationen finden Sie unter [Create Application Gateway custom error pages](custom-error.md) (Erstellen von benutzerdefinierten Application Gateway-Fehlerseiten).
+Die Application Gateway-VIP in Standard_v2- oder WAF_v2-SKU unterstützt nun exklusiv den statischen VIP-Typ. Dadurch wird sichergestellt, dass die dem Application Gateway zugeordnete VIP auch über die gesamte Lebensdauer des Application Gateways unverändert bleibt.
 
 ## <a name="web-application-firewall"></a>Web Application Firewall
 
@@ -92,7 +73,7 @@ Weitere Informationen finden Sie unter [Hosten von mehreren Websites mit Applica
 
 ## <a name="redirection"></a>Umleitung
 
-Ein typisches Szenario vieler Webanwendungen ist die Unterstützung der automatischen Umleitung von HTTP zu HTTPS, um sicherzustellen, dass die gesamte Kommunikation zwischen einer Anwendung und ihren Benutzern über einen verschlüsselten Pfad stattfindet. 
+Ein typisches Szenario vieler Webanwendungen ist die Unterstützung der automatischen Umleitung von HTTP zu HTTPS, um sicherzustellen, dass die gesamte Kommunikation zwischen einer Anwendung und ihren Benutzern über einen verschlüsselten Pfad stattfindet.
 
 In der Vergangenheit haben Sie unter Umständen auch Verfahren wie die Erstellung eines dedizierten Pools verwendet, der den alleinigen Zweck hatte, eingehende HTTP-Anforderungen zu HTTPS umzuleiten. Application Gateway unterstützt die Umleitung von Application Gateway-Datenverkehr. Dies vereinfacht die Anwendungskonfiguration, optimiert die Ressourcennutzung und ermöglicht neue Umleitungsszenarien wie etwa die globale und pfadbasierte Umleitung. Die Application Gateway-Umleitung ist nicht auf HTTP zu HTTPS beschränkt. Vielmehr handelt es sich um einen generischen Umleitungsmechanismus, sodass Sie Umleitungen für jeden Port durchführen können, den Sie mithilfe von Regeln definieren. Auch die Umleitung an eine externe Website wird unterstützt.
 
@@ -114,22 +95,41 @@ Application Gateway verfügt über native Unterstützung für das WebSocket- und
 
 Das WebSocket- und das HTTP/2-Protokoll ermöglichen die Vollduplexkommunikation zwischen einem Server und einem Client über eine TCP-Verbindung mit langer Laufzeit. Dies ermöglicht wiederum mehr Interaktivität bei der Kommunikation zwischen dem Webserver und dem Client, da die Kommunikation auch ohne die bei HTTP-basierten Implementierungen erforderlichen Abfragen bidirektional sein kann. Diese Protokolle zeichnen sich im Vergleich zu HTTP durch einen geringen Mehraufwand aus. Außerdem können sie die gleiche TCP-Verbindung für mehrere Anforderungen/Antworten verwenden, was eine effizientere Ressourcennutzung zur Folge hat. Diese Protokolle sind für die Nutzung der üblichen HTTP-Ports 80 und 443 konzipiert.
 
-Weitere Informationen finden Sie unter [WebSocket-Unterstützung](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) und [HTTP/2-Unterstützung](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support). 
+Weitere Informationen finden Sie unter [WebSocket-Unterstützung](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) und [HTTP/2-Unterstützung](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
-## <a name="rewrite-http-headers-public-preview"></a>Erneutes Generieren von HTTP-Headern (Public Preview)
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>AKS-Eingangscontroller (Azure Kubernetes Service) – Vorschauversion 
+
+Der Application Gateway-Eingangscontroller wird als Pod im AKS-Cluster ausgeführt und ermöglicht es dem Application Gateway, als Eingang zu einem AKS-Cluster zu fungieren. Dies wird nur mit v2 Application Gateway unterstützt.
+
+Weitere Informationen finden Sie unter [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Azure Application Gateway-Eingangscontroller).
+
+## <a name="connection-draining"></a>Verbindungsausgleich
+
+Mit dem Verbindungsausgleich können Sie eine korrekte Entfernung von Mitgliedern des Back-End-Pools bei geplanten Dienstupdates erzielen. Diese Einstellung wird über die HTTP-Einstellung des Back-Ends aktiviert und kann bei der Erstellung einer Regel auf alle Mitglieder eines Back-End-Pools angewendet werden. Nach der Aktivierung stellt Application Gateway sicher, dass alle Instanzen eines Back-End-Pools, deren Registrierung aufgehoben wird, keine neuen Anforderungen mehr erhalten, während vorhandene Anforderungen innerhalb eines konfigurierten Zeitlimits abgeschlossen werden können. Dies gilt sowohl für Back-End-Instanzen, die per API-Aufruf explizit aus dem Back-End-Pool entfernt werden, als auch für Back-End-Instanzen, die von den Integritätstests als fehlerhaft gemeldet werden.
+
+## <a name="custom-error-pages"></a>Benutzerdefinierte Fehlerseiten
+
+Mit Application Gateway können Sie benutzerdefinierte Fehlerseiten erstellen, anstatt Standardfehlerseiten anzuzeigen. Sie können für eine benutzerdefinierte Fehlerseite Ihr eigenes Branding und Layout verwenden.
+
+Weitere Informationen finden Sie unter [Erneutes Generieren von HTTP-Headern](rewrite-http-headers.md).
+
+## <a name="rewrite-http-headers"></a>Erneutes Generieren von HTTP-Headern
 
 HTTP-Header ermöglichen Client und Server das Übergeben von zusätzlichen Informationen mit der Anforderung oder der Antwort. Das Umschreiben dieser HTTP-Header hilft Ihnen, mehrere wichtige Szenarien zu meistern, wie z.B.:
+
 - Hinzufügen von sicherheitsbezogenen Headerfeldern wie HSTS/X-XSS-Protection.
 - Entfernen von Headerfeldern aus Antworten, die vertrauliche Informationen preisgeben können.
 - Entfernen von Portinformationen aus X-Forwarded-For-Headern.
 
 Application Gateway unterstützt das Hinzufügen, Entfernen oder Aktualisieren von HTTP-Anforderungs- und -Antwortheadern, während die Anforderungs- und Antwortpakete zwischen dem Client und den Back-End-Pools übertragen werden. Es bietet Ihnen auch die Möglichkeit, Bedingungen hinzuzufügen, um sicherzustellen, dass die angegebenen Header nur dann neu geschrieben werden, wenn bestimmte Bedingungen erfüllt sind.
 
-Weitere Informationen zu diesem Public Preview-Feature finden Sie unter [Erneutes Generieren von HTTP-Headern](rewrite-http-headers.md).
+Weitere Informationen finden Sie unter [Erneutes Generieren von HTTP-Headern](rewrite-http-headers.md).
 
 ## <a name="sizing"></a>Festlegen der Größe
 
-Application Gateway wird derzeit in drei Größen angeboten: **klein**, **mittel** und **groß**. Kleine Instanzen sind für Entwicklungs- und Testszenarien vorgesehen.
+Die Standard_v2- und WAF_v2-SKU von Application Gateway kann für die automatische Skalierung oder für Bereitstellungen fester Größe konfiguriert werden. Diese SKUs bieten keine verschiedenen Instanzgrößen.
+
+Die Standard- und WAF-SKU von Application Gateway werden zurzeit in drei Größen angeboten: **klein**, **mittel** und **groß**. Kleine Instanzen sind für Entwicklungs- und Testszenarien vorgesehen.
 
 Eine vollständige Liste mit den Einschränkungen von Anwendungsgateways finden Sie unter [Application Gateway service limits (Einschränkungen von Application Gateway)](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

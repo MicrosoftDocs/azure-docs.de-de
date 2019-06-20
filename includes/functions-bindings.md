@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 957009ec9833df2dd0f89c3745c7f3df5a3705b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59520536"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177861"
 ---
 Die folgende Tabelle zeigt die Bindungen, die in den beiden Hauptversionen der Azure Functions-Runtime unterstützt werden.
 

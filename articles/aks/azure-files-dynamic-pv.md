@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 43f3a55bc820a232ccebc3a940faa86f9eb730f7
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338262"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072221"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamisches Erstellen und Verwenden eines persistenten Volumes mit Azure Files in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Weitere Informationen zu Kubernetes-Volumes finden Sie unter [Speicheroptionen f
 
 Es wird vorausgesetzt, dass Sie über ein AKS-Cluster verfügen. Wenn Sie noch einen AKS-Cluster benötigen, erhalten Sie weitere Informationen im AKS-Schnellstart. Verwenden Sie dafür entweder die [Azure CLI][aks-quickstart-cli] oder das [Azure-Portal][aks-quickstart-portal].
 
-Außerdem muss Version 2.0.59 oder höher der Azure CLI installiert und konfiguriert sein. Führen Sie  `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie weitere Informationen unter [Installieren der Azure CLI][install-azure-cli].
+Außerdem muss mindestens die Version 2.0.59 der Azure CLI installiert und konfiguriert sein. Führen Sie  `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie weitere Informationen unter [Installieren der Azure CLI][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Erstellen einer Speicherklasse
 
@@ -136,7 +136,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>Verwenden des persistenten Volumes
 
-Mit dem folgenden YAML-Code wird ein Pod erstellt, der den Anspruch auf das persistente Volume *azurefile* verwendet, um die Azure-Dateifreigabe im Pfad */mnt/azure* einzubinden.
+Mit dem folgenden YAML-Code wird ein Pod erstellt, der den Anspruch auf das persistente Volume *azurefile* verwendet, um die Azure-Dateifreigabe im Pfad */mnt/azure* einzubinden. Geben Sie für Windows Server-Container (derzeit in der Vorschau in AKS) einen *mountPath* gemäß Windows-Pfadkonvention an, z. B. *D:* .
 
 Erstellen Sie eine Datei mit dem Namen `azure-pvc-files.yaml`, und fügen Sie den folgenden YAML-Code ein. Stellen Sie sicher, dass *claimName* dem PVC, den Sie im letzten Schritt erstellt haben, entspricht.
 
@@ -198,7 +198,7 @@ Volumes:
 
 Die Standardwerte für *fileMode* und *dirMode* unterscheiden sich je nach Kubernetes-Version, wie in der folgenden Tabelle beschrieben.
 
-| Version | value |
+| version | value |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |

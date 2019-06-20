@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60358207"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Versionsverlauf des Azure AD-Kennwortschutz-Agents
 

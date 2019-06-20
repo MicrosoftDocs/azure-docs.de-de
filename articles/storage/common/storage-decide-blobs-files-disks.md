@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f66a2699b6d29f10633b4853801240f0590ff918
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147639"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969423"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Entscheidung zwischen Azure-Blobs, Azure Files und Azure-Datenträger
+
 Microsoft Azure bietet verschiedenen Funktionen in Azure Storage zum Speichern und Zugreifen auf Ihre Daten in der Cloud. Dieser Artikel befasst sich mit Azure Files, Blobs und Datenträger und soll Sie bei der Entscheidung zwischen diesen Funktionen unterstützen.
 
 ## <a name="scenarios"></a>Szenarien
+
 In der folgenden Tabelle werden Files, Blobs und Datenträger miteinander verglichen. Darüber hinaus werden jeweils passende Beispielszenarios gegeben.
 
 | Feature | BESCHREIBUNG | Einsatzgebiete |
@@ -28,6 +30,7 @@ In der folgenden Tabelle werden Files, Blobs und Datenträger miteinander vergli
 | **Azure-Datenträger** | Bietet Clientbibliotheken und eine [REST-Schnittstelle](/rest/api/compute/manageddisks/disks/disks-rest-api), mit der Sie Daten beständig von einer angefügten virtuellen Festplatte speichern und abrufen können. | Wenn Sie eine Anwendung mit der „Lift and Shift“-Methode verschieben möchten, die native Dateisystem-APIs verwenden, um Daten in beständigen Datenträgern zu lesen und dort hinein zu schreiben.<br/><br/>Wenn Sie Daten speichern möchten, auf die nicht von außerhalb des virtuellen Computers zugegriffen werden muss, an den der Datenträger angefügt ist. |
 
 ## <a name="comparison-files-and-blobs"></a>Vergleich: Dateien und Blobs
+
 In der folgenden Tabelle wird Azure Files mit Azure-Blobs verglichen.  
   
 ||||  
@@ -46,10 +49,11 @@ In der folgenden Tabelle wird Azure Files mit Azure-Blobs verglichen.
 |Clientbibliotheken|Mehrere Sprachen|Mehrere Sprachen|  
   
 ## <a name="comparison-files-and-disks"></a>Vergleich: Dateien und Datenträger
+
 Azure Files ergänzt Azure-Datenträger. Ein Datenträger kann immer nur an eine Azure-VM angefügt werden. Datenträger sind VHDs mit festem Format, die als Seitenblobs in Azure Storage gespeichert werden. Sie werden von der VM verwendet, um permanente Daten zu speichern. Auf Dateifreigaben kann in Azure Files genauso zugegriffen werden wie auf den lokalen Datenträger (mit nativen Dateisystem-APIs). Sie können VM-übergreifend freigegeben werden.  
- 
+
 In der folgenden Tabelle wird Azure Files mit Azure-Datenträger verglichen.  
- 
+
 ||||  
 |-|-|-|  
 |**Attribut**|**Azure-Datenträger**|**Azure Files**|  
@@ -58,11 +62,12 @@ In der folgenden Tabelle wird Azure Files mit Azure-Datenträger verglichen.
 |Konfiguration|Verbindung beim Start des virtuellen Computers|Verbindung nach dem Start des virtuellen Computers|  
 |Authentication|Integriert|Wird mit „net use“ eingerichtet|  
 |Zugriff mithilfe von REST|Auf Dateien auf dem virtuellen Datenträger kann nicht zugegriffen werden.|Auf Dateien, die in einer Freigabe gespeicherte sind, kann zugegriffen werden.|  
-|Max. Größe|4-TiB-Datenträger|5-TiB-Dateifreigabe und eine 1-TiB-Datei innerhalb der Freigabe|  
-|Max. IOPS|500 IOPS|1.000 IOPS|  
-|Throughput|Bis zu 60 MiB/s pro Datenträger|Ziel ist 60 MiB/s pro Dateifreigabe (kann für höhere E/A-Größen höher sein)|  
+|Max. Größe|32-TiB-Datenträger|5-TiB-Dateifreigabe und eine 1-TiB-Datei innerhalb der Freigabe|  
+|Max. IOPS|20.000 IOPS|1.000 IOPS|  
+|Throughput|Bis zu 900 MiB/s pro Datenträger|Ziel ist 60 MiB/s pro Dateifreigabe (kann für höhere E/A-Größen höher sein)|  
 
 ## <a name="next-steps"></a>Nächste Schritte
+
 Bei der Entscheidung für die Art und Weise, wie Sie Ihre Daten speichern und auf diese zugreifen möchten, sollten Sie auch die Kosten berücksichtigen. Weitere Informationen finden Sie unter [Preise für Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
   
 Einige SMB-Funktion sind nicht in der Cloud verfügbar. Weitere Informationen finden Sie unter [Features not supported by the Azure File service (Funktionen, die vom Azure-Dateidienst nicht unterstützt werden)](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).

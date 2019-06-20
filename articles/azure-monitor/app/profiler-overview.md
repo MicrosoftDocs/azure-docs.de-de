@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498127"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60306305"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilerstellung für Produktionsanwendungen in Azure mit Application Insights Profiler
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Aktivieren von Application Insights Profiler für Ihre Anwendung

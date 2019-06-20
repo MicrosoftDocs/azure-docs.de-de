@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 52dfbfca5f79a7f92848ea39eddc00aa10f05ff1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110562"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177807"
 ---
 ## <a name="locate-a-cloud-spatial-anchor"></a>Lokalisieren eines cloudbasierten Raumankers
 

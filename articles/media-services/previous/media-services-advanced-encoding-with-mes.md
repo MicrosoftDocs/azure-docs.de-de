@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61230191"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Erweiterte Codierung mit Media Encoder Standard-Voreinstellungen 
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91d4cf874d4d98735582d2690072e6a04683c1f5
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888126"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Azure Active Directory-Integration mit Adobe Sign
 
@@ -76,12 +76,12 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens mit Azure AD bei Adobe Sign müssen die folgenden Schritte durchgeführt werden:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für Adobe Sign](#configure-adobe-sign-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines Adobe Sign-Testbenutzers](#create-adobe-sign-test-user)**, um eine Entsprechung von Britta Simon in Adobe Sign zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für Adobe Sign](#configure-adobe-sign-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines Adobe Sign-Testbenutzers](#create-adobe-sign-test-user)** , um eine Entsprechung von Britta Simon in Adobe Sign zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -128,7 +128,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Adobe Si
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für Adobe Sign
 
-1. Wenden Sie sich vor der Konfiguration an das [Adobe Sign-Supportteam](https://helpx.adobe.com/in/contact/support.html), um Ihre Domäne in Adobe Sign auf die Whitelist setzen zu lassen. So fügen Sie die Domäne hinzu:
+1. Wenden Sie sich vor der Konfiguration an das [Supportteam für den Adobe Sign-Client](https://helpx.adobe.com/in/contact/support.html), um Ihre Domäne zur Adobe Sign-Zulassungsliste hinzufügen zu lassen. So fügen Sie die Domäne hinzu:
 
     a. Das [Adobe Sign-Supportteam](https://helpx.adobe.com/in/contact/support.html) sendet Ihnen ein zufällig generiertes Token. Für Ihre Domäne sieht das Token wie folgt aus: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -171,7 +171,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Adobe Si
    
    f. Fügen Sie in das Textfeld **Idp Logout URL** (IdP-Abmelde-URL) den Wert der **Abmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-   g. Öffnen Sie die heruntergeladene **Zertifikat (Base64)**-Datei im Editor. Kopieren Sie den Inhalt in die Zwischenablage, und fügen Sie ihn in das Textfeld **IdP Certificate** (IdP-Zertifikat) ein.
+   g. Öffnen Sie die heruntergeladene **Zertifikat (Base64)** -Datei im Editor. Kopieren Sie den Inhalt in die Zwischenablage, und fügen Sie ihn in das Textfeld **IdP Certificate** (IdP-Zertifikat) ein.
 
    h. Klicken Sie auf **Save changes** (Änderungen speichern).
 

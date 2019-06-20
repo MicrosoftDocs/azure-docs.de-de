@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62119302"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Verwenden des verwalteten Clients für Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -91,7 +91,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 
 Ersetzen Sie im obigen Code `MOBILE_APP_URL` durch die URL des Mobile App-Back-Ends. Sie finden die URL auf dem Blatt für das Mobile App-Back-End im [Azure-Portal]. Beim MobileServiceClient-Objekt muss es sich um ein Singleton-Objekt handeln.
 
-## <a name="work-with-tables"></a>Arbeiten mit Tabellen 
+## <a name="work-with-tables"></a>Arbeiten mit Tabellen
 Der folgende Abschnitt enthält Informationen zum Suchen und Abrufen von Datensätzen sowie Ändern der Daten in der Tabelle.  Die folgenden Themen werden behandelt:
 
 * [Erstellen eines Tabellenverweises](#instantiating)
@@ -378,7 +378,7 @@ Zwei oder mehr Clients können gleichzeitig versuchen, das gleiche Element zu be
 
 Mobile Apps unterstützt die Steuerung für optimistische Parallelität, indem Änderungen an Elementen in der Spalte `version` mit den Systemeigenschaften nachverfolgt werden, die für jede Tabelle im Mobile App-Back-End definiert wird. Bei jeder Aktualisierung eines Datensatzes wird die `version` -Eigenschaft des entsprechenden Datensatzes von Mobile Apps auf einen neuen Wert festgelegt. Bei jeder Aktualisierungsanforderung wird die `version` -Eigenschaft des in der Anforderung enthaltenen Datensatzes mit der Eigenschaft des Datensatzes auf dem Server verglichen. Wenn die mit der Anforderung übergebene Version nicht mit dem Back-End übereinstimmt, löst die Clientbibliothek eine `MobileServicePreconditionFailedException<T>` -Ausnahme aus. Der in der Ausnahme enthaltene Typ ist der Datensatz des Back-Ends, der die Serverversion des entsprechenden Datensatzes enthält. Anschließend kann die Anwendung anhand dieser Informationen entscheiden, ob die Updateanforderung erneut mit dem korrekten `version` -Wert vom Back-End ausgeführt werden soll, um Commits für die Änderungen auszuführen.
 
-Definieren Sie eine Spalte in der Tabellenklasse für die `version` -Systemeigenschaft, um die optimistische Parallelität zu aktivieren. Beispiel: 
+Definieren Sie eine Spalte in der Tabellenklasse für die `version` -Systemeigenschaft, um die optimistische Parallelität zu aktivieren. Beispiel:
 
 ```csharp
 public class TodoItem
@@ -517,13 +517,13 @@ Wenn Sie die `PageSize` auf dem Server auf einen Wert gleich oder größer 100 f
 ## <a name="#offlinesync"></a>Mit Offlinetabellen arbeiten
 Offlinetabellen verwenden eine lokalen SQLite-Speicher zum Speichern von Daten für die Offline-Verwendung.  Alle Tabellenvorgänge werden gegen den lokalen SQLite-Speicher statt den Remote-Serverspeicher ausgeführt.  Um eine Offlinetabelle zu erstellen, müssen Sie zuerst das Projekt vorbereiten:
 
-1. Klicken Sie in Visual Studio mit der rechten Maustaste auf die Projektmappe, und klicken Sie dann auf **NuGet-Pakete verwalten für Projektmappe...**. Suchen Sie anschließend nach dem NuGet-Paket **Microsoft.Azure.Mobile.Client.SQLiteStore**, und installieren Sie es für alle Projekte der Projektmappe.
+1. Klicken Sie in Visual Studio mit der rechten Maustaste auf die Projektmappe, und klicken Sie dann auf **NuGet-Pakete verwalten für Projektmappe...** . Suchen Sie anschließend nach dem NuGet-Paket **Microsoft.Azure.Mobile.Client.SQLiteStore**, und installieren Sie es für alle Projekte der Projektmappe.
 2. (Optional) Um Windows-Geräte zu unterstützen, können Sie eines der folgenden SQLite-Laufzeitpakete installieren:
 
    * **Windows 8.1-Runtime:** Installieren Sie [SQLite für Windows 8.1][3].
    * **Windows Phone 8.1:** Installieren Sie [SQLite für Windows Phone 8.1][4].
    * **Universelle Windows-Plattform:** Installieren Sie [SQLite für die universelle Windows-Plattform][5].
-3. (Optional). Klicken Sie bei Windows-Geräten auf **Verweise** > **Verweis hinzufügen...**, erweitern Sie den Ordner **Windows**, und wählen Sie **Erweiterungen**. Aktivieren Sie anschließend das richtige **SDK SQLite für Windows** zusammen mit dem SDK **Visual C++ 2013 Runtime for Windows**.
+3. (Optional). Klicken Sie bei Windows-Geräten auf **Verweise** > **Verweis hinzufügen...** , erweitern Sie den Ordner **Windows**, und wählen Sie **Erweiterungen**. Aktivieren Sie anschließend das richtige **SDK SQLite für Windows** zusammen mit dem SDK **Visual C++ 2013 Runtime for Windows**.
     Die Namen der SQLite-SDKs unterscheiden sich bei den einzelnen Windows-Plattformen.
 
 Bevor ein Tabellenverweis erstellt werden, muss der lokale Speicher vorbereitet werden:
@@ -616,7 +616,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Diese Form ist ein typisierter Methodenaufruf, der erfordert, dass der **MarkAllResult**-Rückgabetyp definiert ist. Typisierte und nicht typisierte Methoden werden unterstützt.
 
 Die InvokeApiAsync()-Methode stellt „/api/“ der API voran, die Sie aufrufen möchten, sofern diese API nicht mit einem Schrägstrich „/“ beginnt.
-Beispiel: 
+Beispiel:
 
 * `InvokeApiAsync("completeAll",...)` ruft /api/completeAll auf dem Back-End auf.
 * `InvokeApiAsync("/.auth/me",...)` ruft /.auth/me auf dem Back-End auf.
@@ -909,7 +909,7 @@ Für Pushbenachrichtigungen in Microsoft Store-Apps ist eine Paket-SID erforderl
 
 Dieser Wert wird wie folgt abgerufen:
 
-1. Klicken Sie im Projektmappen-Explorer von Visual Studio mit der rechten Maustaste auf das Microsoft Store-App-Projekt, und klicken Sie dann auf **Store** > **App mit Store verknüpfen...**.
+1. Klicken Sie im Projektmappen-Explorer von Visual Studio mit der rechten Maustaste auf das Microsoft Store-App-Projekt, und klicken Sie dann auf **Store** > **App mit Store verknüpfen...** .
 2. Klicken Sie im Assistenten auf **Weiter**, melden Sie sich mit Ihrem Microsoft-Konto an, geben Sie unter **App-Namen reservieren** einen Namen für Ihre App ein, und klicken Sie dann auf **Reservieren**.
 3. Nachdem die App-Registrierung erfolgreich erstellt wurde, wählen Sie den Namen der App aus, und klicken Sie auf **Weiter** und dann auf **Zuordnen**.
 4. Melden Sie sich mit Ihrem Microsoft-Konto beim [Windows Dev Center] an. Klicken Sie unter **Meine Apps**auf die erstellte App-Registrierung.

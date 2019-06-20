@@ -1,25 +1,18 @@
 ---
-title: Konfigurieren von WinRM nach Erstellung eines virtuellen Azure-Computers | Microsoft-Dokumentation
+title: Konfigurieren von WinRM nach Erstellung eines virtuellen Azure-Computers | Azure Marketplace
 description: Erläutert, wie Windows-Remoteverwaltung (WinRM) zu konfigurieren ist, nachdem ein in Azure gehosteter virtueller Computer erstellt wurde.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 6350d5bde737c46cf14a9aef75a7ec57260a6afa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: pabutler
+ms.openlocfilehash: 4a4248efcfda76dfd8907069e167fdfa144d0365
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938514"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Konfigurieren von WinRM nach Erstellung eines virtuellen Computers
 
@@ -33,7 +26,7 @@ In diesem Artikel wird erläutert, wie ein vorhandener in Azure gehosteter virtu
 
 Für das WinRM-über-HTTPS-Protokoll wird der Port 5896 verwendet. Dieser Port ist auf vorkonfigurierten virtuellen Windows-Computern, die im Azure Marketplace angeboten werden, nicht standardmäßig aktiviert. Um dieses Protokoll zu aktivieren, führen Sie die folgenden Schritte aus, um der Netzwerksicherheitsgruppe (NSG) über das [Azure-Portal](https://portal.azure.com) eine neue Regel hinzuzufügen.  Weitere Informationen zu Netzwerksicherheitsgruppen finden Sie unter [Sicherheitsgruppen](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Navigieren Sie zu dem Blatt **Virtuelle Computer >**  <*Name des virtuellen Computers*>  **> Einstellungen/Netzwerk**.
+1.  Navigieren Sie zu dem Blatt **Virtuelle Computer >**   <*Name des virtuellen Computers*>   **> Einstellungen/Netzwerk**.
 2.  Klicken Sie auf den NSG-Namen (in diesem Beispiel **testvm11002**), um die zugehörigen Eigenschaften anzuzeigen:
 
     ![Eigenschaften einer Netzwerksicherheitsgruppe](./media/nsg-properties.png)

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692127"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252776"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Ports für Apache Hadoop-Dienste in HDInsight
 
@@ -27,7 +27,6 @@ Intern wird HDInsight von mehreren Azure Virtual Machines (Knoten im Cluster) im
 
 > [!IMPORTANT]  
 > Wenn Sie kein virtuelles Azure-Netzwerk als eine Konfigurationsoption für HDInsight angeben, wird automatisch eines erstellt. Sie können diesem virtuellen Netzwerk jedoch nicht mit anderen Computern (z.B. anderen virtuellen Azure-Computern oder Ihrem Client-Entwicklungscomputer) beitreten.
-
 
 Um für weitere Computer den Beitritt zum virtuellen Netzwerk durchzuführen, müssen Sie zuerst das virtuelle Netzwerk erstellen und beim Erstellen des HDInsight-Clusters dann angeben. Weitere Informationen finden Sie unter [Erweitern der HDInsight-Funktionen mit Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 

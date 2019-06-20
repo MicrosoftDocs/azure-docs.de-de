@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 76eae5fa049ed1fbf7195277613867aca63c1082
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867636"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Erste Schritte zum Bereitstellen von Inhalten nach Bedarf mithilfe von REST  
@@ -339,7 +339,7 @@ Nachdem Sie AccessPolicy und Locator konfiguriert haben, können Sie die eigentl
 Weitere Informationen zum Arbeiten mit Azure Storage-Blobs finden Sie unter [REST-API für den Blobdienst](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Aktualisieren der AssetFile
-Nachdem Sie Ihre Datei nun hochgeladen haben, sollten Sie die FileAsset-Größe und andere Informationen aktualisieren. Beispiel: 
+Nachdem Sie Ihre Datei nun hochgeladen haben, sollten Sie die FileAsset-Größe und andere Informationen aktualisieren. Beispiel:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -821,7 +821,7 @@ Nachdem Sie AccessPolicy und Locator konfiguriert haben, können Sie Dateien mit
 
 Weitere Informationen zum Arbeiten mit Azure Storage-Blobs finden Sie unter [REST-API für den Blobdienst](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-Als Ergebnis des zuvor ausgeführten Codierungsauftrags (Codierung in einen MP4-Satz mit adaptiver Bitrate) verfügen Sie über mehrere MP4-Dateien, die Sie progressiv herunterladen können. Beispiel:     
+Als Ergebnis des zuvor ausgeführten Codierungsauftrags (Codierung in einen MP4-Satz mit adaptiver Bitrate) verfügen Sie über mehrere MP4-Dateien, die Sie progressiv herunterladen können. Beispiel:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 

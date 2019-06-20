@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793437"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397125"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Beheben von Fehlern bei Runbooks
 
@@ -38,7 +38,7 @@ Dieser Fehler tritt auf, wenn der Objektname für die Anmeldeinformationen ungü
 
 Führen Sie die folgenden Schritte aus, um zu ermitteln, wo der Fehler liegt:  
 
-1. Stellen Sie sicher, dass Sie keine Sonderzeichen eingegeben haben. Dazu zählt auch das **\@**-Zeichen im Namen des Automation-Anmeldeinformationsobjekts, mit dem Sie die Verbindung zu Azure herstellen.  
+1. Stellen Sie sicher, dass Sie keine Sonderzeichen eingegeben haben. Dazu zählt auch das **\@** -Zeichen im Namen des Automation-Anmeldeinformationsobjekts, mit dem Sie die Verbindung zu Azure herstellen.  
 2. Überprüfen Sie, ob Sie den Benutzernamen und das Kennwort aus den Azure Automation-Anmeldeinformationen in Ihrem lokalen PowerShell ISE-Editor verwenden können. Sie können überprüfen, ob Benutzername und Kennwort korrekt sind, indem Sie die folgenden Cmdlets in der PowerShell ISE ausführen:  
 
    ```powershell
@@ -305,6 +305,8 @@ Mögliche Ursachen für diesen Fehler:
 
 4. Ihr Runbook versucht, eine ausführbare Datei oder einen Unterprozess in einem Runbook aufzurufen, das in einer Azure-Sandbox ausgeführt wird. Dieses Szenario wird in Azure-Sandboxes nicht unterstützt.
 
+5. Vom Runbook wurden zu viele Ausnahmedaten in den Ausgabestream geschrieben.
+
 #### <a name="resolution"></a>Lösung
 
 Sie können dieses Problem mit jeder der folgenden Lösungen beheben:
@@ -316,6 +318,8 @@ Sie können dieses Problem mit jeder der folgenden Lösungen beheben:
 * Eine andere Lösung ist das Ausführen des Runbooks in einem [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker unterliegen nicht den vom Arbeitsspeicher und Netzwerk vorgegebenen Grenzwerten, die für Azure-Sandboxes gelten.
 
 * Wenn Sie einen Prozess (z.B. .exe oder subprocess.call) in einem Runbook aufrufen müssen, müssen Sie das Runbook auf einem [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) ausführen.
+
+* Für den Auftragsausgabestream gilt ein Grenzwert von 1 MB. Achten Sie darauf, Aufrufe einer ausführbaren Datei oder eines Teilprozesses in einen Try/Catch-Block einzuschließen. Wenn diese eine Ausnahme auslösen, schreiben Sie den Meldungstext dieser Ausnahme in eine Automation-Variable. Dadurch wird verhindert, dass sie in den Auftragsausgabestream geschrieben wird.
 
 ### <a name="fails-deserialized-object"></a>Szenario: Runbookfehler aufgrund eines deserialisierten Objekts
 

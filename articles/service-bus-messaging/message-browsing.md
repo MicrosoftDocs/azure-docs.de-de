@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 425cf262b80e83a4d06074a567a2921eee12f9c2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60402750"
 ---
 # <a name="message-browsing"></a>Einsehen von Nachrichten
 

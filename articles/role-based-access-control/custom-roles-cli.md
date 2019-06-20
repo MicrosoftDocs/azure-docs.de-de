@@ -15,11 +15,11 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56584895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62118772"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Erstellen von benutzerdefinierten Rollen für Azure-Ressourcen mithilfe der Azure CLI
 
@@ -34,7 +34,7 @@ Zum Erstellen von benutzerdefinierten Rollen benötigen Sie Folgendes:
 - Berechtigungen zum Erstellen von benutzerdefinierten Rollen, etwa [Besitzer](built-in-roles.md#owner) oder [Benutzerzugriffsadministrator](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) oder [Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="list-custom-roles"></a>Auflisten benutzerdefinierter Rollen 
+## <a name="list-custom-roles"></a>Auflisten benutzerdefinierter Rollen
 
 Zum Auflisten der benutzerdefinierten Rollen, die zur Zuweisung verfügbar sind, verwenden Sie [az role definition list](/cli/azure/role/definition#az-role-definition-list). In den folgenden Beispielen werden alle benutzerdefinierten Rollen im aktuellen Abonnement aufgelistet.
 

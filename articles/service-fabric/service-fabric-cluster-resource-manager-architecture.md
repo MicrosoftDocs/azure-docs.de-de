@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: bfbdb05e8d2764d2b878e22d236cae30519da176
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62113970"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Übersicht über die Architektur des Clusterressourcen-Managers
 Der Clusterressourcen-Manager von Service Fabric ist ein zentraler Dienst, der im Cluster ausgeführt wird. Er verwaltet den gewünschten Status des Diensts im Cluster, insbesondere in Bezug auf Ressourcenverbrauch und Platzierungsregeln. 

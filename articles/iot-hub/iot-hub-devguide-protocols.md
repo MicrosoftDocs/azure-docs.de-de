@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60626178"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referenz – Auswählen eines Kommunikationsprotokolls
 
@@ -29,7 +29,7 @@ Informationen dazu, wie diese Protokolle bestimmte IoT Hub-Features unterstütze
 
 Die folgende Tabelle enthält allgemeine Ratschläge für Ihre Protokollauswahl:
 
-| Protokoll | Wann Sie dieses Protokoll auswählen sollten |
+| Protocol | Wann Sie dieses Protokoll auswählen sollten |
 | --- | --- |
 | MQTT <br> MQTT über WebSockets |Verwenden Sie dieses Protokoll auf allen Geräten, die sich nicht über dieselbe TLS-Verbindung mit mehreren Geräten verbinden müssen (von denen jedes eigene gerätebezogene Anmeldeinformationen hat). |
 | AMQP <br> AMQP über WebSockets |Verwenden Sie es für Feld- und Cloudgateways, um die Vorteile geräteübergreifender Multiplexingverbindungen zu nutzen. |

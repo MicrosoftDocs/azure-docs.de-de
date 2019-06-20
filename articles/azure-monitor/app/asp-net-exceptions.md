@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116984"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60691815"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostizieren von Ausnahmen in Ihren Web-Apps mit Application Insights
 Ausnahmen in Ihrer Live-Web-App werden von [Application Insights](../../azure-monitor/app/app-insights-overview.md) gemeldet. Auf diese Weise können Sie Anforderungsfehler mit Ausnahmen und anderen Ereignissen auf dem Client und auf dem Server zueinander in Beziehung setzen und dadurch die Ursachen schnell diagnostizieren.
@@ -191,7 +191,7 @@ Wenn jedoch aktive Umleitungen bestehen, fügen Sie der Funktion "Application_Er
 ## <a name="mvc"></a>MVC
 Ab Application Insights Web SDK Version 2.6 (beta3 und höher) sammelt Application Insights Ausnahmefehler automatisch, die in den MVC 5+-Controllermethoden ausgelöst werden. Wenn Sie bereits vorher einen benutzerdefinierten Handler zum Nachverfolgen dieser Ausnahmen hinzugefügt haben (wie in den folgenden Beispielen beschrieben), können Sie ihn entfernen, um eine doppelte Nachverfolgung von Ausnahmen zu verhindern.
 
-Es gibt eine Reihe von Fällen, die von den Ausnahmefiltern nicht verarbeitet werden können. Beispiel: 
+Es gibt eine Reihe von Fällen, die von den Ausnahmefiltern nicht verarbeitet werden können. Beispiel:
 
 * Von Controllerkonstruktoren ausgelöste Ausnahmen.
 * Von Meldungshandlern ausgelöste Ausnahmen
@@ -283,7 +283,7 @@ Registrieren Sie "AiHandleErrorAttribute" als globalen Filter in "FilterConfig.c
 ## <a name="web-api"></a>Web-API
 Ab Application Insights Web SDK Version 2.6 (beta3 und höher) sammelt Application Insights Ausnahmefehler, die in den Controllermethoden ausgelöst werden, für WebAPI 2+ automatisch. Wenn Sie bereits vorher einen benutzerdefinierten Handler zum Nachverfolgen dieser Ausnahmen hinzugefügt haben (wie in den folgenden Beispielen beschrieben), können Sie ihn entfernen, um eine doppelte Nachverfolgung von Ausnahmen zu verhindern.
 
-Es gibt eine Reihe von Fällen, die von den Ausnahmefiltern nicht verarbeitet werden können. Beispiel: 
+Es gibt eine Reihe von Fällen, die von den Ausnahmefiltern nicht verarbeitet werden können. Beispiel:
 
 * Von Controllerkonstruktoren ausgelöste Ausnahmen.
 * Von Meldungshandlern ausgelöste Ausnahmen

@@ -12,17 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607771"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919611"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Erstellen einer Python-App in Azure App Service für Linux (Vorschau)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Erstellen einer Python-App in Azure App Service für Linux
 
 In dieser Schnellstartanleitung stellen Sie eine einfache Python-App für [App Service für Linux](app-service-linux-intro.md) bereit, mit der ein hoch skalierbarer Webhostingdienst mit Self-Patching bereitgestellt wird. Sie verwenden die Azure-Befehlszeilenschnittstelle ([Azure CLI](/cli/azure/install-azure-cli)) über den interaktiven, browserbasierten Azure Cloud Shell-Dienst und können die Schritte mit einem Mac-, Linux- oder Windows-Computer ausführen.
 
@@ -198,8 +197,6 @@ Im linken Menü werden verschiedene Seiten für die Konfiguration Ihrer App ange
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
-
-Das integrierte Python-Image in App Service unter Linux ist zurzeit als Vorschauversion verfügbar, und Sie können den zum Starten Ihrer App verwendeten Befehl anpassen. Sie können Python-Apps für die Produktionsumgebung stattdessen auch mit einem benutzerdefinierten Container erstellen.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Python-App mit PostgreSQL](tutorial-python-postgresql-app.md)

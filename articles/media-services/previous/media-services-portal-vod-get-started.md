@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 5df666dc2bd574c168d6b5f65dd6a909564a921f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868428"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Erste Schritte zum Bereitstellen von On Demand-Inhalten über das Azure-Portal
@@ -101,8 +101,8 @@ Sie können den Status des Codierungsauftrags überwachen, indem Sie oben auf de
 ## <a name="publish-content"></a>Veröffentlichen von Inhalten
 Damit Sie Benutzern eine URL zum Streamen oder Herunterladen Ihrer Inhalte zur Verfügung stellen können, müssen Sie zunächst einen Locator erstellen, um das Medienobjekt zu veröffentlichen. Locators ermöglichen den Zugriff auf Dateien im Medienobjekt. Azure Media Services unterstützt zwei Arten von Locators: 
 
-* **Streaminglocators (OnDemandOrigin)**. Streaminglocators werden für adaptives Streaming verwendet. Beispiele für adaptives Streaming sind HLS, Smooth Streaming und MPEG-DASH. Für die Erstellung eines Streaminglocators muss Ihr Medienobjekt eine ISM-Datei enthalten. 
-* **Progressive Locators (Shared Access Signature, SAS)**. Progressive Locators werden verwendet, um Videos per progressivem Download bereitzustellen.
+* **Streaminglocators (OnDemandOrigin)** . Streaminglocators werden für adaptives Streaming verwendet. Beispiele für adaptives Streaming sind HLS, Smooth Streaming und MPEG-DASH. Für die Erstellung eines Streaminglocators muss Ihr Medienobjekt eine ISM-Datei enthalten. 
+* **Progressive Locators (Shared Access Signature, SAS)** . Progressive Locators werden verwendet, um Videos per progressivem Download bereitzustellen.
 
 Eine HLS-Streaming-URL können Sie erstellen, indem Sie *(format=m3u8-aapl)* an die URL anhängen:
 

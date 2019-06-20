@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud;anavin
 ms.openlocfilehash: 2cdf136a01678f7fb2e594b325cd78e8e0240c70
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683419"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Erstellen eines Peerings virtueller Netzwerke mithilfe verschiedener Bereitstellungsmodelle und Abonnements
@@ -52,7 +52,7 @@ In diesem Tutorial werden unterschiedliche Konten für jedes Abonnement verwende
     - **Ressourcengruppe:** Wählen Sie **Neue erstellen** aus, und geben Sie *myResourceGroupA* ein.
     - **Standort:** *USA, Osten*
 4. Geben Sie im oben im Portal *myVnetA* im Feld **Ressourcen suchen** ein. Klicken Sie auf **myVnetA**, sobald es in den Suchergebnissen angezeigt wird. Für das virtuelle Netzwerk **myVnetA** wird ein Blatt angezeigt.
-5. Klicken Sie auf dem eingeblendeten Blatt **myVnetA** links in der vertikalen Liste der Optionen auf **Zugriffssteuerung (IAM)**.
+5. Klicken Sie auf dem eingeblendeten Blatt **myVnetA** links in der vertikalen Liste der Optionen auf **Zugriffssteuerung (IAM)** .
 6. Klicken Sie auf dem eingeblendeten Blatt **myVnetA – Zugriffssteuerung (IAM)** auf **+ Rollenzuweisung hinzufügen**.
 7. Wählen Sie auf dem daraufhin geöffneten Blatt **Rollenzuweisung hinzufügen** im Feld **Rolle** die Option **Netzwerkmitwirkender** aus.
 8. Wählen Sie im Feld **Auswählen** UserB aus, oder geben Sie die E-Mail-Adresse von UserB ein, um ihn zu suchen. Die Liste der angezeigten Benutzer stammt aus dem gleichen Azure Active Directory-Mandanten, in dem sich auch das virtuelle Netzwerk befindet, für das Sie das Peering erstellen. Klicken Sie auf UserB, sobald er in der Liste angezeigt wird.

@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60245170"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installieren von Azure AD Connect mithilfe einer vorhandenen ADSync-Datenbank
 Azure AD Connect erfordert eine SQL Server-Datenbank zum Speichern von Daten. Sie können entweder die mit Azure AD Connect installierte SQL Server 2012 Express LocalDB-Standardinstanz oder Ihre eigene vollständige Version von SQL Server verwenden. Bei der Installation von Azure AD Connect wurde bisher immer eine neue Datenbank mit dem Namen ADSync erstellt. Ab Azure AD Connect Version 1.1.613.0 können Sie Azure AD Connect optional mit einem Verweis auf eine vorhandene ADSync-Datenbank installieren.
@@ -67,7 +67,7 @@ Bevor Sie fortfahren, beachten Sie die folgenden wichtigen Hinweise:
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 1. Sie werden mit dem Bildschirm „Willkommen bei Azure AD Connect“ begrüßt. Wenn Sie den Lizenzbedingungen und dem Datenschutzhinweis zugestimmt haben, klicken Sie auf **Fortfahren**.
    ![Willkommen](./media/how-to-connect-install-existing-database/db3.png)
-1. Auf dem Bildschirm **Erforderliche Komponenten installieren** ist die Option **Vorhandenen SQL Server-Computer verwenden** aktiviert. Geben Sie den Namen der SQL-Server-Instanz an, auf der die ADSync-Datenbank gehostet wird. Wenn die zum Hosten der ADSync-Datenbank verwendete SQL Engine-Instanz nicht die Standardinstanz auf dem SQL Server-Computer ist, müssen Sie den Namen der SQL Engine-Instanz angeben. Darüber hinaus müssen Sie, wenn das SQL-Durchsuchen nicht aktiviert ist, auch die Portnummer der SQL Engine-Instanz angeben. Beispiel:          
+1. Auf dem Bildschirm **Erforderliche Komponenten installieren** ist die Option **Vorhandenen SQL Server-Computer verwenden** aktiviert. Geben Sie den Namen der SQL-Server-Instanz an, auf der die ADSync-Datenbank gehostet wird. Wenn die zum Hosten der ADSync-Datenbank verwendete SQL Engine-Instanz nicht die Standardinstanz auf dem SQL Server-Computer ist, müssen Sie den Namen der SQL Engine-Instanz angeben. Darüber hinaus müssen Sie, wenn das SQL-Durchsuchen nicht aktiviert ist, auch die Portnummer der SQL Engine-Instanz angeben. Beispiel:         
    ![Willkommen](./media/how-to-connect-install-existing-database/db4.png)           
 
 1. Auf dem Bildschirm **Mit Azure AD verbinden** müssen Sie die Anmeldeinformationen als globaler Administrator Ihres Azure AD-Verzeichnisses angeben. Sie sollten ein Konto in der standardmäßigen Domäne „onmicrosoft.com“ verwenden. Dieses Konto dient ausschließlich der Erstellung eines Dienstkontos in Azure AD und wird nach Abschluss des Assistenten nicht mehr verwendet.

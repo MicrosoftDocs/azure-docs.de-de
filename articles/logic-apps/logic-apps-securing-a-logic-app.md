@@ -11,11 +11,11 @@ ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
 ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60995678"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Schützen des Zugriffs in Azure Logic Apps
 

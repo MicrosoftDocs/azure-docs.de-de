@@ -1,5 +1,5 @@
 ---
-title: Erste Schritte mit Wissensspeichern (Vorschau) – Azure Search
+title: Erste Schritte mit Wissensspeichern (Vorschauversion) – Azure Search
 description: Erfahren Sie, welche Schritte zum Senden von angereicherten Dokumenten, die von KI-Indizierungspipelines in Azure Search erstellt wurden, in einen Wissensspeicher in Ihrem Azure Storage-Konto erforderlich sind. Von dort aus können Sie die angereicherten Dokumente in Azure Search und anderen Anwendungen anzeigen, umstrukturieren und nutzen.
 manager: cgronlun
 author: HeidiSteen
@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471757"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540725"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>Erste Schritte mit Wissensspeichern
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Erste Schritte mit Wissensspeichern in Azure Search
 
-Ein [Wissensspeicher](knowledge-store-concept-intro.md) ist eine Previewfunktion von Azure Search, die in einer Indizierungspipeline erstellte KI-Anreicherungen für das Knowledge Mining in anderen Apps speichert. Sie können auch gespeicherte Anreicherungen verwenden, um eine Azure Search-Indizierungspipeline zu verstehen und zu optimieren.
+> [!Note]
+> Wissensspeicher befinden sich in der Vorschau und sind nicht für die Produktion ausgelegt. Dieses Feature wird durch die [REST-API-Version 2019-05-06-Preview](search-api-preview.md) bereitgestellt. Das .NET SDK wird derzeit nicht unterstützt.
+>
+
+In [Wissensspeichern](knowledge-store-concept-intro.md) werden KI-Anreicherungen gespeichert, die bei der Indizierung in Ihrem Azure Storage-Konto für das Knowledge Mining in nachgeschalteten anderen Apps erstellt werden. Sie können auch gespeicherte Anreicherungen verwenden, um eine Azure Search-Indizierungspipeline zu verstehen und zu optimieren.
 
 Ein Wissensspeicher wird durch eine Qualifikationsgruppe definiert. In Azure Search-Szenarien mit einer regulären Volltextsuche soll die Qualifikationsgruppe KI-Anreicherungen bereitstellen, um die Durchsuchbarkeit des Inhalts zu verbessern. Für Knowledge Mining-Szenarien besteht die Rolle einer Qualifikationsgruppe darin, mehrere Datenstrukturen zur Analyse oder Modellierung in anderen Apps und Prozessen zu erstellen, aufzufüllen und zu speichern.
 

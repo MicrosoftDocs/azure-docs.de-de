@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory-Integration mit ThirdLight | Microsoft-Dokumentation'
-description: Erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active Directory und ThirdLight konfigurieren.
+description: In diesem Tutorial erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active Directory und ThirdLight konfigurieren.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,160 +15,162 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: caee6bad1b944b6d1396ea2e26f163629b3c444f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 67c8dcfffd78d4c0114a96622235d6548627fa92
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888833"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Azure Active Directory-Integration mit Thirdlight
 
-In diesem Tutorial erfahren Sie, wie Sie ThirdLight in Azure Active Directory (Azure AD) integrieren.
-Die Integration von ThirdLight in Azure AD bietet die folgenden Vorteile:
+In diesem Tutorial erfahren Sie, wie Sie ThirdLight in Azure Active Directory (Azure AD) integrieren. Diese Integration bietet die folgenden Vorteile:
 
-* Sie können in Azure AD steuern, wer Zugriff auf ThirdLight hat.
+* Sie können mit Azure AD steuern, wer Zugriff auf ThirdLight hat.
 * Sie können es Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei ThirdLight anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
-* Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
+* Sie können Ihre Konten an einem zentralen Ort verwalten: im Azure-Portal.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Für die Konfiguration der Azure AD-Integration mit ThirdLight benötigen Sie Folgendes:
+Um die Azure AD-Integration mit ThirdLight konfigurieren zu können, benötigen Sie Folgendes:
 
-* Ein Azure AD-Abonnement Sollten Sie über keine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
+* Ein Azure AD-Abonnement Sollten Sie nicht über eine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
 * Ein ThirdLight-Abonnement, für das einmaliges Anmelden aktiviert ist
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* ThirdLight unterstützt **SP-initiiertes** einmaliges Anmelden.
+* ThirdLight unterstützt SP-initiiertes einmaliges Anmelden.
 
-## <a name="adding-thirdlight-from-the-gallery"></a>Hinzufügen von ThirdLight über den Katalog
+## <a name="add-thirdlight-from-the-gallery"></a>Hinzufügen von ThirdLight aus dem Katalog
 
-Zum Konfigurieren der Integration von ThirdLight in Azure AD müssen Sie ThirdLight über den Katalog der Liste der verwalteten SaaS-Apps hinzufügen.
+Zum Einrichten der Integration von ThirdLight in Azure AD müssen Sie ThirdLight aus dem Katalog der Liste der verwalteten SaaS-Apps hinzufügen.
 
-**Um ThirdLight über den Katalog hinzuzufügen, führen Sie die folgenden Schritte aus:**
+1. Klicken Sie im linken Bereich des [Azure-Portals](https://portal.azure.com) auf **Azure Active Directory**:
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
+    ![Wählen Sie „Azure Active Directory“.](common/select-azuread.png)
 
-    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
-
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+2. Navigieren Sie zu **Unternehmensanwendungen** > **Alle Anwendungen**:
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Um eine Anwendung hinzuzufügen, wählen Sie oben im Fenster die Option **Neue Anwendung**:
 
-    ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
+    ![Auswählen von „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie im Suchfeld **ThirdLight** ein, wählen Sie im Ergebnisbereich **ThirdLight** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+4. Geben Sie **ThirdLight** in das Suchfeld ein. Wählen Sie in den Suchergebnissen den Eintrag **ThirdLight** aus, und wählen Sie dann **Hinzufügen** aus.
 
-     ![ThirdLight in der Ergebnisliste](common/search-new-app.png)
+     ![Suchergebnisse](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit ThirdLight basierend auf einem Testbenutzer mit dem Namen **Britta Simon**.
-Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in ThirdLight eingerichtet werden.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit ThirdLight mithilfe eines Testbenutzers namens Britta Simon.
+Damit einmaliges Anmelden funktioniert, müssen Sie eine Beziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in ThirdLight einrichten.
 
-Zum Konfigurieren und Testen des einmaligen Anmeldens in Azure AD bei ThirdLight müssen Sie die folgenden Bausteine ausführen:
+Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD mit ThirdLight müssen Sie die folgenden Schritte ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für ThirdLight](#configure-thirdlight-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines ThirdLight-Testbenutzers](#create-thirdlight-test-user)**, um eine Entsprechung von Britta Simon in ThirdLight zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden der Funktion zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für ThirdLight](#configure-thirdlight-single-sign-on)** auf der Anwendungsseite
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD für den Benutzer zu aktivieren.
+5. **[Erstellen eines ThirdLight-Testbenutzers](#create-a-thirdlight-test-user)** , der mit der Darstellung des Benutzers in Azure AD verknüpft ist
+6. **[Testen des einmaligen Anmeldens](#test-single-sign-on)** , um sicherzustellen, dass die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
 In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal.
 
-Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit ThirdLight die folgenden Schritte aus:
+Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit ThirdLight die folgenden Schritte aus:
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **ThirdLight** die Option **Einmaliges Anmelden** aus.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für ThirdLight die Option **Einmaliges Anmelden** aus:
 
-    ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
+    ![„Einmaliges Anmelden“ auswählen](common/select-sso.png)
 
-2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
+2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren:
 
-    ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
+    ![SSO-Methode auswählen](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** das Symbol **Bearbeiten** aus, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen:
 
-    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
+    ![Symbol „Bearbeiten“](common/edit-urls.png)
 
-4. Führen Sie im Abschnitt **Grundlegende SAML-Konfiguration** die folgenden Schritte aus:
+4. Führen Sie im Dialogfeld **Grundlegende SAML-Konfiguration** die folgenden Schritte aus.
 
-    ![SSO-Informationen zur Domäne und zu den URLs für ThirdLight](common/sp-identifier.png)
+    ![Dialogfeld „Grundlegende SAML-Konfiguration“](common/sp-identifier.png)
 
-    a. Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://<subdomain>.thirdlight.com/`.
+    1. Geben Sie im Feld **Anmelde-URL** eine URL im folgenden Format ein:
+    
+          `https://<subdomain>.thirdlight.com/`
 
-    b. Geben Sie im Textfeld **Bezeichner (Entitäts-ID)** eine URL im folgenden Format ein: `https://<subdomain>.thirdlight.com/saml/sp`.
+    1. Geben Sie im Feld **Bezeichner (Entitäts-ID)** eine URL im folgenden Format ein:
 
-    > [!NOTE]
-    > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächliche Anmelde-URL und den tatsächlichen Bezeichner. Wenden Sie sich an den [ThirdLight-Support](https://www.thirdlight.com/support), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
+       `https://<subdomain>.thirdlight.com/saml/sp`
 
-5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML**-Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
+       > [!NOTE]
+       > Diese Werte sind Platzhalter. Sie müssen die tatsächliche Anmelde-URL und den tatsächlichen Bezeichner verwenden. Die Werte erhalten Sie vom [ThirdLight-Supportteam](https://www.thirdlight.com/support). Sie können sich auch die Muster im Azure-Portal im Dialogfeld **Grundlegende SAML-Konfiguration** ansehen.
 
-    ![Downloadlink für das Zertifikat](common/metadataxml.png)
+5. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** neben **Verbundmetadaten-XML** den Link **Herunterladen** gemäß Ihren Anforderungen aus, und speichern Sie die Datei auf Ihrem Computer.
 
-6. Kopieren Sie im Abschnitt **ThirdLight einrichten** die entsprechenden URLs gemäß Ihren Anforderungen.
+    ![Downloadlink für Zertifikat](common/metadataxml.png)
+
+6. Kopieren Sie im Abschnitt **ThirdLight einrichten** die entsprechenden URLs gemäß Ihren Anforderungen:
 
     ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    a. Anmelde-URL
+    1. **Anmelde-URL**
 
-    b. Azure AD-Bezeichner
+    1. **Azure AD-Bezeichner**
 
-    c. Abmelde-URL
+    1. **Abmelde-URL**
 
 ### <a name="configure-thirdlight-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für ThirdLight
 
-1. Melden Sie sich in einem anderen Webbrowserfenster bei der ThirdLight-Unternehmenswebsite als Administrator an.
+1. Melden Sie sich in einem neuen Webbrowserfenster auf der ThirdLight-Unternehmenswebsite als Administrator an.
 
-1. Wechseln Sie zu **Konfiguration\> Systemadministration**, und klicken Sie dann auf **SAML2**.
+1. Navigieren Sie zu **Configuration** > **System Administration** > **SAML2** (Konfiguration > Systemverwaltung > SAML2):
 
     ![Systemadministration](./media/thirdlight-tutorial/ic805843.png "Systemadministration")
 
-1. Führen Sie im Abschnitt „SAML2-Konfiguration“ die folgenden Schritte aus:
+1. Führen Sie im Abschnitt für die SAML2-Konfiguration die folgenden Schritte aus:
   
-    ![Einmaliges Anmelden für SAML](./media/thirdlight-tutorial/ic805844.png "Einmaliges Anmelden für SAML")
+    ![Abschnitt für die SAML2-Konfiguration](./media/thirdlight-tutorial/ic805844.png "Abschnitt für die SAML2-Konfiguration")
 
-    a. Wählen Sie **Einmaliges Anmelden bei SAML2 aktivieren**aus.
+    1. Wählen Sie **Einmaliges Anmelden bei SAML2 aktivieren**aus.
 
-    b. Als **Quelle für IdP-Metadaten** wählen Sie **IdP-Metadaten von XML laden**.
+    1. Wählen Sie unter **Source for IdP Metadata** (Quelle für IdP-Metadaten) die Option **Load IdP Metadata from XML** (IdP-Metadaten aus XML laden) aus.
 
-    c. Öffnen Sie die aus dem Azure-Portal heruntergeladene Metadatendatei, kopieren Sie den Inhalt, und fügen Sie ihn in das Textfeld **IdP Metadata XML** (IdP-Metadaten-XML) ein.
+    1. Öffnen Sie die Metadatendatei, die Sie im vorherigen Abschnitt aus dem Azure-Portal heruntergeladen haben. Kopieren Sie den Inhalt der Datei, und fügen Sie ihn in das Feld **IdP Metadata XML** (IdP-Metadaten-XML) ein.
 
-    d. Klicken Sie auf **SAML2-Einstellungen speichern**.
+    1. Wählen Sie **Save SAML2 settings** (SAML2-Einstellungen speichern) aus.
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
-Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
+In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer namens Britta Simon.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** aus, und wählen Sie dann **Benutzer** und anschließend **Alle Benutzer** aus:
 
-    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
+    ![„Alle Benutzer“ auswählen](common/users.png)
 
-2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
+2. Wählen Sie oben im Fenster die Option **Neuer Benutzer** aus:
 
-    ![Schaltfläche „Neuer Benutzer“](common/new-user.png)
+    ![„Neuer Benutzer“ auswählen](common/new-user.png)
 
-3. Führen Sie in den Benutzereigenschaften die folgenden Schritte aus.
+3. Führen Sie im Dialogfeld **Benutzer** die folgenden Schritte aus.
 
     ![Dialogfeld „Benutzer“](common/user-properties.png)
 
-    a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
+    1. Geben Sie in das Feld **Name** den Namen **BrittaSimon** ein.
   
-    b. Geben Sie im Feld **Benutzername** den Namen `brittasimon@yourcompanydomain.extension` ein. Beispiel: BrittaSimon@contoso.com.
+    1. Geben Sie im Feld **Benutzername** die Zeichenfolge **BrittaSimon@\<IhreUnternehmensdomäne>.\<Erweiterung>** ein. (Beispiel: BrittaSimon@contoso.com.)
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den im Feld **Kennwort** angezeigten Wert.
 
-    d. Klicken Sie auf **Create**.
+    1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
@@ -178,55 +180,54 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste **ThirdLight** aus.
+2. Wählen Sie in der Liste der Anwendungen den Eintrag **ThirdLight** aus.
 
-    ![ThirdLight-Link in der Anwendungsliste](common/all-applications.png)
+    ![Liste der Anwendungen](common/all-applications.png)
 
-3. Wählen Sie im Menü auf der linken Seite **Benutzer und Gruppen** aus.
+3. Wählen Sie im linken Bereich die Option **Benutzer und Gruppen** aus:
 
-    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
+    ![Benutzer und Gruppen auswählen](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+4. Wählen Sie die Schaltfläche **Benutzer hinzufügen** und anschließend im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
-    ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
+    ![Auswählen von „Benutzer hinzufügen“](common/add-assign-user.png)
 
-5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Bildschirm auf die Schaltfläche **Auswählen**.
+5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Fenster auf die Schaltfläche **Auswählen**.
 
-6. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** in der Liste die entsprechende Rolle für den Benutzer aus, und klicken Sie dann unten auf dem Bildschirm auf **Auswählen**.
+6. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Klicken Sie unten im Fenster auf die Schaltfläche **Auswählen**.
 
-7. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
+7. Wählen Sie im Dialogfeld **Zuweisung hinzufügen** die Option **Zuweisen** aus.
 
-### <a name="create-thirdlight-test-user"></a>Erstellen eines ThirdLight-Testbenutzers
+### <a name="create-a-thirdlight-test-user"></a>Erstellen eines ThirdLight-Testbenutzers
 
-Damit sich Azure AD-Benutzer bei ThirdLight anmelden können, müssen sie in Thirdlight bereitgestellt werden.  
-Im Fall von Thirdlight ist die Bereitstellung eine manuelle Aufgabe.
+Damit sich Azure AD-Benutzer bei ThirdLight anmelden können, müssen Sie sie in ThirdLight hinzufügen. Sie müssen diese manuell hinzufügen.
 
-**Führen Sie zum Bereitstellen eines Benutzerkontos die folgenden Schritte aus:**
+Zum Erstellen eines Benutzerkontos führen Sie die folgenden Schritte aus:
 
-1. Melden Sie sich bei der **ThirdLight**-Unternehmenswebsite als Administrator an.
+1. Melden Sie sich bei der ThirdLight-Unternehmenswebsite als Administrator an.
 
-1. Wechseln Sie zur Registerkarte **Benutzer** .
+1. Klicken Sie auf die Registerkarte **Users** (Benutzer).
 
 1. Wählen Sie **Benutzer und Gruppen**.
 
-1. Klicken Sie auf **Neuen Benutzer hinzufügen** .
+1. Wählen Sie **Add new User** (Neuen Benutzer hinzufügen) aus.
 
-1. Machen Sie Ihre Angaben unter **Benutzernamen,  Namen oder Beschreibung, E-Mail und Voreinstellung oder Gruppe neuer Mitglieder wählen** eines gültigen AAD-Kontos, das Sie bereitstellen möchten.
+1. Geben Sie den Benutzernamen, einen Namen oder eine Beschreibung und die E-Mail-Adresse eines gültigen Azure AD-Kontos ein, das Sie bereitstellen möchten. Wählen Sie eine Voreinstellung oder eine Gruppe neuer Mitglieder aus.
 
-1. Klicken Sie auf **Create**.
+1. Klicken Sie auf **Erstellen**.
 
 > [!NOTE]
-> Sie können AAD-Benutzerkonten auch mithilfe anderer Tools zum Erstellen von Thirdlight-Benutzerkonten oder mithilfe der von Thirdlight bereitgestellten APIs erstellen.
+> Sie können Azure AD-Benutzerkonten mithilfe beliebiger Tools zum Erstellen von Benutzerkonten oder mithilfe der von ThirdLight bereitgestellten API erstellen.
 
 ### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 
-In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
+Jetzt müssen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich testen.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „ThirdLight“ klicken, sollten Sie automatisch bei der ThirdLight-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich die Kachel „ThirdLight“ auswählen, sollten Sie automatisch bei der ThirdLight-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials zur Integration von SaaS-Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889158"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178131"
 ---
 > [!NOTE]
 > Wenn Sie den StorSimple-Adapter für die SharePoint-RBS-Konfiguration ändern möchten, müssen Sie mit einem Benutzerkonto angemeldet sein, das der Domänenadministratorgruppe angehört. Darüber hinaus müssen Sie die Konfigurationsseite in einem Browser öffnen, der auf dem gleichen Host ausgeführt wird wie die Zentraladministration.
@@ -113,7 +113,7 @@ ms.locfileid: "55889158"
    > [!WARNING]
    > Wenn Sie RBS nicht aktiviert haben, ist es nicht ratsam, die Inhaltsdatenbank auf das StorSimple-Gerät zu verschieben. Dies ist eine nicht getestete Konfiguration.
    
-9. Wechseln Sie zum nächsten Schritt: [Konfigurieren der automatischen Speicherbereinigung](#configure-garbage-collection).
+9. Fahren Sie mit dem nächsten Schritt fort: [Konfigurieren der automatischen Speicherbereinigung](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
 ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60705873"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure Security Center-Erkennungsfunktionen
 In diesem Dokument werden die erweiterten Erkennungsfunktionen von Azure Security Center beschrieben. Mit diesen Funktionen können aktive Bedrohungen Ihrer Microsoft Azure-Ressourcen – sowohl Windows als auch Linux – identifiziert werden, und Sie erhalten die Einblicke, die zum schnellen Ergreifen von Maßnahmen erforderlich sind.

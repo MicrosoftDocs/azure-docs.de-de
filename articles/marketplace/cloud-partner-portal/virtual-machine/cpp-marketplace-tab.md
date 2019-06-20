@@ -1,64 +1,60 @@
 ---
-title: Registerkarte „Marketplace“ für VMs im Cloud-Partnerportal für Azure | Microsoft-Dokumentation
+title: Registerkarte „Marketplace“ für VMs im Cloud-Partnerportal für Azure Marketplace
 description: Enthält eine Beschreibung der Registerkarte „Marketplace“, die Sie beim Erstellen eines VM-Angebots für den Azure Marketplace verwenden.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/25/2019
+ms.author: pabutler
+ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995647"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938185"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Registerkarte „Marketplace“ für VMs
 
-Auf der Registerkarte **Marketplace** auf der Seite **Neues Angebot** können Sie für Ihre potenziellen Kunden Informationen zu Marketing, Vertrieb und rechtlichen Fragen und Vereinbarungen bereitstellen und die über den Marketplace generierten Leads verwalten. Dieses lange Formular ist in vier Abschnitte unterteilt: **Übersicht**, **Marketingartefakte**, **Leadverwaltung** und **Rechtlich**. 
+Auf der Registerkarte **Marketplace** auf der Seite **Neues Angebot** können Sie für Ihre potenziellen Kunden Informationen zu Marketing, Vertrieb und rechtlichen Fragen und Vereinbarungen bereitstellen und die über den Marketplace generierten Leads verwalten. Dieses lange Formular ist in vier Abschnitte unterteilt: **Übersicht**, **Marketingartefakte**, **Leadverwaltung** und **Rechtlich**.
+
 
 ## <a name="overview-section"></a>Abschnitt „Übersicht“
 In diesem Abschnitt geben Sie allgemeine Informationen zu Ihrem Azure Marketplace-Angebot ein.  Mit einem an den Feldnamen angefügten Sternchen (*) wird angegeben, dass eine Eingabe erforderlich ist.
 
-![Abschnitt „Übersicht“ der Registerkarte „Marketplace“ im Formular „Neues Angebot“ für virtuelle Computer](./media/publishvm_008.png)
+![Abschnitt „Übersicht“ der Registerkarte „Marketplace“ für virtuelle Computer](./media/publishvm_008.png)
 
-In der folgenden Tabelle werden Zweck und Inhalt dieser Felder beschrieben.
+In der folgenden Tabelle werden Zweck und Inhalt dieser Felder beschrieben. Erforderliche Felder sind durch ein Sternchen (*) gekennzeichnet.
 
 |  **Feld**                |     **Beschreibung**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Titel**                 | Der Titel des Angebots, meist der lange, formelle Name. Dieser Titel wird im Marketplace gut sichtbar angezeigt.  Die maximale Länge beträgt 50 Zeichen. |
-| **Zusammenfassung**               | Eine kurze Beschreibung des Zwecks oder der Funktion der Lösung.  Die maximale Länge beträgt 100 Zeichen. |
-| **Long Summary** (Lange Zusammenfassung)          | Eine Beschreibung des Zwecks oder der Funktion der Lösung.  Die maximale Länge beträgt 256 Zeichen. |
-| **Beschreibung**           | Eine Beschreibung der Lösung.  Die maximale Länge beträgt 3.000 Zeichen, und die einfache HTML-Formatierung wird unterstützt. |
-| **Microsoft CSP-Handelspartner-Kanal** | Die Nutzung des Cloud Solution Provider (CSP)-Partnerkanals ist jetzt verfügbar.  Unter [Cloud Solution Providers](../../cloud-solution-providers.md) finden Sie weitere Informationen zum Vermarkten Ihres Angebots über die Microsoft CSP-Partnerkanäle. |
-| **Marketing Identifier** (Marketingbezeichner)  | Eine eindeutige URL, die diesem Angebot zugeordnet wird und normalerweise den Namen Ihrer Organisation und der Lösung enthält. Die maximale Länge beträgt 50 Zeichen.  Beispiel:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Preview Subscription IDs** (Abonnement-IDs für die Vorschauversion) | Sie können zwischen 1 und 100 Abonnement-IDs für Benutzer hinzufügen, die die Vorschauversion testen. Diese auf der Whitelist befindlichen Abonnements haben Zugriff auf das Angebot, nachdem es veröffentlicht wurde und bevor es live geschaltet wird. |
+| **Titel\***                 | Der Titel des Angebots, meist der lange, formelle Name. Dieser Titel wird im Marketplace gut sichtbar angezeigt.  Die maximale Länge beträgt 50 Zeichen. |
+| **Zusammenfassung\***               | Eine kurze Beschreibung des Zwecks oder der Funktion der Lösung.  Die maximale Länge beträgt 100 Zeichen. |
+| **Lange Zusammenfassung\***          | Eine Beschreibung des Zwecks oder der Funktion der Lösung.  Die maximale Länge beträgt 256 Zeichen. |
+| **Beschreibung\***           | Eine Beschreibung der Lösung.  Die maximale Länge beträgt 3.000 Zeichen, und die einfache HTML-Formatierung wird unterstützt. |
+| **Microsoft CSP-Handelspartner-Kanal\*** | Die Nutzung des CSP-Partnerkanals (Cloud Solution Provider) ist jetzt verfügbar.  Unter [Cloud Solution Providers](../../cloud-solution-providers.md) finden Sie weitere Informationen zum Vermarkten Ihres Angebots über die Microsoft CSP-Partnerkanäle. |
+| **Marketingbezeichner\***  | Eine eindeutige URL, die diesem Angebot zugeordnet wird und normalerweise den Namen Ihrer Organisation und der Lösung enthält. Die maximale Länge beträgt 50 Zeichen.  Beispiel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Abonnement-IDs für die Vorschauversion\*** | Sie können zwischen 1 und 100 Abonnement-IDs für Benutzer hinzufügen, die die Vorschauversion testen. Diese auf der Whitelist befindlichen Abonnements haben Zugriff auf das Angebot, nachdem es veröffentlicht wurde und bevor es live geschaltet wird. |
 | **Nützliche Links**          | Hinzufügen von URLs zu Dokumenten, Versionshinweisen, häufig gestellten Fragen usw. |
-| **Vorgeschlagene Kategorien (max. 5)** | Mehrfachauswahl von geschäftlichen und technischen Kategorien, denen das Angebot am ehesten zugeordnet werden kann.  Maximal fünf Kategorien können ausgewählt werden.  |
+| **Vorgeschlagene Kategorien (max. 5)\*** | Mehrfachauswahl von geschäftlichen und technischen Kategorien, denen das Angebot am ehesten zugeordnet werden kann.  Maximal fünf Kategorien können ausgewählt werden.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Abschnitt „Marketingartefakte“
 
-Dieser zweite Abschnitt ist in drei Unterabschnitte unterteilt: **Logos**, **Screenshot** und **Videos**. Nur bei Logos handelt es sich um erforderliche Marketingartefakte, aber es ist ratsam, alle Angaben vorzunehmen, um die Attraktivität für die Kunden zu erhöhen.
+Dieser zweite Abschnitt ist in drei Unterabschnitte unterteilt: **Logos**, **Screenshot** und **Videos**. Nur bei Logos handelt es sich um erforderliche Marketingartefakte, aber es ist ratsam, alle Angaben vorzunehmen, um die Attraktivität für die Kunden zu erhöhen. 
 
 ![Abschnitt „Marketingartefakte“ der Registerkarte „Marketplace“ im Formular „Neues Angebot“ für virtuelle Computer](./media/publishvm_009.png)
+
+In der folgenden Tabelle werden Zweck und Inhalt dieser Felder beschrieben. Erforderliche Felder sind durch ein Sternchen (*) gekennzeichnet.
 
 |  **Feld**                |     **Beschreibung**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logos*  |  |
-| **Klein**                 | ICO-Bitmap, 40x40 Pixel                                                      |
-| **Mittel**                | ICO-Bitmap, 90x90 Pixel                                                      |
-| **Groß**                 | ICO-Bitmap, 115x115 Pixel                                                   |
-| **Breit**                  | ICO-Bitmap, 255x115 Pixel                                                    |
+| **Klein\***                 | ICO-Bitmap, 40x40 Pixel                                                      |
+| **Mittel\***                | ICO-Bitmap, 90x90 Pixel                                                      |
+| **Groß\***                 | ICO-Bitmap, 115x115 Pixel                                                   |
+| **Breit\***                  | ICO-Bitmap, 255x115 Pixel                                                    |
 | **Hero**                  | Bitmap 815x290.  Optional, aber nachdem das Herologo hochgeladen wurde, kann es nicht mehr gelöscht werden. |
 | *Screenshots*  | Optional, aber maximal fünf Screenshots pro SKU. |
 | **Name**                  | Name oder Titel <!-- TODO - max char length? none specified in UI -->                               |
@@ -67,8 +63,7 @@ Dieser zweite Abschnitt ist in drei Unterabschnitte unterteilt: **Logos**, **Scr
 | **Name**                  | Name oder Titel  <!-- TODO - max char length? -->                              |
 | **Link**                  | Video-URL, unter YouTube oder Vimeo gehostet                                        |
 | **Miniaturansicht**             | Bitmap 533x324                                                               |
-|  |  |
-
+|   |   |
 
 ### <a name="logo-guidelines"></a>Richtlinien für Logos
 
@@ -105,7 +100,6 @@ In der folgenden Abbildung ist dargestellt, wie auf der Hauptproduktseite von Mi
 
 
 ## <a name="lead-management-section"></a>Abschnitt „Leadverwaltung“
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 Im dritten Abschnitt können Sie Kundenleads sammeln, die über Ihre Azure Marketplace-Angebote generiert werden. Für diese Leadinformationen werden die folgenden Speicheroptionen (in einer Dropdownliste) bereitgestellt.
 
@@ -122,15 +116,16 @@ Nachdem Sie Ihr Angebot erfolgreich veröffentlicht haben, wird die Leadverbindu
 
 ## <a name="legal-section"></a>Abschnitt „Rechtliche Hinweise“
 
-In diesem letzten Abschnitt können Sie die beiden rechtlichen Dokumente bereitstellen, die für jedes Angebot erforderlich sind: Datenschutzrichtlinie und Nutzungsbedingungen.
+In diesem letzten Abschnitt können Sie die erforderlichen rechtlichen Dokumente bereitstellen, die für jedes Angebot erforderlich sind.  
 
-|  **Feld**                |     **Beschreibung**                                                          |
-|  ---------                |     ---------------                                                          |
-| **URL der Datenschutzrichtlinie**    | Die URL Ihrer bereitgestellten Datenschutzrichtlinie.                                            |
-| **Nutzungsbedingungen**          | Die Richtlinie als einfacher Text oder im einfachen HTML-Format.  <!-- TODO - max char length? -->       |
+|  **Feld**                    |     **Beschreibung**                                        |
+|  ---------                    |     ---------------                                        |
+| **URL der Datenschutzrichtlinie\***      | Die URL Ihrer bereitgestellten Datenschutzrichtlinie.                          |
+| **Standardvertrag verwenden?\***  |   |
+| **Nutzungsbedingungen\***            | Die Richtlinie als einfacher Text oder im einfachen HTML-Format.                       |
 |  |  |
 
-<br/>
+
+## <a name="next-steps"></a>Nächste Schritte
 
 Auf der nächsten Registerkarte [Support](./cpp-support-tab.md) geben Sie Ressourcen für den technischen Support und den Benutzersupport für Ihr Angebot an.
-

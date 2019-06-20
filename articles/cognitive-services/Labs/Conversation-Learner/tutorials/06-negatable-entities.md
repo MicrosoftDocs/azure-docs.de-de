@@ -3,19 +3,19 @@ title: Verwenden von negierbaren Entitäten in einem Conversation Learner-Modell
 titleSuffix: Azure
 description: Hier erfahren Sie, wie Sie negierbare Entitäten in einem Conversation Learner-Modell verwenden.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 78dc759632c4fc3116a59ea1e5bc0b93200bca45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 2c758d1dd5d4d1e7ab25faccd5280963211181d1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168186"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388806"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Verwenden von negierbaren Entitäten in einem Conversation Learner-Modell
 

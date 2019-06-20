@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231346"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950999"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gewusst wie: Anpassen von Ansprüchen im SAML-Token für Unternehmensanwendungen
 
@@ -47,7 +47,7 @@ Es gibt zwei Gründe dafür, dass Sie die im SAML-Token ausgegebenen Ansprüche 
 Gehen Sie wie folgt vor, um die NameID (den Wert für den Namensbezeichner) zu bearbeiten:
 
 1. Öffnen Sie die Seite **Wert für Namensbezeichner**.
-1. Wählen Sie das gewünschte Attribut oder die auf das Attribut anzuwendende Transformation aus. Optional können Sie auch ein Format für den NameID-Anspruch angeben.
+1. Wählen Sie das gewünschte Attribut oder die auf das Attribut anzuwendende Transformation aus. Optional können Sie auch das Format für den NameID-Anspruch angeben.
 
    ![NameID-Wert (Wert für Namensbezeichner) bearbeiten](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 
@@ -114,14 +114,14 @@ Sie können auch die Funktionen für Anspruchstransformationen verwenden.
 | **Join()** | Erstellt einen neuen Wert durch Verknüpfen von zwei Attributen. Optional können Sie ein Trennzeichen zwischen den beiden Attributen verwenden. |
 | **ToLower()** | Konvertiert die Zeichen des ausgewählten Attributs in Kleinbuchstaben. |
 | **ToUpper()** | Konvertiert die Zeichen des ausgewählten Attributs in Großbuchstaben. |
-| **Contains()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe dem angegebenen Wert entspricht. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, dessen Wert die E-Mail-Adresse des Benutzers ist, wenn er die Domäne „@contoso.com“ enthält, andernfalls soll der Benutzerprinzipalname ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)*: user.email<br/>*Wert*: „@contoso.com“<br/>Parameter 2 (Ausgabe): user.email<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.userprincipalname |
-| **EndWith()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe mit dem angegebenen Wert endet. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, dessen Wert die Mitarbeiter-ID des Benutzers ist, wenn „employeeid“ mit „000“ endet, andernfalls soll ein Erweiterungsattribut ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)*: user.employeeid<br/>*Value*: „000“<br/>Parameter 2 (Ausgabe): user.employeeid<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.extensionattribute1 |
-| **StartWith()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe mit dem angegebenen Wert beginnt. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Wenn Sie beispielsweise einen Anspruch ausgeben möchten, bei dem der Wert die „employeeid“ des Benutzer ist, wenn das Land bzw. die Region mit „US“ beginnt, und Sie andernfalls ein Erweiterungsattribut ausgeben möchten. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)*: user.country<br/>*Value*: „US“<br/>Parameter 2 (Ausgabe): user.employeeid<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.extensionattribute1 |
+| **Contains()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe dem angegebenen Wert entspricht. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, dessen Wert die E-Mail-Adresse des Benutzers ist, wenn er die Domäne „@contoso.com“ enthält, andernfalls soll der Benutzerprinzipalname ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.email<br/>*Wert*: „@contoso.com“<br/>Parameter 2 (Ausgabe): user.email<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.userprincipalname |
+| **EndWith()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe mit dem angegebenen Wert endet. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Beispiel: Sie möchten einen Anspruch ausgeben, dessen Wert die Mitarbeiter-ID des Benutzers ist, wenn „employeeid“ mit „000“ endet, andernfalls soll ein Erweiterungsattribut ausgegeben werden. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.employeeid<br/>*Value*: „000“<br/>Parameter 2 (Ausgabe): user.employeeid<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.extensionattribute1 |
+| **StartWith()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe mit dem angegebenen Wert beginnt. Andernfalls können Sie eine andere Ausgabe angeben, wenn keine Übereinstimmung vorhanden ist.<br/>Wenn Sie beispielsweise einen Anspruch ausgeben möchten, bei dem der Wert die „employeeid“ des Benutzer ist, wenn das Land bzw. die Region mit „US“ beginnt, und Sie andernfalls ein Erweiterungsattribut ausgeben möchten. Hierzu konfigurieren Sie die folgenden Werte:<br/>*Parameter 1 (Eingabe)* : user.country<br/>*Value*: „US“<br/>Parameter 2 (Ausgabe): user.employeeid<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.extensionattribute1 |
 | **Extract() – nach dem Abgleich** | Gibt die Teilzeichenfolge bei Übereinstimmung mit dem angegebenen Wert zurück.<br/>Beispiel: Wenn der Eingabewert „Finance_BSimon“ und der übereinstimmende Wert „Finance_“ ist, dann lautet die Ausgabe des Anspruchs „BSimon“. |
 | **Extract() – vor dem Abgleich** | Gibt die Teilzeichenfolge zurück, bis sie mit dem angegebenen Wert übereinstimmt.<br/>Beispiel: Wenn der Eingabewert „BSimon_US“ und der übereinstimmende Wert „_US“ ist, dann lautet die Ausgabe des Anspruchs „BSimon“. |
 | **Extract() – zwischen Abgleichen** | Gibt die Teilzeichenfolge zurück, bis sie mit dem angegebenen Wert übereinstimmt.<br/>Beispiel: Wenn der Eingabewert „Finance_BSimon_US“ ist, der erste übereinstimmende Wert „Finance_“ und der zweite übereinstimmende Wert „_US“ lautet, dann ist die Ausgabe des Anspruchs „BSimon“. |
 | **ExtractAlpha() – Präfix** | Gibt den alphabetischen Teil des Präfixes der Zeichenfolge zurück.<br/>Beispiel: Wenn der Eingabewert „BSimon_123“ lautet, wird „BSimon“ zurückgegeben. |
-| **ExtractAlpha() – Suffix** | Gibt den alphabetischen Teil des Suffixes der Zeichenfolge zurück.<br/>Beispiel: Wenn der Eingabewert „123_BSimon“ lautet, wird „BSimon“ zurückgegeben. |
+| **ExtractAlpha() – Suffix** | Gibt den alphabetischen Teil des Suffixes der Zeichenfolge zurück.<br/>Beispiel: Wenn der Eingabewert „123_Simon“ lautet, wird „Simon“ zurückgegeben. |
 | **ExtractNumeric() – Präfix** | Gibt den numerischen Teil des Präfixes der Zeichenfolge zurück.<br/>Beispiel: Wenn der Eingabewert „123_BSimon“ lautet, wird „123“ zurückgegeben. |
 | **ExtractNumeric() – Suffix** | Gibt den numerischen Teil des Suffixes der Zeichenfolge zurück.<br/>Beispiel: Wenn der Eingabewert „BSimon_123“ lautet, wird „123“ zurückgegeben. |
 | **IfEmpty()** | Gibt ein Attribut oder eine Konstante aus, wenn die Eingabe null oder leer ist.<br/>Beispiel: Sie möchten ein in einem Erweiterungsattribut (extensionattribute) gespeichertes Attribut ausgeben, wenn die Mitarbeiter-ID (employeeid) für einen bestimmten Benutzer leer ist. Hierzu konfigurieren Sie die folgenden Werte:<br/>Parameter 1 (Eingabe): user.employeeid<br/>Parameter 2 (Ausgabe): user.extensionattribute1<br/>Parameter 3 (Ausgabe, wenn keine Übereinstimmung vorhanden ist): user.employeeid |

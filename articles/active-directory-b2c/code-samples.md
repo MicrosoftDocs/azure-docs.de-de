@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C-Codebeispiele | Microsoft-Dokumentation
 description: Enthält Codebeispiele für mobile, Desktop-, Web- und Single-Page-Anwendungen für Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ba3994f49f1d73aad1a5cf8211063f41d224c3d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5db3b978193ab51fc60f1bcb97d83b4d24037b54
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704082"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511401"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-Codebeispiele
 

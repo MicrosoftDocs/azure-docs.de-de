@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
 ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092003"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60808765"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-Aktivität in Azure Data Factory
 Mit der ForEach-Aktivität wird eine wiederholte Ablaufsteuerung in Ihrer Pipeline definiert. Diese Aktivität wird verwendet, um eine Sammlung zu durchlaufen. Sie führt die angegebenen Aktivitäten in einer Schleife aus. Die Schleifenimplementierung dieser Aktivität ähnelt der Foreach-Schleifenstruktur in Programmiersprachen.
@@ -71,12 +71,12 @@ Die Eigenschaften werden weiter unten in diesem Artikel beschrieben. Die Eigensc
 
 Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich
 -------- | ----------- | -------------- | --------
-name | Name der ForEach-Aktivität. | Zeichenfolge | Ja
-type | Muss auf **ForEach** festgelegt sein. | Zeichenfolge | Ja
-isSequential | Gibt an, ob die Schleife sequenziell oder parallel ausgeführt werden soll.  Maximal 20 Schleifeniterationen können gleichzeitig parallel ausgeführt werden. Beispiel: Bei einer ForEach-Aktivität, die eine Kopieraktivität mit 10 unterschiedlichen Quell- und Senkendatasets durchläuft, während **isSequential** auf „false“ festgelegt ist, werden alle Kopien gleichzeitig ausgeführt. Die Standardeinstellung ist "False". <br/><br/> Wenn „isSequential“ auf „false“ festgelegt ist, stellen Sie sicher, dass die Konfiguration die Ausführung mehrerer ausführbarer Dateien ermöglicht. Andernfalls sollte diese Eigenschaft vorsichtig verwendet werden, um Schreibkonflikte zu vermeiden. Weitere Informationen finden Sie im Abschnitt [Parallele Ausführung](#parallel-execution). | Boolescher Wert |  Nein. Die Standardeinstellung ist "False".
-batchCount | Batchanzahl, die zum Steuern der Anzahl der parallelen Ausführungen verwendet werden soll (wenn „isSequential“ auf „false“ festgelegt ist). | Ganze Zahl (maximal 50) |  Nein. Der Standardwert ist 20.
+name | Name der ForEach-Aktivität. | string | Ja
+type | Muss auf **ForEach** festgelegt sein. | string | Ja
+isSequential | Gibt an, ob die Schleife sequenziell oder parallel ausgeführt werden soll.  Maximal 20 Schleifeniterationen können gleichzeitig parallel ausgeführt werden. Beispiel: Bei einer ForEach-Aktivität, die eine Kopieraktivität mit 10 unterschiedlichen Quell- und Senkendatasets durchläuft, während **isSequential** auf „false“ festgelegt ist, werden alle Kopien gleichzeitig ausgeführt. Die Standardeinstellung ist "False". <br/><br/> Wenn „isSequential“ auf „false“ festgelegt ist, stellen Sie sicher, dass die Konfiguration die Ausführung mehrerer ausführbarer Dateien ermöglicht. Andernfalls sollte diese Eigenschaft vorsichtig verwendet werden, um Schreibkonflikte zu vermeiden. Weitere Informationen finden Sie im Abschnitt [Parallele Ausführung](#parallel-execution). | Boolean | Nein. Die Standardeinstellung ist "False".
+batchCount | Batchanzahl, die zum Steuern der Anzahl der parallelen Ausführungen verwendet werden soll (wenn „isSequential“ auf „false“ festgelegt ist). | Ganze Zahl (maximal 50) | Nein. Der Standardwert ist 20.
 Items | Ein Ausdruck, der ein JSON-Array zurückgibt, das durchlaufen werden soll. | Ausdruck (der ein JSON-Array zurückgibt) | Ja
-Aktivitäten | Die Aktivitäten, die ausgeführt werden sollen. | Liste der Aktivitäten | Ja
+activities | Die Aktivitäten, die ausgeführt werden sollen. | Liste der Aktivitäten | Ja
 
 ## <a name="parallel-execution"></a>Parallele Ausführung
 Wenn **isSequential** auf „false“ festgelegt ist, erfolgen maximal 20 gleichzeitige Iterationen der Aktivität parallel. Diese Einstellung sollte vorsichtig verwendet werden. Wenn die gleichzeitigen Iterationen in den gleichen Ordner, aber in andere Dateien schreiben, ist dieser Ansatz gut. Wenn die gleichzeitigen Iterationen gleichzeitig in genau dieselbe Datei schreiben, verursacht dieser Ansatz wahrscheinlich einen Fehler. 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234185"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257949"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Ereignisquellen in Azure Event Grid
 
@@ -74,7 +74,7 @@ Beispiele für Event Hubs als Handler finden Sie unter [Event Hubs-Handler](even
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Abonnieren Sie IoT Hub-Ereignisse, um auf die Ereignisse beim Erstellen, Löschen, Verbinden und Trennen von Geräten zu reagieren.
+Abonnieren Sie IoT Hub-Ereignisse, um auf die Ereignisse beim Erstellen, Löschen, Verbinden und Trennen von Geräten sowie auf Telemetrieereignisse zu reagieren.
 
 |Titel  |BESCHREIBUNG  |
 |---------|---------|

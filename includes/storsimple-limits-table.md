@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 93f4f74d435cc14130668da102d1246c5fad5872
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553512"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178489"
 ---
 | Begrenzungsbezeichner | Begrenzung | Kommentare |
 | --- | --- | --- |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059652"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivieren der Diagnoseprotokollierung für Apps in Azure App Service
 ## <a name="overview"></a>Übersicht
@@ -39,7 +39,7 @@ Sie können die folgenden Protokollarten aktivieren oder deaktivieren:
 * **Webserverprotokollierung** - Informationen über HTTP-Transaktionen im erweiterten [W3C-Protokolldateiformat](/windows/desktop/Http/w3c-logging). Dies ist hilfreich, wenn Sie allgemeine Websitemetriken ermitteln möchten, z.B. die Anzahl der verarbeiteten Anforderungen oder die Anzahl der Anforderungen von einer bestimmten IP-Adresse.
 
 ### <a name="application-diagnostics"></a>Anwendungsdiagnose
-Mit der Option "Application Diagnostics" können Sie die von einer Webanwendung erzeugten Informationen erfassen. ASP.NET-Anwendungen können die Klasse [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) verwenden, um Informationen im Anwendungs-Diagnoseprotokoll aufzuzeichnen. Beispiel: 
+Mit der Option "Application Diagnostics" können Sie die von einer Webanwendung erzeugten Informationen erfassen. ASP.NET-Anwendungen können die Klasse [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) verwenden, um Informationen im Anwendungs-Diagnoseprotokoll aufzuzeichnen. Beispiel:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -55,7 +55,7 @@ Navigieren Sie zur Seite für Ihre App und klicken auf **Einstellungen > Diagnos
 
 Wenn Sie die **Anwendungsdiagnose** aktivieren, können Sie auch die **Ebene** auswählen. Die folgende Tabelle zeigt die Kategorien von Protokollen auf den einzelnen Ebenen:
 
-| Ebene| Enthaltene Protokollkategorien |
+| Level| Enthaltene Protokollkategorien |
 |-|-|
 |**Disabled** | Keine |
 |**Fehler** | Fehler, Kritisch |
@@ -75,7 +75,7 @@ Unter **Webserverprotokollierung** können Sie **Speicher** oder **Dateisystem**
 
 Wenn Sie Protokolle im Dateisystem speichern, können Sie über FTP auf diese Dateien zugreifen oder die Dateien mithilfe der Azure CLI als ZIP-Archiv herunterladen.
 
-Protokolle werden standardmäßig nicht automatisch gelöscht (ausgenommen bei der Option **Anwendungsprotokollierung (Dateisystem)**). Damit Protokolle automatisch gelöscht werden, legen Sie das Feld **Beibehaltungsdauer (Tage)** fest.
+Protokolle werden standardmäßig nicht automatisch gelöscht (ausgenommen bei der Option **Anwendungsprotokollierung (Dateisystem)** ). Damit Protokolle automatisch gelöscht werden, legen Sie das Feld **Beibehaltungsdauer (Tage)** fest.
 
 > [!NOTE]
 > Wenn Sie [den Zugriffsschlüssel für Ihr Speicherkonto neu generieren](../storage/common/storage-create-storage-account.md), müssen Sie die jeweilige Protokollierungskonfiguration zur Verwendung der aktualisierten Schlüssel zurücksetzen. Gehen Sie dazu folgendermaßen vor:
@@ -152,11 +152,11 @@ Zum Streaming der Protokollinformationen öffnen Sie eine neue Eingabeaufforderu
 
 Mit diesem Befehl wird eine Verbindung zu der App „appname“ hergestellt, und das Streaming von Informationen in das Fenster wird gestartet, sobald Protokollereignisse in der App auftreten. Alle Informationen, die in Dateien mit der Erweiterung TXT, LOG oder HTM im Verzeichnis „/LogFiles“ (d:/home/logfiles) geschrieben werden, werden an die lokale Konsole gestreamt.
 
-Um bestimmte Ereignisse wie beispielsweise Fehler zu filtern, verwenden Sie den Parameter **--Filter** . Beispiel: 
+Um bestimmte Ereignisse wie beispielsweise Fehler zu filtern, verwenden Sie den Parameter **--Filter** . Beispiel:
 
     az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 
-Um bestimmte Protokolltypen wie HTTP zu filtern, verwenden Sie den Parameter **--Path** . Beispiel: 
+Um bestimmte Protokolltypen wie HTTP zu filtern, verwenden Sie den Parameter **--Path** . Beispiel:
 
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
@@ -189,15 +189,15 @@ Bei der Protokollierung in einem Blob-Speicher werden die Daten im CSV-Format (d
 
 | Eigenschaftenname | Wert/Format |
 | --- | --- |
-| Datum |Datum und Zeit des Auftretens des Ereignisses |
-| Ebene |Ereignisebene (z.B. Fehler, Warnung, Information) |
+| Date |Datum und Zeit des Auftretens des Ereignisses |
+| Level |Ereignisebene (z.B. Fehler, Warnung, Information) |
 | ApplicationName |Der App-Name |
 | InstanceId |Die Instanz der App, in der das Ereignis auftrat |
 | EventTickCount |Datum und Zeit des Auftretens des Ereignisses im Tick-Format (höhere Präzision) |
 | EventId |Die Ereignis-ID<p><p>Bei fehlender Angabe standardmäßig 0 |
 | Pid |Prozess-ID |
 | Tid |Thread-ID des Threads, der das Ereignis erzeugt hat |
-| Message |Meldung zu den Ereignisdetails |
+| `Message` |Meldung zu den Ereignisdetails |
 
 In einem Blob gespeicherte Daten sehen in etwa wie im folgenden Beispiel aus:
 
@@ -205,7 +205,7 @@ In einem Blob gespeicherte Daten sehen in etwa wie im folgenden Beispiel aus:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Für ASP.NET Core erfolgt die Protokollierung mit dem Anbieter [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices), der zusätzliche Protokolldateien im Blobcontainer ablegt. Weitere Informationen finden Sie unter [Protokollierung in ASP.NET Core](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
+> Für ASP.NET Core erfolgt die Protokollierung mit dem Anbieter [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices), der zusätzliche Protokolldateien im Blobcontainer ablegt. Weitere Informationen finden Sie unter [Protokollierung in ASP.NET Core](/aspnet/core/fundamentals/logging).
 >
 >
 

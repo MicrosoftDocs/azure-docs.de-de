@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470230"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Vorbereiten Ihrer Entwicklungsumgebung unter Linux
@@ -277,7 +277,7 @@ Das Eclipse-Plug-In für Service Fabric können Sie über die Eclipse-IDE für J
 
 2. Wählen Sie zum Installieren des Service Fabric-Plug-Ins **Hilfe** > **Neue Software installieren...** aus.
 
-3. Geben Sie im Feld **Work with** (Arbeiten mit) Folgendes ein: **https://dl.microsoft.com/eclipse**.
+3. Geben Sie im Feld **Work with** (Arbeiten mit) Folgendes ein: **https://dl.microsoft.com/eclipse** .
 
 4. Wählen Sie **Hinzufügen**.
 

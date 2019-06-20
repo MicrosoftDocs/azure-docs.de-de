@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518149"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Verwenden des Video Indexer-Editors zum Erstellen von Projekten
@@ -57,7 +57,7 @@ In diesem Artikel wird gezeigt, wie Sie ein Projekt von Grund auf neu erstellen 
 
     ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
-    Sie können mehrere Filter in Ihrer Abfrage überlagern. Verwenden Sie die Schaltflächen **+**/**-**, um Filter hinzuzufügen/zu entfernen. Verwenden Sie **Filter löschen**, um alle Filter zu entfernen.
+    Sie können mehrere Filter in Ihrer Abfrage überlagern. Verwenden Sie die Schaltflächen **+** / **-** , um Filter hinzuzufügen/zu entfernen. Verwenden Sie **Filter löschen**, um alle Filter zu entfernen.
 1. Um Videos hinzuzufügen, wählen Sie sie aus, und wählen Sie anschließend **Hinzufügen** aus.
 1. Jetzt werden alle von Ihnen ausgewählten Videos angezeigt. Dies sind die Videos, aus denen Sie Clips für Ihr Projekt auswählen werden.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61232089"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Verwenden des Wirecast-Encoders zum Senden eines Single-Bitrate-Livedatenstroms 
 > [!div class="op_single_selector"]

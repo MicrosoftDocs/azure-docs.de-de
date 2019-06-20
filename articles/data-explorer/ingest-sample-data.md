@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60759272"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Erfassen von Beispieldaten im Azure-Daten-Explorer
 
@@ -23,7 +23,7 @@ In diesem Artikel wird das Erfassen (Laden) von Beispieldaten in einer Azure-Dat
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-[Ein Testcluster und eine Testdatenbank](create-cluster-database-portal.md)
+[Einen Testcluster und eine Testdatenbank](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Erfassen von Daten
 
@@ -57,10 +57,10 @@ Das **StormEvents**-Beispieldataset enthält wetterbezogene Daten der [National 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Schnellstart: Abfragen von Daten im Azure Data Explorer](web-query-data.md)
+> [Schnellstart: Abfragen von Daten in Azure Data Explorer](web-query-data.md)
 
 > [!div class="nextstepaction"]
-> [Schreiben von Abfragen](write-queries.md)
+> [Write queries](write-queries.md) (Schreiben von Abfragen)
 
 > [!div class="nextstepaction"]
-> [Datenerfassung im Azure-Daten-Explorer](ingest-data-overview.md)
+> [Azure-Daten-Explorer-Datenerfassung](ingest-data-overview.md)

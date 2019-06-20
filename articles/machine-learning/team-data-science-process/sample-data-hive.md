@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61042882"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Extrahieren von Stichproben aus Daten in Azure HDInsight Hive-Tabellen
 In diesem Artikel wird das Downsampling von in Azure HDInsight Hive-Tabellen gespeicherten Daten mithilfe von Hive-Abfragen beschrieben, um Daten auf eine für die Analyse besser verwaltbare Größe zu reduzieren. Dabei werden drei häufig verwendete Samplingmethoden behandelt:

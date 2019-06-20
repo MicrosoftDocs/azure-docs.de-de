@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551618"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60371621"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Erstellen von Abschnitten in Ihrer Rechnung zum Organisieren von Kosten
 

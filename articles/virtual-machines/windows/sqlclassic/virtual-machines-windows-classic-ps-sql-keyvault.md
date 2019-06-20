@@ -17,11 +17,11 @@ ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62108462"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurieren der Azure Key Vault-Integration für SQL Server auf Azure Virtual Machines (klassisch)
 > [!div class="op_single_selector"]

@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 87514a139c097ebec3804c8c5ff82a1a21ccdd8c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: a53d2b259bc4ece12c4ccb1cf47409cd2f0af86f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42809565"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178776"
 ---
 **Objective-C:**
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0b6c8da03c4a67aadb38280ba958a9b0feb88d1f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60743920"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Steuern des Routings und Verwenden virtueller Geräte (klassisch) mithilfe der Azure-Befehlszeilenschnittstelle
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
-> * [Azure-CLI](tutorial-create-route-table-cli.md)
+> * [Azure-Befehlszeilenschnittstelle](tutorial-create-route-table-cli.md)
 > * [PowerShell (klassisch)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (klassisch)](virtual-network-create-udr-classic-cli.md)
 
@@ -72,8 +72,8 @@ Führen Sie zum Erstellen der Routingtabelle und der für das Front-End-Subnetz 
    
     Parameter:
    
-   * **-l (oder --location)**. Azure-Region, in der die neue NSG erstellt wird. In diesem Szenario *westus*.
-   * **-n (oder --name)**. Name der neuen NSG. In diesem Szenario *NSG-FrontEnd*.
+   * **-l (oder --location)** . Azure-Region, in der die neue NSG erstellt wird. In diesem Szenario *westus*.
+   * **-n (oder --name)** . Name der neuen NSG. In diesem Szenario *NSG-FrontEnd*.
 3. Führen Sie den folgenden Befehl aus, um in der Routingtabelle eine Route zu erstellen, die sämtlichen an das Back-End-Subnetz (192.168.2.0/24) gerichteten Datenverkehr an den virtuellen Computer **FW1** (192.168.0.4) umleitet:
 
     ```azurecli
@@ -89,9 +89,9 @@ Führen Sie zum Erstellen der Routingtabelle und der für das Front-End-Subnetz 
    
     Parameter:
    
-   * **-r (oder --route-table-name)**. Der Name der Routingtabelle, der die Route hinzugefügt wird. In diesem Szenario *UDR-FrontEnd*.
-   * **-a (oder --address-prefix)**. Das Adresspräfix für das Zielsubnetz der Pakete. In diesem Szenario *192.168.2.0/24*.
-   * **-t (oder --next-hop-type)**. Der Typ des Zielobjekts für den Datenverkehr. Mögliche Werte sind *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* oder *None*.
+   * **-r (oder --route-table-name)** . Der Name der Routingtabelle, der die Route hinzugefügt wird. In diesem Szenario *UDR-FrontEnd*.
+   * **-a (oder --address-prefix)** . Das Adresspräfix für das Zielsubnetz der Pakete. In diesem Szenario *192.168.2.0/24*.
+   * **-t (oder --next-hop-type)** . Der Typ des Zielobjekts für den Datenverkehr. Mögliche Werte sind *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* oder *None*.
    * **-p (oder --next-hop-ip-address**). Die IP-Adresse für den nächsten Hop. In diesem Szenario *192.168.0.4*.
 4. Führen Sie den Befehl aus, um die oben erstellte Routingtabelle dem Subnetz **FrontEnd** zuzuordnen:
 
@@ -114,7 +114,7 @@ Führen Sie zum Erstellen der Routingtabelle und der für das Front-End-Subnetz 
    
     Parameter:
    
-   * **-t (oder --vnet-name)**. Name des VNets mit dem Subnetz. In diesem Szenario *TestVNet*.
+   * **-t (oder --vnet-name)** . Name des VNets mit dem Subnetz. In diesem Szenario *TestVNet*.
    * **-n (oder --subnet-name**). Der Name des Subnetzes, dem die Routingtabelle hinzugefügt wird. In diesem Szenario *FrontEnd*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Erstellen der benutzerdefinierten Route für das Back-End-Subnetz

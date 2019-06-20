@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904184"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235126"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Bereitstellungshandbuch für Azure Active Directory-Features
 
@@ -65,7 +65,7 @@ Als Nächstes ergänzen wir die in Phase 1 geschaffene Grundlage durch das Impor
 | Aufgabe | Detail | Erforderliche Lizenz |
 | ---- | ------ | ---------------- |
 | [Installieren von Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Bereiten Sie die Synchronisierung von Benutzern aus Ihrem vorhandenen lokalen Verzeichnis mit der Cloud vor. | Azure AD Free |
-| [Implementieren der Kennworthashsynchronisierung](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synchronisieren Sie Kennworthashes, um die Replikation von Kennwortänderungen, die Erkennung und Behandlung falscher Kennwörter und das Melden kompromittierter Anmeldeinformationen zu ermöglichen. | Azure AD Premium P1 |
+| [Implementieren der Kennworthashsynchronisierung](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synchronisieren Sie Kennworthashes, um die Replikation von Kennwortänderungen, die Erkennung und Behandlung falscher Kennwörter und das Melden kompromittierter Anmeldeinformationen zu ermöglichen. | Azure AD Free |
 | [Implementieren der Kennwortrückschreibung](../authentication/howto-sspr-writeback.md) | Lassen Sie zu, dass Kennwortänderungen in der Cloud in eine lokale Windows Server Active Directory-Umgebung zurückgeschrieben werden. | Azure AD Premium P1 |
 | [Implementieren von Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Aktivieren Sie die Überwachung wichtiger Integritätsstatistiken für Ihre Azure AD Connect-Server, AD FS-Server und Domänencontroller. | Azure AD Premium P1 |
 | [Zuweisen von Lizenzen zu Benutzer nach Gruppenmitgliedschaft in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Sparen Sie Zeit und Aufwand durch das Erstellen von Lizenzierungsgruppen, die Funktionen anhand von Gruppen anstatt einer Einstellung pro Benutzer aktivieren oder deaktivieren. | |

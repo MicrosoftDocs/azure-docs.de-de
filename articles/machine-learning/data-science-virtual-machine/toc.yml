@@ -7,7 +7,7 @@
       href: overview.md
     - name: Was ist die Deep Learning-VM?
       href: deep-learning-dsvm-overview.md
-    - name: Was ist die Geo AI Data Science VM?
+    - name: Was ist Data Science VM für geografische KI?
       href: geo-ai-dsvm-overview.md
 - name: Schnellstarts
   expanded: true
@@ -20,13 +20,13 @@
       href: linux-dsvm-intro.md
     - name: Erstellen einer Deep Learning-VM
       href: provision-deep-learning-dsvm.md
-    - name: Erstellen einer Geo AI Data Science VM
+    - name: Erstellen einer Data Science VM-Instanz für geografische KI
       href: provision-geo-ai-dsvm.md
 - name: Konzepte
   items:
     - name: Ermitteln der DSVM
       href: dsvm-tools-overview.md
-    - name: Deep Learning- und KI-Frameworks
+    - name: Deep Learning und KI-Frameworks
       href: dsvm-deep-learning-ai-frameworks.md
     - name: ML- und Data Science-Tools
       href: dsvm-ml-data-science-tools.md
@@ -50,7 +50,7 @@
       href: linux-dsvm-walkthrough.md
     - name: Verwenden einer Deep Learning-VM
       href: use-deep-learning-dsvm.md
-    - name: Verwenden einer Geo AI Data Science VM
+    - name: Verwenden einer Data Science VM-Instanz für geografische KI
       href: use-geo-ai-dsvm.md
     - name: Enterprise-Leitfaden
       items:
@@ -65,8 +65,7 @@
 - name: Ressourcen
   items:
     - name: R-Entwicklerhandbuch
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
     - name: Blog
       href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
     - name: MSDN-Forum

@@ -2,20 +2,20 @@
 title: Schützen Ihrer RESTful-Dienste unter Verwendung der HTTP-Standardauthentifizierung in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Schützen Ihres benutzerdefinierten REST-API-Anspruchsaustauschs in Azure AD B2C unter Verwendung der HTTP-Standardauthentifizierung.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db5642abfca03f97ed258d287f5279cad0a32015
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e07a3fee2cc6c588dee608a68415b554e6fc77f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694664"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507586"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Schützen Ihrer RESTful-Dienste unter Verwendung der HTTP-Standardauthentifizierung
 

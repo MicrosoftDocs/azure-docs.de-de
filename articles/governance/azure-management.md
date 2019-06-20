@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
 ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796085"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60683231"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Übersicht der Verwaltungsdienste in Azure
 

@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402284"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60334121"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analysieren von Websiteprotokollen mit Azure Data Lake Analytics
 Erfahren Sie, wie Sie Websiteprotokolle mit Azure Data Lake Analytics analysieren, um insbesondere herauszufinden, bei welchen Verweisern beim Versuch des Besuchs der Website Fehler aufgetreten sind.

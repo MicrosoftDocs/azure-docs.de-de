@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264410"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178032"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Öffnen der TCP-Ports in der Windows-Firewall für die Standardinstanz der Datenbank-Engine
 1. Herstellen der Verbindung mit dem virtuellen Computer über Remotedesktop Weitere Informationen zum Herstellen einer Verbindung mit dem virtuellen Computer finden Sie unter [Öffnen der VM mit Remotedesktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
@@ -31,7 +31,7 @@ ms.locfileid: "51264410"
     ![Verbindungen zulassen](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. Klicken Sie im Dialogfeld **Profil** auf **Öffentlich**, **Privat** und **Domäne**. Klicken Sie auf **Weiter**.
    
-    **Sicherheitshinweis:** Die Auswahl von **Öffentlich** ermöglicht den Zugriff über das Internet. Sie sollten möglichst ein restriktiveres Profil auswählen.
+    **Sicherheitshinweis:**  Die Auswahl von **Öffentlich** ermöglicht den Zugriff über das Internet. Sie sollten möglichst ein restriktiveres Profil auswählen.
    
     ![Öffentliches Profil](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. Geben Sie im Dialogfeld **Name** einen Namen und eine Beschreibung für diese Regel ein, und klicken Sie dann auf **Fertig stellen**.
@@ -55,7 +55,7 @@ Die SQL Server-Datenbank-Engine kann ohne Domänenumgebung keine Windows-Authent
 1. Geben Sie während der Verbindung mit dem virtuellen Computer auf der Startseite **SQL Server Management Studio** ein, und klicken Sie auf das ausgewählte Symbol.
    
     Wenn Sie Management Studio erstmalig öffnen, muss dieses eine Management Studio-Benutzerumgebung erstellen. Dies kann einige Zeit dauern.
-2. Management Studio zeigt das Dialogfeld **Verbindung mit Server herstellen** an. Geben Sie im Feld **Servername** den Namen des virtuellen Computers ein, der über den Objekt-Explorer mit der Datenbank-Engine verbunden werden soll. (Statt des Namens des virtuellen Computers können Sie auch **(lokal)** oder einen einzelnen Punkt als **Servername** verwenden.) Wählen Sie **Windows-Authentifizierung**, und lassen Sie ***Ihr_VM-Name*\Ihr_lokaler_Administrator** im Feld **Benutzername** unverändert. Klicken Sie auf **Verbinden**.
+2. Management Studio zeigt das Dialogfeld **Verbindung mit Server herstellen** an. Geben Sie im Feld **Servername** den Namen des virtuellen Computers ein, der über den Objekt-Explorer mit der Datenbank-Engine verbunden werden soll. (Statt des Namens des virtuellen Computers können Sie auch **(lokal)** oder einen einzelnen Punkt als **Servername** verwenden.) Wählen Sie **Windows-Authentifizierung**, und lassen Sie ***Ihr_VM-Name\Ihr_lokaler_Administrator*** im Feld **Benutzername** unverändert. Klicken Sie auf **Verbinden**.
    
     ![Verbindung mit Server herstellen](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. Klicken Sie im Objekt-Explorer von SQL Server Management Studio mit der rechten Maustaste auf die Instanz von SQL Server (den Namen des virtuellen Computers), und klicken Sie dann auf **Eigenschaften**.

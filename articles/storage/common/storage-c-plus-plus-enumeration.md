@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146875"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Auflisten von Azure Storage-Ressourcen in C++
@@ -35,7 +35,7 @@ Die Storage Client Library stellt eine Vielzahl von Methoden bereit, um Objekte 
 Jede dieser Methoden wird mit unterschiedlichen Überladungen für unterschiedliche Szenarios dargestellt.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynchrone und synchrone Vorgänge
-Da die Storage Client Library for C++ auf Basis der [C++ REST-Bibliothek](https://github.com/Microsoft/cpprestsdk) erstellt wurde, werden asynchrone Vorgänge grundsätzlich unterstützt, indem [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) verwendet wird. Beispiel: 
+Da die Storage Client Library for C++ auf Basis der [C++ REST-Bibliothek](https://github.com/Microsoft/cpprestsdk) erstellt wurde, werden asynchrone Vorgänge grundsätzlich unterstützt, indem [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) verwendet wird. Beispiel:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

@@ -4,14 +4,14 @@ description: Druckbare PDF-Spickzettel, mit denen Sie die SQL-, MongoDB-, Graph-
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 848b5a75e4e957b2ad61072ff2e229cacdba2019
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 51660fb416aa9850381f515a3a31cc57519094b0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035080"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256975"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Abfragespickzettel für Azure Cosmos DB
 

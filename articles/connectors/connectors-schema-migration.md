@@ -10,11 +10,11 @@ ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.topic: article
 ms.date: 08/25/2018
 ms.openlocfilehash: bf27739bd42106550c18e3bbc27a1ff8b3770747
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321125"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60447151"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrieren von Logik-Apps zur aktuellen Schemaversion
 

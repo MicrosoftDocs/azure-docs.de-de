@@ -3,7 +3,7 @@ title: Benutzer-Realmessungen in Azure Traffic Manager mit Webseiten | Microsoft
 description: Informationen zum Einrichten von Webseiten für das Senden von Benutzer-Realmessungen an Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2d044457df80f16a6e8073e7f3253a611f74d8a8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117267"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071212"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Senden von Benutzer-Realmessungen an Azure Traffic Manager mithilfe von Webseiten
 

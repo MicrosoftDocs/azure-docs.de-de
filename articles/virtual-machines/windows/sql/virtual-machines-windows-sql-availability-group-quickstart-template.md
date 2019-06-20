@@ -16,11 +16,11 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487531"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60591317"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Verwenden von Azure-Schnellstartvorlagen zum Konfigurieren von Always On-Verfügbarkeitsgruppen für SQL Server auf einer Azure VM
 In diesem Artikel erfahren Sie, wie Sie die Bereitstellung einer Always On-Verfügbarkeitsgruppenkonfiguration für virtuelle SQL Server-Computer in Azure mithilfe von Azure-Schnellstartvorlagen teilweise automatisieren. Im Rahmen dieses Prozesses werden zwei Azure-Schnellstartvorlagen verwendet: 

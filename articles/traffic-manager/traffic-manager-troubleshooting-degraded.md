@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050644"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60329730"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Problembehandlung beim Status "Heruntergestuft" in Traffic Manager
 
@@ -43,7 +43,7 @@ Zum Beheben eines Testfehlers wird ein Tool benötigt, mit dem der von der Test-
 
 * [Fiddler](https://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
-* [Wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
+* [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 Sie können aber auch die Registerkarte „Netzwerk“ der F12-Tools zum Debuggen in Internet Explorer verwenden, um die HTTP-Antworten anzuzeigen.
 
@@ -80,7 +80,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Traffic Manager-Routingmethoden](traffic-manager-routing-methods.md)
+[Informationen zu Traffic Manager-Routingmethoden für Datenverkehr](traffic-manager-routing-methods.md)
 
 [Was ist Traffic Manager?](traffic-manager-overview.md)
 
@@ -88,7 +88,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operations on Traffic Manager (REST API Reference) (Vorgänge für Traffic Manager (REST-API-Referenz))](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Vorgänge für Traffic Manager (REST-API-Referenz)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager-Cmdlets][1]
 

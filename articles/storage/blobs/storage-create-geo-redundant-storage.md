@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: b884eab6d2d5a2c768991aa82f5a33d2792abd97
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508130"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306754"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Erstellen einer hochverfügbaren Anwendung mit Blobspeicher
 
@@ -40,7 +40,7 @@ Für dieses Tutorial benötigen Sie Folgendes:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Installieren Sie [Visual Studio 2017](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
+* Installieren Sie [Visual Studio 2019](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
   - **Azure-Entwicklung**
 
   ![Azure-Entwicklung (unter Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,8 +82,10 @@ Führen Sie die folgenden Schritte aus, um ein georedundantes Speicherkonto mit 
    | **Bereitstellungsmodell** | Ressourcen-Manager  | Azure Resource Manager enthält die neuesten Funktionen.|
    | **Kontoart** | StorageV2 | Weitere Informationen zu den unterschiedlichen Kontoarten finden Sie unter [Speicherkontentypen](../common/storage-introduction.md#types-of-storage-accounts). |
    | **Leistung** | Standard | Der Wert „Standard“ ist für das Beispielszenario ausreichend. |
-   | **Replikation**| Georedundanter Speicher mit Lesezugriff (RA-GRS) | Diese Angabe ist erforderlich, damit das Beispiel funktioniert. |
+   | **Replikation**| Georedundanter Speicher mit Lesezugriff (RA-GRS) | Diese Einstellung ist erforderlich, damit das Beispiel funktioniert. |
    |**Abonnement** | Ihr Abonnement |Ausführliche Informationen zu Ihren Abonnements finden Sie unter [Abonnements](https://account.windowsazure.com/Subscriptions). |
+   | **Replikation**| Georedundanter Speicher mit Lesezugriff (RA-GRS) | Diese Angabe ist erforderlich, damit das Beispiel funktioniert. |
+   |**Abonnement** | Ihr Abonnement |Ausführliche Informationen zu Ihren Abonnements finden Sie unter [Abonnements](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Gültige Ressourcengruppennamen finden Sie unter [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Benennungsregeln und Einschränkungen). |
    |**Location** | USA (Ost) | Wählen Sie einen Standort aus. |
 
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Sie finden diese Informationen im Azure-Portal, indem Sie zu Ihrem Speicherkonto navigieren und im Abschnitt **Einstellungen** die Option **Zugriffsschlüssel** auswählen.
 
-Sie müssen auch die erforderlichen Abhängigkeiten installieren. Öffnen Sie hierzu eine Eingabeaufforderung, navigieren Sie zum Beispielordner, und geben Sie dann `npm install` ein.
+Installieren Sie die erforderlichen Abhängigkeiten. Öffnen Sie hierzu eine Eingabeaufforderung, navigieren Sie zum Beispielordner, und geben Sie dann `npm install` ein.
 
 ---
 
@@ -208,7 +210,7 @@ Ein Konsolenfenster wird geöffnet, und die Anwendung wird ausgeführt. Die Anwe
 
 ![Konsolenanwendung wird ausgeführt](media/storage-create-geo-redundant-storage/figure3.png)
 
-Im Beispielcode wird die Aufgabe `RunCircuitBreakerAsync` in der Datei `Program.cs` verwendet, um mit der [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)-Methode ein Bild aus dem Speicherkonto herunterzuladen. Vor dem Download wird ein [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext?view=azure-dotnet)-Objekt initialisiert. Der Vorgangskontext definiert Ereignishandler, die aufgerufen werden, wenn ein Download erfolgreich abgeschlossen wurde oder wenn ein Download fehlschlägt und erneut versucht wird, den Download auszuführen.
+Im Beispielcode wird die Aufgabe `RunCircuitBreakerAsync` in der Datei `Program.cs` verwendet, um mit der [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync)-Methode ein Bild aus dem Speicherkonto herunterzuladen. Vor dem Download wird ein [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext)-Objekt initialisiert. Der Vorgangskontext definiert Ereignishandler, die aufgerufen werden, wenn ein Download erfolgreich abgeschlossen wurde oder wenn ein Download fehlschlägt und erneut versucht wird, den Download auszuführen.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -220,7 +222,7 @@ Im Beispielcode wird die `run_circuit_breaker`-Methode in der Datei `circuitbrea
 
 Die retry-Funktion des Storage-Objekts wird auf eine lineare Wiederholungsrichtlinie festgelegt. Mit der retry-Funktion wird ermittelt, ob für eine Anforderung ein Wiederholungsversuch durchgeführt werden soll. Außerdem wird angegeben, wie viele Sekunden lang gewartet werden soll, bevor der Versuch gestartet wird. Legen Sie den Wert **retry\_to\_secondary** auf „true“ fest, wenn für die Anforderung ein Wiederholungsversuch für den sekundären Endpunkt durchgeführt werden soll, falls die erste Anforderung an den primären Endpunkt fehlschlägt. In der Beispielanwendung wird in der `retry_callback`-Funktion des Storage-Objekts eine benutzerdefinierte Wiederholungsrichtlinie definiert.
 
-Vor dem Herunterladen werden die Funktionen [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) und [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) für das Service-Objekt definiert. Mit diesen Funktionen werden die Ereignishandler definiert, die aufgerufen werden, wenn ein Download erfolgreich abgeschlossen wurde oder wenn ein Download fehlschlägt und erneut versucht wird, den Download durchzuführen.
+Vor dem Herunterladen werden die Funktionen [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) und [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) für das Dienstobjekt definiert. Mit diesen Funktionen werden die Ereignishandler definiert, die aufgerufen werden, wenn ein Download erfolgreich abgeschlossen wurde oder wenn ein Download fehlschlägt und erneut versucht wird, den Download durchzuführen.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -229,13 +231,13 @@ Führen Sie das Beispiel mithilfe von Maven über die Befehlszeile aus.
 1. Öffnen Sie eine Shell, und navigieren Sie im geklonten Verzeichnis zu **storage-blobs-java-v10-quickstart**.
 2. Geben Sie `mvn compile exec:java` ein.
 
-In diesem Beispiel wird eine Testdatei im Standardverzeichnis erstellt. Für Windows-Benutzer ist dies das Verzeichnis **AppData\Local\Temp**. Im Beispiel werden dann die folgenden Optionen für Befehle angezeigt, die Sie eingeben können:
+In diesem Beispiel wird eine Testdatei in Ihrem Standardverzeichnis erstellt. Bei Windows-Benutzern ist dieses Verzeichnis **AppData\Local\Temp**. Im Beispiel werden dann die folgenden Optionen für Befehle angezeigt, die Sie eingeben können:
 
-- Geben Sie **P** ein, um einen „Put Blob“-Vorgang zum Hochladen einer temporären Datei in Ihr Speicherkonto auszuführen.
-- Geben Sie **L** ein, um einen „List Blob“-Vorgang zum Auflisten der aktuell im Container enthaltenen Blobs auszuführen.
-- Geben Sie **G** ein, um einen „Get Blob“-Vorgang zum Herunterladen einer Datei aus Ihrem Speicherkonto auf den lokalen Computer auszuführen.
-- Geben Sie **D** ein, um einen „Delete Blob“-Vorgang zum Löschen des Blobs aus Ihrem Speicherkonto auszuführen.
-- Geben Sie **E** ein, um das Beispiel zu schließen und gleichzeitig alle Ressourcen zu löschen, die im Rahmen des Beispiels erstellt wurden.
+- Geben Sie **P** ein, um einen Vorgang vom Typ „Put Blob“ auszuführen. Mit diesem Befehl wird eine temporäre Datei in Ihr Speicherkonto hochgeladen.
+- Geben Sie **L** ein, um einen Vorgang vom Typ „List Blob“ auszuführen. Mit diesem Befehl werden die aktuell im Container enthaltenen Blobs aufgelistet.
+- Geben Sie **G** ein, um einen Vorgang vom Typ „Get Blob“ auszuführen. Mit diesem Befehl wird eine Datei aus Ihrem Speicherkonto auf den lokalen Computer heruntergeladen.
+- Geben Sie **D** ein, um einen Vorgang vom Typ „Delete Blob“ auszuführen. Mit diesem Befehl wird das Blob aus Ihrem Speicherkonto gelöscht.
+- Geben Sie **E** ein, um das Beispiel zu schließen. Mit diesem Befehl werden gleichzeitig alle Ressourcen gelöscht, die im Rahmen des Beispiels erstellt wurden.
 
 In diesem Beispiel ist die Ausgabe gezeigt, wenn Sie die Anwendung unter Windows ausführen.
 
@@ -301,7 +303,7 @@ Deleted container newcontainer1550799840726
 
 ### <a name="retry-event-handler"></a>Ereignishandler für erneuten Downloadversuch
 
-Der Ereignishandler `OperationContextRetrying` wird aufgerufen und für einen Neuversuch festgelegt, wenn es beim Herunterladen des Bilds zu einem Fehler kommt. Wenn die maximale Anzahl von Wiederholungen erreicht ist, die in der Anwendung definiert ist, wird die [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)-Eigenschaft der Anforderung in `SecondaryOnly` geändert. Durch diese Einstellung versucht die Anwendung, das Bild vom sekundären Endpunkt herunterzuladen. Diese Konfiguration reduziert die Anforderungszeit für das Bild, da die Anzahl der wiederholten Anforderungen an den primären Endpunkt begrenzt ist.
+Der Ereignishandler `OperationContextRetrying` wird aufgerufen und für einen Neuversuch festgelegt, wenn es beim Herunterladen des Bilds zu einem Fehler kommt. Wenn die maximale Anzahl von Wiederholungen erreicht ist, die in der Anwendung definiert ist, wird die [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode)-Eigenschaft der Anforderung in `SecondaryOnly` geändert. Durch diese Einstellung versucht die Anwendung, das Bild vom sekundären Endpunkt herunterzuladen. Diese Konfiguration reduziert die Anforderungszeit für das Bild, da die Anzahl der wiederholten Anforderungen an den primären Endpunkt begrenzt ist.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -329,7 +331,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Ereignishandler für abgeschlossene Anforderung
 
-Der Ereignishandler `OperationContextRequestCompleted` wird aufgerufen, wenn der Download des Bilds erfolgreich ist. Wenn die Anwendung den sekundären Endpunkt verwendet, stellt die Anwendung weiterhin bis zu 20 Anforderungen an diesen Endpunkt. Nach 20 Anforderungen legt die Anwendung für die [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)-Eigenschaft auf den Wert `PrimaryThenSecondary` zurück und versucht erneut, Anforderungen an den primären Endpunkt zu senden. Wenn eine Anforderung erfolgreich ist, liest die Anwendung weiterhin aus dem primären Endpunkt.
+Der Ereignishandler `OperationContextRequestCompleted` wird aufgerufen, wenn der Download des Bilds erfolgreich ist. Wenn die Anwendung den sekundären Endpunkt verwendet, stellt die Anwendung weiterhin bis zu 20 Anforderungen an diesen Endpunkt. Nach 20 Anforderungen legt die Anwendung für die [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode)-Eigenschaft auf den Wert `PrimaryThenSecondary` zurück und versucht erneut, Anforderungen an den primären Endpunkt zu senden. Wenn eine Anforderung erfolgreich ist, liest die Anwendung weiterhin aus dem primären Endpunkt.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

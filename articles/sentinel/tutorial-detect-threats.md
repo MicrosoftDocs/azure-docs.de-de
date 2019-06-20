@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 319ec5d09a6daddb5c1fc36f680ee6d0d856e337
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205430"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921817"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Erkennen von Bedrohungen mit Azure Sentinel Preview
 
@@ -59,6 +59,10 @@ Erkennungsregeln basieren auf der Art der Bedrohungen und Anomalien, die in Ihre
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
         | where ActivityStatus == "Succeeded"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+
+   > [!NOTE]
+   > Die Abfragelänge sollte zwischen 1 und 10.000 Zeichen sein und kann weder „search *“ noch „union *“ enthalten.
+
 
 5. Verwenden Sie im Abschnitt **Entitätszuordnung** die Felder unter **Entitätstyp**, um Entitätsfeldern, die von Azure Sentinel erkannt werden, die Spalten in Ihrer Abfrage zuzuordnen. Ordnen Sie jedem Entitätsfeld die entsprechende Spalte in der Abfrage zu, die Sie in Log Analytics erstellt haben. Wählen Sie unter **Eigenschaft** den entsprechenden Spaltennamen aus. Jede Entität enthält mehrere Felder, wie etwa SID, GUID usw. Sie können jedes Feld der Entität für die Zuordnung verwenden, unabhängig von dessen Position in der Feldhierarchie. Es können also auch untergeordnete Felder zugeordnet werden.
 

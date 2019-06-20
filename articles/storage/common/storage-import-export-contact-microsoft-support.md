@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120362"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604227"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Öffnen eines Supporttickets für einen Import/Export-Auftrag
 
@@ -58,7 +58,7 @@ Führen Sie die folgenden Schritte aus, um eine Supportanfrage zu erstellen.
 4. Klicken Sie unter **Neue Supportanfrage** auf Schritt 3 **Kontaktinformationen**. Führen Sie unter **Kontaktinformationen** folgende Schritte aus:
 
    1. Geben Sie in **Kontaktoptionen** Ihre bevorzugte Kontaktmethode (telefonisch oder per E-Mail) und die Sprache ein. Die Antwortzeit wird die anhand Ihres Abonnementplans automatisch ausgewählt.
-   2. Geben Sie in den Kontaktinformationen Ihren Namen, die E-Mail-Adresse und optional Ihr Land ein. Aktivieren Sie das Kontrollkästchen **Kontaktänderungen für zukünftige Supportanfragen speichern**.
+   2. Geben Sie in den „Kontaktinformationen“ Ihren Namen, Ihre E-Mail-Adresse, einen optionalen Kontakt und das Land/die Region ein. Aktivieren Sie das Kontrollkästchen **Kontaktänderungen für zukünftige Supportanfragen speichern**.
    3. Klicken Sie auf **Create**.
    
        ![Kontaktinformationen](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

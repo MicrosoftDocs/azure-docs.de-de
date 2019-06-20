@@ -3,17 +3,17 @@ title: Lokales Bereitstellen der Remoteüberwachungslösung (Visual Studio Code)
 description: In dieser Schrittanleitung wird gezeigt, wie der Solution Accelerator für die Remoteüberwachung zu Test- und Entwicklungszwecken mithilfe von Visual Studio Code auf Ihrem lokalen Computer bereitgestellt wird.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316217"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730174"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Lokales Bereitstellen des Solution Accelerators für die Remoteüberwachung – Visual Studio Code
 
@@ -59,16 +59,17 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Bereitstellen aller anderen Microservices auf dem lokalen Computer
 
-In den folgenden Schritten wird erläutert, wie Sie die Microservices für die Remoteüberwachung in Visual Studio 2017 ausführen:
+In den folgenden Schritten wird erläutert, wie Sie die Microservices für die Remoteüberwachung in Visual Studio Code ausführen:
 
 1. Starten Sie Visual Studio Code.
-1. Öffnen Sie das Modul **azure-iot-pcs-remote-monitoring-dotnet** aus Ihrer lokalen Kopie in Visual Studio Code.
-1. Kopieren Sie die Dateien **launch.json** und **tasks.json** aus „Scripts\local\launch\idesettings\vscode\.“. Erstellen Sie einen neuen Ordner **azure-iot-pcs-remote-monitoring-dotnet\.vscode**, und fügen Sie die Dateien dort ein.
-1. Öffnen Sie den Debuggingbereich in Visual Studio Code, und führen Sie die Konfiguration **Run all microservices** (Alle Microservices ausführen) aus. Diese Konfiguration führt den Microservice für Gerätesimulationen in Docker und die anderen Microservices im Debugger aus.
+1. Öffnen Sie den Ordner **azure-iot-pcs-remote-monitoring-dotnet** in VS Code.
+1. Erstellen Sie einen neuen Ordner namens **.vscode** im Ordner **azure-iot-pcs-remote-monitoring-dotnet**.
+1. Kopieren Sie die Dateien **launch.json** und **tasks.json** aus „services\scripts\local\launch\idesettings\vscode“ in den gerade erstellten Ordner **.vscode**.
+1. Öffnen Sie den **Debuggingbereich** in VS Code, und führen Sie die Konfiguration **Alle Microservices ausführen** aus. Diese Konfiguration führt den Microservice für Gerätesimulationen in Docker und die anderen Microservices im Debugger aus.
 
-Die Ausgabe des **Auth**-Diensts in der **Debugging-Konsole** ähnelt z.B. der folgenden:
+Die Ausgabe der Ausführung von **Alle Microservices ausführen** in der Debugging-Konsole sieht in etwa so aus:
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Ausführen der Webbenutzeroberfläche
 

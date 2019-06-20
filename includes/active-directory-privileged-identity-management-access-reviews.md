@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: active-directory
 author: rolyon
 ms.service: active-directory
@@ -9,11 +9,11 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 364d4a11772e6bb72e2e258503f3cce49dc61453
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141846"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178786"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Erstellen einer oder mehrerer Zugriffsüberprüfungen
 
@@ -51,7 +51,7 @@ ms.locfileid: "65141846"
     ![Erstellen einer Zugriffsüberprüfung – Prüfer](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Ausgewählte Benutzer**: Verwenden Sie diese Option, wenn Sie nicht wissen, wer Zugriff benötigt. Mit dieser Option können Sie die Überprüfungsdurchführung einem Ressourcenbesitzer oder Gruppen-Manager zuweisen.
-    - **Mitglieder (selbst)**: Mit dieser Option können Benutzer ihre Rollenzuweisungen selbst überprüfen.
+    - **Mitglieder (selbst)** : Mit dieser Option können Benutzer ihre Rollenzuweisungen selbst überprüfen.
 
 ### <a name="upon-completion-settings"></a>Einstellungen nach Abschluss
 

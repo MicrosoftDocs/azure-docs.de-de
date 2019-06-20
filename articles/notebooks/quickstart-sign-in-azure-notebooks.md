@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: a9ba6fcc0c8b74664f5c4b32e54530fb4aaa2881
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608172"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751721"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Schnellstart: Anmelden und Festlegen einer Benutzer-ID
 

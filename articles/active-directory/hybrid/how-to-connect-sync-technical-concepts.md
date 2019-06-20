@@ -17,20 +17,20 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60347572"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-Synchronisierung: Technische Konzepte 
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-Synchronisierung: Technische Konzepte
 Dieser Artikel ist eine Zusammenfassung des Themas [Grundlegendes zur Architektur](how-to-connect-sync-technical-concepts.md).
 
 Azure AD Connect-Synchronisierung basiert auf einer zuverlässigen Plattform für die Metaverzeichnissynchronisierung.
 In den folgenden Abschnitte werden die Konzepte für die Metaverzeichnissynchronisierung erläutert.
 Die auf MIIS, ILM und FIM basierenden Azure Active Directory-Synchronisierungsdienste bieten die nächste Plattform für die Verbindung mit Datenquellen, die Synchronisierung von Daten zwischen Datenquellen und die Bereitstellung von Identitäten sowie deren Aufhebung.
 
-![Technische Konzepte ](./media/how-to-connect-sync-technical-concepts/scenario.png)
+![Technische Konzepte](./media/how-to-connect-sync-technical-concepts/scenario.png)
 
 Die folgenden Abschnitte bieten weitere Details zu den folgenden Aspekten des FIM-Synchronisierungsdiensts:
 
@@ -54,7 +54,7 @@ Es treten nur geplante Import- und Exportvorgänge auf, was eine weitere Isolier
 ## <a name="attribute-flow"></a>Attributfluss
 Das Metaverse ist die konsolidierte Ansicht sämtlicher verknüpfter Identitäten aus benachbarten Connectorbereichen. In der obigen Abbildung wird der eingehende und ausgehende Attributfluss durch Linien mit Pfeilspitzen dargestellt. Beim Attributfluss handelt es sich um den Vorgang des Kopierens oder Umwandelns von Daten von einem System in ein anderes. Es werden ein- und ausgehende Attributflüsse unterschieden.
 
-Ein Attributfluss tritt bidirektional zwischen Connectorbereich und Metaverse auf, wenn die Ausführung von Synchronisierungsvorgängen (vollständig oder Delta) geplant ist. 
+Ein Attributfluss tritt bidirektional zwischen Connectorbereich und Metaverse auf, wenn die Ausführung von Synchronisierungsvorgängen (vollständig oder Delta) geplant ist.
 
 Ein Attributfluss tritt nur auf, wenn diese Synchronisierungen ausgeführt werden. Attributflüsse werden in Synchronisierungsregeln definiert. Diese können eingehend (ISR im obigen Bild) oder ausgehend (OSR im obigen Bild) sein.
 

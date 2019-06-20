@@ -9,18 +9,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: b03d7d98fe43eacab63f45ccacd7d8dea9598c8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142159"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826491"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reaktion auf Blob Storage-Ereignisse
 
 Azure Storage-Ereignisse bieten Anwendungen die Möglichkeit, auf das Erstellen und Löschen von Blobs mithilfe moderner serverloser Architekturen zu reagieren. Dies geschieht ohne komplizierten Code oder teure und ineffiziente Abrufdienste.  Stattdessen werden die Ereignisse per Push über [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) an Abonnenten wie [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) oder sogar Ihren eigenen benutzerdefinierten HTTP-Listener übertragen, und Sie zahlen nur für das, was Sie tatsächliche verwenden.
 
-Blob Storage-Ereignisse werden zuverlässig an den Event Grid-Dienst gesendet, der zuverlässige Zustellungsdienste für Ihre Anwendungen durch umfangreiche Wiederholungsrichtlinien und Zustellung unzustellbarer Nachrichten bereitstellt.
+Blob Storage-Ereignisse werden zuverlässig an den Event Grid-Dienst gesendet, der zuverlässige Zustellungsdienste für Ihre Anwendungen durch umfangreiche Wiederholungsrichtlinien und Zustellung unzustellbarer Nachrichten bereitstellt. Weitere Informationen finden Sie unter [Event Grid – Übermittlung und Wiederholung von Nachrichten](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 Gängige Blob Storage-Ereignisszenarien enthalten Bild- oder Videobearbeitung, Suchindizierung oder dateiorientierte Workflows.  Asynchrone Dateiuploads eignen sich hervorragend für Ereignisse.  Wenn Änderungen selten sind, aber Ihr Szenario die sofortige Reaktion erfordert, kann die ereignisbasierte Architektur besonders effizient sein.
 

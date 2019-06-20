@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
 ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "61244458"
 ---
 # <a name="sql-database-documentation"></a>SQL-Datenbank-Dokumentation

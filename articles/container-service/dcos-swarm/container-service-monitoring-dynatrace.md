@@ -10,11 +10,11 @@ ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002000"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62119850"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(VERALTET) Überwachen eines Azure Container Service-DC/OS-Clusters mit Dynatrace SaaS/Managed
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/07/2019
-ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/29/2019
+ms.openlocfilehash: 187aa4b02e389c485b24ad7de256422d1880182b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262906"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872597"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Erfassen von Daten in Azure Data Explorer ohne jeglichen Code
 
@@ -380,7 +380,7 @@ Nun müssen Sie die Datenverbindungen für Ihre Diagnose- und Aktivitätsprotoko
     |---|---|---|
     | **Tabelle** | *DiagnosticLogsRawRecords* | Die Tabelle, die Sie in der Datenbank *TestDatabase* erstellt haben. |
     | **Datenformat** | *JSON* | Das Format, das in der Tabelle verwendet wird. |
-    | **Spaltenzuordnung** | *DiagnosticLogsRecordsMapping* | Die Zuordnung, die Sie in der Datenbank *TestDatabase* erstellt haben und mit der eingehende JSON-Daten den Spaltennamen und Datentypen der Tabelle *DiagnosticLogsRecords* zugeordnet werden.|
+    | **Spaltenzuordnung** | *DiagnosticLogsRecordsMapping* | Die Zuordnung, die Sie in der Datenbank *TestDatabase* erstellt haben und mit der eingehende JSON-Daten den Spaltennamen und Datentypen der Tabelle *DiagnosticLogsRawRecords* zugeordnet werden.|
     | | |
 
 1. Klicken Sie auf **Erstellen**.  

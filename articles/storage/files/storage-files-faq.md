@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190062"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Häufig gestellte Fragen (FAQ) zu Azure Files
@@ -254,7 +254,7 @@ In diesem Artikel werden häufig gestellte Fragen zu Azure Files-Features und -F
 * <a id="expressroute-not-required"></a>
 **Muss ich Azure ExpressRoute verwenden, wenn ich eine Verbindung mit Azure Files herstellen oder die Azure-Dateisynchronisierung lokal verwenden möchte?**  
 
-     Nein. ExpressRoute ist für den Zugriff auf eine Azure-Dateifreigabe nicht erforderlich. Wenn Sie eine Azure-Dateifreigabe direkt lokal bereitstellen, muss lediglich Port 445 (TCP ausgehend) für den Internetzugriff geöffnet sein (dies ist der Port, über den SMB kommuniziert). Wenn Sie die Azure-Dateisynchronisierung verwenden, ist lediglich Port 443 (TCP ausgehend) für den HTTPS-Zugriff erforderlich (SMB ist nicht erforderlich). Sie *können* ExpressRoute aber mit beiden Zugriffsoptionen verwenden.
+    Nein. ExpressRoute ist für den Zugriff auf eine Azure-Dateifreigabe nicht erforderlich. Wenn Sie eine Azure-Dateifreigabe direkt lokal bereitstellen, muss lediglich Port 445 (TCP ausgehend) für den Internetzugriff geöffnet sein (dies ist der Port, über den SMB kommuniziert). Wenn Sie die Azure-Dateisynchronisierung verwenden, ist lediglich Port 443 (TCP ausgehend) für den HTTPS-Zugriff erforderlich (SMB ist nicht erforderlich). Sie *können* ExpressRoute aber mit beiden Zugriffsoptionen verwenden.
 
 * <a id="mount-locally"></a>
 **Wie kann ich eine Azure-Dateifreigabe auf meinem lokalen Computer bereitstellen?**  
@@ -357,10 +357,10 @@ In diesem Artikel werden häufig gestellte Fragen zu Azure Files-Features und -F
 
 * <a id="need-larger-share"></a>
 **Ich benötige eine größere Dateifreigabe, die für Azure Files derzeit noch nicht angeboten wird. Kann ich die Größe meiner Azure-Dateifreigabe erhöhen?**  
-     Nein. Die maximale Größe einer Azure-Dateifreigabe beträgt 5 TiB. Zurzeit ist dies eine feste Grenze, die wir nicht überschreiten können. Wir arbeiten an einer Lösung, um die Freigabegröße auf 100 TiB zu erhöhen, können hierfür derzeit aber keinen Zeitplan nennen.
+    Nein. Die maximale Größe einer Azure-Dateifreigabe beträgt 5 TiB. Zurzeit ist dies eine feste Grenze, die wir nicht überschreiten können. Wir arbeiten an einer Lösung, um die Freigabegröße auf 100 TiB zu erhöhen, können hierfür derzeit aber keinen Zeitplan nennen.
 
 * <a id="open-handles-quota"></a>
-**Wie viele Clients können gleichzeitig auf dieselbe Datei zugreifen?**   
+**Wie viele Clients können gleichzeitig auf dieselbe Datei zugreifen?**    
     Für eine einzelne Datei gilt ein Kontingent von 2.000 geöffneten Handles. Wenn Sie über 2.000 geöffnete Handles verfügen, wird eine Fehlermeldung mit dem Hinweis angezeigt, dass das Kontingent erreicht ist.
 
 * <a id="zip-slow-performance"></a>
@@ -386,7 +386,7 @@ In diesem Artikel werden häufig gestellte Fragen zu Azure Files-Features und -F
 
 * <a id="nested-shares"></a>
 **Kann ich geschachtelte Freigaben einrichten? Anders ausgedrückt: Kann eine Freigabe unter einer Freigabe angeordnet werden?**  
-     Nein. Die Dateifreigabe *ist* der virtuelle Treiber, den Sie bereitstellen können. Geschachtelte Freigaben werden nicht unterstützt.
+    Nein. Die Dateifreigabe *ist* der virtuelle Treiber, den Sie bereitstellen können. Geschachtelte Freigaben werden nicht unterstützt.
 
 * <a id="ibm-mq"></a>
 **Wie kann ich Azure Files mit IBM MQ nutzen?**  

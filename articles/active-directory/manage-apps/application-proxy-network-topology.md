@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ee8800d84d1090f97fb72980123f59d5aa0375
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783475"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236246"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Aspekte der Netzwerktopologie bei Verwendung des Azure Active Directory-Anwendungsproxys
 
@@ -102,7 +102,7 @@ Die Wartezeit wird nicht negativ beeinträchtigt, weil der Datenverkehr über ei
 
 Der Schwerpunkt dieses Artikels ist zwar die Anordnung des Connectors, aber Sie können die Anordnung der Anwendung auch ändern, um bessere Wartezeiteigenschaften zu erhalten.
 
-Immer mehr Organisationen verschieben ihre Netzwerke in gehostete Umgebungen. Auf diese Weise können sie ihre Apps in einer gehosteten Umgebung anordnen, die gleichzeitig Teil ihres Unternehmensnetzwerks ist und sich noch innerhalb der Domäne befindet. In diesem Fall können die in den vorherigen Abschnitten beschriebenen Muster auf den neuen Anwendungsspeicherort angewendet werden. Informationen zu diesem Ansatz finden Sie unter [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+Immer mehr Organisationen verschieben ihre Netzwerke in gehostete Umgebungen. Auf diese Weise können sie ihre Apps in einer gehosteten Umgebung anordnen, die gleichzeitig Teil ihres Unternehmensnetzwerks ist und sich noch innerhalb der Domäne befindet. In diesem Fall können die in den vorherigen Abschnitten beschriebenen Muster auf den neuen Anwendungsspeicherort angewendet werden. Informationen zu diesem Ansatz finden Sie unter [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
 
 Erwägen Sie außerdem, Ihre Connectors mithilfe von [Connectorgruppen](application-proxy-connector-groups.md) für Apps zu organisieren, die sich an verschiedenen Standorten bzw. in verschiedenen Netzwerken befinden. 
 

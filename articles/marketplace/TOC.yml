@@ -8,15 +8,6 @@
     - name: 'Azure Marketplace und AppSource: Übersicht und Vorteile'
       href: ./marketplace-publishers-guide.md
       items:
-        - name: Ihr Weg zum Herausgeber im Marketplace
-          href: ./become-publisher.md
-          items:
-            - name: Erstellen eines Microsoft-Kontos
-              href: ./guidelines.md
-            - name: Registrieren bei Dev Center
-              href: ./register-dev-center.md
-            - name: Zuordnen der Nutzung durch Kunden von Azure-Partnern
-              href: ./azure-partner-customer-usage-attribution.md
         - name: 'Ein Marketplace, zwei Storefronts'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Optionen und Überlegungen zur Veröffentlichung
@@ -30,6 +21,8 @@
               href: ./private-offers.md
             - name: Standardvertrag
               href: ./standard-contract.md
+            - name: Zuordnen der Nutzung durch Kunden von Azure-Partnern
+              href: ./azure-partner-customer-usage-attribution.md
         - name: Leitfaden zur Veröffentlichung nach Angebotstyp
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -65,8 +58,6 @@
         - name: Ihre Marketplace-Vorteile
           href: ./gtm-your-marketplace-benefits.md
           items:
-            - name: Bewerben Ihres Business mit Microsoft
-              href: ./gtm-promote-your-business.md
             - name: Bevorzugte Lösungen
               href: ./preferred-solutions.md
             - name: Integrierte Lösungen
@@ -335,39 +326,6 @@
               href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: SaaS-Anwendungsangebot
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
-          items:
-            - name: Voraussetzungen
-              href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
-            - name: Erstellen eines SaaS-Anwendungsangebots
-              href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
-              items:
-                - name: Registerkarte „Angebotseinstellungen“
-                  href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
-                - name: Registerkarte „Technische Informationen“
-                  href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
-                - name: Registerkarte „Pläne“
-                  href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
-                - name: Registerkarte „Channel Info“ (Kanalinformationen)
-                  href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
-                - name: Registerkarte „Testversion“
-                  href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
-                - name: Registerkarte „Storefront Details“ (Storefrontdetails)
-                  href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
-                - name: Registerkarte „Kontakte“
-                  href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
-            - name: Veröffentlichen eines Angebots
-              href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
-            - name: Aktualisieren eines vorhandenen Angebots
-              href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
-            - name: SaaS-Fulfillment-APIs
-              href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
-              items:
-                - name: Registrieren einer SaaS-Anwendung
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
-                - name: SaaS-API v1 (veraltet)
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
-                - name: SaaS-API v2
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
         - name: VM-Angebot
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
@@ -477,13 +435,28 @@
           href: ./partner-center-portal/manage-account.md
         - name: Suchen oder Erstellen eines Geschäftskontos
           href: ./partner-center-portal/company-work-accounts.md
+        - name: Kontomigration von CPP zu Partner Center
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Erstellen eines neuen Angebots
       items:
+        - name: Prüfliste für die Angebotserstellung
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: Erstellen eines SaaS-Angebots
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS-Fulfillment-APIs
+          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: Registrieren einer SaaS-Anwendung
+              href: ./partner-center-portal/pc-saas-registration.md
+            - name: SaaS-Fulfillment-APIs v2
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: SaaS-Fulfillment-APIs v1 (veraltet)
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: Veröffentlichungsstatus
       href: ./partner-center-portal/publishing-status.md
     - name: Aktualisieren vorhandener Angebote
       href: ./partner-center-portal/update-existing-offer.md
     - name: Supportoptionen
       href: ./partner-center-portal/support.md
+    - name: Partner Center Analytics
+      href: ./partner-center-portal/analytics.md

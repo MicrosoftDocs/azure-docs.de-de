@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849971"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60554497"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Konfigurieren von Azure Cache for Redis
 In diesem Thema sind die für Ihre Azure Cache for Redis-Instanzen verfügbaren Konfigurationen beschrieben. Darüber hinaus wird in diesem Thema die standardmäßige Redis-Serverkonfiguration für Azure Cache for Redis-Instanzen behandelt.
@@ -82,7 +82,7 @@ Klicken Sie auf **Aktivitätsprotokoll** , um in Ihrem Cache ausgeführte Aktion
 
 Der Abschnitt **Zugriffssteuerung (IAM)** bietet Unterstützung für die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) über das Azure-Portal. Mit dieser Konfiguration können Organisationen ihre Zugriffsverwaltungsanforderungen einfach und präzise erfüllen. Weitere Informationen finden Sie unter [Rollenbasierte Zugriffssteuerung im Azure-Portal](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Tags
+### <a name="tags"></a>`Tags`
 
 Im Abschnitt **Tags** können Sie Ihre Ressourcen organisieren. Weitere Informationen finden Sie unter [Verwenden von Tags zum Organisieren von Azure-Ressourcen](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -404,7 +404,7 @@ Neue Azure Cache for Redis-Instanzen werden mit den folgenden standardmäßigen 
 | `maxclients` |Tarifabhängig<sup>2</sup> |Dieser Wert ist die maximale Anzahl von verbundenen Clients, die gleichzeitig zulässig sind. Sobald der Grenzwert erreicht ist, schließt Redis alle neuen Verbindungen und gibt den Fehler „max number of clients reached“ (Maximale Anzahl von Clients erreicht) zurück. |
 | `maxmemory-policy` |`volatile-lru` |Mit der Einstellung „maxmemory-policy“ wird festgelegt, was in Redis entfernt werden soll, wenn der Wert für `maxmemory` (Größe des Caches, die Sie beim Erstellen des Caches ausgewählt haben) erreicht ist. Bei Azure Cache for Redis lautet die Standardeinstellung `volatile-lru`. Hierbei werden die Schlüssel anhand eines Ablaufverfahrens mit LRU-Algorithmus entfernt. Diese Einstellung kann im Azure-Portal konfiguriert werden. Weitere Informationen finden Sie unter [Arbeitsspeicherrichtlinien](#memory-policies). |
 | `maxmemory-samples` |3 |Zur Einsparung von Arbeitsspeicher sind LRU- und minimale TTL-Algorithmen keine präzisen Algorithmen, sondern angenäherte Algorithmen. Standardmäßig werden von Redis drei Schlüssel geprüft, und es wird der Schlüssel ausgewählt, der vor längerer Zeit verwendet wurde. |
-| `lua-time-limit` |5.000 |Maximale Ausführungszeit eines Lua-Skripts in Millisekunden. Wenn die maximale Ausführungszeit erreicht wird, protokolliert Redis, dass ein Skript nach der maximal zulässigen Ausführungszeit weiterhin ausgeführt wird. Es wird dann damit begonnen, auf Abfragen mit einem Fehler zu antworten. |
+| `lua-time-limit` |5\.000 |Maximale Ausführungszeit eines Lua-Skripts in Millisekunden. Wenn die maximale Ausführungszeit erreicht wird, protokolliert Redis, dass ein Skript nach der maximal zulässigen Ausführungszeit weiterhin ausgeführt wird. Es wird dann damit begonnen, auf Abfragen mit einem Fehler zu antworten. |
 | `lua-event-limit` |500 |Maximale Größe der Skriptereigniswarteschlange. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Die Clientausgabepuffer-Grenzwerte können verwendet werden, um die Verbindungstrennung für Clients zu erzwingen, die aus einem bestimmten Grund Daten nicht schnell genug vom Server lesen. Weitere Informationen finden Sie unter [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 

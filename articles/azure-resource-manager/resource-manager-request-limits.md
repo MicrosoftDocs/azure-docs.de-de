@@ -1,30 +1,24 @@
 ---
 title: Grenzwerte und Drosselung für Anforderungen – Azure Resource Manager
 description: Beschreibt, wie eine Begrenzung von Azure Resource Manager-Anforderungen genutzt wird, wenn Abonnementgrenzwerte erreicht wurden.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550625"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66399710"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begrenzen von Resource Manager-Anforderungen
 
 Für jedes Azure-Abonnement und jeden Azure-Mandanten erlaubt Resource Manager pro Stunde bis zu 12.000 Leseanforderungen und bis zu 1.200 Schreibanforderungen. Diese Grenzwerte gelten für die Prinzipal-ID, von der die Anforderungen stammen, sowie für die Abonnement-ID bzw. die Mandanten-ID. Falls Ihre Anforderungen von mehreren Prinzipal-IDs stammen, liegen die Grenzwerte für das Abonnement/den Mandanten über 12.000 bzw. 1.200 Anforderungen pro Stunde.
 
-Anforderungen werden entweder auf Ihr Abonnement oder auf Ihren Mandanten angewendet. Bei Abonnementanforderungen wird Ihre Abonnement-ID übergeben (etwa beim Abrufen der Ressourcengruppen in Ihrem Abonnement). In Mandantenanforderungen ist Ihre Abonnement-ID nicht enthalten (etwa beim Abrufen gültiger Azure-Standorte).
+Anforderungen werden entweder auf Ihr Abonnement oder auf Ihren Mandanten angewendet. Bei Abonnementanforderungen wird Ihre Abonnement-ID übergeben, z. B. beim Abrufen der Ressourcengruppen in Ihrem Abonnement. In Mandantenanforderungen ist Ihre Abonnement-ID nicht enthalten (etwa beim Abrufen gültiger Azure-Standorte).
 
 Diese Grenzwerte gelten für jede Azure Resource Manager-Instanz. In jeder Azure-Region sind mehrere Instanzen vorhanden, und Azure Resource Manager wird in allen Azure-Regionen bereitgestellt.  In der Praxis sind die Grenzwerte also effektiv sehr viel höher als die aufgeführten Grenzwerte, da Benutzeranforderungen in der Regel von vielen verschiedenen Instanzen verarbeitet werden.
 
@@ -32,7 +26,7 @@ Wenn Ihre Anwendung oder Ihr Skript diese Grenzwerte erreicht, müssen Sie die A
 
 Wenn Sie den Grenzwert erreichen, erhalten Sie den HTTP-Statuscode **429 Zu viele Anforderungen**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure Resource Graph begrenzt die Anzahl der Anforderungen nach seinen Vorgängen. Die Schritte in diesem Artikel zum Bestimmen der verbleibenden Anforderungen und zum Reagieren bei Erreichen des Grenzwerts gelten auch für Resource Graph. Resource Graph legt jedoch einen eigenen Grenzwert und eine eigene Rücksetzrate fest. Weitere Informationen finden Sie unter [Drosselung in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Verbleibende Anforderungen
 Sie können die Anzahl der verbleibenden Anforderungen durch Untersuchen der Antwortheader bestimmen. Leseanforderungen geben im Header einen Wert für die Anzahl der verbleibenden Leseanforderungen zurück. Schreibanforderungen enthalten einen Wert für die Anzahl der verbleibenden Schreibanforderungen. Die folgende Tabelle beschreibt die Antwortheader, die Sie auf diese Werte untersuchen können:

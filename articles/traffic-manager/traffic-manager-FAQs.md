@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b89e9a48ce20c7c00bd3282623919b8066e34b25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788426"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717060"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Traffic Manager
 
@@ -320,7 +320,7 @@ Ja. Traffic Manager unterstützt Tests per HTTPS. Konfigurieren Sie in der Über
 Traffic Manager kann keine Zertifikatüberprüfung bereitstellen. Dazu zählt Folgendes:
 
 * Serverseitige Zertifikate werden nicht überprüft.
-* Serverseitige SNI-Zertifikate werden nicht unterstützt.
+* Serverseitige SNI-Zertifikate werden nicht überprüft.
 * Clientzertifikate werden nicht unterstützt.
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Verwende ich beim Hinzufügen eines Endpunkts eine IP-Adresse oder einen DNS-Namen?

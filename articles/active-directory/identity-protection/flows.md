@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60295303"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Anmeldeverfahren von Azure AD Identity Protection
 Azure Active Directory Identity Protection bietet folgende Möglichkeiten:

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: rosh
 ms.openlocfilehash: 8078fe17ae3b282887f4bceb1bb10b34d6a007f4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60832165"
 ---
 # <a name="project-url-preview-use-and-display-requirements"></a>Verwendungs- und Anzeigeanforderungen für Project URL Preview
 

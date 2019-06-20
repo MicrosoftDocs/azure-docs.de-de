@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60400642"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Abfragesyntax für das IoT Hub-Nachrichtenrouting
 
@@ -66,7 +66,7 @@ Anwendungseigenschaften sind benutzerdefinierte Zeichenfolgen, die der Nachricht
 
 ### <a name="query-expressions"></a>Abfrageausdrücke
 
-Abfragen der Nachrichtensystemeigenschaften muss das Symbol `$` vorangestellt werden. Auf Abfragen von Anwendungseigenschaften wird anhand der Namen zugegriffen, ihnen sollte das Symbol `$` nicht vorangestellt werden. Wenn der Name einer Anwendungseigenschaft mit `$` beginnt, sucht IoT Hub zunächst in den Systemeigenschaften nach dieser. Wenn sie dort nicht gefunden werden konnte, wird in den Anwendungseigenschaften gesucht. Beispiel:  
+Abfragen der Nachrichtensystemeigenschaften muss das Symbol `$` vorangestellt werden. Auf Abfragen von Anwendungseigenschaften wird anhand der Namen zugegriffen, ihnen sollte das Symbol `$` nicht vorangestellt werden. Wenn der Name einer Anwendungseigenschaft mit `$` beginnt, sucht IoT Hub zunächst in den Systemeigenschaften nach dieser. Wenn sie dort nicht gefunden werden konnte, wird in den Anwendungseigenschaften gesucht. Beispiel: 
 
 So führen Sie eine Abfrage der Systemeigenschaft „contentEncoding“ durch 
 

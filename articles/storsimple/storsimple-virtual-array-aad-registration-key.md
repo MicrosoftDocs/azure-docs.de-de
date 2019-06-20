@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: alkohli
-ms.openlocfilehash: e33a3f843017ec24f3a79701fac9a62e15b4f9ba
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 080f49ca1078858462264f229e9acfee6fad17d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61387661"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Verwenden der neuen Authentifizierung für StorSimple
 

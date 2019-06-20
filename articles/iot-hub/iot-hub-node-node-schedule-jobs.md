@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: 1f357ed60e9d9f020d5a80ac9349eb65577521e7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: af35a84c299544e43988547771ddce75fd71bd90
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065787"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Planen und Übertragen von Aufträgen (Node)
 
@@ -50,7 +50,7 @@ Am Ende dieses Tutorials verfügen Sie über zwei Node.js-Apps:
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Node.js Version 4.0.x oder höher: Im Artikel [Vorbereiten Ihrer Entwicklungsumgebung](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) wird beschrieben, wie Sie Node.js für dieses Tutorial unter Windows oder Linux installieren.
+* Node.js, Version 10.0.x oder höher: Im Artikel [Vorbereiten Ihrer Entwicklungsumgebung](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) wird beschrieben, wie Sie Node.js für dieses Tutorial unter Windows oder Linux installieren.
 
 * Ein aktives Azure-Konto. (Wenn Sie nicht über ein Konto verfügen, können Sie in nur wenigen Minuten ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/) erstellen.)
 
@@ -105,7 +105,7 @@ In diesem Abschnitt erstellen Sie eine Node.js-Konsolen-App, die auf eine von de
    
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
-            if (!err) {
+            if (err) {
                 console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');

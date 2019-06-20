@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761949"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494352"
 ---
 # <a name="dynamic-packaging"></a>Dynamische Paketerstellung
 
@@ -31,6 +31,9 @@ Für die Nutzung der **dynamischen Paketerstellung** benötigen Sie ein **Medien
 So müssen Sie die Dateien nur in einem Speicherformat speichern und bezahlen. Die entsprechende Antwort wird von Media Services basierend auf Clientanforderungen erstellt und verfügbar gemacht. 
 
 Die dynamische Paketerstellung in Media Services wird sowohl für Livestreaming als auch für On-Demand-Streaming verwendet. 
+
+> [!NOTE]
+> Derzeit können Sie das Azure-Portal nicht für die Verwaltung von v3-Ressourcen verwenden. Verwenden Sie die [REST-API](https://aka.ms/ams-v3-rest-ref), die [Befehlszeilenschnittstelle](https://aka.ms/ams-v3-cli-ref) oder eines der unterstützten [SDKs](media-services-apis-overview.md#sdks).
 
 ## <a name="common-on-demand-workflow"></a>Allgemeiner On-Demand-Workflow
 
@@ -92,10 +95,32 @@ Die dynamische Paketerstellung unterstützt MP4-Dateien mit Video, das mit [H.26
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Von der dynamischen Paketerstellung unterstützte Audiocodecs
 
-Die dynamische Paketerstellung unterstützt MP4-Dateien mit Audio, das mit [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 oder E-AC3), Dolby Atmos oder [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless) codiert wurde. Das Streaming von Dolby Atmos-Inhalten wird für Standards wie das MPEG-DASH-Protokoll mit fragmentiertem CSF- (Common Streaming Format) oder CMAF-MP4 (Common Media Application Format) und über HTTP Live Streaming (HLS) mit CMAF unterstützt.
+### <a name="mp4-files-support"></a>Unterstützung von MP4-Dateien
 
-> [!NOTE]
-> Dateien mit [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)-Audio (AC3) werden von der dynamischen Paketerstellung nicht unterstützt, da es sich dabei um einen Legacy-Codec handelt.
+Die dynamische Paketerstellung unterstützt MP4-Dateien mit Audiodaten, die folgendermaßen codiert sind: 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 oder E-AC3)
+* Dolby Atmos
+   
+   Das Streaming von Dolby Atmos-Inhalten wird für Standards wie das MPEG-DASH-Protokoll mit fragmentiertem CSF- (Common Streaming Format) oder CMAF-MP4 (Common Media Application Format) und über HTTP Live Streaming (HLS) mit CMAF unterstützt.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    Folgende DTS-Codecs werden von den Paketerstellungsformaten DASH-CSF, DASH-CMAF, HLS-M2TS und HLS-CMAF unterstützt:  
+
+    * DTS Digital Surround (dtsc)
+    * DTS-HD High Resolution und DTS-HD Master Audio (dtsh)
+    * DTS Express (dtse)
+    * DTS-HD Lossless ohne Core (dtsl)
+
+### <a name="multi-audio-tracks"></a>Mit mehreren Audiospuren
+
+Beim streaming Assets, die mehreren Audiospuren mit mehreren Codecs und Sprachen unterstützt dynamische Paketerstellung mit mehreren Audiospuren für die Ausgabe von HLS (Version 4 oder höher).
+ 
+### <a name="not-supported"></a>Nicht unterstützt
+
+Dateien mit [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)-Audio (AC3) werden von der dynamischen Paketerstellung nicht unterstützt, da es sich dabei um einen Legacy-Codec handelt.
 
 ## <a name="dynamic-encryption"></a>Dynamische Verschlüsselung
 
@@ -193,10 +218,7 @@ Beispiel für ein Smooth Streaming-Manifest:
 
 ## <a name="dynamic-manifest"></a>Dynamisches Manifest
 
-Mithilfe der dynamischen Filterung kann die Anzahl von Spuren, Formaten, Bitraten und Präsentationszeitfenstern gesteuert werden, die an die Player gesendet werden. Weitere Informationen finden Sie unter [Filter und dynamische Manifeste](filters-dynamic-manifest-overview.md).
-
-> [!NOTE]
-> Derzeit können Sie das Azure-Portal nicht für die Verwaltung von v3-Ressourcen verwenden. Verwenden Sie die [REST-API](https://aka.ms/ams-v3-rest-ref), die [Befehlszeilenschnittstelle](https://aka.ms/ams-v3-cli-ref) oder eines der unterstützten [SDKs](media-services-apis-overview.md#sdks).
+Mithilfe der dynamischen Filterung kann die Anzahl von Spuren, Formaten, Bitraten und Präsentationszeitfenstern gesteuert werden, die an die Player gesendet werden. Weitere Informationen finden Sie unter [Vorfiltern von Manifesten mit dem dynamischen Packager](filters-dynamic-manifest-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fragen stellen, Feedback geben, Updates abrufen
 

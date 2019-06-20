@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001149"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60285196"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretieren des Azure AD-Anmeldeprotokollschemas in Azure Monitor
 
@@ -145,9 +145,9 @@ Dieser Artikel beschreibt das Azure Active Directory-Anmeldeprotokollschema (Azu
 
 | Feldname | BESCHREIBUNG |
 |------------|-------------|
-| Zeit | Das Datum und die Uhrzeit in UTC. |
+| Time | Das Datum und die Uhrzeit in UTC. |
 | resourceId | Dieser Wert wird nicht zugeordnet, sodass das Feld ignoriert werden kann.  |
-| NameVorgang | Für Anmeldungen ist dieser Wert immer *Anmeldeaktivität*. |
+| OperationName | Für Anmeldungen ist dieser Wert immer *Anmeldeaktivität*. |
 | OperationVersion | Die vom Client angeforderte REST-API-Version. |
 | Category (Kategorie) | Für Anmeldungen ist dieser Wert immer *SignIn*. | 
 | TenantId | Die mit den Protokollen verknüpfte Mandanten-GUID. |
@@ -158,8 +158,8 @@ Dieser Artikel beschreibt das Azure Active Directory-Anmeldeprotokollschema (Azu
 | CallerIpAddress | Die IP-Adresse des Clients, der die Anforderung gestellt hat. | 
 | CorrelationId | Die optionale GUID, die vom Client übergeben wird. Dieser Wert kann dabei helfen, clientseitige Vorgänge mit serverseitigen Vorgängen zu korrelieren und Protokolle zu verfolgen, die sich über mehrere Dienste erstrecken. |
 | Identity | Die Identität des Tokens, das beim Erstellen der Anforderung angegeben wurde. Dies kann ein Benutzerkonto, ein Systemkonto oder einen Dienstprinzipal sein. |
-| Ebene | Gibt den Typ der Nachricht an. Bei Überwachungen ist es immer *Information*. |
-| Standort | Gibt den Standort der Anmeldeaktivität an. |
+| Level | Gibt den Typ der Nachricht an. Bei Überwachungen ist es immer *Information*. |
+| Location | Gibt den Standort der Anmeldeaktivität an. |
 | Eigenschaften | Listet alle Eigenschaften auf, die mit Anmeldungen verknüpft sind. Weitere Informationen finden Sie in der [Microsoft Graph-API-Referenz](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Dieses Schema verwendet zur besseren Lesbarkeit die gleichen Attributnamen wie die Anmelderessource.
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9a8ab024443744f50482dd2ca1cfb33db43359e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463300"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Durchführen von Livestreaming mit lokalen Encodern mit dem Azure-Portal
 > [!div class="op_single_selector"]

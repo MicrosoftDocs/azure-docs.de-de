@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 02ebd0629fed9037054a5c22931f3e99c09073c4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998599"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956015"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Bereitstellen von Inhalt aus Azure Storage in App Service unter Linux
 
-Diese Anleitung verdeutlicht die Bereitstellen statischen Inhalts in App Service unter Linux mithilfe von [Azure Storage](/azure/storage/common/storage-introduction). Zu den Vorteilen gehören sicherer Inhalt, die Portabilität des Inhalts, Zugriff auf mehrere Apps und mehrere Übertragungsmethoden. In diesem Leitfaden erfahren Sie, wie Sie Inhalte in Azure Storage durch das Konfigurieren eines benutzerdefinierten Speichers bereitstellen.
+Diese Anleitung verdeutlicht die Bereitstellen statischen Inhalts in App Service unter Linux mithilfe von [Azure Storage](/azure/storage/common/storage-introduction). Zu den Vorteilen gehören sicherer Inhalt, die Portabilität des Inhalts, Zugriff auf mehrere Apps und mehrere Übertragungsmethoden. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -67,9 +67,22 @@ Gehen Sie genauso für alle anderen Verzeichnisse vor, die mit einem Speicherkon
 Sobald ein Speichercontainer mit einer Web-App verknüpft ist, können Sie dies durch Ausführen des folgenden Befehls überprüfen:
 
 ```azurecli
-az webapp config storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <resource_group> --name <app_name>
+```
+
+## <a name="use-custom-storage-in-docker-compose"></a>Verwenden von benutzerdefiniertem Speicher in Docker Compose
+
+Azure Storage kann über die benutzerdefinierte ID mit Apps mit mehreren Containern eingebunden werden. Führen Sie [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list) aus, um den Namen der benutzerdefinierten ID anzuzeigen.
+
+Ordnen Sie in Ihrer Datei *docker-compose.yml* die `volumes`-Option zu `custom-id` zu. Beispiel:
+
+```yaml
+wordpress:
+  image: wordpress:latest
+  volumes:
+  - <custom-id>:<path_in_container>
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Konfigurieren von Web-Apps in Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-configure)
+- [Konfigurieren von Web-Apps in Azure App Service](../configure-common.md)

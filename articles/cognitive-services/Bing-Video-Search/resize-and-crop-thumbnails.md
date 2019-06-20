@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: d0eefaab698035ec723b126c5a629e9f6a386292
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869126"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61432533"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>Anpassen der Größe und Zuschneiden von Miniaturansichten
 

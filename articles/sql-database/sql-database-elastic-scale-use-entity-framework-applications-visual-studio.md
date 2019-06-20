@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755933"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60331916"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Clientbibliothek für elastische Datenbanken mit Entity Framework
 
@@ -134,7 +134,7 @@ public DbSet<Blog> Blogs { get; set; }
   * Die Shard-Zuordnung erstellt die offene Verbindung mit der Shard, die das Shardlet für den gegebenen Sharding-Schlüssel enthält.
   * Diese offene Verbindung wird zurück an den Basisklassenkonstruktor von DbContext übergeben, um anzugeben, dass EF diese Verbindung verwenden und nicht automatisch eine neue Verbindung erstellen soll. Auf diese Weise wird die Verbindung von der Client-API für elastische Datenbanken markiert, damit die Konsistenz unter den Shard-Zuordnungsverwaltungs-Vorgängen gewährleistet werden kann.
 
-Verwenden Sie in Ihrem Code den neuen Konstruktor für die DbContext-Unterklasse statt des Standardkonstruktors. Beispiel:  
+Verwenden Sie in Ihrem Code den neuen Konstruktor für die DbContext-Unterklasse statt des Standardkonstruktors. Beispiel: 
 
 ```csharp
 // Create and save a new blog.

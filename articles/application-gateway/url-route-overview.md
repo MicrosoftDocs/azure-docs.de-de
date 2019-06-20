@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
 ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61361953"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Übersicht über Routing auf URL-Pfadbasis mit Azure Application Gateway
 

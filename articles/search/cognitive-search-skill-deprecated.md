@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a73c7e381cb6001b773251a1812466b3c82373f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021957"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65541730"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Veraltete Qualifikationen für die kognitive Suche
 
@@ -35,7 +35,7 @@ In diesem Dokument werden die kognitiven Qualifikationen beschrieben, die als ve
 
 ### <a name="end-of-support"></a>Ende des Supports
 
-15. Februar 2019
+15\. Februar 2019
 
 ### <a name="recommendations"></a>Empfehlungen 
 

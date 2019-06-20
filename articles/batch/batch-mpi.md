@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a4184fa361ba863cdaf916ef4853eda8b6e8188
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905017"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595950"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Verwenden von Tasks mit mehreren Instanzen zum Ausführen von MPI-Anwendungen (Message Passing Interface) in Batch
 
@@ -281,7 +281,7 @@ Im Codebeispiel [MultiInstanceTasks][github_mpi] auf GitHub wird veranschaulicht
 
 ### <a name="execution"></a>Ausführung
 1. Laden Sie [azure-batch-samples][github_samples_zip] von GitHub herunter.
-2. Öffnen Sie die **Lösung** „MultiInstanceTasks“ in Visual Studio 2017. Die Lösungsdatei `MultiInstanceTasks.sln` befindet sich hier:
+2. Öffnen Sie die **Projektmappe** „MultiInstanceTasks“ in Visual Studio 2019. Die Lösungsdatei `MultiInstanceTasks.sln` befindet sich hier:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Geben Sie die Anmeldeinformationen für Ihr Batch- und Storage-Konto in `AccountSettings.settings` im Projekt **Microsoft.Azure.Batch.Samples.Common** ein.

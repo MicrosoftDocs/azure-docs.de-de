@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,11 +15,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080136"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178274"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>AuthenticationResult-Eigenschaften in MSAL.NET
 

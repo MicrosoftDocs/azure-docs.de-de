@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067199"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Überwachen der Leistung mit dem Abfragespeicher
@@ -160,7 +160,7 @@ Diese Ansicht gibt Warteereignisdaten im Abfragespeicher zurück. Es gibt eine Z
 |query_id   |bigint     ||Interner Hash, der von der Analysestruktur der Anweisung berechnet wurde|
 |event_type |text       ||Der Typ des Ereignisses, auf das das Back-End wartet|
 |event  |text       ||Der Warteereignisname, wenn das Back-End derzeit wartet|
-|calls  |Ganze Zahl         ||Nummer des gleichen erfassten Ereignisses|
+|calls  |Integer        ||Nummer des gleichen erfassten Ereignisses|
 
 
 ### <a name="functions"></a>Functions

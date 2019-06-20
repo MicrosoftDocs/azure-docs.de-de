@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
 ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58111938"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60312707"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopieren neuer und geänderter Dateien nach „LastModifiedDate“ mit Azure Data Factory
 
@@ -60,8 +60,8 @@ Die Vorlage definiert vier Parameter:
     ![Pipeline anzeigen](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Klicken Sie auf **Debuggen**, geben Sie den Wert für die **Parameter** ein, und klicken Sie auf **Fertig stellen**.  Auf der Abbildung wurden die Parameter folgendermaßen festgelegt:
-   - **FolderPath_Source** = **/source/**
-   - **FolderPath_Destination** = **/destination/**
+   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
@@ -86,10 +86,10 @@ Die Vorlage definiert vier Parameter:
     ![Trigger erstellen](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. Geben Sie den Wert für die **Triggerausführungsparameter** wie im Folgenden veranschaulicht ein, und klicken Sie auf **Fertig stellen**.
-    - **FolderPath_Source** = **/source/**.  Sie können diesen Wert durch Ihren Ordner im Quelldatenspeicher ersetzen.
-    - **FolderPath_Destination** = **/destination/**.  Sie können diesen Wert durch Ihren Ordner im Zieldatenspeicher ersetzen.
-    - **LastModified_From** =  **@trigger().outputs.windowStartTime**.  Hierbei handelt es sich um eine Systemvariable des Auslösers, die den Zeitpunkt bestimmt, zu dem die Pipeline zuletzt ausgelöst wurde.
-    - **LastModified_To** = **@trigger().outputs.windowEndTime**.  Hierbei handelt es sich um eine Systemvariable des Auslösers, die den Zeitpunkt bestimmt, zu dem die Pipeline dieses Mal ausgelöst wird.
+    - **FolderPath_Source** =  **/source/** .  Sie können diesen Wert durch Ihren Ordner im Quelldatenspeicher ersetzen.
+    - **FolderPath_Destination** =  **/destination/** .  Sie können diesen Wert durch Ihren Ordner im Zieldatenspeicher ersetzen.
+    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  Hierbei handelt es sich um eine Systemvariable des Auslösers, die den Zeitpunkt bestimmt, zu dem die Pipeline zuletzt ausgelöst wurde.
+    - **LastModified_To** =  **@trigger().outputs.windowEndTime**.  Hierbei handelt es sich um eine Systemvariable des Auslösers, die den Zeitpunkt bestimmt, zu dem die Pipeline dieses Mal ausgelöst wird.
     
     ![Eingabeparameter](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 2039dd9222809d2c05aaeaf01f9d38c51f3b3797
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661590"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837310"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Ermöglicht es, Befehle an den Infrastrukturdienst abzufragen und zu senden.

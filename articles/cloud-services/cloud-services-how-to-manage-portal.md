@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038265"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61433895"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Verwalten von Clouddiensten im Azure-Portal
 Im Bereich **Clouddienste** des Azure-Portals haben Sie folgende Möglichkeiten:

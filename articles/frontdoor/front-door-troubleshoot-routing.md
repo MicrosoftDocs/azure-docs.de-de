@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
 ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736121"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Behandeln von häufigen Routingproblemen
 In diesem Artikel wird beschrieben, wie Sie einige häufige Routingprobleme in Ihrer Azure Front Door Service-Konfiguration beheben können. 

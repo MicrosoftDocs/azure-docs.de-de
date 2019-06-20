@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
 ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099017"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60330526"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Verwenden von Lastenausgleichsdiensten in Azure
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467059"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539316"
 ---
 # <a name="what-is-azure-search"></a>Was ist Azure Search?
 Azure Search ist eine Search-as-a-Service-Cloudlösung, die Entwicklern APIs und Tools zum Hinzufügen von umfangreichen Suchfunktionen für private, heterogene Inhalte in Web- und Unternehmensanwendungen sowie in mobilen Anwendungen bietet. Die Abfrageausführung erfolgt über einen benutzerdefinierten Index.
@@ -43,8 +43,8 @@ Die Funktionalität wird über eine einfache [REST-API](/rest/api/searchservice/
 
 | KI-Anreicherung&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Features |
 |-------------------|----------|
-|Durch KI angereicherte Dokumente | [**Kognitive Suche**](cognitive-search-concept-intro.md) für Bild- und Textanalyse kann für eine Indizierungspipeline durchgeführt werden, um Textinformationen aus Rohdateninhalten zu extrahieren. Zu den [integrierten Skills](cognitive-search-predefined-skills.md) zählen beispielsweise die optische Zeichenerkennung (ermöglicht das Durchsuchen gescannter JPEG-Dateien), die Entitätserkennung (Ermitteln einer Organisation, eines Namens oder eines Standorts) und die Schlüsselbegriffserkennung. Sie können auch [benutzerdefinierte Skills codieren](cognitive-search-create-custom-skill-example.md) und sie an die Pipeline anfügen. |
-| Gespeicherte Anreicherungen für Analyse und Nutzung| [**Wissensspeicher (Vorschauversion)**](knowledge-store-concept-intro.md) ist eine Erweiterung der auf KI basierenden Indizierung. Mit Azure Storage als Back-End können Sie Anreicherungen speichern, die während der Indizierung erstellt werden. Mithilfe dieser Artefakte können Sie bessere Qualifikationsgruppen entwerfen oder Formen und Strukturen aus formlosen oder nicht eindeutigen Daten erstellen. Sie können Projektionen dieser Strukturen für bestimmte Workloads oder Benutzer erstellen. Sie können die extrahierten Daten zudem direkt analysieren oder in andere Apps laden.<br/><br/> |
+|Durch KI angereicherte Dokumente | [**Kognitive Suche**](cognitive-search-concept-intro.md) für Bild- und Textanalyse kann auf eine Indizierungspipeline angewandt werden, um Textinformationen aus Rohdateninhalten zu extrahieren. Zu den [integrierten Skills](cognitive-search-predefined-skills.md) zählen beispielsweise die optische Zeichenerkennung (ermöglicht das Durchsuchen gescannter JPEG-Dateien), die Entitätserkennung (Ermitteln einer Organisation, eines Namens oder eines Standorts) und die Schlüsselbegriffserkennung. Sie können auch [benutzerdefinierte Skills codieren](cognitive-search-create-custom-skill-example.md) und sie an die Pipeline anfügen. |
+| Gespeicherte Anreicherungen für Analyse und Nutzung| [**Wissensspeicher (Vorschauversion)** ](knowledge-store-concept-intro.md) ist eine Erweiterung zur KI-basierten Indizierung. Mit Azure Storage als Back-End können Sie Anreicherungen speichern, die während der Indizierung erstellt werden. Mithilfe dieser Artefakte können Sie bessere Qualifikationsgruppen entwerfen oder Formen und Strukturen aus formlosen oder nicht eindeutigen Daten erstellen. Sie können Projektionen dieser Strukturen für bestimmte Workloads oder Benutzer erstellen. Sie können die extrahierten Daten zudem direkt analysieren oder in andere Apps laden.<br/><br/> |
 
 | Datenimport&nbsp; und -indizierung | Features |
 |----------------------------------|----------|
@@ -57,7 +57,7 @@ Die Funktionalität wird über eine einfache [REST-API](/rest/api/searchservice/
 |-------------------|----------|
 | Tools für Prototyperstellung und Überprüfung | Im Portal können Sie den [**Datenimport-Assistenten**](search-import-data-portal.md) zum Konfigurieren von Indexern, den Index-Designer zum Einrichten eines Index und den [**Suchexplorer**](search-explorer.md) zum Testen von Abfragen und Optimieren von Bewertungsprofilen verwenden. Sie können außerdem einen beliebigen Index öffnen, um sein Schema anzuzeigen. |
 | Überwachung und Diagnose | Durch [**Aktivieren der Überwachungsfunktionen**](search-monitor-usage.md) können neben den Metriken, die im Portal immer angezeigt werden, zusätzliche Metriken verwendet werden. Metriken zu Abfragen pro Sekunde, Latenz und Drosselung werden erfasst und in Portalseiten protokolliert, ohne dass hierzu eine zusätzliche Konfiguration erforderlich ist. <br/><br/>[**Datenverkehrsanalyse durchsuchen**](search-traffic-analytics.md) ist eine weitere Überwachungsoption, bei der serverseitige und clientseitige Daten erfasst und analysiert werden, um Erkenntnisse darüber zu gewinnen, was Benutzer im Suchfeld eingeben. |
-| Serverseitige Verschlüsselung | Die [**von Microsoft verwaltete Verschlüsselung ruhender Daten**](search-security-overview.md#encrypted-transmission-and-storage) ist in der internen Speicherebene integriert und unwiderruflich. Optional können Sie die Standardverschlüsselung durch [**von Kunden verwaltete Verschlüsselungsschlüssel (Vorschauversion)**](search-security-manage-encryption-keys.md) ergänzen. Mithilfe von Schlüsseln, die Sie in Azure Key Vault erstellen und verwalten, können Indizes und Synonymzuordnungen in Azure Search verschlüsselt werden. |
+| Serverseitige Verschlüsselung | Die [**von Microsoft verwaltete Verschlüsselung ruhender Daten**](search-security-overview.md#encrypted-transmission-and-storage) ist in der internen Speicherebene integriert und unwiderruflich. Optional können Sie die Standardverschlüsselung durch [**von Kunden verwaltete Verschlüsselungsschlüssel (Vorschauversion)** ](search-security-manage-encryption-keys.md) ergänzen. Mithilfe von Schlüsseln, die Sie in Azure Key Vault erstellen und verwalten, können Indizes und Synonymzuordnungen in Azure Search verschlüsselt werden. |
 | Infrastruktur | Die **hoch verfügbare Plattform** macht den Suchdienst äußerst zuverlässig. [Azure Search bietet eine SLA von 99,9 Prozent](https://azure.microsoft.com/support/legal/sla/search/v1_0/)(bei ordnungsgemäßer Skalierung).<br/><br/> Azure Search ist eine **vollständig verwaltete und skalierbare** End-to-End-Lösung, für die keinerlei Infrastrukturverwaltungsaufwand anfällt. Eine zweidimensionale Skalierung ermöglicht die Anpassung des Diensts an Ihre Anforderungen, um mehr Dokumentspeicher, ein höheres Abfrageaufkommen oder beides zu bewältigen.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Verwenden von Azure Search

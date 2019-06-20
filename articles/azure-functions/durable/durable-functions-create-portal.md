@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108068"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872857"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Erstellen von dauerhaften Funktionen mit dem Azure-Portal
 
@@ -23,7 +23,7 @@ Die Erweiterung [Durable Functions ](durable-functions-overview.md) für Azure F
 
 > [!NOTE]
 > 
-> * Wenn Sie dauerhafte Funktionen in C# entwickeln, sollten Sie stattdessen die [Entwicklung in Visual Studio 2017](durable-functions-create-first-csharp.md) in Betracht ziehen.
+> * Wenn Sie dauerhafte Funktionen in C# entwickeln, sollten Sie stattdessen die [Entwicklung in Visual Studio 2019](durable-functions-create-first-csharp.md) in Betracht ziehen.
 > * Wenn Sie dauerhafte Funktionen in JavaScript entwickeln, erwägen Sie stattdessen eine [Entwicklung in Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Erstellen einer Funktionen-App
@@ -38,7 +38,7 @@ Standardmäßig verwendet die erstellte Funktions-App Version 2.x der Azure Func
 
 Wenn Sie Durable Functions in JavaScript erstellen, müssen Sie das npm-Paket [ `durable-functions` installieren](https://www.npmjs.com/package/durable-functions).
 
-1. Wählen Sie den Namen Ihrer Funktions-App aus, gefolgt von **Plattformfeatures** und dann **Erweiterte Tools (Kudu)**.
+1. Wählen Sie den Namen Ihrer Funktions-App aus, gefolgt von **Plattformfeatures** und dann **Erweiterte Tools (Kudu)** .
 
    ![„Plattformfeatures“ für Funktionen, „Kudu“ auswählen](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 

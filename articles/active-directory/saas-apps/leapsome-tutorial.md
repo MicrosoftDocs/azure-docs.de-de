@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406722"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Azure Active Directory-Integration mit Leapsome
 
@@ -76,12 +76,12 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens in Azure AD bei Leapsome müssen Sie die folgenden Bausteine ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für Leapsome](#configure-leapsome-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines Leapsome-Testbenutzers](#create-leapsome-test-user)**, um ein Pendant von Britta Simon in Leapsome zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für Leapsome](#configure-leapsome-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines Leapsome-Testbenutzers](#create-leapsome-test-user)** , um ein Pendant von Britta Simon in Leapsome zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -126,10 +126,10 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Leapsome
 
     | NAME | Quellattribut | Namespace |
     | ---------------| --------------- | --------- |  
-    | firstname | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | title | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | picture | URL zum Bild des Mitarbeiters | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | picture | URL zum Bild des Mitarbeiters | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -175,7 +175,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Leapsome
 
     ![Leapsomesatz](./media/leapsome-tutorial/tutorial_leapsome_admin.png)
 
-1. Klicken Sie in der linken Menüleiste auf **Einmaliges Anmelden (SSO)**, und führen Sie auf der Seite **SAML-basierten einmaliges Anmelden (SSO)** die folgenden Schritte aus:
+1. Klicken Sie in der linken Menüleiste auf **Einmaliges Anmelden (SSO)** , und führen Sie auf der Seite **SAML-basierten einmaliges Anmelden (SSO)** die folgenden Schritte aus:
 
     ![Leapsome-SAML](./media/leapsome-tutorial/tutorial_leapsome_samlsettings.png)
 
@@ -185,9 +185,9 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit Leapsome
 
     c. Kopieren Sie den Wert **Reply URL (receives response from your identity provider)** (Antwort-URL (erhält die Antwort von Ihrem Identitätsanbieter)), und fügen Sie ihn im Azure-Portal im Abschnitt **Grundlegende SAML-Konfiguration** in das Textfeld **Antwort-URL** ein.
 
-    d. Fügen Sie im Textfeld **SSO Login URL (provided by identity provider)** (SSO-Anmelde-URL (von Ihrem Identitätsanbieter bereitgestellt)) den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
+    d. Fügen Sie im Textfeld **SSO Login URL (provided by identity provider)** (SSO-Anmelde-URL (von Ihrem Identitätsanbieter angegeben)) den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-    e. Kopieren Sie das aus dem Azure-Portal heruntergeladene Zertifikat ohne die Kommentare `--BEGIN CERTIFICATE and END CERTIFICATE--`, und fügen Sie es in das Textfeld **Certificate (provided by identity provider)** (Zertifikat (von Ihrem Identitätsanbieter bereitgestellt)) ein.
+    e. Kopieren Sie das aus dem Azure-Portal heruntergeladene Zertifikat ohne die Kommentare `--BEGIN CERTIFICATE and END CERTIFICATE--`, und fügen Sie es in das Textfeld **Certificate (provided by identity provider)** (Zertifikat (von Ihrem Identitätsanbieter angegeben)) ein.
 
     f. Klicken Sie auf **SSO-EINSTELLUNGEN AKTUALISIEREN**.
 
@@ -244,7 +244,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
 ### <a name="create-leapsome-test-user"></a>Erstellen eines Leapsome-Testbenutzers
 
-In diesem Abschnitt erstellen Sie in Leapsome einen Benutzer namens Britta Simon. Lassen Sie sich beim Hinzufügen der Benutzer oder der Domäne, die auf der Leapsome-Plattform auf der Whitelist stehen soll, vom [Leapsome Client-Supportteam](mailto:support@leapsome.com) unterstützen. Wird die Domäne vom Team hinzugefügt, werden Benutzer automatisch auf der Leapsome-Plattform bereitgestellt. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
+In diesem Abschnitt erstellen Sie in Leapsome einen Benutzer namens Britta Simon. Wenden Sie sich an das [Supportteam für den Leapsome-Client](mailto:support@leapsome.com), um die Benutzer oder die Domänen hinzuzufügen, die zur Zulassungsliste für die Leapsome-Plattform hinzugefügt werden sollen. Wird die Domäne vom Team hinzugefügt, werden Benutzer automatisch auf der Leapsome-Plattform bereitgestellt. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
 
 ### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 

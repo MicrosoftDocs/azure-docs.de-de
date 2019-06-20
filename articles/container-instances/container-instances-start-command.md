@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569636"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Legen Sie die Befehlszeile in einer Containerinstanz so fest, dass sie die standardmäßige Befehlszeilenoperation außer Kraft setzt.
 
@@ -24,7 +24,15 @@ Wie das Festlegen von [Umgebungsvariablen](container-instances-environment-varia
 
 * Standardmäßig gibt die Befehlszeile einen *einzelnen Prozess an, der ohne Shell* im Container startet. Über die Befehlszeile kann z. B. ein Python-Skript oder eine ausführbare Datei ausgeführt werden. 
 
-* Um mehrere Befehle auszuführen, beginnen Sie Ihre Befehlszeile mit dem Einrichten einer Shellumgebung im Containerbetriebssystem (Beispiele: `bin/sh`, `/bin/bash`, `cmd`). Folgen Sie den Konventionen der Shell, um mehrere Befehle zu kombinieren und in Folge auszuführen.
+* Um mehrere Befehle auszuführen, beginnen Sie Ihre Befehlszeile mit dem Einrichten einer Shellumgebung, die im Containerbetriebssystem unterstützt wird. Beispiele:
+
+  |Betriebssystem  |Standardshell  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  |Windows     |    `cmd`     |
+
+  Folgen Sie den Konventionen der Shell, um mehrere Befehle zu kombinieren und in Folge auszuführen.
 
 * Abhängig von der Containerkonfiguration müssen Sie möglicherweise einen vollständigen Pfad zur ausführbaren Befehlszeilendatei oder zu Argumenten festlegen.
 

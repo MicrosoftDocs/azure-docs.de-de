@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 5/10/2019
 ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546455"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Diensttarife beim DTU-basierten Kaufmodell
@@ -156,7 +156,7 @@ Beim Skalierungsfaktor 500 (SF=500) hat die Datenbank 100 Benutzer und kann ei
 
 Ein gültiger Vergleichstestlauf erfordert eine stabile Messdauer von mindestens einer Stunde.
 
-### <a name="metrics"></a>Metriken
+### <a name="metrics"></a>metrics
 
 Die Hauptmetriken im Vergleichstest sind Durchsatz und Antwortzeit.
 
@@ -165,9 +165,9 @@ Die Hauptmetriken im Vergleichstest sind Durchsatz und Antwortzeit.
 
 | Dienstklasse | Durchsatzmaß | Anforderung an die Antwortzeit |
 | --- | --- | --- |
-| Premium |Transaktionen pro Sekunde |95. Perzentil bei 0,5 Sekunden |
-| Standard |Transaktionen pro Minute |90. Perzentil bei 1,0 Sekunden |
-| Basic |Transaktionen pro Stunde |80. Perzentil bei 2,0 Sekunden |
+| Premium |Transaktionen pro Sekunde |95\. Perzentil bei 0,5 Sekunden |
+| Standard |Transaktionen pro Minute |90\. Perzentil bei 1,0 Sekunden |
+| Basic |Transaktionen pro Stunde |80\. Perzentil bei 2,0 Sekunden |
 
 ## <a name="next-steps"></a>Nächste Schritte
 

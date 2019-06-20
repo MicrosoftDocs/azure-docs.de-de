@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410045"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235002"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Optimierung der TCP/IP-Leistung für Azure-VMs
 
@@ -79,7 +79,7 @@ Eine Vergrößerung der MTU (Maximum Transmission Unit, maximale Übertragungsei
 
 #### <a name="azure-and-vm-mtu"></a>Azure und VM-MTU
 
-Die Standard-MTU für Azure-VMs ist 1.500 Bytes. Der Azure Virtual Network-Stapel versucht, ein Paket auf 1.400 Bytes zu fragmentieren. Aber der Virtual Network-Stapel erlaubt Pakete bis zu 2.006 Bytes, wenn das „Don‘t Fragment“-Bit im IP-Header festgelegt ist.
+Die Standard-MTU für Azure-VMs ist 1.500 Bytes. Der Azure Virtual Network-Stapel versucht, ein Paket auf 1.400 Bytes zu fragmentieren.
 
 Beachten Sie, dass der Virtual Network-Stapel nicht von sich aus ineffizient ist, weil er Pakete bei 1.400 Bytes fragmentiert, obwohl virtuelle Computer eine MTU von 1.500 haben. Ein großer Prozentsatz der Netzwerkpakete ist wesentlich kleiner ist als 1.400 oder 1.500 Bytes.
 
@@ -264,7 +264,7 @@ Der beschleunigte Netzwerkbetrieb bietet eine durchgängig extrem niedrige Netzw
 
 Der beschleunigte Netzwerkbetrieb verbessert die Leistung, indem er es der Gast-VM ermöglicht, den Host zu umgehen und einen Datenpfad direkt mit dem SmartNIC eines Hosts einzurichten. Dies sind einige der Vorteile des beschleunigten Netzwerkbetriebs:
 
-- **Niedrigere Latenz/mehr Pakete pro Sekunde (pps)**: Durch das Entfernen des virtuellen Switch aus dem Datenpfad wird die Zeit gespart, die Pakete auf dem Host auf die Verarbeitung von Richtlinien warten müssen, und wird die Anzahl von Paketen erhöht, die im virtuellen Computer (VM) verarbeitet werden können.
+- **Niedrigere Latenz/mehr Pakete pro Sekunde (pps)** : Durch das Entfernen des virtuellen Switch aus dem Datenpfad wird die Zeit gespart, die Pakete auf dem Host auf die Verarbeitung von Richtlinien warten müssen, und wird die Anzahl von Paketen erhöht, die im virtuellen Computer (VM) verarbeitet werden können.
 
 - **Reduzierte Jitter**: Die Verarbeitung im virtuellen Switch hängt vom Umfang der anzuwendenden Richtlinien und von der Workload der CPU ab, die die Verarbeitung durchführt. Das Auslagern der Richtlinienerzwingung auf die Hardware entfernt diesen Umweg, indem die Pakete direkt an den virtuellen Computer gesendet werden. Dadurch entfallen die Host-zu-VM-Kommunikation und alle Softwareinterrupts und Kontextwechsel.
 

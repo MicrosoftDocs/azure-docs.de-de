@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65601664"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Bewährte Methoden zum Schützen von PaaS-Datenbanken in Azure
 
@@ -78,7 +78,7 @@ Azure SQL verwaltet die schlüsselbezogenen Probleme für TDE. Wie bei TDE auch 
 
 Azure SQL ermöglicht auch die Verschlüsselung von Spalten über [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Hierdurch wird nur autorisierten Anwendungen der Zugriff auf vertrauliche Spalten gewährt. Das Verwenden dieser Verschlüsselungsart begrenzt SQL-Abfragen für verschlüsselte Spalten auf gleichheitsbasierte Werte.
 
-Die Verschlüsselung auf Anwendungsebene muss auch für selektive Daten verwendet werden. Bedenken in Bezug auf die Datenhoheit können durch das Verschlüsseln von Daten mit einem Schlüssel verringert werden, der im richtigen Land aufbewahrt wird. Dadurch wird verhindert, dass durch eine versehentliche Datenübertragung Probleme verursacht werden, da die Daten ohne den Schlüssel nicht entschlüsselt werden können. Voraussetzung dafür ist jedoch, dass ein starker Algorithmus (z.B. AES-256) verwendet wird.
+Die Verschlüsselung auf Anwendungsebene muss auch für selektive Daten verwendet werden. Bedenken in Bezug auf die Datenhoheit können durch das Verschlüsseln von Daten mit einem Schlüssel verringert werden, der im richtigen Land/der richtigen Region aufbewahrt wird. Dadurch wird verhindert, dass durch eine versehentliche Datenübertragung Probleme verursacht werden, da die Daten ohne den Schlüssel nicht entschlüsselt werden können. Voraussetzung dafür ist jedoch, dass ein starker Algorithmus (z.B. AES-256) verwendet wird.
 
 Sie können zusätzliche Vorsichtsmaßnahmen zum Schützen der Datenbank treffen, z.B. das Entwerfen eines sicheren Systems, das Verschlüsseln vertraulicher Datenbestände und das Erstellen einer Firewall für die Datenbankserver.
 

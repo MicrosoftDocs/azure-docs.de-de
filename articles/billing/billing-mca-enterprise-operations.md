@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/24/2018
 ms.author: banders
 ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60371331"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Ausführen von Enterprise Agreement-Aufgaben in Ihrem Abrechnungskonto für eine Microsoft-Kundenvereinbarung
 
@@ -50,7 +50,7 @@ Im neuen Abrechnungskonto erhalten Sie die folgenden Rollen:
 
 **Besitzer des Abrechnungsprofils**: Ihnen wird die Rolle des Besitzers des Abrechnungsprofils für das Abrechnungsprofil zugewiesen, das bei der Unterzeichnung der Vereinbarung erstellt wurde. Mit der Rolle können Sie die Abrechnung für Ihre Organisation verwalten. Sie können Gebühren und Rechnungen anzeigen, Kosten auf der Rechnung ordnen, Zahlungsmethoden verwalten und den Zugriff auf die Abrechnung für Ihre Organisation steuern.
 
-**Rechnungsabschnitt (Besitzer)**: Ihnen wird die Rolle des Rechnungsabschnittssbesitzers für alle Rechnungsabschnitte zugewiesen, die für die Abteilungen in Ihrer Enterprise Agreement-Registrierung erstellt werden. Mit der Rolle können Sie steuern, wer Azure-Abonnements erstellen und andere Produkte erwerben darf.
+**Rechnungsabschnitt (Besitzer)** : Ihnen wird die Rolle des Rechnungsabschnittssbesitzers für alle Rechnungsabschnitte zugewiesen, die für die Abteilungen in Ihrer Enterprise Agreement-Registrierung erstellt werden. Mit der Rolle können Sie steuern, wer Azure-Abonnements erstellen und andere Produkte erwerben darf.
 
 ### <a name="view-charges-and-credits-balance-for-your-organization"></a>Anzeigen des Saldos von Gebühren und Guthaben für Ihre Organisation
 
@@ -104,7 +104,7 @@ Die folgenden Änderungen gelten für Abteilungsadministratoren in einem Enterpr
 
 Im neuen Abrechnungskonto erhalten Sie die folgenden Rollen:
 
-**Rechnungsabschnitt (Besitzer)**: Ihnen wird die Rolle des Rechnungsabschnittssbesitzers für den Rechnungsabschnitt zugewiesen, der für die Abteilungen erstellt wird, die Sie in Ihrem Enterprise Agreement hatten. Mit der Rolle können Sie Gebühren anzeigen und nachverfolgen und steuern, wer für den Rechnungsabschnitt Azure-Abonnements erstellen und andere Produkte kaufen kann.
+**Rechnungsabschnitt (Besitzer)** : Ihnen wird die Rolle des Rechnungsabschnittssbesitzers für den Rechnungsabschnitt zugewiesen, der für die Abteilungen erstellt wird, die Sie in Ihrem Enterprise Agreement hatten. Mit der Rolle können Sie Gebühren anzeigen und nachverfolgen und steuern, wer für den Rechnungsabschnitt Azure-Abonnements erstellen und andere Produkte kaufen kann.
 
 ### <a name="view-charges-for-your-department"></a>Anzeigen der Gebühren für Ihre Abteilung
 

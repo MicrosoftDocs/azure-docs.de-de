@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787540"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ausführen Ihrer Azure Functions aus einem Paket
 
@@ -64,6 +64,13 @@ Das folgende Beispiel zeigt eine Funktions-App, die so konfiguriert ist, dass Si
 ## <a name="adding-the-websiterunfrompackage-setting"></a>Hinzufügen der Einstellung WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+## <a name="troubleshooting"></a>Problembehandlung
+
+- Durch Ausführen aus Paket wird `wwwroot` schreibgeschützt, sodass Sie einen Fehler erhalten, wenn Sie Dateien in dieses Verzeichnis schreiben möchten.
+- Das TAR- und das GZIP-Format werden nicht unterstützt.
+- Diese Funktionalität funktioniert nicht mit lokalem Cache.
+- Um die Kaltstartleistung zu verbessern, verwenden Sie die lokale ZIP-Option (`WEBSITE_RUN_FROM_PACKAGE`=1).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

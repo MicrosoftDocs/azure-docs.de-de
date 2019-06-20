@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0870983fe9f0ae64090652f02c526a370064b8ab
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100731"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595896"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Erstellen einer benutzerdefinierten Suchwebseite
 
@@ -35,7 +35,7 @@ Die folgenden Aufgaben werden beschrieben:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Um dem Tutorial folgen zu können, benötigen Sie einen Abonnementschlüssel für die API für die benutzerdefinierte Bing-Suche.  Unter [Cognitive Services ausprobieren](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) erfahren Sie, wie Sie einen Schlüssel erhalten.
-- Falls Sie Visual Studio 2017 noch nicht installiert haben, können Sie die **kostenlose** [Visual Studio 2017 Community-Edition](https://www.visualstudio.com/downloads/) herunterladen und verwenden.
+- Falls Sie Visual Studio 2017 oder höher noch nicht installiert haben, können Sie die **kostenlose** [Visual Studio 2019 Community-Edition](https://www.visualstudio.com/downloads/) herunterladen und verwenden.
 
 ## <a name="create-a-custom-search-instance"></a>Erstellen einer Instanz für die benutzerdefinierte Suche
 

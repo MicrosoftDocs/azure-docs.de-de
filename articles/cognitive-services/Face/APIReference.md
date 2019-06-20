@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: f4258f34bb7d353ee4e76f4675f4ef672a4a8c78
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60816397"
 ---
 # <a name="api-reference"></a>API-Referenz
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64707140"
 ---
 # <a name="service-bus-faq"></a>Service Bus – Häufig gestellte Fragen
 
@@ -41,6 +41,48 @@ Eine herkömmliche Warteschlange oder ein Thema werden von einem einzelnen Nachr
 Bei der Verwendung von partitionierten Entitäten ist keine Sortierung gewährleistet. Wenn eine Partition nicht verfügbar ist, ist es trotzdem möglich, Nachrichten zu senden und von anderen Partitionen zu empfangen.
 
  Partitionierte Entitäten werden in der [Premium-SKU](service-bus-premium-messaging.md) nicht mehr unterstützt. 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Welche Ports muss ich in der Firewall öffnen? 
+Sie können die folgenden Protokolle mit Azure Service Bus verwenden, um Nachrichten zu senden und zu empfangen:
+
+- Advanced Message Queuing Protocol (AMQP)
+- Service Bus Messaging Protocol (SBMP)
+- HTTP
+
+In der folgenden Tabelle finden Sie die Ports für ausgehenden Datenverkehr, die Sie öffnen müssen, um diese Protokolle für die Kommunikation mit Azure Event Hubs zu verwenden. 
+
+| Protocol | Ports | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 und 5672 | Siehe [Leitfaden zum AMQP-Protokoll](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 bis 9354 | Siehe [Konnektivitätsmodus](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP, HTTPS | 80, 443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Welche IP-Adressen muss ich in die Whitelist aufnehmen?
+Um die richtigen IP-Adressen für die Whitelist für Ihre Verbindungen zu ermitteln, führen Sie diese Schritte aus:
+
+1. Führen Sie den folgenden Befehl an einer Eingabeaufforderung aus: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Notieren Sie sich die IP-Adresse, die in `Non-authoritative answer` zurückgegeben werden. Diese IP-Adresse ist statisch. Sie würde sich nur dann ändern, wenn Sie den Namespace auf einem anderen Cluster wiederherstellen.
+
+Wenn Sie die Zonenredundanz für Ihren Namespace verwenden, müssen Sie einige zusätzliche Schritte durchführen: 
+
+1. Führen Sie zunächst nslookup für den Namespace aus.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Notieren Sie sich den Namen im Abschnitt **non-authoritative answer** (nicht autorisierende Antwort), der in einem der folgenden Formate vorliegt: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Führen Sie nslookup für jeden Namen mit den Suffixen s1, s2 und s3 aus, um die IP-Adressen aller drei Instanzen zu erhalten, die in drei Verfügbarkeitszonen ausgeführt werden. 
+
 
 ## <a name="best-practices"></a>Bewährte Methoden
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Gibt es Beispiele für bewährte Azure Service Bus-Methoden?
@@ -121,9 +163,9 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen zu Service Bus finden Sie in den folgenden Artikeln:
 
-* [Introducing Azure Service Bus Premium (blog post) (Einführung in Azure Service Bus Premium (Blogbeitrag))](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introducing Azure Service Bus Premium (Channel9) (Einführung in Azure Service Bus Premium (Channel9))](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Was ist Azure Service Bus](service-bus-messaging-overview.md)
+* [Einführung in Azure Service Bus Premium (Blogbeitrag)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Einführung in Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Übersicht über Service Bus](service-bus-messaging-overview.md)
 * [Erste Schritte mit Service Bus-Warteschlangen](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

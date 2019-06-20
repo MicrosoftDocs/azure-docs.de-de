@@ -79,7 +79,7 @@ Das folgende JSON zeigt das Schema für die Azure VM Dependency-Agent-Erweiterun
 | NAME | Wert/Beispiel |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| Herausgeber | Microsoft.Azure.Monitoring.DependencyAgent |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
 | typeHandlerVersion | 9,5 |
 

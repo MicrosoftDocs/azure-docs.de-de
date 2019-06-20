@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: 84d1f52b5fb8f18d3578bad28930f74534b1409f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60947591"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Einrichten Ihrer Entwicklungsumgebung unter Mac OS X
 > [!div class="op_single_selector"]
@@ -202,7 +202,7 @@ Installieren Sie das [.NET Core 2.0 SDK für Mac](https://www.microsoft.com/net/
 
 Azure Service Fabric stellt ein Plug-In für Eclipse Neon (oder höher) für die Java-IDE bereit. Das Plug-In vereinfacht den Prozess der Erstellung und Bereitstellung von Java-Diensten. Führen Sie [diese Schritte](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse) aus, um das Service Fabric-Plug-In für Eclipse zu installieren oder auf die aktuelle Version zu aktualisieren. Die anderen Schritte unter [Service Fabric-Plug-In für die Entwicklung von Eclipse-Java-Anwendungen](service-fabric-get-started-eclipse.md) gelten ebenfalls: Erstellen einer Anwendung, Hinzufügen eines Diensts zu einer Anwendung, Deinstallieren einer Anwendung usw.
 
-Der letzte Schritt besteht im Instanziieren des Containers mit einem Pfad, der mit Ihrem Host gemeinsam verwendet wird. Für das Plug-In ist diese Art der Instanziierung erforderlich, damit es mit dem Docker-Container auf Ihrem Mac verwendet werden kann. Beispiel: 
+Der letzte Schritt besteht im Instanziieren des Containers mit einem Pfad, der mit Ihrem Host gemeinsam verwendet wird. Für das Plug-In ist diese Art der Instanziierung erforderlich, damit es mit dem Docker-Container auf Ihrem Mac verwendet werden kann. Beispiel:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox

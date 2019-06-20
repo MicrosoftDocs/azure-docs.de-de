@@ -9,18 +9,20 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150061"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002824"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage-Redundanz
 
 Die Daten in Ihrem Microsoft Azure-Speicherkonto werden stets repliziert, um Beständigkeit und Hochverfügbarkeit sicherzustellen. Azure Storage kopiert Ihre Daten so, dass sie vor geplanten und ungeplanten Ereignissen geschützt sind – von vorübergehend auftretenden Hardwarefehlern und Netzwerk- oder Stromausfällen bis zu schweren Naturkatastrophen usw. Sie können Ihre Daten wahlweise im selben Rechenzentrum, Rechenzentren in derselben Region und sogar übergreifend über geografisch getrennte Regionen replizieren.
 
 Mit der Replikation wird sichergestellt, dass Ihr Speicherkonto auch bei Ausfällen die [Servicelevelvereinbarung (SLA) für Storage](https://azure.microsoft.com/support/legal/sla/storage/) erfüllt. Die Servicelevelvereinbarung enthält Informationen zu Azure Storage-Garantien in Bezug auf Dauerhaftigkeit und Verfügbarkeit.
+
+Azure Storage überprüft regelmäßig die Integrität der gespeicherten Daten mithilfe von Cyclic Redundancy Checks (CRCs). Wenn eine Datenbeschädigung erkannt wird, wird sie unter Verwendung von redundanten Daten repariert. Azure Storage berechnet auch die Prüfsummen für den gesamten Netzwerkdatenverkehr, um eine Beschädigung von Datenpaketen beim Speichern oder Abrufen von Daten zu erkennen.
 
 ## <a name="choosing-a-redundancy-option"></a>Wahl einer Redundanzoption
 
@@ -36,9 +38,9 @@ Die folgende Tabelle zeigt in einer kurzen Übersicht, in welchem Umfang die jew
 | Szenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Nichtverfügbarkeit von Knoten innerhalb eines Rechenzentrums                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                  |
-| Ein gesamtes Rechenzentrum (zonal oder nicht zonal) ist nicht mehr verfügbar.                                           | Nein                               | Ja                              | Ja                                  | Ja                                  |
-| Ein regionsweiter Ausfall                                                                                     | Nein                               | Nein                                | Ja                                  | Ja                                  |
-| Lesezugriff auf Ihre Daten (in einer georeplizierten Remoteregion) bei regionsweiter Nichtverfügbarkeit | Nein                               | Nein                                | Nein                                    | Ja                                  |
+| Ein gesamtes Rechenzentrum (zonal oder nicht zonal) ist nicht mehr verfügbar.                                           | Nein                              | Ja                              | Ja                                  | Ja                                  |
+| Ein regionsweiter Ausfall                                                                                     | Nein                              | Nein                               | Ja                                  | Ja                                  |
+| Lesezugriff auf Ihre Daten (in einer georeplizierten Remoteregion) bei regionsweiter Nichtverfügbarkeit | Nein                              | Nein                               | Nein                                   | Ja                                  |
 | Konzipiert zum Bereitstellen von \_\_ Dauerhaftigkeit von Objekten über ein bestimmtes Jahr                                          | mindestens 99,999999999 % (11 mal die 9) | mindestens 99,9999999999 % (12 mal die 9) | mindestens 99,99999999999999 % (16 mal die 9) | mindestens 99,99999999999999 % (16 mal die 9) |
 | Unterstützte Speicherkontotypen                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | Verfügbarkeits-SLA für Leseanforderungen | mindestens 99,9 % (99 % bei der kalten Zugriffsebene) | mindestens 99,9 % (99 % bei der kalten Zugriffsebene) | mindestens 99,9 % (99 % bei der kalten Zugriffsebene) | mindestens 99,99 % (99,9 % bei der kalten Zugriffsebene) |
@@ -52,7 +54,7 @@ Informationen zu Azure Storage-Garantien in Bezug auf Dauerhaftigkeit und Verfü
 > Storage Premium unterstützt nur lokal redundanten Speicher (Locally Redundant Storage, LRS).
 
 ## <a name="changing-replication-strategy"></a>Ändern der Replikationsstrategie
-Sie können die Replikationsstrategie für Ihr Speicherkonto mithilfe von [Azure-Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) oder einer der [ Azure-Clientbibliotheken](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools) ändern. Bei einer Änderung des Replikationstyps Ihres Speicherkontos treten keine Ausfallzeiten auf.
+Sie können die Replikationsstrategie für Ihr Speicherkonto mithilfe von [Azure-Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) oder einer der [ Azure-Clientbibliotheken](https://docs.microsoft.com/azure/index#pivot=sdkstools) ändern. Bei einer Änderung des Replikationstyps Ihres Speicherkontos treten keine Ausfallzeiten auf.
 
    > [!NOTE]
    > Derzeit können Sie weder das Portal noch die API verwenden, um Ihr Konto in ZRS zu konvertieren. Ausführliche Informationen zum Konvertieren der Replikation Ihres Kontos in ZRS finden Sie unter [Zonenredundanter Speicher (ZRS): Hochverfügbare Azure Storage-Anwendungen](storage-redundancy-zrs.md).

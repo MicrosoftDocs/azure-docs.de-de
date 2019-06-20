@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61479154"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Skalieren eines Stream Analytics-Auftrags mit Azure Machine Learning-Funktionen
 Es ist einfach, einen Stream Analytics-Auftrag einzurichten und Beispieldaten damit auszuführen. Was ist zu tun, wenn derselbe Auftrag mit einem höheren Datenvolumen ausgeführt werden soll? Hierfür müssen wir wissen, wie der Stream Analytics-Auftrag konfiguriert werden muss, damit er skaliert werden kann. In diesem Dokument liegt der Schwerpunkt auf den speziellen Aspekten der Skalierung von Stream Analytics-Aufträgen mit Machine Learning-Funktionen. Allgemeine Informationen zum Skalieren von Stream Analytics-Aufträgen finden Sie im Artikel [Skalieren von Aufträgen](stream-analytics-scale-jobs.md).
@@ -72,16 +72,16 @@ Angenommen, die Latenz des Machine Learning-Webdiensts für die Stimmungsanalyse
 
 Unten ist eine Tabelle mit Informationen zum Durchsatz des Stream Analytics-Auftrags für unterschiedliche SUs und Batchgrößen angegeben (Anzahl von Ereignissen pro Sekunde).
 
-| Batchgröße (ML-Latenz) | 500 (200 ms) | 1.000 (200 ms) | 5.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
+| Batchgröße (ML-Latenz) | 500 (200 ms) | 1\.000 (200 ms) | 5\.000 (250 ms) | 10\.000 (300 ms) | 25\.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 SU** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **3 SUs** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **6 SUs** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **12 SUs** |5.000 |10.000 |40.000 |60.000 |100.000 |
-| **18 SUs** |7.500 |15.000 |60.000 |90.000 |150.000 |
-| **24 SUs** |10.000 |20.000 |80.000 |120.000 |200.000 |
+| **1 SU** |2\.500 |5\.000 |20\.000 |30\.000 |50\.000 |
+| **3 SUs** |2\.500 |5\.000 |20\.000 |30\.000 |50\.000 |
+| **6 SUs** |2\.500 |5\.000 |20\.000 |30\.000 |50\.000 |
+| **12 SUs** |5\.000 |10\.000 |40\.000 |60\.000 |100\.000 |
+| **18 SUs** |7\.500 |15\.000 |60\.000 |90\.000 |150\.000 |
+| **24 SUs** |10\.000 |20\.000 |80\.000 |120\.000 |200\.000 |
 | **…** |… |… |… |… |… |
-| **60 SUs** |25.000 |50.000 |200.000 |300.000 |500.000 |
+| **60 SUs** |25\.000 |50\.000 |200\.000 |300\.000 |500\.000 |
 
 Sie sollten nun bereits über gute Grundlagenkenntnisse verfügen und wissen, wie Machine Learning-Funktionen in Stream Analytics funktionieren. Sie wissen vermutlich auch, dass bei Stream Analytics-Aufträgen Daten aus Datenquellen abgerufen werden („Pull“) und bei jedem Vorgang dieser Art ein Batch mit Ereignissen zur Verarbeitung durch den Stream Analytics-Auftrag zurückgegeben wird. Wie wirkt sich dieses Abrufmodell auf die Machine Learning-Webdienstanforderungen aus?
 

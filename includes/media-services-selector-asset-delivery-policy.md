@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 4944ad81b7192bbd1614d5bb1302e6dee6deb7b8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116328"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178178"
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/media-services/previous/media-services-dotnet-configure-asset-delivery-policy.md)

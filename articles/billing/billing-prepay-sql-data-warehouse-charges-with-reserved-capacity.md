@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012888"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60371188"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Vorauszahlen für SQL Data Warehouse-Gebühren mit reservierter Kapazität
 

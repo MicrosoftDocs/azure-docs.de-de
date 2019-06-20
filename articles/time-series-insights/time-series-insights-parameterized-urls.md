@@ -4,19 +4,19 @@ description: In diesem Artikel wird beschrieben, wie Sie parametrisierte URLs in
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467507"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238972"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Teilen einer benutzerdefinierten Ansicht mit einer parametrisierten URL
 
@@ -86,11 +86,11 @@ Mit dem Parameter `timeSeriesDefinitions=<collection of term objects>` werden di
 | `multiChartStack=false` | Weil `true` standardmäßig aktiviert ist,übergeben Sie `false` an den Stapel. |
 | `multiChartStack=false&multiChartSameScale=true` | Das Stapeln muss aktiviert sein, um ausdrucksübergreifend die gleiche Y-Achsenskala verwenden zu können.  Diese Funktion ist standardmäßig auf `false` festgelegt. Durch Übergabe von „true“ wird sie aktiviert. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Einheiten: Tage, Stunden, Minuten, Sekunden und Millisekunden.  Die Einheit muss immer groß geschrieben werden. </br> Übergeben Sie zum Definieren der Anzahl von Einheiten die gewünschte ganze Zahl für „TimeBucketSize“.  Hinweis: Die Glättung kann für bis zu sieben Tage erfolgen.  |
-| `timezoneOffset=-<integer>` | Bei der ganzen Zahl handelt es sich immer um Millisekunden. </br> Diese Funktion unterscheidet sich geringfügig von der aktivierten Funktion im TSI-Explorer, die es ermöglicht, die Ortszeit (gemäß Browser) oder UTC auszuwählen. |
+| `timezoneOffset=-<integer>` | Bei der ganzen Zahl handelt es sich immer um Millisekunden. </br> Diese Funktion unterscheidet sich geringfügig von der aktivierten Funktion im Time Series Insights-Explorer, die es ermöglicht, die Ortszeit (gemäß Browser) oder UTC auszuwählen. |
 
 ### <a name="examples"></a>Beispiele
 
-Um Zeitreihendefinitionen einer TSI-Umgebung als URL-Parameter hinzuzufügen, fügen Sie Folgendes an:
+Um Zeitreihendefinitionen einer Time Series Insights-Umgebung als URL-Parameter hinzuzufügen, fügen Sie Folgendes an:
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -112,7 +112,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > Schauen Sie sich den Explorer live [über die URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) an.
 
-Die vorstehende URL beschreibt und erstellt die TSI-Explorer-Ansicht:
+Die vorstehende URL beschreibt und erstellt die Time Series Insights-Explorer-Ansicht:
 
 [![Begriffe im Time Series Insights-Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

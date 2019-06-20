@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60240858"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-Datenquellen in Azure Monitor
 Syslog ist ein gängiges Protokoll zur Ereignisprotokollierung für Linux. Anwendungen senden Nachrichten, die auf dem lokalen Computer gespeichert oder an einen Syslog-Sammler übermittelt werden können. Wenn der Log Analytics-Agent für Linux installiert ist, konfiguriert er den lokalen Syslog-Daemon zum Weiterleiten von Nachrichten an den Agent. Der Agent sendet die Nachricht dann an Azure Monitor, wo ein entsprechender Datensatz erstellt wird.  
@@ -54,7 +54,7 @@ Der Log Analytics-Agent für Linux sammelt nur Ereignisse mit den Einrichtungen 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Konfigurieren von Syslog im Azure-Portal
 Konfigurieren Sie Syslog über das [Menü „Daten“ in den erweiterten Einstellungen](agent-data-sources.md#configuring-data-sources). Diese Konfiguration wird in der Konfigurationsdatei für jeden Linux-Agent bereitgestellt.
 
-Sie können eine neue Einrichtung hinzufügen, indem Sie ihren Namen eingeben und auf **+**. Für jede Einrichtung werden nur Ereignisse mit den ausgewählten Schweregraden gesammelt.  Markieren Sie die Schweregrade für die jeweilige Einrichtung, aus der Sie Daten sammeln möchten. Sie können keine zusätzlichen Kriterien angeben, um Nachrichten zu filtern.
+Sie können eine neue Einrichtung hinzufügen, indem Sie ihren Namen eingeben und auf **+** . Für jede Einrichtung werden nur Ereignisse mit den ausgewählten Schweregraden gesammelt.  Markieren Sie die Schweregrade für die jeweilige Einrichtung, aus der Sie Daten sammeln möchten. Sie können keine zusätzlichen Kriterien angeben, um Nachrichten zu filtern.
 
 ![Konfigurieren von Syslog](media/data-sources-syslog/configure.png)
 

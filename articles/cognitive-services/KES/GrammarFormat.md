@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814873"
 ---
 # <a name="grammar-format"></a>Grammatikformat
 
@@ -128,8 +128,8 @@ Die folgende Tabelle enthält die unterstützten `op`-Werte für die jeweiligen 
 
 | Attributtyp | op-Wert | BESCHREIBUNG | Indexoperation
 |----|----|----|----|
-| Zeichenfolge | eq | Zeichenfolge – exakte Übereinstimmung | equals |
-| Zeichenfolge | starts_with | Zeichenfolge – Präfixübereinstimmung | starts_with |
+| string | eq | Zeichenfolge – exakte Übereinstimmung | equals |
+| string | starts_with | Zeichenfolge – Präfixübereinstimmung | starts_with |
 | Int32, Int64, Double | eq |  Numerischer Wert – Gleichheitsübereinstimmung | equals |
 | Int32, Int64, Double | lt, le, gt, ge | Numerischer Wert – Ungleichheitsübereinstimmung (<, <=, >, >=) | is_between |
 | Int32, Int64, Double | starts_with | Präfixübereinstimmung des Werts in Dezimalschreibweise | starts_with |

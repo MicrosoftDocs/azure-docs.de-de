@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 30d52f1ac6a68a3202de59a0b4cab8edfb7ed042
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 28f154c4bd8bb1675eac509bd9d6dab9bb6af026
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066233"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Verwenden des Azure-Toolkits für IntelliJ zum Remotedebuggen von Apache Spark-Anwendungen über VPN
 
@@ -102,7 +102,7 @@ Wir empfehlen, auch einen Apache Spark-Cluster in Azure HDInsight zu erstellen, 
 
     a. Wählen Sie im Menü **File** (Datei) die Option **Project Structure** (Projektstruktur) aus.
 
-    b. Wählen Sie im Dialogfeld **Project Structure** (Projektstruktur) die Option **Artifacts** (Artefakte) aus, um das Standardartefakt anzuzeigen, das erstellt wird. Sie können auch ein eigenes Artefakt erstellen, indem Sie das Plus-Symbol (**+**) auswählen.
+    b. Wählen Sie im Dialogfeld **Project Structure** (Projektstruktur) die Option **Artifacts** (Artefakte) aus, um das Standardartefakt anzuzeigen, das erstellt wird. Sie können auch ein eigenes Artefakt erstellen, indem Sie das Plus-Symbol ( **+** ) auswählen.
 
    ![Erstellen einer JAR-Datei](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
@@ -111,7 +111,7 @@ Wir empfehlen, auch einen Apache Spark-Cluster in Azure HDInsight zu erstellen, 
 
     a. Klicken Sie in der Projektstruktur mit der rechten Maustaste auf den Projektnamen, und wählen Sie dann **Open Module Settings** (Moduleinstellungen öffnen) aus. 
 
-    b. Wählen Sie im Dialogfeld **Project Structure** (Projektstruktur) die Option **Libraries** (Bibliotheken) aus, klicken Sie auf das Plussymbol (**+**), und wählen Sie dann **From Maven** (Aus Maven) aus.
+    b. Wählen Sie im Dialogfeld **Project Structure** (Projektstruktur) die Option **Libraries** (Bibliotheken) aus, klicken Sie auf das Plussymbol ( **+** ), und wählen Sie dann **From Maven** (Aus Maven) aus.
 
     ![Hinzufügen einer Bibliothek](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
 
@@ -241,7 +241,7 @@ Wir empfehlen, auch einen Apache Spark-Cluster in Azure HDInsight zu erstellen, 
 1. Wenn die Programmausführung den Breakpoint erreicht, wird im unteren Bereich die Registerkarte **Debugger** angezeigt.
 
     ![Anzeigen der Registerkarte „Debugger“](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch.png)
-1. Klicken Sie zum Hinzufügen eines Überwachungselements auf das Plussymbol (**+**).
+1. Klicken Sie zum Hinzufügen eines Überwachungselements auf das Plussymbol ( **+** ).
 
     ![Klicken auf das Plussymbol (+)](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
@@ -277,7 +277,6 @@ Wir empfehlen, auch einen Apache Spark-Cluster in Azure HDInsight zu erstellen, 
 ### <a name="tools-and-extensions"></a>Tools und Erweiterungen
 * [Erstellen von Apache Spark-Anwendungen für einen HDInsight-Cluster mit dem Azure-Toolkit für IntelliJ](apache-spark-intellij-tool-plugin.md)
 * [Verwenden des Azure-Toolkits für IntelliJ zum Remotedebuggen von Apache Spark-Anwendungen über SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Verwenden der HDInsight-Tools für IntelliJ mit Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Verwenden der HDInsight-Tools im Azure-Toolkit für Eclipse zum Erstellen von Apache Spark-Anwendungen](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Verwenden von Apache Zeppelin Notebooks mit einem Apache Spark-Cluster in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Verfügbare Kernels für Jupyter Notebooks in einem Apache Spark-Cluster für HDInsight](apache-spark-jupyter-notebook-kernels.md)

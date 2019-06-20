@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540920"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479544"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Was ist die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) für Azure-Ressourcen?
 
@@ -84,7 +84,7 @@ In Azure können Sie auf mehreren Ebenen einen Bereich angeben: [Verwaltungsgrup
 
 ![Bereich für eine Rollenzuweisung](./media/overview/rbac-scope.png)
 
-Wenn Sie den Zugriff in einem übergeordneten Bereich gewähren, werden diese Berechtigungen an den untergeordneten Bereich vererbt. Beispiel: 
+Wenn Sie den Zugriff in einem übergeordneten Bereich gewähren, werden diese Berechtigungen an den untergeordneten Bereich vererbt. Beispiel:
 
 - Wenn Sie die Rolle [Besitzer](built-in-roles.md#owner) einem Benutzer im Bereich der Verwaltungsgruppe zuweisen, kann dieser Benutzer alles in allen Abonnements in der Verwaltungsgruppe verwalten.
 - Wenn Sie einer Rolle im Abonnementkontext die Rolle [Leser](built-in-roles.md#reader) zuweisen, können die Mitglieder dieser Gruppe alle Ressourcengruppen und Ressourcen im Abonnement anzeigen.
@@ -132,6 +132,10 @@ Im Folgenden finden Sie die allgemeinen Schritte, über die RBAC ermittelt, ob S
 1. Wenn der Benutzer keine Rolle mit der Aktion als angefordertem Bereich besitzt, wird kein Zugriff gewährt. Andernfalls überprüft Azure Resource Manager, ob eine Ablehnungszuweisung zutrifft.
 
 1. Wenn eine Ablehnungszuweisung zutrifft, wird der Zugriff blockiert. Andernfalls wird der Zugriff gewährt.
+
+## <a name="license-requirements"></a>Lizenzanforderungen
+
+[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte
 

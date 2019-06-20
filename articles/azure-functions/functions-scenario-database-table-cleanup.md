@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608578"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908115"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Verwenden von Azure Functions zum Herstellen einer Verbindung mit einer Azure SQL-Datenbank-Instanz
 
-In diesem Artikel wird erläutert, wie Sie mit Azure Functions einen geplanten Auftrag erstellen, über den eine Verbindung mit einer Azure SQL-Datenbank-Instanz hergestellt wird. Der Funktionscode bereinigt die Zeilen in einer Tabelle in der Datenbank. Die neue C#-Funktion wird basierend auf einer vordefinierten Vorlage für einen Zeitgebertrigger in Visual Studio 2017 erstellt. Zur Unterstützung dieses Szenarios müssen Sie auch eine Datenbank-Verbindungszeichenfolge als App-Einstellung in der Funktions-App festlegen. In diesem Szenario wird ein Massenvorgang auf die Datenbank angewendet. 
+In diesem Artikel wird erläutert, wie Sie mit Azure Functions einen geplanten Auftrag erstellen, über den eine Verbindung mit einer Azure SQL-Datenbank-Instanz hergestellt wird. Der Funktionscode bereinigt die Zeilen in einer Tabelle in der Datenbank. Die neue C#-Funktion wird basierend auf einer vordefinierten Vorlage für einen Zeitgebertrigger in Visual Studio 2019 erstellt. Zur Unterstützung dieses Szenarios müssen Sie auch eine Datenbank-Verbindungszeichenfolge als App-Einstellung in der Funktions-App festlegen. In diesem Szenario wird ein Massenvorgang auf die Datenbank angewendet. 
 
 Wenn Sie C#-Funktionen zum ersten Mal verwenden, sollten Sie die [C#-Entwicklerreferenz zu Azure Functions](functions-dotnet-class-library.md) lesen.
 
@@ -64,7 +64,7 @@ Zuvor müssen Sie Ihre App in Azure veröffentlicht haben. Wenn dies noch nicht 
 
 Sie müssen das NuGet-Paket hinzufügen, das die SqlClient-Bibliothek enthält. Diese Datenzugriffsbibliothek wird zum Herstellen einer Verbindung mit einer SQL-Datenbank benötigt.
 
-1. Öffnen Sie das lokale Funktions-App-Projekt in Visual Studio 2017.
+1. Öffnen Sie das lokale Funktions-App-Projekt in Visual Studio 2019.
 
 1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf das Funktions-App-Projekt, und wählen Sie **NuGet-Pakete verwalten** aus.
 
@@ -139,6 +139,6 @@ Als Nächstes erfahren Sie, wie Sie Functions mit Logic Apps für die Integratio
 Weitere Informationen zu Functions finden Sie in den folgenden Artikeln:
 
 + [Entwicklerreferenz zu Azure Functions](functions-reference.md)  
-   Referenz zum Programmieren von Funktionen sowie zum Festlegen von Triggern und Bindungen.
+  Referenz zum Programmieren von Funktionen sowie zum Festlegen von Triggern und Bindungen.
 + [Testing Azure Functions (Testen von Azure Functions) (Testen von Azure Functions)](functions-test-a-function.md)  
-   Beschreibt verschiedene Tools und Techniken zum Testen Ihrer Funktionen  
+  Beschreibt verschiedene Tools und Techniken zum Testen Ihrer Funktionen  

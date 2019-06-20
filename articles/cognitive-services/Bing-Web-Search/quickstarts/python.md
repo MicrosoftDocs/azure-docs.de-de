@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c00b805a8a702828f6d6402478ed8d2a79d3966e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f26392bdac34dd831e04c772e5357f5e41fc746
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862878"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390212"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Schnellstart: Verwenden von Python zum Aufrufen der Bing-Websuche-API  
 
@@ -55,7 +55,7 @@ search_term = "Azure Cognitive Services"
 
 ## <a name="make-a-request"></a>Erstellen einer Anforderung
 
-In diesem Block wird die `requests`-Bibliothek verwendet, um die Bing-Websuche-API aufzurufen und die Ergebnisse als JSON-Objekt zurückzugeben. Der API-Schlüssel wird im `headers`-Wörterbuch übergeben, und der Suchbegriff und die Abfrageparameter werden im `params`-Wörterbuch übergeben. Eine vollständige Liste mit Optionen und Parametern finden Sie in der Dokumentation zur [Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
+In diesem Block wird die `requests`-Bibliothek verwendet, um die Bing-Websuche-API aufzurufen und die Ergebnisse als JSON-Objekt zurückzugeben. Der API-Schlüssel wird im `headers`-Wörterbuch übergeben, und der Suchbegriff und die Abfrageparameter werden im `params`-Wörterbuch übergeben. Eine vollständige Liste mit Optionen und Parametern finden Sie in der Dokumentation zur [Bing-Websuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ```python
 import requests

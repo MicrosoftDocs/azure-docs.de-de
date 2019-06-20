@@ -1,28 +1,20 @@
 ---
-title: Schritte zur App-Veröffentlichung | Microsoft-Dokumentation
-description: .
+title: Schritte zur App-Veröffentlichung | Azure Marketplace
+description: Schritte zum Veröffentlichen einer Anwendung im Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0fc82229e158ed35b97203b11d08841c683c45ce
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 04278f50366ee91738fd36e64331572e14baf17c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806299"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935164"
 ---
-<a name="app-publishing-steps"></a>Schritte zur App-Veröffentlichung
-====================
+# <a name="app-publishing-steps"></a>Schritte zur App-Veröffentlichung
 
 Um den Veröffentlichungsvorgang zu starten, klicken Sie auf der Registerkarte „Editor“ auf „Veröffentlichen“.
 

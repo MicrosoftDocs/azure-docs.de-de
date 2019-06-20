@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
@@ -9,16 +9,16 @@ ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: f0ff729084d194ff2e05e89eadc45782f775b1c5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929387"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178336"
 ---
 In diesem Abschnitt senden Sie Neuigkeiten als Vorlagenbenachrichtigungen mit Tags über eine .NET-Konsolen-App. 
 
 1. Erstellen Sie in Visual Studio eine neue Visual C#-Konsolenanwendung: a. Wählen Sie im Menü die Optionen **Datei** > **Neu** > **Projekt** aus.
-    b. Erweitern Sie **Visual C#**, und wählen Sie **Windows-Desktop** aus. 
+    b. Erweitern Sie **Visual C#** , und wählen Sie **Windows-Desktop** aus. 
     c. Wählen Sie in der Liste der Vorlagen **Konsolen-App (.NET Framework)** aus. 
     d. Geben Sie einen **Namen** für die App ein. 
     e. Wählen Sie einen **Ordner** für die App aus.

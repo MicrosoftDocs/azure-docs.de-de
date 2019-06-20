@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920513"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418225"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Verhalten bei der Startbereichsermittlung für Azure Active Directory-Anmeldeseiten
 
@@ -32,19 +32,19 @@ Um eine größere Anzahl von Anmeldeinformationen zu unterstützen und die Benut
 
 Ein weiterer Vorteil dieses Verhaltens sind bessere Fehlermeldungen. Es folgen einige Beispiele für die verbesserten Fehlermeldungen bei Anmeldung bei einer Anwendung, die nur Azure Active Directory-Benutzer unterstützt.
 
-1. Der Benutzername wurde falsch eingegeben oder noch nicht mit Azure AD synchronisiert:
+- Der Benutzername wurde falsch eingegeben oder noch nicht mit Azure AD synchronisiert:
   
     ![Der Benutzername wurde falsch eingegeben oder nicht gefunden](./media/signin-realm-discovery/typo-username.png)
   
-2. Der Domänenname wurde falsch eingegeben:
+- Der Domänenname wurde falsch eingegeben:
   
     ![Der Domänenname wurde falsch eingegeben oder nicht gefunden](./media/signin-realm-discovery/typo-domain.png)
   
-3. Der Benutzer versucht, sich mit einer bekannten Consumerdomäne anzumelden:
+- Der Benutzer versucht, sich mit einer bekannten Consumerdomäne anzumelden:
   
     ![Anmeldung mit einem bekannten Consumerdomäne](./media/signin-realm-discovery/consumer-domain.png)
   
-4. Das Kennwort wurde falsch eingegeben, aber der Benutzername ist richtig:  
+- Das Kennwort wurde falsch eingegeben, aber der Benutzername ist richtig:  
   
     ![Kennwort bei richtigem Benutzernamen falsch eingegeben](./media/signin-realm-discovery/incorrect-password.png)
   

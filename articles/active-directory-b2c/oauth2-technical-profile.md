@@ -2,20 +2,20 @@
 title: Definieren eines technischen OAuth2-Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein technisches OAuth2-Profil in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C definieren.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65634cb6573a0f163f7a0ca07bf26af9512e240b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 80b196b34e8eee99ed77c3c8a914f89fa68d87b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66512949"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines technischen OAuth2-Profils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -79,22 +79,22 @@ Das technische Profil gibt auch Ansprüche zurück, die vom Identitätsanbieter 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | client_id | Ja | Die Anwendungs-ID des Identitätsanbieters. |
-| IdTokenAudience | Nein  | Die Zielgruppe von id_token. Wenn eine Angabe erfolgt, überprüft Azure AD B2C, ob das Token in einem Anspruch, der vom Identitätsanbieter zurückgegeben wurde, enthalten und mit dem angegebenen Token identisch ist. |
+| IdTokenAudience | Nein | Die Zielgruppe von id_token. Wenn eine Angabe erfolgt, überprüft Azure AD B2C, ob das Token in einem Anspruch, der vom Identitätsanbieter zurückgegeben wurde, enthalten und mit dem angegebenen Token identisch ist. |
 | authorization_endpoint | Ja | Die URL des Autorisierungsendpunkts gemäß RFC 6749. |
 | AccessTokenEndpoint | Ja | Die URL des Tokenendpunkts gemäß RFC 6749. |  
 | ClaimsEndpoint | Ja | Die URL des Endpunkts für Benutzerinformationen gemäß RFC 6749. | 
-| AccessTokenResponseFormat | Nein  | Das Format für Aufrufe an den Zugriffstoken-Endpunkt. Facebook erfordert z.B. eine HTTP GET-Methode, während die Antwort mit dem Zugriffstoken im JSON-Format ist. |
-| AdditionalRequestQueryParameters | Nein  | Zusätzliche Abfrageparameter für die Anforderung. Sie können diese zusätzlichen Parameter z.B. an Ihren Identitätsanbieter senden. Sie können mehrere Parameter mit einem Komma als Trennzeichen einfügen. | 
-| ClaimsEndpointAccessTokenName | Nein  | Der Name des Parameters mit der Abfragezeichenfolge für das Zugriffstoken. Die Anspruchsendpunkte einiger Identitätsanbieter unterstützen HTTP GET-Anforderungen. In diesem Fall wird das Bearertoken über einen Parameter für eine Abfragezeichenfolge anstelle eines Autorisierungsheaders gesendet. |
-| ClaimsEndpointFormatName | Nein  | Der Name des Formatparameters für die Abfragezeichenfolge. Sie können im LinkedIn-Anspruchsendpunkt `https://api.linkedin.com/v1/people/~?format=json` beispielsweise als Namen `format` festlegen. | 
-| ClaimsEndpointFormat | Nein  | Der Wert des der Formatparameters für die Abfragezeichenfolge. Sie können im LinkedIn-Anspruchsendpunkt `https://api.linkedin.com/v1/people/~?format=json` beispielsweise als Wert `json` festlegen. | 
-| ProviderName | Nein  | Der Name des Identitätsanbieters. |
-| response_mode | Nein  | Die Methode, die der Identitätsanbieter verwendet, um das Ergebnis zurück an Azure AD B2C zu senden. Mögliche Werte: `query`, `form_post` (Standard) oder `fragment`. |
-| scope | Nein  | Der Bereich für die Anforderung gemäß der Spezifikation des OAuth2-Identitätsanbieters. Beispiele: `openid`, `profile` und `email`. |
-| HttpBinding | Nein  | Die erwartete HTTP-Bindung an die Endpunkte für Zugriffs- und Anspruchstoken. Mögliche Werte: `GET` oder `POST`.  |
-| ResponseErrorCodeParamName | Nein  | Der Name des Parameters mit der Fehlermeldung, die über HTTP 200 (OK) zurückgegeben wurde. |
-| ExtraParamsInAccessTokenEndpointResponse | Nein  | Enthält die zusätzlichen Parameter, die in der Antwort auf **AccessTokenEndpoint** von einigen Identitätsanbietern zurückgegeben werden können. Beispielsweise enthält die Antwort von **AccessTokenEndpoint** einen zusätzlichen Parameter wie `openid`, der neben access_token in der Abfragezeichenfolge einer **ClaimsEndpoint**-Anforderung ein erforderlicher Parameter ist. Mehrere Parameternamen sollten mit einem Escapezeichen versehen und durch ein Komma (,) voneinander getrennt werden. |
-| ExtraParamsInClaimsEndpointRequest | Nein  | Enthält die zusätzlichen Parameter, die in der **ClaimsEndpoint**-Anforderung von einigen Identitätsanbietern zurückgegeben werden können. Mehrere Parameternamen sollten mit einem Escapezeichen versehen und durch ein Komma (,) voneinander getrennt werden. |
+| AccessTokenResponseFormat | Nein | Das Format für Aufrufe an den Zugriffstoken-Endpunkt. Facebook erfordert z.B. eine HTTP GET-Methode, während die Antwort mit dem Zugriffstoken im JSON-Format ist. |
+| AdditionalRequestQueryParameters | Nein | Zusätzliche Abfrageparameter für die Anforderung. Sie können diese zusätzlichen Parameter z.B. an Ihren Identitätsanbieter senden. Sie können mehrere Parameter mit einem Komma als Trennzeichen einfügen. | 
+| ClaimsEndpointAccessTokenName | Nein | Der Name des Parameters mit der Abfragezeichenfolge für das Zugriffstoken. Die Anspruchsendpunkte einiger Identitätsanbieter unterstützen HTTP GET-Anforderungen. In diesem Fall wird das Bearertoken über einen Parameter für eine Abfragezeichenfolge anstelle eines Autorisierungsheaders gesendet. |
+| ClaimsEndpointFormatName | Nein | Der Name des Formatparameters für die Abfragezeichenfolge. Sie können im LinkedIn-Anspruchsendpunkt `https://api.linkedin.com/v1/people/~?format=json` beispielsweise als Namen `format` festlegen. | 
+| ClaimsEndpointFormat | Nein | Der Wert des der Formatparameters für die Abfragezeichenfolge. Sie können im LinkedIn-Anspruchsendpunkt `https://api.linkedin.com/v1/people/~?format=json` beispielsweise als Wert `json` festlegen. | 
+| ProviderName | Nein | Der Name des Identitätsanbieters. |
+| response_mode | Nein | Die Methode, die der Identitätsanbieter verwendet, um das Ergebnis zurück an Azure AD B2C zu senden. Mögliche Werte: `query`, `form_post` (Standard) oder `fragment`. |
+| scope | Nein | Der Bereich für die Anforderung gemäß der Spezifikation des OAuth2-Identitätsanbieters. Beispiele: `openid`, `profile` und `email`. |
+| HttpBinding | Nein | Die erwartete HTTP-Bindung an die Endpunkte für Zugriffs- und Anspruchstoken. Mögliche Werte: `GET` oder `POST`.  |
+| ResponseErrorCodeParamName | Nein | Der Name des Parameters mit der Fehlermeldung, die über HTTP 200 (OK) zurückgegeben wurde. |
+| ExtraParamsInAccessTokenEndpointResponse | Nein | Enthält die zusätzlichen Parameter, die in der Antwort auf **AccessTokenEndpoint** von einigen Identitätsanbietern zurückgegeben werden können. Beispielsweise enthält die Antwort von **AccessTokenEndpoint** einen zusätzlichen Parameter wie `openid`, der neben access_token in der Abfragezeichenfolge einer **ClaimsEndpoint**-Anforderung ein erforderlicher Parameter ist. Mehrere Parameternamen sollten mit einem Escapezeichen versehen und durch ein Komma (,) voneinander getrennt werden. |
+| ExtraParamsInClaimsEndpointRequest | Nein | Enthält die zusätzlichen Parameter, die in der **ClaimsEndpoint**-Anforderung von einigen Identitätsanbietern zurückgegeben werden können. Mehrere Parameternamen sollten mit einem Escapezeichen versehen und durch ein Komma (,) voneinander getrennt werden. |
 
 ## <a name="cryptographic-keys"></a>Kryptografische Schlüssel
 

@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61001698"
 ---
 # <a name="data-profile-data-sources"></a>Datenprofil-Datenquellen
 ## <a name="introduction"></a>Einführung

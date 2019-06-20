@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994625"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60362253"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Das Herstellen einer Remoteverbindung mit einem virtuellen Windows 10- oder Windows Server 2016-Computer in Azure ist aufgrund von „netvsc.sys“ nicht möglich.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
 ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412844"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Löschen eines Site Recovery Services-Tresors

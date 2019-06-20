@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a507bf1866952cb79fa6334fed80c88cd207cd0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125796"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Verwenden des StorSimple-Geräte-Manager-Diensts zum Verwalten von Volumes auf dem StorSimple Virtual Array
 
@@ -33,8 +33,8 @@ Der StorSimple-Geräte-Manager-Dienst ist eine Erweiterung im Azure-Portal, mit 
 
 Folgende StorSimple-Volumes sind möglich:
 
-* **Lokal**: Daten in diese Volumes verbleiben durchgehend im Array und weichen nicht in die Cloud aus.
-* **Mehrstufig**: Daten in diesen Volumes können in die Cloud ausweichen. Wenn Sie ein mehrstufiges Volume erstellen, werden ca. 10 % des Speicherplatzes auf der lokalen Ebene und 90 % des Speicherplatzes in der Cloud bereitgestellt. Wenn Sie beispielsweise ein Volume mit 1 TB bereitstellen, befinden sich 100 GB lokal, und 900 GB werden in der Cloud zum Anordnen der Daten genutzt. Dies bedeutet wiederum Folgendes: Wenn der gesamte lokale Speicherplatz auf dem Gerät aufgebraucht ist, können Sie kein mehrstufiges Volume bereitstellen (da die lokal erforderlichen 10 % nicht verfügbar sind).
+* **Lokal:** Daten auf diesen Volumes verbleiben durchgehend im Array und gelangen nicht in die Cloud.
+* **Mehrstufig:** Die Daten in diesen Volumes können in die Cloud ausweichen. Wenn Sie ein mehrstufiges Volume erstellen, werden ca. 10 % des Speicherplatzes auf der lokalen Ebene und 90 % des Speicherplatzes in der Cloud bereitgestellt. Wenn Sie beispielsweise ein Volume mit 1 TB bereitstellen, befinden sich 100 GB lokal, und 900 GB werden in der Cloud zum Anordnen der Daten genutzt. Dies bedeutet wiederum Folgendes: Wenn der gesamte lokale Speicherplatz auf dem Gerät aufgebraucht ist, können Sie kein mehrstufiges Volume bereitstellen (da die lokal erforderlichen 10 % nicht verfügbar sind).
 
 ### <a name="provisioned-capacity"></a>Bereitgestellte Kapazität
 In der folgenden Tabelle finden Sie die bereitgestellte Maximalkapazität für die einzelnen Volumetypen.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817693"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64869977"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Konfigurieren von ExpressRoute Global Reach unter Verwendung der Azure CLI
 
@@ -48,13 +48,13 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Bestimmen der zu konfigurierenden ExpressRoute-Leitungen
 
-Sie können ExpressRoute Global Reach zwischen zwei beliebigen ExpressRoute-Leitungen aktivieren, solange sich diese in unterstützten Ländern befinden und an verschiedenen Peeringstandorten erstellt wurden. Wenn beide Leitungen Ihrem Abonnement zugewiesen sind, können Sie eine der beiden Leitungen auswählen, um die Konfiguration auszuführen, wie nachfolgend in diesem Artikel beschrieben. Wenn sich die beiden Leitungen in unterschiedlichen Azure-Abonnements befinden, benötigen Sie die Autorisierung eines Azure-Abonnements und müssen den entsprechenden Autorisierungsschlüssel übergeben, sofern Sie den Konfigurationsbefehl im anderen Azure-Abonnement ausführen.
+Sie können ExpressRoute Global Reach zwischen zwei beliebigen ExpressRoute-Leitungen aktivieren, solange sich diese in unterstützten Ländern/Regionen befinden und an verschiedenen Peeringstandorten erstellt wurden. Wenn beide Leitungen Ihrem Abonnement zugewiesen sind, können Sie eine der beiden Leitungen auswählen, um die Konfiguration auszuführen, wie nachfolgend in diesem Artikel beschrieben. Wenn sich die beiden Leitungen in unterschiedlichen Azure-Abonnements befinden, benötigen Sie die Autorisierung eines Azure-Abonnements und müssen den entsprechenden Autorisierungsschlüssel übergeben, sofern Sie den Konfigurationsbefehl im anderen Azure-Abonnement ausführen.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Aktivieren der Konnektivität zwischen Ihren lokalen Netzwerken
 
 Beachten Sie bei der Ausführung des Befehls zur Aktivierung der Konnektivität die folgenden Anforderungen an Parameterwerte:
 
-* Die Peerleitung *peer-circuit* muss die vollständige Ressourcen-ID sein. Beispiel: 
+* Die Peerleitung *peer-circuit* muss die vollständige Ressourcen-ID sein. Beispiel:
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

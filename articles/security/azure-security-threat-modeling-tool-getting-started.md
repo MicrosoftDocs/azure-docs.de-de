@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60610752"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Erste Schritte mit dem Threat Modeling Tool
 
@@ -46,7 +46,7 @@ Wenn Sie das Threat Modeling Tool starten, fallen Ihnen einige Dinge auf (siehe 
 | **Modell erstellen**                          | Öffnet einen leeren Zeichenbereich, in dem Sie Ihr Diagramm zeichnen können. Wählen Sie für Ihr Modell unbedingt die entsprechende Vorlage.                                                                                                                                                                                                                                                                                                                                                                       |
 | **Vorlage für neue Modelle**                 | Vor Erstellung eines Modells müssen Sie die zu verwendende Vorlage auswählen. Unsere Hauptvorlage heißt „Azure Threat Model Template“, die Azure-spezifische Schablonen, Bedrohungen und Entschärfungen enthält. Wählen Sie für generische Modelle im Dropdownmenü „SDL TM Knowledge Base“ aus. Möchten Sie eine eigene Vorlage erstellen oder allen Benutzern eine neue bereitstellen? Auf unserer GitHub-Seite **[Template Repository](https://github.com/Microsoft/threat-modeling-templates)** erfahren Sie mehr.                              |
 | **Modell öffnen**                            | <p>Öffnet zuvor gespeicherte Bedrohungsmodelle. Die Funktion „Zuletzt geöffnete Modelle“ eignet sich besonders, wenn Sie Ihre zuletzt verwendeten Dateien öffnen müssen. Wenn Sie den Mauszeiger über der Option bewegen, finden Sie zwei Möglichkeiten zum Öffnen von Modellen:</p><p><ul><li>Auf diesem Computer öffnen: Herkömmliche Möglichkeit zum Öffnen einer Datei im lokalen Speicher.</li><li>Auf OneDrive öffnen: Teams können Ordner auf OneDrive nutzen, um alle ihre Bedrohungsmodelle an zentraler Stelle zu speichern und freizugeben, wodurch Produktivität und Zusammenarbeit verbessert werden.</li></ul></p> |
-| **Leitfaden zu den ersten Schritten**                   | Öffnet die Hauptseite des **[Microsoft Threat Modeling Tools](./azure-security-threat-modeling-tool.md)**.                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Leitfaden zu den ersten Schritten**                   | Öffnet die Hauptseite des **[Microsoft Threat Modeling Tools](./azure-security-threat-modeling-tool.md)** .                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### <a name="template-section"></a>Abschnitt „Vorlage“
 
@@ -79,14 +79,14 @@ Sie durchlaufen den Prozess der Entwicklung ihres ersten Bedrohungsmodells.
 > - Sie senden Befehle an unseren Webserver (den Kreis).
 > - Der Webserver fragt eine Datenbank ab (zwei parallele Geraden)
 
-Was Ricardo gerade eben Cristina gezeigt hat, ist ein **[Datenflussdiagramm](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Das Threat Modeling Tool ermöglicht Benutzern die Angabe von Vertrauensstellungsgrenzen, die durch die rot gepunkteten Linien angezeigt werden, um zu veranschaulichen, welche verschiedenen Entitäten die Kontrolle haben. IT-Administratoren benötigen z.B. zu Authentifizierungszwecken ein Active Directory-System, weshalb das Active Directory außerhalb ihrer Kontrolle ist.
+Was Ricardo gerade eben Cristina gezeigt hat, ist ein **[Datenflussdiagramm](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Das Threat Modeling Tool ermöglicht Benutzern die Angabe von Vertrauensstellungsgrenzen, die durch die rot gepunkteten Linien angezeigt werden, um zu veranschaulichen, welche verschiedenen Entitäten die Kontrolle haben. IT-Administratoren benötigen z.B. zu Authentifizierungszwecken ein Active Directory-System, weshalb das Active Directory außerhalb ihrer Kontrolle ist.
 
 > Cristina: Das sieht stimmig aus. Was ist mit den Bedrohungen?
 > Ricardo: Das zeige ich dir.
 
 ## <a name="analyzing-threats"></a>Analysieren von Bedrohungen
 
-Nachdem er auf der Menüleiste mit den Symbolen auf die Analyseansicht (Datei mit Lupe) geklickt hat, gelangt er zu einer Liste generierter Bedrohungen, die das Threat Modeling Tool basierend auf der Standardvorlage gefunden hat. Diese befolgt den DSL-Ansatz **[STRIDE (Spoofing, Tampering, Info Disclosure, Denial of Service and Elevation of Privilege, dt. Spoofing, Manipulation, Veröffentlichung von Informationen, Nichtanerkennung, Denial of Service, Rechteerweiterungen)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Die Idee ist, dass Software mit einer vorhersagbaren Gruppe von Bedrohungen geliefert wird, die mithilfe dieser sechs Kategorien gefunden werden können.
+Nachdem er auf der Menüleiste mit den Symbolen auf die Analyseansicht (Datei mit Lupe) geklickt hat, gelangt er zu einer Liste generierter Bedrohungen, die das Threat Modeling Tool basierend auf der Standardvorlage gefunden hat. Diese befolgt den DSL-Ansatz **[STRIDE (Spoofing, Tampering, Info Disclosure, Denial of Service and Elevation of Privilege, dt. Spoofing, Manipulation, Veröffentlichung von Informationen, Nichtanerkennung, Denial of Service, Rechteerweiterungen)](https://en.wikipedia.org/wiki/STRIDE_(security))** . Die Idee ist, dass Software mit einer vorhersagbaren Gruppe von Bedrohungen geliefert wird, die mithilfe dieser sechs Kategorien gefunden werden können.
 
 Diese Methode ist vergleichbar mit dem Absichern Ihres Hauses, indem sichergestellt wird, dass alle Türen und Fenster über einen Sperrmechanismus verfügen, ehe Sie eine Alarmanlage hinzufügen oder dem Dieb nachjagen.
 
@@ -143,4 +143,4 @@ Der hier vorgestellte Ansatz zur Bedrohungsmodellierung ist wesentlich einfacher
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Senden Sie Ihre Fragen, Kommentare und Probleme an tmtextsupport@microsoft.com. **[Laden Sie das Threat Modeling Tool herunter](https://aka.ms/threatmodelingtool)**, um die ersten Schritte zu unternehmen.
+Senden Sie Ihre Fragen, Kommentare und Probleme an tmtextsupport@microsoft.com. **[Laden Sie das Threat Modeling Tool herunter](https://aka.ms/threatmodelingtool)** , um die ersten Schritte zu unternehmen.

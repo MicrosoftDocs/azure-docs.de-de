@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305318"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177827"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Was ist ExpressRoute Global Reach?
 
@@ -29,23 +29,23 @@ Wenn sich Ihre ExpressRoute-Leitungen in derselben geopolitischen Region befinde
 
 ### <a name="how-will-i-be-charged-for-expressroute-global-reach"></a>Wie wird mir ExpressRoute Global Reach in Rechnung gestellt?
 
-ExpressRoute ermöglicht die Konnektivität zwischen Ihrem lokalen Netzwerk und Microsoft Cloud Services. ExpressRoute Global Reach ermöglicht die Konnektivität zwischen Ihren lokalen Netzwerken über Ihre vorhandenen ExpressRoute-Leitungen und unter Nutzung des globalen Netzwerks von Microsoft. ExpressRoute Global Reach wird getrennt vom vorhandenen ExpressRoute-Dienst in Rechnung gestellt. Für die Aktivierung dieser Funktion für jede ExpressRoute-Leitung fällt eine Add-On-Gebühr an. Durch ExpressRoute Global Reach ermöglichter Datenverkehr zwischen Ihren lokalen Netzwerken anhand einer Ausgangsrate an der Quelle und einer Eingangsrate am Ziel in Rechnung gestellt. Die Preise basieren auf die Zone, in der sich die Leitungen befinden. Siehe <pricing page>
+ExpressRoute ermöglicht die Konnektivität zwischen Ihrem lokalen Netzwerk und Microsoft Cloud Services. ExpressRoute Global Reach ermöglicht die Konnektivität zwischen Ihren lokalen Netzwerken über Ihre vorhandenen ExpressRoute-Leitungen und unter Nutzung des globalen Netzwerks von Microsoft. ExpressRoute Global Reach wird getrennt vom vorhandenen ExpressRoute-Dienst in Rechnung gestellt. Für die Aktivierung dieser Funktion für jede ExpressRoute-Leitung fällt eine Add-On-Gebühr an. Durch ExpressRoute Global Reach ermöglichter Datenverkehr zwischen Ihren lokalen Netzwerken anhand einer Ausgangsrate an der Quelle und einer Eingangsrate am Ziel in Rechnung gestellt. Die Preise basieren auf die Zone, in der sich die Leitungen befinden.
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Wo wird ExpressRoute Global Reach unterstützt?
 
-ExpressRoute Global Reach wird in/an [ausgewählten Ländern/Orten unterstützt](../articles/expressroute/expressroute-global-reach.md). Die ExpressRoute-Leitungen müssen an den Peeringstandorten in diesen Ländern/an diesen Orten eingerichtet werden.
+ExpressRoute Global Reach wird in/an [ausgewählten Ländern/Regionen oder Orten unterstützt](../articles/expressroute/expressroute-global-reach.md). Die ExpressRoute-Leitungen müssen an den Peeringstandorten in diesen Ländern/Regionen oder an diesen Orten eingerichtet werden.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Ich habe mehr als zwei lokale Netzwerke, die jeweils mit einer ExpressRoute-Leitungen verbunden sind. Kann ich ExpressRoute Global Reach aktivieren, um alle meine lokalen Netzwerke miteinander zu verbinden?
 
-Ja, das ist möglich, sofern sich die Leitungen in den unterstützten Länder befinden. Sie müssen jeweils zwei ExpressRoute-Leitungen verbinden. Zum Erstellen eines voll vermaschten Netzwerks müssen Sie alle Leitungspaare aufzählen und die Konfiguration wiederholen. 
+Ja, das ist möglich, sofern sich die Leitungen in den unterstützten Ländern/Regionen befinden. Sie müssen jeweils zwei ExpressRoute-Leitungen verbinden. Zum Erstellen eines voll vermaschten Netzwerks müssen Sie alle Leitungspaare aufzählen und die Konfiguration wiederholen. 
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>Kann ich ExpressRoute Global Reach zwischen zwei ExpressRoute-Leitungen am gleichen Peeringstandort aktivieren?
 
- Nein. Die zwei Leitungen müssen sich an verschiedenen Peeringstandorten befinden. Verfügt eine Metro in einem unterstützten Land über mehr als einen Peeringstandort, können Sie die an verschiedenen Peeringstandorten in dieser Metro erstellten ExpressRoute-Leitungen miteinander verbinden. 
+Nein. Die zwei Leitungen müssen sich an verschiedenen Peeringstandorten befinden. Verfügt eine Metro in einem unterstützten Land bzw. einer unterstützten Region über mehr als einen Peeringstandort, können Sie die an verschiedenen Peeringstandorten in dieser Metro erstellten ExpressRoute-Leitungen miteinander verbinden. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Wenn ExpressRoute Global Reach zwischen Leitung X und Leitung Y sowie zwischen Leitung Y und Leitung Z aktiviert ist, können dann meine lokalen Netzwerke, die mit Leitung X und Leitung Z verbunden sind, über das Microsoft-Netzwerk miteinander kommunizieren?
 
- Nein. Um die Konnektivität zwischen zwei beliebigen Ihrer lokalen Netzwerke zu aktivieren, müssen Sie die entsprechenden ExpressRoute-Leitungen explizit verbinden. Im obigen Beispiel müssen Sie Leitung X und Leitung Z verbinden. 
+Nein. Um die Konnektivität zwischen zwei beliebigen Ihrer lokalen Netzwerke zu aktivieren, müssen Sie die entsprechenden ExpressRoute-Leitungen explizit verbinden. Im obigen Beispiel müssen Sie Leitung X und Leitung Z verbinden. 
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Welchen Netzwerkdurchsatz zwischen meinen lokalen Netzwerken kann ich nach dem Aktivieren von ExpressRoute Global Reach erwarteten?
 

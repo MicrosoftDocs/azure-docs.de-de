@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 03/26/2019
 ms.author: lbosq
-ms.openlocfilehash: db931a3a114be101eeb5e14fa7ba100a789e7cf5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56fab3f8f572f277c11dc566c7d74104226b4fc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094990"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480565"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Schnellstart: Erstellen einer Graphdatenbank in Azure Cosmos DB mit dem Java-SDK 
 
@@ -35,8 +35,7 @@ In dieser Schnellstartanleitung wird mithilfe der Tools des Azure-Portals für A
 
 Außerdem haben Sie folgende Möglichkeiten:
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * Führen Sie unter Ubuntu `apt-get install default-jdk` aus, um das JDK zu installieren.
+* [Java Development Kit (JDK), Version 8](https://aka.ms/azure-jdks)
     * Achten Sie darauf, dass die Umgebungsvariable „JAVA_HOME“ auf den Ordner verweist, in dem das JDK installiert ist.
 * Ein binäres [Maven](https://maven.apache.org/)-Archiv ([Download](https://maven.apache.org/download.cgi)/[Installationsanleitung](https://maven.apache.org/install.html))
     * Unter Ubuntu können Sie `apt-get install maven` ausführen, um Maven zu installieren.

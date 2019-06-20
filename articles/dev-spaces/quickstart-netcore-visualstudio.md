@@ -1,5 +1,5 @@
 ---
-title: Entwickeln mit .NET Core unter AKS mit Azure Dev Spaces und Visual Studio 2017
+title: Entwickeln mit .NET Core unter AKS mit Azure Dev Spaces und Visual Studio
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -13,30 +13,29 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, H
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361257"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399222"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Schnellstart: Entwickeln mit .NET Core unter Kubernetes mit Azure Dev Spaces (Visual Studio 2017)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Schnellstart: Entwickeln mit .NET Core unter Kubernetes mit Azure Dev Spaces (Visual Studio )
 
 In diesem Leitfaden lernen Sie Folgendes:
 
 - Einrichten von Azure Dev Spaces mit einem verwalteten Kubernetes-Cluster in Azure
-- Iteratives Entwickeln von Code in Containern mit Visual Studio 2017
-- Debuggen von Code in Ihrem Cluster mit Visual Studio 2017
+- Iteratives Entwickeln von Code in Containern mit Visual Studio
+- Debuggen von Code in Ihrem Cluster mit Visual Studio
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Ein Azure-Abonnement. Falls Sie über keins verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free) erstellen.
-- Visual Studio 2017 unter Windows mit installierter Workload für Webentwicklung. Ist diese Version nicht installiert, können Sie sie [hier](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) herunterladen.
-- Installation von [Visual Studio-Tools für Kubernetes](https://aka.ms/get-vsk8stools).
+- Visual Studio 2019 unter Windows mit installierter Workload für die Azure-Entwicklung. Außerdem wird die Verwendung von Visual Studio 2017 mit der Workload für die Webentwicklung und installierten [Visual Studio-Tools für Kubernetes](https://aka.ms/get-vsk8stools) unterstützt. Wenn Sie Visual Studio nicht installiert haben, können Sie es [hier](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) herunterladen.
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Erstellen eines Azure Kubernetes Service-Clusters
 
-Sie müssen in einer [unterstützten Region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams) einen AKS-Cluster erstellen. Erstellen Sie wie folgt einen Cluster:
+Sie müssen in einer [unterstützten Region][supported-regions] einen AKS-Cluster erstellen. Erstellen Sie wie folgt einen Cluster:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com)
 1. Wählen Sie *+ Ressource erstellen > Kubernetes-Dienst*. 
@@ -55,7 +54,7 @@ Navigieren Sie im Azure-Portal zu Ihrem AKS-Cluster, und klicken Sie auf *Dev Sp
 
 ## <a name="create-a-new-aspnet-web-app"></a>Erstellen einer neuen ASP.NET-Web-App
 
-1. Öffnen Sie Visual Studio 2017.
+1. Öffnen Sie Visual Studio.
 1. Erstellen eines neuen Projekts
 1. Wählen Sie *ASP.NET Core-Webanwendung*, und geben Sie Ihrem Projekt den Namen*webfrontend*.
 1. Klicken Sie auf *OK*.
@@ -97,9 +96,11 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 Im obigen Beispiel lautet die öffentliche URL http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navigieren Sie zur öffentlichen URL Ihres Diensts, und interagieren Sie mit dem Dienst, der in Ihrem Entwicklerbereich ausgeführt wird.
 
+Dieser Prozess kann den öffentlichen Zugriff auf Ihren Dienst deaktiviert haben. Um den öffentlichen Zugriff zu aktivieren, können Sie den [eingehenden Wert in der Datei *values.yaml*][ingress-update] aktualisieren.
+
 ## <a name="update-code"></a>Aktualisieren des Codes
 
-Klicken Sie auf die Schaltfläche „Beenden“, wenn Visual Studio 2017 noch mit Ihrem Entwicklerbereich verbunden ist. Ändern Sie Zeile 20 in `Controllers/HomeController.cs` in:
+Klicken Sie auf die Schaltfläche „Beenden“, wenn Visual Studio noch mit Ihrem Entwicklerbereich verbunden ist. Ändern Sie Zeile 20 in `Controllers/HomeController.cs` in:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -111,9 +112,9 @@ Anstatt bei jeder vorgenommenen Codeänderung erneut ein neues Containerimage zu
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Festlegen und Verwenden von Haltepunkten für das Debuggen
 
-Klicken Sie auf die Schaltfläche „Beenden“, wenn Visual Studio 2017 noch mit Ihrem Entwicklerbereich verbunden ist. Öffnen Sie `Controllers/HomeController.cs`, und klicken Sie in Zeile 20, um den Cursor darin zu platzieren. Drücken Sie zum Festlegen eines Haltepunkts *F9*, oder klicken Sie auf *Debuggen* und dann auf *Haltepunkt umschalten*. Drücken Sie zum Starten des Diensts im Debugmodus in Ihrem Entwicklerbereich *F5*, oder klicken Sie auf *Debuggen* und dann auf *Debuggen starten*.
+Klicken Sie auf die Schaltfläche „Beenden“, wenn Visual Studio noch mit Ihrem Entwicklerbereich verbunden ist. Öffnen Sie `Controllers/HomeController.cs`, und klicken Sie in Zeile 20, um den Cursor darin zu platzieren. Drücken Sie zum Festlegen eines Haltepunkts *F9*, oder klicken Sie auf *Debuggen* und dann auf *Haltepunkt umschalten*. Drücken Sie zum Starten des Diensts im Debugmodus in Ihrem Entwicklerbereich *F5*, oder klicken Sie auf *Debuggen* und dann auf *Debuggen starten*.
 
-Öffnen Sie Ihren Dienst in einem Browser. Sie sehen, dass keine Meldung angezeigt wird. Wechseln Sie zurück zu Visual Studio 2017. Sie sehen, dass Zeile 20 hervorgehoben ist. Durch den von Ihnen festgelegten Haltepunkt wurde der Dienst in Zeile 20 angehalten. Drücken Sie zum Fortsetzen des Diensts *F5*, oder klicken Sie auf *Debuggen* und dann auf *Weiter*. Wechseln Sie zurück zum Browser. Sie sehen, dass die Meldung jetzt angezeigt wird.
+Öffnen Sie Ihren Dienst in einem Browser. Sie sehen, dass keine Meldung angezeigt wird. Wechseln Sie zurück zu Visual Studio. Sie sehen, dass Zeile 20 hervorgehoben ist. Durch den von Ihnen festgelegten Haltepunkt wurde der Dienst in Zeile 20 angehalten. Drücken Sie zum Fortsetzen des Diensts *F5*, oder klicken Sie auf *Debuggen* und dann auf *Weiter*. Wechseln Sie zurück zum Browser. Sie sehen, dass die Meldung jetzt angezeigt wird.
 
 Beim Ausführen Ihres Diensts in Kubernetes mit einem angefügten Debugger haben Sie Vollzugriff auf Debuginformationen, z. B. Aufrufliste, lokale Variablen und Ausnahmeninformationen.
 
@@ -131,3 +132,6 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [Arbeiten mit mehreren Containern und Teamentwicklung](multi-service-netcore-visualstudio.md)
+
+[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

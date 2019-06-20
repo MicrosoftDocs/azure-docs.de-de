@@ -70,7 +70,7 @@ Die folgende Tabelle enthält Beschreibungen der JSON-Elemente, die für den ver
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 | --- | --- | --- |
 | type |Die type-Eigenschaft muss auf Folgendes festgelegt werden: **Salesforce**. |Ja |
-| environmentUrl | Geben Sie die URL der Salesforce-Instanz an. <br><br> – Die Standard-URL lautet „https:\///login.salesforce.com“. <br> – Um Daten aus einer Sandbox zu kopieren, geben Sie „https://test.salesforce.com“ an. <br> - Geben Sie zum Kopieren von Daten aus der benutzerdefinierten Domäne z.B. „https://[Domäne].my.salesforce.com“ an. |Nein  |
+| environmentUrl | Geben Sie die URL der Salesforce-Instanz an. <br><br> – Die Standard-URL lautet „https:\///login.salesforce.com“. <br> – Um Daten aus einer Sandbox zu kopieren, geben Sie „https://test.salesforce.com“ an. <br> - Geben Sie zum Kopieren von Daten aus der benutzerdefinierten Domäne z.B. „https://[Domäne].my.salesforce.com“ an. |Nein |
 | username |Geben Sie einen Benutzernamen für das Benutzerkonto an. |Ja |
 | password |Geben Sie ein Kennwort für das Benutzerkonto an. |Ja |
 | securityToken |Geben Sie ein Sicherheitstoken für das Benutzerkonto an. Anweisungen zum Abrufen oder Zurücksetzen eines Sicherheitstokens finden Sie unter [Zurücksetzen Ihres Sicherheitstokens](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) . Allgemeine Informationen zu Sicherheitstoken finden Sie unter [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicherheit und die API). |Ja |
@@ -107,12 +107,12 @@ Wenn die Quelle bei der Kopieraktivität den Typ **RelationalSource** aufweist (
 
 ## <a name="query-tips"></a>Tipps zu Abfragen
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Abrufen von Daten mithilfe der WHERE-Klausel für die DateTime-Spalte
-Achten Sie beim Angeben der SOQL- oder SQL-Abfrage auf den Unterschied beim DateTime-Format. Beispiel: 
+Achten Sie beim Angeben der SOQL- oder SQL-Abfrage auf den Unterschied beim DateTime-Format. Beispiel:
 
 * **SOQL-Beispiel**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL-Beispiel**:
-    * **Verwenden des Assistenten zum Kopieren, um die Abfrage anzugeben:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Verwenden der JSON-Bearbeitung, um die Abfrage anzugeben („char“ muss ordnungsgemäß mit Escapezeichen versehen werden):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+    * **Verwenden des Assistenten zum Kopieren, um die Abfrage anzugeben:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Verwenden der JSON-Bearbeitung, um die Abfrage anzugeben („char“ muss ordnungsgemäß mit Escapezeichen versehen werden):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Abrufen von Daten aus Salesforce-Bericht
 Sie können Daten aus Salesforce-Berichten abrufen, indem Sie z.B. die Abfrage `{call "<report name>"}` angeben. `"query": "{call \"TestReport\"}"`.
@@ -286,25 +286,25 @@ Unter [RelationalSource-Typeigenschaften](#copy-activity-properties) finden Sie 
 
 | Salesforce-Typ | .NET-basierter Typ |
 | --- | --- |
-| Auto Number |Zeichenfolge |
-| Kontrollkästchen |Boolescher Wert |
+| Auto Number |String |
+| Checkbox |Boolean |
 | Currency |Decimal |
-| Datum |DateTime |
-| Datum/Uhrzeit |DateTime |
-| E-Mail |Zeichenfolge |
-| id |Zeichenfolge |
-| Lookup Relationship |Zeichenfolge |
-| Multi-Select Picklist |Zeichenfolge |
+| Date |DateTime |
+| Date/Time |DateTime |
+| E-Mail |String |
+| id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
-| Prozent |Decimal |
-| Phone |Zeichenfolge |
-| Picklist |Zeichenfolge |
-| Text |Zeichenfolge |
-| Text Area |Zeichenfolge |
-| Text Area (Long) |Zeichenfolge |
-| Text Area (Rich) |Zeichenfolge |
-| Text (Encrypted) |Zeichenfolge |
-| URL |Zeichenfolge |
+| Percent |Decimal |
+| Phone |String |
+| Picklist |String |
+| Text |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
+| URL |String |
 
 > [!NOTE]
 > Weitere Informationen zum Zuordnen von Spalten im Quelldataset zu Spalten im Senkendataset finden Sie unter [Zuordnen von Datasetspalten in Azure Data Factory](data-factory-map-columns.md).

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234049"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Erneutes Trainieren und Bereitstellen eines klassischen Studio-Webdiensts
@@ -134,7 +134,7 @@ Der Wert des Parameters *Name* in *Resources* muss mit dem Ressourcennamen des g
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 1. Klicken Sie im linken Menü auf **Machine Learning**.
 1. Klicken Sie unter „Name“ auf Ihren Arbeitsbereich und dann auf **Web Services**.
-1. Klicken Sie unter „Name“ auf **Census Model [predictive exp.]**.
+1. Klicken Sie unter „Name“ auf **Census Model [predictive exp.]** .
 1. Klicken Sie auf den neuen Endpunkt, den Sie hinzugefügt haben.
 1. Klicken Sie im Dashboard des Endpunkts auf **Ressource aktualisieren**.
 1. Auf der Dokumentationsseite der API zur Ressourcenaktualisierung für den Webdienst wird der **Ressourcenname** unter **Updatable Resources** angezeigt.

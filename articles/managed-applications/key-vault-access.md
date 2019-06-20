@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60588235"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Zugreifen auf das Geheimnis im Schlüsseltresor bei der Bereitstellung von Azure Managed Applications
 
@@ -40,7 +40,7 @@ Dieser Artikel beschreibt, wie Sie den Schlüsseltresor zum Arbeiten mit verwalt
 
 ## <a name="add-service-as-contributor"></a>Hinzufügen des Diensts als Mitwirkender
 
-1. Wählen Sie die Option **Zugriffssteuerung (IAM)**.
+1. Wählen Sie die Option **Zugriffssteuerung (IAM)** .
 
    ![„Zugriffssteuerung“ auswählen](./media/key-vault-access/access-control.png)
 

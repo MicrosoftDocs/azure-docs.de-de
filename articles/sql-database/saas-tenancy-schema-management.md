@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081218"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241913"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Verwalten von Schemas in einer SaaS-Anwendung mit dem Muster für eine Datenbank pro Mandant in Azure SQL-Datenbank
  
 Wenn eine Datenbankanwendung weiterentwickelt wird, müssen unweigerlich Änderungen am Datenbankschema oder den Verweisdaten vorgenommen werden.  Auch Datenbankwartungsaufgaben sind in regelmäßigen Abständen erforderlich. Um eine Anwendung, die das Muster für eine Datenbank pro Mandant verwendet, zu verwalten, müssen Sie diese Änderungen oder Wartungsaufgaben für eine ganze Reihe von Mandantendatenbanken übernehmen.
 
-In diesem Tutorial werden zwei Szenarien erläutert: das Bereitstellen der Aktualisierungen von Verweisdaten für alle Mandanten und das erneute Erstellen eines Index für die Tabelle mit den Verweisdaten. Das Feature [Elastische Aufträge](sql-database-elastic-jobs-overview.md) wird zum Ausführen dieser Aktionen für alle Mandantendatenbanken sowie für die Vorlagendatenbank verwendet, die zum Erstellen neuer Mandantendatenbanken zur Anwendung kommt.
+In diesem Tutorial werden zwei Szenarien erläutert: das Bereitstellen der Aktualisierungen von Verweisdaten für alle Mandanten und das erneute Erstellen eines Index für die Tabelle mit den Verweisdaten. Das Feature [Elastische Aufträge](elastic-jobs-overview.md) wird zum Ausführen dieser Aktionen für alle Mandantendatenbanken sowie für die Vorlagendatenbank verwendet, die zum Erstellen neuer Mandantendatenbanken zur Anwendung kommt.
 
 In diesem Tutorial lernen Sie Folgendes:
 
@@ -46,7 +46,7 @@ Stellen Sie vor dem Durchführen dieses Tutorials sicher, dass die folgenden Vor
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Einführung in SaaS-Schemaverwaltungsmuster
 
-Das Muster für eine Datenbank pro Mandant isoliert Mandantendaten effektiv, erhöht jedoch die Anzahl der Datenbanken, die verwaltet werden müssen. [Elastische Aufträge](sql-database-elastic-jobs-overview.md) erleichtert die Verwaltung von SQL-Datenbanken. Mithilfe von Aufträgen können Sie auf sichere und zuverlässige Weise Aufgaben (T-SQL-Skripts) für eine Gruppe von Datenbanken ausführen. Aufträge können Änderungen an Schemadaten und gemeinsamen Verweisdaten für alle Mandanten in einer Anwendung bereitstellen. Mit „Elastische Aufträge“ kann auch eine *Vorlagendatenbank* verwaltet werden, anhand derer neue Mandanten erstellt werden. Dabei wird sichergestellt, dass sie stets die aktuellen Schema- und Verweisdaten aufweist.
+Das Muster für eine Datenbank pro Mandant isoliert Mandantendaten effektiv, erhöht jedoch die Anzahl der Datenbanken, die verwaltet werden müssen. [Elastische Aufträge](elastic-jobs-overview.md) erleichtert die Verwaltung von SQL-Datenbanken. Mithilfe von Aufträgen können Sie auf sichere und zuverlässige Weise Aufgaben (T-SQL-Skripts) für eine Gruppe von Datenbanken ausführen. Aufträge können Änderungen an Schemadaten und gemeinsamen Verweisdaten für alle Mandanten in einer Anwendung bereitstellen. Mit „Elastische Aufträge“ kann auch eine *Vorlagendatenbank* verwaltet werden, anhand derer neue Mandanten erstellt werden. Dabei wird sichergestellt, dass sie stets die aktuellen Schema- und Verweisdaten aufweist.
 
 ![Bildschirm](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -78,7 +78,7 @@ In der Wingtip Tickets-App gehört zu jeder Mandantendatenbank ein Satz von unte
 Prüfen Sie zunächst die in jeder Mandantendatenbank enthaltenen Veranstaltungsorttypen. Stellen Sie in SQL Server Management Studio (SSMS) eine Verbindung mit einer der Mandantendatenbanken her, und überprüfen Sie die Tabelle VenueTypes.  Sie können diese Tabelle auch im Azure-Portal im Abfrage-Editor abfragen, den Sie über die Seite „Datenbank“ aufrufen können. 
 
 1. Öffnen Sie SSMS, und stellen Sie eine Verbindung mit dem Mandantenserver *tenants1-dpt-&lt;Benutzer&gt;.database.windows.net* her.
-1. Um sich zu vergewissern, dass *Motorcycle Racing* und *Swimming Club* **nicht** in der Ergebnisliste enthalten sind, navigieren Sie zur Datenbank _contosoconcerthall_ auf dem Server *tenants1-dpt-&lt;Benutzer&gt;*, und fragen Sie die Tabelle *VenueTypes* ab.
+1. Um sich zu vergewissern, dass *Motorcycle Racing* und *Swimming Club* **nicht** in der Ergebnisliste enthalten sind, navigieren Sie zur Datenbank _contosoconcerthall_ auf dem Server *tenants1-dpt-&lt;Benutzer&gt;* , und fragen Sie die Tabelle *VenueTypes* ab.
 
 Nun erstellen Sie einen Auftrag zum Aktualisieren der Tabelle *VenueTypes* in allen Mandantendatenbanken und fügen die neuen Veranstaltungsorttypen hinzu.
 
@@ -96,7 +96,7 @@ Beachten Sie die folgenden Elemente im Skript *DeployReferenceData.sql*:
 * **sp\_add\_jobstep** erstellt den Auftragsschritt mit dem T-SQL-Befehlstext zum Aktualisieren der Verweistabelle „VenueTypes“.
 * Die übrigen Ansichten im Skript zeigen das Vorhandensein der Objekte an und überwachen die Auftragsausführung. Verwenden Sie diese Abfragen, um den Statuswert in der Spalte **lifecycle** zu überprüfen und zu ermitteln, wann der Auftrag für alle Zieldatenbanken abgeschlossen wurde.
 
-Nach Abschluss des Skripts können Sie überprüfen, ob die Verweisdaten aktualisiert wurden.  Navigieren Sie in SSMS zur Datenbank *contosoconcerthall* auf dem Server *tenants1-dpt-&lt;Benutzer&gt;*, und fragen Sie die Tabelle *VenueTypes* ab.  Vergewissern Sie sich, dass *Motorcycle Racing* und *Swimming Club* jetzt vorhanden **sind**.
+Nach Abschluss des Skripts können Sie überprüfen, ob die Verweisdaten aktualisiert wurden.  Navigieren Sie in SSMS zur Datenbank *contosoconcerthall* auf dem Server *tenants1-dpt-&lt;Benutzer&gt;* , und fragen Sie die Tabelle *VenueTypes* ab.  Vergewissern Sie sich, dass *Motorcycle Racing* und *Swimming Club* jetzt vorhanden **sind**.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Erstellen eines Auftrags zum Verwalten des Index der Verweistabelle
@@ -133,5 +133,4 @@ Absolvieren Sie als Nächstes das Tutorial [Ad-hoc-Berichterstellung](saas-tenan
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 * [Weitere Tutorials, die auf der ersten Anwendungsbereitstellung von Wingtip Tickets SaaS Database Per Tenant aufbauen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Verwalten horizontal hochskalierter Clouddatenbanken](sql-database-elastic-jobs-overview.md)
-* [Erstellen und Verwalten von horizontal hochskalierten Clouddatenbanken](sql-database-elastic-jobs-create-and-manage.md)
+* [Verwalten horizontal hochskalierter Clouddatenbanken](elastic-jobs-overview.md)

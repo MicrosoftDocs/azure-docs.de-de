@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
 ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087523"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60457031"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Problembehandlung bei Point-to-Site-VPN-Verbindungen von Mac OS X-VPN-Clients
 
@@ -34,7 +34,7 @@ Dieser Artikel hilft Ihnen beim Beheben von Point-to-Site-Konnektivitätsproblem
 
 
 ## <a name="VPNClient"></a> Problembehandlung bei zertifikatbasierter Authentifizierung
-1. Überprüfen Sie die VPN-Clienteinstellungen. Wechseln Sie durch Drücken von BEFEHLTASTE + UMSCHALTTASTE ZU **Network Setting (Netzwerkeinstellung)**, und geben Sie dann „VPN“ ein, um die VPN-Clienteinstellungen zu überprüfen. Klicken Sie in der Liste auf den VPN-Eintrag, der untersucht werden muss.
+1. Überprüfen Sie die VPN-Clienteinstellungen. Wechseln Sie durch Drücken von BEFEHLTASTE + UMSCHALTTASTE ZU **Network Setting (Netzwerkeinstellung)** , und geben Sie dann „VPN“ ein, um die VPN-Clienteinstellungen zu überprüfen. Klicken Sie in der Liste auf den VPN-Eintrag, der untersucht werden muss.
 
    ![IKEv2-zertifikatbasierte Authentifizierung](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
 2. Überprüfen Sie, ob die **Server Address (Serveradresse)** der vollständige FQDN ist und die „cloudapp.net“ enthält.
@@ -44,17 +44,17 @@ Dieser Artikel hilft Ihnen beim Beheben von Point-to-Site-Konnektivitätsproblem
 
    ![Authentifizierungseinstellungen](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Überprüfen Sie, ob **Certificate (Zertifikat)** in der Dropdownliste ausgewählt ist.
-7. Klicken Sie auf die Schaltfläche **Select (Auswählen)**, und stellen Sie sicher, dass das richtige Zertifikat ausgewählt ist. Klicken Sie zum Speichern etwaiger Änderungen auf **OK**.
+7. Klicken Sie auf die Schaltfläche **Select (Auswählen)** , und stellen Sie sicher, dass das richtige Zertifikat ausgewählt ist. Klicken Sie zum Speichern etwaiger Änderungen auf **OK**.
 
 ## <a name="ikev2"></a> Problembehandlung bei Benutzernamen- und Kennwortauthentifizierung
 
-1. Überprüfen Sie die VPN-Clienteinstellungen. Wechseln Sie durch Drücken von BEFEHLTASTE + UMSCHALTTASTE ZU **Network Setting (Netzwerkeinstellung)**, und geben Sie dann „VPN“ ein, um die VPN-Clienteinstellungen zu überprüfen. Klicken Sie in der Liste auf den VPN-Eintrag, der untersucht werden muss.
+1. Überprüfen Sie die VPN-Clienteinstellungen. Wechseln Sie durch Drücken von BEFEHLTASTE + UMSCHALTTASTE ZU **Network Setting (Netzwerkeinstellung)** , und geben Sie dann „VPN“ ein, um die VPN-Clienteinstellungen zu überprüfen. Klicken Sie in der Liste auf den VPN-Eintrag, der untersucht werden muss.
 
    ![IKEv2-Benutzername/-Kennwort](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
 2. Überprüfen Sie, ob die **Server Address (Serveradresse)** der vollständige FQDN ist und die „cloudapp.net“ enthält.
 3. Die **Remote ID** sollte mit der „Server Address“ (Serveradresse) (Gateway-FQDN) des Servers identisch sein.
 4. Die **Local ID (lokale ID)** kann leer sein.
-5. Klicken Sie auf die Schaltfläche **Authentication Setting (Authentifizierungseinstellung)**, und stellen Sie sicher, dass „Username“ (Benutzername) in der Dropdownliste ausgewählt ist.
+5. Klicken Sie auf die Schaltfläche **Authentication Setting (Authentifizierungseinstellung)** , und stellen Sie sicher, dass „Username“ (Benutzername) in der Dropdownliste ausgewählt ist.
 
    ![Authentifizierungseinstellungen](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
 6. Stellen Sie sicher, dass die richtigen Anmeldeinformationen eingegeben sind.

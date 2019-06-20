@@ -1,8 +1,8 @@
 ---
-title: Produktionsvorgänge und Verwaltung von Azure
-description: Dieser Artikel enthält eine allgemeine Beschreibung der Verwaltung und des Betriebs des Azure-Produktionsnetzwerks.
+title: Verwaltung des Microsoft Azure-Produktionsnetzwerks – Microsoft Azure
+description: In diesem Artikel ist beschrieben, wie Microsoft das Azure-Produktionsnetzwerk verwaltet und betreibt, um die Azure-Rechenzentren zu schützen.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104550"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428266"
 ---
-# <a name="azure-production-operations-and-management"></a>Produktionsvorgänge und Verwaltung von Azure    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Verwaltung und Betrieb des Azure-Produktionsnetzwerks    
+In diesem Artikel ist beschrieben, wie Microsoft das Azure-Produktionsnetzwerk verwaltet und betreibt, um die Azure-Rechenzentren zu schützen.
+
+## <a name="monitor-log-and-report"></a>Überwachen, protokollieren und berichten
+
 Für die Verwaltung und den Betrieb des Azure-Produktionsnetzwerks sind die Betriebsteams von Azure und Azure SQL-Datenbank gemeinsam zuständig. Die Teams verwenden mehrere Tools zur Überwachung der System- und Anwendungsleistung in der Umgebung. Darüber hinaus verwenden Sie entsprechende Tools, um Netzwerkgeräte, Server, Dienste und Anwendungsprozesse zu überwachen.
 
 Um die sichere Ausführung der Dienste in der Azure-Umgebung zu gewährleisten, implementieren die Betriebsteams mehrere Ebenen der Überwachung, Protokollierung und Berichterstellung. Dazu gehören folgende Aktionen:

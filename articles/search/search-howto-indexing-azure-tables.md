@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66755087"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indizieren von Azure Table Storage mit Azure Search
 In diesem Artikel wird beschrieben, wie Sie Azure Search zum Indizieren von Daten verwenden, die in Azure Table Storage gespeichert sind.
@@ -114,6 +114,8 @@ Nach der Erstellung von Index und Datenquelle können Sie den Indexer erstellen:
 Dieser Indexer wird alle zwei Stunden ausgeführt. (Das Zeitplanintervall ist auf „PT2H“ festgelegt.) Um einen Indexer alle 30 Minuten auszuführen, legen Sie das Intervall auf „PT30M“ fest. Das kürzeste unterstützte Intervall beträgt fünf Minuten. Der Zeitplan ist optional. Ohne Zeitplan wird ein Indexer nur einmal bei seiner Erstellung ausgeführt. Allerdings können Sie einen Indexer bei Bedarf jederzeit ausführen.   
 
 Weitere Informationen zur API für das Erstellen eines Indexers finden Sie unter [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Erstellen eines Indexers).
+
+Weitere Informationen zum Definieren von Indexerzeitplänen finden Sie unter [Indexerzeitpläne für Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Behandeln von unterschiedlichen Feldnamen
 Die Feldnamen in Ihrem vorhandenen Index unterscheiden sich manchmal von den Eigenschaftennamen in Ihrer Tabelle. Sie können Feldzuordnungen verwenden, um die Eigenschaftennamen der Tabelle den Feldnamen in Ihrem Suchindex zuzuordnen. Weitere Informationen zu Feldzuordnungen finden Sie unter [Durch Azure Search-Indexerfeldzuordnungen werden die Unterschiede zwischen Datenquellen und Suchindizes überbrückt](search-indexer-field-mappings.md).

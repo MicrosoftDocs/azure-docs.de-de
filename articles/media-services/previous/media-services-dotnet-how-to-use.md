@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724121"
 ---
 # <a name="media-services-development-with-net"></a>Media Services-Entwicklung mit .NET 
@@ -59,7 +59,7 @@ Sie können auch die neuesten Media Services .NET SDK-Komponenten von GitHub ([g
 4. Um die Entwicklungsumgebung übersichtlicher zu halten, sollten Sie die Verwendung von NuGet Package Restore in Erwägung ziehen. Weitere Informationen finden Sie unter [NuGet Package Restore](https://docs.nuget.org/consume/package-restore).
 5. Fügen Sie einen Verweis auf die Assembly **System.Configuration** hinzu. Diese Assembly enthält die **System.Configuration.ConfigurationManager**-Klasse, die zum Zugriff auf die Konfigurationsdateien (z.B. „App.config“) verwendet wird.
    
-    1. Wenn Sie Verweise mit dem Dialogfeld zur Verweisverwaltung hinzufügen möchten, klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf den Projektnamen. Klicken Sie auf **Hinzufügen** und anschließend auf **Verweis...**.
+    1. Wenn Sie Verweise mit dem Dialogfeld zur Verweisverwaltung hinzufügen möchten, klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf den Projektnamen. Klicken Sie auf **Hinzufügen** und anschließend auf **Verweis...** .
    
     2. Das Dialogfeld „Verweise verwalten“ wird angezeigt.
     3. Suchen Sie unter den .NET Framework-Assemblys die Assembly „System.Configuration“, und wählen Sie sie aus. Klicken Sie anschließend auf **OK**.

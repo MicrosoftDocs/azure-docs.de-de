@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237739"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65786079"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Einführung in den Premium-Tarif von Azure Cache for Redis
 Azure Cache for Redis ist ein verteilter, verwalteter Cache, mit dem Sie hoch skalierbare und reaktionsschnelle Anwendungen erstellen können, indem Sie äußerst schnellen Zugriff auf Daten bieten. 
@@ -27,9 +27,9 @@ Azure Cache for Redis ist ein verteilter, verwalteter Cache, mit dem Sie hoch sk
 Der neue Tarif „Premium“ ist speziell auf Unternehmen zugeschnitten. Er enthält alle Features des Tarifs „Standard“ und bietet darüber hinaus weitere Features, z.B. eine bessere Leistung, größere Workloads, Notfallwiederherstellung, Import/Export und verbesserte Sicherheit. Nachfolgend finden Sie weitere Informationen zu den zusätzlichen Features des Cachetarifs "Premium".
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Bessere Leistung als in den Tarifen "Standard" und "Basic"
-**Bessere Leistung in den Tarifen "Standard" und "Basic".**  Caches im Tarif "Premium" werden auf Hardware mit schnelleren Prozessoren bereitgestellt, die im Vergleich zu den Tarifen "Basic" oder "Standard" eine bessere Leistung bieten. Caches im Tarif "Premium" erreichen einen höheren Durchsatz und geringere Wartezeiten. 
+**Bessere Leistung in den Tarifen "Standard" und "Basic".** Caches im Tarif "Premium" werden auf Hardware mit schnelleren Prozessoren bereitgestellt, die im Vergleich zu den Tarifen "Basic" oder "Standard" eine bessere Leistung bieten. Caches im Tarif "Premium" erreichen einen höheren Durchsatz und geringere Wartezeiten. 
 
-**Der Durchsatz für Cache derselben Größe ist im Tarif "Premium" im Vergleich zum Tarif "Standard" höher.**  Ein P4-Cache (Premium) mit 53 GB erreicht beispielsweise einen Durchsatz von 250.000 Anforderungen pro Sekunde, während ein C6-Cache (Standard) einen Durchsatz von 150.000 erreicht.
+**Der Durchsatz für Cache derselben Größe ist im Tarif "Premium" im Vergleich zum Tarif "Standard" höher.** Ein P4-Cache (Premium) mit 53 GB erreicht beispielsweise einen Durchsatz von 250.000 Anforderungen pro Sekunde, während ein C6-Cache (Standard) einen Durchsatz von 150.000 erreicht.
 
 Weitere Informationen zur Größe, zum Durchsatz und zur Bandbreite von Premium-Caches finden Sie in den [häufig gestellten Fragen zu Azure Cache for Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
@@ -63,9 +63,9 @@ Weitere Informationen finden Sie unter [Gewusst wie: Importieren und Exportieren
 Im Premium-Tarif können Sie einen oder mehrere Knoten Ihres Caches bei Bedarf neu starten. Dies ermöglicht das Testen Ihrer Anwendung auf Stabilität im Fall eines Ausfalls. Sie können die folgenden Knoten neu starten.
 
 * Masterknoten des Caches
-* Slaveknoten des Caches
-* Sowohl den Master- als auch den Slaveknoten des Caches
-* Wenn Sie einen Premium-Cache mit Clustering verwenden, können Sie den Master-, Slave- oder beide Knoten für einzelne Shards im Cache neu starten.
+* Sekundärer Knoten Ihres Caches
+* Beide Knoten, primär und sekundär, Ihres Caches
+* Wenn Sie einen Premium-Cache mit Clustering verwenden, können Sie den primären, den sekundären oder beide Knoten für einzelne Shards im Cache neu starten.
 
 Weitere Informationen finden Sie unter [Neustart](cache-administration.md#reboot) und [Häufig gestellte Fragen zum Neustart](cache-administration.md#reboot-faq).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922823"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977585"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Übersicht über die Azure-Überwachungs-Agents 
 Microsoft Azure bietet mehrere Möglichkeiten zum Erfassen unterschiedlicher Datentypen von virtuellen Computern unter Microsoft Windows und Linux, die in Azure, in Ihrem Rechenzentrum oder von anderen Cloudanbietern gehostet werden. Folgende drei Agent-Typen stehen zum Überwachen eines virtuellen Computers zur Verfügung:

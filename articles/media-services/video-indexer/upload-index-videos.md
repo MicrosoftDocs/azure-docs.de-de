@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799205"
 ---
 # <a name="upload-and-index-your-videos"></a>Hochladen und Indizieren Ihrer Videos  
 
@@ -32,7 +33,7 @@ Nachdem Ihr Video hochgeladen wurde, kann das Video von Video Indexer optional c
 
 - Wenn Sie das Video über eine URL hochladen (bevorzugt), muss der Endpunkt mit TLS 1.2 (oder höher) gesichert werden.
 - Die Uploadgröße mit der URL-Option ist auf 30 GB begrenzt.
-- In den meisten Browsern ist die URL-Länge auf 2.000 Zeichen begrenzt.
+- Die Länge der Anforderungs-URL ist auf 2.048 Zeichen begrenzt.
 - Die Uploadgröße mit der Bytearray-Option ist auf 2 GB begrenzt.
 - Die Bytearray-Option umfasst ein Timeout nach 30 Minuten.
 - Die im Parameter `videoURL` angegebene URL muss codiert sein.

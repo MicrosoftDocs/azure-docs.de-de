@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
 ms.openlocfilehash: dffeb81ae1eb244c38639a1241c0581e6fcdf94a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027624"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurieren von Azure Blockchain-Transaktionsknoten

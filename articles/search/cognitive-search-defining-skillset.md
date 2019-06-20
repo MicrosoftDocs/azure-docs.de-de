@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021790"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540858"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Erstellen eines Skillsets in einer Anreicherungspipeline
 
@@ -173,7 +173,7 @@ Betrachten Sie die erste Qualifikation, bei der es sich um die integrierte [Qual
 
 * Der Skill verfügt über eine Ausgabe mit der Bezeichnung ```"organizations"```. Ausgaben gibt es nur während der Verarbeitung. Um diese Ausgabe mit der Eingabe eines nachfolgenden Skills zu verketten, verweisen Sie auf die Ausgabe mit ```"/document/organizations"```.
 
-* Für ein bestimmtes Dokument ist der Wert von ```"/document/organizations"``` ein Array von Organisationen, die aus dem Text extrahiert werden. Beispiel: 
+* Für ein bestimmtes Dokument ist der Wert von ```"/document/organizations"``` ein Array von Organisationen, die aus dem Text extrahiert werden. Beispiel:
 
   ```json
   ["Microsoft", "LinkedIn"]

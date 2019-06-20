@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203529"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911237"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Verwalten von Azure DDoS Protection Standard mithilfe des Azure-Portals
 
@@ -203,6 +203,19 @@ Microsoft hat mit [BreakingPoint Cloud](https://www.ixiacom.com/products/breakin
 - Optimieren Ihres Prozesses der Reaktion auf Incidents während DDoS-Angriffen
 - Dokumentieren der DDoS-Kompatibilität
 - Schulen Ihrer Netzwerksicherheitsteams
+
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Anzeigen der DDoS-Schutzwarnungen im Azure Security Center
+
+Im Azure Security Center sind zahlreiche [Sicherheitswarnungen](/azure/security-center/security-center-managing-and-responding-alerts) vorhanden, die Informationen zum Untersuchen und Beheben von Problemen enthalten. Dieses Feature bietet eine einheitliche Ansicht für die Warnungen, einschließlich Warnungen für DDoS-Angriffe und Aktionen zum zeitnahen Abwehren dieser Angriffe.
+Für die Erkennung und Abwehr von DDoS-Angriffen werden insbesondere zwei Warnungen ausgelöst:
+
+- **DDoS Attack detected for Public IP** (DDoS-Angriff für öffentliche IP-Adresse erkannt): Diese Warnung wird generiert, wenn der DDoS-Schutzdienst einen DDoS-Angriff auf eine Ihrer öffentlichen IP-Adressen erkennt.
+- **DDoS Attack mitigated for Public IP** (DDoS-Angriff für öffentliche IP-Adresse abgewehrt): Diese Warnung wird generiert, wenn ein Angriff auf eine öffentliche IP-Adresse abgewehrt wurde.
+Öffnen Sie **Security Center** im Azure-Portal, um die Warnungen anzuzeigen. Klicken Sie unter **Bedrohungsschutz** auf **Sicherheitswarnungen**. Auf dem folgenden Screenshot sehen Sie ein Beispiel für eine Warnung zu einem DDoS-Angriff.
+
+![DDoS-Warnung im Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+Die Warnungen enthalten allgemeine Informationen zur angegriffenen öffentlichen IP-Adresse, zum geografischen Raum und zur Bedrohung sowie Schritte zur Behebung.
 
 ## <a name="permissions"></a>Berechtigungen
 

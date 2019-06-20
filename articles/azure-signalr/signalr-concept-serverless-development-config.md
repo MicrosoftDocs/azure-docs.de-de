@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: 9b68b9d0bbac984c29759cf4b7b026a559a9d819
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569150"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60809004"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions-Entwicklung und -Konfiguration mit Azure SignalR Service
 
@@ -136,7 +136,7 @@ Fügen Sie im Abschnitt *Zulässige Ursprünge* einen Eintrag mit der Basis-URL 
 
 Azure Functions verfügt über eine integrierte Authentifizierung und unterstützt gängige Anbieter wie Facebook, Twitter, Microsoft-Konto, Google und Azure Active Directory. Dieses Feature kann in die Bindung *SignalRConnectionInfo* integriert werden, um Verbindungen mit Azure SignalR Service zu erstellen, die für eine Benutzer-ID authentifiziert wurden. Ihre Anwendung kann unter Verwendung der Ausgabebindung *SignalR* Nachrichten senden, die für diese Benutzer-ID bestimmt sind.
 
-Öffnen Sie im Azure-Portal auf der Registerkarte *Plattformfeatures* Ihrer Funktions-App das Fenster mit den** Authentifizierungs-/Autorisierungseinstellungen. Gehen Sie gemäß der Dokumentation für die [App Service-Authentifizierung](../app-service/overview-authentication-authorization.md) vor, um die Authentifizierung mit einem Identitätsanbieter Ihrer Wahl zu konfigurieren.
+Öffnen Sie im Azure-Portal auf der Registerkarte *Plattformfeatures* Ihrer Funktions-App das Fenster mit den ** Authentifizierungs-/Autorisierungseinstellungen. Gehen Sie gemäß der Dokumentation für die [App Service-Authentifizierung](../app-service/overview-authentication-authorization.md) vor, um die Authentifizierung mit einem Identitätsanbieter Ihrer Wahl zu konfigurieren.
 
 Nach Abschluss der Konfiguration enthalten authentifizierte HTTP-Anforderungen Header vom Typ `x-ms-client-principal-name` und `x-ms-client-principal-id`, die wiederum den Benutzernamen bzw. die Benutzer-ID der authentifizierten Identität enthalten.
 

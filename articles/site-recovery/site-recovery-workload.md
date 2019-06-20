@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155167"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417837"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Welche Workloads können mit Azure Site Recovery geschützt werden?
 
@@ -55,7 +55,7 @@ Mit Site Recovery können alle Apps repliziert werden, die auf einem unterstütz
 | Linux (Betriebssystem und Apps) |J (getestet von Microsoft) |J (getestet von Microsoft) |J (getestet von Microsoft) |J (getestet von Microsoft) |J (getestet von Microsoft)|
 | Dynamics AX |J |J |J |J |J|
 | Windows-Dateiserver |J |J |J |J |J|
-| Citrix XenApp und XenDesktop |J|N/V |J |N/V |J |
+| Citrix XenApp und XenDesktop |J|– |J |– |J |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replizieren von Active Directory und DNS
 Eine Infrastruktur mit Active Directory und DNS ist für die meisten Unternehmens-Apps wichtig. Während der Notfallwiederherstellung müssen Sie diese Infrastrukturkomponenten schützen und wiederherstellen, bevor Sie Ihre Workloads und Apps wiederherstellen.
@@ -103,9 +103,9 @@ Mit Remotedesktopdiensten (RDS) werden eine Virtual Desktop Infrastructure (VDI)
 
 | **RDS** |**Replizieren von Azure-VMs in Azure** | **Replizieren von Hyper-V-VMs an einem sekundären Standort** | **Replizieren von Hyper-V-VMs in Azure** | **Replizieren von VMware-VMs an einem sekundären Standort** | **Replizieren von VMware-VMs in Azure** | **Replizieren von physischen Servern an einem sekundären Standort** | **Replizieren physischer Server in Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Virtuelle Desktops eines Pools (nicht verwaltet)** |Nein |Ja |Nein |Ja |Nein |Ja |Nein  |
-| **Virtuelle Desktops eines Pools (verwaltet und ohne UPD)** |Nein |Ja |Nein |Ja |Nein |Ja |Nein  |
-| **Remoteanwendungen und Remotedesktopsitzungen (ohne UPD)** |JA|Ja |Ja |Ja |Ja |Ja |JA |
+| **Virtuelle Desktops eines Pools (nicht verwaltet)** |Nein|Ja |Nein |Ja |Nein |Ja |Nein |
+| **Virtuelle Desktops eines Pools (verwaltet und ohne UPD)** |Nein|Ja |Nein |Ja |Nein |Ja |Nein |
+| **Remoteanwendungen und Remotedesktopsitzungen (ohne UPD)** |Ja|Ja |Ja |Ja |Ja |Ja |Ja |
 
 [Set up disaster recovery for RDS using Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure) (Einrichten der Notfallwiederherstellung für RDS mit Azure Site Recovery)
 

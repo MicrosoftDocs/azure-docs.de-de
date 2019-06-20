@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60320583"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Beispielworkflow für die Vorbereitung von Festplatten für einen Importauftrag
 Dieses Thema führt Sie durch den vollständigen Prozess zur Vorbereitung von Laufwerken für einen Importauftrag.  
@@ -29,7 +29,7 @@ In diesem Beispiel werden die folgenden Daten in ein Microsoft Azure-Speicherkon
   
 Der Importauftrag importiert diese Daten in die folgenden Ziele im Speicherkonto:  
   
-|Quelle|Virtuelles Zielverzeichnis oder Blob|  
+|`Source`|Virtuelles Zielverzeichnis oder Blob|  
 |------------|-------------------------------------------|  
 |H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
@@ -44,7 +44,7 @@ Berechnen Sie nun die Größe der Daten, um zu bestimmen, wie viele Festplatten 
   
 In diesem Beispiel sollten zwei 3-TB-Festplatten ausreichen. Da das Quellverzeichnis `H:\Video` jedoch 5 TB an Daten enthält und die Kapazität der einzelnen Festplatte nur 3 TB beträgt, muss `H:\Video` vor dem Ausführen des Microsoft Azure Import/Export-Tools in zwei kleinere Verzeichnisse aufgeteilt werden: `H:\Video1` und `H:\Video2`. Aus diesem Schritt resultieren die folgenden Quellverzeichnisse:  
   
-|Standort|Größe|Virtuelles Zielverzeichnis oder Blob|  
+|Location|Größe|Virtuelles Zielverzeichnis oder Blob|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  

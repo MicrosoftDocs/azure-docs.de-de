@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519883"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145938"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Schnellstart: Erstellen eines Cognitive Services-Kontos im Azure-Portal
 
@@ -56,7 +56,7 @@ In den nächsten Abschnitten werden Sie durch das Erstellen eines Abonnements f�
     | **Abonnement** | Wählen Sie eines Ihrer verfügbaren Azure-Abonnements aus. |
     | **Location** | Der Speicherort Ihrer Cognitive Services-Instanz. Verschiedene Speicherorte können Wartezeiten verursachen, haben aber keinen Einfluss auf die Laufzeitverfügbarkeit Ihrer Ressource. |
     | **Preisstufe** | Die Kosten für Ihr Cognitive Services-Konto hängen von den ausgewählten Optionen und Ihrer Nutzung ab. Weitere Informationen finden Sie unter API-[Preise](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Ressourcengruppe** | Die [Azure-Ressourcengruppe](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group), die Ihre Cognitive Services-Ressource enthält. Sie können eine neue Gruppe erstellen oder sie einer bereits bestehenden Gruppe hinzufügen. |
+    | **Ressourcengruppe** | Die [Azure-Ressourcengruppe](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group), die Ihre Cognitive Services-Ressource enthält. Sie können eine neue Gruppe erstellen oder sie einer bereits bestehenden Gruppe hinzufügen. |
 
     ![Bildschirm „Ressourcenerstellung“](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
 
@@ -78,7 +78,7 @@ In den nächsten Abschnitten werden Sie durch das Erstellen eines Abonnements f�
     | **Abonnement** | Wählen Sie eines Ihrer verfügbaren Azure-Abonnements aus. |
     | **Location** | Der Speicherort Ihrer Cognitive Services-Instanz. Verschiedene Speicherorte können Wartezeiten verursachen, haben aber keinen Einfluss auf die Laufzeitverfügbarkeit Ihrer Ressource. |
     | **Preisstufe** | Die Kosten für Ihr Cognitive Services-Konto hängen von den ausgewählten Optionen und Ihrer Nutzung ab. Weitere Informationen finden Sie unter API-[Preise](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Ressourcengruppe** | Die [Azure-Ressourcengruppe](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group), die Ihre Cognitive Services-Ressource enthält. Sie können eine neue Gruppe erstellen oder sie einer bereits bestehenden Gruppe hinzufügen. |
+    | **Ressourcengruppe** | Die [Azure-Ressourcengruppe](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group), die Ihre Cognitive Services-Ressource enthält. Sie können eine neue Gruppe erstellen oder sie einer bereits bestehenden Gruppe hinzufügen. |
 
     ![Bildschirm „Ressourcenerstellung“](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
@@ -92,6 +92,8 @@ Nachdem Sie Ihre Ressource erstellt haben, können Sie sie über das Azure Dashb
 Innerhalb Ihrer Cognitive Services-Ressource können Sie die Endpunkt-URL und Schlüssel im Abschnitt **Übersicht** verwenden, um API-Aufrufe in Ihren Anwendungen zu starten.
 
 ![Bildschirm „Ressourcen“](media/cognitive-services-apis-create-account/resourceScreen.png)
+
+Notieren Sie sich die Position und die Schlüssel. Sie können die Schlüssel abrufen, indem Sie **Schlüssel** unter **Ressourcenverwaltung** auswählen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

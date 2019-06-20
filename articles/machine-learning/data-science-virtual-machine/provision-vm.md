@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712434"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235101"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Bereitstellen einer Data Science Virtual Machine für Windows in Azure
 
@@ -105,6 +105,8 @@ So erstellen Sie eine DSVM-Instanz:
 ## <a name="how-to-access-the-dsvm"></a>Zugreifen auf die DSVM
 
 Nachdem die VM erstellt und bereitgestellt wurde, können Sie sich mithilfe von Remotedesktop mit den Anmeldeinformationen des Administratorkontos anmelden, die Sie zuvor im Abschnitt **Grundlagen** erstellt haben. Sie können nun beginnen, die auf der VM installierten und konfigurierten Tools zu verwenden. Für viele der Tools gibt es Desktopsymbole und Kacheln im Startmenü.
+
+Sie können Azure Notebooks auch eine Data Science VM zuordnen, um Jupyter-Notebooks auf der VM auszuführen und die Einschränkungen der kostenlosen Dienstebene zu umgehen. Weitere Informationen finden Sie unter [Verwalten und Konfigurieren von Projekten – Computeebene](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>In der Microsoft Data Science Virtual Machine installierte Tools
 
@@ -224,9 +226,9 @@ Sie können den [Microsoft-Webplattform-Installer](https://www.microsoft.com/web
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-* Schauen Sie sich die Tools für die Data Science-VM an, indem Sie das Startmenü auswählen.
+* Schauen Sie sich die Tools für die Data Science-VM an, indem Sie das Startmenü auswählen **.**
 * Erfahren Sie mehr über Azure Machine Learning Service, indem Sie [Was ist Azure Machine Learning Service?](../service/overview-what-is-azure-ml.md) lesen und die verfügbaren [Schnellstarts und Tutorials](../service/index.yml) ausprobieren.
 * Navigieren Sie im Explorer zu **C:\Programme\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**, um Beispiele für die RevoScaleR-Bibliothek in R zu finden, die Datenanalysen auf Unternehmensebene unterstützt.  
 * Lesen Sie den Artikel [Zehn Dinge, die Sie mit der Data Science Virtual Machine machen können](https://aka.ms/dsvmtenthings).
 * Erfahren Sie, wie Sie mithilfe des [Team Data Science-Prozesses](../team-data-science-process/index.yml)systematisch vollständige Analyselösungen erstellen.
-* Besuchen Sie die [Azure AI Gallery](https://gallery.cortanaintelligence.com), um Beispiele zu Machine Learning und zur Datenanalyse zu erhalten, in denen Azure Machine Learning und dazugehörige Datendienste in Azure verwendet werden. Wir haben auch ein Symbol für diese Galerie im Startmenü und auf dem Desktop der virtuellen Maschine bereitgestellt.
+* Besuchen Sie den [Azure KI-Katalog](https://gallery.cortanaintelligence.com), um Beispiele zu Machine Learning und zur Datenanalyse zu erhalten, in denen Azure Machine Learning und dazugehörige Datendienste in Azure verwendet werden. Wir haben auch ein Symbol für diese Galerie im Startmenü und auf dem Desktop der virtuellen Maschine bereitgestellt **.**

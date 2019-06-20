@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 08e8050fde6d2cf6249826911117dad9f595b6e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2eaefcf9af6188867bfd692fad891a70fcadb076
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879598"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386502"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Suchen nach Videos mit der Bing-Videosuche-API
 
@@ -45,7 +45,7 @@ Wenn Sie Videos aus einer bestimmten Domäne abrufen möchten, verwenden Sie den
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Die zurückgegebene Antwort vom Typ [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) enthält eine Liste mit Videos, die nach Einschätzung von Bing für die Abfrage relevant sind. Jedes [Video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video)-Objekt in der Liste enthält neben anderen Attributen die URL, die Dauer, die Abmessungen und das Codierungsformat des Videos. Darüber hinaus enthält das Videoobjekt die URL einer Miniaturansicht des Videos sowie die Abmessungen der Miniaturansicht.
+Die zurückgegebene Antwort vom Typ [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) enthält eine Liste mit Videos, die nach Einschätzung von Bing für die Abfrage relevant sind. Jedes [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video)-Objekt in der Liste enthält neben anderen Attributen die URL, die Dauer, die Abmessungen und das Codierungsformat des Videos. Darüber hinaus enthält das Videoobjekt die URL einer Miniaturansicht des Videos sowie die Abmessungen der Miniaturansicht.
 
 ```json
 {
@@ -100,7 +100,7 @@ Die zurückgegebene Antwort vom Typ [Videos](https://docs.microsoft.com/rest/api
 
 Sie können alle oder einen Teil der Vorschauminiaturen anzeigen, die von der Bing-Videosuche-API zurückgegeben werden. Wenn Sie eine Teilmenge anzeigen, geben Sie dem Benutzer die Möglichkeit, die restlichen Videos anzuzeigen. Gemäß den [Anforderungen für die Verwendung und Anzeige](../UseAndDisplayRequirements.md) der Bing-API müssen die Videos in der in der Antwort angegebenen Reihenfolge angezeigt werden. Informationen zum Ändern der Größe der Miniaturansicht finden Sie unter [Resizing and cropping thumbnail images](../resize-and-crop-thumbnails.md) (Ändern der Größe und Zuschneiden von Miniaturansichten). 
 
-Wenn der Benutzer auf die Miniaturansicht zeigt, können Sie [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-motionthumbnailurl) verwenden, um eine Miniaturansichtsversion des Videos wiederzugeben. Vergessen Sie bei der Anzeige der bewegten Miniaturansicht nicht, die Quelle anzugeben.
+Wenn der Benutzer auf die Miniaturansicht zeigt, können Sie [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) verwenden, um eine Miniaturansichtsversion des Videos wiederzugeben. Vergessen Sie bei der Anzeige der bewegten Miniaturansicht nicht, die Quelle anzugeben.
 
 <!-- Removing until the images can be sanitized.
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
@@ -108,27 +108,27 @@ Wenn der Benutzer auf die Miniaturansicht zeigt, können Sie [motionThumbnailUrl
 
 Beim Klicken auf eine Vorschauminiatur stehen drei Videoanzeigeoptionen zur Verfügung:
 
-- Verwenden Sie [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-hostpageurl), um das Video auf der Website des Hosts anzuzeigen (z. B. YouTube).
-- Verwenden Sie [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-websearchurl), um das Video im Bing-Videobrowser anzuzeigen.
-- Verwenden Sie [embdedHtml](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-embedhtml), um das Video in Ihrer Benutzeroberfläche einzubetten. 
+- Verwenden Sie [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl), um das Video auf der Website des Hosts anzuzeigen (z. B. YouTube).
+- Verwenden Sie [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl), um das Video im Bing-Videobrowser anzuzeigen.
+- Verwenden Sie [embdedHtml](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-embedhtml), um das Video in Ihrer Benutzeroberfläche einzubetten. 
 
 Achten Sie darauf, dass bei der Wiedergabe des Videos der Herausgeber und der Ersteller als Attribute angegeben werden.
 
-Ausführliche Informationen zur Verwendung von [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid), um Einblicke in das Video zu erhalten, finden Sie unter [Videoeinblicke](../video-insights.md).
+Ausführliche Informationen zur Verwendung von [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid), um Einblicke in das Video zu erhalten, finden Sie unter [Videoeinblicke](../video-insights.md).
 
 ## <a name="filtering-videos"></a>Filtern von Videos
 
 Die Videosuche-API gibt standardmäßig alle Videos zurück, die für die Abfrage relevant sind. Wenn Sie nur kostenlose Videos oder Videos von weniger als fünf Minuten Länge wünschen, verwenden Sie die folgenden Filterabfrageparameter:
 
-- [pricing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#pricing): Filtert Videos nach Preis (z. B. kostenlose oder kostenpflichtige Videos).
-- [resolution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#resolution): Filtert Videos nach Auflösung (z. B. Videos mit einer Auflösung von mindestens 720p).
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength): Filtert Videos nach Länge des Videos (z. B. Videos, die weniger als fünf Minuten lang sind).
-- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness): Filtert Videos nach Alter (beispielsweise Videos, die von Bing in der letzten Woche gefunden wurden).
+- [pricing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing): Filtert Videos nach Preis (z. B. kostenlose oder kostenpflichtige Videos).
+- [resolution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution): Filtert Videos nach Auflösung (z. B. Videos mit einer Auflösung von mindestens 720p).
+- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength): Filtert Videos nach Länge des Videos (z. B. Videos, die weniger als fünf Minuten lang sind).
+- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness): Filtert Videos nach Alter (beispielsweise Videos, die von Bing in der letzten Woche gefunden wurden).
 
 Um Videos von einer bestimmten Domäne zu erhalten, schließen Sie den Abfrageoperator [site:](https://msdn.microsoft.com/library/ff795613.aspx) in die Abfragezeichenfolge ein.
 
 > [!NOTE]
-> Bei Verwendung des Abfrageoperators `site:` kann es je nach Abfrage vorkommen, dass die Antwort nicht jugendfreie Inhalte enthält (unabhängig von der Einstellung [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch)). Verwenden Sie `site:` nur, wenn Sie wissen, welche Inhalte die Website enthält, und wenn in Ihrem Szenario ggf. auch nicht jugendfreie Inhalte zulässig sind.
+> Bei Verwendung des Abfrageoperators `site:` kann es je nach Abfrage vorkommen, dass die Antwort nicht jugendfreie Inhalte enthält (unabhängig von der Einstellung [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch)). Verwenden Sie `site:` nur, wenn Sie wissen, welche Inhalte die Website enthält, und wenn in Ihrem Szenario ggf. auch nicht jugendfreie Inhalte zulässig sind.
 
 Das folgende Beispiel zeigt, wie Sie kostenlose Videos von ContosoSailing.com erhalten, die eine Auflösung von mindestens 720p aufweisen und von Bing im letzten Monat gefunden wurden.
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Erweitern der Abfrage
 
-Wenn Bing die Abfrage erweitern kann, um die ursprüngliche Suche einzugrenzen, enthält das Objekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) das Feld `queryExpansions`. Wenn die Abfrage beispielsweise *Cleaning Gutters* lautet, können die erweiterten Abfragen wie folgt aussehen: „Gutter Cleaning **Tools**“, „Cleaning Gutters **From the Ground**“, „Gutter Cleaning **Machine**“ und „**Easy** Gutter Cleaning“.
+Wenn Bing die Abfrage erweitern kann, um die ursprüngliche Suche einzugrenzen, enthält das Objekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) das Feld `queryExpansions`. Wenn die Abfrage beispielsweise *Cleaning Gutters* lautet, können die erweiterten Abfragen wie folgt aussehen: „Gutter Cleaning **Tools**“, „Cleaning Gutters **From the Ground**“, „Gutter Cleaning **Machine**“ und „**Easy** Gutter Cleaning“.
 
 Das folgende Beispiel zeigt die erweiterten Abfragen für *Dachrinne reinigen*:
 
@@ -171,11 +171,11 @@ Das folgende Beispiel zeigt die erweiterten Abfragen für *Dachrinne reinigen*:
 }
 ```
 
-Das Feld `queryExpansions` enthält eine Liste mit Objekten vom Typ [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query_obj). Das Feld `text` enthält die erweiterte Abfrage und das Feld `displayText` den Erweiterungsausdruck. Mit den Feldern „Text“ und „Miniaturansicht“ können Sie dem Benutzer die erweiterten Abfragezeichenfolgen anzeigen, falls dieser eigentlich nach der erweiterten Abfragezeichenfolge suchen wollte. Verwenden Sie die URL `webSearchUrl` oder `searchLink`, um die Miniaturansicht bzw. den Text klickbar zu machen. Verwenden Sie `webSearchUrl`, um den Benutzer zu den Bing-Suchergebnissen weiterzuleiten, oder `searchLink`, falls Sie eine eigene Ergebnisseite verwenden.
+Das Feld `queryExpansions` enthält eine Liste mit Objekten vom Typ [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj). Das Feld `text` enthält die erweiterte Abfrage und das Feld `displayText` den Erweiterungsausdruck. Mit den Feldern „Text“ und „Miniaturansicht“ können Sie dem Benutzer die erweiterten Abfragezeichenfolgen anzeigen, falls dieser eigentlich nach der erweiterten Abfragezeichenfolge suchen wollte. Verwenden Sie die URL `webSearchUrl` oder `searchLink`, um die Miniaturansicht bzw. den Text klickbar zu machen. Verwenden Sie `webSearchUrl`, um den Benutzer zu den Bing-Suchergebnissen weiterzuleiten, oder `searchLink`, falls Sie eine eigene Ergebnisseite verwenden.
 
 ## <a name="pivoting-the-query"></a>Pivotieren der Abfrage
 
-Wenn Bing die ursprüngliche Suchabfrage segmentieren kann, enthält das Objekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) das Feld `pivotSuggestions`. Lautet die ursprüngliche Abfrage also beispielsweise *Dachrinne reinigen*, kann Bing die Abfrage in *Reinigen* und *Dachrinne* segmentieren.
+Wenn Bing die ursprüngliche Suchabfrage segmentieren kann, enthält das Objekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) das Feld `pivotSuggestions`. Lautet die ursprüngliche Abfrage also beispielsweise *Dachrinne reinigen*, kann Bing die Abfrage in *Reinigen* und *Dachrinne* segmentieren.
 
 Das folgende Beispiel veranschaulicht die Pivotvorschläge für *Dachrinne reinigen*:
 
@@ -222,7 +222,7 @@ Das folgende Beispiel veranschaulicht die Pivotvorschläge für *Dachrinne reini
 }
 ```
 
-Die Antwort enthält für jeden Pivotwert eine Liste mit Objekten vom Typ [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query_obj), die wiederum vorgeschlagene Abfragen enthalten. Das Feld `text` enthält die vorgeschlagene Abfrage. Das Feld `displayText` enthält den Ausdruck, der den Pivotwert in der ursprünglichen Abfrage ersetzt. Z. B. Fensterreinigung.
+Die Antwort enthält für jeden Pivotwert eine Liste mit Objekten vom Typ [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj), die wiederum vorgeschlagene Abfragen enthalten. Das Feld `text` enthält die vorgeschlagene Abfrage. Das Feld `displayText` enthält den Ausdruck, der den Pivotwert in der ursprünglichen Abfrage ersetzt. Z. B. Fensterreinigung.
 
 Mit den Feldern `text` und `thumbnail` können Sie dem Benutzer die erweiterten Abfragezeichenfolgen anzeigen, falls dieser eigentlich nach der erweiterten Abfragezeichenfolge suchen wollte. Verwenden Sie die URL `webSearchUrl` oder `searchLink`, um die Miniaturansicht bzw. den Text klickbar zu machen. Verwenden Sie `webSearchUrl`, um den Benutzer zu den Bing-Suchergebnissen weiterzuleiten, oder `searchLink`, falls Sie eine eigene Ergebnisseite verwenden.
 

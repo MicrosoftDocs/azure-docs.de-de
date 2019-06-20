@@ -13,11 +13,11 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60864059"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurieren der aktiven Georeplikation für Azure SQL-Datenbank im Azure-Portal und Initiieren eines Failovers
 
@@ -80,7 +80,7 @@ Es gibt einen kurzer Zeitraum, in dem beide Datenbanken während des Rollenwechs
 > [!NOTE]
 > Dieser Befehl ist für die schnelle Wiederherstellung der Datenbank bei einem Ausfall bestimmt. Er löst ein Failover ohne Datensynchronisierung aus (erzwungenes Failover).  Wenn die primäre Datenbank bei Ausgabe des Befehls online ist und gerade Commits für Transaktionen ausführt, können einige Daten verloren gehen.
 
-## <a name="remove-secondary-database"></a>Entfernen einer sekundären Datenbank 
+## <a name="remove-secondary-database"></a>Entfernen einer sekundären Datenbank
 
 Dieser Vorgang beendet die Replikation zur sekundären Datenbank dauerhaft und ändert die Rolle der sekundären Datenbank in eine normale Datenbank mit Lese-/Schreibzugriff. Wenn die Verbindung mit der sekundären Datenbank unterbrochen wird, ist der Befehl zwar erfolgreich, aber die sekundäre Datenbank wird erst mit Lese-/ Schreibzugriff versehen, nachdem die Verbindung wiederhergestellt wurde.  
 

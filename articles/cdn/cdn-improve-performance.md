@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60637004"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Verbessern der Leistung durch Komprimieren von Dateien in Azure CDN
 Die Dateikomprimierung reduziert die Größe einer Datei, bevor sie vom Server gesendet wird, und ist eine einfache und effektive Methode zum Verbessern der Geschwindigkeit von Dateiübertragungen sowie der Seitenladeleistung. Die Dateikomprimierung reduziert die Bandbreitenkosten und steigert die Benutzerfreundlichkeit.

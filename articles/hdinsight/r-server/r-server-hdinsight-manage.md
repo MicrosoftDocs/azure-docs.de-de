@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 607f85c10183366e88d597d84090f49fc30aff48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687983"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Verwalten eines ML Services-Clusters in Azure HDInsight
@@ -33,7 +33,7 @@ Sie können mehrere gleichzeitige Benutzer für ML Services-Cluster in HDInsight
 ![Gleichzeitiger Benutzer 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
 - **Benutzername für Clusteranmeldung**: ein HTTP-Benutzer für die Authentifizierung über das HDInsight-Gateway, das zum Schutz der von Ihnen erstellten HDInsight-Cluster verwendet wird. Mit diesem HTTP-Benutzer wird auf die Apache Ambari- und die Apache Hadoop YARN-Benutzeroberfläche sowie auf andere UI-Komponenten zugegriffen.
-- **SSH-Benutzername (Secure Shell)**: ein SSH-Benutzer für den Zugriff auf den Cluster über Secure Shell. Dieser Benutzer ist ein Benutzer im Linux-System für alle Hauptknoten, Workerknoten und Edgeknoten. Somit können Sie Secure Shell zum Zugreifen auf einen beliebigen Knoten in einem Remotecluster verwenden.
+- **SSH-Benutzername (Secure Shell)** : ein SSH-Benutzer für den Zugriff auf den Cluster über Secure Shell. Dieser Benutzer ist ein Benutzer im Linux-System für alle Hauptknoten, Workerknoten und Edgeknoten. Somit können Sie Secure Shell zum Zugreifen auf einen beliebigen Knoten in einem Remotecluster verwenden.
 
 Die RStudio Server Community-Version, die im ML Services-Cluster in HDInsight verwendet wird, akzeptiert für die Anmeldung nur Linux-Benutzernamen und -Kennwörter. Die Übergabe von Token wird nicht unterstützt. Wenn Sie zum ersten Mal versuchen, auf einem ML Services-Cluster auf RStudio zuzugreifen, müssen Sie sich zweimal anmelden.
 
@@ -79,7 +79,7 @@ Beachten Sie außerdem, dass die neu hinzugefügten Benutzer nicht über Stammbe
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Herstellen einer Remoteverbindung mit Microsoft ML Services
 
-Sie können den Zugriff auf den HDInsight Spark-Computekontext über eine auf Ihrem Desktop ausgeführte Remoteinstanz von ML Client einrichten. Hierfür müssen Sie die Optionen (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches und sshProfileScript) beim Definieren des RxSpark-Computekontexts auf Ihrem Laptop angeben: Beispiel: 
+Sie können den Zugriff auf den HDInsight Spark-Computekontext über eine auf Ihrem Desktop ausgeführte Remoteinstanz von ML Client einrichten. Hierfür müssen Sie die Optionen (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches und sshProfileScript) beim Definieren des RxSpark-Computekontexts auf Ihrem Laptop angeben: Beispiel:
 
     myNameNode <- "default"
     myPort <- 0

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 63630f5c4799e9272601f431671abc78ec86a238
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669009"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428235"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hosten einer Node.js.-Anwendung in Azure Service Fabric
 
@@ -27,7 +27,7 @@ Dieser Schnellstart dient Ihnen als Hilfe beim Bereitstellen einer vorhandenen A
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie beginnen, stellen Sie sicher, dass [Ihre Entwicklungsumgebung eingerichtet ist](service-fabric-get-started.md). Dies umfasst auch das Installieren des Service Fabric SDK und von Visual Studio 2017 oder 2015.
+Bevor Sie beginnen, stellen Sie sicher, dass [Ihre Entwicklungsumgebung eingerichtet ist](service-fabric-get-started.md). Dies umfasst auch das Installieren des Service Fabric SDK sowie von Visual Studio 2019 oder 2015.
 
 Sie müssen auch über eine vorhandene Node.js-Anwendung für die Bereitstellung verfügen. In diesem Schnellstart wird eine einfache Node.js-Website verwendet, die Sie [hier][download-sample] herunterladen können. Extrahieren Sie diese Datei in den Ordner `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\`, nachdem Sie das Projekt im nächsten Schritt erstellt haben.
 
@@ -66,7 +66,7 @@ Klicken Sie auf **OK**.
 
 Visual Studio erstellt das Anwendungsprojekt und das Actordienst-Projekt und zeigt sie im Projektmappen-Explorer an.
 
-Das Anwendungsprojekt (**MyGuestApp**) enthält Code nicht direkt. Stattdessen verweist es eine Reihe von Dienstprojekten. Darüber hinaus enthält es drei Arten von Inhalt:
+Das Anwendungsprojekt (**MyGuestApp**) enthält Code nicht direkt. Das Projekt verweist auf eine Reihe von Dienstprojekten. Darüber hinaus enthält es drei weitere Arten von Inhalten:
 
 * **Veröffentlichungsprofile**  
 Tooleinstellungen für verschiedene Umgebungen.
@@ -83,7 +83,7 @@ Eine Übersicht über den Inhalt des Dienstprojekts finden Sie unter [Erste Schr
 
 In der von uns bereitgestellten Node.js-Beispiel-App wird Port **80** verwendet, und wir müssen Service Fabric mitteilen, dass dieser Port verfügbar gemacht werden muss.
 
-Öffnen Sie die Datei **ServiceManifest.xml** im Projekt. Am unteren Rand des Manifests befindet sich ein `<Resources> \ <Endpoints>`-Element, für das bereits ein Eintrag definiert ist. Ändern Sie diesen Eintrag, um `Port`, `Protocol` und `Type` hinzuzufügen. 
+Öffnen Sie die Datei **ServiceManifest.xml** im Projekt. Unten im Manifests befindet sich ein `<Resources> \ <Endpoints>`-Element, für das bereits ein Eintrag definiert ist. Ändern Sie diesen Eintrag, um `Port`, `Protocol` und `Type` hinzuzufügen. 
 
 ```xml
   <Resources>
@@ -100,7 +100,7 @@ In der von uns bereitgestellten Node.js-Beispiel-App wird Port **80** verwendet,
 
 Wenn Sie **F5** drücken und das Projekt ausführen, wird es im lokalen Cluster bereitgestellt. Wir führen stattdessen aber die Bereitstellung in Azure durch.
 
-Klicken Sie mit der rechten Maustaste auf das Projekt, und wählen Sie **Veröffentlichen...**, um ein Dialogfeld für die Veröffentlichung in Azure zu öffnen.
+Klicken Sie mit der rechten Maustaste auf das Projekt, und wählen Sie **Veröffentlichen...** , um ein Dialogfeld für die Veröffentlichung in Azure zu öffnen.
 
 ![Dialogfeld zum Veröffentlichen in Azure für einen Service Fabric-Dienst][publish]
 
@@ -108,13 +108,13 @@ Wählen Sie das Zielprofil **PublishProfiles\Cloud.xml**.
 
 Wählen Sie ein Azure-Konto für die Bereitstellung aus, falls Sie dies nicht bereits getan haben. Wenn Sie noch kein Azure-Konto besitzen, [können Sie sich dafür registrieren][create-account].
 
-Wählen Sie unter **Verbindungsendpunkt** den Service Fabric-Cluster für die Bereitstellung aus. Falls kein Cluster vorhanden ist, können Sie die Option **&lt;Neuen Cluster erstellen...&gt;** wählen, um ein Webbrowserfenster mit dem Azure-Portal zu öffnen. Weitere Informationen finden Sie unter [Erstellen eines Service Fabric-Clusters in Azure über das Azure-Portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Wählen Sie unter **Verbindungsendpunkt** den Service Fabric-Cluster für die Bereitstellung aus. Falls kein Cluster vorhanden ist, wählen Sie die Option **&lt;Neuen Cluster erstellen...&gt;** aus, um ein Webbrowserfenster mit dem Azure-Portal zu öffnen. Weitere Informationen finden Sie unter [Erstellen eines Service Fabric-Clusters in Azure über das Azure-Portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Stellen Sie beim Erstellen des Service Fabric-Clusters sicher, dass Sie die Einstellung **Benutzerdefinierte Endpunkte** auf **80** festlegen.
 
 ![Konfiguration des Service Fabric-Knotentyps mit benutzerdefiniertem Endpunkt][custom-endpoint]
 
-Die Erstellung eines neuen Service Fabric-Clusters nimmt einige Zeit in Anspruch. Navigieren Sie nach der Erstellung zurück zum Dialogfeld für die Veröffentlichung, und wählen Sie die Option **&lt;Aktualisieren&gt;**. Der neue Cluster ist im Dropdownfeld aufgeführt. Wählen Sie ihn aus.
+Die Erstellung eines neuen Service Fabric-Clusters nimmt einige Zeit in Anspruch. Navigieren Sie nach der Erstellung zurück zum Dialogfeld für die Veröffentlichung, und wählen Sie die Option **&lt;Aktualisieren&gt;** . Der neue Cluster ist im Dropdownfeld aufgeführt. Wählen Sie ihn aus.
 
 Klicken Sie auf **Veröffentlichen**, und warten Sie, bis die Bereitstellung abgeschlossen ist.
 
@@ -130,11 +130,11 @@ Testen Sie Ihren Dienst in einem Webbrowser, nachdem er veröffentlicht wurde.
 
 ![Blatt mit Service Fabric-Übersicht im Azure-Portal][overview]
 
-Navigieren Sie zu dieser Adresse, unter der die Antwort `HELLO WORLD` angezeigt wird.
+Navigieren Sie zu dieser Adresse – dort wird die Antwort `HELLO WORLD` angezeigt.
 
 ## <a name="delete-the-cluster"></a>Löschen des Clusters
 
-Vergessen Sie nicht, alle Ressourcen zu löschen, die Sie für diesen Schnellstart erstellt haben, da für diese Ressourcen Gebühren berechnet werden.
+Denken Sie daran, alle Ressourcen zu löschen, die Sie für diese Schnellstartanleitung erstellt haben, da für diese Ressourcen Gebühren berechnet werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Informieren Sie sich eingehender über [ausführbare Gastanwendungsdateien](service-fabric-guest-executables-introduction.md).

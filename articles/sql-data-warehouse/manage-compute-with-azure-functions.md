@@ -11,11 +11,11 @@ ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870929"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61083882"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Verwalten von Computeressourcen mit Azure Functions in Azure SQL Data Warehouse
 

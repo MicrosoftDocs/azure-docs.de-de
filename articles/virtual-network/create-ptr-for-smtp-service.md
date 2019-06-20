@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 203c3c5f371af7de891f0949a35378294bb50a0e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652381"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60713638"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Konfigurieren von Reverse-Lookupzonen für eine SMTP-Bannerüberprüfung
 

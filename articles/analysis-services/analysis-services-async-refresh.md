@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506975"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrones Aktualisieren mit der REST-API
@@ -199,7 +199,7 @@ C#-Codebeispiel für Ihren Einstieg: [RestApiSample auf GitHub](https://github.c
 ### <a name="to-use-the-code-sample"></a>So verwenden Sie das Codebeispiel
 
 1.  Klonen Sie das Repository, oder laden Sie es herunter. Öffnen Sie die RestApiSample-Lösung.
-2.  Suchen Sie die Zeile **client.BaseAddress = …**, und geben Sie Ihre [Basis-URL](#base-url) an.
+2.  Suchen Sie die Zeile **client.BaseAddress = …** , und geben Sie Ihre [Basis-URL](#base-url) an.
 
 Das Codebeispiel verwendet die [Dienstprinzipal](#service-principal)-Authentifizierung.
 
@@ -207,7 +207,7 @@ Das Codebeispiel verwendet die [Dienstprinzipal](#service-principal)-Authentifiz
 
 Weitere Informationen zum Einrichten eines Dienstprinzipals und Zuweisen der erforderlichen Berechtigungen in Azure finden Sie unter [Erstellen eines Dienstprinzipals – Azure-Portals](../active-directory/develop/howto-create-service-principal-portal.md) und [Hinzufügen eines Dienstprinzipals zur Serveradministratorrolle](analysis-services-addservprinc-admins.md). Führen Sie nach Abschluss dieser Schritte die folgenden zusätzlichen Schritte aus:
 
-1.  Suchen Sie im Codebeispiel **string authority = …**, und ersetzen Sie **common** durch die Mandanten-ID Ihrer Organisation.
+1.  Suchen Sie im Codebeispiel **string authority = …** , und ersetzen Sie **common** durch die Mandanten-ID Ihrer Organisation.
 2.  Fügen Sie eine Auskommentierung ein, bzw. heben Sie die Auskommentierung auf, damit die ClientCredential-Klasse zum Instanziieren des cred-Objekts verwendet wird. Stellen Sie sicher, dass auf die Werte \<App ID> und \<App Key> auf sichere Weise zugegriffen wird, oder verwenden Sie die zertifikatbasierte Authentifizierung für Dienstprinzipale.
 3.  Führen Sie das Beispiel aus.
 

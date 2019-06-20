@@ -2,20 +2,20 @@
 title: 'Azure Active Directory B2C: RelyingParty | Microsoft-Dokumentation'
 description: Erfahren Sie, wie Sie das RelyingParty-Element einer benutzerdefinierten Richtlinie in Azure Active Directory B2C angeben.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705079"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66512851"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -202,13 +202,13 @@ Das **OutputClaim**-Element enthält die folgenden Attribute:
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Ein Verweis auf ein **ClaimType**-Element, das bereits im **ClaimsSchema**-Abschnitt der Richtliniendatei definiert wurde. |
-| DefaultValue | Nein  | Ein Standardwert, der verwendet werden kann, wenn der Wert des Anspruchs leer ist. |
-| PartnerClaimType | Nein  | Sendet den Anspruch wie in der ClaimType-Definition konfiguriert über einen anderen Namen. |
+| DefaultValue | Nein | Ein Standardwert, der verwendet werden kann, wenn der Wert des Anspruchs leer ist. |
+| PartnerClaimType | Nein | Sendet den Anspruch wie in der ClaimType-Definition konfiguriert über einen anderen Namen. |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Mit dem **SubjectNameingInfo**-Element steuern Sie den Wert des Tokenantragstellers:
-- **JTW-Token:** Der `sub`-Anspruch. Dies ist ein Prinzipal, für den das Token Informationen zusichert, z.B. der Benutzer einer Anwendung. Dieser Wert ist unveränderlich und kann nicht erneut zugewiesen oder wiederverwendet werden. Er kann für die Durchführung von sicheren Autorisierungsüberprüfungen verwendet werden, z.B. wenn das Token verwendet wird, um auf eine Ressource zuzugreifen. Der Anspruch „Antragsteller“ wird standardmäßig mit der Objekt-ID des Benutzers im Verzeichnis aufgefüllt. Weitere Informationen finden Sie unter [Token, Sitzung und einmaliges Anmelden – Konfiguration](active-directory-b2c-token-session-sso.md).
+- **JWT-Token:** Der `sub`-Anspruch. Dies ist ein Prinzipal, für den das Token Informationen zusichert, z.B. der Benutzer einer Anwendung. Dieser Wert ist unveränderlich und kann nicht erneut zugewiesen oder wiederverwendet werden. Er kann für die Durchführung von sicheren Autorisierungsüberprüfungen verwendet werden, z.B. wenn das Token verwendet wird, um auf eine Ressource zuzugreifen. Der Anspruch „Antragsteller“ wird standardmäßig mit der Objekt-ID des Benutzers im Verzeichnis aufgefüllt. Weitere Informationen finden Sie unter [Token, Sitzung und einmaliges Anmelden – Konfiguration](active-directory-b2c-token-session-sso.md).
 - **SAML-Token:** Das `<Subject><NameID>`-Element, das das Subject-Element identifiziert.
 
 Das **SubjectNamingInfo**-Element enthält das folgende Attribut:

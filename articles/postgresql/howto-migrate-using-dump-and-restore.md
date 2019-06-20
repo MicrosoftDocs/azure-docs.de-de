@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65066987"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrieren der PostgreSQL-Datenbank durch Sichern und Wiederherstellen
@@ -61,7 +61,7 @@ Eine Möglichkeit zum Migrieren Ihrer vorhandenen PostgreSQL-Datenbank zu Azure 
 >
 
 ### <a name="for-the-backup"></a>Für die Sicherung
-- Erstellen Sie die Sicherung mit dem Switch „-Fc“, damit Sie die Wiederherstellung parallel durchführen können, um den Vorgang zu beschleunigen. Beispiel: 
+- Erstellen Sie die Sicherung mit dem Switch „-Fc“, damit Sie die Wiederherstellung parallel durchführen können, um den Vorgang zu beschleunigen. Beispiel:
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,7 +72,7 @@ Eine Möglichkeit zum Migrieren Ihrer vorhandenen PostgreSQL-Datenbank zu Azure 
 
 - Dies sollte zwar der Standardeinstellung entsprechen, öffnen Sie jedoch trotzdem die Sicherungsdatei, um zu überprüfen, dass die Create Index-Anweisungen sich hinter dem Einfügen der Daten befinden. Wenn das nicht der Fall ist, verschieben Sie die Create Index-Anweisungen hinter das Einfügen der Daten.
 
-- Führen Sie die Wiederherstellung mit den Switches „-Fc“ und „-j“ *#* durch, um die Wiederherstellung zu parallelisieren. *#* beschreibt die Anzahl von Kernen auf dem Zielserver. Sie können auch versuchen, mit *#* die doppelte Anzahl von Kernen des Zielservers anzugeben, um die Auswirkungen zu sehen. Beispiel: 
+- Führen Sie die Wiederherstellung mit den Switches „-Fc“ und „-j“ *#* durch, um die Wiederherstellung zu parallelisieren. *#* beschreibt die Anzahl von Kernen auf dem Zielserver. Sie können auch versuchen, mit *#* die doppelte Anzahl von Kernen des Zielservers anzugeben, um die Auswirkungen zu sehen. Beispiel:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump

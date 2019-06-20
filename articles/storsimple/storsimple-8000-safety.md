@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 66b881ab13e27ee457af4fa1bafb82ad14e9674d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60631673"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Sichere Installation und Verwendung des StorSimple-Geräts
 ![Symbol "Warnung"](./media/storsimple-safety/IC740879.png)

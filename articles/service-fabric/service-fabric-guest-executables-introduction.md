@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/15/2018
 ms.author: aljo
 ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670592"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60946670"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Bereitstellen einer vorhandenen ausführbaren Datei für Service Fabric
 Sie können jede Art von Code, z.B. Node.js, Java oder C++, in Azure Service Fabric als Dienst ausführen. In Service Fabric sind derartige Dienste ausführbare Gastdateien.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434771"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64711818"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegieren eines Subnetzes an Azure NetApp Files 
 
@@ -30,7 +30,7 @@ Sie müssen ein Subnetze an Azure NetApp Files delegieren.   Wenn Sie ein Volume
 * In jedem virtuellen Azure-Netzwerk (VNET) kann nur ein Subnetz an Azure NetApp Files delegiert werden.
 * Sie können im delegierten Subnetz keine Netzwerksicherheitsgruppe und keinen Dienstendpunkt festlegen. Dadurch würde bei der Subnetzdelegierung ein Fehler auftreten.
 * Der Zugriff auf einem Volume aus einem globalen virtuellen Peeringnetzwerk wird zurzeit nicht unterstützt.
-* Das Erstellen von [benutzerdefinierten angepassten Routen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) in VM-Subnetzen mit Adresspräfix (Ziel) für ein Subnetz, das an Azure NetApp Files delegiert wurde, wird nicht unterstützt und wirkt sich auf die VM-Konnektivität aus.
+* Das Erstellen von [benutzerdefinierten angepassten Routen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) in VM-Subnetzen mit Adresspräfix (Ziel) für ein Subnetz, das an Azure NetApp Files delegiert wurde, wird nicht unterstützt. Dies wirkt sich auf die VM-Konnektivität aus.
 
 ## <a name="steps"></a>Schritte 
 1.  Wechseln Sie im Azure-Portal zum Blatt **Virtuelles Netzwerk**, und wählen Sie das virtuelle Netzwerk aus, das Sie für Azure NetApp Files verwenden möchten.    

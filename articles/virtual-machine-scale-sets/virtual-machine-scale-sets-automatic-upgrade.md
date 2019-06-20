@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: manayar
 ms.openlocfilehash: 007f2801efed8da4964808056563418dec7f64d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60328815"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatische Betriebssystemimageupgrades mit Azure-VM-Skalierungsgruppen
 

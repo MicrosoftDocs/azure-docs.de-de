@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 2e7eb455a53abbe2df6ff72f091a599665732429
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bc42bcbf7149f88eb895317a411c7acd5913d63d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724899"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417694"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Konvertieren verwalteter Azure-Datenträger zwischen Storage Standard und Storage Premium
 
-Es gibt vier [Datenträgertypen](disks-types.md) für verwaltete Azure-Datenträger: Azure Ultra Disk Storage, SSD Premium, SSD Standard und HDD Standard. Sie können basierend auf Ihren Leistungsanforderungen ganz einfach und mit geringer Ausfallzeit zwischen SSD Premium, SSD Standard und HDD Standard wechseln. Diese Funktionalität wird für nicht verwaltete Datenträger und Ultra Disk Storage nicht unterstützt. Sie können jedoch problemlos eine [Konvertierung von nicht verwalteten in verwaltete Datenträger](convert-unmanaged-to-managed-disks.md) durchführen, um zwischen den Datenträgertypen wechseln zu können.
+Es gibt vier Typen verwalteter Azure-Datenträger: Azure SSD Ultra (Vorschauversion), SSD Premium, SSD Standard und HDD Standard. Sie können basierend auf Ihren Leistungsanforderungen zwischen den drei allgemein verfügbaren Datenträgertypen (SSD Premium, SSD Standard und HDD Standard) wechseln. Derzeit ist noch kein Wechsel von oder zu SSD Ultra möglich. Sie müssen in diesem Fall einen neuen Datenträger bereitstellen.
+
+Diese Funktion wird für nicht verwaltete Datenträger nicht unterstützt. Sie können jedoch problemlos [nicht verwaltete Datenträger in verwaltete Datenträger konvertieren](convert-unmanaged-to-managed-disks.md), um zwischen den Datenträgertypen wechseln zu können.
 
 In diesem Artikel wird das Konvertieren verwalteter Datenträger zwischen Storage Standard und Storage Premium über die Azure-Befehlszeilenschnittstelle erläutert. Informationen zum Ausführen einer Installation oder eines Upgrades für das Tool finden Sie unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
 

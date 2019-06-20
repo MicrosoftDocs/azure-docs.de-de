@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
 ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151087"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Erstellen eines Triggers zum Ausführen einer Pipeline gemäß einem Zeitplan
@@ -327,11 +327,11 @@ Die folgende Tabelle enthält eine allgemeine Übersicht über die wichtigsten S
 
 | JSON-Eigenschaft | Type | Erforderlich | Standardwert | Gültige Werte | Beispiel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Zeichenfolge | Ja | Keine | Datum/Uhrzeit (nach ISO 8601) | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | string | Ja | Keine | Datum/Uhrzeit (nach ISO 8601) | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Object | Ja | Keine | Wiederholungsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Number | Nein  | 1 | 1 bis 1.000 | `"interval":10` |
-| **endTime** | Zeichenfolge | Ja | Keine | Ein Datums-/Uhrzeitwert, der eine Zeit in der Zukunft darstellt. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Object | Nein  | Keine | Zeitplanobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **interval** | Number | Nein | 1 | 1 bis 1.000 | `"interval":10` |
+| **endTime** | string | Ja | Keine | Ein Datums-/Uhrzeitwert, der eine Zeit in der Zukunft darstellt. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | Object | Nein | Keine | Zeitplanobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime-Eigenschaft
 Die folgende Tabelle zeigt, wie die **startTime**-Eigenschaft eine Triggerausführung steuert:
@@ -361,8 +361,8 @@ Die folgende Tabelle enthält eine ausführliche Beschreibung der **schedule**-E
 
 | JSON-Element | BESCHREIBUNG | Gültige Werte |
 |:--- |:--- |:--- |
-| **minutes** | Minuten der Stunde, zu denen der Trigger ausgeführt wird | <ul><li>Ganze Zahl </li><li>Array mit ganzen Zahlen</li></ul>
-| **hours** | Stunden des Tages, zu denen der Trigger ausgeführt wird | <ul><li>Ganze Zahl </li><li>Array mit ganzen Zahlen</li></ul> |
+| **minutes** | Minuten der Stunde, zu denen der Trigger ausgeführt wird | <ul><li>Integer</li><li>Array mit ganzen Zahlen</li></ul>
+| **hours** | Stunden des Tages, zu denen der Trigger ausgeführt wird | <ul><li>Integer</li><li>Array mit ganzen Zahlen</li></ul> |
 | **weekDays** | Tage der Woche, an denen der Trigger ausgeführt wird. Der Wert kann nur bei wöchentlicher Häufigkeit angegeben werden. | <ul><li>Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag</li><li>Array von Tageswerten (die maximale Arraygröße ist 7)</li><li>Bei Tageswerten wird nicht zwischen Groß- und Kleinschreibung unterschieden.</li></ul> |
 | **monthlyOccurrences** | Tage des Monats, an denen der Trigger ausgeführt wird. Der Wert kann nur bei monatlicher Häufigkeit angegeben werden. | <ul><li>Array aus **monthlyOccurrence**-Objekten: `{ "day": day,  "occurrence": occurrence }`.</li><li>Das **day**-Attribut ist der Tag der Woche, an dem der Trigger ausgeführt wird. Beispiel: Eine **monthlyOccurrences**-Eigenschaft mit dem **day**-Wert `{Sunday}` bedeutet jeden Sonntag des Monats. Das **day**-Attribut ist erforderlich.</li><li>Das **occurrence**-Attribut ist das Vorkommen des angegebenen **day**-Attributs innerhalb des Monats. Beispiel: Eine **monthlyOccurrences**-Eigenschaft mit dem **day**- und **occurrence**-Wert `{Sunday, -1}` bedeutet den letzten Sonntag des Monats. Das **occurrence**-Attribut ist optional.</li></ul> |
 | **monthDays** | Tag des Monats, an dem der Trigger ausgeführt wird. Der Wert kann nur bei monatlicher Häufigkeit angegeben werden. | <ul><li>Beliebiger Wert, für den Folgendes gilt: <= -1 und >= -31</li><li>Beliebiger Wert, für den Folgendes gilt: >= 1 und <= 31</li><li>Array von Werten</li></ul> |

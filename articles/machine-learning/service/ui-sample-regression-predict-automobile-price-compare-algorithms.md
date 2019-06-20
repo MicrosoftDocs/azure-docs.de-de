@@ -1,7 +1,7 @@
 ---
 title: 'Regression: Vorhersagen des Preises und Vergleichen von Algorithmen'
 titleSuffix: Azure Machine Learning service
-description: Dieses Beispielexperiment für eine grafische Benutzeroberfläche zeigt, wie die Leistung von zwei Regressionsmodellen verglichen werden kann, die den Preis eines Autos vorhersagen. Der Prozess umfasst das Trainieren, Testen und Auswerten des Modells anhand des Datasets für Automobilpreisdaten (Rohdaten).
+description: In diesem Artikel wird gezeigt, wie Sie über die grafische Benutzeroberfläche ein komplexes Experiment für maschinelles Lernen erstellen, ohne eine einzige Codezeile zu schreiben. Erfahren Sie, wie Sie mehrere Regressionsmodelle trainieren und vergleichen, um den Preis eines Fahrzeugs anhand technischer Merkmale vorherzusagen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442129"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787791"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Beispiel 2 – Regression: Vorhersagen des Preises und Vergleichen von Algorithmen
 
-Dieses Beispielexperiment für eine grafische Benutzeroberfläche zeigt, wie die Leistung von zwei Regressionsmodellen verglichen werden kann, die den Preis eines Autos vorhersagen. Der Prozess umfasst das Trainieren, Testen und Auswerten des Modells anhand des Datasets für **Automobilpreisdaten (Rohdaten)**.
+Erfahren Sie, wie Sie über die grafische Benutzeroberfläche ein komplexes Experiment für maschinelles Lernen erstellen, ohne eine einzige Codezeile zu schreiben. In diesem Beispiel werden mehrere Regressionsmodelle trainiert und verglichen, um den Preis eines Fahrzeugs anhand seiner technischen Merkmale vorherzusagen. Wir stellen die Gründe für die Entscheidungen bereit, die in diesem Experiment getroffen wurden, damit Sie Ihre eigenen Probleme durch maschinelles Lernen lösen können.
+
+Wenn Sie gerade erst mit dem Thema „Maschinelles Lernen“ beginnen, können Sie sich die [Basisversion](ui-sample-regression-predict-automobile-price-basic.md) dieses Experiments ansehen, um ein grundlegendes Regressionsexperiment zu betrachten.
+
+Das vollständige Diagramm für dieses Experiment sieht wie folgt aus:
+
+[![Graph des Experiments](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -29,10 +35,6 @@ Dieses Beispielexperiment für eine grafische Benutzeroberfläche zeigt, wie die
 
     ![Öffnen des Experiments](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="related-sample"></a>Ähnliches Beispiel
-
-[Beispiel 1 – Regression: Automobile Price Prediction (Basic)](ui-sample-regression-predict-automobile-price-basic.md) (Automobilpreisvorhersage (einfach)) bietet ein einfacheres Experiment, das das gleiche Problem wie dieses Experiment löst, aber nur ein Regressionsmodell verwendet. Verwenden Sie es, wenn Sie nach einem einfachen Beispiel für Regression suchen.
-
 ## <a name="experiment-summary"></a>Experimentzusammenfassung
 
 Wir verwenden die folgenden Schritte, um das Experiment zu erstellen:
@@ -41,11 +43,6 @@ Wir verwenden die folgenden Schritte, um das Experiment zu erstellen:
 1. Vorverarbeiten der Daten.
 1. Trainieren des Modells.
 1. Testen, Auswerten und Vergleichen der Modelle.
-
-So sieht das vollständige Diagramm des Experiments aus:
-
-[![Graph des Experiments](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## <a name="get-the-data"></a>Abrufen von Daten
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: dd632051ebce6afc3c1f7be118fe8d31cd806ec9
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153065"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296807"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Versionshinweise zu Azure Media Services v3
 
@@ -36,7 +36,21 @@ Weitere Informationen finden Sie unter [Hinweise zur Migration von Media Service
 
 ## <a name="may-2019"></a>Mai 2019
 
+### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>Unterstützung von HLS v4 und höher in der dynamischen Paketerstellung 
+
+Unterstützung für HLS (Version 4 oder höher) in der dynamischen Paketerstellung wurde für Ressourcen hinzugefügt, die mehrere Audiospuren mit mehreren Codecs und Sprachen besitzen.
+
+Weitere Informationen finden Sie unter [Dynamische Paketerstellung](dynamic-packaging-overview.md).
+
+### <a name="media-services-availability-in-korea-central-region"></a>Media Services-Verfügbarkeit in der Region „Südkorea, Mitte“
+
+Media Services sind jetzt in der Region „Südkorea, Mitte“ verfügbar. 
+
+Weiter Informationen finden Sie unter [Clouds und Regionen, in denen Media Services v3 verfügbar ist](azure-clouds-regions.md).
+
 ### <a name="performance-improvements"></a>Leistungsverbesserungen
+
+Updates wurden hinzugefügt, die Verbesserungen an der Media Services-Leistung umfassen.
 
 * Die maximal unterstützte Dateigröße für die Verarbeitung wurde aktualisiert. Siehe [Kontingente und Einschränkungen](limits-quotas-constraints.md).
 * [Verbesserungen der Codierungsgeschwindigkeit](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
@@ -52,7 +66,7 @@ Weitere Informationen finden Sie unter [Hinweise zur Migration von Media Service
 
 Die dynamische Paketerstellung unterstützt jetzt Dolby Atmos. Weitere Informationen finden Sie unter [Von der dynamischen Paketerstellung unterstützte Audiocodecs](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
-Sie können nun eine Liste von Medienobjekt- oder Kontenfiltern angeben, die für Ihren Streaminglocator gelten würden. Weitere Informationen finden Sie unter [Zuordnen von Filtern mit Streaminglocator](filters-concept.md#associate-filters-with-streaming-locator).
+Sie können nun eine Liste von Medienobjekt- oder Kontenfiltern angeben, die für Ihren Streaminglocator gelten würden. Weitere Informationen finden Sie unter [Zuordnen von Filtern mit Streaminglocator](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Februar 2019
 

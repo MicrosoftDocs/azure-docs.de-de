@@ -15,11 +15,11 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60733571"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Anforderungen und Konfiguration der Apple FairPlay-Lizenz 
 
@@ -35,7 +35,7 @@ Die folgenden Angaben sind erforderlich, wenn Sie Ihre HLS-Inhalte mit **Apple F
 * Apple setzt voraus, dass der Inhaltsbesitzer über das [Bereitstellungspaket](https://developer.apple.com/contact/fps/)verfügt. Geben Sie an, dass Sie bereits KSM (Key Security Module) mit Media Services implementiert haben, und dass Sie das endgültige FPS-Paket anfordern. Das endgültige FPS-Paket enthält Anweisungen zum Generieren des Zertifikats und zum Abrufen des geheimen Anwendungsschlüssels (ASK). Sie verwenden ASK, um FairPlay zu konfigurieren.
 * Folgendes muss seitens der Media Services-Schlüssel-/Lizenzbereitstellung festgelegt werden:
 
-    * **App Cert (AC)**: Dies ist eine PFX-Datei, die den privaten Schlüssel enthält. Sie erstellen diese Datei und verschlüsseln sie mit einem Kennwort. Die PFX-Datei muss im Base64-Format vorliegen.
+    * **App Cert (AC)** : Dies ist eine PFX-Datei, die den privaten Schlüssel enthält. Sie erstellen diese Datei und verschlüsseln sie mit einem Kennwort. Die PFX-Datei muss im Base64-Format vorliegen.
 
         Die folgenden Schritte beschreiben, wie eine PFX-Zertifikatdatei für FairPlay generiert wird:
 
@@ -54,7 +54,7 @@ Die folgenden Angaben sind erforderlich, wenn Sie Ihre HLS-Inhalte mit **Apple F
     
 * Folgendes muss seitens des FPS-Clients festgelegt werden:
 
-  * **App Cert (AC)**: CER-/DER-Datei mit dem öffentlichen Schlüssel, den das Betriebssystem zur Verschlüsselung bestimmter Nutzlasten verwendet. Media Services muss den Schlüssel kennen, da er vom Player benötigt wird. Der Schlüsselbereitstellungsdienst entschlüsselt den Schlüssel mithilfe des entsprechenden privaten Schlüssels.
+  * **App Cert (AC)** : CER-/DER-Datei mit dem öffentlichen Schlüssel, den das Betriebssystem zur Verschlüsselung bestimmter Nutzlasten verwendet. Media Services muss den Schlüssel kennen, da er vom Player benötigt wird. Der Schlüsselbereitstellungsdienst entschlüsselt den Schlüssel mithilfe des entsprechenden privaten Schlüssels.
 
 * Um einen über FairPlay verschlüsselten Stream wiederzugeben, rufen Sie zuerst den echten ASK ab, und generieren Sie dann ein echtes Zertifikat. Dieser Prozess erstellt alle drei Teile:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 3ca59df7496eeea3c5f8289b10dfa23e403f919f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 45c4eb02d76578a5a214ff5719a6dff3becec88c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38712945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60869980"
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>Erstellen eines virtuellen Netzwerks (klassisch) mithilfe einer Netzwerk-Konfigurationsdatei mit PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

@@ -11,11 +11,11 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60543557"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrieren zu Storage Premium mithilfe von Azure Site Recovery
 
@@ -195,7 +195,7 @@ Site Recovery erstellt eine VM-Instanz, deren Typ einem Storage Premium-fähigen
 
 ## <a name="post-migration-steps"></a>Schritte nach der Migration
 
-1. **Konfigurieren Sie replizierte VMs in der Verfügbarkeitsgruppe (falls zutreffend)**. Für Site Recovery wird das Migrieren von VMs zusammen mit der Verfügbarkeitsgruppe nicht unterstützt. Wählen Sie je nach Bereitstellungstyp Ihrer replizierten VM eine der folgenden Vorgehensweisen:
+1. **Konfigurieren Sie replizierte VMs in der Verfügbarkeitsgruppe (falls zutreffend)** . Für Site Recovery wird das Migrieren von VMs zusammen mit der Verfügbarkeitsgruppe nicht unterstützt. Wählen Sie je nach Bereitstellungstyp Ihrer replizierten VM eine der folgenden Vorgehensweisen:
    * Für eine VM, die mit dem klassischen Bereitstellungsmodell erstellt wurde: Fügen Sie die VM zur Verfügbarkeitsgruppe im Azure-Portal hinzu. Ausführliche Schritte finden Sie unter [Fügen Sie einer Verfügbarkeitsgruppe einen vorhandenen virtuellen Computer hinzu](../linux/classic/configure-availability-classic.md).
    * Für eine VM, die mit dem Ressourcen-Manager-Bereitstellungsmodell erstellt wurde: Speichern Sie Ihre Konfiguration der VM. Löschen Sie dann die VMs, und erstellen Sie sie in der Verfügbarkeitsgruppe neu. Verwenden Sie hierfür das Skript unter [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Festlegen der Azure Resource Manager-VM-Verfügbarkeitsgruppe). Machen Sie sich vor dem Ausführen dieses Skripts mit dessen Einschränkungen vertraut, und planen Sie Ihre Ausfallzeit.
 

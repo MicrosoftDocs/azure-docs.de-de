@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: c6d9f46582e1c618de6bfccea9328fb35aea7875
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485814"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64684008"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM-Start bleibt in Azure bei „Windows wird vorbereitet. Computer nicht ausschalten.“ hängen.
 
 In diesem Artikel erfahren Sie, was Sie tun können, wenn Ihr virtueller Computer (Virtual Machine, VM) in der Startphase bei „Windows wird vorbereitet. Computer nicht ausschalten.“ hängen bleibt.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptoms"></a>Symptome
 

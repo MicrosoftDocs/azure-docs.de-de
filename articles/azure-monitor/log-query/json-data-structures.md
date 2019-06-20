@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60519651"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Arbeiten mit JSON und Datenstrukturen in Azure Monitor-Protokollabfragen
 

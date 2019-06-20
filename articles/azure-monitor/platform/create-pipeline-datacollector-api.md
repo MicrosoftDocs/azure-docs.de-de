@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205963"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65603232"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Erstellen einer Datenpipeline mit der Datensammler-API
 
@@ -27,7 +27,7 @@ Mit der [Datensammler-API von Azure Monitor](data-collector-api.md) können Sie 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Beispiel für ein Problem
-Im restlichen Teil dieses Artikels untersuchen wir Seitenzugriffsdaten in Application Insights. In unserem hypothetischen Szenario möchten wir geografische Informationen, die vom Application Insights SDK standardmäßig gesammelt werden, mit benutzerdefinierten Daten zur Bevölkerungszahl jedes Lands der Welt korrelieren. So soll ermittelt werden, wo wir die höchsten Anteile des Marketingbudgets ausgeben sollten. 
+Im restlichen Teil dieses Artikels untersuchen wir Seitenzugriffsdaten in Application Insights. In unserem hypothetischen Szenario möchten wir geografische Informationen, die vom Application Insights SDK standardmäßig gesammelt werden, mit benutzerdefinierten Daten zur Bevölkerungszahl jedes Lands bzw. jeder Region der Welt korrelieren. So soll ermittelt werden, wo wir die höchsten Anteile des Marketingbudgets ausgeben sollten. 
 
 Zu diesem Zweck verwenden wir eine öffentliche Datenquelle, z.B. die [Informationen der UN zu den weltweiten Bevölkerungszahlen](https://esa.un.org/unpd/wpp/). Für die Daten wird das folgende einfache Schema verwendet:
 

@@ -2,20 +2,20 @@
 title: Datenspeicherung und -eingang in Azure Time Series Insights Preview | Microsoft-Dokumentation
 description: Grundlagen zur Datenspeicherung und zum Dateneingang in Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 33ca86fc2d13fb7f6e29c43e9a7c1d2dc6ef4169
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66755239"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Datenspeicherung und -eingang in Azure Time Series Insights Preview
 
@@ -28,7 +28,7 @@ Wenn Sie eine Time Series Insights Preview-SKU-Umgebung mit nutzungsbasierter Be
 * Eine Time Series Insights-Umgebung.
 * Ein Azure-Speicherkonto vom Typ „Allgemein v1“, in dem die Daten gespeichert werden.
 
-Time Series Insights Preview verwendet Azure-Blobspeicher mit dem Parquet-Dateityp. Time Series Insights verwaltet alle Datenvorgänge, einschließlich der Erstellung von Blobs sowie der Indizierung und Partitionierung der Daten im Azure-Speicherkonto. Sie erstellen diese Blobs, indem Sie ein Azure-Speicherkonto verwenden.
+Die Time Series Insights Preview verwendet Azure-Blobspeicher mit dem Parquet-Dateityp. Time Series Insights verwaltet alle Datenvorgänge, einschließlich der Erstellung von Blobs sowie der Indizierung und Partitionierung der Daten im Azure-Speicherkonto. Sie erstellen diese Blobs, indem Sie ein Azure-Speicherkonto verwenden.
 
 Wie andere Azure-Speicherblobs auch, gestatten Ihnen von Time Series Insights erstellte Blobs, sie zu lesen und darin zu schreiben, um verschiedene Integrationsszenarien zu unterstützen.
 
@@ -37,7 +37,7 @@ Wie andere Azure-Speicherblobs auch, gestatten Ihnen von Time Series Insights er
 
 Eine Übersicht über Azure-Blobspeicher finden Sie unter [Einführung in Speicherblobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
 
-Weitere Informationen zum Parquet-Dateityp finden Sie unter [Unterstützte Dateitypen in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format).
+Weitere Informationen zum Parquet-Dateityp finden Sie unter [Unterstützte Dateitypen in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#parquet-format).
 
 ## <a name="parquet-file-format"></a>Parquet-Dateiformat
 
@@ -101,12 +101,12 @@ Eine physische Partition ist ein Blockblob, der in Ihrem Speicherkonto gespeiche
 
 ### <a name="logical-partitions"></a>Logische Partitionen
 
-Eine logische Partition ist eine Partition innerhalb einer physischen Partition, die alle Daten speichert, die mit einem einzelnen Partitionsschlüsselwert verknüpft sind. Time Series Insights Preview partitioniert jeden Blob logisch basierend auf zwei Eigenschaften:
+Eine logische Partition ist eine Partition innerhalb einer physischen Partition, die alle Daten speichert, die mit einem einzelnen Partitionsschlüsselwert verknüpft sind. Die Time Series Insights Preview partitioniert jeden Blob logisch basierend auf zwei Eigenschaften:
 
 * **Time Series-ID**: Der Partitionsschlüssel für alle Time Series Insights-Daten im Ereignisstream und Modell.
 * **Timestamp** (Zeitstempel): Die Zeit, basierend auf dem ersten Eingang.
 
-Time Series Insights Preview bietet leistungsstarke Abfragen, die auf diesen beiden Eigenschaften basieren. Diese beiden Eigenschaften bieten außerdem die effektivste Methode zur schnellen Bereitstellung von Time Series Insights-Daten.
+Die Time Series Insights Preview bietet leistungsstarke Abfragen, die auf diesen beiden Eigenschaften basieren. Diese beiden Eigenschaften bieten außerdem die effektivste Methode zur schnellen Bereitstellung von Time Series Insights-Daten.
 
 Es ist wichtig, eine entsprechende Time Series-ID auszuwählen, weil es sich dabei um eine unveränderliche Eigenschaft handelt. Weitere Informationen finden Sie unter [Auswählen von Time Series-IDs](./time-series-insights-update-how-to-id.md).
 
@@ -146,13 +146,13 @@ Sie können auf drei allgemeine Arten auf Ihre Daten zugreifen:
 
 ### <a name="data-deletion"></a>Löschen von Daten
 
-Löschen Sie keine Blobs, weil Time Series Insights Preview Metadaten zu den darin enthaltenen Blobs verwaltet.
+Löschen Sie keine Blobs. Sie sind nicht nur nützlich für die Überwachung und Speicherung eines Datensatzes Ihrer Daten, sondern die Time Series Insights Preview speichert auch Blobmetadaten innerhalb jedes Blobs.
 
 ## <a name="time-series-insights-data-ingress"></a>Time Series Insights-Dateneingang
 
 ### <a name="ingress-policies"></a>Eingangsrichtlinien
 
-Time Series Insights Preview unterstützt dieselben Ereignisquellen und Dateitypen, die aktuell von Time Series Insights unterstützt werden.
+Die Time Series Insights Preview unterstützt dieselben Ereignisquellen und Dateitypen, die aktuell von Time Series Insights unterstützt werden.
 
 Unterstützte Ereignisquellen sind unter anderem:
 
@@ -168,7 +168,7 @@ Unterstützte Dateitypen sind unter anderem:
 
 ### <a name="data-availability"></a>Datenverfügbarkeit
 
-Time Series Insights Preview indiziert Daten mithilfe einer Optimierungsstrategie für die Blobgröße. Daten werden nach der Indizierung für Abfragen verfügbar, wobei die Indizierung davon abhängt, wie viele Daten eingehen und mit welcher Geschwindigkeit.
+Die Time Series Insights Preview indiziert Daten mithilfe einer Optimierungsstrategie für die Blobgröße. Daten werden nach der Indizierung für Abfragen verfügbar, wobei die Indizierung davon abhängt, wie viele Daten eingehen und mit welcher Geschwindigkeit.
 
 > [!IMPORTANT]
 > * Das allgemeine Verfügbarkeitsrelease von Time Series Insights stellt Daten innerhalb von 60 Sekunden nach dem Erreichen einer Ereignisquelle zur Verfügung. 
@@ -177,7 +177,7 @@ Time Series Insights Preview indiziert Daten mithilfe einer Optimierungsstrategi
 
 ### <a name="scale"></a>Skalieren
 
-Time Series Insights Preview unterstützt eine anfängliche Erfassungsskalierung von bis zu 6 Mbit/s pro Umgebung. Verbesserte Skalierungsunterstützung erfolgt fortwährend. Wir planen, unsere Dokumentation mit diesen Verbesserungen entsprechend zu aktualisieren.
+Die Time Series Insights Preview unterstützt eine anfängliche Dateneingangsskalierung von bis zu 1 Mbit/s pro Umgebung. Verbesserte Skalierungsunterstützung erfolgt fortwährend. Wir planen, unsere Dokumentation mit diesen Verbesserungen entsprechend zu aktualisieren.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

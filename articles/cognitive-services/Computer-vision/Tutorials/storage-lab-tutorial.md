@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005987"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541528"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Verwenden von „Maschinelles Sehen“ zum Generieren von Bildmetadaten in Azure Storage
 
@@ -40,17 +40,11 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 ## <a name="create-a-computer-vision-resource"></a>Erstellen einer Maschinelles Sehen-Ressource
 
-Sie müssen für Ihr Azure-Konto eine Maschinelles Sehen-Ressource erstellen. Mit dieser Ressource wird der Zugriff auf den Azure-Dienst „Maschinelles Sehen“ verwaltet.
+Sie müssen für Ihr Azure-Konto eine Maschinelles Sehen-Ressource erstellen. Mit dieser Ressource wird der Zugriff auf den Azure-Dienst „Maschinelles Sehen“ verwaltet. 
 
-1. Melden Sie sich am [Azure-Portal](https://ms.portal.azure.com) an, und klicken Sie auf **Ressource erstellen** und dann auf **KI + Machine Learning** und **Maschinelles Sehen**.
+1. Befolgen Sie die Anweisungen in [Erstellen einer Azure Cognitive Services-Ressource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription), um eine Ressource für maschinelles Sehen zu erstellen.
 
-    ![Erstellen eines neuen Abonnements für die Maschinelles Sehen-API](../Images/new-vision-api.png)
-
-1. Geben Sie im Dialogfenster im Feld **Name** den Namen „vision-api-key“ ein, und wählen Sie **F0** als **Tarif** aus. Wählen Sie den gleichen **Standort** wie beim Einrichten Ihres Azure Storage-Kontos aus. Wählen Sie unter **Ressourcengruppe** die Option **Vorhandene verwenden** und dann ebenfalls die gleiche Ressourcengruppe aus. Aktivieren Sie das Kontrollkästchen **Ich bestätige**, und klicken Sie dann auf **Erstellen**.
-
-    ![Abonnieren der Maschinelles Sehen-API](../Images/create-vision-api.png)
-
-1. Kehren Sie zum Menü für Ihre Ressourcengruppe zurück, und klicken Sie auf das Abonnement der Maschinelles Sehen-API, das Sie gerade erstellt haben. Kopieren Sie die URL unter **Endpunkt** an einen Ort, an dem Sie gleich schnell darauf zugreifen können. Klicken Sie anschließend auf **Zugriffsschlüssel anzeigen**.
+1. Kehren Sie dann zum Menü für Ihre Ressourcengruppe zurück, und klicken Sie auf das Abonnement der Maschinelles Sehen-API, das Sie gerade erstellt haben. Kopieren Sie die URL unter **Endpunkt** an einen Ort, an dem Sie gleich schnell darauf zugreifen können. Klicken Sie anschließend auf **Zugriffsschlüssel anzeigen**.
 
     ![Azure-Portalseite mit Hervorhebung der Endpunkt-URL und des Links für Zugriffsschlüssel](../Images/copy-vision-endpoint.png)
 

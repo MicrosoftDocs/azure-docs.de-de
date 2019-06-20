@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60583809"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Bereitstellen von Containerinstanzen, die GPU-Ressourcen verwenden
 
@@ -211,7 +211,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Da die Verwendung von GPU-Ressourcen teuer sein kann, stellen Sie sicher, dass Ihre Container nicht unbeabsichtigt über einen längeren Zeitraum ausgeführt werden. Überwachen Sie Ihre Container im Azure-Portal, oder überprüfen Sie den Status einer Containergruppe mit dem Befehl [az container show][az-container-show]. Beispiel: 
+Da die Verwendung von GPU-Ressourcen teuer sein kann, stellen Sie sicher, dass Ihre Container nicht unbeabsichtigt über einen längeren Zeitraum ausgeführt werden. Überwachen Sie Ihre Container im Azure-Portal, oder überprüfen Sie den Status einer Containergruppe mit dem Befehl [az container show][az-container-show]. Beispiel:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

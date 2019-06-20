@@ -3,19 +3,19 @@ title: BreakSentence-Methode der Textübersetzungs-API
 titlesuffix: Azure Cognitive Services
 description: Verwenden Sie die BreakSentence-Methode der Textübersetzungs-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: v-pawal
+ms.openlocfilehash: 0ecb620757bc58b109747f69eb3b5afe0c56bac4
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578205"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387556"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Textübersetzungs-API 3.0: BreakSentence
 
@@ -41,7 +41,7 @@ Die folgenden Anforderungsparameter werden in der Abfragezeichenfolge übergeben
     <td>*Erforderlicher Abfrageparameter*<br/>Die vom Client angeforderte Version der API. Der Wert muss `3.0` sein.</td>
   </tr>
   <tr>
-    <td>Language</td>
+    <td>language</td>
     <td>*Optionaler Abfrageparameter*<br/>Sprachtag, das die Sprache des Eingabetexts angibt. Wenn kein Code angegeben ist, wird die automatische Spracherkennung angewendet.</td>
   </tr>
   <tr>
@@ -154,7 +154,7 @@ Im Folgenden finden Sie die möglichen HTTP-Statuscodes, die eine Anforderung zu
   </tr>
   <tr>
     <td>429</td>
-    <td>Der Aufrufer sendet zu viele Anforderungen.</td>
+    <td>Der Server hat die Anforderung abgelehnt, da der Client die Anforderungsgrenzwerte überschritten hat.</td>
   </tr>
   <tr>
     <td>500</td>

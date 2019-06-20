@@ -49,7 +49,7 @@ Studio enthält bereits einige Beispieldatasets, die Sie verwenden können. Alte
 Dieses Dataset enthält Einträge für eine Reihe verschiedener Automobile, einschließlich Informationen wie Marke, Modell, technische Angaben und Preis.
 
 > [!TIP]
-> Eine Arbeitskopie des folgenden Experiments finden Sie im [Azure AI-Katalog](https://gallery.azure.ai). Wechseln Sie zu **[Your first data science experiment - Automobile price prediction (Ihr erstes Data Science-Experiment – Vorhersage von Automobilpreisen)](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)**, und klicken Sie auf **In Studio öffnen**, um eine Kopie des Experiments in Ihren Machine Learning Studio-Arbeitsbereich herunterzuladen.
+> Eine Arbeitskopie des folgenden Experiments finden Sie im [Azure KI-Katalog](https://gallery.azure.ai). Wechseln Sie zu **[Your first data science experiment - Automobile price prediction (Ihr erstes Data Science-Experiment – Vorhersage von Automobilpreisen)](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** , und klicken Sie auf **In Studio öffnen**, um eine Kopie des Experiments in Ihren Machine Learning Studio-Arbeitsbereich herunterzuladen.
 
 Hier wird erklärt, wie Sie das Dataset in Ihr Experiment importieren.
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: feabd055833e5f0d850138af528cce1da82cae49
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439677"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622622"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Speichern von benutzerdefinierten Images und Verteilen an mehrere Labs
 In diesem Artikel lernen Sie die Schritte kennen, mit denen Sie benutzerdefinierte Images bereits erstellter virtueller Computer (VMs) speichern können. Ferner wird erläutert, wie diese benutzerdefinierten Images an andere DevTest Labs in der Organisation verteilt werden können.

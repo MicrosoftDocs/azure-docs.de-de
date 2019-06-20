@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531588"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754378"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Überwachen und Aktualisieren eines virtuellen Linux-Computers in Azure
 
@@ -117,7 +117,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 Eine Linux-VM verfügt über einen dedizierten Host in Azure, mit dem sie interagiert. Es werden automatisch Metriken für den Host gesammelt, die folgendermaßen im Azure-Portal angezeigt werden können:
 
 1. Klicken Sie im Azure-Portal auf **Ressourcengruppen**, und wählen Sie **myResourceGroupMonitor** und dann in der Ressourcenliste **myVM** aus.
-1. Um die Leistung des virtuellen Hostcomputers anzuzeigen, klicken Sie im Fenster des virtuellen Computers auf **Metriken**, und wählen Sie dann eine der *[Host]*-Metriken unter **Verfügbare Metriken** aus.
+1. Um die Leistung des virtuellen Hostcomputers anzuzeigen, klicken Sie im Fenster des virtuellen Computers auf **Metriken**, und wählen Sie dann eine der *[Host]* -Metriken unter **Verfügbare Metriken** aus.
 
     ![Anzeigen von Hostmetriken](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -147,7 +147,7 @@ Sie können Warnungen auf Grundlage von bestimmten Leistungsmetriken erstellen. 
 Das folgende Beispiel erstellt eine Warnung für die durchschnittliche CPU-Auslastung.
 
 1. Klicken Sie im Azure-Portal auf **Ressourcengruppen**, und wählen Sie **myResourceGroupMonitor** und dann in der Ressourcenliste **myVM** aus.
-2. Klicken Sie auf **Warnungen (klassisch)** und anschließend oben im Warnungsfenster auf **Metrikwarnung hinzufügen (klassisch)**.
+2. Klicken Sie auf **Warnungen (klassisch)** und anschließend oben im Warnungsfenster auf **Metrikwarnung hinzufügen (klassisch)** .
 3. Geben Sie einen **Namen** für die Warnung ein, z.B. *myAlertRule*.
 4. Um eine Warnung auszulösen, wenn der CPU-Prozentsatz 1.0 für fünf Minuten überschreitet, belassen Sie alle anderen Standardeinstellungen ausgewählt.
 5. Aktivieren Sie optional das Kontrollkästchen *E-Mail-Besitzer, Mitwirkende und Leser*, um E-Mail-Benachrichtigungen zu senden. Als Standardaktion wird im Portal eine Benachrichtigung angezeigt.
@@ -203,26 +203,25 @@ Planen Sie zum Installieren von Updates eine Bereitstellung, die Ihrem Releaseze
 
 Um eine neue Updatebereitstellung für den virtuellen Computer zu planen, klicken Sie auf **Updatebereitstellung planen** am oberen Rand des Bildschirms **Updateverwaltung**. Geben Sie auf dem Bildschirm **Neue Updatebereitstellung** die folgenden Informationen ein:
 
-* **Name:** Geben Sie einen eindeutigen Namen zur Identifizierung der Updatebereitstellung an.
-* **Updateklassifizierung:** Wählen Sie die Softwareklassen aus, die in die Updatebereitstellung eingeschlossen werden sollen. Es gibt die folgenden Klassifizierungstypen:
-  * Kritische Updates und Sicherheitsupdates
-  * Andere Updates
-* **Auszuschließende Updates**: Sie können eine Liste mit Paketnamen angeben, die bei der Updatebereitstellung übersprungen werden sollen. In Paketnamen können Platzhalter verwendet werden (beispielsweise \*kernel\*).
+Wählen Sie zum Erstellen einer neuen Updatebereitstellung **Updatebereitstellung planen** aus. Die Seite **Neue Updatebereitstellung** wird geöffnet. Geben Sie Werte für die Eigenschaften ein, die in der folgenden Tabelle beschrieben werden, und klicken Sie auf **Erstellen**:
 
-  ![Bildschirm für Updatezeitplan-Einstellungen](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
+| Eigenschaft | BESCHREIBUNG |
+| --- | --- |
+| NAME |Eindeutiger Name zum Identifizieren der Updatebereitstellung |
+|Betriebssystem| Linux oder Windows|
+| Zu aktualisierende Gruppen |Definieren Sie für Azure-Computer eine Abfrage basierend auf einer Kombination aus Abonnement, Ressourcengruppen, Standorten und Tags, um eine dynamische Gruppe von virtuellen Azure-Computern zu erstellen, die in die Bereitstellung eingeschlossen werden sollen. </br></br>Wählen Sie für Azure-fremde Computer eine vorhandene gespeicherte Suche aus, um eine Gruppe von Azure-fremden Computern auszuwählen, die in die Bereitstellung eingeschlossen werden sollen. </br></br>Weitere Informationen finden Sie unter [Dynamische Gruppen](../../automation/automation-update-management.md#using-dynamic-groups).|
+| Zu aktualisierende Computer |Wählen Sie eine gespeicherte Suche oder eine importierte Gruppe aus, oder wählen Sie im Dropdownmenü „Computer“ und dann einzelne Computer aus. Bei Auswahl von **Computer** wird die Bereitschaft des Computers in der Spalte **BEREITSCHAFT DES UPDATE-AGENTS** angezeigt.</br> Weitere Informationen zu den verschiedenen Methoden zum Erstellen von Computergruppen in Azure Monitor-Protokollen finden Sie unter [Computergruppen in Azure Monitor-Protokollen](../../azure-monitor/platform/computer-groups.md). |
+|Updateklassifizierungen|Wählen Sie alle benötigten Updateklassifizierungen aus|
+|Einschließen/Ausschließen von Updates|Daraufhin wird die Seite **Einschließen/ausschließen** geöffnet. Updates, die eingeschlossen oder ausgeschlossen werden sollen, befinden sich auf verschiedenen Registerkarten. Weitere Informationen zur Vorgehensweise beim Einschließen finden Sie unter [Verhalten beim Einschließen](../../automation/automation-update-management.md#inclusion-behavior). |
+|Zeitplaneinstellungen|Wählen Sie den Startzeitpunkt aus, und geben Sie unter „Wiederholung“ entweder „Einmal“ oder „Serie“ an|
+| Vor und nach dem Vorgang auszuführende Skripts|Wählen Sie die Skripts aus, die vor und nach Ihrer Bereitstellung ausgeführt werden sollen.|
+| Wartungsfenster |Festgelegte Minutenanzahl für Updates Der Wert darf nicht unter 30 Minuten und nicht über 6 Stunden betragen. |
+| Neustartsteuerung| Legt fest, wie Neustarts behandelt werden sollen. Die verfügbaren Optionen lauten wie folgt:</br>Neu starten bei Bedarf (Standard)</br>Immer neu starten</br>Nie neu starten</br>Nur neu starten – Updates werden nicht installiert|
 
-* **Zeitplaneinstellungen**: Sie können entweder Standarddatum und Standarduhrzeit (30 Minuten nach der aktuellen Zeit) akzeptieren oder einen anderen Zeitpunkt angeben.
-  Sie können auch angeben, ob die Bereitstellung einmalig erfolgt, oder einen sich wiederholenden Zeitplan einrichten. Wählen Sie zum Einrichten eines sich wiederholenden Zeitplans unter „Wiederholung“ die Option „Serie“ aus.
-
-  ![Bildschirm für Updatezeitplan-Einstellungen](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
-
-* **Wartungsfenster (Minuten):** Geben Sie den Zeitraum an, in dem die Updatebereitstellung stattfinden soll. So wird sichergestellt, dass Änderungen in dem von Ihnen festgelegten Wartungsfenster ausgeführt werden.
+Updatebereitstellungen können ebenfalls programmgesteuert erstellt werden. Weitere Informationen zum Erstellen einer Updatebereitstellung mit der REST-API finden Sie unter [Softwareupdatekonfigurationen – Erstellen](/rest/api/automation/softwareupdateconfigurations/create). Es gibt auch ein Beispielrunbook, das zum Erstellen einer wöchentlichen Updatebereitstellung verwendet werden kann. Weitere Informationen zu diesem Runbook finden Sie unter [Erstellen einer wöchentlichen Updatebereitstellung für einen oder mehrere virtuelle Computer in einer Ressourcengruppe](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 Nachdem Sie die Konfiguration des Zeitplans abgeschlossen haben, klicken Sie auf die Schaltfläche **Erstellen**. Sie kehren damit zum Statusdashboard zurück.
 Beachten Sie, dass die Tabelle **Geplant** den von Ihnen erstellten Bereitstellungszeitplan anzeigt.
-
-> [!WARNING]
-> Für Updates, die einen Neustart erfordern, wird der virtuelle Computer automatisch neu gestartet.
 
 ### <a name="view-results-of-an-update-deployment"></a>Anzeigen der Ergebnisse einer Updatebereitstellung
 

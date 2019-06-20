@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: dabae62b9e308bc97850ee36fa735b8a11c4d6f0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f856694a5063551ba94bb6d322614aa490f13adb
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020964"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001885"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Schnellstart: Erkennen von Sprache in Java unter Android mit dem Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dieser Artikel enthält Informationen zur Entwicklung einer Java-Anwendung für Android mithilfe des Cognitive Services Speech SDK zum Umwandeln von Sprache in Text.
-Die Anwendung basiert auf dem Maven-Paket für das Speech SDK (Version 1.5.0) sowie auf Android Studio 3.3.
+Die Anwendung basiert auf dem Maven-Paket für das Speech SDK (Version 1.5.1) sowie auf Android Studio 3.3.
 Das Speech SDK ist zurzeit kompatibel mit Android-Geräten mit 32-/64-Bit-ARM-Prozessoren und Prozessoren, die mit Intel x86/x64 kompatibel sind.
 
 > [!NOTE]
@@ -50,7 +50,7 @@ Android Studio benötigt einen Moment, um Ihr neues Android-Projekt vorzubereite
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Die aktuelle Version des Cognitive Services Speech SDK ist `1.5.0`.
+Die aktuelle Version des Cognitive Services Speech SDK ist `1.5.1`.
 
 Das Speech SDK für Android ist als [AAR (Android-Bibliothek)](https://developer.android.com/studio/projects/android-library) verpackt und enthält die erforderlichen Bibliotheken sowie die erforderlichen Android-Berechtigungen.
 Es wird in einem Maven-Repository unter „https:\//csspeechstorage.blob.core.windows.net/maven/“ gehosted.
@@ -65,7 +65,7 @@ Richten Sie Ihr Projekt so ein, dass es das Speech SDK verwendet. Öffnen Sie da
 
    ![Screenshot der Fensters „Projektstruktur“](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Geben Sie im angezeigten Fenster den Namen und die Version des Speech SDK für Android ein: `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0`. Wählen Sie dann **OK**aus.
+1. Geben Sie im angezeigten Fenster den Namen und die Version des Speech SDK für Android ein: `com.microsoft.cognitiveservices.speech:client-sdk:1.5.1`. Wählen Sie dann **OK**aus.
    Das Speech SDK sollte nun der Liste der Abhängigkeiten hinzugefügt werden, wie unten dargestellt:
 
    ![Screenshot der Fensters „Projektstruktur“](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -116,7 +116,7 @@ Der Text und die grafische Darstellung Ihrer Benutzeroberfläche sollten jetzt e
 
 1. Um die Anwendung zu erstellen, drücken Sie STRG+F9, oder wählen Sie **Erstellen** > **Projekt erstellen** in der Menüleiste aus.
 
-1. Um die Anwendung zu starten, drücken Sie UMSCHALT+F10, oder wählen Sie **Ausführen** > **'App' ausführen** aus.
+1. Um die Anwendung zu starten, drücken Sie UMSCHALT+F10, oder wählen Sie **Ausführen** >  **'App' ausführen** aus.
 
 1. Wählen Sie im daraufhin angezeigten Fenster mit Bereitstellungszielen Ihr Android-Gerät aus.
 

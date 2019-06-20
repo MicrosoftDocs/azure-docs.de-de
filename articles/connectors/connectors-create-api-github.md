@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: ce567dc631c3a147b795eb2355a4961faa8881d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0d2ff9368bc244a5afd6fafc40cf476b90a80a52
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295811"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61462564"
 ---
 # <a name="connect-to-github"></a>Herstellen einer Verbindung mit GitHub
 

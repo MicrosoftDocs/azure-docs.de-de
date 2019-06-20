@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511940"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>SendGrid-Bindungen in Azure Functions
 

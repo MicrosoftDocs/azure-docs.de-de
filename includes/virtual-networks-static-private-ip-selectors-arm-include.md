@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: 3c852192fe6631759cd54a3b693b25bc655fcdf9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270317"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178003"
 ---
 > [!div class="op_single_selector"]
 > * [Azure-Portal](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)

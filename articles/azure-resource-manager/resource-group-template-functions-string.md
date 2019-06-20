@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278784"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431212"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Zeichenfolgenfunktionen für Azure Resource Manager-Vorlagen
 
@@ -34,18 +34,18 @@ Der Ressourcen-Manager stellt die folgenden Funktionen für das Arbeiten mit Zei
 * [endsWith](#endswith)
 * [first](#first)
 * [format](#format)
-* [GUID](#guid)
+* [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
-* [length](#length)
+* [Länge](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [replace](#replace)
 * [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [Zeichenfolge](#string)
+* [string](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)
@@ -120,7 +120,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | ---- | ---- | ----- |
 | base64Output | Zeichenfolge | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Zeichenfolge | one, two, three |
-| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -185,7 +185,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | ---- | ---- | ----- |
 | base64Output | Zeichenfolge | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Zeichenfolge | one, two, three |
-| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
@@ -250,7 +250,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | ---- | ---- | ----- |
 | base64Output | Zeichenfolge | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Zeichenfolge | one, two, three |
-| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
 
@@ -263,7 +263,7 @@ Kombiniert mehrere Zeichenfolgenwerte und gibt die verkettete Zeichenfolge zurü
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |Zeichenfolge oder Array |Der erste Wert für die Verkettung. |
-| zusätzliche Argumente |Nein  |Zeichenfolge |Weitere Werte in sequenzieller Reihenfolge für die Verkettung. |
+| zusätzliche Argumente |Nein |Zeichenfolge |Weitere Werte in sequenzieller Reihenfolge für die Verkettung. |
 
 ### <a name="return-value"></a>Rückgabewert
 Eine Zeichenfolge oder ein Array aus verketteten Werten.
@@ -655,7 +655,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
-| startsCapTrue | Bool | True  |
+| startsCapTrue | Bool | True |
 | startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
@@ -725,7 +725,7 @@ Erstellt eine formatierte Zeichenfolge aus Eingabewerten.
 |:--- |:--- |:--- |:--- |
 | formatString | Ja | Zeichenfolge | Die zusammengesetzte Formatzeichenfolge. |
 | arg1 | Ja | Zeichenfolge, Integer oder boolescher Wert | Der Wert, der in die formatierte Zeichenfolge aufgenommen werden soll. |
-| zusätzliche Argumente | Nein  | Zeichenfolge, Integer oder boolescher Wert | Weitere Werte, die in die formatierte Zeichenfolge aufgenommen werden sollen. |
+| zusätzliche Argumente | Nein | Zeichenfolge, Integer oder boolescher Wert | Weitere Werte, die in die formatierte Zeichenfolge aufgenommen werden sollen. |
 
 ### <a name="remarks"></a>Anmerkungen
 
@@ -781,7 +781,7 @@ Erstellt einen Wert im Format eines Globally Unique Identifiers basierend auf de
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | baseString |Ja |Zeichenfolge |Der in der Hashfunktion für die Erstellung des GUID verwendete Wert. |
-| Zusätzliche Parameter nach Bedarf. |Nein  |Zeichenfolge |Sie können beliebig viele Zeichenfolgen hinzufügen, ganz wie sie zum Erstellen des Werts benötigt werden, der die Ebene der Eindeutigkeit angibt. |
+| Zusätzliche Parameter nach Bedarf. |Nein |Zeichenfolge |Sie können beliebig viele Zeichenfolgen hinzufügen, ganz wie sie zum Erstellen des Werts benötigt werden, der die Ebene der Eindeutigkeit angibt. |
 
 ### <a name="remarks"></a>Anmerkungen
 
@@ -1183,7 +1183,7 @@ Gibt eine rechtsbündig ausgerichtete Zeichenfolge zurück, indem links Zeichen 
 |:--- |:--- |:--- |:--- |
 | valueToPad |Ja |Zeichenfolge oder ganze Zahl |Der Wert, der rechtsbündig ausgerichtet werden soll. |
 | totalLength |Ja |int |Die Gesamtzahl der Zeichen in der zurückgegebenen Zeichenfolge. |
-| paddingCharacter |Nein  |einzelnes Zeichen |Das Zeichen, das für das Auffüllen auf der linken Seite verwendet werden soll, bis die Gesamtlänge erreicht ist. Der Standardwert ist ein Leerzeichen. |
+| paddingCharacter |Nein |einzelnes Zeichen |Das Zeichen, das für das Auffüllen auf der linken Seite verwendet werden soll, bis die Gesamtlänge erreicht ist. Der Standardwert ist ein Leerzeichen. |
 
 Wenn die Länge der ursprünglichen Zeichenfolge die Anzahl der aufzufüllenden Zeichen überschreitet, werden keine Zeichen hinzugefügt.
 
@@ -1259,7 +1259,7 @@ Die folgende [Beispielvorlage](https://github.com/Azure/azure-docs-json-samples/
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1272,7 +1272,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
 | firstOutput | Zeichenfolge | 1231231234 |
-| secodeOutput | Zeichenfolge | 123-123-xxxx |
+| secondOutput | Zeichenfolge | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1461,7 +1461,7 @@ Die Ausgabe aus dem vorherigen Beispiel mit den Standardwerten lautet:
 | NAME | Type | Wert |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
-| startsCapTrue | Bool | True  |
+| startsCapTrue | Bool | True |
 | startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
@@ -1549,8 +1549,8 @@ Gibt eine Teilzeichenfolge zurück, die an der angegebenen Zeichenposition begin
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Ja |Zeichenfolge |Die ursprüngliche Zeichenfolge, aus der die Teilzeichenfolge extrahiert wird. |
-| startIndex |Nein  |int |Die nullbasierte Anfangsposition für die Teilzeichenfolge. |
-| length |Nein  |int |Die Anzahl der Zeichen der Teilzeichenfolge. Muss auf eine Position innerhalb der Zeichenfolge verweisen. Muss Null (0) oder größer sein. |
+| startIndex |Nein |int |Die nullbasierte Anfangsposition für die Teilzeichenfolge. |
+| length |Nein |int |Die Anzahl der Zeichen der Teilzeichenfolge. Muss auf eine Position innerhalb der Zeichenfolge verweisen. Muss Null (0) oder größer sein. |
 
 ### <a name="return-value"></a>Rückgabewert
 
@@ -1826,7 +1826,7 @@ Erstellt auf der Grundlage der als Parameter angegebenen Werte eine deterministi
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
 | baseString |Ja |Zeichenfolge |Der Wert, der in der Hashfunktion verwendet wird, um eine eindeutige Zeichenfolge zu erstellen. |
-| Zusätzliche Parameter nach Bedarf. |Nein  |Zeichenfolge |Sie können beliebig viele Zeichenfolgen hinzufügen, ganz wie sie zum Erstellen des Werts benötigt werden, der die Ebene der Eindeutigkeit angibt. |
+| Zusätzliche Parameter nach Bedarf. |Nein |Zeichenfolge |Sie können beliebig viele Zeichenfolgen hinzufügen, ganz wie sie zum Erstellen des Werts benötigt werden, der die Ebene der Eindeutigkeit angibt. |
 
 ### <a name="remarks"></a>Anmerkungen
 
@@ -2077,7 +2077,7 @@ Gibt den aktuellen datetime-Wert (UTC) im festgelegten Format zurück. Wenn kein
 
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
-| format |Nein  |Zeichenfolge |Der als URI codierte Wert, der in eine Zeichenfolge konvertiert werden soll. Verwenden Sie entweder [Standardformatzeichenfolgen](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) oder [benutzerdefinierte Formatzeichenfolgen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Nein |Zeichenfolge |Der als URI codierte Wert, der in eine Zeichenfolge konvertiert werden soll. Verwenden Sie entweder [Standardformatzeichenfolgen](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) oder [benutzerdefinierte Formatzeichenfolgen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Anmerkungen
 

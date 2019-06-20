@@ -40,6 +40,8 @@
               href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Konzepte
       items:
+        - name: Globales Microsoft-Netzwerk
+          href: microsoft-global-network.md
         - name: Virtuelle Netzwerke
           href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Netzwerklastenausgleich
@@ -54,7 +56,7 @@
           href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Lokal verbinden – dediziert
           href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: Erste Schritte
+- name: Schnellstart
   items:
     - name: Erstellen Ihres ersten virtuellen Netzwerks
       href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json

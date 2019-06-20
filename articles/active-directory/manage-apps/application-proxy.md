@@ -2,22 +2,22 @@
 title: Remotezugriff auf lokale Apps – Azure Active Directory-Anwendungsproxy | Microsoft-Dokumentation
 description: Der Azure Active Directory-Anwendungsproxy ermöglicht den sicheren Remotezugriff auf lokal gehostete Webanwendungen. Nach dem einmaligen Anmelden in Azure AD können Benutzer über eine externe URL oder ein internes Anwendungsportal auf Cloudanwendungen und lokale Anwendungen zugreifen. Der Anwendungsproxy kann z.B. Remotezugriff und einmaliges Anmelden bei Remotedesktop, SharePoint, Teams, Tableau, Qlik und Branchenanwendungen (LOB) bereitstellen.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506652"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825536"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Remotezugriff auf lokale Anwendungen über den Azure Active Directory-Anwendungsproxy 
 
@@ -44,7 +44,7 @@ Der Anwendungsproxy funktioniert mit:
 
 Der Anwendungsproxy unterstützt das einmalige Anmelden. Weitere Informationen zu unterstützten Methoden finden Sie unter [Auswählen einer Methode für einmaliges Anmelden](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-Der Anwendungsproxy wird empfohlen, um externen Remotebenutzern Zugriff auf interne Ressourcen zu gewähren. Der Anwendungsproxy ersetzt die Notwendigkeit eines VPN- oder Reverseproxys. Er ist nicht für interne Benutzer im Unternehmensnetzwerk bestimmt.  Interne Benutzer, die den Anwendungsproxy unnötigerweise verwenden, können unerwartete und unerwünschte Leistungsprobleme verursachen.
+Der Anwendungsproxy wird empfohlen, um Remotebenutzern Zugriff auf interne Ressourcen zu gewähren. Der Anwendungsproxy ersetzt die Notwendigkeit eines VPN- oder Reverseproxys. Er ist nicht für interne Benutzer im Unternehmensnetzwerk bestimmt.  Diese Benutzer, die den Anwendungsproxy unnötigerweise verwenden, können unerwartete und unerwünschte Leistungsprobleme verursachen.
 
 ## <a name="how-application-proxy-works"></a>Funktionsweise des Anwendungsproxys
 

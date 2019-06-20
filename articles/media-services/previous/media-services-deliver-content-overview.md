@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61232270"
 ---
 # <a name="deliver-content-to-customers"></a>Übermitteln von Inhalten an Kunden
 Bei der Übermittlung Ihrer Streaming- oder Video-on-Demand-Inhalte an Kunden möchten Sie qualitativ hochwertige Videos unter verschiedenen Netzwerkbedingungen an unterschiedliche Geräte senden.
@@ -155,7 +155,7 @@ Ein Streamingendpunkt stellt einen Streamingdienst dar, der Inhalte zur weiteren
 
 ## <a name="known-issues"></a>Bekannte Probleme
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Änderungen an der Smooth Streaming-Manifestversion
-Vor der Dienstversion vom Juli 2016 galt Folgendes: Wenn von Media Encoder Standard, Media Encoder Premium Workflow oder dem älteren Azure Media Encoder erstellte Medienobjekte mithilfe der dynamischen Paketerstellung gestreamt wurden, entsprach das zurückgegebene Smooth Streaming-Manifest der Version 2.0. In Version 2.0 wurden für die Dauer der Fragmente nicht die sog. Wiederholungstags („r“-Tags) verwendet. Beispiel: 
+Vor der Dienstversion vom Juli 2016 galt Folgendes: Wenn von Media Encoder Standard, Media Encoder Premium Workflow oder dem älteren Azure Media Encoder erstellte Medienobjekte mithilfe der dynamischen Paketerstellung gestreamt wurden, entsprach das zurückgegebene Smooth Streaming-Manifest der Version 2.0. In Version 2.0 wurden für die Dauer der Fragmente nicht die sog. Wiederholungstags („r“-Tags) verwendet. Beispiel:
 
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ Vor der Dienstversion vom Juli 2016 galt Folgendes: Wenn von Media Encoder Stand
         </StreamIndex>
     </SmoothStreamingMedia>
 
-Ab der Dienstversion vom Juli 2016 entspricht das generierte Smooth Streaming-Manifest der Version 2.2, wo für die Dauer von Fragmenten Wiederholungstags verwendet werden. Beispiel: 
+Ab der Dienstversion vom Juli 2016 entspricht das generierte Smooth Streaming-Manifest der Version 2.2, wo für die Dauer von Fragmenten Wiederholungstags verwendet werden. Beispiel:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">

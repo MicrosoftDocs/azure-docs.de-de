@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: bf5721e206316a4ce576253743e9ac65de47094a
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60591769"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Konfigurieren mehrerer VIPs für einen Clouddienst
 

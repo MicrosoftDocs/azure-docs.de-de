@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922784"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Senden von Protokolldaten an Azure Monitor mit der HTTP-Datensammler-API (Public Preview)
@@ -141,7 +141,7 @@ Um den Datentyp einer Eigenschaft festzulegen, fügt Azure Monitor ein Suffix an
 
 | Datentyp der Eigenschaft | Suffix |
 |:--- |:--- |
-| Zeichenfolge |_s |
+| string |_s |
 | Boolean |_b |
 | Double |_d |
 | Datum/Uhrzeit |_t |
@@ -202,7 +202,7 @@ Diese Tabelle enthält den vollständigen Satz von Statuscodes, die vom Dienst z
 | 403 |Verboten |InvalidAuthorization |Der Dienst konnte die Anforderung nicht authentifizieren. Vergewissern Sie sich, dass die Arbeitsbereichs-ID und der Verbindungsschlüssel gültig sind. |
 | 404 |Nicht gefunden | | Die angegebene URL ist falsch, oder die Anforderung ist zu groß. |
 | 429 |Zu viele Anforderungen | | Der Dienst erwartet eine große Datenmenge von Ihrem Konto. Versuchen Sie die Anforderung später erneut. |
-| 500 |Interner Serverfehler |UnspecifiedError |Auf dem Server wurde ein interner Fehler festgestellt.  Versuchen Sie die Anforderung erneut. |
+| 500 |Interner Serverfehler |UnspecifiedError |Auf dem Server wurde ein interner Fehler festgestellt. Versuchen Sie die Anforderung erneut. |
 | 503 |Dienst nicht verfügbar |ServiceUnavailable |Der Dienst kann derzeit keine Anforderungen empfangen. Bitte wiederholen Sie die Anforderung. |
 
 ## <a name="query-data"></a>Abfragen von Daten

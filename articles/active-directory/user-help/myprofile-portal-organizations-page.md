@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60475532"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Verwalten von Organisationen im Portal „Mein Profil“ (Vorschauversion)
 Sie können Ihre Organisationen im Portal **Mein Profil** auf der Seite **Organisationen** verwalten.

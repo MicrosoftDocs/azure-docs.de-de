@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850678"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387190"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Überwachen Ihrer Azure-Dienste in Grafana
 Sie können Azure-Dienste und -Anwendungen jetzt mit [Grafana](https://grafana.com/) überwachen, indem Sie das [Azure Monitor-Datenquellen-Plug-In](https://grafana.com/plugins/grafana-azure-monitor-datasource) verwenden. Das Plug-In sammelt Daten zur Anwendungsleistung, die von Azure Monitor erfasst wurden, einschließlich verschiedener Protokolle und Metriken. Sie können diese Daten dann in Ihrem Grafana-Dashboard anzeigen.
@@ -119,8 +119,6 @@ Sie können diese Einrichtung auch wiederverwenden, um Metriken von Ihrem Promet
 
 Hier sind einige gute Referenzartikel zur Verwendung von Telegraf, InfluxDB, Prometheus und Docker angegeben:
  - [How To Monitor System Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04) (Überwachen von Systemmetriken per TICK-Stapel unter Ubuntu 16.04)
-
- - [Monitor Docker resource metrics with Grafana, InfluxDB, and Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/) (Überwachen von Docker-Ressourcenmetriken mit Grafana, InfluxDB und Telegraf)
 
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/) (Eine Überwachungslösung für Docker-Hosts, -Container und -Dienste in Containern)
 

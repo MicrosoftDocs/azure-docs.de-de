@@ -2,20 +2,20 @@
 title: Einrichten der Anmeldung mit einem LinkedIn-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Richten Sie die Anmeldung mit einem LinkedIn-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C ein.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3d927c2bf9344f2dc93cfe992e87457a0747f605
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b336428592a4897319725782c994c3fae26bfae0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190738"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510418"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Einrichten der Anmeldung mit einem LinkedIn-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C
 
@@ -115,7 +115,7 @@ Sie können ein LinkedIn-Konto als Anspruchsanbieter definieren, indem Sie es in
     ```
 
 4. Ersetzen Sie den Wert von **client_id** durch die Client-ID, die Sie zuvor notiert haben.
-5. Speichern Sie die Datei.
+5. Speichern Sie die Datei .
 
 ### <a name="add-the-claims-transformations"></a>Hinzufügen von Ansprüchen von Transformationen
 
@@ -160,7 +160,7 @@ Das **BuildingBlocks**-Element muss am Anfang der Datei hinzugefügt werden. Sie
 ```
 ### <a name="upload-the-extension-file-for-verification"></a>Hochladen der Erweiterungsdatei zur Überprüfung
 
-Nun haben Sie Ihre Richtlinie so konfiguriert, dass Azure AD B2C mit Ihrem LinkedIn-Konto kommunizieren kann. Versuchen Sie, die Erweiterungsdatei Ihrer Richtlinie hochzuladen, um sich zu vergewissern, dass soweit keine Probleme vorliegen.
+Nun haben Sie Ihre Richtlinie so konfiguriert, dass Azure AD B2C mit Ihrem Twitter-Konto kommunizieren kann. Versuchen Sie, die Erweiterungsdatei Ihrer Richtlinie hochzuladen, um sich zu vergewissern, dass soweit keine Probleme vorliegen.
 
 1. Wählen Sie in Ihrem Azure AD B2C-Mandanten auf der Seite **Benutzerdefinierte Richtlinien** die Option **Richtlinie hochladen** aus.
 2. Aktivieren Sie **Richtlinie überschreiben, sofern vorhanden**, navigieren Sie dann zur Datei *TrustFrameworkExtensions.xml*, und wählen Sie die Datei aus.

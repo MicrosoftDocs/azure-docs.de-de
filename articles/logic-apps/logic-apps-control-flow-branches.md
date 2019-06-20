@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232242"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60685065"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Erstellen oder Verknüpfen paralleler Verzweigungen für Workflowaktionen in Azure Logic Apps
 
@@ -44,7 +44,7 @@ Ihre Logik-App wartet, bis alle Verzweigungen abgeschlossen sind, bevor der Work
 
 1. Öffnen Sie Ihre Logik-App im <a href="https://portal.azure.com" target="_blank">Azure-Portal</a> im Logik-App-Designer.
 
-1. Bewegen Sie den Zeiger auf den Pfeil über dem Schritt, dem Sie parallele Branches hinzufügen möchten. Wählen Sie das daraufhin angezeigte **Pluszeichen** (**+**) aus, und wählen Sie dann **Parallelen Branch hinzufügen** aus. 
+1. Bewegen Sie den Zeiger auf den Pfeil über dem Schritt, dem Sie parallele Branches hinzufügen möchten. Wählen Sie das daraufhin angezeigte **Pluszeichen** ( **+** ) aus, und wählen Sie dann **Parallelen Branch hinzufügen** aus. 
 
    ![Hinzufügen einer parallelen Verzweigung](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -56,7 +56,7 @@ Ihre Logik-App wartet, bis alle Verzweigungen abgeschlossen sind, bevor der Work
 
    ![Suchen und Auswählen der gewünschten Aktion](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Fügen Sie für jeden parallelen Branch die gewünschten Schritte hinzu. Um einem Branch eine weitere Aktion hinzuzufügen, bewegen Sie den Mauszeiger unter die Aktion, an der Sie eine sequenzielle Aktion hinzufügen möchten. Wählen Sie das daraufhin angezeigte **Pluszeichen** (**+**) und dann **Aktion hinzufügen** aus.
+1. Fügen Sie für jeden parallelen Branch die gewünschten Schritte hinzu. Um einem Branch eine weitere Aktion hinzuzufügen, bewegen Sie den Mauszeiger unter die Aktion, an der Sie eine sequenzielle Aktion hinzufügen möchten. Wählen Sie das daraufhin angezeigte **Pluszeichen** ( **+** ) und dann **Aktion hinzufügen** aus.
 
    ![Hinzufügen einer sequenziellen Aktion zu einem parallelen Branch](media/logic-apps-control-flow-branches/add-sequential-action.png)
 

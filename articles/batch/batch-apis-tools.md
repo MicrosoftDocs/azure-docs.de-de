@@ -10,11 +10,11 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772584"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60721758"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Übersicht über Batch-APIs und -Tools
 

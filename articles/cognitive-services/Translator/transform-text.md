@@ -3,19 +3,19 @@ title: Transformieren von Text – Textübersetzungs-API
 titlesuffix: Azure Cognitive Services
 description: Transformieren Sie Text mithilfe der Textübersetzungs-API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 1319b7191d9b192897e1e8ab4900239bd9230bce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: v-pawal
+ms.openlocfilehash: 4d024fd30a77c011bab4f120c4ef3614aac09998
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789351"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389682"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Verwenden der TransformText-Methode
 
@@ -31,7 +31,7 @@ Die Methode ist ein RESTful-Dienst, für den „GET over HTTP“ verwendet wird.
 | Parameter | BESCHREIBUNG |
 |:---|:---|
 | Authorization header (Autorisierungsheader) | **Erforderlich** HTTP-Header zum Identifizieren der Anwendung. Verwenden Sie als Schlüssel: „Authorization“ und als Wert: „Bearer“ + „ “ + Zugriffstoken. Ausführlichere Informationen finden Sie hier.|
-| Language | **Erforderlich** Eine Zeichenfolge, die den Sprachcode darstellt. Dieser Parameter unterstützt nur Englisch mit **en** als Name der Sprache.|
+| language | **Erforderlich** Eine Zeichenfolge, die den Sprachcode darstellt. Dieser Parameter unterstützt nur Englisch mit **en** als Name der Sprache.|
 | category | **Optional** Eine Zeichenfolge, die die Kategorie oder Domäne der Übersetzung enthält. Dieser Parameter unterstützt nur die allgemeine Standardoption (**general**).|
 | sentence | **Erforderlich** Ein Satz, den Sie korrigieren möchten. |
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616270"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65550505"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Einschränkungen in Azure Database for MariaDB
 In den folgenden Abschnitten werden die Kapazitäts- und funktionalen Beschränkungen sowie Beschränkungen bei der Unterstützung der Speicher-Engine und von Datenmanipulationsanweisungen im Datenbankdienst beschrieben.
@@ -27,12 +27,12 @@ Die folgende Tabelle enthält die maximale Anzahl von Verbindungen nach Tarif un
 |Allgemeiner Zweck| 4| 625|
 |Allgemeiner Zweck| 8| 1250|
 |Allgemeiner Zweck| 16| 2500|
-|Allgemeiner Zweck| 32| 5.000|
+|Allgemeiner Zweck| 32| 5\.000|
 |Allgemeiner Zweck| 64| 10000|
 |Arbeitsspeicheroptimiert| 2| 600|
 |Arbeitsspeicheroptimiert| 4| 1250|
 |Arbeitsspeicheroptimiert| 8| 2500|
-|Arbeitsspeicheroptimiert| 16| 5.000|
+|Arbeitsspeicheroptimiert| 16| 5\.000|
 |Arbeitsspeicheroptimiert| 32| 10000|
 
 Wenn Verbindungen den Grenzwert übersteigen, erhalten Sie möglicherweise den folgenden Fehler:
@@ -82,6 +82,9 @@ Wenn Verbindungen den Grenzwert übersteigen, erhalten Sie möglicherweise den f
 
 ### <a name="vnet-service-endpoints"></a>VNET-Dienstendpunkte
 - VNET-Dienstendpunkte werden nur für Server vom Typ „Universell“ und „Arbeitsspeicheroptimiert“ unterstützt.
+
+### <a name="storage-size"></a>Speichergröße
+- Informationen zu den Beschränkungen der Speichergröße pro Tarif finden Sie unter [Tarife](concepts-pricing-tiers.md).
 
 ## <a name="current-known-issues"></a>Aktuelle bekannte Probleme
 - Die MariaDB-Serverinstanz zeigt die falsche Serverversion an, nachdem die Verbindung hergestellt wurde. Um die richtige Engine-Version der Serverinstanzen abzurufen, verwenden Sie den Befehl `select version();`.

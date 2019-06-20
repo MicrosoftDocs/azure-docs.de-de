@@ -11,20 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 69399513291a47f7109003e825052314f447125a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650840"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002323"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Erstellen von Filtern mit der Media Services-REST-API
 
-Bei der Inhaltsbereitstellung für Ihre Kunden (Streaming von Liveereignissen oder Video on Demand) benötigen Ihre Kunden möglicherweise mehr Flexibilität als in der Manifestdatei für das Standardmedienobjekt beschrieben. Azure Media Services ermöglicht es Ihnen, Kontofilter und Medienobjektfilter für Ihre Inhalte zu definieren. Weitere Informationen finden Sie unter [Filter und dynamische Manifeste](filters-dynamic-manifest-overview.md).
+Bei der Inhaltsbereitstellung für Ihre Kunden (Streaming von Liveereignissen oder Video on Demand) benötigen Ihre Kunden möglicherweise mehr Flexibilität als in der Manifestdatei für das Standardmedienobjekt beschrieben. Azure Media Services ermöglicht es Ihnen, Kontofilter und Medienobjektfilter für Ihre Inhalte zu definieren. Weitere Informationen finden Sie unter [Filter](filters-concept.md) und [dynamische Manifeste](filters-dynamic-manifest-overview.md).
 
 In diesem Thema wird beschrieben, wie Sie einen Filter für ein Video on Demand-Medienobjekt definieren und mithilfe von REST-APIs [Kontofilter](https://docs.microsoft.com/rest/api/media/accountfilters) und [Medienobjektfilter](https://docs.microsoft.com/rest/api/media/assetfilters) erstellen. 
+
+> [!NOTE]
+> Lesen Sie die Informationen zu [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Voraussetzungen 
 
@@ -78,7 +81,7 @@ Das folgende Beispiel für einen **Anforderungstext** definiert die Titelauswahl
 
 ## <a name="create-account-filters"></a>Erstellen von Kontofiltern
 
-Wählen Sie in der heruntergeladenen Sammlung von Postman **Account Filters (Kontofilter)**->**Create or update an Account Filter (Kontofilter erstellen oder aktualisieren** aus.
+Wählen Sie in der heruntergeladenen Sammlung von Postman **Account Filters (Kontofilter)** ->**Create or update an Account Filter (Kontofilter erstellen oder aktualisieren** aus.
 
 Die **PUT**-HTTP-Anforderungsmethode ähnelt der folgenden:
 

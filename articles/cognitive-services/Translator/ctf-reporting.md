@@ -3,19 +3,19 @@ title: Erstellen von Berichten mit dem Collaborative Translation Framework (CTF)
 titlesuffix: Azure Cognitive Services
 description: Es wird beschrieben, wie Sie die CTF-Berichterstellung (Collaborative Translation Framework) verwenden.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: v-pawal
+ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917395"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389388"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Verwenden der CTF-Berichterstellung (Collaborative Translation Framework)
 
@@ -23,8 +23,6 @@ ms.locfileid: "58917395"
 > Diese Methode ist veraltet. Sie ist unter V3.0 der Textübersetzungs-API nicht verfügbar.
 > 
 > Das Collaborative Translation Framework (CTF), das für V2.0 der Textübersetzungs-API verfügbar war, gilt ab dem 1. Februar 2018 als veraltet. Mit den Funktionen AddTranslation und AddTranslationArray konnten Benutzer Korrekturen über das Collaborative Translation Framework aktivieren. Nach dem 31. Januar 2018 werden für diese beiden Funktionen keine neuen Satzübermittlungen mehr akzeptiert, und Benutzer erhalten eine Fehlermeldung. Diese Funktionen wurden eingestellt und werden nicht durch neue Funktionen ersetzt.
-> 
-> Eine ähnliche Funktionalität ist über die Translator-Hub-API verfügbar. Sie ermöglicht die Erstellung eines benutzerdefinierten Übersetzungssystems mit Ihrer Terminologie und Ihrem Stil, und Sie können sie mit der Kategorie-ID in der Textübersetzungs-API aufrufen. Translator-Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator-Hub-API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
 Die Berichterstellungs-API für das Collaborative Translation Framework (CTF) gibt Statistiken und den tatsächlichen Inhalt im CTF-Speicher zurück. Diese API unterscheidet sich aus folgenden Gründen von der GetTranslations()-Methode:
 * Gibt den übersetzten Inhalt und die zugehörige Gesamtzahl nur über Ihr Konto zurück (appId oder Azure Marketplace-Konto).
@@ -107,7 +105,7 @@ Das Resultset enthält ein Array mit dem **UserTranslationCount**-Element. Jedes
 
 **Ausnahmen**
 
-| Ausnahme | Message | Bedingungen |
+| Ausnahme | `Message` | Bedingungen |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | Der Parameter **maxDateUtc** muss größer oder gleich **minDateUtc** sein.| Der Wert des Parameters **maxDateUtc** ist kleiner als der Wert des Parameters **minDateUtc**.|
 | TranslateApiException | Die IP-Adresse überschreitet das Kontingent.| <ul><li>Der Grenzwert für die Anzahl von Anforderungen pro Minute wurde erreicht.</li><li>Die Anforderungsgröße bleibt auf 10.000 Zeichen beschränkt.</li><li>Durch ein stündliches und tägliches Kontingent wird die Anzahl von Zeichen beschränkt, die von der Microsoft Translator-API akzeptiert werden.</li></ul>|
@@ -180,7 +178,7 @@ Das Resultset enthält ein Array mit dem **UserTranslation**-Element. Jedes User
 
 **Ausnahmen**
 
-| Ausnahme | Message | Bedingungen |
+| Ausnahme | `Message` | Bedingungen |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | Der Parameter **maxDateUtc** muss größer oder gleich **minDateUtc** sein.| Der Wert des Parameters **maxDateUtc** ist kleiner als der Wert des Parameters **minDateUtc**.|
 | TranslateApiException | Die IP-Adresse überschreitet das Kontingent.| <ul><li>Der Grenzwert für die Anzahl von Anforderungen pro Minute wurde erreicht.</li><li>Die Anforderungsgröße bleibt auf 10.000 Zeichen beschränkt.</li><li>Durch ein stündliches und tägliches Kontingent wird die Anzahl von Zeichen beschränkt, die von der Microsoft Translator-API akzeptiert werden.</li></ul>|

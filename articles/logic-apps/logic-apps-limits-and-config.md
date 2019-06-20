@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/10/2019
-ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 05/23/2019
+ms.openlocfilehash: e824ac81f1336644fa70cc24539284feacee3199
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990203"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244531"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Grenzwert- und Konfigurationsinformationen für Azure Logic Apps
 
@@ -184,11 +184,11 @@ Die folgenden Grenzwerte gelten für die Anzahl von Artefakten für jedes Integr
 
 | Artefakt | Kostenlos | Basic | Standard |
 |----------|------|-------|----------|
-| EDI-Handelsverträge | 10 | 1 | 500 |
-| EDI-Handelspartner | 25 | 2 | 500 |
+| EDI-Handelsverträge | 10 | 1 | 1.000 |
+| EDI-Handelspartner | 25 | 2 | 1.000 |
 | Karten | 25 | 500 | 1.000 |
 | Schemas | 25 | 500 | 1.000 |
-| Assemblys | 10 | 25 | 50 |
+| Assemblys | 10 | 25 | 1.000 |
 | Zertifikate | 25 | 2 | 500 |
 | Batchkonfigurationen | 5 | 1 | 50 |
 ||||

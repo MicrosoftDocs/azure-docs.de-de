@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502102"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480059"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>So funktioniert Azure Machine Learning Service: Architektur und Konzepte
 
@@ -34,39 +34,24 @@ Für den Workflow für maschinelles Lernen werden in der Regel diese Schritte au
 1. Nachdem eine zufriedenstellende Ausführung gefunden wurde, können Sie das dauerhafte Modell in der **Modellregistrierung** registrieren.
 1. Entwickeln Sie ein Bewertungsskript, welches das Modell verwendet, und **stellen Sie das Modell** als **Webdienst** in Azure oder auf einem **IoT Edge-Gerät** bereit.
 
+Sie führen diese Schritte mit einer der folgenden Komponenten aus:
++ [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ [Azure Machine Learning-CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Azure Machine Learning-VS Code-Erweiterung](how-to-vscode-tools.md)
++  [Grafische Benutzeroberfläche (Vorschauversion) für Azure Machine Learning Service](ui-concept-visual-interface.md)
 
 > [!NOTE]
 > In diesem Artikel werden von Azure Machine Learning Service genutzte Begriffe und Konzepte definiert, aber keine Begriffe und Konzepte für die Azure Platform. Weitere Informationen zur Azure Platform-Terminologie finden Sie im [Microsoft Azure-Glossar](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="workspace"></a>Arbeitsbereich
 
-Der Arbeitsbereich ist die Ressource der obersten Ebene für Azure Machine Learning Service. Er bietet einen zentralen Ort für die Arbeit mit allen Artefakten, die Sie bei der Verwendung von Azure Machine Learning Service erstellen.
-
-Im Arbeitsbereich wird eine Liste mit Computezielen geführt, die zum Trainieren Ihres Modells verwendet werden können. Außerdem wird der Verlauf der Trainingsläufe gespeichert, z.B. Protokolle, Metriken, Ausgabe und eine Momentaufnahme Ihrer Skripts. Anhand dieser Informationen ermitteln Sie, welcher Trainingslauf das beste Modell ergibt.
-
-Modelle werden beim Arbeitsbereich registriert. Sie verwenden ein registriertes Modell und Bewertungsskripts, um ein Modell in Azure Container Instances, Azure Kubernetes Service oder einem FPGA (Field-Programmable Gate Array) als REST-basierter HTTP-Endpunkt bereitzustellen. Außerdem kann es als Modul auf einem Azure IoT Edge-Gerät bereitgestellt werden. Intern wird ein Docker-Image erstellt, um das bereitgestellte Image zu hosten. Bei Bedarf können Sie ein eigenes Image angeben.
-
-Sie können mehrere Arbeitsbereiche erstellen, und jeder Arbeitsbereich kann von mehreren Benutzern gemeinsam genutzt werden. Den Zugriff auf einen freigegebenen Arbeitsbereich steuern Sie, indem Sie Benutzer zu den folgenden Rollen zuweisen:
-
-* Owner (Besitzer)
-* Mitwirkender
-* Leser
-
-Weitere Informationen zu diesen Rollen finden Sie im Artikel [Verwalten des Zugriffs auf einen Azure Machine Learning-Arbeitsbereich](how-to-assign-roles.md).
-
-Wenn Sie einen neuen Arbeitsbereich erstellen, werden darin automatisch mehrere Azure-Ressourcen erstellt, die vom Arbeitsbereich verwendet werden:
-
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registriert die Docker-Container, die Sie während des Trainings und bei der Modellbereitstellung verwenden.
-* [Azure-Speicherkonto](https://azure.microsoft.com/services/storage/): Wird als Standarddatenspeicher für den Arbeitsbereich verwendet.
-* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Speichert Überwachungsinformationen zu Ihren Modellen.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Speichert Geheimnisse, die von Computezielen verwendet werden, sowie andere vertrauliche Informationen, die vom Arbeitsbereich benötigt werden.
-
-> [!NOTE]
-> Neben dem Erstellen neuer Versionen können Sie auch vorhandene Azure-Dienste verwenden.
+[Der Arbeitsbereich](concept-workspace.md) ist die Ressource der obersten Ebene für Azure Machine Learning Service. Er bietet einen zentralen Ort für die Arbeit mit allen Artefakten, die Sie bei der Verwendung von Azure Machine Learning Service erstellen.
 
 Das folgende Diagramm enthält eine Taxonomie des Arbeitsbereichs:
 
 [![Taxonomie des Arbeitsbereichs](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+Weitere Informationen über Arbeitsbereiche finden Sie unter [Was ist ein Azure Machine Learning-Arbeitsbereich?](concept-workspace.md).
 
 ## <a name="experiment"></a>Experiment
 
@@ -170,9 +155,16 @@ Eine Ausführung wird ausgelöst, wenn Sie ein Skript zum Trainieren eines Model
 
 Ein Beispiel zum Anzeigen von Ausführungen, die beim Trainieren eines Modells erstellt werden, finden Sie unter [Schnellstart: Erste Schritte mit Azure Machine Learning Service](quickstart-run-cloud-notebook.md).
 
+## <a name="github-tracking-and-integration"></a>GitHub-Nachverfolgung und -Integration
+
+Wenn Sie eine Trainingsausführung starten, bei der das Quellverzeichnis ein lokales Git-Repository ist, werden Informationen über das Repository im Ausführungsverlauf gespeichert. Zum Beispiel wird die aktuelle Commit-ID für das Repository als Teil des Verlaufs protokolliert. Dies funktioniert für Ausführungen, die über eine Schätzfunktion, ML-Pipeline oder Skriptausführung übermittelt wurden. Dies funktioniert auch für Ausführungen, die aus dem SDK oder der Machine Learning-CLI übermittelt wurden.
+
 ## <a name="snapshot"></a>Momentaufnahme
 
 Beim Übermitteln einer Ausführung komprimiert Azure Machine Learning das Verzeichnis, in dem das Skript als ZIP-Datei enthalten ist, und sendet es an das Computeziel. Die ZIP-Datei wird dann extrahiert, und das Skript wird ausgeführt. Azure Machine Learning speichert die ZIP-Datei im Rahmen der Ausführungsaufzeichnung zudem als Momentaufnahme. Alle Benutzer mit Zugriff auf den Arbeitsbereich können eine Ausführungsaufzeichnung durchsuchen und die Momentaufnahme herunterladen.
+
+> [!NOTE]
+> Um zu verhindern, dass nicht benötigte Dateien in die Momentaufnahme eingeschlossen werden, erstellen Sie eine Ignorierdatei (GITIGNORE oder AMLIGNORE). Platzieren Sie diese Datei im Snapshot-Verzeichnis, und fügen Sie die zu ignorierenden Dateinamen hinzu. Für die AMLIGNORE-Datei werden die gleiche [Syntax und die gleichen Muster wie für die GITIGNORE-Datei](https://git-scm.com/docs/gitignore) verwendet. Wenn beide Dateien vorhanden sind, hat die AMLIGNORE-Datei Vorrang.
 
 ## <a name="activity"></a>Aktivität
 
@@ -228,7 +220,7 @@ Azure IoT Edge stellt sicher, dass Ihr Modul ausgeführt wird, und überwacht da
 
 ## <a name="pipeline"></a>Pipeline
 
-Machine Learning-Pipelines werden zum Erstellen und Verwalten von Workflows verwendet, die Machine Learning-Phasen zusammenfügen. Eine Pipeline kann beispielsweise eine Datenaufbereitungs-, eine Modelltrainings-, eine Modellimplementierungs- und eine Rückschlussphase enthalten. Jede Phase kann mehrere Schritte umfassen, von denen wiederum jeder Schritt auf verschiedenen Computezielen unbeaufsichtigt ausgeführt werden kann.
+Machine Learning-Pipelines werden zum Erstellen und Verwalten von Workflows verwendet, die Machine Learning-Phasen zusammenfügen. Eine Pipeline kann beispielsweise eine Datenaufbereitungs-, eine Modelltrainings-, eine Modellimplementierungs- und eine Rückschluss-/Bewertungsphase enthalten. Jede Phase kann mehrere Schritte umfassen, von denen wiederum jeder Schritt auf verschiedenen Computezielen unbeaufsichtigt ausgeführt werden kann.
 
 Weitere Informationen zu Machine Learning-Pipelines für diesen Dienst finden Sie unter [Pipelines und Azure Machine Learning](concept-ml-pipelines.md).
 

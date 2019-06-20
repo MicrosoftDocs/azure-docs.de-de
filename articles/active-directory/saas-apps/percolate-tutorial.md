@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory-Integration mit Percolate | Microsoft-Dokumentation'
-description: Hier erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active Directory und Percolate konfigurieren.
+description: In diesem Tutorial erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active Directory und Percolate konfigurieren.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,227 +15,223 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617868"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Azure Active Directory-Integration mit Percolate
 
-In diesem Tutorial erfahren Sie, wie Sie Percolate in Azure Active Directory (Azure AD) integrieren.
-Die Integration von Percolate in Azure AD hat folgende Vorteile:
+In diesem Tutorial erfahren Sie, wie Sie Percolate in Azure Active Directory (Azure AD) integrieren.
 
-* Sie können in Azure AD steuern, wer Zugriff auf Percolate haben soll.
-* Sie können es Ihren Benutzern ermöglichen, sich mit ihrem Azure AD-Konto automatisch bei Percolate anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
-* Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
+Diese Integration bietet die folgenden Vorteile:
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+* Sie können Azure AD verwenden, um zu steuern, wer Zugriff auf Percolate hat.
+* Sie können Ihren Benutzern ermöglichen, sich mit ihrem Azure AD-Konto automatisch bei Percolate anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
+* Sie können Ihre Konten an einem zentralen Ort verwalten: im Azure-Portal.
+
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto erstellen](https://azure.microsoft.com/free/), bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um die Azure AD-Integration mit Percolate konfigurieren zu können, benötigen Sie Folgendes:
+Um die Azure AD-Integration mit Percolate konfigurieren zu können, benötigen Sie Folgendes:
 
-* Ein Azure AD-Abonnement Sollten Sie über keine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
-* SSO-fähiges Percolate-Abonnement
+* Ein Azure AD-Abonnement Sollten Sie nicht über eine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
+* Ein Percolate-Abonnement, für das einmaliges Anmelden aktiviert ist.
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
 In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-* Percolate unterstützt **SP**- und **IDP**-initiiertes einmaliges Anmelden.
+* Percolate unterstützt SP- und IDP-initiiertes einmaliges Anmelden.
 
-## <a name="adding-percolate-from-the-gallery"></a>Hinzufügen von Percolate über den Katalog
+## <a name="add-percolate-from-the-gallery"></a>Hinzufügen von Percolate über den Katalog
 
 Um die Integration von Percolate in Azure AD zu konfigurieren, müssen Sie Percolate über den Katalog Ihrer Liste mit den verwalteten SaaS-Apps hinzufügen.
 
-**Führen Sie die folgenden Schritte aus, um Percolate über den Katalog hinzuzufügen:**
+1. Klicken Sie im linken Bereich des [Azure-Portals](https://portal.azure.com) auf **Azure Active Directory**:
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
+    ![Wählen Sie „Azure Active Directory“.](common/select-azuread.png)
 
-    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
-
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+2. Navigieren Sie zu **Unternehmensanwendungen** > **Alle Anwendungen**:
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+3. Um eine Anwendung hinzuzufügen, wählen Sie oben im Fenster die Option **Neue Anwendung**:
 
-    ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
+    ![Auswählen von „Neue Anwendung“](common/add-new-app.png)
 
-4. Geben Sie **Percolate** in das Suchfeld ein, wählen Sie im Ergebnisbereich **Percolate** aus, und klicken Sie anschließend auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+4. Geben Sie **Percolate** in das Suchfeld ein. Wählen Sie in den Suchergebnissen den Eintrag **Percolate** aus, und wählen Sie dann **Hinzufügen** aus.
 
-     ![Percolate in der Ergebnisliste](common/search-new-app.png)
+     ![Suchergebnisse](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Percolate mithilfe eines Testbenutzers namens **Britta Simon**.
-Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Percolate eingerichtet werden.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Percolate mithilfe eines Testbenutzers namens Britta Simon.
+Damit einmaliges Anmelden funktioniert, müssen Sie eine Beziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Percolate einrichten.
 
-Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD mit Percolate zu konfigurieren und zu testen:
+Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei Percolate müssen Sie die folgenden Schritte ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für Percolate](#configure-percolate-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines Percolate-Testbenutzers](#create-percolate-test-user)**, um in Percolate ein Pendant von Britta Simon zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist.
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden der Funktion zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für Percolate](#configure-percolate-single-sign-on)** auf der Anwendungsseite.
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD für den Benutzer zu aktivieren.
+5. **[Erstellen eines Percolate-Testbenutzers](#create-a-percolate-test-user)** , der mit der Darstellung des Benutzers in Azure AD verknüpft ist.
+6. **[Testen des einmaligen Anmeldens](#test-single-sign-on)** , um sicherzustellen, dass die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
 In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal.
 
-Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD mit Percolate zu konfigurieren:
+Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Percolate die folgenden Schritte aus:
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Percolate** die Option **Einmaliges Anmelden** aus.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Percolate** die Option **Einmaliges Anmelden** aus:
 
-    ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
+    ![„Einmaliges Anmelden“ auswählen](common/select-sso.png)
 
-2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
+2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren:
 
-    ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
+    ![SSO-Methode auswählen](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+3. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** das Symbol **Bearbeiten** aus, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen:
 
-    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
+    ![Symbol „Bearbeiten“](common/edit-urls.png)
 
-4. Wenn Sie die Anwendung im **IDP-initiierten** Modus konfigurieren möchten, müssen Sie im Abschnitt **Grundlegende SAML-Konfiguration** keine Schritte ausführen, da die App bereits vorab in Azure integriert wurde.
+4. Im Dialogfeld **Grundlegende SAML-Konfiguration** müssen Sie keine Aktion ausführen, um die Anwendung im IDP-initiierten Modus zu konfigurieren. Die App ist bereits in Azure integriert.
 
     ![SSO-Informationen zur Domäne und zu den URLs für Percolate](common/preintegrated.png)
 
-5. Klicken Sie auf **Zusätzliche URLs festlegen**, und führen Sie den folgenden Schritt aus, wenn Sie die Anwendung im **SP-initiierten Modus** konfigurieren möchten:
+5. Wenn Sie die Anwendung im SP-initiierten Modus konfigurieren möchten, wählen Sie die Option **Zusätzliche URLs festlegen** aus, und geben Sie im Feld **Anmelde-URL** die Zeichenfolge **https://percolate.com/app/login** ein:
 
-    ![SSO-Informationen zur Domäne und zu den URLs für Percolate](common/metadata-upload-additional-signon.png)
+   ![SSO-Informationen zur Domäne und zu den URLs für Percolate](common/metadata-upload-additional-signon.png)
+6. Wählen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** das **Kopiersymbol** aus, um die **App-Verbundmetadaten-URL** zu kopieren. Speichern Sie diese URL.
 
-    Geben Sie im Textfeld **Anmelde-URL** eine URL ein: `https://percolate.com/app/login`.
-
-6. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf die Schaltfläche „Kopieren“, um die **App-Verbundmetadaten-URL** zu kopieren, und speichern Sie sie auf Ihrem Computer.
-
-    ![Downloadlink für das Zertifikat](common/copy-metadataurl.png)
+    ![Kopieren der App-Verbundmetadaten-URL](common/copy-metadataurl.png)
 
 7. Kopieren Sie im Abschnitt **Percolate einrichten** die entsprechenden URLs gemäß Ihren Anforderungen.
 
     ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    a. Anmelde-URL
+    1. **Anmelde-URL**
 
-    b. Azure AD-Bezeichner
+    1. **Azure AD-Bezeichner**
 
-    c. Abmelde-URL
+    1. **Abmelde-URL**
 
 ### <a name="configure-percolate-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für Percolate
 
-1. Melden Sie sich in einem anderen Webbrowserfenster als Administrator bei Percolate an.
+1. Melden Sie sich in einem neuen Webbrowserfenster als Administrator bei Percolate an.
 
-2. Klicken Sie auf der linken Seite der Homepage auf **Settings** (Einstellungen).
+2. Wählen Sie auf der linken Seite der Homepage die Option **Setting** (Einstellungen) aus:
     
-    ![Configure single sign-on](./media/percolate-tutorial/configure01.png)
+    ![„Einstellungen“ auswählen](./media/percolate-tutorial/configure01.png)
 
-3. Klicken Sie auf der linken Seite der Menüleiste unter **Organization** (Organisation) auf **SSO**.
+3. Wählen Sie im linken Bereich unter **Organization** (Organisation) die Option **SSO** aus:
 
-    ![Configure single sign-on](./media/percolate-tutorial/configure02.png)
+    ![„SSO“ unter „Organization“ auswählen](./media/percolate-tutorial/configure02.png)
 
-    a. Fügen Sie in das Textfeld **Login URL** (Anmelde-URL) den Wert der **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
+    1. Fügen Sie im Feld **Login URL** (Anmelde-URL) den Wert für **Anmelde-URL** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-    b. Fügen Sie in das Textfeld **Entity ID** (Entitäts-ID) den Wert für **Azure AD-Bezeichner** ein, den Sie aus dem Azure-Portal kopiert haben.
+    1. Fügen Sie im Feld **Entity ID** (Entitäts-ID) den Wert für **Azure AD-Bezeichner** ein, den Sie aus dem Azure-Portal kopiert haben.
 
-    c. Öffnen Sie im Windows-Editor das Base64-codierte Zertifikat, das Sie aus dem Azure-Portal heruntergeladen haben, kopieren Sie den Inhalt, und fügen Sie ihn anschließend in das Feld **x509 certificates** (X509-Zertifikate) ein.
+    1. Öffnen Sie im Editor das Base64-codierte Zertifikat, das Sie aus dem Azure-Portal heruntergeladen haben. Kopieren Sie den Inhalt, und fügen Sie ihn anschließend in das Feld **x509 certificates** (X509-Zertifikate) ein.
 
-    d. Geben Sie im Textfeld **Email attribute** (E-Mail-Attribut) die Zeichenfolge **emailaddress** ein.
+    1. Geben Sie im Feld **Email attribute** (E-Mail-Attribut) die Zeichenfolge **emailaddress** ein.
 
-    e. Das Feld **Identity provider metadata URL** (Metadaten-URL des Identitätsanbieters) ist optional. Falls Sie über eine aus dem Azure-Portal kopierte **App-Verbundmetadaten-URL** verfügen, können Sie diese in das Textfeld **Identity provider metadata URL** (Metadaten-URL des Identitätsanbieters) einfügen.
+    1. Das Feld **Identity provider metadata URL** (Metadaten-URL des Identitätsanbieters) ist optional. Falls Sie eine **App-Verbundmetadaten-URL** aus dem Azure-Portal kopiert haben, können Sie diese in das Feld einfügen.
 
-    f. Wählen Sie für **Should AuthNRequests be signed?** (Sollen Authentifizierungsanforderungen signiert werden?) die Option **No** (Nein) aus.
+    1. Wählen Sie in der Liste **Should AuthNRequests be signed?** (Sollen Authentifizierungsanforderungen signiert werden?) die Option **No** (Nein) aus.
 
-    g. Wählen Sie für **Enable SSO auto-Provisioning** (Automatische Bereitstellung für SSO) die Option **No** (Nein) aus.
+    1. Wählen Sie in der Liste **Enable SSO auto-Provisioning** (Automatische Bereitstellung für SSO aktivieren) die Option **No** (Nein) aus.
 
-    h. Klicken Sie auf **Speichern**.
+    1. Wählen Sie **Speichern** aus.
 
-### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers 
+### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
-Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
+In diesem Abschnitt erstellen Sie im Azure-Portal einen Testbenutzer namens Britta Simon.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory** aus, und wählen Sie dann **Benutzer** und anschließend **Alle Benutzer** aus:
 
-    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
+    ![„Alle Benutzer“ auswählen](common/users.png)
 
-2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
+2. Wählen Sie im oberen Bildschirmbereich die Option **Neuer Benutzer** aus:
 
-    ![Schaltfläche „Neuer Benutzer“](common/new-user.png)
+    ![„Neuer Benutzer“ auswählen](common/new-user.png)
 
-3. Führen Sie in den Benutzereigenschaften die folgenden Schritte aus.
+3. Führen Sie im Dialogfeld **Benutzer** die folgenden Schritte aus.
 
     ![Dialogfeld „Benutzer“](common/user-properties.png)
 
-    a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
+    1. Geben Sie in das Feld **Name** den Namen **BrittaSimon** ein.
   
-    b. Geben Sie im Feld **Benutzername** den Namen brittasimon@yourcompanydomain.extension ein. Zum Beispiel, BrittaSimon@contoso.com
+    1. Geben Sie im Feld **Benutzername** die Zeichenfolge **BrittaSimon@\<IhreUnternehmensdomäne>.\<Erweiterung>** ein. (Beispiel: BrittaSimon@contoso.com.)
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den im Feld **Kennwort** angezeigten Wert.
 
-    d. Klicken Sie auf **Create**.
+    1. Klicken Sie auf **Erstellen**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Percolate gewähren.
+In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure AD, indem Sie ihr Zugriff auf Percolate gewähren.
 
-1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** > **Percolate** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen**, danach **Alle Anwendungen** und dann **Percolate** aus.
 
     ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste **Percolate** aus.
+2. Wählen Sie in der Liste der Anwendungen den Eintrag **Percolate** aus.
 
-    ![Percolate-Link in der Anwendungsliste](common/all-applications.png)
+    ![Liste der Anwendungen](common/all-applications.png)
 
-3. Wählen Sie im Menü auf der linken Seite **Benutzer und Gruppen** aus.
+3. Wählen Sie im linken Bereich die Option **Benutzer und Gruppen** aus:
 
-    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
+    ![Benutzer und Gruppen auswählen](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+4. Wählen Sie die Schaltfläche **Benutzer hinzufügen** und anschließend im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
-    ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
+    ![Benutzer und Gruppen auswählen](common/add-assign-user.png)
 
-5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Bildschirm auf die Schaltfläche **Auswählen**.
+5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste den Eintrag **Britta Simon** aus, und klicken Sie dann am unteren Bildschirmrand auf die Schaltfläche **Auswählen**.
 
-6. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** in der Liste die entsprechende Rolle für den Benutzer aus, und klicken Sie dann unten auf dem Bildschirm auf **Auswählen**.
+6. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Dialogfeld **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Klicken Sie am unteren Bildschirmrand auf die Schaltfläche **Auswählen**.
 
-7. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
+7. Wählen Sie im Dialogfeld **Zuweisung hinzufügen** die Option **Zuweisen** aus.
 
-### <a name="create-percolate-test-user"></a>Erstellen eines Percolate-Testbenutzers
+### <a name="create-a-percolate-test-user"></a>Erstellen eines Percolate-Testbenutzers
 
-Damit sich Azure AD-Benutzer bei Percolate anmelden können, müssen sie in Percolate bereitgestellt werden. Im Fall von Percolate muss die Bereitstellung manuell ausgeführt werden.
+Damit sich Azure AD-Benutzer an Percolate anmelden können, müssen Sie diese in Percolate hinzufügen. Sie müssen diese manuell hinzufügen.
 
-**Führen Sie zum Bereitstellen eines Benutzerkontos die folgenden Schritte aus:**
+Zum Erstellen eines Benutzerkontos führen Sie die folgenden Schritte aus:
 
 1. Melden Sie sich bei Percolate als Administrator an.
 
-2. Klicken Sie auf der linken Seite der Menüleiste unter **Organization** (Organisation) auf **Users** (Benutzer), und navigieren Sie zu **New users** (Neue Benutzer).
+2. Wählen Sie im linken Bereich unter **Organization** (Organisation) die Option **Users** (Benutzer) aus. Wählen Sie **New users** (Neue Benutzer) aus:
 
-    ![Configure single sign-on](./media/percolate-tutorial/configure03.png)
+    ![Neue Benutzer auswählen](./media/percolate-tutorial/configure03.png)
 
-3. Führen Sie auf der Seite **Create users** (Benutzer erstellen) die folgenden Schritte aus:
+3. Führen Sie auf der Seite **Create users** (Benutzer erstellen) die folgenden Schritte aus.
 
-    ![Configure single sign-on](./media/percolate-tutorial/configure04.png)
+    ![Seite zum Erstellen von Benutzern](./media/percolate-tutorial/configure04.png)
 
-    a. Geben Sie im Textfeld **Email** (E-Mail-Adresse) die E-Mail-Adresse des Benutzers ein, z.B. brittasimon@contoso.com.
+    1. Geben Sie im Feld **Email** (E-Mail) die E-Mail-Adresse des Benutzers ein. Beispiel: brittasimon@contoso.com.
 
-    b. Geben Sie im Textfeld **Fullname** (Vollständiger Name) den Namen des Benutzers ein, z. B. **Brittasimon**.
+    1. Geben Sie im Feld **Full name** (Vollständiger Name) den Namen des Benutzers ein. Beispiel: **Brittasimon**
 
-    c. Klicken Sie auf **Create users** (Benutzer erstellen).
+    1. Wählen Sie **Create users** (Benutzer erstellen) aus.
 
-### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens 
+### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 
-In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
+Jetzt müssen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich testen.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Percolate“ klicken, sollten Sie automatisch bei der Percolate-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Wenn Sie im Zugriffsbereich auf die Kachel „Percolate“ klicken, sollten Sie automatisch bei der Percolate-Instanz angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials zur Integration von SaaS-Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a65af5a5ea0629b617c4e736d8c110cbb9aa540c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60348814"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitätssynchronisierung und Resilienz bei doppelten Attributen
 Die Resilienz bei doppelten Attributen ist ein Feature von Azure Active Directory, das der Beseitigung von Konflikten zwischen **UserPrincipalName** und **ProxyAddress** dient, die beim Ausführen eines Synchronisierungstools von Microsoft auftreten können.
@@ -45,7 +45,7 @@ Ist das Attribut nicht erforderlich (etwa im Falle von **ProxyAddress**), wird d
 
 Im Falle einer Attributisolierung werden Informationen zum Konflikt in der gleichen Fehlerbericht-E-Mail gesendet, die auch im Rahmen des alten Verhaltens verwendet wurde. Diese Informationen werden aber nur einmal (zum Zeitpunkt der Isolierung) in den Fehlerbericht aufgenommen und in zukünftigen E-Mails nicht immer wieder erneut protokolliert. Da der Export für das Objekt erfolgreich war, protokolliert der Synchronisierungsclient keinen Fehler, und es wird in den folgenden Synchronisierungszyklen nicht erneut versucht, die Erstellung/Aktualisierung durchzuführen.
 
-Zur Unterstützung dieses Verhaltens wurde den Objektklassen für Benutzer, Gruppen und Kontakte ein neues Attribut hinzugefügt:   
+Zur Unterstützung dieses Verhaltens wurde den Objektklassen für Benutzer, Gruppen und Kontakte ein neues Attribut hinzugefügt:  
 **DirSyncProvisioningErrors**
 
 Hierbei handelt es sich um ein mehrwertiges Attribut zum Speichern der in Konflikt stehenden Attribute, die gegen die Eindeutigkeitsanforderung verstoßen würden, wenn sie normal hinzugefügt würden. In Azure Active Directory wurde eine Timer-Hintergrundaufgabe hinzugefügt, um stündlich nach behobenen Konflikten mit doppelten Attributen zu suchen und automatisch die Isolation der betreffenden Attribute aufzuheben.
@@ -90,7 +90,7 @@ Führen Sie nach dem Herstellen der Verbindung den folgenden Befehl aus, um eine
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-Das Ergebnis sieht beispielsweise wie folgt aus:   
+Das Ergebnis sieht beispielsweise wie folgt aus:  
  ![Get-MsolDirSyncProvisioningError](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 #### <a name="by-property-type"></a>Nach Eigenschaftstyp
@@ -128,7 +128,7 @@ Eine Anleitung zum Anzeigen von Fehlern bei der Verzeichnissynchronisierung im M
 ### <a name="identity-synchronization-error-report"></a>Fehlerbericht für die Identitätssynchronisierung
 Wenn dieses neue Verhalten bei einem Objekt mit einem Konflikt aufgrund eines doppelten Attributs angewendet wird, enthält die standardmäßige Fehlerberichts-E-Mail für die Identitätssynchronisierung, die an den Kontakt für technische Benachrichtigungen des Mandanten gesendet wird, eine entsprechende Benachrichtigung. Bei diesem Verhalten gibt es jedoch eine wichtige Änderung. In der Vergangenheit wurden Informationen zu einem Konflikt aufgrund eines doppelten Attributs in jeden nachfolgenden Fehlerbericht einbezogen, bis der Konflikt behoben wurde. Bei Verwendung des neuen Verhaltens erscheint die Fehlerbenachrichtigung für einen bestimmten Konflikt lediglich einmal (zu dem Zeitpunkt, zu dem das in Konflikt stehende Attribut isoliert wird).
 
-Hier sehen Sie ein Beispiel für eine E-Mail-Benachrichtigung bei einem ProxyAddress-Konflikt:   
+Hier sehen Sie ein Beispiel für eine E-Mail-Benachrichtigung bei einem ProxyAddress-Konflikt:  
     ![Aktive Benutzer](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktive Benutzer")  
 
 ## <a name="resolving-conflicts"></a>Beheben von Konflikten
@@ -142,7 +142,7 @@ Keines dieser bekannten Probleme führt zu Datenverlusten oder Dienstbeeinträch
 **Grundverhalten:**
 
 1. Bei Objekten mit einer bestimmten Attributkonfiguration treten immer wieder Exportfehler auf, obwohl doppelte Attribute eigentlich isoliert werden sollten.  
-   Beispiel: 
+   Beispiel:
    
     a. Der neue Benutzer wird in Active Directory mit dem UPN **Joe\@contoso.com** und dem ProxyAddress-Wert **smtp:Joe\@contoso.com** erstellt.
    
@@ -154,7 +154,7 @@ Keines dieser bekannten Probleme führt zu Datenverlusten oder Dienstbeeinträch
 **Bericht des Office-Portals:**
 
 1. Die ausführliche Fehlermeldung für zwei Objekte in einem UPN-Konfliktsatz ist identisch. Sie gibt an, dass bei beiden der UPN-Wert geändert/isoliert wurde, obwohl sich eigentlich nur die Daten eines der Objekte geändert haben.
-2. Die ausführliche Fehlermeldung für einen UPN-Konflikt enthält den falschen displayName-Wert für einen Benutzer, dessen UPN geändert/isoliert wurde. Beispiel: 
+2. Die ausführliche Fehlermeldung für einen UPN-Konflikt enthält den falschen displayName-Wert für einen Benutzer, dessen UPN geändert/isoliert wurde. Beispiel:
    
     a. Zunächst wird **Benutzer A** mit **UPN = User\@contoso.com** synchronisiert.
    

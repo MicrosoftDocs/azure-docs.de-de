@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082941"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61270202"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Häufig gestellte Fragen zu Open-Source-Technologien für Web-Apps in Azure | Microsoft-Dokumentation
 
@@ -37,7 +37,7 @@ So aktivieren Sie die PHP-Protokollierung
 2. Wählen Sie im obersten Menü **Debug Console** > **CMD** aus.
 3. Wählen Sie den Ordner **Site** aus.
 4. Wählen Sie den Ordner **wwwroot** aus.
-5. Klicken Sie auf das Symbol **+**, und wählen Sie **New File** (Neue Datei) aus.
+5. Klicken Sie auf das Symbol **+** , und wählen Sie **New File** (Neue Datei) aus.
 6. Legen Sie den Dateinamen auf **.user.ini** fest.
 7. Aktivieren Sie das Stiftsymbol neben **.user.ini**.
 8. Fügen Sie der Datei diesen Code hinzu: `log_errors=on`

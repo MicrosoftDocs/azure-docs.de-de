@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
 ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60851859"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installieren von Azure Backup Server in Azure Stack
 
@@ -148,7 +148,7 @@ Es gibt zwei Möglichkeiten zum Herunterladen des Azure Backup Server-Installati
 
 7. Klicken Sie im Menü **Infrastruktur vorbereiten** auf **Herunterladen**, um eine Webseite zum Herunterladen von Azure Backup Server-Installationsdateien zu öffnen.
 
-    ![Ändern des Erste-Schritte-Assistenten ](./media/backup-mabs-install-azure-stack/prepare-infrastructure.png)
+    ![Ändern des Erste-Schritte-Assistenten](./media/backup-mabs-install-azure-stack/prepare-infrastructure.png)
 
     Die Microsoft-Webseite, die die herunterladbaren Dateien für Azure Backup Server enthält, wird geöffnet.
 

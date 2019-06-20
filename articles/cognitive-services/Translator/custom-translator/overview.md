@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: overview
-ms.openlocfilehash: d9b253afa7414ada4db58f98cd346e223f8282b6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5ce73e28d25f0e517da08895764adc5a31740a7e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776008"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389652"
 ---
 # <a name="what-is-custom-translator"></a>Worum handelt es sich bei Custom Translator?
 

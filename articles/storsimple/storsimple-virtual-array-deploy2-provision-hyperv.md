@@ -16,11 +16,11 @@ ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5104d630e2b4e97b80a6fedfb6d863061c2722fb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810540"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61416112"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Bereitstellen des StorSimple Virtual Array – Bereitstellen in Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)

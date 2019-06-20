@@ -3,25 +3,25 @@ title: Erstellen einer Identität für die Azure-App im Portal | Microsoft-Dokum
 description: Beschreibt das Erstellen einer neuen Azure Active Directory-Anwendung und eines Dienstprinzipals, der mit der rollenbasierten Zugriffskontrolle in Azure Resource Manager zum Verwalten des Zugriffs auf Ressourcen verwendet werden kann.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/17/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565919"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235387"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gewusst wie: Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal
 
@@ -40,11 +40,11 @@ Wir beginnen gleich mit der Erstellung der Identität. Falls ein Problem auftrit
 
    ![Auswählen von App-Registrierungen](./media/howto-create-service-principal-portal/select-app-registrations.png)
 
-1. Wählen Sie **Registrierung einer neuen Anwendung** aus.
+1. Wählen Sie **Neue Registrierung** aus.
 
    ![Hinzufügen der App](./media/howto-create-service-principal-portal/select-add-app.png)
 
-1. Geben Sie einen Namen und eine URL für die Anwendung an. Wählen Sie als Typ für die zu erstellende Anwendung **Web-App/API** aus. Sie können keine Anmeldeinformationen für eine [native Anwendung](../manage-apps/application-proxy-configure-native-client-application.md) erstellen. Sie können diesen Typ nicht für eine automatisierte Anwendung verwenden. Wählen Sie nach dem Festlegen der Werte **Erstellen** aus.
+1. Geben Sie einen Namen für die Anwendung ein. Wählen Sie einen unterstützten Kontotyp aus, der bestimmt, von wem die Anwendung verwendet werden kann. Wählen Sie unter **Umleitungs-URI** als Typ der Anwendung, die Sie erstellen möchten, **Web** aus. Geben Sie den URI ein, an den das Zugriffstoken gesendet wird.  Sie können keine Anmeldeinformationen für eine [native Anwendung](../manage-apps/application-proxy-configure-native-client-application.md) erstellen. Sie können diesen Typ nicht für eine automatisierte Anwendung verwenden. Wählen Sie nach dem Festlegen der Werte **Registrieren** aus.
 
    ![Benennen der Anwendung](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -66,7 +66,7 @@ Sie können den Umfang auf Abonnement-, Ressourcengruppen- oder Ressourcenebene 
 
    Falls Sie das gesuchte Abonnement nicht finden können, können Sie den **globalen Abonnementfilter** verwenden. Stellen Sie sicher, dass das gewünschte Abonnement für das Portal ausgewählt ist. 
 
-1. Wählen Sie die Option **Zugriffssteuerung (IAM)**.
+1. Wählen Sie die Option **Zugriffssteuerung (IAM)** .
 1. Wählen Sie **Rollenzuweisung hinzufügen** aus.
 
    ![Auswählen von „Rollenzuweisung hinzufügen“](./media/howto-create-service-principal-portal/select-add.png)
@@ -81,43 +81,53 @@ Ihr Dienstprinzipal wird eingerichtet. Sie können mit der Nutzung beginnen, um 
 
 ## <a name="get-values-for-signing-in"></a>Abrufen von Werten für die Anmeldung
 
-### <a name="get-tenant-id"></a>Abrufen der Mandanten-ID
-
-Beim programmgesteuerten Anmelden müssen Sie mit Ihrer Authentifizierungsanforderung die Mandanten-ID übergeben.
+Beim programmgesteuerten Anmelden müssen Sie mit Ihrer Authentifizierungsanforderung die Mandanten-ID übergeben. Sie benötigen auch die ID für Ihre Anwendung und einen Authentifizierungsschlüssel. Führen Sie die folgenden Schritte aus, um diese Werte abzurufen:
 
 1. Wählen Sie **Azure Active Directory**.
-1. Wählen Sie **Eigenschaften** aus.
-
-   ![Auswählen von Azure AD-Eigenschaften](./media/howto-create-service-principal-portal/select-ad-properties.png)
-
-1. Kopieren Sie die **Verzeichnis-ID**, um Ihre Mandanten-ID abzurufen.
-
-   ![Mandanten-ID](./media/howto-create-service-principal-portal/copy-directory-id.png)
-
-### <a name="get-application-id-and-authentication-key"></a>Abrufen der Anwendungs-ID und des Authentifizierungsschlüssels
-
-Sie benötigen auch die ID für Ihre Anwendung und einen Authentifizierungsschlüssel. Führen Sie die folgenden Schritte aus, um diese Werte abzurufen:
 
 1. Wählen Sie in Azure AD unter **App-Registrierungen** Ihre Anwendung aus.
 
    ![Auswählen einer Anwendung](./media/howto-create-service-principal-portal/select-app.png)
 
+1. Kopieren Sie die Verzeichnis-ID (Mandant), und speichern Sie sie in Ihrem Anwendungscode.
+
+    ![Mandanten-ID](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+
 1. Kopieren Sie die **Anwendungs-ID**, und speichern Sie sie in Ihrem Anwendungscode.
 
    ![Client-ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Wählen Sie **Settings**aus.
+## <a name="certificates-and-secrets"></a>Zertifikate und Geheimnisse
+Daemon-Anwendungen können zwei Formen von Anmeldeinformationen verwenden, um sich bei Azure AD zu authentifizieren: Zertifikate und Anwendungsgeheimnisse.  Wir empfehlen die Verwendung eines Zertifikats, Sie können aber auch ein neues Anwendungsgeheimnis erstellen.
 
-   ![Klicken auf „Einstellungen“](./media/howto-create-service-principal-portal/select-settings.png)
+### <a name="upload-a-certificate"></a>Hochladen eines Zertifikats
 
-1. Wählen Sie **Schlüssel** aus.
-1. Geben Sie eine Beschreibung des Schlüssels und eine Dauer für den Schlüssel ein. Wählen Sie dann die Option **Schließen**.
+Sie können ein vorhandenes Zertifikat verwenden, wenn Sie eins besitzen.  Optional können Sie für Testzwecke ein selbstsigniertes Zertifikat erstellen. Öffnen Sie PowerShell, und führen Sie [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) mit den folgenden Parametern aus, um ein selbstsigniertes Zertifikat im Benutzerzertifikatspeicher auf Ihrem Computer zu erstellen: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Exportieren Sie dieses Zertifikat mit dem MMC-Snap-In [Benutzerzertifikat verwalten](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in), auf das Sie in der Windows-Systemsteuerung zugreifen können.
 
-   ![Speichern des Schlüssels](./media/howto-create-service-principal-portal/save-key.png)
+So laden Sie das Zertifikat hoch:
+1. Wählen Sie **Zertifikate & Geheimnisse** aus.
 
-   Nach dem Speichern des Schlüssels wird der Wert des Schlüssels angezeigt. Kopieren Sie diesen Wert jetzt, da Sie den Schlüssel später nicht mehr abrufen können. Sie geben den Schlüsselwert zusammen mit der Anwendungs-ID an, um die Anmeldung als Anwendung durchzuführen. Speichern Sie die Schlüsselwert an einem Ort, von dem Ihre Anwendung ihn abrufen kann.
+   ![Klicken auf „Einstellungen“](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. Klicken Sie auf **Zertifikat hochladen**, und wählen Sie das Zertifikat (ein vorhandenes Zertifikat oder das von Ihnen exportierte selbstsignierte Zertifikat) aus.
+    ![Hochladen des Zertifikats](./media/howto-create-service-principal-portal/upload-cert.png)
+1. Klicken Sie auf **Hinzufügen**.
 
-   ![Gespeicherter Schlüssel](./media/howto-create-service-principal-portal/copy-key.png)
+Nach dem Registrieren des Zertifikats bei Ihrer Anwendung im Portal der Anwendungsregistrierung müssen Sie dem Code der Clientanwendung die Verwendung des Zertifikats ermöglichen.
+
+### <a name="create-a-new-application-secret"></a>Erstellen eines neuen Anwendungsgeheimnisses
+Wenn Sie sich entscheiden, kein Zertifikat zu verwenden, können Sie ein neues Anwendungsgeheimnis erstellen.
+1. Wählen Sie **Zertifikate & Geheimnisse** aus.
+
+   ![Klicken auf „Einstellungen“](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+
+1. Wählen Sie **Geheime Clientschlüssel -> Neuer geheimer Clientschlüssel** aus.
+1. Geben Sie eine Beschreibung des Geheimnisses und eine Dauer ein. Wählen Sie anschließend **Hinzufügen** aus.
+
+   ![Speichern des geheimen Clientschlüssels](./media/howto-create-service-principal-portal/save-secret.png)
+
+   Nachdem der geheime Clientschlüssel gespeichert wurde, wird dessen Wert angezeigt. Kopieren Sie diesen Wert jetzt, da Sie den Schlüssel später nicht mehr abrufen können. Sie geben den Schlüsselwert zusammen mit der Anwendungs-ID an, um die Anmeldung als Anwendung durchzuführen. Speichern Sie die Schlüsselwert an einem Ort, von dem Ihre Anwendung ihn abrufen kann.
+
+   ![Kopieren des geheimen Clientschlüssels](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Erforderliche Berechtigungen
 
@@ -146,7 +156,7 @@ Ihr Konto muss in Ihrem Azure-Abonnement über `Microsoft.Authorization/*/Write`
 
 So überprüfen Sie die Berechtigungen Ihres Abonnements
 
-1. Wählen Sie oben rechts Ihr Konto und dann die Option **Meine Berechtigungen**.
+1. Wählen Sie oben rechts Ihr Konto und dann die Option **Meine Berechtigungen** aus.
 
    ![Auswählen von Benutzerberechtigungen](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +164,7 @@ So überprüfen Sie die Berechtigungen Ihres Abonnements
 
    ![Suchen nach Benutzern](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Zeigen Sie Ihre zugewiesenen Rollen an, und ermitteln Sie, ob Sie über die erforderlichen Berechtigungen verfügen, um einer Rolle eine AD-App zuzuweisen. Wenn dies nicht der Fall ist, bitten Sie Ihren Abonnementadministrator, Sie zur Rolle „Benutzerzugriffsadministrator“ hinzuzufügen. In der folgenden Abbildung wurde der Benutzer der Rolle „Besitzer“ zugeordnet. Dies bedeutet, dass dieser Benutzer über die erforderlichen Berechtigungen verfügt.
+1. Wählen Sie **Rollenzuweisungen** aus, um Ihre zugewiesenen Rollen anzuzeigen, und ermitteln Sie, ob Sie über die erforderlichen Berechtigungen verfügen, um einer Rolle eine AD-App zuzuweisen. Wenn dies nicht der Fall ist, bitten Sie Ihren Abonnementadministrator, Sie zur Rolle „Benutzerzugriffsadministrator“ hinzuzufügen. In der folgenden Abbildung wurde der Benutzer der Rolle „Besitzer“ zugeordnet. Dies bedeutet, dass dieser Benutzer über die erforderlichen Berechtigungen verfügt.
 
    ![Anzeigen von Berechtigungen](./media/howto-create-service-principal-portal/view-user-role.png)
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: a2ffc344f51c45007eb982a02b14cb2d481d752e
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 8665f6daa698f2e885f1fe768ad6b9c87dbbe164
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074517"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Ausführen von Aufgaben zur statischen Paketerstellung mithilfe von Azure Media Packager  
 
@@ -247,7 +247,7 @@ Im folgenden Codebeispiel werden Azure Media Services .NET SDK-Erweiterungen ver
             static void SetISMFileAsPrimary(IAsset asset)
             {
                 var ismAssetFiles = asset.AssetFiles.ToList().
-                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray();
+                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase));
 
                 // The following code assigns the first .ism file as the primary file in the asset.
                 // An asset should have one .ism file.  

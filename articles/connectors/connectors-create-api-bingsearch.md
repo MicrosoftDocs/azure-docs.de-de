@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60952602"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Suchen von Nachrichten mit der Bing-Suche und Azure Logic Apps
 
@@ -58,11 +58,11 @@ Falls die Verbindung bereits besteht, können Sie die erforderlichen Information
    | Search Query | Ja | <*Suchbegriffe*> | Geben Sie Suchbegriffe ein, die Sie verwenden möchten. |
    | Market | Ja | <*Gebietsschema*> | Das Gebietsschema für die Suche. Die Standardeinstellung ist „en-US“, aber Sie können einen anderen Wert auswählen. |
    | Safe Search | Ja | <*Suchebene*> | Die Filterebene zum Ausschließen nicht jugendfreier Inhalte. Die Standardeinstellung ist „Mittel“, aber Sie können eine andere Ebene auswählen. |
-   | Count | Nein  | <*Ergebnisanzahl*> | Hiermit wird die angegebene Anzahl von Ergebnissen zurückgegeben. Der Standardwert ist 20, aber Sie können einen anderen Wert angeben. Die tatsächliche Anzahl zurückgegebener Ergebnisse ist möglicherweise kleiner als die angegebene Anzahl. |
-   | Offset | Nein  | <*Versatzwert*> | Die Anzahl von Ergebnissen, die übersprungen werden sollen, bevor Ergebnisse zurückgegeben werden |
+   | Count | Nein | <*Ergebnisanzahl*> | Hiermit wird die angegebene Anzahl von Ergebnissen zurückgegeben. Der Standardwert ist 20, aber Sie können einen anderen Wert angeben. Die tatsächliche Anzahl zurückgegebener Ergebnisse ist möglicherweise kleiner als die angegebene Anzahl. |
+   | Offset | Nein | <*Versatzwert*> | Die Anzahl von Ergebnissen, die übersprungen werden sollen, bevor Ergebnisse zurückgegeben werden |
    |||||
 
-   Beispiel: 
+   Beispiel:
 
    ![Einrichten von Trigger](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -89,7 +89,7 @@ In Azure Logic Apps handelt es sich bei einer [Aktion](../logic-apps/logic-apps-
    ![Hinzufügen einer Aktion](./media/connectors-create-api-bing-search/add-action.png)
 
    Um eine Aktion zwischen vorhandenen Schritten hinzuzufügen, bewegen Sie den Mauszeiger über den Verbindungspfeil. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) aus, und wählen Sie dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) aus, und wählen Sie dann **Aktion hinzufügen** aus.
 
 3. Geben Sie im Suchfeld den Begriff „Bing-Suche“ als Filter ein.
 Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
@@ -109,8 +109,8 @@ Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
    | Search Query | Ja | <*Suchausdruck*> | Geben Sie einen Ausdruck für die Abfrage der Triggerergebnisse ein. Sie können aus den Feldern der Liste mit dynamischen Inhalten wählen oder mit dem Ausdrucks-Generator einen Ausdruck erstellen. |
    | Market | Ja | <*Gebietsschema*> | Das Gebietsschema für die Suche. Die Standardeinstellung ist „en-US“, aber Sie können einen anderen Wert auswählen. |
    | Safe Search | Ja | <*Suchebene*> | Die Filterebene zum Ausschließen nicht jugendfreier Inhalte. Die Standardeinstellung ist „Mittel“, aber Sie können eine andere Ebene auswählen. |
-   | Count | Nein  | <*Ergebnisanzahl*> | Hiermit wird die angegebene Anzahl von Ergebnissen zurückgegeben. Der Standardwert ist 20, aber Sie können einen anderen Wert angeben. Die tatsächliche Anzahl zurückgegebener Ergebnisse ist möglicherweise kleiner als die angegebene Anzahl. |
-   | Offset | Nein  | <*Versatzwert*> | Die Anzahl von Ergebnissen, die übersprungen werden sollen, bevor Ergebnisse zurückgegeben werden |
+   | Count | Nein | <*Ergebnisanzahl*> | Hiermit wird die angegebene Anzahl von Ergebnissen zurückgegeben. Der Standardwert ist 20, aber Sie können einen anderen Wert angeben. Die tatsächliche Anzahl zurückgegebener Ergebnisse ist möglicherweise kleiner als die angegebene Anzahl. |
+   | Offset | Nein | <*Versatzwert*> | Die Anzahl von Ergebnissen, die übersprungen werden sollen, bevor Ergebnisse zurückgegeben werden |
    |||||
 
    Nehmen Sie beispielsweise an, dass Sie Ergebnisse benötigen, deren Kategoriename die Zeichenfolge „Tech“ enthält.
@@ -122,7 +122,7 @@ Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 
       Jetzt können Sie mit dem Erstellen des Ausdrucks beginnen.
 
-   2. Wählen Sie in der Liste der Funktionen die Funktion **contains()**. Diese wird im Ausdrucksfeld angezeigt. Klicken Sie auf **Dynamische Inhalte**, um die Feldliste erneut anzuzeigen. Stellen Sie jedoch sicher, dass der Cursor innerhalb der Klammern bleibt.
+   2. Wählen Sie in der Liste der Funktionen die Funktion **contains()** . Diese wird im Ausdrucksfeld angezeigt. Klicken Sie auf **Dynamische Inhalte**, um die Feldliste erneut anzuzeigen. Stellen Sie jedoch sicher, dass der Cursor innerhalb der Klammern bleibt.
 
       ![Auswählen einer Funktion](./media/connectors-create-api-bing-search/expression-select-function.png)
 
@@ -158,7 +158,7 @@ Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
    | API-Schlüssel | Ja | <*API-Schlüssel*> | Der Schlüssel der Bing-Suche-API, den Sie zuvor erhalten haben. Wenn Sie keinen Schlüssel besitzen, können Sie Ihren [API-Schlüssel jetzt abrufen](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Beispiel: 
+   Beispiel:
 
    ![Erstellen der Verbindung](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
 ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60653715"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrieren von der Bing-Spracheingabe zum Spracherkennungsdienst
 
@@ -95,4 +95,4 @@ Informationen zur Unterstützung von Spracherkennungsdienst, SDK und API finden 
 ## <a name="see-also"></a>Weitere Informationen
 * [Versionshinweise zu den Spracherkennungsdiensten](releasenotes.md)
 * [Worum handelt es sich beim Speech-Dienst?](overview.md)
-* [Dokumentation zu den Spracherkennungsdiensten und zum Speech SDK](speech-sdk.md#get-the-sdk)
+* [Dokumentation zu Sprachdiensten und zum Spracherkennungsdienst-SDK](speech-sdk.md#get-the-sdk)

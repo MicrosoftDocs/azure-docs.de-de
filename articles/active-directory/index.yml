@@ -1,0 +1,264 @@
+### YamlMime:Hub
+title: Dokumentation zu Azure Active Directory
+summary: Azure Active Directory (Azure AD) ist ein mehrinstanzenfähiger cloudbasierter Identitäts- und Zugriffsverwaltungsdienst.
+brand: azure
+metadata:
+  title: 'Dokumentation für Azure Active Directory: Tutorials, API-Referenz'
+  description: Azure Active Directory (Azure AD) ist der mehrinstanzenfähige, cloudbasierte Verzeichnis- und Identitätsverwaltungsdienst von Microsoft, der Kernverzeichnisdienste, Anwendungszugriffsverwaltung und Identitätsschutz in einer einzigen Lösung vereint.
+  author: mtillman
+  manager: daveba
+  ms.service: active-directory
+  ms.topic: hub-page
+  ms.date: 04/25/2019
+  ms.author: mtillman
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 1a019b58d4c2f1e5569cc4e8dd9109e08f313d6c
+  ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+  ms.translationtype: HT
+  ms.contentlocale: de-DE
+  ms.lasthandoff: 06/07/2019
+  ms.locfileid: "66481864"
+highlightedContent:
+  items:
+  - title: Was ist Azure AD?
+    itemType: overview
+    url: /azure/active-directory/fundamentals/active-directory-whatis
+  - title: Neuerungen in Azure AD
+    itemType: whats-new
+    url: /azure/active-directory/fundamentals/whats-new
+  - title: Zuweisen von Rollen zu Benutzern
+    itemType: how-to-guide
+    url: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+  - title: Erstellen einer Gruppe und Hinzufügen von Mitgliedern
+    itemType: how-to-guide
+    url: /azure/active-directory/fundamentals/add-users-azure-active-directory
+  - title: Prüfliste für die Azure AD-Bereitstellung
+    itemType: concept
+    url: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
+  - title: Hinzufügen eines Abonnements zu Ihrem Mandanten
+    itemType: how-to-guide
+    url: /azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory
+conceptualContent:
+  items:
+  - title: Anwendungsverwaltung
+    links:
+    - url: /azure/active-directory/manage-apps/what-is-single-sign-on
+      itemType: concept
+      text: Worum handelt es sich beim einmaligen Anmelden (Single Sign-On, SSO)?
+    - url: /azure/active-directory/manage-apps/user-provisioning
+      itemType: tutorial
+      text: Automatische Benutzerbereitstellung
+    - url: /azure/active-directory/manage-apps/application-proxy
+      itemType: concept
+      text: Anwendungsproxy für lokale Apps
+    footerLink:
+      url: /azure/active-directory/manage-apps/index
+      text: Weitere Informationen
+  - title: Authentication
+    links:
+    - url: /azure/active-directory/authentication/concept-mfa-howitworks
+      itemType: concept
+      text: "So funktioniert's: Azure MFA"
+    - url: /azure/active-directory/authentication/concept-sspr-howitworks
+      itemType: concept
+      text: Self-Service-Kennwortzurücksetzung in Azure AD
+    - url: /azure/active-directory/authentication/concept-password-ban-bad
+      itemType: concept
+      text: Kennwortschutz für Azure AD
+    footerLink:
+      url: /azure/active-directory/authentication/index
+      text: Weitere Informationen
+  - title: Business-to-Business (B2B)
+    links:
+    - url: /azure/active-directory/b2b/what-is-b2b
+      itemType: overview
+      text: Was ist Azure AD B2B?
+    - url: /azure/active-directory/b2b/add-users-administrator
+      itemType: how-to-guide
+      text: Hinzufügen von Gastbenutzern im Portal
+    - url: /azure/active-directory/b2b/o365-external-user
+      itemType: concept
+      text: B2B und Office 365-Freigabe
+    footerLink:
+      url: /azure/active-directory/b2b/index
+      text: Weitere Informationen
+  - title: Business-to-Consumer (B2C)
+    links:
+    - url: /azure/active-directory-b2c/active-directory-b2c-overview
+      itemType: overview
+      text: Was ist Azure AD B2C?
+    - url: /azure/active-directory-b2c/tutorial-create-tenant
+      itemType: tutorial
+      text: Erstellen eines Azure AD B2C-Mandanten
+    - url: /azure/active-directory-b2c/active-directory-b2c-get-started-custom
+      itemType: how-to-guide
+      text: Benutzerdefinierte Richtlinien in Azure AD B2C
+    footerLink:
+      url: /azure/active-directory-b2c/index
+      text: Mehr Informationen
+  - title: Bedingter Zugriff
+    links:
+    - url: /azure/active-directory/conditional-access/overview
+      itemType: overview
+      text: Was ist bedingter Zugriff?
+    - url: /azure/active-directory/conditional-access/app-based-mfa
+      itemType: quickstart
+      text: Vorschreiben der Verwendung der MFA für bestimmte Apps
+    - url: /azure/active-directory/conditional-access/location-condition
+      itemType: concept
+      text: Standortbasierte Bedingungen
+    footerLink:
+      url: /azure/active-directory/conditional-access/index
+      text: Mehr Informationen
+  - title: Entwickler
+    links:
+    - url: /azure/active-directory/develop/about-microsoft-identity-platform
+      itemType: overview
+      text: Informationen zu Microsoft Identity Platform
+    - url: /azure/active-directory/develop/v2-oauth2-auth-code-flow
+      itemType: concept
+      text: OAuth 2.0-Codeflowgewährung
+    - url: /azure/active-directory/develop/quickstart-register-app
+      itemType: quickstart
+      text: Registrieren einer App bei Microsoft Identity Platform
+    footerLink:
+      url: /azure/active-directory/develop/index
+      text: Mehr Informationen
+  - title: Geräteverwaltung
+    links:
+    - url: /azure/active-directory/devices/overview
+      itemType: overview
+      text: Worum handelt es sich bei der Geräteverwaltung?
+    - url: /azure/active-directory/devices/hybrid-azuread-join-plan
+      itemType: how-to-guide
+      text: Planen einer Azure AD-Hybrideinbindung
+    - url: /azure/active-directory/devices/azureadjoin-plan
+      itemType: how-to-guide
+      text: Planen einer Azure AD-Einbindung
+    footerLink:
+      url: /azure/active-directory/devices/index
+      text: Mehr Informationen
+  - title: Domänendienste
+    links:
+    - url: /azure/active-directory-domain-services/active-directory-ds-overview
+      itemType: overview
+      text: Was ist Azure AD Domain Services?
+    - url: /azure/active-directory-domain-services/active-directory-ds-getting-started
+      itemType: quickstart
+      text: Aktivieren von Azure AD Domain Services
+    - url: /azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy
+      itemType: how-to-guide
+      text: Verwalten einer Gruppenrichtlinie
+    footerLink:
+      url: /azure/active-directory-domain-services/index
+      text: Mehr Informationen
+  - title: Unternehmensbenutzer
+    links:
+    - url: /azure/active-directory/users-groups-roles/groups-create-rule
+      itemType: how-to-guide
+      text: Erstellen einer dynamischen Gruppe
+    - url: /azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets
+      itemType: how-to-guide
+      text: PowerShell für Azure AD-Gruppen
+    - url: /azure/active-directory/users-groups-roles/directory-service-limits-restrictions
+      itemType: reference
+      text: Dienst- und andere Einschränkungen für Azure AD
+    footerLink:
+      url: /azure/active-directory/users-groups-roles/index
+      text: Mehr Informationen
+  - title: Hybrididentität
+    links:
+    - url: /azure/active-directory/hybrid/whatis-hybrid-identity
+      itemType: overview
+      text: Was ist eine Hybrididentität?
+    - url: /azure/active-directory/hybrid/how-to-connect-sso
+      itemType: how-to-guide
+      text: Einmaliges Anmelden mit Azure AD Connect
+    - url: /azure/active-directory/hybrid/how-to-connect-install-custom
+      itemType: how-to-guide
+      text: 'Azure AD Connect: benutzerdefinierte Installation'
+    footerLink:
+      url: /azure/active-directory/hybrid/index
+      text: Mehr Informationen
+  - title: Identitätsgovernance
+    links:
+    - url: /azure/active-directory/governance/create-access-review
+      itemType: how-to-guide
+      text: Erstellen einer Zugriffsüberprüfung
+    - url: /azure/active-directory/governance/perform-access-review
+      itemType: how-to-guide
+      text: Starten einer Zugriffsüberprüfung
+    - url: /azure/active-directory/conditional-access/terms-of-use
+      itemType: how-to-guide
+      text: Vorschreiben der Verwendung von Nutzungsbedingungen
+    footerLink:
+      url: /azure/active-directory/governance/index
+      text: Mehr Informationen
+  - title: Schutz der Identität (Identity Protection)
+    links:
+    - url: /azure/active-directory/identity-protection/overview
+      itemType: overview
+      text: Worum handelt es sich beim Identitätsschutz?
+    - url: /azure/active-directory/identity-protection/quickstart-sign-in-risk-policy
+      itemType: quickstart
+      text: Blockieren des Zugriffs bei erkanntem Sitzungsrisiko
+    - url: /azure/active-directory/identity-protection/howto-unblock-user
+      itemType: how-to-guide
+      text: Entsperren von Benutzern
+    footerLink:
+      url: /azure/active-directory/identity-protection/index
+      text: Mehr Informationen
+  - title: Verwaltete Identitäten für Azure-Ressourcen
+    links:
+    - url: /azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql
+      itemType: tutorial
+      text: Verwenden eines virtuellen Windows-Computers für den Zugriff auf Azure SQL
+    - url: /azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token
+      itemType: how-to-guide
+      text: Verwenden eines virtuellen Azure-Computers für den Tokenabruf
+    - url: /azure/active-directory/managed-identities-azure-resources/services-support-managed-identities
+      itemType: concept
+      text: Dienste, die verwaltete Identitäten unterstützen
+    footerLink:
+      url: /azure/active-directory/managed-identities-azure-resources/index
+      text: Mehr Informationen
+  - title: Privileged Identity Management (PIM)
+    links:
+    - url: /azure/active-directory/privileged-identity-management/pim-getting-started
+      itemType: how-to-guide
+      text: Einstieg in die Verwendung von PIM
+    - url: /azure/active-directory/privileged-identity-management/pim-how-to-activate-role
+      itemType: how-to-guide
+      text: Aktivieren meiner Verzeichnisrollen
+    - url: /azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user
+      itemType: how-to-guide
+      text: Zuweisen von Verzeichnisrollen
+    footerLink:
+      url: /azure/active-directory/privileged-identity-management/index
+      text: Mehr Informationen
+  - title: Berichte und Überwachung
+    links:
+    - url: /azure/active-directory/reports-monitoring/concept-audit-logs
+      itemType: concept
+      text: Überwachungsprotokolle
+    - url: /azure/active-directory/reports-monitoring/concept-sign-ins
+      itemType: concept
+      text: Anmeldeprotokolle
+    - url: /azure/active-directory/reports-monitoring/reference-sign-ins-error-codes
+      itemType: reference
+      text: Referenz zu Anmeldefehlercodes
+    footerLink:
+      url: /azure/active-directory/reports-monitoring/index
+      text: Mehr Informationen
+additionalContent:
+  sections:
+  - items:
+    - title: Microsoft 365
+      summary: Entdecken Sie Microsoft 365, eine umfassende Lösung, die Azure AD enthält.
+      url: https://docs.microsoft.com/microsoft-365/
+    - title: Azure AD PowerShell
+      summary: Informationen zum Installieren und Verwenden des Azure AD PowerShell-Moduls
+      url: https://docs.microsoft.com/powershell/module/azuread/
+    - title: Azure CLI-Befehle für Azure AD
+      summary: Azure AD-Befehle in der CLI-Referenz
+      url: https://docs.microsoft.com/cli/azure/ad

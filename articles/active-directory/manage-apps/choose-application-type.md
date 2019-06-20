@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6e1a1c614bfa126d58cf9343f945d16fd1c2733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30a4bfa2cf7a39a28db0575a6851f5b7b481524c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65781016"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66388168"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Auswählen des Anwendungstyps beim Hinzufügen einer Anwendung in Azure Active Directory
 Erfahren Sie mehr über die vier Anwendungstypen, die Azure Active Directory (Azure AD) hinzugefügt werden können. Wenn Sie eine Anwendung in Azure Active Directory hinzufügen, werden Sie aufgefordert, einen der vier Anwendungstypen auszuwählen. 
@@ -80,7 +80,7 @@ Nachfolgend werden die unterstützten Modi für das **einmalige Anmelden** für 
   >
   >
 
-- **Headerbasierte Anmeldung**: Wählen Sie [Headerbasierte Anmeldung](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) als Modus für das einmalige Anmelden aus, wenn das einmalige Anmelden bei einer Anwendung mit PingAccess-Funktion erfolgen soll, die die HTTP-Header-basierte Authentifizierung unterstützt. 
+- **Headerbasierte Anmeldung**: Wählen Sie [Headerbasierte Anmeldung](application-proxy-configure-single-sign-on-with-ping-access.md) als Modus für das einmalige Anmelden aus, wenn das einmalige Anmelden bei einer Anwendung mit PingAccess-Funktion erfolgen soll, die die HTTP-Header-basierte Authentifizierung unterstützt. 
 
   >[!NOTE]
   >Diese Option ist nur verfügbar, wenn für eine Anwendung der Anwendungsproxy sowie PingAccess konfiguriert sind.

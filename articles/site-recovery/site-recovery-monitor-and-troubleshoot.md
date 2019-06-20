@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969374"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497547"
 ---
 # <a name="monitor-site-recovery"></a>Überwachen von Azure Site Recovery
 
@@ -97,12 +97,12 @@ Die **Infrastrukturansicht** enthält die an der Replikation beteiligten Infrast
 
     **Szenario** | **State**  | **Ansicht verfügbar?**
     --- |--- | ---
-    **Replikation zwischen lokalen Standorten** | Alle Status | Nein  
+    **Replikation zwischen lokalen Standorten** | Alle Status | Nein 
     **Azure-VM-Replikation zwischen Azure-Regionen**  | Replikation aktiviert/derzeitige Ausführung der ersten Replikation | Ja
-    **Azure-VM-Replikation zwischen Azure-Regionen** | Failover ausgeführt/Failback | Nein    
+    **Azure-VM-Replikation zwischen Azure-Regionen** | Failover ausgeführt/Failback | Nein   
     **VMware-Replikation in Azure** | Replikation aktiviert/derzeitige Ausführung der ersten Replikation | Ja     
-    **VMware-Replikation in Azure** | Failover/Failback ausgeführt | Nein       
-    **Hyper-V-Replikation in Azure** | Failover/Failback ausgeführt | Nein 
+    **VMware-Replikation in Azure** | Failover/Failback ausgeführt | Nein      
+    **Hyper-V-Replikation in Azure** | Failover/Failback ausgeführt | Nein
 
 - Wenn Sie die Infrastrukturansicht für einen einzelnen replizierenden Computer anzeigen möchten, klicken Sie im Menü des Tresors auf **Replizierte Elemente**, und wählen Sie einen Server aus.  
 
@@ -190,7 +190,7 @@ Sie können E-Mail-Benachrichtigungen für die folgenden kritischen Ereignisse a
 
 Benachrichtigungen werden wie folgt abonniert:
 
-Klicken Sie im Tresor im Abschnitt **Überwachung und Berichte** auf **Site Recovery-Ereignisse**.
+Klicken Sie im Tresor im Abschnitt **Überwachung** auf **Site Recovery-Ereignisse**.
 1. Klicken Sie auf **E-Mail-Benachrichtigungen**.
 1. Aktivieren Sie unter **E-Mail-Benachrichtigung** die Benachrichtigungen, und geben Sie an, an wen sie gesendet werden sollen. Sie können festlegen, dass Benachrichtigungen an alle Abonnementadministratoren gesendet werden sollen, und optional bestimmte E-Mail-Adressen angeben.
 

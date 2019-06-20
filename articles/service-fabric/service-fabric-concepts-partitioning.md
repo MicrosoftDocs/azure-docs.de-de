@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/30/2017
 ms.author: atsenthi
 ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666221"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60711893"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionieren von Service Fabric Reliable Services
 Dieser Artikel enthält eine Einführung in die grundlegenden Konzepte der Partitionierung von Azure Service Fabric Reliable Services. Der in diesem Artikel verwendete Quellcode ist auch unter [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)verfügbar.

@@ -1,7 +1,7 @@
 ---
 title: Bereitstellen einer Data Science-VM für geografische KI in Azure – Azure | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie die Data Science-VM für geografische KI erstellen und konfigurieren. Die Data Science-VM für geografische KI bietet Ihnen die Tools zum Erstellen von KI und ML-Lösungen mit geografischen Daten.
-keywords: deep learning, KI, data science-tools, data science-VM, räumliche Analysen
+keywords: Deep Learning, KI, Data Science-Tools, virtueller Data Science-Computer, räumliche Analysen
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59008837"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60578552"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Bereitstellen einer Data Science-VM für geografische KI in Azure 
 

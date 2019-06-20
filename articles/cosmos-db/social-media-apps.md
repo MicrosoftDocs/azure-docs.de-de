@@ -4,14 +4,14 @@ description: Erfahren Sie mehr über ein Entwurfsmuster für soziale Netzwerke d
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100362"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256874"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Soziale Medien mit Azure Cosmos DB
 

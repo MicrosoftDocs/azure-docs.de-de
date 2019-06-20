@@ -9,10 +9,10 @@ ms.date: 03/19/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205627"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Exemplarische Vorgehensweise für die Azure Monitoring-REST-API
@@ -98,7 +98,7 @@ Verwenden Sie die [Azure Monitor-REST-API für Metrikdefinitionen](https://docs.
 
 **Methode**: GET
 
-**Anforderungs-URI**: https:\/\/management.azure.com/subscriptions/*{abonnementID}*/resourceGroups/*{ressourcenGruppenName}*/providers/*{ressourcenAnbieterNamespace}*/*{ressourcenTyp}*/*{ressourcenName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+**Anforderungs-URI**: https:\/\/management.azure.com/subscriptions/ *{abonnementID}* /resourceGroups/ *{ressourcenGruppenName}* /providers/ *{ressourcenAnbieterNamespace}* / *{ressourcenTyp}* / *{ressourcenName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
 
 Für das Abrufen von Metrikdefinitionen für ein Azure Storage-Konto würde die Anforderung folgendermaßen aussehen:
 
@@ -242,7 +242,7 @@ Verwenden Sie den Metriknamen „value“ (nicht „localizedValue“) für säm
 
 **Methode**: GET
 
-**Anforderungs-URI**: https\://management.azure.com/subscriptions/*{abonnement-id}*/resourceGroups/*{ressourcen-gruppen-name}*/providers/*{ressourcen-anbieter-namespace}*/*{ressourcen-typ}*/*{ressourcen-name}*/providers/microsoft.insights/metrics?metricnames=*{metrik}*&timespan=*{startzeit/endzeit}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+**Anforderungs-URI**: https\://management.azure.com/subscriptions/ *{abonnement-id}* /resourceGroups/ *{ressourcen-gruppen-name}* /providers/ *{ressourcen-anbieter-namespace}* / *{ressourcen-typ}* / *{ressourcen-name}* /providers/microsoft.insights/metrics?metricnames= *{metrik}* &timespan= *{startzeit/endzeit}* &$filter= *{filter}* &resultType=metadata&api-version= *{apiVersion}*
 
 Die Anforderung zum Abrufen der Liste mit Dimensionswerten, die für die Dimension „API Name“ für die Metrik „Transactions“ ausgegeben wurden (wobei für den angegebenen Zeitraum „GeoType = Primary“ gilt), würde die Anforderung beispielsweise wie folgt lauten:
 
@@ -315,7 +315,7 @@ Verwenden Sie den Metriknamen „value“ (nicht „localizedValue“) für säm
 
 **Methode**: GET
 
-**Anforderungs-URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**Anforderungs-URI**: https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &interval= *{timeGrain}* &aggregation= *{aggreation}* &api-version= *{apiVersion}*
 
 Die Anforderung zum Abrufen der drei zuerst aufgeführten APIs in absteigender Reihenfolge in Bezug auf die Anzahl von „Transactions“ während eines Zeitraums von fünf Minuten, wobei „GeoType = Primary“ gilt, würde beispielsweise wie folgt lauten:
 
@@ -394,7 +394,7 @@ Verwenden Sie die [Azure Monitor-REST-API für Metrikdefinitionen](https://msdn.
 
 **Methode**: GET
 
-**Anforderungs-URI**: https:\/\/management.azure.com/subscriptions/*{abonnementID}*/resourceGroups/*{ressourcenGruppenName}*/providers/*{ressourcenAnbieterNamespace}*/*{ressourcenTyp}*/*{ressourcenName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+**Anforderungs-URI**: https:\/\/management.azure.com/subscriptions/ *{abonnementID}* /resourceGroups/ *{ressourcenGruppenName}* /providers/ *{ressourcenAnbieterNamespace}* / *{ressourcenTyp}* / *{ressourcenName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
 
 Für das Abrufen von Metrikdefinitionen für eine Azure-Logik-App würde die Anforderung folgendermaßen aussehen:
 
@@ -467,7 +467,7 @@ Sobald die verfügbaren Metrikdefinitionen bekannt sind, können die entsprechen
 
 **Methode**: GET
 
-**Anforderungs-URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*
+**Anforderungs-URI**: https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?$filter= *{filter}* &api-version= *{apiVersion}*
 
 Um zum Beispiel RunsSucceeded-Metrikdatenpunkte für einen bestimmten Zeitraum und ein Aggregationsintervall von einer Stunde abzurufen, sähe die Anforderung wie folgt aus:
 
@@ -605,13 +605,13 @@ Für den oben angegebenen Code muss als Ressourcen-ID der vollständige Pfad zur
 
 Die folgende Liste enthält einige Beispiele für Ressourcen-ID-Formate für verschiedene Azure-Ressourcen:
 
-* **IoT Hub** – /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
-* **Elastischer SQL-Pool** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
-* **SQL-Datenbank (v12)** – /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{server-name}*/databases/*{database-name}*
-* **Service Bus** – /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{servicebus-name}*
-* **VM-Skalierungsgruppen** – /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
-* **VMs** – /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
-* **Event Hubs** – /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-namespace}*
+* **IoT Hub** – /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Devices/IotHubs/ *{iot-hub-name}*
+* **Elastischer SQL-Pool** - /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Sql/servers/ *{pool-db}* /elasticpools/ *{sql-pool-name}*
+* **SQL-Datenbank (v12)** – /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Sql/servers/ *{server-name}* /databases/ *{database-name}*
+* **Service Bus** – /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.ServiceBus/ *{namespace}* / *{servicebus-name}*
+* **VM-Skalierungsgruppen** – /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
+* **VMs** – /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.Compute/virtualMachines/ *{vm-name}*
+* **Event Hubs** – /subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/Microsoft.EventHub/namespaces/ *{eventhub-namespace}*
 
 Es gibt alternative Ansätze für das Abrufen von Ressourcen-ID – darunter die Verwendung von Azure-Ressourcen-Explorers – und für das Anzeigen der gewünschten Ressource im Azure-Portal, über PowerShell oder die Azure-CLI.
 

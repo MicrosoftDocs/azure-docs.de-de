@@ -1,25 +1,18 @@
 ---
-title: Windows-Remoteverwaltung über HTTPS für Azure | Microsoft-Dokumentation
-description: .
+title: Windows-Remoteverwaltung über HTTPS für Azure | Azure Marketplace
+description: Erläutert, wie ein in Azure gehosteter Windows-basierter virtueller Computer so konfiguriert wird, dass er mit Remotezugriff über PowerShell verwaltet werden kann.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: pabutler
+ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938225"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows-Remoteverwaltung über HTTPS
 

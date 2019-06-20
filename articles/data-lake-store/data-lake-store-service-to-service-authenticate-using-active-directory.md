@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884991"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241373"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Dienst-zu-Dienst-Authentifizierung mit Azure Data Lake Storage Gen1 unter Verwendung von Azure Active Directory
 > [!div class="op_single_selector"]
@@ -48,9 +48,9 @@ Wenn Sie die Anweisungen unter dem obigen Link befolgen, stellen Sie sicher, das
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Schritt 2: Abrufen von Anwendungs-ID, Authentifizierungsschlüssel und Mandanten-ID
 Beim programmgesteuerten Anmelden benötigen Sie die ID für Ihre Anwendung. Wenn die Anwendung mit ihren eigenen Anmeldeinformationen ausgeführt wird, benötigen Sie außerdem einen Authentifizierungsschlüssel.
 
-* Eine Anleitung zum Abrufen der Anwendungs-ID und des Authentifizierungsschlüssels (auch „Clientgeheimnis“ genannt) finden Sie unter [Abrufen der Anwendungs-ID und des Authentifizierungsschlüssels](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Eine Anleitung zum Abrufen der Anwendungs-ID und des Authentifizierungsschlüssels (auch „Clientgeheimnis“ genannt) finden Sie unter [Abrufen der Anwendungs-ID und des Authentifizierungsschlüssels](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-* Informationen zum Abrufen der Mandanten-ID finden Sie unter [Abrufen der Mandanten-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Informationen zum Abrufen der Mandanten-ID finden Sie unter [Abrufen der Mandanten-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Schritt 3: Zuweisen der Azure AD-Anwendung zur Datei oder zum Ordner des Azure Data Lake Storage Gen1-Kontos
 

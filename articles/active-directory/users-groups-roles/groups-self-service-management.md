@@ -16,11 +16,11 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b860257fd1b3f0897152dc3d48bff0c7e1d3d994
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60469860"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Einrichten der Self-Service-Gruppenverwaltung in Azure Active Directory 
 

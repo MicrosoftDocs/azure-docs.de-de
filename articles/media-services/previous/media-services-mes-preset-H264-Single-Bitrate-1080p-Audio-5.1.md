@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 83d1c279552a75b959c19fb37e859806571f48eb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463615"
 ---
 # <a name="h264-single-bitrate-1080p-audio-51"></a>H264 Single Bitrate 1080p Audio 5.1
 

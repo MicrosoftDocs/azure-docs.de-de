@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116774"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60556973"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Verwenden der Geowiederherstellung zum Wiederherstellen einer mehrinstanzenfähigen SaaS-Anwendung aus Datenbanksicherungen
 
@@ -80,7 +80,7 @@ Die NW-Skripts, die in diesem Tutorial verwendet werden, sind im [GitHub-Reposit
 ## <a name="review-the-healthy-state-of-the-application"></a>Überprüfen des ordnungsgemäßen Zustands der Anwendung
 Bevor Sie den Wiederherstellungsprozess starten, sollten Sie den normalen ordnungsgemäßen Zustand der Anwendung überprüfen.
 
-1. Öffnen Sie in Ihrem Webbrowser den Wingtip Tickets-Event Hub (http://events.wingtip-dpt.&lt;Benutzer&gt;.trafficmanager.net). Ersetzen Sie dabei &lt;Benutzer&gt; durch den Benutzerwert Ihrer Bereitstellung.
+1. Öffnen Sie in Ihrem Webbrowser den Wingtip Tickets-Event Hub (http://events.wingtip-dpt.&lt ;Benutzer&gt;.trafficmanager.net). Ersetzen Sie dabei &lt; Benutzer&gt; durch den Benutzerwert Ihrer Bereitstellung.
     
    Scrollen Sie zum unteren Rand der Seite, und beachten Sie den Katalogservernamen und den Standort in der Fußzeile. Der Standort entspricht die Region, in der Sie die App bereitgestellt haben.    
 
@@ -200,7 +200,7 @@ Solange der Anwendungsendpunkt in Traffic Manager deaktiviert ist, ist die Anwen
  
     ![Wiederherstellungsprozess](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Wenn Sie die Veranstaltungsseite eines Mandanten direkt öffnen, während der Mandant offline ist, wird auf der Seite eine Benachrichtigung angezeigt, dass der Mandant offline ist. Versuchen Sie beispielsweise, wenn Contoso Concert Hall offline ist, „http://events.wingtip-dpt.&lt;Benutzer&gt;.trafficmanager.net/contosoconcerthall“ zu öffnen.
+  * Wenn Sie die Veranstaltungsseite eines Mandanten direkt öffnen, während der Mandant offline ist, wird auf der Seite eine Benachrichtigung angezeigt, dass der Mandant offline ist. Versuchen Sie beispielsweise, wenn Contoso Concert Hall offline ist, „http://events.wingtip-dpt.&lt ;Benutzer&gt;.trafficmanager.net/contosoconcerthall“ zu öffnen.
 
     ![Wiederherstellungsprozess](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +266,7 @@ In dieser Aufgabe aktualisieren Sie eine der wiederhergestellten Mandantendatenb
 
 3. Wählen Sie F5 aus, um das Skript auszuführen.
 
-4. Aktualisieren Sie die Contoso Concert Hall-Veranstaltungsseite (http://events.wingtip-dpt.&lt;Benutzer&gt;.trafficmanager.net/contosoconcerthall). Sie können sehen, dass die Veranstaltung „Seriously Strauss“ fehlt.
+4. Aktualisieren Sie die Contoso Concert Hall-Veranstaltungsseite (http://events.wingtip-dpt.&lt ;Benutzer&gt;.trafficmanager.net/contosoconcerthall). Sie können sehen, dass die Veranstaltung „Seriously Strauss“ fehlt.
 
 An dieser Stelle des Tutorials haben Sie die Anwendung wiederhergestellt, die jetzt in der Wiederherstellungsregion ausgeführt wird. Sie haben einen neuen Mandanten in der Wiederherstellungsregion bereitgestellt und Daten von einem der wiederhergestellten Mandanten geändert.  
 
@@ -330,7 +330,7 @@ Wenn Sie dem Tutorial gefolgt sind, werden Fabrikam Jazz Club und Dogwood Dojo v
 
     Wählen Sie F5 aus, um das Wiederherstellungsskript in einem neuen PowerShell-Fenster auszuführen. Die Rückführung dauert einige Minuten und kann im PowerShell-Fenster überwacht werden.
 
-3. Aktualisieren Sie während der Skriptausführung die Seite für den Event Hub (http://events.wingtip-dpt.&lt;Benutzer&gt;.trafficmanager.net).
+3. Aktualisieren Sie während der Skriptausführung die Seite für den Event Hub (http://events.wingtip-dpt.&lt ;Benutzer&gt;.trafficmanager.net).
 
     Sie können sehen, dass alle Mandanten im gesamten Verlauf dieses Prozesses online und für Zugriffe verfügbar sind.
 

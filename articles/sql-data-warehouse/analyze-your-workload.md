@@ -1,5 +1,5 @@
 ---
-title: Analysieren Ihrer Workload – Azure SQL Data Warehouse | Microsoft-Dokumentation
+title: Analysieren Ihrer Workload in Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Lernen Sie Techniken zum Analysieren von Abfrageprioritäten für Ihre Workload in Azure SQL Data Warehouse kennen.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f470670ae3d526f3b66badf219a01a471c24db0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310726"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242237"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analysieren Ihrer Workload in Azure SQL Data Warehouse
 

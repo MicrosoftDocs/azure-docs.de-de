@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: cherylmc
 ms.openlocfilehash: b673be47d4951adab08f04efc56410095f549356
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60766167"
 ---
 # <a name="generate-and-export-certificates"></a>Generieren und Exportieren von Zertifikaten
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
 ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60593340"
 ---
 # <a name="available-relay-apis"></a>Verfügbare Relay-APIs
 

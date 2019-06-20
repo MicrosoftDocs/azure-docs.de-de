@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2adc706c5da4fa53ace2a8a471789e276878c491
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145042"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255856"
 ---
 # <a name="status-monitor-v2"></a>Statusmonitor v2
 
@@ -62,6 +62,11 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
    Es gibt kein Cmdlet, um sicherzustellen, dass die Aktivierung erfolgreich war. Daher wird empfohlen, [Livemetriken](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) zu verwenden, um schnell herauszufinden, ob Ihre Anwendung uns Telemetriedaten sendet.
 
+   Sie können auch [Analytics](../log-query/get-started-portal.md) verwenden, um alle Cloudrollen aufzulisten, die derzeit Telemetriedaten senden.
+   ```Kusto
+   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+   ```
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 Anzeigen der Telemetrie:
@@ -69,7 +74,7 @@ Anzeigen der Telemetrie:
 * [Untersuchen Sie Metriken](../../azure-monitor/app/metrics-explorer.md) für die Überwachung von Leistung und Auslastung.
 * [Durchsuchen Sie Ereignisse und Protokolle](../../azure-monitor/app/diagnostic-search.md), um Probleme zu diagnostizieren.
 * [Verwenden Sie Analytics](../../azure-monitor/app/analytics.md) für erweiterte Abfragen.
-* [Erstellen Sie Dashboards.](../../azure-monitor/app/app-insights-dashboards.md)
+* [Erstellen Sie Dashboards.](../../azure-monitor/app/overview-dashboard.md)
 
 Hinzufügen weiterer Telemetrieelemente:
 

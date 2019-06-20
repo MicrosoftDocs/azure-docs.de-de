@@ -12,11 +12,11 @@ ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
 ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446527"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515452"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Problembehandlung für das Speech SDK
 

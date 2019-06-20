@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: yegu
 ms.openlocfilehash: de0b2e3ef7b0268540ef4896ade132a297ee88ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233982"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60543442"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Konfigurieren von Datenpersistenz für Azure Cache for Redis vom Typ „Premium“
 Für Azure Cache for Redis stehen verschiedene Cacheangebote bereit, die Flexibilität bei der Auswahl von Cachegröße und -features bieten, einschließlich Features des Premium-Tarifs wie die Unterstützung für Clustering, Persistenz und virtuelle Netzwerke. In diesem Artikel wird erläutert, wie die Persistenz in einer Azure Cache for Redis-Instanz vom Typ „Premium“ konfiguriert wird.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345120"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Bereitstellen von Azure Machine Learning Studio-Webdiensten, die Module zum Importieren und Exportieren von Daten verwenden
 
@@ -67,7 +67,7 @@ So lesen Sie die Daten aus der Azure SQL-Tabelle:
 ## <a name="create-the-predictive-experiment"></a>Erstellen des Vorhersageexperiments
 Als Nächstes richten Sie das Vorhersageexperiment ein, über das Sie Ihren Webdienst bereitstellen.
 
-1. Klicken Sie am unteren Rand des Experimentbereichs auf **Set Up Web Service**, und wählen Sie **Predictive Web Service [Recommended]**.
+1. Klicken Sie am unteren Rand des Experimentbereichs auf **Set Up Web Service**, und wählen Sie **Predictive Web Service [Recommended]** .
 2. Entfernen Sie die Module *Web Service Input* und *Web Service Output* aus dem Vorhersageexperiment.
 3. Geben Sie im Komponentensuchfeld „export“ ein.
 4. Fügen Sie aus der Ergebnisliste ein Modul *Export Data* im Experimentbereich hinzu.
@@ -100,10 +100,10 @@ Sie können entweder einen klassischen oder einen neuen Webdienst bereitstellen.
 So stellen Sie einen klassischen Webdienst bereit und erstellen eine Anwendung, die ihn verwendet:
 
 1. Klicken Sie am unteren Rand des Experimentbereichs auf „Run“.
-2. Wenn die Ausführung abgeschlossen ist, klicken Sie auf **Deploy Web Service** und wählen **Deploy Web Service [Classic]**.
+2. Wenn die Ausführung abgeschlossen ist, klicken Sie auf **Deploy Web Service** und wählen **Deploy Web Service [Classic]** .
 3. Suchen Sie Ihren API-Schlüssel auf dem Webdienst-Dashboard. Kopieren Sie ihn und speichern Sie ihn zur späteren Verwendung.
 4. Klicken Sie in der Tabelle **Default Endpoint** auf den Link **Batch Execution**, um die API-Hilfeseite zu öffnen.
-5. Erstellen Sie in Visual Studio eine C#-Konsolenanwendung: **Neu** > **Projekt** > **Visual C#** > **Klassischer Windows-Desktop** > **Konsolen-App (.NET Framework)**.
+5. Erstellen Sie in Visual Studio eine C#-Konsolenanwendung: **Neu** > **Projekt** > **Visual C#**  > **Klassischer Windows-Desktop** > **Konsolen-App (.NET Framework)** .
 6. Am unteren Rand der API-Hilfeseite finden Sie den Abschnitt **Sample Code** .
 7. Kopieren Sie den C#-Beispielcode, fügen Sie ihn in die Datei „Program.cs“ ein, und entfernen Sie alle Verweise auf den Blobspeicher.
 8. Aktualisieren Sie den Wert der Variablen *apiKey* mit dem zuvor gespeicherten API-Schlüssel.
@@ -128,11 +128,11 @@ Nach Abschluss der Ausführung wird der Datenbank eine neue Tabelle mit den Bewe
 So stellen Sie einen neuen Webdienst bereit und erstellen eine Anwendung, die ihn verwendet:
 
 1. Klicken Sie am unteren Rand des Experimentbereichs auf **Run**.
-2. Wenn die Ausführung abgeschlossen ist, klicken Sie auf **Deploy Web Service** und wählen **Deploy Web Service [New]**.
+2. Wenn die Ausführung abgeschlossen ist, klicken Sie auf **Deploy Web Service** und wählen **Deploy Web Service [New]** .
 3. Geben Sie auf der Seite „Deploy Experiment“ einen Namen für den Webdienst ein, wählen Sie einen Tarif aus, und klicken Sie auf **Deploy**.
 4. Klicken Sie auf der Seite **Quickstart** auf **Consume**.
 5. Klicken Sie im Abschnitt **Sample Code** auf **Batch**.
-6. Erstellen Sie in Visual Studio eine C#-Konsolenanwendung: **Neu** > **Projekt** > **Visual C#** > **Klassischer Windows-Desktop** > **Konsolen-App (.NET Framework)**.
+6. Erstellen Sie in Visual Studio eine C#-Konsolenanwendung: **Neu** > **Projekt** > **Visual C#**  > **Klassischer Windows-Desktop** > **Konsolen-App (.NET Framework)** .
 7. Kopieren Sie den C#-Beispielcode, und fügen Sie ihn in die Datei „Program.cs“ ein.
 8. Aktualisieren Sie den Wert der Variablen *apiKey* mit dem **Primary Key** im Abschnitt **Basic consumption info**.
 9. Suchen Sie die Deklaration *scoreRequest*, und aktualisieren Sie die Werte der Webdienstparameter, die den Modulen *Import Data* und *Export Data* übergeben werden. In diesem Fall verwenden Sie die ursprüngliche Abfrage, definieren aber einen neuen Tabellennamen.

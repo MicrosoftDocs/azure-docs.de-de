@@ -1,25 +1,18 @@
 ---
-title: Verwalten von Angeboten im Azure Marketplace und im AppSource-Marketplace | Microsoft-Dokumentation
+title: Verwalten von Angeboten im Azure Marketplace und im AppSource-Marketplace | Azure Marketplace
 description: Verwalten von Angeboten im Azure Marketplace und im AppSource-Marketplace
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fa5280fd834d6defaf2816167a73bf72dc3d0a1c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.author: pabutler
+ms.openlocfilehash: 8a03ce94971d704aa38c1be5d7cfbb3c24bd2f82
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355136"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943359"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Verwalten von Angeboten im Azure Marketplace und im AppSource-Marketplace
 

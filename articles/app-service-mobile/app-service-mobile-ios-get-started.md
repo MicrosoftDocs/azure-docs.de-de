@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: d0d6a3d9da2768c2d7b04bd9c4a7c24fba9eb65e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 60190e0f8441d52b3d753e1dc79c67f480434dbb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781679"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240283"
 ---
 # <a name="create-an-ios-app"></a>Erstellen einer iOS-App
 
@@ -31,15 +31,14 @@ In diesem Tutorial erfahren Sie, wie Sie [Azure Mobile App Service-Apps](app-ser
 
 Sie benötigen einen Mac und ein [Azure-Konto](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Schritt I: Erstellen eines neuen mobilen Azure-App-Back-Ends
+## <a name="create-a-new-azure-mobile-app-backend"></a>Erstellen eines neuen mobilen Azure-App-Back-Ends
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="step-ii-configure-the-backend-project"></a>Schritt II: Konfigurieren des Back-End-Projekts
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Erstellen einer Datenbankverbindung und Konfigurieren des Client- und Serverprojekts
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="step-iii-download-and-run-the-ios-app"></a>Schritt III: Herunterladen und Ausführen der iOS-App
+## <a name="run-the-ios-app"></a>Ausführen der iOS-App
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

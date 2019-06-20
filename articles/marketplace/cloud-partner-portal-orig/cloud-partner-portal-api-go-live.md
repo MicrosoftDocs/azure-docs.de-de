@@ -1,25 +1,18 @@
 ---
-title: Live schalten | Microsoft-Dokumentation
+title: Live schalten | Azure Marketplace
 description: Der Live schalten-API initiiert den Prozess, in dem das Angebot zur Auflistung freigeschaltet (live geschaltet) wird.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.author: pabutler
+ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594677"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935490"
 ---
 <a name="go-live"></a>Live schalten
 =======
@@ -33,9 +26,9 @@ Diese API startet den Prozess zum Überführen einer App in den Produktionsstatu
 
 |  **Name**      |   **Beschreibung**                                                           | **Datentyp** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Herausgeber-ID für das abzurufende Angebot, z. B. `contoso`       |  Zeichenfolge       |
-| offerId        | Angebots-ID des abzurufenden Angebots                                   |  Zeichenfolge       |
-| api-version    | Aktuelle Version der API                                                   |  Datum         |
+| publisherId    | Herausgeber-ID für das abzurufende Angebot, z. B. `contoso`       |  string       |
+| offerId        | Angebots-ID des abzurufenden Angebots                                   |  string       |
+| api-version    | Aktuelle Version der API                                                   |  Date         |
 |  |  |  |
 
 

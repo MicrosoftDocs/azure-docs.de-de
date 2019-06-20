@@ -1,25 +1,18 @@
 ---
-title: Seller Insights – häufig gestellte Fragen | Microsoft-Dokumentation
+title: Seller Insights – häufig gestellte Fragen
 description: Häufig gestellte Fragen zum Feature Seller Insights des Cloud-Partnerportals.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806674"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943096"
 ---
 <a name="seller-insights-faq"></a>Seller Insights – häufig gestellte Fragen
 ===================
@@ -42,19 +35,19 @@ Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlun
 <a name="calculate-my-open-accounts-receivable"></a>Berechnen meiner Außenstände
 -------------------------------------
 
-Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlung“ die Spalte mit der Bezeichnung **Auszahlungsstatus** an, und wenden Sie den Filter zur ausschließlichen Anzeige der Werte „Bevorstehende Auszahlung“ und „Nicht auszahlungsbereit“ an. Bilden Sie dann die Summe der Spalte mit der Bezeichnung **Auszahlungsbetrag (PC)**.
+Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlung“ die Spalte mit der Bezeichnung **Auszahlungsstatus** an, und wenden Sie den Filter zur ausschließlichen Anzeige der Werte „Bevorstehende Auszahlung“ und „Nicht auszahlungsbereit“ an. Bilden Sie dann die Summe der Spalte mit der Bezeichnung **Auszahlungsbetrag (PC)** .
 
 
 <a name="calculate-revenue-by-customer-usage-period"></a>Berechnen des Umsatzes nach Kundennutzungsdauer
 ------------------------------------------
 
-Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlung“ die Spalte mit der Bezeichnung **Transaktionsstatus** an, und wenden Sie den Filter auf den Wert „Bezahlt“ an.   Für jede aufgelistete Transaktion gibt die Spalte mit der Bezeichnung **Auszahlungsbetrag (PC)** den Betrag an, der Ihnen bezahlt wurde.  Um die mit der Transaktion verbundene Nutzungsdauer zu schätzen, verwenden Sie die Spalte **Abrechnungsdatum**, eine enge Annäherung an den letzten Nutzungstag des Zeitraums, auf den sich die Transaktion bezieht.
+Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlung“ die Spalte mit der Bezeichnung  **Transaktionsstatus** an, und wenden Sie den Filter auf den Wert „Bezahlt“ an.   Für jede aufgelistete Transaktion gibt die Spalte mit der Bezeichnung  **Auszahlungsbetrag (PC)**   den Betrag an, der Ihnen bezahlt wurde.  Um die mit der Transaktion verbundene Nutzungsdauer zu schätzen, verwenden Sie die Spalte  **Abrechnungsdatum**, eine enge Annäherung an den letzten Nutzungstag des Zeitraums, auf den sich die Transaktion bezieht.
 
 
 <a name="calculate-your-bad-debt"></a>Berechnen Ihres Forderungsausfalls
 ---------------------
 
-Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlung“ die Spalte mit der Bezeichnung **Endgültiger Inkassostatus** an, und wenden Sie den Filter zur ausschließlichen Anzeige des Werts „Abschreibung“ an. Bilden Sie dann die Summe der Spalte mit der Bezeichnung **Auszahlungsbetrag (PC)**.
+Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlung“ die Spalte mit der Bezeichnung **Endgültiger Inkassostatus** an, und wenden Sie den Filter zur ausschließlichen Anzeige des Werts „Abschreibung“ an. Bilden Sie dann die Summe der Spalte mit der Bezeichnung **Auszahlungsbetrag (PC)** .
 
 
 <a name="view-payout-or-customer-contact-information"></a>Anzeigen von Auszahlungs- oder Kundenkontaktinformationen
@@ -66,7 +59,7 @@ Melden Sie sich als Benutzer mit der Rolle „Besitzer“ und nicht „Mitwirken
 <a name="calculate-my-advance-payouts"></a>Berechnen meiner Vorauszahlungen
 ----------------------------
 
-Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlung“ die Spalte mit der Bezeichnung **Transaktionstyp** an, und wenden Sie den Filter zur ausschließlichen Anzeige des Werts „Gebühr“ an. Zeigen Sie als nächstes die Spalte mit der Bezeichnung **Endgültiger Inkassostatus** an, und wenden Sie den Filter zur ausschließlichen Anzeige des Werts „In Bearbeitung“ an. Bilden Sie schließlich die Summe der Spalte **Auszahlungsbetrag (PC)**, um alle Vorauszahlungen zu berechnen, die an Sie geleistet wurden, bevor Sie den Betrag beim Kunden eingezogen haben.
+Zeigen Sie nach dem Herunterladen Ihrer Transaktionen aus dem Modul „Auszahlung“ die Spalte mit der Bezeichnung **Transaktionstyp** an, und wenden Sie den Filter zur ausschließlichen Anzeige des Werts „Gebühr“ an. Zeigen Sie als nächstes die Spalte mit der Bezeichnung **Endgültiger Inkassostatus** an, und wenden Sie den Filter zur ausschließlichen Anzeige des Werts „In Bearbeitung“ an. Bilden Sie schließlich die Summe der Spalte **Auszahlungsbetrag (PC)** , um alle Vorauszahlungen zu berechnen, die an Sie geleistet wurden, bevor Sie den Betrag beim Kunden eingezogen haben.
 
 
 <a name="calculate-customer-refunds"></a>Berechnen von Erstattungen an Kunden

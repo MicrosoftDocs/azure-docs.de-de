@@ -10,11 +10,11 @@ author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
 ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105946"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61333238"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Verbinden einer Node.js Mongoose-Anwendung mit Azure Cosmos DB
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: fc95ce4aad4e8597b02b9c862be33bfcf6185541
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073801"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850414"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installieren und Verwenden von Istio in Azure Kubernetes Service (AKS)
 
@@ -536,6 +536,9 @@ Um mehr über Installations- und Konfigurationsoptionen für Istio zu erfahren, 
 
 Mithilfe des [Istio Bookinfo-Anwendungsbeispiels][istio-bookinfo-example] können Sie sich weitere Szenarios ansehen.
 
+Um zu erfahren, wie Sie Ihre AKS-Anwendung mit Application Insights und Istio überwachen können, lesen Sie die folgende Dokumentation zu Azure Monitor:
+- [Anwendungsüberwachung ohne Instrumentierung für gehostete Kubernetes-Anwendungen][app-insights]
+
 <!-- LINKS - external -->
 [istio]: https://istio.io
 [helm]: https://helm.sh
@@ -561,6 +564,8 @@ Mithilfe des [Istio Bookinfo-Anwendungsbeispiels][istio-bookinfo-example] könne
 [prometheus]: https://prometheus.io/
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
+
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/kubernetes
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

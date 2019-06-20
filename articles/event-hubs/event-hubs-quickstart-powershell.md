@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: fba0d3ac5a20bd4f10b815450f6ce08e50f88ea0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b3847f798fde8702d6d95450c68fbfbca4c97f9d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681300"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604468"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Schnellstart: Erstellen einer Event Hub-Instanz mit Azure PowerShell
 
@@ -31,7 +31,7 @@ In dieser Schnellstartanleitung erstellen Sie einen Event Hub mit Azure PowerShe
 Damit Sie dieses Tutorial ausführen können, benötigen Sie folgende Komponenten:
 
 - Azure-Abonnement. Falls Sie kein Abonnement besitzen, können Sie ein [kostenloses Konto erstellen][], bevor Sie beginnen.
-- [Visual Studio 2017 Update 3 (Version 15.3, 26730.01)](https://www.visualstudio.com/vs) oder höher
+- [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows), Version 2.0 oder höher.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

@@ -17,11 +17,11 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492769"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60441406"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Anzeigen von Aktivitäten und Überwachungsverlauf für Azure-Ressourcenrollen in PIM
 
@@ -89,7 +89,7 @@ Die Ressourcenüberwachung bietet einen Überblick über alle Rollenaktivitäten
 
     ![Aktivitätsdetails](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-1. Klicken Sie unter **Aktion** für einen Benutzer auf **(Aktivität)**, um Details zur Aktivität des Benutzers in Azure-Ressourcen anzuzeigen.
+1. Klicken Sie unter **Aktion** für einen Benutzer auf **(Aktivität)** , um Details zur Aktivität des Benutzers in Azure-Ressourcen anzuzeigen.
 
     ![Details zur Benutzeraktivität](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 

@@ -13,47 +13,51 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/27/2017
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 384cb274496670e0b0b5a33e001e78a0babed3f0
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918245"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427791"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Einführung in Azure Data Science Virtual Machine für Linux und Windows
 
 Der virtuelle Computer für Data Science (DSVM) ist ein benutzerdefiniertes VM-Image in der Microsoft Azure-Cloud, das speziell für Data Science konfiguriert wurde. Es hat viele beliebte Data Science und andere Tools vorinstalliert und vorkonfiguriert, damit Sie sofort intelligente Anwendungen für die erweiterte Analyse erstellen können. Er ist unter Windows Server und Linux verfügbar. Wir bieten eine Windows-Edition von DSVM für Windows Server 2016 und 2012. Wir bieten Linux-Editionen von DSVM für Ubuntu 16.04 LTS und CentOS 7.4.
 
-In diesem Thema wird erläutert, was Sie mit der Data Science-VM tun können, außerdem einige der wichtigsten Szenarios für die Verwendung des virtuellen Computers, sowie die wichtigsten Features für die Windows- und Linux-Versionen, und es enthält Anweisungen zu deren Verwendung.
+In diesem Thema wird erläutert, welche Möglichkeiten die Data Science VM bietet. Außerdem werden einige der wichtigsten Szenarien für die Verwendung der VM sowie die wichtigsten Features für die Windows- und Linux-Versionen vorgestellt. Darüber hinaus enthält dieser Artikel Anweisungen zum Einstieg in die Verwendung der VMs.
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Was kann ich mit dem virtuellen Computer für Data Science tun?
 Das Ziel des virtuellen Computers für Data Science (DSVM) ist, für Datenexperten aller Fähigkeitsebenen und branchenübergreifend eine reibungslose, vorkonfigurierte und vollständig integrierte Data Science-Umgebung bereitzustellen. Statt auf eigene Faust einen vergleichbaren Arbeitsbereich bereitzustellen, können Sie eine DSVM nutzen – was Ihnen Tage oder sogar _Wochen_ bei den mit Installation, Konfiguration und Paketverwaltung einhergehenden Prozessen spart. Nachdem Ihre DSVM zugeordnet wurde, können Sie sofort mit der Arbeit an Ihren Data Science-Projekten beginnen.
 
-Die Data Science-VM ist für das Arbeiten mit einer Vielzahl von Verwendungsszenarien konzipiert und konfiguriert. Sie können Ihre Umgebung vertikal hoch- oder herunterskalieren, wenn sich die Anforderungen Ihres Projekts ändern, Ihre bevorzugte Sprache zum Programmieren von Data Science-Aufgaben verwenden und andere Tools installieren, um das System genau an Ihre Anforderungen anzupassen.
+Die Data Science-VM ist für das Arbeiten mit einer Vielzahl von Verwendungsszenarien konzipiert und konfiguriert. Sie können Ihre Umgebung vertikal hoch- oder herunterskalieren, wenn sich Ihre Anforderungen ändern. Außerdem können Sie Ihre bevorzugte Sprache zum Programmieren von Data Science-Aufgaben verwenden und weitere Tools installieren, um das System exakt an Ihre Anforderungen anzupassen.
 
 ## <a name="key-scenarios"></a>Wichtige Szenarios
 In diesem Abschnitt werden einige wichtige Szenarios genannt, für die Data Science-VM bereitgestellt werden kann.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Vorkonfigurierter Analyse-Desktop in der Cloud
-Die Data Science-VM stellt eine Basiskonfiguration für Data Science-Teams bereit, die ihre lokalen Desktops mit einem verwalteten Cloud-Desktop ersetzen möchten. Diese Grundlage stellt sicher, dass alle Datenanalysten in einem Team ein konsistentes Setup zum Überprüfen von Experimenten und besserer Zusammenarbeit haben. Sie verringert auch Kosten durch Reduzieren der Sysadmin-Last und der notwendigen Zeit zum Auswerten, Installieren und Pflegen der verschiedenen Softwarepakete, die für erweiterte Analysen erforderlich sind.
+Die Data Science-VM stellt eine Basiskonfiguration für Data Science-Teams bereit, die ihre lokalen Desktops mit einem verwalteten Cloud-Desktop ersetzen möchten. Diese Grundlage stellt sicher, dass alle Datenanalysten in einem Team ein konsistentes Setup zum Überprüfen von Experimenten und besserer Zusammenarbeit haben. Sie trägt ferner zu einer Kostenreduzierung durch eine Verringerung des Aufwands für die Systemverwaltung. Dies wiederum führt zu einer Zeitersparnis beim Auswerten, Installieren und Warten der verschiedenen Softwarepakete, die für erweiterte Analysen erforderlich sind.
 
 ### <a name="data-science-training-and-education"></a>Data Science-Schulung und -Ausbildung
-Unternehmens-Trainer und Lehrer, die Data Science Klassen unterrichten, stellen normalerweise ein Image eines virtuellen Computers bereit, um sicherzustellen, dass ihre Schüler eine konsistente Umgebung eingerichtet haben, und dass die Beispiele erwartungsgemäß funktionieren. Die Data Science-VM erstellt eine bedarfsgerechte Umgebung mit einem konsistenten Setup, das den Support erleichtert und Inkompatibilitäts-Probleme vermeidet. Wenn diese Umgebungen häufig bereitgestellt werden müssen, insbesondere für kürzere Schulungen, bringt dies erhebliche Vorteile.
+Ausbilder in Unternehmen und Dozenten, die Data Science-Kurse leiten, stellen in der Regel ein Image eines virtuellen Computers bereit. Auf diese Weise wird sichergestellt, dass für die Kursteilnehmer eine konsistente Umgebung eingerichtet wird und die Beispiele erwartungsgemäß funktionieren. Die Data Science-VM erstellt eine bedarfsgerechte Umgebung mit einem konsistenten Setup, das den Support erleichtert und Inkompatibilitäts-Probleme vermeidet. Wenn diese Umgebungen häufig bereitgestellt werden müssen, insbesondere für kürzere Schulungen, bringt dies erhebliche Vorteile.
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Bei Bedarf flexible Kapazität für umfangreiche Projekte
-Data Science Hackathons/Wettbewerbe oder umfangreiche Datenmodelle und Auswertungen erfordern skalierte Hardwarekapazität, in der Regel für kurze Zeit. Die Data Science-VM kann dazu beitragen, die Data Science-Umgebung bei Bedarf schnell auf skalierten Servern zu replizieren, auf denen Experimente ausgeführt werden können, die leistungsstarke Computing-Ressourcen erfordern.
+Data Science Hackathons/Wettbewerbe oder umfangreiche Datenmodelle und Auswertungen erfordern skalierte Hardwarekapazität, in der Regel für kurze Zeit. Die Data Science VM kann dazu beitragen, die Data Science-Umgebung bei Bedarf schnell auf skalierten Servern zu replizieren, auf denen Experimente ausgeführt werden können, die leistungsstarke Computingressourcen erfordern.
+
+### <a name="custom-compute-power-for-azure-notebooks"></a>Benutzerdefinierte Computeleistung für Azure Notebooks
+
+[Azure Notebooks](/azure/notebooks/azure-notebooks-overview) ist ein kostenloser gehosteter Dienst zum Entwickeln, Ausführen und Freigeben von Jupyter Notebooks in der Cloud ohne Installation. Die kostenlose Dienstebene ist jedoch auf 4 GB Arbeitsspeicher und 1 GB Daten beschränkt. Um sämtliche Einschränkungen aufzuheben, können Sie ein Notebooks-Projekt an eine Data Science-VM oder eine beliebige andere VM mit einem Jupyter-Server anfügen. Wenn Sie sich mit einem Konto über Azure Active Directory (z. B. einem Unternehmenskonto) bei Azure Notebooks anmelden, zeigt Notebooks automatisch virtuelle Data Science-VMs in allen Abonnements an, die mit diesem Konto verknüpft sind. Weitere Informationen finden Sie unter [Verwalten und Konfigurieren von Projekten](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) im Abschnitt zum Compute-Tarif.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Kurzfristige Experimente und Auswertungen
-Die Data Science-VM kann zur Auswertung oder zum Lernen von Tools wie Microsoft ML Server, SQL Server, Visual Studio-Tools, Jupyter, Deep Learning-/ML-Toolkits und neue Tools, die in der Community beliebt sind, mit minimalem Einrichtungsaufwand verwendet werden. Da die Data Science-VM schnell eingerichtet werden kann, kann sie auch in anderen kurzfristigen Szenarios verwendet werden, z.B. Replikation veröffentlichter Experimente, Ausführung von Demos, dem Folgen exemplarischer Vorgehensweisen in Onlinesitzungen und für Konferenz-Tutorials.
+Die Data Science-VM kann zur Auswertung oder zum Lernen von Tools wie Microsoft ML Server, SQL Server, Visual Studio-Tools, Jupyter, Deep Learning-/ML-Toolkits und neue Tools, die in der Community beliebt sind, mit minimalem Einrichtungsaufwand verwendet werden. Da die Data Science VM schnell eingerichtet werden kann, kann sie auch in anderen kurzfristigen Szenarios verwendet werden. Dies umfasst z.B. die Replikation veröffentlichter Experimente, das Ausführen von Demos und exemplarischer Vorgehensweisen in Onlinesitzungen sowie Konferenz-Tutorials.
 
 ### <a name="deep-learning"></a>Deep Learning
-Der virtuelle Computer für Data Science kann zum Modelltraining mit Deep Learning-Algorithmen auf Basis von GPU-Hardware (Grafikprozessoren) verwendet werden. Durch die Skalierungsfunktionen für virtuelle Computer der Azure-Cloud hilft DSVM Ihnen beim Einsatz von GPU-basierter Hardware in der Cloud nach Bedarf. Sie können zu einer GPU-basierten VM wechseln, wenn Sie große Modelle trainieren oder schnelle Berechnungen benötigen, während Sie den gleichen Betriebssystem-Datenträger beibehalten.  Die Windows Server 2016-Edition von DSVM enthält vorinstallierte GPU-Treiber und -Frameworks sowie GPU-Versionen der Deep Learning-Frameworks. Unter der Linux-Edition ist Deep Learning für GPUs sowohl auf CentOS- als auch auf Ubuntu-DSVMs aktiviert. Sie können die Ubuntu-, CentOS- oder Windows 2016-Edition der Data Science-VM auf einem virtuellen Azure-Computer ohne GPU-Aktivierung bereitstellen. In diesem Fall werden aber die Deep Learning-Frameworks in den CPU-Modus zurückgesetzt.
+Der virtuelle Computer für Data Science kann zum Modelltraining mit Deep Learning-Algorithmen auf Basis von GPU-Hardware (Grafikprozessoren) verwendet werden. Durch die Skalierungsfunktionen für virtuelle Computer der Azure-Cloud hilft DSVM Ihnen beim Einsatz von GPU-basierter Hardware in der Cloud nach Bedarf. Sie können zu einer GPU-basierten VM wechseln, wenn Sie große Modelle trainieren oder schnelle Berechnungen benötigen, während Sie den gleichen Betriebssystem-Datenträger beibehalten.  Die Windows Server 2016-Edition von DSVM enthält vorinstallierte GPU-Treiber und -Frameworks sowie GPU-Versionen der Deep Learning-Frameworks. Unter der Linux-Edition ist Deep Learning für GPUs sowohl auf CentOS- als auch auf Ubuntu-DSVMs aktiviert. Sie können die Ubuntu-, CentOS- oder Windows 2016-Edition der Data Science VM auf einer Azure-VM ohne GPU-Aktivierung bereitstellen. In diesem Fall werden aber alle Deep Learning-Frameworks auf den CPU-Modus zurückgesetzt.
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Was ist in der Data Science-VM enthalten?
-Der virtuelle Computer für Data Science hat viele beliebte Data Science- und Deep Learning-Tools bereits installiert und konfiguriert. Außerdem enthält er Tools, die die Nutzung verschiedener Daten- und Analyseprodukte von Azure vereinfachen, z.B. Microsoft ML Server (R, Python) für die Erstellung von Vorhersagemodellen oder SQL Server 2017 für die Untersuchung von Datasets in größerem Umfang. Eine Reihe von anderen Tools der Open-Source-Community und von Microsoft sind ebenfalls enthalten, sowie Beispiel-Code und Notebooks. Die folgende Tabelle enthält eine Aufzählung und einen Vergleich der wichtigsten Komponenten Windows- und Linux-Editionen des virtuellen Computers für Data Science.
+Der virtuelle Computer für Data Science hat viele beliebte Data Science- und Deep Learning-Tools bereits installiert und konfiguriert. Außerdem enthält er Tools, die die Nutzung verschiedener Daten- und Analyseprodukte von Azure vereinfachen, z.B. Microsoft ML Server (R, Python) für die Erstellung von Vorhersagemodellen oder SQL Server 2017 für die Untersuchung von Datasets in größerem Umfang. Die Data Science VM umfasst zahlreiche weitere Tools aus der Open Source-Community und von Microsoft, außerdem Beispielcode und Notebooks. Die folgende Tabelle enthält eine Aufzählung und einen Vergleich der wichtigsten Komponenten Windows- und Linux-Editionen des virtuellen Computers für Data Science.
 
 
 | **Tool**                                                           | **Windows-Edition** | **Linux-Edition** |
@@ -76,7 +80,7 @@ Der virtuelle Computer für Data Science hat viele beliebte Data Science- und De
 | JupyterHub (Notebook-Server für mehrere Benutzer)| N | J |
 | JupyterLab (Notebook-Server für mehrere Benutzer) | N | Y (nur Ubuntu) |
 | **Entwicklungstools, IDEs und Code-Editoren**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) mit Git-Plug-In, Azure HDInsight (Hadoop), Data Lake, SQL Server Data-Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) und [R Tools für Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | J | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2019 (Community Edition)](https://www.visualstudio.com/community/) mit Git-Plug-In, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) und [R Tools für Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | J | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Visual Studio Code](https://code.visualstudio.com/) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | J | J |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | J |

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: e0e065b23581f297ee4ae2288a6e437da461a19f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60362100"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>Was ist mit dem ASP.NET-Projekt passiert (verbundene Visual Studio-Dienste für Azure Storage)?
 ## <a name="references-added"></a>Verweise wurden hinzugefügt

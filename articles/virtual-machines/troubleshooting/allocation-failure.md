@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316625"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60505811"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Problembehandlung für Zuordnungsfehler beim Erstellen, Neustarten oder Ändern der Größen von virtuellen Computern in Azure
 
@@ -51,7 +51,7 @@ Zum Beenden: Klicken Sie auf „Ressourcengruppen“ > [Ihre Ressourcengruppe] >
 Wählen Sie nach dem Beenden aller virtuellen Computer den ersten virtuellen Computer aus, und klicken Sie dann auf „Starten“.
 Durch diesen Schritt wird sichergestellt, dass ein neuer Zuordnungsversuch ausgeführt wird und ein neuer Cluster ausgewählt werden kann, der über genügend Kapazität verfügt.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Neustart teilweise beendeter (zuordnungsaufgehobener) virtueller Computer 
+## <a name="restart-partially-stopped-deallocated-vms"></a>Neustart teilweise beendeter (zuordnungsaufgehobener) virtueller Computer
 
 ### <a name="cause"></a>Ursache
 

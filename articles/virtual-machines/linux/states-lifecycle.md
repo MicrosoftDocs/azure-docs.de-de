@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 31933b0297dd821340313df04b3f6eccd5865e13
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: d7341c40b8a130b81e61277daf306f7a900d24ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704470"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Lebenszyklus und Status virtueller Computer
 

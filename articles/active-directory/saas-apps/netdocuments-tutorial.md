@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1a1acde81baa596e71b7e39763b0464c8de2fb86
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281878"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Tutorial: Azure Active Directory-Integration mit NetDocuments
 
@@ -75,12 +75,12 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Um das einmalige Anmelden von Azure AD mit NetDocuments konfigurieren und testen zu können, ist Folgendes erforderlich:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für NetDocuments](#configure-netdocuments-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines NetDocuments-Testbenutzers](#create-netdocuments-test-user)**, um eine Entsprechung von Britta Simon in NetDocuments zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für NetDocuments](#configure-netdocuments-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines NetDocuments-Testbenutzers](#create-netdocuments-test-user)** , um eine Entsprechung von Britta Simon in NetDocuments zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -104,12 +104,12 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD mit NetDocu
 
     ![SSO-Informationen zur Domäne und zu den URLs für NetDocuments](common/sp-reply.png)
 
-    a. Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`.
+    a. Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`.
 
-    b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     > [!NOTE]
-    > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächlichen Werte für Anmelde-URL und Antwort-URL. Wenden Sie sich an das [Clientsupportteam von NetDocuments](https://support.netdocuments.com/hc/), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
+    > Hierbei handelt es sich um Beispielwerte. Ersetzen Sie diese Werte durch die tatsächlichen Werte für Anmelde-URL und Antwort-URL. Die Repository-ID ist ein Wert, der mit **CA-** beginnt, gefolgt von einem Code aus acht Zeichen, der Ihrem NetDocuments-Repository zugeordnet ist. Weitere Informationen können Sie dem [Supportdokument zur Verbundidentität von NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) entnehmen. Sie können sich auch an das [Kundensupportteam von NetDocuments](https://support.netdocuments.com/hc/) wenden, um diese Werte zu erhalten, falls Schwierigkeiten beim Konfigurieren mithilfe der oben angegebenen Informationen auftreten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
 5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML**-Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 

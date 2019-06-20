@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897101"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60372029"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Erstellen eines zusätzlichen Azure-Abonnements für eine Microsoft-Kundenvereinbarung
 
@@ -27,7 +27,7 @@ Erstellen Sie weitere Abonnements für Ihr Abrechnungskonto, um separate Umgebun
 
 Dieser Artikel bezieht sich auf ein Abrechnungskonto für eine Microsoft-Kundenvereinbarung. [Überprüfen Sie, ob Sie Zugriff auf eine Microsoft-Kundenvereinbarung haben](#check-access-to-a-microsoft-customer-agreement). Wenn Sie Abonnements für andere Abrechnungskonten erstellen möchten, lesen Sie [Erstellen eines zusätzlichen Azure-Abonnements im Azure-Portal](billing-create-subscription.md).
 
-Um ein Abonnement erstellen zu können, muss Ihnen die Rolle **Rechnungsabschnitt (Besitzer)**, **Rechnungsabschnitt (Mitwirkender)** oder **Azure-Abonnementersteller** zugewiesen sein. Weitere Informationen finden Sie unter [Rollen und Aufgaben für die Abonnementabrechnung](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). Wenn Sie anderen Benutzern die Berechtigung zum Erstellen von Azure-Abonnements für Ihr Abrechnungskonto erteilen möchten, lesen Sie den Abschnitt [Zuweisen der Berechtigung zum Erstellen von Azure-Abonnements für andere Benutzer](#give-others-permission-to-create-azure-subscriptions).
+Um ein Abonnement erstellen zu können, muss Ihnen die Rolle **Rechnungsabschnitt (Besitzer)** , **Rechnungsabschnitt (Mitwirkender)** oder **Azure-Abonnementersteller** zugewiesen sein. Weitere Informationen finden Sie unter [Rollen und Aufgaben für die Abonnementabrechnung](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). Wenn Sie anderen Benutzern die Berechtigung zum Erstellen von Azure-Abonnements für Ihr Abrechnungskonto erteilen möchten, lesen Sie den Abschnitt [Zuweisen der Berechtigung zum Erstellen von Azure-Abonnements für andere Benutzer](#give-others-permission-to-create-azure-subscriptions).
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Erstellen eines Abonnements im Azure-Portal
 

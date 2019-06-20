@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510821"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986871"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Automatische Skalierung und zonenredundantes Application Gateway 
 
@@ -26,8 +26,8 @@ Die neue v2-SKU enthält die folgenden Verbesserungen:
   Zonenredundanz ist nur dort verfügbar, wo auch Azure-Zonen verfügbar sind. In anderen Regionen werden alle anderen Features unterstützt. Weitere Informationen finden Sie unter [Was sind Verfügbarkeitszonen in Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statische VIP**: Die Application Gateway v2-SKU unterstützt exklusiv den statischen VIP-Typ. Dadurch wird sichergestellt, dass die Application Gateway zugeordnete VIP während des Lebenszyklus der Bereitstellung unverändert bleibt, selbst nach einem Neustart.
 - **Erneutes Generieren von Headern**: Application Gateway ermöglicht Ihnen das Hinzufügen, Entfernen oder Aktualisieren von HTTP-Anforderungs- und Antwortheadern mit dem v2-SKU. Weitere Informationen finden Sie unter [Erneutes Generieren von HTTP-Headern mit Application Gateway](rewrite-http-headers.md).
-- **Key Vault-Integration (Vorschau)**: Application Gateway v2 unterstützt die Integration mit Key Vault (in der öffentlichen Vorschau) für Serverzertifikate, die an HTTPS-fähige Listener angefügt sind. Weitere Informationen finden Sie unter [SSL-Terminierung mit Key Vault-Zertifikaten](key-vault-certs.md).
-- **Azure Kubernetes Service-Eingangscontroller (Vorschau)**: Der Application Gateway v2-Eingangscontroller ermöglicht die Verwendung von Azure Application Gateway als Eingang für einen Azure Kubernetes Service (AKS), der als AKS-Cluster bezeichnet wird. Weitere Informationen finden Sie auf der [Dokumentationsseite](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Key Vault-Integration (Vorschau)** : Application Gateway v2 unterstützt die Integration mit Key Vault (in der öffentlichen Vorschau) für Serverzertifikate, die an HTTPS-fähige Listener angefügt sind. Weitere Informationen finden Sie unter [SSL-Terminierung mit Key Vault-Zertifikaten](key-vault-certs.md).
+- **Azure Kubernetes Service-Eingangscontroller (Vorschau)** : Der Application Gateway v2-Eingangscontroller ermöglicht die Verwendung von Azure Application Gateway als Eingang für einen Azure Kubernetes Service (AKS), der als AKS-Cluster bezeichnet wird. Weitere Informationen finden Sie auf der [Dokumentationsseite](https://azure.github.io/application-gateway-kubernetes-ingress/).
 - **Leistungsverbesserungen**: Die v2-SKU bietet eine bis zu fünf Mal bessere SSL-Auslagerungsleistung verglichen mit der Standard/WAF-SKU.
 - **Schnellere Bereitstellung und Aktualisierung**: Die v2-SKU ermöglicht verglichen mit der Standard/WAF-SKU eine schnellere Bereitstellung und Aktualisierung. Dies umfasst auch Änderungen an der WAF-Konfiguration.
 
@@ -55,14 +55,14 @@ Leitfaden für Compute-Einheit:
 > Jede Instanz kann derzeit etwa 10 Kapazitätseinheiten unterstützen.
 > Die Anzahl der Anforderungen, die eine Compute-Einheit verarbeiten kann, hängt von verschiedenen Kriterien wie Größe des TLS-Zertifikatschlüssels, Schlüsselaustauschalgorithmus, erneutes Generieren von Headern und – im Fall von WAF – Größe der eingehenden Anforderung ab. Es wird empfohlen, Anwendungstests auszuführen, um die Anforderungsrate pro Compute-Einheit zu ermitteln. Sowohl Kapazitätseinheit als auch Compute-Einheit werden vor Beginn der Abrechnung als Metrik zur Verfügung gestellt.
 
-**Preise in der Region „USA, Osten“**:
+**Preise in der Region „USA, Osten“** :
 
 |              SKU-Name                             | Festpreis ($/Std)  | Preis nach Kapazitätseinheit ($/KE-Std)   |
 | ------------------------------------------------- | ------------------- | ------------------------------- |
 | Standard_v2                                       |    0,20             | 0,0080                          |
 | WAF_v2                                            |    0,36             | 0,0144                          |
 
-Die [Preisübersicht](https://azure.microsoft.com/pricing/details/application-gateway/) wird aktualisiert, um die regionalen Preise am 14. Mai 2019 widerzuspiegeln. Die Abrechnung soll planmäßig am 1. Juni 2019 beginnen.
+Weitere Preisinformationen finden Sie in der [Preisübersicht](https://azure.microsoft.com/pricing/details/application-gateway/). Die Abrechnung soll planmäßig am 1. Juli 2019 beginnen.
 
 **Beispiel 1**
 
@@ -92,8 +92,6 @@ Festpreis = 744 (Stunden) * 0,36 $ = 267,84 $
 Preis nach Kapazitätseinheit = 744 (Stunden) * Max. (Compute-Einheit Max. (25/50 für Verbindungen/Sekunde, 80/10 WAF-RPS), 8,88/2,22 Kapazitätseinheit für Durchsatz) * 0,0144 $ = 744 * 8 * 0,0144 = 85,71 $
 
 Gesamtpreis = 267,84 $ + 85,71 $ = 353,55 $
-
-Die [Preisübersicht](https://azure.microsoft.com/pricing/details/application-gateway/) wird aktualisiert, um die regionalen Preise am 14. Mai 2019 widerzuspiegeln. Die Abrechnung soll planmäßig am 1. Juni 2019 beginnen.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Skalierung von Application Gateway und WAF v2
 
@@ -138,7 +136,7 @@ In der folgenden Tabelle werden die Features der einzelnen SKUs gegenübergestel
 |Benutzerdefinierte Route im Application Gateway-Subnetz|Nicht unterstützt|
 |NSG für Eingangsportbereich| - 65200 bis 65535 für Standard_v2-SKU<br>- 65503 bis 65534 für Standard-SKU.<br>Weitere Informationen finden Sie in den [häufig gestellten Fragen](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Leistungsprotokolle in Azure-Diagnose|Nicht unterstützt.<br>Es sollten Azure-Metriken verwendet werden.|
-|Abrechnung|Die Abrechnung soll planmäßig am 1. Juni 2019 beginnen.|
+|Abrechnung|Die Abrechnung soll planmäßig am 1. Juli 2019 beginnen.|
 |FIPS-Modus|Diese werden derzeit nicht unterstützt.|
 |Reiner ILB-Modus|Dies wird derzeit nicht unterstützt. Öffentlicher und ILB-Modus kombiniert werden unterstützt.|
 |NetWatcher-Integration|Nicht unterstützt.|

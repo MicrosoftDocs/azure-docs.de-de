@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 970db5984eedebf98bbb087cfd0b4a35a21a0f54
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861186"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814436"
 ---
 # <a name="web-api-interface"></a>Web-API-Schnittstelle
 

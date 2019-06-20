@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60303514"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Phase „Datenerfassung und -auswertung“ des Team Data Science-Prozesses
 

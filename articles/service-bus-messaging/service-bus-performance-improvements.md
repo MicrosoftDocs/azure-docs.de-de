@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996021"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60589661"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Bewährte Methoden für Leistungsoptimierungen mithilfe von Service Bus Messaging
 
@@ -84,7 +84,7 @@ Durch die clientseitige Batchverarbeitung kann ein Warteschlangen- oder Themencl
 
 Ein Client verwendet standardmäßig ein Batchintervall von 20 ms. Sie können das Batchintervall ändern, indem Sie die [BatchFlushInterval][BatchFlushInterval]-Eigenschaft vor dem Erstellen der Messagingfactory festlegen. Diese Einstellung wirkt sich auf alle Clients aus, die von dieser Factory erstellt werden.
 
-Legen Sie zum Deaktivieren der Batchverarbeitung die [BatchFlushInterval][BatchFlushInterval]-Eigenschaft auf **TimeSpan.Zero** fest. Beispiel: 
+Legen Sie zum Deaktivieren der Batchverarbeitung die [BatchFlushInterval][BatchFlushInterval]-Eigenschaft auf **TimeSpan.Zero** fest. Beispiel:
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -113,7 +113,7 @@ Um den Durchsatz einer Warteschlange, eines Themas oder eines Abonnements zu erh
 
 Weitere Speichervorgänge, die während dieses Intervalls auftreten, werden dem Batch hinzugefügt. Speicherzugriff als Batch wirkt sich nur auf Vorgänge zum **Senden** und **Abschließen** aus, Empfangsvorgänge sind nicht betroffen. Speicherzugriff als Batch ist eine Eigenschaft einer Entität. Die Batchverarbeitung erfolgt für alle Entitäten, die Speicherzugriff als Batch ermöglichen.
 
-Beim Erstellen neuer Warteschlangen, Themen oder Abonnements ist der Speicherzugriff als Batch standardmäßig aktiviert. Um den Speicherzugriff als Batch zu deaktivieren, legen Sie vor dem Erstellen der Entität die [EnableBatchedOperations][EnableBatchedOperations]-Eigenschaft auf **FALSE** fest. Beispiel: 
+Beim Erstellen neuer Warteschlangen, Themen oder Abonnements ist der Speicherzugriff als Batch standardmäßig aktiviert. Um den Speicherzugriff als Batch zu deaktivieren, legen Sie vor dem Erstellen der Entität die [EnableBatchedOperations][EnableBatchedOperations]-Eigenschaft auf **FALSE** fest. Beispiel:
 
 ```csharp
 QueueDescription qd = new QueueDescription();

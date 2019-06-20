@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 00b1b58a39724951f2d5e4e688df8eb178654bbb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527009"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952840"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Aufgaben des Projektleiters im Team Data Science-Prozess
 
-Dieses Tutorial beschreibt die Aufgaben, die ein Projektleiter für sein/ihr Projektteam abschließen muss. Ziel ist es, eine auf Zusammenarbeit ausgelegte Teamumgebung einzurichten, die gemäß dem [Team Data Science-Prozess (TDSP)](overview.md) vereinheitlicht ist. TDSP ist ein von Microsoft entwickeltes Framework, das eine strukturierte Abfolge von Aktivitäten bereitstellt, die cloudbasierte, prädiktive Analyselösungen effizient ausführt. Unter [Team Data Science Process: Roles and tasks](roles-tasks.md) (Team Data Science-Prozess: Rollen und Aufgaben) finden Sie eine Übersicht über die wichtigsten Mitarbeiterrollen und zugeordneten Aufgaben für ein Data Science-Team, das eine Vereinheitlichung gemäß diesem Prozess anstrebt.
+Dieses Tutorial beschreibt die Aufgaben, die ein Projektleiter für sein Projektteam ausführen muss. Ziel ist es, eine auf Zusammenarbeit ausgelegte Teamumgebung einzurichten, die gemäß dem [Team Data Science Process](overview.md) (TDSP) vereinheitlicht ist. TDSP ist ein von Microsoft entwickeltes Framework, das eine strukturierte Abfolge von Aktivitäten bereitstellt, die cloudbasierte, prädiktive Analyselösungen effizient ausführt. Unter [Team Data Science Process: Roles and tasks](roles-tasks.md) (Team Data Science-Prozess: Rollen und Aufgaben) finden Sie eine Übersicht über die wichtigsten Mitarbeiterrollen und zugeordneten Aufgaben für ein Data Science-Team, das eine Vereinheitlichung gemäß diesem Prozess anstrebt.
 
 Ein **Projektleiter** verwaltet die täglichen Aktivitäten der einzelnen Datenanalysten auf einem bestimmten Data Science-Projekt. Der Workflow für die Aufgaben, die von Projektleitern zum Einrichten dieser Umgebung ausgeführt werden, sind in der folgenden Abbildung dargestellt:
 

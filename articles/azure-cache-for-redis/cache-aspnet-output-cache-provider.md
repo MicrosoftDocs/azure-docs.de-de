@@ -1,5 +1,5 @@
 ---
-title: Cache – ASP.NET-Ausgabecacheanbieter
+title: ASP.NET-Ausgabecacheanbieter für Azure Cache for Redis
 description: Erfahren Sie, wie Sie die ASP.NET-Seitenausgabe mit Azure Cache for Redis zwischenspeichern.
 services: cache
 documentationcenter: na
@@ -12,25 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 04/22/2018
 ms.author: yegu
-ms.openlocfilehash: 3aa2e9e773eb0c07b5f10a57dabf1138b9f3f288
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a93d21b07dc486f743694ee99f60018ed4ef517c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232908"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943867"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET-Ausgabecacheanbieter für Azure Cache for Redis
+
 Der Redis-Ausgabecacheanbieter ist ein prozessunabhängiger Speichermechanismus für Ausgabecachedaten. Diese Daten sind für vollständige HTTP-Antworten bestimmt (Zwischenspeichern von Seitenausgaben). Der Anbieter wird zum neuen Erweiterungspunkt des Ausgabecacheanbieters hinzugefügt, der in ASP.NET 4 eingeführt wurde.
 
 Zum Verwenden des Redis-Ausgabecacheanbieters konfigurieren Sie zunächst den Cache. Danach konfigurieren Sie Ihre ASP.NET-Anwendung mithilfe des Redis-Ausgabecacheanbieter-NuGet-Pakets. In diesem Thema wird erläutert, wie Sie Ihre Anwendung für die Verwendung des Redis-Ausgabecacheanbieters konfigurieren. Informationen über das Erstellen und Konfigurieren einer Azure Cache for Redis-Instanz finden Sie unter [Erstellen eines Caches](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
 ## <a name="store-aspnet-page-output-in-the-cache"></a>Speichern der ASP.NET-Seitenausgabe im Cache
+
 Klicken Sie zum Konfigurieren einer Clientanwendung in Visual Studio mit dem Azure Cache for Redis-Sitzungszustands-NuGet-Paket im Menü **Extras** auf **NuGet-Paket-Manager** > **Paket-Manager-Konsole**.
 
 Führen Sie im Fenster `Package Manager Console` den folgenden Befehl aus.
-    
+
 ```
 Install-Package Microsoft.Web.RedisOutputCacheProvider
 ```
@@ -39,8 +41,6 @@ Das Redis-Ausgabecacheanbieter-NuGet-Paket steht in einer Abhängigkeitsbeziehun
 
 >[!NOTE]
 >Neben dem Paket „StackExchange.Redis.StrongName“ mit starkem Namen gibt es zudem noch das Paket „StackExchange.Redis“ als Version ohne starken Namen. Wenn in Ihrem Projekt die Version „StackExchange.Redis“ ohne starken Namen verwendet wird, müssen Sie sie deinstallieren. Andernfalls treten Namenskonflikte in Ihrem Projekt auf. Weitere Informationen über diese Pakete finden Sie unter [Konfigurieren der .NET-Cacheclients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
->
->
 
 Mit dem heruntergeladenen NuGet-Paket werden die erforderlichen Assemblyverweise sowie der folgende Abschnitt in Ihrer Datei „web.config“ hinzugefügt. Dieser Abschnitt enthält die Konfiguration, die in Ihrer ASP.NET-Anwendung für die Verwendung des Redis-Ausgabecacheanbieters erforderlich ist.
 
@@ -48,27 +48,6 @@ Mit dem heruntergeladenen NuGet-Paket werden die erforderlichen Assemblyverweise
 <caching>
   <outputCache defaultProvider="MyRedisOutputCache">
     <providers>
-      <!-- For more details check https://github.com/Azure/aspnet-redis-providers/wiki -->
-      <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
-      <!-- 'databaseId' and 'applicationName' can be used with both options. -->
-      <!--
-      <add name="MyRedisOutputCache" 
-        host = "127.0.0.1" [String]
-        port = "" [number]
-        accessKey = "" [String]
-        ssl = "false" [true|false]
-        databaseId = "0" [number]
-        applicationName = "" [String]
-        connectionTimeoutInMilliseconds = "5000" [number]
-        operationTimeoutInMilliseconds = "1000" [number]
-        connectionString = "<Valid StackExchange.Redis connection string>" [String]
-        settingsClassName = "<Assembly qualified class name that contains settings method specified below. Which basically return 'connectionString' value>" [String]
-        settingsMethodName = "<Settings method should be defined in settingsClass. It should be public, static, does not take any parameters and should have a return type of 'String', which is basically 'connectionString' value.>" [String]
-        loggingClassName = "<Assembly qualified class name that contains logging method specified below>" [String]
-        loggingMethodName = "<Logging method should be defined in loggingClass. It should be public, static, does not take any parameters and should have a return type of System.IO.TextWriter.>" [String]
-        redisSerializerType = "<Assembly qualified class name that implements Microsoft.Web.Redis.ISerializer>" [String]
-      />
-      -->
       <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider"
            host=""
            accessKey=""
@@ -78,23 +57,148 @@ Mit dem heruntergeladenen NuGet-Paket werden die erforderlichen Assemblyverweise
 </caching>
 ```
 
-Im kommentierten Bereich finden Sie Beispiele der Attribute sowie Beispieleinstellungen für jedes Attribut.
-
 Konfigurieren Sie die Attribute mit den Werten vom Blatt „Cache“ im Microsoft Azure-Portal, und konfigurieren Sie die restlichen Werte wie gewünscht. Anweisungen zum Zugreifen auf die Cacheeigenschaften finden Sie unter [Konfigurieren von Azure Cache for Redis-Einstellungen](cache-configure.md#configure-azure-cache-for-redis-settings).
 
-* **host** : Geben Sie den Cacheendpunkt an.
-* **port** : Verwenden Sie abhängig von Ihren SSL-Einstellungen entweder den Nicht-SSL-Port oder den SSL-Port.
-* **accessKey** : Verwenden Sie den primären oder sekundären Schlüssel für Ihren Cache.
-* **ssl** : Geben Sie „true“ an, wenn Sie die Kommunikation zwischen Cache und Client mit SSL absichern möchten, andernfalls „false“. Achten Sie darauf, dass Sie den richtigen Port angeben.
-  * Der Nicht-SSL-Port ist für neue Caches standardmäßig deaktiviert. Geben Sie für diese Einstellung „true“ an, wenn Sie den SSL-Port verwenden möchten. Weitere Informationen zum Aktivieren des Nicht-SSL-Ports finden Sie im Abschnitt [Zugriffsports](cache-configure.md#access-ports) des Themas [Konfigurieren eines Caches](cache-configure.md).
-* **databaseId** : Geben Sie an, welche Datenbank für die Cacheausgabedaten verwendet werden soll. Wenn Sie hier nichts angeben, wird der Standardwert 0 verwendet.
-* **applicationName**: Schlüssel werden in Redis als `<AppName>_<SessionId>_Data` gespeichert. Durch dieses Benennungsschema wird ermöglicht, dass mehrere Anwendungen denselben Schlüssel gemeinsam nutzen. Dieser Parameter ist optional, und wenn Sie ihn nicht angeben, wird der Standardwert verwendet.
-* **connectionTimeoutInMilliseconds** : Diese Einstellung ermöglicht Ihnen, die connectTimeout-Einstellung im StackExchange.Redis-Client zu überschreiben. Wenn Sie sie nicht angegeben, wird die connectTimeout-Standardeinstellung „5000“ verwendet. Weitere Informationen finden Sie unter [StackExchange.Redis-Konfigurationsmodell](https://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** : Diese Einstellung ermöglicht Ihnen, die syncTimeout-Einstellung im StackExchange.Redis-Client zu überschreiben. Wenn Sie sie nicht angegeben, wird die syncTimeout-Standardeinstellung „1000“ verwendet. Weitere Informationen finden Sie unter [StackExchange.Redis-Konfigurationsmodell](https://go.microsoft.com/fwlink/?LinkId=398705).
+| Attribut | Type | Standard | BESCHREIBUNG |
+| --------- | ---- | ------- | ----------- |
+| *host* | Zeichenfolge | „localhost“ | IP-Adresse oder Hostname des Redis-Servers |
+| *port* | Positive ganze Zahl | 6379 (non-SSL)<br/>6380 (SSL) | Redis-Serverport |
+| *accessKey* | Zeichenfolge | "" | Redis-Serverkennwort, wenn Redis-Autorisierung aktiviert ist. Der Wert ist standardmäßig eine leere Zeichenfolge, was bedeutet, dass der Sitzungszustandsanbieter kein Kennwort verwenden wird, wenn eine Verbindung mit dem Redis-Server hergestellt wird. **Wenn sich Ihr Redis-Server in einem öffentlich zugänglichen Netzwerk wie Azure Redis Cache befindet, denken Sie daran, die Redis-Autorisierung zu aktivieren, um die Sicherheit zu erhöhen, und ein sicheres Kennwort anzugeben.** |
+| *ssl* | boolean | **false** | Ob die Verbindung mit dem Redis-Server über SSL erfolgen soll. Dieser Wert ist standardmäßig **false**, weil Redis SSL nicht bereits vorkonfiguriert unterstützt. **Bei Verwendung von Azure Redis Cache, der SSL bereits vorkonfiguriert unterstützt, stellen Sie sicher, dass Sie diese auf „true“ festlegen, um die Sicherheit zu erhöhen.**<br/><br/>Der Nicht-SSL-Port ist für neue Caches standardmäßig deaktiviert. Geben Sie für diese Einstellung **true** an, wenn Sie den SSL-Port verwenden möchten. Weitere Informationen zum Aktivieren des Nicht-SSL-Ports finden Sie im Abschnitt [Zugriffsports](cache-configure.md#access-ports) des Themas [Konfigurieren eines Caches](cache-configure.md). |
+| *databaseIdNumber* | Positive ganze Zahl | 0 | *Dieses Attribut kann nur entweder über „web.config“ oder über „appSettings“ angegeben werden.*<br/><br/>Geben Sie an, welche Redis-Datenbank verwendet werden soll. |
+| *connectionTimeoutInMilliseconds* | Positive ganze Zahl | Wird von „StackExchange.Redis“ angegeben. | Wird zum Festlegen von *ConnectTimeout* verwendet, wenn „StackExchange.Redis.ConnectionMultiplexer“ erstellt wird. |
+| *operationTimeoutInMilliseconds* | Positive ganze Zahl | Wird von „StackExchange.Redis“ angegeben. | Wird zum Festlegen von *SyncTimeout* verwendet, wenn „StackExchange.Redis.ConnectionMultiplexer“ erstellt wird. |
+| *connectionString* (Gültige Verbindungszeichenfolge für „StackExchange.Redis“) | Zeichenfolge | *Nicht zutreffend* | Entweder ein Parameterverweis auf „appSettings“ oder auf „Web.config“ oder sonst eine gültige Verbindungszeichenfolge für „StackExchange.Redis“. Dieses Attribut kann die Werte für *host*, *port*, *accessKey*, *ssl* und andere Attribute von „StackExchange.Redis“ bereitstellen. Ausführlichere Informationen zu *connectionString* finden Sie unter [Festlegen von „connectionString“](#setting-connectionstring) im Abschnitt [Hinweise zu Attributen](#attribute-notes). |
+| *settingsClassName*<br/>*settingsMethodName* | Zeichenfolge<br/>Zeichenfolge | *Nicht zutreffend* | *Diese Attribute können nur entweder über „web.config“ oder über „appSettings“ angegeben werden.*<br/><br/>Verwenden Sie diese Attribute, um eine Verbindungszeichenfolge bereitzustellen. *settingsClassName* sollte ein Assembly-qualifizierter Klassenname sein, der die von *settingsMethodName* angegebene Methode enthält.<br/><br/>Die von *settingsMethodName* angegebene Methode sollte öffentlich, statisch und „void“ (keine Parameter akzeptieren) sein, mit dem Rückgabetyp **string**. Diese Methode gibt die tatsächliche Verbindungszeichenfolge zurück. |
+| *loggingClassName*<br/>*loggingMethodName* | Zeichenfolge<br/>Zeichenfolge | *Nicht zutreffend* | *Diese Attribute können nur entweder über „web.config“ oder über „appSettings“ angegeben werden.*<br/><br/>Verwenden Sie diese Attribute, um Ihre Anwendung zu debuggen, indem Sie Protokolle aus dem Sitzungszustands-/Ausgabecache zusammen mit Protokollen aus „StackExchange.Redis“ bereitstellen. *loggingClassName* sollte ein Assembly-qualifizierter Klassenname sein, der die von *loggingMethodName* angegebene Methode enthält.<br/><br/>Die von *loggingMethodName* angegebene Methode sollte öffentlich, statisch und „void“ (keine Parameter akzeptieren) sein, mit dem Rückgabetyp **System.IO.TextWriter**. |
+| *applicationName* | Zeichenfolge | Der Modulname des aktuellen Prozesses oder „/“ | *Nur SessionStateProvider*<br/>*Dieses Attribut kann nur entweder über „web.config“ oder über „appSettings“ angegeben werden.*<br/><br/>Das in Redis Cache zu verwendende App-Namenspräfix. Der Kunde kann denselben Redis Cache für unterschiedliche Zwecke verwenden. Um sicherzustellen, dass bei den Sitzungsschlüsseln kein Konflikt entsteht, kann ihm der Name der Anwendung als Präfix vorangestellt werden. |
+| *throwOnError* | boolean | true | *Nur SessionStateProvider*<br/>*Dieses Attribut kann nur entweder über „web.config“ oder über „appSettings“ angegeben werden.*<br/><br/>Ob eine Ausnahme ausgelöst werden soll, wenn ein Fehler auftritt.<br/><br/>Weitere Informationen zu *throwOnError* finden Sie unter [ Hinweise zu *throwOnError*](#notes-on-throwonerror) im Abschnitt [Hinweise zu Attributen](#attribute-notes). |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
+| *retryTimeoutInMilliseconds* | Positive ganze Zahl | 5\.000 | *Nur SessionStateProvider*<br/>*Dieses Attribut kann nur entweder über „web.config“ oder über „appSettings“ angegeben werden.*<br/><br/>Wie lange wiederholt werden soll, wenn ein Vorgang fehlschlägt. Wenn dieser Wert kleiner als *operationTimeoutInMilliseconds* ist, versucht es der Anbieter nicht noch mal.<br/><br/>Weitere Informationen zu *retryTimeoutInMilliseconds* finden Sie unter [ Hinweise zu *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) im Abschnitt [Hinweise zu Attributen](#attribute-notes). |
+| *redisSerializerType* | Zeichenfolge | *Nicht zutreffend* | Gibt den Assembly-qualifizierten Typnamen einer Klasse an, die „Microsoft.Web.Redis“ implementiert. ISerializer, und dieser enthält die benutzerdefinierte Logik zum Serialisieren und Deserialisieren der Werte. Weitere Informationen finden Sie unter [Informationen zu *redisSerializerType*](#about-redisserializertype) im Abschnitt [Hinweise zu Attributen](#attribute-notes). |
+|
+
+## <a name="attribute-notes"></a>Hinweise zu Attributen
+
+### <a name="setting-connectionstring"></a>Festlegen von *connectionString*
+
+Der Wert von *connectionString* wird als Schlüssel verwendet, um die tatsächliche Verbindungszeichenfolge von „AppSettings“ abzurufen, wenn solch eine Zeichenfolge in „AppSettings“ vorhanden ist. Wenn sie nicht in „AppSettings“ gefunden wird, wird der Wert von *connectionString* als Schlüssel verwendet, um die tatsächliche Verbindungszeichenfolge aus dem Abschnitt **ConnectionString** der Datei „web.config“ abzurufen, wenn dieser Abschnitt vorhanden ist. Wenn die Verbindungszeichenfolge weder in „AppSettings“ noch im Abschnitt **ConnectionString** von „web.config“ vorhanden ist, wird der Literalwert von *connectionString* als Verbindungszeichenfolge erstellt, wenn „StackExchange.Redis.ConnectionMultiplexer“ erstellt wird.
+
+Die folgenden Beispiele veranschaulichen, wie *connectionString* verwendet wird.
+
+#### <a name="example-1"></a>Beispiel 1
+
+```xml
+<connectionStrings>
+    <add name="MyRedisConnectionString" connectionString="mycache.redis.cache.windows.net:6380,password=actual access key,ssl=True,abortConnect=False" />
+</connectionStrings>
+```
+
+Verwenden Sie in `web.config` den oben stehenden Schlüssel als Parameterwert anstelle des tatsächlichen Werts.
+
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+        <add type = "Microsoft.Web.Redis.RedisSessionStateProvide"
+             name = "MySessionStateStore"
+             connectionString = "MyRedisConnectionString"/>
+    </providers>
+</sessionState>
+```
+
+#### <a name="example-2"></a>Beispiel 2
+
+```xml
+<appSettings>
+    <add key="MyRedisConnectionString" value="mycache.redis.cache.windows.net:6380,password=actual access key,ssl=True,abortConnect=False" />
+</appSettings>
+```
+
+Verwenden Sie in `web.config` den oben stehenden Schlüssel als Parameterwert anstelle des tatsächlichen Werts.
+
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+        <add type = "Microsoft.Web.Redis.RedisSessionStateProvide"
+             name = "MySessionStateStore"
+             connectionString = "MyRedisConnectionString"/>
+    </providers>
+</sessionState>
+```
+
+#### <a name="example-3"></a>Beispiel 3
+
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+        <add type = "Microsoft.Web.Redis.RedisSessionStateProvide"
+             name = "MySessionStateStore"
+             connectionString = "mycache.redis.cache.windows.net:6380,password=actual access key,ssl=True,abortConnect=False"/>
+    </providers>
+</sessionState>
+```
+
+### <a name="notes-on-throwonerror"></a>Hinweise zu *throwOnError*
+
+Zurzeit löst der Sitzungszustandsanbieter, wenn während eines Sitzungsvorgangs ein Fehler auftritt, eine Ausnahme aus. Hierdurch wird die Anwendung geschlossen.
+
+Dieses Verhalten wurde in einer Weise geändert, die die Erwartungen der Benutzer von vorhandenen ASP.NET-Sitzungszustandsanbieter erfüllt und gleichzeitig die Möglichkeit bietet, auf Ausnahmen zu reagieren, falls erwünscht. Beim Standardverhalten wird immer noch eine Ausnahme ausgelöst, wenn ein Fehler auftritt, der mit anderen ASP.NET-Sitzungsstatusanbietern konsistent ist. Vorhandener Code sollte exakt wie zuvor funktionieren.
+
+Wenn Sie *throwOnError* auf **false** festlegen, schlägt es ohne Meldung fehl, anstatt eine Ausnahme auszulösen, wenn ein Fehler auftritt. Um festzustellen, ob ein Fehler aufgetreten ist, und wenn dies der Fall war, um die Ausnahme zu ermitteln, überprüfen Sie die statische Eigenschaft *Microsoft.Web.Redis.RedisSessionStateProvider.LastException*.
+
+### <a name="notes-on-retrytimeoutinmilliseconds"></a>Hinweise zu *retryTimeoutInMilliseconds*
+
+Hierdurch wird einer Wiederholungslogik bereitgestellt, um den Fall zu vereinfachen, in dem ein Sitzungsvorgang bei einem Fehler aufgrund von Vorfällen wie einer Netzwerkstörung wiederholt werden sollte, während Ihnen gleichzeitig die Möglichkeit geboten werden soll, den Wiederholungstimeout zu kontrollieren bzw. das Wiederholen vollständig zu deaktivieren.
+
+Wenn Sie *retryTimeoutInMilliseconds* auf eine Zahl, z. B. 2000, festlegen, wird ein Sitzungsvorgang, wenn er fehlschlägt, 2000 Millisekunden lang wiederholt, bevor er als Fehler behandelt wird. Damit also der Sitzungszustandsanbieter diese Wiederholungslogik anwendet, konfigurieren Sie lediglich den Timeout. Der erste Wiederholungsversuch erfolgt nach 20 Millisekunden, was in den meisten Fällen ausreichend ist, wenn eine Netzwerkstörung auftritt. Anschließend wird der Vorgang jede Sekunde wiederholt, bis der Timeout eintritt. Direkt nach dem Timeout erfolgt noch eine einzige Wiederholung, um sicherzustellen, dass der Timeout nicht um (höchstens) eine Sekunde abgeschnitten wird.
+
+Wenn Sie denken, dass Sie keine Wiederholung benötigen (z. B. wenn Sie den Redis Server auf demselben Computer wie Ihre Anwendung ausführen), oder wenn Sie die Wiederholungslogik selbst verarbeiten möchten, legen Sie *retrytimeoutinmilliseconds* auf 0 fest.
+
+### <a name="about-redisserializertype"></a>Informationen zu *redisSerializerType*
+
+Standardmäßig erfolgt die Serialisierung, um die Werte in Redis zu speichern, in einem binären Format, das von der Klasse **BinaryFormatter** bereitgestellt wird. Verwenden Sie *redisSerializerType*, um den Assembly-qualifizierten Typnamen einer Klasse anzugeben, die **Microsoft.Web.Redis.ISerializer** implementiert und die benutzerdefinierte Logik zum Serialisieren und Deserialisieren der Werte besitzt. Hier sehen Sie z. B. eine Json-Serialisiererklasse, die JSON.NET verwendet:
+
+```cs
+namespace MyCompany.Redis
+{
+    public class JsonSerializer : ISerializer
+    {
+        private static JsonSerializerSettings _settings = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
+
+        public byte[] Serialize(object data)
+        {
+            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(data, _settings));
+        }
+
+        public object Deserialize(byte[] data)
+        {
+            if (data == null)6t6
+            {
+                return null;
+            }
+            return JsonConvert.DeserializeObject(Encoding.UTF8.GetString(data), _settings);
+        }
+    }
+}
+```
+
+Unter der Voraussetzung, dass diese Klasse in einer Assembly mit dem Namen **MyCompanyDll** definiert ist, können Sie den Parameter *redisSerializerType* festlegen, um sie zu verwenden:
+
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+        <add type = "Microsoft.Web.Redis.RedisSessionStateProvider"
+             name = "MySessionStateStore"
+             redisSerializerType = "MyCompany.Redis.JsonSerializer,MyCompanyDll"
+             ... />
+    </providers>
+</sessionState>
+```
+
+## <a name="output-cache-directive"></a>OutputCache-Direktive
 
 Fügen Sie jeder Seite, für die Sie die Ausgabe zwischenspeichern möchten, eine OutputCache-Direktive hinzu.
 
-```
+```xml
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
@@ -103,5 +207,5 @@ Im vorherigen Beispiel verbleiben die zwischengespeicherten Seitendaten 60 Sekun
 Nach Abschluss dieser Schritte ist Ihre Anwendung für die Verwendung des Redis-Ausgabecacheanbieters konfiguriert.
 
 ## <a name="next-steps"></a>Nächste Schritte
-Lesen Sie die Seite [ASP.NET-Sitzungszustandsanbieter für Azure Cache for Redis](cache-aspnet-session-state-provider.md).
 
+Lesen Sie die Seite [ASP.NET-Sitzungszustandsanbieter für Azure Cache for Redis](cache-aspnet-session-state-provider.md).

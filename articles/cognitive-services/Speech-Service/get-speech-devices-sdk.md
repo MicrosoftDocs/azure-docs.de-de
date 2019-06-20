@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: b9a0890000cda0b3663ac29bee61fc1c702f6254
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410692"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Abrufen des Cognitive Services Speech-Geräte-SDK

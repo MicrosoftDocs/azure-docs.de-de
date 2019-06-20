@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900504"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60326282"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Allgemeine Anweisungen zum Arbeiten mit den Wingtip-Tickets-Beispielanwendungen für SaaS
 
@@ -61,11 +61,11 @@ Zur Navigation in Ordnern verwenden die verschiedenen Skripts *$PSScriptRoot*. *
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Schrittweises Durcharbeiten der Skripts zum Überprüfen der Implementierung
 
-Die beste Möglichkeit, die Skripts zu verstehen, besteht darin, die jeweiligen Funktionen durchzugehen. Sehen Sie sich die enthaltenen **Demo-**-Skripts an, die einen einfachen allgemeinen Workflow darstellen. Die **Demo -**-Skripts veranschaulichen die erforderlichen Schritte zur Durchführung der einzelnen Aufgaben. Legen Sie daher die Haltepunkte fest, und führen Sie einen Drilldown auf die einzelnen Aufrufe durch, um Implementierungsdetails für die verschiedenen SaaS-Muster anzuzeigen.
+Die beste Möglichkeit, die Skripts zu verstehen, besteht darin, die jeweiligen Funktionen durchzugehen. Sehen Sie sich die enthaltenen **Demo-** -Skripts an, die einen einfachen allgemeinen Workflow darstellen. Die **Demo -** -Skripts veranschaulichen die erforderlichen Schritte zur Durchführung der einzelnen Aufgaben. Legen Sie daher die Haltepunkte fest, und führen Sie einen Drilldown auf die einzelnen Aufrufe durch, um Implementierungsdetails für die verschiedenen SaaS-Muster anzuzeigen.
 
 Tipps zum Prüfen und schrittweisen Ausführen der PowerShell-Skripts:
 
-- Öffnen Sie die **Demo-**-Skripts in der PowerShell ISE.
+- Öffnen Sie die **Demo-** -Skripts in der PowerShell ISE.
 - Drücken Sie zum Ausführen oder Fortfahren die Taste **F5**. (Es wird davon abgeraten, **F8** zu drücken, da *$PSScriptRoot* beim Ausführen einer Auswahl aus einem Skript nicht ausgewertet wird.)
 - Platzieren Sie Haltepunkte, indem Sie auf eine Zeile klicken bzw. diese auswählen und **F9** drücken.
 - Überspringen Sie eine Funktion oder einen Skriptaufruf durch Drücken von **F10**.
@@ -79,9 +79,9 @@ Verwenden Sie [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/s
 
 Die Bereitstellung verfügt anfänglich über Mandanten und SQL-Datenbank-Katalogserver, mit denen sie Verbindungen herstellen kann. Die Benennung der Server hängt vom Mandantenmuster der Datenbank ab (Einzelheiten nachfolgend). 
 
-   - **Eigenständige Anwendung:** Server für jeden Mandanten (Beispiel: *contosoconcerthall-&lt;Benutzer&gt;*-Server) und *catalog-sa-&lt;Benutzer&gt;*
-   - **Datenbank pro Mandant:** *tenants1-dpt-&lt;Benutzer&gt;* und *catalog-dpt-&lt;Benutzer&gt;*-Server
-   - **Mehrinstanzenfähige Datenbank:** *tenants1-mt-&lt;Benutzer&gt;*- und *catalog-mt-&lt;Benutzer&gt;*-Server
+   - **Eigenständige Anwendung:** Server für jeden Mandanten (Beispiel: *contosoconcerthall-&lt;Benutzer&gt;* -Server) und *catalog-sa-&lt;Benutzer&gt;*
+   - **Datenbank pro Mandant:** *tenants1-dpt-&lt;Benutzer&gt;* und *catalog-dpt-&lt;Benutzer&gt;* -Server
+   - **Mehrinstanzenfähige Datenbank:** *tenants1-mt-&lt;Benutzer&gt;* - und *catalog-mt-&lt;Benutzer&gt;* -Server
 
 Um sicherzustellen, dass erfolgreich eine Verbindung mit der Demo hergestellt wird, wird allen Servern eine [Firewallregel](sql-database-firewall-configure.md) zugewiesen, die alle IP-Adressen zulässt.
 
@@ -90,7 +90,7 @@ Um sicherzustellen, dass erfolgreich eine Verbindung mit der Demo hergestellt wi
     - **Eigenständige Anwendung:** Server der einzelnen Mandanten (Beispiel: *contosoconcerthall-&lt;Benutzer&gt;.database.windows.net*) 
     - **Datenbank pro Mandant:** *tenants1-dpt-&lt;Benutzer&gt;.database.windows.net*
     - **Mehrinstanzenfähige Datenbank:** *tenants1-mt-&lt;Benutzer&gt;.database.windows.net* 
-2. Klicken Sie auf **Verbinden** > **Datenbank-Engine...**:
+2. Klicken Sie auf **Verbinden** > **Datenbank-Engine...** :
 
    ![Katalogserver](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 

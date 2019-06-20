@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58494648"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178048"
 ---
 Der Verfügbarkeitsgruppenlistener umfasst eine IP-Adresse und einen Netzwerknamen, über die die SQL Server-Verfügbarkeitsgruppe lauscht. Gehen Sie wie folgt vor, um den Verfügbarkeitsgruppenlistener zu erstellen:
 

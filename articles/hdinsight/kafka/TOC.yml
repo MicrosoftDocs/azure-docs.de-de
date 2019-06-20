@@ -7,23 +7,23 @@
 - name: Schnellstarts
   expanded: true
   items:
-    - name: Erstellen eines Apache Kafka-Clusters – Portal
+    - name: 'Erstellen eines Apache Kafka-Clusters: Portal'
       href: apache-kafka-get-started.md
-    - name: Erstellen eines Apache Kafka-Clusters – PowerShell
+    - name: 'Erstellen eines Apache Kafka-Clusters: PowerShell'
       href: apache-kafka-quickstart-powershell.md
-    - name: Erstellen eines Apache Kafka-Clusters – Resource Manager-Vorlage
+    - name: 'Erstellen eines Apache Kafka-Clusters: Vorlage'
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: Lernprogramme
   items:
-    - name: Verwenden des strukturierten Apache Spark-Streamings
-      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-    - name: Schreiben in/Lesen aus Apache Kafka mit Apache Storm
-      href: ../hdinsight-apache-storm-with-kafka.md
     - name: Verwenden der Producer- und Consumer-API von Apache Kafka
       href: apache-kafka-producer-consumer-api.md
     - name: Entwickeln einer App mit der Streams-API von Apache Kafka
       href: apache-kafka-streams-api.md
+    - name: Verwenden des strukturierten Apache Spark-Streamings
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Schreiben in/Lesen aus Apache Kafka mit Apache Storm
+      href: ../hdinsight-apache-storm-with-kafka.md
 - name: Konzepte
   items:
     - name: Kapazitätsplanung
@@ -216,6 +216,10 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Netzwerkzugriff
       items:
+        - name: Architektur des virtuellen HDInsight-Netzwerks
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Verwenden einer Firewall zum Einschränken des ausgehenden Datenverkehrs
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight in Azure VNET
           href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Verbinden von HDInsight mit dem lokalen Netzwerk

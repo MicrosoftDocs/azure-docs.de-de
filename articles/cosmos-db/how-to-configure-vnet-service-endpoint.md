@@ -4,14 +4,14 @@ description: Dieses Dokument beschreibt die Schritte, die zum Einrichten eines V
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
-ms.openlocfilehash: c0b1b415db9d8a530a495e09805ad9788c1edfbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 375e79d2fe70e0988d8c58997a746f77b21d7f50
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66153646"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242004"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Konfigurieren des Zugriffs über virtuelle Netzwerke (VNET)
 
@@ -79,7 +79,7 @@ Um sicherzustellen, dass Sie vom Portal aus auf Azure Cosmos DB-Metriken zugreif
 
 2. Wählen Sie aus Einstellungsmenü die Option **Firewalls und virtuelle Netzwerke** aus.  
 
-3. Um eine Regel für ein virtuelles Netzwerk oder ein Subnetz zu entfernen, klicken Sie neben dem virtuellen Netzwerk oder dem Subnetz auf **...**, und wählen Sie **Entfernen** aus.
+3. Um eine Regel für ein virtuelles Netzwerk oder ein Subnetz zu entfernen, klicken Sie neben dem virtuellen Netzwerk oder dem Subnetz auf **...** , und wählen Sie **Entfernen** aus.
 
    ![Entfernen eines Virtual Network](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
 

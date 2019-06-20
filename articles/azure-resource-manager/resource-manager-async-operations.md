@@ -14,11 +14,11 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61061372"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Nachverfolgen asynchroner Vorgänge in Azure
 Einige Azure-REST-Vorgänge werden asynchron ausgeführt, da sie nicht schnell abgeschlossen werden können. In diesem Artikel wird beschrieben, wie der Status asynchroner Vorgänge mithilfe von Werten nachverfolgt wird, die in der Antwort zurückgegeben werden.  

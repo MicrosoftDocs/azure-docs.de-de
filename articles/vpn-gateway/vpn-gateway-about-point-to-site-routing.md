@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: anzaman
 ms.openlocfilehash: 486a910226db5dc7b36aaf873e7bb8115eb78805
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189645"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60653522"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Informationen zu Point-to-Site-VPN-Routing
 

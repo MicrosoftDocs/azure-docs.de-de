@@ -13,36 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282541"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787509"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server auf Azure-VMs – Versionshinweise
 
 Mit Azure können Sie einen virtuellen Computer (VM) mit einem integrierten SQL Server-Image bereitstellen. In diesem Artikel sind die neuen Funktionen und Verbesserungen in den neuesten Versionen von [SQL Server auf virtuellen Azure-Computern](https://azure.microsoft.com/services/virtual-machines/sql-server/) zusammengefasst. Der Artikel enthält zudem wichtige Inhaltsaktualisierungen, die nicht in direktem Zusammenhang mit einer Version stehen, aber im gleichen Zeitraum veröffentlicht werden. Informationen zu Verbesserungen bei anderen Azure-Diensten finden Sie unter [Dienstupdates](https://azure.microsoft.com/updates).
 
-## <a name="march-2019"></a>März 2019
+## <a name="april-2019"></a>April 2019
 
 ### <a name="service-improvements"></a>Verbesserungen beim Dienst
 
 | Verbesserungen beim Dienst | Details |
 | --- | --- |
-| **Unterstützung von benutzerdefinierten Images** | Sie können jetzt die [SQL-IaaS-Erweiterung](virtual-machines-windows-sql-server-agent-extension.md#installation) für benutzerdefinierte Betriebssystem- und SQL-Images installieren, die die eingeschränkte Funktionalität [flexibler Lizenzierung](virtual-machines-windows-sql-ahb.md) bietet. Geben Sie bei der Registrierung Ihres benutzerdefinierten Images beim SQL-Ressourcenanbieter Ihren Lizenztyp als ‚AHUB‘ an, da es andernfalls zu einem Fehler bei der Registrierung kommt.  | 
-| **Unterstützung für benannte Instanzen** | Sie können jetzt die [SQL-IaaS-Erweiterung](virtual-machines-windows-sql-server-agent-extension.md#installation) mit einer benannten Instanz verwenden, wenn die Standardinstanz ordnungsgemäß deinstalliert wurde. | 
-| **Portalerweiterung** | Die Azure-Portal-Benutzeroberfläche zur Bereitstellung einer SQL Server-VM wurde überarbeitet, um die Benutzerfreundlichkeit zu verbessern. Weitere Informationen finden Sie im kurzen [Schnellstart](quickstart-sql-vm-create-portal.md) und – ausführlicher – in der [Schrittanleitung](virtual-machines-windows-portal-sql-server-provision.md) zum Bereitstellen einer SQL Server-VM. |
+| **Erweitern der Unterstützung für SQL Server 2008/2008 R2** | [Erweiterung der Unterstützung](virtual-machines-windows-sql-server-2008-eos-extend-support.md) für SQL Server 2008 und SQL Server 2008 R2 durch *unverändertes* Migrieren zu einer Azure-VM. | 
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbesserungen bei der Dokumentation
 
 Keine
 
+## <a name="march-2019"></a>März 2019
+
+| Verbesserungen beim Dienst | Details |
+| --- | --- |
+| **Unterstützung von benutzerdefinierten Images** | Sie können jetzt die [SQL-IaaS-Erweiterung](virtual-machines-windows-sql-server-agent-extension.md#installation) für benutzerdefinierte Betriebssystem- und SQL-Images installieren, die die eingeschränkte Funktionalität [flexibler Lizenzierung](virtual-machines-windows-sql-ahb.md) bietet. Geben Sie bei der Registrierung Ihres benutzerdefinierten Images beim SQL-Ressourcenanbieter Ihren Lizenztyp als ‚AHUB‘ an, da es andernfalls zu einem Fehler bei der Registrierung kommt.  | 
+| **Unterstützung für benannte Instanzen** | Sie können jetzt die [SQL-IaaS-Erweiterung](virtual-machines-windows-sql-server-agent-extension.md#installation) mit einer benannten Instanz verwenden, wenn die Standardinstanz ordnungsgemäß deinstalliert wurde. | 
+| **Portalerweiterung** | Die Azure-Portal-Benutzeroberfläche zur Bereitstellung einer SQL Server-VM wurde überarbeitet, um die Benutzerfreundlichkeit zu verbessern. Weitere Informationen finden Sie im kurzen [Schnellstart](quickstart-sql-vm-create-portal.md) und – ausführlicher – in der [Schrittanleitung](virtual-machines-windows-portal-sql-server-provision.md) zum Bereitstellen einer SQL Server-VM.|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="february-2019"></a>Februar 2019
-
-### <a name="service-improvements"></a>Verbesserungen beim Dienst
 
 | Verbesserungen beim Dienst | Details |
 | --- | --- |

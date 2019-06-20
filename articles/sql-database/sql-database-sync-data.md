@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a887c79a51c7a239e7057171e51e67a53af2f84b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483556"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693084"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchronisieren von Daten über mehrere Cloud- und lokale Datenbanken mit SQL-Datensynchronisierung
 
@@ -32,7 +32,7 @@ Die Datensynchronisierung ist nützlich, wenn Daten über mehrere Azure SQL-Date
 
 - **Hybriddatensynchronisierung:** Mit der Datensynchronisierung können Sie Daten zwischen Ihren lokalen Datenbanken und Azure SQL-Datenbanken synchron halten, um Hybridanwendungen zu ermöglichen. Diese Funktion ist unter Umständen gut für Kunden geeignet, die eine Umstellung auf die Cloud erwägen und einen Teil ihrer Anwendung in Azure anordnen möchten.
 - **Verteilte Anwendungen:** In vielen Fällen ist es vorteilhaft, unterschiedliche Workloads auf verschiedene Datenbanken aufzuteilen. Wenn Sie beispielsweise über eine große Produktionsdatenbank verfügen, aber gleichzeitig die Berichterstellung oder Analyse für diese Daten durchführen müssen, ist für diese zusätzliche Workload die Verwendung einer zweiten Datenbank hilfreich. Bei diesem Ansatz werden die Auswirkungen auf die Leistung Ihrer Produktionsworkload reduziert. Sie können die Datensynchronisierung nutzen, um diese beiden Datenbanken synchron zu halten.
-- **Global verteilte Anwendungen:** Viele Unternehmen sind in mehreren Regionen oder Ländern ansässig. Es ist ratsam, die Daten jeweils in einer Region in der Nähe vorzuhalten, um die Netzwerklatenz zu verringern. Mit der Datensynchronisierung können Sie Datenbanken in den Regionen weltweit synchron halten.
+- **Global verteilte Anwendungen:** Viele Unternehmen sind in mehreren Regionen und sogar mehreren Ländern/Regionen ansässig. Es ist ratsam, die Daten jeweils in einer Region in der Nähe vorzuhalten, um die Netzwerklatenz zu verringern. Mit der Datensynchronisierung können Sie Datenbanken in den Regionen weltweit synchron halten.
 
 Die Datensynchronisierung ist für folgende Szenarien nicht die beste Lösung:
 
@@ -129,6 +129,7 @@ Das Bereitstellen und Aufheben der Bereitstellung während der Erstellung, Aktua
 - Die Namen von Objekten (Datenbanken, Tabellen und Spalten) dürfen nicht die druckbaren Zeichen Punkt (.), linke eckige Klammer ([) oder rechte eckige Klammer (]) enthalten.
 - Die Azure Active Directory-Authentifizierung wird nicht unterstützt.
 - Tabellen mit demselben Namen, aber unterschiedlichem Schema (z.B. „dbo.customers“ und „sales.customers“) werden nicht unterstützt.
+- Spalten mit benutzerdefinierten Datentypen werden nicht unterstützt.
 
 #### <a name="unsupported-data-types"></a>Nicht unterstützte Datentypen
 
@@ -139,7 +140,7 @@ Das Bereitstellen und Aufheben der Bereitstellung während der Erstellung, Aktua
 
 #### <a name="unsupported-column-types"></a>Nicht unterstützte Spaltentypen
 
-Mit der Datensynchronisierung können keine schreibgeschützten oder vom System generierten Spalten synchronisiert werden. Beispiel: 
+Mit der Datensynchronisierung können keine schreibgeschützten oder vom System generierten Spalten synchronisiert werden. Beispiel:
 
 - Berechnete Spalten
 - Vom System generierte Spalten für temporale Tabellen

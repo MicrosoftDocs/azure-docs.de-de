@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: ab5cbf6e24d6e7b5530addcee655e1cc4621d042
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875983"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65522144"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Bekannte Probleme bei Azure Monitor für VMs (Vorschauversion)
 
@@ -35,4 +35,4 @@ Die folgende Aufstellung enthält bekannte Probleme bei der aktuellen Version de
 - Nach dem Entfernen der Lösungskomponenten aus dem Arbeitsbereich werden in den jeweiligen Ansichten des Portals weiterhin Daten zum Integritätszustand Ihrer Azure-VMs sowie Leistungs- und Zuordnungsdaten angezeigt. In den Ansichten für Leistung und Zuordnung werden nach einiger Zeit keine Daten mehr angezeigt, in der Integritätsansicht dagegen wird weiterhin der Integritätsstatus Ihrer VMs angezeigt. Die Option **Jetzt testen** steht nur zum erneuten Integrieren aus den Ansichten für Leistung und Zuordnung zur Verfügung.
 
 ## <a name="next-steps"></a>Nächste Schritte
-Informationen zu den Anforderungen und Methoden für die Aktivierung der Überwachung Ihrer virtuellen Computer finden Sie unter [Deploy Azure Monitor for VMs (Bereitstellen von Azure Monitor für VMs)](vminsights-onboard.md).
+Informationen zu den Anforderungen und Methoden für die Aktivierung der Überwachung Ihrer virtuellen Computer finden Sie unter [Aktivieren von Azure Monitor für VMs](vminsights-enable-overview.md).

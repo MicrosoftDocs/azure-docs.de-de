@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60646706"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Erstellen eines Azure Recovery Services-Tresors mit der REST-API
 
@@ -35,8 +35,8 @@ Die folgenden Header sind erforderlich:
 
 | Anforderungsheader   | BESCHREIBUNG |
 |------------------|-----------------|
-| *Inhaltstyp*:  | Erforderlich. Legen Sie diese Option auf `application/json` fest. |
-| *Autorisierung*: | Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |
+| *Content-Type:*  | Erforderlich. Legen Sie diese Option auf `application/json` fest. |
+| *Authorization:* | Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |
 
 Weitere Informationen zum Erstellen der Anforderung finden Sie unter [Komponenten einer REST-API-Anforderung/Antwort](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -46,11 +46,11 @@ Die folgenden allgemeinen Definitionen werden verwendet, um einen Anforderungste
 
 |NAME  |Erforderlich  |Typ  |BESCHREIBUNG  |
 |---------|---------|---------|---------|
-|eTag     |         |   Zeichenfolge      |  Optionales ETag       |
-|location     |  true       |Zeichenfolge         |   Speicherort von Ressourcen      |
-|Eigenschaften     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Eigenschaften des Tresors       |
+|eTag     |         |   string      |  Optionales ETag       |
+|location     |  true       |string         |   Speicherort von Ressourcen      |
+|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Eigenschaften des Tresors       |
 |sku     |         |  [sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Gibt den eindeutigen Systembezeichner für jede Azure-Ressource an.     |
-|tags     |         | Objekt        |     Ressourcentags    |
+|tags     |         | Object        |     Ressourcentags    |
 
 Beachten Sie, dass der Tresorname und Ressourcengruppenname im PUT-URI bereitgestellt werden. Im Anforderungstext wird der Standort definiert.
 

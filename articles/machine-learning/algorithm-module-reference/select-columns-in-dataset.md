@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: e7407f62bd3401411d56076b298bd8cd134ece62
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027642"
 ---
 # <a name="select-columns-in-dataset-module"></a>Modul „Select Columns in Dataset“ (Spalten im Dataset auswählen)
@@ -80,7 +80,7 @@ Die Option **BEGIN WITH** ermittelt Ihren Startpunkt und ist wichtig zum Verstä
 
 + Wenn Sie die Option **NO COLUMNS** auswählen, ist die Liste der Spalten am Anfang leer. Als Nächstes geben Sie Bedingungen an, um der Liste Spalten *hinzuzufügen*. 
 
-    Wenn Sie mehrere Regeln anwenden, ist jede Bedingung **additiv**. Angenommen, Sie beginnen ohne Spalten und fügen dann eine Regel hinzu, um alle numerischen Spalten abzurufen. Im Dataset mit Automobilpreisen erhalten Sie daraufhin 16 Spalten. Klicken Sie anschließend auf das **+**-Zeichen, um eine neue Bedingung hinzuzufügen, und wählen Sie dann **Include all features** (Alle Features einschließen) aus. Das resultierende Dataset umfasst alle numerischen Spalten sowie alle Featurespalten einschließlich einiger textbasierten Featurespalten.
+    Wenn Sie mehrere Regeln anwenden, ist jede Bedingung **additiv**. Angenommen, Sie beginnen ohne Spalten und fügen dann eine Regel hinzu, um alle numerischen Spalten abzurufen. Im Dataset mit Automobilpreisen erhalten Sie daraufhin 16 Spalten. Klicken Sie anschließend auf das **+** -Zeichen, um eine neue Bedingung hinzuzufügen, und wählen Sie dann **Include all features** (Alle Features einschließen) aus. Das resultierende Dataset umfasst alle numerischen Spalten sowie alle Featurespalten einschließlich einiger textbasierten Featurespalten.
 
 ### <a name="choose-by-column-index"></a>Auswählen nach Spaltenindex
 

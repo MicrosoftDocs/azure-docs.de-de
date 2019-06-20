@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: bb10378d890c2b7156b6764321e177a22ffc538a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370381"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472758"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Telefonanmeldung ohne Kennwort mit der Microsoft Authenticator-App (Public Preview)
 
@@ -88,6 +88,6 @@ Eine der Voraussetzungen für die Erstellung dieser neuen, sicheren Anmeldeinfor
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Informationen zur Geräteregistrierung](../devices/overview.md#getting-devices-under-the-control-of-azure-ad)
+[Informationen zur Geräteregistrierung](../devices/overview.md#getting-devices-in-azure-ad)
 
 [Informationen zu Microsoft Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

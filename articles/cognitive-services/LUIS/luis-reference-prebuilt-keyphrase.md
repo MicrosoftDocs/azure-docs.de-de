@@ -9,19 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5ef7ccb58533161d8397ad42e70de1999908dc36
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 988609f411ad405b0f1dc244b23fb6db446136a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65071999"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Vordefinierte KeyPhrase-Entität für eine LUIS-App
 Die keyPhrase-Entität extrahiert eine Vielzahl von Schlüsselbegriffen aus einer Äußerung. Sie müssen der App keine Beispieläußerungen hinzufügen, die „keyPhrase“ enthalten. Die keyPhrase-Entität wird für [viele Kulturen](luis-language-support.md#languages-supported) im Rahmen der Funktionen der [Textanalyse](../text-analytics/overview.md) unterstützt. 
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Auflösung der vorgefertigten keyPhrase-Entität
+
+### <a name="api-version-2x"></a>API-Version 2.x
+
 Im folgenden Beispiel wird die Auflösung der Entität **builtin.keyPhrase** veranschaulicht.
 
 ```json

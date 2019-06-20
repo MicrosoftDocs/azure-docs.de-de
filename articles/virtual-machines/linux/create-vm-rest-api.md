@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447845"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60391360"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Erstellen eines virtuellen Linux-Computers zur Verwendung der SSH-Authentifizierung mit der REST-API
 
@@ -54,8 +54,8 @@ Die folgenden Header sind erforderlich:
 
 | Anforderungsheader   | BESCHREIBUNG |
 |------------------|-----------------|
-| *Inhaltstyp*:  | Erforderlich. Legen Sie diese Option auf `application/json` fest. |
-| *Autorisierung*: | Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |
+| *Content-Type:*  | Erforderlich. Legen Sie diese Option auf `application/json` fest. |
+| *Authorization:* | Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |
 
 Allgemeine Informationen zum Arbeiten mit REST-API-Anforderung finden Sie unter [Komponenten einer REST-API-Anforderung/Antwort](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 

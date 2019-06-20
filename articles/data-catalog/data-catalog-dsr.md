@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: f97f84ebf1dc4406bd924817bfd4aa3267559751
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694334"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65775665"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Von Azure Data Catalog unterstützte Datenquellen
 
@@ -230,6 +230,14 @@ Sie können Metadaten auf verschiedene Weisen veröffentlichen: Sie können eine
       <td>✓</td>
       <td>Excel</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>SAP Business Warehouse</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>Funktioniert nur auf Englisch. Maßeinheiten werden nicht unterstützt.</td>
     </tr>
     <tr>
       <td>SAP HANA-Sicht</td>

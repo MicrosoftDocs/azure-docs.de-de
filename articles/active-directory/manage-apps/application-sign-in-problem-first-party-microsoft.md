@@ -3,8 +3,8 @@ title: Probleme beim Anmelden bei Microsoft-Anwendungen | Microsoft-Dokumentatio
 description: Behandlung von allgemeinen Problemen bei der Anmeldung in eigenen Microsoft-Anwendungen mithilfe von Azure AD (z.B. Office 365)
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104147"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956843"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Probleme beim Anmelden bei Microsoft-Anwendungen
 
@@ -87,7 +87,7 @@ Im Folgenden werden einige allgemeine Probleme beschrieben, die auftreten könne
 
 - Im Folgenden finden Sie einige weitere Aspekte, die Sie für **Microsoft**-**Anwendungen, die keine Lizenz erfordern**, überprüfen können:
 
-  * Wenn die Anwendung **Berechtigungen auf Benutzerebene** (beispielsweise „Auf das Postfach dieses Benutzers zugreifen“) anfordert, stellen Sie sicher, dass der Benutzer sich bei der Anwendung angemeldet und eine **Zustimmung auf Benutzerebene** durchgeführt hat, damit die Anwendung auf seine Daten zugreifen kann.
+  * Wenn die Anwendung **Berechtigungen auf Benutzerebene** (beispielsweise „Zugriff auf das Postfach dieses Benutzers“) anfordert, stellen Sie sicher, dass der Benutzer sich bei der Anwendung angemeldet und eine **Zustimmung auf Benutzerebene** durchgeführt hat, damit die Anwendung auf seine Daten zugreifen kann.
 
   * Wenn die Anwendung **Berechtigungen auf Administratorebene** (beispielsweise „Auf die Postfächer aller Benutzer zugreifen“) anfordert, stellen Sie sicher, dass ein globaler Administrator eine **Zustimmung auf Benutzerebene im Namen aller Benutzer** in der Organisation durchgeführt hat.
 
@@ -435,7 +435,7 @@ So überprüfen oder validieren Sie eine einzelne Richtlinie für bedingten Zugr
 
 6. Klicken Sie auf die Richtlinie, die Sie untersuchen möchten.
 
-7. Vergewissern Sie sich, dass keine spezifischen Bedingungen, Zuweisungen oder anderen Einstellungen den Benutzerzugriff blockieren können.
+7. Vergewissern Sie sich, dass keine spezifischen Bedingungen, Zuweisungen oder anderen Einstellungen den Benutzerzugriff blockieren.
 
    >[!NOTE]
    >Möglicherweise sollten Sie diese Richtlinie vorübergehend deaktivieren, um sicherzustellen, dass sie keine Auswirkungen auf Anmeldungen hat. Legen Sie hierzu den Umschalter **Richtlinie aktivieren** auf **Nein** fest, und klicken Sie auf die Schaltfläche **Speichern**.
@@ -456,7 +456,7 @@ So überprüfen oder validieren Sie die derzeit konfigurierte Richtlinie für be
 
 5.  Klicken Sie auf **Alle Anwendungen**.
 
-6.  Suchen Sie nach der Anwendung, die Sie interessiert oder bei der sich der Benutzer anmelden möchte, anhand des Anwendungsanzeigenamens oder der Anwendungs-ID.
+6.  Suchen Sie anhand des Anwendungsanzeigenamens oder der Anwendungs-ID nach der Anwendung, die Sie interessiert oder bei der sich der Benutzer anmelden möchte.
 
      >[!NOTE]
      >Wenn Sie die gewünschte Anwendung nicht sehen, klicken Sie auf die Schaltfläche **Filter**, und erweitern Sie den Bereich der Liste auf **Alle Anwendungen**. Wenn Sie weitere Spalten anzeigen möchten, klicken Sie auf die Schaltfläche **Spalten**, um weitere Details für Ihre Anwendungen hinzuzufügen.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e038c500d93e4d631c585eed743a373b5e6cec85
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968343"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428362"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Schützen Ihrer Netzwerkressourcen in Azure Security Center
 Azure Security Center analysiert ständig den Sicherheitsstatus Ihrer Azure-Ressourcen anhand bewährter Methoden für Netzwerksicherheit. Werden potenzielle Sicherheitslücken erkannt, erstellt Security Center Empfehlungen, die Sie beim Konfigurieren der erforderlichen Steuerelemente zum Sichern und Schützen Ihrer Ressourcen unterstützen.
@@ -131,16 +131,14 @@ Die dritte Ebene zeigt virtuelle Computer, ähnlich wie in der Beschreibung oben
 
 |Ressourcentyp|Sicherheitsbewertung|Empfehlung|BESCHREIBUNG|
 |----|----|----|----|
-|Machine|40|Netzwerksicherheitsgruppen auf virtuellen Computern aktivieren|Aktivieren Sie Netzwerksicherheitsgruppen zum Steuern des Netzwerkzugriffs für Ihre virtuellen Computer.|
-|Subnetz|35|Netzwerksicherheitsgruppen in Subnetzen aktivieren |Aktivieren Sie Netzwerksicherheitsgruppen zum Steuern des Netzwerkzugriffs für in Ihren Subnetzen bereitgestellte Ressourcen.|
-|Machine|30|JIT-Netzwerkzugriffssteuerung anwenden|Wenden Sie die JIT-VM-Zugriffssteuerung an, um den Zugriff auf ausgewählte Ports dauerhaft zu sperren und autorisierten Benutzern zu ermöglichen, sie über den gleichen Mechanismus und für eine begrenzte Zeitspanne zu öffnen.|
+|Machine|40|Netzwerksicherheitsgruppen für virtuelle Computer sollten aktiviert werden.|Aktivieren Sie Netzwerksicherheitsgruppen zum Steuern des Netzwerkzugriffs für Ihre virtuellen Computer.|
+|Subnetz|35|Netzwerksicherheitsgruppen auf Subnetzebene sollten aktiviert werden.|Aktivieren Sie Netzwerksicherheitsgruppen zum Steuern des Netzwerkzugriffs für in Ihren Subnetzen bereitgestellte Ressourcen.|
+|Machine|30|Die Just-In-Time-Netzwerkzugriffssteuerung sollte auf virtuelle Computer angewendet werden.|Wenden Sie die JIT-VM-Zugriffssteuerung an, um den Zugriff auf ausgewählte Ports dauerhaft zu sperren und autorisierten Benutzern zu ermöglichen, sie über den gleichen Mechanismus und für eine begrenzte Zeitspanne zu öffnen.|
 |Machine|20|Zugriff über Endpunkt mit Internetzugriff einschränken|Stärken Sie die Netzwerksicherheitsgruppen Ihrer VMs mit Internetzugriff, indem Sie den Zugriff auf Ihre bestehenden Zulassungsregeln einschränken.|
 |Machine|10|Hinzufügen einer Firewall der nächsten Generation|Fügen Sie eine Lösung für eine Firewall der nächsten Generation (NGFW) hinzu, um Ihre virtuellen Computer mit Internetzugriff besser zu schützen.|
 |Machine|5|Datenverkehr nur über die Firewall der Netzwerkgateway leiten|Um die Bereitstellung Ihrer Firewalllösung der nächsten Generation abzuschließen, sollte der Datenverkehr zu Ihren geschützten VMs mit Internetzugriff nur über die Firewalllösung der nächsten Generation geleitet werden.|
 |VNet|5|DDoS Protection Standard aktivieren|Anwendungen mit öffentlichen IPs in diesen virtuellen Netzwerken sind nicht mit dem DDOS Protection-Dienststandard geschützt. Es wird empfohlen, diesen zu aktivieren, um die Eindämmung von volumetrischen Netzwerk- und Protokollangriffen zu ermöglichen.|
-|Machine|10|Hinzufügen einer Firewall der nächsten Generation|Fügen Sie eine Lösung für eine Firewall der nächsten Generation (NGFW) hinzu, um Ihre virtuellen Computer mit Internetzugriff besser zu schützen.|
-|Machine|5|Datenverkehr nur über die Firewall der Netzwerkgateway leiten|Um die Bereitstellung Ihrer Firewalllösung der nächsten Generation abzuschließen, sollte der Datenverkehr zu Ihren geschützten VMs mit Internetzugriff nur über die Firewalllösung der nächsten Generation geleitet werden.|
-VNet|5|DDoS Protection Standard aktivieren|Anwendungen mit öffentlichen IP-Adressen in diesen virtuellen Netzwerken sind nicht mit dem DDOS Protection-Dienststandard geschützt. Es wird empfohlen, diesen zu aktivieren, um die Eindämmung von volumetrischen Netzwerk- und Protokollangriffen zu ermöglichen.|
+
 ## <a name="see-also"></a>Weitere Informationen
 Weitere Informationen zu Empfehlungen für andere Arten von Azure-Ressourcen finden Sie in den folgenden Themen:
 

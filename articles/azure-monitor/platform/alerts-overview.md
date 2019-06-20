@@ -9,11 +9,11 @@ ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003311"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60347452"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Überblick über Warnungen in Microsoft Azure 
 
@@ -148,7 +148,7 @@ Zum Filtern der Ansicht können Sie die folgenden Werte in den Dropdownmenüs am
 | Abonnement | Wählen Sie bis zu fünf Azure-Abonnements aus. Nur Warnungen in den ausgewählten Abonnements sind in der Ansicht enthalten. |
 | Ressourcengruppe | Wählen Sie eine einzelne Ressourcengruppe aus. Nur Warnungen mit Zielen in der ausgewählten Ressourcengruppe sind in der Ansicht enthalten. |
 | Ressourcentyp | Wählen Sie mindestens einen Ressourcentyp aus. Nur Warnungen mit Zielen des ausgewählten Typs sind in der Ansicht enthalten. Diese Spalte ist nur verfügbar, nachdem eine Ressourcengruppe angegeben wurde. |
-| Ressource | Wählen Sie eine Ressource aus. Nur Warnungen mit dieser Ressource als Ziel sind in der Ansicht enthalten. Diese Spalte ist nur verfügbar, nachdem ein Ressourcentyp angegeben wurde. |
+| Resource | Wählen Sie eine Ressource aus. Nur Warnungen mit dieser Ressource als Ziel sind in der Ansicht enthalten. Diese Spalte ist nur verfügbar, nachdem ein Ressourcentyp angegeben wurde. |
 | Severity | Wählen Sie einen Warnungsschweregrad oder *Alle* aus, um Warnungen aller Schweregrade einzuschließen. |
 | Überwachungsbedingung | Wählen Sie eine Überwachungsbedingung oder *Alle* aus, um Warnungen aller Bedingungen einzuschließen. |
 | Warnungsstatus | Wählen Sie einen Warnungsstatus oder *Alle* aus, um Warnungen aller Statusarten einzuschließen. |
@@ -164,7 +164,7 @@ Die Seite „Warnungsdetails“ wird angezeigt, wenn Sie auf eine Warnung klicke
 
 Die Seite „Warnungsdetails“ enthält die folgenden Abschnitte.
 
-| Abschnitt | BESCHREIBUNG |
+| `Section` | BESCHREIBUNG |
 |:---|:---|
 | Zusammenfassung | Zeigt die Eigenschaften und andere wichtige Informationen zur Warnung an. |
 | Verlauf | Listet die einzelnen Aktionen, die von der Warnung ausgeführt wurden, und alle an der Warnung vorgenommenen Änderungen auf. Das beschränkt sich derzeit auf Statusänderungen. |

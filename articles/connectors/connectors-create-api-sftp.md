@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
 ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578372"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60450759"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Überwachen, Erstellen und Verwalten von SFTP-Dateien mithilfe von Azure Logic Apps
 
@@ -73,7 +73,7 @@ Weitere Unterschiede zwischen dem SFTP-Connector und dem SFTP-SSH-Connector find
    Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 
    Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
 
 1. Geben Sie die erforderlichen Informationen für Ihre Verbindung ein.
 
@@ -112,7 +112,7 @@ Wenn ein Trigger eine neue Datei findet, überprüft er, ob die neue Datei volls
 
 Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind: 
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt über Pfad abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 
@@ -128,7 +128,7 @@ Dieser Trigger startet einen Logik-App-Workflow, wenn auf einem SFTP-Server eine
 
 Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind: 
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt über Pfad abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 
@@ -140,7 +140,7 @@ Diese Aktion ruft den Inhalt einer Datei auf einem SFTP-Server ab. Sie können z
 
 Beim Anfordern von Dateiinhalten rufen Trigger keine Dateien ab, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind: 
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt über Pfad abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 

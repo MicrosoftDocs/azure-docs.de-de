@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 93b5aeafafdc6ab7ee233f6360bb5e09f45b387f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708821"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297063"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Herstellen einer Verbindung mit Apache Kafka in HDInsight über ein virtuelles Azure-Netzwerk
 
@@ -197,8 +197,10 @@ Führen Sie die Schritte in diesem Abschnitt aus, um die folgende Konfiguration 
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+        -SkuName Standard_GRS `
+        -Location $location `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
 
     # Get the storage account keys and create a context
     $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
@@ -240,7 +242,7 @@ Führen Sie die Schritte in diesem Abschnitt aus, um die folgende Konfiguration 
 
 Standardmäßig gibt Apache ZooKeeper den Domänennamen der Kafka-Broker an Clients zurück. Diese Konfiguration funktioniert für den VPN-Client nicht, da er die Namensauflösung nicht für Entitäten im virtuellen Netzwerk verwenden kann. Verwenden Sie für diese Konfiguration die folgenden Schritte, um Kafka zum Ankündigen von IP-Adressen anstelle von Domänennamen zu konfigurieren:
 
-1. Wechseln Sie in Ihrem Webbrowsers zu https://CLUSTERNAME.azurehdinsight.net. Ersetzen Sie __CLUSTERNAME__ durch den Namen von Kafka im HDInsight-Cluster.
+1. Wechseln Sie in Ihrem Webbrowsers zu `https://CLUSTERNAME.azurehdinsight.net`. Ersetzen Sie `CLUSTERNAME` durch den Namen von Kafka im HDInsight-Cluster.
 
     Geben Sie bei entsprechender Aufforderung den HTTPS-Benutzernamen und das Kennwort für den Cluster ein. Die Ambari-Webbenutzeroberfläche für den Cluster wird angezeigt.
 
@@ -320,7 +322,9 @@ Um die Konnektivität mit Kafka zu überprüfen, führen Sie die folgenden Schri
 
 2. Verwenden Sie Folgendes zum Installieren des [kafka-python](https://kafka-python.readthedocs.io/)-Clients:
 
-        pip install kafka-python
+    ```bash
+    pip install kafka-python
+    ```
 
 3. Verwenden Sie zum Senden von Daten an Kafka den folgenden Python-Code:
 

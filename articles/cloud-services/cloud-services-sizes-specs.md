@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358249"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719023"
 ---
 # <a name="sizes-for-cloud-services"></a>Größen für Clouddienste
 In diesem Thema werden die verfügbaren Größen und Optionen für Cloud Service-Rolleninstanzen (Web- und Workerrollen) beschrieben. Darüber hinaus werden Überlegungen zur Bereitstellung angestellt, die Sie berücksichtigen sollten, wenn Sie eine Verwendung dieser Ressourcen planen. Jede Größe besitzt eine ID, die Sie in Ihre [Dienstdefinitionsdatei](cloud-services-model-and-package.md#csdef) einfügen. Preise für jede Größe sind auf der Seite [Cloud Services Preise](https://azure.microsoft.com/pricing/details/cloud-services/) verfügbar.
@@ -68,6 +68,7 @@ Wir haben das Konzept der Azure-Berechnungseinheit ACU (Azure Compute Unit) gesc
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
+| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -142,7 +143,7 @@ Informationen und Überlegungen zum Verwenden dieser Größen finden Sie unter [
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/hoch |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/hoch |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/äußerst hoch |
-| Standard_D15_v2 | 20        | 140          | 1.000                | 8/äußerst hoch |
+| Standard_D15_v2 | 20        | 140          | 1\.000                | 8/äußerst hoch |
 
 ## <a name="dv3-series"></a>Dv3-Serie
 
@@ -166,15 +167,26 @@ Informationen und Überlegungen zum Verwenden dieser Größen finden Sie unter [
 | Standard_E32_v3 | 32        | 256           | 800                  | 8/äußerst hoch |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8/äußerst hoch |
 
+## <a name="f-series"></a>F-Serie
+
+
+| Größe            | CPU-Kerne | Memory: GiB   | Temporärer Speicher (SSD): GiB       | Maximale Anzahl NICs/Netzwerkbandbreite |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_F1     | 1         | 2             | 16                   | 2/750  |
+| Standard_F2     | 2         | 4             | 32                   | 2/1500 |
+| Standard_F4     | 4         | 8             | 64                   | 4/3000 |
+| Standard_F8     | 8         | 16            | 128                  | 8/6000 |
+| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
+
 
 ## <a name="g-series"></a>G-Serie
 | Größe            | CPU-Kerne | Memory: GiB  | Temporärer Speicher (SSD): GiB       | Maximale Anzahl NICs/Netzwerkbandbreite |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1/hoch |
 | Standard_G2     | 4         | 56           | 768                  |2/hoch |
-| Standard_G3     | 8         | 112          | 1.536                |4/sehr hoch |
-| Standard_G4     | 16        | 224          | 3.072                |8/äußerst hoch |
-| Standard_G5     | 32        | 448          | 6.144                |8/äußerst hoch |
+| Standard_G3     | 8         | 112          | 1\.536                |4/sehr hoch |
+| Standard_G4     | 16        | 224          | 3\.072                |8/äußerst hoch |
+| Standard_G5     | 32        | 448          | 6\.144                |8/äußerst hoch |
 
 ## <a name="h-series"></a>H-Reihe
 Virtuelle Azure-Computer der H-Reihe sind High Performing Computing-VMs der nächsten Generation für High-End-Berechnungsanforderungen, z.B. Molekülmodellierung und Strömungsdynamikberechnung. Diese virtuellen Computer mit 8 und 16 Kernen basieren auf der Intel Haswell E5-2667 V3-Prozessortechnologie mit DDR4-Speicher und lokalem SSD-Speicher.

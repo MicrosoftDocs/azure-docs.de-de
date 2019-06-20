@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65551763"
 ---
 # <a name="assets"></a>Objekte
 
-In Azure Media Services enthält ein [Medienobjekt](https://docs.microsoft.com/rest/api/media/assets) digitale Dateien (z.B. Video- und Audiodateien, Bilder, Sammlungen von Miniaturansichten, Textspuren und Untertiteldateien) sowie die Metadaten zu diesen Dateien. Nachdem die digitalen Dateien in ein Medienobjekt geladen wurden, können sie in den Media Services-Workflows zum Codieren, Streamen und Analysieren von Inhalten verwendet werden. Weitere Informationen finden Sie unten im Abschnitt [Hochladen von digitalen Dateien in Medienobjekte](#upload-digital-files-into-assets).
+In Azure Media Services enthält ein [Medienobjekt](https://docs.microsoft.com/rest/api/media/assets) Informationen zu digitalen in Azure Storage gespeicherten Dateien (z.B. Video- und Audiodateien, Bilder, Sammlungen von Miniaturansichten, Textspuren und Untertiteldateien). 
 
 Ein Medienobjekt ist einem Blobcontainer im [Azure Storage-Konto](storage-account-concept.md) zugeordnet, und die im Medienobjekt enthaltenen Dateien werden als Blockblobs in diesem Container gespeichert. Azure Media Services unterstützt Blobebenen, wenn das Konto einen Speicher vom Typ „Allgemein v2“ (GPv2) verwendet. In GPv2-Speichern können Sie Dateien auf die [kalte Speicherebene oder die Archivspeicherebene](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) verschieben. Der **Archivspeicher** eignet sich für die Archivierung von Quelldateien, wenn diese nicht mehr benötigt werden (z.B. nach der Codierung).
 
 Die **Archivspeicherebene** wird nur empfohlen, wenn Sie über sehr große Quelldateien verfügen, die bereits codiert wurden, und wenn der Codierungsauftrag in einem Ausgabeblobcontainer platziert wurde. Die Blobs in dem Ausgabecontainer, den Sie einem Medienobjekt zuordnen und zum Streamen oder Analysieren Ihrer Inhalte verwenden möchten, müssen auf den Speicherebenen **heiß** oder **kalt** vorhanden sein.
 
-> [!NOTE]
-> Eigenschaften von Medienobjekten im Datetime-Typ liegen immer im UTC-Format vor.
-
 ## <a name="upload-digital-files-into-assets"></a>Hochladen von digitalen Dateien in Medienobjekte
 
-Einer der gängigsten Media Services-Workflows besteht aus dem Hochladen, Codieren und Streamen einer Datei. Dieser Abschnitt erläutert die allgemeinen Schritte.
+Nachdem die digitalen Dateien in den Speicher hochgeladen und einem Medienobjekt zugeordnet wurden, können sie in den Media Services-Workflows zum Codieren, Streamen und Analysieren von Inhalten verwendet werden. Einer der gängigsten Media Services-Workflows besteht aus dem Hochladen, Codieren und Streamen einer Datei. Dieser Abschnitt erläutert die allgemeinen Schritte.
 
 > [!TIP]
 > Bevor Sie mit der Entwicklung beginnen, lesen Sie [Entwickeln mit Media Services v3-APIs](media-services-apis-overview.md) (Informationen zum Zugreifen auf APIs, Namenskonventionen usw.).
@@ -54,6 +51,9 @@ Einer der gängigsten Media Services-Workflows besteht aus dem Hochladen, Codier
 Unter [Erstellen einer Auftragseingabe aus einer lokalen Datei](job-input-from-local-file-how-to.md) finden Sie ein vollständiges .NET-Beispiel für folgende Aufgaben: Erstellen des Medienobjekts, Abrufen einer beschreibbaren SAS-URL zum Container des Medienobjekts im Container und Hochladen der Datei in den Container im Speicher über die SAS-URL.
 
 ### <a name="create-a-new-asset"></a>Erstellen des neuen Medienobjekts
+
+> [!NOTE]
+> Eigenschaften von Medienobjekten im Datetime-Typ liegen immer im UTC-Format vor.
 
 #### <a name="rest"></a>REST
 

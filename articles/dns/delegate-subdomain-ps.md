@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/7/2019
 ms.author: victorh
-ms.openlocfilehash: 40b2a4d98e6269d9740856ba44c1043af75ce1b8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 4ee4d9e6390c9a091096bb7c06160b76fd8af90f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896606"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730284"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delegieren einer Azure DNS-Unterdomäne mithilfe von Azure PowerShell
 
@@ -25,7 +25,7 @@ Falls Sie dies vorziehen, können Sie eine Unterdomäne auch mithilfe des [Azure
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

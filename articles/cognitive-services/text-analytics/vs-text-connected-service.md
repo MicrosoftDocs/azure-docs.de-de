@@ -10,23 +10,23 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4e1c03085d6b1d0099ac66dd3d1dadd981a561aa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004243"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860474"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Herstellen einer Verbindung mit dem Textanalysedienst mithilfe von „Verbundene Dienste“ in Visual Studio
 
 Mit dem Textanalysedienst können Sie umfassende Informationen extrahieren, um visuelle Daten zu kategorisieren und zu verarbeiten. Zudem können Sie die computergestützte Moderation von Bildern verwenden, um Ihre Dienste zu kuratieren.
 
-Dieser Artikel und die Begleitartikel enthalten Details zur Verwendung des Features „Verbundener Visual Studio-Dienst“ für den Textanalysedienst. Die Funktion ist in Visual Studio 2017 15.7 oder höher verfügbar, wenn die Cognitive Services-Erweiterung installiert ist.
+Dieser Artikel und die Begleitartikel enthalten Details zur Verwendung des Features „Verbundener Visual Studio-Dienst“ für den Textanalysedienst. Die Funktion ist in Visual Studio 2019 oder höher verfügbar, wenn die Cognitive Services-Erweiterung installiert ist.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - Ein Azure-Abonnement. Falls Sie über kein Abonnement verfügen, können Sie sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/)registrieren.
-- Visual Studio 2017, Version 15.7, mit installierter Workload „Webentwicklung“. [Jetzt herunterladen](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 mit installierter Workload für Webentwicklung. [Jetzt herunterladen](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

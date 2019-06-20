@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 9ae0caec211dc1199f0abd2ce9bc0c7ad11c02ec
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2017
-ms.locfileid: "24030356"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60630607"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Verwalten von Geräten mithilfe von StorSimple-Überwachungsindikatoren
 
@@ -136,7 +136,7 @@ Die folgende Abbildung unterstützt Sie bei der Identifizierung der LEDs für de
 Anhand der folgenden Tabelle können Sie ermitteln, ob das Controllermodul ordnungsgemäß funktioniert.  
 
 ### <a name="controller-indicator-leds"></a>Indikator-LEDs des Controllers
-| LED | Beschreibung |
+| LED | BESCHREIBUNG |
 | --- | --- |
 | ID-LED (blau) |Zeigt an, dass das Modul identifiziert wurde. Wenn die blaue LED an einem laufenden Controller blinkt, ist dieser Controller der aktive Controller und der andere Controller der Standbycontroller. Weitere Informationen finden Sie unter [Identifizieren des aktiven Controllers auf Ihrem Gerät](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | Fehler-LED (bernsteinfarben) |Zeigt einen Fehler im Controller an. |
@@ -160,9 +160,9 @@ Anhand der folgenden Tabelle können Sie ermitteln, ob das EBOD-Controllermodul 
 ### <a name="ebod-controller-module-indicator-leds"></a>Indikator-LEDs des EBOD-Controllermoduls
 | Status | E/A-Modul OK (grün) | E/A-Modulfehler (bernsteinfarben) | Aktivität am Hostport (grün) |
 | --- | --- | --- | --- |
-| Controllermodul OK |EIN |AUS |- |
-| Controllermodulfehler |AUS |EIN |- |
-| Keine externe Hostportverbindung |- |- |AUS |
+| Controllermodul OK |EIN |OFF |- |
+| Controllermodulfehler |OFF |EIN |- |
+| Keine externe Hostportverbindung |- |- |OFF |
 | Externe Hostportverbindung – keine Aktivität |- |- |EIN |
 | Externe Hostportverbindung – Aktivität |- |- |Blinken |
 | Controllermodul-Metadatenfehler |Blinken |- |- |
@@ -219,7 +219,7 @@ Der akustische Alarm kann durch Drücken der Stummschalttaste auf dem OPS-Bedien
 Die verschiedenen Alarmbedingungen werden in der folgenden Tabelle beschrieben.
 
 ### <a name="alarm-conditions"></a>Alarmbedingungen
-| Status | Schweregrad | Alarm | LED des Bedienfelds |
+| Status | Severity | Alarm | LED des Bedienfelds |
 | --- | --- | --- | --- |
 | PCM-Alarm – Verlust des Gleichstroms von einer PCM |Fehler – kein Verlust der Redundanz |S1 |Modulfehler |
 | PCM-Alarm – Verlust des Gleichstroms von einer PCM |Fehler – Verlust der Redundanz |S1 |Modulfehler |
@@ -239,7 +239,7 @@ Die verschiedenen Alarmbedingungen werden in der folgenden Tabelle beschrieben.
 | Fehler der Energiesteuerung des Laufwerks |Warnung – kein Verlust der Laufwerkenergie |S1 |Modulfehler |
 | Fehler der Energiesteuerung des Laufwerks |Fehler – kritisch – Verlust der Laufwerkenergie |S1 |Modulfehler |
 | Laufwerk entfernt |Warnung |Keine |Modulfehler |
-| Keine ausreichende Energie verfügbar |Warnung |Keine |Modulfehler |
+| Keine ausreichende Energie verfügbar |Warnung |none |Modulfehler |
 
 ## <a name="next-steps"></a>Nächste Schritte
 Weitere Informationen zu [StorSimple-Hardwarekomponenten und ihrem Status](storsimple-8000-monitor-hardware-status.md).

@@ -1,5 +1,5 @@
 ---
-title: Was ist der StorSimple Snapshot Manager? | Microsoft Docs
+title: Was ist der StorSimple Snapshot Manager? | Microsoft-Dokumentation
 description: Beschreibt den StorSimple Snapshot Manager, seine Architektur und seine Features.
 services: storsimple
 documentationcenter: NA
@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: v-sharos
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38c197c7bc57110b29b1d8cb789d5b7310823da2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f7436bb63f52c9c2b697c8e7031922ce89d786b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111468"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60789613"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Einführung in StorSimple Snapshot Manager
 

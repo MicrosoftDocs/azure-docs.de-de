@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
 ms.openlocfilehash: 08d62e7a6c9503d415fe144da57eee72ce3bfafd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60636567"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Erstellen eines Standpunktanalysemodells in Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ In einem Experiment zur Textanalyse würden Sie in der Regel Folgendes tun:
 
 In diesem Tutorial erlernen Sie die erforderlichen Schritte, während wir ein Stimmungsanalysemodell mit dem Dataset „Amazon Book Reviews“ schrittweise durcharbeiten (weitere Informationen finden Sie in der Forschungsarbeit „Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification“ von John Blitzer, Mark Dredze und Fernando Pereira, Association of Computational Linguistics (ACL), 2007.) Dieses Dataset besteht aus Beurteilungsergebnissen (1 - 2 oder 4 - 5) und einem Freiformtext. Das Ziel ist die Vorhersage des Beurteilungsergebnisses: niedrig (1 - 2) oder hoch (4 - 5).
 
-Sie finden Experimente, die in diesem Tutorial behandelt werden, im Azure AI-Katalog:
+Sie finden Experimente, die in diesem Tutorial behandelt werden, im Azure KI-Katalog:
 
 [Predict Book Reviews (Vorhersagen von Buchbesprechungen)](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 

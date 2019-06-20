@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280535"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257343"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Erkennen von Absichten anhand von gesprochener Sprache mit dem Speech SDK für C#
-
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 Das [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) von Cognitive Services ist in den [Language Understanding Service (LUIS)](https://www.luis.ai/home) integriert, um **Absichtserkennung zu ermöglichen.** Eine Absicht ist eine Aufgabe, die der Benutzer ausführen möchte: einen Flug buchen, sich über das Wetter informieren oder einen Anruf tätigen. Der Benutzer kann beliebige Begriffe verwenden, die sich für ihn natürlich anfühlen. Mithilfe von Machine Learning ordnet LUIS Benutzeranforderungen den Absichten zu, die Sie definiert haben.
 

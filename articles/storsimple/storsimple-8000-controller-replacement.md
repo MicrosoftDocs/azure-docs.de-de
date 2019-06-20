@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61482869"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Ersetzen des Controllermoduls auf dem StorSimple-Gerät
 ## <a name="overview"></a>Übersicht
@@ -90,7 +90,7 @@ Führen Sie folgende Schritte aus, wenn einer der Controller in Ihrem Microsoft 
    
     **Abbildung 1:** Rückseite des StorSimple-Geräts
    
-   | Bezeichnung | Beschreibung |
+   | Bezeichnung | BESCHREIBUNG |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -231,7 +231,7 @@ Wenn diese LED blinkt, ist der Controller aktiv, und der andere Controller befin
 
 **Abbildung 8:** Rückseite des primären Gehäuses mit Datenanschlüssen und Überwachungs-LEDs
 
-| Bezeichnung | Beschreibung |
+| Bezeichnung | BESCHREIBUNG |
 |:--- |:--- |
 | 1-6 |Netzwerkanschlüsse DATA 0-5 |
 | 7 |Blaue LED |

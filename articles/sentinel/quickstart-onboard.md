@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0061fb7946e4c35f855d1a409cb9bc210c73641a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 891f9fbd26b53b392ac84ed9d420b58558cd20c2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228309"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258430"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Einführung in Azure Sentinel Preview
 
@@ -41,7 +41,7 @@ Nachdem Sie die Datenquellen verbunden haben, steht Ihnen ein Katalog von profes
 - Log Analytics-Arbeitsbereich. Informationen zum [Erstellen eines Log Analytics-Arbeitsbereichs im Azure-Portal](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  Für das Abonnement, in dem sich der Azure Sentinel-Arbeitsbereich befindet, benötigen Sie Berechtigungen für Mitwirkende, um Azure Sentinel zu aktivieren. 
-- Für die Ressourcengruppe, zu der der Arbeitsbereich gehört, benötigen Sie entweder Berechtigungen für Mitwirkende oder für Betrachter, um Azure Sentinel zu verwenden.
+- Für die Ressourcengruppe, zu der der Arbeitsbereich gehört, benötigen Sie entweder Berechtigungen für Mitwirkende oder für Leser, um Azure Sentinel zu verwenden.
 - Möglicherweise sind für die Verbindung mit bestimmten Datenquellen zusätzliche Berechtigungen erforderlich.
  
 ## Aktivieren von Azure Sentinel <a name="enable"></a>

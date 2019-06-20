@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c9e771d97c037ddd07834025063233c3ede1f0c2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60711032"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Hinzufügen oder Entfernen von Knoten für einen eigenständigen Service Fabric-Cluster unter Windows Server
 Nachdem Sie Ihren [eigenständigen Service Fabric-Cluster auf Windows Server-Computern erstellt haben](service-fabric-cluster-creation-for-windows-server.md), können sich Ihre geschäftlichen Anforderungen ändern, und Sie müssen Knoten zu Ihrem Cluster hinzufügen oder daraus entfernen. Dieser Artikel enthält die ausführlichen Schritte, die hierfür erforderlich sind. Bitte beachten Sie, dass die Funktion für das Hinzufügen/Entfernen von Knoten in lokalen Entwicklungsclustern nicht unterstützt wird.

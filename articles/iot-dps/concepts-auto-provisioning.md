@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60746001"
 ---
 # <a name="auto-provisioning-concepts"></a>Konzepte für die automatische Bereitstellung
 

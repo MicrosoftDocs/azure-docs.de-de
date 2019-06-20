@@ -13,11 +13,11 @@ ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
 ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61038752"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Verwenden von Jenkins zum Erstellen und Bereitstellen Ihrer Linux-Anwendungen
 Jenkins ist ein beliebtes Tool für Continuous Integration und Continuous Deployment für Ihre Apps. Hier wird beschrieben, wie Sie Ihre Azure Service Fabric-Anwendung mit Jenkins erstellen und bereitstellen.
@@ -259,7 +259,7 @@ In den Schritten in diesem Abschnitt wird gezeigt, wie ein Jenkins-Auftrag konfi
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
         ``` 
 
-        Wenn die PFX-Datei kennwortgeschützt ist, schließen Sie das Kennwort im `-passin`-Parameter ein. Beispiel: 
+        Wenn die PFX-Datei kennwortgeschützt ist, schließen Sie das Kennwort im `-passin`-Parameter ein. Beispiel:
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!

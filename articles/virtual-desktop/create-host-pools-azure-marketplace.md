@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236796"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834006"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Erstellen eines Hostpools mit Azure Marketplace
 
@@ -59,6 +59,9 @@ Gehen Sie auf dem Blatt zum Konfigurieren virtueller Computer wie folgt vor:
 
 Gehen Sie auf dem Blatt mit den VM-Einstellungen wie folgt vor:
 
+>[!NOTE]
+> Wenn Sie Ihre virtuellen Computer einer Azure AD Domain Services-Umgebung beitreten lassen, stellen Sie sicher, dass Ihre Domänenbeitrittsbenutzer ebenfalls Mitglied der [Gruppe „AAD DC-Administratoren“](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group) ist.
+
 1. Wählen Sie die **Imagequelle** aus, und geben Sie entsprechende Informationen zum Speicherort und zur Art der Speicherung ein. Falls Sie keine verwalteten Datenträger verwenden möchten, wählen Sie das Speicherkonto mit der VHD-Datei aus.
 2. Geben Sie den Benutzerprinzipalnamen und das Kennwort für das Domänenkonto ein, über das die virtuellen Computer mit der Active Directory-Domäne verknüpft werden. Auf den virtuellen Computern wird ein lokales Konto mit dem gleichen Benutzernamen und Kennwort erstellt. Diese lokalen Konten können später zurückgesetzt werden.
 3. Wählen Sie das virtuelle Netzwerk aus, das mit dem Active Directory-Server verbunden ist, und wählen Sie anschließend ein Subnetz als Host für die virtuellen Computer aus.
@@ -68,7 +71,7 @@ Gehen Sie auf dem Blatt mit den VM-Einstellungen wie folgt vor:
 
 Gehen Sie auf dem Blatt mit den Informationen zum Windows Virtual Desktop-Mandanten wie folgt vor:
 
-1. Geben Sie den**Namen der Windows Virtual Desktop-Mandantengruppe** für die Mandantengruppe ein, die Ihren Mandanten enthält. Falls Sie keinen bestimmten Mandantengruppennamen verwenden möchten, übernehmen Sie den Standardwert.
+1. Geben Sie den**Namen der Windows Virtual Desktop-Mandantengruppe** für die Mandantengruppe ein, die Ihren Mandanten enthält. Lassen Sie den Standardnamen, es sei denn, Ihnen wurde ein spezieller Mandantengruppenname bereitgestellt.
 2. Geben Sie den**Namen des Windows Virtual Desktop-Mandanten** für den Mandanten ein, in dem Sie diesen Hostpool erstellen möchten.
 3. Geben Sie die Art der Anmeldeinformationen an, die Sie für die Authentifizierung als RDS-Besitzer des Windows Virtual Desktop-Mandanten verwenden möchten. Wenn Sie das Tutorial [Erstellen von Dienstprinzipalen und Rollenzuweisungen mit PowerShell](./create-service-principal-role-powershell.md) abgeschlossen haben, wählen Sie **Dienstprinzipal** aus. Sie müssen nun die **Azure AD-Mandanten-ID** der Azure Active Directory-Instanz eingeben, die den Dienstprinzipal enthält.
 4. Geben Sie die Anmeldeinformationen für das Administratorkonto des Mandanten ein. Es werden nur Dienstprinzipale mit Kennwort unterstützt.
@@ -94,12 +97,6 @@ Führen Sie das folgende Cmdlet aus, um sich bei der Windows Virtual Desktop-Umg
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Legen Sie mithilfe des folgenden Cmdlets den Kontext auf die Windows Virtual Desktop-Mandantengruppe fest, die Sie im Azure Marketplace-Angebot angegeben haben. Falls Sie im Azure Marketplace-Angebot den Standardwert für die Windows Virtual Desktop-Mandantengruppe übernommen haben, können Sie diesen Schritt überspringen.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Nun können Sie der Desktopanwendungsgruppe mithilfe des folgenden Cmdlets Benutzer hinzufügen:

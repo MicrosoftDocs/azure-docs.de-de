@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799234"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60323658"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Problembehandlung bei Azure CDN-Endpunkten mit Statuscode 404
 Dieser Artikel enthält Informationen zum Behandeln von Problemen mit Azure CDN-Endpunkten (Content Delivery Network), bei denen der HTTP-Antwortstatuscode 404 zurückgegeben wird.
@@ -102,5 +102,5 @@ Als Letztes sollte noch der **Ursprungspfad**geprüft werden.  Standardmäßig i
 
 Im Beispielendpunkt sollen alle Ressourcen im Speicherkonto verfügbar sein, weshalb das Feld **Ursprungspfad** leer gelassen wurde.  Das bedeutet, dass eine Anforderung an „https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt“ dazu führt, dass eine Verbindung zwischen dem Endpunkt, der */publicblob/lorem.txt* anfordert, und „cdndocdemo.core.windows.net“ hergestellt wird.  Analog dazu führt eine Anforderung für „https:\//cdndocdemo.azureedge.net/donotcache/status.png“ dazu, dass der Endpunkt */donotcache/status.png* vom Ursprung anfordert.
 
-Aber wie gehe ich vor, wenn das CDN nicht für jeden Ursprungspfad verwendet werden soll?  Angenommen, Sie möchten nur den Pfad *publicblob* verfügbar machen.  Durch Eingabe von */publicblob* im Feld **Ursprünglicher Pfad** fügt der Endpunkt vor jeder Anforderung an den Ursprung */publicblob* ein.  Das bedeutet, dass die Anforderung für „https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt“ nun tatsächlich den Anforderungsteil der URL (*/publicblob/lorem.txt*) verwendet und am Anfang */publicblob* einfügt. Dies führt zu einer Anforderung für */publicblob/publicblob/lorem.txt* vom Ursprung.  Wenn dieser Pfad zu keiner Datei führt, gibt der Ursprung den Status 404 zurück.  Die richtige URL zum Abruf von „lorem.txt“ wäre in diesem Beispiel „https:\//cdndocdemo.azureedge.net/lorem.txt“.  Wie Sie sehen, ist der Pfad */publicblob* hier nicht angegeben, da der Anforderungsteil der URL */lorem.txt* lautet und der Endpunkt */publicblob* hinzufügt, sodass */publicblob/lorem.txt* als Anforderung an den Ursprung weitergegeben wird.
+Aber wie gehe ich vor, wenn das CDN nicht für jeden Ursprungspfad verwendet werden soll?  Angenommen, Sie möchten nur den Pfad *publicblob* verfügbar machen.  Durch Eingabe von */publicblob* im Feld **Ursprünglicher Pfad** fügt der Endpunkt vor jeder Anforderung an den Ursprung */publicblob* ein.  Das bedeutet, dass die Anforderung für „https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt“ nun tatsächlich den Anforderungsteil der URL ( */publicblob/lorem.txt*) verwendet und am Anfang */publicblob* einfügt. Dies führt zu einer Anforderung für */publicblob/publicblob/lorem.txt* vom Ursprung.  Wenn dieser Pfad zu keiner Datei führt, gibt der Ursprung den Status 404 zurück.  Die richtige URL zum Abruf von „lorem.txt“ wäre in diesem Beispiel „https:\//cdndocdemo.azureedge.net/lorem.txt“.  Wie Sie sehen, ist der Pfad */publicblob* hier nicht angegeben, da der Anforderungsteil der URL */lorem.txt* lautet und der Endpunkt */publicblob* hinzufügt, sodass */publicblob/lorem.txt* als Anforderung an den Ursprung weitergegeben wird.
 

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359135"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60611322"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft Threat Modeling Tool-Entschärfungen
 
 Das Threat Modeling Tool ist ein Kernelement im Microsoft Security Development Lifecycle (SDL). Es ermöglicht Softwarearchitekten, potenzielle Sicherheitslücken früh zu identifizieren und zu entschärfen, wenn sie relativ einfach und kostengünstig gelöst werden können. Daher werden mit dem Tool die Gesamtkosten der Entwicklung erheblich reduziert. Außerdem wurde das Tool nicht speziell für Sicherheitsexperten entwickelt. Es erleichtert die Modellierung von Bedrohungen für alle Entwickler, indem klare Leitlinien zum Erstellen und Analysieren von Gefahrenmodellen bereitgestellt werden.
 
-**[Laden Sie das Threat Modeling Tool herunter](./azure-security-threat-modeling-tool.md)**, um noch heute die ersten Schritte zu unternehmen!
+**[Laden Sie das Threat Modeling Tool herunter](./azure-security-threat-modeling-tool.md)** , um noch heute die ersten Schritte zu unternehmen!
 
 ## <a name="mitigation-categories"></a>Kategorien von Entschärfungen
 
@@ -49,8 +49,8 @@ Damit können Sie Folgendes identifizieren:
 * Wo werden die häufigsten Fehler gemacht
 * Wo sind die am besten umsetzbaren Verbesserungen möglich
 
-So können Sie diese Kategorien verwenden, um Ihre Bemühungen um Sicherheit zu konzentrieren und zu priorisieren. Wenn Sie z.B. wissen, dass die häufigsten Sicherheitsprobleme in den Kategorien Eingabeüberprüfung, Authentifizierung und Autorisierung auftreten, können Sie mit diesen Kategorien beginnen. Klicken Sie auf **[diesen Link zum Patent](https://www.google.com/patents/US7818788)**, um weitere Informationen zu erhalten.
+So können Sie diese Kategorien verwenden, um Ihre Bemühungen um Sicherheit zu konzentrieren und zu priorisieren. Wenn Sie z.B. wissen, dass die häufigsten Sicherheitsprobleme in den Kategorien Eingabeüberprüfung, Authentifizierung und Autorisierung auftreten, können Sie mit diesen Kategorien beginnen. Klicken Sie auf **[diesen Link zum Patent](https://www.google.com/patents/US7818788)** , um weitere Informationen zu erhalten.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Besuchen Sie **[Threat Modeling Tool-Bedrohungen](./azure-security-threat-modeling-tool-threats.md)**, um mehr über die Bedrohungskategorien zu erfahren, die das Tool verwendet, um mögliche Entwurfsbedrohungen zu generieren.
+Besuchen Sie **[Threat Modeling Tool-Bedrohungen](./azure-security-threat-modeling-tool-threats.md)** , um mehr über die Bedrohungskategorien zu erfahren, die das Tool verwendet, um mögliche Entwurfsbedrohungen zu generieren.

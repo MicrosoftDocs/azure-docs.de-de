@@ -1,5 +1,5 @@
 ---
-title: Richtlinien für Dienstendpunkte in virtuellen Azure-Netzwerken | Microsoft-Dokumentation
+title: Richtlinien für Azure-VNET-Dienstendpunkte | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie virtuellen Netzwerkdatenverkehr zu Azure-Dienstressourcen mithilfe von Richtlinien für Dienstendpunkte filtern.
 services: virtual-network
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494168"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61033899"
 ---
-# <a name="virtual-network-service-endpoint-policies-preview"></a>Richtlinien für Dienstendpunkte in virtuellen Netzwerken (Vorschau)
+# <a name="virtual-network-service-endpoint-policies-preview"></a>Richtlinien für VNET-Dienstendpunkte (Vorschau)
 
 Richtlinien für Dienstendpunkte in virtuellen Azure-Netzwerken (VNET, Virtual Network) ermöglichen es Ihnen, virtuellen Netzwerkdatenverkehr über Dienstendpunkte zu Azure-Diensten zu filtern, sodass nur bestimmte Azure-Dienstressourcen zugelassen werden. Endpunktrichtlinien bieten eine differenzierte Zugriffssteuerung für virtuellen Netzwerkdatenverkehr zu Azure-Diensten.
 
@@ -29,11 +29,11 @@ __Azure Storage__: USA, Westen-Mitte; USA, Westen 2; USA, Norden-Mitte; USA, Sü
 Aktuelle Hinweise zur Vorschauversion finden Sie auf der Seite [Azure-Updates](https://azure.microsoft.com/updates/?product=virtual-network).
 
 > [!NOTE]  
-> Während der Vorschauphase bieten Richtlinien für Dienstendpunkte in virtuellen Netzwerken unter Umständen nicht die gleiche Verfügbarkeit und Zuverlässigkeit wie Features in Releases mit allgemeiner Verfügbarkeit. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Während der Vorschauphase bieten Richtlinien für VNET-Dienstendpunkte unter Umständen nicht die gleiche Verfügbarkeit und Zuverlässigkeit wie Features in Releases mit allgemeiner Verfügbarkeit. Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-benefits"></a>Hauptvorteile
 
-Richtlinien für Dienstendpunkte in virtuellen Netzwerken bieten folgende Vorteile:
+Richtlinien für VNET-Dienstendpunkte bieten folgende Vorteile:
 
 - __Mehr Sicherheit für den Datenverkehr aus Ihrem virtuellen Netzwerk zu Azure-Diensten__
 
@@ -182,7 +182,7 @@ Für die Nutzung von Richtlinien für Dienstendpunkte fallen keine zusätzlichen
 
 Folgende Grenzwerte gelten für Richtlinien für Dienstendpunkte: 
 
- |Ressource | Standardlimit |
+ |Resource | Standardlimit |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpintPoliciesPerSubnet|100 |
@@ -190,6 +190,6 @@ Folgende Grenzwerte gelten für Richtlinien für Dienstendpunkte:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie mehr über das [Konfigurieren von Richtlinien für Dienstendpunkte von virtuellen Netzwerken](virtual-network-service-endpoint-policies-portal.md).
-- Erfahren Sie mehr über [Dienstendpunkte von virtuellen Netzwerken](virtual-network-service-endpoints-overview.md).
+- Erfahren Sie mehr über das [Konfigurieren von Richtlinien für VNET-Dienstendpunkte](virtual-network-service-endpoint-policies-portal.md).
+- Erfahren Sie mehr über [VNET-Dienstendpunkte](virtual-network-service-endpoints-overview.md).
 

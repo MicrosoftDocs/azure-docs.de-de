@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/29/2018
 ms.author: aljo
 ms.openlocfilehash: 28cd1162d7cae2b3a16062bdf18a2971e1f05aad
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60621172"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Ausführen eines Diensts als lokales Benutzerkonto oder lokales Systemkonto
 Durch Verwenden von Azure Service Fabric können Sie Anwendungen sichern, die im Cluster unter verschiedenen Benutzerkonten ausgeführt werden. Standardmäßig werden Service Fabric-Anwendungen unter dem Konto ausgeführt, unter dem der Prozess „Fabric.exe“ ausgeführt wird. Service Fabric bietet auch die Möglichkeit, Anwendungen für einen lokalen Benutzer oder ein Systemkonto auszuführen. Unterstützte lokale Systemkontotypen sind **LocalUser**, **NetworkService**, **LocalService** und **LocalSystem**.  Wenn Sie Service Fabric auf einem eigenständigen Windows-Cluster ausführen, können Sie einen Dienst unter [Active Directory-Domänenkonten](service-fabric-run-service-as-ad-user-or-group.md) oder [gruppenverwalteten Dienstkonten](service-fabric-run-service-as-gmsa.md) ausführen.

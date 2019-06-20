@@ -62,13 +62,13 @@
 - name: Verweis
   items:
     - name: Bing-API für die benutzerdefinierte Vorschlagssuche – Referenz
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference'
     - name: Bing-API für die benutzerdefinierte Bildersuche – Referenz
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference'
     - name: Bing-API für die benutzerdefinierte Suche – Referenz
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference'
     - name: Bing-API für die benutzerdefinierte Videosuche – Referenz
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference'
     - name: Anforderungen für die Verwendung und Anzeige der Bing-Suche-API
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
@@ -110,3 +110,5 @@
       href: endpoint-custom.md
     - name: Sprach- und Regionsunterstützung
       href: language-support.md
+    - name: Compliance
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

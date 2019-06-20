@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
 ms.openlocfilehash: 1218408bee067d6edb274fdcbf4fae62b8245a01
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455053"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66160667"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Verwenden von PowerShell zum Erstellen einer Data Factory-Pipeline zum Kopieren von lokalen Daten nach Azure
 

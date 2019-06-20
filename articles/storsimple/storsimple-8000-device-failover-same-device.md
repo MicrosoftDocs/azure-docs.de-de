@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
 ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809060"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60577378"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Failover Ihres physischen StorSimple-Geräts auf dasselbe Gerät
 

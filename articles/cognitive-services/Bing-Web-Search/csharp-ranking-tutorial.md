@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872519"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384836"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Erstellen einer Suchclient-Konsolen-App in C#
 
@@ -38,7 +38,7 @@ Für dieses Tutorial benötigen Sie Folgendes:
 
 Erstellen Sie in Visual Studio durch Drücken von `Ctrl`+`Shift`+`N` ein Projekt.
 
-Klicken Sie im Dialogfeld **Neues Projekt** auf **Visual C# > Klassischer Windows-Desktop > Konsolen-App (.NET Framework)**.
+Klicken Sie im Dialogfeld **Neues Projekt** auf **Visual C# > Klassischer Windows-Desktop > Konsolen-App (.NET Framework)** .
 
 Nennen Sie die Anwendung **MyConsoleSearchApp**, und klicken Sie anschließend auf **OK**.
 
@@ -55,7 +55,7 @@ Nennen Sie die Anwendung **MyConsoleSearchApp**, und klicken Sie anschließend a
 
 Dieses Tutorial basiert auf der Assembly `System.Web`. Fügen Sie Ihrem Projekt einen Verweis auf diese Assembly hinzu:
 
-- Klicken Sie im**Projektmappen-Explorer** mit der rechten Maustaste auf **Verweise**, und klicken Sie anschließend auf **Verweis hinzufügen...**.
+- Klicken Sie im**Projektmappen-Explorer** mit der rechten Maustaste auf **Verweise**, und klicken Sie anschließend auf **Verweis hinzufügen...** .
 - Klicken Sie auf **Assemblys > Framework**, scrollen Sie nach unten, und aktivieren Sie das Kontrollkästchen für **System.Web**
 - Klicken Sie auf **OK**.
 
@@ -221,7 +221,7 @@ Bevor wir darauf eingehen, wie Sie nach Rang sortierte Ergebnisse anzeigen, sehe
 }
 ```
 
-Das JSON-Objekt `rankingResponse` ([Dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) beschreibt die korrekte Anzeigereihenfolge für Suchergebnisse. Es enthält mindestens eine der folgenden priorisierten Gruppen:
+Das JSON-Objekt `rankingResponse` ([Dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beschreibt die korrekte Anzeigereihenfolge für Suchergebnisse. Es enthält mindestens eine der folgenden priorisierten Gruppen:
 
 - `pole`: Die Suchergebnisse, die am sichtbarsten sein und beispielsweise über dem Hauptbereich und der Randleiste angezeigt werden sollen.
 - `mainline`: Die Suchergebnisse, die in der Hauptlinie angezeigt werden sollen.

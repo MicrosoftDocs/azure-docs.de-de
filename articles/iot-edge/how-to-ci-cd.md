@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896227"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61221849"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continuous Integration und Continuous Deployment für Azure IoT Edge
 
@@ -47,7 +47,7 @@ In diesem Abschnitt erstellen Sie eine neue Buildpipeline. Konfigurieren Sie die
 >
 >Weitere Informationen finden Sie unter [Erstellen einer Buildpipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Melden Sie sich bei Ihrer Azure DevOps-Organisation (**https:\//dev.azure.com/{Ihre Organisation}/**) an, und öffnen Sie das Projekt, das Ihr IoT Edge-Projektmappenrepository enthält.
+1. Melden Sie sich bei Ihrer Azure DevOps-Organisation (**https:\//dev.azure.com/{Ihre Organisation}/** ) an, und öffnen Sie das Projekt, das Ihr IoT Edge-Projektmappenrepository enthält.
 
    Für diesen Artikel haben wir ein Repository namens **IoTEdgeRepo** erstellt. Dieses Repository enthält **IoTEdgeSolution**, was den Code für ein Modul namens **filtermodule** enthält. 
 
@@ -77,7 +77,7 @@ In diesem Abschnitt erstellen Sie eine neue Buildpipeline. Konfigurieren Sie die
     
      ![Konfigurieren des Build-Agent-Pools](./media/how-to-ci-cd/configure-env.png)
 
-5. Die Pipeline wird mit einem Auftrag mit dem Namen **Agent job 1** vorkonfiguriert. Wählen Sie das Pluszeichen (**+**) aus, um dem Auftrag drei Aufgaben hinzuzufügen: Zweimal **Azure IoT Edge** und einnal **Buildartefakte veröffentlichen**. (Zeigen Sie auf den Namen der einzelnen Aufgaben, um die Schaltfläche **Hinzufügen** anzuzeigen.)
+5. Die Pipeline wird mit einem Auftrag mit dem Namen **Agent job 1** vorkonfiguriert. Wählen Sie das Pluszeichen ( **+** ) aus, um dem Auftrag drei Aufgaben hinzuzufügen: Zweimal **Azure IoT Edge** und einnal **Buildartefakte veröffentlichen**. (Zeigen Sie auf den Namen der einzelnen Aufgaben, um die Schaltfläche **Hinzufügen** anzuzeigen.)
 
    ![Hinzufügen der Azure IoT Edge-Aufgabe](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -89,7 +89,7 @@ In diesem Abschnitt erstellen Sie eine neue Buildpipeline. Konfigurieren Sie die
 
    * **Anzeigename**: Übernehmen Sie den Standard **Azure IoT Edge – Modulimages erstellen**.
    * **Aktion:** Übernehmen Sie den Standard **Modulimages erstellen**. 
-   * **.template.json-Datei**: Wählen Sie die Auslassungspunkte (**...**) aus, und navigieren Sie zu der **deployment.template.json**-Datei in dem Repository, das die IoT Edge-Projektmappe enthält. 
+   * **.template.json-Datei**: Wählen Sie die Auslassungspunkte ( **...** ) aus, und navigieren Sie zu der **deployment.template.json**-Datei in dem Repository, das die IoT Edge-Projektmappe enthält. 
    * **Standardplattform**: Wählen Sie die entsprechende Plattform für die Module auf dem gewünschten IoT Edge-Gerät basierend aus. 
    * **Ausgabevariablen**: Die Ausgabevariablen enthalten einen Verweisnamen, mit dem Sie den Dateipfad konfigurieren können, in dem die deployment.json-Datei generiert wird. Wählen Sie einen einprägsamen Verweisnamen wie **edge**. 
 
@@ -98,7 +98,7 @@ In diesem Abschnitt erstellen Sie eine neue Buildpipeline. Konfigurieren Sie die
    * **Anzeigename**: Der Anzeigename wird automatisch aktualisiert, wenn das Aktionsfeld geändert wird. 
    * **Aktion:** Verwenden Sie die Dropdownliste, um **Modulimages pushen** auszuwählen. 
    * **Containerregistrierungstyp**: Wählen Sie den Typ der Containerregistrierung aus, mit dem Sie Ihre Modulimages speichern. Je nach ausgewähltem Registrierungstyp ändert sich die Form. Wenn Sie **Azure Container Registry** auswählen, verwenden Sie die Dropdownlisten, um das Azure-Abonnement und den Namen Ihrer Containerregistrierung auszuwählen. Wenn Sie **Generische Containerregistrierung** auswählen, wählen Sie **Neu** zum Erstellen einer Registrierungsdienstverbindung aus. 
-   * **.template.json-Datei**: Wählen Sie die Auslassungspunkte (**...**) aus, und navigieren Sie zu der **deployment.template.json**-Datei in dem Repository, das die IoT Edge-Projektmappe enthält. 
+   * **.template.json-Datei**: Wählen Sie die Auslassungspunkte ( **...** ) aus, und navigieren Sie zu der **deployment.template.json**-Datei in dem Repository, das die IoT Edge-Projektmappe enthält. 
    * **Standardplattform**: Wählen Sie die gleiche Plattform aus, auf der sich auch Ihre Modulimages befinden.
 
    Wenn Sie die Modulimages in mehreren Containerregistrierungen hosten können, müssen Sie diese Aufgabe duplizieren. Wählen Sie eine andere Containerregistrierung aus, und verwenden Sie **Bypass module(s)** (Modul(e) umgehen) in den erweiterten Einstellungen, um die Images auszulassen, die nicht für diese spezifische Registrierung bestimmt sind.
@@ -152,7 +152,7 @@ Erstellen Sie eine neue Pipeline, und konfigurieren Sie ihre erste Stufe für Qu
 
 8. In der QA-Stufe sollte der Standardwert **Agent-Auftrag** angezeigt werden. Sie können Details zum Agent-Auftrag konfigurieren, aber bei Bereitstellungsaufgaben ist die Plattform nicht von Bedeutung, sodass Sie im **Agent-Pool** eine der Optionen **Hosted VS2017** oder **Hosted Ubuntu 1604** (oder einen beliebigen anderen, von Ihnen selbst verwalteten Agent) verwenden können. 
 
-9. Wählen Sie das Pluszeichen (**+**) aus, um eine Aufgabe hinzuzufügen. Suchen Sie nach **Azure IoT Edge**, und fügen Sie es hinzu. 
+9. Wählen Sie das Pluszeichen ( **+** ) aus, um eine Aufgabe hinzuzufügen. Suchen Sie nach **Azure IoT Edge**, und fügen Sie es hinzu. 
 
     ![Hinzufügen von Aufgaben für QA](./media/how-to-ci-cd/add-task-qa.png)
 

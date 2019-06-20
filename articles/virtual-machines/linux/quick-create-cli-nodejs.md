@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61473738"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Erstellen eines virtuellen Linux-Computers mit der klassischen Azure-Befehlszeilenschnittstelle
 
@@ -67,7 +67,7 @@ Im vorherigen Beispiel für `quick-create` wurde nur das Flag `-M` aufgerufen, u
 * Name des virtuellen Computers
 * Standort (`westus` oder `westeurope` sind gute Standardwerte)
 * Linux (um Azure das zu verwendende Betriebssystem mitzuteilen)
-* username
+* userName
 
 Da im folgenden Beispiel alle Werte angegeben werden, sind keine weiteren Eingabeaufforderungen erforderlich. Sofern Sie über eine Datei `~/.ssh/id_rsa.pub` als öffentliche Schlüsseldatei im ssh-rsa-Format verfügen, sind keine Änderungen erforderlich:
 

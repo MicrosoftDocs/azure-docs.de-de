@@ -15,11 +15,11 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271894"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60766266"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Zertifikate und die App Service-Umgebung 
 

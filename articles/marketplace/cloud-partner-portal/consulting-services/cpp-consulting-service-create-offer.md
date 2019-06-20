@@ -1,27 +1,20 @@
 ---
-title: 'Azure- und Dynamics 365-Beratungsdienstangebot: Erstellen des Angebots | Microsoft-Dokumentation'
-description: Dies ist ein Leitfaden für die Erstellung eines Azure- oder Dynamics 365-Beratungsdienstangebots im Cloud-Partnerportal.
+title: Erstellen eines Beratungsangebots | Azure Marketplace
+description: Erstellen Sie ein Azure- oder Dynamics 365-Beratungsdienstangebot im Cloud-Partnerportal für den Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f130f20643ba80bf706b8b5ba8f4b7eab0acaa59
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.author: pabutler
+ms.openlocfilehash: 09b9dce8e30ed3ba5ad0bac58929cd2c6d71793c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942832"
 ---
-# <a name="create-an-offer"></a>Erstellen von Angeboten
+# <a name="create-a-consulting-offer"></a>Erstellen eines Beratungsangebots
 
 In diesem Artikel wird erläutert, wie ein Beratungsdienstangebot erstellt und veröffentlicht wird.
 

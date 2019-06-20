@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837094"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>So passen Sie das Azure API Management-Entwicklerportal mithilfe von Vorlagen an
 

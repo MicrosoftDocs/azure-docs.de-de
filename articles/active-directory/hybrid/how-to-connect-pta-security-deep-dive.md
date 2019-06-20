@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617210"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60348064"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-Passthrough-Authentifizierung – ausführliche Informationen zur Sicherheit
 
@@ -186,7 +186,7 @@ So erneuern Sie die Vertrauensstellung eines Authentifizierungs-Agents mit Azure
 
 Mit der Updater-Anwendung wird der Authentifizierungs-Agent automatisch aktualisiert, wenn eine neue Version (mit Fehlerbehebungen oder Leistungsverbesserungen) veröffentlicht wird. Die Updater-Anwendung verarbeitet aber keine Anforderungen zur Kennwortvalidierung für Ihren Mandanten.
 
-Azure AD hostet die neue Version der Software als signiertes **Windows Installer-Paket (MSI)**. Das MSI-Paket wird signiert, indem [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) mit SHA256 als Digestalgorithmus verwendet wird. 
+Azure AD hostet die neue Version der Software als signiertes **Windows Installer-Paket (MSI)** . Das MSI-Paket wird signiert, indem [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) mit SHA256 als Digestalgorithmus verwendet wird. 
 
 ![Automatische Aktualisierung](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 

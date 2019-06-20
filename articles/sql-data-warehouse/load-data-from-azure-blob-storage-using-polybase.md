@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852083"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242965"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Laden von Daten zu New Yorker Taxis in Azure SQL Data Warehouse
 
@@ -578,12 +578,12 @@ Das Laden mithilfe von PolyBase und die Authentifizierung über verwaltete Ident
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
     
-   1. Erstellen Sie ein **Speicherkonto vom Typ „Universell v2“**, indem Sie [diesen Leitfaden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) verwenden.
+   1. Erstellen Sie ein **Speicherkonto vom Typ „Universell v2“** , indem Sie [diesen Leitfaden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) verwenden.
 
    > [!NOTE]
    > - Falls Sie über ein universelles Speicherkonto (v1) oder ein Blobspeicherkonto verfügen, müssen Sie zuerst das **Upgrade auf Version 2** durchführen, indem Sie [diesen Leitfaden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) verwenden.
     
-1. Navigieren Sie unter Ihrem Speicherkonto zu **Zugriffssteuerung (IAM)**, und klicken Sie auf **Rollenzuweisung hinzufügen**. Weisen Sie Ihrem SQL-Datenbank-Server die RBAC-Rolle **Mitwirkender an Storage-Blobdaten** zu.
+1. Navigieren Sie unter Ihrem Speicherkonto zu **Zugriffssteuerung (IAM)** , und klicken Sie auf **Rollenzuweisung hinzufügen**. Weisen Sie Ihrem SQL-Datenbank-Server die RBAC-Rolle **Mitwirkender an Storage-Blobdaten** zu.
 
    > [!NOTE] 
    > Nur Mitglieder mit der Berechtigung „Besitzer“ können diesen Schritt ausführen. Verschiedene integrierte Rollen für Azure-Ressourcen finden Sie in [diesem Leitfaden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -640,7 +640,7 @@ Sie haben folgende Schritte ausgeführt:
 > * Anzeigen des Fortschritts beim Laden von Daten
 > * Erstellen von Statistiken für die neu geladenen Daten
 
-Fahren Sie mit der Übersicht über die Migration fort, um zu erfahren, wie Sie eine vorhandene Datenbank in SQL Data Warehouse migrieren.
+Fahren Sie mit der Entwicklungsübersicht fort, um zu erfahren, wie Sie eine vorhandene Datenbank in SQL Data Warehouse migrieren.
 
 > [!div class="nextstepaction"]
->[Informationen zum Migrieren einer vorhandenen Datenbank in SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Entwurfsentscheidungen zum Migrieren einer vorhandenen Datenbank in SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

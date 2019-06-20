@@ -10,11 +10,11 @@ ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102525"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61282207"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Sicherheitsfilter zum Einschränken von Azure Search-Ergebnissen mit Active Directory-Identitäten
 

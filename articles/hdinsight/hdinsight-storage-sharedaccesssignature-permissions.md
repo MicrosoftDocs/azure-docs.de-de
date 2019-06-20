@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 7f7f6fe31afe35d9ccfd6ee33617bd7e4fbe46b7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409558"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Verwenden von Azure Storage Shared Access Signatures zum Einschränken des Zugriffs auf Daten mit HDInsight
@@ -362,7 +362,7 @@ Wenn Sie bereits einen Cluster haben, können Sie die SAS der **core-site**-Konf
 
 3. Wählen Sie die Registerkarte **Advanced** aus, und scrollen Sie zum Abschnitt **Custom core-site**.
 
-4. Erweitern Sie den Abschnitt **Custom core-site**, scrollen Sie zum Seitenende, und klicken Sie auf den Link **Add property...**. Verwenden Sie für die Felder **Key** und **Value** die folgenden Werte:
+4. Erweitern Sie den Abschnitt **Custom core-site**, scrollen Sie zum Seitenende, und klicken Sie auf den Link **Add property...** . Verwenden Sie für die Felder **Key** und **Value** die folgenden Werte:
 
    * **Schlüssel**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
    * **Value**: Die von einer der zuvor ausgeführten Methoden zurückgegebene SAS.

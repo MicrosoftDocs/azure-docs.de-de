@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: iainfou
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731326"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514554"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Best Practices für Clusterbetreiber und -entwickler zum Erstellen und Verwalten von Anwendungen in Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Arbeiten Sie als Clusterbetreiber mit Anwendungsbesitzern und -entwicklern zusam
 * [Best Practices für Clustersicherheit und -upgrades](operator-best-practices-cluster-security.md)
     * Umfasst das Absichern des Zugriffs auf API-Server, das Beschränken des Containerzugriffs und das Verwalten von Upgrades und Knotenneustarts.
 * [Best Practices für die Verwaltung von Containerimages und Sicherheit](operator-best-practices-container-image-management.md)
-    * Umfasst das Absichern von Image und Laufzeiten, das Verwenden vertrauenswürdiger Registrierungen und automatisierte Builds auf Basisimageupdates.
+    * Umfasst das Sichern von Image und Runtimes sowie automatisierte Builds auf Basisimageupdates.
 * [Best Practices für Podsicherheit](developer-best-practices-pod-security.md)
     * Umfasst das Absichern des Zugriffs auf Ressourcen, das Beschränken der Offenlegung von Anmeldeinformationen sowie das Verwenden von Podidentitäten und digitalen Schlüsseltresorinstanzen.
 

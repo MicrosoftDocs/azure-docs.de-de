@@ -49,6 +49,8 @@
           href: data-box-gateway-troubleshoot.md
     - name: Versionshinweise
       items:
+        - name: '1905: Aktuell'
+          href: data-box-gateway-1905-release-notes.md
         - name: Allgemeine Verfügbarkeit
           href: data-box-gateway-release-notes.md
 - name: Data Box Edge
@@ -109,6 +111,8 @@
           href: data-box-edge-return-device.md
     - name: Versionshinweise
       items:
+        - name: '1905: Aktuell'
+          href: data-box-gateway-1905-release-notes.md
         - name: Allgemeine Verfügbarkeit
           href: data-box-gateway-release-notes.md
 - name: Ressourcen

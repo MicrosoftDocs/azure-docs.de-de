@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 6057fa52cd2f1e9b9fd525723f96ab66983fb5d4
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61020297"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Problembehandlung für „Die Functions-Runtime ist nicht erreichbar“.
 
@@ -93,11 +93,11 @@ Wenn Sie ein tägliches Ausführungskontingent konfiguriert haben, wird Ihre Fun
 Jetzt, da Ihre Funktions-App wieder verfügbar und betriebsbereit ist, werfen Sie einen Blick in unsere Schnellstarts und Entwicklerreferenzen, um den Betrieb schnell wieder aufzunehmen!
 
 * [Erstellen Sie Ihre erste Funktion in Azure Functions](functions-create-first-azure-function.md)  
-   Legen Sie direkt los, und erstellen Sie Ihre erste Funktion mithilfe der Azure Functions-Schnellstartanleitung. 
+  Legen Sie direkt los, und erstellen Sie Ihre erste Funktion mithilfe der Azure Functions-Schnellstartanleitung. 
 * [Entwicklerreferenz zu Azure Functions](functions-reference.md)  
-   Enthält weitere technische Informationen zur Azure Functions-Laufzeit sowie eine Referenz für das Programmieren von Funktionen sowie für das Festlegen von Triggern und Bindungen.
+  Enthält weitere technische Informationen zur Azure Functions-Laufzeit sowie eine Referenz für das Programmieren von Funktionen sowie für das Festlegen von Triggern und Bindungen.
 * [Testen von Azure Functions](functions-test-a-function.md)  
-   Beschreibt verschiedene Tools und Techniken zum Testen Ihrer Funktionen
+  Beschreibt verschiedene Tools und Techniken zum Testen Ihrer Funktionen
 * [How to scale Azure Functions (Skalieren von Azure Functions) (Skalieren von Azure Functions)](functions-scale.md)  
   Beschreibt die für Azure Functions verfügbaren Servicepläne (einschließlich des Hostingplans „Verbrauchstarif“) und enthält Informationen zur Wahl des geeigneten Plans. 
 * [Was ist Azure App Service?](../app-service/overview.md)  

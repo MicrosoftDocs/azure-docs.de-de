@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61480648"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Durchführen von Standpunktanalysen mit Azure Stream Analytics und Azure Machine Learning
 Dieser Artikel beschreibt, wie Sie schnell einen einfachen Azure Stream Analytics-Auftrag mit Azure Machine Learning-Integration einrichten. Sie nutzen ein Stimmungsanalysemodell für Machine Learning aus dem Cortana Intelligence-Katalog, um Streamingtextdaten zu analysieren und den Stimmungswert in Echtzeit zu ermitteln. Über die Cortana Intelligence Suite können Sie diese Aufgabe ausführen, ohne sich um die Komplexität der Erstellung eines Analysemodells für die Stimmung kümmern zu müssen.
@@ -175,7 +175,7 @@ In diesem Abschnitt des Tutorials definieren Sie eine Funktion im Stream Analysi
 
 1. Sie benötigen dazu die Webdienst-URL und den API-Schlüssel, die Sie zuvor in der Excel-Arbeitsmappe heruntergeladen haben.
 
-2. Navigieren Sie zu Ihrem Auftragsblatt, und wählen Sie **Funktionen** > **+ Hinzufügen** > **AzureML**.
+2. Navigieren Sie zu Ihrem Auftragsblatt, und wählen Sie **Funktionen** >  **+ Hinzufügen** > **AzureML**.
 
 3. Fügen Sie auf dem Blatt **Azure Machine Learning-Funktion** die folgenden Werte ein:
 

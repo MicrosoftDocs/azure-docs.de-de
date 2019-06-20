@@ -3,7 +3,7 @@ title: Binden mit sicherem LDAP (LDAPS) an eine über Azure AD Domain Services v
 description: Binden an eine über Azure AD Domain Services verwaltete Domäne mithilfe von sicherem LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
-ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203384"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234853"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Binden an eine über Azure AD Domain Services verwaltete Domäne mithilfe von sicherem LDAP (LDAPS)
 
@@ -64,13 +64,13 @@ Die Beispiel-NSG in der folgenden Tabelle sperrt den sicheren LDAP-Zugriff über
 
 
 ## <a name="related-content"></a>Verwandte Inhalte
-* [Erste Schritte mit Azure AD Domain Services](active-directory-ds-getting-started.md)
-* [Verwalten einer durch Azure AD Domain Services verwalteten Domäne](active-directory-ds-admin-guide-administer-domain.md)
+* [Azure AD-Domänendienste – Leitfaden zu den ersten Schritten](create-instance.md)
+* [Verwalten einer Azure AD Domain Services-Domäne](manage-domain.md)
 * [LDAP-Abfragegrundlagen](https://technet.microsoft.com/library/aa996205.aspx)
-* [Verwalten von Gruppenrichtlinien in einer durch Azure Active Directory Domain Services verwalteten Domäne](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Verwalten von Gruppenrichtlinien für Azure AD Domain Services](manage-group-policy.md)
 * [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md)
 * [Erstellen einer Netzwerksicherheitsgruppe](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>Nächster Schritt
-[Problembehandlung bei sicherem LDAP in einer verwalteten Domäne](active-directory-ds-ldaps-troubleshoot.md)
+[Problembehandlung bei sicherem LDAP in einer verwalteten Domäne](tshoot-ldaps.md)

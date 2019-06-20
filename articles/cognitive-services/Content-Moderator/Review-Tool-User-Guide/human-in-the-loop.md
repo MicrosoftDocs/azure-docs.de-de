@@ -1,7 +1,7 @@
 ---
 title: Kennenlernen der Konzepte des Prüfungstools – Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Erfahren Sie etwas über das Content Moderator-Prüfungstool, eine Website, über die die Moderation von Überprüfungen mit künstlicher Intelligenz und durch Personen koordiniert wird.
+description: Erfahren Sie etwas über das Content Moderator-Prüfungstool, eine Website, über die die Moderation von Überprüfungen mit künstlicher Intelligenz (KI) und durch Personen koordiniert wird.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -11,11 +11,11 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: sajagtap
 ms.openlocfilehash: b7ec997fd3e9bfe294050893d80fd57a96a47aae
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755879"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61269983"
 ---
 # <a name="content-moderator-review-tool"></a>Content Moderator-Prüfungstool
 

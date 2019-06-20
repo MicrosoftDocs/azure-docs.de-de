@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470391"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Konfigurieren von Comeet Recruiting Software für die automatische Benutzerbereitstellung

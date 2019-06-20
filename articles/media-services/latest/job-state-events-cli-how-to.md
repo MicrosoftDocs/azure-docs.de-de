@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: f6243bbc21466361aed7cbb7193f3a7b7c7e539f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60322664"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Erstellen und Überwachen von Media Services-Ereignissen mit Event Grid über die Azure CLI
 
@@ -69,7 +69,7 @@ Ersetzen Sie `<event_subscription_name>` durch einen eindeutigen Namen für Ihr 
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    Beispiel: 
+    Beispiel:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -84,7 +84,7 @@ Ersetzen Sie `<event_subscription_name>` durch einen eindeutigen Namen für Ihr 
     --endpoint <endpoint_URL>
     ```
 
-    Beispiel: 
+    Beispiel:
 
     ```
     az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/

@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0d221138914230d5455dc0addbe08cdaaed36a0b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050423"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60826253"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Problembehandlung: Fehler beim Erstellen oder Löschen einer Datenbank oder Tabelle im Azure-Daten-Explorer
 

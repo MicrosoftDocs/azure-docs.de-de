@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: b7139779414cead0ca4bf50b7288b3db40161ae8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60647835"
 ---
 # <a name="resize-and-crop-image-thumbnails"></a>Ändern der Größe und Zuschneiden von Miniaturbildern
 

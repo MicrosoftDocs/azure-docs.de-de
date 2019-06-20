@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84cc4e92419e683f8d2c29883b26148fdef23356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee655dc39fbe7d0e3eb5cb41b091aea24d8dbea3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325720"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131287"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Binden eines benutzerdefinierten SSL-Zertifikats an eine Funktionen-App
 
@@ -27,7 +27,7 @@ Dieses Skriptbeispiel erstellt eine Funktionen-App und die zugehörigen Ressourc
 * Eine gültige PFX-Datei und das zugehörige Kennwort für das SSL-Zertifikat, das Sie hochladen und binden möchten.
 * Stelllen Sie sicher, dass Sie einen A-Eintrag in Ihrer benutzerdefinierten Domäne konfiguriert haben, die auf den Standarddomänennamen Ihrer Web-App verweist. Weitere Informationen finden Sie in den [Anweisungen zum Zuordnen von benutzerdefinierten Domäne für Azure App Service](https://aka.ms/appservicecustomdns).
 
-Um ein SSL-Zertifikat zu binden, muss Ihre Funktionen-App in einem App Service-Plan und nicht in einem Verbrauchsplan erstellt werden.
+Um ein SSL-Zertifikat zu binden, muss Ihre Funktions-App in einem Premium- oder einem App Service-Plan und nicht in einem Verbrauchsplan erstellt werden.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

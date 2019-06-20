@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664572"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306827"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Erstellen eines auf einem Apache Tomcat-Server ausgeführten Service Fabric-Containers unter Linux
 Apache Tomcat ist eine beliebte Open Source-Implementierung der Java Servlet- und Java Server-Technologien. In diesem Artikel wird gezeigt, wie Sie einen Container mit Apache Tomcat und eine einfache Webanwendung erstellen, den Container für einen Service Fabric-Cluster unter Linux bereitstellen und eine Verbindung mit der Webanwendung herstellen können.  
@@ -111,7 +111,7 @@ Führen Sie die Schritte in diesem Abschnitt durch, um ein Docker-Image basieren
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Übertragen des Tomcat-Images mithilfe von Push an Ihre Containerregistrierung
 Nachdem Sie sichergestellt haben, dass das Tomcat-Image in einem Container auf Ihrem Entwicklungscomputer ausgeführt wird, übertragen Sie es mithilfe von Push an ein Repository in einer Containerregistrierung. In diesem Artikel wird das Image mit Azure Container Registry gespeichert, mit einigen Änderungen an den Schritten können Sie jedoch eine beliebige Containerregistrierung verwenden. In diesem Artikel wird vorausgesetzt, dass der Registrierungsname *myregistry* und der vollständige Registrierungsname „myregistry.azurecr.io“ lautet. Ändern Sie dies entsprechend in Bezug auf Ihr Szenario. 
 
-1. Führen Sie `docker login` aus, um sich mit Ihren [Registrierungsanmeldeinformationen](../container-registry/container-registry-authentication.md) an der Containerregistrierung anzumelden.
+1. Führen Sie `docker login` aus, um sich mit Ihren [Registrierungsanmeldeinformationen](../container-registry/container-registry-authentication.md) bei der Containerregistrierung anzumelden.
 
    Im folgenden Beispiel werden die ID und das Kennwort eines Azure Active Directory-[Dienstprinzipals](../active-directory/develop/app-objects-and-service-principals.md) übergeben. Angenommen, Sie haben Ihrer Registrierung für ein Automatisierungsszenario einen Dienstprinzipal zugewiesen. Alternativ können Sie sich mit Ihrem für die Registrierung verwendeten Benutzernamen und Kennwort anmelden.
 

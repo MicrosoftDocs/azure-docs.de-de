@@ -2,20 +2,20 @@
 title: Grundlegendes zu benutzerdefinierten Richtlinien des Starter Packs in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Ein Thema zu benutzerdefinierten Azure Active Directory B2C-Richtlinien.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d128875611c8f7a6c0b65ef46d8f127e3b79efee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b52f1a4cb6837dd779dcf4edac140bb13e06eacb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509556"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Grundlegendes zu den benutzerdefinierten Azure AD B2C-Richtlinien des Starter Packs
 

@@ -10,11 +10,11 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60643581"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(VERALTET) Vollständige CI/CD-Pipeline zum Bereitstellen einer Anwendung mit mehreren Containern in Azure Container Service mit Docker Swarm mithilfe von Azure DevOps Services
 
@@ -180,7 +180,7 @@ Mit Azure DevOps Services können Sie [Releases umgebungsübergreifend verwalten
 
 ### <a name="initial-release-setup"></a>Einrichtung des ersten Release
 
-1. Um eine Releasepipeline zu erstellen, klicken Sie auf **Releases** > **+ Freigeben**.
+1. Um eine Releasepipeline zu erstellen, klicken Sie auf **Releases** >  **+ Freigeben**.
 
 1. Um die Quelle des Artefakts zu konfigurieren, klicken Sie auf **Artefakte** > **Artefaktquelle verknüpfen**. Verknüpfen Sie diese neue Releasepipeline mit dem Build, den Sie im vorherigen Schritt definiert haben. Dadurch steht die Datei „docker-compose.yml“ im Releaseprozess zur Verfügung.
 

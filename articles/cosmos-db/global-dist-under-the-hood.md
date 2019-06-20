@@ -4,15 +4,15 @@ description: Dieser Artikel enthält technische Details in Bezug auf die globale
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c490657eb67a34e79c8dbaea31cb59b49cc6448e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071951"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241098"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globale Datenverteilung mit Azure Cosmos DB: Hintergrundinformationen
 

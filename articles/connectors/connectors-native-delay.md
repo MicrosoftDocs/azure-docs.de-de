@@ -1,79 +1,94 @@
 ---
-title: Hinzufügen einer Verzögerung in Logik-Apps | Microsoft Docs
-description: Übersicht über die Aktionen „Verzögern“ und „Verzögern bis“ sowie über deren Verwendung in einer Azure-Logik-App.
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
+title: Verzögern der nächsten Aktion in Workflows – Azure Logic Apps
+description: In diesem Artikel wird erläutert, wie Sie mit dem Ausführen der nächsten Aktion in Logik-App-Workflows warten, indem Sie die Aktion „Verzögern“ oder „Verzögern bis“ in Azure Logic Apps verwenden.
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: jehollan
-ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: deli, klam, LADocs
+tags: connectors
+ms.topic: conceptual
+ms.date: 05/25/2019
+ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893723"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297602"
 ---
-# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Erste Schritte mit den Aktionen „Verzögern“ und „Verzögern bis“
-Die Aktionen „Verzögern“ und „Verzögern bis“ eignen sich zur Durchführung von Workflowszenarien.
+# <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Verzögern der Ausführung der nächsten Aktion in Azure Logic Apps
 
-Sie haben beispielsweise folgende Möglichkeiten:
+Damit Ihre Logik-App vor dem Ausführen der nächsten Aktion eine bestimmte Zeit wartet, können Sie die integrierte Aktion **Verzögern – Zeitplan** vor einer anderen Aktion im Workflow Ihrer Logik-App hinzufügen. Alternativ dazu können Sie auch die Aktion **Verzögern bis – Zeitplan** hinzufügen, damit mit dem Ausführen der nächsten Aktion bis zu einem bestimmten Datum und zu einer bestimmten Uhrzeit gewartet wird. Weitere Informationen zu den integrierten Zeitplanaktionen und -triggern finden Sie unter [Planen und Ausführen von wiederkehrenden automatisierten Aufgaben und Workflows mit Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+
+* **Verzögern**: Es wird eine bestimmte Anzahl von Zeiteinheiten lang, z.B. Sekunden, Minuten, Stunden, Tage, Wochen oder Monate, auf die Ausführung der nächsten Aktion gewartet.
+
+* **Verzögern bis**: Mit der Ausführung der nächsten Aktion wird bis zum angegebenen Datum und zur angegebenen Uhrzeit gewartet.
+
+Im Folgenden finden Sie einige Beispiele für die Verwendung dieser Aktion:
 
 * Versand einer E-Mail mit einem Statusupdate bis zum Erreichen eines Werktags verzögern.
-* Workflow verzögern, bis ein HTTP-Aufruf abgeschlossen werden konnte, und erst dann den Vorgang fortsetzen und das Ergebnis abrufen.
 
-Wenn Sie die Verzögerungsaktion in einer Logik-App verwenden möchten, müssen Sie zunächst eine [Logik-App erstellen](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Verzögern des Workflows, bis ein HTTP-Aufruf beendet wird, bevor der Workflow fortgesetzt und die Daten abgerufen werden.
 
-## <a name="use-the-delay-actions"></a>Verwenden der Verzögerungsaktionen
+## <a name="prerequisites"></a>Voraussetzungen
 
-Eine Aktion ist ein Vorgang, der durch den in einer Logik-App definierten Workflow ausgeführt wird. 
-Weitere Informationen zu Aktionen finden Sie [hier](../connectors/apis-list.md).
+* Ein Azure-Abonnement. Falls Sie kein Abonnement besitzen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/).
 
-Im Anschluss sehen Sie eine Beispielsequenz für die Verwendung eines Verzögerungsschritts in einer Logik-App:
+* Grundlegende Kenntnisse zu [Logik-Apps](../logic-apps/logic-apps-overview.md). Bevor Sie eine Aktion verwenden können, muss Ihre Logik-App zunächst mit einem Trigger gestartet werden. Sie können jeden beliebigen Trigger verwenden und vor einer Verzögerungsaktion andere Aktionen hinzufügen. In diesem Thema wird ein Office 365-Outlook-Trigger verwendet. Falls Sie noch nicht mit Logik-Apps gearbeitet haben, sollten Sie zunächst die Schnellstartanleitung zum [Erstellen Ihrer ersten Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md) lesen.
 
-1. Klicken Sie nach dem Hinzufügen eines Triggers auf **Neuer Schritt** , um eine Aktion hinzuzufügen.
-2. Suchen Sie nach **verzögern** , um die Verzögerungsaktionen anzuzeigen. In diesem Beispiel wählen wir **Verzögern**aus.
-   
-    ![Verzögern von Aktionen](./media/connectors-native-delay/using-action-1.png)
-3. Geben Sie die gewünschten Aktionseigenschaften an, um die Verzögerung zu konfigurieren.
-   
-    ![Verzögerungskonfiguration](./media/connectors-native-delay/using-action-2.png)
-4. Klicken Sie auf **Speichern** , um die Logik-App zu veröffentlichen und zu aktivieren.
+<a name="add-delay"></a>
 
-## <a name="action-details"></a>Aktionsdetails
-Der Wiederholungstrigger verfügt über folgende konfigurierbare Eigenschaften:
+## <a name="add-the-delay-action"></a>Hinzufügen der Aktion „Verzögern“
 
-### <a name="delay-action"></a>Aktion „Verzögern“
-Diese Aktion verzögert die Ausführung für ein bestimmtes Zeitintervall.
-Ein * bedeutet, dass es sich um ein Pflichtfeld handelt.
+1. Wählen Sie im Logik-App-Designer in dem Schritt, in dem Sie die Verzögerungsaktion hinzufügen möchten, die Option **Neuer Schritt** aus.
 
-| Anzeigename | Eigenschaftenname | BESCHREIBUNG |
-| --- | --- | --- |
-| Anzahl* |count |Die Anzahl von Zeiteinheiten für die Verzögerung. |
-| Einheit* |unit |Die Zeiteinheit: `Second`, `Minute`, `Hour` oder `Day` |
+   Wenn die Verzögerungsaktion zwischen zwei Schritten hinzugefügt werden soll, bewegen Sie den Mauszeiger über den Pfeil, der die Schritte verbindet. Klicken Sie auf das angezeigte Pluszeichen (+), und wählen Sie **Aktion hinzufügen** aus.
 
-<br>
+1. Geben Sie im Suchfeld den Begriff „Verzögern“ als Filter ein. Wählen Sie in der Liste mit den Aktionen diese Aktion aus: **Verzögern**
 
-### <a name="delay-until-action"></a>Aktion „Verzögern bis“
-Diese Aktion verzögert die Ausführung bis zum angegebenen Zeitpunkt (Datum/Uhrzeit).
-Ein * bedeutet, dass es sich um ein Pflichtfeld handelt.
+   ![Hinzufügen der Aktion „Verzögern“](./media/connectors-native-delay/add-delay-action.png)
 
-| Anzeigename | Eigenschaftenname | BESCHREIBUNG |
-| --- | --- | --- |
-| Jahr* |timestamp |Das Jahr, bis zu dem verzögert werden soll. (GMT) |
-| Monat* |timestamp |Der Monat, bis zu dem verzögert werden soll. (GMT) |
-| Tag* |timestamp |Der Tag, bis zu dem verzögert werden soll. (GMT) |
+1. Geben Sie an, wie lange bis zur Ausführung der nächsten Aktion gewartet werden soll.
 
-<br>
+   ![Festlegen der Zeitspanne für die Verzögerung](./media/connectors-native-delay/delay-time-intervals.png)
+
+   | Eigenschaft | JSON-Name | Erforderlich | Typ | BESCHREIBUNG |
+   |----------|-----------|----------|------|-------------|
+   | Count | count | Ja | Integer | Die Anzahl von Zeiteinheiten für die Verzögerung. |
+   | Unit | unit | Ja | Zeichenfolge | Die Zeiteinheit, z.B.: `Second`, `Minute`, `Hour`, `Day`, `Week` oder `Month` |
+   ||||||
+
+1. Fügen Sie weitere Aktionen hinzu, die in Ihrem Workflow ausgeführt werden sollen.
+
+1. Wenn Sie fertig sind, speichern Sie Ihre Logik-App.
+
+<a name="add-delay-until"></a>
+
+## <a name="add-the-delay-until-action"></a>Hinzufügen der Aktion „Verzögern bis“
+
+1. Wählen Sie im Logik-App-Designer in dem Schritt, in dem Sie die Verzögerungsaktion hinzufügen möchten, die Option **Neuer Schritt** aus.
+
+   Wenn die Verzögerungsaktion zwischen zwei Schritten hinzugefügt werden soll, bewegen Sie den Mauszeiger über den Pfeil, der die Schritte verbindet. Klicken Sie auf das angezeigte Pluszeichen (+), und wählen Sie **Aktion hinzufügen** aus.
+
+1. Geben Sie im Suchfeld den Begriff „Verzögern“ als Filter ein. Wählen Sie in der Liste mit den Aktionen diese Aktion aus: **Verzögern bis**
+
+   ![Hinzufügen der Aktion „Verzögern bis“](./media/connectors-native-delay/add-delay-until-action.png)
+
+1. Geben Sie das Datum und die Uhrzeit für den Zeitpunkt ein, an dem der Workflow fortgesetzt werden soll.
+
+   ![Angeben des Zeitstempels für das Ende der Verzögerung](./media/connectors-native-delay/delay-until-timestamp.png)
+
+   | Eigenschaft | JSON-Name | Erforderlich | Typ | BESCHREIBUNG |
+   |----------|-----------|----------|------|-------------|
+   | Zeitstempel | timestamp | Ja | Zeichenfolge | Das Datum und die Uhrzeit für die Fortsetzung des Workflows in folgendem Format: <p>YYYY-MM-DDThh:mm:ssZ <p>Beispiel: Für den 18. September 2017 um 14:00 Uhr würden Sie „2017-09-18T14:00:00Z“ angeben. <p>**Hinweis:** Dieses Zeitformat muss dem [ISO 8601-Format für Datums-/Uhrzeitangaben](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) entsprechen und im [UTC-Datums-/Uhrzeitformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) angegeben werden, jedoch ohne [UTC-Abweichung](https://en.wikipedia.org/wiki/UTC_offset). Wenn Sie keine Zeitzone auswählen, müssen Sie den Buchstaben „Z“ ohne Leerzeichen anhängen. „Z“ bezieht sich auf die entsprechende [nautische Zeit](https://en.wikipedia.org/wiki/Nautical_time). |
+   ||||||
+
+1. Fügen Sie weitere Aktionen hinzu, die in Ihrem Workflow ausgeführt werden sollen.
+
+1. Wenn Sie fertig sind, speichern Sie Ihre Logik-App.
 
 ## <a name="next-steps"></a>Nächste Schritte
-Testen Sie nun die Plattform, und [erstellen Sie eine Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md). Machen Sie sich ggf. anhand unserer [API-Liste](apis-list.md) mit den anderen verfügbaren Connectors für Logik-Apps vertraut.
 
+* [Erstellen, Planen und Ausführen von wiederkehrenden Aufgaben und Workflows mit dem Serientrigger](../connectors/connectors-native-recurrence.md)
+* [Connectors für Logic Apps](../connectors/apis-list.md)

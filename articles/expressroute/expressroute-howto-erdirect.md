@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095533"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964263"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Konfigurieren von ExpressRoute Direct
 
@@ -226,7 +226,9 @@ Sie können standardmäßig 10 Leitungen im Abonnement erstellen, in dem sich di
 
 Es gibt zusätzliche Leitungsbandbreiten, die für ExpressRoute Direct nur zur Unterstützung der oben beschriebenen Szenarien genutzt werden können. Dies sind: 40Gbit/s und 100Gbit/s.
 
-Standard- oder Premium-Leitungen können erstellt werden. Standardleitungen sind in den Kosten enthalten, während Premium-Leitungen Kosten auf Basis der gewählten Bandbreite verursachen. Leitungen können nur in gemessener Form erstellt werden, da Unbegrenztheit von ExpressRoute Direct nicht unterstützt wird.
+**SkuTier** kann Local, Standard oder Premium sein.
+
+**SkuFamily** darf nur MeteredData sein, da „unlimited“ von ExpressRoute Direct nicht unterstützt wird.
 
 Erstellen Sie in der ExpressRoute-Direct-Ressource eine Leitung.
 

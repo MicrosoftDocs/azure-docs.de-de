@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107881"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60326111"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurieren eines Load Balancers für eine AlwaysOn-Verfügbarkeitsgruppe in Azure
 In diesem Artikel erfahren Sie, wie Sie einen Load Balancer für eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe auf virtuellen Azure-Computern erstellen, auf denen Azure Resource Manager ausgeführt wird. Eine Verfügbarkeitsgruppe benötigt einen Load Balancer, wenn sich die SQL Server-Instanzen auf virtuellen Azure-Computern befinden. Der Load-Balancer speichert die IP-Adresse für den Verfügbarkeitsgruppenlistener. Wenn sich eine Verfügbarkeitsgruppe über mehrere Regionen erstreckt, benötigt jede Region einen Load Balancer.
@@ -246,7 +246,7 @@ Um einem Load Balancer über das Azure-Portal eine IP-Adresse hinzuzufügen, geh
     |**Integritätstest** |Wählen Sie den Test aus, den Sie erstellt haben.
     |**Sitzungspersistenz** |Keine
     |**Leerlaufzeitüberschreitung (Minuten)** |Standard (4)
-    |**Floating IP (Direct Server Return)** | Aktiviert
+    |**Floating IP (Direct Server Return)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Konfigurieren der Verfügbarkeitsgruppe zur Verwendung der neuen IP-Adresse
 
@@ -295,7 +295,7 @@ Wenn eine Verfügbarkeitsgruppe an einer verteilten Verfügbarkeitsgruppe beteil
    |**Integritätstest** |Wählen Sie den Test aus, den Sie erstellt haben.
    |**Sitzungspersistenz** |Keine
    |**Leerlaufzeitüberschreitung (Minuten)** |Standard (4)
-   |**Floating IP (Direct Server Return)** | Aktiviert
+   |**Floating IP (Direct Server Return)** | Enabled
 
 Wiederholen Sie diese Schritte für den Lastenausgleich in den anderen Verfügbarkeitsgruppen, die Teil der verteilten Verfügbarkeitsgruppe sind.
 

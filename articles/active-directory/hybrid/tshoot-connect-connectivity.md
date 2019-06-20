@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64572787"
 ---
-# <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Problembehebung bei Konnektivitätsproblemen mit Azure AD Connect 
+# <a name="troubleshoot-azure-ad-connectivity"></a>Problembehebung bei Azure AD-Konnektivitätsproblemen
 Dieser Artikel erklärt, wie die Konnektivität zwischen Azure AD Connect und Azure AD funktioniert und wie Konnektivitätsprobleme behoben werden können. Diese Probleme können insbesondere in einer Umgebung mit einem Proxyserver auftreten.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Konnektivitätsprobleme mit dem Installations-Assistent beheben
@@ -57,7 +57,7 @@ Der Installations-Assistent verwendet zwei verschiedene Sicherheitskontexte. Auf
 
 Die folgenden Probleme sind die häufigsten Fehler, die im Installations-Assistenten auftreten.
 
-### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Der Installations-Assistent wurde nicht richtig konfiguriert 
+### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Der Installations-Assistent wurde nicht richtig konfiguriert
 Dieser Fehler tritt auf, wenn der Assistent den Proxy selbst nicht erreichen kann.  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
@@ -101,7 +101,7 @@ Falls der Proxy nicht richtig konfiguriert ist, tritt folgender Fehler auf: ![pr
 ### <a name="proxy-idle-timeout-setting"></a>Einstellung für Proxy-Leerlauftimeout
 Wenn Azure AD Connect eine Exportanforderung an Azure AD gesendet hat, kann Azure AD bis zu 5 Minuten benötigen, die Anforderung zu verarbeiten und dann eine Antwort zu generieren. Dies kann insbesondere passieren, wenn eine Exportanforderung einige Gruppenobjekte mit großen Gruppenmitgliedschaften enthält. Stellen Sie sicher, dass das Proxy-Leerlauftimeout so konfiguriert ist, dass es größer ist als 5 Minuten. Andernfalls kann es vorkommen, dass auf dem Azure AD Connect-Server zeitweilig Konnektivitätsprobleme mit Azure AD auftreten.
 
-## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Das Kommunikationsmuster zwischen Azure AD Connect und Azure AD 
+## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Das Kommunikationsmuster zwischen Azure AD Connect und Azure AD
 Falls Sie alle vorhergehenden Schritte ausgeführt haben und immer noch keine Verbindung herstellen können, sollten Sie sich Ihre Netzwerkprotokolle ansehen. Dieser Abschnitt dokumentiert ein normales und erfolgreiches Konnektivitätsmuster. Er zeigt auch häufig auftretende Meldungen, die Sie aber ignorieren können, wenn Sie die Netzwerkprotokolle lesen.
 
 * Es erfolgen Aufrufe an https://dc.services.visualstudio.com. Für eine erfolgreiche Installation ist es nicht erforderlich, dass diese URL im Proxy geöffnet ist. Sie können diese Aufrufe daher ignorieren.
@@ -113,7 +113,7 @@ Hier nun ein Auszug eines echten Proxyprotokolls und der Seite des Installations
 
 **Herstellen einer Verbindung mit Azure AD**
 
-| Zeit | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -124,7 +124,7 @@ Hier nun ein Auszug eines echten Proxyprotokolls und der Seite des Installations
 
 **Konfigurieren**
 
-| Zeit | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Hier nun ein Auszug eines echten Proxyprotokolls und der Seite des Installations
 
 **Erste Synchronisierung**
 
-| Zeit | URL |
+| Time | URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

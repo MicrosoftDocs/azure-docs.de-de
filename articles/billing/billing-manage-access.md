@@ -17,11 +17,11 @@ ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838254"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60918520"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Verwalten des Zugriffs auf Abrechnungsinformationen für Azure
 
@@ -71,7 +71,7 @@ Das Feature Abrechnungsleser befindet sich in der Vorschauversion und unterstüt
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 1. Wählen Sie auf dem Blatt [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) im Azure-Portal Ihr Abonnement aus.
 
-1. Wählen Sie die Option **Zugriffssteuerung (IAM)**.
+1. Wählen Sie die Option **Zugriffssteuerung (IAM)** .
 1. Wählen Sie **Rollenzuweisungen** aus, um alle Rollenzuweisungen für dieses Abonnement anzuzeigen.
 1. Wählen Sie **Rollenzuweisung hinzufügen** aus.
 1. Wählen Sie in der Dropdownliste **Rolle** **Abrechnungsleser** aus.

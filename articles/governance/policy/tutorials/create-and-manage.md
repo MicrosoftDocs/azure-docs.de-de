@@ -7,14 +7,14 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283612"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979183"
 ---
-# <a name="create-and-manage-policies-to-enforce-compliance"></a>Erstellen und Verwalten von Richtlinien zur Konformitätserzwingung
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Erstellen und Verwalten von Richtlinien zur Konformitätserzwingung
 
 Zur Einhaltung Ihrer Unternehmensstandards und Vereinbarungen zum Servicelevel müssen Sie mit der Erstellung und Verwaltung von Richtlinien in Azure vertraut sein. In diesem Tutorial erfahren Sie, wie Sie mithilfe von Azure Policy einige allgemeinere Aufgaben im Zusammenhang mit der organisationsweiten Erstellung, Zuweisung und Verwaltung von Richtlinien durchführen:
 
@@ -42,11 +42,11 @@ Für die Konformitätserzwingung mit Azure Policy muss zunächst eine Richtlinie
 
    ![Zuweisen einer Richtliniendefinition auf der Seite „Zuweisungen“](../media/create-and-manage/select-assign-policy.png)
 
-1. Wählen Sie auf der Seite **Richtlinie zuweisen** den **Bereich** aus, indem Sie auf die Auslassungspunkte klicken und entweder eine Verwaltungsgruppe oder ein Abonnement auswählen. Wählen Sie optional eine Ressourcengruppe aus. Ein Bereich bestimmt, für welche Ressourcen oder Ressourcengruppe die Richtlinienzuweisung erzwungen wird.  Klicken Sie dann unten im Abschnitt der Seite **Bereich** auf **Auswählen**.
+1. Wählen Sie auf der Seite **Richtlinie zuweisen** den **Bereich** aus, indem Sie auf die Auslassungspunkte klicken und entweder eine Verwaltungsgruppe oder ein Abonnement auswählen. Wählen Sie optional eine Ressourcengruppe aus. Ein Bereich bestimmt, für welche Ressourcen oder Ressourcengruppe die Richtlinienzuweisung erzwungen wird. Klicken Sie dann unten im Abschnitt der Seite **Bereich** auf **Auswählen**.
 
    In diesem Beispiel wird das Abonnement **Contoso** verwendet. Ihr Abonnement wird sich davon unterscheiden.
 
-1. Ressourcen können basierend auf dem **Bereich** ausgeschlossen werden.  **Ausschlüsse** beginnen auf einer Ebene unterhalb der Ebene des **Bereichs**. **Ausschlüsse** sind optional, lassen Sie sie daher vorerst leer.
+1. Ressourcen können basierend auf dem **Bereich** ausgeschlossen werden. **Ausschlüsse** beginnen auf einer Ebene unterhalb der Ebene des **Bereichs**. **Ausschlüsse** sind optional, lassen Sie sie daher vorerst leer.
 
 1. Wählen Sie die **Richtliniendefinition** mit den Auslassungspunkten, um die Liste der verfügbaren Definitionen zu öffnen. Sie können den **Typ** der Richtliniendefinition nach *Integriert* filtern, um alle Definitionen anzuzeigen und ihre Beschreibungen zu lesen.
 
@@ -54,7 +54,8 @@ Für die Konformitätserzwingung mit Azure Policy muss zunächst eine Richtlinie
 
    ![Suchen nach einer Richtlinie mithilfe eines Suchfilters](../media/create-and-manage/select-available-definition.png)
 
-1. Der **Zuweisungsname** wird automatisch mit dem ausgewählten Richtliniennamen gefüllt, kann aber geändert werden. In diesem Beispiel verwenden Sie *SQL Server-Version 12.0 erfordern*. Geben Sie ggf. auch eine **Beschreibung** ein. Die Beschreibung enthält Details zu dieser Richtlinienzuweisung.  Das Feld **Zugewiesen von** wird abhängig vom angemeldeten Benutzer automatisch ausgefüllt. Dieses Feld ist optional. Daher können auch benutzerdefinierte Werte eingegeben werden.
+1. Der **Zuweisungsname** wird automatisch mit dem ausgewählten Richtliniennamen gefüllt, kann aber geändert werden. In diesem Beispiel verwenden Sie *SQL Server-Version 12.0 erfordern*. Geben Sie ggf. auch eine **Beschreibung** ein. Die Beschreibung enthält Details zu dieser Richtlinienzuweisung.
+   Das Feld **Zugewiesen von** wird abhängig vom angemeldeten Benutzer automatisch ausgefüllt. Dieses Feld ist optional. Daher können auch benutzerdefinierte Werte eingegeben werden.
 
 1. Lassen Sie **Verwaltete Identität erstellen** deaktiviert. Diese Option _muss_ aktiviert werden, wenn die zugewiesene Richtlinie oder Initiative eine Richtlinie mit dem Effekt [deployIfNotExists](../concepts/effects.md#deployifnotexists) enthält. Da dies bei der für dieses Tutorial verwendeten Richtlinie nicht der Fall ist, lassen Sie sie deaktiviert. Weitere Informationen finden Sie unter [Verwaltete Identitäten](../../../active-directory/managed-identities-azure-resources/overview.md) und [Funktionsweise der Wiederherstellungssicherheit](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -116,7 +117,7 @@ Sie haben eine integrierte Richtliniendefinition zugewiesen und können nun weit
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Erstellen einer Richtliniendefinition mit der REST-API
 
-Sie können eine Richtlinie mit der REST-API für Richtliniendefinitionen erstellen. Die REST-API ermöglicht es Ihnen, Richtliniendefinitionen zu erstellen und zu löschen sowie Informationen zu vorhandenen Definitionen abzurufen. Um eine Richtliniendefinition zu erstellen, verwenden Sie das folgende Beispiel:
+Sie können eine Richtlinie mit der REST-API für Azure Policy-Definitionen erstellen. Die REST-API ermöglicht es Ihnen, Richtliniendefinitionen zu erstellen und zu löschen sowie Informationen zu vorhandenen Definitionen abzurufen. Um eine Richtliniendefinition zu erstellen, verwenden Sie das folgende Beispiel:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ Nehmen Sie einen Anforderungstext auf, der dem im folgenden Beispiel dargestellt
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Erstellen einer Richtliniendefinition mit PowerShell
 
-Vergewissern Sie sich, dass Sie die neueste Version des Az-Moduls von Azure PowerShell installiert haben, bevor Sie mit dem PowerShell-Beispiel fortfahren. 
+Vergewissern Sie sich, dass Sie die neueste Version des Az-Moduls von Azure PowerShell installiert haben, bevor Sie mit dem PowerShell-Beispiel fortfahren.
 
 Sie können eine Richtliniendefinition über das Cmdlet `New-AzPolicyDefinition` erstellen.
 
@@ -369,13 +370,14 @@ Mit einer Initiativdefinition können Sie mehrere Richtliniendefinitionen zu ein
 
    ![Zuweisen einer Definition auf der Seite „Initiativdefinition“](../media/create-and-manage/assign-definition.png)
 
-   Sie können auch mit der rechten Maustaste auf die ausgewählte Zeile oder mit der linken Maustaste auf die Auslassungspunkte am Ende der Zeile für ein Kontextmenü klicken.  Wählen Sie dann **Zuweisen** aus.
+   Sie können auch mit der rechten Maustaste auf die ausgewählte Zeile oder mit der linken Maustaste auf die Auslassungspunkte am Ende der Zeile für ein Kontextmenü klicken. Wählen Sie dann **Zuweisen** aus.
 
    ![Alternative Optionen für eine initiative](../media/create-and-manage/select-right-click.png)
 
 1. Füllen Sie die Seite **Get Secure: Initiative zuweisen** aus, indem Sie die folgenden Beispielinformationen eingeben. Sie können Ihre eigenen Daten verwenden.
 
-   - Bereich: Die Verwaltungsgruppe oder das Abonnement, in der bzw. dem Sie die Initiative gespeichert haben, wird zur Standardeinstellung.  Sie können den Bereich ändern, um die Initiative einem Abonnement oder einer Ressourcengruppe innerhalb des Speicherorts zuzuweisen.
+   - Bereich: Die Verwaltungsgruppe oder das Abonnement, in der bzw. dem Sie die Initiative gespeichert haben, wird zur Standardeinstellung.
+     Sie können den Bereich ändern, um die Initiative einem Abonnement oder einer Ressourcengruppe innerhalb des Speicherorts zuzuweisen.
    - Ausschlüsse: Konfigurieren Sie Ressourcen innerhalb des Bereichs, auf die die Zuweisung der Initiative nicht angewendet werden soll.
    - Initiativendefinition und Zuweisungsname: Get Secure (vorab ausgefüllt als Name der zuzuweisenden Initiative).
    - Beschreibung: Diese Initiativenzuweisung dient zur Erzwingung dieser Gruppe von Richtliniendefinitionen.
@@ -389,7 +391,8 @@ Mit einer Initiativdefinition können Sie mehrere Richtliniendefinitionen zu ein
 
 1. Wählen Sie links auf der Seite „Azure Policy“ die Option **Konformität**.
 
-1. Suchen Sie nach der Initiative **Get Secure**. Wahrscheinlich lautet der _Konformitätszustand_ immer noch **Nicht gestartet**. Klicken Sie auf die Initiative, um ausführliche Informationen zum Status der Zuweisung zu erhalten.
+1. Suchen Sie nach der Initiative **Get Secure**. Wahrscheinlich lautet der _Konformitätszustand_ immer noch **Nicht gestartet**.
+   Klicken Sie auf die Initiative, um ausführliche Informationen zum Status der Zuweisung zu erhalten.
 
    ![Seite „Initiativenkonformität“: Auswertung noch nicht gestartet](../media/create-and-manage/compliance-status-not-started.png)
 
@@ -406,7 +409,7 @@ Im folgenden Beispiel ist jede SQL Server-Version in einer einzigen Ressourcengr
 
 Eine von einer zugewiesenen Richtlinie oder Initiative verhinderte Bereitstellung kann an zwei Stellen eingesehen werden:
 
-- In der Ressourcengruppe, für die die Bereitstellung gilt: Wählen Sie links auf der Seite die Option **Bereitstellungen**aus, und klicken Sie dann auf den **Bereitstellungsnamen** der fehlerhaften Bereitstellung. Die abgelehnte Ressource wird mit dem Status _Unzulässig_ angezeigt. Um die Richtlinie oder Initiative und die Zuweisung zu bestimmen, die die Ressource abgelehnt hat, klicken Sie auf der Übersichtsseite zur Bereitstellung auf **Fehler. Klicken Sie hier, um Details anzuzeigen. ->**. Rechts auf der Seite wird ein Fenster mit den Fehlerinformationen geöffnet. Unter **Fehlerdetails** werden die GUIDs der zugehörigen Richtlinienobjekte angezeigt.
+- In der Ressourcengruppe, für die die Bereitstellung gilt: Wählen Sie links auf der Seite die Option **Bereitstellungen**aus, und klicken Sie dann auf den **Bereitstellungsnamen** der fehlerhaften Bereitstellung. Die abgelehnte Ressource wird mit dem Status _Unzulässig_ angezeigt. Um die Richtlinie oder Initiative und die Zuweisung zu bestimmen, die die Ressource abgelehnt hat, klicken Sie auf der Übersichtsseite zur Bereitstellung auf **Fehler. Klicken Sie hier, um Details anzuzeigen. ->** . Rechts auf der Seite wird ein Fenster mit den Fehlerinformationen geöffnet. Unter **Fehlerdetails** werden die GUIDs der zugehörigen Richtlinienobjekte angezeigt.
 
   ![Bereitstellung durch Richtlinienzuweisung abgelehnt](../media/create-and-manage/rg-deployment-denied.png)
 

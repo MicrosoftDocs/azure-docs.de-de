@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027840"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Ausnahmen und Fehlercodes für Algorithmen und Module – Referenz
@@ -347,7 +347,7 @@ Für Spalten, die Sie für die Gruppierung oder Kategorisierung verwenden möcht
 ## <a name="error-0018"></a>Fehler 0018  
  Eine Ausnahme tritt auf, wenn das Eingabedataset nicht gültig ist.  
   
-**Lösung:** Dieser Fehler in Azure Machine Learning kann in vielen Kontexten auftreten, sodass es keine einzelne Lösung gibt. Im Allgemeinen zeigt der Fehler an, dass die als Eingabe für ein Modul bereitgestellten Daten die falsche Anzahl von Spalten aufweisen oder dass der Datentyp nicht den Anforderungen des Moduls entspricht. Beispiel:   
+**Lösung:** Dieser Fehler in Azure Machine Learning kann in vielen Kontexten auftreten, sodass es keine einzelne Lösung gibt. Im Allgemeinen zeigt der Fehler an, dass die als Eingabe für ein Modul bereitgestellten Daten die falsche Anzahl von Spalten aufweisen oder dass der Datentyp nicht den Anforderungen des Moduls entspricht. Beispiel:  
   
 -   Das Modul erfordert eine Bezeichnungsspalte, aber keine Spalte ist als Bezeichnung gekennzeichnet, oder Sie haben noch keine Bezeichnungsspalte ausgewählt.  
   
@@ -415,7 +415,7 @@ Für Spalten, die Sie für die Gruppierung oder Kategorisierung verwenden möcht
 ## <a name="error-0022"></a>Fehler 0022  
  Eine Ausnahme tritt auf, wenn die Anzahl der ausgewählten Spalten im Eingabedataset nicht mit der erwarteten Anzahl übereinstimmt.  
   
- Dieser Fehler in Azure Machine Learning kann auftreten, wenn das Downstream-Modul oder die Operation eine bestimmte Anzahl von Spalten oder Eingaben erfordert und Sie zu wenige bzw. zu viele Spalten oder Eingaben bereitgestellt haben. Beispiel:   
+ Dieser Fehler in Azure Machine Learning kann auftreten, wenn das Downstream-Modul oder die Operation eine bestimmte Anzahl von Spalten oder Eingaben erfordert und Sie zu wenige bzw. zu viele Spalten oder Eingaben bereitgestellt haben. Beispiel:  
   
 -   Sie geben eine einzelne Bezeichnungsspalte oder Schlüsselspalte an und haben versehentlich mehrere Spalten ausgewählt.  
   
@@ -1500,7 +1500,7 @@ Im Allgemeinen kann eine zahlenbasierte Transformation nur auf Datasets angewend
 ## <a name="error-0100"></a>Fehler 0100  
  Eine Ausnahme tritt auf, wenn für ein benutzerdefiniertes Modul eine nicht unterstützte Sprache angegeben wird.  
   
- Dieser Fehler in Azure Machine Learning tritt auf, wenn ein benutzerdefiniertes Modul erstellt wird und die Namenseigenschaft des Elements **Language** (Sprache) in einer XML-Definitionsdatei für benutzerdefinierte Module einen ungültigen Wert aufweist. Derzeit ist der einzige gültige Wert für diese Eigenschaft `R`. Beispiel:   
+ Dieser Fehler in Azure Machine Learning tritt auf, wenn ein benutzerdefiniertes Modul erstellt wird und die Namenseigenschaft des Elements **Language** (Sprache) in einer XML-Definitionsdatei für benutzerdefinierte Module einen ungültigen Wert aufweist. Derzeit ist der einzige gültige Wert für diese Eigenschaft `R`. Beispiel:  
   
  `<Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />`  
   
@@ -1555,7 +1555,7 @@ Im Allgemeinen kann eine zahlenbasierte Transformation nur auf Datasets angewend
 ## <a name="error-0104"></a>Fehler 0104  
  Wird ausgelöst, wenn eine Moduldefinitionsdatei auf ein Skript verweist, das nicht gefunden werden kann.  
   
- Dieser Fehler in Azure Machine Learning tritt auf, wenn eine benutzerdefinierte XML-Moduldefinitionsdatei auf eine Skriptdatei im **Language**-Element (Sprache) verweist, die im ZIP-Paket nicht vorhanden ist. Der Pfad der Skriptdatei ist in der **sourceFile**-Eigenschaft des Elements **Language** (Sprache) definiert. Der Pfad zur Quelldatei ist relativ zum Stammverzeichnis des ZIP-Pakets (derselbe Speicherort wie die XML-Moduldefinitionsdateien). Wenn sich die Skriptdatei in einem Unterordner befindet, muss der relative Pfad zur Skriptdatei angegeben werden. Wenn z. B. alle Skripts in einem Ordner **myScripts** innerhalb des ZIP-Pakets gespeichert wären, müsste das Element **Language** diesen Pfad zur **sourceFile**-Eigenschaft wie folgt hinzufügen. Beispiel:   
+ Dieser Fehler in Azure Machine Learning tritt auf, wenn eine benutzerdefinierte XML-Moduldefinitionsdatei auf eine Skriptdatei im **Language**-Element (Sprache) verweist, die im ZIP-Paket nicht vorhanden ist. Der Pfad der Skriptdatei ist in der **sourceFile**-Eigenschaft des Elements **Language** (Sprache) definiert. Der Pfad zur Quelldatei ist relativ zum Stammverzeichnis des ZIP-Pakets (derselbe Speicherort wie die XML-Moduldefinitionsdateien). Wenn sich die Skriptdatei in einem Unterordner befindet, muss der relative Pfad zur Skriptdatei angegeben werden. Wenn z. B. alle Skripts in einem Ordner **myScripts** innerhalb des ZIP-Pakets gespeichert wären, müsste das Element **Language** diesen Pfad zur **sourceFile**-Eigenschaft wie folgt hinzufügen. Beispiel:  
   
  `<Language name="R" sourceFile="myScripts/CustomAddRows.R" entryPoint="CustomAddRows" />`  
   

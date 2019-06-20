@@ -1,25 +1,18 @@
 ---
-title: Ausfüllen des Formulars „Angebotseinstellungen“ | Microsoft-Dokumentation
+title: Ausfüllen des Formulars „Angebotseinstellungen“ | Azure Marketplace
 description: Erläutert die verschiedenen Felder, die Werte im Formular Angebotseinstellungen für eine neue Dynamics 365 Business Central-Anwendung erfordern.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: d29b17e1a109b37a51a0e6bd2af2a7bb02b977a9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64934907"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>So füllen Sie das Formular „Angebotseinstellungen“ aus
 =======================================

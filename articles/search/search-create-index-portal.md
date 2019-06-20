@@ -1,5 +1,5 @@
 ---
-title: 'Erstellen eines Azure Search-Index im Azure-Portal: Azure Search'
+title: 'Erstellen eines Azure Search-Indexes im Azure-Portal: Azure Search'
 description: Erfahren Sie, wie Sie einen Index für Azure Search erstellen, indem Sie im Portal integrierte Index-Designer verwenden.
 manager: cgronlun
 author: heidisteen
@@ -11,11 +11,11 @@ ms.date: 02/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60817288"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Erstellen eines Azure Search-Index im Portal
 

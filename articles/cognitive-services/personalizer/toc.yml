@@ -24,9 +24,12 @@
       displayName: 'best practice, design'
     - name: Grundlegende Konzepte
       items:
-        - name: 'Features: Aktion und Kontext'
+        - name: 'Merkmale: Aktion und Kontext'
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Aktives Lernen
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
         - name: Belohnungen
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -40,11 +43,13 @@
         - name: Offlineauswertung
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: Skalierbarkeit und Leistung
+      href: concepts-scalability-performance.md
 - name: Anleitungen
   items:
     - name: Erstellen und Konfigurieren der Personalisierung
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
     - name: Analysieren
       items:
         - name: Offlineauswertung
@@ -65,6 +70,8 @@
   items:
     - name: Regionale Verfügbarkeit
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Compliance
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure-Roadmap
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
     - name: Preise

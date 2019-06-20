@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010700"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61224766"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Leitfaden zur C2D-Kommunikation
 
@@ -37,7 +37,7 @@ Hier finden Sie einen detaillierten Vergleich verschiedener Optionen für die C2
 | Ziele | Einzelgerät mit **deviceId** oder mehrere Geräte mit [Aufträgen](iot-hub-devguide-jobs.md). | Einzelgerät mit **deviceId** oder mehrere Geräte mit [Aufträgen](iot-hub-devguide-jobs.md). | Einzelgerät nach **deviceId**. |
 | Größe | Die maximale Nutzlast für direkte Methoden beträgt 128KB. | Die Maximalgröße gewünschter Eigenschaften beträgt 8 KB. | Bis zu 64 KB für Nachrichten. |
 | Frequency | Hoch. Weitere Informationen finden Sie unter [IoT Hub-Grenzwerte](iot-hub-devguide-quotas-throttling.md). | Mittel. Weitere Informationen finden Sie unter [IoT Hub-Grenzwerte](iot-hub-devguide-quotas-throttling.md). | Niedrig. Weitere Informationen finden Sie unter [IoT Hub-Grenzwerte](iot-hub-devguide-quotas-throttling.md). |
-| Protokoll | Mit MQTT oder AMQP verfügbar. | Mit MQTT oder AMQP verfügbar. | Mit allen Protokollen verfügbar. Gerät muss bei Verwendung von HTTPS einen Abruf tätigen. |
+| Protocol | Mit MQTT oder AMQP verfügbar. | Mit MQTT oder AMQP verfügbar. | Mit allen Protokollen verfügbar. Gerät muss bei Verwendung von HTTPS einen Abruf tätigen. |
 
 Erfahren Sie in den folgenden Tutorials, wie Sie direkte Methoden, gewünschte Eigenschaften und C2D-Nachrichten einsetzen:
 

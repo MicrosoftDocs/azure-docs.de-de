@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013641"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60631905"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software für StorSimple 8000-Serie, Hochverfügbarkeit und Netzwerkanforderungen
 
 ## <a name="overview"></a>Übersicht
 
-Willkommen bei Microsoft Azure StorSimple  In diesem Artikel werden wichtige Systemanforderungen sowie bewährte Methoden für Ihr StorSimple-Gerät und für die Speicherclients beschrieben, die auf das Gerät zugreifen. Sie sollten die Informationen sorgfältig überprüfen, bevor Sie Ihr StorSimple-System bereitstellen. Auch später sollten Sie während der Bereitstellung und beim nachfolgenden Betrieb bei Bedarf als Referenz darauf zurückgreifen.
+Willkommen bei Microsoft Azure StorSimple In diesem Artikel werden wichtige Systemanforderungen sowie bewährte Methoden für Ihr StorSimple-Gerät und für die Speicherclients beschrieben, die auf das Gerät zugreifen. Sie sollten die Informationen sorgfältig überprüfen, bevor Sie Ihr StorSimple-System bereitstellen. Auch später sollten Sie während der Bereitstellung und beim nachfolgenden Betrieb bei Bedarf als Referenz darauf zurückgreifen.
 
 Systemanforderungen:
 
@@ -63,14 +63,14 @@ Das StorSimple-Gerät ist ein gesperrtes Gerät. Allerdings müssen Ports in der
 
 | Portnr.<sup>1,2</sup> | ein oder aus | Portbereich | Erforderlich | Notizen |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |aus |WAN |Nein  |<ul><li>Der ausgehende Port wird für den Internetzugriff zum Abrufen von Updates verwendet.</li><li>Der ausgehende Webproxy kann vom Benutzer konfiguriert werden.</li><li>Um Systemupdates zuzulassen, muss dieser Port auch für die festen Controller-IPs geöffnet sein.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |aus |WAN |Nein |<ul><li>Der ausgehende Port wird für den Internetzugriff zum Abrufen von Updates verwendet.</li><li>Der ausgehende Webproxy kann vom Benutzer konfiguriert werden.</li><li>Um Systemupdates zuzulassen, muss dieser Port auch für die festen Controller-IPs geöffnet sein.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |aus |WAN |Ja |<ul><li>Der ausgehende Port wird für den Zugriff auf Daten in der Cloud verwendet.</li><li>Der ausgehende Webproxy kann vom Benutzer konfiguriert werden.</li><li>Um Systemupdates zuzulassen, muss dieser Port auch für die festen Controller-IPs geöffnet sein.</li><li>Dieser Port wird außerdem auf beiden Controllern für die Garbage Collection verwendet.</li></ul> |
 | UDP 53 (DNS) |aus |WAN |In einigen Fällen; siehe Hinweise. |Dieser Port ist nur dann erforderlich, wenn Sie einen internetbasierten DNS-Server verwenden. |
 | UDP 123 (NTP) |aus |WAN |In einigen Fällen; siehe Hinweise. |Dieser Port ist nur dann erforderlich, wenn Sie einen internetbasierten NTP-Server verwenden. |
 | TCP 9354 |aus |WAN |Ja |Der ausgehende Port wird vom StorSimple-Gerät für die Kommunikation mit dem StorSimple-Geräte-Manager-Dienst verwendet. |
-| 3260 (iSCSI) |Geben Sie in |LAN |Nein  |Dieser Port wird für den Datenzugriff über iSCSI verwendet. |
-| 5985 |Geben Sie in |LAN |Nein  |Der eingehende Port wird vom StorSimple-Momentaufnahme-Manager für die Kommunikation mit dem StorSimple-Gerät verwendet.<br>Dieser Port wird auch verwendet, wenn Sie eine Remoteverbindung mit Windows PowerShell für StorSimple über HTTP herstellen. |
-| 5986 |Geben Sie in |LAN |Nein  |Dieser Port wird verwendet, wenn Sie eine Remoteverbindung mit Windows PowerShell für StorSimple über HTTPS herstellen. |
+| 3260 (iSCSI) |Geben Sie in |LAN |Nein |Dieser Port wird für den Datenzugriff über iSCSI verwendet. |
+| 5985 |Geben Sie in |LAN |Nein |Der eingehende Port wird vom StorSimple-Momentaufnahme-Manager für die Kommunikation mit dem StorSimple-Gerät verwendet.<br>Dieser Port wird auch verwendet, wenn Sie eine Remoteverbindung mit Windows PowerShell für StorSimple über HTTP herstellen. |
+| 5986 |Geben Sie in |LAN |Nein |Dieser Port wird verwendet, wenn Sie eine Remoteverbindung mit Windows PowerShell für StorSimple über HTTPS herstellen. |
 
 <sup>1</sup> Es müssen keine eingehenden Ports für das öffentliche Internet geöffnet werden.
 

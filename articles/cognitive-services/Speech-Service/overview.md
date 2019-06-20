@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510746"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002986"
 ---
 # <a name="what-are-the-speech-services"></a>Was sind Speech-Dienste?
 
@@ -42,7 +42,9 @@ Die Azure Speech-Dienste umfassen folgende Features. Verwenden Sie die Links in
 Hier finden Sie Neuigkeiten im Zusammenhang mit den Azure Speech-Diensten.
 
 * Mai 2019: Dokumentation für [Unterhaltungstranskription](conversation-transcription-service.md), [Callcentertranskription](call-center-transcription.md) und [virtuelle Voice-First-Assistenten](voice-first-virtual-assistants.md) ist jetzt verfügbar.
-* Mai 2019: Das Speech SDK 1.5.0 wird veröffentlicht. Eine vollständige Liste der Aktualisierungen, Verbesserungen und bekannten Probleme finden Sie in den [Versionshinweisen](releasenotes.md).
+* Mai 2019
+    * Speech SDK 1.5.1 veröffentlicht. Eine vollständige Liste der Aktualisierungen, Verbesserungen und bekannten Probleme finden Sie in den [Versionshinweisen](releasenotes.md).
+    * Speech SDK 1.5.0 veröffentlicht. Eine vollständige Liste der Aktualisierungen, Verbesserungen und bekannten Probleme finden Sie in den [Versionshinweisen](releasenotes.md).
 * April 2019: Das Speech SDK 1.4.0 mit Unterstützung von Sprachsynthese (Beta) für C++, C# und Java unter Windows und Linux wurde veröffentlicht. Darüber hinaus unterstützt das SDK nun die Audioformate MP3 und Opus/Ogg für C++ und C# unter Linux. Eine vollständige Liste der Aktualisierungen, Verbesserungen und bekannten Probleme finden Sie in den [Versionshinweisen](releasenotes.md).
 * März 2019: Ein neuer Endpunkt für die Sprachsynthese (Text-to-Speech, TTS) steht nun zur Verfügung, der eine vollständige Liste mit den in einer bestimmten Region verfügbaren Stimmen zurückgibt. Darüber hinaus werden jetzt neue Regionen für TTS unterstützt. Weitere Informationen finden Sie unter [Text-to-speech REST API](rest-text-to-speech.md) (Text-to-Speech-REST-API).
 

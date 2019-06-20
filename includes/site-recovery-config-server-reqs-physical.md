@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -10,11 +10,11 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58887014"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178317"
 ---
 **Konfigurations-/Prozessserveranforderungen für die Replikation physischer Server**
 

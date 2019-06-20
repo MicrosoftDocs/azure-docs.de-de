@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 953edcb98de6ea705721aef0922562d23e18f0f5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 971fea76a23859f32437a1698b6d3094113737a1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148237"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255092"
 ---
 # <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v021-alpha"></a>API für Statusmonitor v2: Set-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
@@ -128,7 +128,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
  - [Untersuchen Sie Metriken](../../azure-monitor/app/metrics-explorer.md) für die Überwachung von Leistung und Auslastung.
 - [Durchsuchen Sie Ereignisse und Protokolle](../../azure-monitor/app/diagnostic-search.md), um Probleme zu diagnostizieren.
 - [Verwenden Sie Analytics](../../azure-monitor/app/analytics.md) für erweiterte Abfragen.
-- [Erstellen Sie Dashboards.](../../azure-monitor/app/app-insights-dashboards.md)
+- [Erstellen Sie Dashboards.](../../azure-monitor/app/overview-dashboard.md)
  
  Hinzufügen weiterer Telemetrieelemente:
  - [Erstellen Sie Webtests](monitor-web-app-availability.md), um sicherzustellen, dass Ihre Website live bleibt.

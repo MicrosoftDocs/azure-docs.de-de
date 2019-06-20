@@ -266,7 +266,7 @@ Dieser Fehler kann verschiedene Gründe haben. Gehen Sie zur Problembehandlung f
 1. Starten Sie den NPS-Server neu.
 2. Vergewissern Sie sich, dass das Clientzertifikat wie erwartet installiert wurde.
 3. Überprüfen Sie, ob das Zertifikat Ihrem Mandanten in Azure AD zugeordnet ist.
-4. Überprüfen Sie auf dem Server, auf dem die Erweiterung ausgeführt wird, ob auf „https://login.microsoftonline.com/“ zugegriffen werden kann.
+4. Überprüfen Sie auf dem Server, auf dem die Erweiterung ausgeführt wird, ob auf https://login.microsoftonline.com/ zugegriffen werden kann.
 
 -------------------------------------------------------------
 
@@ -278,7 +278,7 @@ Dieser Fehler kann verschiedene Gründe haben. Gehen Sie zur Problembehandlung f
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Warum enthalten meine Protokolle HTTP-Verbindungs- und Authentifizierungsfehler?
 
-Überprüfen Sie auf dem Server, auf dem die NPS-Erweiterung ausgeführt wird, ob auf „https://adnotifications.windowsazure.com“ zugegriffen werden kann.
+Überprüfen Sie auf dem Server, auf dem die NPS-Erweiterung ausgeführt wird, ob auf https://adnotifications.windowsazure.com zugegriffen werden kann.
 
 -------------------------------------------------------------
 

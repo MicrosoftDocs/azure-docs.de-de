@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314958"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234125"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Mehrinstanzenfähige Anwendungen mit elastischen Datenbanktools und zeilenbasierter Sicherheit
 
@@ -228,7 +228,7 @@ RLS ist in Transact-SQL implementiert. Eine benutzerdefinierte Funktion definier
     - Ein BLOCK-Prädikat verhindert, dass für Zeilen, die dem Filter nicht entsprechen, INSERT oder UPDATE ausgeführt werden kann.
     - Wenn SESSION\_CONTEXT nicht festgelegt wurde, gibt die Funktion NULL zurück. Darüber hinaus sind Zeilen nicht sichtbar und können nicht eingefügt werden.
 
-Um RLS für alle Shards zu aktivieren, führen Sie das folgende T-SQL mithilfe von Visual Studio (SSDT) oder SSMS bzw. das im Projekt enthaltene PowerShell-Skript aus. Wenn Sie [elastische Datenbankaufträge](sql-database-elastic-jobs-overview.md) verwenden, können Sie die T-SQL-Ausführung für alle Shards automatisieren.
+Um RLS für alle Shards zu aktivieren, führen Sie das folgende T-SQL mithilfe von Visual Studio (SSDT) oder SSMS bzw. das im Projekt enthaltene PowerShell-Skript aus. Wenn Sie [elastische Datenbankaufträge](elastic-jobs-overview.md) verwenden, können Sie die T-SQL-Ausführung für alle Shards automatisieren.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -351,7 +351,7 @@ Elastische Datenbanktools und zeilenbasierte Sicherheit können zusammen zum hor
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Was ist ein Pool für elastische Azure-Datenbanken?](sql-database-elastic-pool.md)
-- [Übersicht über Features für elastische Datenbanken](sql-database-elastic-scale-introduction.md)
+- [Erweitern mit Azure SQL-Datenbank](sql-database-elastic-scale-introduction.md)
 - [Entwurfsmuster für mehrinstanzenfähige SaaS-Anwendungen und Azure SQL-Datenbank](saas-tenancy-app-design-patterns.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Tailspin-Anwendung „Surveys“](../guidance/guidance-multitenant-identity-tailspin.md)

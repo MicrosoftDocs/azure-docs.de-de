@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135338"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Erstellen eines Anwendungsgateways mit pfadbasierten Routingregeln mithilfe des Azure-Portals
@@ -143,8 +143,8 @@ In diesem Beispiel erstellen Sie drei virtuelle Computer, die als Back-End-Serve
 
 1. Klicken Sie auf **Regeln** und anschließend auf **Pfadbasiert**.
 2. Geben Sie als Name *rule2* ein.
-3. Geben Sie als Name für den ersten Pfad *Bilder* ein. Geben Sie als Pfad */images/*\* ein. Wählen Sie als Back-End-Pool **imagesBackendPool** aus.
-4. Geben Sie als Name für den ersten Pfad *Video* ein. Geben Sie als Pfad */video/*\* ein. Wählen Sie als Back-End-Pool **videoBackendPool** aus.
+3. Geben Sie als Name für den ersten Pfad *Bilder* ein. Geben Sie als Pfad */images/* \* ein. Wählen Sie als Back-End-Pool **imagesBackendPool** aus.
+4. Geben Sie als Name für den ersten Pfad *Video* ein. Geben Sie als Pfad */video/* \* ein. Wählen Sie als Back-End-Pool **videoBackendPool** aus.
 
     ![Erstellen einer pfadbasierten Regel](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

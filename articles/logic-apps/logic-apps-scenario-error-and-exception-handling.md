@@ -11,11 +11,11 @@ ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098662"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60599490"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Szenario: Ausnahmebehandlung und Fehlerprotokollierung für Logik-Apps
 

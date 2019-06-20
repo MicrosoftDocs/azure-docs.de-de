@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: 5d2ea9d971eff22ddeed4122c9697ca3096697b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813881"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>Vordefinierte Modelle für Domäne, Absicht und Entität
 

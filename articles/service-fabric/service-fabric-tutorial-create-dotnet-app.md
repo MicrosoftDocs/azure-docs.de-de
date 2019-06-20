@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 097cb554523a9e75b265ca16e79769daf0a49b40
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665796"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515848"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Erstellen und Bereitstellen einer Anwendung mit einem ASP.NET Core-Web-API-Front-End-Dienst und einem zustandsbehafteten Back-End-Dienst
 
 Dieses Tutorial ist der erste Teil einer Serie.  Hier erfahren Sie, wie Sie eine Azure Service Fabric-Anwendung mit einem ASP.NET Core-Web-API-Front-End und einem zustandsbehafteten Back-End-Dienst zum Speichern Ihrer Daten erstellen. Am Ende verfügen Sie über eine Abstimmungsanwendung mit einem ASP.NET Core-Web-Front-End, mit der Abstimmungsergebnisse im Cluster in einem zustandsbehafteten Back-End-Dienst gespeichert werden. Wenn Sie die Abstimmungsanwendung nicht manuell erstellen möchten, können Sie den [Quellcode für die fertige Anwendung herunterladen](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) und mit [Durchlaufen der Beispielanwendung für die Abstimmung](#walkthrough_anchor) fortfahren.  Wenn Sie möchten, können Sie sich auch eine [schrittweise Videoanleitung](https://channel9.msdn.com/Events/Connect/2017/E100) zu diesem Tutorial ansehen.
 
-![Anwendungsdiagramm](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS- + ASP.NET-API-Front-End, Herstellen einer Verbindung mit einem zustandsbehafteten Dienst in Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Im ersten Teil der Serie lernen Sie Folgendes:
 
@@ -68,7 +68,7 @@ Erstellen Sie mithilfe von ASP.NET Core zunächst das Web-Front-End der Abstimmu
    
    ![Auswählen eines neuen ASP.NET-Webdienstes im Dialogfeld „Neuer Dienst“](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. Die nächste Seite umfasst eine Reihe von ASP.NET Core-Projektvorlagen. Wählen Sie für dieses Tutorial die Option **Webanwendung (Model-View-Controller)**, und klicken Sie dann auf **OK**.
+6. Die nächste Seite umfasst eine Reihe von ASP.NET Core-Projektvorlagen. Wählen Sie für dieses Tutorial die Option **Webanwendung (Model-View-Controller)** , und klicken Sie dann auf **OK**.
    
    ![Auswählen des ASP.NET-Projekttyps](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -625,8 +625,8 @@ Führen Sie die folgenden Schritte aus, um zu ermitteln, was im Code passiert:
 
       ![Front-End-Dienst „Stimme hinzufügen“](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. Erstellen Sie zunächst die URL zum Reverseproxy für den Back-End-Dienst **(1)**.
-   3. Senden Sie anschließend die HTTP PUT-Anforderung an den Reverseproxy **(2)**.
+   2. Erstellen Sie zunächst die URL zum Reverseproxy für den Back-End-Dienst **(1)** .
+   3. Senden Sie anschließend die HTTP PUT-Anforderung an den Reverseproxy **(2)** .
    4. Zum Schluss wird die Antwort vom Back-End-Dienst an den Client **(3)** zurückgegeben.
 
 5. Drücken Sie **F5**, um fortzufahren.
@@ -636,7 +636,7 @@ Führen Sie die folgenden Schritte aus, um zu ermitteln, was im Code passiert:
 
    2. Verwenden Sie in der ersten Zeile der Methode **(1)** das `StateManager`-Element, um ein zuverlässiges Wörterbuch mit dem Namen `counts` abzurufen bzw. hinzuzufügen.
    3. Für alle Interaktionen mit Werten in einem zuverlässigen Wörterbuch ist eine Transaktion erforderlich. Diese Transaktion wird mithilfe der Anweisung **(2)** erstellt.
-   4. Aktualisieren Sie in der Transaktion den Wert des relevanten Schlüssels für die Abstimmungsoption, und committen Sie den Vorgang **(3)**. Nachdem die Rückgabe für die Commit-Methode durchgeführt wurde, werden die Daten im Wörterbuch aktualisiert und auf anderen Knoten im Cluster repliziert. Die Daten sind jetzt sicher im Cluster gespeichert, und der Back-End-Dienst kann das Failover auf andere Knoten durchführen, während die Daten weiterhin verfügbar sind.
+   4. Aktualisieren Sie in der Transaktion den Wert des relevanten Schlüssels für die Abstimmungsoption, und committen Sie den Vorgang **(3)** . Nachdem die Rückgabe für die Commit-Methode durchgeführt wurde, werden die Daten im Wörterbuch aktualisiert und auf anderen Knoten im Cluster repliziert. Die Daten sind jetzt sicher im Cluster gespeichert, und der Back-End-Dienst kann das Failover auf andere Knoten durchführen, während die Daten weiterhin verfügbar sind.
 6. Drücken Sie **F5**, um fortzufahren.
 
 Drücken Sie **UMSCHALT+F5**, um die Debugsitzung zu beenden.

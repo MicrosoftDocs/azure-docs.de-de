@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 05/24/2019
 ms.author: diberry
-ms.openlocfilehash: 154b02cba41d685803d06bc3c9c24db2779434e5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0f40ed3d0b77662e23e4042f568b8241cef130c6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792120"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256610"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Abrufen von Antworten auf Fragen aus einer Wissensdatenbank mit Python
 

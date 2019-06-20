@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236956"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475985"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Einrichten von Computezielen für das Modelltraining
+# <a name="set-up-compute-targets-for-model-training"></a>Einrichten von Computezielen für das Modelltraining 
 
 Mit Azure Machine Learning Service können Sie Ihr Modell für eine Vielzahl von Ressourcen oder Umgebungen trainieren, die zusammen als [__Computeziele__](concept-azure-machine-learning-architecture.md#compute-target) bezeichnet werden. Ein Computeziel kann ein lokaler Computer oder eine Cloudressource sein, wie beispielsweise Azure Machine Learning Compute, Azure HDInsight oder ein virtueller Remotecomputer.  Sie können auch Computeziele für die Modellimplementierung erstellen, wie in [Bereitstellen von Modellen mit dem Azure Machine Learning-Dienst](how-to-deploy-and-where.md) beschrieben.
 
-Sie können Computeziele mit dem Azure Machine Learning SDK, im Azure-Portal oder über die Azure-Befehlszeilenschnittstelle (Azure CLI) erstellen und verwalten. Wenn Sie Computeziele haben, die über einen anderen Dienst (z. B. einen HDInsight-Cluster) erstellt wurden, können Sie diese an Ihren Azure Machine Learning Service-Arbeitsbereich anfügen, um sie verwenden zu können.
+Sie können Computeziele mit dem Azure Machine Learning SDK, im Azure-Portal, über die Azure-Befehlszeilenschnittstelle (Azure CLI) oder die Azure Machine Learning- VS Code-Erweiterung erstellen und verwalten. Wenn Sie Computeziele haben, die über einen anderen Dienst (z. B. einen HDInsight-Cluster) erstellt wurden, können Sie diese an Ihren Azure Machine Learning Service-Arbeitsbereich anfügen, um sie verwenden zu können.
  
 In diesem Artikel erfahren Sie, wie Sie verschiedene Computeziele für das Modelltraining verwenden.  Die Schritte für alle Computeziele führen Sie den gleichen Workflow:
 1. __Erstellen__ Sie ein Computeziel, wenn noch keines vorhanden ist.
@@ -31,22 +31,22 @@ In diesem Artikel erfahren Sie, wie Sie verschiedene Computeziele für das Model
 
 
 >[!NOTE]
-> Der Code in diesem Artikel wurde mit Version 1.0.6 des Azure Machine Learning SDK getestet.
+> Der Code in diesem Artikel wurde mit Version 1.0.39 des Azure Machine Learning SDK getestet.
 
 ## <a name="compute-targets-for-training"></a>Computeziele für das Training
 
 Azure Machine Learning Service bietet unterschiedliche Unterstützung für die verschiedenen Computeziele. Ein typischer Modellentwicklungslebenszyklus beginnt mit der Entwicklung/Experimenten mit einer kleinen Menge von Daten. In dieser Phase empfehlen wir die Verwendung einer lokalen Umgebung. Verwenden Sie beispielsweise Ihren lokalen Computer oder eine cloudbasierte VM. Wenn Sie Ihr Training zur Verwendung größerer Datasets zentral hochskalieren oder sich für ein verteiltes Training entscheiden, empfehlen wir, mit Azure Machine Learning Compute einen Cluster mit einem einzelnen oder mehreren Knoten zu erstellen, der bei jeder Übermittlung einer Ausführung automatisch skaliert wird. Sie können auch Ihre eigene Computeressource anfügen. Die Unterstützung für verschiedene Szenarien variiert jedoch wie unten beschrieben:
 
 
-|Computeziel für das Training| GPU-Beschleunigung | Automatisiert<br/> Hyperparameteroptimierung | Automatisiert</br> Machine Learning | Azure Machine Learning-Pipelines |
+|Training &nbsp;Ziele| GPU-Unterstützung |Automatisiertes maschinelles Lernen | ML-Pipelines | Grafische Benutzeroberfläche
 |----|:----:|:----:|:----:|:----:|
-|[Lokaler Computer](#local)| Vielleicht | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[Remote-VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Lokaler Computer](#local)| Vielleicht | Ja | &nbsp; | &nbsp; |
+|[Azure Machine Learning Compute](#amlcompute)| Ja | Ja & <br/>Hyperparameteroptimierung&nbsp; | Ja | Ja |
+|[Remote-VM](#vm) |Ja | Ja & <br/>Hyperparameteroptimierung | Ja | &nbsp; |
+|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | Ja | Ja | &nbsp; |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | Ja | &nbsp; |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | Ja | &nbsp; |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | Ja | &nbsp; |
 
 **Alle Computeziele können für mehrere Trainingsaufträge wiederverwendet werden**. Beispielsweise können Sie einen virtuellen Remotecomputer, den Sie an Ihren Arbeitsbereich anfügen, für mehrere Aufträge wiederverwenden.
 
@@ -377,6 +377,10 @@ Sie können auf die mit Ihrem Arbeitsbereich verknüpften Computeziele mit der [
 
 Weitere Informationen finden Sie unter [Ressourcenverwaltung](reference-azure-machine-learning-cli.md#resource-management).
 
+## <a name="set-up-compute-with-vs-code"></a>Einrichten von Computeressourcen mit VS Code
+
+Sie können auf die mit Ihrem Arbeitsbereich verknüpften Computeziele mit der [VS Code-Erweiterung](how-to-vscode-tools.md#create-and-manage-compute-targets) für Azure Machine Learning Service zugreifen, sie erstellen und verwalten.
+
 ## <a id="submit"></a>Übermitteln einer Trainingsausführung
 
 Nachdem Sie eine Laufzeitkonfiguration erstellt haben, verwenden Sie sie zum Ausführen Ihres Experiments.  Das Codemuster für die Übermittlung einer Trainingsausführung ist für alle Arten von Computezielen gleich:
@@ -416,8 +420,13 @@ Wechseln Sie mit demselben Experiment zur Ausführung zu einem anderen Computezi
 
 Alternative:
 
-* Übermitteln Sie das Experiments mit einem `Estimator`-Objekt, wie in [Trainieren von ML-Modellen mit Kalkulatoren](how-to-train-ml-models.md) erläutert. 
+* Übermitteln Sie das Experiments mit einem `Estimator`-Objekt, wie in [Trainieren von ML-Modellen mit Kalkulatoren](how-to-train-ml-models.md) erläutert.
 * Übermitteln Sie das Experiment [mithilfe der CLI-Erweiterung](reference-azure-machine-learning-cli.md#experiments).
+* Übermitteln Sie ein Experiment über die [VS Code-Erweiterung](how-to-vscode-tools.md#train-and-tune-models).
+
+## <a name="github-tracking-and-integration"></a>GitHub-Nachverfolgung und -Integration
+
+Wenn Sie eine Trainingsausführung starten, bei der das Quellverzeichnis ein lokales Git-Repository ist, werden Informationen über das Repository im Ausführungsverlauf gespeichert. Zum Beispiel wird die aktuelle Commit-ID für das Repository als Teil des Verlaufs protokolliert.
 
 ## <a name="notebook-examples"></a>Notebook-Beispiele
 

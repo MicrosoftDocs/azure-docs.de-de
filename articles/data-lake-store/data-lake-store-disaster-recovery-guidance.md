@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878110"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878289"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Leitfaden zur Notfallwiederherstellung für Daten in Azure Data Lake Storage Gen1
 

@@ -1,25 +1,19 @@
 ---
-title: Private Angebote | Azure
+title: Private Angebote | Azure Marketplace
 description: Private Angebote im Azure Marketplace für Herausgeber von Apps und Diensten.
 services: Azure, Marketplace, Compute
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: c3294aaa2b6c88e08028c8958d2ab3a7297aea74
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 179775076382022b9a97e7d76bc1e0dc4fbf69db
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937558"
 ---
 # <a name="private-offers"></a>Private Angebote
 

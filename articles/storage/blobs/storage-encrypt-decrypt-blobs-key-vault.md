@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 758eeedb89b3cef6766cf195a2cada50fbe63042
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148419"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65788009"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Verschlüsseln und Entschlüsseln von Blobs in Azure Storage per Azure Key Vault
 
@@ -48,7 +48,7 @@ Hier eine kurze Beschreibung zur Funktionsweise der clientseitigen Verschlüssel
 
 ## <a name="set-up-your-azure-key-vault"></a>Einrichten des Azure-Schlüsseltresors
 
-Zum Fortsetzen dieses Tutorials müssen Sie die folgenden Schritte ausführen, die im Tutorial [Was ist Azure Key Vault?](../../key-vault/key-vault-overview.md) beschrieben sind:
+Zum Fortsetzen dieses Tutorials müssen Sie die folgenden Schritte ausführen, die beschrieben sind im Tutorial [Schnellstart: Festlegen eines Geheimnisses und Abrufen des Geheimnisses aus Azure Key Vault mithilfe einer .NET-Web-App](../../key-vault/quick-create-net.md).
 
 * Erstellen eines Schlüsseltresors
 * Hinzufügen eines Schlüssels oder geheimen Schlüssels zum Schlüsseltresor
@@ -66,7 +66,9 @@ Erstellen Sie in Visual Studio eine neue Konsolenanwendung.
 Fügen Sie die erforderlichen NuGet-Pakete in der Paket-Manager-Konsole hinzu.
 
 ```powershell
-Install-Package WindowsAzure.Storage
+Install-Package Microsoft.Azure.ConfigurationManager
+Install-Package Microsoft.Azure.Storage.Common
+Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
@@ -90,11 +92,12 @@ Fügen Sie die folgenden `using`-Anweisungen hinzu, und stellen Sie sicher, dass
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Configuration;
-using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 using Microsoft.Azure.KeyVault;
-using System.Threading;        
+using System.Threading;
 using System.IO;
 ```
 
@@ -107,8 +110,8 @@ private async static Task<string> GetToken(string authority, string resource, st
 {
     var authContext = new AuthenticationContext(authority);
     ClientCredential clientCred = new ClientCredential(
-        ConfigurationManager.AppSettings["clientId"],
-        ConfigurationManager.AppSettings["clientSecret"]);
+        CloudConfigurationManager.GetSetting("clientId"),
+        CloudConfigurationManager.GetSetting("clientSecret"));
     AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 
     if (result == null)
@@ -120,16 +123,16 @@ private async static Task<string> GetToken(string authority, string resource, st
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>Zugreifen auf den Speicher und den Schlüsseltresor in Ihrem Programm
 
-Fügen Sie in der Main-Funktion den folgenden Code hinzu.
+Fügen Sie in der „Main()“-Methode den folgenden Code hinzu:
 
 ```csharp
 // This is standard code to interact with Blob storage.
 StorageCredentials creds = new StorageCredentials(
-    ConfigurationManager.AppSettings["accountName"],
-       ConfigurationManager.AppSettings["accountKey"]);
+    CloudConfigurationManager.GetSetting("accountName"),
+    CloudConfigurationManager.GetSetting("accountKey");
 CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
 CloudBlobClient client = account.CreateCloudBlobClient();
-CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
+CloudBlobContainer contain = client.GetContainerReference(CloudConfigurationManager.GetSetting("container"));
 contain.CreateIfNotExists();
 
 // The Resolver object is used to interact with Key Vault for Azure Storage.
@@ -155,8 +158,9 @@ Fügen Sie den folgenden Code hinzu, um ein BLOB zu verschlüsseln und in Ihr Az
 ```csharp
 // Retrieve the key that you created previously.
 // The IKey that is returned here is an RsaKey.
-// Remember that we used the names contosokeyvault and testrsakey1.
-var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
+var rsa = cloudResolver.ResolveKeyAsync(
+            "https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", 
+            CancellationToken.None).GetAwaiter().GetResult();
 
 // Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
@@ -166,14 +170,12 @@ BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = polic
 CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 
 // Upload using the UploadFromStream method.
-using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
+using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
 > [!NOTE]
 > Wenn Sie sich den BlobEncryptionPolicy-Konstruktor ansehen, wird Ihnen auffallen, dass dafür ein Schlüssel und/oder ein Konfliktlöser (Resolver) verwendet werden kann. Denken Sie daran, dass Sie an diesem Punkt keinen Konfliktlöser für die Verschlüsselung verwenden können, weil dafür derzeit kein Standardschlüssel unterstützt wird.
-> 
-> 
 
 ## <a name="decrypt-blob-and-download"></a>Entschlüsseln des Blobs und Herunterladen
 
@@ -195,8 +197,6 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 
 > [!NOTE]
 > Es sind einige andere Arten von Konfliktlösern (Resolvers) vorhanden, um die Schlüsselverwaltung zu vereinfachen, z.B. AggregateKeyResolver und CachingKeyResolver.
-> 
-> 
 
 ## <a name="use-key-vault-secrets"></a>Verwenden von geheimen Schlüsseltresor-Schlüsseln
 

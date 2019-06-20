@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: 63275db36bdb64985625c3789d558bd09e2d47bc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60912028"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center – Handbuch zur Problembehandlung
 Dieses Handbuch ist für IT-Experten, Informationssicherheitsanalysten und Cloudadministratoren konzipiert, in deren Organisation Azure Security Center verwendet wird und die Security Center-Probleme lösen müssen.
@@ -57,7 +57,7 @@ Wenn Sie erfahren möchten, welche Version des Agents Sie verwenden, öffnen Sie
 Es gibt zwei Installationsszenarien, die bei der Installation des Microsoft Monitoring Agents auf Ihrem Computer zu unterschiedlichen Ergebnissen führen können. Folgende Szenarien werden unterstützt:
 
 * **Der Agent wird automatisch von Security Center installiert:** In diesem Szenario können Sie die Warnungen an beiden Orten einsehen – im Security Center und in der Protokollsuche. Sie erhalten E-Mail-Benachrichtigungen an die E-Mail-Adresse, die in der Sicherheitsrichtlinie für das Abonnement, zu der die Ressource gehört, konfiguriert wurde.
- zu erstellen und zu verwalten.
+zu erstellen und zu verwalten.
 * **Der Agent wird manuell auf einem virtuellen Computer in Azure installiert:** Wenn Sie in diesem Szenario Agents verwenden, die vor Februar 2017 manuell heruntergeladen und installiert wurden, können Sie die Warnungen nur dann im Security Center-Portal anzeigen, wenn Sie das Abonnement filtern, zu dem der Arbeitsbereich gehört. Wenn Sie das Abonnement herausfiltern, zu dem die Ressource gehört, können Sie keine Warnungen anzeigen. Sie erhalten E-Mail-Benachrichtigungen an die E-Mail-Adresse, die in der Sicherheitsrichtlinie für das Abonnement, zu der der Arbeitsbereich gehört, konfiguriert wurde.
 
 >[!NOTE]

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508005"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497215"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurieren von Azure CNI-Netzwerken in Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,7 @@ IP-Adressen für die Pods und die Knoten des Clusters werden über das angegeben
 > Die Anzahl der erforderlichen IP-Adressen sollte Überlegungen für Upgrade- und Skalierungsvorgänge beinhalten. Wenn Sie den IP-Adressbereich so einstellen, dass er nur eine feste Anzahl von Knoten unterstützt, können Sie Ihren Cluster nicht aktualisieren oder skalieren.
 >
 > - Wenn Sie Ihren AKS-Cluster **aktualisieren**, wird im Cluster ein neuer Knoten bereitgestellt. Dienste und Workloads werden auf dem neuen Knoten ausgeführt, und ein älterer Knoten wird aus dem Cluster entfernt. Dieser rollende Aktualisierungsprozess erfordert, dass mindestens ein zusätzlicher Block von IP-Adressen verfügbar ist. Die Knotenanzahl ist dann `n + 1`.
+>   - Dieser Aspekt ist besonders wichtig, wenn Sie Windows Server-Knotenpools (derzeit in der Vorschau in AKS) verwenden. Bei Windows Server-Knoten in AKS erfolgt die Anwendung von Windows Updates nicht automatisch, sondern Sie führen ein Upgrade im Knotenpool durch. Dieses Upgrade stellt neue Knoten mit dem neuesten Window Server 2019-Basisknotenimage und Sicherheitspatches bereit. Weitere Informationen zum Upgrade eines Windows Server-Knotenpools finden Sie unter [Durchführen eines Upgrades für einen Knotenpool in AKS][nodepool-upgrade].
 >
 > - Wenn Sie Ihren AKS-Cluster **skalieren**, wird im Cluster ein neuer Knoten bereitgestellt. Dienste und Workloads werden auf dem neuen Knoten ausgeführt. Bei Ihrem IP-Adressbereich muss berücksichtigt werden, wie Sie die Anzahl der Knoten und Pods, die Ihr Cluster unterstützen kann, vergrößern können. Es sollte auch ein zusätzlicher Knoten für Aktualisierungsvorgänge integriert werden. Die Knotenanzahl ist dann `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -58,17 +59,17 @@ Der IP-Adressplan eines AKS-Clusters enthält neben einem virtuellen Netzwerk mi
 
 ## <a name="maximum-pods-per-node"></a>Maximale Pods pro Knoten
 
-Die maximale Anzahl von Pods pro Knoten in einem AKS-Cluster beträgt 110. *Standardmäßig* variiert die maximale Anzahl von Pods pro Knoten zwischen *kubenet*- und *Azure CNI*-Netzwerken sowie je nach Methode für die Clusterbereitstellung.
+Die maximale Anzahl von Pods pro Knoten in einem AKS-Cluster ist 250. *Standardmäßig* variiert die maximale Anzahl von Pods pro Knoten zwischen *kubenet*- und *Azure CNI*-Netzwerken sowie je nach Methode für die Clusterbereitstellung.
 
 | Bereitstellungsmethode | Kubenet-Standardeinstellung | Azure CNI-Standardeinstellung | Bei der Bereitstellung konfigurierbar |
 | -- | :--: | :--: | -- |
 | Azure-Befehlszeilenschnittstelle | 110 | 30 | Ja (bis zu 250) |
 | Resource Manager-Vorlage | 110 | 30 | Ja (bis zu 250) |
-| Portal | 110 | 30 | Nein  |
+| Portal | 110 | 30 | Nein |
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurieren des Höchstwerts: Neue Cluster
 
-Sie können die maximale Anzahl von Pods pro Knoten *nur zum Zeitpunkt der Bereitstellung* konfigurieren. Wenn Sie mithilfe der Azure CLI oder mit einer Resource Manager-Vorlage bereitstellen, können Sie die maximalen Pods pro Knotenwert innerhalb der folgenden `maxPods`-Richtlinien nach Bedarf festlegen:
+Sie können die maximale Anzahl von Pods pro Knoten *nur zum Zeitpunkt der Bereitstellung* konfigurieren. Wenn Sie die Bereitstellung mit der Azure CLI oder mit einer Resource Manager-Vorlage durchführen, können Sie die maximale Anzahl von Pods pro Knoten auf bis zu 250 festlegen.
 
 | Netzwerk | Minimum | Maximum |
 | -- | :--: | :--: |
@@ -76,8 +77,7 @@ Sie können die maximale Anzahl von Pods pro Knoten *nur zum Zeitpunkt der Berei
 | Kubenet | 30 | 110 |
 
 > [!NOTE]
-> Der Mindestwert in der obigen Tabelle wird vom AKS-Dienst strikt erzwungen.
-Sie können für maxPods keinen niedrigeren Wert als den angezeigten Mindestwert festlegen, da dadurch der Start des Clusters verhindert werden kann.
+> Der Mindestwert in der obigen Tabelle wird vom AKS-Dienst strikt erzwungen. Sie können für maxPods keinen niedrigeren Wert als den angezeigten Mindestwert festlegen, da dadurch der Start des Clusters verhindert werden kann.
 
 * **Azure CLI**: Geben Sie das `--max-pods`-Argument an, wenn Sie einen Cluster mit dem Befehl [az aks create][az-aks-create] bereitstellen. Der Höchstwert ist 250.
 * **Resource Manager-Vorlage**: Geben Sie die `maxPods`-Eigenschaft im Objekt [ManagedClusterAgentPoolProfile] an, wenn Sie einen Cluster mit einer Resource Manager-Vorlage bereitstellen. Der Höchstwert ist 250.
@@ -114,7 +114,7 @@ Wenn Sie einen AKS-Cluster mit Azure CLI erstellen, können Sie auch Azure CLI-N
 
 Ermitteln Sie zunächst die Subnetzressourcen-ID für das vorhandene Subnetz, mit dem der AKS-Cluster verknüpft werden soll:
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -125,7 +125,7 @@ $ az network vnet subnet list \
 
 Verwenden Sie den Befehl [az aks create][az-aks-create] mit dem Argument `--network-plugin azure`, um einen Cluster mit erweiterten Netzwerkeinstellungen zu erstellen. Aktualisieren Sie den `--vnet-subnet-id`-Wert mit der im vorherigen Schritt erfassten Subnetz-ID:
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -133,7 +133,8 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24
+    --service-cidr 10.2.0.0/24 \
+    --generate-ssh-keys
 ```
 
 ## <a name="configure-networking---portal"></a>Konfigurieren der Netzwerkeinstellungen – Portal
@@ -148,7 +149,7 @@ Die folgenden Fragen und Antworten gelten für die **Azure CLI**-Netzwerkkonfigu
 
 * *Kann ich VMs in meinem Clustersubnetz bereitstellen?*
 
-   Nein. Die Bereitstellung von VMs in dem Subnetz, das von Ihrem Kubernetes-Cluster verwendet wird, wird nicht unterstützt. VMs können in demselben virtuellen Netzwerk bereitgestellt werden, aber nur in einem anderen Subnetz.
+  Nein. Die Bereitstellung von VMs in dem Subnetz, das von Ihrem Kubernetes-Cluster verwendet wird, wird nicht unterstützt. VMs können in demselben virtuellen Netzwerk bereitgestellt werden, aber nur in einem anderen Subnetz.
 
 * *Kann ich Netzwerkrichtlinien pro Pod konfigurieren?*
 
@@ -169,8 +170,6 @@ Die folgenden Fragen und Antworten gelten für die **Azure CLI**-Netzwerkkonfigu
   Es wird zwar nicht empfohlen, diese Konfiguration ist jedoch möglich. Der Dienstadressbereich ist ein Satz von virtuellen IP-Adressen (VIPs), die Kubernetes internen Diensten in Ihrem Cluster zuweist. Das Azure-Netzwerk hat keinen Einblick in den Dienst-IP-Adressbereich des Kubernetes-Clusters. Aufgrund fehlender Einblicke in den Dienstadressbereich des Clusters ist es möglich, später ein neues Subnetz im virtuellen Netzwerk des Clusters zu erstellen, das mit dem Dienstadressbereich überlappt. Im Falle einer solchen Überlappung weist Kubernetes einem Dienst ggf. eine IP zu, die bereits von einer anderen Ressource im Subnetz verwendet wird. Dies führt zu unvorhersehbarem Verhalten oder Fehlern. Wenn Sie einen Adressbereich außerhalb des virtuellen Netzwerk des Clusters verwenden, können Sie dieses Überlappungsrisiko umgehen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-
-### <a name="networking-in-aks"></a>Netzwerke in AKS
 
 Weitere Informationen zu Netzwerken in AKS finden Sie in den folgenden Artikeln:
 
@@ -211,3 +210,4 @@ Für per AKS Engine erstellte Kubernetes-Cluster werden sowohl [kubenet][kubenet
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

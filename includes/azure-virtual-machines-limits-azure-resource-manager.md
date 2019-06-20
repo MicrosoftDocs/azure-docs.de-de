@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: 9070aee55969c1cc0fdf3870a05a065aaa5a8bf3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553672"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178448"
 ---
-| Ressource | Standardlimit |
+| Resource | Standardlimit |
 | --- | --- |
 | Virtuelle Computer pro Verfügbarkeitsgruppe | 200 |
 | Zertifikate pro Abonnement |Unbegrenzt<sup>1</sup> |

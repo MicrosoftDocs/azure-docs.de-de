@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60702417"
 ---
 # <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Erstellen einer Umgebung mit mehreren VMs in einer Vorlage für virtuelle Computer in einem Classroom-Lab
 Momentan ermöglicht Azure Lab Services Ihnen, in einem Lab eine Vorlage für virtuelle Computer einzurichten und jedem Ihrer Benutzer jeweils eine Kopie zur Verfügung zu stellen. Wenn Sie aber ein IT-Dozent sind, der eine Klasse in der Einrichtung von Firewalls und Servern unterrichtet, müssen Sie möglicherweise für jeden Ihrer Kursteilnehmer eine Umgebung bereitstellen, in der mehrere virtuelle Computer über ein Netzwerk miteinander kommunizieren können.

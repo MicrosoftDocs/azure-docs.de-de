@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e0e595f6bbc1ed241aefe48eb766c04a790a102e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488336"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384587"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Schnellstart: Senden einer Suchanforderung an die Bing-Entitätssuche-REST-API mithilfe von C#
 
@@ -26,14 +26,15 @@ Diese Anwendung ist zwar in C# geschrieben, an sich ist die API aber ein RESTful
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Eine beliebige [Visual Studio 2017](https://www.visualstudio.com/downloads/)-Edition.
-* Das [Json.NET](https://www.newtonsoft.com/json)-Framework, das als NuGet-Paket verfügbar ist
-    * So installieren Sie das NuGet-Paket in Visual Studio:
-        1. Klicken Sie im Projektmappen-Explorer Manager mit der rechten Maustaste.
-        2. Klicken Sie auf **Manage NuGet Packages**
-        3. Suchen Sie nach **newtonsoft.json**, und installieren Sie das Paket.
+- Eine beliebige Edition von [Visual Studio 2017 oder höher](https://www.visualstudio.com/downloads/).
 
-* Unter Linux/macOS kann diese Anwendung mit [Mono](https://www.mono-project.com/) ausgeführt werden
+- Das [Json.NET](https://www.newtonsoft.com/json)-Framework, das als NuGet-Paket verfügbar ist So installieren Sie das NuGet-Paket in Visual Studio
+
+   1. Klicken Sie im **Projektmappen-Explorer** mit der rechten Maustaste auf Ihr Projekt.
+   2. Wählen Sie **NuGet-Pakete verwalten** aus.
+   3. Suchen Sie nach *Newtonsoft.Json*, und installieren Sie das Paket.
+
+- Unter Linux/macOS kann diese Anwendung mit [Mono](https://www.mono-project.com/) ausgeführt werden.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -177,4 +178,4 @@ Es wird eine erfolgreiche Antwort im JSON-Format zurückgegeben, wie im folgende
 > [Erstellen einer Einzelseiten-Web-App](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Was ist die Bing-Entitätssuche-API?](../overview.md )
-* [Referenz zur Bing-Entitätssuche-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Referenz zur Bing-Entitätssuche-API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

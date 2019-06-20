@@ -2,20 +2,20 @@
 title: 'Referenz: Vertrauensframeworks in Azure Active Directory B2C | Microsoft-Dokumentation'
 description: Ein Thema zu benutzerdefinierten Azure Active Directory B2C-Richtlinien und zum Identity Experience Framework
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20767c8903cd6617db4d37b756c3d8ae95cfb6ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66508819"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definieren von Vertrauens-Frameworks mit Azure AD B2C Identity Experience Framework
 
@@ -54,7 +54,7 @@ Vertrauensframeworks (TFs) sind der Dreh- und Angelpunkt des OIX-Vertrauensframe
 - **Die technischen Richtlinien für die Erzeugung und Nutzung von Informationen zur digitalen Identität und somit zum Messen von LOA und LOP. Diese schriftlichen Richtlinien umfassen normalerweise die folgenden Kategorien von Richtlinien:**
     - Richtlinien zur Identitätsüberprüfung, z.B.: *Wie streng werden die Identitätsinformationen einer Person überprüft?*
     - Sicherheitsrichtlinien, z.B.: *Wie gut ist die Integrität und Vertraulichkeit der Informationen geschützt?*
-    - Datenschutzrichtlinien, z.B.: *Welches Maß an Kontrolle hat ein Benutzer über seine personenbezogenen Informationen (Personally Identifiable Information, PII)*?
+    - Datenschutzrichtlinien, z.B.: *Welches Maß an Kontrolle hat ein Benutzer über seine personenbezogenen Informationen (Personally Identifiable Information, PII)* ?
     - Richtlinien zur „Überlebensfähigkeit“ (Survivability), z.B.: *Kontinuität und Schutz von personenbezogenen Informationen, wenn ein Anbieter den Betrieb einstellt.*
 
 - **Die technischen Profile für die Erzeugung und Nutzung von Informationen zur digitalen Identität. Die Profile enthalten:**

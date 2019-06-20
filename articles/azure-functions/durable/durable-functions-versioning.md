@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
 ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60648138"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Versionsverwaltung in Durable Functions (Azure Functions)
 

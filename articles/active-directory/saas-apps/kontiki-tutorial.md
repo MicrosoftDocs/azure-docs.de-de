@@ -16,184 +16,181 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f764d0d4d36af9cf4054a5fe9eb21ed4f2411a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: bee7454942b9214eeb1253339446df370e20fe01
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003971"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Azure Active Directory-Integration mit Kontiki
 
 In diesem Tutorial erfahren Sie, wie Sie Kontiki in Azure Active Directory (Azure AD) integrieren.
+
 Die Integration von Kontiki in Azure AD bietet die folgenden Vorteile:
 
-* Sie können in Azure AD steuern, wer Zugriff auf Kontiki hat.
-* Sie können Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei Kontiki anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
-* Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
+* Sie können Azure AD verwenden, um zu steuern, wer Zugriff auf Kontiki hat.
+* Benutzer können sich mit ihren Azure AD-Konten automatisch bei Kontiki anmelden (einmaliges Anmelden; Single Sign-On, SSO).
+* Sie können Ihre Konten an einem zentralen Ort, im Azure-Portal, verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+Weitere Informationen zur Integration von SaaS-Apps (Software as a Service) in Azure AD finden Sie unter [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Um die Azure AD-Integration mit Kontiki konfigurieren zu können, benötigen Sie Folgendes:
 
-* Ein Azure AD-Abonnement Sollten Sie über keine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
-* Kontiki-Software-Abonnement, für das das einmalige Anmelden aktiviert ist.
+* Ein Azure AD-Abonnement Wenn Sie kein Azure AD-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+* Ein Kontiki-Abonnement, für das einmaliges Anmelden aktiviert ist.
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
-In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
+In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung und integrieren Kontiki in Azure AD.
 
-* Kontiki unterstützt **SP-initiiertes** einmaliges Anmelden.
-* Kontiki unterstützt die **Just-in-Time**-Benutzerbereitstellung.
+Kontiki unterstützt die folgenden Features:
 
-## <a name="adding-kontiki-from-the-gallery"></a>Hinzufügen von Kontiki über den Katalog
+* **SP-initiiertes einmaliges Anmelden**
+* **Just-In-Time-Benutzerbereitstellung**
 
-Zum Konfigurieren der Integration von Kontiki in Azure AD müssen Sie Kontiki aus dem Katalog zur Liste der verwalteten SaaS-Apps hinzufügen.
+## <a name="add-kontiki-in-the-azure-portal"></a>Hinzufügen von Kontiki im Azure-Portal
 
-**Um Kontiki aus dem Katalog hinzuzufügen, führen Sie die folgenden Schritte aus:**
+Damit Sie Kontiki in Azure AD integrieren können, müssen Sie Kontiki zur Liste der verwalteten SaaS-Apps hinzufügen.
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
+1. Wählen Sie im linken Menü die Option **Azure Active Directory** aus.
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+    ![Die Option „Azure Active Directory“](common/select-azuread.png)
 
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
+1. Wählen Sie **Unternehmensanwendungen** > **Alle Anwendungen**.
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+    ![Bereich „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-    ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
+1. Wählen Sie zum Hinzufügen einer Anwendung **Neue Anwendung** aus.
 
-4. Geben Sie im Suchfeld **Kontiki** ein, wählen Sie im Ergebnisbereich **Kontiki** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+    ![Die Option „Neue Anwendung“](common/add-new-app.png)
+
+1. Geben Sie im Suchfeld **Kontiki** ein. Wählen Sie in den Suchergebnissen **Kontiki** und dann **Hinzufügen** aus.
 
     ![Kontiki in der Ergebnisliste](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Kontiki basierend auf einer Testbenutzerin mit dem Namen **Britta Simon**.
-Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Kontiki eingerichtet werden.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Kontiki mithilfe eines Testbenutzers namens **Britta Simon**. Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Kontiki eingerichtet werden.
 
-Zum Konfigurieren und Testen des einmaligen Anmeldens in Azure AD bei Kontiki müssen Sie die folgenden Bausteine ausführen:
+Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei Kontiki müssen Sie die folgenden Schritte ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für Kontiki](#configure-kontiki-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines Kontiki-Testbenutzers](#create-kontiki-test-user)**, um ein Pendant von Britta Simon in Kontiki zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist.
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+| Aufgabe | BESCHREIBUNG |
+| --- | --- |
+| **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** | Ermöglicht Ihren Benutzern die Verwendung dieses Features. |
+| **[Konfigurieren des einmaligen Anmeldens für Kontiki](#configure-kontiki-single-sign-on)** | Konfiguriert die Einstellungen für einmaliges Anmelden in der Anwendung. |
+| **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** | Testet das einmalige Anmelden von Azure AD für einen Benutzer namens Britta Simon. |
+| **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** | Ermöglicht Britta Simon die Verwendung des einmaligen Anmeldens von Azure AD. |
+| **[Erstellen eines Kontiki-Testbenutzers](#create-a-kontiki-test-user)** | Erstellt eine Entsprechung von Britta Simon in Kontiki, die mit ihrer Darstellung in Azure AD verknüpft ist. |
+| **[Testen des einmaligen Anmeldens](#test-single-sign-on)** | Überprüft, ob die Konfiguration funktioniert. |
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal.
+In diesem Abschnitt konfigurieren Sie das einmalige Anmelden von Azure AD bei Kontiki im Azure-Portal.
 
-Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Kontiki die folgenden Schritte aus:
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) im Anwendungsintegrationsbereich für **Kontiki** die Option **Einmaliges Anmelden** aus.
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Kontiki** die Option **Einmaliges Anmelden** aus.
+    ![Option „Einmaliges Anmelden konfigurieren“](common/select-sso.png)
 
-    ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
-
-2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
+1. Wählen Sie im Bereich **SSO-Methode auswählen** den Modus **SAML** oder **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+1. Wählen Sie im Bereich **Einmaliges Anmelden (SSO) mit SAML einrichten** die Option **Bearbeiten** (Stiftsymbol) aus, um den Bereich **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
-4. Führen Sie im Abschnitt **Grundlegende SAML-Konfiguration** die folgenden Schritte aus:
+1. Geben Sie im Bereich **Grundlegende SAML-Konfiguration** im Textfeld **Anmelde-URL** eine URL mit folgendem Muster ein: `https://<companyname>.mc.eval.kontiki.com`
 
     ![Informationen zur Domäne und zu den URLs für Kontiki](common/sp-signonurl.png)
 
-    Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://<companyname>.mc.eval.kontiki.com`
-
     > [!NOTE]
-    > Dieser Wert entspricht nicht dem tatsächlichen Wert. Ersetzen Sie diesen Wert durch die tatsächliche Anmelde-URL. Wenden Sie sich an das [Clientsupportteam von Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html), um den Wert zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
+    > Wenden Sie sich an das [Kundensupportteam von Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html), um den richtigen Wert zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML**-Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
+1. Wählen Sie im Bereich **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** die Option **Herunterladen** neben **Verbundmetadaten-XML** aus. Wählen Sie eine Option zum Herunterladen entsprechend Ihren Anforderungen aus. Speichern Sie das Zertifikat auf Ihrem Computer.
 
-    ![Downloadlink für das Zertifikat](common/metadataxml.png)
+    ![Downloadoption für Verbundmetadaten-XML](common/metadataxml.png)
 
-6. Kopieren Sie im Abschnitt **Kontiki einrichten** die entsprechenden URLs gemäß Ihren Anforderungen.
+1. Kopieren Sie im Abschnitt **Kontiki einrichten** die folgenden URLs entsprechend Ihren Anforderungen:
+
+    * Anmelde-URL
+    * Azure AD-Bezeichner
+    * Abmelde-URL
 
     ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    a. Anmelde-URL
+### <a name="configure-kontiki-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für Kontiki
 
-    b. Azure AD-Bezeichner
-
-    c. Abmelde-URL
-
-### <a name="configure-kontiki-single-sign-on"></a>Konfigurieren von einmaligem Anmelden für Kontiki
-
-Zum Konfigurieren des einmaligen Anmeldens aufseiten von **Kontiki** müssen Sie die heruntergeladene **Verbundmetadaten-XML** und die kopierten URLs aus dem Azure-Portal an das [Supportteam von Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+Zum Konfigurieren des einmaligen Anmeldens aufseiten von Kontiki senden Sie die heruntergeladene XML-Datei mit den Verbundmetadaten und die kopierten URLs aus dem Azure-Portal an das [Supportteam von Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). Anhand der von Ihnen gesendeten Informationen stellt das Supportteam von Kontiki sicher, dass die SAML-Verbindung für einmaliges Anmelden auf beiden Seiten ordnungsgemäß eingerichtet ist.
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers 
 
-Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
+In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin mit dem Namen Britta Simon.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal **Azure Active Directory** > **Benutzer** > **Alle Benutzer** aus.
 
-    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
+    ![Die Optionen „Benutzer“ und „Alle Benutzer“](common/users.png)
 
-2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
+1. Wählen Sie **Neuer Benutzer** aus.
 
-    ![Schaltfläche „Neuer Benutzer“](common/new-user.png)
+    ![Die Option „Neuer Benutzer“](common/new-user.png)
 
-3. Führen Sie in den Benutzereigenschaften die folgenden Schritte aus.
+1. Führen Sie im Bereich **Benutzer** die folgenden Schritte aus:
 
-    ![Dialogfeld „Benutzer“](common/user-properties.png)
-
-    a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
+    1. Geben Sie in das Feld **Name** den Namen **BrittaSimon** ein.
   
-    b. Geben Sie im Feld **Benutzername** den Namen `brittasimon@yourcompanydomain.extension` ein. Zum Beispiel, BrittaSimon@contoso.com
+    1. Geben Sie im Feld **Benutzername** die Zeichenfolge **brittasimon\@\<IhreUnternehmensdomäne>.\<Erweiterung** ein. Beispiel: **brittasimon\@contoso.com**
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**. Notieren Sie sich den Wert, der im Feld **Kennwort** angezeigt wird.
 
-    d. Klicken Sie auf **Create**.
+    1. Klicken Sie auf **Erstellen**.
+
+    ![Der Bereich „Benutzer“](common/user-properties.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Kontiki gewähren.
+In diesem Abschnitt gewähren Sie Britta Simon Zugriff auf Kontiki, damit sie das einmalige Anmelden von Azure verwenden kann.
 
-1. Wählen Sie im Azure-Portal die Option **Unternehmensanwendungen** aus, und wählen Sie dann **Alle Anwendungen** und **Kontiki** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** > **Kontiki** aus.
 
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
+    ![Bereich „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste **Kontiki** aus.
+1. Wählen Sie in der Anwendungsliste **Kontiki** aus.
 
-    ![Kontiki-Link in der Anwendungsliste](common/all-applications.png)
+    ![Kontiki in der Anwendungsliste](common/all-applications.png)
 
-3. Wählen Sie im Menü auf der linken Seite **Benutzer und Gruppen** aus.
+1. Wählen Sie im Menü die Option **Benutzer und Gruppen** aus.
 
-    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
+    ![Option „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+1. Klicken Sie auf **Benutzer hinzufügen**. Wählen Sie im Bereich **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
-5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Bildschirm auf die Schaltfläche **Auswählen**.
+1. Wählen Sie im Bereich **Benutzer und Gruppen** in der Benutzerliste **Britta Simon** aus. Wählen Sie **Auswählen**.
 
-6. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** in der Liste die entsprechende Rolle für den Benutzer aus, und klicken Sie dann unten auf dem Bildschirm auf **Auswählen**.
+1. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Bereich **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Wählen Sie **Auswählen**.
 
-7. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
+1. Wählen Sie im Bereich **Zuweisung hinzufügen** die Option **Zuweisen** aus.
 
-### <a name="create-kontiki-test-user"></a>Erstellen eines Kontiki-Testbenutzers
+### <a name="create-a-kontiki-test-user"></a>Erstellen eines Kontiki-Testbenutzers
 
-Für das Konfigurieren der Benutzerbereitstellung in Kontiki steht kein Aktionselement zur Verfügung. Wenn sich ein zugewiesener Benutzer über den Zugriffsbereich bei Kontiki anmelden möchte, überprüft Kontiki, ob der Benutzer vorhanden ist. Ist noch kein Benutzerkonto verfügbar, wird es von Kontiki automatisch erstellt.
+Für das Konfigurieren der Benutzerbereitstellung in Kontiki steht kein Aktionselement zur Verfügung. Wenn sich ein zugewiesener Benutzer über das Portal „Meine Apps“ bei Kontiki anmelden möchte, überprüft Kontiki, ob der Benutzer vorhanden ist. Wenn kein Benutzerkonto gefunden wird, erstellt Kontiki automatisch das Benutzerkonto.
 
-### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens 
+### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 
-In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
+In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden mithilfe des Portals „Meine Apps“.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „Kontiki“ klicken, sollten Sie automatisch bei Ihrer Kontiki-Anwendung angemeldet werden. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Nachdem Sie einmaliges Anmelden eingerichtet haben, werden Sie bei Auswahl von **Kontiki** im Portal „Meine Apps“ automatisch bei Kontiki angemeldet. Weitere Informationen zum Portal „Meine Apps“ finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="next-steps"></a>Nächste Schritte
+
+Weitere Informationen finden Sie in diesen Artikeln:
 
 - [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
+- [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

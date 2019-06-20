@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230504"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62106149"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Senden von E-Mails von Ihrem SMTP-Konto mithilfe von Azure Logic Apps
 
@@ -47,7 +47,7 @@ Mit Azure Logic Apps und dem SMTP-Connector (Simple Mail Transfer Protocol) kön
 1. Wählen Sie im letzten Schritt zum Hinzufügen einer SMTP-Aktion die Option **Neuer Schritt** aus. 
 
    Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
 
 1. Geben Sie im Suchfeld den Begriff „smtp“ als Filter ein. Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 
@@ -55,12 +55,12 @@ Mit Azure Logic Apps und dem SMTP-Connector (Simple Mail Transfer Protocol) kön
 
    | Eigenschaft | Erforderlich | BESCHREIBUNG |
    |----------|----------|-------------|
-   | **Verbindungsname** | JA | Ein Name für die Verbindung mit Ihrem SMTP-Server | 
-   | **SMTP-Serveradresse** | JA | Die Adresse Ihres SMTP-Servers | 
-   | **Benutzername** | JA | Der Benutzername für Ihr SMTP-Konto | 
-   | **Kennwort** | JA | Das Kennwort für Ihr SMTP-Konto | 
-   | **SMTP-Serverport** | Nein  | Ein bestimmter Port auf Ihrem SMTP-Server, den Sie verwenden möchten | 
-   | **SSL aktivieren?** | Nein  | Aktivieren oder Deaktivieren der SSL-Verschlüsselung | 
+   | **Verbindungsname** | Ja | Ein Name für die Verbindung mit Ihrem SMTP-Server | 
+   | **SMTP-Serveradresse** | Ja | Die Adresse Ihres SMTP-Servers | 
+   | **Benutzername** | Ja | Der Benutzername für Ihr SMTP-Konto | 
+   | **Kennwort** | Ja | Das Kennwort für Ihr SMTP-Konto | 
+   | **SMTP-Serverport** | Nein | Ein bestimmter Port auf Ihrem SMTP-Server, den Sie verwenden möchten | 
+   | **SSL aktivieren?** | Nein | Aktivieren oder Deaktivieren der SSL-Verschlüsselung | 
    |||| 
 
 1. Geben Sie die erforderlichen Informationen zu Ihrer ausgewählten Aktion ein. 

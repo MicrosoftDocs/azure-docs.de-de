@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439021"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682926"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-Risikoereignisse
 
@@ -52,7 +52,7 @@ Derzeit werden von Azure Active Directory sechs Typen von Risikoereignissen erka
 Welche Informationen Sie zu einem erkannten Risikoereignis erhalten, richtet sich nach Ihrem Azure AD-Abonnement. 
 
 * Die **Azure AD Premium P2-Edition** bietet die ausführlichsten Informationen zu allen zugrunde liegenden erkannten Ereignissen. 
-* Mit der **Azure AD Premium P1-Edition** werden erkannte Ereignisse, die nicht durch Ihre Lizenz abgedeckt sind, als Risikoereignis **Anmeldung mit erhöhtem Risiko erkannt** angezeigt.
+* Bei der **Azure AD Premium P1-Edition** ist die erweiterte Erkennung (z. B. unbekannte Anmeldeeigenschaften) in Ihrer Lizenz nicht enthalten und wird unter der Bezeichnung **Anmeldung mit erhöhtem Risiko erkannt** angezeigt. Darüber hinaus sind die Felder für die Risikostufe und Risikodetails ausgeblendet.
 
 Obwohl die Erkennung von Risikoereignissen bereits ein wichtiger Aspekt zum Schutz Ihrer Identitäten darstellt, haben Sie auch die Möglichkeit, diese entweder manuell zu beheben oder durch Konfiguration von Richtlinien für bedingten Zugriff automatisierte Antworten zu implementieren. Weitere Informationen finden Sie unter [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

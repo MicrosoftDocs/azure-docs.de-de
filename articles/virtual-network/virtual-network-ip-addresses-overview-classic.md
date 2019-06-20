@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652166"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60742119"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-Adresstypen und Zuordnungsmethoden (klassisch) in Azure
 Sie können Azure-Ressourcen IP-Adressen zuweisen, um die Kommunikation mit anderen Azure-Ressourcen, Ihrem lokalen Netzwerk und dem Internet zu ermöglichen. In Azure können zwei Arten von IP-Adressen verwendet werden: öffentliche und private.
@@ -87,12 +87,12 @@ Ein Azure [Anwendungsgateway](../application-gateway/application-gateway-introdu
 ### <a name="at-a-glance"></a>Auf einen Blick
 Die folgende Tabelle gibt Aufschluss über die einzelnen Ressourcentypen, die möglichen Zuordnungsmethoden (dynamisch/statisch) sowie über die Möglichkeit, mehrere öffentliche IP-Adressen zuzuweisen:
 
-| Ressource | Dynamisch | statischen | Mehrere IP-Adressen |
+| Resource | Dynamisch | statischen | Mehrere IP-Adressen |
 | --- | --- | --- | --- |
 | Clouddienst |Ja |Ja |Ja |
-| IaaS-VM oder PaaS-Rolleninstanz |Ja |Nein  |Nein  |
-| VPN-Gateway |Ja |Nein  |Nein  |
-| Anwendungsgateway |Ja |Nein  |Nein  |
+| IaaS-VM oder PaaS-Rolleninstanz |Ja |Nein |Nein |
+| VPN-Gateway |Ja |Nein |Nein |
+| Anwendungsgateway |Ja |Nein |Nein |
 
 ## <a name="private-ip-addresses"></a>Private IP-Adressen
 Private IP-Adressen ermöglichen Azure-Ressourcen die Kommunikation mit anderen Ressourcen in einem Clouddienst oder [virtuellen Netzwerk](virtual-networks-overview.md)(VNet) oder mit einem lokalen Netzwerk (über ein VPN-Gateway oder eine ExpressRoute-Verbindung) ohne Verwendung einer über das Internet erreichbaren IP-Adresse.
@@ -137,10 +137,10 @@ Sie können der **Front-End**-Konfiguration eines [Azure-ILBs](../load-balancer/
 ### <a name="at-a-glance"></a>Auf einen Blick
 Die folgende Tabelle gibt Aufschluss über die einzelnen Ressourcentypen, die möglichen Zuordnungsmethoden (dynamisch/statisch) sowie über die Möglichkeit, mehrere private IP-Adressen zuzuweisen:
 
-| Ressource | Dynamisch | statischen | Mehrere IP-Adressen |
+| Resource | Dynamisch | statischen | Mehrere IP-Adressen |
 | --- | --- | --- | --- |
 | VMs (in einem *eigenständigen* Clouddienst oder VNET) |Ja |Ja |Ja |
-| PaaS-Rolleninstanz (in einem *eigenständigen* Clouddienst oder VNET) |Ja |Nein  |Nein  |
+| PaaS-Rolleninstanz (in einem *eigenständigen* Clouddienst oder VNET) |Ja |Nein |Nein |
 | Front-End für internen Lastenausgleich |Ja |Ja |Ja |
 | Application Gateway-Front-End |Ja |Ja |Ja |
 
@@ -162,7 +162,7 @@ In den meisten Fällen sind öffentliche IP-Adressen kostenlos. Es wird eine Sch
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Unterschiede zwischen Ressourcen-Manager-Bereitstellungen und klassischen Bereitstellungen
 Im Folgenden werden IP-Adressfeatures im Ressourcen-Manager-Bereitstellungsmodell und im klassischen Bereitstellungsmodell miteinander verglichen.
 
-|  | Ressource | Klassisch | Ressourcen-Manager |
+|  | Resource | Klassisch | Ressourcen-Manager |
 | --- | --- | --- | --- |
 | **Öffentliche IP-Adresse** |***VM*** |Bezeichnet als ILPIP (nur dynamisch) |Bezeichnet als öffentliche IP-Adresse (dynamisch oder statisch) |
 |  ||Einem virtuellen IaaS-Computer oder einer PaaS-Rolleninstanz zugewiesen |Der NIC des virtuellen Computers zugeordnet |

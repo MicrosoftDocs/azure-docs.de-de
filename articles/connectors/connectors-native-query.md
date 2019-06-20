@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794878"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60538242"
 ---
 # <a name="get-started-with-the-query-action"></a>Erste Schritte mit der Abfrageaktion
 Mit der Abfrageaktion können Sie Batches und Arrays zum Ausführen von Workflows nutzen:
@@ -67,7 +67,7 @@ Für die Abfrageaktion steht eine mögliche Aktion zur Verfügung. Die folgenden
 Im Folgenden werden die Eingabefelder für die Aktion angegeben, die eine ausgehende HTTP-Anforderung ausführt.
 Ein * bedeutet, dass es sich um ein Pflichtfeld handelt.
 
-| Anzeigename | Eigenschaftenname | BESCHREIBUNG |
+| `Display name` | Eigenschaftenname | BESCHREIBUNG |
 | --- | --- | --- |
 | Von* |from |Das zu filternde Array |
 | Bedingung* |Hierbei gilt: |Die für jedes Element auszuwertende Bedingung |

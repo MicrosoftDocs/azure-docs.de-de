@@ -1,25 +1,18 @@
 ---
-title: Automatisieren der Angebotsveröffentlichung | Microsoft-Dokumentation
+title: Automatisieren der Veröffentlichung von Angeboten | Azure Marketplace
 description: Erläutert, wie der Workflow für die Veröffentlichung eines virtuellen Computers programmgesteuert automatisiert werden kann.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 929bff618bfca0405b8c1a2b53d5fbacad9ad5f5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 0a927c72a82c6aa3c79988c599ea8b840821a2b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809000"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935901"
 ---
 <a name="automate-offer-publishing"></a>Automatisieren der Angebotsveröffentlichung
 =========================

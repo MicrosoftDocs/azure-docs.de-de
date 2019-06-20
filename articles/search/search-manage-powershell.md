@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
 ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60194273"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Verwalten des Azure Search-Diensts mit PowerShell
 > [!div class="op_single_selector"]

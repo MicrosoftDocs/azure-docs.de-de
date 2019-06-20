@@ -1,27 +1,22 @@
 ---
-title: Bewerben Ihres Business mit Microsoft | Azure
+title: Bewerben Ihres Business mit Microsoft | Azure Marketplace
 description: Bewerben Sie Ihr Business mit AppSource und dem Azure Marketplace für Herausgeber von Apps und Diensten
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937651"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Bewerben Ihres Business mit Microsoft  
+# <a name="promote-your-business-with-microsoft"></a>Bewerben Ihres Business mit Microsoft 
+
 Microsoft hat es sich zum Ziel gesetzt, seine Partner, also Sie, zu unterstützen und es Ihnen zu erleichtern, Ihr Angebot (z.B. eine App, eine Lösung oder ein anderes Produkt) in den Storefronts des Marketplace zu verkaufen. Durch das Listing im Marketplace haben Sie Zugang zu den Programmen und Ressourcen im Marketplace. 
 
 Wenn Sie noch nicht beim Microsoft Partner Network (MPN) registriert sind, sollten Sie dies tun, bevor Sie fortfahren.  

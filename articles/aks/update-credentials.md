@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: d880615d0d132403c935fe39e8478d7b3fc48dbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 189bcf2ddc7d301c8100f74e51374abd217a144f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490072"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475486"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Aktualisieren oder Rotieren der Anmeldeinformationen für einen Dienstprinzipal in Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Standardmäßig werden AKS-Cluster mit einem Dienstprinzipal mit einer Ablaufzei
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Es muss die Azure CLI-Version 2.0.56 oder höher installiert und konfiguriert sein. Führen Sie  `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie weitere Informationen unter [Installieren der Azure CLI][install-azure-cli].
+Azure CLI-Version 2.0.65 oder höher muss installiert und konfiguriert sein. Führen Sie  `az --version` aus, um die Version zu ermitteln. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie weitere Informationen unter [Installieren der Azure CLI][install-azure-cli].
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>Entscheidung zur Aktualisierung oder Erstellung eines Dienstprinzipals
 
@@ -33,10 +33,11 @@ Wenn Sie einen Dienstprinzipal erstellen und dann den AKS-Cluster aktualisieren 
 
 ### <a name="get-the-service-principal-id"></a>Abrufen der Dienstprinzipal-ID
 
-Um die Anmeldeinformationen für den vorhandenen Dienstprinzipal zu aktualisieren, rufen Sie über den Befehl [az aks show][az-aks-show] die Dienstprinzipal-ID für Ihren Cluster ab. Im folgenden Beispiel wird die ID für den Cluster *myAKSCluster* in der Ressourcengruppe *myResourceGroup* abgerufen. Die Dienstprinzipal-ID wird als eine Variable zur Verwendung in einem zusätzlichen Befehl gespeichert.
+Um die Anmeldeinformationen für den vorhandenen Dienstprinzipal zu aktualisieren, rufen Sie über den Befehl [az aks show][az-aks-show] die Dienstprinzipal-ID für Ihren Cluster ab. Im folgenden Beispiel wird die ID für den Cluster *myAKSCluster* in der Ressourcengruppe *myResourceGroup* abgerufen. Die Dienstprinzipal-ID wird als Variable mit dem Namen *SP_ID* zur Verwendung in einem zusätzlichen Befehl festgelegt.
 
 ```azurecli-interactive
-SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
 ```
 
 ### <a name="update-the-service-principal-credentials"></a>Aktualisieren der Anmeldeinformationen für den Dienstprinzipal

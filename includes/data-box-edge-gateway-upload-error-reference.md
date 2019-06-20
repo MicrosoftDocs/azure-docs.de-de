@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 05673885336dbfb9a70843bd0ccc4e700091ad7e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405625"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178760"
 ---
 |     Fehlercode     |      Fehlerbeschreibung     |
 |--------------------|--------------------------|

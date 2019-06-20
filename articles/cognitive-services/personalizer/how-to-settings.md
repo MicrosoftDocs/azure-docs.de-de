@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143257"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478583"
 ---
 # <a name="personalizer-settings"></a>Einstellungen der Personalisierung
 
@@ -35,7 +35,7 @@ Erstellen Sie eine Personalisierungsressource für jede Feedbackschleife.
 1. Suchen Sie Ihre Personalisierungsressource. 
 1. Wählen Sie im Abschnitt **Ressourcenverwaltung** die Option **Einstellungen** aus.
 
-    Kopieren Sie auf der Seite **Schlüssel** einen Ressourcenschlüssel, bevor Sie das Azure-Portal verlassen. Sie benötigen ihn für die Verwendung des [SDK für die Personalisierung](https://aka.ms/personalizer-dotnet-sdk-docs).
+    Kopieren Sie auf der Seite **Schlüssel** einen Ressourcenschlüssel, bevor Sie das Azure-Portal verlassen. Sie benötigen ihn für die Verwendung des [SDK für die Personalisierung](https://go.microsoft.com/fwlink/?linkid=2092353).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Konfigurieren der Belohnungseinstellungen für die Feedbackschleife auf der Grundlage von Anwendungsfällen
 
@@ -63,7 +63,9 @@ Stellen Sie nach dem Ändern dieser Einstellung sicher, dass Sie **Save** (Speic
 
 ### <a name="model-update-frequency"></a>Häufigkeit der Modellaktualisierung
 
-**Model update frequency** (Häufigkeit der Modellaktualisierung) legt fest, wie oft ein neues Personalisierungsmodell neu trainiert wird. 
+Vom Rangfolgeaufruf der Personalisierung wird nicht automatisch das neueste Modell verwendet, das auf der Grundlage der Relevanz-API-Aufrufe aller aktiven Ereignisse trainiert wurde. Die **Häufigkeit der Modellaktualisierung** legt fest, wie oft das vom Rangfolgeaufruf verwendete Modell aktualisiert wird. 
+
+Eine hohe Modellaktualisierungshäufigkeit ist hilfreich, wenn Veränderungen beim Benutzerverhalten genau nachverfolgt werden sollen. Beispiele wären etwa Websites mit Livenachrichten, viralen Inhalten oder Livegeboten für Produkte. In solchen Szenarien kann beispielsweise eine Frequenz von 15 Minuten verwendet werden. In den meisten Anwendungsfällen ist eine niedrigere Aktualisierungshäufigkeit sinnvoll. Eine Modellaktualisierungshäufigkeit von einer Minute empfiehlt sich beim Debuggen von Anwendungscode mit Personalisierung, bei Demos sowie beim interaktiven Testen von Machine Learning-Aspekten.
 
 ![„Model update frequency“ legt fest, wie oft ein neues Personalisierungsmodell neu trainiert wird.](media/settings/configure-model-update-frequency-settings.png)
 
@@ -77,7 +79,7 @@ Stellen Sie nach dem Ändern dieser Einstellung sicher, dass Sie **Save** (Speic
 
 ## <a name="export-the-personalizer-model"></a>Exportieren des Personalisierungsmodells
 
-Überprüfen Sie im Abschnitt für **Model and Policy** (Modell und Richtlinie) der Ressourcenverwaltung Modellerstellung und Datum der letzten Aktualisierung, und exportieren Sie das aktuelle Modell.
+Überprüfen Sie im Abschnitt für **Model and Policy** (Modell und Richtlinie) der Ressourcenverwaltung Modellerstellung und Datum der letzten Aktualisierung, und exportieren Sie das aktuelle Modell. Sie können das Azure-Portal oder die Personalisierungs-APIs verwenden, um eine Modelldatei zu Archivierungszwecken zu exportieren. 
 
 ![Exportieren des aktuellen Personalisierungsmodells](media/settings/export-current-personalizer-model.png)
 
@@ -87,4 +89,7 @@ Importieren Sie im Abschnitt für **Model and Policy** (Modell und Richtlinie) d
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Verwenden des Personalisierungscontainers](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+<!--
+[How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
+[Erfahren Sie mehr zur regionalen Verfügbarkeit.](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

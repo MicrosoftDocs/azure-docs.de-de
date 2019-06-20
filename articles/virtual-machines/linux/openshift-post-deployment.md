@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997398"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60771344"
 ---
 # <a name="post-deployment-tasks"></a>Aufgaben nach der Bereitstellung
 
@@ -83,7 +83,7 @@ Führen Sie im Azure-Portal die folgenden Schritte aus:
 
    ![App-Registrierung](media/openshift-post-deployment/app-registration.png)
 
-6. Klicken Sie auf „Schritt 1: API auswählen“ und dann auf **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klicken Sie im unteren Bereich auf **Auswählen**.
+6. Klicken Sie auf „Schritt 1: API auswählen“ und dann auf **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** . Klicken Sie im unteren Bereich auf **Auswählen**.
 
    ![App-Registrierung: API auswählen](media/openshift-post-deployment/app-registration-select-api.png)
 

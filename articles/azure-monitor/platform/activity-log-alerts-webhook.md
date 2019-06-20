@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 8605e614574b7ebd45e9f18c4e5685a9c5450e64
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66477920"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks für Azure-Aktivitätsprotokollwarnungen
 Als Teil der Definition einer Aktionsgruppe können Sie Webhookendpunkte für den Empfang von Aktivitätsprotokollwarnungs-Benachrichtigungen konfigurieren. Mithilfe von Webhooks können Sie diese Benachrichtigung zur Nachbearbeitung oder Ausführung benutzerdefinierter Aktionen an andere Systeme weiterleiten. In diesem Artikel erfahren Sie, wie die Nutzlast für die HTTP POST-Methode für einen Webhook aussieht.
@@ -91,36 +91,36 @@ Die JSON-Nutzlast des POST-Vorgangs variiert in Abhängigkeit vom Feld „data.c
 {
     "schemaId": "Microsoft.Insights/activityLogs",
     "data": {
-    "status": "Activated",
-    "context": {
-        "activityLog": {
-        "channels": "Admin",
-        "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
-        "description": "Active: Virtual Machines - Australia East",
-        "eventSource": "ServiceHealth",
-        "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
-        "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
-        "level": "Informational",
-        "operationName": "Microsoft.ServiceHealth/incident/action",
-        "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
-        "properties": {
-            "title": "Virtual Machines - Australia East",
-            "service": "Virtual Machines",
-            "region": "Australia East",
-            "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
-            "incidentType": "Incident",
-            "trackingId": "0NIH-U2O",
-            "impactStartTime": "2017-10-18T02:48:00.0000000Z",
-            "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
-            "defaultLanguageTitle": "Virtual Machines - Australia East",
-            "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
-            "stage": "Active",
-            "communicationId": "636439673646212912",
-            "version": "0.1.1"
-        },
-        "status": "Active",
-        "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
-        "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+            "channels": "Admin",
+            "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+            "description": "Active: Virtual Machines - Australia East",
+            "eventSource": "ServiceHealth",
+            "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
+            "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
+            "level": "Informational",
+            "operationName": "Microsoft.ServiceHealth/incident/action",
+            "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+            "properties": {
+                "title": "Virtual Machines - Australia East",
+                "service": "Virtual Machines",
+                "region": "Australia East",
+                "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+                "incidentType": "Incident",
+                "trackingId": "0NIH-U2O",
+                "impactStartTime": "2017-10-18T02:48:00.0000000Z",
+                "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
+                "defaultLanguageTitle": "Virtual Machines - Australia East",
+                "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+                "stage": "Active",
+                "communicationId": "636439673646212912",
+                "version": "0.1.1"
+            },
+            "status": "Active",
+            "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
+            "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
         }
     },
     "properties": {}

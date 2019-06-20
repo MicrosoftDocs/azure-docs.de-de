@@ -13,15 +13,15 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60331424"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Verwenden von VNET-Dienstendpunkten und -Regeln für Datenbankserver
 
-*Regeln für ein virtuelles Netzwerk* sind eine Firewallsicherheitsfunktion, die steuert, ob der Datenbankserver für Ihre Singletons und Ihren Pool für elastische Datenbanken in [Azure SQL-Datenbank](sql-database-technical-overview.md) oder für Ihre Datenbanken in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Nachrichten akzeptiert, die von bestimmten Subnetzen in virtuellen Netzwerken gesendet werden. In diesem Artikel wird erklärt, warum VNET-Regeln mitunter die beste Möglichkeit darstellen, Nachrichten an Ihre Azure SQL-Datenbank- und SQL Data Warehouse-Instanz sicher zuzulassen.
+*VNET-Regeln* sind eine Firewallsicherheitsfunktion, die steuert, ob der Datenbankserver für Ihre Einzeldatenbanken und Ihren Pool für elastische Datenbanken in [Azure SQL-Datenbank](sql-database-technical-overview.md) oder für Ihre Datenbanken in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Nachrichten akzeptiert, die von bestimmten Subnetzen in virtuellen Netzwerken gesendet werden. In diesem Artikel wird erklärt, warum VNET-Regeln mitunter die beste Möglichkeit darstellen, Nachrichten an Ihre Azure SQL-Datenbank- und SQL Data Warehouse-Instanz sicher zuzulassen.
 
 > [!IMPORTANT]
 > Dieser Artikel gilt für den Azure SQL-Datenbankserver sowie für Datenbanken von SQL-Datenbank und SQL Data Warehouse, die auf dem Azure SQL-Datenbankserver erstellt werden. Der Einfachheit halber wird nur SQL-Datenbank verwendet, wenn sowohl SQL-Datenbank als auch SQL Data Warehouse gemeint sind. Dieser Artikel gilt *nicht* für die Bereitstellungsoption **Verwaltete Instanz** in Azure SQL-Datenbank, da dieser kein Dienstendpunkt zugeordnet ist.
@@ -40,11 +40,11 @@ Wenn Sie nur eine VNET-Regel erstellen, können Sie mit den Schritten und der Er
 
 **Subnetz:** Ein virtuelles Netzwerk enthält **Subnetze**. Ihre virtuellen Azure-Computer (VMs) sind Subnetzen zugewiesen. Ein Subnetz kann mehrere VMs oder andere Computeknoten enthalten. Computeknoten, die sich außerhalb Ihres virtuellen Netzwerks befinden, können nicht auf Ihr virtuelles Netzwerk zugreifen, es sei denn, Sie konfigurieren für sie den sicheren Zugriff.
 
-**Dienstendpunkt im virtuellen Netzwerk:** Ein [Virtual Network-Dienstendpunkt][vm-virtual-network-service-endpoints-overview-649d] ist ein Subnetz, dessen Eigenschaftswerte mindestens einen formalen Azure-Diensttypnamen enthalten. In diesem Artikel beschäftigen wir uns mit dem Typnamen **Microsoft.Sql**, der auf einen Azure-Dienst mit dem Namen „SQL-Datenbank“ verweist.
+**Virtual Network-Dienstendpunkt:** Ein [Virtual Network-Dienstendpunkt][vm-virtual-network-service-endpoints-overview-649d] ist ein Subnetz, dessen Eigenschaftswerte mindestens einen formalen Azure-Diensttypnamen enthalten. In diesem Artikel beschäftigen wir uns mit dem Typnamen **Microsoft.Sql**, der auf einen Azure-Dienst mit dem Namen „SQL-Datenbank“ verweist.
 
-**Regel für virtuelles Netzwerk:** Eine VNET-Regel für Ihren SQL-Datenbank-Server ist ein Subnetz, das in der Zugriffssteuerungsliste des SQL-Datenbank-Servers aufgeführt ist. Um in die Zugriffssteuerungsliste für Ihre SQL-Datenbank-Instanz zu gelangen, muss das Subnetz den Typnamen **Microsoft.Sql** enthalten.
+**VNET-Regel:** Eine VNET-Regel für Ihren SQL-Datenbank-Server ist ein Subnetz, das in der Zugriffssteuerungsliste des SQL-Datenbank-Servers aufgeführt ist. Um in die Zugriffssteuerungsliste für Ihre SQL-Datenbank-Instanz zu gelangen, muss das Subnetz den Typnamen **Microsoft.Sql** enthalten.
 
-Eine VNET-Regel weist Ihren Azure SQL-Datenbankserver an, Nachrichten von jedem Knoten anzunehmen, der zum Subnetz gehört.
+Eine VNET-Regel weist Ihren Azure SQL-Datenbank-Server an, Nachrichten von jedem Knoten anzunehmen, der zum Subnetz gehört.
 
 <a name="anch-benefits-of-a-vnet-rule-68b" />
 
@@ -191,13 +191,13 @@ PolyBase wird häufig verwendet, um Daten aus Azure Storage-Konten in Azure SQL 
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
     
-   1. Erstellen Sie ein **Speicherkonto vom Typ „Universell v2“**, indem Sie [diesen Leitfaden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) verwenden.
+   1. Erstellen Sie ein **Speicherkonto vom Typ „Universell v2“** , indem Sie [diesen Leitfaden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) verwenden.
 
    > [!NOTE]
    > - Falls Sie über ein universelles Speicherkonto (v1) oder ein Blobspeicherkonto verfügen, müssen Sie zuerst das **Upgrade auf Version 2** durchführen, indem Sie [diesen Leitfaden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) verwenden.
    > - Informationen zu bekannten Problemen mit Azure Data Lake Storage Gen2 finden Sie in [diesem Leitfaden](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Navigieren Sie unter Ihrem Speicherkonto zu **Zugriffssteuerung (IAM)**, und klicken Sie auf **Rollenzuweisung hinzufügen**. Weisen Sie Ihrem SQL-Datenbank-Server die RBAC-Rolle **Mitwirkender an Storage-Blobdaten** zu.
+1. Navigieren Sie unter Ihrem Speicherkonto zu **Zugriffssteuerung (IAM)** , und klicken Sie auf **Rollenzuweisung hinzufügen**. Weisen Sie Ihrem SQL-Datenbank-Server die RBAC-Rolle **Mitwirkender an Storage-Blobdaten** zu.
 
    > [!NOTE] 
    > Nur Mitglieder mit der Berechtigung „Besitzer“ können diesen Schritt ausführen. Verschiedene integrierte Rollen für Azure-Ressourcen finden Sie in [diesem Leitfaden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -248,9 +248,9 @@ Der Verbindungsfehler 40914 bezieht sich auf *VNET-Regeln*, die im Azure-Portal 
 
 ### <a name="error-40914"></a>Fehler 40914
 
-*Nachrichtentext:* Der bei der Anmeldung angeforderte Server „*[Servername]*“ kann nicht geöffnet werden. Dem Client ist der Zugriff auf den Server nicht gestattet.
+*Nachrichtentext:* Der bei der Anmeldung angeforderte Server „ *[Servername]* “ kann nicht geöffnet werden. Dem Client ist der Zugriff auf den Server nicht gestattet.
 
-*Fehlerbeschreibung:* Der Client befindet sich in einem Subnetz, das Endpunkte des virtuellen Netzwerkservers enthält. Der Azure SQL-Datenbank-Server enthält jedoch keine VNET-Regeln, die dem Subnetz die Berechtigung zur Kommunikation mit der SQL-Datenbank gewähren.
+*Fehlerbeschreibung:* Der Client befindet sich in einem Subnetz, das Endpunkte des virtuellen Netzwerkservers enthält. Der Azure SQL-Datenbank-Server enthält jedoch keine VNET-Regeln, die dem Subnetz die Berechtigung zur Kommunikation mit SQL-Datenbank gewähren.
 
 *Fehlerbehebung:* Verwenden Sie im Azure-Portal im Bereich „Firewall“ die Steuerung von VNET-Regeln, um [VNET-Regel](#anchor-how-to-by-using-firewall-portal-59j) für das Subnetz hinzuzufügen.
 
@@ -283,7 +283,7 @@ VNET-Regeln können auch mit einem PowerShell-Skript erstellt werden. Dazu dient
 
 Intern rufen die PowerShell-Cmdlets für SQL-VNet-Aktionen REST-APIs auf. Sie können die REST-APIs direkt aufrufen.
 
-- [Regeln für virtuelle Netzwerke: Vorgänge][rest-api-virtual-network-rules-operations-862r]
+- [VNET-Regeln: Vorgänge][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -303,7 +303,7 @@ Falls Sie bereits ein Subnetz haben, das mit dem bestimmten Virtual Network-Dien
 3. Legen Sie das Steuerelement **Zugriff auf Azure-Dienste erlauben** auf AUS fest.
 
     > [!IMPORTANT]
-    > Wenn Sie das Steuerelement auf ON festgelegt lassen, akzeptiert der Azure SQL-Datenbank-Server Kommunikation von beliebigen Subnetzen. Das Steuerelement auf ON festgelegt zu lassen, führt also möglicherweise aus Sicht der Sicherheit zu einem übermäßigen Zugriff. Mithilfe der Funktionen „Microsoft Azure Virtual Network-Dienstendpunkt“ und „VNET-Regel“ von SQL-Datenbank können Sie die sicherheitsbezogene Angriffsfläche verkleinern.
+    > Wenn Sie das Steuerelement auf ON festgelegt lassen, akzeptiert der Azure SQL-Datenbank-Server Kommunikation von beliebigen Subnetzen. Das Steuerelement auf ON festgelegt zu lassen, führt also möglicherweise aus Sicht der Sicherheit zu einem übermäßigen Zugriff. Mithilfe der Funktionen „Microsoft Azure Virtual Network-Dienstendpunkte“ und „VNET-Regel“ von SQL-Datenbank können Sie die sicherheitsbezogene Angriffsfläche verkleinern.
 
 4. Klicken Sie im Abschnitt **Virtuelle Netzwerke** auf **+ Vorhandene hinzufügen**.
 
@@ -334,15 +334,15 @@ Falls Sie bereits ein Subnetz haben, das mit dem bestimmten Virtual Network-Dien
 
 ## <a name="related-articles"></a>Verwandte Artikel
 
-- [Dienstendpunkte von virtuellen Netzwerken (Vorschauversion)][vm-virtual-network-service-endpoints-overview-649d]
+- [Azure-VNET-Dienstendpunkte][vm-virtual-network-service-endpoints-overview-649d]
 - [Firewallregeln auf Server- und Datenbankebene für Azure SQL-Datenbank][sql-db-firewall-rules-config-715d]
 
 Das Feature für VNET-Regeln für Azure SQL-Datenbank wurde Ende September 2017 eingeführt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verwenden von PowerShell zum Erstellen eines Dienstendpunkts und einer Regel für das virtuelle Netzwerk für Azure SQL-Datenbank][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Regeln für virtuelle Netzwerke: Vorgänge][rest-api-virtual-network-rules-operations-862r] mit REST-APIs
+- [Verwenden von PowerShell zum Erstellen eines VNET-Dienstendpunkts und einer VNET-Regel für Azure SQL-Datenbank][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [VNET-Regeln: Vorgänge][rest-api-virtual-network-rules-operations-862r] mit REST-APIs
 
 <!-- Link references, to images. -->
 

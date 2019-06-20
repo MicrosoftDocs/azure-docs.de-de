@@ -9,11 +9,11 @@ ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 069baf627c0230b6a4727c375494352ab3e6a803
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500677"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164613"
 ---
 Verwenden Sie zum Hinzufügen von zwei Tags zu einer Ressourcengruppe den Befehl [Set-AzResourceGroup](/powershell/module/az.resources/set-azresourcegroup):
 

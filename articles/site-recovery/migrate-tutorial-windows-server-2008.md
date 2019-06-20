@@ -5,16 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5de6ba8ab64797da24039718ca7f2c0b88d1d33d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881340"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400094"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrieren von Servern mit Windows Server 2008 zu Azure
 
@@ -118,7 +117,7 @@ Wählen Sie Zielressourcen aus, und überprüfen Sie sie.
 
 ## <a name="set-up-a-replication-policy"></a>Einrichten einer Replikationsrichtlinie
 
-1. Klicken Sie zum Erstellen einer neuen Replikationsrichtlinie auf **Site Recovery-Infrastruktur** > **Replikationsrichtlinien** > **+Replikationsrichtlinie**.
+1. Klicken Sie zum Erstellen einer neuen Replikationsrichtlinie auf **Site Recovery-Infrastruktur** > **Replikationsrichtlinien** >  **+Replikationsrichtlinie**.
 2. Geben Sie unter **Replikationsrichtlinie erstellen** einen Richtliniennamen an.
 3. Geben Sie in **RPO-Schwellenwert** den RPO-Grenzwert (Recovery Point Objective) an. Wenn der RPO-Wert bei der Replikation überschritten wird, wird eine Warnung generiert.
 4. Geben Sie unter **Aufbewahrungszeitraum des Wiederherstellungspunkts** die Größe des Aufbewahrungszeitfensters für die einzelnen Wiederherstellungspunkte in Stunden an. Replizierte Server können für jeden Punkt dieses Zeitfensters wiederhergestellt werden. Für nach Storage Premium replizierte Computer wird eine Aufbewahrungsdauer von bis zu 24 Stunden unterstützt (72 Stunden für Standardspeicher).

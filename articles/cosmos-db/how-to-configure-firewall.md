@@ -4,14 +4,14 @@ description: Erfahren Sie, wie IP-Zugriffssteuerungsrichtlinien für die Firewal
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdf2da745cc418190f6546fffc03e2ac2c330e0e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 24ebc7eb4c9abc72a89419611e4b4b3fa2db88b4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068716"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241960"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurieren der IP-Firewall in Azure Cosmos DB
 

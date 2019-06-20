@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883274"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61386106"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware-Überwachungslösung (veraltet) in Azure Monitor
 
@@ -57,14 +57,14 @@ Erstellen Sie eine VM mit Linux-Betriebssystem, um alle Syslog-Daten von den ESX
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Überprüfen Sie die vSphere-Konsole, um sicherzustellen, dass Syslog ordnungsgemäß eingerichtet ist. Vergewissern Sie sich auf dem ESXI-Host, dass der Port **1514** konfiguriert ist.
 1. Laden Sie den Log Analytics-Agent für Linux herunter, und installieren Sie ihn auf dem Linux-Server. Weitere Informationen finden Sie in der [Dokumentation zum Log Analytics-Agent für Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. Nachdem der Log Analytics-Agent für Linux installiert wurde, wechseln Sie zum Verzeichnis „/etc/opt/microsoft/omsagent/sysconf/omsagent.d“, und kopieren Sie die Datei „vmware_esxi.conf“ in das Verzeichnis „/etc/opt/microsoft/omsagent/conf/omsagent.d“. Ändern Sie dann den Besitzer/die Gruppe und die Berechtigungen der Datei. Beispiel: 
+1. Nachdem der Log Analytics-Agent für Linux installiert wurde, wechseln Sie zum Verzeichnis „/etc/opt/microsoft/omsagent/sysconf/omsagent.d“, und kopieren Sie die Datei „vmware_esxi.conf“ in das Verzeichnis „/etc/opt/microsoft/omsagent/conf/omsagent.d“. Ändern Sie dann den Besitzer/die Gruppe und die Berechtigungen der Datei. Beispiel:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Starten Sie den Log Analytics-Agent für Linux neu, indem Sie `sudo /opt/microsoft/omsagent/bin/service_control restart` ausführen.
-1. Testen Sie die Konnektivität zwischen dem Linux-Server und dem ESXi-Host mithilfe des Befehls `nc` auf dem ESXi-Host. Beispiel: 
+1. Testen Sie die Konnektivität zwischen dem Linux-Server und dem ESXi-Host mithilfe des Befehls `nc` auf dem ESXi-Host. Beispiel:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -88,7 +88,7 @@ Die folgende Tabelle zeigt die Datensammlungsmethoden und andere Details dazu, w
 
 In der folgenden Tabelle sind Beispiele für Datenfelder aufgeführt, die von der VMware-Überwachungslösung erfasst werden:
 
-| Feldname | Beschreibung |
+| Feldname | description |
 | --- | --- |
 | Device_s |VMware-Speichergeräte |
 | ESXIFailure_s |Fehlertypen |
@@ -170,7 +170,7 @@ Nachdem Sie Ihre Abfragen erstellt haben, könnten Sie die Abfragen dazu verwend
 Die Lösung verwendet den nativen Syslog-Weiterleitungsmechanismus des ESXi-Hosts. Sie benötigen keine weitere Microsoft-Software auf dem ESXi-Host, um die Protokolle zu erfassen. Die Auswirkungen auf Ihre vorhandene Umgebung sind gering. Sie müssen die Syslog-Weiterleitung, eine Funktion von ESXi, allerdings einrichten.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>Muss ich meinen ESXi-Host neu starten?
- Nein. Der Prozess erfordert keinen Neustart. In manchen Fällen aktualisiert vSphere das Syslog nicht ordnungsgemäß. Melden Sie sich in einem solchen Fall beim ESXi-Host an, und laden Sie das Syslog erneut. Auch hierbei müssen Sie den Host nicht neu starten, der Prozess verursacht also keine Unterbrechungen in Ihrer Umgebung.
+Nein. Der Prozess erfordert keinen Neustart. In manchen Fällen aktualisiert vSphere das Syslog nicht ordnungsgemäß. Melden Sie sich in einem solchen Fall beim ESXi-Host an, und laden Sie das Syslog erneut. Auch hierbei müssen Sie den Host nicht neu starten, der Prozess verursacht also keine Unterbrechungen in Ihrer Umgebung.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Kann ich die Menge an Protokolldaten, die an Log Analytics gesendet werden, erhöhen oder verringern?
 Ja, das ist möglich. Sie können die vSphere-Einstellungen für die Protokollebene des ESXi-Hosts verwenden. Die Protokollsammlung basiert auf der Ebene *Information*. Wenn Sie die Erstellung oder Löschung von virtuellen Computern überwachen möchten, müssen Sie „Hostd“ als Ebene für *Information* beibehalten. Weitere Informationen finden Sie in der [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).

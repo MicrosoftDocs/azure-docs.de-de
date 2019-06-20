@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: e0d888db5f8de137783a3f9282ca7f85d8a30fc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939455"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Hierarchischer Namespace für Azure Data Lake Storage Gen2

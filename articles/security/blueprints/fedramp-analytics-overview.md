@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451874"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60586286"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure-Blaupause für Sicherheit und Compliance: Analyse für FedRAMP
 
@@ -83,7 +83,7 @@ Im folgenden Abschnitt werden die Elemente für Entwicklung und Implementierung 
 **Netzwerksicherheitsgruppen**: [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sind dafür eingerichtet, Datenverkehr zu verwalten, der auf bereitgestellte Ressourcen und Dienste ausgerichtet ist. NSGs sind mit einem Schema konfiguriert, das den Zugriff standardmäßig verweigert und nur Datenverkehr zulässt, der in der vorkonfigurierten Zugriffssteuerungsliste enthalten ist.
 
 Jede der NSGs verfügt über bestimmte offene Ports und Protokolle, damit die Lösung sicher und richtig ausgeführt werden kann. Darüber hinaus werden die folgenden Konfigurationen für jede NSG aktiviert:
-  - [Diagnoseprotokolle und -ereignisse](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) werden aktiviert und in einem Speicherkonto gespeichert.
+  - [Diagnoseprotokolle und -ereignisse](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sind aktiviert und werden im Speicherkonto gespeichert.
   - [Azure Monitor-Protokolle](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) ist mit den Diagnoseprotokollen der NSG verbunden.
 
 ### <a name="data-at-rest"></a>Ruhende Daten

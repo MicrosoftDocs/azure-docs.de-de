@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991205"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952882"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid – Übermittlung und Wiederholung von Nachrichten
 
@@ -24,16 +24,18 @@ Derzeit sendet Event Grid jedes Ereignis einzeln an Abonnenten. Der Abonnent emp
 
 ## <a name="retry-schedule-and-duration"></a>Wiederholungszeitplan und Dauer
 
-Event Grid verwendet exponentiell ansteigende Wartezeiten für Wiederholungsversuche für die Ereignisübermittlung. Wenn ein Endpunkt nicht antwortet oder einen Fehlercode zurückgibt, wiederholt Event Grid die Übermittlung nach folgendem Zeitplan auf Basis der besten Leistung:
+Event Grid wartet nach der Zustellung einer Nachricht 30 Sekunden auf eine Antwort. Nach 30 Sekunden, wenn der Endpunkt nicht geantwortet hat, wird die Nachricht zur Wiederholung in die Warteschlange eingereiht. Event Grid verwendet exponentiell ansteigende Wartezeiten für Wiederholungsversuche für die Ereignisübermittlung. Event Grid wiederholt die Zustellung nach folgendem Zeitplan auf Basis der besten Leistung:
 
-1. 10 Sekunden
-1. 30 Sekunden
-1. 1 Minute
-1. 5 Minuten
-1. 10 Minuten
-1. 30 Minuten
-1. 1 Stunde
-1. Pro Stunde für bis zu 24 Stunden
+- 10 Sekunden
+- 30 Sekunden
+- 1 Minute
+- 5 Minuten
+- 10 Minuten
+- 30 Minuten
+- 1 Stunde
+- Pro Stunde für bis zu 24 Stunden
+
+Wenn der Endpunkt innerhalb von 3 Minuten antwortet, versucht Event Grid, das Ereignis aus der Wiederholungswarteschlange auf bestmögliche Weise zu entfernen, aber es können dennoch weiterhin Duplikate empfangen werden.
 
 Event Grid fügt allen Wiederholungsschritten eine geringfügige Randomisierung hinzu und kann opportunistisch bestimmte Wiederholungen überspringen, wenn ein Endpunkt konsistent fehlerhaft ist, für einen längeren Zeitraum ausgefallen ist oder überlastet zu sein scheint.
 

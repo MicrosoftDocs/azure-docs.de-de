@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412813"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Problembehandlung von Apps in Azure App Service mit Visual Studio
@@ -264,7 +264,7 @@ ASP.NET-Anwendungen in App Service-Apps können die folgenden Arten von Protokol
 * **Ausführliche Fehlerprotokolle**<br/>
   Der Webserver erstellt eine HTML-Seite mit zusätzlichen Informationen für fehlerhafte HTTP-Anforderungen (Anforderungen mit einem Statuscode von 400 oder höher).
 * **Nachverfolgungsprotokolle für Anforderungen mit Fehlern**<br/>
-   Der Webserver erstellt eine XML-Datei mit detaillierten Ablaufverfolgungsinformationen für fehlgeschlagene HTTP-Anforderungen. Der Webserver liefert außerdem eine XSL-Datei zur Formatierung der XML-Datei in einem Browser.
+  Der Webserver erstellt eine XML-Datei mit detaillierten Ablaufverfolgungsinformationen für fehlgeschlagene HTTP-Anforderungen. Der Webserver liefert außerdem eine XSL-Datei zur Formatierung der XML-Datei in einem Browser.
 
 Protokollierung beeinträchtigt die Leistung von Apps. Daher können Sie die verschiedenen Protokolltypen unter Azure bei Bedarf einzeln aktivieren und deaktivieren. Für Anwendungsprotokolle können Sie angeben, dass nur Protokolleinträge oberhalb eines bestimmten Schweregrads geschrieben werden sollen. Bei der Erstellung neuer Apps ist sämtliche Protokollierung standardmäßig deaktiviert.
 
@@ -649,7 +649,7 @@ Wenn Ihre App eine Azure-Web-API oder ein Mobile Services-Back-End verwendet und
 Momentan sind keine vollständigen und aktuellen Einführungen zur Ablaufverfolgung in ASP.NET im Internet verfügbar. Beginnen Sie daher mit den älteren Einführungen für Web Forms, als MVC noch nicht existierte, und ergänzen Sie diese Lektüre mit neueren Blogeinträgen zu speziellen Themen. Die folgenden Ressourcen bieten gute Einstiegspunkte:
 
 * [Überwachung und Telemetrie (Erstellen realer Cloud-Apps mit Azure).](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)<br>
-   Dieses E-Book-Kapitel enthält Empfehlungen zur Ablaufverfolgung in Azure-Cloudanwendungen.
+  Dieses E-Book-Kapitel enthält Empfehlungen zur Ablaufverfolgung in Azure-Cloudanwendungen.
 * [ASP.NET-Ablaufverfolgung](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
   Ein älterer Artikel, der sich jedoch immer noch gut als Einstieg in das Thema eignet.
 * [Ablaufverfolgungslistener](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
@@ -657,7 +657,7 @@ Momentan sind keine vollständigen und aktuellen Einführungen zur Ablaufverfolg
 * [Exemplarische Vorgehensweise: Integrieren der ASP.NET-Ablaufverfolgung mit der System.Diagnostics-Ablaufverfolgung](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Dieser Artikel ist ebenfalls älteren Datums, enthält jedoch zusätzliche Informationen, die in der Einführung nicht behandelt werden.
 * [Ablaufverfolgung in ASP.NET MVC-Razoransichten](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-   (Ablaufverfolgung in den ASP.NET MVC-Razoransichten, in englischer Sprache) Dieser Blogeintrag behandelt neben der Ablaufverfolgung in Razoransichten auch die Erstellung von Fehlerfiltern zur Protokollierung aller Ausnahmefehler in MVC-Anwendungen. Informationen zur Protokollierung aller Ausnahmefehler in Web Forms-Anwendungen finden Sie im Global.asax-Beispiel unter [Vollständiges Beispiel für Fehlerhandler](/previous-versions/bb397417(v=vs.140)) auf MSDN. Falls Sie in MVC oder Web Forms bestimmte Ausnahmen protokollieren möchten, diese Ausnahmen jedoch vom Standard-Framework behandelt werden sollen, können Sie diese wie im folgenden Beispiel abfangen und erneut auslösen:
+  (Ablaufverfolgung in den ASP.NET MVC-Razoransichten, in englischer Sprache) Dieser Blogeintrag behandelt neben der Ablaufverfolgung in Razoransichten auch die Erstellung von Fehlerfiltern zur Protokollierung aller Ausnahmefehler in MVC-Anwendungen. Informationen zur Protokollierung aller Ausnahmefehler in Web Forms-Anwendungen finden Sie im Global.asax-Beispiel unter [Vollständiges Beispiel für Fehlerhandler](/previous-versions/bb397417(v=vs.140)) auf MSDN. Falls Sie in MVC oder Web Forms bestimmte Ausnahmen protokollieren möchten, diese Ausnahmen jedoch vom Standard-Framework behandelt werden sollen, können Sie diese wie im folgenden Beispiel abfangen und erneut auslösen:
 
 ``` c#
 try
@@ -672,9 +672,9 @@ catch (Exception ex)
 ```
 
 * [Ablaufprotokollierung und Streamingdiagnose über die Azure-Befehlszeile (plus Glimpse)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   Verwenden der Befehlszeile für die Visual Studio-Aktionen aus diesem Lernprogramm. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) ist ein Tool zum Debuggen von ASP.NET-Anwendungen.
+  Verwenden der Befehlszeile für die Visual Studio-Aktionen aus diesem Lernprogramm. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) ist ein Tool zum Debuggen von ASP.NET-Anwendungen.
 * [Using Web Apps Logging and Diagnostics – with David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) (Verwenden der Web-App-Protokollierung – mit David Ebbo) und [Streaming Logs from Web Apps – with David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/) (Protokollstreaming aus Web-Apps – mit David Ebbo)<br>
-   Videos von Scott Hanselman und David Ebbo.
+  Videos von Scott Hanselman und David Ebbo.
 
 Für die Fehlerprotokollierung können Sie Open-Source-Protokollframeworks wie [ELMAH](https://nuget.org/packages/elmah/) verwenden, anstatt Ihren eigenen Ablaufverfolgungscode zu schreiben. Weitere Informationen finden Sie in [Scott Hanselmans Blogbeiträgen zu ELMAH](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
@@ -684,7 +684,7 @@ Darüber hinaus müssen Sie nicht ASP.NET oder die `System.Diagnostics`-Ablaufve
 Weitere Informationen zur Analyse von Webserverprotokollen finden Sie in den folgenden Ressourcen:
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Ein Tool zum Anzeigen von Daten in Webserverprotokollen (*.log* -Dateien).
+  Ein Tool zum Anzeigen von Daten in Webserverprotokollen ( *.log* -Dateien).
 * [Problembehandlung bei IIS-Leistungsproblemen oder Anwendungsfehlern mithilfe von LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   (Problembehandlung von IIS-Leistungsproblemen oder Anwendungsfehlern mithilfe von LogParser, in englischer Sprache) Eine Einführung in das LogParser-Tool, das Sie bei der Analyse von Webserverprotokollen unterstützt.
 * [Blogbeiträge von Robert McMurray zur Verwendung von LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

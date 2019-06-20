@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721289"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Verstehen der Bereitstellungsreihenfolge in Azure Blueprint
 
@@ -25,7 +25,7 @@ Azure Blueprints bestimmt mit einer **Reihenfolge**, die Abfolge der Ressourcene
 
 In den JSON-Beispielen gibt es Variablen, die Sie durch Ihre eigenen Werte ersetzen müssen:
 
-- `{YourMG}` - Ersetzen durch den Namen Ihrer Verwaltungsgruppe.
+- Ersetzen Sie `{YourMG}` durch den Namen Ihrer Verwaltungsgruppe.
 
 ## <a name="default-sequencing-order"></a>Standardreihenfolge
 
@@ -41,6 +41,9 @@ In jedem Artefakt vom Typ **Ressourcengruppe** wird für Artefakte, die innerhal
 - Einer Ressourcengruppe untergeordnete **Rollenzuweisungsartefakte** werden nach Artefaktnamen sortiert
 - Einer Ressourcengruppe untergeordnete **Richtlinienzuweisungsartefakte** werden nach Artefaktnamen sortiert
 - Einer Ressourcengruppe untergeordnete **Azure Resource Manager-Vorlagenartefakte** werden nach Artefaktnamen sortiert
+
+> [!NOTE]
+> Die Verwendung von [artifacts()](../reference/blueprint-functions.md#artifacts) erzeugt eine implizite Abhängigkeit von dem betreffenden Artefakt.
 
 ## <a name="customizing-the-sequencing-order"></a>Anpassen der Reihenfolge
 

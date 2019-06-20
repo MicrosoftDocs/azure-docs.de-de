@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: spelluru
-ms.openlocfilehash: d93818cd875c4050b1b35f21ce580933776c5bc5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2cd6998c7ac11638ead67fde384bdf4599692781
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706029"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Konfigurieren und Verwenden von Umgebungen in Azure DevTest Labs
 Azure DevTest Labs verfügt über ein [öffentliches Repository von Azure Resource Manager-Vorlagen](https://github.com/Azure/azure-devtestlab/tree/master/Environments), die Sie zum Erstellen von Umgebungen verwenden können, ohne selbst eine Verbindung zu einer externen GitHub-Quelle herstellen zu müssen. Dieses Repository enthält häufig verwendete Vorlagen wie Azure-Web-Apps, Service Fabric-Cluster und SharePoint Farm-Entwicklungsumgebungen. Dieses Feature ähnelt dem öffentlichen Repository von Artefakten, das für jedes von Ihnen erstellte Lab enthalten ist. Das Umgebungsrepository ermöglicht Ihnen einen schnellen und reibungslosen Einstieg mit zuvor erstellten Umgebungsvorlagen mit minimalen Eingabeparametern für PaaS-Ressourcen in Labs. 

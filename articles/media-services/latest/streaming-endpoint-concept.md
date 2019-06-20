@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149228"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66515738"
 ---
-# <a name="streaming-endpoints-origin"></a>Streamingendpunkte (Ursprung)
+# <a name="streaming-endpoints"></a>Streamingendpunkte 
 
 In Microsoft Azure Media Services stellt ein [Streamingendpunkt](https://docs.microsoft.com/rest/api/media/streamingendpoints) einen dynamischen (Just-In-Time-)Paketerstellungs- und Ursprungsdienst dar, der Ihre Live- und On-Demand-Inhalte direkt in einer Clientplayeranwendung bereitstellen kann und dabei eines der allgemeinen Streamingmedienprotokolle (HLS oder DASH) verwendet. Zudem sorgt der **Streamingendpunkt** für eine dynamische (Just-In-Time-)Verschlüsselung zu branchenführenden DRMs.
 
@@ -55,8 +55,8 @@ SLA-Informationen finden Sie unter [Preise und SLA](https://azure.microsoft.com/
 
 Feature|Standard|Premium
 ---|---|---
-Erste 15 Tage kostenlos <sup>1</sup>| Ja |Nein 
-Throughput |Bis zu 600 MBit/s; kann einen deutlich höheren effektiven Durchsatz bereitstellen, wenn ein CDN verwendet wird.|200 Mbit/s pro Streamingeinheit. Kann einen deutlich höheren effektiven Durchsatz bereitstellen, wenn ein CDN verwendet wird.
+Erste 15 Tage kostenlos <sup>1</sup>| Ja |Nein
+Throughput |Bis zu 600 MBit/s; kann einen deutlich höheren effektiven Durchsatz bereitstellen, wenn ein CDN verwendet wird.|200 Mbit/s pro Streamingeinheit. Kann einen deutlich höheren effektiven Durchsatz bereitstellen, wenn ein CDN verwendet wird.
 CDN|Azure CDN, CDN eines Drittanbieters oder kein CDN.|Azure CDN, CDN eines Drittanbieters oder kein CDN.
 Die Abrechnung erfolgt anteilsmäßig| Täglich|Täglich
 Dynamische Verschlüsselung|Ja|Ja
@@ -66,7 +66,7 @@ IP-Filterung/G20/benutzerdefinierter Host <sup>2</sup>|Ja|Ja
 Progressiver Download|Ja|Ja
 Empfohlene Verwendung |Für den Großteil der Streamingszenarien empfohlen.|Professionelle Nutzung.
 
-<sup>1</sup> Die kostenlose Testversion gilt nur für neu erstellte Media Services-Konten und den Standard-Streamingendpunkt.<br/>
+<sup>1</sup> Die kostenlose Testversion gilt nur für neu erstellte Media Services-Konten und den Standardstreamingendpunkt.<br/>
 <sup>2</sup> Wird nur direkt am Streamingendpunkt verwendet, wenn das CDN nicht auf dem Endpunkt aktiviert ist.<br/>
 
 ## <a name="properties"></a>Eigenschaften 

@@ -11,11 +11,11 @@ tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60311963"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Verwalten von Excel Online-Daten mit Azure Logic Apps
 

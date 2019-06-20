@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087727"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978462"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Verwaltete Identitäten für Azure-Ressourcen mit Azure Event Hubs
 
@@ -27,8 +27,28 @@ Die Azure-Plattform verwaltet diese Laufzeitidentität mit verwalteten Identitä
 Nach der Zuordnung zu einer verwalteten Identität kann ein Event Hubs-Client alle autorisierten Vorgänge ausführen. Die Autorisierung wird durch Zuordnung von Event Hubs-Rollen zu verwalteten Identitäten gewährt. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs-Rollen und -Berechtigungen
+Sie können der Rolle **Event Hubs-Datenbesitzer** eines Event Hubs-Namespace eine verwaltete Identität hinzufügen. Diese Rolle gewährt der Identität vollständige Kontrolle (für Verwaltungs- und Datenvorgänge) über alle Entitäten im Namespace.
 
-Sie können eine verwaltete Identität nur zu den Rollen „Besitzer“ oder „Mitwirkender“ eines Event Hubs-Namespace hinzufügen. Damit erhält die Identität vollständige Kontrolle über alle Entitäten im Namespace. Verwaltungsvorgänge, bei denen die Namespacetopologie geändert wird, werden anfänglich jedoch nur über Azure Resource Manager unterstützt. Die Unterstützung erfolgt nicht über die native Event Hubs-REST-Verwaltungsschnittstelle. Das bedeutet auch, dass Sie das .NET Framework-Clientobjekt [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) innerhalb einer verwalteten Identität nicht verwenden können. 
+>[!IMPORTANT]
+> Früher haben wir das Hinzufügen einer verwalteten Identität zur Rolle **Besitzer** oder **Mitwirkender** unterstützt. Die Berechtigungen für den Datenzugriff für die Rolle **Besitzer** und **Mitwirkender** werden jedoch nicht mehr berücksichtigt. Wenn Sie die Rolle **Besitzer** oder **Mitwirkender** verwenden, wechseln Sie zur Verwendung der Rolle **Event Hubs-Datenbesitzer**.
+
+Um die neue integrierte Rolle zu verwenden, gehen Sie wie folgt vor: 
+
+1. Navigieren Sie zum [Azure-Portal](https://portal.azure.com).
+2. Navigieren Sie zu dem Event Hubs-Namespace.
+3. Wählen Sie auf der Seite **Event Hubs-Namespace** im linken Menü die Option **Zugriffssteuerung (IAM)** aus.
+4. Wählen Sie auf der Seite **Zugriffssteuerung (IAM)** im Abschnitt **Rollenzuweisung hinzufügen** den Befehl **Hinzufügen** aus. 
+
+    ![Rollenzuweisung hinzufügen (Schaltfläche)](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. Führen Sie auf der Seite **Rollenzuweisung hinzufügen** die folgenden Schritte aus: 
+    1. Wählen Sie für **Rolle** die Option **Azure Event Hubs-Datenbesitzer** aus. 
+    2. Wählen Sie die **Identität** aus, die der Rolle hinzugefügt werden soll.
+    3. Wählen Sie **Speichern** aus. 
+
+        ![Rolle „Event Hubs-Datenbesitzer“](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Wechseln Sie zur Seite **Rollenzuweisungen**, und vergewissern Sie sich, dass der Benutzer der Rolle **Azure Event Hubs-Datenbesitzer** hinzugefügt wurde. 
+
+    ![Bestätigen, dass der Benutzer der Rolle hinzugefügt wurde](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Verwenden von Event Hubs mit verwalteten Identitäten für Azure-Ressourcen
 
@@ -54,7 +74,7 @@ Wenn Sie das Feature aktiviert haben, wird in Ihrem Azure Active Directory eine 
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Erstellen eines neuen Event Hubs-Namespace
 
-Erstellen Sie als Nächstes [einen Event Hubs-Namespace](event-hubs-create.md) in einer der Azure-Regionen, die Vorschauunterstützung für verwaltete Identitäten für Azure-Ressourcen bieten: **USA, Osten**, **USA, Osten 2** oder **Europa, Westen**. 
+Als Nächstes [erstellen Sie einen Event Hubs-Namespace](event-hubs-create.md). 
 
 Navigieren Sie im Portal zur Seite **Zugriffssteuerung (IAM)** des Namespace, und klicken Sie auf **Rollenzuweisung hinzufügen**, um die verwaltete Identität der Rolle **Besitzer** hinzuzufügen. Suchen Sie hierzu im Bereich **Berechtigungen hinzufügen** im Feld **Auswählen** nach dem Namen der Webanwendung, und klicken Sie auf den entsprechenden Eintrag. Klicken Sie anschließend auf **Speichern**. Die verwaltete Identität für die Webanwendung verfügt jetzt über Zugriff auf den Event Hubs-Namespace und den zuvor erstellten Event Hub. 
 

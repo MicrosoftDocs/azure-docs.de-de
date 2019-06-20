@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269621"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65796422"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problembehandlung für Azure-zu-Azure-VM-Replikationsprobleme
 
@@ -221,11 +221,21 @@ Stellen Sie sicher, dass die Datenträger initialisiert wurden, und wiederholen 
 
 Wenden Sie sich an den Support, wenn das Problem weiterhin besteht.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Mindestens ein Datenträger ist für Schutz verfügbar (Fehlercode: 153039)
+- **Mögliche Ursache** </br>
+  - Mindestens ein Datenträger wurde dem virtuellen Computer vor kurzem nach dem Schutz hinzugefügt. 
+  - Mindestens ein Datenträger wurde später nach dem Schutz des virtuellen Computers initialisiert.
 
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Azure-VM wird für „Replikation aktivieren“ nicht zur Auswahl angezeigt
+### <a name="fix-the-problem"></a>Beheben des Problems
+Sie können wahlweise entweder die Datenträger schützen oder die Warnung ignorieren, um als Replikationsstatus für den virtuellen Computer wieder „Fehlerfrei“ zu erhalten.</br>
+1. Sie möchten die Datenträger schützen. Navigieren Sie zu „Replizierte Elemente“ > „VM“ > „Datenträger“, klicken Sie auf einen nicht geschützten Datenträger, und klicken Sie auf „Replikation aktivieren“.
+ ![Datenträger hinzufügen](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. Sie möchten die Warnung ignorieren. Navigieren Sie zu „Replizierte Elemente“ > „VM“, klicken Sie im Übersichtsabschnitt auf „Warnung schließen“.
+![Warnung schließen](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Azure-VM oder Ressourcengruppe wird nicht in „Replikation aktivieren“ angezeigt
 
  **Ursache 1:  Ressourcengruppe und der virtuelle Quellcomputer befinden sich jeweils an einem anderen Speicherort.** <br>
-Azure Site Recovery gibt derzeit vor, dass sich die Quellressourcengruppe für die Region und der virtuelle Computer im gleichen Speicherort befinden müssen. Wenn das nicht der Fall ist, können Sie den virtuellen Computer während des Schutzzeitraums nicht finden.
+Azure Site Recovery bestimmt derzeit, dass sich die Quellressourcengruppe für die Region und der virtuelle Computer im selben Speicherort befinden müssen. Wenn das nicht der Fall ist, können Sie den virtuellen Computer während des Schutzzeitraums nicht finden. Als Problemumgehung können Sie die Replikation über den virtuellen Computer statt aus dem Recovery Services-Tresor aktivieren. Navigieren Sie zur Quell-VM > „Eigenschaften“ > „Notfallwiederherstellung“, und aktivieren Sie die Replikation.
 
 **Ursache 2: Diese Ressourcengruppe ist nicht Teil des ausgewählten Abonnements.** <br>
 Möglicherweise können Sie die Ressourcengruppe während des Schutzzeitraums nicht finden, wenn sie nicht Teil des angegebenen Abonnements ist. Stellen Sie sicher, dass die Ressourcengruppe zum verwendeten Abonnement gehört.
@@ -242,7 +252,7 @@ Wird der virtuelle Computer, für den Sie die Replikation aktivieren möchten, n
 >
 >Aktualisieren Sie das Modul „AzureRM.Resources“ unbedingt, bevor Sie das nachstehende Skript verwenden.
 
-Sie können das [Skript zum Entfernen veralteter ASR-Konfigurationen](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) verwenden und die veraltete Site Recovery-Konfiguration auf der Azure-VM entfernen. Nach dem Entfernen der veralteten Konfiguration sollte der virtuelle Computer angezeigt werden.
+Sie können das [Skript zum Entfernen veralteter ASR-Konfigurationen](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) verwenden und die veraltete Site Recovery-Konfiguration auf der Azure-VM entfernen. Nach dem Entfernen der veralteten Konfiguration sollte der virtuelle Computer angezeigt werden.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Auswählen des virtuellen Computers zum Schutz nicht möglich
  **Ursache 1:  Auf dem virtuellen Computer ist eine fehlerhafte oder nicht reagierende Erweiterung installiert.** <br>
@@ -301,7 +311,7 @@ Sie können die Konsole „Dienste“ öffnen und sicherstellen, dass für „CO
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Fehler bei Schutz aktiviert, da in der GRUB-Konfiguration erwähnter Gerätename statt UUID vorliegt (Fehlercode 151126)
 
 **Mögliche Ursache**: </br>
-Die GRUB-Konfigurationsdateien („/boot/grub/menu.lst“, „/boot/grub/grub.cfg“, „/boot/grub2/grub.cfg“ oder „/etc/default/grub“) könnten den Wert für die Parameter **root** und **resume** als tatsächliche Gerätenamen statt UUID enthalten. Site Recovery bevorzugt den UUID-Ansatz, da Gerätenamen sich beim Neustart des virtuellen Computers ändern können, da die VM möglicherweise bei dem Failover nicht den Namen beibehält, was zu Problemen führen kann. Beispiel:  </br>
+Die GRUB-Konfigurationsdateien („/boot/grub/menu.lst“, „/boot/grub/grub.cfg“, „/boot/grub2/grub.cfg“ oder „/etc/default/grub“) könnten den Wert für die Parameter **root** und **resume** als tatsächliche Gerätenamen statt UUID enthalten. Site Recovery bevorzugt den UUID-Ansatz, da Gerätenamen sich beim Neustart des virtuellen Computers ändern können, da die VM möglicherweise bei dem Failover nicht den Namen beibehält, was zu Problemen führen kann. Beispiel: </br>
 
 
 - Die folgende Zeile stammt aus der GRUB-Datei **/boot/grub2/grub.cfg**. <br>
@@ -317,7 +327,7 @@ Beachten Sie die fett formatierte Zeichenfolge oben: GRUB benutzt die tatsächli
 Die Gerätenamen sollten mit dem entsprechenden UUID ersetzt werden.<br>
 
 
-1. Suchen Sie die UUID des Geräts durch Ausführen des Befehls „blkid \<device name>“. Beispiel: <br>
+1. Suchen Sie die UUID des Geräts durch Ausführen des Befehls „blkid \<device name>“. Beispiel:<br>
    ```
    blkid /dev/sda1
    ```<br>

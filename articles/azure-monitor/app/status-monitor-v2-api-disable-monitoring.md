@@ -1,6 +1,6 @@
 ---
 title: 'API-Referenz für Azure-Statusmonitor v2: Deaktivieren der Überwachung | Microsoft-Dokumentation'
-description: API-Referenz für Statusmonitor v2 Disable-ApplicationInsightsMonitoring. Überwachen Sie die Websiteleistung ohne erneute Bereitstellung der Website. Funktioniert mit ASP.NET-Web-Apps, die lokal, auf virtuellen Computern oder in Azure gehostet werden.
+description: API-Referenz für Statusmonitor v2. Disable-ApplicationInsightsMonitoring. Überwachen Sie die Websiteleistung ohne erneute Bereitstellung der Website. Funktioniert mit ASP.NET-Web-Apps, die lokal, auf virtuellen Computern oder in Azure gehostet werden.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,26 +12,26 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6f2bde824c2a9815dc9fd4791ab43e03558da835
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66514405"
 ---
 # <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>API für Statusmonitor v2: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-In diesem Dokument wird ein Cmdlet beschrieben, das als Teil des [PowerShell-Moduls „Az.ApplicationMonitor“](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/) zur Verfügung gestellt wird.
+In diesem Artikel wird ein Cmdlet des [PowerShell-Moduls „Az.ApplicationMonitor“](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/) beschrieben.
 
 > [!IMPORTANT]
 > Statusmonitor v2 ist derzeit als öffentliche Vorschauversion verfügbar.
-> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Manche Features werden möglicherweise nicht unterstützt oder sind nur eingeschränkt verwendbar.
-> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Diese Vorschauversion wird ohne Vereinbarung zum Servicelevel bereitgestellt und ist nicht für Produktionsworkloads vorgesehen. Einige Features werden möglicherweise nicht unterstützt oder bieten möglicherweise nur eingeschränkte Funktionen.
+> Weitere Informationen finden Sie unter [Zusätzliche Nutzungsbestimmungen für Microsoft Azure-Vorschauen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>BESCHREIBUNG
 
-Deaktivieren Sie die Überwachung auf dem Zielcomputer.
-Dieses Cmdlet entfernt zum einen Änderungen an der IIS applicationHost.config und zum anderen Registrierungsschlüssel.
+Deaktiviert die Überwachung auf dem Zielcomputer.
+Dieses Cmdlet entfernt Änderungen an der IIS-Datei „applicationHost.config“ und Registrierungsschlüssel.
 
 > [!IMPORTANT] 
 > Dieses Cmdlet erfordert eine PowerShell-Sitzung mit Administratorberechtigungen.
@@ -45,7 +45,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="parameters"></a>Parameter 
 
 ### <a name="-verbose"></a>-Verbose
-**Allgemeiner Parameter.** Verwenden Sie diesen Parameter, um detaillierte Protokolle auszugeben.
+**Allgemeiner Parameter.** Verwenden Sie diesen Parameter, um detaillierte Protokolle anzuzeigen.
 
 ## <a name="output"></a>Output
 

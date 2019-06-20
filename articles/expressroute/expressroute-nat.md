@@ -9,11 +9,11 @@ ms.date: 01/30/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60883416"
 ---
 # <a name="expressroute-nat-requirements"></a>NAT-Anforderungen für ExpressRoute
 Zum Herstellen einer Verbindung mit Microsoft-Clouddiensten per ExpressRoute müssen Sie NATs einrichten und verwalten. Einige Konnektivitätsanbieter bieten das Einrichten und Verwalten von NAT als verwalteten Dienst an. Fragen Sie bei Ihrem Konnektivitätsanbieter nach, ob dieser Dienst angeboten wird. Wenn dies nicht der Fall ist, müssen Sie die unten beschriebenen Anforderungen erfüllen. 

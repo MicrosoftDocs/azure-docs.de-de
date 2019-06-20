@@ -1,16 +1,16 @@
 ---
 author: sptramer
-ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 05/31/2019
 ms.author: sttramer
-ms.openlocfilehash: ebdfadcb70cc9788a3d18fa99261412506889764
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c4bc5a6befaf684cd07fb3b6799ba00099627132
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814873"
 ---
-Vergewissern Sie sich zunächst, dass die neueste Version der [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) installiert ist, bevor Sie dieses Beispiel ausführen. Führen Sie zum Starten `az login` aus, um eine Verbindung mit Azure herzustellen.
+Installieren Sie zum Ausführen dieses Beispiels die aktuelle Version der [Azure-Befehlszeilenschnittstelle](/cli/azure/install-azure-cli). Führen Sie zum Starten `az login` aus, um eine Verbindung mit Azure herzustellen.
 
-Dieses Beispiel wird in einer Bash-Shell ausgeführt. Optionen zum Ausführen von Azure CLI-Skripts auf einem Windows-Client finden Sie unter [Installieren der Azure CLI 2.0 unter Windows](/cli/azure/install-azure-cli-windows).
+Beispiele für die Azure-Befehlszeilenschnittstelle sind für die `bash`-Shell geschrieben. Wenn Sie dieses Beispiel in Windows PowerShell oder an der Eingabeaufforderung ausführen möchten, müssen Sie unter Umständen Elemente des Skripts ändern.
+

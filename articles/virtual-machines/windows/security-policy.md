@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 49a3ea97efc702a4616a48eb3b69b0868e2853f2
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: ce8429934157bacde8e709165cf2f35c98d2bb15
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60405414"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Sichern und Verwenden von Richtlinien auf virtuellen Computern in Azure
 

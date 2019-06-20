@@ -7,10 +7,10 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.openlocfilehash: b77e7e9d5a68439e7f336ecb26e91031d80a7606
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64695204"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Verbessern der Leistung von Apache Spark-Workloads per Azure HDInsight IO Cache (Vorschauversion)

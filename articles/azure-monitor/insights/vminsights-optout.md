@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
 ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522118"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Deaktivieren der Überwachung Ihrer virtuellen Computer mit Azure Monitor für VMs (Vorschauversion)

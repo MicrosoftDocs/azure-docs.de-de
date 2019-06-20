@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,11 +9,11 @@ ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 8d7ac457041474f4e774414b1d5e6f9ed09dc856
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515898"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178188"
 ---
 <!-- this tells how to get the connection string for your hub -->
 <!-- This assumes the user is looking at his hub in the portal. -->

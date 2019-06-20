@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007466"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019822"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeiten mit Verbindungsproblemen und vorübergehenden Fehlern bei SQL-Datenbank
 
@@ -134,7 +134,7 @@ Wenn Ihr Clientprogramm mithilfe der .NET Framework-Klasse **System.Data.SqlClie
 Beim Erstellen der [Verbindungszeichenfolge](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) für Ihr **SqlConnection**-Objekt sollten Sie die Werte der folgenden Parameter abstimmen:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;Standardwert 1 im Bereich von 0 bis 255
-- **ConnectRetryInterval**:&nbsp;&nbsp;Standardwert 1 Sekunde im Bereich von 1 bis 60
+- **ConnectRetryInterval**:&nbsp;&nbsp;Standardwert 10 Sekunden im Bereich von 1 bis 60
 - **Verbindungstimeout**:&nbsp;&nbsp;Standardwert 15 Sekunden im Bereich von 0 bis 2147483647
 
 Insbesondere sollte für Ihre ausgewählten Werte die folgende Gleichung gelten: Verbindungstimeout = ConnectRetryCount * ConnectionRetryInterval
@@ -355,7 +355,7 @@ Im Namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Test
 Unter folgenden Links finden Sie weitere Informationen zu EntLib60:
 
 - Kostenloses E-Book: [Developer's Guide to Microsoft Enterprise Library, 2nd Edition](https://www.microsoft.com/download/details.aspx?id=41145).
-- Bewährte Methoden: [Allgemeiner Leitfaden zum Wiederholen von Vorgängen](../best-practices-retry-general.md) bietet eine detaillierte Erläuterung wichtiger Aspekte im Zusammenhang mit Wiederholungslogik.
+- Bewährten Methoden: [Allgemeiner Leitfaden zum Wiederholen von Vorgängen](../best-practices-retry-general.md) bietet eine detaillierte Erläuterung wichtiger Aspekte im Zusammenhang mit Wiederholungslogik.
 - NuGet-Download: [Enterprise Library – Transient Fault Handling Application Block 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>

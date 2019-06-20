@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/09/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eab45948b5f931377396d93d93e8955ba0f3e767
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65792853"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Erstellen und Verwalten von Azure-Budgets
 
@@ -26,6 +26,9 @@ Monatliche Budgets werden alle vier Stunden mit den Ausgaben verglichen. Daten u
 Die Budgets werden am Ende eines Zeitraums (monatlich, vierteljährlich oder jährlich) auf den gleichen Budgetbetrag automatisch zurückgesetzt, wenn Sie ein zukünftiges Ablaufdatum auswählen. Da sie auf den gleichen Budgetbetrag zurückgesetzt werden, müssen Sie separate Budgets anlegen, wenn die budgetierten Währungsbeträge für zukünftige Zeiträume abweichen.
 
 Die Beispiele in diesem Tutorial führen Sie durch die Erstellung und Bearbeitung eines Budgets für ein Abonnement von Azure Enterprise Agreement (EA).
+
+Sehen Sie sich das Video [Erstellen von Budgets zur Überwachung Ihrer Ausgaben mit Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) an, um zu erfahren, wie Sie in Azure Budgets erstellen können, um Ausgaben zu überwachen.
+
 
 In diesem Tutorial lernen Sie Folgendes:
 

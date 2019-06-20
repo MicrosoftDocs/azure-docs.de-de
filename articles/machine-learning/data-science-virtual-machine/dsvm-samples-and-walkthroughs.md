@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: e61f0f4ba30b29fea1b2fd5f2a2ab253d3a6710c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60502868"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>Beispiele auf Data Science Virtual Machines
 

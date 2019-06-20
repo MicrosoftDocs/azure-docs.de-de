@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 890cd7080447649396855bfbe051dca4470a4564
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546307"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Verwenden von Data Lake Storage Gen1 mit Azure HDInsight-Clustern
@@ -42,12 +42,12 @@ Zum aktuellen Zeitpunkt unterstützen nur einige der HDInsight-Clustertypen/-ver
 
 | HDInsight-Clustertyp | Data Lake Storage Gen1 als Standardspeicher | Data Lake Storage Gen1 als zusätzlicher Speicher| Notizen |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight-Version 4.0 | Nein  | Nein  |ADLS Gen1 wird mit HDInsight 4.0 nicht unterstützt |
+| HDInsight-Version 4.0 | Nein | Nein |ADLS Gen1 wird mit HDInsight 4.0 nicht unterstützt |
 | HDInsight-Version 3.6 | Ja | Ja | Mit Ausnahme von HBase|
 | HDInsight-Version 3.5 | Ja | Ja | Mit Ausnahme von HBase|
-| HDInsight-Version 3.4 | Nein  | Ja | |
-| HDInsight, Version 3.3 | Nein  | Nein  | |
-| HDInsight, Version 3.2 | Nein  | Ja | |
+| HDInsight-Version 3.4 | Nein | Ja | |
+| HDInsight, Version 3.3 | Nein | Nein | |
+| HDInsight, Version 3.2 | Nein | Ja | |
 | Storm | | |Sie können Data Lake Storage Gen1 verwenden, um dort Daten aus einer Storm-Topologie zu schreiben. Sie können Data Lake Storage auch zum Speichern von Verweisdaten verwenden, die anschließend von einer Storm-Topologie gelesen werden.|
 
 > [!WARNING]  
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Verwenden von Data Lake Storage Gen1 als zusätzlicher Speicher
 
-Sie können Data Lake Storage Gen1 zudem als zusätzlichen Speicher für den Cluster verwenden. In solchen Fällen kann der Clusterstandardspeicher ein Azure Storage Blob- oder ein Data Lake Storage-Konto sein. Wenn Sie HDInsight-Aufträge mit den in Data Lake Storage gespeicherten Daten als zusätzlichem Speicher ausführen, müssen Sie den vollqualifizierten Pfad zu den Dateien verwenden. Beispiel: 
+Sie können Data Lake Storage Gen1 zudem als zusätzlichen Speicher für den Cluster verwenden. In solchen Fällen kann der Clusterstandardspeicher ein Azure Storage Blob- oder ein Data Lake Storage-Konto sein. Wenn Sie HDInsight-Aufträge mit den in Data Lake Storage gespeicherten Daten als zusätzlichem Speicher ausführen, müssen Sie den vollqualifizierten Pfad zu den Dateien verwenden. Beispiel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Beachten Sie, dass die URL jetzt keinen **cluster_root_path** enthält. Dies liegt daran, dass Data Lake Storage hier kein Standardspeicher ist. Sie müssen also nur den Pfad zu den Dateien angeben.
 
-Um Data Lake Storage Gen1 als zusätzlichen Speicher verwenden zu können, müssen Sie lediglich dem Dienstprinzipal Zugriff auf die Pfade gewähren, in denen Ihre Dateien gespeichert sind.  Beispiel: 
+Um Data Lake Storage Gen1 als zusätzlichen Speicher verwenden zu können, müssen Sie lediglich dem Dienstprinzipal Zugriff auf die Pfade gewähren, in denen Ihre Dateien gespeichert sind.  Beispiel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

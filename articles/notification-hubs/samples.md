@@ -12,11 +12,11 @@ ms.topic: article
 ms.author: jowargo
 ms.date: 03/28/2019
 ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524843"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60559924"
 ---
 # <a name="azure-notification-hubs-samples"></a>Azure Notification Hubs – Beispiele
 Dieser Artikel enthält Links zu Beispielen, in denen wesentliche Funktionen in Azure Notification Hubs veranschaulicht werden.

@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.author: mialdridm
+ms.date: 04/24/2019
+ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 35cee297156cf64deeef8c9c6b514ec8176f9ca5
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149969"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64924306"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute-Verbindungen und Peering
 
@@ -22,10 +22,11 @@ ms.locfileid: "60149969"
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> Öffentliches Azure-Peering wurde als veraltet markiert, da es für neue ExpressRoute-Verbindungen nicht verfügbar ist. Neue Verbindungen unterstützen Microsoft-Peering und privates Peering.  
+> Öffentliches Azure-Peering wurde als veraltet markiert und ist für neue ExpressRoute-Leitungen nicht verfügbar. Neue Leitungen unterstützen Microsoft-Peering und privates Peering.  
 >
 
 ## <a name="circuits"></a>ExpressRoute-Verbindungen
+
 Eine ExpressRoute-Verbindung stellt eine logische Verbindung zwischen der lokalen Infrastruktur und den Microsoft-Clouddiensten über einen Konnektivitätsanbieter dar. Sie können mehrere ExpressRoute-Verbindungen bestellen. Alle Verbindungen können sich in derselben Region oder in verschiedenen Regionen befinden und über verschiedene Konnektivitätsanbieter mit dem jeweiligen Standort verbunden sein.
 
 ExpressRoute-Verbindungen werden keinen physischen Entitäten zugeordnet. Eine Verbindung wird eindeutig durch eine Standard-GUID, einen sogenannten Dienstschlüssel, identifiziert. Der Dienstschlüssel ist die einzige Information, die zwischen Microsoft, dem Konnektivitätsanbieter und Ihnen ausgetauscht wird. Der Dienstschlüssel unterliegt aus Sicherheitsgründen nicht der Geheimhaltung. Zwischen einer ExpressRoute-Verbindung und dem Dienstschlüssel besteht eine 1:1-Zuordnung.
@@ -35,14 +36,17 @@ Neue ExpressRoute-Verbindungen können zwei unabhängige Peerings aufweisen: pri
 Jede Verbindung verfügt über eine feste Bandbreite (50 MBit/s, 100 MBit/s, 200 MBit/s, 500 MBit/s, 1 GBit/s, 10 GBit/s) und ist einem Konnektivitätsanbieter und einem Peeringstandort zugewiesen. Die ausgewählte Bandbreite wird von allen Peerings der Verbindung gemeinsam genutzt.
 
 ### <a name="quotas"></a>Kontingente, Grenzwerte und Einschränkungen
+
 Standardkontingente und -grenzwerte gelten für alle ExpressRoute-Verbindungen. Aktuelle Informationen zu Kontingenten finden Sie auf der Seite [Grenzwerte, Kontingente und Einschränkungen für Azure-Abonnements und -Dienste](../azure-subscription-service-limits.md) .
 
 ## <a name="routingdomains"></a>ExpressRoute-Peering
+
 Einer ExpressRoute-Verbindung sind mehrere Routingdomänen/Peerings zugeordnet: öffentliche oder private Azure-Routingdomänen/-Peerings sowie Microsoft-Routingdomänen/-Peerings. Alle Peerings sind für Hochverfügbarkeit auf einem Routerpaar identisch konfiguriert (mit einer Aktiv/Aktiv-Konfiguration oder einer Nutzlastverteilungskonfiguration). Azure-Dienste sind zur Darstellung der IP-Adressierungsschemas als *Azure – Öffentlich* und *Azure – Privat* kategorisiert.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="privatepeering"></a>Privates Azure-Peering:
+
 Azure-Computedienste, sprich virtuelle Computer (IaaS) und Clouddienste (PaaS), die in einem virtuellen Netzwerk bereitgestellt werden, können über die private Peeringdomäne verbunden werden. Die private Peeringdomäne gilt als vertrauenswürdige Erweiterung Ihres Kernnetzwerks für Microsoft Azure. Sie können eine bidirektionale Verbindung zwischen Ihrem Kernnetzwerk und den virtuellen Azure-Netzwerken (VNets) einrichten. Durch dieses Peering können Sie direkt über ihre privaten IP-Adressen eine Verbindung zwischen virtuellen Computern und Clouddiensten herstellen.  
 
 Sie können mehr als ein virtuelles Netzwerk mit der privaten Peeringdomäne verbinden. Informationen zu Grenzwerten und Einschränkungen finden Sie auf der [FAQ-Seite](expressroute-faqs.md) . Aktuelle Informationen zu Grenzwerten finden Sie auf der Seite [Grenzwerte, Kontingente und Einschränkungen für Azure-Abonnements und -Dienste](../azure-subscription-service-limits.md) .  Ausführliche Informationen zur Routingkonfiguration finden Sie unter [Routing](expressroute-routing.md) .
@@ -58,7 +62,7 @@ Auf der [FAQ-Seite](expressroute-faqs.md) finden Sie weitere Informationen zu un
 ### <a name="publicpeering"></a>Öffentliches Azure-Peering (für neue Verbindungen veraltet)
 
 > [!Note]
-> Im öffentlichen Azure-Peering ist jeder BGP-Sitzung eine NAT-IP-Adresse zugeordnet. Mehr als zwei NAT-IP-Adressen können Sie mit [Microsoft-Peering](https://docs.microsoft.com/en-us/azure/expressroute/how-to-move-peering) verwenden, da Sie dabei Ihre eigenen NAT-Zuordnungen konfigurieren und Routenfilter für selektive Präfixankündigungen verwenden können. 
+> Im öffentlichen Azure-Peering ist jeder BGP-Sitzung eine NAT-IP-Adresse zugeordnet. Wechseln Sie bei mehr als 2 NAT-IP-Adressen zu Microsoft-Peering. Microsoft-Peering ermöglicht Ihnen, Ihre eigenen NAT-Zuordnungen zu konfigurieren und Routenfilter für selektive Präfixankündigungen zu verwenden. Weitere Informationen finden Sie unter [Wechseln zu Microsoft-Peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
 Dienste wie Azure Storage, SQL-Datenbanken und Websites werden über öffentliche IP-Adressen angeboten. Über die öffentliche Peeringrouting-Domäne können Sie eine private Verbindung mit unter öffentlichen IP-Adressen gehosteten Diensten herstellen (darunter VIPs Ihrer Clouddienste). Sie können die öffentliche Peeringdomäne mit der DMZ verbinden und aus Ihrem WAN heraus eine Verbindung mit allen Azure-Diensten unter ihren öffentlichen IP-Adressen herstellen, ohne eine Verbindung über das Internet herstellen zu müssen.
@@ -70,6 +74,7 @@ Innerhalb des Netzwerks können Sie benutzerdefinierte Routingfilter definieren,
 In den [häufig gestellten Fragen](expressroute-faqs.md) finden Sie weitere Informationen zu Diensten, die von der öffentlichen Peeringrouting-Domäne unterstützt werden.
 
 ## <a name="peeringcompare"></a>Peeringvergleich
+
 In der folgenden Tabelle werden die drei Peerings verglichen:
 
 |  | **Privates Peering** | **Microsoft-Peering** |  **Öffentliches Peering** (für neue Verbindungen veraltet) |
@@ -86,11 +91,13 @@ Sie können mehrere Routingdomänen als Teil der ExpressRoute-Verbindung aktivie
 Jedes Peering erfordert separate BGP-Sitzungen (ein Sitzungspaar für jeden Peeringtyp). Die BGP-Sitzungspaare bieten einen hoch verfügbaren Link. Wenn Sie die Verbindung über Layer-2-Konnektivitätsanbieter herstellen, sind Sie für das Konfigurieren und Verwalten des Routings verantwortlich. Weitere Informationen erhalten Sie, wenn Sie sich [Workflows](expressroute-workflows.md) zum Einrichten von ExpressRoute anschauen.
 
 ## <a name="health"></a>ExpressRoute-Integrität
+
 ExpressRoute-Leitungen können mit dem [Netzwerkleistungsmonitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) auf Verfügbarkeit, Konnektivität zu VNETs und Bandbreitennutzung überwacht werden.
 
 Der Netzwerkleistungsmonitor überwacht die Integrität von privatem Azure-Peering und Microsoft-Peering. Weitere Informationen finden Sie in unserem [Blogbeitrag](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/).
 
 ## <a name="next-steps"></a>Nächste Schritte
+
 * Suchen Sie nach einem Service Provider. Informationen finden Sie unter [ExpressRoute-Dienstanbieter und -Standorte](expressroute-locations.md).
 * Stellen Sie sicher, dass alle Voraussetzungen erfüllt sind. Informationen finden Sie unter [ExpressRoute-Voraussetzungen](expressroute-prerequisites.md).
 * Konfigurieren Sie Ihre ExpressRoute-Verbindung.

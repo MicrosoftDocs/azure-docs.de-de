@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 948110e5532aeeb2b9acbbb66361eb9c55eaf897
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c205f792138ebd7e8094b3bd7cd303d54dfa8d8f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543337"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389858"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Suche nach Entitäten mit der Bing-Entitäts-API
 
@@ -23,9 +23,9 @@ ms.locfileid: "57543337"
 
 Wenn Sie ein Suchfeld bereitstellen, in das Benutzer ihre Suchbegriffe eingeben, verwenden Sie die [Bing-Vorschlagssuche-API](../../bing-autosuggest/get-suggested-search-terms.md), um die Benutzerfreundlichkeit zu verbessern. Die API gibt vorgeschlagene Abfragezeichenfolgen zurück, während der Benutzer einen Suchbegriff eingibt.
 
-Codieren Sie den vom Benutzer eingegebenen Suchbegriff als URL, bevor Sie den Abfrageparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) festlegen. Wenn der Benutzer z.B. *Marcus Appel* eingibt, legen Sie `q` auf *Marcus+Appel* oder *Marcus%20Appel* fest.
+Codieren Sie den vom Benutzer eingegebenen Suchbegriff als URL, bevor Sie den Abfrageparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) festlegen. Wenn der Benutzer z.B. *Marcus Appel* eingibt, legen Sie `q` auf *Marcus+Appel* oder *Marcus%20Appel* fest.
 
-Wenn der Suchbegriff einen Rechtschreibfehler enthält, umfasst die Suchantwort ein [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext)-Objekt. Das Objekt zeigt die ursprüngliche Schreibweise und die korrigierte Schreibweise, die Bing für die Suche verwendet hat.
+Wenn der Suchbegriff einen Rechtschreibfehler enthält, umfasst die Suchantwort ein [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext)-Objekt. Das Objekt zeigt die ursprüngliche Schreibweise und die korrigierte Schreibweise, die Bing für die Suche verwendet hat.
 
 ```json
 "queryContext": {
@@ -38,15 +38,15 @@ Wenn der Suchbegriff einen Rechtschreibfehler enthält, umfasst die Suchantwort 
 
 ## <a name="the-bing-entity-search-api-response"></a>API-Antwort für die Bing-Entitätssuche
 
-Die API-Antwort enthält ein [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse)-Objekt. Wenn Bing eine relevante Entität oder einen relevanten Ort findet, enthält das Objekt das `entities`-Feld, das `places`-Feld oder beide Felder. Andernfalls enthält das Antwortobjekt keins der Felder.
+Die API-Antwort enthält ein [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse)-Objekt. Wenn Bing eine relevante Entität oder einen relevanten Ort findet, enthält das Objekt das `entities`-Feld, das `places`-Feld oder beide Felder. Andernfalls enthält das Antwortobjekt keins der Felder.
 > [!NOTE]
 > Antworten für Entitäten unterstützen verschiedene Märkte, aber die Antworten für Orte unterstützen nur Standorte von US-Unternehmen. 
 
-Das `entities`-Feld ist ein [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)-Objekt, das eine Liste von [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity)-Objekten enthält (siehe `value`-Feld). Die Liste kann eine einzelne dominante Entität, mehrere Entitäten zur genaueren Bestimmung oder beides enthalten. 
+Das `entities`-Feld ist ein [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)-Objekt, das eine Liste von [Entity](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity)-Objekten enthält (siehe `value`-Feld). Die Liste kann eine einzelne dominante Entität, mehrere Entitäten zur genaueren Bestimmung oder beides enthalten. 
 
 Eine dominante Entität wird zurückgegeben, wenn Bing sie für die einzige Entität hält, die die Anforderung erfüllt (es gibt keine Mehrdeutigkeit dahingehend, welche Entität die Anforderung erfüllt). Wenn mehrere Entitäten die Anforderung erfüllen könnten, enthält die Liste mehrere Entitäten zur genaueren Bestimmung. Wenn die Anforderung z.B. den generischen Titel eines Franchiseangebots für einen Kinofilm verwendet, enthält die Liste wahrscheinlich Entitäten zur genaueren Bestimmung. Wenn die Anforderung jedoch einen spezifischen Titel aus dem Franchiseangebot angibt, enthält die Liste wahrscheinlich eine einzelne dominante Entität.
 
-Zu Entitäten gehören bekannte Persönlichkeiten wie Sänger, Schauspieler, Sportler, Models usw., Orte und Sehenswürdigkeiten wie Mount Rainier im Nordwesten der USA oder das Lincoln Memorial sowie Dinge wie eine Banane, eine Hunderasse, ein Buchtitel oder der Titel eines Kinofilms. Das Feld [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) enthält Hinweise, die den Entitätstyp identifizieren. Das Feld weist also darauf hin, ob es sich um eine Person, einen Film, ein Tier oder eine Sehenswürdigkeit handelt. Eine Liste aller möglichen Typen finden Sie unter [Entitätstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+Zu Entitäten gehören bekannte Persönlichkeiten wie Sänger, Schauspieler, Sportler, Models usw., Orte und Sehenswürdigkeiten wie Mount Rainier im Nordwesten der USA oder das Lincoln Memorial sowie Dinge wie eine Banane, eine Hunderasse, ein Buchtitel oder der Titel eines Kinofilms. Das Feld [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) enthält Hinweise, die den Entitätstyp identifizieren. Das Feld weist also darauf hin, ob es sich um eine Person, einen Film, ein Tier oder eine Sehenswürdigkeit handelt. Eine Liste aller möglichen Typen finden Sie unter [Entitätstypen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -174,9 +174,9 @@ Wenn Sie die Entitätsinformationen anzeigen (Name, Beschreibung und Bild), müs
 
 ## <a name="find-places"></a>Suchen nach Orten
 
-Das `places`-Feld ist ein [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)-Objekt, das eine Liste von [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place)-Objekten enthält (weitere Informationen siehe [Entitätstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)). Die Liste enthält mindestens eine lokale Entität, die die Anforderung erfüllt.
+Das `places`-Feld ist ein [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)-Objekt, das eine Liste von [Place](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#place)-Objekten enthält (weitere Informationen siehe [Entitätstypen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)). Die Liste enthält mindestens eine lokale Entität, die die Anforderung erfüllt.
 
-Orte umfassen Restaurants, Hotels oder lokale Geschäfte. Das Feld [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) enthält Hinweise, die den Typ der lokalen Entität identifizieren. Die Liste enthält Hinweise wie z.B. „Ort“, „lokales Geschäft“ oder „Restaurant“. Jeder nachfolgende Hinweis im Array grenzt den Entitätstyp weiter ein. Eine Liste aller möglichen Typen finden Sie unter [Entitätstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+Orte umfassen Restaurants, Hotels oder lokale Geschäfte. Das Feld [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) enthält Hinweise, die den Typ der lokalen Entität identifizieren. Die Liste enthält Hinweise wie z.B. „Ort“, „lokales Geschäft“ oder „Restaurant“. Jeder nachfolgende Hinweis im Array grenzt den Entitätstyp weiter ein. Eine Liste aller möglichen Typen finden Sie unter [Entitätstypen](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -189,7 +189,7 @@ Orte umfassen Restaurants, Hotels oder lokale Geschäfte. Das Feld [entityPresen
 > [!NOTE]
 > Antworten für Entitäten unterstützen verschiedene Märkte, aber die Antworten für Orte unterstützen nur Standorte von US-Unternehmen. 
 
-Standortbezogene Entitätsabfragen wie z.B. *Restaurant in meiner Nähe* erfordern den Standort des Benutzers, um exakte Ergebnisse zu liefern. Ihre Anforderungen sollten immer die Header „X-Search-Location“ und „X-MSEdge-ClientIP“ verwenden, um den Standort des Benutzers anzugeben. Wenn Bing davon ausgeht, dass der Standort des Benutzers nützlich für die Abfrage ist, legt es das `askUserForLocation`-Feld von [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) auf **TRUE** fest. 
+Standortbezogene Entitätsabfragen wie z.B. *Restaurant in meiner Nähe* erfordern den Standort des Benutzers, um exakte Ergebnisse zu liefern. Ihre Anforderungen sollten immer die Header „X-Search-Location“ und „X-MSEdge-ClientIP“ verwenden, um den Standort des Benutzers anzugeben. Wenn Bing davon ausgeht, dass der Standort des Benutzers nützlich für die Abfrage ist, legt es das `askUserForLocation`-Feld von [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) auf **TRUE** fest. 
 
 ```json
 {
@@ -290,7 +290,7 @@ Im folgenden Beispiel enthält die Regel `LinkAttribution` das Feld `targetPrope
 
 ### <a name="license-attribution"></a>Lizenzzuordnung
 
-Wenn die Liste der vertraglichen Regeln eine [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution)-Regel enthält, müssen Sie den Hinweis in der Zeile anzeigen, die unmittelbar auf den Inhalt folgt, für den die Lizenz gilt. Die `LicenseAttribution`-Regel verwendet das Feld `targetPropertyName`, um die Eigenschaft anzugeben, für die die Lizenz gilt.
+Wenn die Liste der vertraglichen Regeln eine [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#licenseattribution)-Regel enthält, müssen Sie den Hinweis in der Zeile anzeigen, die unmittelbar auf den Inhalt folgt, für den die Lizenz gilt. Die `LicenseAttribution`-Regel verwendet das Feld `targetPropertyName`, um die Eigenschaft anzugeben, für die die Lizenz gilt.
 
 Nachfolgend sehen Sie ein Beispiel, das eine `LicenseAttribution`-Regel enthält.
 
@@ -300,7 +300,7 @@ Der von Ihnen angezeigte Lizenzhinweis muss einen Link zu der Website enthalten,
 
 ### <a name="link-and-text-attribution"></a>Link- und Textzuordnung
 
-Die Regeln [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) und [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) werden normalerweise verwendet, um den Anbieter der Daten zu identifizieren. Das Feld `targetPropertyName` bezeichnet das Feld, für das die Regel gilt.
+Die Regeln [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#linkattribution) und [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#textattribution) werden normalerweise verwendet, um den Anbieter der Daten zu identifizieren. Das Feld `targetPropertyName` bezeichnet das Feld, für das die Regel gilt.
 
 Zum Zuordnen der Anbieter fügen Sie eine Zeile ein, die unmittelbar auf den Inhalt folgt, für den die Zuordnungen gelten (z.B. das Zielfeld). Die Zeile sollte eindeutig gekennzeichnet sein, um anzugeben, dass die Anbieter die Quelle der Daten sind. Beispiel: „Daten von: contoso.com“. Im Fall von `LinkAttribution`-Regeln müssen Sie einen Link zur Website des Anbieters erstellen.
 
@@ -310,7 +310,7 @@ Nachfolgend sehen Sie ein Beispiel, das `LinkAttribution`- und `TextAttribution`
 
 ### <a name="media-attribution"></a>Medienzuordnung
 
-Wenn die Entität ein Bild enthält und Sie dieses anzeigen, müssen Sie einen Link bereitstellen, über den Benutzer mit einem Klick zur Website des Anbieters gelangen. Wenn die Entität eine [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution)-Regel enthält, verwenden Sie die URL der Regel, um den Link zum direkten Klicken zu erstellen. Verwenden Sie andernfalls die URL, die im `provider`-Feld des Bilds enthalten ist, um den Link zum direkten Klicken zu erstellen.
+Wenn die Entität ein Bild enthält und Sie dieses anzeigen, müssen Sie einen Link bereitstellen, über den Benutzer mit einem Klick zur Website des Anbieters gelangen. Wenn die Entität eine [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mediaattribution)-Regel enthält, verwenden Sie die URL der Regel, um den Link zum direkten Klicken zu erstellen. Verwenden Sie andernfalls die URL, die im `provider`-Feld des Bilds enthalten ist, um den Link zum direkten Klicken zu erstellen.
 
 Nachfolgend sehen Sie ein Beispiel, das das `provider`-Feld eines Bilds und vertragliche Regeln enthält. Da das Beispiel die vertragliche Regel enthält, ignorieren Sie das `provider`-Feld des Bilds und wenden die `MediaAttribution`-Regel an.
 

@@ -139,6 +139,8 @@
                   href: scenario-protected-web-api-app-registration.md
                 - name: Codekonfiguration
                   href: scenario-protected-web-api-app-configuration.md
+                - name: Überprüfung von Bereichen oder App-Rollen
+                  href: scenario-protected-web-api-verification-scope-app-roles.md
                 - name: Überführen in die Produktion
                   href: scenario-protected-web-api-production.md
             - name: 'Web-API, die Web-APIs aufruft'
@@ -235,10 +237,14 @@
               href: msal-js-sso.md
             - name: Verhalten der Eingabeaufforderung (JS)
               href: msal-js-prompt-behavior.md
-            - name: Angeben eines eigenen HttpClient-Elements (.NET)
-              href: msal-net-provide-httpclient.md
+            - name: "AD\_FS-Unterstützung (.NET)"
+              href: msal-net-adfs-support.md
             - name: Integration in Azure AD B2C
-              href: msal-b2c-overview.md
+              items:
+                - name: JavaScript
+                  href: msal-b2c-overview.md
+                - name: .NET
+                  href: msal-net-aad-b2c-considerations.md
             - name: Überlegungen und bekannte Probleme
               items:
                 - name: MSAL.NET
@@ -253,8 +259,6 @@
                       href: msal-net-xamarin-ios-considerations.md
                     - name: Universelle Windows-Plattform
                       href: msal-net-uwp-considerations.md
-                    - name: Anwenden einer AAD B2C-Richtlinie
-                      href: msal-net-aad-b2c-considerations.md
                 - name: MSAL.js
                   items:
                     - name: Überlegungen zur Verwendung von IE
@@ -295,6 +299,8 @@
           items:
             - name: Anwendungen und Dienstprinzipale
               href: app-objects-and-service-principals.md
+            - name: Wie und warum werden Apps zu Azure AD hinzugefügt?
+              href: active-directory-how-applications-are-added.md
             - name: Apps mit einem Mandanten und mit mehreren Mandanten
               href: single-and-multi-tenant-apps.md
         - name: Berechtigungen und Zustimmung
@@ -360,6 +366,14 @@
                   href: msal-net-instantiate-confidential-client-config-options.md
                 - name: Erhalten der Zustimmung für verschiedene Ressourcen
                   href: msal-net-user-gets-consent-for-multiple-resources.md
+                - name: Angeben eines eigenen HttpClient-Elements
+                  href: msal-net-provide-httpclient.md
+            - name: MSAL.js
+              items:
+                - name: Vermeiden des erneuten Ladens von Seiten
+                  href: msal-js-avoid-page-reloads.md
+                - name: Übergeben von benutzerdefinierten Zuständen in Authentifizierungsanforderungen
+                  href: msal-js-pass-custom-state-authentication-request.md
         - name: Arbeiten mit Visual Studio
           items:
             - name: Verwenden des verbundenen Active Directory-Diensts

@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596006"
 ---
 # <a name="get-started-with-device-management-java"></a>Erste Schritte mit der Geräteverwaltung (Java)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 08794a7605ffbd3cd5d4b021b783f32afb190727
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370447"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861580"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Gewusst wie: Aktivieren der Kennwortzurücksetzung unter Windows 7, 8 und 8.1
 
@@ -60,6 +60,8 @@ Sie müssen sich für SSPR registrieren, bevor Sie den Link „Kennwort vergesse
 ![Zusätzliche Sicherheitsinformationen sind erforderlich, um Ihr Kennwort zurückzusetzen.](media/howto-sspr-windows-7-8/windows-7-sspr-need-security-info.png)
 
 Die Verwendung der Microsoft Authenticator-App für Benachrichtigungen und Codes zum Zurücksetzen Ihres Kennworts ist in dieser ersten Version nicht möglich. Benutzer müssen alternative Methoden registriert haben, die die Anforderungen Ihrer Richtlinie erfüllen.
+
+Wenn auf Ihrem Computer mehr als ein Drittanbieter von Anmeldeinformationen aktiviert ist, sehen Benutzer mehrere Benutzerprofile auf dem Anmeldebildschirm.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 

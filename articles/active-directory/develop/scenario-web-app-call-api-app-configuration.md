@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a5e1ed89b6330a0b6a49cb20d8bf0ef3587d48
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784941"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Web-App zum Aufruf von Web-APIs – Codekonfiguration
 
@@ -184,7 +184,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>MSAL.NET-Tokencache für eine ASP.NET-/ASP.NET Core-Web-App
 
-In Web-Apps (oder eigentlich Web-APIs) unterscheidet sich die Implementierung des Tokencaches von den Tokencache-Implementierungen von Desktopanwendungen (die häufig [dateibasiert](scenario-desktop-acquire-token.md#file-based-token-cache) sind). Dabei kann die ASP.NET-/ASP.NET Core-Sitzung, ein Redis Cache, eine Datenbank oder sogar Azure-Blobspeicher verwendet werden. Im Codeausschnitt darüber ist dies das Objekt des `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);`-Methodenaufrufs, von dem ein Cachedienst gebunden wird. Die Details zu den genauen Abläufen würden den Rahmen dieses Szenarioleitfadens überschreiten, aber Links werden unten bereitgestellt.
+In Web-Apps (oder eigentlich Web-APIs) unterscheidet sich die Implementierung des Tokencaches von den Tokencache-Implementierungen von Desktopanwendungen (die häufig [dateibasiert](scenario-desktop-acquire-token.md#file-based-token-cache) sind). Dabei kann die ASP.NET-/ASP.NET Core-Sitzung, ein Redis Cache, eine Datenbank oder sogar Azure Blob Storage verwendet werden. Im Codeausschnitt darüber ist dies das Objekt des `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);`-Methodenaufrufs, von dem ein Cachedienst gebunden wird. Die Details zu den genauen Abläufen würden den Rahmen dieses Szenarioleitfadens überschreiten, aber Links werden unten bereitgestellt.
 
 > [!IMPORTANT]
 > Ein wichtiger Aspekt ist, dass für Web-Apps und Web-APIs ein Tokencache pro Benutzer (pro Konto) verfügbar sein muss. Sie müssen den Tokencache für jedes Konto serialisieren.

@@ -4,14 +4,14 @@ description: Konfigurieren und Verwalten der Gültigkeitsdauer in Azure Cosmos D
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/14/2018
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003519"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244774"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurieren der Gültigkeitsdauer in Azure Cosmos DB
 

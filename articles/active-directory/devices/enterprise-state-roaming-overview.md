@@ -18,11 +18,11 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3a2a81bd8aa3fc99d033564e8a8782c79261305
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521600"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60353141"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>Was ist Enterprise State Roaming?
 

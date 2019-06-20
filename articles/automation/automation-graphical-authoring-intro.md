@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60740671"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafische Erstellung in Azure Automation
 
@@ -44,7 +44,7 @@ Die Canvas ist der Bereich, in dem Sie Ihr Runbook entwerfen. Sie fügen über d
 
 Über das Steuerelement "Bibliothek" wählen Sie die [Aktivitäten](#activities) aus, die Sie Ihrem Runbook hinzufügen möchten. Sie fügen diese zur Canvas hinzu, wenn Sie sie mit anderen Aktivitäten verbinden. Das Steuerelement enthält vier Abschnitte, die in der folgenden Tabelle beschrieben werden:
 
-| Abschnitt | BESCHREIBUNG |
+| `Section` | BESCHREIBUNG |
 |:--- |:--- |
 | Cmdlets |Enthält alle Cmdlets, die in Ihrem Runbook verwendet werden können. Die Cmdlets sind nach Modul angeordnet. Es sind alle Module verfügbar, die Sie in Ihrem Automation-Konto installiert haben. |
 | Runbooks |Umfasst die Runbooks in Ihrem Automation-Konto. Diese Runbooks können der Canvas hinzugefügt und als untergeordnete Runbooks verwendet werden. Es werden nur Runbooks angezeigt, die den gleichen Kerntyp besitzen wie das gerade bearbeitete Runbook: Für grafische Runbooks werden nur PowerShell-basierte Runbooks angezeigt, für grafische PowerShell-Workflow-Runbooks nur PowerShell-Workflow-basierte Runbooks. |
@@ -89,7 +89,7 @@ Wenn ein Runbook noch nicht veröffentlicht wurde, weist es den Status **Neu**au
 
 Sie haben außerdem die Möglichkeit, ein Runbook auf die veröffentlichte Version zurückzusetzen. Auf diese Weise werden alle Änderungen seit der letzten Veröffentlichung verworfen, und die Entwurfsversion des Runbooks wird durch die veröffentlichte Version ersetzt.
 
-## <a name="activities"></a>Aktivitäten
+## <a name="activities"></a>activities
 
 Aktivitäten sind die Bausteine eines Runbooks. Bei einer Aktivität kann es sich um ein PowerShell-Cmdlet, um ein untergeordnetes Runbook oder um eine Workflowaktivität handeln. Sie fügen dem Runbook eine Aktivität hinzu, indem Sie mit der rechten Maustaste im Steuerelement „Bibliothek“ auf das Runbook klicken und die Option **Zur Canvas hinzufügen**auswählen. Anschließend können Sie die Aktivität per Drag & Drop an einer beliebigen Stelle auf der Canvas platzieren. Die Position der Aktivität auf der Canvas hat keinerlei Einfluss auf den Vorgang im Runbook. Sie können das Layout Ihres Runbooks so gestalten, wie es Ihnen zur visuellen Darstellung der Vorgänge am geeignetsten erscheint.
 

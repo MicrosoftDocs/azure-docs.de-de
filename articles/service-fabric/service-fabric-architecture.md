@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
 ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664589"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62097843"
 ---
 # <a name="service-fabric-architecture"></a>Service Fabric-Architektur
 Service Fabric besteht aus Subsystemen, die auf verschiedenen Ebenen liegen. Diese Subsysteme ermöglichen Ihnen, Anwendungen mit folgenden Eigenschaften zu schreiben:

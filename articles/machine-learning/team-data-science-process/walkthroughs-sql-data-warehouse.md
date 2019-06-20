@@ -12,11 +12,11 @@ ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c545e73e51ea33db1ced546bf47465197b3fb8e4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60589126"
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Exemplarische Data Science-Vorgehensweisen für SQL Data Warehouse unter Verwendung von T-SQL und Python in Azure
 

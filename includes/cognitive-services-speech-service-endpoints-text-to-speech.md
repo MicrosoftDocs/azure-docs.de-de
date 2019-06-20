@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: d5a4b3a07854c2664de7ec60f3677b666798a9bd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237084"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178381"
 ---
 ### <a name="standard-and-neural-voices"></a>Standard- und neuronale Stimmen
 
@@ -19,21 +19,21 @@ Verwenden Sie diese Tabelle, um die Verfügbarkeit von Standardstimmen und neuro
 |--------|----------|-----------------|---------------|
 | Australien (Osten) | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 | Kanada, Mitte | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| USA (Mitte) | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
-| Asien, Osten | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
+| USA (Mitte) | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
+| Asien, Osten | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
 | USA (Ost) | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| USA (Ost) 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
-| Frankreich, Mitte | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
+| USA (Ost) 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
+| Frankreich, Mitte | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
 | Indien, Mitte | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| Japan, Osten | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
-| Korea, Mitte | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
-| USA Nord Mitte | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
-| Nordeuropa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
+| Japan, Osten | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
+| Korea, Mitte | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
+| USA Nord Mitte | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
+| Nordeuropa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
 | USA Süd Mitte | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 | Asien, Südosten | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 | UK, Süden | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 | Europa, Westen | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| USA (Westen) | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein  |
+| USA (Westen) | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nein |
 | USA, Westen 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 
 ### <a name="custom-voices"></a>Benutzerdefinierte Stimmen

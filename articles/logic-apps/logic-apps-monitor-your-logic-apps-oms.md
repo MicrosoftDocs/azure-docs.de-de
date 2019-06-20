@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192461"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62106209"
 ---
 # <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Überwachen von Logik-Apps mit Azure Monitor-Protokollen
 

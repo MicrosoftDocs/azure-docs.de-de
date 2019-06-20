@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
-ms.openlocfilehash: 02059409000ee5b68fbcb8695f580980c95effe6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5e755a528d91d6321f431f256eafdcb01e67d601
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60399016"
 ---
 # <a name="use-ip-filters"></a>Verwenden von IP-Filtern
 

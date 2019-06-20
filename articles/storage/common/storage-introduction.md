@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4a6a6249f3edca30ab3d3f9a213b4282b4323d15
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510938"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258338"
 ---
 # <a name="introduction-to-azure-storage"></a>Einführung in Azure Storage
 
@@ -73,7 +73,7 @@ Weitere Informationen zu Azure Files finden Sie unter [Einführung in Azure File
 
 Der Azure Queue-Dienst wird zum Speichern und Abrufen von Nachrichten verwendet. Warteschlangennachrichten können eine Größe von bis zu 64 KB haben, und eine Warteschlange kann Millionen von Nachrichten enthalten. Warteschlangen dienen im Allgemeinen zum Speichern von Listen mit Nachrichten, die asynchron verarbeitet werden sollen.
 
-Beispiel: Ihre Kunden sollen Bilder hochladen können, und Sie möchten Miniaturbilder für jedes Bild erstellen. Sie können Kunden warten lassen, bis die Miniaturbilder beim Hochladen der Bilder erstellt werden. Alternativ können Sie eine Warteschlange verwenden. Wenn der Kunde den Upload abgeschlossen hat, schreiben Sie eine Nachricht an die Warteschlange. Legen Sie dann eine Azure-Funktion fest, die die Nachricht aus der Warteschlange abruft und die Miniaturbilder erstellt. Alle Schritte dieses Verarbeitungsvorgangs können separat skaliert werden, sodass Sie ihn für Ihre Zwecke optimieren können.
+Beispiel: Ihre Kunden sollen Bilder hochladen können, und Sie möchten Miniaturbilder für jedes Bild erstellen. Sie können Kunden warten lassen, bis die Miniaturbilder beim Hochladen der Bilder erstellt werden. Alternativ können Sie eine Warteschlange verwenden. Wenn der Kunde seinen Upload abgeschlossen hat, schreiben Sie eine Nachricht an die Warteschlange. Legen Sie dann eine Azure-Funktion fest, die die Nachricht aus der Warteschlange abruft und die Miniaturbilder erstellt. Alle Schritte dieses Verarbeitungsvorgangs können separat skaliert werden, sodass Sie ihn für Ihre Zwecke optimieren können.
 
 Weitere Informationen zu Azure-Warteschlangen finden Sie unter [Einführung in Warteschlangen](../queues/storage-queues-introduction.md).
 
@@ -85,7 +85,9 @@ Weitere Informationen zu Table Storage finden Sie unter [Übersicht über Azure 
 
 ## <a name="disk-storage"></a>Datenträgerspeicher
 
-Azure Storage umfasst auch die Funktionen für verwaltete und nicht verwaltete Datenträger, die von virtuellen Computern verwendet werden. Weitere Informationen zu diesen Features finden Sie in der [Microsoft Azure-Dokumentation](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
+Ein verwalteter Azure-Datenträger ist eine virtuelle Festplatte (Virtual Hard Disk, VHD). Sie können sich dies wie einen physischen Datenträger in einem lokalen Server vorstellen, aber der Unterschied besteht darin, dass er virtualisiert ist. Verwaltete Azure-Datenträger werden als Seitenblobs gespeichert, bei denen es sich in Azure um ein zufälliges E/A-Speicherobjekt handelt. Wir bezeichnen einen verwalteten Datenträger als „verwaltet“, weil es eine Abstraktion ist, die sich über Seitenblobs, Blobcontainer und Azure-Speicherkonten erstreckt. Bei verwalteten Datenträgern müssen Sie nicht mehr tun, als den Datenträger bereitzustellen. Azure übernimmt dann den Rest.
+
+Weitere Informationen zu verwalteten Datenträgern finden Sie in der [Einführung in Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Speicherkontentypen
 
@@ -158,7 +160,7 @@ Auf Azure Storage-Ressourcen kann über jede Sprache zugegriffen werden, die fü
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Verweise auf die Azure Storage-Datenverschiebungs-API und Bibliotheken
 * [Import/Export-Storage-Dienst – REST-API](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [Storage-Datenverschiebung – Clientbibliothek für .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
+* [Storage-Datenverschiebung – Clientbibliothek für .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Tools und Hilfsprogramme
 * [Azure PowerShell-Cmdlets für Storage](https://docs.microsoft.com/powershell/module/az.storage)

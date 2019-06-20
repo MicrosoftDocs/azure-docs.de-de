@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
 ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790154"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60306483"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilerstellung für ASP.NET Core-Azure Linux-Web-Apps mit Application Insights Profiler
 
@@ -122,8 +122,8 @@ Weitere Bereitstellungsoptionen finden Sie in [diesem Artikel](https://docs.micr
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
-    * Verwenden Sie den **username (Benutzernamen)**, den Sie verwendet haben, um die Anmeldeinformationen für die Bereitstellung zu erstellen.
-    * Verwenden Sie den **app-name (App-Namen)**, den Sie verwendet haben, um die Web-App mithilfe von App Service unter Linux zu erstellen.
+    * Verwenden Sie den **username (Benutzernamen)** , den Sie verwendet haben, um die Anmeldeinformationen für die Bereitstellung zu erstellen.
+    * Verwenden Sie den **app-name (App-Namen)** , den Sie verwendet haben, um die Web-App mithilfe von App Service unter Linux zu erstellen.
 
 2. Stellen Sie das Projekt durch Pushen der Änderungen in Azure bereit:
 

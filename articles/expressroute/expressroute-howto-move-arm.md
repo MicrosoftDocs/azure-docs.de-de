@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7bd554896d739a567d04e7b978fba72960762805
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60365178"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Umstellen von ExpressRoute-Verbindungen vom klassischen auf das Resource Manager-Bereitstellungsmodell mithilfe von PowerShell
 
@@ -41,7 +41,7 @@ Melden Sie sich bei der klassischen Azure-Umgebung an, und rufen Sie den Diensts
    Add-AzureAccount
    ```
 
-2.  Wählen Sie das entsprechende Azure-Abonnement.
+2. Wählen Sie das entsprechende Azure-Abonnement.
 
    ```powershell
    Select-AzureSubscription "<Enter Subscription Name here>"
@@ -70,7 +70,7 @@ Melden Sie sich bei der Resource Manager-Umgebung an, und erstellen Sie eine neu
    Connect-AzAccount
    ```
 
-2.  Wählen Sie das entsprechende Azure-Abonnement.
+2. Wählen Sie das entsprechende Azure-Abonnement.
 
    ```powershell
    Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62129843"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Notfallwiederherstellung für eine mehrinstanzenfähige SaaS-Anwendung über Datenbankgeoreplikation
 
@@ -90,7 +90,7 @@ Später, in einem separaten Rückführungsschritt, führen Sie ein Failover des 
 ## <a name="review-the-healthy-state-of-the-application"></a>Überprüfen des ordnungsgemäßen Zustands der Anwendung
 
 Bevor Sie den Wiederherstellungsprozess starten, sollten Sie den normalen ordnungsgemäßen Zustand der Anwendung überprüfen.
-1. Öffnen Sie in Ihrem Webbrowser den Wingtip Tickets-Event Hub (http://events.wingtip-dpt.&lt;Benutzer&gt;.trafficmanager.net). Ersetzen Sie dabei &lt;Benutzer&gt; durch den Benutzerwert Ihrer Bereitstellung.
+1. Öffnen Sie in Ihrem Webbrowser den Wingtip Tickets-Event Hub (http://events.wingtip-dpt.&lt ;Benutzer&gt;.trafficmanager.net). Ersetzen Sie dabei &lt; Benutzer&gt; durch den Benutzerwert Ihrer Bereitstellung.
     * Scrollen Sie zum unteren Rand der Seite, und beachten Sie den Katalogservernamen und den Standort in der Fußzeile. Der Standort entspricht die Region, in der Sie die App bereitgestellt haben.
     *TIPP: Zeigen Sie mit der Maus auf den Standort, um die Anzeige zu vergrößern.* 
     ![Ordnungsgemäßer Zustand des Veranstaltungshubs in der ursprünglichen Region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -207,7 +207,7 @@ Solange der Anwendungsendpunkt in Traffic Manager deaktiviert ist, ist die Anwen
  
      ![Veranstaltungshub (Events Hub) ist offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * Wenn Sie die „Veranstaltungen“-Seite eines Mandanten, der offline ist, direkt öffnen, wird auf der Seite eine „Mandant ist offline“-Benachrichtigung angezeigt. Versuchen Sie beispielsweise, wenn Contoso Concert Hall offline ist, „http://events.wingtip-dpt.&lt;Benutzer&gt;.trafficmanager.net/contosoconcerthall“ zu öffnen.![Contoso-Seite für offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Wenn Sie die „Veranstaltungen“-Seite eines Mandanten, der offline ist, direkt öffnen, wird auf der Seite eine „Mandant ist offline“-Benachrichtigung angezeigt. Versuchen Sie beispielsweise, wenn Contoso Concert Hall offline ist, „http://events.wingtip-dpt.&lt ;Benutzer&gt;.trafficmanager.net/contosoconcerthall“ zu öffnen.![ Contoso-Seite für offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Bereitstellen eines neuen Mandanten in der Wiederherstellungsregion
 Schon bevor für alle vorhandenen Mandantendatenbanken ein Failover ausgeführt wurde, können Sie neue Mandanten in der Wiederherstellungsregion bereitstellen.  
@@ -256,7 +256,7 @@ In dieser Aufgabe aktualisieren Sie eine der Mandantendatenbanken.
 2. Legen Sie in *PowerShell ISE* im Skript „...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1“ den folgenden Wert fest:
     * **$DemoScenario = 5**: Löschen einer Veranstaltung aus einem Mandanten in der Wiederherstellungsregion
 3. Drücken Sie **F5**, um das Skript auszuführen.
-4. Aktualisieren Sie die Contoso Concert Hall-Seite für Veranstaltungen (http://events.wingtip-dpt.&lt;Benutzer&gt;.trafficmanager.net/contosoconcerthall – ersetzen Sie &lt;Benutzer&gt; durch den Benutzerwert Ihrer Bereitstellung). Sie können sehen, dass die letzte Veranstaltung gelöscht wurde.
+4. Aktualisieren Sie die Contoso Concert Hall-Seite für Veranstaltungen (http://events.wingtip-dpt.&lt ;Benutzer&gt;.trafficmanager.net/contosoconcerthall – ersetzen Sie &lt; Benutzer&gt; durch den Benutzerwert Ihrer Bereitstellung). Sie können sehen, dass die letzte Veranstaltung gelöscht wurde.
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>Zurückführen der Anwendung in ihre ursprüngliche Produktionsregion
 
@@ -289,7 +289,7 @@ Nehmen Sie nun an, dass der Ausfall behoben ist, und führen Sie das Rückführu
     * Drücken Sie **F5**, um das Wiederherstellungsskript in einem neuen PowerShell-Fenster auszuführen.  Die Rückführung dauert einige Minuten und kann im PowerShell-Fenster überwacht werden.
     ![Rückführungsprozess](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Aktualisieren Sie während der Skriptausführung die Seite für den Event Hub (http://events.wingtip-dpt.&lt;Benutzer&gt;.trafficmanager.net).
+4. Aktualisieren Sie während der Skriptausführung die Seite für den Event Hub (http://events.wingtip-dpt.&lt ;Benutzer&gt;.trafficmanager.net).
     * Sie können sehen, dass alle Mandanten im gesamten Verlauf dieses Prozesses online und für Zugriffe verfügbar sind.
 
 5. Nach Abschluss der Rückführung aktualisieren Sie den Veranstaltungshub (Events Hub), und öffnen Sie die Hawthorn Hall-Seite für Veranstaltungen. Sie können sehen, dass diese Datenbank in ihre ursprüngliche Region zurückgeführt wurde.

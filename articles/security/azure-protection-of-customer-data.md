@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104489"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65603135"
 ---
 # <a name="azure-customer-data-protection"></a>Schutz der Azure-Kundendaten   
 Der Zugriff auf Kundendaten durch Microsoft-Betriebs- und -Supportpersonal wird standardmäßig verweigert. Wenn Zugriff auf Kundendaten gewährt wird, ist eine Genehmigung durch Führungskräfte erforderlich, und der Zugriff wird sorgfältig verwaltet und protokolliert. Die Zugriffssteuerungsanforderungen werden in der folgenden Azure-Sicherheitsrichtlinie definiert:
@@ -46,10 +46,10 @@ Azure bietet Kunden verstärkte Datensicherheitsoptionen sowohl standardmäßig 
 
 **Verschlüsselung**: Die Verschlüsselung von Daten im Speicher und während der Übertragung kann von Kunden als bewährte Methode zum Sicherstellen der Vertraulichkeit und Integrität der Daten bereitgestellt werden. Kunden können auf einfache Weise ihre Azure-Clouddienste so konfigurieren, dass sie mit SSL die Kommunikation über das Internet und sogar zwischen ihren von Azure gehosteten VMs schützen.
 
-**Datenredundanz**: Microsoft stellt sicher, dass Daten im Fall eines Cyberangriffs oder einer physischen Beschädigung eines Rechenzentrums geschützt sind. Kunden können sich für Folgendes entscheiden:
+**Data redundancy** (Datenredundanz): Microsoft stellt sicher, dass Daten im Fall eines Cyberangriffs oder einer physischen Beschädigung eines Rechenzentrums geschützt sind. Kunden können sich für Folgendes entscheiden:
 
-- Speicherung im Land aus Compliance- und Latenzgründen
-- Speicherung außerhalb des Lands aus Sicherheitsgründen und zwecks Notfallwiederherstellung
+- Speicherung im Land bzw. in der Region aus Compliance- und Latenzgründen
+- Speicherung außerhalb des Lands bzw. der Region aus Sicherheitsgründen und zwecks Notfallwiederherstellung
 
 Daten können aus Redundanzgründen in einer ausgewählten geografischen Region repliziert werden, werden jedoch nicht außerhalb dieser Region übertragen. Kunden haben mehrere Optionen für die Replikation von Daten, einschließlich der Anzahl von Kopien und der Anzahl und des Standorts der Replikationsrechenzentren.
 
@@ -57,7 +57,7 @@ Wenn Sie ein Speicherkonto erstellen, wählen Sie eine der folgenden Replikation
 
 - **Lokal redundanter Speicher (LRS):**  Lokal redundanter Speicher verwaltet drei Kopien Ihrer Daten. LRS wird innerhalb eines einzelnen Standorts dreimal in einer einzelnen Region repliziert. Der LRS schützt Ihre Daten vor gewöhnlichen Hardwareausfällen, jedoch nicht vor dem Ausfall eines einzelnen Standorts.
 - **Zonenredundanter Speicher (ZRS):**  Zonenredundanter Speicher verwaltet drei Kopien Ihrer Daten. ZRS wird dreimal an zwei bis drei Standorten repliziert und bietet dann eine höhere Stabilität als LRS. Die Replikation erfolgt in einer einzelnen Region oder in zwei Regionen. Der ZRS gewährleistet die Dauerhaftigkeit Ihrer Daten innerhalb einer einzelnen Region.
-- **Georedundanter Speicher (Geo-Redundant Storage, GRS)**: Nach der Erstellung Ihres Speicherkontos ist geografisch redundanter Speicher standardmäßig aktiviert. Mit GRS werden Ihre Daten dreimal innerhalb der primären Region und dreimal in einer sekundären Region repliziert, die hunderte Kilometer von der primären Region entfernt ist. Mit GRS werden Ihre Daten dreimal in der primären Region repliziert. Ihre Daten werden auch dreimal in einer sekundären Region hunderte von Kilometern von der primären Region entfernt repliziert, wodurch höchste Stabilität erreicht wird. Im Falle eines Ausfalls in der primären Region wird für Azure Storage ein Failover auf die sekundäre Region ausgeführt. Durch den GRS wird die Dauerhaftigkeit Ihrer Daten in zwei separaten Regionen gewährleistet.
+- **Georedundanter Speicher (Geo-Redundant Storage, GRS)** : Nach der Erstellung Ihres Speicherkontos ist geografisch redundanter Speicher standardmäßig aktiviert. Mit GRS werden Ihre Daten dreimal innerhalb der primären Region und dreimal in einer sekundären Region repliziert, die hunderte Kilometer von der primären Region entfernt ist. Mit GRS werden Ihre Daten dreimal in der primären Region repliziert. Ihre Daten werden auch dreimal in einer sekundären Region hunderte von Kilometern von der primären Region entfernt repliziert, wodurch höchste Stabilität erreicht wird. Im Falle eines Ausfalls in der primären Region wird für Azure Storage ein Failover auf die sekundäre Region ausgeführt. Durch den GRS wird die Dauerhaftigkeit Ihrer Daten in zwei separaten Regionen gewährleistet.
 
 **Datenvernichtung**: Wenn Kunden Daten löschen oder Azure verlassen, befolgt Microsoft strenge Standards für das Überschreiben von Speicherressourcen vor deren Wiederverwendung sowie die physische Zerstörung der außer Betrieb gesetzten Hardware. Microsoft führt eine vollständige Löschung von Daten auf Wunsch der Kunden und beim Beenden des Vertrags durch.
 

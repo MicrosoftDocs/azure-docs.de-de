@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101362"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60246898"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Registrieren Ihrer Organisation für die Verwendung von Azure Active Directory
 Registrieren Sie sich für Azure Active Directory (Azure AD) oder ein neues Microsoft Azure-Abonnement. Verwenden Sie dazu eines der folgenden Konten:

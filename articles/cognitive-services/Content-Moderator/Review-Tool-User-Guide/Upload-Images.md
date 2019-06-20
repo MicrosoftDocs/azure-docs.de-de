@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 780869c9406c48e44575d3450de3e25f45aede93
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212102"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61269846"
 ---
 # <a name="upload-images"></a>Hochladen von Bildern
 

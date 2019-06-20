@@ -3,19 +3,19 @@ title: 'Tutorial: Zuschneiden eines Bilds mithilfe des Bing Visual Search SDK'
 description: Verwenden Sie das Bing Visual Search SDK, um Erkenntnisse zu bestimmten Bildbereichen zu gewinnen.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491133"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896276"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Zuschneiden eines Bilds mithilfe des Bing Visual Search SDK für C#
 
@@ -33,7 +33,7 @@ In diesem Tutorial wird Folgendes veranschaulicht:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Eine beliebige [Visual Studio 2017](https://www.visualstudio.com/downloads/)-Edition.
+* Eine beliebige Edition von [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Unter Linux/macOS kann diese Anwendung mit [Mono](https://www.mono-project.com/) ausgeführt werden
 * Ein installiertes [NuGet-Paket für die benutzerdefinierte Suche](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0).
     - Klicken Sie im Projektmappen-Explorer in Visual Studio mit der rechten Maustaste auf Ihr Projekt, und wählen Sie im Menü **NuGet-Pakete verwalten** aus. Installieren Sie das `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-Paket. Bei der Installation des NuGet-Pakets für die benutzerdefinierte Suche werden gleichzeitig die folgenden Assemblys installiert:

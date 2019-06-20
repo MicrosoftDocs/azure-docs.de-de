@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916375"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235152"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementieren der Kennworthashsynchronisierung mit der Azure AD Connect-Synchronisierung
 In diesem Artikel finden Sie alle Informationen, die Sie benötigen, um Benutzerkennwörter aus einer lokalen Active Directory-Instanz mit einer cloudbasierten Azure Active Directory-Instanz (Azure AD) zu synchronisieren.
@@ -64,7 +64,7 @@ Im folgenden Abschnitt wird ausführlich beschrieben, wie die Kennworthashsynchr
 >Der ursprüngliche MD4-Hash wird nicht an Azure AD übertragen. Stattdessen wird der SHA256-Hash des ursprünglichen MD4-Hashs übertragen. Daher kann der Hash, wenn er in Azure AD gespeichert ist, nicht für einen lokalen Pass-the-Hash-Angriff verwendet werden.
 
 ### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>So funktioniert die Kennworthashsynchronisierung mit Azure Active Directory Domain Services
-Sie können die Kennworthashsynchronisierung auch dazu verwenden, Ihre lokalen Kennwörter mit [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) zu synchronisieren. In diesem Szenario authentifiziert die Azure Active Directory Domain Services-Instanz Ihre Benutzer in der Cloud mit allen Methoden, die auch in Ihrer lokalen Active Directory-Instanz zur Verfügung stehen. Dieses Szenario ähnelt der Verwendung des Active Directory-Migrationsprogramms in einer lokalen Umgebung.
+Sie können die Kennworthashsynchronisierung auch dazu verwenden, Ihre lokalen Kennwörter mit [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) zu synchronisieren. In diesem Szenario authentifiziert die Azure Active Directory Domain Services-Instanz Ihre Benutzer in der Cloud mit allen Methoden, die auch in Ihrer lokalen Active Directory-Instanz zur Verfügung stehen. Dieses Szenario ähnelt der Verwendung des Active Directory-Migrationsprogramms in einer lokalen Umgebung.
 
 ### <a name="security-considerations"></a>Sicherheitshinweise
 Beim Synchronisieren von Kennwörtern wird die Nur-Text-Version Ihres Kennworts gegenüber dem Kennworthashsynchronisierungs-Feature, Azure AD oder einem der zugehörigen Dienste nicht offengelegt.

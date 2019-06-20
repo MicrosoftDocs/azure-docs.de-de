@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: yegu
 ms.openlocfilehash: 318d02f5da816ae8fe2fe199b9c87b3748d5d1fc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66133013"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Verwenden des Redis-Befehlszeilentools mit Azure Cache for Redis
 
@@ -53,9 +53,9 @@ Mit Azure Cache for Redis ist nur der SSL-Port (6380) standardmäßig aktiviert.
 
     Führen Sie **stunnel GUI Start** zum Starten des Servers aus.
 
-    Klicken Sie mit der rechten Maustaste auf das Taskleistensymbol für den stunnel-Server, und klicken Sie auf **Show Log Window (Protokollfenster anzeigen)**.
+    Klicken Sie mit der rechten Maustaste auf das Taskleistensymbol für den stunnel-Server, und klicken Sie auf **Show Log Window (Protokollfenster anzeigen)** .
 
-    Klicken Sie im stunnel-Menü „Log Window“ (Protokollfenster) auf **Configuration (Konfiguration)** > **Edit Configuration (Konfiguration bearbeiten)**, um die aktuelle Konfigurationsdatei zu öffnen.
+    Klicken Sie im stunnel-Menü „Log Window“ (Protokollfenster) auf **Configuration (Konfiguration)**  > **Edit Configuration (Konfiguration bearbeiten)** , um die aktuelle Konfigurationsdatei zu öffnen.
 
     Fügen Sie den folgenden Eintrag für *redis-cli.exe* im Abschnitt **Service definitions (Dienstdefinitionen)** hinzu. Fügen Sie Ihren tatsächlichen Cachename anstelle von `yourcachename` ein. 
 
@@ -68,7 +68,7 @@ Mit Azure Cache for Redis ist nur der SSL-Port (6380) standardmäßig aktiviert.
 
     Speichern und schließen Sie die Konfigurationsdatei. 
   
-    Klicken Sie im stunnel-Menü „Log Window“ (Protokollfenster) auf **Configuration (Konfiguration)** > **Reload Configuration (Konfiguration erneut laden)**.
+    Klicken Sie im stunnel-Menü „Log Window“ (Protokollfenster) auf **Configuration (Konfiguration)**  > **Reload Configuration (Konfiguration erneut laden)** .
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Stellen Sie mit dem Redis-Befehlszeilentool eine Verbindung her.

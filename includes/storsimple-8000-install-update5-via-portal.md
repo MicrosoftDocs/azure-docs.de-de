@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171171"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178289"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>So installieren Sie ein Update über das Azure-Portal
 

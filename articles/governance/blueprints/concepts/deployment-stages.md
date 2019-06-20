@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d7000813b51fb9c9aae9a21cbded3ae0028e83f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60684691"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Phasen einer Blaupausenbereitstellung
 

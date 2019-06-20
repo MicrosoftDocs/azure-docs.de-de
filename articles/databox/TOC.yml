@@ -36,7 +36,7 @@
           items:
             - name: Lesen von Sicherheitsrichtlinien
               href: data-box-safety.md
-            - name: Nachverfolgung und Protokollierung
+            - name: Überprüfen der Nachverfolgung und Protokollierung
               href: data-box-logs.md
             - name: Überprüfen der Anforderungen
               items:
@@ -111,8 +111,16 @@
           items:
             - name: Verwalten über das Azure-Portal
               href: data-box-portal-ui-admin.md
-            - name: Problembehandlung bei Datenträger
-              href: data-box-disk-troubleshoot.md
+            - name: Problembehandlung
+              items:
+                - name: Probleme beim Entsperren
+                  href: data-box-disk-troubleshoot-unlock.md
+                - name: Probleme beim Kopieren von Daten
+                  href: data-box-disk-troubleshoot-data-copy.md
+                - name: Probleme bei der Überprüfung
+                  href: data-box-disk-troubleshoot.md
+                - name: Probleme beim Hochladen
+                  href: data-box-disk-troubleshoot-upload.md
             - name: Kontaktieren des Supports
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box Heavy
@@ -121,6 +129,50 @@
           items:
             - name: Was ist Data Box Heavy?
               href: data-box-heavy-overview.md
+        - name: Schnellstarts
+          items:
+            - name: Einrichten – Azure-Portal
+              href: data-box-heavy-quickstart-portal.md
+        - name: Lernprogramme
+          items:
+            - name: 1 – Bestellen
+              href: data-box-heavy-deploy-ordered.md
+            - name: 2 – Einrichten
+              href: data-box-heavy-deploy-set-up.md
+            - name: 3 – Verbinden und Kopieren
+              items:
+                - name: Über SMB
+                  href: data-box-heavy-deploy-copy-data.md
+            - name: '4 – Zurücksenden, hochladen, überprüfen'
+              href: data-box-heavy-deploy-picked-up.md
+        - name: Konzepte
+          items:
+            - name: Überprüfen der Nachverfolgung und Protokollierung
+              href: data-box-logs.md
+            - name: Überprüfen der Anforderungen
+              href: data-box-heavy-system-requirements.md
+            - name: Grundlegendes zu den Beschränkungen
+              href: data-box-heavy-limits.md
+        - name: Anleitung
+          items:
+            - name: Verwalten über das Azure-Portal
+              href: data-box-portal-admin.md
+            - name: Verwalten über die lokale Webbenutzeroberfläche
+              href: data-box-local-web-ui-admin.md
+            - name: Beheben von Geräteproblemen
+              href: data-box-troubleshoot.md
+            - name: Verschieben von Daten in einen Blobtarif
+              href: data-box-how-to-set-data-tier.md
+            - name: Kontaktieren des Supports
+              href: data-box-disk-contact-microsoft-support.md
+            - name: Migrieren
+              items:
+                - name: Zu SharePoint Online
+                  href: data-box-heavy-migrate-spo.md
+                - name: Zu Azure-Dateisynchronisierung
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: Aus HDFS-Speicher
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: Ressourcen
       items:
         - name: Data Box-Produkt

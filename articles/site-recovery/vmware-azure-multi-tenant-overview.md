@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104453"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60718066"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Übersicht über die Unterstützung mehrerer Mandanten für die VMware-Notfallwiederherstellung in Azure mit CSP
 
@@ -89,7 +89,7 @@ Konfigurieren Sie den Konfigurationsserver mit einem Konto, dem eine besondere R
 
 3. Weisen Sie dem vCenter-Konto (das im Konfigurationsserver des Mandanten verwendet wird) für verschiedene Objekte Zugriffsebenen wie folgt zu:
 
->| Objekt | Rolle | Anmerkungen |
+>| Object | Rolle | Anmerkungen |
 >| --- | --- | --- |
 >| vCenter | Schreibgeschützt | Nur erforderlich, um vCenter den Zugriff zum Verwalten verschiedener Objekten zu gewähren. Sie können diese Berechtigung aufheben, wenn das Konto keinem Mandanten zur Verfügung gestellt wird oder nicht für Verwaltungsvorgänge in vCenter verwendet wird. |
 >| Datacenter | Azure_Site_Recovery |  |

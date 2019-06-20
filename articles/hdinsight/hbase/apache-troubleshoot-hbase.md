@@ -8,10 +8,10 @@ ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713499"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Problembehandlung bei Apache HBase mit Azure HDInsight
@@ -219,7 +219,7 @@ Um eine Verbindung mit Apache Phoenix herzustellen, müssen Sie die IP-Adresse e
    ```
 
    > [!Note] 
-   > Sie können die IP-Adresse des aktiven ZooKeeper-Knotens aus der Ambari-Benutzeroberfläche abrufen. Wechseln Sie zu **HBase** > **Quick Links** > **ZK\* (Active)** > **ZooKeeper Info**. 
+   > Sie können die IP-Adresse des aktiven ZooKeeper-Knotens aus der Ambari-Benutzeroberfläche abrufen. Wechseln Sie zu **HBase** > **Quick Links** > **ZK\* (Active)**  > **ZooKeeper Info**. 
 
 3. Wenn „sqlline.py“ versucht, eine Verbindung mit Phoenix herzustellen und kein Timeout auftritt, führen Sie den folgenden Befehl aus, um die Verfügbarkeit und Integrität von Phoenix zu überprüfen:
 
@@ -343,7 +343,7 @@ Dies ist ein bekanntes Problem mit dem HMaster-Dienst. Allgemeine Cluster-Starta
 
 ### <a name="issue"></a>Problem
 
-Ein Neustartfehler auf einem Regionsserver kann durch Befolgen der folgenden bewährten Methoden vermieden werden. Es wird empfohlen, hohe Workload-Aktivitäten zu unterbrechen, wenn Sie einen Neustart von HBase-Regionsservern planen. Wenn die Anwendung während des Herunterfahrens weiterhin versucht, Verbindungen mit Regionsservern herzustellen, wird der Regionsserver-Neustart um einige Minuten verlangsamt. Zudem empfiehlt es sich, zuvor alle Tabellen zu leeren. Eine Referenz zum Leeren von Tabellen finden Sie unter [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables (HDInsight HBase: Verbessern der Neustartzeit für den Apache HBase-Cluster durch Leeren der Tabellen)](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Ein Neustartfehler auf einem Regionsserver kann durch Befolgen der folgenden bewährten Methoden vermieden werden. Es wird empfohlen, hohe Workload-Aktivitäten zu unterbrechen, wenn Sie einen Neustart von HBase-Regionsservern planen. Wenn die Anwendung während des Herunterfahrens weiterhin versucht, Verbindungen mit Regionsservern herzustellen, wird der Regionsserver-Neustart um einige Minuten verlangsamt. Zudem empfiehlt es sich, zuvor alle Tabellen zu leeren. Eine Referenz zum Leeren von Tabellen finden Sie unter [HDInsight HBase: Verbessern der Neustartzeit für den Apache HBase-Cluster durch Leeren der Tabellen](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Wenn Sie den Neustartvorgang auf HBase-Regionsservern über die Apache Ambari-Benutzeroberfläche initiieren, stellen Sie sofort fest, dass die Regionsserver heruntergefahren wurden, aber nicht sofort neu gestartet werden. 
 

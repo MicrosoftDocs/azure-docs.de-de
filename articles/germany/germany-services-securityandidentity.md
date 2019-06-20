@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/13/2017
 ms.author: ralfwi
 ms.openlocfilehash: ee98e074b8bf21abe198506899b99be4e2908f14
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798720"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60685929"
 ---
 # <a name="azure-germany-security-and-identity-services"></a>Sicherheits- und Identitätsdienste von Azure Deutschland
 ## <a name="key-vault"></a>Key Vault

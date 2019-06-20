@@ -1,19 +1,19 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 06/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d99ee6fc04811e4b4991f93ad4db99bf9a5543a8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: cb22475a81de871c5c5dc26f676b1669f3fdc4cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66120447"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133271"
 ---
 | Category (Kategorie) | Datenspeicher | Als Quelle unterstützt | Als Senke unterstützt | Von [Azure-Integrationslaufzeit](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) unterstützt | Von [selbstgehosteter Integrationslaufzeit](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) unterstützt |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -28,7 +28,7 @@ ms.locfileid: "66120447"
 | &nbsp; |[Azure-Datenbank für PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL-Datenbank](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Verwaltete Azure SQL-Datenbank-Instanz](../articles/data-factory/connector-azure-sql-database-managed-insance.md) | |✓ |✓ |✓  |
+| &nbsp; |[Verwaltete Azure SQL-Datenbank-Instanz](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Search-Index](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
@@ -52,6 +52,7 @@ ms.locfileid: "66120447"
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
 | &nbsp; |[SAP Business Warehouse über MDX](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  |
+| &nbsp; |[SAP-Tabelle](../articles/data-factory/connector-sap-table.md) |✓ |✓ | |✓  |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |✓ | |✓ |✓  |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  |

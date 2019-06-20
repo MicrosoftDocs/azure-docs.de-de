@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61069450"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Verwalten von Azure CDN-Zwischenspeicherungsrichtlinien in Azure Media Services
 Azure Media Services bietet HTTP-basiertes adaptives Streaming und progressive Downloads. HTTP-basiertes Streaming ist überaus skalierbar und bietet den Vorteil, dass Dateien auf Proxy- und CDN-Ebene sowie clientseitig zwischengespeichert werden können. Streamingendpunkte bieten allgemeine Streamingfunktionen sowie Konfigurationsoptionen für HTTP-Cacheheader. Streamingendpunkte legen die HTTP-Cachesteuerungsheader "max-age" und "Expires" fest. Weitere Informationen zu HTTP-Cacheheadern finden Sie unter [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

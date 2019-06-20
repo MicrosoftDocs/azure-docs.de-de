@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045576"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66111476"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay – häufig gestellte Fragen
 
@@ -71,7 +71,7 @@ WCF-Relay ist nur in den Namespaces des Tarifs „Standard“ verfügbar. Preise
 In einigen Fällen können mit einem einzelnen Relay mehrere Listener verbunden sein. Ein Relay wird als „geöffnet“ betrachtet, wenn mindestens ein Relaylistener mit ihm verbunden ist. Das Hinzufügen von Listenern zu einem offenen Relay führt zu zusätzlichen Relaystunden. Die Anzahl von Relaysendern (Clients, die Nachrichten von Relays aufrufen oder an diese senden), die mit dem Relay verbunden sind, hat keine Auswirkung auf die Berechnung der Relaystunden.
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Wie wird die Verbrauchseinheit „Nachrichten“ für WCF-Relays berechnet?
-(**Dies gilt nur für WCF-Relays. Nachrichten sind in Hybrid Connections kein Kostenfaktor.**)
+(**Dies gilt nur für WCF-Relays. Nachrichten sind in Hybrid Connections kein Kostenfaktor.** )
 
 Im Allgemeinen werden abrechenbare Nachrichten für Relays mit derselben Methode berechnet, die weiter oben für Brokerentitäten (Warteschlangen, Themen und Abonnements) beschrieben wird. Es gibt jedoch einige wichtige Ausnahmen.
 
@@ -80,11 +80,11 @@ Das Senden einer Nachricht an ein Service Bus-Relay wird als vollständiger Send
 Relays, die anhand der WCF-Bindung **netTCPRelay** geöffnet werden, behandeln Nachrichten nicht als einzelne Nachrichten, sondern als Datenstrom, der durch das System fließt. Wenn Sie diese Bindung verwenden, erhalten nur der Sender und der Listener Einblick in das Framing der einzelnen Nachrichten, die gesendet/empfangen werden. Bei Relays, die die **netTCPRelay**-Bindung verwenden, werden zur Ermittlung abrechenbarer Nachrichten alle Daten als Datenstrom behandelt. In diesen Fall berechnet Service Bus die Gesamtmenge der über jedes einzelne Relay gesendeten oder empfangenen Daten für einen Zeitraum von 5 Minuten. Dann wird diese Gesamtmenge durch 64 KB dividiert, um die Anzahl von abrechenbaren Nachrichten für dieses Relay in diesem Zeitraum zu ermitteln.
 
 ## <a name="quotas"></a>Kontingente
-| Namen des Kontingents | Bereich |  Notizen | Wert |
+| Namen des Kontingents | `Scope` |  Notizen | Wert |
 | --- | --- | --- | --- |
 | Gleichzeitige Listener für ein Relay |Entität |Nachfolgende Anforderungen für zusätzliche Verbindungen werden abgelehnt, und vom aufrufenden Code wird eine Ausnahme empfangen. |25 |
-| Gleichzeitige Relayverbindungen für alle Relayendpunkte eines Dienstnamespace |Namespace |- |5.000 |
-| Relayendpunkte pro Dienstnamespace |Namespace |- |10.000 |
+| Gleichzeitige Relayverbindungen für alle Relayendpunkte eines Dienstnamespace |Namespace |- |5\.000 |
+| Relayendpunkte pro Dienstnamespace |Namespace |- |10\.000 |
 | Nachrichtengröße für [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding)- und [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding)-Relays |Namespace |Eingehende Nachrichten, die diese Kontingente überschreiten, werden abgelehnt, und vom aufrufenden Code wird eine Ausnahme empfangen. |64 KB |
 | Nachrichtengröße für [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement)- und [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding)-Relays |Namespace |Keine Begrenzung der Nachrichtengröße. |Unbegrenzt |
 
@@ -134,7 +134,7 @@ Bei Shared Access Signatures handelt es sich um einen Authentifizierungsmechanis
 Ja. Der Relayclient stellt mithilfe vollqualifizierter Domänennamen Verbindungen mit dem Azure Relay-Dienst her. Kunden können einen Eintrag für `*.servicebus.windows.net` für Firewalls hinzufügen, die DNS-Whitelists unterstützen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Erstellen eines Namespace](relay-create-namespace-portal.md)
+* [Erstellen eines Namespaces](relay-create-namespace-portal.md)
 * [Erste Schritte mit .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Erste Schritte mit Node](relay-hybrid-connections-node-get-started.md)
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: spelluru
 ms.openlocfilehash: b54bc52a2feaf4646d801265ddb273c2c86158ee
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477905"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60823520"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Abonnieren von Ereignissen über das Portal
 

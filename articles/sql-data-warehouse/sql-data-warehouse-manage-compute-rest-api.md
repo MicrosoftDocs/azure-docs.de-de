@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 658b35163e20d024118bc7a3142c86614540f00c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790245"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476060"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>REST-APIs für Azure SQL Data Warehouse
 REST-APIs für die Verwaltung von Computeressourcen in Azure SQL Data Warehouse.
@@ -51,6 +51,9 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ```
 
 ## <a name="check-database-state"></a>Überprüfen des Datenbankzustands
+
+> [!NOTE]
+> Derzeit kann beim Überprüfen des Datenbankzustands ONLINE zurückgegeben werden, während die Datenbank den Online-Workflow ausführt. Dies führt zu Verbindungsfehlern. Sie müssen möglicherweise eine Verzögerung von 2 bis 3 Minuten in Ihrem Anwendungscode hinzufügen, wenn Sie diesen API-Aufruf zum Auslösen von Verbindungsversuchen verwenden.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1

@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/21/2019
+  ms.date: 06/04/2019
   ms.author: v-jansko
 abstract:
   description: 'Textübersetzung ist ein cloudbasierter Dienst zur maschinellen Übersetzung, mit dem Sie durch einen einfachen REST-API-Aufruf Text nahezu in Echtzeit übersetzen können. Die API verwendet moderne Technologie für die neuronale maschinelle Übersetzung (Machine Translation, MT) und bietet Technologie für die statistische maschinelle Übersetzung. Custom Translator ist eine Erweiterung der Textübersetzungs-API und ermöglicht die Erstellung neuronaler Übersetzungssysteme. Mit dem angepassten Übersetzungssystem kann Text mit der Textübersetzungs-API oder mit <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft Speech Services</a> übersetzt werden. Eine Liste der unterstützten Sprachen für neuronale MT und statistische MT finden Sie unter <a href="languages.md">Sprach- und Regionsunterstützung für die Textübersetzungs-API</a>.'

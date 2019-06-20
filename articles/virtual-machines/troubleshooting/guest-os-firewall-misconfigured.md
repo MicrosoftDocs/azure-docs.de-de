@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839745"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60711015"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Falsch konfigurierte Gastbetriebssystem-Firewall der Azure-VM
 

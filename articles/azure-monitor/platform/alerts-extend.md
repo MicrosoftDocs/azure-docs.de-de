@@ -9,11 +9,11 @@ ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60996399"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Erweitern von Log Analytics-Warnungen nach Azure Alerts
 

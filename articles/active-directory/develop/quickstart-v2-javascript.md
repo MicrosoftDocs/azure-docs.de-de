@@ -16,16 +16,14 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9deaf610696f676610f589168426ac24be692c99
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190840"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823517"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Schnellstart: Anmelden von Benutzern und Beschaffen eines Zugriffstokens von einer JavaScript-Single-Page-Webanwendung
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 In dieser Schnellstartanleitung wird ein Codebeispiel beschrieben. Darin wird veranschaulicht, wie eine JavaScript-Single-Page-Webanwendung (SPA) die Anmeldung für persönliche Konten und Geschäfts-, Schul- und Unikonten durchführen und ein Zugriffstoken abrufen kann, um die Microsoft Graph-API oder eine beliebige Web-API aufzurufen.
 
@@ -118,7 +116,7 @@ var msalConfig = {
 >   - Unterstützt Ihre Anwendung **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten**, ersetzen Sie diesen Wert durch `common`. Wenn Sie die Unterstützung *ausschließlich auf persönliche Microsoft-Konten* beschränken möchten, ersetzen Sie diesen Wert durch `consumers`.
 >
 > > [!TIP]
-> > Die Werte für **Anwendungs-ID (Client)**, **Verzeichnis-ID (Mandant)** und **Unterstützte Kontotypen** finden Sie im Azure-Portal auf der Seite **Übersicht** der App.
+> > Die Werte für **Anwendungs-ID (Client)** , **Verzeichnis-ID (Mandant)** und **Unterstützte Kontotypen** finden Sie im Azure-Portal auf der Seite **Übersicht** der App.
 >
 
 #### <a name="step-4-run-the-project"></a>Schritt 4: Ausführen des Projekts
@@ -185,7 +183,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`cacheLocation`  | (Optional) Hiermit wird der Browserspeicher für den Authentifizierungsstatus festgelegt. Der Standardwert lautet „sessionStorage“.   |
 > |`storeAuthStateInCookie`  | (Optional) Die Bibliothek speichert den Authentifizierungsanforderungsstatus, der für die Überprüfung der Authentifizierungsflows erforderlich ist, in den Browsercookies. Dies wird für die Browser IE und Edge festgelegt, um die Auswirkungen bestimmter [bekannter Probleme](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) zu minimieren. |
 
- Weitere Details zu den verfügbaren konfigurierbaren Optionen finden Sie im [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options).
+ Weitere Informationen zu den verfügbaren konfigurierbaren Optionen finden Sie unter [Initialisieren von Clientanwendungen](msal-js-initializing-client-applications.md).
 
 ### <a name="sign-in-users"></a>Anmelden von Benutzern
 
@@ -258,6 +256,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+
 > [!NOTE]
 > In dieser Schnellstartanleitung werden die Methoden `loginRedirect` und `acquireTokenRedirect` verwendet, wenn Internet Explorer als Browser genutzt wird. Dies liegt an einem [bekannten Problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) mit der Verarbeitung von Popupfenstern durch den Browser Internet Explorer.
 

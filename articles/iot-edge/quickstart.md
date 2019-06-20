@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ce6703c507e955ffe98e71f26feca08f9f37dfe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148078"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146757"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Schnellstart: Bereitstellen des ersten IoT Edge-Moduls aus dem Azure-Portal auf einem Windows-Gerät
 
@@ -64,7 +64,7 @@ IoT Edge-Gerät:
   Das Erstellen und Starten des neuen virtuellen Computers kann ein paar Minuten in Anspruch nehmen. Sie können dann eine RDP-Datei herunterladen, die Sie verwenden, wenn Sie eine Verbindung mit Ihrem virtuellen Computer herstellen:
 
   1. Navigieren Sie zu Ihrem neuen virtuellen Windows-Computer im Azure-Portal.
-  1. Wählen Sie **Verbinden** aus.
+  1. Wählen Sie **Verbinden**aus.
   1. Wählen Sie auf der Registerkarte **RDP** **RDP-Datei herunterladen** aus.
 
   Öffnen Sie diese Datei mit der Remotedesktopverbindung, um eine Verbindung mit Ihrem virtuellen Windows-Computer unter Verwendung des Administratornamens und Kennworts herzustellen, die Sie mit dem Befehl `az vm create` angegeben haben.
@@ -138,6 +138,13 @@ Verwenden Sie PowerShell zum Herunterladen und Installieren der IoT Edge-Runtime
 1. Falls noch nicht geschehen, führen Sie die unter [Registrieren eines neuen Azure IoT Edge-Geräts](how-to-register-device-portal.md) aufgeführten Schritte aus, um Ihr Gerät zu registrieren und die Geräteverbindungszeichenfolge abzurufen. 
 
 2. Führen Sie PowerShell als Administrator aus.
+
+   >[!NOTE]
+   >Verwenden Sie eine AMD64-PowerShell-Sitzung, um IoT Edge zu installieren, nicht PowerShell (x86). Wenn Sie nicht sicher sind, welchen Sitzungstyp Sie verwenden, führen Sie den folgenden Befehl aus:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. Durch den Befehl **Deploy-IoTEdge** wird überprüft, ob Ihr Windows-Computer über eine unterstützte Version verfügt. Außerdem aktiviert der Befehl das Containerfeature und lädt die Moby-Runtime und danach die IoT Edge-Runtime herunter.
 

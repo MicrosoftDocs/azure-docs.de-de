@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549728"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66158279"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>IP-Firewallregeln für Azure SQL-Datenbank and SQL Data Warehouse
 
@@ -30,7 +30,7 @@ Microsoft Azure [SQL-Datenbank](sql-database-technical-overview.md) und [SQL Dat
 
 ## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>VNET-Regeln als Alternative zu IP-Regeln
 
-Zusätzlich zu den IP-Regeln verwaltet die Firewall ebenfalls *VNET-Regeln*. VNET-Regeln basieren auf den Virtual Network-Dienstendpunkten. VNET-Regeln sollten den IP-Regeln in manchen Fällen vorgezogen werden. Weitere Informationen finden Sie unter [Virtual Network service endpoints and rules for Azure SQL Database (VNET-Dienstendpunkte und -Regeln für Azure SQL-Datenbank)](sql-database-vnet-service-endpoint-rule-overview.md).
+Zusätzlich zu den IP-Regeln verwaltet die Firewall ebenfalls *VNET-Regeln*. VNET-Regeln basieren auf den Virtual Network-Dienstendpunkten. VNET-Regeln sollten den IP-Regeln in manchen Fällen vorgezogen werden. Weitere Informationen finden Sie unter [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) (VNET-Dienstendpunkte und -Regeln für Azure SQL-Datenbank).
 
 ## <a name="overview"></a>Übersicht
 
@@ -101,7 +101,7 @@ Zum Festlegen einer IP-Firewallregel auf Serverebene im Azure-Portal können Sie
 
 ### <a name="from-database-overview-page"></a>Auf der Seite „Übersicht“ der Datenbank
 
-1. Um eine IP-Firewallregel auf Serverebene auf der Seite „Übersicht“ der Datenbank festzulegen, klicken Sie auf der Symbolleiste auf **Serverfirewall festlegen**, wie in der folgenden Abbildung dargestellt: Die Seite **Firewalleinstellungen** für den SQL-Datenbankserver wird geöffnet.
+1. Um eine IP-Firewallregel auf Serverebene auf der Seite „Übersicht“ der Datenbank festzulegen, klicken Sie auf der Symbolleiste auf **Serverfirewall festlegen**, wie in der folgenden Abbildung dargestellt: Die Seite **Firewalleinstellungen** für den SQL-Datenbank-Server wird geöffnet.
 
       ![IP-Serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -119,7 +119,7 @@ Die Übersichtsseite für Ihren Server wird geöffnet, die den vollqualifizierte
 
 ## <a name="manage-ip-firewall-rules-using-transact-sql"></a>Verwalten von IP-Firewallregeln mit Transact-SQL
 
-| Katalogsicht oder gespeicherte Prozedur | Ebene | BESCHREIBUNG |
+| Katalogsicht oder gespeicherte Prozedur | Level | BESCHREIBUNG |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Zeigt die aktuellen IP-Firewallregeln auf Serverebene an |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Erstellt oder aktualisiert IP-Firewallregeln auf Serverebene |
@@ -153,7 +153,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > Das PowerShell Azure Resource Manager-Modul wird von der Azure SQL-Datenbank weiterhin unterstützt, aber alle zukünftigen Entwicklungen erfolgen für das Az.Sql-Modul. Informationen zu diesen Cmdlets finden Sie unter [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Die Argumente für die Befehle im Az- und in den AzureRm-Modulen sind im Wesentlichen identisch.
 
-| Cmdlet | Ebene | BESCHREIBUNG |
+| Cmdlet | Level | BESCHREIBUNG |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Gibt die aktuellen Firewallregeln auf Serverebene zurück. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Erstellt eine neue Firewallregel auf Serverebene. |
@@ -173,7 +173,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-cli"></a>Verwalten von IP-Firewallregeln auf Serverebene mithilfe der Azure CLI
 
-| Cmdlet | Ebene | BESCHREIBUNG |
+| Cmdlet | Level | BESCHREIBUNG |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Erstellt eine IP-Serverfirewallregel|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Listet die IP-Firewallregeln auf einem Server auf|
@@ -193,7 +193,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## <a name="manage-server-level-ip-firewall-rules-using-rest-api"></a>Verwalten von IP-Firewallregeln auf Serverebene mithilfe der REST-API
 
-| API | Ebene | BESCHREIBUNG |
+| API | Level | BESCHREIBUNG |
 | --- | --- | --- |
 | [List Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Zeigt die aktuellen IP-Firewallregeln auf Serverebene an |
 | [Create or Update Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Erstellt oder aktualisiert IP-Firewallregeln auf Serverebene |
@@ -228,7 +228,7 @@ Wenn der Zugriff auf den Microsoft Azure SQL-Datenbank-Dienst nicht das erwartet
 
   Bevor Ihr Computer auf Azure SQL-Datenbank zugreifen kann, müssen Sie möglicherweise eine Firewallausnahme auf Ihrem Computer für TCP-Port 1433 erstellen. Wenn Sie innerhalb der Grenzen der Azure-Cloud Verbindungen herstellen, müssen Sie möglicherweise zusätzliche Ports öffnen. Weitere Informationen finden Sie im Abschnitt **SQL-Datenbank: ,Außerhalb‘ im Vergleich zu ,Innerhalb‘** im Artikel [Andere Ports als 1433 für ADO.NET 4.5 und SQL-Datenbank](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-- **Netzwerkadressenübersetzung (NAT)**:
+- **Netzwerkadressenübersetzung (NAT)** :
 
   Aufgrund der NAT kann sich die IP-Adresse, die Ihr Computer zur Verbindung mit Azure SQL-Datenbank verwendet, möglicherweise von der IP-Adresse unterscheiden, die in den IP-Konfigurationseinstellungen des Computers angezeigt wird. Um die IP-Adresse anzuzeigen, mit der der Computer die Verbindung mit Azure herstellt, melden Sie sich beim Portal an, und navigieren Sie zur Registerkarte **Konfigurieren** des Servers, der Ihre Datenbank hostet. Im Abschnitt **Zulässige IP-Adressen** wird die **aktuelle Client-IP-Adresse** angezeigt. Klicken Sie bei **Zulässige IP-Adressen** auf **Hinzufügen**, um diesem Computer den Zugriff auf den Server zu ermöglichen.
 

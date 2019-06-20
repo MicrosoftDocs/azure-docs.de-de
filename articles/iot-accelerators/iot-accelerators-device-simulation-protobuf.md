@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447980"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialisieren von Telemetriedaten mithilfe von Protocol Buffers
 
@@ -174,7 +174,7 @@ Nachdem Sie eine **proto**-Datei erstellt haben, generieren Sie im nächsten Sch
 
 1. [Laden Sie den Protobuf-Compiler von GitHub herunter](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip).
 
-1. Führen Sie den Compiler aus, und geben Sie dabei das Quellverzeichnis, das Zielverzeichnis und den Namen Ihrer **proto**-Datei an. Beispiel: 
+1. Führen Sie den Compiler aus, und geben Sie dabei das Quellverzeichnis, das Zielverzeichnis und den Namen Ihrer **proto**-Datei an. Beispiel:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ In diesem Abschnitt testen Sie das in den vorherigen Abschnitten erstellte Gerä
 
 Die JSON- und JS-Dateien des neuen Gerätemodells werden nicht automatisch in die erstellte Lösung kopiert. Sie müssen sie explizit einfügen.
 
-Fügen Sie der Datei **services\services.csproj** einen Eintrag für jede Datei hinzu, die enthalten sein soll. Beispiel: 
+Fügen Sie der Datei **services\services.csproj** einen Eintrag für jede Datei hinzu, die enthalten sein soll. Beispiel:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -247,7 +247,7 @@ So richten Sie Postman ein:
 
 1. Öffnen Sie Postman auf Ihrem lokalen Computer.
 
-1. Klicken Sie auf **File (Datei) \> Import (Importieren)**. Klicken Sie dann auf **Dateien auswählen**.
+1. Klicken Sie auf **File (Datei) \> Import (Importieren)** . Klicken Sie dann auf **Dateien auswählen**.
 
 1. Wählen Sie **Azure IoT Device Simulation solution accelerator.postman\_collection** und **Azure IoT Device Simulation solution accelerator.postman\_environment** aus, und klicken Sie auf **Open** (Öffnen).
 

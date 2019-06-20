@@ -5,23 +5,25 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 08/20/2018
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727331"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069224"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Inhaltsvertrauen in Azure Container Registry
 
-Für alle verteilten Systeme, die unter Berücksichtigung von Sicherheitsaspekten entworfen werden, ist es wichtig, sowohl die *Quelle* als auch die *Integrität* von Daten zu überprüfen, die in das System gelangen. Consumer der Daten müssen in der Lage sein, sowohl den Herausgeber (Quelle) der Daten zu überprüfen, als auch sicherzustellen, dass sie nach der Veröffentlichung nicht geändert wurden (Integrität). Azure Container Registry unterstützt beides durch die Implementierung des [Inhaltsvertrauensmodells][docker-content-trust] von Docker. In diesem Artikel erhalten Sie eine Einführung dazu.
+Azure Container Registry implementiert das Docker-Modell [Inhaltsvertrauen][docker-content-trust], um Push- und Pullvorgänge für signierte Images zu ermöglichen. Dieser Artikel enthält erste Schritte zum Aktivieren des Inhaltsvertrauens in Ihren Containerregistrierungen.
 
-> [!IMPORTANT]
-> Diese Funktion steht derzeit als Vorschau zur Verfügung. Wenn Sie Vorschauversionen nutzen möchten, müssen Sie die [zusätzlichen Nutzungsbedingungen][terms-of-use] akzeptieren. Einige Aspekte dieses Features werden bis zur allgemeinen Verfügbarkeit unter Umständen noch geändert.
+> [!NOTE]
+> Das Inhaltsvertrauen ist ein Funktionsmerkmal des [Premium-Tarifs](container-registry-skus.md) von Azure Container Registry.
 
 ## <a name="how-content-trust-works"></a>Funktionsweise von Inhaltsvertrauen
+
+Für alle verteilten Systeme, die unter Berücksichtigung von Sicherheitsaspekten entworfen werden, ist es wichtig, sowohl die *Quelle* als auch die *Integrität* von Daten zu überprüfen, die in das System gelangen. Consumer der Daten müssen in der Lage sein, sowohl den Herausgeber (Quelle) der Daten zu überprüfen, als auch sicherzustellen, dass sie nach der Veröffentlichung nicht geändert wurden (Integrität). 
 
 Als Imageherausgeber ermöglicht Ihnen das Inhaltsvertrauen das **Signieren** der Images, die Sie per Push in Ihre Registrierung übertragen. Consumer Ihrer Images (Personen oder Systeme, die Images mittels Pull aus Ihrer Registrierung beziehen) können ihre Clients so konfigurieren, dass *nur* signierte Images bezogen werden. Wenn ein Consumer ein signiertes Image mittels Pull abruft, überprüft der Docker-Client die Integrität des Images. In diesem Modell können sich Consumer darauf verlassen, dass die signierten Images in Ihrer Registrierung tatsächlich von Ihnen veröffentlicht und seit der Veröffentlichung nicht geändert wurden.
 
@@ -40,7 +42,7 @@ Inhaltsvertrauen wird durch die Verwendung einer Gruppe von kryptografischen Sig
 
 Der erste Schritt ist das Aktivieren des Inhaltsvertrauens auf Ebene der Registrierung. Nachdem Sie das Inhaltsvertrauen aktiviert haben, können Clients (Benutzer oder Dienste) signierte Image per Push in Ihre Registrierung übertragen. Durch Aktivieren des Inhaltsvertrauens in Ihrer Registrierung wird die Registrierungsnutzung nicht auf Consumer beschränkt, bei denen das Inhaltsvertrauen ebenfalls aktiviert ist. Consumer ohne aktiviertes Inhaltsvertrauen können Ihre Registrierung weiterhin wie gewohnt verwenden. Consumer, in deren Clients das Inhaltsvertrauen aktiviert ist, sehen jedoch *nur* signierte Images in Ihrer Registrierung.
 
-Zum Aktivieren des Inhaltsvertrauens für Ihre Registrierung navigieren Sie zunächst im Azure-Portal zur Registrierung. Wählen Sie unter **RICHTLINIEN** die Option **Inhaltsvertrauen (Vorschauversion)** > **Aktiviert** > **Speichern** aus.
+Zum Aktivieren des Inhaltsvertrauens für Ihre Registrierung navigieren Sie zunächst im Azure-Portal zur Registrierung. Wählen Sie unter **Richtlinien** die Optionen **Inhaltsvertrauen** > **Aktiviert** > **Speichern** aus.
 
 ![Aktivieren von Inhaltsvertrauen für eine Registrierung im Azure-Portal][content-trust-01-portal]
 
@@ -71,13 +73,13 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## <a name="grant-image-signing-permissions"></a>Gewähren von Berechtigungen zum Signieren von Images
 
-Nur Benutzer oder Systeme, denen Sie die entsprechende Berechtigung erteilt haben, können vertrauenswürdige Images per Push an Ihre Registrierung übertragen. Um einem Benutzer (oder ein System mit einem Dienstprinzipal) die Berechtigung zur Pushübertragung von Images zu gewähren, teilen Sie dessen Azure Active Directory-Identitäten die Rolle `AcrImageSigner` zu. Dies erfolgt zusätzlich zur Rolle `Contributor` (oder `Owner`), die für die Pushübertragung von Images an die Registrierung erforderlich ist.
+Nur Benutzer oder Systeme, denen Sie die entsprechende Berechtigung erteilt haben, können vertrauenswürdige Images per Push an Ihre Registrierung übertragen. Um einem Benutzer (oder ein System mit einem Dienstprinzipal) die Berechtigung zur Pushübertragung von Images zu gewähren, teilen Sie dessen Azure Active Directory-Identitäten die Rolle `AcrImageSigner` zu. Dies erfolgt zusätzlich zur Rolle `AcrPush` (oder einer ähnlichen Rolle), die für die Pushübertragung von Images an die Registrierung erforderlich ist. Ausführliche Informationen hierzu finden Sie unter [Azure Container Registry: Rollen und Berechtigungen](container-registry-roles.md).
 
 Details zum Erteilen der Rolle `AcrImageSigner` im Azure-Portal und in der Azure CLI folgen.
 
 ### <a name="azure-portal"></a>Azure-Portal
 
-Navigieren Sie im Azure-Portal zu Ihrer Registrierung, und wählen Sie dann **Zugriffssteuerung (IAM)** > **Rollenzuweisung hinzufügen** aus. Wählen Sie unter **Rollenzuweisung hinzufügen** für **Rolle** die Option `AcrImageSigner` aus. Wählen Sie dann unter **Auswählen** mindestens einen Benutzer oder Dienstprinzipal aus, und klicken Sie auf **Speichern**.
+Navigieren Sie im Azure-Portal zu Ihrer Registrierung, und wählen Sie dann **Zugriffssteuerung (IAM)**  > **Rollenzuweisung hinzufügen** aus. Wählen Sie unter **Rollenzuweisung hinzufügen** für **Rolle** die Option `AcrImageSigner` aus. Wählen Sie dann unter **Auswählen** mindestens einen Benutzer oder Dienstprinzipal aus, und klicken Sie auf **Speichern**.
 
 In diesem Beispiel wurde die Rolle `AcrImageSigner` zwei Entitäten zugewiesen: einem Dienstprinzipal mit dem Namen „Dienstprinzipal“, und einem Benutzer mit dem Namen „Azure-Benutzer“.
 
@@ -110,6 +112,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 Die `<service principal ID>` kann das **appId**- oder **objectId**-Element des Dienstprinzipal oder eines seiner **ServicePrincipalNames**-Elemente sein. Weitere Informationen zum Arbeiten mit Dienstprinzipalen und Azure Container Registry finden Sie unter [Azure Container Registry-Authentifizierung mit Dienstprinzipalen](container-registry-auth-service-principal.md).
 
+Führen Sie nach Rollenänderungen `az acr login` aus, um das lokale Identitätstoken für die Azure CLI zu aktualisieren, damit die neuen Rollen wirksam werden können.
+
 ## <a name="push-a-trusted-image"></a>Pushübertragung eines vertrauenswürdigen-Images
 
 Um ein vertrauenswürdiges Image-Tag per Push an Ihre Containerregistrierung zu übertragen, aktivieren Sie das Inhaltsvertrauen und führen die Pushübertragung des Image mit `docker push` durch. Bei der ersten Pushübertragung eines signierten Tags werden Sie aufgefordert, eine Passphrase für einen Stammsignaturschlüssel und einen Repository-Signaturschlüssel zu erstellen. Die Stamm- und die Repositoryschlüssel werden generiert und lokal auf Ihrem Computer gespeichert.
@@ -138,7 +142,7 @@ Nach Ihrem ersten `docker push`-Vorgang mit aktiviertem Inhaltsvertrauen verwend
 
 ## <a name="pull-a-trusted-image"></a>Pull-Abruf eines vertrauenswürdigen-Images
 
-Zum Abrufen eines vertrauenswürdigen Images per Pull aktivieren Sie das Inhaltsvertrauen und führen den Befehl `docker pull` wie gewohnt aus. Consumer mit aktiviertem Inhaltsvertrauen können nur Images mit signierten Tags abrufen. Hier ist ein Beispiel für den Pull-Abruf eines signierten Tags:
+Zum Abrufen eines vertrauenswürdigen Images per Pull aktivieren Sie das Inhaltsvertrauen und führen den Befehl `docker pull` wie gewohnt aus. Für Pullvorgänge für vertrauenswürdige Images ist die Rolle `AcrPull` für normale Benutzer ausreichend. Es sind keine zusätzlichen Rollen (wie die Rolle `AcrImageSigner`) erforderlich. Consumer mit aktiviertem Inhaltsvertrauen können nur Images mit signierten Tags abrufen. Hier ist ein Beispiel für den Pull-Abruf eines signierten Tags:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -184,15 +188,13 @@ Wenn Sie den Zugriff auf Ihren Stammschlüssel verlieren, verlieren Sie den Zugr
 > [!WARNING]
 > Durch Deaktivieren und erneutes Aktivieren von Inhaltsvertrauen in Ihrer Registrierung **werden alle Vertrauensdaten für alle signierten Tags in jedem Repository in Ihrer Registrierung gelöscht**. Diese Aktion kann nicht rückgängig gemacht werden – Azure Container Registry kann gelöschte Vertrauensdaten nicht wiederherstellen. Die Images selbst werden durch Deaktivieren des Inhaltsvertrauens nicht gelöscht.
 
-Zum Deaktivieren des Inhaltsvertrauens für Ihre Registrierung navigieren Sie im Azure-Portal zur Registrierung. Wählen Sie unter **RICHTLINIEN** die Option **Inhaltsvertrauen (Vorschauversion)** > **Deaktiviert** > **Speichern** aus. Sie werden vor dem Verlust aller Signaturen in der Registrierung gewarnt. Wählen Sie **OK**, um alle Signaturen in Ihrer Registrierung endgültig zu löschen.
+Zum Deaktivieren des Inhaltsvertrauens für Ihre Registrierung navigieren Sie im Azure-Portal zur Registrierung. Wählen Sie unter **Richtlinien** die Optionen **Inhaltsvertrauen** > **Deaktiviert** > **Speichern** aus. Sie werden vor dem Verlust aller Signaturen in der Registrierung gewarnt. Wählen Sie **OK**, um alle Signaturen in Ihrer Registrierung endgültig zu löschen.
 
 ![Deaktivieren von Inhaltsvertrauen für eine Registrierung im Azure-Portal][content-trust-03-portal]
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Zusätzliche Informationen zu Inhaltsvertrauen finden Sie in der Docker-Dokumentation. In diesem Artikel wurden einige wichtige Punkte angesprochen, das Inhaltsvertrauen ist jedoch ein umfangreiches Thema und wird in der Dokumentation zu Docker ausführlicher behandelt.
-
-[Inhaltsvertrauen in Docker][docker-content-trust]
+Zusätzliche Informationen zu Inhaltsvertrauen finden Sie unter [Content trust in Docker][docker-content-trust] (Inhaltsvertrauen in Docker). In diesem Artikel wurden einige wichtige Punkte angesprochen, das Inhaltsvertrauen ist jedoch ein umfangreiches Thema und wird in der Dokumentation zu Docker ausführlicher behandelt.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

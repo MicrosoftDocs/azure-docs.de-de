@@ -4,14 +4,14 @@ description: Dieser Artikel beschreibt das Konfigurieren der Ressourcenfreigabe 
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2018
+ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: 689b0bb08e300efc7c5e93dbf346040b82a7c52d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1269c4c2405e9b906b63c8a29c0de1ac217da1d7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468477"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241888"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Konfigurieren der Ressourcenfreigabe zwischen verschiedenen Ursprüngen (CORS) 
 

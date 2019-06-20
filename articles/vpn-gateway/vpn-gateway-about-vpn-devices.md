@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 05/29/2019
 ms.author: yushwang
-ms.openlocfilehash: 30558300036974a765765fe0eb0181e2a8dc73ca
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508365"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388848"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informationen zu VPN-Geräten und IPsec-/IKE-Parametern für VPN-Gatewayverbindungen zwischen Standorten.
 
@@ -65,8 +65,10 @@ Hilfreiche Informationen zur Konfiguration des VPN-Geräts finden Sie unter den 
 | ShareTech | UTM der nächsten Generation (NU-Serie) | 9.0.1.3 | Nicht kompatibel | [Konfigurationshandbuch](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ-Serie, NSA-Serie<br>SuperMassive-Serie<br>E-Class-NSA-Serie |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Nicht kompatibel |[Konfigurationshandbuch](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG-Firewall der nächsten Generation | XG v17 | | [Konfigurationshandbuch](https://community.sophos.com/kb/127546)<br><br>[Configuration guide - Multiple SAs](https://community.sophos.com/kb/en-us/133154) (Konfigurationshandbuch: Mehrere SAs) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [Konfigurationshandbuch](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP über IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI über IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Alle |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Konfigurationshandbuch](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Konfigurationshandbuch](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| Zyxel |ZyWALL USG-Serie<br>ZyWALL ATP-Serie<br>ZyWALL VPN-Serie | ZLD v4.32+ | | [VTI über IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[BGP über IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >
@@ -139,9 +141,9 @@ Für die folgenden Tabellen gilt:
 | ---                           | ---           | ---                                         |
 | IKE-Version                   |IKEv1          |IKEv2                                        |
 | Verschlüsselung und Hashalgorithmen |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[SA-Angebote für RouteBased QM](#RouteBasedOffers) |
-| SA-Gültigkeitsdauer (Zeit)            |3.600 Sekunden  |27.000 Sekunden                                |
+| SA-Gültigkeitsdauer (Zeit)            |3\.600 Sekunden  |27.000 Sekunden                                |
 | SA-Gültigkeitsdauer (Bytes)           |102.400.000 KB | -                                           |
-| Perfect Forward Secrecy (PFS) |Nein              |[SA-Angebote für RouteBased QM](#RouteBasedOffers) |
+| Perfect Forward Secrecy (PFS) |Nein             |[SA-Angebote für RouteBased QM](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |Nicht unterstützt  |Unterstützt                                    |
 
 

@@ -2,41 +2,36 @@
 title: Übertragung des Besitzes eines Azure-Abonnements auf ein anderes Konto | Microsoft-Dokumentation
 description: In diesem Artikel wird die beschrieben, wie die Übertragung eines Azure-Abonnements auf einen anderen Benutzer erfolgt, und Sie finden hier einige häufig gestellte Fragen (FAQs) zu dem Prozess
 keywords: azure-abonnement übertragen, azure übertragung abonnement, verschieben azure-abonnement auf anderes konto, azure änderung besitzer des abonnements, übertragung azure-abonnement auf anderes konto
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing,top-support-issue
-ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678818"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471600"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Übertragen des Besitzes eines Azure-Abonnements auf ein anderes Konto
 
 Übertragen Sie Ihr Abonnement im Kontocenter auf einen anderen Benutzer, um den Kontoadministrator zu ändern und den Besitz der Abonnementabrechnung zu übergeben. Wie Sie Ihr Abonnement in ein anderes Angebot ändern können, erfahren Sie unter [Umstellen Ihres Azure-Abonnements auf ein anderes Angebot](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
-> 
+>
 > Wenn Sie ein Abonnement auf einen neuen Azure AD-Mandanten übertragen, werden alle Rollenzuweisungen in der [rollenbasierten Zugriffssteuerung (RBAC)](../role-based-access-control/overview.md) dauerhaft aus dem Quellmandanten gelöscht und nicht zum Zielmandanten migriert. Sie müssen verwaltete Identitäten für Azure-Ressourcen außerdem manuell neu erstellen. Weitere Informationen finden Sie unter [Häufig gestellte Fragen und bekannte Probleme mit verwalteten Identitäten für Azure-Ressourcen](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Übertragen des Besitzes eines Azure-Abonnements
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
->
->
+
 
 1. Melden Sie sich beim [Azure-Kontocenter](https://account.windowsazure.com/Subscriptions) als Kontoadministrator an. Wie Sie herausfinden, wer der Kontoadministrator des Abonnements ist, erfahren Sie unter [Häufig gestellte Fragen (FAQ)](#faq).
 
@@ -51,7 +46,7 @@ ms.locfileid: "59678818"
 1. Geben Sie den Empfänger an.
 
    > [!IMPORTANT]
-   > 
+   >
    > Wenn Sie ein Abonnement auf einen neuen Azure AD-Mandanten übertragen, werden alle Rollenzuweisungen in der [rollenbasierten Zugriffssteuerung (RBAC)](../role-based-access-control/overview.md) dauerhaft aus dem Quellmandanten gelöscht und nicht zum Zielmandanten migriert. Sie müssen verwaltete Identitäten für Azure-Ressourcen außerdem manuell neu erstellen. Weitere Informationen finden Sie unter [Häufig gestellte Fragen und bekannte Probleme mit verwalteten Identitäten für Azure-Ressourcen](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Dialogfeld „Abonnement übertragen“](./media/billing-subscription-transfer/image2.PNG)
@@ -68,22 +63,22 @@ ms.locfileid: "59678818"
 
 <a id="EA"></a>
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Übertragen von Abonnements für Kunden mit Enterprise Agreement (EA)
+## <a name="transfer-subscription-ownership-for-ea-customers"></a>Übertragen von Abonnements für EA-Kunden
 
 Der Unternehmensadministrator kann den Besitz von Abonnements in einer Registrierung übertragen. Informationen zum Einstieg finden Sie unter [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) (Übertragen des Kontobesitzes) im EA-Portal.
 
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Nächste Schritte nach dem Übernehmen des Besitzes eines Abonnements
+## <a name="next-steps-after-accepting-ownership"></a>Nächste Schritte nach dem Übernehmen des Besitzes
 
 1. Sie sind nun der Kontoadministrator. Überprüfen und aktualisieren Sie die Rollen für Dienstadministrator und Co-Administratoren und andere RBAC-Rollen. Weitere Informationen finden Sie unter [Hinzufügen oder Ändern von Azure-Abonnementadministratoren](billing-add-change-azure-subscription-administrator.md) und [Verwalten des Zugriffs mithilfe der RBAC und des Azure-Portals](../role-based-access-control/role-assignments-portal.md).
 1. Aktualisieren Sie die Anmeldeinformationen für die Dienste dieses Abonnements, darunter:
    1. Verwaltungszertifikate, die dem Benutzer Administratorrechte auf Abonnementressourcen gewähren. Weitere Informationen finden Sie unter [Erstellen und Hochladen eines Verwaltungszertifikats für Azure](../cloud-services/cloud-services-certs-create.md)
    1. Tastenkombinationen für Dienste wie Storage. Weitere Informationen finden Sie unter [Informationen zu Azure-Speicherkonten](../storage/common/storage-create-storage-account.md).
-   1. Anmeldeinformationen für den Remotezugriff für Dienste wie Azure Virtual Machines. 
+   1. Anmeldeinformationen für den Remotezugriff für Dienste wie Azure Virtual Machines.
 1. Wenn Sie mit einem Partner arbeiten, sollten Sie die Partner-ID in diesem Abonnement aktualisieren. Sie können die Partner-ID im [Azure-Portal](https://portal.azure.com) aktualisieren.
 
 <a id="supported"></a>
 
-## <a name="whats-supported"></a>Unterstützte Umstellungen:
+## <a name="supported-offers"></a>Unterstützte Angebote
 
 Die Self-Service-Abonnementübertragung ist für die in der folgenden Tabelle aufgeführten Angebote oder Abonnementtypen verfügbar. Zurzeit können keine kostenlose Testversionen oder [AIO](https://azure.microsoft.com/offers/ms-azr-0111p/)-Abonnements (Azure in Open) übertragen werden. Wie Sie dies umgehen können, erfahren Sie unter [Verschieben von Ressourcen in eine neue Ressourcengruppe oder ein neues Abonnement](../azure-resource-manager/resource-group-move-resources.md). Zur Übertragung anderer Abonnements, z.B. [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) oder Supportpläne, [wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -107,7 +102,9 @@ Die Self-Service-Abonnementübertragung ist für die in der folgenden Tabelle au
 
 ### <a name="whoisaa"></a> Wer ist der Kontoadministrator des Abonnements?
 
-Der Kontoadministrator ist die Person, die sich für das Azure-Abonnement registriert bzw. die es erworben hat. Die Person ist zum Zugreifen auf das [Kontocenter](https://account.azure.com/Subscriptions) und Durchführen verschiedener Verwaltungsaufgaben berechtigt, z.B. Erstellen von Abonnements, Kündigen von Abonnements, Ändern der Abrechnung für ein Abonnement oder Ändern des Dienstadministrators. Verwenden Sie die folgenden Schritte für die Ermittlung, wenn Sie nicht sicher sind, wer der Kontoadministrator für ein Abonnement ist.
+Der Kontoadministrator ist die Person, die sich für das Azure-Abonnement registriert bzw. die es erworben hat. Die Person ist zum Zugreifen auf das [Kontocenter](https://account.azure.com/Subscriptions) und Durchführen verschiedener Verwaltungsaufgaben berechtigt, z.B. Erstellen von Abonnements, Kündigen von Abonnements, Ändern der Abrechnung für ein Abonnement oder Ändern des Dienstadministrators. Weitere Informationen zu Administratorrollen und Berechtigungen finden Sie unter [Berechtigungen der Administratorrolle in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+
+Verwenden Sie die folgenden Schritte für die Ermittlung, wenn Sie nicht sicher sind, wer der Kontoadministrator für ein Abonnement ist.
 
 1. Navigieren Sie [im Azure-Portal zur Seite „Abonnements“](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Wählen Sie das zu überprüfende Abonnement aus, und sehen Sie unter **Einstellungen** nach.
@@ -119,7 +116,13 @@ Alle Ressourcen wie virtuelle Computer, Datenträger und Websites werden auf den
 
 ### <a id="no-button"></a> Warum wird die Schaltfläche „Abonnement übertragen“ nicht angezeigt?
 
-Leider ist die Self-Service-Abonnementübertragung für Ihr Angebot oder Land nicht verfügbar. Zum Übertragen Ihres Abonnements [wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Leider ist die Self-Service-Abonnementübertragung für Ihr Angebot nicht verfügbar. Die Liste der unterstützten Angebote finden Sie im Abschnitt [Unterstützte Angebote](#supported-offers) dieses Artikels. Darüber hinaus wird die Abonnementübertragung für kein Land blockiert. Allerdings wird keine Übertragung über Ländergrenzen hinweg unterstützt. Zum Übertragen Ihres Abonnements in ein anderes Land [wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+
+
+### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Kann ich den Besitz an ein Konto in einem anderen Land übertragen?
+
+Azure erlaubt leider keine länderübergreifende Übertragung. Zum Übertragen Ihres Abonnements in ein anderes Land [wenden Sie sich an den Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Führt eine Übertragung des Abonnements zu Ausfallzeiten?
 
@@ -156,9 +159,9 @@ Der Absender ist zuständig für die Zahlung für jegliche Nutzung, die bis zu d
 
 Das Angebot muss unverändert bleiben. Wie Sie Ihr Angebot ändern können, erfahren Sie unter [Umstellen Ihres Azure-Abonnements auf ein anderes Angebot](billing-how-to-switch-azure-offer.md).
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>Kann ein Abonnement auf ein Benutzerkonto in einem anderen Land übertragen werden?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>Kann ein Abonnement auf ein Benutzerkonto in einem anderen Land bzw. einer anderen Region übertragen werden?
 
-Nein. Das Übertragen eines Abonnements auf ein Benutzerkonto in einem anderen Land wird nicht unterstützt. Das Benutzerkonto des Empfängers muss sich im gleichen Land befinden.
+Nein. Das Übertragen eines Abonnements auf ein Benutzerkonto in einem anderen Land bzw. eine andere Region wird nicht unterstützt. Das Benutzerkonto des Empfängers muss sich im gleichen Land bzw. der gleichen Region befinden.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>Kann der Empfänger eine andere Zahlungsmethode nutzen?
 
@@ -174,4 +177,8 @@ Wenn Sie ein Abonnement nicht übertragen können, können Sie Ihre Ressourcen m
 
 ## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Wenden Sie sich an uns.
 
-Wenn Sie weitere Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
+Wenn Sie Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Nächste Schritte
+
+- Überprüfen und aktualisieren Sie die Rollen für Dienstadministrator und Co-Administratoren und andere RBAC-Rollen. Weitere Informationen finden Sie unter [Hinzufügen oder Ändern von Azure-Abonnementadministratoren](billing-add-change-azure-subscription-administrator.md) und [Verwalten des Zugriffs mithilfe der RBAC und des Azure-Portals](../role-based-access-control/role-assignments-portal.md).

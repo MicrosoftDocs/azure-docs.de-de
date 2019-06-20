@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
 ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874571"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60586226"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool, Updaterelease 7.1.60126.1 – 1/29/2019
 

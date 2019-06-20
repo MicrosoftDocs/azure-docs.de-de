@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
 ms.openlocfilehash: bcece64a85a69c705b0f7f915dafe29123a2cd4a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128363"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Überprüfen einer VPN Gateway-Verbindung
 

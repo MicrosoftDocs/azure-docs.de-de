@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: f907ebcfc1efc2e6eb9b458f83ab11d868871946
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60615803"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>Erstellen eines zusätzlichen Azure-Abonnements im Azure-Portal
 
@@ -50,4 +50,4 @@ Sie können zusätzliche Abonnements auch programmgesteuert erstellen. Weitere I
 
 ## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Wenden Sie sich an uns.
 
-Wenn Sie Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
+Wenn Sie weitere Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).

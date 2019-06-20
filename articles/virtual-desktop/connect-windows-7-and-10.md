@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/24/2019
 ms.author: helohr
 ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145987"
 ---
 # <a name="connect-from-windows-10-or-windows-7"></a>Herstellen einer Verbindung über Windows 10 oder Windows 7
@@ -51,7 +51,7 @@ Nachdem Sie einen Feed abonniert haben, wird der Inhalt des Feeds in regelmäßi
 
 Nach Abschluss des Abonnements können Sie weitere Informationen zum Feed im Bereich „Details“ anzeigen.
 
-1. Wählen Sie auf der Hauptseite des Clients die Auslassungspunkte (**...**) rechts neben dem Feednamen aus.
+1. Wählen Sie auf der Hauptseite des Clients die Auslassungspunkte ( **...** ) rechts neben dem Feednamen aus.
 1. Wählen Sie im Dropdownmenü **Details** aus.
 1. Der Bereich „Details“ wird auf der rechten Seite des Clients angezeigt.
 
@@ -68,7 +68,7 @@ Bei Bedarf können Sie ein manuelles Update starten, indem Sie **Jetzt aktualisi
 
 In diesem Abschnitt erfahren Sie, wie Sie einen Feed kündigen. Sie können das Abonnement kündigen, um es mit einem anderen Konto zu erneuern oder um Ihre Ressourcen aus dem System zu entfernen.
 
-1. Wählen Sie auf der Hauptseite des Clients die Auslassungspunkte (**...**) rechts neben dem Feednamen aus.
+1. Wählen Sie auf der Hauptseite des Clients die Auslassungspunkte ( **...** ) rechts neben dem Feednamen aus.
 1. Wählen Sie im Dropdownmenü **Abbestellen** aus.
 1. Überprüfen Sie die Angaben, und wählen Sie im Dialogfeld **Weiter** aus.
 

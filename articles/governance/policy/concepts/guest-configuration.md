@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277721"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979508"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informationen zu Guest Configuration von Azure Policy
 
@@ -80,7 +80,7 @@ In der folgenden Tabelle sind die in Azure-Images unterstützten Betriebssysteme
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Per Guest Configuration können Knoten überwacht werden, auf denen ein unterstütztes Betriebssystem ausgeführt wird.  Wenn Sie virtuelle Computer überwachen möchten, für die ein benutzerdefiniertes Image verwendet wird, müssen Sie die **DeployIfNotExists**-Definition duplizieren und den **If**-Abschnitt so ändern, dass er Ihre Imageeigenschaften enthält.
+> Per Guest Configuration können Knoten überwacht werden, auf denen ein unterstütztes Betriebssystem ausgeführt wird. Wenn Sie virtuelle Computer überwachen möchten, für die ein benutzerdefiniertes Image verwendet wird, müssen Sie die **DeployIfNotExists**-Definition duplizieren und den **If**-Abschnitt so ändern, dass er Ihre Imageeigenschaften enthält.
 
 ### <a name="unsupported-client-types"></a>Nicht unterstützte Clienttypen
 
@@ -93,9 +93,7 @@ Für die Kommunikation mit dem Guest Configuration-Ressourcenanbieter in Azure b
 Für Listen mit IP-Adressen können Sie [IP-Bereiche des Microsoft Azure-Rechenzentrums](https://www.microsoft.com/download/details.aspx?id=41653) herunterladen. Diese Datei mit den jeweils aktuellen bereitgestellten Bereichen und allen anstehenden Änderungen an den IP-Adressbereichen wird wöchentlich veröffentlicht. Sie müssen nur Zugriff in ausgehender Richtung auf die IP-Adressen in den Regionen zulassen, in denen Ihre VMs bereitgestellt werden.
 
 > [!NOTE]
-> Die XML-Datei mit den IP-Adressen der Azure-Rechenzentren enthält die IP-Adressbereiche, die in den Microsoft Azure-Rechenzentren verwendet werden. Die Datei enthält die Bereiche für Compute, SQL und Storage.
-> Eine aktualisierte Datei wird wöchentlich veröffentlicht. Die Datei enthält die derzeit bereitgestellten Bereichen und alle anstehenden Änderungen an den IP-Adressbereichen. In der Datei enthaltene neue Bereiche werden frühestens nach einer Woche in den Rechenzentren verwendet.
-> Sie sollten die neue XML-Datei jede Woche herunterladen. Führen Sie damit dann eine Aktualisierung an Ihrem Standort durch, um in Azure ausgeführte Dienste ordnungsgemäß zu identifizieren. Benutzer von Azure ExpressRoute sollten beachten, dass diese Datei zum Aktualisieren der BGP-Ankündigung (Border Gateway Protocol) von Azure-Bereichen jeweils in der ersten Woche des Monats verwendet wird.
+> Die XML-Datei mit den IP-Adressen der Azure-Rechenzentren enthält die IP-Adressbereiche, die in den Microsoft Azure-Rechenzentren verwendet werden. Die Datei enthält die Bereiche für Compute, SQL und Storage. Eine aktualisierte Datei wird wöchentlich veröffentlicht. Die Datei enthält die derzeit bereitgestellten Bereichen und alle anstehenden Änderungen an den IP-Adressbereichen. In der Datei enthaltene neue Bereiche werden frühestens nach einer Woche in den Rechenzentren verwendet. Sie sollten die neue XML-Datei jede Woche herunterladen. Führen Sie damit dann eine Aktualisierung an Ihrem Standort durch, um in Azure ausgeführte Dienste ordnungsgemäß zu identifizieren. Benutzer von Azure ExpressRoute sollten beachten, dass diese Datei zum Aktualisieren der BGP-Ankündigung (Border Gateway Protocol) von Azure-Bereichen jeweils in der ersten Woche des Monats verwendet wird.
 
 ## <a name="guest-configuration-definition-requirements"></a>Anforderungen an die Guest Configuration-Definition
 
@@ -140,7 +138,7 @@ Beispiele für Guest Configuration von Policy finden Sie unter:
 ## <a name="next-steps"></a>Nächste Schritte
 
 - Sehen Sie sich die Beispiele unter [Azure Policy-Beispiele](../samples/index.md) an.
-- Befassen Sie sich mit der [Struktur von Azure Policy-Definitionen](definition-structure.md).
+- Lesen Sie die Informationen unter [Struktur von Azure Policy-Definitionen](definition-structure.md).
 - Lesen Sie [Grundlegendes zu Richtlinienauswirkungen](effects.md).
 - Informieren Sie sich über das [programmgesteuerte Erstellen von Richtlinien](../how-to/programmatically-create.md).
 - Informieren Sie sich über das [Abrufen von Konformitätsdaten](../how-to/getting-compliance-data.md).

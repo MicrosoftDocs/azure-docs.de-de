@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: a77cf20be30361abf6590dbd53bdb07c327eb9d8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204999"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage Analytics-Protokollierung
@@ -131,7 +131,7 @@ Sie können die Speicherprotokollierung im Azure-Portal, über PowerShell und mi
 
 ### <a name="enable-storage-logging-using-the-azure-portal"></a>Aktivieren der Speicherprotokollierung im Azure-Portal  
 
-Verwenden Sie im Azure-Portal zum Steuern der Speicherprotokollierung das Blatt **Diagnoseeinstellungen (klassisch)**, auf das im Abschnitt **Überwachung (klassisch)** des **Menüblatts** eines Speicherkontos zugegriffen werden kann.
+Verwenden Sie im Azure-Portal zum Steuern der Speicherprotokollierung das Blatt **Diagnoseeinstellungen (klassisch)** , auf das im Abschnitt **Überwachung (klassisch)** des **Menüblatts** eines Speicherkontos zugegriffen werden kann.
 
 Sie können die zu protokollierenden Speicherdienste und den Aufbewahrungszeitraum (in Tagen) für die protokollierten Daten angeben.  
 

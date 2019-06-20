@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310469"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62130601"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Verwenden einen internen Lastenausgleichs mit einer App Service-Umgebung
 

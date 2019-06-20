@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: d23d3824c477d3bba4e4900bee355376f1317f92
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: eefa17b699a0599d2d3323409cafddd1d0984c61
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61440317"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Erstellen einer IoT Hub-Instanz mithilfe einer Azure Resource Manager-Vorlage (PowerShell)
 
@@ -64,7 +64,7 @@ Weitere Informationen zum Entwickeln für IoT Hub finden Sie in folgenden Artike
 
 Weitere Informationen zu den Funktionen von IoT Hub finden Sie unter:
 
-* [Deploy Azure IoT Edge on a simulated device in Linux - preview][lnk-iotedge] (Bereitstellen von Azure IoT Edge auf einem simulierten Gerät in Linux – Vorschauversion)
+* [Bereitstellen von KI auf Edge-Geräten mit Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

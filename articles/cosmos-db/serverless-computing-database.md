@@ -4,14 +4,14 @@ description: Hier erfahren Sie, wie Sie mithilfe von Azure Cosmos DB und Azure F
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: db85d02a4f5c6e0f644a03394b570aac46202e72
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123775"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256942"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Serverloses Datenbankcomputing mit Azure Cosmos DB und Azure Functions
 
@@ -107,11 +107,11 @@ Da die Funktion in allen diesen Anwendungsfällen die App selbst entkoppelt hat,
 
 ## <a name="tooling"></a>Tools
 
-Die native Integration zwischen Azure Cosmos DB und Azure Functions ist im Azure-Portal und in Visual Studio 2017 verfügbar.
+Die native Integration zwischen Azure Cosmos DB und Azure Functions ist im Azure-Portal und in Visual Studio 2019 verfügbar.
 
 * Im Azure Functions-Portal können Sie einen Azure Cosmos DB-Trigger erstellen. Schnellstartanweisungen finden Sie unter [Erstellen eines Azure Cosmos DB-Triggers im Azure-Portal](https://aka.ms/cosmosdbtriggerportalfunc).
 * Im Azure Cosmos DB-Portal können Sie einer vorhandenen Azure-Funktionen-App in derselben Ressourcengruppe einen Azure Cosmos DB-Trigger hinzufügen.
-* In Visual Studio 2017 können Sie einen Azure Cosmos DB-Trigger mithilfe der [Azure Functions-Tools für Visual Studio 2017](../azure-functions/functions-develop-vs.md) erstellen:
+* In Visual Studio 2019 können Sie einen Azure Cosmos DB-Trigger mithilfe der [Azure Functions-Tools](../azure-functions/functions-develop-vs.md) erstellen:
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 

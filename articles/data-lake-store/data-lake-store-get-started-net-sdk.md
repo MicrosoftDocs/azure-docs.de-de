@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879708"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900876"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Kontoverwaltungsvorgänge für Azure Data Lake Storage Gen1 mithilfe des .NET SDK
 > [!div class="op_single_selector"]
@@ -32,22 +32,16 @@ In diesem Artikel erfahren Sie, wie Sie mithilfe des .NET SDK Kontoverwaltungsvo
 Eine Anleitung zum Durchführen von Datenverwaltungsvorgängen in Data Lake Storage Gen1 per .NET SDK finden Sie unter [Dateisystemvorgänge in Azure Data Lake Storage Gen1 mit dem .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Voraussetzungen
-* **Visual Studio 2013, 2015 oder 2017** In der Anleitung unten wird Visual Studio 2017 verwendet.
+* **Visual Studio 2013 und höher**. In der Anleitung unten wird Visual Studio 2019 verwendet.
 
 * **Ein Azure-Abonnement**. Siehe [Kostenlose Azure-Testversion](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Erstellen einer .NET-Anwendung
-1. Öffnen Sie Visual Studio, und erstellen Sie eine Konsolenanwendung.
-2. Klicken Sie im Menü **Datei** auf **Neu** und dann auf **Projekt**.
-3. Unter **Neues Projekt** können Sie die folgenden Werte eingeben bzw. auswählen:
+1. Wählen Sie in Visual Studio das Menü **Datei**, dann die Option **Neu** und anschließend **Projekt** aus.
+2. Wählen Sie **Konsolen-App (.NET Framework)** und dann **Weiter** aus.
+3. Geben Sie unter **Projektname** `CreateADLApplication` ein, und wählen Sie dann **Erstellen** aus.
 
-   | Eigenschaft | Wert |
-   | --- | --- |
-   | Category (Kategorie) |Vorlagen/Visual C#/Windows |
-   | Vorlage |Konsolenanwendung |
-   | NAME |CreateADLApplication |
-4. Klicken Sie auf **OK**, um das Projekt zu erstellen.
-5. Fügen Sie Ihrem Projekt die NuGet-Pakete hinzu.
+4. Fügen Sie Ihrem Projekt die NuGet-Pakete hinzu.
 
    1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf den Projektnamen und dann auf **NuGet-Pakete verwalten**.
    2. Stellen Sie auf der Registerkarte **NuGet-Paket-Manager** sicher, dass **Paketquelle** auf **nuget.org** festgelegt und das Kontrollkästchen **Vorabversion einbeziehen** aktiviert ist.
@@ -58,7 +52,7 @@ Eine Anleitung zum Durchführen von Datenverwaltungsvorgängen in Data Lake Stor
 
         ![Hinzufügen einer NuGet-Quelle](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Erstellen eines neuen Azure Data Lake-Kontos")
    4. Schließen Sie den **NuGet-Paket-Manager**.
-6. Öffnen Sie **Program.cs**, löschen Sie den vorhandenen Code, und fügen Sie dann die folgenden Anweisungen ein, um Verweise auf Namespaces hinzuzufügen.
+5. Öffnen Sie **Program.cs**, löschen Sie den vorhandenen Code, und fügen Sie dann die folgenden Anweisungen ein, um Verweise auf Namespaces hinzuzufügen.
 
         using System;
         using System.IO;
@@ -74,7 +68,7 @@ Eine Anleitung zum Durchführen von Datenverwaltungsvorgängen in Data Lake Stor
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Deklarieren Sie die Variablen, und geben Sie die Werte für Platzhalter an. Stellen Sie außerdem sicher, dass der angegebene lokale Pfad und der Dateiname auf dem Computer vorhanden sind.
+6. Deklarieren Sie die Variablen, und geben Sie die Werte für Platzhalter an. Stellen Sie außerdem sicher, dass der angegebene lokale Pfad und der Dateiname auf dem Computer vorhanden sind.
 
         namespace SdkSample
         {

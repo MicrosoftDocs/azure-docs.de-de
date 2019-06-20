@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 1528ce03f548c70d20d8f7af0238019305f01f2e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2ed7176dd9073c41604a94e1b42a549de9a8e03d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66159968"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Aktualisieren des Administratorbenutzernamens und des zugehörigen Kennworts für die VMs in einem Cluster
 

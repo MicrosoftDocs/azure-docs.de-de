@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0dadf0ec248dac01e5cc65779004477bf4afc823
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62113570"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Aufheben der Registrierung eines Geräts bei IoT Hub Device Provisioning Service
 

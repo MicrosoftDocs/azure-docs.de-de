@@ -10,10 +10,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916699"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(VERALTET) DC/OS-Containerverwaltung über die Marathon-REST-API

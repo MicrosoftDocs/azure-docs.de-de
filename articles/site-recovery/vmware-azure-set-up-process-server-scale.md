@@ -1,28 +1,30 @@
 ---
-title: Einrichten eines Prozessservers in Azure für das Failback während der Notfallwiederherstellung von VMware-VMs und physischen Servern mit Azure Site Recovery | Microsoft-Dokumentation
-description: In diesem Artikel wird beschrieben, wie Sie einen Prozessserver in Azure einrichten, um während der Notfallwiederherstellung von VMware-VMs und physischen Servern das Failback von Azure in die lokale Umgebung durchzuführen.
+title: Einrichten eines Prozessservers mit horizontaler Skalierung während der Notfallwiederherstellung von VMware-VMs und physischen Servern mit Azure Site Recovery | Microsoft-Dokumentation
+description: In diesem Artikel wird beschrieben, wie Sie einen Prozessserver mit horizontaler Skalierung während der Notfallwiederherstellung von VMware-VMs und physischen Servern einrichten.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64925487"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>Skalieren für das Failback mit zusätzlichen Prozessservern
+# <a name="scale-with-additional-process-servers"></a>Skalieren mit zusätzlichen Prozessservern
 
-Wenn Sie VMware-VMs oder physische Server mithilfe von [Site Recovery](site-recovery-overview.md) in Azure replizieren, wird standardmäßig ein Prozessserver auf dem Konfigurationsservercomputer installiert und zum Koordinieren der Datenübertragung zwischen Site Recovery und Ihrer lokalen Infrastruktur verwendet. Um die Kapazität zu erhöhen und die Replikationsbereitstellung horizontal hochzuskalieren, können Sie zusätzliche eigenständige Prozessserver hinzufügen. Dieser Artikel beschreibt die entsprechende Vorgehensweise.
+Wenn Sie VMware-VMs oder physische Server mithilfe von [Site Recovery](site-recovery-overview.md) in Azure replizieren, wird standardmäßig ein Prozessserver auf dem Konfigurationsservercomputer installiert und zum Koordinieren der Datenübertragung zwischen Site Recovery und Ihrer lokalen Infrastruktur verwendet. Um die Kapazität zu erhöhen und die Replikationsbereitstellung horizontal hochzuskalieren, können Sie zusätzliche eigenständige Prozessserver hinzufügen. In diesem Artikel wird beschrieben, wie Sie einen Prozessserver mit horizontaler Skalierung einrichten.
 
 ## <a name="before-you-start"></a>Vorbereitung
 
 ### <a name="capacity-planning"></a>Kapazitätsplanung
 
 Stellen Sie sicher, dass Sie eine [Kapazitätsplanung](site-recovery-plan-capacity-vmware.md) für die VMware-Replikation durchgeführt haben. Dadurch können Sie feststellen, wie und wann Sie zusätzliche Prozessserver bereitstellen sollten.
+
+Ab Version 9.24 wird während der Auswahl des Prozessservers für neue Replikationen eine Anleitung hinzugefügt. Der Prozessserver wird auf der Grundlage bestimmter Kriterien als „Fehlerfrei“, „Warnung“ und „Kritisch“ gekennzeichnet. Informationen zu verschiedenen Szenarien, die den Zustand des Prozessservers beeinflussen können, finden Sie unter den [process server alerts (Warnungen zum Prozessserver)](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > Die Verwendung einer geklonten Prozessserverkomponente wird nicht unterstützt. Befolgen Sie die Schritte in diesem Artikel für jede PS-Hochskalierung.
@@ -44,8 +46,6 @@ Jeder geschützte Quellcomputer ist mit drei Datenträgern von jeweils 100 GB ko
 In der folgenden Tabelle sind die Voraussetzungen für den zusätzlichen Prozessserver zusammengefasst.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## <a name="download-installation-file"></a>Herunterladen der Installationsdatei
 
@@ -81,7 +81,7 @@ Die Befehlszeilenparameter lauten wie folgt:
 
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-Beispiel: 
+Beispiel:
 
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted

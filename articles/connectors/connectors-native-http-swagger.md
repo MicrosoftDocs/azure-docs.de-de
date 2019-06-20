@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60448627"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Aufrufen von REST-Endpunkten mit dem Connector „HTTP + Swagger“ in Azure Logic Apps
 
@@ -72,14 +72,14 @@ Im Folgenden finden Sie die Schritte zum Erstellen, Konfigurieren und Speichern 
 Im Folgenden finden Sie Details zu den von diesem „HTTP + Swagger“-Connector unterstützten Triggern und Aktionen.
 
 ## <a name="http--swagger-triggers"></a>„HTTP + Swagger“-Trigger
-Ein Trigger ist ein Ereignis, mit dem ein in einer Logik-App definierter Workflow gestartet werden kann.  Der Connector „HTTP + Swagger“ verfügt über einen Trigger. Weitere Informationen zu Triggern finden Sie [hier](../connectors/apis-list.md).
+Ein Trigger ist ein Ereignis, mit dem ein in einer Logik-App definierter Workflow gestartet werden kann. Der Connector „HTTP + Swagger“ verfügt über einen Trigger. Weitere Informationen zu Triggern finden Sie [hier](../connectors/apis-list.md).
 
 | Trigger | BESCHREIBUNG |
 | --- | --- |
 | HTTP + Swagger |Führt einen HTTP-Aufruf durch und gibt den Antwortinhalt zurück. |
 
 ## <a name="http--swagger-actions"></a>„HTTP + Swagger“-Aktionen
-Eine Aktion ist ein Vorgang, der durch den in einer Logik-App definierten Workflow ausgeführt wird.  Der Connector „HTTP + Swagger“ verfügt über eine mögliche Aktion. Weitere Informationen zu Aktionen finden Sie [hier](../connectors/apis-list.md).
+Eine Aktion ist ein Vorgang, der durch den in einer Logik-App definierten Workflow ausgeführt wird. Der Connector „HTTP + Swagger“ verfügt über eine mögliche Aktion. Weitere Informationen zu Aktionen finden Sie [hier](../connectors/apis-list.md).
 
 | Aktion | BESCHREIBUNG |
 | --- | --- |
@@ -92,7 +92,7 @@ Der Connector „HTTP + Swagger“ verfügt über eine mögliche Aktion. Im Ansc
 Erstellen Sie eine ausgehende HTTP-Anforderung mit Unterstützung von Swagger-Metadaten.
 Ein * bedeutet, dass es sich um ein Pflichtfeld handelt.
 
-| Anzeigename | Eigenschaftenname | BESCHREIBUNG |
+| `Display name` | Eigenschaftenname | BESCHREIBUNG |
 | --- | --- | --- |
 | Methode* |method |Zu verwendendes HTTP-Verb. |
 | URI* |uri |URI für die HTTP-Anforderung. |

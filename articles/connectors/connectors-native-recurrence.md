@@ -1,114 +1,96 @@
 ---
-title: Planen und Ausführen von automatisierten Aufgaben und Workflows mit Azure Logic Apps | Microsoft-Dokumentation
-description: Automatisieren geplanter und wiederkehrender Aufgaben mit dem Recurrence-Connector in Azure Logic Apps
+title: Planen von wiederkehrenden Aufgaben mit dem Serientrigger – Azure Logic Apps
+description: Planen und Ausführen von wiederkehrenden automatisierten Aufgaben und Workflows mit dem Serientrigger in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
-tags: connectors
-ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.reviewer: deli, klam, LADocs
+ms.topic: conceptual
+ms.date: 05/25/2019
+ms.openlocfilehash: f5fc778ee4d8f91232bc732cc276f642f748b29d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083953"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297525"
 ---
-# <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Erstellen und Ausführen wiederkehrender Aufgaben und Workflows mit Azure Logic Apps
+# <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Erstellen, Planen und Ausführen von wiederkehrenden Aufgaben und Workflows mit dem Serientrigger in Azure Logic Apps
 
-Zum Planen von regelmäßig ausgeführten Aktionen, Workloads oder Prozessen können Sie einen Logik-App-Workflow erstellen, der mit dem [Trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Zeitplan: Wiederholung** gestartet wird. Sie können ein Datum und eine Uhrzeit zum Starten des Workflows und einen Wiederholungszeitplan für die Durchführung von Aufgaben festlegen. Hier sind einige Beispiele angegeben:
+Um Aufgaben, Prozesse oder Aufträge nach einem bestimmten Zeitplan regelmäßig auszuführen, können Sie Ihren Logik-App-Workflow mit dem integrierten Trigger **Serie – Zeitplan starten**. Sie können ein Datum, eine Uhrzeit und eine Zeitzone zum Starten des Workflows sowie eine Serie zum Wiederholen dieses Workflows festlegen. Wenn Wiederholungen aus irgendeinem Grund nicht ausgeführt werden, setzt dieser Trigger die Wiederholungen beim nächsten geplanten Intervall fort. Weitere Informationen zu den integrierten Zeitplantriggern und -aktionen finden Sie unter [Planen und Ausführen von wiederkehrenden automatisierten Aufgaben und Workflows mit Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-* Interne Daten abrufen: Tägliches [Ausführen einer gespeicherten SQL-Prozedur](../connectors/connectors-create-api-sqlazure.md).
-* Externe Daten abrufen: Dient zum Pullen von Wetterberichten von NOAA alle 15 Minuten.
-* Daten melden: Dient zum Senden einer Zusammenfassung mit allen Bestellungen der letzten Woche, die einen bestimmten Betrag übersteigen, per E-Mail.
-* Daten verarbeiten: Dient zum Komprimieren der hochgeladenen Bilder des Tages an jedem Wochentag außerhalb der Spitzenzeiten.
-* Daten bereinigen: Dient zum Löschen aller Tweets, die älter als drei Monate sind.
-* Daten archivieren: Dient zum Pushen von Rechnungen an einen Sicherungsdienst einmal pro Monat.
-
-Dieser Trigger unterstützt viele Muster, z.B.:
+Im Folgenden finden Sie einige Muster, die dieser Trigger neben erweiterten Serien und komplexen Zeitplänen unterstützt:
 
 * Sofortige Ausführung und Wiederholung jeweils nach *n* Sekunden, Minuten, Stunden, Tagen, Wochen oder Monaten.
-* Start zu einem bestimmten Zeitpunkt und anschließende Ausführung und Wiederholung jeweils nach *n* Sekunden, Minuten, Stunden, Tagen, Wochen oder Monaten.
+
+* Start an einem bestimmten Datum zu einer bestimmten Uhrzeit und anschließende Ausführung und Wiederholung jeweils nach *n* Sekunden, Minuten, Stunden, Tagen, Wochen oder Monaten.
+
 * Ausführung und Wiederholung einmal oder mehrmals pro Tag, z.B. 8:00 und 17:00 Uhr.
+
 * Ausführung und Wiederholung einmal pro Woche, aber nur an bestimmten Tagen, z.B. Samstag und Sonntag.
+
 * Ausführung und Wiederholung einmal pro Woche, aber nur an bestimmten Tagen und zu festen Uhrzeiten, z.B. Montag bis Freitag um 8:00 und 17:00 Uhr.
 
-Wenn jeweils der Wiederholungstrigger ausgelöst wird, erstellt Logic Apps eine neue Instanz Ihres Logik-App-Workflows und führt sie aus. 
+Die Unterschiede zwischen diesem Trigger und dem Trigger „Gleitendes Fenster“ sowie weitere Informationen zum Planen von wiederkehrenden Workflows finden Sie unter [Planen und Ausführen von wiederkehrenden automatisierten Aufgaben, Prozessen und Workflows in Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-Unter [Nur einmaliges Ausführen eines Auftrags](#run-once) weiter unten in diesem Thema erfahren Sie, wie Sie Ihre Logik-App zukünftig auslösen und nur ein Mal ausführen.
+> [!TIP]
+> Unter [Nur einmaliges Ausführen eines Auftrags](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once) erfahren Sie, wie Sie Ihre Logik-App auslösen und danach nur einmal ausführen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Ein Azure-Abonnement. Falls Sie über kein Abonnement verfügen, können Sie [mit einem kostenlosen Azure-Konto beginnen](https://azure.microsoft.com/free/). Sie können sich aber auch [für ein Abonnement mit nutzungsbasierter Bezahlung registrieren](https://azure.microsoft.com/pricing/purchase-options/).
+* Ein Azure-Abonnement. Falls Sie kein Abonnement besitzen, können Sie sich [für ein kostenloses Azure-Konto registrieren](https://azure.microsoft.com/free/).
 
-* Grundlegende Kenntnisse über die [Erstellung von Logik-Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+* Grundlegende Kenntnisse zu [Logik-Apps](../logic-apps/logic-apps-overview.md). Falls Sie noch nicht mit Logik-Apps gearbeitet haben, sollten Sie zunächst die Schnellstartanleitung zum [Erstellen Ihrer ersten Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md) lesen.
 
-## <a name="add-a-recurrence-trigger-to-your-logic-app"></a>Hinzufügen eines Wiederholungstriggers zu Ihrer Logik-App
+## <a name="add-recurrence-trigger"></a>Hinzufügen eines Serientriggers
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. Erstellen Sie eine leere Logik-App, oder informieren Sie sich zuerst über das [Erstellen einer leeren Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. Erstellen einer leeren Logik-App
 
-2. Sobald der Designer für Logik-Apps angezeigt wird, wählen Sie im Suchfeld **Alle** aus. Geben Sie im Suchfeld den Begriff „Wiederholung“ als Filter ein. Wählen Sie in der Triggerliste den folgenden Auslöser aus: **Wiederholung – Zeitplan** 
+1. Wenn der Designer für Logik-Apps angezeigt wird, geben Sie im Suchfeld „Serie“ als Filter ein. Wählen Sie aus der Triggerliste den folgenden Trigger als ersten Schritt Ihres Logik-App-Workflows aus: **Serie**
 
-   ![Auswählen des Triggers „Wiederholung – Zeitplan“](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![Auswählen des Serientriggers](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
-   Dieser Trigger ist jetzt der erste Schritt in Ihrer Logik-App.
-
-3. Legen Sie das Intervall und die Häufigkeit für die Wiederholung fest. Legen Sie in diesem Beispiel diese Eigenschaften fest, um Ihren Workflow jede Woche auszuführen. 
+1. Legen Sie das Intervall und die Häufigkeit für die Wiederholung fest. Legen Sie in diesem Beispiel diese Eigenschaften fest, um Ihren Workflow jede Woche auszuführen.
 
    ![Festlegen von Intervall und Häufigkeit](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-4. Wählen Sie **Erweiterte Optionen anzeigen**, um mehr Planungsoptionen anzuzeigen. 
+   | Eigenschaft | Erforderlich | JSON-Name | Type | BESCHREIBUNG |
+   |----------|----------|-----------|------|-------------|
+   | **Intervall** | Ja | interval | Integer | Eine positive ganze Zahl, die beschreibt, wie oft der Workflow basierend auf der Häufigkeit ausgeführt wird. Zulässige Mindest- und Maximalintervalle: <p>– Monat: 1–16 Monate </br>– Tag: 1–500 Tage </br>– Stunde: 1–12.000 Stunden </br>– Minute: 1–72.000 Minuten </br>- Sekunde: 1–9.999.999 Sekunden<p>Wenn das Intervall also beispielsweise auf „6“ und die Häufigkeit auf „Month“ festgelegt ist, erfolgt die Wiederholung alle sechs Monate. |
+   | **Frequency** | Ja | frequency | Zeichenfolge | Die Zeiteinheit für die Wiederholung: **Sekunde**, **Minute**, **Stunde**, **Tag**, **Woche** oder **Monat** |
+   ||||||
 
-   ![Weitere Optionen](./media/connectors-native-recurrence/recurrence-trigger-more-options.png)
+   Um weitere Optionen für die Planung zu erhalten, öffnen Sie die Liste **Neuen Parameter hinzufügen**. 
+   Alle von Ihnen ausgewählten Optionen werden nach der Auswahl im Trigger angezeigt.
 
-5. Sie können jetzt diese Optionen festlegen: 
-
-   * Legen Sie Startdatum und -uhrzeit für die Auslösung des Triggers fest. 
-   Wenn Sie ein Startdatum und die dazugehörige Uhrzeit angeben, können Sie auch eine Zeitzone anwenden. 
-
-   * Wenn Sie für die Häufigkeit „Tag“ oder „Woche“ auswählen, können Sie bestimmte Uhrzeiten für die Wiederholung wählen. 
-
-   * Bei Auswahl von „Woche“ können Sie auch bestimmte Tage der Woche angeben.
-   
    ![Erweiterte Planungsoptionen](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   Angenommen, heute ist Montag, der 4. September 2017. 
-   Der folgende Wiederholungstrigger wird *frühestens* zum festgelegten Startdatum und -zeitpunkt ausgelöst, also am Montag, den 18. September 2017, um 8:00 Uhr (PST). 
-   Der Wiederholungszeitplan ist aber für die Uhrzeiten 10:30, 12:30 und 14:30 ausschließlich an Montagen festgelegt. Also wird um 10:30 Uhr zum ersten Mal der Trigger ausgelöst und eine Instanz des Logik-App-Workflows erstellt. 
-   Weitere Informationen zur Funktionsweise von Startzeiten finden Sie in diesen [Beispielen zu Startzeiten](#start-time).
-   Die zukünftigen Ausführungen erfolgen um 12:30 und 14:30 Uhr an demselben Tag. 
-   Für jede Wiederholung wird eine eigene Workflowinstanz erstellt. Anschließend wird der gesamte Zeitplan am nächsten Montag wiederholt. 
-   [*Welche anderen Beispiele für Wiederholungen gibt es?*](#example-recurrences)
+   | Eigenschaft | Erforderlich | JSON-Name | Type | BESCHREIBUNG |
+   |----------|----------|-----------|------|-------------|
+   | **Zeitzone** | Nein | timeZone | Zeichenfolge | Nur relevant, wenn Sie eine Startzeit angeben, da dieser Trigger keine [UTC-Abweichung](https://en.wikipedia.org/wiki/UTC_offset) akzeptiert. Wählen Sie die anzuwendende Zeitzone aus. |
+   | **Startzeit** | Nein | startTime | Zeichenfolge | Geben Sie Startdatum und -uhrzeit im folgenden Format an: <p>JJJJ-MM-TTThh:mm:ss (bei Auswahl einer Zeitzone) <p>Oder <p>JJJJ-MM-TTThh:mm:ssZ (wenn keine Zeitzone ausgewählt wird) <p>Für den 18. September 2017 um 14:00 Uhr würden Sie also „2017-09-18T14:00:00“ angeben und eine Zeitzone (z.B. „Pacific Standard Time“) auswählen. Alternativ können Sie „2017-09-18T14:00:00Z“ ohne Zeitzone angeben. <p>**Hinweis:** Diese Startzeit muss dem [ISO 8601-Format für Datums-/Uhrzeitangaben](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) entsprechen und im [UTC-Datums-/Zeitformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) angegeben werden, jedoch ohne [UTC-Abweichung](https://en.wikipedia.org/wiki/UTC_offset). Wenn Sie keine Zeitzone auswählen, müssen Sie den Buchstaben „Z“ ohne Leerzeichen anhängen. „Z“ bezieht sich auf die entsprechende [nautische Zeit](https://en.wikipedia.org/wiki/Nautical_time). <p>Bei einfachen Zeitplänen ist die Startzeit das erste Vorkommen. Bei komplexeren Zeitplänen wird der Trigger nicht vor der Startzeit ausgelöst. [*Wie kann ich Startdatum und -uhrzeit verwenden?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **An diesen Tagen** | Nein | weekDays | Zeichenfolge oder Zeichenfolgenarray | Wenn Sie „Woche“ auswählen, können Sie einen oder mehrere Tage auswählen, an denen der Workflow ausgeführt werden soll: **Montag**, **Dienstag**, **Mittwoch**, **Donnerst**, **Freitag**, **Samstag** und **Sonntag** |
+   | **Zu diesen Stunden** | Nein | hours | Ganze Zahl oder Ganzzahlarray | Bei Auswahl von „Tag“ oder „Woche“ können Sie eine oder mehrere ganze Zahlen zwischen 0 und 23 als Stunden des Tages angeben, zu denen der Workflow ausgeführt werden soll. <p><p>Wenn Sie z.B. „10“, „12“ und „14“ angeben, erhalten Sie 10 Uhr, 12 Uhr bzw. 14 Uhr als Stundenangabe. Die Minuten werden jedoch basierend auf dem Start der Wiederholung berechnet. Um die Minuten festzulegen, geben Sie den Wert für die Eigenschaft **Zu diesen Minuten** an. |
+   | **Zu diesen Minuten** | Nein | minutes | Ganze Zahl oder Ganzzahlarray | Bei Auswahl von „Day“ (Tag) oder „Week“ (Woche) können Sie eine oder mehrere ganze Zahlen zwischen 0 und 59 als Minuten der Stunden angeben, in denen der Workflow ausgeführt werden soll. <p>Wenn Sie also beispielsweise „30“ als Minutenwert angeben und das vorherige Beispiel für Stunden des Tages verwenden, erhalten Sie „10:30 Uhr“, „12:30 Uhr“ und „14:30 Uhr“. |
+   |||||
+
+   Angenommen, heute ist Montag, der 4. September 2017. Der folgende Serientrigger wird *frühestens* am festgelegten Startdatum zur festgelegten Startzeit ausgelöst, also am Montag, den 18. September 2017, um 8:00 Uhr (PST). Der Wiederholungszeitplan ist aber für die Uhrzeiten 10:30, 12:30 und 14:30 ausschließlich an Montagen festgelegt. Also wird um 10:30 Uhr zum ersten Mal der Trigger ausgelöst und eine Instanz des Logik-App-Workflows erstellt. Weitere Informationen zur Funktionsweise von Startzeiten finden Sie in diesen [Beispielen zu Startzeiten](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+
+   Die zukünftigen Ausführungen erfolgen um 12:30 und 14:30 Uhr an demselben Tag. Für jede Wiederholung wird eine eigene Workflowinstanz erstellt. Anschließend wird der gesamte Zeitplan am nächsten Montag wiederholt. [*Welche anderen Beispiele für Wiederholungen gibt es?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
    ![Beispiel für erweiterte Planung](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
 
    > [!NOTE]
    > Für den Trigger wird nur dann eine Vorschau für Ihre angegebene Wiederholung angezeigt, wenn Sie als Häufigkeit „Tag“ oder „Woche“ wählen.
-   
-6. Erstellen Sie Ihren restlichen Workflow nun mit Aktionen oder Anweisungen zur Flusssteuerung. Weitere Aktionen, die Sie hinzufügen können, finden Sie in der [Liste mit den Connectors](../connectors/apis-list.md). 
 
-## <a name="trigger-details"></a>Triggerdetails
+1. Nun erstellen Sie den restlichen Workflow mit weiteren Aktionen. Weitere Aktionen, die Sie hinzufügen können, finden Sie unter [Connectors für Azure Logic Apps](../connectors/apis-list.md).
 
-Sie können diese Eigenschaften für den Wiederholungstrigger konfigurieren.
+## <a name="workflow-definition---recurrence"></a>Workflowdefinition – Wiederholung
 
-| NAME | Erforderlich | Eigenschaftenname | Type | BESCHREIBUNG | 
-|----- | -------- | ------------- | ---- | ----------- | 
-| **Frequency** | Ja | frequency | Zeichenfolge | Die Zeiteinheit für die Wiederholung: **Sekunde**, **Minute**, **Stunde**, **Tag**, **Woche** oder **Monat** | 
-| **Intervall** | Ja | interval | Ganze Zahl  | Eine positive ganze Zahl, die beschreibt, wie oft der Workflow basierend auf der Häufigkeit ausgeführt wird. <p>Das Standardintervall beträgt 1. Zulässige Mindest- und Maximalintervalle: <p>– Monat: 1–16 Monate </br>– Tag: 1–500 Tage </br>– Stunde: 1–12.000 Stunden </br>– Minute: 1–72.000 Minuten </br>- Sekunde: 1–9.999.999 Sekunden<p>Wenn das Intervall also beispielsweise auf „6“ und die Häufigkeit auf „Month“ festgelegt ist, erfolgt die Wiederholung alle sechs Monate. | 
-| **Zeitzone** | Nein  | timeZone | Zeichenfolge | Nur relevant, wenn Sie eine Startzeit angeben, da dieser Trigger keine [UTC-Abweichung](https://en.wikipedia.org/wiki/UTC_offset) akzeptiert. Wählen Sie die anzuwendende Zeitzone aus. | 
-| **Startzeit** | Nein  | startTime | Zeichenfolge | Geben Sie eine Startzeit im folgenden Format ein: <p>JJJJ-MM-TTThh:mm:ss (bei Auswahl einer Zeitzone) <p>Oder <p>JJJJ-MM-TTThh:mm:ssZ (wenn keine Zeitzone ausgewählt wird) <p>Für „18. September 2017, 14:00 Uhr“ müssten Sie also beispielsweise „2017-09-18T14:00:00“ und eine Zeitzone (z.B. „Pacific Time“) auswählen. Alternativ können Sie „2017-09-18T14:00:00Z“ ohne Zeitzone angeben. <p>**Hinweis:** Diese Startzeit muss dem [ISO 8601-Format für Datums-/Uhrzeitangaben](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) entsprechen und im [UTC-Datums-/Zeitformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) angegeben werden, jedoch ohne [UTC-Abweichung](https://en.wikipedia.org/wiki/UTC_offset). Wenn Sie keine Zeitzone auswählen, müssen Sie den Buchstaben „Z“ ohne Leerzeichen anhängen. „Z“ bezieht sich auf die entsprechende [nautische Zeit](https://en.wikipedia.org/wiki/Nautical_time). <p>Bei einfachen Zeitplänen ist die Startzeit das erste Vorkommen. Bei komplexeren Zeitplänen wird der Trigger nicht vor der Startzeit ausgelöst. [*Wie kann ich Startdatum und -uhrzeit verwenden?*](#start-time) | 
-| **An diesen Tagen** | Nein  | weekDays | Zeichenfolge oder Zeichenfolgenarray | Wenn Sie „Woche“ auswählen, können Sie einen oder mehrere Tage auswählen, an denen der Workflow ausgeführt werden soll: **Montag**, **Dienstag**, **Mittwoch**, **Donnerst**, **Freitag**, **Samstag** und **Sonntag** | 
-| **Zu diesen Stunden** | Nein  | hours | Ganze Zahl oder Ganzzahlarray | Bei Auswahl von „Day“ (Tag) oder „Week“ (Woche) können Sie eine oder mehrere ganze Zahlen zwischen 0 und 23 als Stunden des Tages angeben, zu denen der Workflow ausgeführt werden soll. <p>Wenn Sie also etwa „10“, „12“ und „14“ angeben, erhalten Sie die vollen Stunden „10 Uhr“, „12 Uhr“ und „14 Uhr“. | 
-| **Zu diesen Minuten** | Nein  | minutes | Ganze Zahl oder Ganzzahlarray | Bei Auswahl von „Day“ (Tag) oder „Week“ (Woche) können Sie eine oder mehrere ganze Zahlen zwischen 0 und 59 als Minuten der Stunden angeben, in denen der Workflow ausgeführt werden soll. <p>Wenn Sie also beispielsweise „30“ als Minutenwert angeben und das vorherige Beispiel für Stunden des Tages verwenden, erhalten Sie „10:30 Uhr“, „12:30 Uhr“ und „14:30 Uhr“. | 
-||||| 
+In der zugrunde liegenden Workflowdefinition – im JSON-Format – können Sie die [Definition des Serientriggers](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger) mit den von Ihnen ausgewählten Optionen anzeigen. Um diese Definition anzuzeigen, wählen Sie auf der Designer-Symbolleiste die Option **Codeansicht** aus. Um zum Designer zurückzukehren, wählen Sie auf der Designer-Symbolleiste die Option **Designer** aus.
 
-## <a name="json-example"></a>JSON-Beispiel
-
-Hier ist ein Beispiel für die [Definition eines Wiederholungstriggers](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger) angegeben:
+Dieses Beispiel zeigt, wie die Definition eines Serientriggers in einer zugrunde liegenden Workflowdefinition aussehen kann:
 
 ``` json
 "triggers": {
@@ -130,83 +112,14 @@ Hier ist ein Beispiel für die [Definition eines Wiederholungstriggers](../logic
                "Monday"
             ]
          },
-         "startTime": "2017-09-07T14:00:00",
+         "startTime": "2017-09-07T14:00:00Z",
          "timeZone": "Pacific Standard Time"
       }
    }
 }
 ```
 
-## <a name="faq"></a>Häufig gestellte Fragen
-
-<a name="run-once"></a>
-
-**F:** Was ist, wenn ich eine Logik-App in der Zukunft nur einmal ausführen möchte? </br>
-**A:** Um Ihre Logik-App auszulösen und einmal ohne Wiederholung auszuführen, können Sie die Vorlage **Scheduler: Einmalige Aufträge ausführen** öffnen. Nachdem Sie eine neue Logik-App erstellt haben, aber vor dem Öffnen des Designers für Logik-Apps, wählen Sie im Abschnitt **Vorlagen** in der Liste **Kategorie** die Option **Zeitplan** und dann die Vorlage aus:
-
-![Auswählen der Vorlage „Scheduler: Einmalige Aufträge ausführen](./media/connectors-native-recurrence/choose-run-once-template.png)
-
-Wenn Sie eine leere Logik-App-Vorlage verwenden, starten Sie Ihre Logik-App mit dem Trigger **Beim Empfang einer HTTP-Anforderung – Anforderung**. Übergeben Sie die Startzeit des Triggers als Parameter. Fügen Sie für den nächsten Schritt die Aktion **Verzögern bis – Zeitplan** hinzu, und geben Sie die Zeit ein, zu der die nächste Aktion ausgeführt wird.
-
-<a name="example-recurrences"></a>
-
-**F:** Welche anderen Beispiele für Wiederholungszeitpläne gibt es? </br>
-**A:** Weitere Beispiele:
-
-| Serie | Intervall | Frequency | Startzeit | An diesen Tagen | Zu diesen Stunden | Zu diesen Minuten | Hinweis |
-| ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
-| Ausführung alle 15 Minuten (ohne Startdatum und -uhrzeit) | 15 | Minute | {keine} | {nicht verfügbar} | {keine} | {keine} | Dieser Zeitplan wird sofort gestartet, und anschließend werden basierend auf der letzten Ausführungszeit zukünftige Wiederholungen berechnet. | 
-| Ausführung alle 15 Minuten (mit Startdatum und -uhrzeit) | 15 | Minute | *startDate*T*startTime*Z | {nicht verfügbar} | {keine} | {keine} | Dieser Zeitplan wird *frühestens* am angegebenen Startdatum zur entsprechenden Uhrzeit gestartet, und anschließend werden basierend auf der letzten Ausführungszeit zukünftige Wiederholungen berechnet. | 
-| Ausführung einmal pro Stunde zur vollen Stunde (mit Startdatum und -uhrzeit) | 1 | Hour | *startDate*Thh:00:00Z | {nicht verfügbar} | {keine} | {keine} | Dieser Zeitplan wird *frühestens* am angegebenen Startdatum zur entsprechenden Uhrzeit gestartet. Zukünftige Wiederholungen werden einmal pro Stunde zur vollen Stunde („00“) ausgeführt. <p>Wenn für die Häufigkeit „Week“ (Woche) oder „Month“ (Monat) ausgewählt wurde, wird der Zeitplan nur an einem Tag der Woche bzw. einem Tag des Monats ausgeführt. | 
-| Ausführung täglich einmal pro Stunde (ohne Startdatum und -uhrzeit) | 1 | Hour | {keine} | {nicht verfügbar} | {keine} | {keine} | Dieser Zeitplan wird sofort gestartet, und anschließend werden basierend auf der letzten Ausführungszeit zukünftige Wiederholungen berechnet. <p>Wenn für die Häufigkeit „Week“ (Woche) oder „Month“ (Monat) ausgewählt wurde, wird der Zeitplan nur an einem Tag der Woche bzw. einem Tag des Monats ausgeführt. | 
-| Ausführung täglich einmal pro Stunde (mit Startdatum und -uhrzeit) | 1 | Hour | *startDate*T*startTime*Z | {nicht verfügbar} | {keine} | {keine} | Dieser Zeitplan wird *frühestens* am angegebenen Startdatum zur entsprechenden Uhrzeit gestartet, und anschließend werden basierend auf der letzten Ausführungszeit zukünftige Wiederholungen berechnet. <p>Wenn für die Häufigkeit „Week“ (Woche) oder „Month“ (Monat) ausgewählt wurde, wird der Zeitplan nur an einem Tag der Woche bzw. einem Tag des Monats ausgeführt. | 
-| Ausführung einmal pro Stunde jeweils 15 Minuten nach der vollen Stunde (mit Startdatum und -uhrzeit) | 1 | Hour | *startDate*T00:15:00Z | {nicht verfügbar} | {keine} | {keine} | Dieser Zeitplan wird *frühestens* am angegebenen Startdatum zur entsprechenden Uhrzeit gestartet und jeweils um 00:15, 1:15, 2:15 usw. ausgeführt. | 
-| Ausführung einmal pro Stunde jeweils 15 Minuten nach der vollen Stunde (ohne Startdatum und -uhrzeit) | 1 | Day (Tag) | {keine} | {nicht verfügbar} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Dieser Zeitplan wird um 00:15, 1:15, 2:15 usw. ausgeführt. Außerdem entspricht dieser Zeitplan der Häufigkeit „Hour“ (Stunde) mit einer Startuhrzeit von „15“ Minuten. | 
-| Ausführung alle 15 Minuten zur 15-Minuten-Marke (ohne Startdatum und -uhrzeit) | 1 | Day (Tag) | {keine} | {nicht verfügbar} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Dieser Zeitplan wird erst gestartet, wenn die nächste angegebene 15-Minuten-Marke erreicht ist. | 
-| Ausführung täglich um 8:00 Uhr (ohne Startdatum und -uhrzeit) | 1 | Day (Tag) | {keine} | {nicht verfügbar} | 8 | {keine} | Dieser Zeitplan wird täglich um 8:00 Uhr basierend auf dem angegebenen Zeitplan ausgeführt. | 
-| Ausführung täglich um 8:00 Uhr (mit Startdatum und -uhrzeit) | 1 | Day (Tag) | *startDate*T08:00:00Z | {nicht verfügbar} | {keine} | {keine} | Dieser Zeitplan wird täglich um 8:00 Uhr basierend auf der angegebenen Startuhrzeit ausgeführt. | 
-| Ausführung täglich um 8:30 Uhr (ohne Startdatum und -uhrzeit) | 1 | Day (Tag) | {keine} | {nicht verfügbar} | 8 | 30 | Dieser Zeitplan wird täglich um 8:30 Uhr basierend auf dem angegebenen Zeitplan ausgeführt. | 
-| Ausführung täglich um 8:30 Uhr (mit Startdatum und -uhrzeit) | 1 | Day (Tag) | *startDate*T08:30:00Z | {nicht verfügbar} | {keine} | {keine} | Dieser Zeitplan wird am angegebenen Startdatum um 8:30 Uhr gestartet. | 
-| Ausführung täglich um 8:30 und 16:30 Uhr | 1 | Day (Tag) | {keine} | {nicht verfügbar} | 8, 16 | 30 | | 
-| Ausführung täglich um 8:30 Uhr, 8:45 Uhr, 16:30 Uhr und 16:45 Uhr | 1 | Day (Tag) | {keine} | {nicht verfügbar} | 8, 16 | 30, 45 | | 
-| Ausführung jeden Samstag um 17:00 Uhr (ohne Startdatum und -uhrzeit) | 1 | Woche | {keine} | „Saturday“ (Samstag) | 17 | 00 | Dieser Zeitplan wird jeden Samstag um 17:00 Uhr ausgeführt. | 
-| Ausführung jeden Samstag um 17:00 Uhr (mit Startdatum und -uhrzeit) | 1 | Woche | *startDate*T17:00:00Z | „Saturday“ (Samstag) | {keine} | {keine} | Dieser Zeitplan wird *frühestens* am angegebenen Startdatum zur entsprechenden Uhrzeit gestartet, also hier am 9. September 2017 um 17:00 Uhr. Zukünftige Wiederholungen werden jeden Samstag um 17:00 Uhr ausgeführt. | 
-| Ausführung jeden Dienstag und Donnerstag um 17:00 Uhr | 1 | Woche | {keine} | „Tuesday“ (Dienstag), „Thursday“ (Donnerstag) | 17 | {keine} | Dieser Zeitplan wird jeden Dienstag und Donnerstag um 17:00 Uhr ausgeführt. | 
-| Ausführung einmal pro Stunde während der Geschäftszeiten | 1 | Woche | {keine} | Wählen Sie alle Tage mit Ausnahme von Samstag und Sonntag aus. | Wählen Sie die gewünschten Stunden des Tages aus. | Wählen Sie die gewünschten Minuten der Stunde aus. | Wenn Ihre Geschäftszeiten beispielsweise den Zeitraum von 8:00 bis 17:00 Uhr umfassen, wählen Sie „8, 9, 10, 11, 12, 13, 14, 15, 16, 17“ als Stunden des Tages aus. <p>Wählen Sie bei einer Geschäftszeit von 8:30 bis 17:30 Uhr die obigen Stunden des Tages sowie „30“ als Minuten der Stunde aus. | 
-| Ausführung einmal pro Tag an Wochenenden | 1 | Woche | {keine} | „Saturday“ (Samstag), „Sunday“ (Sonntag) | Wählen Sie die gewünschten Stunden des Tages aus. | Wählen Sie wie gewünscht die Minuten der Stunde aus. | Dieser Zeitplan wird jeden Samstag und Sonntag basierend auf dem angegebenen Zeitplan ausgeführt. | 
-| Ausführung alle zwei Wochen nur am Montag im Abstand von 15 Minuten | 2 | Woche | {keine} | „Monday“ (Montag) | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Dieser Zeitplan wird jeden zweiten Montag jeweils zur 15-Minuten-Marke ausgeführt. | 
-| Ausführung jede Stunde an einem Tag des Monats | 1 | Month (Monat) | {siehe Hinweis} | {nicht verfügbar} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {siehe Hinweis} | Wenn Sie Startdatum und -uhrzeit nicht angeben, werden in diesem Zeitplan das Datum und die Uhrzeit der Erstellung verwendet. Geben Sie die Minuten der Stunde oder eine Startuhrzeit an, oder verwenden Sie die Uhrzeit der Erstellung, um die Minuten für den Zeitplan der Wiederholung zu steuern. Wenn die Startuhrzeit oder die Uhrzeit der Erstellung beispielsweise 8:25 Uhr lautet, wird dieser Zeitplan um 8:25, 9:25, 10:25 usw. ausgeführt. | 
-||||||||| 
-
-<a name="start-time"></a>
-
-**F:** Wie kann ich Startdatum und -uhrzeit verwenden? </br>
-**A:** Hier wird anhand einiger Muster verdeutlicht, wie Sie die Wiederholung mit dem Startdatum und der Startuhrzeit steuern können und wie das Logic Apps-Modul diese Wiederholungen ausführt:
-
-| Startzeit | Wiederholung ohne Zeitplan | Wiederholung mit Zeitplan | 
-| ---------- | --------------------------- | ------------------------ | 
-| {keine} | Die erste Workload wird sofort ausgeführt. <p>Zukünftige Workloads werden basierend auf der letzten Ausführungszeit ausgeführt. | Die erste Workload wird sofort ausgeführt. <p>Zukünftige Workloads werden basierend auf dem angegebenen Zeitplan ausgeführt. | 
-| Startuhrzeit liegt in der Vergangenheit | Die Ausführungszeiten werden basierend auf der angegebenen Startuhrzeit berechnet, und vergangene Ausführungszeiten werden verworfen. Die nächste Workload wird zum nächsten zukünftigen Ausführungszeitpunkt ausgeführt. <p>Zukünftige Workloads werden basierend auf Berechnungen der letzten Ausführungszeit ausgeführt. <p>Eine ausführlichere Erläuterung finden Sie im Beispiel im Anschluss an diese Tabelle. | Die erste Workload wird *frühestens* zur Startuhrzeit basierend auf dem Zeitplan ausgeführt, der anhand der Startuhrzeit berechnet wurde. <p>Zukünftige Workloads werden basierend auf dem angegebenen Zeitplan ausgeführt. <p>**Hinweis:** Wenn Sie eine Wiederholung mit einem Zeitplan angeben, aber keine Stunden oder Minuten für den Zeitplan, werden zukünftige Ausführungszeiten anhand der Stunden bzw. Minuten der ersten Ausführungszeit berechnet. | 
-| Startuhrzeit liegt in Gegenwart oder Zukunft | Die erste Workload wird zur angegebenen Startuhrzeit ausgeführt. <p>Zukünftige Workloads werden basierend auf Berechnungen der letzten Ausführungszeit ausgeführt. | Die erste Workload wird *frühestens* zur Startuhrzeit basierend auf dem Zeitplan ausgeführt, der anhand der Startuhrzeit berechnet wurde. <p>Zukünftige Workloads werden basierend auf dem angegebenen Zeitplan ausgeführt. <p>**Hinweis:** Wenn Sie eine Wiederholung mit einem Zeitplan angeben, aber keine Stunden oder Minuten für den Zeitplan, werden zukünftige Ausführungszeiten anhand der Stunden bzw. Minuten der ersten Ausführungszeit berechnet. | 
-||||
-
-**Beispiel für eine Startuhrzeit in der Vergangenheit mit Wiederholung und ohne Zeitplan** 
-
-| Startzeit | Die aktuelle Zeit | Serie | Schedule |
-| ---------- | ------------ | ---------- | -------- | 
-| 2017-09-**07**T14:00:00Z | 2017-09-**08**T13:00:00Z | alle 2 Tage | {keine} | 
-||||| 
-
-In diesem Szenario berechnet die Logic Apps-Engine die Ausführungszeiten basierend auf der Startuhrzeit, verwirft vergangene Ausführungszeiten und verwendet die nächste in der Zukunft liegende Startuhrzeit für die erste Ausführung. Nach dieser ersten Ausführung basieren zukünftige Ausführungen auf dem Zeitplan, der anhand der Startuhrzeit berechnet wird. Diese Wiederholung sieht wie folgt aus:
-
-| Startzeit | Erste Ausführungszeit | Zukünftige Ausführungszeiten | 
-| ---------- | ------------ | ---------- | 
-| 2017-09-**07** um 14:00 Uhr | 2017-09-**09** um 14:00 Uhr | 2017-09-**11** um 14:00 Uhr </br>2017-09-**13** um 14:00 Uhr </br>2017-09-**15** um 14:00 Uhr </br>usw.
-||||
-
-Für dieses Szenario gilt also Folgendes: Ihre erste Ausführungszeit ist unabhängig davon identisch, wie weit zurückliegend Sie die Startuhrzeit angegeben haben, z.B. 2017-09-**05** um 14:00 Uhr oder 2017-09-**01** um 14:00 Uhr.
-
 ## <a name="next-steps"></a>Nächste Schritte
 
-* [Workflowaktionen und -trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)
-* [Connectors](../connectors/apis-list.md)
+* [Anhalten von Workflows mit Verzögerungsaktionen](../connectors/connectors-native-delay.md)
+* [Connectors für Logic Apps](../connectors/apis-list.md)

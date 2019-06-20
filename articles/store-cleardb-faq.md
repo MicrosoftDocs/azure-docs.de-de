@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1838dbb627a6dec46f817101fc1d0cca0961ef77
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574175"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Häufig gestellte Fragen zur Verwendung von ClearDB MySql-Datenbanken mit Azure App Service
 In diesem Dokument werden häufige gestellte Fragen zu Verwendung und Erwerb von ClearDB MySQL-Datenbanken für Azure-Web-Apps beantwortet.
@@ -49,7 +49,7 @@ Die Standardoption Datenbanken ist Titan zum Preis von 3,50 $. Während der Date
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Ich führe MySQL auf meiner eigenen Azure-VM aus. Kann ich meine Azure-Web-App mit meiner Datenbank verbinden?
 Ja. Solange Ihrer Azure-VM Remotezugriff auf Ihre Web-App gewährt wird, können Sie Ihre Web-App mit Ihrer Datenbank verbinden. Weitere Informationen finden Sie unter [Installieren von MySQL auf einem virtuellen Computer](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>In welchen Ländern werden ClearDB Premium MySQL-Cluster unterstützt?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>In welchen Ländern/Regionen werden ClearDB Premium MySQL-Cluster unterstützt?
 ClearDB Premium MySQL-Cluster sind in allen Azure-Regionen weltweit mit Ausnahme von Indien, Australien, Brasilien Süden und China verfügbar.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>Kann ich vor dem Erstellen einer Datenbank mit einer ClearDB Premium-Clusterlösung einen neuen Cluster erstellen?
@@ -74,7 +74,7 @@ Wenn Sie die ClearDB-Datenbank auf klassische Weise erstellt haben, können Sie 
 Wenden Sie sich bei sämtlichen Datenbankproblemen an den [ClearDB-Support](https://www.cleardb.com/developers/help/support) . Stellen Sie bei Aufforderung Ihre Azure-Abonnementdaten bereit.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>Kann ich für meine ClearDB MySQL-Datenbank-Clusterlösung zusätzliche Benutzer erstellen?
- Nein. Zusätzliche Benutzer können nicht erstellt werden. Sie können aber zusätzliche Datenbanken in Ihrem ClearDB-Datenbankcluster erstellen.  
+Nein. Zusätzliche Benutzer können nicht erstellt werden. Sie können aber zusätzliche Datenbanken in Ihrem ClearDB-Datenbankcluster erstellen.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>Können Datenbanken der Basic- oder Pro-Serie direkt im ClearDB-Portal aktualisiert werden, ähnlich wie es mit Planetary-Plänen bereits möglich ist?
 Ja, Datenbanken der Basic-Serie können direkt aktualisiert werden (Basic 60 bis Basic 500). Datenbanken der Pro-Serie können mit Ausnahme von Pro 60 direkt aktualisiert werden (Pro 125 bis Pro 1000). Ein Upgrade von Pro 60-Datenbanken wird derzeit nicht unterstützt. 

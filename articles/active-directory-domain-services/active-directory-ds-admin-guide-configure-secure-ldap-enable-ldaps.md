@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: df189e405dcd5277c1ccbd94e9d5d302660be79b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60359828"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Aktivieren von sicherem LDAP (LDAPS) für eine über Azure AD Domain Services verwaltete Domäne
 
@@ -31,7 +31,7 @@ Führen Sie [Aufgabe 2: Exportieren der Zertifikate für sicheres LDAP in eine P
 ## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>Aufgabe 3: Aktivieren von sicherem LDAP für die verwaltete Domäne über das Azure-Portal
 Führen Sie die folgenden Konfigurationsschritte aus, um sicheres LDAP zu aktivieren:
 
-1. Navigieren Sie zum **[Azure-Portal](https://portal.azure.com)**.
+1. Navigieren Sie zum **[Azure-Portal](https://portal.azure.com)** .
 
 2. Suchen Sie nach „Domänendienste“ im Suchfeld **Search resources** (Ressourcen suchen). Wählen Sie aus dem Suchergebnis **Azure AD Domain Services** aus. Die Seite **Azure AD Domain Services** listet Ihre verwaltete Domäne auf.
 

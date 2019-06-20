@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
 ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517265"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60868249"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Verfolgen von Kosten eines Labs in Azure DevTest Labs
 Dieser Artikel enthält Informationen dazu, wie Sie die Kosten Ihres Labs nachverfolgen. Sie erfahren darin, wie Sie den geschätzten Kostentrend des Labs für den aktuellen Kalendermonat anzeigen. Außerdem erfahren Sie, wie Sie pro Ressource im Lab die Kosten für den bisherigen Kalendermonat anzeigen.
@@ -39,7 +39,7 @@ Führen Sie folgende Schritte aus, um das Diagramm „Monatlicher geschätzter K
 
     Der Wert für **Estimated cost** (Geschätzte Kosten) entspricht den geschätzten Kosten im aktuellen Kalendermonat bis zum heutigen Tag. Der Wert für **Projected cost** (Prognostizierte Kosten) entspricht den geschätzten Kosten für den gesamten aktuellen Kalendermonat, berechnet anhand der Labkosten für die vergangenen fünf Tage.
 
-    Die Kostenbeträge werden auf die nächste ganze Zahl aufgerundet. Beispiel:  
+    Die Kostenbeträge werden auf die nächste ganze Zahl aufgerundet. Beispiel: 
 
    * 5.01 wird auf 6 aufgerundet. 
    * 5.50 wird auf 6 aufgerundet.

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65556225"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Livestreaming mit Azure Media Services v3
 
@@ -33,7 +33,7 @@ Mit Azure Media Services können Sie Ihren Kunden Liveereignisse in der Azure Cl
 Dieser Artikel enthält eine Übersicht und Anleitungen für Livestreaming mit Media Services sowie Links zu anderen relevanten Artikeln.
 
 > [!NOTE]
-> Derzeit können Sie das Azure-Portal nicht für die Verwaltung von v3-Ressourcen verwenden. Verwenden Sie die [REST-API](https://aka.ms/ams-v3-rest-ref), die [Befehlszeilenschnittstelle](https://aka.ms/ams-v3-cli-ref) oder eines der unterstützten [SDKs](developers-guide.md).
+> Derzeit können Sie das Azure-Portal nicht für die Verwaltung von v3-Ressourcen verwenden. Verwenden Sie die [REST-API](https://aka.ms/ams-v3-rest-ref), die [Befehlszeilenschnittstelle](https://aka.ms/ams-v3-cli-ref) oder eines der unterstützten [SDKs](media-services-apis-overview.md#sdks).
 
 ## <a name="dynamic-packaging"></a>Dynamische Paketerstellung
 
@@ -67,9 +67,9 @@ Wenn Sie die Livecodierung mit Media Services verwenden, konfigurieren Sie Ihren
 
 Um die Livestreaming-Workflows in Media Services v3 nachvollziehen zu können, müssen Sie zunächst mit folgenden Konzepten vertraut sein: 
 
-- [Streamingendpunkte](streaming-endpoint-concept.md)
-- [Liveereignisse und Liveausgaben](live-events-outputs-concept.md)
-- [Streaminglocators](streaming-locators-concept.md)
+- [API für Streamingendpunkte](streaming-endpoint-concept.md)
+- [API für Liveereignisse und Liveausgaben](live-events-outputs-concept.md)
+- [API für Streaminglocators](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Allgemeine Schritte
 

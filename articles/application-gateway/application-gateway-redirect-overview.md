@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
 ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60831747"
 ---
 # <a name="application-gateway-redirect-overview"></a>Übersicht über die Umleitung in Application Gateway
 

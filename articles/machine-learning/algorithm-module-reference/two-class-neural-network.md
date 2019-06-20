@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7ea852fcd312c6f7b1b716278ed538b7accde5bd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027768"
 ---
 # <a name="two-class-neural-network-module"></a>Modul „Two-Class Neural Network“ (Neuronales Netz mit zwei Klassen)
@@ -83,7 +83,7 @@ Um die Ausgabe des Netzes für eine bestimmte Eingabe zu berechnen, wird bei jed
 
 Nach Abschluss des Trainings:
 
-+ Um eine Zusammenfassung der Parameter des Modells sowie der aus dem Training gewonnenen Featuregewichtungen und anderer Parameter des neuronalen Netzes anzuzeigen, klicken Sie mit der rechten Maustaste auf die Ausgabe von [Train Model](./train-model.md), und wählen Sie **Visualize** aus.  
++ Um eine Zusammenfassung der Parameter des Modells sowie der aus dem Training gewonnenen Merkmalsgewichtungen und anderer Parameter des neuronalen Netzes anzuzeigen, klicken Sie mit der rechten Maustaste auf die Ausgabe von [Train Model](./train-model.md) (Modell trainieren), und wählen Sie **Visualize** (Visualisieren) aus.  
 
 + Um eine Momentaufnahme des trainierten Modells zu speichern, klicken Sie mit der rechten Maustaste auf die Ausgabe **Trained model** (Trainiertes Modell), und wählen Sie **Save As Trained Model** (Als trainiertes Modell speichern) aus. Dieses Modell wird bei nachfolgenden Ausführungen desselben Experiments nicht aktualisiert.
 

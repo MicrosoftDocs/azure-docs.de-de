@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528168"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475207"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-Variablen für Azure CDN-Regel-Engine
 HTTP-Variablen stellen die Methoden für den Abruf von HTTP-Anforderungs- und -Antwortmetadaten bereit. Diese Metadaten können dann zur dynamischen Änderung einer Anforderung oder Antwort verwendet werden. Die Verwendung von HTTP-Variablen ist auf die folgenden Regel-Engine-Features beschränkt :
 
-- [Cache-Key Rewrite](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modify Client Request Header](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [Modify Client Response Header](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [URL Redirect](cdn-rules-engine-reference-features.md#url-redirect)
-- [URL Rewrite](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Cache-Key Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [Modify Client Request Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [Modify Client Response Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [URL Redirect](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [URL Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>Definitionen
 In der folgenden Tabelle sind die unterstützten HTTP-Variablen beschrieben. Ein leerer Wert wird zurückgegeben, wenn GEO-Metadaten (z.B. Postleitzahl) für eine bestimmte Anforderung nicht verfügbar sind.
@@ -113,7 +113,7 @@ In der folgenden Tabelle sind Umstände beschrieben, unter denen der angegebene 
 | Bedingung | BESCHREIBUNG | Beispiel |
 | --------- | ----------- | --------|
 | „%“ mit Escapezeichen versehen | Das Prozentzeichen kann durch die Verwendung eines umgekehrten Schrägstrichs mit einem Escapezeichen versehen werden. <br />Der Beispielwert auf der rechten Seite wird als Literalwert und nicht als HTTP-Variable behandelt.| \%{host} |
-| Unbekannte Variablen | Für unbekannte Variablen wird immer eine leere Zeichenfolge zurückgegeben. | %{unknownvariable} |
+| Unbekannte Variablen | Für unbekannte Variablen wird immer eine leere Zeichenfolge zurückgegeben. | %{unknown_variable} |
 | Ungültige Zeichen oder Syntax | Variablen, die ungültige Zeichen oder eine ungültige Syntax enthalten, werden als Literalwerte behandelt. <br /><br />Beispiel 1: Der angegebene Wert enthält ein ungültiges Zeichen (z. B. „-“). <br /><br />Beispiel 2: Der angegebene Wert enthält doppelte geschweifte Klammern. <br /><br />Beispiel 3: Beim angegebenen Wert fehlt eine schließende geschweifte Klammer.<br /> | Beispiel Nr. 1: %{resp_user-agent} <br /><br />Beispiel Nr. 2: %{{host}} <br /><br />Beispiel Nr. 3: %{host |
 | Fehlender Variablenname | Ein NULL-Wert wird immer zurückgegeben, wenn eine Variable nicht angegeben ist. | %{} |
 | Nachgestellte Zeichen | Zeichen, die am Ende einer Variable stehen, werden als Literalwerte behandelt. <br />Der Beispielwert auf der rechten Seite enthält eine nachgestellte geschweifte Klammer, die als Literalwert behandelt wird. | %{host}} |
@@ -127,9 +127,9 @@ In der folgenden Tabelle ist beschrieben, wie ein Standardwert definiert wird.
 
 | Bedingung | Syntax | Beispiel | BESCHREIBUNG |
 | --------- | ------ | --------| ----------- |
-| Ein Header wird auf einen Standardwert festgelegt, wenn er eine der folgenden Bedingungen erfüllt: <br /><br />– Fehlender Header <br /><br />– Headerwert ist auf NULL festgelegt.| %{Variable:=Value} | %{http_referer:=unspecified} | Der Referenzheader wird nur auf *nicht angegeben* festgelegt, wenn er entweder fehlt oder auf NULL festgelegt ist. Wenn er festgelegt wurde, erfolgt keine Aktion. |
-| Ein Header wird auf einen Standardwert festgelegt, wenn er fehlt. | %{Variable=Value} | %{http_referer=unspecified} | Der Referenzheader wird nur auf *nicht angegeben* festgelegt, wenn er fehlt. Wenn er festgelegt wurde, erfolgt keine Aktion. |
-| Der Header wird auf einen Standardwert festgelegt, wenn keine der folgenden Bedingungen auf ihn zutrifft: <br /><br />– Fehlt<br /><br /> – Auf NULL festgelegt. | %{Variable:+Value} | %{http_referer:+unspecified} | Der Referenzheader wird nur auf *nicht angegeben* festgelegt, wenn ihn ein Wert zugewiesen wurde. Wenn er fehlt oder auf NULL festgelegt ist, erfolgt keine Aktion. |
+| Ein Header wird auf einen Standardwert festgelegt, wenn er eine der folgenden Bedingungen erfüllt: <br /><br />– Fehlender Header <br /><br />– Headerwert ist auf NULL festgelegt.| %{Variable:=Value} | %{http_referrer:=unspecified} | Der Verweisheader wird nur auf *nicht angegeben* festgelegt, wenn er entweder fehlt oder auf NULL festgelegt ist. Wenn er festgelegt wurde, erfolgt keine Aktion. |
+| Ein Header wird auf einen Standardwert festgelegt, wenn er fehlt. | %{Variable=Value} | %{http_referrer=unspecified} | Der Verweisheader wird nur auf *nicht angegeben* festgelegt, wenn er fehlt. Wenn er festgelegt wurde, erfolgt keine Aktion. |
+| Der Header wird auf einen Standardwert festgelegt, wenn keine der folgenden Bedingungen auf ihn zutrifft: <br /><br />– Fehlt<br /><br /> – Auf NULL festgelegt. | %{Variable:+Value} | %{http_referrer:+unspecified} | Der Verweisheader wird nur auf *nicht angegeben* festgelegt, wenn ihm ein Wert zugewiesen wurde. Wenn er fehlt oder auf NULL festgelegt ist, erfolgt keine Aktion. |
 
 ## <a name="manipulating-variables"></a>Bearbeiten von Variablen
 Variablen können folgendermaßen bearbeitet werden:

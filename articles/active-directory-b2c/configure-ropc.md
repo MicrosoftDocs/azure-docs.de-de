@@ -2,20 +2,20 @@
 title: Konfigurieren des Flows für Kennwortanmeldeinformationen von Ressourcenbesitzern in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie den Flow für Kennwortanmeldeinformationen von Ressourcenbesitzern in Azure AD B2C konfigurieren.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7fe9310f50d2d2a3c247a410db204903d3412b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715889"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511342"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurieren des Flows für Kennwortanmeldeinformationen von Ressourcenbesitzern in Azure AD B2C
 
@@ -70,7 +70,7 @@ Verwenden Sie Ihre bevorzugte API-Entwicklungsanwendung, um einen API-Aufruf zu 
 
 | Schlüssel | Wert |
 | --- | ----- |
-| username | leadiocl@outlook.com |
+| userName | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |

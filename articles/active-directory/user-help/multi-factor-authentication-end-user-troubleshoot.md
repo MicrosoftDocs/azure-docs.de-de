@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60476659"
 ---
 # <a name="get-help-with-two-step-verification"></a>Hilfe bei der zweistufigen Überprüfung
 
@@ -31,7 +31,7 @@ Microsoft bietet die zweistufige Überprüfung, aber Ihre Organisation entscheid
 
 ## <a name="why-do-i-need-to-use-another-verification-method"></a>Warum muss ich eine andere Überprüfungsmethode verwenden?
 
-Es gibt verschiedene Gründe, weshalb Sie möglicherweise eine andere Überprüfungsmethode mit Ihrem Konto verwenden müssen. Beispiel: 
+Es gibt verschiedene Gründe, weshalb Sie möglicherweise eine andere Überprüfungsmethode mit Ihrem Konto verwenden müssen. Beispiel:
 
 - **Sie haben Ihr Smartphone oder Gerät vergessen.** An manchen Tagen lassen Sie Ihr Smartphone möglicherweise zu Hause, müssen sich aber dennoch bei der Arbeit anmelden. Zunächst sollten Sie versuchen, sich mit einer anderen Methode anzumelden, für die Ihr Smartphone nicht benötigt wird.
 

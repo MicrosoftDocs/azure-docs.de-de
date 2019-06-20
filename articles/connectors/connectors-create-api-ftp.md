@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60408554"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Erstellen, Überwachen und Verwalten von FTP-Dateien mithilfe von Azure Logic Apps
 
@@ -61,7 +61,7 @@ Sie können Trigger verwenden, die Antworten von Ihrem FTP-Server erhalten und d
    Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.
 
    Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-   Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+   Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
 
 1. Geben Sie die erforderlichen Informationen zu Ihrer Verbindung ein, und wählen Sie dann **Erstellen** aus.
 
@@ -69,7 +69,7 @@ Sie können Trigger verwenden, die Antworten von Ihrem FTP-Server erhalten und d
 
 Beim Anfordern von Dateiinhalten ruft der Trigger keine Dateien ab, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind:
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt über Pfad abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 
@@ -85,7 +85,7 @@ Dieser Trigger startet einen Logik-App-Workflow, wenn er erkennt, dass eine Date
 
 Beim Anfordern von Dateiinhalten können Trigger keine Dateien abrufen, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind: 
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt über Pfad abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 
@@ -106,7 +106,7 @@ Das folgende Beispiel zeigt diesen Trigger: **Wenn eine Datei hinzugefügt oder 
 
    ![Erstellen einer FTP-Serververbindung](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. Wählen Sie neben dem Feld **Ordner** das Ordnersymbol aus, damit eine Liste angezeigt wird. Um den Ordner zu finden, den Sie auf neue oder bearbeitete Dateien überwachen möchten, wählen Sie den Pfeil nach rechts (**>**) aus, navigieren zu diesem Ordner, und wählen Sie dann den Ordner aus.
+1. Wählen Sie neben dem Feld **Ordner** das Ordnersymbol aus, damit eine Liste angezeigt wird. Um den Ordner zu finden, den Sie auf neue oder bearbeitete Dateien überwachen möchten, wählen Sie den Pfeil nach rechts ( **>** ) aus, navigieren zu diesem Ordner, und wählen Sie dann den Ordner aus.
 
    ![Suchen und Auswählen des zu überwachenden Ordners](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -124,7 +124,7 @@ Diese Aktion ruft den Inhalt einer Datei auf einem FTP-Server ab, wenn diese Dat
 
 Beim Anfordern von Dateiinhalten können Trigger keine Dateien abrufen, die größer als 50 MB sind. Befolgen Sie das folgende Muster, um Dateien abzurufen, die größer als 50 MB sind: 
 
-* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)**.
+* Verwenden Sie einen Trigger, der Dateieigenschaften zurückgibt, z.B. **Beim Hinzufügen oder Ändern einer Datei (nur Eigenschaften)** .
 
 * Auf den Trigger muss eine Aktion folgen, die die gesamte Datei liest (etwa **Dateiinhalt über Pfad abrufen**), und die Aktion muss [Nachrichtenblöcke](../logic-apps/logic-apps-handle-large-messages.md) verwenden.
 

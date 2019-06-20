@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e5e8ffc18db902eeaa8484122e3844f35046191f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046052"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243085"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importieren einer Azure-Funktionen-App als API in Azure API Management
 
@@ -83,7 +83,7 @@ Führen Sie die folgenden Schritte aus, um eine Azure-Funktionen-App zu einer vo
 
 1. Klicken Sie in Ihrer **Azure API Management**-Dienstinstanz im Menü auf der linken Seite auf **APIs**.
 
-2. Wählen Sie eine API aus, in die Sie eine Azure-Funktionen-App importieren möchten. Klicken Sie auf **...**, und klicken Sie im Kontextmenü auf **Importieren**.
+2. Wählen Sie eine API aus, in die Sie eine Azure-Funktionen-App importieren möchten. Klicken Sie auf **...** , und klicken Sie im Kontextmenü auf **Importieren**.
 
     ![Anfügen aus einer Funktionen-App](./media/import-function-app-as-api/append-01.png)
 
@@ -118,7 +118,7 @@ Beim Importieren einer Azure-Funktionen-App wird automatisch Folgendes generiert
 * Hostschlüssel in der Funktionen-App mit dem Namen „apim-{*Name Ihrer Azure API Management-Dienstinstanz*}“
 * Benannter Wert in der Azure API Management-Instanz mit dem Namen „{*Name der Instanz Ihrer Azure-Funktionen-App*}-key“, die den erstellten Hostschlüssel enthält
 
-Bei APIs, die nach dem 4. April 2019 erstellt werden, wird der Hostschlüssel in HTTP-Anforderungen von API Management in einem Header an die Funktionen-App übergeben. Bei älteren APIs wird der Hostschlüssel als [Abfrageparameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization) übergeben. Dieses Verhalten kann durch den `PATCH Backend`-[REST-API-Aufruf](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) für die der Funktionen-App zugeordnete *Back-End-Entität* geändert werden.
+Bei APIs, die nach dem 4. April 2019 erstellt werden, wird der Hostschlüssel in HTTP-Anforderungen von API Management in einem Header an die Funktionen-App übergeben. Bei älteren APIs wird der Hostschlüssel als [Abfrageparameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization) übergeben. Dieses Verhalten kann durch den `PATCH Backend`-[REST-API-Aufruf](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) für die der Funktionen-App zugeordnete *Back-End-Entität* geändert werden.
 
 > [!WARNING]
 > Wenn Sie den Wert des Hostschlüssels der Azure-Funktionen-App oder den benannten Wert von Azure API Management entfernen oder ändern, wird die Kommunikation zwischen den Diensten unterbrochen. Die Werte werden nicht automatisch synchronisiert.

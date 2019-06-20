@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408737"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393600"
 ---
 # <a name="keys-and-values"></a>Schlüssel und Werte
 
@@ -27,7 +27,7 @@ Azure App Configuration speichert Konfigurationsdaten als Schlüssel-Wert-Paare.
 
 Schlüssel dienen als Name für Schlüssel-Wert-Paare und werden zum Speichern und Abrufen von entsprechenden Werten verwendet. Es ist eine häufige Vorgehensweise, Schlüssel mit einem Trennzeichen (z. B. `/` oder `:`) in einem hierarchischen Namespace zu organisieren. Verwenden Sie hierbei eine Konvention, die für Ihre Anwendung am besten geeignet ist. Bei App Configuration werden Schlüssel als Ganzes behandelt. Sie werden nicht analysiert, um zu ermitteln, wie ihre Namen strukturiert sind, und es werden auch keine Regeln dafür erzwungen.
 
-Bei der Verwendung des Konfigurationsspeichers in Anwendungsframeworks werden unter Umständen bestimmte Benennungsschemas für Schlüssel-Wert-Paare vorgegeben. Für das Spring Cloud-Framework von Java werden beispielsweise `Environment`-Ressourcen definiert, die Einstellungen für eine Spring-Anwendung für die Parametrisierung durch Variablen, z. B. *application name* und *profile* bereitstellen. Schlüssel für Spring Cloud-bezogene Konfigurationsdaten beginnen normalerweise mit diesen beiden Elementen, die durch ein Trennzeichen getrennt sind.
+Bei Verwendung von Konfigurationsdaten in Anwendungsframeworks sind möglicherweise bestimmte Benennungsschemas für Schlüssel-Wert-Paare vorgegeben. Für das Spring Cloud-Framework von Java werden beispielsweise `Environment`-Ressourcen definiert, die Einstellungen für eine Spring-Anwendung für die Parametrisierung durch Variablen, z. B. *application name* und *profile* bereitstellen. Schlüssel für Spring Cloud-bezogene Konfigurationsdaten beginnen normalerweise mit diesen beiden Elementen, die durch ein Trennzeichen getrennt sind.
 
 Für in App Configuration gespeicherte Schlüssel wird die Groß-/Kleinschreibung beachtet, und es handelt sich um Unicode-basierte Zeichenfolgen. *app1* und *App1* sind in einem App-Konfigurationsspeicher zwei einzelne Schlüssel. Beachten Sie dies, wenn Sie in einer Anwendung Konfigurationseinstellungen verwenden, da für Konfigurationsschlüssel in einigen Frameworks die Groß-/Kleinschreibung nicht beachtet wird. Vom ASP.NET Core-Konfigurationssystem werden Schlüssel beispielsweise als Zeichenfolgen ohne Berücksichtigung der Groß-/Kleinschreibung behandelt. Um beim Abfragen von App Configuration in einer ASP.NET Core-Anwendung unvorhersehbares Verhalten zu vermeiden, verwenden Sie keine Schlüssel, die sich nur anhand der Groß-/Kleinschreibung unterscheiden.
 

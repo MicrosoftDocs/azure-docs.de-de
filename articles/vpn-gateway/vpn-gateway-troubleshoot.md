@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: cherylmc
-ms.openlocfilehash: bb1074e361610cf3a8810aaeeb83717f791eb8bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 263c1010ec6cf5f6140c4dc9323dd9bd149b2368
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28934652"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64727283"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Beheben von Problemen beim VPN Gateway
 

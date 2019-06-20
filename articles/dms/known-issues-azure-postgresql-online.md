@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: f52eb1699b980e84195ec34eb543c4523328c893
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/23/2019
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181995"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "64691948"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Bekannte Probleme/Migrationseinschränkungen bei Onlinemigrationen zu Azure DB for PostgreSQL
 
@@ -25,6 +25,10 @@ In den folgenden Abschnitten werden bekannte Probleme und Einschränkungen in Be
 ## <a name="online-migration-configuration"></a>Konfiguration der Onlinemigration
 - Der PostgreSQL-Quellserver muss Version 9.5.11, 9.6.7, 10.3 oder höher ausführen. Weitere Informationen finden Sie im Artikel [Unterstützte PostgreSQL-Datenbankversionen](../postgresql/concepts-supported-versions.md).
 - Es werden nur Migrationen innerhalb einer Version unterstützt. Das Migrieren von PostgreSQL 9.5.11 zu Azure Database for PostgreSQL 9.6.7 wird z.B. nicht unterstützt.
+
+    > [!NOTE]
+    > Für PostgreSQL Version 10 unterstützt DMS zurzeit nur die Migration von Version 10.3 zu Azure Database for PostgreSQL. Wir planen, neuere Versionen von PostgreSQL schon bald zu unterstützen.
+
 - Um die logische Replikation in der PostgreSQL-Quelldatei **postgresql.config** zu aktivieren, legen Sie die folgenden Parameter fest:
     - **wal_level** = logical
     - **max_replication_slots** = [maximale Anzahl von Datenbanken für die Migration]. Wenn Sie 4 Datenbanken migrieren möchten, legen Sie den Wert auf 4 fest.

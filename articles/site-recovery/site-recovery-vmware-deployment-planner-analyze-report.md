@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61472489"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysieren des Azure Site Recovery-Bereitstellungsplaner-Berichts für die VMware-Notfallwiederherstellung in Azure
 
@@ -183,7 +183,7 @@ Es kann sein, dass Sie in einer bestimmten Situation wissen, dass Sie keine höh
 
 **VM Name:** Der VM-Name oder die IP-Adresse, der bzw. die beim Erstellen eines Berichts in „VMListFile“ verwendet wird. In dieser Spalte sind auch die Datenträger (VMDKs) angegeben, die an die VMs angefügt sind. Die Namen enthalten den ESXi-Hostnamen, um vCenter-VMs mit doppelten Namen oder IP-Adressen unterscheiden zu können. Der aufgeführte ESXi-Host ist der Host, auf dem die VM angeordnet wurde, als das Tool während der Profilerstellung die Ermittlung durchgeführt hat.
 
-**VM Compatibility** (VM-Kompatibilität): Werte sind **Ja** und **Ja**\*. **Yes**\* steht für Fälle, in denen die VM für [Premium-SSDs](../virtual-machines/windows/disks-types.md) geeignet ist. Hier fällt der Datenträger mit hoher Datenänderungsrate bzw. hohem IOPS-Wert, für den das Profil erstellt wird, in die Kategorie P20 oder P30. Aufgrund der Größe des Datenträgers wird er aber auf P10 bzw. P20 heruntergestuft. Das Speicherkonto entscheidet basierend auf der Größe, welchem Storage Premium-Datenträgertyp ein Datenträger zugeordnet wird. Beispiel: 
+**VM Compatibility** (VM-Kompatibilität): Werte sind **Ja** und **Ja**\*. **Yes**\* steht für Fälle, in denen die VM für [Premium-SSDs](../virtual-machines/windows/disks-types.md) geeignet ist. Hier fällt der Datenträger mit hoher Datenänderungsrate bzw. hohem IOPS-Wert, für den das Profil erstellt wird, in die Kategorie P20 oder P30. Aufgrund der Größe des Datenträgers wird er aber auf P10 bzw. P20 heruntergestuft. Das Speicherkonto entscheidet basierend auf der Größe, welchem Storage Premium-Datenträgertyp ein Datenträger zugeordnet wird. Beispiel:
 * Bei weniger als 128 GB ist die Kategorie P10.
 * Bei 128 GB bis 256 GB wird die Kategorie P15 verwendet.
 * Bei 256 GB bis 512 GB wird die Kategorie P20 verwendet.
@@ -279,7 +279,7 @@ Premium-Datenträger – P10 oder P15 | 8 KB  | 2 MB/s | 168 GB pro Datenträge
 Premium-Datenträger – P10 oder P15 | 16 KB | 4 MB/s |  336 GB pro Datenträger
 Premium-Datenträger – P10 oder P15 | 32 KB oder höher | 8 MB/s | 672 GB pro Datenträger
 Premium-Datenträger – P20, P30, P40 oder P50 | 8 KB    | 5 MB/s | 421 GB pro Datenträger
-Premium-Datenträger – P20, P30, P40 oder P50 | 16 KB oder höher | 20 MB/s | 1.684 GB pro Datenträger
+Premium-Datenträger – P20, P30, P40 oder P50 | 16 KB oder höher | 20 MB/s | 1\.684 GB pro Datenträger
 
 **Quell-Datenänderungsrate** | **Maximales Limit**
 ---|---

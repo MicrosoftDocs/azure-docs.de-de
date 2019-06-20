@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3395283e6228d7203b2e835961914e2f167fa451
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0648dd9bc93097d3c2433943f983b5e9d22f0279
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522395"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66473508"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Ändern von Äußerungsdaten vor oder während der Vorhersage
 LUIS bietet Möglichkeiten zum Bearbeiten einer Äußerung vor oder während der Vorhersage. Dazu gehören eine Korrektur der Rechtschreibung und das Beheben von Zeitzonenproblemen für Prebuild-datetimeV2. 
@@ -74,7 +74,7 @@ Entfernen von 60 Minuten:
 https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{App-ID}?q=Turn the lights on?**timezoneOffset=-60**&verbose={Boolean}&spellCheck={Boolean}&staging={Boolean}&bing-spell-check-subscription-key={Zeichenfolge}&log={Boolean}
 
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C#-Code zur Bestimmung des richtigen Werts für timezoneOffset
-Der folgende C#-Code verwendet die [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples)-Methode der [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=netframework-4.7.1)-Klasse, um das richtige `timezoneOffset` basierend auf der Systemzeit zu bestimmen:
+Der folgende C#-Code verwendet die [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples)-Methode der [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo)-Klasse, um das richtige `timezoneOffset` basierend auf der Systemzeit zu bestimmen:
 
 ```CSharp
 // Get CST zone id

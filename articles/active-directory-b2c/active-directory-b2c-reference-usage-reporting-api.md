@@ -2,20 +2,20 @@
 title: 'Verwendungsberichts-API: Beispiele und Definitionen in Azure Active Directory B2C | Microsoft-Dokumentationen'
 description: Leitfaden und Beispiele zum Abrufen von Berichten zu Azure AD B2C-Mandantenbenutzern, Authentifizierungen und mehrstufigen Authentifizierungen.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb8c41f657d8901535ba284c147f4ca3aa86198d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703619"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66508715"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Zugriff auf Verwendungsberichte in Azure AD B2C über die Berichterstattungs-API
 

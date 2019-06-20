@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60759604"
 ---
 # <a name="language-support-for-computer-vision"></a>Sprachunterstützung für maschinelles Sehen
 
@@ -60,7 +60,7 @@ OCR erkennt automatisch die Sprache des eingegebenen Materials, sodass kein Spra
 
 Einige Aktionen der [Bildanalyse](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)-API können Ergebnisse in anderen Sprachen zurückgeben, angegeben mit dem `language`-Abfrageparameter. Andere Aktionen geben unabhängig davon, welche Sprache angegeben ist, Ergebnisse in englischer Sprache zurück, und andere lösen bei nicht unterstützten Sprachen eine Ausnahme aus. Aktionen werden mit dem `visualFeatures`- und `details`-Abfrageparameter angegeben; in der [Übersicht](home.md) finden Sie eine Liste mit allen Aktionen, die Sie mit der Bildanalyse durchführen können.
 
-|Sprache | Sprachcode | Categories | Tags | BESCHREIBUNG | Erwachsene | Marken | Farbe | Gesichtserkennung | ImageType | Objekte | Prominente | Besondere Merkmale |
+|Sprache | Sprachcode | Categories | `Tags` | BESCHREIBUNG | Erwachsene | Marken | Farbe | Gesichtserkennung | ImageType | Objekte | Prominente | Besondere Merkmale |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinesisch | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Englisch | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

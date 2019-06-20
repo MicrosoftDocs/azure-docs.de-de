@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: fe6ce23b9e87235521739b7808712a9d541dabf9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60734914"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurieren von IoT Hub-Dateiuploads mit der Azure CLI
 

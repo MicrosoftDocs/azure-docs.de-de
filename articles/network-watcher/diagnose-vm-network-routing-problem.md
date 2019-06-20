@@ -3,8 +3,8 @@ title: Diagnostizieren von Problemen mit dem Netzwerkrouting eines virtuellen Co
 description: In diesem Tutorial erfahren Sie, wie Sie Probleme mit dem Netzwerkrouting eines virtuellen Computers mit der Funktion „Nächster Hop“ von Azure Network Watcher diagnostizieren.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,21 +15,21 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ea64c93726c3bc5c5d60f35790bb337333d4d47a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312194"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684519"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: Diagnostizieren von Problemen mit dem Netzwerkrouting eines virtuellen Computers über das Azure-Portal
 
 Wenn Sie einen virtuellen Computer bereitstellen, erstellt Azure mehrere Standardrouten für ihn. Sie können benutzerdefinierte Routen erstellen, um die Standardrouten von Azure außer Kraft zu setzen. In manchen Fällen kann eine benutzerdefinierte Route dazu führen, dass ein virtueller Computer nicht mit anderen Ressourcen kommunizieren kann. In diesem Tutorial lernen Sie Folgendes:
 
 > [!div class="checklist"]
-> * Erstellen eines virtuellen Computers
+> * Erstellen einer VM
 > * Testen der Kommunikation mit einer URL mithilfe der Funktion „Nächster Hop“ von Network Watcher
 > * Testen der Kommunikation mit einer IP-Adresse
 > * Diagnostizieren eines Routingproblems und Informationen zur Behebung
@@ -42,7 +42,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 Melden Sie sich unter https://portal.azure.com beim Azure-Portal an.
 
-## <a name="create-a-vm"></a>Erstellen eines virtuellen Computers
+## <a name="create-a-vm"></a>Erstellen einer VM
 
 1. Klicken Sie im Azure-Portal links oben auf **+ Ressource erstellen**.
 2. Klicken Sie auf **Compute** und anschließend auf **Windows Server 2016 Datacenter** oder auf **Ubuntu Server 17.10 VM**.
@@ -50,12 +50,12 @@ Melden Sie sich unter https://portal.azure.com beim Azure-Portal an.
 
     |Einstellung|Wert|
     |---|---|
-    |Name|myVm|
+    |NAME|myVm|
     |Benutzername| Geben Sie den gewünschten Benutzernamen ein.|
     |Kennwort| Geben Sie das gewünschte Kennwort ein. Das Kennwort muss mindestens zwölf Zeichen lang sein und die [definierten Anforderungen an die Komplexität](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) erfüllen.|
     |Abonnement| Wählen Sie Ihr Abonnement aus.|
     |Ressourcengruppe| Klicken Sie auf **Neu erstellen**, und geben Sie **myResourceGroup** ein.|
-    |Standort| Wählen Sie **USA, Osten** aus.|
+    |Location| Wählen Sie **USA, Osten** aus.|
 
 4. Wählen Sie eine Größe für den virtuellen Computer aus, und klicken Sie dann auf **Auswählen**.
 5. Übernehmen Sie unter **Einstellungen** alle Standardwerte, und klicken Sie auf **OK**.
@@ -89,7 +89,7 @@ Azure erstellt automatisch Routen zu Standardzielen. Sie können benutzerdefinie
     | Virtueller Computer         | Wählen Sie „myVm“ aus.                                            |
     | Netzwerkschnittstelle       | myvm (Der Name Ihrer Netzwerkschnittstelle kann anders lauten.)   |
     | Quell-IP-Adresse       | 10.0.0.4                                               |
-    | Ziel-IP-Adresse  | 13.107.21.200 (Eine der Adressen für www.bing.com.) |
+    | IP-Zieladresse  | 13.107.21.200: Eine der Adressen für <www.bing.com> |
 
     ![Nächster Hop](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

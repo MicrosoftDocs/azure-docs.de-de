@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 067040349a5d435860492497dddbf39aad2635eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794514"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398405"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Einrichten der Notfallwiederherstellung für Hyper-V-VMs an einem sekundären lokalen Standort
 
@@ -123,7 +123,7 @@ Wählen Sie VMM-Zielserver und Cloud aus:
 
 Bevor Sie beginnen, stellen Sie sicher, dass alle Hosts, die die Richtlinie verwenden, über dasselbe Betriebssystem verfügen. Wenn auf Hosts unterschiedliche Versionen von Windows Server ausgeführt werden, benötigen Sie mehrere Replikationsrichtlinien.
 
-1. Klicken Sie zum Erstellen einer neuen Replikationsrichtlinie auf **Infrastruktur vorbereiten** > **Replikationseinstellungen** > **+Erstellen und zuordnen**.
+1. Klicken Sie zum Erstellen einer neuen Replikationsrichtlinie auf **Infrastruktur vorbereiten** > **Replikationseinstellungen** >  **+Erstellen und zuordnen**.
 2. Geben Sie unter **Richtlinie erstellen und zuordnen**einen Richtliniennamen an. Quell- und Zieltyp müssen jeweils **Hyper-V**lauten.
 3. Wählen Sie unter **Hyper-V-Hostversion** aus, welches Betriebssystem auf dem Host ausgeführt wird.
 4. Geben Sie unter **Authentifizierungstyp** und **Authentifizierungsport** an, wie der Datenverkehr zwischen dem primären und dem Hyper-V-Wiederherstellungs-Hostserver authentifiziert wird.
@@ -146,7 +146,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass alle Hosts, die die Richtlinie verw
 
 ## <a name="enable-replication"></a>Aktivieren der Replikation
 
-1. Klicken Sie auf **Replicate application (Anwendung replizieren)** > **Quelle**. 
+1. Klicken Sie auf **Replicate application (Anwendung replizieren)**  > **Quelle**. 
 2. Wählen Sie auf dem Blatt **Quelle** den VMM-Server und die Cloud aus, in denen sich die Hyper-V-Hosts befinden, die Sie replizieren möchten. Klicken Sie dann auf **OK**.
 3. Überprüfen Sie in **Ziel** den sekundären VMM-Server und die Cloud.
 4. Wählen Sie unter **Virtuelle Computer** in der Liste die VMs aus, die Sie schützen möchten.

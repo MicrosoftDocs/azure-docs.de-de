@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 951cf377c7e33dd3dd5e13a7b42fa05bec06245d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c2efacab72c08d33b0004650bece2c369c757b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012370"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935997"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Entwerfen einer Azure Database for MySQL-Instanz mithilfe der Azure CLI
 
@@ -53,7 +53,7 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Erstellen eines Servers für Azure-Datenbank für MySQL
 Erstellen Sie mit dem Befehl „az mysql server create“ einen Azure-Datenbank für MySQL-Server. Ein Server kann mehrere Datenbanken verwalten. In der Regel wird für jedes Projekt oder jeden Benutzer eine separate Datenbank verwendet.
 
-Das folgende Beispiel erstellt eine Azure-Datenbank für MySQL-Server in `westus` in der Ressourcengruppe `myresourcegroup` mit dem Namen `mydemoserver`. Der Server verfügt über die Administratoranmeldung `myadmin`. Es ist ein Gen 5-Server vom Typ „Universell“ mit zwei virtuellen Kernen. Ersetzen Sie das `<server_admin_password>` durch einen eigenen Wert.
+Das folgende Beispiel erstellt eine Azure-Datenbank für MySQL-Server in `westus` in der Ressourcengruppe `myresourcegroup` mit dem Namen `mydemoserver`. Der Server verfügt über den Administratorbenutzer `myadmin`. Es ist ein Gen 5-Server vom Typ „Universell“ mit zwei virtuellen Kernen. Ersetzen Sie das `<server_admin_password>` durch einen eigenen Wert.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
@@ -118,7 +118,7 @@ Das Ergebnis liegt im JSON-Format vor. Notieren Sie sich die Werte für **fullyQ
 ## <a name="connect-to-the-server-using-mysql"></a>Herstellen einer Verbindung mit dem Server unter Verwendung von mysql
 Verwenden Sie das [mysql-Befehlszeilentool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) zum Herstellen einer Verbindung mit Ihrem Azure Database for MySQL-Server. In diesem Beispiel lautet der Befehl:
 ```cmd
-mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
+mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Leere Datenbank erstellen

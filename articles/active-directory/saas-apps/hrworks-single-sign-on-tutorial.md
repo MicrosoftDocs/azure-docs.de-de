@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0c326525f5a551ddb00a709ed0a36a68a1343db
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707627"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Tutorial: Azure Active Directory-Integration mit HRworks Single Sign-On
 
@@ -76,12 +76,12 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei HRworks Single Sign-On müssen Sie die folgenden Bausteine ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für HRworks Single Sign-On](#configure-hrworks-single-sign-on-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines HRworks Single Sign-On-Testbenutzers](#create-hrworks-single-sign-on-test-user)**, um eine Entsprechung von Britta Simon in HRworks Single Sign-On zu erhalten, die mit der Darstellung des Benutzers in Azure AD verknüpft ist.
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für HRworks Single Sign-On](#configure-hrworks-single-sign-on-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines HRworks Single Sign-On-Testbenutzers](#create-hrworks-single-sign-on-test-user)** , um eine Entsprechung von Britta Simon in HRworks Single Sign-On zu erhalten, die mit der Darstellung des Benutzers in Azure AD verknüpft ist.
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -130,7 +130,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD in HRworks S
 
 2. Klicken Sie links in der Menüleiste auf **Administrator** > **Grundlagen** > **Sicherheit** > **Einmaliges Anmelden**, und führen Sie die folgenden Schritte aus:
 
-       ![Configure single sign-on](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Einmaliges Anmelden konfigurieren](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Aktivieren Sie das Kontrollkästchen **Einmaliges Anmelden verwenden**.
 
@@ -138,7 +138,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD in HRworks S
 
     c. Wählen Sie **Individual NameID identifier** (Individueller NameID-Bezeichner) als **Value for NameID** (Wert für NameID) aus.
 
-    d. Öffnen Sie in Editor die Metadaten-XML, die Sie aus dem Azure-Portal heruntergeladen haben, kopieren Sie den Inhalt, und fügen Sie ihn anschließend in das Textfeld **Metadata** (Metadaten) ein.
+    d. Öffnen Sie im Editor die Metadaten-XML, die Sie aus dem Azure-Portal heruntergeladen haben, kopieren Sie den Inhalt, und fügen Sie ihn anschließend in das Textfeld **Metadata** (Metadaten) ein.
 
     e. Klicken Sie auf **Speichern**.
 
@@ -202,7 +202,7 @@ Zum Aktivieren von Azure AD-Benutzern müssen Sie sich an HRworks Single Sign-On
 
 2. Klicken Sie links in der Menüleiste auf **Administrator** > **Persons** > **Persons** > **New person** (Administrator > Personen > Personen > Neue Person).
 
-     ![Configure single sign-on](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Configure single sign-on](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. Klicken Sie im Popupfenster auf **Next** (Weiter).
 

@@ -4,14 +4,14 @@ description: Hier erfahren Sie, wie Sie in Azure Cosmos DB Durchsatz auf der Con
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: d092844fbd75fc2307cc13ec9b7779ae9237535d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: dec6d0a65e556e0572bd030617e5b2c30078fce8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679703"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243832"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Bereitstellen von Durchsatz für einen Azure Cosmos-Container
 

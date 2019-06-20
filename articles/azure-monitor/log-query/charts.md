@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60594024"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Erstellen von Grafiken und Diagrammen aus Azure Monitor-Protokollabfragen
 

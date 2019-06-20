@@ -1,7 +1,7 @@
 ---
 title: Verwendung der Data Science VM für geografische KI – Azure | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie die Data Science Virtual Machine für geografische KI verwenden, um Daten zu analysieren und geodatenbasierte Modelle zu erstellen.
-keywords: deep learning, KI, data science-tools, data science-VM, räumliche Analysen
+keywords: Deep Learning, KI, Data Science-Tools, virtueller Data Science-Computer, räumliche Analysen
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: 6e6737e928ece820ea9119d8dfe1d7cf22477646
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880107"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60406569"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Verwendung der Data Science VM für geografische KI
 

@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
 ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853272"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61275522"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Aktualisieren von Windows Server 2012 R2-Hosts und SCVMM 2012 R2-Instanzen, die mit Azure Site Recovery konfiguriert sind, auf Windows Server 2016 und SCVMM 2016
 

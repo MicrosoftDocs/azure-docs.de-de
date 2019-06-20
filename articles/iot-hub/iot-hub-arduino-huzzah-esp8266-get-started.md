@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409079"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Verbinden von Adafruit Feather HUZZAH ESP8266 mit dem Azure IoT Hub in der Cloud
@@ -186,7 +186,7 @@ Die Beispielanwendung wird auf GitHub gehostet. Klonen Sie das Beispielrepositor
 
 13. Geben Sie `F1` und anschließend **Arduino** ein, und wählen Sie dann **Arduino: Board Config** (Arduino: Board-Konfiguration) aus.
 
-14. Klicken Sie in das Feld für **Selected Board:** (Ausgewähltes Board:), geben Sie **esp8266** ein, und wählen Sie dann **Adafruit HUZZAH ESP8266 (esp8266)**.
+14. Klicken Sie in das Feld für **Selected Board:** (Ausgewähltes Board:), geben Sie **esp8266** ein, und wählen Sie dann **Adafruit HUZZAH ESP8266 (esp8266)** .
 
     ![Auswahl von Board esp8266](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 

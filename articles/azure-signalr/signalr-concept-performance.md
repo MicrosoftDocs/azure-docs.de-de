@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: zhshang
 ms.openlocfilehash: f7cc05c8c2a299d809c4386d119fef58fa2548d5
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61269440"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Leitfaden zur Leistung für Azure SignalR Service
 
@@ -122,14 +122,14 @@ Jeder Tarif hat seine eigene maximale ein- und ausgehende Bandbreite. Eine einwa
 
 |       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen                       | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen                       | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | **Eingehende Bandbreite** | **2 MBit/s**    | **4 MBit/s**    | **10 MBit/s**   | **20 MBit/s**    | **40 MBit/s**    | **100 MBit/s**   | **200 MBit/s**    |
 | Ausgehende Bandbreite | 2 MBit/s   | 4 MBit/s   | 10 MBit/s  | 20 MBit/s   | 40 MBit/s   | 100 MBit/s  | 200 MBit/s   |
 
 
 |     Broadcast             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindungen               | 1.000 | 2.000 | 5.000  | 10.000 | 20.000 | 50.000  | 100.000 |
+| Verbindungen               | 1\.000 | 2\.000 | 5\.000  | 10\.000 | 20\.000 | 50\.000  | 100\.000 |
 | Eingehende Bandbreite  | 4 KBit/s   | 4 KBit/s   | 4 KBit/s    | 4 KBit/s    | 4 KBit/s    | 4 KBit/s     | 4 KBit/s    |
 | **Ausgehende Bandbreite** | **4 MBit/s**    | **8 MBit/s**    | **20 MBit/s**    | **40 MBit/s**    | **80 MBit/s**    | **200 MBit/s**    | **400 MBit/s**   |
 
@@ -159,8 +159,8 @@ Die folgende Tabelle zeigt einen realen Anwendungsfall von **Broadcast**. Aber d
 
 | Broadcast  | Nachrichtengröße | Eingehende Nachrichten pro Sekunde | Verbindungen | Sendeintervalle |
 |---|---------------------|--------------------------|-------------|-------------------------|
-| 1 | 20 KB                | 1                        | 100.000     | 5 Sekunden                      |
-| 2 | 256 KB               | 1                        | 8.000       | 5 Sekunden                      |
+| 1 | 20 KB                | 1                        | 100\.000     | 5 Sekunden                      |
+| 2 | 256 KB               | 1                        | 8\.000       | 5 Sekunden                      |
 
 Die folgende Formel lässt sich anhand der vorherigen Formel einfach ableiten:
 
@@ -213,8 +213,8 @@ Das Verhalten von **Echo** bestimmt, dass die maximale eingehende Bandbreite gle
 
 |       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen                       | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
-| Ein-/Ausgehende Nachrichten pro Sekunde | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen                       | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
+| Ein-/Ausgehende Nachrichten pro Sekunde | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Ein-/Ausgehende Bandbreite | 2 MBit/s   | 4 MBit/s   | 10 MBit/s  | 20 MBit/s   | 40 MBit/s   | 100 MBit/s  | 200 MBit/s   |
 
 In diesem Anwendungsfall ruft jeder Client den im App-Server definierten Hub auf. Der Hub ruft nur die Methode auf, die auf der ursprünglichen Clientseite definiert ist. Dieser Hub ist der leichteste Hub für **Echo**.
@@ -231,7 +231,7 @@ Selbst für diesen einfachen Hub ist der Datenverkehrsdruck auf dem App-Server m
 
 |    Echo          | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen      | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen      | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Anzahl der App-Server | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -249,9 +249,9 @@ Die folgende Tabelle fasst die maximalen Clientverbindungen, die Anzahl der eing
 
 |     Broadcast             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindungen               | 1.000 | 2.000 | 5.000  | 10.000 | 20.000 | 50.000  | 100.000 |
+| Verbindungen               | 1\.000 | 2\.000 | 5\.000  | 10\.000 | 20\.000 | 50\.000  | 100\.000 |
 | Eingehende Nachrichten pro Sekunde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Ausgehende Nachrichten pro Sekunde | 2.000 | 4.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200.000 |
+| Ausgehende Nachrichten pro Sekunde | 2\.000 | 4\.000 | 10\.000 | 20\.000 | 40\.000 | 100\.000 | 200\.000 |
 | Eingehende Bandbreite  | 4 KBit/s   | 4 KBit/s   | 4 KBit/s    | 4 KBit/s    | 4 KBit/s    | 4 KBit/s     | 4 KBit/s     |
 | Ausgehende Bandbreite | 4 MBit/s   | 8 MBit/s   | 20 MBit/s   | 40 MBit/s   | 80 MBit/s   | 200 MBit/s   | 400 MBit/s   |
 
@@ -259,7 +259,7 @@ Es gibt nicht mehr als vier übertragende Clients, die Nachrichten posten. Sie b
 
 |   Broadcast      | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen      | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen      | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Anzahl der App-Server | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -287,19 +287,19 @@ Die Routingkosten sind für das Senden von Nachrichten an viele kleine Gruppen b
 
 |   An kleine Gruppe senden     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50 | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
-| Verbindungen               | 1.000 | 2.000 | 5.000  | 10.000 | 20.000 | 50.000 | 100.000
+| Verbindungen               | 1\.000 | 2\.000 | 5\.000  | 10\.000 | 20\.000 | 50\.000 | 100\.000
 | Anzahl der Gruppenmitglieder        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
-| Gruppenanzahl               | 100   | 200   | 500    | 1.000  | 2.000  | 5.000  | 10.000 
-| Eingehende Nachrichten pro Sekunde  | 200   | 400   | 1.000  | 2.500  | 4.000  | 7.000  | 7.000   |
+| Gruppenanzahl               | 100   | 200   | 500    | 1\.000  | 2\.000  | 5\.000  | 10\.000 
+| Eingehende Nachrichten pro Sekunde  | 200   | 400   | 1\.000  | 2\.500  | 4\.000  | 7\.000  | 7\.000   |
 | Eingehende Bandbreite  | 400 KBit/s  | 800 KBit/s  | 2 MBit/s     | 5 MBit/s     | 8 MBit/s     | 14 MBit/s    | 14 MBit/s     |
-| Ausgehende Nachrichten pro Sekunde | 2.000 | 4.000 | 10.000 | 25.000 | 40.000 | 70.000 | 70.000  |
+| Ausgehende Nachrichten pro Sekunde | 2\.000 | 4\.000 | 10\.000 | 25\.000 | 40\.000 | 70\.000 | 70\.000  |
 | Ausgehende Bandbreite | 4 MBit/s    | 8 MBit/s    | 20 MBit/s    | 50 MBit/s     | 80 MBit/s    | 140 MBit/s   | 140 MBit/s    |
 
 Viele Clientverbindungen rufen den Hub auf, sodass die Anzahl der App-Server auch für die Leistung entscheidend ist. In der folgenden Tabelle ist die jeweilige Anzahl der vorgeschlagenen App-Server aufgeführt.
 
 |  An kleine Gruppe senden   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen      | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen      | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Anzahl der App-Server | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -311,19 +311,19 @@ Bei **An große Gruppe senden** wird die ausgehende Bandbreite zum Engpass, bevo
 
 |    An große Gruppe senden      | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindungen               | 1.000 | 2.000 | 5.000  | 10.000 | 20.000 | 50.000  | 100.000
-| Anzahl der Gruppenmitglieder        | 100   | 200   | 500    | 1.000  | 2.000  | 5.000   | 10.000 
+| Verbindungen               | 1\.000 | 2\.000 | 5\.000  | 10\.000 | 20\.000 | 50\.000  | 100\.000
+| Anzahl der Gruppenmitglieder        | 100   | 200   | 500    | 1\.000  | 2\.000  | 5\.000   | 10\.000 
 | Gruppenanzahl               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Eingehende Nachrichten pro Sekunde  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | Eingehende Bandbreite  | 80 KBit/s   | 40 KBit/s   | 40 KBit/s    | 20 KBit/s    | 40 KBit/s    | 40 KBit/s     | 40 KBit/s     |
-| Ausgehende Nachrichten pro Sekunde | 2.000 | 4.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200.000 |
+| Ausgehende Nachrichten pro Sekunde | 2\.000 | 4\.000 | 10\.000 | 20\.000 | 40\.000 | 100\.000 | 200\.000 |
 | Ausgehende Bandbreite | 8 MBit/s    | 8 MBit/s    | 20 MBit/s    | 40 MBit/s    | 80 MBit/s    | 200 MBit/s    | 400 MBit/s    |
 
 Die Anzahl der sendenden Verbindungen ist nicht höher als 40. Die Belastung des App-Servers ist gering, sodass die empfohlene Anzahl von Web-Apps niedrig ist.
 
 |  An große Gruppe senden  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen      | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen      | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Anzahl der App-Server | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -345,15 +345,15 @@ Die folgende Tabelle ist eine statistische Zusammenfassung nach zahlreichen Durc
 
 |   An Verbindung senden   | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50          | Unit100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
-| Verbindungen                        | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000          | 100.000         |
-| Ein-/Ausgehende Nachrichten pro Sekunde | 1.000 | 2.000 | 5.000 | 8.000  | 9.000  | 20.000 | 20.000 |
+| Verbindungen                        | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000          | 100\.000         |
+| Ein-/Ausgehende Nachrichten pro Sekunde | 1\.000 | 2\.000 | 5\.000 | 8\.000  | 9\.000  | 20\.000 | 20\.000 |
 | Ein-/Ausgehende Bandbreite | 2 MBit/s    | 4 MBit/s    | 10 MBit/s   | 16 MBit/s    | 18 MBit/s    | 40 MBit/s       | 40 MBit/s       |
 
 Dieser Anwendungsfall erfordert eine hohe Arbeitslast auf der Seite des App-Servers. Weitere Informationen zur Anzahl der vorgeschlagenen App-Server finden Sie in der folgenden Tabelle.
 
 |  An Verbindung senden  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen      | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen      | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Anzahl der App-Server | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -369,21 +369,21 @@ Die folgende Tabelle enthält die vorgeschlagene Anzahl der Web-Apps für ASP.NE
 
 |   Echo           | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen      | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen      | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Anzahl der App-Server | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 Die folgende Tabelle enthält die vorgeschlagene Anzahl der Web-Apps für ASP.NET SignalR **Broadcast**.
 
 |  Broadcast       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen      | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen      | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Anzahl der App-Server | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 Die folgende Tabelle enthält die vorgeschlagene Anzahl der Web-Apps für ASP.NET SignalR **An kleine Gruppe senden**.
 
 |  An kleine Gruppe senden     | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Verbindungen      | 1.000 | 2.000 | 5.000 | 10.000 | 20.000 | 50.000 | 100.000 |
+| Verbindungen      | 1\.000 | 2\.000 | 5\.000 | 10\.000 | 20\.000 | 50\.000 | 100\.000 |
 | Anzahl der App-Server | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 ### <a name="serverless-mode"></a>Serverloser Modus
@@ -397,9 +397,9 @@ Alle Clients stellen WebSocket-Verbindungen mit Azure SignalR Service her. Dann 
 
 |   Übertragen über die REST-API     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindungen               | 1.000 | 2.000 | 5.000  | 10.000 | 20.000 | 50.000  | 100.000 |
+| Verbindungen               | 1\.000 | 2\.000 | 5\.000  | 10\.000 | 20\.000 | 50\.000  | 100\.000 |
 | Eingehende Nachrichten pro Sekunde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
-| Ausgehende Nachrichten pro Sekunde | 2.000 | 4.000 | 10.000 | 20.000 | 40.000 | 100.000 | 200.000 |
+| Ausgehende Nachrichten pro Sekunde | 2\.000 | 4\.000 | 10\.000 | 20\.000 | 40\.000 | 100\.000 | 200\.000 |
 | Eingehende Bandbreite  | 4 KBit/s    | 4 KBit/s    | 4 KBit/s     | 4 KBit/s     | 4 KBit/s     | 4 KBit/s      | 4 KBit/s      |
 | Ausgehende Bandbreite | 4 MBit/s    | 8 MBit/s    | 20 MBit/s    | 40 MBit/s    | 80 MBit/s    | 200 MBit/s    | 400 MBit/s    |
 
@@ -408,9 +408,9 @@ Der Benchmark weist allen Clients Benutzernamen zu, bevor sie beginnen, eine Ver
 
 |   Über die REST-API an Benutzer senden | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Verbindungen               | 1.000 | 2.000 | 5.000  | 10.000 | 20.000 | 50.000  | 100.000 |
-| Eingehende Nachrichten pro Sekunde  | 300   | 600   | 900    | 1.300  | 2.000  | 10.000  | 18.000  |
-| Ausgehende Nachrichten pro Sekunde | 300   | 600   | 900    | 1.300  | 2.000  | 10.000  | 18.000 |
+| Verbindungen               | 1\.000 | 2\.000 | 5\.000  | 10\.000 | 20\.000 | 50\.000  | 100\.000 |
+| Eingehende Nachrichten pro Sekunde  | 300   | 600   | 900    | 1\.300  | 2\.000  | 10\.000  | 18\.000  |
+| Ausgehende Nachrichten pro Sekunde | 300   | 600   | 900    | 1\.300  | 2\.000  | 10\.000  | 18\.000 |
 | Eingehende Bandbreite  | 600 KBit/s  | 1,2 MBit/s  | 1,8 MBit/s   | 2,6 MBit/s   | 4 MBit/s     | 10 MBit/s     | 36 MBit/s    |
 | Ausgehende Bandbreite | 600 KBit/s  | 1,2 MBit/s  | 1,8 MBit/s   | 2,6 MBit/s   | 4 MBit/s     | 10 MBit/s     | 36 MBit/s    |
 

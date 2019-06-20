@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 8cc529fbf9b24335be1bec07f81c732ced7a2b72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60773841"
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Verwalten von grundlegenden Richtlinien für ein Lab in Azure DevTest Labs
 
@@ -53,7 +53,7 @@ Mit der Richtlinie für **Virtual machines per user** (VMs pro Benutzer) können
 
 1. Wählen Sie **Ja**, um die Anzahl von virtuellen Computern zu begrenzen, die eine SSD (Solid-State Disk) verwenden können. Wenn Sie die Anzahl von virtuellen Computern, die eine SSD verwenden können, nicht begrenzen möchten, wählen Sie **Nein**. Wenn Sie **Ja** auswählen, geben Sie einen Wert für die maximale Anzahl von virtuellen Computern ein, die mit einer SSD erstellt werden können. 
 
-1. Wählen Sie **Speichern**aus.
+1. Wählen Sie **Speichern** aus.
 
 ## <a name="set-auto-shutdown"></a>Festlegen des automatischen Herunterfahrens
 Die Auto-Shutdown-Richtlinie hilft dabei, unnötigen Aufwand im Lab zu minimieren, indem sie Ihnen ermöglicht, die Uhrzeit anzugeben, zu der die virtuellen Computer für dieses Lab heruntergefahren werden.
@@ -70,7 +70,7 @@ Die Auto-Shutdown-Richtlinie hilft dabei, unnötigen Aufwand im Lab zu minimiere
 
    Weitere Informationen zu Webhooks finden Sie unter [Erstellen eines Webhooks oder einer API-Azure-Funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
-1. Wählen Sie **Speichern**aus.
+1. Wählen Sie **Speichern** aus.
 
 Standardmäßig gilt diese Richtlinie nach der Aktivierung für alle virtuellen Computer im aktuellen Lab. Um diese Einstellung von einem bestimmten virtuellen Computer zu entfernen, öffnen Sie den Verwaltungsbereich des virtuellen Computers, und ändern Sie die Einstellung **Automatisch herunterfahren**.
 
@@ -85,7 +85,7 @@ Mit der Autostart-Richtlinie können Sie angeben, wann die virtuellen Computer i
 
 3. Wenn Sie diese Richtlinie aktivieren, geben Sie die geplante Startzeit, die Zeitzone und die Wochentage an, an denen die Uhrzeit gelten soll. 
 
-4. Wählen Sie **Speichern**aus.
+4. Wählen Sie **Speichern** aus.
 
 Nach der Aktivierung wird diese Richtlinie nicht automatisch auf alle virtuellen Computer im aktuellen Lab angewendet. Um diese Einstellung auf einen vorhandenen virtuellen Computer anzuwenden, öffnen Sie den Verwaltungsbereich des virtuellen Computers, und ändern Sie die Einstellung **Automatisch starten**.
 

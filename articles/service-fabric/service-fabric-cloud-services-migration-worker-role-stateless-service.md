@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62110008"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Anleitung zur Konvertierung von Web- und Workerrollen in zustandslose Service Fabric-Dienste
 In diesem Artikel wird beschrieben, wie Sie Ihre Cloud Services-Web- und -Workerrollen zu zustandslosen Service Fabric-Diensten migrieren. Dies ist für Anwendungen, deren allgemeine Architektur weitgehend gleich bleibt, der einfachste Migrationspfad von Cloud Services zu Service Fabric.
@@ -41,7 +41,7 @@ In Bezug auf das Konzept stellt eine Workerrolle eine zustandslose Workload dar.
 
 | **Anwendung** | **Unterstützt** | **Migrationspfad** |
 | --- | --- | --- |
-| ASP.NET Web Forms |Nein  |In ASP.NET Core 1 MVC konvertieren |
+| ASP.NET Web Forms |Nein |In ASP.NET Core 1 MVC konvertieren |
 | ASP.NET MVC |Per Migration |Upgrade auf ASP.NET Core 1 MVC |
 | ASP.NET-Web-API |Per Migration |Selbst gehosteten Server oder ASP.NET Core 1 verwenden |
 | ASP.NET Core 1 |Ja |– |

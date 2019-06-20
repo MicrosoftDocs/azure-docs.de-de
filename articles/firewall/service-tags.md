@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 2/25/2019
 ms.author: victorh
 ms.openlocfilehash: 1d03d896de947fcc938619c52a3690962a0d2d6c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805619"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60193729"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure Firewall-Diensttags
 

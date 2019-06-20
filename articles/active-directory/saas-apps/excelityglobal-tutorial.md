@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dd4fe4f7b105fd7aa2d2cf7ee568f85a7ad98ecb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265728"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Tutorial: Azure Active Directory-Integration mit ExcelityGlobal
 
@@ -75,12 +75,12 @@ Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem A
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens in Azure AD bei ExcelityGlobal müssen Sie die folgenden Bausteine ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für ExcelityGlobal](#configure-excelityglobal-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines ExcelityGlobal-Testbenutzers](#create-excelityglobal-test-user)**, um eine Entsprechung von Britta Simon in ExcelityGlobal zu erhalten, die mit der Darstellung des Benutzers in Azure AD verknüpft ist.
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für ExcelityGlobal](#configure-excelityglobal-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines ExcelityGlobal-Testbenutzers](#create-excelityglobal-test-user)** , um eine Entsprechung von Britta Simon in ExcelityGlobal zu erhalten, die mit der Darstellung des Benutzers in Azure AD verknüpft ist.
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
@@ -140,7 +140,7 @@ Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei Excelity
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für ExcelityGlobal
 
-Zum Konfigurieren des einmaligen Anmeldens aufseiten von **ExcelityGlobal** müssen Sie den **Fingerabdruckwert** und die kopierten URLs aus dem Azure-Portal an das [Supportteam von ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+Zum Konfigurieren des einmaligen Anmeldens aufseiten von **ExcelityGlobal** müssen Sie den **Fingerabdruckwert** und die kopierten URLs aus dem Azure-Portal an das [Supportteam von ExcelityGlobal](https://www.excelityglobal.com/contact-us) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
@@ -195,7 +195,7 @@ In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen 
 
 ### <a name="create-excelityglobal-test-user"></a>Erstellen eines ExcelityGlobal-Testbenutzers
 
-In diesem Abschnitt erstellen Sie in ExcelityGlobal eine Benutzerin mit dem Namen „Britta Simon“. Arbeiten Sie mit dem [Supportteam von ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/) zusammen, um die Benutzer der ExcelityGlobal-Plattform hinzuzufügen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
+In diesem Abschnitt erstellen Sie in ExcelityGlobal eine Benutzerin mit dem Namen „Britta Simon“. Arbeiten Sie mit dem [Supportteam von ExcelityGlobal](https://www.excelityglobal.com/contact-us) zusammen, um die Benutzer der ExcelityGlobal-Plattform hinzuzufügen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
 
 ### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 

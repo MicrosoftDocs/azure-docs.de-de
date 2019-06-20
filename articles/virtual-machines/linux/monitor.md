@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 08/14/2017
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: dcc7cf71b7465534ab8e9f5f3479e00a8427d5da
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 248a77ac0894cc8a360b9888983e082741e9cc55
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61473965"
 ---
 # <a name="how-to-monitor-virtual-machines-in-azure"></a>Informationen zum Überwachen von virtuellen Computern in Azure
 

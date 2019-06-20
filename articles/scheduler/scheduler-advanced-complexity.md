@@ -11,11 +11,11 @@ ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860617"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60531824"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Erstellen erweiterter Zeitpläne und Serien für Aufträge in Microsoft Azure Scheduler
 
@@ -65,13 +65,13 @@ Die folgende Tabelle enthält eine allgemeine Übersicht über die wichtigsten J
 
 | Element | Erforderlich | BESCHREIBUNG | 
 |---------|----------|-------------|
-| **startTime** | Nein  | Ein DateTime-Zeichenfolgenwert im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601), der angibt, wann der Auftrag in einem einfachen Zeitplan erstmals gestartet wird. <p>Bei komplexen Zeitplänen wird der Auftrag frühestens bei **startTime** gestartet. | 
-| **recurrence** | Nein  | Die Wiederholungsregeln für die Ausführung des Auftrags. Das **recurrence**-Objekt unterstützt die folgenden Elemente: **frequency**, **interval**, **schedule**, **count** und **endTime**. <p>Wenn Sie das **recurrence**-Element verwenden, müssen Sie auch das **frequency**-Element verwenden. Andere **recurrence**-Elemente sind dagegen optional. |
+| **startTime** | Nein | Ein DateTime-Zeichenfolgenwert im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601), der angibt, wann der Auftrag in einem einfachen Zeitplan erstmals gestartet wird. <p>Bei komplexen Zeitplänen wird der Auftrag frühestens bei **startTime** gestartet. | 
+| **recurrence** | Nein | Die Wiederholungsregeln für die Ausführung des Auftrags. Das **recurrence**-Objekt unterstützt die folgenden Elemente: **frequency**, **interval**, **schedule**, **count** und **endTime**. <p>Wenn Sie das **recurrence**-Element verwenden, müssen Sie auch das **frequency**-Element verwenden. Andere **recurrence**-Elemente sind dagegen optional. |
 | **frequency** | Ja, bei Verwendung von **recurrence** | Die Zeiteinheit zwischen den Ausführungen. Unterstützt werden folgende Werte: „Minute“, „Hour“, „Day“, „Week“, „Month“ und „Year“ | 
-| **interval** | Nein  | Eine positive ganze Zahl, die die Anzahl von Zeiteinheiten zwischen den Ausführungen basierend auf dem Wert von **frequency** bestimmt. <p>Ist **interval** beispielsweise auf 10 und **frequency** auf „Week“ festgelegt, wird der Auftrag alle zehn Wochen ausgeführt. <p>Hier lautet die höchste Anzahl von Intervallen für jede Häufigkeit wie folgt: <p>- 18 Monate <br>- 78 Wochen <br>- 548 Tage <br>- Für Stunden und Minuten ist der Bereich 1 <= <*Intervall*> <= 1.000. | 
-| **schedule** | Nein  | Definiert Änderungen an der Serie auf Grundlage der angegebenen Minutenmarkierungen, Stundenmarkierungen, Wochentage und Tage des Monats. | 
-| **count** | Nein  | Eine positive ganze Zahl, die angibt, wie oft dieser Auftrag ausgeführt wird, bevor er abgeschlossen ist. <p>Wenn beispielsweise für einen täglichen Auftrag **count** auf 7 festgelegt und das Startdatum Montag ist, wird der Auftrag Sonntag abgeschlossen. Liegt das Startdatum in der Vergangenheit, wird die erste Ausführung auf Grundlage des Erstellungszeitpunkts berechnet. <p>Ohne Angabe von **endTime** oder **count** wird der Auftrag unendlich ausgeführt. Es ist nicht möglich, **count** und **endTime** im selben Auftrag zu verwenden, es wird jedoch die Regel berücksichtigt, die zuerst abgeschlossen wird. | 
-| **endTime** | Nein  | Ein Date- oder DateTime-Zeichenfolgenwert im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601), der angibt, wann die Ausführung des Auftrags beendet wird. Sie können einen Wert für **endTime** festlegen, der in der Vergangenheit liegt. <p>Ohne Angabe von **endTime** oder **count** wird der Auftrag unendlich ausgeführt. Es ist nicht möglich, **count** und **endTime** im selben Auftrag zu verwenden, es wird jedoch die Regel berücksichtigt, die zuerst abgeschlossen wird. |
+| **interval** | Nein | Eine positive ganze Zahl, die die Anzahl von Zeiteinheiten zwischen den Ausführungen basierend auf dem Wert von **frequency** bestimmt. <p>Ist **interval** beispielsweise auf 10 und **frequency** auf „Week“ festgelegt, wird der Auftrag alle zehn Wochen ausgeführt. <p>Hier lautet die höchste Anzahl von Intervallen für jede Häufigkeit wie folgt: <p>- 18 Monate <br>- 78 Wochen <br>- 548 Tage <br>- Für Stunden und Minuten ist der Bereich 1 <= <*Intervall*> <= 1.000. | 
+| **schedule** | Nein | Definiert Änderungen an der Serie auf Grundlage der angegebenen Minutenmarkierungen, Stundenmarkierungen, Wochentage und Tage des Monats. | 
+| **count** | Nein | Eine positive ganze Zahl, die angibt, wie oft dieser Auftrag ausgeführt wird, bevor er abgeschlossen ist. <p>Wenn beispielsweise für einen täglichen Auftrag **count** auf 7 festgelegt und das Startdatum Montag ist, wird der Auftrag Sonntag abgeschlossen. Liegt das Startdatum in der Vergangenheit, wird die erste Ausführung auf Grundlage des Erstellungszeitpunkts berechnet. <p>Ohne Angabe von **endTime** oder **count** wird der Auftrag unendlich ausgeführt. Es ist nicht möglich, **count** und **endTime** im selben Auftrag zu verwenden, es wird jedoch die Regel berücksichtigt, die zuerst abgeschlossen wird. | 
+| **endTime** | Nein | Ein Date- oder DateTime-Zeichenfolgenwert im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601), der angibt, wann die Ausführung des Auftrags beendet wird. Sie können einen Wert für **endTime** festlegen, der in der Vergangenheit liegt. <p>Ohne Angabe von **endTime** oder **count** wird der Auftrag unendlich ausgeführt. Es ist nicht möglich, **count** und **endTime** im selben Auftrag zu verwenden, es wird jedoch die Regel berücksichtigt, die zuerst abgeschlossen wird. |
 |||| 
 
 Dieses JSON-Schema beschreibt beispielsweise einen einfachen Zeitplan und eine einfache Serie für einen Auftrag: 
@@ -140,9 +140,9 @@ Angenommen, Sie verwenden dieses Beispiel mit den folgenden Bedingungen: eine St
    
 1. Die Ausführungen erfolgen dann in der folgenden Reihenfolge: 
    
-   1. 11.04.2015 um 14:00 Uhr
-   1. 13.04.2015 um 14:00 Uhr 
-   1. 15.04.2015 um 14:00 Uhr
+   1. 11\.04.2015 um 14:00 Uhr
+   1. 13\.04.2015 um 14:00 Uhr 
+   1. 15\.04.2015 um 14:00 Uhr
    1. Und so weiter.
 
 1. Wenn für einen Auftrag ein Zeitplan, aber keine Stunden- und Minutenangaben festgelegt sind, werden als Werte standardmäßig die Stunden und Minuten der ersten Ausführung verwendet.
@@ -164,7 +164,7 @@ Die folgende Tabelle enthält eine ausführliche Beschreibung der Zeitplanelemen
 | **minutes** |Minuten der Stunde, in der der Auftrag ausgeführt wird. |Ein Array mit ganzen Zahlen. |
 | **hours** |Stunden des Tages, an dem der Auftrag ausgeführt wird. |Ein Array mit ganzen Zahlen. |
 | **weekDays** |Die Wochentage, an denen der Auftrag ausgeführt wird. Kann nur bei wöchentlicher Häufigkeit angegeben werden. |Ein Array aus den folgenden Werten (die maximale Arraygröße ist 7):<br />– „Monday“<br />– „Tuesday“<br />– „Wednesday“<br />– „Thursday“<br />– „Friday“<br />– „Saturday“<br />– „Sunday“<br /><br />Keine Beachtung der Groß-/Kleinschreibung. |
-| **monthlyOccurrences** |Bestimmt, an welchen Tagen im Monat der Auftrag ausgeführt wird. Kann nur bei monatlicher Häufigkeit angegeben werden. |Ein Array aus **monthlyOccurrence**-Objekten:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** ist der Wochentag, an dem der Auftrag ausgeführt wird. Beispielsweise bedeutet *{Sunday}*, dass der Auftrag an jedem Sonntag des Monats ausgeführt wird. Erforderlich.<br /><br />**occurrence** ist das Vorkommen des Tages innerhalb des Monats. Beispielsweise bedeutet *{Sunday, -1}* den letzten Sonntag des Monats. Optional. |
+| **monthlyOccurrences** |Bestimmt, an welchen Tagen im Monat der Auftrag ausgeführt wird. Kann nur bei monatlicher Häufigkeit angegeben werden. |Ein Array aus **monthlyOccurrence**-Objekten:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** ist der Wochentag, an dem der Auftrag ausgeführt wird. Beispielsweise bedeutet *{Sunday}* , dass der Auftrag an jedem Sonntag des Monats ausgeführt wird. Erforderlich.<br /><br />**occurrence** ist das Vorkommen des Tages innerhalb des Monats. Beispielsweise bedeutet *{Sunday, -1}* den letzten Sonntag des Monats. Optional. |
 | **monthDays** |Der Tag des Monats, an dem der Auftrag ausgeführt wird. Kann nur bei monatlicher Häufigkeit angegeben werden. |Ein Array mit den folgenden Werten:<br />– Beliebiger Wert, für den Folgendes gilt: <= -1 und >= -31<br />– Beliebiger Wert, für den Folgendes gilt: >= 1 und <= 31|
 
 ## <a name="examples-recurrence-schedules"></a>Beispiele: Serienzeitpläne

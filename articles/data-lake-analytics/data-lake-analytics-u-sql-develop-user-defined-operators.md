@@ -10,11 +10,11 @@ ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496145"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813793"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Entwickeln von benutzerdefinierten Operatoren von U-SQL (UDOs)
 In diesem Artikel erfahren Sie, wie Sie benutzerdefinierte Operatoren entwickeln, um Daten in einem U-SQL-Auftrag zu verarbeiten.

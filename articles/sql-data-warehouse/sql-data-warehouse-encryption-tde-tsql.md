@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: kavithaj
 ms.reviewer: rortloff
 ms.openlocfilehash: 1d62bc5cb080f2167f13bd58e9a8a334b8ae5163
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146068"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Erste Schritte mit Transparent Data Encryption (TDE)

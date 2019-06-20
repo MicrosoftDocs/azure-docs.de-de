@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606899"
 ---
 <a name="seller-insights-definitions"></a>Seller Insights – Definitionen
 =======================
@@ -37,7 +37,7 @@ Die folgende Tabelle enthält Definitionen für viele der in Seller Insights ver
 | **Kundenort**  | Der Name des vom Kunden angegebenen Orts. Dieser kann sich von der Angabe im Azure-Abonnement eines Kunden unterscheiden.  |
 | **Kommunikationssprache des Kunden**        | Die vom Kunden für die Kommunikation bevorzugte Sprache.                                  |
 | **Firmenname des Kunden**                  | Der vom Kunden angegebene Firmenname. Dieser kann sich von der Angabe im Azure-Abonnement eines Kunden unterscheiden.                                  |
-| **Land des Kunden**                       | Der vom Kunden angegebene Ländername.  Dieser kann sich von dem im Azure-Abonnement eines Kunden angegebenen Land unterscheiden.                               |
+| **Land des Kunden**                       | Der vom Kunden angegebene Name für das Land bzw. die Region.  Dieser kann sich von dem im Azure-Abonnement eines Kunden angegebenen Land bzw. der angegebenen Region unterscheiden.                               |
 | **Währung des Kunden (CC)**                 | Die vom Kunden für Preise und Abrechnungen bevorzugte Währung.                            |
 | **E-Mail-Adresse des Kunden**                         | Die vom Endkunden angegebene E-Mail-Adresse.  Diese kann sich von der im Azure-Abonnement eines Kunden angegebenen E-Mail-Adresse unterscheiden.                   |
 | **Vorname des Kunden**                              | Der vom Kunden angegebene Vorname.  Dieser kann sich von dem im Azure-Abonnement eines Kunden angegebenen Namen unterscheiden.                    |

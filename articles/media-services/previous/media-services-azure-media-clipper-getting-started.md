@@ -10,11 +10,11 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61466271"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Erstellen von Clips mit Azure Media Clipper
 Dieser Abschnitt zeigt Ihnen die grundlegenden Schritte für den Einstieg in Azure Media Clipper. In den darauffolgenden Abschnitten wird die Konfiguration von Azure Media Clipper erläutert.

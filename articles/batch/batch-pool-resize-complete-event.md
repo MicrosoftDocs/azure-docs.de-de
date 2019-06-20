@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 87c98b89a49adbad88841dccbd4ba47d370b2be7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474308"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60776421"
 ---
 # <a name="pool-resize-complete-event"></a>Ereignis zum Abschluss der Größenänderung von Pools
 
@@ -42,13 +42,13 @@ ms.locfileid: "55474308"
 
 |Element|Typ|Notizen|
 |-------------|----------|-----------|
-|id|Zeichenfolge|Die ID des Pools.|
-|nodeDeallocationOption|Zeichenfolge|Gibt ab, ob Knoten ggf. aus dem Pool entfernt werden müssen, wenn sich die Poolgröße verringert.<br /><br /> Mögliche Werte:<br /><br /> **requeue**: Beendet ausgeführte Tasks, die erneut in die Warteschlange gestellt werden. Die Tasks werden erneut ausgeführt, sobald der Auftrag aktiviert ist. Entfernen Sie Knoten, sobald Tasks abgeschlossen wurden.<br /><br /> **terminate**: Beendet derzeit ausgeführte Tasks. Die Tasks werden nicht erneut ausgeführt. Entfernen Sie Knoten, sobald Tasks abgeschlossen wurden.<br /><br /> **taskcompletion**: Lässt das Abschließen aktuell ausgeführter Tasks zu. Planen Sie beim Warten keine neuen Tasks. Entfernen Sie Knoten, sobald alle Aufgaben abgeschlossen sind.<br /><br /> **Retaineddata**: Lässt das Abschließen aktuell ausgeführter Tasks zu und wartet dann, bis die Aufbewahrungszeiträume aller Taskdaten abgelaufen sind. Planen Sie beim Warten keine neuen Tasks. Entfernen Sie Knoten, sobald die Aufbewahrungszeiträume aller Tasks abgelaufen sind.<br /><br /> Der Standardwert ist „requeue“.<br /><br /> Wenn die Poolgröße zunimmt, wird der Wert auf **invalid** festgelegt.|
+|id|string|Die ID des Pools.|
+|nodeDeallocationOption|string|Gibt ab, ob Knoten ggf. aus dem Pool entfernt werden müssen, wenn sich die Poolgröße verringert.<br /><br /> Mögliche Werte:<br /><br /> **requeue**: Beendet ausgeführte Tasks, die erneut in die Warteschlange gestellt werden. Die Tasks werden erneut ausgeführt, sobald der Auftrag aktiviert ist. Entfernen Sie Knoten, sobald Tasks abgeschlossen wurden.<br /><br /> **terminate**: Beendet derzeit ausgeführte Tasks. Die Tasks werden nicht erneut ausgeführt. Entfernen Sie Knoten, sobald Tasks abgeschlossen wurden.<br /><br /> **taskcompletion**: Lässt das Abschließen aktuell ausgeführter Tasks zu. Planen Sie beim Warten keine neuen Tasks. Entfernen Sie Knoten, sobald alle Aufgaben abgeschlossen sind.<br /><br /> **Retaineddata**: Lässt das Abschließen aktuell ausgeführter Tasks zu und wartet dann, bis die Aufbewahrungszeiträume aller Taskdaten abgelaufen sind. Planen Sie beim Warten keine neuen Tasks. Entfernen Sie Knoten, sobald die Aufbewahrungszeiträume aller Tasks abgelaufen sind.<br /><br /> Der Standardwert ist „requeue“.<br /><br /> Wenn die Poolgröße zunimmt, wird der Wert auf **invalid** festgelegt.|
 |currentDedicated|Int32|Die Anzahl der Computeknoten, die dem Pool derzeit zugewiesen sind.|
 |targetDedicated|Int32|Die Anzahl der Computeknoten, die für den Pool angefordert werden.|
 |enableAutoScale|Bool|Gibt an, ob die Poolgröße mit der Zeit automatisch angepasst wird.|
 |isAutoPool|Bool|Gibt an, ob der Pool über den AutoPool-Mechanismus eines Auftrags erstellt wurde.|
 |startTime|DateTime|Die Startzeit der Größenänderung des Pools.|
 |endTime|DateTime|Die Uhrzeit des Abschlusses der Größenänderung des Pools.|
-|resultCode|Zeichenfolge|Das Ergebnis der Größenänderung.|
-|resultMessage|Zeichenfolge|Der Größenänderungsfehler enthält die Details des Ergebnisses.<br /><br /> Wenn die Größenänderung erfolgreich abgeschlossen wurde, wird angegeben, dass der Vorgang erfolgreich war.|
+|resultCode|string|Das Ergebnis der Größenänderung.|
+|resultMessage|string|Der Größenänderungsfehler enthält die Details des Ergebnisses.<br /><br /> Wenn die Größenänderung erfolgreich abgeschlossen wurde, wird angegeben, dass der Vorgang erfolgreich war.|

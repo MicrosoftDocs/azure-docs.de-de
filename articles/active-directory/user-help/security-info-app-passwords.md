@@ -13,11 +13,11 @@ ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341101"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60475083"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Verwalten von App-Kennwörtern auf der Seite „Sicherheitsinformationen“ (Vorschau)
 Bestimmte Apps wie z.B. Outlook 2010 unterstützen keine zweistufige Überprüfung. Das bedeutet, dass die App nicht funktioniert, wenn in Ihrer Organisation die zweistufige Überprüfung verwendet wird. Um dieses Problem zu umgehen, können Sie ein automatisch generiertes Kennwort für die Verwendung mit jeder Nicht-Browser-App separat von Ihrem normalen Kennwort erstellen.

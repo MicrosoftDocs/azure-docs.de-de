@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60618877"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatisches Skalieren einer VM-Skalierungsgruppe im Azure-Portal
 Beim Erstellen einer Skalierungsgruppe definieren Sie die Anzahl von VM-Instanzen, die Sie ausführen möchten. Wenn sich die Nachfrage nach Ihrer Anwendung ändert, können Sie die Anzahl von VM-Instanzen automatisch erhöhen oder verringern lassen. Dank der Möglichkeit zum automatischen Skalieren können Sie über den gesamten Lebenszyklus Ihrer App die Kundennachfrage decken oder auf Änderungen der Anwendungsleistung reagieren.
@@ -76,7 +76,7 @@ Es kann sein, dass die Nachfrage nach Ihrer Anwendung abends oder am Wochenende 
     
     | Parameter              | Erklärung                                                                                                          | Wert          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Operator*             | Operator zum Vergleichen der Metrikdaten mit dem Schwellenwert.                                                      | Kleiner als    |
+    | *Operator*             | Operator zum Vergleichen der Metrikdaten mit dem Schwellenwert.                                                      | Kleiner als   |
     | *Schwellenwert*            | Der Prozentsatz, der für die Regel für die automatische Skalierung das Auslösen einer Aktion bewirkt.                                                 | 30             |
     | *Vorgang*            | Definiert, ob und in welchen Schritten die Skalierungsgruppe zentral hoch- oder herunterskaliert werden soll, wenn die Regel zutrifft.                         | Prozentsatz verringern um |
     | *Anzahl der Instanzen*       | Der Prozentsatz der VM-Instanzen sollte geändert werden, wenn diese Regel ausgelöst wird.                                             | 20             |

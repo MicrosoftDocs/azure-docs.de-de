@@ -4,20 +4,24 @@
   items:
     - name: Worum handelt es sich beim Enterprise-Sicherheitspaket in HDInsight?
       href: apache-domain-joined-introduction.md
+- name: Lernprogramme
+  items:
+    - name: RBAC in Apache HBase mit Apache Ranger
+      href: apache-domain-joined-run-hbase.md
+    - name: RBAC in Apache Kafka mit Apache Ranger
+      href: apache-domain-joined-run-kafka.md
 - name: Konzepte
   items:
     - name: Planen für ESP-Cluster
       href: apache-domain-joined-architecture.md
+    - name: Erstellen von ESP-Clustern und Synchronisieren mit lokalen Ressourcen
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Konfigurieren von ESP-Clustern mit Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Synchronisieren von Azure AD-Benutzern mit einem HDInsight-Cluster
       href: ../hdinsight-sync-aad-users-to-cluster.md
     - name: Konfigurieren von Apache Hive-Richtlinien
       href: apache-domain-joined-run-hive.md
-    - name: RBAC in Apache HBase mit Apache Ranger
-      href: apache-domain-joined-run-hbase.md
-    - name: RBAC in Apache Kafka mit Apache Ranger
-      href: apache-domain-joined-run-kafka.md
     - name: Verwenden von VSCode für die Verknüpfung mit einem ESP-Cluster
       href: ../hdinsight-for-vscode.md
     - name: Verwenden von IntelliJ für die Verknüpfung mit einem ESP-Cluster

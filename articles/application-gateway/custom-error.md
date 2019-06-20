@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 2/14/2019
 ms.author: victorh
 ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60832041"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Erstellen von benutzerdefinierten Application Gateway-Fehlerseiten
 

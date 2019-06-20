@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276410"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60782768"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Verwalten von Protokolldaten und Arbeitsbereichen in Azure Monitor
 In Azure Monitor werden Protokolldaten in einem Log Analytics-Arbeitsbereich gespeichert, bei dem es sich im Wesentlichen um einen Container handelt, der Daten und Konfigurationsinformationen enthält. Zum Verwalten des Zugriffs auf Protokolldaten führen Sie verschiedene Verwaltungsaufgaben für Arbeitsbereiche durch. Sie oder andere Mitglieder Ihrer Organisation können mehrere Arbeitsbereiche nutzen, um unterschiedliche Mengen von Daten zu verwalten, die in Ihrer gesamten IT-Infrastruktur oder Teilen davon erfasst werden.
@@ -270,7 +270,7 @@ Wenn Benutzer Protokolle aus einem Arbeitsbereich mit ressourcenbezogenem Zugrif
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Beispiele:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Möglichkeit, alle Protokolldaten für die Ressource anzuzeigen.  |
 
 
-Diese Berechtigung wird in der Regel von einer Rolle erteilt, die _\*/read- oder_ _\*_-Berechtigungen enthält, beispielsweise von den integrierten Rollen [Leser](../../role-based-access-control/built-in-roles.md#reader) und [Mitwirkender](../../role-based-access-control/built-in-roles.md#contributor). Beachten Sie, dass benutzerdefinierte Rollen, die bestimmte Aktionen umfassen, oder dedizierte integrierte Rollen diese Berechtigung ggf. nicht enthalten können.
+Diese Berechtigung wird in der Regel von einer Rolle erteilt, die _\*/read- oder_ _\*_ -Berechtigungen enthält, beispielsweise von den integrierten Rollen [Leser](../../role-based-access-control/built-in-roles.md#reader) und [Mitwirkender](../../role-based-access-control/built-in-roles.md#contributor). Beachten Sie, dass benutzerdefinierte Rollen, die bestimmte Aktionen umfassen, oder dedizierte integrierte Rollen diese Berechtigung ggf. nicht enthalten können.
 
 Lesen Sie [Definieren von Zugriffssteuerung pro Tabelle](#table-level-rbac) weiter unten, wenn Sie für verschiedene Tabellen eine unterschiedliche Zugriffssteuerung erstellen möchten.
 

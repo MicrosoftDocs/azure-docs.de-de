@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22999035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64867033"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analysieren von Nutzungsstatistiken mit den erweiterten HTTP-Berichten in Azure CDN
 ## <a name="overview"></a>Übersicht
@@ -42,39 +42,39 @@ In diesem Dokument werden die erweiterten HTTP-Berichte in Microsoft Azure CDN e
 ## <a name="geography-reports-map-based"></a>Geografische Berichte (kartenbasiert)
 Fünf Berichte stehen zur Verfügung, in denen mithilfe einer Karte die Regionen angegeben werden, aus denen Ihre Inhalte angefordert werden. Diese Berichte heißen „Weltkarte“, „Karte der USA“, „Karte von Kanada“, „Europakarte“ und „Asien-Pazifik-Karte“.
 
-Jeder kartenbasierte Bericht klassifiziert geografische Einheiten (z. B. Länder, Bundesländer und Provinzen) gemäß dem Prozentsatz der Treffer, die aus der jeweiligen Region stammen. Darüber hinaus werden anhand einer Karte die Orte visuell dargestellt, aus denen Ihre Inhalte angefordert werden. Dabei werden die einzelnen Regionen entsprechend der Nachfrage in der jeweiligen Region farbkodiert. Hellere Regionen weisen auf eine niedrigere Nachfrage nach Ihren Inhalten hin, dunklere Regionen auf eine höhere Nachfrage.
+Jeder kartenbasierte Bericht bildet eine Rangfolge für geografische Entitäten (d. h. Länder/Regionen). Es wird eine Karte bereitgestellt, die Ihnen hilft, die Standorte zu visualisieren, von denen aus Ihr Inhalt angefordert wird. Dabei werden die einzelnen Regionen entsprechend der Nachfrage in der jeweiligen Region farbkodiert. Hellere Regionen weisen auf eine niedrigere Nachfrage nach Ihren Inhalten hin, dunklere Regionen auf eine höhere Nachfrage.
 
-Ausführliche Informationen zu Datenverkehr und Bandbreite für die einzelnen Regionen werden direkt unterhalb der Karte bereitgestellt. Dadurch können Sie für jede Region die Gesamtanzahl von Treffern, den Prozentsatz der Treffer, die Gesamtmenge der übertragenen Daten (in GB) sowie den Prozentsatz der übertragenen Daten anzeigen. Zeigen Sie eine Beschreibung für die einzelnen Metriken an. Wenn Sie auf eine Region (d. h. ein Land, ein Bundesland oder eine Provinz) zeigen, werden der Name und der Prozentsatz der Treffer in dieser Region als QuickInfo angezeigt.
+Ausführliche Informationen zu Datenverkehr und Bandbreite für die einzelnen Regionen werden direkt unterhalb der Karte bereitgestellt. Dadurch können Sie für jede Region die Gesamtanzahl von Treffern, den Prozentsatz der Treffer, die Gesamtmenge der übertragenen Daten (in GB) sowie den Prozentsatz der übertragenen Daten anzeigen. Zeigen Sie eine Beschreibung für die einzelnen Metriken an. Wenn Sie auf eine Region (d. h. ein Land bzw. eine Region, ein Bundesland oder eine Provinz) zeigen, werden der Name und der Prozentsatz der Treffer in dieser Region als QuickInfo angezeigt.
 
 Nachfolgend finden Sie eine kurze Beschreibung der einzelnen kartenbasierten geografischen Berichte:
 
-| Berichtsname | Beschreibung |
+| Berichtsname | BESCHREIBUNG |
 | --- | --- |
-| Weltkarte |Mit diesem Bericht können Sie die weltweite Nachfrage nach Ihren CDN-Inhalten anzeigen. Auf der Weltkarte ist jedes Land farbkodiert, um den Prozentsatz der Treffer aus der jeweiligen Region anzugeben. |
+| Weltkarte |Mit diesem Bericht können Sie die weltweite Nachfrage nach Ihren CDN-Inhalten anzeigen. Auf der Weltkarte ist jedes Land bzw. jede Region farbkodiert, um den Prozentsatz der Treffer aus der jeweiligen Region anzugeben. |
 | Karte der USA |Mit diesem Bericht können Sie die Nachfrage nach Ihren CDN-Inhalten in den USA anzeigen. Auf dieser Karte ist jeder Bundesstaat farbkodiert, um den Prozentsatz der Treffer aus der jeweiligen Region anzugeben. |
 | Karte von Kanada |Mit diesem Bericht können Sie die Nachfrage nach Ihren CDN-Inhalten in Kanada anzeigen. Auf dieser Karte ist jede Provinz farbkodiert, um den Prozentsatz der Treffer aus der jeweiligen Region anzugeben. |
-| Europakarte |Mit diesem Bericht können Sie die Nachfrage nach Ihren CDN-Inhalten in Europa anzeigen. Auf dieser Karte ist jedes Land farbkodiert, um den Prozentsatz der Treffer aus der jeweiligen Region anzugeben. |
-| Asien-Pazifik-Karte |Mit diesem Bericht können Sie die Nachfrage nach Ihren CDN-Inhalten in Asien anzeigen. Auf dieser Karte ist jedes Land farbkodiert, um den Prozentsatz der Treffer aus der jeweiligen Region anzugeben. |
+| Europakarte |Mit diesem Bericht können Sie die Nachfrage nach Ihren CDN-Inhalten in Europa anzeigen. Auf dieser Karte ist jedes Land bzw. jede Region farbkodiert, um den Prozentsatz der Treffer aus der jeweiligen Region anzugeben. |
+| Asien-Pazifik-Karte |Mit diesem Bericht können Sie die Nachfrage nach Ihren CDN-Inhalten in Asien anzeigen. Auf dieser Karte ist jedes Land bzw. jede Region farbkodiert, um den Prozentsatz der Treffer aus der jeweiligen Region anzugeben. |
 
 ## <a name="geography-reports-bar-charts"></a>Geografische Berichte (Balkendiagramme)
-Es gibt zwei weitere Berichte mit statistischen Informationen nach Geografie: „Führende Städte“ und „Führende Länder“. In diesem Berichten sind jeweils Städte und Länder gemäß der Anzahl von Treffern aus den jeweiligen Regionen klassifiziert. Bei diesem Berichtstyp werden in einem Balkendiagramm die zehn führenden Städte oder Länder angegeben, die Inhalte über eine bestimmte Plattform angefordert haben. Mit diesem Balkendiagramm können Sie schnell die Regionen ermitteln, die die höchste Anzahl von Anforderungen für Ihre Inhalte generieren.
+Es gibt zwei weitere Berichte mit statistischen Informationen nach Geografie: „Führende Städte“ und „Führende Länder“. In diesem Berichten sind jeweils Städte und Länder/Regionen gemäß der Anzahl von Treffern aus den jeweiligen Ländern/Regionen klassifiziert. Bei diesem Berichtstyp werden in einem Balkendiagramm die zehn führenden Städte oder Länder/Regionen angegeben, die Inhalte über eine bestimmte Plattform angefordert haben. Mit diesem Balkendiagramm können Sie schnell die Regionen ermitteln, die die höchste Anzahl von Anforderungen für Ihre Inhalte generieren.
 
 Die linke Seite des Graphen (y-Achse) gibt an, wie viele Treffer in der angegebenen Region auftraten. Direkt unterhalb des Graphen (x-Achse) befindet sich eine Bezeichnung für jede der zehn führenden Regionen.
 
 ### <a name="using-the-bar-charts"></a>Verwenden der Balkendiagramme
 * Wenn Sie auf einen Balken zeigen, werden der Name und die Gesamtanzahl von Treffern in dieser Region als QuickInfo angezeigt.
-* Die QuickInfo für den Bericht „Führende Städte“ bestimmt eine Stadt nach Name, Bundesland/Provinz und Landesabkürzung.
-* Falls die Stadt oder die Region (d. h. das Bundesland/die Provinz), aus der eine Anforderung stammt, nicht ermittelt werden konnte, wird sie als unbekannt angegeben. Wenn das Land unbekannt ist, werden zwei Fragezeichen („??“) angezeigt.
-* Ein Bericht kann Metriken für Europa oder die Asien-Pazifik-Region beinhalten. Mit diesen Elementen sollen keine statistischen Informationen zu allen IP-Adressen in diesen Regionen angegeben werden. Vielmehr gelten sie nur für Anforderungen, die von IP-Adressen in Europa oder der Asien-Pazifik-Region und nicht von IP-Adressen in einem bestimmten Ort oder Land stammen.
+* Die QuickInfo für den Bericht „Führende Städte“ bestimmt eine Stadt nach Name, Bundesland/Provinz und Abkürzung für Land/Region.
+* Falls die Stadt oder die Region (d. h. das Bundesland/die Provinz), aus der eine Anforderung stammt, nicht ermittelt werden konnte, wird sie als unbekannt angegeben. Wenn das Land bzw. die Region unbekannt ist, werden zwei Fragezeichen („??“) angezeigt.
+* Ein Bericht kann Metriken für Europa oder die Asien-Pazifik-Region beinhalten. Mit diesen Elementen sollen keine statistischen Informationen zu allen IP-Adressen in diesen Regionen angegeben werden. Vielmehr gelten sie nur für Anforderungen, die von IP-Adressen in Europa oder der Asien-Pazifik-Region und nicht von IP-Adressen in einem bestimmten Ort oder Land bzw. in einer bestimmten Region stammen.
 
 Die dem Balkendiagramm zugrunde liegenden Daten werden unterhalb des Diagramms angezeigt. Dort sehen Sie die Gesamtanzahl von Treffern, den Prozentsatz der Treffer, die übertragene Datenmenge (in GB) sowie den Prozentsatz der übertragenen Daten für die 250 führenden Regionen. Zeigen Sie eine Beschreibung für die einzelnen Metriken an.
 
 Nachfolgend finden Sie eine kurze Beschreibung der beiden Berichtstypen:
 
-| Berichtsname | Beschreibung |
+| Berichtsname | BESCHREIBUNG |
 | --- | --- |
 | Führende Städte |In diesem Bericht werden Städte entsprechend der Anzahl von Treffern aus dieser Region klassifiziert. |
-| Führende Länder |In diesem Bericht werden Länder entsprechend der Anzahl von Treffern aus dieser Region klassifiziert. |
+| Führende Länder |In diesem Bericht werden Länder/Regionen entsprechend der Anzahl von Treffern aus diesem Land bzw. dieser Region klassifiziert. |
 
 ## <a name="daily-summary"></a>Tägliche Zusammenfassung
 Mit dem Bericht „Tägliche Zusammenfassung“ können Sie auf täglicher Basis die Gesamtanzahl von Treffern und über eine bestimmte Plattform übertragene Daten anzeigen. Anhand dieser Informationen werden bestimmte CDN-Aktivitätsmuster schnell erkannt. Mithilfe dieses Berichts können Sie beispielsweise ermitteln, an welchen Tagen der Datenverkehr höher oder niedriger als erwartet ausgefallen ist.
@@ -95,7 +95,7 @@ Mit dem Bericht „Nach Stunde“ können Sie die Gesamtanzahl von Treffern und 
 
 Bei diesem Berichtstyp wird anhand eines Balkendiagramms der Umfang der plattformspezifischen Nachfrage pro Stunde in dem vom Bericht abgedeckten Zeitraum visuell dargestellt. Dazu werden für die einzelnen im Bericht abgedeckten Stunden Balken angezeigt. Bei Auswahl eines 24-Stunden-Zeitraums wird beispielsweise ein Balkendiagramm mit 24 Balken erstellt. Jeder Balken zeigt jeweils die Gesamtanzahl von Treffern während der entsprechenden Stunde an.
 
-Die linke Seite des Graphen (y-Achse) gibt an, wie viele Treffer in der angegebenen Stunde auftraten. Direkt unterhalb des Graphen (x-Achse) befindet sich eine Bezeichnung, die das Datum und die Uhrzeit (Format: JJJJ-MM-TT hh:mm) für jede im Bericht enthaltene Stunde angibt. Die Zeit wird im 24-Stunden-Format (Zeitzone: UTC/GMT) angegeben.
+Die linke Seite des Graphen (y-Achse) gibt an, wie viele Treffer in der angegebenen Stunde auftraten. Direkt unterhalb des Graphen (x-Achse) befindet sich eine Bezeichnung, die Datum/Uhrzeit (Format: JJJJ-MM-TT hh:mm) für jede im Bericht enthaltene Stunde angibt. Die Zeit wird im 24-Stunden-Format (Zeitzone: UTC/GMT) angegeben.
 
 > [!TIP]
 > Wenn Sie auf einen Balken zeigen, wird die Gesamtanzahl von Treffern in dieser Stunde als QuickInfo angezeigt.
@@ -119,7 +119,7 @@ Die dem Balkendiagramm zugrunde liegenden Daten werden unterhalb des Diagramms a
 ## <a name="by-file-detail"></a>Nach Dateidetails
 Mit dem Bericht „Nach Dateidetails“ können Sie den Umfang der Nachfrage und den über eine bestimmte Plattform übertragenen Datenverkehr für ein bestimmtes Asset anzeigen. Ganz oben im Bericht befindet sich die Option „Dateidetails für“. Mit dieser Option wird eine Liste der am häufigsten angeforderten Assets für die ausgewählte Plattform angezeigt. Um den Bericht „Nach Dateidetail“ zu erstellen, wählen Sie das gewünschte Asset über die Option „Dateidetails für“ aus. Anschließend wird mithilfe eines Balkendiagramms der Umfang der täglichen Nachfrage angegeben, die im Laufe des angegebenen Zeitraums entstand.
 
-Die linke Seite des Graphen (y-Achse) gibt die Gesamtanzahl von Anforderungen für ein Asset an einem bestimmten Tag an. Direkt unterhalb des Graphen (x-Achse) befindet sich eine Bezeichnung mit dem Datum (Format: JJJJ-MM-TT), für das die CDN-Nachfrage für das Asset gemeldet wurde.
+Die linke Seite des Graphen (y-Achse) gibt die Gesamtanzahl von Anforderungen für ein Asset an einem bestimmten Tag an. Direkt unterhalb des Graphen (x-Achse) befindet sich eine Bezeichnung, die das Datum (Format: JJJJ-MM-TT), für das eine CDN-Nachfrage nach dem Asset gemeldet wurde.
 
 Die dem Balkendiagramm zugrunde liegenden Daten werden unterhalb des Diagramms angezeigt. Dort finden Sie die Gesamtanzahl von Treffern und die Menge der übertragenen Daten (in GB) für alle vom Bericht abgedeckten Tage.
 
@@ -202,6 +202,6 @@ Direkt unterhalb des Balkendiagramms werden die folgenden Informationen für die
 ## <a name="see-also"></a>Weitere Informationen
 * [Übersicht über das Azure CDN](cdn-overview.md)
 * [Echtzeitstatistiken in Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Überschreiben des HTTP-Standardverhaltens mithilfe des Regelmoduls](cdn-rules-engine.md)
+* [Überschreiben des HTTP-Standardverhaltens mithilfe der Regel-Engine](cdn-rules-engine.md)
 * [Analysieren der Edgeleistung](cdn-edge-performance.md)
 

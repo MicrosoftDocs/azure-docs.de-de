@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60714146"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus-Diagnoseprotokolle
 
 Sie können zwei Typen von Protokollen für Azure Service Bus anzeigen:
-* **[Aktivitätsprotokolle](../azure-monitor/platform/activity-logs-overview.md)**. Diese Protokolle enthalten Informationen zu Vorgängen, die für einen Auftrag ausgeführt werden. Diese Protokolle sind immer aktiviert.
-* **[Diagnoseprotokolle](../azure-monitor/platform/diagnostic-logs-overview.md)**. Sie können Diagnoseprotokolle konfigurieren, um umfangreichere Informationen zu sämtlichen Vorgängen innerhalb des Auftrags zu erhalten. Diagnoseprotokolle enthalten Informationen zu Aktivitäten vom Erstellen bis zum Löschen des Auftrags, einschließlich Updates und Aktivitäten während der Auftragsausführung.
+* **[Aktivitätsprotokolle](../azure-monitor/platform/activity-logs-overview.md)** . Diese Protokolle enthalten Informationen zu Vorgängen, die für einen Auftrag ausgeführt werden. Diese Protokolle sind immer aktiviert.
+* **[Diagnoseprotokolle](../azure-monitor/platform/diagnostic-logs-overview.md)** . Sie können Diagnoseprotokolle konfigurieren, um umfangreichere Informationen zu sämtlichen Vorgängen innerhalb des Auftrags zu erhalten. Diagnoseprotokolle enthalten Informationen zu Aktivitäten vom Erstellen bis zum Löschen des Auftrags, einschließlich Updates und Aktivitäten während der Auftragsausführung.
 
 ## <a name="turn-on-diagnostic-logs"></a>Aktivieren der Diagnoseprotokolle
 
@@ -68,12 +68,12 @@ NAME | BESCHREIBUNG
 ------- | -------
 ActivityId | Interne ID zur Nachverfolgung
 EventName | Vorgangsname           
-Ressourcen-ID | Azure Resource Manager-Ressourcen-ID
+resourceId | Azure Resource Manager-Ressourcen-ID
 SubscriptionId | Abonnement-ID
 EventTimeString | Vorgangsdauer
 EventProperties | Vorgangseigenschaften
 Status | Vorgangsstatus
-Aufrufer | Aufrufer des Vorgangs (Azure-Portal oder Verwaltungsclient)
+Caller | Aufrufer des Vorgangs (Azure-Portal oder Verwaltungsclient)
 category | OperationalLogs
 
 Hier ein Beispiel für eine JSON-Zeichenfolge im Betriebsprotokoll:

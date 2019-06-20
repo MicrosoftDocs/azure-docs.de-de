@@ -16,11 +16,11 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60853067"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bewährte Methoden und Problembehandlungsschritte für Node-Anwendungen in Azure App Service unter Windows
 
@@ -274,7 +274,7 @@ Aktivieren Sie FREB für Ihre Anwendung, um den win32-Fehlercode anzuzeigen. (St
 | 503 |1002 |Überprüfen Sie den win32-Fehlercode auf den tatsächlichen Grund. Die Anforderung konnte nicht für „node.exe“ zugestellt werden. |
 | 503 |1003 |Die Named Pipe ist zu stark ausgelastet. Überprüfen Sie, ob „node.exe“ einen hohen CPU-Verbrauch aufweist. |
 
-NODE.exe verfügt über eine Einstellung namens `NODE_PENDING_PIPE_INSTANCES`. In Azure App Service ist dieser Wert auf 5000 festgelegt. Dies bedeutet, dass „node.exe“ für die benannte Pipe 5000 Anforderungen auf einmal akzeptieren kann. Dieser Wert sollte für die meisten Node-Anwendungen ausreichen, die in Azure App Service ausgeführt werden. 503.1003 sollte in Azure App Service nicht angezeigt werden, da für `NODE_PENDING_PIPE_INSTANCES` ein hoher Wert gilt.
+NODE.exe verfügt über eine Einstellung namens `NODE_PENDING_PIPE_INSTANCES`. In Azure App Service ist dieser Wert auf 5000 festgelegt. Dies bedeutet, dass „node.exe“ für die benannte Pipe 5000 Anforderungen auf einmal akzeptieren kann. Dieser Wert sollte für die meisten Node-Anwendungen ausreichen, die in Azure App Service ausgeführt werden. 503\.1003 sollte in Azure App Service nicht angezeigt werden, da für `NODE_PENDING_PIPE_INSTANCES` ein hoher Wert gilt.
 
 ## <a name="more-resources"></a>Weitere Ressourcen
 

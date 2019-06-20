@@ -1,25 +1,18 @@
 ---
-title: Azure- und Dynamics 365-Beratungsdienstangebot | Microsoft-Dokumentation
+title: Azure- und Dynamics 365-Beratungsdienstangebot | Azure Marketplace
 description: Dies ist ein Leitfaden für die Definition und Veröffentlichung eines Azure- oder Dynamics 365-Beratungsdienstangebots im Cloud-Partnerportal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e543c24a8e3549bc53d6074c7008f3d01fcc96c4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.author: pabutler
+ms.openlocfilehash: a033ad80b59dc29b6d08624dee400d496eb28005
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54228758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942848"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure- und Dynamics 365-Beratungsdienstangebot
 

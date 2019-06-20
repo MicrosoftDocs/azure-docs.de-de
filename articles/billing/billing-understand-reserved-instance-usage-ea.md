@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 8d85dd1c21f952261e838c01843e15dafcc0e931
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415737"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126842"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Abrufen von Reservierungskosten und Nutzung laut Enterprise Agreement
 
@@ -42,9 +42,9 @@ Vergleich von zwei Datasets:
 
 | Daten | Dataset „Ist-Kosten“ | Dataset „Amortisierte Kosten“ |
 | --- | --- | --- |
-| Reservierungseinkäufe | Verfügbar in dieser Ansicht.<br>  Um diese Daten zu erhalten, filtern Sie auf ChargeType = &quot;Purchase&quot; (Einkauf). <br> Beziehen Sie sich auf die ReservationID oder den ReservationName, um festzustellen, für welche Reservierung die Gebühren anfallen.  | Auf diese Ansicht nicht anwendbar. <br> Einkaufskosten sind in den amortisierten Daten nicht enthalten. |
+| Reservierungseinkäufe | Verfügbar in dieser Ansicht.<br><br>  Um diese Daten zu erhalten, filtern Sie auf ChargeType = &quot;Purchase&quot; (Einkauf). <br><br> Beziehen Sie sich auf die ReservationID oder den ReservationName, um festzustellen, für welche Reservierung die Gebühren anfallen.  | Auf diese Ansicht nicht anwendbar. <br><br> Einkaufskosten sind in den amortisierten Daten nicht enthalten. |
 | EffectivePrice | Der Wert ist Null für die Nutzung, die einen Reservierungsrabatt erhält. | Der Wert sind anteilige Kosten pro Stunde für die Reservierung der Nutzung, für die der Reservierungsrabatt gilt. |
-| Ungenutzte Reservierung (gibt die Anzahl von Stunden an, die die Reservierung an einem Tag nicht genutzt wurde, sowie den finanziellen Wert der Verschwendung) | In dieser Ansicht nicht anwendbar. | Verfügbar in dieser Ansicht.<br> Um diese Daten zu erhalten, filtern Sie auf ChargeType = &quot;UnusedReservation&quot; (ungenutzte Reservierung).<br>  Beziehen Sie sich auf die ReservationID oder den ReservationName, um festzustellen, welche Reservierung unterausgelastet war. Dies gibt an, wie viel der Reservierung an dem Tag verschwendet wurde.  |
+| Ungenutzte Reservierung (gibt die Anzahl von Stunden an, die die Reservierung an einem Tag nicht genutzt wurde, sowie den finanziellen Wert der Verschwendung) | In dieser Ansicht nicht anwendbar. | Verfügbar in dieser Ansicht.<br><br> Um diese Daten zu erhalten, filtern Sie auf ChargeType = &quot;UnusedReservation&quot; (ungenutzte Reservierung).<br><br>  Beziehen Sie sich auf die ReservationID oder den ReservationName, um festzustellen, welche Reservierung unterausgelastet war. Dies gibt an, wie viel der Reservierung an dem Tag verschwendet wurde.  |
 | UnitPrice (Preis der Ressource gemäß Ihrem Preisblatt) | Verfügbar | Verfügbar |
 
 Weitere in den Azure-Nutzungsdaten verfügbare Informationen haben sich geändert:
@@ -67,7 +67,7 @@ Die Daten sind nicht verfügbar in [Berichterstellungs-APIs für Unternehmenskun
 Hier sehen Sie einen Beispielaufruf der API:
 
 ```
-https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
 ```
 
 Weitere Informationen zu {enrollmentId} und {billingPeriodId} finden Sie im API-Artikel [Nutzungsdetails – Liste](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).
@@ -77,12 +77,12 @@ Die Informationen in der folgenden Tabelle zu Metrik und Filter können bei der 
 | **Typ der API-Daten** | API-Aufrufaktion |
 | --- | --- |
 | **Alle Gebühren (Nutzung und Käufe)** | {metric} durch ActualCost ersetzen |
-| **Nutzung, für die ein Reservierungsrabatt gewährt wurde** | {metric} durch ActualCost ersetzen<br>{filter} ersetzten durch: properties/reservationId%20ne%20 |
-| **Nutzung, für die kein Reservierungsrabatt gewährt wurde** | {metric} durch ActualCost ersetzen<br>{filter} ersetzten durch: properties/reservationId%20eq%20 |
+| **Nutzung, für die ein Reservierungsrabatt gewährt wurde** | {metric} durch ActualCost ersetzen<br><br>{filter} ersetzten durch: properties/reservationId%20ne%20 |
+| **Nutzung, für die kein Reservierungsrabatt gewährt wurde** | {metric} durch ActualCost ersetzen<br><br>{filter} ersetzten durch: properties/reservationId%20eq%20 |
 | **Amortisierte Gebühren (Nutzung und Käufe)** | {metric} durch AmortizedCost ersetzen |
-| **Bericht über nicht genutzte Reservierungen** | {metric} durch AmortizedCost ersetzen<br>{filter} ersetzen durch: properties/ChargeType%20eq%20'UnusedReservation' |
-| **Reservierungseinkäufe** | {metric} durch ActualCostReplace ersetzen und {filter} ersetzen durch: properties/ChargeType%20eq%20'Purchase'  |
-| **Rückerstattungen** | {metric} durch ActualCost ersetzen<br>{filter} ersetzten durch: properties/ChargeType%20eq%20'Refund' |
+| **Bericht über nicht genutzte Reservierungen** | {metric} durch AmortizedCost ersetzen<br><br>{filter} ersetzen durch: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Reservierungseinkäufe** | {metric} durch ActualCost ersetzen<br><br>{filter} ersetzten durch: properties/ChargeType%20eq%20'Purchase'  |
+| **Rückerstattungen** | {metric} durch ActualCost ersetzen<br><br>{filter} ersetzten durch: properties/ChargeType%20eq%20'Refund' |
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Herunterladen der CSV-Nutzungsdatei mit neuen Daten
 
@@ -94,7 +94,7 @@ Navigieren Sie im Azure-Portal zu [Kostenverwaltung + Abrechnung](https://portal
 2. Klicken Sie auf **Nutzung + Gebühren**.
 3. Klicken Sie auf **Download**.  
 ![Ein Beispiel, das zeigt, wo Sie die CSV-Datei mit den Nutzungsdaten im Azure-Portal herunterladen können](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. Wählen Sie in **Nutzung und Gebühren herunterladen** unter **Nutzungsdetails Version 2** die Option **Alle Gebühren (Nutzung und Käufe)** aus, und klicken Sie dann auf „Herunterladen“. Wiederholen Sie dies für **Amortisierte Gebühren (Nutzung und Käufe)**.
+4. Wählen Sie in **Nutzung und Gebühren herunterladen** unter **Nutzungsdetails Version 2** die Option **Alle Gebühren (Nutzung und Käufe)** aus, und klicken Sie dann auf „Herunterladen“. Wiederholen Sie dies für **Amortisierte Gebühren (Nutzung und Käufe)** .
 
 Die CSV-Dateien, die Sie herunterladen, enthalten Ist-Kosten und amortisierte Kosten.
 

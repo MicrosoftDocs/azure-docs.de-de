@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540182"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235321"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Gewusst wie: Konfigurieren von Nutzungsbedingungen und Datenschutzbestimmungen für eine App
 
@@ -56,33 +56,20 @@ Beispiele: `https://myapp.com/terms-of-service` und `https://myapp.com/privacy-s
 
 Nachdem die Nutzungsbedingungen und Datenschutzbestimmungen fertig konfiguriert sind, können Sie diesen Dokumenten mit einer der folgenden Methoden Links in Ihrer App hinzufügen:
 
-* [Über das Azure-Portal](#registered-in-azure-portal)
-* [Im App-Registrierungsportal oder Dev Center](#registered-in-app-reg-portal)
+* [Über das Azure-Portal](#azure-portal)
 * [Mithilfe des JSON-Codes des App-Objekts](#app-object-json)
 * [Mithilfe der Betaversion der MSGraph-REST-API](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Bei Registrierung der App im Azure-Portal
-
-Führen Sie folgende Schritte aus, wenn Sie Ihre App im Azure-Portal registriert haben.
+### <a name="azure-portal"></a>Verwenden des Azure-Portals
+Führen Sie im Azure-Portal die folgenden Schritte aus.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 2. Navigieren Sie zum Abschnitt **App-Registrierungen**, und wählen Sie Ihre App aus.
-3. Öffnen Sie den Abschnitt **Eigenschaften** der App.
+3. Öffnen Sie den Bereich **Branding**.
 4. Füllen Sie die Felder **URL zu den Vertragsbedingungen** und **URL zur Datenschutzerklärung** aus.
 5. Speichern Sie die Änderungen.
 
     ![Abschnitt „Eigenschaften“ der App mit URLs zu den Nutzungsbedingungen und zur Datenschutzerklärung](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Bei Registrierung der App im App-Registrierungsportal
-
-Gehen Sie folgendermaßen vor, wenn Sie Ihre App im App-Registrierungsportal oder Dev Center registriert haben.
-
-1. Melden Sie sich beim [App-Registrierungsportal](https://apps.dev.microsoft.com/) an.
-2. Wählen Sie Ihre App aus, und scrollen Sie zum Abschnitt **Profil**.
-3. Füllen Sie die Felder **URL zu den Vertragsbedingungen** und **URL zur Datenschutzerklärung** aus.
-4. Speichern Sie die Änderungen.
-
-    ![Abschnitt „Profil“ der App mit URLs zu den Nutzungsbedingungen und zur Datenschutzerklärung](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Verwenden des JSON-Codes des App-Objekts
 

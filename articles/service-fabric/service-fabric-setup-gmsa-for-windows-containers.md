@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/20/2019
 ms.author: aljo, subramar
 ms.openlocfilehash: fc4edf4cb411ea2872437f4909f06e5ac2b9f622
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926368"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Einrichten gruppenverwalteter Dienstkonten für in Service Fabric ausgeführte Windows-Container

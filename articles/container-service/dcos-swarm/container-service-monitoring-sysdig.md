@@ -10,11 +10,11 @@ ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 39cd5a3fe7db0c442608e7943e7cbd6e3198edfb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60509508"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(VERALTET) Überwachen eines Azure Container Service-Clusters mit Sysdig
 

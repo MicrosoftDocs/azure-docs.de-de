@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 2f076dd3a5b1ceb9e24548652a71fda5b9aa48b7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027620"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Modul „Zweiklassige Support Vector Machine“
@@ -43,7 +43,7 @@ Für diesen Modelltyp wird empfohlen, dass Sie den Datensatz normalisieren, bevo
   
 2.  Geben Sie an, wie das Modell trainiert werden soll, indem Sie die Option **Trainermodus erstellen** aktivieren.  
   
-    -   **Einzelparameter**: Wenn Sie wissen, wie Sie das Modell konfigurieren möchten, können Sie einen bestimmten Satz von Werten als Argumente angeben.  
+    -   **Single Parameter** (Einzelner Parameter): Wenn Sie wissen, wie Sie das Modell konfigurieren möchten, können Sie einen bestimmten Satz von Werten als Argumente angeben.  
 
 3.  Geben Sie für **Anzahl der Iterationen** eine Zahl ein, die die Anzahl der beim Erstellen des Modells verwendeten Iterationen angibt.  
   

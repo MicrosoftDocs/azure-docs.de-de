@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904251"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60610515"
 ---
 # <a name="introduction-to-azure-security"></a>Einführung in Azure Security
 ## <a name="overview"></a>Übersicht

@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 47a573fd4ed4d058b9f9a265c8774f0856371b94
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232891"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390099"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Antwortstruktur und Antworttypen der Bing-Websuche-API  
 
-Wenn Sie eine Suchanforderung an die Bing-Websuche senden, wird im Antworttext ein [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse)-Objekt zurückgegeben. Das Objekt enthält jeweils ein Feld für jede Antwort, die nach Bewertung von Bing für die Abfrage relevant ist. In diesem Beispiel wird ein Antwortobjekt gezeigt, bei dem Bing alle Antworten zurückgegeben hat:
+Wenn Sie eine Suchanforderung an die Bing-Websuche senden, wird im Antworttext ein [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse)-Objekt zurückgegeben. Das Objekt enthält jeweils ein Feld für jede Antwort, die nach Bewertung von Bing für die Abfrage relevant ist. In diesem Beispiel wird ein Antwortobjekt gezeigt, bei dem Bing alle Antworten zurückgegeben hat:
 
 ```json
 {
@@ -38,11 +38,11 @@ Wenn Sie eine Suchanforderung an die Bing-Websuche senden, wird im Antworttext e
 }, ...
 ```
 
-Normalerweise wird bei der Bing-Websuche eine Teilmenge der Antworten zurückgegeben. Wenn der Abfrageausdruck beispielsweise *sailing dinghies* war, kann die Antwort `webPages`, `images` und `rankingResponse` enthalten. Sofern Sie nicht [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) zum Herausfiltern von Webseiten verwendet haben, umfasst die Antwort immer `webpages`- und `rankingResponse`-Antworten.
+Normalerweise wird bei der Bing-Websuche eine Teilmenge der Antworten zurückgegeben. Wenn der Abfrageausdruck beispielsweise *sailing dinghies* war, kann die Antwort `webPages`, `images` und `rankingResponse` enthalten. Sofern Sie nicht [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) zum Herausfiltern von Webseiten verwendet haben, umfasst die Antwort immer `webpages`- und `rankingResponse`-Antworten.
 
 ## <a name="webpages-answer"></a>Antwort zu Webseiten
 
-Die Antwort vom Typ [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) enthält eine Liste mit Links zu Webseiten, die nach Bewertung der Bing-Websuche für die Abfrage relevant sind. Jede [Webseite](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in der Liste beinhaltet den Namen der Seite, die URL, die Anzeige-URL, eine kurze Beschreibung des Inhalts und das Datum, an dem Bing den Inhalt gefunden hat.
+Die Antwort vom Typ [webPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) enthält eine Liste mit Links zu Webseiten, die nach Bewertung der Bing-Websuche für die Abfrage relevant sind. Jede [Webseite](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) in der Liste beinhaltet den Namen der Seite, die URL, die Anzeige-URL, eine kurze Beschreibung des Inhalts und das Datum, an dem Bing den Inhalt gefunden hat.
 
 ```json
 {
@@ -65,7 +65,7 @@ The following shows an example of how you might display the webpage in a search 
 
 ## <a name="images-answer"></a>Bildantwort
 
-Die Antwort vom Typ [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) enthält eine Liste mit Bildern, die nach Einschätzung von Bing für die Abfrage relevant sind. Jedes [Bild](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) in der Liste enthält die URL, die Größe, die Abmessungen und das Codierungsformat des Bilds. Darüber hinaus enthält das Bildobjekt die URL einer Miniaturansicht des Bilds sowie die Abmessungen der Miniaturansicht.
+Die Antwort vom Typ [images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) enthält eine Liste mit Bildern, die nach Einschätzung von Bing für die Abfrage relevant sind. Jedes [Bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) in der Liste enthält die URL, die Größe, die Abmessungen und das Codierungsformat des Bilds. Darüber hinaus enthält das Bildobjekt die URL einer Miniaturansicht des Bilds sowie die Abmessungen der Miniaturansicht.
 
 ```json
 {
@@ -109,7 +109,7 @@ Ausführliche Informationen zu der Bildantwort und den Bildern finden Sie unter 
 
 ## <a name="related-searches-answer"></a>Antwort zu verwandten Suchvorgängen
 
-Die Antwort vom Typ [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse-relatedsearches) enthält eine Liste der am häufigsten von anderen Benutzern durchgeführten verwandten Abfragen. Jede [Abfrage](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query_obj) in der Liste beinhaltet eine Abfragezeichenfolge (`text`), eine Abfragezeichenfolge mit Treffermarkierungszeichen (`displayText`) und eine URL (`webSearchUrl`) zu der Bing-Suchergebnisseite für die Abfrage.
+Die Antwort vom Typ [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) enthält eine Liste der am häufigsten von anderen Benutzern durchgeführten verwandten Abfragen. Jede [Abfrage](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) in der Liste beinhaltet eine Abfragezeichenfolge (`text`), eine Abfragezeichenfolge mit Treffermarkierungszeichen (`displayText`) und eine URL (`webSearchUrl`) zu der Bing-Suchergebnisseite für die Abfrage.
 
 ```json
 {
@@ -129,7 +129,7 @@ Nachfolgend sehen Sie ein Beispiel für die Verwendung verwandter Abfragen in Bi
 
 ## <a name="videos-answer"></a>Antwort zu Videos
 
-Die Antwort vom Typ [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) enthält eine Liste mit Videos, die nach Einschätzung von Bing für die Abfrage relevant sind. Jedes [Video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) in der Liste enthält die URL, die Dauer, die Abmessungen und das Codierungsformat des Videos. Darüber hinaus enthält das Videoobjekt die URL einer Miniaturansicht des Videos sowie die Abmessungen der Miniaturansicht.
+Die Antwort vom Typ [videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) enthält eine Liste mit Videos, die nach Einschätzung von Bing für die Abfrage relevant sind. Jedes [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) in der Liste enthält die URL, die Dauer, die Abmessungen und das Codierungsformat des Videos. Darüber hinaus enthält das Videoobjekt die URL einer Miniaturansicht des Videos sowie die Abmessungen der Miniaturansicht.
 
 ```json
 {
@@ -183,7 +183,7 @@ Ausführliche Informationen zur Videoantwort und zu Videos finden Sie unter [Bin
 
 ## <a name="news-answer"></a>Antwort zu Nachrichtenartikeln
 
-Die Antwort vom Typ [news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) enthält eine Liste mit Nachrichtenartikeln, die nach Einschätzung von Bing für die Abfrage relevant sind. Jeder [Nachrichtenartikel](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) in der Liste beinhaltet den Namen des Artikels, eine Beschreibung und die URL zu dem Artikel auf der Website des Hosts. Wenn der Artikel ein Bild enthält, umfasst das Objekt eine Miniaturansicht des Bilds.
+Die Antwort vom Typ [news](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) enthält eine Liste mit Nachrichtenartikeln, die nach Einschätzung von Bing für die Abfrage relevant sind. Jeder [Nachrichtenartikel](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) in der Liste beinhaltet den Namen des Artikels, eine Beschreibung und die URL zu dem Artikel auf der Website des Hosts. Wenn der Artikel ein Bild enthält, umfasst das Objekt eine Miniaturansicht des Bilds.
 
 ```json
 {
@@ -218,7 +218,7 @@ Ausführliche Informationen zu der News-Antwort und zu Nachrichtenartikeln finde
 
 ## <a name="computation-answer"></a>Antwort zu Berechnungen
 
-Wenn der Benutzer einen mathematischen Ausdruck oder eine Abfrage zur Einheitenumrechnung eingibt, enthält die Antwort möglicherweise eine Antwort vom Typ [Computation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#computation). Die Antwort vom Typ `computation` enthält den normalisierten Ausdruck und das zugehörige Ergebnis.
+Wenn der Benutzer einen mathematischen Ausdruck oder eine Abfrage zur Einheitenumrechnung eingibt, enthält die Antwort möglicherweise eine Antwort vom Typ [Computation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation). Die Antwort vom Typ `computation` enthält den normalisierten Ausdruck und das zugehörige Ergebnis.
 
 Eine Abfrage zur Einheitenumrechnung ist eine Abfrage, bei der eine Einheit in eine andere umgerechnet wird. Beispiel: *Wieviel Fuß sind 10 Meter?* oder *Wie viele Teelöffel sind 1/4 Tasse?*
 
@@ -326,7 +326,7 @@ Mathematische Ausdrücke, die Variablen enthalten (z.B. 4x + 6 = 18, wobei x die
 
 ## <a name="timezone-answer"></a>Antwort zur Zeitzone
 
-Wenn der Benutzer eine Abfrage zu Uhrzeit oder Datum eingibt, kann die Antwort eine Antwort vom Typ [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#timezone) enthalten. Diese Antwort unterstützt implizite oder explizite Abfragen. Bei einer impliziten Abfrage, z.B. *Wie spät ist es?*, wird die Ortszeit basierend auf dem Standort des Benutzers zurückgegeben. Bei einer expliziten Abfrage, z.B. *Wie spät ist es in Seattle?*, wird die Ortszeit für Seattle, Washington, USA zurückgegeben.
+Wenn der Benutzer eine Abfrage zu Uhrzeit oder Datum eingibt, kann die Antwort eine Antwort vom Typ [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) enthalten. Diese Antwort unterstützt implizite oder explizite Abfragen. Bei einer impliziten Abfrage, z.B. *Wie spät ist es?* , wird die Ortszeit basierend auf dem Standort des Benutzers zurückgegeben. Bei einer expliziten Abfrage, z.B. *Wie spät ist es in Seattle?* , wird die Ortszeit für Seattle, Washington, USA zurückgegeben.
 
 Die Antwort vom Typ `timeZone` beinhaltet den Namen des Standorts, das aktuelle UTC-Datum und die aktuelle UTC-Zeit am angegebenen Standort sowie die UTC-Abweichung. Wenn sich die Standortgrenzen in mehreren Zeitzonen befinden, enthält die Antwort das aktuelle UTC-Datum und die aktuelle UTC-Zeit aller Zeitzonen innerhalb der Grenzen. Da der US-Bundesstaat Florida in zwei Zeitzonen liegt, enthält die Antwort beispielsweise das lokale Datum und die Ortszeit beider Zeitzonen.  
 
@@ -417,7 +417,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>Antwort zu Rechtschreibvorschlägen
 
-Wenn Bing feststellt, dass der Benutzer möglicherweise einen abweichenden Ausdruck suchen wollte, enthält die Antwort ein [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#spellsuggestions)-Objekt. Wenn der Benutzer z.B. nach *carlos pen* sucht, geht Bing davon aus, dass der Benutzer stattdessen möglicherweise nach „Carlos Pena“ suchen wollte (basierend auf der früheren Suche nach *carlos pen* durch andere Benutzer). Nachfolgend finden Sie ein Beispiel für eine Antwort zur Rechtschreibung.
+Wenn Bing feststellt, dass der Benutzer möglicherweise einen abweichenden Ausdruck suchen wollte, enthält die Antwort ein [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions)-Objekt. Wenn der Benutzer z.B. nach *carlos pen* sucht, geht Bing davon aus, dass der Benutzer stattdessen möglicherweise nach „Carlos Pena“ suchen wollte (basierend auf der früheren Suche nach *carlos pen* durch andere Benutzer). Nachfolgend finden Sie ein Beispiel für eine Antwort zur Rechtschreibung.
 
 ```json
 "spellSuggestions": {
@@ -481,4 +481,4 @@ Das folgende Beispiel zeigt, wie der Rechtschreibvorschlag in Bing verwendet wir
 
 ## <a name="see-also"></a>Weitere Informationen  
 
-* [Referenz zur Bing-Websuche-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+* [Referenz zur Bing-Websuche-API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

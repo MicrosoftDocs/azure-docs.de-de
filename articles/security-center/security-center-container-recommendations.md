@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112579"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60705274"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Grundlegendes zu Azure Security Center-Containerempfehlungen
 

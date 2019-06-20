@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 0c1e704a3bdec239c87d879ae1ef95e6e76d27fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 478afb20f3dabec74d66d00bec325408ce6604fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966896"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64713741"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Grenzwerte, Kontingente und Drosselungsschwellenwerte in Azure Scheduler
 
@@ -36,5 +36,5 @@ Jede Anforderung für den Scheduler-Dienst gibt einen Antwortheader namens **x-m
 
 ## <a name="see-also"></a>Weitere Informationen
 
-* [Was ist Azure Scheduler?](scheduler-intro.md)
+* [Was ist der Azure Scheduler?](scheduler-intro.md)
 * [Konzepte, Terminologie und Entitätshierarchie für Azure Scheduler](scheduler-concepts-terms.md)

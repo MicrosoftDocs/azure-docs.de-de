@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805260"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702290"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Wählen der richtigen Authentifizierungsmethode für Ihre Azure Active Directory-Hybrididentitätslösung 
 
@@ -49,7 +49,7 @@ Azure AD unterstützt für Hybrididentitätslösungen die folgenden Authentifizi
 ### <a name="cloud-authentication"></a>Cloudauthentifizierung
 Wenn Sie diese Authentifizierungsmethode wählen, übernimmt Azure AD die Anmeldung für Benutzer. In Verbindung mit dem nahtlosen einmaligen Anmelden (SSO) können sich Benutzer bei Cloud-Apps anmelden, ohne ihre Anmeldeinformationen erneut eingeben zu müssen. Bei der Cloudauthentifizierung können Sie zwischen zwei Optionen wählen: 
 
-**Azure AD-Kennworthashsynchronisierung**: Dies ist der einfachste Weg, die Authentifizierung für lokale Verzeichnisobjekte in Azure AD zu ermöglichen. Benutzer können den gleichen Benutzernamen und das gleiche Kennwort wie in der lokalen Umgebung verwenden, ohne eine zusätzliche Infrastruktur bereitstellen zu müssen. Für einige Premium-Features von Azure AD, z.B. Identity Protection, ist unabhängig davon, welche Authentifizierungsmethode Sie wählen, eine Kennworthashsynchronisierung erforderlich.
+**Azure AD-Kennworthashsynchronisierung**: Dies ist der einfachste Weg, die Authentifizierung für lokale Verzeichnisobjekte in Azure AD zu ermöglichen. Benutzer können den gleichen Benutzernamen und das gleiche Kennwort wie in der lokalen Umgebung verwenden, ohne eine zusätzliche Infrastruktur bereitstellen zu müssen. Für einige Premium-Features von Azure AD, z.B. Identity Protection und [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), ist unabhängig davon, welche Authentifizierungsmethode Sie wählen, eine Kennworthashsynchronisierung erforderlich.
 
 > [!NOTE] 
 > Kennwörter werden nie im Klartext gespeichert oder mit einem umkehrbaren Algorithmus in Azure AD verschlüsselt. Weitere Informationen zum eigentlichen Prozess der Kennworthashsynchronisierung finden Sie unter [Implementieren der Kennworthashsynchronisierung mit der Azure AD Connect-Synchronisierung](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -92,7 +92,7 @@ Informationen zu Entscheidungsfragen:
 
 * **Benutzererfahrung**: Stellen Sie das nahtlose einmalige Anmelden mit Kennworthashsynchronisierung bereit, um die Anmeldeerfahrung für Benutzer zu verbessern. Beim nahtlosen einmaligen Anmelden werden für Benutzer bei der Anmeldung keine unnötigen Aufforderungen angezeigt.
 
-* **Erweiterte Szenarien**: Wenn Organisationen sich dafür entscheiden, können sie Erkenntnisse aus Identitäten gewinnen, indem Azure AD Identity Protection-Berichte mit Azure AD Premium P2 verwendet werden. Ein Beispiel hierfür ist der Bericht zu kompromittierten Anmeldeinformationen. Windows Hello for Business verfügt über [spezifische Anforderungen, wenn Sie die Kennworthashsynchronisierung verwenden](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
+* **Erweiterte Szenarien**: Wenn Organisationen sich dafür entscheiden, können sie Erkenntnisse aus Identitäten gewinnen, indem Azure AD Identity Protection-Berichte mit Azure AD Premium P2 verwendet werden. Ein Beispiel hierfür ist der Bericht zu kompromittierten Anmeldeinformationen. Windows Hello for Business verfügt über [spezifische Anforderungen, wenn Sie die Kennworthashsynchronisierung verwenden](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) erfordern Kennworthashsynchronisierung, um Endbenutzern ihre Unternehmensanmeldeinformationen in der verwalteten Domäne bereitzustellen.
 
     Organisationen, die eine mehrstufige Authentifizierung mit Kennworthashsynchronisierung benötigen, müssen die Multi-Factor Authentication von Azure AD verwenden. Es ist für diese Organisationen nicht möglich, Verfahren zur mehrstufigen Authentifizierung zu nutzen, die von Drittanbietern oder lokal angeboten werden.
 

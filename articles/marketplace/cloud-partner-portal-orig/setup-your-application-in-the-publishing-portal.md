@@ -1,25 +1,19 @@
 ---
-title: Einrichten Ihrer Anwendung im Veröffentlichungsportal | Microsoft-Dokumentation
+title: Einrichten Ihrer Anwendung im Veröffentlichungsportal
 description: Anleitung zur Einrichtung Ihrer Anwendung im Cloudveröffentlichungsportal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.author: pabutler
+ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310016"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943562"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Einrichten Ihrer Anwendung im Veröffentlichungsportal
 
@@ -88,7 +82,7 @@ Hier folgt eine Erläuterung zu diesen Feldern:
 
 ### <a name="crm-package-availability"></a>Verfügbarkeit von CRM-Paketen
 
-Wählen Sie in diesem Abschnitt aus, für welche CRM-Regionen Ihr Paket zur Verfügung gestellt werden soll. Informationen darüber, welche Regionen welche Länder versorgen, finden Sie unter dem Link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+Wählen Sie in diesem Abschnitt aus, für welche CRM-Regionen Ihr Paket zur Verfügung gestellt werden soll. Informationen darüber, welche CRM-Regionen welche Länder/Regionen versorgen, finden Sie unter dem Link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Hinweis: Die Bereitstellung von „Sovereign and US Gov Cloud“ in Deutschland ERFORDERT EINE BESONDERE BERECHTIGUNG UND VALIDIERUNG WÄHREND DER ZERTIFIZIERUNG.
 

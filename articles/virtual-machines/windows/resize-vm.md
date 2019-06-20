@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: f54ff738199d433308a8eaba6a643861c57b4abb
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3dc6ea7419e3ee1f24d19447a7a33e5556ffc70f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540685"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64688720"
 ---
 # <a name="resize-a-windows-vm"></a>Ändern der Größe eines virtuellen Windows-Computers
 
@@ -30,7 +30,7 @@ Nachdem Sie einen virtuellen Computer (virtual machine; VM) erstellen, können S
 
 Wenn Ihr virtueller Computer Storage Premium verwendet, stellen Sie sicher, dass Sie für die Größe eine **s**-Version auswählen, damit Storage Premium unterstützt wird. Wählen Sie z. B. Standard_E4**s**_v3 statt Standard_E4_v3 aus.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Ändern der Größe eines virtuellen Windows-Computers nicht in einer Verfügbarkeitsgruppe
 

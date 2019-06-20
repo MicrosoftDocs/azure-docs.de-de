@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190280"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243872"
 ---
 # <a name="what-is-conversation-transcription"></a>Was ist Unterhaltungstranskription?
 
@@ -67,6 +67,11 @@ Die Unterhaltungstranskription setzt Mehrkanal-Audiostreams und Benutzerprofile 
 > Weitere Informationen zu Spezifikationen und Design finden Sie unter den [Mikrofonempfehlungen für das Speech-Geräte-SDK von Microsoft](https://aka.ms/cts/microphone). Weitere Informationen zum Development Kit und dessen Erwerb finden Sie unter [Abrufen des Speech-Geräte-SDK von Microsoft](https://aka.ms/cts/getsdk).
 
 Informationen zum Verwenden der Unterhaltungstranskription mit dem Speech Devices SDK finden Sie unter [Verwenden der Unterhaltungstranskription](https://aka.ms/cts/howto).
+
+
+## <a name="quick-start-with-a-sample-app"></a>Schnellstart mit einer Beispielanwendung
+
+Das Microsoft Speech-Geräte-SDK verfügt über eine Schnellstart-Beispielanwendung für alle gerätebezogenen Beispiele. Die Unterhaltungstranskription ist eines davon. Sie finden es in [Schnellstart zum Speech-Geräte-SDK für Android](https://aka.ms/sdsdk-quickstart) mit Beispielanwendung und dem Quellcode als Referenz.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

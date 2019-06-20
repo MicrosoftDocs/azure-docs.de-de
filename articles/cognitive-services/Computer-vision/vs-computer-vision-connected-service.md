@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 148f94410f6acb421d352b68b6f1ecb305a6b16a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 24d9a5fa1e9c2f44ef32ac1fc05ad09f8a550f12
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235948"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827755"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Verwenden von verbundenen Diensten in Visual Studio zum Herstellen einer Verbindung mit der Maschinelles Sehen-API
 
@@ -24,8 +24,8 @@ Dieser Artikel und die Begleitartikel enthalten Details zur Verwendung des Featu
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- **Ein Azure-Abonnement**. Falls Sie über kein Abonnement verfügen, können Sie sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/)registrieren.
-- **Visual Studio 2017, Version 15.7** mit installierter Workload **Webentwicklung**. [Jetzt herunterladen](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Ein Azure-Abonnement. Falls Sie über kein Abonnement verfügen, können Sie sich für ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial/)registrieren.
+- Eine Installation von Visual Studio 2017 (Version 15.7 oder höher) mit der Workload für **Webentwicklung**. [Jetzt herunterladen](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

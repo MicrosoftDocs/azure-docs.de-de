@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66478860"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Der Team Data Science-Prozess in Aktion: Verwenden von SQL Data Warehouse
 In diesem Tutorial führen wir Sie durch die Erstellung und Bereitstellung eines Machine Learning-Modells mit SQL Data Warehouse (SQL DW) für ein öffentlich zugängliches Dataset: das Dataset [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Das erstellte binäre Klassifizierungsmodell sagt voraus, ob ein Trinkgeld für eine Fahrt bezahlt wird. Zudem werden Modelle für Multiklassenklassifizierung und Regression behandelt, die die Verteilung der gezahlten Trinkgeldbeträge vorhersagen.
@@ -584,11 +584,11 @@ Wenn Sie bereits einen AzureML-Arbeitsbereich eingerichtet haben, können Sie da
 
 Zum Ausführen des IPython Notebook-Beispiels oder der Python-Skriptdatei sind die folgenden Python-Pakete erforderlich. Wenn Sie den AzureML IPython Notebook-Dienst verwenden, wurden diese Pakete bereits vorinstalliert.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 Die empfohlene Reihenfolge beim Erstellen fortgeschrittener Analyselösungen mit großen Datenmengen in AzureML lautet wie folgt:
 

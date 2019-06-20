@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2943a1501e1d81ff4884c21b5aa3861e16523bbb
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: d3e9b3b2db4a4adc01ad3b1f348b66496658f0f5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827700"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190932"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisieren von Verwaltungsaufgaben auf virtuellen Azure-Computern mit der SQL Server-Agent-Erweiterung (Resource Manager)
 > [!div class="op_single_selector"]
@@ -54,6 +54,7 @@ Anforderungen für die Verwendung der Erweiterung für SQL Server-IaaS-Agent auf
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
+* Windows Server 2019 
 
 **SQL Server-Versionen:**
 
@@ -62,6 +63,7 @@ Anforderungen für die Verwendung der Erweiterung für SQL Server-IaaS-Agent auf
 * SQL Server 2012
 * SQL Server 2014
 * SQL Server 2016
+* SQL Server 2017
 
 **Azure PowerShell:**
 

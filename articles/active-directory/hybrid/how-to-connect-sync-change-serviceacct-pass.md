@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65139393"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Ändern des Kennworts für das ADSync-Dienstkonto
@@ -40,13 +40,13 @@ Zunächst müssen Sie das Kennwort im Windows-Dienststeuerungs-Manager ändern. 
 
 
 - Wenn Sie versuchen, den Synchronisierungsdienst im Windows-Dienststeuerungs-Manager zu starten, erhalten Sie den Fehler **Der Microsoft Azure AD-Synchronisierungsdienst konnte auf dem lokalen Computer nicht gestartet werden**. **Fehler 1069: Der Dienst wurde aufgrund eines Anmeldefehlers nicht gestartet.**
-- In der Windows-Ereignisanzeige enthält das Systemereignisprotokoll einen Fehler mit der **Ereignis-ID 7038** und die Meldung „**Der ADSync-Dienst konnte sich mit dem aktuellen Kennwort aufgrund des folgenden Fehlers nicht anmelden: Der Benutzername oder das Kennwort ist falsch.**“
+- In der Windows-Ereignisanzeige enthält das Systemereignisprotokoll einen Fehler mit der **Ereignis-ID 7038** und die Meldung „**Der ADSync-Dienst konnte sich mit dem aktuellen Kennwort aufgrund des folgenden Fehlers nicht anmelden: Der Benutzername oder das Kennwort ist falsch.** “
 
 Zweitens kann der Synchronisierungsdienst unter bestimmten Bedingungen bei Aktualisierung des Kennworts nicht mehr über DPAPI auf den Verschlüsselungsschlüssel zugreifen. Ohne den Verschlüsselungsschlüssel kann der Synchronisierungsdienst die Kennwörter nicht entschlüsseln, die zum Synchronisieren nach/aus dem lokalen AD und Azure AD erforderlich sind.
 Ihnen werden beispielsweise folgende Fehler angezeigt:
 
 - Wenn Sie im Windows-Dienststeuerungs-Manager versuchen, den Synchronisierungsdienst zu starten, und der Verschlüsselungsschlüssel nicht abgerufen werden kann, erhalten Sie die Fehlermeldung <strong>Der Microsoft Azure AD-Synchronisierungsdienst konnte auf dem lokalen Computer nicht gestartet werden. Weitere Informationen finden Sie im Systemereignisprotokoll. Setzen Sie sich mit dem Diensthersteller in Verbindung, wenn es sich um einen Nicht-Microsoft-Dienst handelt. Beziehen Sie sich auf den dienstspezifischen Fehlercode -21451857952</strong>.
-- In der Windows-Ereignisanzeige enthält das Anwendungsereignisprotokoll einen Fehler mit der **Ereignis-ID 6028** und die Fehlermeldung *„Auf den Serververschlüsselungsschlüssel kann nicht zugegriffen werden“*.
+- In der Windows-Ereignisanzeige enthält das Anwendungsereignisprotokoll einen Fehler mit der **Ereignis-ID 6028** und die Fehlermeldung *„Auf den Serververschlüsselungsschlüssel kann nicht zugegriffen werden“* .
 
 Um sicherzustellen, dass Sie diese Fehler nicht erhalten, führen Sie beim Ändern des Kennworts die Verfahren unter [Verwerfen des Verschlüsselungsschlüssels für das ADSync-Dienstkonto](#abandoning-the-adsync-service-account-encryption-key) aus.
  

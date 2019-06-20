@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51637109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60394984"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportieren oder Löschen personenbezogener Daten aus Azure DevTest Labs
 Dieser Artikel enthält Schritte zum Löschen und Exportieren personenbezogener Daten aus dem Azure DevTest Labs-Dienst. 
@@ -39,10 +39,10 @@ DevTest Labs verwendet die E-Mail-Adresse des Benutzers, um beim automatischen H
 ### <a name="user-object-id"></a>Benutzerobjekt-ID
 DevTest Labs verwendet die Benutzerobjekt-ID, um Kostentrends im Vergleich zum Vormonat sowie Informationen zu Kosten nach Ressourcen für Labadministratoren anzuzeigen. So können diese Kosten verfolgen und Schwellenwerte für ihr Lab verwalten. 
 
-**Geschätzter Kostentrend für den aktuellen Kalendermonat:**
+**Geschätzter Kostentrend für den aktuellen Kalendermonat:** 
 ![Geschätzter Kostentrend für den aktuellen Kalendermonat](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Geschätzte monatliche Kosten bis heute nach Ressource:**
+**Geschätzte monatliche Kosten bis heute nach Ressource:** 
 ![Geschätzte monatliche Kosten bis heute nach Ressource](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 

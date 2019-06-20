@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128654"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numerische Funktionen für Azure Resource Manager-Vorlagen
@@ -120,8 +120,8 @@ Gibt den Index einer Iterationsschleife zurück.
 
 | Parameter | Erforderlich | Typ | BESCHREIBUNG |
 |:--- |:--- |:--- |:--- |
-| loopName | Nein  | Zeichenfolge | Der Name der Schleife zum Abrufen der Iteration |
-| offset |Nein  |int |Die Zahl, die dem nullbasierten (0) Iterationswert hinzugefügt werden soll. |
+| loopName | Nein | Zeichenfolge | Der Name der Schleife zum Abrufen der Iteration |
+| offset |Nein |int |Die Zahl, die dem nullbasierten (0) Iterationswert hinzugefügt werden soll. |
 
 ### <a name="remarks"></a>Anmerkungen
 
@@ -228,7 +228,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="float" />
 
-## <a name="float"></a>Gleitkommawert
+## <a name="float"></a>float
 `float(arg1)`
 
 Konvertiert den Wert in eine Gleitkommazahl. Diese Funktion wird nur beim Übergeben von benutzerdefinierten Parametern an eine Anwendung (z. B. eine Logik-App) verwendet.

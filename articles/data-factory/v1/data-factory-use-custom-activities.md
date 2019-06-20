@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487480"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910822"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Verwenden von benutzerdefinierten Aktivitäten in einer Azure Data Factory-Pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ Die folgende exemplarische Vorgehensweise bietet Schritt-für-Schritt-Anleitunge
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Exemplarische Vorgehensweise: Erstellen einer benutzerdefinierten Aktivität
 ### <a name="prerequisites"></a>Voraussetzungen
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * Herunterladen und Installieren des [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch-Voraussetzungen
@@ -100,10 +100,10 @@ Die Methode gibt ein Wörterbuch zurück, das künftig zum Verketten benutzerdef
 ### <a name="procedure"></a>Vorgehensweise
 1. Erstellen Sie ein **.NET-Klassenbibliotheksprojekt** .
    <ol type="a">
-     <li>Starten Sie <b>Visual Studio 2017</b>, <b>Visual Studio 2015</b>, <b>Visual Studio 2013</b> oder <b>Visual Studio 2012</b>.</li>
+     <li>Starten Sie Visual Studio.</li>
      <li>Klicken Sie auf <b>Datei</b>, zeigen Sie auf <b>Neu</b>, und klicken Sie auf <b>Projekt</b>.</li>
      <li>Erweitern Sie <b>Vorlagen</b>, und wählen Sie <b>Visual C#</b> aus. In dieser exemplarischen Vorgehensweise verwenden Sie C#, Sie können jedoch jede .NET-Sprache verwenden, um benutzerdefinierte Aktivität zu entwickeln.</li>
-     <li>Wählen Sie in der Liste mit den Projekttypen auf der rechten Seite den Eintrag <b>Klassenbibliothek</b> aus. Wählen Sie in VS 2017 <b>Klassenbibliothek (.NET Framework)</b>  aus.</li>
+     <li>Wählen Sie in der Liste mit den Projekttypen auf der rechten Seite den Eintrag <b>Klassenbibliothek</b> aus. Wählen Sie in Visual Studio <b>Klassenbibliothek (.NET Framework)</b>  aus.</li>
      <li>Geben Sie <b>MyDotNetActivity</b> als <b>Namen</b> ein.</li>
      <li>Wählen Sie <b>C:\ADFGetStarted</b> als <b>Speicherort</b>.</li>
      <li>Klicken Sie auf <b>OK</b> , um das Projekt zu erstellen.</li>

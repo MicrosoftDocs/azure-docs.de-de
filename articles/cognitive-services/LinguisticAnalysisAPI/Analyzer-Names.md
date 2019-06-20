@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873375"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954708"
 ---
 # <a name="analyzer-names"></a>Analysetoolnamen
 
@@ -43,10 +43,10 @@ Derzeit gibt es drei verschiedene Varianten:
 Innerhalb einer bestimmten Variante können sich jedoch verschiedene Experten uneinig darüber sein, wie ein bestimmtes Phänomen analysiert werden soll.
 Im Gegensatz zu Programmiersprachen gibt es keine klare und genaue Definition, wie dies geschehen soll.
 
-Stellen Sie sich zum Beispiel vor, wir würden versuchen, die Token im englischen Satz „He didn't go.“ zu finden.
+Stellen Sie sich zum Beispiel vor, wir würden versuchen, die Token im englischen Satz „They didn't go.“ zu finden.
 Beachten Sie insbesondere die Zeichenfolge „didn‘t“.
 Eine mögliche Interpretation ist, die Zeichenfolge in zwei Token aufzuteilen: „did“ und „not“.
-Der alternative Satz „He did not go“ würde dann denselben Satz an Token enthalten.
+Der alternative Satz „They did not go“ würde dann denselben Satz an Token enthalten.
 Eine andere Möglichkeit wäre es, dass sie in die Token „did“ und „n't“ aufgeteilt werden könnte.
 Letzteres Token wird normalerweise nicht als Wort betrachtet, aber dieser Ansatz enthält mehr Informationen über die Oberflächenzeichenfolge, was manchmal nützlich sein kann.
 Oder diese Kontraktion kann als einzelnes Wort betrachtet werden.

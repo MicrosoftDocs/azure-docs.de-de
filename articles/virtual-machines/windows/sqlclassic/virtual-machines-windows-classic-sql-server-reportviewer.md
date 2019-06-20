@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60580067"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Verwenden von ReportViewer auf einer in Azure gehosteten Website
 > [!IMPORTANT]

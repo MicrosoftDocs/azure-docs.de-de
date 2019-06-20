@@ -3,19 +3,19 @@ title: Verwenden von mehrwertigen Entitäten in einem Conversation Learner-Model
 titleSuffix: Azure
 description: Hier erfahren Sie, wie Sie mehrwertige Entitäten in einem Conversation Learner-Modell verwenden.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 07550ed9c78aa584e55403d225eef4bcff33b057
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 1f62def5e498f3f744beaed0cda207e1a75bfdf2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66387958"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Verwenden von mehrwertigen Entitäten in einem Unterhaltungslernmodell
 In diesem Tutorial wird die mehrwertige Eigenschaft von Entitäten behandelt.

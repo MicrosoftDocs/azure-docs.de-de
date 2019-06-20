@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60752883"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Auswählen von Algorithmen für Azure Machine Learning Studio
 
@@ -41,11 +41,11 @@ Diese Empfehlungen sind eine Zusammenstellung aus Feedback und Tipps von zahlrei
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Verwenden des Cheat Sheets
 
-Die Pfad- und Algorithmusbezeichnungen in den Diagrammen sind wie folgt zu lesen: „Für *&lt;Pfadbezeichnung&gt;* verwenden Sie *&lt;Algorithmus&gt;*“. Beispiel: „Für *Geschwindigkeit* verwenden Sie *Logistische Regression mit zwei Klassen*“. Manchmal sind mehrere Verzweigungen gültig.
+Die Pfad- und Algorithmusbezeichnungen in den Diagrammen sind wie folgt zu lesen: „Für *&lt;Pfadbezeichnung&gt;* verwenden Sie *&lt;Algorithmus&gt;* “. Beispiel: „Für *Geschwindigkeit* verwenden Sie *Logistische Regression mit zwei Klassen*“. Manchmal sind mehrere Verzweigungen gültig.
 Manchmal ist keine davon eine optimale Lösung. Sie dienen als Faustregelempfehlungen. Machen Sie sich also keine Sorgen über ihre Exaktheit.
 Einige Datenanalysten, mit denen wir gesprochen haben, sagten, dass die einzig sichere Methode zum Herausfinden des idealen Algorithmus darin besteht, alle auszuprobieren.
 
-Hier folgt ein Beispiel aus der [Azure AI Gallery](https://gallery.azure.ai/). Dabei handelt es sich um ein Experiment, mit dem mehrere Algorithmen auf dieselben Daten angewendet und die Ergebnisse verglichen werden: [Vergleichen von Multiklassen-Klassifizierungen: Buchstabenerkennung](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+Hier folgt ein Beispiel aus dem [Azure KI-Katalog](https://gallery.azure.ai/). Dabei handelt es sich um ein Experiment, mit dem mehrere Algorithmen auf dieselben Daten angewendet und die Ergebnisse verglichen werden: [Vergleichen von Multiklassen-Klassifizierungen: Buchstabenerkennung](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Eine einfach verständliche Infografikübersicht über Grundlagen von Machine Learning mit gängigen Algorithmen für häufige Probleme beim maschinellen Lernen können Sie unter [Grundlagen des maschinellen Lernens mit Algorithmusbeispielen](basics-infographic-with-algorithm-examples.md) herunterladen.

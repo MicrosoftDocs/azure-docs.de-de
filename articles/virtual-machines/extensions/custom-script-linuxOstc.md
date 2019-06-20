@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882428"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60800307"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Verwenden von Version 1 der Azure-Erweiterung für benutzerdefinierte Skripts mit virtuellen Linux-Computern
 
@@ -122,14 +122,14 @@ Diese Elemente müssen als vertrauliche Daten behandelt und in der Konfiguration
 | NAME | Wert/Beispiel | Datentyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Herausgeber | Microsoft.OSTCExtensions | Zeichenfolge |
-| type | CustomScriptForLinux | Zeichenfolge |
+| publisher | Microsoft.OSTCExtensions | string |
+| type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (Beispiel) | https://github.com/MyProject/Archive/MyPythonScript.py | Array |
-| commandToExecute (Beispiel) | python MyPythonScript.py \<my-param1\> | Zeichenfolge |
+| fileUris (Beispiel) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| commandToExecute (Beispiel) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
-| storageAccountName (Beispiel) | examplestorageacct | Zeichenfolge |
-| storageAccountKey (Beispiel) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | Zeichenfolge |
+| storageAccountName (Beispiel) | examplestorageacct | string |
+| storageAccountKey (Beispiel) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Details zu Eigenschaftswerten
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204890"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65518841"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datensammlung, -aufbewahrung und -speicherung in Application Insights
 
@@ -86,6 +86,9 @@ Hierzu können Sie ein [Telemetriedaten-Prozessor-Plug-In](../../azure-monitor/a
 Rohdatenpunkte (also Elemente, die Sie in Analytics abfragen und in Search überprüfen können) werden bis zu 90 Tage lang aufbewahrt. Wenn Sie Daten länger beibehalten möchten, können Sie sie mit dem [fortlaufenden Export](../../azure-monitor/app/export-telemetry.md) in ein Speicherkonto kopieren.
 
 Aggregierte Daten (d.h. Zählungen, Mittelwerte und andere statistischen Daten, die im Metrik-Explorer angezeigt werden) werden im Maß von 1 Minute für 90 Tage aufbewahrt.
+
+> [!NOTE]
+> Die variable Aufbewahrungsdauer für Application Insights befindet sich derzeit in der Vorschauphase. [Hier](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031)erhalten Sie weitere Informationen. 
 
 [Debugmomentaufnahmen](../../azure-monitor/app/snapshot-debugger.md) werden fünfzehn Tage lang gespeichert. Diese Aufbewahrungsrichtlinie wird für jede Anwendung separat festgelegt. Wenn Sie diesen Wert erhöhen möchten, können Sie eine Erhöhung anfordern, indem Sie einen Supportfall im Azure-Portal eröffnen.
 
@@ -240,12 +243,12 @@ Die SDKs sind je nach Plattform unterschiedlich, und es gibt verschiedene Kompon
 | [Hinzufügen des Application Insights SDK zu Ihrem .NET-Webprojekt][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Sitzung<br/>users |
 | [Installieren des Statusmonitors auf IIS][redfield] |Abhängigkeiten<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Hinzufügen des Application Insights SDK zu einer Java-Web-App][java] |ServerContext<br/>Inferred<br/>Anforderung<br/>Sitzung<br/>users |
-| [Hinzufügen des JavaScript SDK zur Webseite][client] |ClientContext  <br/>Inferred<br/>Seite<br/>ClientPerf<br/>Ajax |
+| [Hinzufügen des JavaScript SDK zur Webseite][client] |ClientContext <br/>Inferred<br/>Seite<br/>ClientPerf<br/>Ajax |
 | [Definieren von Standardeigenschaften][apiproperties] |**Properties** für alle standardmäßigen und benutzerdefinierten Ereignisse |
 | [Aufrufen von TrackMetric][api] |Numerische Werte<br/>**Properties** |
 | [Aufrufen von Track*][api] |Ereignisname<br/>**Properties** |
 | [Aufrufen von TrackException][api] |**Ausnahmen**<br/>Stapelabbild<br/>**Properties** |
-| SDK kann keine Daten sammeln. Beispiel:  <br/> – auf Leistungsindikatoren kann nicht zugegriffen werden<br/> – Ausnahme beim Telemetrieinitialisierer |SDK-Diagnose |
+| SDK kann keine Daten sammeln. Beispiel: <br/> – auf Leistungsindikatoren kann nicht zugegriffen werden<br/> – Ausnahme beim Telemetrieinitialisierer |SDK-Diagnose |
 
 Weitere Informationen zu [SDKs für andere Plattformen][platforms] finden Sie in den entsprechenden Dokumenten.
 
@@ -255,12 +258,12 @@ Weitere Informationen zu [SDKs für andere Plattformen][platforms] finden Sie in
 | --- | --- |
 | **Properties** |**Alle Daten – bestimmt durch Code** |
 | DeviceContext |ID, IP, Gebietsschema, Gerätemodell, Netzwerk, Netzwerktyp, OEM-Name, Bildschirmauflösung, Rolleninstanz, Rollenname, Gerätetyp |
-| ClientContext  |Betriebssystem, Gebietsschema, Sprache, Netzwerk, Fensterauflösung |
+| ClientContext |Betriebssystem, Gebietsschema, Sprache, Netzwerk, Fensterauflösung |
 | Sitzung (Session) |Sitzungs-ID |
 | ServerContext |Computername, Gebietsschema, Betriebssystem, Gerät, Benutzersitzung, Benutzerkontext, Vorgang |
 | Inferred |Geolocation anhand IP-Adresse, Zeitstempel, Betriebssystem, Browser |
-| Metriken |Metrikname und -wert |
-| Ereignisse |Ereignisname und -wert |
+| metrics |Metrikname und -wert |
+| Events |Ereignisname und -wert |
 | PageViews |URL und Seitenname oder Bildschirmname |
 | Client perf |URL-/Seitenname, Browserladezeit |
 | Ajax |HTTP-Aufrufe von der Webseite an den Server |

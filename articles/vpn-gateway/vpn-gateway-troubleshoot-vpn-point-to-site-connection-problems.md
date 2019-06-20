@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492378"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475958"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Troubleshooting: Azure Point-to-Site-Verbindungsprobleme
 
@@ -45,7 +45,7 @@ Gehen Sie folgendermaßen vor, um dieses Problem zu beheben:
 
 2. Stellen Sie sicher, dass sich die folgenden Zertifikate im richtigen Speicherort befinden:
 
-    | Zertifikat | Standort |
+    | Zertifikat | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktueller Benutzer\Eigene Zertifikate\Zertifikate |
     | Azuregateway-*GUID*.cloudapp.net  | Aktueller Benutzer\Vertrauenswürdige Stammzertifizierungsstellen|
@@ -78,11 +78,11 @@ Vorbereitung von Windows 10 oder Server 2016 für IKEv2:
 
 1. Installieren Sie das Update.
 
-   | Betriebssystemversion | Datum | Anzahl/Link |
+   | Betriebssystemversion | Date | Anzahl/Link |
    |---|---|---|---|
-   | Windows Server 2016<br>Windows 10, Version 1607 | 17. Januar 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-   | Windows 10, Version 1703 | 17. Januar 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-   | Windows 10, Version 1709 | 22. März 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   | Windows Server 2016<br>Windows 10, Version 1607 | 17\. Januar 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10, Version 1703 | 17\. Januar 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10, Version 1709 | 22\. März 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
 2. Legen Sie den Registrierungsschlüsselwert fest. Erstellen Sie den REG_DWORD-Schlüssel „HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload“, oder legen Sie ihn in der Registrierung auf 1 fest.
@@ -122,7 +122,7 @@ Wenn Sie versuchen, mithilfe des VPN-Client mit einem virtuellen Netzwerk von Az
 
 1. Stellen Sie sicher, dass sich die folgenden Zertifikate im richtigen Speicherort befinden:
 
-    | Zertifikat | Standort |
+    | Zertifikat | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktueller Benutzer\Eigene Zertifikate\Zertifikate |
     | Azuregateway-*GUID*.cloudapp.net  | Aktueller Benutzer\Vertrauenswürdige Stammzertifizierungsstellen|
@@ -305,7 +305,7 @@ Sie entfernen die Punkt-zu-Standort-VPN-Verbindung und installieren anschließen
 
 ### <a name="solution"></a>Lösung
 
-Löschen Sie zum Beheben des Problems die alten VPN-Clientkonfigurationsdateien unter **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<ID des virtuellen Netzwerks>**, und führen Sie anschließend das VPN-Clientinstallationsprogramm erneut aus.
+Löschen Sie zum Beheben des Problems die alten VPN-Clientkonfigurationsdateien unter **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<ID des virtuellen Netzwerks>** , und führen Sie anschließend das VPN-Clientinstallationsprogramm erneut aus.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Auflösung des FQDN der Ressourcen in der lokalen Domäne durch den Point-to-Site-VPN-Client nicht möglich
 
@@ -390,7 +390,7 @@ Dieses Problem kann durch vorherige VPN-Clientinstallationen verursacht werden.
 
 ### <a name="solution"></a>Lösung
 
-Löschen Sie die alten VPN-Clientkonfigurationsdateien unter **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<ID des virtuellen Netzwerks>**, und führen Sie das VPN-Clientinstallationsprogramm erneut aus. 
+Löschen Sie die alten VPN-Clientkonfigurationsdateien unter **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<ID des virtuellen Netzwerks>** , und führen Sie das VPN-Clientinstallationsprogramm erneut aus. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Der VPN-Client wechselt nach einiger Zeit in den Ruhezustand oder Energiesparmodus.
 

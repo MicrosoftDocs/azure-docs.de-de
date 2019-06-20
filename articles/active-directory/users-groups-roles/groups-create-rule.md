@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199680"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60472141"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Erstellen einer dynamischen Gruppe und Überprüfen des Status
 
@@ -68,7 +68,7 @@ Für **Verarbeitungsstatus der Mitgliedschaft** können die folgenden Statusmeld
 
 Für **Letzte Aktualisierung der Mitgliedschaft** können die folgenden Statusmeldungen angezeigt werden:
 
-* &lt;**Datum und Uhrzeit:**&gt; Der Zeitpunkt der letzten Aktualisierung der Mitgliedschaft.
+* &lt;**Datum und Uhrzeit:** &gt; Der Zeitpunkt der letzten Aktualisierung der Mitgliedschaft.
 * **In Bearbeitung**: Aktualisierungen sind derzeit in Bearbeitung.
 * **Unbekannt:** Der Zeitpunkt der letzten Aktualisierung kann nicht abgerufen werden. Die Gruppe ist möglicherweise neu.
 

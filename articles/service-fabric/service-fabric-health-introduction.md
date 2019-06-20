@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667445"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60949163"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Einführung in die Service Fabric-Integritätsüberwachung
 Mit Azure Service Fabric wird ein Integritätsmodell eingeführt, das eine umfassende, flexible und erweiterbare Integritätsevaluierung und -berichterstellung bietet. Mithilfe dieses Modells lässt sich der Zustand des Clusters und der darin ausgeführten Dienste nahezu in Echtzeit überwachen. Sie können mühelos Integritätsdaten ermitteln und potenzielle Probleme beheben, bevor sie sich ausbreiten und umfangreiche Ausfälle verursachen. In einem typischen Modell senden die Dienste Berichte basierend auf ihren lokalen Informationen. Anhand dieser Informationen wird ein Gesamtüberblick auf Clusterebene erstellt.
@@ -42,7 +42,7 @@ Die Integritätsentitäten spiegeln die Service Fabric-Entitäten wider. (Beispi
 Die Integritätsentitäten und die Hierarchie ermöglichen das effektive Melden, Debuggen und Überwachen des Clusters und der Anwendungen. Das Integritätsmodell ermöglicht eine exakte, *differenzierte* Darstellung der Integrität der zahlreichen beweglichen Bestandteile eines Clusters.
 
 ![Integritätsentitäten][1].
- In einer Hierarchie organisierte Integritätsentitäten, basierend auf Beziehungen zwischen übergeordneten und untergeordneten Elementen.
+In einer Hierarchie organisierte Integritätsentitäten, basierend auf Beziehungen zwischen übergeordneten und untergeordneten Elementen.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 

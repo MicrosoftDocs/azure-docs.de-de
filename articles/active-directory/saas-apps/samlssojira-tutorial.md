@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 943131bc746b5d2a1fd95a26a6a6c9f3bb6b9e57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 020e0395c7678f6856a293c8386a44d7a959bc06
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509958"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786534"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Azure Active Directory-Integration mit SAML SSO for Jira by resolution GmbH
 
@@ -130,7 +130,7 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden mit SAML SSO 
     
     ![Configure single sign-on](./media/samlssojira-tutorial/addon1.png)
 
-3. Sollten Sie auf die Seite für den Administratorzugriff umgeleitet werden, geben Sie dort Ihr**** Kennwort ein, und klicken Sie auf die**** Bestätigungsschaltfläche.
+3. Sollten Sie auf die Seite für den Administratorzugriff umgeleitet werden, geben Sie dort Ihr **** Kennwort ein, und klicken Sie auf die **** Bestätigungsschaltfläche.
 
     ![Configure single sign-on](./media/samlssojira-tutorial/addon2.png)
 
@@ -152,7 +152,7 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden mit SAML SSO 
 
     ![Configure single sign-on](./media/samlssojira-tutorial/store-5.png)
 
-9. Klicken Sie im**** Konfigurations-Assistenten für das SAML SSO-Plug-In auf **Add new IdP** (Neuen IdP hinzufügen), um Azure AD als neuen Identitätsanbieter zu konfigurieren.
+9. Klicken Sie im **** Konfigurations-Assistenten für das SAML SSO-Plug-In auf **Add new IdP** (Neuen IdP hinzufügen), um Azure AD als neuen Identitätsanbieter zu konfigurieren.
 
     ![Configure single sign-on](./media/samlssojira-tutorial/addon4.png) 
 
@@ -162,11 +162,11 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden mit SAML SSO 
  
     a. Legen Sie als IdP-Typ die Option **Azure AD** fest.
     
-    b. Fügen Sie den**** Namen des Identitätsanbieters hinzu (beispielsweise „Azure AD“).
+    b. Fügen Sie den **** Namen des Identitätsanbieters hinzu (beispielsweise „Azure AD“).
     
-    c. Fügen Sie optional eine**** Beschreibung des Identitätsanbieters hinzu (beispielsweise „Azure AD“).
+    c. Fügen Sie optional eine **** Beschreibung des Identitätsanbieters hinzu (beispielsweise „Azure AD“).
     
-    d. Klicken Sie auf **Next** (Weiter).
+    d. Klicken Sie auf **Weiter**.
     
 11. Klicken Sie auf der Seite **Identity provider configuration** (Identitätsanbieterkonfiguration) auf die Schaltfläche **Next** (Weiter).
  
@@ -176,7 +176,7 @@ Führen Sie die folgenden Schritte aus, um das einmalige Anmelden mit SAML SSO 
 
     ![Configure single sign-on](./media/samlssojira-tutorial/addon5c.png)
 
-    a. Klicken Sie auf die Schaltfläche **Select Metadata XML File** (Metadaten-XML-Datei auswählen), und wählen Sie die**** Verbundmetadaten-XML-Datei aus, die Sie zuvor heruntergeladen haben.
+    a. Klicken Sie auf die Schaltfläche **Select Metadata XML File** (Metadaten-XML-Datei auswählen), und wählen Sie die **** Verbundmetadaten-XML-Datei aus, die Sie zuvor heruntergeladen haben.
 
     b. Klicken Sie auf die Schaltfläche **Import** (Importieren).
      
@@ -262,7 +262,7 @@ Um Azure AD-Benutzern die Anmeldung bei SAML SSO for Jira by resolution GmbH z
 
    ![Mitarbeiter hinzufügen](./media/samlssojira-tutorial/user1.png)
 
-3. Sollten Sie auf die Seite für den Administratorzugriff umgeleitet werden, geben Sie dort Ihr**** Kennwort ein, und klicken Sie anschließend auf die**** Bestätigungsschaltfläche.
+3. Sollten Sie auf die Seite für den Administratorzugriff umgeleitet werden, geben Sie dort Ihr **** Kennwort ein, und klicken Sie anschließend auf die **** Bestätigungsschaltfläche.
 
     ![Mitarbeiter hinzufügen](./media/samlssojira-tutorial/user2.png) 
 

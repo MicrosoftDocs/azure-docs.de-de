@@ -8,11 +8,11 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: ab066fef4bffe35408fdc5f3ad6d66796b4d0818
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443969"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61372515"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Verwenden von Robo 3T mit der API für MongoDB von Azure Cosmos DB
 

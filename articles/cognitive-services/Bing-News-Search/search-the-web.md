@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e02f81ef6bdf8bf4dc39b70cb7a2d9330660d1d6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877098"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390295"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Was ist die Bing-News-Suche-API?
 
@@ -54,6 +54,6 @@ Nutzen Sie einen Schnellstart für die [REST-API](quickstart.md) oder eines der 
 
 ## <a name="see-also"></a>Weitere Informationen
 
-* Der Referenzabschnitt für die [Bing-News-Suche-API (Version 7)](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) enthält Definitionen und Informationen zu den Endpunkten, Headern, API-Antworten und Abfrageparametern, die Sie verwenden können, um bildbasierte Suchergebnisse anzufordern.
+* Der Referenzabschnitt für die [Bing-News-Suche-API (Version 7)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) enthält Definitionen und Informationen zu den Endpunkten, Headern, API-Antworten und Abfrageparametern, die Sie verwenden können, um bildbasierte Suchergebnisse anzufordern.
 
 * In den [Verwendungs- und Anzeigeanforderungen für Bing](./useanddisplayrequirements.md) erfahren Sie, wie Inhalte und Informationen verwendet werden dürfen, die über die Bing-Suche-APIs gefunden wurden.

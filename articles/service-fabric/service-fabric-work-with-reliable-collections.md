@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872686"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60506738"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeiten mit Reliable Collections
 Service Fabric bietet .NET-Entwicklern über Reliable Collections ein zustandsbehaftetes Programmiermodell. Service Fabric umfasst z. B. Reliable Dictionary- und Reliable Queue-Klassen. Wenn Sie diese Klassen verwenden, wird Ihr Zustand partitioniert (für Skalierbarkeit), repliziert (für Verfügbarkeit) und innerhalb einer Partition durchgeführt (für ACID-Semantik). Sehen wir uns nun die typische Nutzung eines Objekts für ein zuverlässiges Wörterbuch an.

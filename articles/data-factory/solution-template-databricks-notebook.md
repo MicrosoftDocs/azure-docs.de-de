@@ -13,11 +13,11 @@ ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
 ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60395228"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Transformieren von Daten mithilfe von Databricks in Azure Data Factory
 
@@ -101,7 +101,7 @@ Um diese Vorlage einfach zu halten, wird damit kein geplanter Trigger erstellt. 
 
 2.  **Erstellen von Datasets**
 
-    1.  Erstellen Sie **„sourceAvailability_Dataset“**, um zu überprüfen, ob Quelldaten verfügbar sind.
+    1.  Erstellen Sie **„sourceAvailability_Dataset“** , um zu überprüfen, ob Quelldaten verfügbar sind.
 
     ![9](media/solution-template-Databricks-notebook/Databricks-tutorial-image09.png)
 

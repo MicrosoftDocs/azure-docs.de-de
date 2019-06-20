@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563845"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302899"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Programmgesteuertes Überwachen von Stream Analytics-Aufträgen
 
@@ -24,7 +24,7 @@ Dieser Artikel erläutert, wie die Überwachung für einen Stream Analytics-Auft
 
 Bevor Sie mit den Anleitungen in diesem Prozess beginnen, müssen folgende Voraussetzungen erfüllt sein:
 
-* Visual Studio 2017 oder 2015
+* Visual Studio 2019 oder 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) (heruntergeladen und installiert)
 * Einen vorhandener Stream Analytics-Auftrag, für den die Überwachung aktiviert werden muss
 

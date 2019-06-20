@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924650"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Verwaltung von Azure-Abonnements im klassischem Bereitstellungsmodell
@@ -38,7 +38,7 @@ In diesem Artikel wird das Hinzufügen oder Ändern der Azure-Rollen „Co-Admin
 
     Co-Administratoren können nur auf Abonnementebene zugewiesen werden.
 
-1. Klicken Sie auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 
 1. Klicken Sie auf die Registerkarte **Klassische Administratoren**.
 
@@ -71,7 +71,7 @@ Beachten Sie, dass sich die [integrierten Rollen für Azure-Ressourcen](../role-
 
 1. Öffnen Sie [Abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), und wählen Sie ein Abonnement aus.
 
-1. Klicken Sie auf **Zugriffssteuerung (IAM)**.
+1. Klicken Sie auf **Zugriffssteuerung (IAM)** .
 
 1. Klicken Sie auf die Registerkarte **Klassische Administratoren**.
 
@@ -133,8 +133,8 @@ Wenn Sie mit einem Geschäfts-, Schul- oder Unikonto angemeldet sind, können Si
 
   | Anmeldemethode | Microsoft-Kontobenutzer als Dienstadministrator hinzufügen? | Geschäfts-, Schul- oder Unikonto in der gleichen Organisation als Dienstadministrator hinzufügen? | Geschäfts-, Schul- oder Unikonto in einer anderen Organisation als Dienstadministrator hinzufügen? |
   | --- | --- | --- | --- |
-  |  Microsoft-Konto |Ja |Nein  |Nein  |
-  |  Geschäfts- oder Schulkonto |Ja |Ja |Nein  |
+  |  Microsoft-Konto |Ja |Nein |Nein |
+  |  Geschäfts- oder Schulkonto |Ja |Ja |Nein |
 
 ## <a name="view-the-account-administrator"></a>Anzeigen des Kontoadministrators
 

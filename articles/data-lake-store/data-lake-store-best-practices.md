@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878945"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Bewährte Methoden zur Verwendung von Azure Data Lake Storage Gen1
 
@@ -45,7 +45,7 @@ Azure Active Directory-Dienstprinzipale werden normalerweise von Diensten wie Az
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Aktivieren der Data Lake Storage Gen1-Firewall mit Azure-Dienstzugriff
 
-Data Lake Storage Gen1 unterstützt die Option zum Aktivieren einer Firewall und Beschränken des Zugriffs ausschließlich auf Azure-Dienste. Dies wird für einen kleineren Angriffsvektor gegen Angriffe von außen empfohlen. Die Firewall kann im Azure-Portal über das Data Lake Storage Gen1-Konto aktiviert werden, indem die Option **Firewall** > **Firewall aktivieren (EIN)** > **Allow access to Azure services** (Zugriff auf Azure-Dienste erlauben) verwendet wird.
+Data Lake Storage Gen1 unterstützt die Option zum Aktivieren einer Firewall und Beschränken des Zugriffs ausschließlich auf Azure-Dienste. Dies wird für einen kleineren Angriffsvektor gegen Angriffe von außen empfohlen. Die Firewall kann im Azure-Portal über das Data Lake Storage Gen1-Konto aktiviert werden, indem die Option **Firewall** > **Firewall aktivieren (EIN)**  > **Allow access to Azure services** (Zugriff auf Azure-Dienste erlauben) verwendet wird.
 
 ![Firewalleinstellungen in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Firewalleinstellungen in Data Lake Storage Gen1")
 
@@ -101,7 +101,7 @@ Unten sind die wichtigsten drei Empfehlungen für die Orchestrierung der Replika
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Skalierungslimits**     | Durch Workerknoten begrenzt        | Durch maximale Einheiten für Clouddatenverschiebungen begrenzt        | Durch Analytics-Einheiten begrenzt        |
-|**Unterstützt das Kopieren von Deltas**     |   Ja      | Nein          | Nein          |
+|**Unterstützt das Kopieren von Deltas**     |   Ja      | Nein         | Nein         |
 |**Integrierte Orchestrierung**     |  Nein (Verwendung von Oozie Airflow- oder Cron-Aufträgen)       | Ja        | Nein (Verwendung von Azure Automation oder Windows-Aufgabenplanung)         |
 |**Unterstützte Dateisysteme**     | ADL, HDFS, WASB, S3, GS, CFS        |Verschiedene, siehe [Connectors](../data-factory/connector-azure-blob-storage.md).         | ADL zu ADL, WASB zu ADL (nur in derselben Region)        |
 |**Betriebssystemunterstützung**     |Beliebiges Betriebssystem mit Hadoop         | –          | Windows 10         |

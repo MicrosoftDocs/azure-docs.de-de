@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
 ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60848755"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Sichern von Dateien in Azure Stack
 Sie können Azure Backup verwenden, um Dateien und Anwendungen in Azure Stack zu schützen (oder zu sichern). Installieren Sie Microsoft Azure Backup Server als virtuellen Computer, der unter Azure Stack ausgeführt wird, um Dateien und Anwendungen zu sichern. Sie können die Dateien schützen, die auf einem beliebigen Azure Stack-Server in demselben virtuellen Netzwerk ausgeführt werden. Nachdem Sie Azure Backup Server installiert haben, fügen Sie Azure-Datenträger hinzu, um den lokalen Speicher zu vergrößern, der für die kurzfristige Sicherung von Daten verfügbar ist. Azure Backup Server nutzt Azure-Speicher für die langfristige Aufbewahrung.
@@ -45,7 +45,7 @@ Um Azure Backup Server zum Schutz von Dateien auf virtuellen Azure Stack-Compute
 
     ![Der Assistent zum Erstellen einer neuen Schutzgruppe wird geöffnet](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
 
-3. Klicken Sie auf dem Bildschirm **Gruppenmitglieder auswählen** auf **+**, um die Liste mit Unterelementen zu erweitern. Aktivieren Sie das Kontrollkästchen für alle Elemente, die Sie schützen möchten. Nachdem alle Elemente ausgewählt wurden, klicken Sie auf **Weiter**.
+3. Klicken Sie auf dem Bildschirm **Gruppenmitglieder auswählen** auf **+** , um die Liste mit Unterelementen zu erweitern. Aktivieren Sie das Kontrollkästchen für alle Elemente, die Sie schützen möchten. Nachdem alle Elemente ausgewählt wurden, klicken Sie auf **Weiter**.
 
     ![Der Assistent zum Erstellen einer neuen Schutzgruppe wird geöffnet.](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 

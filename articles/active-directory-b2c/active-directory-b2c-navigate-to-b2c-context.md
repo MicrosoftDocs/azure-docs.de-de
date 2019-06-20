@@ -2,20 +2,20 @@
 title: Wechseln zu einem B2C-Mandanten in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Wechseln zum Kontext des Active Directory B2C-Mandanten
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 4/13/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ee6d85788211315412b7cbd3c82532dcd45162f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d1580931a94b58e772f9f11cb7b9948216e9063a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509888"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Wechseln zum Azure AD B2C-Mandanten
 

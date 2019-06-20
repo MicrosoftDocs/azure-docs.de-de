@@ -10,11 +10,11 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60738501"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ausführen von Runbooks auf einem Hybrid Runbook Worker
 

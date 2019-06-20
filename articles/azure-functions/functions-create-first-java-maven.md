@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801843"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827409"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Erstellen Ihrer ersten Funktion mit Java und Maven
 
@@ -29,10 +29,10 @@ Dieser Artikel führt Sie durch die Verwendung des Maven-Befehlszeilentools zum 
 
 Um Funktionen mit Java zu entwickeln, muss Folgendes installiert sein:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), Version 8.
+- [Java Developer Kit](https://aka.ms/azure-jdks), Version 8
 - [Apache Maven](https://maven.apache.org), Version 3.0 oder höher
 - [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2) (erfordert **.NET Core 2.x-SDK**)
+- [Azure Functions Core Tools](./functions-run-local.md#v2), Version 2.6.666 oder höher
 
 > [!IMPORTANT]
 > Damit Sie diesen Schnellstart durchführen können, muss die Umgebungsvariable JAVA_HOME auf den Installationsspeicherort des JDK festgelegt sein.
@@ -89,8 +89,8 @@ public class Function {
      * 2. curl {your host}/api/hello?name=HTTP%20Query
      */
     @FunctionName("hello")
-    public HttpResponseMessage<String> hello(
-            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -99,14 +99,18 @@ public class Function {
         String name = request.getBody().orElse(query);
 
         if (name == null) {
-            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
         } else {
-            return request.createResponse(200, "Hello, " + name);
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
         }
     }
 }
 
 ```
+
+## <a name="reference-bindings"></a>Verweisbindungen
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## <a name="run-the-function-locally"></a>Lokales Ausführen der Funktion
 
@@ -135,7 +139,7 @@ Http Functions:
 Lösen Sie die Funktion über die Befehlszeile aus. Verwenden Sie dazu cURL in einem neuen Terminalfenster:
 
 ```
-curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
+curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
 ```Output
@@ -177,7 +181,7 @@ Testen Sie die in Azure ausgeführte Funktionen-App mithilfe von `cURL`. Ersetze
 > Legen Sie die **Zugriffsrechte** auf `Anonymous` fest. Bei Verwendung der Standardebene `Function` müssen Sie in Anforderungen für den Zugriff auf den Funktionsendpunkt den [Funktionsschlüssel](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) angeben.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
@@ -198,7 +202,7 @@ in Folgendes:
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Speichern Sie die Änderungen, und führen Sie eine erneute Bereitstellung durch, indem Sie wie zuvor `azure-functions:deploy` über das Terminal ausführen. Die Funktions-App wird aktualisiert, und die folgende Anforderung:
+Speichern Sie die Änderungen. Führen Sie „mvn clean package“ aus, und führen Sie eine erneute Bereitstellung durch, indem Sie wie zuvor `azure-functions:deploy` über das Terminal ausführen. Die Funktions-App wird aktualisiert, und die folgende Anforderung:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c3066b87ec4de58982b6b2ecdd35dfffde4c31a8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 58d3b3e3da518c9f6c32924ec29fbec3c810b58e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964890"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242334"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Erstellen von und Suchen nach Ankern mit Azure Spatial Anchors in Objective-C
 
@@ -154,7 +154,7 @@ Erfahren Sie mehr über die [ASACloudSpatialAnchor](https://docs.microsoft.com/o
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
     NSArray<ARHitTestResult *> *hits = [_sceneView.session.currentFrame hitTest:CGPointMake(0.5, 0.5) types:ARHitTestResultTypeEstimatedHorizontalPlane];
     if ([hits count] == 0) return;
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     ARAnchor *localAnchor = [[ARAnchor alloc] initWithTransform:hits[0].worldTransform];
     [_sceneView.session addAnchor:localAnchor];

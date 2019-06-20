@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7eae71411a1a3772dbdbaa289a32cbc69fca0e5a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f906ab5db35ce8b239eceac9cdc8244f230f5a77
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108750"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596024"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Suchen und Diagnostizieren von Leistungsproblemen mit Azure Application Insights
 
@@ -32,7 +32,7 @@ Azure Application Insights erfasst die Telemetriedaten Ihrer Anwendung, um die F
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-- Installieren Sie [Visual Studio 2017](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
+- [Installieren Sie Visual Studio 2019](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
     - ASP.NET und Webentwicklung
     - Azure-Entwicklung
 - Stellen Sie eine .NET-Anwendung in Azure bereit, und [aktivieren Sie das Application Insights SDK](../../azure-monitor/app/asp-net.md).
@@ -97,7 +97,7 @@ Zusätzlich zum Ermitteln von optimierbaren Serverprozessen kann Application Ins
 
     ![Browserzusammenfassung](media/tutorial-performance/browser-summary.png)
 
-2.  Scrollen Sie nach unten bis zu **Welche meiner Seiten sind am langsamsten?**.  Damit rufen Sie eine Liste der Anwendungsseiten auf, die am langsamsten von Clients geladen werden.  Mit diesen Informationen können Sie die Seiten priorisieren, die die größten Auswirkungen auf Benutzer haben.
+2.  Scrollen Sie nach unten bis zu **Welche meiner Seiten sind am langsamsten?** .  Damit rufen Sie eine Liste der Anwendungsseiten auf, die am langsamsten von Clients geladen werden.  Mit diesen Informationen können Sie die Seiten priorisieren, die die größten Auswirkungen auf Benutzer haben.
 3.  Klicken Sie auf eine der Seiten, um den Bereich **Seitenansicht** zu öffnen.  Im Beispiel wird die Seite **/FabrikamProd** im Durchschnitt sehr langsam geladen.  Der Bereich **Seitenansicht** stellt Details zu dieser Seite bereit, z.B. eine Aufschlüsselung der verschiedenen Zeiträume.
 
     ![Seitenansicht](media/tutorial-performance/page-view.png)

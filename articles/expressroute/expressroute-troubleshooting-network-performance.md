@@ -9,11 +9,11 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995799"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60883315"
 ---
 # <a name="troubleshooting-network-performance"></a>Beheben von Problemen bei der Netzwerkleistung
 ## <a name="overview"></a>Übersicht
@@ -160,7 +160,7 @@ Testeinrichtung:
  - Eine ExpressRoute-Premium-Verbindung mit 10 GBit/s im identifizierten Standort ist mit privaten Peering aktiviert.
  - Ein Azure-VNET mit einem UltraPerformance-Gateway befindet sich in der angegebenen Region.
  - Ein virtueller DS5v2-Computer unter Windows Server 2016 befindet sich im VNET. Der virtuelle Computer war nicht in die Domäne eingebunden und wurde über das Azure-Standardimage erstellt (keine Optimierung oder Anpassung); AzureCT war installiert.
- - Alle Tests wurden mithilfe des AzureCT-Befehls „Get-LinkPerformance“ mit jeweils einem 5-Minuten-Auslastungstest bei jedem der sechs Testläufe ausgeführt. Beispiel: 
+ - Alle Tests wurden mithilfe des AzureCT-Befehls „Get-LinkPerformance“ mit jeweils einem 5-Minuten-Auslastungstest bei jedem der sechs Testläufe ausgeführt. Beispiel:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -179,21 +179,21 @@ Testeinrichtung:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Standort|Azure<br/>Region|Geschätzte<br/>Entfernung (km)|Latency|1 Sitzung:<br/>Bandbreite|Maximum<br/>Bandbreite|
+|ExpressRoute<br/>Location|Azure<br/>Region|Geschätzte<br/>Entfernung (km)|Latency|1 Sitzung:<br/>Bandbreite|Maximum<br/>Bandbreite|
 | Seattle | USA, Westen 2        |    191 km |   5 ms | 262 MBit/s |  3,74 GBit/s |
-| Seattle | USA (Westen)          |  1.094 km |  18 ms |  82,3 MBit/s |  3,7 GBit/s |
-| Seattle | USA (Mitte)       |  2.357 km |  40 ms |  38,8 MBit/s |  2,55 GBit/s |
-| Seattle | USA Süd Mitte |  2.877 km |  51 ms |  30,6 MBit/s |  2,49 GBit/s |
-| Seattle | USA Nord Mitte |  2.792 km |  55 ms |  27,7 MBit/s |  2,19 GBit/s |
-| Seattle | USA (Ost) 2        |  3.769 km |  73 ms |  21,3 MBit/s |  1,79 GBit/s |
-| Seattle | USA (Ost)          |  3.699 km |  74 ms |  21,1 MBit/s |  1,78 GBit/s |
-| Seattle | Japan, Osten       |  7.705 km | 106 ms |  14,6 MBit/s |  1,22 GBit/s |
-| Seattle | UK, Süden         |  7.708 km | 146 ms |  10,6 MBit/s |   896 MBit/s |
-| Seattle | Europa, Westen      |  7.834 km | 153 ms |  10,2 MBit/s |   761 MBit/s |
-| Seattle | Australien (Osten)   | 12.484 km | 165 ms |   9,4 MBit/s |   794 MBit/s |
-| Seattle | Asien, Südosten   | 12.989 km | 170 ms |   9,2 MBit/s |   756 MBit/s |
-| Seattle | Brasilien, Süden *   | 10.930 km | 189 ms |   8,2 MBit/s |   699 MBit/s |
-| Seattle | Indien (Süden)      | 12.918 km | 202 ms |   7,7 MBit/s |   634 MBit/s |
+| Seattle | USA (Westen)          |  1\.094 km |  18 ms |  82,3 MBit/s |  3,7 GBit/s |
+| Seattle | USA (Mitte)       |  2\.357 km |  40 ms |  38,8 MBit/s |  2,55 GBit/s |
+| Seattle | USA Süd Mitte |  2\.877 km |  51 ms |  30,6 MBit/s |  2,49 GBit/s |
+| Seattle | USA Nord Mitte |  2\.792 km |  55 ms |  27,7 MBit/s |  2,19 GBit/s |
+| Seattle | USA (Ost) 2        |  3\.769 km |  73 ms |  21,3 MBit/s |  1,79 GBit/s |
+| Seattle | USA (Ost)          |  3\.699 km |  74 ms |  21,1 MBit/s |  1,78 GBit/s |
+| Seattle | Japan, Osten       |  7\.705 km | 106 ms |  14,6 MBit/s |  1,22 GBit/s |
+| Seattle | UK, Süden         |  7\.708 km | 146 ms |  10,6 MBit/s |   896 MBit/s |
+| Seattle | Europa, Westen      |  7\.834 km | 153 ms |  10,2 MBit/s |   761 MBit/s |
+| Seattle | Australien (Osten)   | 12\.484 km | 165 ms |   9,4 MBit/s |   794 MBit/s |
+| Seattle | Asien, Südosten   | 12\.989 km | 170 ms |   9,2 MBit/s |   756 MBit/s |
+| Seattle | Brasilien, Süden *   | 10\.930 km | 189 ms |   8,2 MBit/s |   699 MBit/s |
+| Seattle | Indien (Süden)      | 12\.918 km | 202 ms |   7,7 MBit/s |   634 MBit/s |
 
 \* Die Latenz für Brasilien ist ein gutes Beispiel dafür, dass sich die Luftlinie erheblich von der Entfernung der Faserstrecke unterscheiden kann. Ich würde erwarten, dass die Latenz ungefähr bei 160 ms liegt, tatsächlich sind es aber 189 ms. Dieser Unterschied gegenüber meiner Erwartung kann auf ein Netzwerkproblem in einem Bereich hindeuten, aber sehr wahrscheinlich verläuft die Faserstrecke nicht in einer direkten Linie durch Brasilien, sodass sich zusätzlich ca. 1.000 km zwischen Brasilien und Seattle ergeben.
 

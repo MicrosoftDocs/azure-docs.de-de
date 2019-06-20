@@ -10,11 +10,11 @@ ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e7dccc4a396d4cf8af1062057c4c3ce6efe978ed
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61074248"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindungsobjekte in Azure Automation
 
@@ -46,11 +46,11 @@ Die Cmdlets in der folgenden Tabelle werden zum Erstellen und Verwalten von Auto
 |[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Entfernt eine vorhandene Verbindung.|
 |[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Legt den Wert für ein bestimmtes Feld einer vorhandenen Verbindung fest.|
 
-## <a name="activities"></a>Aktivitäten
+## <a name="activities"></a>activities
 
 Die Aktivitäten in der folgenden Tabelle werden für den Zugriff auf Verbindungen in einem Runbook oder einer DSC-Konfiguration verwendet.
 
-|Aktivitäten|BESCHREIBUNG|
+|activities|BESCHREIBUNG|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Ruft eine zu verwendende Verbindung ab. Gibt eine Hashtabelle mit den Eigenschaften der Verbindung zurück.|
 

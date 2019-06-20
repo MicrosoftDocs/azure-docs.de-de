@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
 ms.openlocfilehash: a06d629087e853c2578e6d35a2ea90c5a8eff840
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860600"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60308942"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Erstellen von DNS-Zonen und -Ressourceneintragssätzen mithilfe des .NET SDK
 
@@ -42,7 +42,7 @@ Normalerweise wird der programmgesteuerte Zugriff auf Azure-Ressourcen über ein
 Zum Verwenden des Azure DNS .NET SDK müssen Sie das NuGet-Paket **Azure DNS Management Library** und andere erforderliche Azure-Pakete installieren.
 
 1. Öffnen Sie in **Visual Studio**ein vorhandenes oder neues Projekt.
-2. Navigieren Sie zu **Tools** **>** **NuGet-Paket-Manager** **>** **NuGet-Pakete für Projektmappe verwalten...**.
+2. Navigieren Sie zu **Tools** **>** **NuGet-Paket-Manager** **>** **NuGet-Pakete für Projektmappe verwalten...** .
 3. Klicken Sie auf **Durchsuchen**, aktivieren Sie das Kontrollkästchen **Vorabversion einbeziehen**, und geben Sie im Suchfeld den Text **Microsoft.Azure.Management.Dns** ein.
 4. Wählen Sie das Paket aus, und klicken Sie auf **Installieren** , um es dem Visual Studio-Projekt hinzuzufügen.
 5. Wiederholen Sie den obigen Vorgang, um auch die folgenden Pakete zu installieren: **Microsoft.Rest.ClientRuntime.Azure.Authentication** und **Microsoft.Azure.Management.ResourceManager**.
@@ -145,7 +145,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>Auflisten von Zonen und Ressourceneintragssätzen
 
-Verwenden Sie zum Auflisten von Zonen die *DnsManagementClient.Zones.List...*-Methoden, die entweder das Auflisten aller Zonen einer bestimmten Ressourcengruppe oder aller Zonen eines bestimmten Azure-Abonnements (ressourcenübergreifend) unterstützen. Verwenden Sie zum Auflisten von Ressourceneintragssätzen die *DnsManagementClient.RecordSets.List...*-Methoden, die entweder das Auflisten aller Ressourceneintragssätze einer bestimmten Zone oder nur der Ressourceneintragssätze eines bestimmten Typs unterstützen.
+Verwenden Sie zum Auflisten von Zonen die *DnsManagementClient.Zones.List...* -Methoden, die entweder das Auflisten aller Zonen einer bestimmten Ressourcengruppe oder aller Zonen eines bestimmten Azure-Abonnements (ressourcenübergreifend) unterstützen. Verwenden Sie zum Auflisten von Ressourceneintragssätzen die *DnsManagementClient.RecordSets.List...* -Methoden, die entweder das Auflisten aller Ressourceneintragssätze einer bestimmten Zone oder nur der Ressourceneintragssätze eines bestimmten Typs unterstützen.
 
 Beachten Sie beim Auflisten von Zonen und Ressourceneintragssätzen, dass die Ergebnisse auf mehrere Seiten aufgeteilt sein können.  Im folgenden Beispiel wird veranschaulicht, wie Sie die Seiten mit den Ergebnissen durchlaufen können. (Um die Aufteilung auf Seiten zu erzwingen, wird eine sehr kleine Seitengröße von „2“ verwendet. In der Praxis sollte dieser Parameter weggelassen und die Standardseitengröße verwendet werden.)
 

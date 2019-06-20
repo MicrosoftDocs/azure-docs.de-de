@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
 ms.openlocfilehash: e700250a6ebcdb82f99c1b460a510811d7ceb96c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819734"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60719939"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Einrichten eines Linux-Service Fabric-Clusters auf Ihrem Windows-Entwicklungscomputer
 

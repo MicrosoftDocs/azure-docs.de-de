@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540704"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Sie möchten sich über Service Fabric informieren?
 Azure Service Fabric ist eine Plattform für verteilte Systeme, die das Packen, Bereitstellen und Verwalten skalierbarer und zuverlässiger Microservices vereinfacht.  Service Fabric bietet allerdings eine große Oberfläche, und es gibt viel darüber zu erfahren.  Dieser Artikel enthält eine Zusammenfassung von Service Fabric und beschreibt die grundlegenden Konzepte, Programmiermodelle, Cluster, den Anwendungslebenszyklus und die Systemüberwachung. Eine Einführung und eine Anleitung zum Erstellen von Microservices mit Service Fabric finden Sie unter [Übersicht](service-fabric-overview.md) und [Was sind Microservices?](service-fabric-overview-microservices.md). Dieser Artikel enthält keine umfassende Liste der Inhalte, aber Links zu Artikeln zur Übersicht und zu den ersten Schritten für die einzelnen Bereiche von Service Fabric. 
@@ -30,7 +30,7 @@ Die Artikel [Übersicht über Service Fabric-Terminologie](service-fabric-techni
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Entwurfszeit: Anwendungstyp, Diensttyp, Anwendungspaket und -manifest, Dienstpaket und -manifest
 Ein Anwendungstyp ist der Name oder die Version, der bzw. die einer Sammlung von Diensttypen zugewiesen ist. Dies wird in einer *ApplicationManifest.xml*-Datei definiert, die in einem Anwendungspaketverzeichnis eingebettet ist. Das Anwendungspaket wird dann in den Imagespeicher des Service Fabric-Clusters kopiert. Anschließend können Sie aus diesem Anwendungstyp eine benannte Anwendung erstellen, die dann im Cluster ausgeführt wird. 
 
-Eine Diensttyp ist der Name oder die Version, der bzw. die den Code-, Daten- und Konfigurationspaketen eines Diensts zugewiesen wird. Dies wird in einer „ServiceManifest.xml“-Datei definiert, die in einem Dienstpaketverzeichnis eingebettet ist. Auf das Dienstpaketverzeichnis wird dann durch eine *ApplicationManifest.xml*-Datei eines Anwendungspakets verwiesen. Innerhalb des Clusters kann nach der Erstellung einer benannten Anwendung ein benannter Dienst aus einem der Diensttypen des Anwendungstyps erstellt werden. Ein Diensttyp wird von der dazugehörigen Datei *ServiceManifest.xml* beschrieben. Der Diensttyp besteht aus Dienstkonfigurationseinstellungen mit ausführbarem Code, die zur Laufzeit geladen werden, sowie aus statischen Daten, die vom Dienst genutzt werden.
+Eine Diensttyp ist der Name oder die Version, der bzw. die den Code-, Daten- und Konfigurationspaketen eines Diensts zugewiesen wird. Dies wird in einer „ServiceManifest.xml“-Datei definiert, die in einem Dienstpaketverzeichnis eingebettet ist. Auf das Dienstpaketverzeichnis wird dann durch eine *ApplicationManifest.xml*-Datei eines Anwendungspakets verwiesen. Innerhalb des Clusters kann nach der Erstellung einer benannten Anwendung ein benannter Dienst aus einem der Diensttypen des Anwendungstyps erstellt werden. Ein Diensttyp wird von der dazugehörigen Datei *ServiceManifest.xml* beschrieben. Der Diensttyp besteht aus ausführbarem Code und Dienstkonfigurationseinstellungen, die zur Laufzeit geladen werden, sowie aus statischen Daten, die vom Dienst genutzt werden.
 
 ![Service Fabric-Anwendungstypen und Diensttypen][cluster-imagestore-apptypes]
 

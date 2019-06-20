@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544635"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969051"
 ---
 # <a name="understand-cost-management-data"></a>Grundlegendes zu Cost Management-Daten
 
 Dieser Artikel hilft Ihnen, besser zu verstehen, welche Daten in Azure Cost Management enthalten sind. Und es wird erläutert, wie oft Daten verarbeitet, gesammelt, angezeigt und geschlossenen werden. Die Nutzung von Azure wird Ihnen monatlich in Rechnung gestellt. Ihre Azure-Abonnementart bestimmt jedoch, wann Ihr Abrechnungsmonat endet. Wie oft Cost Management Nutzungsdaten erhält, hängt von verschiedenen Faktoren ab. Zu diesen Faktoren gehört unter anderem, wie lange die Verarbeitung der Daten dauert und wie häufig Azure-Dienste die Nutzung an das Abrechnungssystem weitergeben.
+
+Cost Management umfasst alle Nutzungen und Käufe, einschließlich Reservierungen und Angebote von Drittanbietern für Enterprise Agreement-Konten (EA). MCA-Konten (Microsoft-Kundenvereinbarung) und nutzungsbasierte Abonnements umfassen nur die Nutzung von Azure- und Marketplace-Diensten. Support- und andere Kosten sind nicht enthalten. Kosten werden so lange geschätzt, bis eine Rechnung generiert wurde, und sie werden nicht bei Guthaben berücksichtigt.
 
 ## <a name="supported-microsoft-offers"></a>Unterstützte Microsoft-Angebote
 
@@ -86,6 +88,7 @@ Die folgenden Tabellen zeigen Daten, die in Cost Management enthalten sind oder 
 |   | Gutschriften – Weitere Informationen finden Sie unter [Erläuterung der Rechnungsbedingungen](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> Die Nutzung des Azure-Dienstes basiert auf Reservierungen und ausgehandelten Preisen.
+
 <sup>2</sup> Die Nutzung von Marketplaceangeboten ist für die nutzungsbasierte Bezahlung, MSDN und Visual Studio-Angebote derzeit nicht verfügbar.
 
 **Metadaten**
@@ -113,7 +116,7 @@ Abonnements mit nutzungsbasierter Bezahlung – Wenn der Abrechnungsmonat am 15.
 
 ### <a name="rerated-data"></a>Neu bewertete Daten
 
-Unabhängig davon, ob Sie die [Cost Management-APIs](https://aka.ms/costmgmt/docs), PowerBI oder das Azure-Portal zum Abrufen von Daten verwenden, ist zu erwarten, dass die Gebühren des aktuellen Abrechnungszeitraums neu bewertet werden und sich somit ändern, bis die Rechnung geschlossen ist.
+Unabhängig davon, ob Sie die [Cost Management-APIs](https://aka.ms/costmgmt/docs), Power BI oder das Azure-Portal zum Abrufen von Daten verwenden, ist zu erwarten, dass die Gebühren des aktuellen Abrechnungszeitraums neu bewertet werden und sich somit ändern, bis die Rechnung geschlossen ist.
 
 ## <a name="usage-data-update-frequency-varies"></a>Die Häufigkeit der Aktualisierung der Nutzungsdaten variiert.
 

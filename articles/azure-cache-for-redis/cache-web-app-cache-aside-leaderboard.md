@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893740"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873029"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Erstellen eines cachefremden Leaderboards in ASP.NET
 
@@ -41,7 +41,7 @@ In diesem Tutorial lernen Sie Folgendes:
 Für dieses Tutorial benötigen Sie Folgendes:
 
 * Dieses Tutorial wird an der Stelle fortgesetzt, an der Sie in [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md) (ASP.NET-Schnellstart für Azure Cache for Redis) aufgehört haben. Sollten Sie den Schnellstart noch nicht absolviert haben, holen Sie dies jetzt nach.
-* Installieren Sie [Visual Studio 2017](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
+* [Installieren Sie Visual Studio 2019](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
     * ASP.NET und Webentwicklung
     * Azure-Entwicklung
     * .NET Desktopentwicklung mit SQL Server Express LocalDB oder [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express)
@@ -156,7 +156,7 @@ Weitere Informationen zu diesem Paket finden Sie auf der [EntityFramework](https
 
 1. Fügen Sie den folgenden `connectionStrings`-Abschnitt im `configuration`-Abschnitt hinzu. Der Name der Verbindungszeichenfolge muss dem Namen der Entity Framework-Datenbank-Kontextklasse (`TeamContext`) entsprechen.
 
-    Diese Verbindungszeichenfolge setzt voraus, dass Sie die [Voraussetzungen](#prerequisites) erfüllt und SQL Server Express LocalDB installiert haben, das Teil des mit Visual Studio 2017 installierten Workloads *.NET-Desktopentwicklung* ist.
+    Diese Verbindungszeichenfolge setzt voraus, dass Sie die [Voraussetzungen](#prerequisites) erfüllt und SQL Server Express LocalDB installiert haben, das Teil des mit Visual Studio 2019 installierten Workloads *.NET-Desktopentwicklung* ist.
 
     ```xml
     <connectionStrings>

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025357"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66755099"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Verbinden und Indizieren von Azure SQL-Datenbankinhalten unter Verwendung von Azure Search-Indexern
 
@@ -158,23 +158,7 @@ Sie können den Indexer auch so konfigurieren, dass er regelmäßig nach einem Z
 
 Der Parameter **interval** ist erforderlich. Das Intervall bezieht sich auf den Zeitraum zwischen dem Start von zwei aufeinander folgenden Indexerausführungen. Das kleinste zulässige Intervall beträgt 5 Minuten. Das längste ist ein Tag. Es muss als XSD-Wert „dayTimeDuration“ formatiert sein (eine eingeschränkte Teilmenge eines [ISO 8601-Zeitwerts](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Das Muster hierfür lautet wie folgt: `P(nD)(T(nH)(nM))`. Beispiele: `PT15M` = alle 15 Minuten, `PT2H` = alle 2 Stunden.
 
-Der optionale Parameter **startTime** gibt an, wann die geplanten Ausführungen beginnen sollen. Wird er weggelassen, wird die aktuelle UTC-Zeit verwendet. Diese Zeitangabe kann in der Vergangenheit liegen. In diesem Fall wird die erste Ausführung so geplant, als wäre der Indexer seit der mit startTime angegebenen Startzeit kontinuierlich ausgeführt worden.  
-
-Nur eine Ausführung eines Indexers kann zu einem gegebenen Zeitpunkt ausgeführt werden. Wenn ein Indexer zu dem Zeitpunkt ausgeführt wird, für den seine Ausführung geplant ist, wird die Ausführung auf den nächsten geplanten Zeitpunkt verschoben.
-
-Betrachten wir ein Beispiel, um dies zu konkreter veranschaulichen. Angenommen Sie, wir haben den folgenden stündlichen Zeitplan konfiguriert:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Hier geschieht Folgendes:
-
-1. Die erste Indexerausführung beginnt am 1. März 2015 um oder gegen 12:00 Uhr UTC.
-2. Angenommen, diese Ausführung dauert 20 Minuten (oder hat eine andere Dauer unter 1 Stunde).
-3. Die zweite Ausführung beginnt am 1. März 2015 um oder gegen 1:00 Uhr.
-4. Nehmen wir nun an, dass diese Ausführung länger als eine Stunde dauert, z.B. 70 Minuten, sodass sie etwa um 2:10 Uhr abgeschlossen ist.
-5. Es ist jetzt 2:00 Uhr und an der Zeit, die dritte Ausführung zu starten. Da die zweite Ausführung von 1:00 Uhr aber noch ausgeführt wird, wird die dritte Ausführung übersprungen. Die dritte Ausführung beginnt um 3 Uhr morgens.
-
-Sie können mithilfe einer **PUT Indexer** -Anforderung einen Zeitplan für einen vorhandenen Indexer hinzufügen, ändern oder löschen.
+Weitere Informationen zum Definieren von Indexerzeitplänen finden Sie unter [Indexerzeitpläne für Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 

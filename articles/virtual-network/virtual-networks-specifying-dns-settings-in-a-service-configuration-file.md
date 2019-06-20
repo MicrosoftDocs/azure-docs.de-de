@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: genli
 ms.openlocfilehash: 0ac488a67d8b9debf6539d199395997cf44cf1e4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247176"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60232739"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Angeben von DNS-Einstellungen in einer Dienstkonfigurationsdatei
 ## <a name="dns-elements"></a>DNS-Elemente

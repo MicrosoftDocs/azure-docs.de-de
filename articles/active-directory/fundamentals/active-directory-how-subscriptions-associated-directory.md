@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463631"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430800"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Zuordnen oder Hinzufügen eines Azure-Abonnements zu Ihrem Azure Active Directory-Mandanten
 
@@ -42,6 +42,7 @@ Bevor Sie Ihr Abonnement zuweisen oder hinzufügen können, müssen Sie die folg
     - Benutzer, deren Rollen mithilfe von RBAC zugewiesen wurden, verlieren den Zugriff.
     - Dienstadministrator und Co-Admins verlieren den Zugriff.
     - Wenn Sie über Schlüsseltresore verfügen, kann darauf nicht mehr zugegriffen werden, und Sie müssen sie nach der Zuweisung korrigieren.
+    - Wenn Sie über verwaltete Identitäten für Ressourcen wie Virtual Machines oder Logic Apps verfügen, müssen Sie diese nach der Zuordnung erneut aktivieren oder erstellen.
     - Wenn Sie eine Azure Stack-Instanz konfiguriert haben, müssen Sie diese nach der Zuweisung erneut registrieren.
 
 1. Melden Sie sich mit einem Konto an, das:
@@ -76,7 +77,9 @@ Nachdem Sie ein Abonnement einem anderen Verzeichnis zugeordnet haben, sind even
 
 1. Wenn Sie über Schlüsseltresore verfügen, müssen Sie die Mandanten-ID des Schlüsseltresors ändern. Weitere Informationen finden Sie unter [Ändern der Mandanten-ID des Schlüsseltresors nach einer Abonnementverschiebung](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Wenn Sie mit diesem Abonnement eine Azure Stack-Instanz registriert haben, müssen Sie diese erneut registrieren. Weitere Informationen finden Sie unter [Registrieren von Azure Stack in Azure](/azure-stack/operator/azure-stack-registration).
+2. Wenn Sie vom System zugewiesene verwaltete Identitäten für Ressourcen verwendet haben, müssen Sie diese erneut aktivieren. Wenn Sie vom Benutzer zugewiesene verwaltete Identitäten verwendet haben, müssen Sie diese erneut erstellen. Nach dem erneuten Aktivieren oder Erstellen der verwalteten Identitäten müssen Sie die Berechtigungen, die diesen Identitäten zugewiesen sind, erneut einrichten. Weitere Informationen finden Sie unter [Was sind verwaltete Identitäten für Azure-Ressourcen?](../managed-identities-azure-resources/overview.md).
+
+3. Wenn Sie mit diesem Abonnement eine Azure Stack-Instanz registriert haben, müssen Sie diese erneut registrieren. Weitere Informationen finden Sie unter [Registrieren von Azure Stack in Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

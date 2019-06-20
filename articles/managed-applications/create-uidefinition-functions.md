@@ -14,28 +14,28 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60587919"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition-Funktionen
 Dieser Abschnitt enthält die Signaturen für alle unterstützten Funktionen einer CreateUiDefinition.
 
-Setzen Sie die Deklaration in eckige Klammern, um eine Funktion zu verwenden. Beispiel: 
+Setzen Sie die Deklaration in eckige Klammern, um eine Funktion zu verwenden. Beispiel:
 
 ```json
 "[function()]"
 ```
 
-Auf Zeichenfolgen und andere Funktionen kann als Parameter für eine Funktion verwiesen werden, Zeichenfolgen müssen jedoch in einfache Anführungszeichen gesetzt werden. Beispiel: 
+Auf Zeichenfolgen und andere Funktionen kann als Parameter für eine Funktion verwiesen werden, Zeichenfolgen müssen jedoch in einfache Anführungszeichen gesetzt werden. Beispiel:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Falls zutreffend, können Sie auf die Eigenschaften der Ausgabe einer Funktion mit dem Punktoperator verweisen. Beispiel: 
+Falls zutreffend, können Sie auf die Eigenschaften der Ausgabe einer Funktion mit dem Punktoperator verweisen. Beispiel:
 
 ```json
 "[func().prop1]"
@@ -511,7 +511,7 @@ Das folgende Beispiel gibt `2`zurück:
 "[int(2.9)]"
 ```
 
-### <a name="float"></a>Gleitkommawert
+### <a name="float"></a>float
 Konvertiert den Parameter in eine Gleitkommazahl. Diese Funktion unterstützt Parameter vom Typ „Zahl“ und „Zeichenfolge“.
 
 Das folgende Beispiel gibt `1.0`zurück:

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411359"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namensauflösung für Ressourcen in virtuellen Azure-Netzwerken
@@ -88,9 +88,9 @@ Der DNS-Standardclient von Windows verfügt über einen integrierten DNS-Cache. 
 
 Es sind mehrere unterschiedliche DNS-Cachingpakete verfügbar (z.B. dnsmasq). So installieren Sie dnsmasq für die gängigsten Distributionen:
 
-* **Ubuntu (verwendet resolvconf)**:
+* **Ubuntu (verwendet resolvconf)** :
   * Installieren Sie das dnsmasq-Paket mit `sudo apt-get install dnsmasq`.
-* **SUSE (verwendet netconf)**:
+* **SUSE (verwendet netconf)** :
   * Installieren Sie das dnsmasq-Paket mit `sudo zypper install dnsmasq`.
   * Aktivieren Sie den dnsmasq-Dienst mit `systemctl enable dnsmasq.service`. 
   * Starten Sie den dnsmasq-Dienst mit `systemctl start dnsmasq.service`. 
@@ -154,7 +154,7 @@ Durch die DNS-Weiterleitung wird außerdem eine DNS-Auflösung zwischen virtuell
 
 ![Abbildung der DNS-Auflösung zwischen virtuellen Netzwerken](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Wenn Sie die von Azure bereitgestellte Namensauflösung verwenden, stellt Azure DHCP (Dynamic Host Configuration Protocol) ein internes DNS-Suffix (**.internal.cloudapp.net**) für jeden virtuellen Computer bereit. Dieses Suffix ermöglicht die Auflösung von Hostnamen, weil sich die Einträge für die Hostnamen in der Zone **internal.cloudapp.net** befinden. Wenn Sie eine eigene Lösung für die Namensauflösung verwenden, wird dieses Suffix nicht für die virtuellen Computer bereitgestellt, weil es Konflikte mit anderen DNS-Architekturen verursacht (z.B. in Szenarien mit Domäneneinbindung). Stattdessen stellt Azure einen nicht funktionsfähigen Platzhalter bereit (*reddog.microsoft.com*).
+Wenn Sie die von Azure bereitgestellte Namensauflösung verwenden, stellt Azure DHCP (Dynamic Host Configuration Protocol) ein internes DNS-Suffix ( **.internal.cloudapp.net**) für jeden virtuellen Computer bereit. Dieses Suffix ermöglicht die Auflösung von Hostnamen, weil sich die Einträge für die Hostnamen in der Zone **internal.cloudapp.net** befinden. Wenn Sie eine eigene Lösung für die Namensauflösung verwenden, wird dieses Suffix nicht für die virtuellen Computer bereitgestellt, weil es Konflikte mit anderen DNS-Architekturen verursacht (z.B. in Szenarien mit Domäneneinbindung). Stattdessen stellt Azure einen nicht funktionsfähigen Platzhalter bereit (*reddog.microsoft.com*).
 
 Bei Bedarf kann das interne DNS-Suffix mithilfe von PowerShell oder der API ermittelt werden:
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
 ms.openlocfilehash: 17428405a0be45854a2eaaef831864f529ed145a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994478"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60725291"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple als Sicherungsziel mit NetBackup
 

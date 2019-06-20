@@ -2,20 +2,20 @@
 title: Definieren eines technischen Validierungsprofils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie ein technisches Azure Active Directory-Profil in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C definieren.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11efd1fa3431d8200545cf1327e98cec6ed1f59e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683154"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511907"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definieren eines technischen Validierungsprofils in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C
 
@@ -52,8 +52,8 @@ Das **ValidationTechnicalProfile**-Element enthält das folgende Attribut:
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | ReferenceId | Ja | Ein Bezeichner eines technischen Profils, das bereits in der Richtlinie oder der übergeordneten Richtlinie definiert ist. |
-|ContinueOnError|Nein | Zeigt an, ob die Validierung jeglicher nachfolgender technischer Validierungsprofile fortgesetzt werden soll, wenn das technische Validierungsprofil einen Fehler auslöst. Mögliche Werte: `true` oder `false` (Standard, die Verarbeitung weiterer Validierungsprofile wird beendet und ein Fehler zurückgegeben). |
-|ContinueOnSuccess | Nein  | Zeigt an, ob die Validierung jeglicher nachfolgender Validierungsprofile fortgesetzt werden soll, wenn das technische Validierungsprofil erfolgreich ist. Mögliche Werte: `true` oder `false`. Der Standardwert ist `true`, was bedeutet, dass die Verarbeitung weiterer Validierungsprofile fortgesetzt wird. |
+|ContinueOnError|Nein| Zeigt an, ob die Validierung jeglicher nachfolgender technischer Validierungsprofile fortgesetzt werden soll, wenn das technische Validierungsprofil einen Fehler auslöst. Mögliche Werte: `true` oder `false` (Standard, die Verarbeitung weiterer Validierungsprofile wird beendet und ein Fehler zurückgegeben). |
+|ContinueOnSuccess | Nein | Zeigt an, ob die Validierung jeglicher nachfolgender Validierungsprofile fortgesetzt werden soll, wenn das technische Validierungsprofil erfolgreich ist. Mögliche Werte: `true` oder `false`. Der Standardwert ist `true`, was bedeutet, dass die Verarbeitung weiterer Validierungsprofile fortgesetzt wird. |
 
 Das **ValidationTechnicalProfile**-Element enthält das folgende Element:
 

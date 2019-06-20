@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
 ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193448"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61459624"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Erstellen von Logik-App-Workflows aus vorgefertigten Vorlagen
 
@@ -63,7 +63,7 @@ Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich [für ein 
    Nachdem Ihre Logik-App von Azure bereitgestellt wurde, wird der Designer für Logik-Apps geöffnet, und es wird eine Seite mit einem Einführungsvideo angezeigt. 
    Unterhalb des Videos sind Vorlagen für häufig verwendete Logik-App-Muster angegeben. 
 
-5. Scrollen Sie weiter, um die Option **Vorlagen** nach dem Einführungsvideo und den häufig verwendeten Triggern anzuzeigen. Wählen Sie eine vordefinierte Vorlage aus. Beispiel: 
+5. Scrollen Sie weiter, um die Option **Vorlagen** nach dem Einführungsvideo und den häufig verwendeten Triggern anzuzeigen. Wählen Sie eine vordefinierte Vorlage aus. Beispiel:
 
    ![Auswählen einer Logik-App-Vorlage](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -71,7 +71,7 @@ Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich [für ein 
    > Wählen Sie die Option **Leere Logik-App**, um Ihre Logik-App von Grund auf neu zu erstellen.
 
    Wenn Sie eine vordefinierte Vorlage auswählen, können Sie weitere Informationen zu dieser Vorlage anzeigen. 
-   Beispiel: 
+   Beispiel:
 
    ![Auswählen einer vordefinierten Vorlage](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -85,7 +85,7 @@ Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich [für ein 
 
    * Wählen Sie die Option **Weiter**, falls Sie diese Verbindung bereits eingerichtet haben.
 
-   Beispiel: 
+   Beispiel:
 
    ![Erstellen von Verbindungen](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -103,16 +103,16 @@ Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich [für ein 
 
 1. Suchen Sie im [Azure-Portal](https://portal.azure.com "Azure-Portal") im Designer für Logik-Apps nach Ihrer Logik-App, und öffnen Sie sie.
 
-2. Wählen Sie in der Symbolleiste des Designers die Option **Vorlagen**. Bei dieser Aktion werden alle nicht gespeicherten Änderungen verworfen, und es wird eine Warnmeldung angezeigt, damit Sie das Fortfahren bestätigen können. Wählen Sie **OK**, um den Vorgang zu bestätigen. Beispiel: 
+2. Wählen Sie in der Symbolleiste des Designers die Option **Vorlagen**. Bei dieser Aktion werden alle nicht gespeicherten Änderungen verworfen, und es wird eine Warnmeldung angezeigt, damit Sie das Fortfahren bestätigen können. Wählen Sie **OK**, um den Vorgang zu bestätigen. Beispiel:
 
    ![Auswählen von „Vorlagen“](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Scrollen Sie weiter, um die Option **Vorlagen** nach dem Einführungsvideo und den häufig verwendeten Triggern anzuzeigen. Wählen Sie eine vordefinierte Vorlage aus. Beispiel: 
+3. Scrollen Sie weiter, um die Option **Vorlagen** nach dem Einführungsvideo und den häufig verwendeten Triggern anzuzeigen. Wählen Sie eine vordefinierte Vorlage aus. Beispiel:
 
    ![Auswählen einer Logik-App-Vorlage](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    Wenn Sie eine vordefinierte Vorlage auswählen, können Sie weitere Informationen zu dieser Vorlage anzeigen. 
-   Beispiel: 
+   Beispiel:
 
    ![Auswählen einer vordefinierten Vorlage](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 

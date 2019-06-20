@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
 ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60502374"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Einrichten einer gemeinsamen Identität für Data Science Virtual Machine
 

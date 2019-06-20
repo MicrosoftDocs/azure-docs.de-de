@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467421"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523939"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Protokollieren des Netzwerkdatenverkehrs zu und von einem virtuellen Computer über das Azure-Portal
 
@@ -95,7 +95,7 @@ Für die NSG-Datenflussprotokollierung ist der **Microsoft.Insights**-Anbieter e
     Das Erstellen des Speicherkontos kann etwa eine Minute dauern. Fahren Sie erst dann mit den weiteren Schritten fort, wenn das Speicherkonto erstellt wurde. Wenn Sie kein Speicherkonto erstellen, sondern ein vorhandenes Konto verwenden, vergewissern Sie sich, dass Sie ein Speicherkonto auswählen, für das **Alle Netzwerke** (Standard) unter **Firewalls und virtuelle Netzwerken** in **EINSTELLUNGEN** ausgewählt ist.
     
     > [!NOTE]
-    > Microsoft.Insight- und Microsoft.Network-Anbieter werden derzeit zwar für Azure Storage unterstützt, die NSG-Flussprotokolle wurden jedoch noch nicht vollständig integriert. Für die NSG-Flussprotokollierung muss **Alle Netzwerke** weiterhin aktiviert werden, bis das Feature vollständig integriert wurde. 
+    > Microsoft.Insight- und Microsoft.Network-Anbieter werden derzeit zwar als vertrauenswürdige Microsoft-Dienste für Azure Storage unterstützt, die NSG-Flussprotokolle wurden jedoch noch nicht vollständig integriert. Für die NSG-Flussprotokollierung muss **Alle Netzwerke** weiterhin aktiviert werden, bis das Feature vollständig integriert wurde. 
 4. Wählen Sie oben links im Portal die Option **Alle Dienste** aus. Geben Sie im Feld **Filter** die Zeichenfolge *Network Watcher* ein. Wählen Sie **Network Watcher** aus, wenn der Begriff in den Suchergebnissen angezeigt wird.
 5. Wählen Sie unter **PROTOKOLLE** die Option **NSG-Flussprotokolle** aus (siehe folgende Abbildung):
 

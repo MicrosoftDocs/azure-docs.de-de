@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108796"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60364705"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute-Überwachung, Metriken und Warnungen
 
@@ -47,7 +47,7 @@ Sie können Metriken für privates, öffentliches und Microsoft-Peering in Bits 
 
 2. Klicken Sie auf **+Ziel auswählen**, und wählen Sie die ExpressRoute-Gatewayverbindungsressource aus.
 
-   ![Ziel]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Definieren Sie die Warnungsdetails.
 
    ![Aktionsgruppe](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)

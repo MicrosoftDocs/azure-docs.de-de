@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: ecc63cac56c9aeb3d1dd3875134d53cb481e6a5c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 55bcce3c5a4b0dd00d9217d6cb3cc2cfbe6d5828
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708196"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753807"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Übersicht über Azure Service Fabric
 Azure Service Fabric ist eine Plattform für verteilte Systeme, die das Packen, Bereitstellen und Verwalten skalierbarer und zuverlässiger Microservices und Container vereinfacht. Service Fabric bietet außerdem einfache Lösungen für die komplexen Herausforderungen bei der Entwicklung und Verwaltung von nativer Cloudanwendungen. Entwickler und Administratoren können komplexe Infrastrukturprobleme vermeiden und sich auf das Implementieren geschäftskritischer, anspruchsvoller Workloads konzentrieren, die skalierbar, zuverlässig und einfach zu verwalten sind. Service Fabric ist eine Plattform der nächsten Generation zum Erstellen und Verwalten leistungsstarker Tier-1-Anwendungen mit Cloudskalierung, die in Container ausgeführt werden.
@@ -29,7 +29,7 @@ In diesem kurzen Video werden Service Fabric und Microservices vorgestellt:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>Compliance
-Der Azure Service Fabric-Ressourcenanbieter ist in allen Azure-Regionen verfügbar und ist mit allen Compliance-Zertifikaten von Azure konform, u. a. SOC, ISO, PCI-DSS, HIPAA und GDRP. Eine vollständige Liste der Compliance-Zertifikate finden Sie unter [Complianceangebote](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+Der Azure Service Fabric-Ressourcenanbieter ist in allen Azure-Regionen verfügbar und ist mit allen Compliance-Zertifikaten von Azure konform, u. a. SOC, ISO, PCI-DSS, HIPAA und DSGVO. Eine vollständige Liste der Compliance-Zertifikate finden Sie unter [Complianceangebote](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="applications-composed-of-microservices"></a>Aus Microservices bestehende Anwendungen 
 Service Fabric ermöglicht das Erstellen und Verwalten skalierbarer und zuverlässiger Anwendungen, die sich aus Microservices zusammensetzen. Diese Microservices werden in einem gemeinsam genutzten Computerpool (als Cluster bezeichnet) mit hoher Dichte ausgeführt. Die Plattform bietet eine ausgereifte leichte Laufzeit zum Erstellen verteilter, skalierbarer zustandsloser und zustandsbehafteter Microservices, die in Container ausgeführt werden. Außerdem bietet sie umfassende Anwendungsverwaltungsfunktionen zum Organisieren, Bereitstellen, Überwachen, Upgraden/Patchen und Löschen bereitgestellter Anwendungen, einschließlich Diensten in Containern.

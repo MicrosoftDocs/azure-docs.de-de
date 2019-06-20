@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60809371"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Lastenausgleich für Service Fabric-Cluster
 Der Clusterressourcen-Manager von Service Fabric unterstützt dynamische Laständerungen und reagiert auf hinzugefügte oder entfernte Knoten oder Dienste. Er korrigiert Einschränkungsverletzungen automatisch und gleicht die Last des Clusters proaktiv aus. Doch wie oft werden diese Aktionen ausgeführt, und was löst sie aus?

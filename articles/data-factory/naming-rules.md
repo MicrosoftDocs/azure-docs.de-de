@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: c02a9393de72b827b7e38b52d06589f042d581b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024772"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60787001"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory – Benennungsregeln
 Die folgende Tabelle enthält Benennungsregeln für Data Factory-Artefakte.

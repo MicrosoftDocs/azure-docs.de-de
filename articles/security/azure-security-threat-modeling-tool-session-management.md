@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60611685"
 ---
 # <a name="security-frame-session-management"></a>Sicherheitsrahmen: Sitzungsverwaltung
 | Produkt/Dienst | Artikel |
@@ -290,7 +290,7 @@ Hier ist die richtige Konfiguration dargestellt:
 ```
 
 ### <a name="example"></a>Beispiel
-Gleichzeitig erhält der Besucher mit Html.AntiForgeryToken() ein Cookie mit dem Namen „__RequestVerificationToken“. Der Wert entspricht dem oben dargestellten zufälligen ausgeblendeten Wert. Fügen Sie zum Überprüfen einer eingehenden Formularbereitstellung der Zielaktionsmethode als Nächstes den Filter [ValidateAntiForgeryToken] hinzu. Beispiel: 
+Gleichzeitig erhält der Besucher mit Html.AntiForgeryToken() ein Cookie mit dem Namen „__RequestVerificationToken“. Der Wert entspricht dem oben dargestellten zufälligen ausgeblendeten Wert. Fügen Sie zum Überprüfen einer eingehenden Formularbereitstellung der Zielaktionsmethode als Nächstes den Filter [ValidateAntiForgeryToken] hinzu. Beispiel:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -534,7 +534,7 @@ Im obigen Beispiel wird etwa Folgendes ausgegeben:
 ```
 
 ### <a name="example"></a>Beispiel
-Gleichzeitig erhält der Besucher mit Html.AntiForgeryToken() ein Cookie mit dem Namen „__RequestVerificationToken“. Der Wert entspricht dem oben dargestellten zufälligen ausgeblendeten Wert. Fügen Sie zum Überprüfen einer eingehenden Formularbereitstellung der Zielaktionsmethode als Nächstes den Filter [ValidateAntiForgeryToken] hinzu. Beispiel: 
+Gleichzeitig erhält der Besucher mit Html.AntiForgeryToken() ein Cookie mit dem Namen „__RequestVerificationToken“. Der Wert entspricht dem oben dargestellten zufälligen ausgeblendeten Wert. Fügen Sie zum Überprüfen einer eingehenden Formularbereitstellung der Zielaktionsmethode als Nächstes den Filter [ValidateAntiForgeryToken] hinzu. Beispiel:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

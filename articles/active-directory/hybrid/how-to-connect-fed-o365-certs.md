@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883444"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60244827"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Erneuern von Verbundzertifikaten für Office 365 und Azure Active Directory
 ## <a name="overview"></a>Übersicht
@@ -99,8 +99,8 @@ Wenn die Fingerabdrücke in beiden Ausgaben übereinstimmen, sind Ihre Zertifika
 | AutoCertificateRollover | Mit Azure AD synchronisierte Zertifikate | Verbundmetadaten sind öffentlich zugänglich | Gültigkeitsdauer | Aktion |
 |:---:|:---:|:---:|:---:|:---:|
 | Ja |Ja |Ja |- |Keine Aktion erforderlich. Siehe [Automatisches Erneuern von Tokensignaturzertifikaten](#autorenew). |
-| Ja |Nein  |- |Weniger als 15 Tage |Sofort erneuern. Siehe [Manuelles Erneuern von Tokensignaturzertifikaten](#manualrenew). |
-| Nein  |- |- |Weniger als 30 Tage |Sofort erneuern. Siehe [Manuelles Erneuern von Tokensignaturzertifikaten](#manualrenew). |
+| Ja |Nein |- |Weniger als 15 Tage |Sofort erneuern. Siehe [Manuelles Erneuern von Tokensignaturzertifikaten](#manualrenew). |
+| Nein |- |- |Weniger als 30 Tage |Sofort erneuern. Siehe [Manuelles Erneuern von Tokensignaturzertifikaten](#manualrenew). |
 
 \[-] Unwichtig
 
@@ -114,7 +114,7 @@ Sie müssen keine manuellen Schritte ausführen, wenn die beiden folgenden Bedin
 
 **1. Die AD FS-Eigenschaft „AutoCertificateRollover“ muss auf „True“ festgelegt sein.** Damit wird angegeben, dass AD FS automatisch neue Tokensignatur- und Tokenentschlüsselungszertifikate generiert, bevor die alten ablaufen.
 
-**2. Die AD FS-Verbundmetadaten sind öffentlich zugänglich.**  Überprüfen Sie, ob die Verbundmetadaten öffentlich zugänglich sind, indem Sie von einem Computer im öffentlichen Internet (außerhalb des Unternehmensnetzwerks) zur folgenden URL navigieren:
+**2. Die AD FS-Verbundmetadaten sind öffentlich zugänglich.** Überprüfen Sie, ob die Verbundmetadaten öffentlich zugänglich sind, indem Sie von einem Computer im öffentlichen Internet (außerhalb des Unternehmensnetzwerks) zur folgenden URL navigieren:
 
 https://(Ihr_FS_Name)/federationmetadata/2007-06/federationmetadata.xml
 

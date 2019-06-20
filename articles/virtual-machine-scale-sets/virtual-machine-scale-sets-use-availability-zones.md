@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60803268"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Erstellen einer VM-Skalierungsgruppe, die Verfügbarkeitszonen verwendet
 
@@ -45,7 +45,7 @@ Bei der Bereitstellung einer Skalierungsgruppe haben Sie auch die Möglichkeit, 
 
 ### <a name="zone-balancing"></a>Sicherstellen eines Zonengleichgewichts
 
-Für Skalierungsgruppen, die über mehrere Zonen hinweg bereitgestellt werden, können Sie auch „bestmögliches Zonengleichgewicht“ oder „strenges Zonengleichgewicht“ wählen. Eine Skalierungsgruppe befindet sich „im Gleichgewicht“, wenn die gleiche Anzahl von VMs oder +\\– 1 VM in allen anderen Zonen der Skalierungsgruppe liegt. Beispiel: 
+Für Skalierungsgruppen, die über mehrere Zonen hinweg bereitgestellt werden, können Sie auch „bestmögliches Zonengleichgewicht“ oder „strenges Zonengleichgewicht“ wählen. Eine Skalierungsgruppe befindet sich „im Gleichgewicht“, wenn die gleiche Anzahl von VMs oder +\\– 1 VM in allen anderen Zonen der Skalierungsgruppe liegt. Beispiel:
 
 - Eine Skalierungsgruppe wird mit zwei VMs in Zone 1, drei VMs in Zone 2 und drei VMs in Zone 3 als im Gleichgewicht befindlich angesehen. Es ist nur eine Zone mit einer unterschiedlichen VM-Anzahl vorhanden, und diese Anzahl ist nur 1 geringer als die Anzahl der VMs in anderen Zonen. 
 - Eine Skalierungsgruppe wird mit einer VM in Zone 1, drei VMs in Zone 2 und drei VMs in Zone 3 als nicht im Gleichgewicht befindlich angesehen. Zone 1 verfügt über zwei VMs weniger als Zone 2 und 3.

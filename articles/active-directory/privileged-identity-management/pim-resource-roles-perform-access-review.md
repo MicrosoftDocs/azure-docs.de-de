@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602208"
 ---
 # <a name="review-access-to-azure-resource-roles-in-pim"></a>Überprüfen des Zugriffs auf Azure-Ressourcen-Rollen in PIM

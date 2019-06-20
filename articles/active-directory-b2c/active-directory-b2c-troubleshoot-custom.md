@@ -2,20 +2,20 @@
 title: Application Insights für die Problembehandlung von benutzerdefinierten Richtlinien in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Hier wird beschrieben, wie Sie Application Insights zum Nachverfolgen der Ausführung von benutzerdefinierten Richtlinien einrichten.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9b25e5dc5d090ad7aab3d61e2c303a465b5d7443
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df5d710792d8c47e491f5b06d88f4050e8eb4a01
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703935"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508068"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Protokolle werden erfasst
 

@@ -11,11 +11,11 @@ ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61304101"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Verwalten eines virtuellen Azure-Computers mit Bestandserfassung
 
@@ -62,7 +62,7 @@ Die folgenden Tabellen enthalten Informationen zu den einzelnen Eigenschaften, d
 
 |Eigenschaft  |BESCHREIBUNG  |
 |---------|---------|
-|Aktiviert     | Bestimmt, ob die Einstellung angewendet wird        |
+|Enabled     | Bestimmt, ob die Einstellung angewendet wird        |
 |Item Name     | Anzeigename der nachzuverfolgenden Datei        |
 |Group     | Ein Gruppenname für die logische Gruppierung von Dateien        |
 |Windows-Registrierungsschlüssel   | Der zu überprüfende Pfad für die Datei. Beispiel: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -71,7 +71,7 @@ Die folgenden Tabellen enthalten Informationen zu den einzelnen Eigenschaften, d
 
 |Eigenschaft  |BESCHREIBUNG  |
 |---------|---------|
-|Aktiviert     | Bestimmt, ob die Einstellung angewendet wird        |
+|Enabled     | Bestimmt, ob die Einstellung angewendet wird        |
 |Item Name     | Anzeigename der nachzuverfolgenden Datei        |
 |Group     | Ein Gruppenname für die logische Gruppierung von Dateien        |
 |Enter Path     | Der zu überprüfende Pfad für die Datei, z. B. „c:\temp\meinedatei.txt“
@@ -80,7 +80,7 @@ Die folgenden Tabellen enthalten Informationen zu den einzelnen Eigenschaften, d
 
 |Eigenschaft  |BESCHREIBUNG  |
 |---------|---------|
-|Aktiviert     | Bestimmt, ob die Einstellung angewendet wird        |
+|Enabled     | Bestimmt, ob die Einstellung angewendet wird        |
 |Item Name     | Anzeigename der nachzuverfolgenden Datei        |
 |Group     | Ein Gruppenname für die logische Gruppierung von Dateien        |
 |Enter Path     | Der zu überprüfende Pfad für die Datei, z.B. „/etc/*.conf“       |

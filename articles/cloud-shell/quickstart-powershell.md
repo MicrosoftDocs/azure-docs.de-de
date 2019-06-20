@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
 ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905068"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60199526"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Schnellstart für PowerShell in Azure Cloud Shell
 

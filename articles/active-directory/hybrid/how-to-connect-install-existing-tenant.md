@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168357"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64571381"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Wenn Sie bereits über einen vorhandenen Mandanten verfügen
 Bei den meisten Themen zur Verwendung von Azure AD Connect wird davon ausgegangen, dass Sie mit einem neuen Azure AD-Mandanten starten und dass es keine weiteren Benutzer oder Objekte gibt. Wenn Sie jedoch bereits über einen Azure AD-Mandanten verfügen, der mit Benutzern und anderen Objekten aufgefüllt ist, und jetzt Connect verwenden möchten, eignet sich dieses Thema perfekt für Sie.
@@ -58,6 +58,15 @@ Bei einer neuen Connect-Installation gibt es keinen praktischen Unterschied zwis
 
 ### <a name="other-objects-than-users"></a>Andere Objekte als Benutzer
 Für e-mail-aktivierte Gruppen und Kontakte können Sie ein Soft-Match basierend auf proxyAddresses durchführen. Ein Hard-Match ist nicht anwendbar, da Sie „sourceAnchor/immutableID“ (mithilfe von PowerShell) nur für Benutzer aktualisieren können. Für nicht e-mail-aktivierte Gruppen gibt es derzeit weder Soft-Match- noch Hard-Match-Unterstützung.
+
+### <a name="admin-role-considerations"></a>Überlegungen zu Administratorrollen
+Um zu verhindern, dass nicht vertrauenswürdige lokale Benutzer einem Cloudbenutzer mit einer Administratorrolle zugeordnet werden, ordnet Azure AD Connect Objekten mit Administratorrolle keine lokalen Benutzerobjekte zu. Dies ist die Standardeinstellung. Um dieses Verhalten zu umgehen, können Sie die folgenden Schritte ausführen:
+
+1.  Entfernen Sie die Verzeichnisrollen von dem reinen Cloudbenutzerobjekt.
+2.  Führen Sie eine Synchronisierung aus.
+3.  Fügen Sie optional die Verzeichnisrollen dem Benutzerobjekt in der Cloud wieder hinzu, nachdem die Zuordnung stattgefunden hat.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Erstellen eines neuen lokalen Active Directory aus Daten in Azure AD
 Einige Kunden beginnen mit einer reinen Cloudlösung mit Azure AD und verfügen nicht über ein lokales Active Directory. Später möchten diese Kunden ihre lokalen Ressourcen nutzen und ein lokales Active Directory basierend auf den Azure AD-Daten aufbauen. Für dieses Szenario kann Azure AD Connect nicht eingesetzt werden. Connect erstellt keine lokalen Benutzer und bietet keine Möglichkeit, lokale Kennwörter auf die gleichen Kennwörter festzulegen, die in Azure AD verwendet werden.

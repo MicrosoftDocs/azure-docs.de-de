@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926270"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Verwenden einer Azure-Dateifreigabe mit Windows
@@ -31,8 +31,8 @@ Sie können Azure-Dateifreigaben in einer Windows-Installation verwenden, die en
 | Windows 8.1            | SMB 3.0     | Ja                   | Ja                  |
 | Windows Server 2012 R2 | SMB 3.0     | Ja                   | Ja                  |
 | Windows Server 2012    | SMB 3.0     | Ja                   | Ja                  |
-| Windows 7              | SMB 2.1     | Ja                   | Nein                    |
-| Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nein                    |
+| Windows 7              | SMB 2.1     | Ja                   | Nein                   |
+| Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nein                   |
 
 <sup>1</sup>Windows 10, Versionen 1507, 1607, 1703, 1709, 1803 und 1809  
 <sup>2</sup>Windows Server, Versionen 1709 und 1803

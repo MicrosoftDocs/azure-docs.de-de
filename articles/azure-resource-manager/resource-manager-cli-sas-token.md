@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: d09aa46eabe705082edafe12da8442a79d1080b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c869b76a0d1ba10bc27aefa60cbe4ed5b8d8201a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61061357"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Bereitstellen privater Resource Manager-Vorlagen mit SAS-Token und Azure CLI
 

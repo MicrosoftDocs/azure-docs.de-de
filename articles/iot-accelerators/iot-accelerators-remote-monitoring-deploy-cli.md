@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793769"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447011"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Bereitstellen des Solution Accelerators für die Remoteüberwachung mithilfe der CLI
 
@@ -68,7 +68,7 @@ Die Basic-Bereitstellung ist auf die Demonstration der Lösung ausgelegt. Zur Ko
 
 Bei einer Bereitstellung vom Typ „Basic“ werden die folgenden Dienste in Ihrem Azure-Abonnement erstellt:
 
-| Count | Ressource                       | Type         | Verwendung |
+| Count | Resource                       | Type         | Verwendung |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Virtueller Linux-Computer](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 v2  | Hosten von Microservices |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1: Tarif „Standard“ | Geräteverwaltung und Kommunikation |
@@ -89,7 +89,7 @@ Eine Standard-Bereitstellung ist für eine Produktionsumgebung geeignet und kann
 
 Bei einer Bereitstellung vom Typ „Standard“ werden die folgenden Dienste in Ihrem Azure-Abonnement erstellt:
 
-| Count | Ressource                                     | SKU/Größe      | Verwendung |
+| Count | Resource                                     | SKU/Größe      | Verwendung |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Nutzen Sie einen vollständig verwalteten Orchestrierungsdienst für Kubernetes-Container mit standardmäßig drei Agents.|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2: Tarif „Standard“ | Geräteverwaltung und -steuerung |

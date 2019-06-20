@@ -14,11 +14,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20842c8c644a351b59322569661abf82bb524449
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187150"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60472596"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Anzeigen und Zuweisen von Benutzerrollen in Azure Active Directory
 

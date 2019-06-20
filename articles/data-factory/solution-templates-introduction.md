@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003553"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60786931"
 ---
 # <a name="templates"></a>Vorlagen
 
@@ -30,7 +30,7 @@ Sie können mit dem Erstellen einer Data Factory-Pipeline aus einer Vorlage begi
 
     ![Vorlagenkatalog über die Seite „Übersicht“ öffnen](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Wählen Sie im Ressourcen-Explorer auf der Registerkarte „Autor“ das Pluszeichen (**+**) aus, und wählen Sie dann **Pipeline aus Vorlage** aus, um den Vorlagenkatalog zu öffnen.
+1.  Wählen Sie im Ressourcen-Explorer auf der Registerkarte „Autor“ das Pluszeichen ( **+** ) aus, und wählen Sie dann **Pipeline aus Vorlage** aus, um den Vorlagenkatalog zu öffnen.
 
     ![Vorlagenkatalog über die Registerkarte „Autor“ öffnen](media/solution-templates-introduction/templates-intro-image2.png)
 

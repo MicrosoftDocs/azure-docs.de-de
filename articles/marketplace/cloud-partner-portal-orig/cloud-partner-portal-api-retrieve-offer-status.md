@@ -1,25 +1,18 @@
 ---
-title: Abrufen des Angebotsstatus | Microsoft-Dokumentation
+title: Abrufen des Angebotsstatus | Azure Marketplace
 description: Die API ruft den aktuellen Status des Angebots ab.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806554"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935451"
 ---
 <a name="retrieve-offer-status"></a>Abrufen des Angebotsstatus 
 =====================
@@ -33,9 +26,9 @@ Ruft den aktuellen Status des Angebots ab.
 
 |  **Name**       |   **Beschreibung**                            |  **Datentyp** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Herausgeberbezeichner, z. B. `Contoso`  |     Zeichenfolge     |
-|  offerId        | GUID, die das Angebot eindeutig identifiziert      |     Zeichenfolge     |
-|  api-version    | Neueste Version der API                        |     Datum       |
+|  publisherId    | Herausgeber-ID, z.B. `Contoso`  |     string     |
+|  offerId        | GUID, die das Angebot eindeutig identifiziert      |     string     |
+|  api-version    | Neueste Version der API                        |     Date       |
 |  |  |
 
 
@@ -137,7 +130,7 @@ Ruft den aktuellen Status des Angebots ab.
 |  estimatedTimeFrame   | Schätzung der Zeit, die zum Ausführen dieses Schritts erforderlich sein wird, mit Angabe in einem benutzerfreundlichen Format                       |
 |  id                   | Bezeichner (ID) des Schritts                                                                         |
 |  stepName             | Name des Schritts                                                                               |
-|  Beschreibung          | Beschreibung des Schritts                                                                        |
+|  description          | Beschreibung des Schritts                                                                        |
 |  status               | Status des Schritts. Die Liste der möglichen Werte finden Sie weiter unten unter [Schrittstatus](#step-status).    |
 |  Cloud an das Gerät             | Array mit Meldungen, die zu dem Schritt gehören                                                          |
 |  processPercentage    | Prozentsatz, bis zu dem der Schritt abgeschlossen ist                                                              |
@@ -152,8 +145,8 @@ Ruft den aktuellen Status des Angebots ab.
 | **Code** |   **Beschreibung**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK` – Die Anforderung wurde erfolgreich verarbeitet, und der aktuelle Status des Angebots wurde zurückgegeben. |
-|  400     | `Bad/Malformed request` – Der Fehlerantworttext enthält möglicherweise weitere Informationen.                 |
-|  404     | `Not found` – Die angegebene Entität ist nicht vorhanden.                                                |
+|  400     | `Bad/Malformed request` – der Fehlerantworttext enthält möglicherweise weitere Informationen.                 |
+|  404     | `Not found`: Die angegebene Entität ist nicht vorhanden.                                                |
 |  |  |
 
 
@@ -163,7 +156,7 @@ Ruft den aktuellen Status des Angebots ab.
 |  --------------------------  |  ------------------------------------------------------  |
 |  NeverPublished              | Das Angebot wurde nie veröffentlicht.                          |
 |  NotStarted                  | Das Angebot ist neu und nicht gestartet.                            |
-|  WaitingForPublisherReview   | Für das Angebot wird auf die Herausgebergenehmigung gewartet.                 |
+|  WaitingForPublisherReview   | Das Angebot wartet auf die Herausgebergenehmigung.                 |
 |  Wird ausgeführt                     | Die Angebotsübermittlung wird verarbeitet.                     |
 |  Succeeded                   | Die Verarbeitung der Angebotsübermittlung ist abgeschlossen.               |
 |  Canceled                    | Die Angebotsübermittlung wurde abgebrochen.                           |

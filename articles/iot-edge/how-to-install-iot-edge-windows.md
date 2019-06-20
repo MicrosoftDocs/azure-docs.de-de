@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f67f24cab907c3fe9998704e0a0a85d5b29f60a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808863"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installieren der Azure IoT Edge-Runtime unter Windows
 
@@ -76,10 +76,17 @@ In diesem Beispiel wird die manuelle Installation mit Windows-Containern veransc
 
 2. Führen Sie PowerShell als Administrator aus.
 
+   >[!NOTE]
+   >Verwenden Sie eine AMD64-PowerShell-Sitzung, um IoT Edge zu installieren, nicht PowerShell (x86). Wenn Sie nicht sicher sind, welchen Sitzungstyp Sie verwenden, führen Sie den folgenden Befehl aus:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. Durch den Befehl **Deploy-IoTEdge** wird überprüft, ob Ihr Windows-Computer über eine unterstützte Version verfügt. Außerdem aktiviert der Befehl das Containerfeature und lädt dann die Moby-Runtime und die IoT Edge-Runtime herunter. Der Befehl verwendet standardmäßig Windows-Container. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -88,7 +95,7 @@ In diesem Beispiel wird die manuelle Installation mit Windows-Containern veransc
 5. Durch den Befehl **Initialize-IoTEdge** wird die IoT Edge-Runtime auf Ihrem Computer konfiguriert. Standardmäßig wird für den Befehl die manuelle Bereitstellung mit Windows-Containern verwendet. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
@@ -111,17 +118,24 @@ Hier stellen Sie das Gerät mithilfe von IoT Hub Device Provisioning Service ber
 
 Im folgenden Beispiel wird die automatische Installation mit Windows-Containern veranschaulicht:
 
-1. Führen Sie die unter [Erstellen und Bereitstellen eines simulierten TPM-Edge-Geräts unter Windows](how-to-auto-provision-simulated-device-windows.md) aufgeführten Schritte aus, um den Device Provisioning-Dienst einzurichten und die **Bereichs-ID** abzurufen, ein TPM-Gerät zu simulieren und die zugehörige **Registrierungs-ID** abzurufen. Erstellen Sie anschließend eine individuelle Registrierung. Nachdem Ihr Gerät in Ihrem IoT Hub registriert wurde, fahren Sie mit diesen Installationsschritten fort.  
+1. Führen Sie die unter [Erstellen und Bereitstellen eines simulierten TPM-IoT Edge-Geräts unter Windows](how-to-auto-provision-simulated-device-windows.md) aufgeführten Schritte aus, um den Gerätebereitstellungsdient einzurichten und die **Bereichs-ID** abzurufen, ein TPM-Gerät zu simulieren und die zugehörige **Registrierungs-ID** abzurufen. Erstellen Sie anschließend eine individuelle Registrierung. Nachdem Ihr Gerät in Ihrem IoT Hub registriert wurde, fahren Sie mit diesen Installationsschritten fort.  
 
    >[!TIP]
    >Lassen Sie das Fenster, in dem der TPM-Simulator ausgeführt wird, während der Installation und beim Testen geöffnet. 
 
 2. Führen Sie PowerShell als Administrator aus.
 
+   >[!NOTE]
+   >Verwenden Sie eine AMD64-PowerShell-Sitzung, um IoT Edge zu installieren, nicht PowerShell (x86). Wenn Sie nicht sicher sind, welchen Sitzungstyp Sie verwenden, führen Sie den folgenden Befehl aus:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. Durch den Befehl **Deploy-IoTEdge** wird überprüft, ob Ihr Windows-Computer über eine unterstützte Version verfügt. Außerdem aktiviert der Befehl das Containerfeature und lädt dann die Moby-Runtime und die IoT Edge-Runtime herunter. Der Befehl verwendet standardmäßig Windows-Container. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -130,7 +144,7 @@ Im folgenden Beispiel wird die automatische Installation mit Windows-Containern 
 6. Durch den Befehl **Initialize-IoTEdge** wird die IoT Edge-Runtime auf Ihrem Computer konfiguriert. Standardmäßig wird für den Befehl die manuelle Bereitstellung mit Windows-Containern verwendet. Verwenden Sie das `-Dps`-Flag, um den Device Provisioning Service anstelle der manuellen Bereitstellung zu verwenden.
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
@@ -158,7 +172,7 @@ Die aktuellen IoT Edge-Installationsdateien und die früheren Versionen finden S
 Wenn Sie die Installation mit Offlinekomponenten durchführen möchten, müssen Sie den Parameter `-OfflineInstallationPath` als Teil des Deploy-IoTEdge-Befehls verwenden und den absoluten Pfad zum Dateiverzeichnis angeben. Beispiel:
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
@@ -166,7 +180,7 @@ Sie können auch den Pfadparameter der Offlineinstallation mit dem weiter unten 
 
 ## <a name="verify-successful-installation"></a>Bestätigen einer erfolgreichen Installation
 
-Überprüfen Sie den Status des IoT Edge-Diensts. Es sollte als ausgeführt aufgelistet werden.  
+Überprüfen Sie den Status des IoT Edge-Diensts. Er sollte als „Wird ausgeführt“ aufgelistet werden.  
 
 ```powershell
 Get-Service iotedge
@@ -175,7 +189,7 @@ Get-Service iotedge
 Untersuchen Sie die Dienstprotokolle der letzten fünf Minuten. Wenn Sie die Installation der IoT Edge-Runtime gerade beendet haben, wird möglicherweise eine Liste von Fehlern aus der Zeit zwischen den Ausführungen von **Deploy-IoTEdge** und **Initialize-IoTEdge** angezeigt. Diese Fehler werden erwartet, da der Dienst versucht, zu starten, bevor er konfiguriert ist. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 Führen Sie ausgeführte Module auf. Nach einer Neuinstallation sollte als einziges Modul **edgeAgent** ausgeführt werden. Nachdem Sie die [IoT Edge-Module bereitgestellt](how-to-deploy-modules-portal.md) haben, werden weitere angezeigt. 
@@ -219,7 +233,7 @@ Weitere Informationen finden Sie unter [Aktualisieren des IoT Edge-Sicherheitsda
 In diesem Beispiel wird eine Installation veranschaulicht, die auf eine vorhandene Konfigurationsdatei verweist und Windows-Container verwendet: 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Update-IoTEdge
 ```
 

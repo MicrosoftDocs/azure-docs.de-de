@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011814"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178195"
 ---
 > [!div class="op_single_selector"]
 > * [Gerät: Node.js-Dienst: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)

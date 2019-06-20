@@ -13,11 +13,11 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455920"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61390563"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Einrichten und Verwenden von Azure Monitor-Protokollen mit einer mehrinstanzenfähigen SaaS-App für SQL-Datenbank
 
@@ -48,7 +48,7 @@ OMS-Arbeitsbereiche werden jetzt als Log Analytics-Arbeitsbereiche bezeichnet. L
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Erstellen von Leistungsdiagnosedaten durch Simulieren einer Arbeitsauslastung für Ihre Mandanten 
 
-1. Öffnen Sie in der PowerShell ISE „*..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*“. Lassen Sie dieses Skript geöffnet, da Sie während dieses Szenarios u.U. mehrere Lastgenerierungsszenarien ausführen.
+1. Öffnen Sie in der PowerShell ISE „ *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*“. Lassen Sie dieses Skript geöffnet, da Sie während dieses Szenarios u.U. mehrere Lastgenerierungsszenarien ausführen.
 1. Falls noch nicht geschehen, stellen Sie einen Batch von Mandanten bereit, um einen interessanteren Überwachungskontext herzustellen. Dieser Vorgang dauert einige Minuten.
 
    a. Legen Sie **$DemoScenario = 1** fest – _Bereitstellen eines Batchs von Mandanten_
@@ -57,7 +57,7 @@ OMS-Arbeitsbereiche werden jetzt als Log Analytics-Arbeitsbereiche bezeichnet. L
 
 1. Starten Sie jetzt den Lastgenerator, um eine simulierte Auslastung für alle Mandanten auszuführen.
 
-    a. Legen Sie **$DemoScenario = 2** fest, _Generieren einer Last mit normaler Intensität (ca. 30 DTUs)_.
+    a. Legen Sie **$DemoScenario = 2** fest, _Generieren einer Last mit normaler Intensität (ca. 30 DTUs)_ .
 
     b. Drücken Sie F5, um das Skript auszuführen.
 

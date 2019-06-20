@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189888"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64918777"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planen einer Verbesserung der Datensicherheit mit einer starken Identitätslösung
 Um Daten zu schützen, müssen Sie zuerst in Erfahrung bringen, wer auf diese Daten zugreifen kann. Außerdem benötigen Sie eine Identitätslösung, die in Ihr System integrierbar ist, um Authentifizierung und Autorisierung bereitstellen zu können. Authentifizierung und Autorisierung werden häufig miteinander verwechselt, und ihre jeweilige Rolle wird falsch verstanden. Dabei handelt es sich um unterschiedliche Funktionen, wie in der folgenden Abbildung dargestellt:
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![Lebenszyklus von mobilen Geräten](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Lebenszyklusphasen der Mobilgerätverwaltung**
 
@@ -44,7 +44,7 @@ Im Zeitalter der Mobilität haben die meisten Unternehmen das gleiche Ziel: Benu
 Branchenunabhängig gibt es jedoch einige Sicherheitsaspekte, die immer geprüft werden sollten. Diese werden im nächsten Abschnitt erläutert.
 
 ## <a name="data-protection-paths"></a>Wege zum Datenschutz
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![Wege zum Datenschutz](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Wege zum Datenschutz**
 

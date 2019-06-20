@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490034"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956699"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Leitfaden zur Azure Disk Encryption-Problembehandlung
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Aktualisieren des Azure VM-Agents und der Erweiterungsversionen
 
-Azure Disk Encryption-Vorgänge können auf VM-Images fehlschlagen, die nicht unterstützte Versionen des Azure-VM-Agents verwenden. Weitere Informationen finden Sie unter [Minimum version support for virtual machine agents in Azure (Unterstützung für die minimal erforderliche Version für VM-Agents in Azure)](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+Azure Disk Encryption-Vorgänge können auf VM-Images fehlschlagen, die nicht unterstützte Versionen des Azure-VM-Agents verwenden. Linux-Images mit Agent-Versionen vor 2.2.38 sollten vor der Aktivierung der Verschlüsselung aktualisiert werden. Weitere Informationen finden Sie unter [Aktualisieren des Azure Linux-Agent auf einer VM](../virtual-machines/extensions/update-linux-agent.md) und [Unterstützte Mindestversion für VM-Agents in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) aktualisieren können.
 
 Die richtige Version der Gast-Agent-Erweiterung „Microsoft.Azure.Security.AzureDiskEncryption“ oder „Microsoft.Azure.Security.AzureDiskEncryptionForLinux“ ist auch erforderlich. Erweiterungsversionen werden von der Plattform automatisch verwaltet und aktualisiert, wenn die Voraussetzungen für den Azure VM-Agent erfüllt sind und eine unterstützte Version des VM-Agents verwendet wird.
 
@@ -64,7 +64,7 @@ In einigen Fällen hängt die Verschlüsselung des Linux-Datenträgers scheinbar
 
 Durch die Verschlüsselungssequenz für Linux-Betriebssystemdatenträger wird die Bereitstellung des Betriebssystemlaufwerks vorübergehend aufgehoben. Es erfolgt anschließend eine blockweise Verschlüsselung des gesamten Betriebssystemdatenträgers, ehe er im verschlüsselten Zustand wieder bereitgestellt wird. Im Gegensatz zu Azure Disk Encryption unter Windows ist bei der Linux-Datenträgerverschlüsselung keine gleichzeitige Nutzung der VM während des Verschlüsselungsvorgangs möglich. Die Leistungsmerkmale der VM können sich signifikant auf den Zeitaufwand auswirken, der bis zur Verschlüsselung anfällt. Zu diesen Merkmalen zählen die Größe des Datenträgers und das Speicherkonto (Standard oder Storage Premium).
 
-Fragen Sie zum Überprüfen des Verschlüsselungsstatus das Feld **ProgressMessage** ab, das vom Cmdlet [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) zurückgegeben wird. Während das Betriebssystemlaufwerk verschlüsselt wird, befindet sich die VM in einem Wartungszustand, und SSH wird deaktiviert, um eine Störung des laufenden Prozesses zu verhindern. Solange die Verschlüsselung läuft, wird die Meldung **EncryptionInProgress** die meiste Zeit zurückgegeben. Mehrere Stunden später werden Sie in der Meldung **VMRestartPending** aufgefordert, die VM neu zu starten. Beispiel: 
+Fragen Sie zum Überprüfen des Verschlüsselungsstatus das Feld **ProgressMessage** ab, das vom Cmdlet [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) zurückgegeben wird. Während das Betriebssystemlaufwerk verschlüsselt wird, befindet sich die VM in einem Wartungszustand, und SSH wird deaktiviert, um eine Störung des laufenden Prozesses zu verhindern. Solange die Verschlüsselung läuft, wird die Meldung **EncryptionInProgress** die meiste Zeit zurückgegeben. Mehrere Stunden später werden Sie in der Meldung **VMRestartPending** aufgefordert, die VM neu zu starten. Beispiel:
 
 
 ```azurepowershell
@@ -130,7 +130,7 @@ Um dieses Problem zu umgehen, kopieren Sie die folgenden vier Dateien von einer 
 
 1. Verwenden Sie DiskPart zum Überprüfen der Volumes, und fahren Sie dann fort.  
 
-Beispiel: 
+Beispiel:
 
 ```
 DISKPART> list vol
@@ -150,7 +150,9 @@ If the expected encryption state does not match what is being reported in the po
 
 Im Portal kann ein Datenträger als verschlüsselt angezeigt werden, auch nachdem er bereits auf dem virtuellen Computer entschlüsselt wurde.  Dies kann auftreten, wenn Befehle auf niedriger Ebene verwendet werden, um den Datenträger auf dem virtuellen Computer zu entschlüsseln, anstatt die Verwaltungsbefehle auf höherer Ebene von Azure Disk Encryption zu verwenden.  Die Befehle auf höherer Ebene entschlüsseln den Datenträger nicht nur auf dem virtuellen Computer, sondern sie aktualisieren auch außerhalb des virtuellen Computers wichtige Verschlüsselungs- und Erweiterungseinstellungen auf Plattformebene, die dem virtuellen Computer zugeordnet sind.  Wenn diese nicht einheitlich gehalten werden, kann die Plattform den Verschlüsselungsstatus nicht melden und den virtuellen Computer nicht ordnungsgemäß bereitstellen.   
 
-Um Azure Disk Encryption ordnungsgemäß zu deaktivieren, beginnen Sie in einem bekannt fehlerfreien Zustand mit aktivierter Verschlüsselung. Verwenden Sie dann die PowerShell-Befehle [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) und [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) oder den CLI-Befehl [az vm encryption disable](/cli/azure/vm/encryption). 
+Verwenden Sie zum Deaktivieren von Azure Disk Encryption mit PowerShell [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption), gefolgt von [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Wenn Sie „Remove-AzVMDiskEncryptionExtension“ ausführen, bevor die Verschlüsselung deaktiviert wurde, tritt ein Fehler auf.
+
+Verwenden Sie zum Deaktivieren von Azure Disk Encryption mit der CLI [az vm encryption disable](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

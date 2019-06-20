@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246133"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234254"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Bei Azure verfügbare Sicherheitsdienste und -technologien
 
@@ -60,7 +60,7 @@ Im Laufe der Zeit wird sich diese Liste – ebenso wie Azure – ändern und wac
 | [Azure&nbsp;SQL-Verbindungsverschlüsselung&nbsp;](../sql-database/sql-database-control-access.md)|Zur Gewährleistung der Sicherheit steuert SQL-Datenbank den Zugriff mit Firewallregeln, die die Konnektivität nach IP-Adresse einschränken, Authentifizierungsmechanismen, die die Identitätsbestätigung durch Benutzer erfordern, und Autorisierungsmechanismen, die bestimmte Aktionen und Daten für Benutzer eingrenzen. |
 | [Azure SQL – Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Schützt vertrauliche Daten wie Kreditkartennummern oder nationale Identifikationsnummern (etwa Sozialversicherungsnummern), die in Azure SQL-Datenbank oder SQL Server-Datenbanken gespeichert sind  |
 | [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Ein Datenbanksicherheitsfeature, das den Speicher einer gesamten Datenbank verschlüsselt |
-| [Azure SQL – Datenbanküberwachung](../sql-database/sql-database-auditing.md)|Ein Datenbanküberwachungsfeature, das Datenbankereignisse verfolgt und diese in ein Überwachungsprotokoll in Ihrem Azure Storage-Konto schreibt  |
+| [Überwachung von Azure SQL-Datenbank](../sql-database/sql-database-auditing.md)|Ein Datenbanküberwachungsfeature, das Datenbankereignisse verfolgt und diese in ein Überwachungsprotokoll in Ihrem Azure Storage-Konto schreibt  |
 
 
 ## <a name="identity-and-access-management"></a>Identitäts- und Zugriffsverwaltung
@@ -69,7 +69,7 @@ Im Laufe der Zeit wird sich diese Liste – ebenso wie Azure – ändern und wac
 | [Azure&nbsp;–&nbsp;Rollenbasierte&nbsp;Zugriffssteuerung](../active-directory/role-based-access-control-configure.md)|Ein Zugriffssteuerungsfeature, mit dem Benutzer nur auf die Ressourcen zugreifen können, die sie anhand ihrer Rollen innerhalb der Organisation benötigen  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Ein cloudbasiertes Authentifizierungsrepository, das ein cloudbasiertes Verzeichnis mit mehreren Mandanten sowie Verwaltungsdienste für mehrere Identitäten in Azure unterstützt  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Ein Identitätsverwaltungsdienst, mit dem Sie die Registrierung und Anmeldung von Kunden und deren Verwaltung ihrer Profile bei der Verwendung von Azure-Anwendungen steuern können   |
-| [Azure Active Directory-Domänendienste](../active-directory-domain-services/active-directory-ds-overview.md)| Eine cloudbasierte und verwaltete Version von Active Directory Domain Services |
+| [Azure Active Directory-Domänendienste](../active-directory-domain-services/overview.md)| Eine cloudbasierte und verwaltete Version von Active Directory Domain Services |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Ein Sicherheitsmechanismus, der verschiedene Formen der Authentifizierung und Überprüfung anwendet, bevor der Zugriff auf abgesicherte Informationen zugelassen wird |
 
 ## <a name="backup-and-disaster-recovery"></a>Backup und Notfallwiederherstellung

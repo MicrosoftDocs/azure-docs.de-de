@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 141aacc71d129bb45dc53774af876d5b07b7fc86
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004277"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66475616"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Definieren des Zugriffs auf die Kubernetes-Konfigurationsdatei in Azure Kubernetes Service (AKS) mithilfe der rollenbasierten Zugriffssteuerung von Azure
 
@@ -24,7 +24,7 @@ In diesem Artikel erfahren Sie, wie Sie RBAC-Rollen zuweisen, die einschränken,
 
 Es wird vorausgesetzt, dass Sie über ein AKS-Cluster verfügen. Wenn Sie noch einen AKS-Cluster benötigen, erhalten Sie weitere Informationen im AKS-Schnellstart. Verwenden Sie dafür entweder die [Azure CLI][aks-quickstart-cli] oder das [Azure-Portal][aks-quickstart-portal].
 
-Für den Artikel wird außerdem mindestens Version 2.0.53 der Azure-Befehlszeilenschnittstelle benötigt. Führen Sie `az --version` aus, um die Version zu finden. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie unter [Installieren von Azure CLI 2.0][azure-cli-install] Informationen dazu.
+Für den Artikel wird außerdem mindestens Version 2.0.65 der Azure-Befehlszeilenschnittstelle benötigt. Führen Sie `az --version` aus, um die Version zu finden. Wenn Sie eine Installation oder ein Upgrade ausführen müssen, finden Sie unter [Installieren von Azure CLI 2.0][azure-cli-install] Informationen dazu.
 
 ## <a name="available-cluster-roles-permissions"></a>Verfügbare Clusterrollenberechtigungen
 
@@ -41,15 +41,17 @@ Es stehen zwei integrierte Rollen zur Verfügung:
     * Ermöglicht den Zugriff auf den API-Aufruf *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Dieser API-Aufruf [führt die Benutzeranmeldeinformationen für den Cluster auf][api-cluster-user].
     * Lädt *kubeconfig* für die Rolle *clusterUser* herunter.
 
-## <a name="assign-role-permissions-to-a-user"></a>Zuweisen von Rollenberechtigungen zu einem Benutzer
+Dieser RBAC-Rollen können einem Azure Active Directory-Benutzer (AAD) oder einer AAD-Gruppe zugewiesen werden.
 
-Wenn Sie einem Benutzer eine der Azure-Rollen zuweisen möchten, benötigen Sie die Ressourcen-ID des AKS-Clusters und die ID des Benutzerkontos. Mit den hier angegebenen Beispielbefehlen werden folgende Schritte ausgeführt:
+## <a name="assign-role-permissions-to-a-user-or-group"></a>Zuweisen von Rollenberechtigungen zu einem Benutzer oder einer Gruppe
+
+Wenn Sie eine der Azure-Rollen zuweisen möchten, benötigen Sie die Ressourcen-ID des AKS-Clusters und die ID des Azure AD-Benutzerkontos oder der Azure AD-Gruppe. Die folgenden Beispielbefehle:
 
 * Abrufen der Clusterressourcen-ID mithilfe des Befehls [az aks show][az-aks-show] für den Cluster *myAKSCluster* in der Ressourcengruppe *myResourceGroup*. Geben Sie nach Bedarf Ihren eigenen Cluster- und Ressourcengruppennamen an.
 * Abrufen Ihrer Benutzer-ID mithilfe der Befehle [az account show][az-account-show] und [az ad user show][az-ad-user-show].
 * Zuweisen einer Rolle mithilfe des Befehls [az role assignment create][az-role-assignment-create].
 
-Im folgenden Beispiel wird die *Administratorrolle für Azure Kubernetes Service-Cluster* zugewiesen:
+Im folgenden Beispiel wird die *Administratorrolle für Azure Kubernetes Service-Cluster* einem einzelnen Benutzerkonto zugewiesen:
 
 ```azurecli-interactive
 # Get the resource ID of your AKS cluster
@@ -65,6 +67,9 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!TIP]
+> Wenn Sie einer Azure AD-Gruppe Berechtigungen zuweisen möchten, aktualisieren Sie den im vorherigen Beispiel gezeigten Parameter `--assignee` mit der Objekt-ID der *Gruppe* anstatt der eines *Benutzers*. Verwenden Sie zum Abrufen der Objekt-ID einer Gruppe den Befehl [az ad group show][az-ad-group-show]. Das folgende Beispiel ruft die Objekt-ID der Azure AD-Gruppe namens *appdev* ab: `az ad group show --group appdev --query objectId -o tsv`
 
 Bei Bedarf können Sie die vorherige Zuweisung für die *Clusterbenutzerrolle* ändern.
 
@@ -120,7 +125,7 @@ users:
 
 ## <a name="remove-role-permissions"></a>Entfernen von Rollenberechtigungen
 
-Rollenzuweisungen können mithilfe des Befehls [az role assignment delete][az-role-assignment-delete] entfernt werden. Geben Sie die Konto-ID und die Clusterressourcen-ID aus den vorherigen Befehlen an:
+Rollenzuweisungen können mithilfe des Befehls [az role assignment delete][az-role-assignment-delete] entfernt werden. Geben Sie die mit den vorherigen Befehlen abgerufene Konto-ID und Clusterressourcen-ID an. Wenn Sie die Rolle nicht einem Benutzer, sondern einer Gruppe zugewiesen haben, geben Sie für den Parameter `--assignee` die entsprechende Gruppenobjekt-ID und nicht die Kontoobjekt-ID an:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
@@ -148,3 +153,4 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
 [aad-integration]: azure-ad-integration.md
+[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

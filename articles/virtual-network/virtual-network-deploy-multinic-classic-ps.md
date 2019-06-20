@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 087b52bd603e8aed6078ab340e84c1f6bd0e8082
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60748489"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Erstellen eines virtuellen Computers (VM) (klassisch) mit mehreren Netzwerkkarten über PowerShell
 

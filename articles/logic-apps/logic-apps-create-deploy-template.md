@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
 ms.openlocfilehash: 624539557b0bf57e9d919a3a46337f1cf93a4f07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894233"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128599"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Erstellen von Azure Resource Manager-Vorlagen für die Bereitstellung von Logik-Apps
 
@@ -79,7 +79,7 @@ Nachdem Sie Ihre Logik-App-Vorlage erstellt haben, können Sie alle notwendigen 
 
 * Die Workflowdefinition Ihrer Logik-App hat ihren eigenen [`parameters`-Abschnitt](../logic-apps/logic-apps-workflow-definition-language.md#parameters), in dem Sie alle Parameter definieren können, die Ihre Logik-App für die Annahme von Eingaben bei der Bereitstellung verwendet.
 
-* Ihre Resource Manager-Vorlage verfügt über einen eigenen [`parameters`-Abschnitt](../azure-resource-manager/resource-group-authoring-templates.md#parameters), der vom `parameters`-Abschnitt Ihrer Logik-App getrennt ist. Beispiel: 
+* Ihre Resource Manager-Vorlage verfügt über einen eigenen [`parameters`-Abschnitt](../azure-resource-manager/resource-group-authoring-templates.md#parameters), der vom `parameters`-Abschnitt Ihrer Logik-App getrennt ist. Beispiel:
 
   [!INCLUDE [logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 

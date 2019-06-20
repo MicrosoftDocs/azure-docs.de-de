@@ -2,22 +2,18 @@
 title: Übersicht über Azure Resource Manager | Microsoft Docs
 description: Es wird beschrieben, wie Sie den Azure-Ressourcen-Manager für die Bereitstellung, Verwaltung und Zugriffssteuerung von Ressourcen unter Azure verwenden.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269294"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514336"
 ---
 # <a name="azure-resource-manager-overview"></a>Übersicht über den Azure-Ressourcen-Manager
 
@@ -51,13 +47,15 @@ Der Ressourcen-Manager bietet mehrere Vorteile:
 * Sie können Tags auf Ressourcen anwenden, um alle Ressourcen in Ihrem Abonnement logisch zu organisieren.
 * Indem Sie die Kosten für eine Gruppe mit Ressourcen anzeigen, für die das gleiche Tag verwendet wird, erhalten Sie die Abrechnungsinformationen für Ihre Organisation.
 
-## <a name="understand-management-scope"></a>Grundlegendes zur Verwaltung
+## <a name="understand-scope"></a>Der Bereich
 
-Azure bietet vier Verwaltungsebenen: [Verwaltungsgruppen](../governance/management-groups/index.md), Abonnements, [Ressourcengruppen](#resource-groups) und Ressourcen. Die folgende Abbildung zeigt ein Beispiel dieser Ebenen.
+Azure bietet vier Bereichsebenen: [Verwaltungsgruppen](../governance/management-groups/index.md), Abonnements, [Ressourcengruppen](#resource-groups) und Ressourcen. Die folgende Abbildung zeigt ein Beispiel dieser Ebenen.
 
-![Bereich](./media/resource-group-overview/scope-levels.png)
+![`Scope`](./media/resource-group-overview/scope-levels.png)
 
 Sie wenden die Verwaltungseinstellungen auf einer dieser Bereichsebenen an. Die von Ihnen ausgewählte Ebene bestimmt, wie umfassend die Einstellung angewendet wird. Niedrigere Ebenen erben die Einstellungen von höheren Ebenen. Wenn Sie also beispielsweise eine [Richtlinie](../governance/policy/overview.md) auf das Abonnement anwenden, gilt diese für alle Ressourcengruppen und Ressourcen in Ihrem Abonnement. Wenn Sie eine Richtlinie auf die Ressourcengruppe anwenden, gilt diese für die Ressourcengruppe und alle dazugehörigen Ressourcen. Andere Ressourcengruppen sind von der Richtlinienzuweisung dagegen nicht betroffen.
+
+Sie können Vorlagen für Verwaltungsgruppen, Abonnements oder Ressourcengruppen bereitstellen.
 
 ## <a name="guidance"></a>Anleitungen
 
@@ -85,13 +83,13 @@ Beim Definieren der Ressourcengruppe sind einige wichtige Faktoren zu beachten:
 
 Beim Erstellen einer Ressourcengruppe müssen Sie einen Standort für die Ressourcengruppe angeben. Vielleicht stellen Sie sich hierbei die folgende Frage: „Warum wird für eine Ressourcengruppe ein Standort benötigt? Und wenn die Ressourcen andere Standorte als die Ressourcengruppe aufweisen können, warum ist der Standort der Ressourcengruppe dann überhaupt wichtig?“ In der Ressourcengruppe werden Metadaten zu den Ressourcen gespeichert. Wenn Sie einen Standort für die Ressourcengruppe angeben, legen Sie also fest, wo die Metadaten gespeichert werden. Aus Compliance-Gründen müssen Sie unter Umständen sicherstellen, dass Ihre Daten in einer bestimmten Region gespeichert werden.
 
-Ist die Region der Ressourcengruppe vorübergehend nicht verfügbar, können Sie keine Ressourcen in der Ressourcengruppe aktualisieren, da die Metadaten nicht verfügbar sind. Die Ressourcen in anderen Regionen funktionieren weiterhin wie erwartet, doch können Sie diese nicht aktualisieren. Um das Risiko zu minimieren, platzieren Sie Ihre Ressourcengruppe und Ressourcen in der gleichen Region.
+Ist die Region der Ressourcengruppe vorübergehend nicht verfügbar, können Sie keine Ressourcen in der Ressourcengruppe aktualisieren, da die Metadaten nicht verfügbar sind. Die Ressourcen in anderen Regionen funktionieren weiterhin wie erwartet, doch können Sie diese nicht aktualisieren. Weitere Informationen zum Entwerfen zuverlässiger Anwendungen finden Sie unter [Entwerfen zuverlässiger Azure-Anwendungen](/azure/architecture/reliability/).
 
 ## <a name="resource-providers"></a>Ressourcenanbieter
 
 Jeder Ressourcenanbieter stellt einen Satz mit Ressourcen und Vorgängen für die Arbeit mit diesen Ressourcen bereit. Wenn Sie beispielsweise Schlüssel und geheime Schlüssel speichern möchten, verwenden Sie den Ressourcenanbieter **Microsoft.KeyVault** . Dieser Ressourcenanbieter bietet einen Ressourcentyp mit dem Namen **vaults** zum Erstellen des Schlüsseltresors an.
 
-Der Name eines Ressourcentyps hat folgendes Format: **{Ressourcenanbieter}/{Ressourcentyp}**. Der Ressourcentyp für einen Schlüsseltresor ist **Microsoft.KeyVault/vaults**.
+Der Name eines Ressourcentyps hat folgendes Format: **{Ressourcenanbieter}/{Ressourcentyp}** . Der Ressourcentyp für einen Schlüsseltresor ist **Microsoft.KeyVault/vaults**.
 
 Bevor Sie mit der Bereitstellung Ihrer Ressourcen beginnen, ist es ratsam, sich über die verfügbaren Ressourcenanbieter zu informieren. Wenn Sie die Namen der Ressourcenanbieter und Ressourcen kennen, können Sie besser definieren, welche Ressourcen Sie unter Azure bereitstellen möchten. Außerdem müssen Sie die gültigen Speicherorte und API-Versionen für jeden Ressourcentyp kennen. Weitere Informationen finden Sie unter [Ressourcenanbieter und -typen](resource-manager-supported-services.md).
 
@@ -174,7 +172,21 @@ Nach dem Definieren der Vorlage können Sie die Ressourcen in Azure bereitstelle
 
 Wenn Sie einen komplexen Dienst in Azure bereitstellen, müssen Sie den Dienst vielleicht in mehreren Regionen bereitstellen und seine Integrität überprüfen, bevor Sie mit dem nächsten Schritt fortfahren. Koordinieren Sie mit dem [Azure-Bereitstellungs-Manager](deployment-manager-overview.md) eine phasenweise Einführung des Diensts. Mit der phasenweisen Einführung des Diensts können Sie mögliche Probleme finden, bevor er in allen Regionen bereitgestellt ist. Wenn Sie diese Vorsichtsmaßnahmen nicht benötigen, sind die Bereitstellungsvorgänge im vorherigen Abschnitt die bessere Option.
 
-Der Bereitstellungs-Manager befindet sich derzeit in der privaten Vorschauphase.
+Der Bereitstellungs-Manager ist derzeit als Public Preview verfügbar.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Resilienz von Azure Resource Manager
+
+Der Azure Resource Manager-Dienst ist auf Resilienz und fortlaufende Verfügbarkeit ausgelegt. Resource Manager-Vorgänge und Vorgänge auf Steuerungsebene (an management.azure.com gesendete Anforderungen) in der REST-API haben folgende Eigenschaften:
+
+* Sie sind regionsübergreifend verteilt. Einige Dienste sind regional.
+
+* Sie sind an Standorten mit mehreren Verfügbarkeitszonen über Verfügbarkeitszonen (sowie Regionen) verteilt.
+
+* Sie sind nicht von einem einzelnen logischen Rechenzentrum abhängig.
+
+* Sie werden nie für Wartungsaktivitäten außer Betrieb genommen.
+
+Diese Resilienz gilt für Dienste, die Anforderungen über Resource Manager empfangen. Key Vault profitiert beispielsweise von dieser Resilienz.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

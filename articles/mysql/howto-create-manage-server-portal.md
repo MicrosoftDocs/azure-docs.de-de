@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528677"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61459517"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Erstellen und Verwalten eines Servers mit Azure-Datenbank für MySQL im Azure-Portal
 In diesem Artikel wird beschrieben, wie Sie auf schnelle Weise einen neuen Server für eine Azure Database for MySQL erstellen können. Außerdem erhalten Sie Informationen zum Verwalten des Servers mithilfe des Azure-Portals. Die Serververwaltung umfasst das Anzeigen von Serverdetails und Datenbanken, das Zurücksetzen des Kennworts, das Skalieren von Ressourcen und das Löschen des Servers.
@@ -106,7 +106,7 @@ Scrollen Sie auf dem Serverblatt **Übersicht** nach unten, bis die Datenbankkac
 ## <a name="show-details-of-an-azure-database-for-mysql-server"></a>Anzeigen von Details zu einem Server mit Azure-Datenbank für MySQL
 Klicken Sie unter **Einstellungen** auf **Eigenschaften**, um detaillierte Informationen zum Server anzuzeigen.
 
-![Eigenschaften](./media/howto-create-manage-server-portal/properties.png)
+![properties](./media/howto-create-manage-server-portal/properties.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

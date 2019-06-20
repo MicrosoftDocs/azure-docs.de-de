@@ -1,53 +1,60 @@
 ---
-title: Azure-Tabelle | Microsoft-Dokumentation
+title: Azure Table | Azure Marketplace
 description: Konfigurieren der Leadverwaltung mit Azure-Tabellen
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
-author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
+author: v-miclar
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/22/2019
+ms.author: pabutler
+ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878008"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147898"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Anweisungen für die Leadverwaltung für Azure-Tabellen
 
 Dieser Artikel beschreibt, wie Sie eine Azure-Tabelle zum Speichern von Vertriebschancen (Leads) konfigurieren. Sie können in Azure-Tabellen Informationen zu Kunden speichern und anpassen.
 
-## <a name="to-configure-azure-table"></a>So konfigurieren Sie eine Azure-Tabelle
 
-1.  Wenn Sie nicht über ein Azure-Konto verfügen, können Sie ein [kostenloses Testkonto erstellen](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="how-to-configure-azure-table"></a>Konfigurieren einer Azure-Tabelle
 
-2.  Nachdem Ihr Azure-Konto aktiviert wurde, melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-3.  Erstellen Sie im Azure-Portal ein Speicherkonto. In der nächsten Screenshot wird das Erstellen eines Speicherkontos veranschaulicht. Weitere Informationen zu den Preisen für Storage finden Sie unter [Preise für Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+1. Wenn Sie nicht über ein Azure-Konto verfügen, können Sie ein [kostenloses Testkonto erstellen](https://azure.microsoft.com/pricing/free-trial/).
+2. Nachdem Ihr Azure-Konto aktiviert wurde, melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+3. Gehen Sie folgendermaßen vor, um im Azure-Portal ein Speicherkonto zu erstellen.  
+    1. Klicken Sie im Menü auf der linken Seite auf **+ Ressource erstellen**.  Auf der rechten Seite wird der Bereich (das Blatt) **Neu** angezeigt.
+    2. Wählen Sie im Bereich **Neu** die Option **Speicher** aus.  Auf der rechten Seite wird eine Liste **Empfohlen** angezeigt.
+    3. Wählen Sie **Speicherkonto** aus, um mit der Kontoerstellung zu beginnen.  Befolgen Sie die Anweisungen im Artikel [Erstellen eines Speicherkontos](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
     ![Schritte zum Erstellen eines Azure Storage-Kontos](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Kopieren Sie die Verbindungszeichenfolge des Speicherkontos für den Schlüssel, und fügen Sie sie im Cloud-Partnerportal im Feld **Verbindungszeichenfolge für Speicherkonto** ein. Ein Beispiel für eine Verbindungszeichenfolge ist `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
-    
-    ![Azure-Speicherschlüssel](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+    Weitere Informationen zu Speicherkonten finden Sie im [Schnellstarttutorial](https://docs.microsoft.com/azure/storage/).  Weitere Informationen zu den Preisen für Storage finden Sie unter [Preise für Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-Sie können die Daten in Ihrer Speichertabelle im [Azure Storage-Explorer](https://azurestorageexplorer.codeplex.com/) oder einem anderen Tool anzeigen. Sie können die Daten auch in eine Azure-Tabelle exportieren.
-Daten.
+4. Warten Sie, bis Ihr Speicherkonto bereitgestellt wird. Dieser Prozess nimmt in der Regel einige Minuten in Anspruch.  Greifen Sie über die **Homepage** des Azure-Portals auf Ihr Speicherkonto zu, indem Sie **All Ihre Ressourcen anzeigen** oder im linken Navigationsbereich des Azure-Portals **Alle Ressourcen** auswählen.
 
-## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(Optional)**  Verwenden von Microsoft Flow mit einer Azure-Tabelle
+    ![Zugriff auf Ihr Azure-Speicherkonto](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-Sie können [Microsoft Flow](https://docs.microsoft.com/flow/) verwenden, um automatisch jedes Mal, wenn ein Lead zur Azure-Tabelle hinzugefügt wird, eine Benachrichtigung zu senden. Wenn Sie kein Azure-Konto haben, können Sie sich [für ein kostenloses Konto registrieren](https://flow.microsoft.com/).
+5. Kopieren Sie im Speicherkontobereich die Speicherkonto-Verbindungszeichenfolge für den Schlüssel, und fügen Sie sie im Cloud-Partnerportal im Feld **Verbindungszeichenfolge für Speicherkonto** ein. Beispiel für eine Verbindungszeichenfolge:
+
+```sql
+DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+```
+
+  ![Azure-Speicherschlüssel](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+
+Sie können die Daten in Ihrer Speichertabelle im [Azure Storage-Explorer](https://azurestorageexplorer.codeplex.com/) oder einem ähnlichen Tool anzeigen. Außerdem können Sie die Daten aus Azure-Tabellen exportieren.
+
+
+## <a name="use-microsoft-flow-with-an-azure-table-optional"></a>Verwenden von Microsoft Flow mit einer Azure-Tabelle (*optional*) 
+
+Sie können [Microsoft Flow](https://docs.microsoft.com/flow/) verwenden, um automatisch jedes Mal, wenn ein Lead zur Azure-Tabelle hinzugefügt wird, eine Benachrichtigung zu senden. Wenn Sie kein Konto besitzen, können Sie sich [für ein kostenloses Konto registrieren](https://flow.microsoft.com/).
+
 
 ### <a name="lead-notification-example"></a>Beispiel zu Leadbenachrichtigung
 
-Verwenden Sie dieses Beispiel als Leitfaden, um einen einfachen Flow zu erstellen, in dem automatisch eine E-Mail-Benachrichtigung gesendet wird, wenn ein neuer Lead zu einer Azure-Tabelle hinzugefügt wird. In diesem Beispiel wird eine Wiederholung eingerichtet, um stündlich Leadinformationen zu senden, wenn der Tabellenspeicher aktualisiert wird.
+Verwenden Sie dieses Beispiel als Leitfaden für die Erstellung eines grundlegenden Flows, in dem automatisch eine E-Mail-Benachrichtigung gesendet wird, wenn einer Azure-Tabelle ein neuer Lead hinzugefügt wird. In diesem Beispiel wird eine Wiederholung eingerichtet, um stündlich Leadinformationen zu senden, wenn der Tabellenspeicher aktualisiert wird.
 
 1. Melden Sie sich bei Ihrem Microsoft Flow-Konto an.
 2. Wählen Sie in der linken Navigationsleiste die Option **Meine Flows** aus.
@@ -90,7 +97,7 @@ Im nächsten Schritt stellen Sie eine Verbindung mit Ihrer Azure-Tabelle her, un
 
      ![Benutzerdefinierten Wert für den Azure-Tabellennamen auswählen](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filterabfrage**: Klicken Sie auf dieses Feld. In einem Popupfenster wird das Symbol „Vergangene Zeit abrufen“ angezeigt. Wählen Sie **Vergangene Zeit** aus, um dies als Zeitstempel zum Filtern der Abfrage zu verwenden. Alternativ können Sie diese Funktion in das Feld einfügen: `gt datetime'@{body('Get_past_time')}'`
+   - **Filterabfrage**: Klicken Sie auf dieses Feld. In einem Popupfenster wird das Symbol **Vergangene Zeit abrufen** angezeigt. Wählen Sie **Vergangene Zeit** aus, um dies als Zeitstempel zum Filtern der Abfrage zu verwenden. Alternativ können Sie die folgende Funktion in das Feld einfügen: CreatedTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![Filterabfragefunktion einrichten](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
@@ -121,20 +128,23 @@ Im nächsten Schritt stellen Sie eine Verbindung mit Ihrer Azure-Tabelle her, un
 
     - **An**: Geben Sie eine E-Mail-Adresse für jede Person ein, die diese Benachrichtigung erhalten soll.
     - **Betreff**: Geben Sie einen Betreff für die E-Mail ein. Beispiel:  Neue Leads!
-    - **Text**:   Fügen Sie den Text hinzu, der in jede E-Mail einbezogen werden soll (optional), und fügen Sie dann den Text `('Get_entities')?['value']` als eine Funktion ein, um Leadinformationen einzufügen.
+    - **Text**:   Fügen Sie den Text hinzu, der in jede E-Mail einbezogen werden soll (optional), und fügen Sie dann den Text `body('Get_entities')?['value']` als eine Funktion ein, um Leadinformationen einzufügen.
 
       >[!NOTE] 
       >Sie können weitere statische oder dynamische-Datenpunkte in den Text dieser E-Mail einfügen.
 
-       ![E-Mail für Leadbenachrichtigung einrichten](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
+      ![E-Mail für Leadbenachrichtigung einrichten](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
 13. Wählen Sie **Speichern** aus, um den Flow zu speichern. Microsoft Flow testet den Flow automatisch auf Fehler. Sind keine Fehler vorhanden, wird Ihr Flow gestartet, nachdem er gespeichert wurde.
 
 Die nächste Bildschirmaufnahme zeigt ein Beispiel, wie der fertige Flow aussehen soll.
 
- ![Fertige Flowsequenz](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+[![Fertige Flowsequenz](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
-### <a name="managing-your-flow"></a>Verwalten Ihres Flows
+(*Klicken Sie auf die Abbildung, um sie zu vergrößern.* )
+
+
+### <a name="manage-your-flow"></a>Verwalten Ihres Flows
 
 Das Verwalten Ihres Flows, nachdem er gestartet wurde, ist einfach.  Sie haben vollständige Kontrolle über den Flow. Sie können ihn z. B. beenden und bearbeiten, und Sie können einen Ausführungsverlauf anzeigen und Analysen abrufen. Die nächste Bildschirmaufnahme zeigt die Optionen, die zum Verwalten eines Flows verfügbar sind. 
 
@@ -145,6 +155,7 @@ Der Flow wird solange ausgeführt, bis Sie ihn mit der Option **Flow deaktiviere
 Erhalten Sie keine E-Mail-Benachrichtigungen zu Leads, wurden keine neuen Leads zur Azure-Tabelle hinzugefügt. Sind irgendwelche Flowfehler vorhanden, erhalten Sie eine E-Mail, die wie das Beispiel in der nächsten Bildschirmaufnahme aussieht.
 
  ![E-Mail-Benachrichtigung zu Flowfehler](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

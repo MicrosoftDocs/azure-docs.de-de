@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dc208f3231882a0726733c897e70557c657cddf3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e627de5b22a67051961e70bab56b2d931129281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024525"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244795"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Arbeiten mit Suchergebnissen in Azure Search
 Dieser Artikel enthält Anleitungen dazu, wie Standardelemente einer Seite mit Suchergebnissen implementiert werden, z.B. Gesamtanzahl, Dokumentabruf, Sortierreihenfolge und Navigation. Seitenbezogene Optionen, die Daten oder Informationen zu Ihren Suchergebnissen beitragen, werden über die [Dokument durchsuchen](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)-Anforderungen angegeben, die an den Azure Search-Dienst gesendet werden. 
 
-In der REST-API enthalten Anforderungen einen GET-Befehl, Pfad- und Abfrageparameter, denen der Dienst entnimmt, was angefordert wird und wie die Antwort zu formulieren ist. Im .NET-SDK ist die entsprechende API die [DocumentSearchResult-Klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+In der REST-API enthalten Anforderungen einen GET-Befehl, Pfad- und Abfrageparameter, denen der Dienst entnimmt, was angefordert wird und wie die Antwort zu formulieren ist. Im .NET-SDK ist die entsprechende API die [DocumentSearchResult-Klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Einige Codebeispiele beinhalten eine Web-Front-End-Schnittstelle, die Sie hier finden: [Demo-App „New York City Jobs“](https://azjobsdemo.azurewebsites.net/) und [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698739"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65913864"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Verwalten von Pre- und Post-Skripts
 
@@ -30,9 +30,7 @@ Um ein Pre- und/oder Post-Skript bei einer Updatebereitstellung zu verwenden, er
 
 ![Auswählen der Skripts](./media/pre-post-scripts/select-scripts.png)
 
-Wählen Sie das gewünschte Skript aus. In diesem Beispiel wurde das Runbook **UpdateManagement-TurnOnVms** verwendet. Wenn Sie das Runbook auswählen, wird die Seite **Skript konfigurieren** geöffnet. Geben Sie Werte für die Parameter an, und wählen Sie **Skript vor Vorgang** aus. Klicken Sie nach Abschluss des Vorgangs auf **OK**.
-
-![Skript konfigurieren](./media/pre-post-scripts/configure-script.png)
+Wählen Sie das gewünschte Skript aus. In diesem Beispiel wurde das Runbook **UpdateManagement-TurnOnVms** verwendet. Wenn Sie das Runbook auswählen, wird die Seite **Skript konfigurieren** geöffnet. Wählen Sie **Skript vor Vorgang**. Klicken Sie nach Abschluss des Vorgangs auf **OK**.
 
 Wiederholen Sie diese Schritte für das Skript **UpdateManagement-TurnOffVms**. Wählen Sie dieses Mal jedoch unter **Skripttyp** die Option **Skript nach Vorgang** aus.
 

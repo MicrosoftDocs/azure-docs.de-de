@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 712004a1ae8a2a72854b7b2332449a019c0820c3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117230"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256246"
 ---
 # <a name="create-an-application-insights-resource"></a>Erstellen einer Application Insights-Ressource
 Azure Application Insights zeigt Daten über Ihre Anwendung in einer Microsoft Azure-*Ressource* an. Die Erstellung einer neuen Ressource gehört daher zur [Einrichtung von Application Insights für das Überwachen einer neuen Anwendung][start]. In vielen Fällen kann eine Ressource automatisch von der IDE erstellt werden. In einigen Fällen erstellen Sie eine Ressource jedoch manuell – z.B. um separate Ressourcen für die Entwicklungs- und Produktionsbuilds der Anwendung verwenden zu können.
@@ -69,7 +69,6 @@ Klicken Sie nach einigen Sekunden auf **Aktualisieren**, falls Sie mehr Daten er
 Sie können ein [PowerShell-Skript](../../azure-monitor/app/powershell.md) schreiben, um eine Ressource automatisch zu erstellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Erstellen eines Dashboards](../../azure-monitor/app/app-insights-dashboards.md)
 * [Diagnosesuche](../../azure-monitor/app/diagnostic-search.md)
 * [Untersuchen von Metriken](../../azure-monitor/app/metrics-explorer.md)
 * [Schreiben von Analytics-Abfragen](../../azure-monitor/app/analytics.md)

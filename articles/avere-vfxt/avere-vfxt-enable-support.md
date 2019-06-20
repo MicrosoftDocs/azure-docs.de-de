@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992463"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409839"
 ---
 # <a name="enable-support-uploads"></a>Aktivieren von Supportuploads
 
@@ -34,7 +34,7 @@ Führen Sie die folgenden Schritte über die Avere-Systemsteuerung aus, um den S
 
    ![Screenshot der Supporteinstellungsseite mit ausgefüllten Kundeninformationen](media/avere-vfxt-support-info.png)
 
-1. Klicken Sie auf das Dreieck links neben **Secure Proactive Support (SPS)**, um den Abschnitt zu erweitern.
+1. Klicken Sie auf das Dreieck links neben **Secure Proactive Support (SPS)** , um den Abschnitt zu erweitern.
 1. Aktivieren Sie das Kontrollkästchen für **SPS-Link aktivieren**.
 1. Klicken Sie auf **Submit**.
 

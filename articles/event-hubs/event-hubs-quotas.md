@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 3cbcf36bdfb6bad3821216605ba86c8cd8332d18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60201455"
 ---
 # <a name="azure-event-hubs-quotas-and-limits"></a>Kontingente und Grenzwerte in Azure Event Hubs
 

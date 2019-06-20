@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/17/2019
+ms.date: 4/23/2019
 ms.author: b-juche
-ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549183"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719443"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Erstellen eines Volumes für Azure NetApp Files
 
@@ -44,7 +44,7 @@ Ein Subnetz muss an Azure NetApp Files delegiert werden.
     * **Volumename**      
         Geben Sie den Namen für das Volume an, das Sie erstellen möchten.   
 
-        Der Name muss innerhalb einer Ressourcengruppe eindeutig sein. Er muss mindestens drei Zeichen lang sein.  Sie dürfen beliebige alphanumerische Zeichen verwenden.
+        Ein Volumename muss innerhalb der einzelnen Kapazitätspools eindeutig sein. Er muss mindestens drei Zeichen lang sein. Sie dürfen beliebige alphanumerische Zeichen verwenden.
 
     * **Kapazitätspool**  
         Geben Sie den Kapazitätspool an, in dem das Volume erstellt werden soll.
@@ -72,7 +72,9 @@ Ein Subnetz muss an Azure NetApp Files delegiert werden.
 4. Klicken Sie auf **Protokoll**, und wählen Sie dann **NFS** als Protokolltyp für das Volume aus.   
     * Geben Sie den **Dateipfad** zum Erstellen des Exportpfads für das neue Volume an. Der Exportpfad dient zum Einbinden und Zugreifen auf das Volume.
 
-        Der Dateipfadname darf nur Buchstaben, Zahlen und Bindestriche („-“) enthalten. Er muss 16 bis 40 Zeichen umfassen.  
+        Der Dateipfadname darf nur Buchstaben, Zahlen und Bindestriche („-“) enthalten. Er muss 16 bis 40 Zeichen umfassen. 
+
+        Der Dateipfad muss innerhalb der einzelnen Abonnements und Regionen eindeutig sein. 
 
     * Optional können Sie [die Exportrichtlinie für das NFS-Volume konfigurieren](azure-netapp-files-configure-export-policy.md).
 
@@ -89,6 +91,33 @@ Ein Subnetz muss an Azure NetApp Files delegiert werden.
 Azure NetApp Files unterstützt SMBv3-Volumes. Bevor Sie ein SMB-Volume hinzufügen, müssen Sie zunächst Active Directory-Verbindungen erstellen. 
 
 ### <a name="create-an-active-directory-connection"></a>Erstellen einer Active Directory-Verbindung
+
+1. Stellen Sie sicher, dass die folgenden Anforderungen erfüllt sind: 
+
+    * Das von Ihnen verwendete Administratorkonto muss in der Lage sein, Computerkonten im Pfad der Organisationseinheit (OU) zu erstellen, den Sie angeben werden.
+    * Auf dem entsprechenden Windows Active Directory-Server (AD) müssen die richtigen Ports geöffnet sein.  
+        Die erforderlichen Ports lauten wie folgt: 
+
+        |     Dienst           |     Port     |     Protocol     |
+        |-----------------------|--------------|------------------|
+        |    AD-Webdienste    |    9389      |    TCP           |
+        |    DNS                |    53        |    TCP           |
+        |    DNS                |    53        |    UDP           |
+        |    ICMPv4             |    –       |    Echo Reply    |
+        |    Kerberos           |    464       |    TCP           |
+        |    Kerberos           |    464       |    UDP           |
+        |    Kerberos           |    88        |    TCP           |
+        |    Kerberos           |    88        |    UDP           |
+        |    LDAP               |    389       |    TCP           |
+        |    LDAP               |    389       |    UDP           |
+        |    LDAP               |    3268      |    TCP           |
+        |    NetBIOS-Name       |    138       |    UDP           |
+        |    SAM/LSA            |    445       |    TCP           |
+        |    SAM/LSA            |    445       |    UDP           |
+        |    Sicheres LDAP (LDAPS)        |    636       |    TCP           |
+        |    Sicheres LDAP (LDAPS)        |    3269      |    TCP           |
+        |    w32time            |    123       |    UDP           |
+
 
 1. Klicken Sie über Ihr NetApp-Konto auf **Active Directory-Verbindungen**, und klicken Sie dann auf **Verbinden**.  
 
@@ -134,12 +163,7 @@ Azure NetApp Files unterstützt SMBv3-Volumes. Bevor Sie ein SMB-Volume hinzufü
     * **Volumename**      
         Geben Sie den Namen für das Volume an, das Sie erstellen möchten.   
 
-        Der Name muss innerhalb einer Ressourcengruppe eindeutig sein. Er muss mindestens drei Zeichen lang sein.  Sie dürfen beliebige alphanumerische Zeichen verwenden.
-
-    * **Dateipfad**  
-        Geben Sie den Dateipfad zum Erstellen des Exportpfads für das neue Volume an. Der Exportpfad dient zum Einbinden und Zugreifen auf das Volume.   
-     
-        Der Dateipfadname darf nur Buchstaben, Zahlen und Bindestriche („-“) enthalten. Er muss 16 bis 40 Zeichen umfassen.  
+        Ein Volumename muss innerhalb der einzelnen Kapazitätspools eindeutig sein. Er muss mindestens drei Zeichen lang sein. Sie dürfen beliebige alphanumerische Zeichen verwenden.
 
     * **Kapazitätspool**  
         Geben Sie den Kapazitätspool an, in dem das Volume erstellt werden soll.

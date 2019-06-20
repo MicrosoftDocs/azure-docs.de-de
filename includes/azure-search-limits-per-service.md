@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: search
 author: HeidiSteen
 ms.service: search
@@ -9,17 +9,17 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160501"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178471"
 ---
 Der Speicher ist durch den Festplattenspeicher oder einen festen Grenzwert für die *maximale Anzahl* von Indizes, Dokumenten oder anderen allgemeinen Ressourcen beschränkt (je nachdem, was zuerst erreicht wird). In der folgenden Tabelle sind die Speicherbegrenzungen dokumentiert. Obergrenzen für Indizes, Dokumente und andere Objekte finden Sie unter [Grenzwerte nach Ressource](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Resource | Kostenlos | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vereinbarung zum Servicelevel (SLA)<sup>3</sup>  |Nein  |Ja |Ja |Ja |Ja |Ja |Ja |Ja |
+| Vereinbarung zum Servicelevel (SLA)<sup>3</sup>  |Nein |Ja |Ja |Ja |Ja |Ja |Ja |Ja |
 | Speicherkapazität pro Partition |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
 | Partitionen pro Dienst |– |1 |12 |12 |12 |3 |12 |12 |
 | Partitionsgröße |– |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |

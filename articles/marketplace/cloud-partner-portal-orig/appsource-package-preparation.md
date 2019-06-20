@@ -1,25 +1,19 @@
 ---
-title: Vorbereiten von AppSource-Paketen | Microsoft-Dokumentation
+title: Vorbereiten von AppSource-Paketen | Azure Marketplace
 description: Erläuterung zum Vorbereiten und Erstellen von AppSource-Paketen
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837030"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935646"
 ---
 # <a name="appsource-package-preparation"></a>Vorbereiten von AppSource-Paketen
 
@@ -86,7 +80,7 @@ Für das AppSource-Paket sind einige zusätzliche Dateien erforderlich.
 1. JPG (Auflösung: 32x32)
 2. HTML (HTML-formatierte Datei)
 3. **Content_Types.xml** (gleiche Datei wie oben)
-4. xml
+4. Xml
 
 Hier sehen Sie Beispielcode für „input.xml“. Definitionen finden Sie in der Tabelle unterhalb des Codes.
 
@@ -117,7 +111,7 @@ Hier sehen Sie Beispielcode für „input.xml“. Definitionen finden Sie in der
 |SolutionAnchorName |Der Name der ZIP-Datei der Lösung in Package Deployer, der als Anzeigename und Beschreibung der Lösungsressourcen verwendet wird|
 | StartDate| Das Datum, an dem das Lösungspaket zur Verfügung gestellt wird. Format: MM/TT/JJJJ|
 |EndDate|Das Datum, ab dem das Lösungspaket nicht mehr verfügbar ist. Format: MM/TT/JJJJ |
-|SupportedCountries |Eine durch Trennzeichen getrennte Liste der Länder, für die das Paket zur Verfügung gestellt werden soll. Eine Liste aller aktuellen Ländercodes erhalten Sie von den Onlinediensten. Zum Zeitpunkt der Erstellung dieses Artikels lautete die Liste: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
+|SupportedCountries |Eine durch Trennzeichen getrennte Liste der Länder/Regionen, für die das Paket zur Verfügung gestellt werden soll. Eine Liste aller aktuellen Ländercodes erhalten Sie von den Onlinediensten. Zum Zeitpunkt der Erstellung dieses Artikels lautete die Liste: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
 |LearnMoreLink | URL zur Seite „Weitere Informationen“ für dieses Paket |
 |Locales|Eine Instanz dieses Knotens für jede UX-Sprache, die in der bevorzugten Lösungs-UX unterstützt werden soll. Dieser Knoten enthält untergeordnete Elemente, die das Gebietsschema, das Logo und Bedingungen für jede Sprache beschreiben.|
 |Locales: PackageLocale.Code|LCID der Sprache für diesen Knoten. Beispiel: Englisch (USA) ist 1033|
@@ -133,7 +127,7 @@ Im letzten Schritt werden die folgenden Komponenten in einer ZIP-Datei zusammeng
 
 1. ZIP-Datei (zuvor erstellt)
 2. **Content_Types.xml**
-3. xml
+3. Xml
 4. png
 5. html
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922130"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hochverfügbarkeit von SAP HANA auf Azure-VMs unter Red Hat Enterprise Linux
@@ -28,18 +28,18 @@ ms.locfileid: "64922130"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -109,7 +109,7 @@ Führen Sie diese Schritte aus, um die Vorlage bereitzustellen:
     * **SAP-Systemgröße**: Geben Sie die SAPS-Anzahl an, die das neue System bereitstellen soll. Wenn Sie nicht sicher sind, welche SAPS-Anzahl für das System benötigt wird, können Sie sich an den SAP-Technologiepartner oder -Systemintegrator wenden.
     * **Systemverfügbarkeit**: Wählen Sie **HA** (Hohe Verfügbarkeit).
     * **Administratorbenutzername, Administratorkennwort oder SSH-Schlüssel**: Ein neuer Benutzer wird erstellt, der für die Anmeldung beim Computer verwendet werden kann.
-    * **Subnetz-ID**: Wenn Sie die VM in einem vorhandenen VNET bereitstellen möchten, in dem Sie ein Subnetz definiert haben, dem die VM zugewiesen werden soll, geben Sie die ID dieses spezifischen Subnetzes an. Die ID hat normalerweise das folgende Format: **/subscriptions/\<Abonnement-ID>/resourceGroups/\<Name der Ressourcengruppe>/providers/Microsoft.Network/virtualNetworks/\<Name des virtuellen Netzwerks>/subnets/\<Name des Subnetzes>**. Lassen Sie das Feld leer, wenn Sie ein neues virtuelles Netzwerk erstellen möchten.
+    * **Subnetz-ID**: Wenn Sie die VM in einem vorhandenen VNET bereitstellen möchten, in dem Sie ein Subnetz definiert haben, dem die VM zugewiesen werden soll, geben Sie die ID dieses spezifischen Subnetzes an. Die ID hat normalerweise das folgende Format: **/subscriptions/\<Abonnement-ID>/resourceGroups/\<Name der Ressourcengruppe>/providers/Microsoft.Network/virtualNetworks/\<Name des virtuellen Netzwerks>/subnets/\<Name des Subnetzes>** . Lassen Sie das Feld leer, wenn Sie ein neues virtuelles Netzwerk erstellen möchten.
 
 ### <a name="manual-deployment"></a>Manuelle Bereitstellung
 
@@ -191,9 +191,9 @@ Weitere Informationen zu den erforderlichen Ports für SAP HANA finden Sie im Ka
 
 Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
-* **[A]**: Der Schritt gilt für alle Knoten.
-* **[1]**: Der Schritt gilt nur für den Knoten 1.
-* **[2]**: Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
+* **[A]** : Der Schritt gilt für alle Knoten.
+* **[1]** : Der Schritt gilt nur für den Knoten 1.
+* **[2]** : Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
 
 1. **[A]** Richten Sie das Datenträgerlayout **Logical Volume Management (LVM)** (Logische Volumeverwaltung) ein.
 
@@ -352,9 +352,9 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
 Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
-* **[A]**: Der Schritt gilt für alle Knoten.
-* **[1]**: Der Schritt gilt nur für den Knoten 1.
-* **[2]**: Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
+* **[A]** : Der Schritt gilt für alle Knoten.
+* **[1]** : Der Schritt gilt nur für den Knoten 1.
+* **[2]** : Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
 
 1. **[A]** Konfigurieren Sie die Firewall.
 
@@ -443,9 +443,9 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
 Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
-* **[A]**: Der Schritt gilt für alle Knoten.
-* **[1]**: Der Schritt gilt nur für den Knoten 1.
-* **[2]**: Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
+* **[A]** : Der Schritt gilt für alle Knoten.
+* **[1]** : Der Schritt gilt nur für den Knoten 1.
+* **[2]** : Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
 
 1. **[A]** Konfigurieren Sie die Firewall.
 

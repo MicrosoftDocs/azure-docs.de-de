@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
 ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546142"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162205"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Bereitstellen an Azure App Service mit Jenkins und der Azure CLI
 Für das Bereitstellen einer Java-Web-App in Azure können Sie die Azure CLI in der [Jenkins-Pipeline](https://jenkins.io/doc/book/pipeline/) nutzen. In diesem Tutorial erstellen Sie eine CI/CD-Pipeline auf einer Azure-VM und erfahren, wie Sie:

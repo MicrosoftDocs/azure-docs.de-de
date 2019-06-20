@@ -3,8 +3,8 @@ title: Web-API-Apps in Azure Active Directory
 description: Hier wird beschrieben, worum es sich bei Web-API-Anwendungen handelt, und Sie erfahren mehr über die Grundlagen des Protokollflusses, der Registrierung und des Tokenablaufs für diesen App-Typ.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545211"
 ---
 # <a name="web-api"></a>Web-API
 
@@ -69,7 +69,7 @@ Sehen Sie sich die Codebeispiele für Szenarien vom Typ „Webanwendung zu Web-A
 
 ## <a name="app-registration"></a>App-Registrierung
 
-Informationen zum Registrieren einer Anwendung beim Azure AD v1.0-Endpunkt finden Sie unter [Schnellstart: Registrieren einer App mit dem Azure Active Directory v1.0-Endpunkt](quickstart-v1-add-azure-ad-app.md).
+Informationen zum Registrieren einer Anwendung beim Azure AD v1.0-Endpunkt finden Sie unter [Schnellstart: Registrieren einer Anwendung bei Microsoft Identity Platform](quickstart-register-app.md).
 
 * Einzelinstanzanwendung: Webanwendung und Web-API müssen sowohl bei Verwendung der Anwendungsidentität als auch bei Verwendung der delegierten Benutzeridentität im gleichen Verzeichnis in Azure AD registriert werden. Die Web-API kann so konfiguriert werden, dass sie einen Satz von Berechtigungen verfügbar macht, die den Ressourcenzugriff der Webanwendung beschränken. Bei Verwendung einer delegierten Benutzeridentität muss die Webanwendung die gewünschten Berechtigungen aus dem Dropdownmenü **Berechtigungen für andere Anwendungen** im Azure-Portal auswählen. Bei Verwendung der Anwendungsidentität ist dieser Schritt nicht erforderlich.
 * Mehrinstanzenfähige Anwendung: Die Webanwendung wird so konfiguriert, dass sie die Berechtigungen angibt, die für eine ordnungsgemäße Verwendung erforderlich sind. Die Liste mit den erforderlichen Berechtigungen wird in einem Dialogfeld angezeigt, wenn ein Benutzer oder Administrator im Zielverzeichnis der Anwendung zustimmt. Dadurch wird die Anwendung in ihrer Organisation verfügbar. Einige Anwendungen benötigen nur Berechtigungen auf Benutzerebene. Diesen kann jeder Benutzer in der Organisation zustimmen. Andere Anwendungen benötigen Berechtigungen auf Administratorebene. Diesen kann ein Benutzer in der Organisation nicht zustimmen. Nur ein Verzeichnisadministrator kann seine Zustimmung für Anwendungen geben, die diese Berechtigungsebene erfordern. Wenn der Benutzer oder Administrator seine Zustimmung gibt, werden die Webanwendung und die Web-API in dessen Verzeichnis registriert.

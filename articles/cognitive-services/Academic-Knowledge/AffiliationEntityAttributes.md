@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61340516"
 ---
 # <a name="affiliation-entity"></a>Zuordnungsentität
 
@@ -24,8 +24,8 @@ ms.locfileid: "55864365"
 NAME    |BESCHREIBUNG                            |Type       | Vorgänge
 ------- | ------------------------------------- | --------- | ----------------------------
 id      |Entitäts-ID                              |Int64      |Equals
-AfN     |Normalisierter Name der Zuordnung        |Zeichenfolge     |Equals
-DAfN    |Anzeigename der Zuordnung       |Zeichenfolge     |none
+AfN     |Normalisierter Name der Zuordnung        |string     |Equals
+DAfN    |Anzeigename der Zuordnung       |string     |none
 CC      |Gesamtzitatanzahl der Konferenzinstanz der Zuordnung           |Int32      |none  
 ECC     |Geschätzte Gesamtzitatanzahl der Zuordnung |Int32      |none
 

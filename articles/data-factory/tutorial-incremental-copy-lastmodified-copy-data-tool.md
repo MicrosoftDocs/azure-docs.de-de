@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65519129"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Inkrementelles Kopieren neuer und geänderter Dateien auf Basis von LastModifiedDate und mithilfe des Tools zum Kopieren von Daten
 
 In diesem Tutorial verwenden Sie das Azure-Portal, um eine Data Factory zu erstellen. Anschließend verwenden Sie das Tool zum Kopieren von Daten, um eine Pipeline zu erstellen, die neue und geänderte Dateien nur auf Basis von **LastModifiedDate** inkrementell von einem in den anderen Azure-Blobspeicher kopiert.
+
+Auf diese Weise überprüft ADF alle Dateien aus dem Quellspeicher, wendet den Filter auf deren „LastModifiedDate“ an und kopiert nur die Dateien in den Zielspeicher, die neu sind oder seit dem letzten Mal aktualisiert wurden.  Wenn Sie ADF sehr viele Dateien überprüfen lassen, aber nur wenige Dateien in den Zielspeicherort kopieren, müssen Sie trotzdem mit einer langen Ausführungsdauer rechnen, denn auch das Überprüfen von Dateien ist zeitaufwändig.   
 
 > [!NOTE]
 > Falls Sie noch nicht mit Azure Data Factory vertraut sind, ist es ratsam, den Artikel [Einführung in Azure Data Factory](introduction.md) zu lesen.
@@ -61,7 +63,7 @@ Bereiten Sie Ihren Blobspeicher folgendermaßen auf das Tutorial vor.
    
    ![Fehlermeldung zu neuer Data Factory](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-   Wenn eine Fehlermeldung zum Namenswert angezeigt wird, geben Sie einen anderen Namen für die Data Factory ein. Verwenden Sie beispielsweise den Namen _**IhrName**_**ADFTutorialDataFactory**. Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Data Factory – Benennungsregeln](naming-rules.md).
+   Wenn eine Fehlermeldung zum Namenswert angezeigt wird, geben Sie einen anderen Namen für die Data Factory ein. Verwenden Sie beispielsweise den Namen _**IhrName**_ **ADFTutorialDataFactory**. Benennungsregeln für Data Factory-Artefakte finden Sie im Thema [Data Factory – Benennungsregeln](naming-rules.md).
 3. Wählen Sie das **Azure-Abonnement** aus, in dem Sie die neue Data Factory erstellen werden. 
 4. Führen Sie unter **Ressourcengruppe** einen der folgenden Schritte aus:
      

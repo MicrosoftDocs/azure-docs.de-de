@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010237"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240362"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Pools für elastische Datenbanken als Hilfe beim Verwalten und Skalieren mehrerer Azure SQL-Datenbank-Instanzen
 
-Pools für elastische SQL-Datenbank-Instanzen sind eine einfache, kostengünstige Lösung zum Verwalten und Skalieren mehrerer Datenbanken mit variierenden und unvorhersehbaren Anforderungen. Die Datenbanken in einem Pool für elastische Datenbanken befinden sich auf einem einzelnen Azure SQL-Datenbank-Server und nutzen gemeinsam eine festgelegte Anzahl von Ressourcen zu einem festen Preis. Mit Pools für elastische Datenbanken in Azure SQL-Datenbanken sind SaaS-Entwickler in der Lage, das Preis-Leistungs-Verhältnis einer Gruppe von Datenbanken im Rahmen eines vorgegebenen Budgets zu optimieren und gleichzeitig eine flexible Leistung für jede Datenbank sicherzustellen.
+Pools für elastische SQL-Datenbank-Instanzen sind eine einfache, kostengünstige Lösung zum Verwalten und Skalieren mehrerer Datenbanken mit variierenden und unvorhersehbaren Anforderungen. Die Datenbanken in einem Pool für elastische Datenbanken befinden sich auf einem einzelnen Azure SQL-Datenbank-Server und nutzen gemeinsam eine festgelegte Anzahl von Ressourcen zu einem festen Preis. Mit Pools für elastische Datenbanken in Azure SQL-Datenbank sind SaaS-Entwickler in der Lage, das Preis-Leistungs-Verhältnis einer Gruppe von Datenbanken im Rahmen eines vorgegebenen Budgets zu optimieren und gleichzeitig eine flexible Leistung für jede Datenbank sicherzustellen.
 
 ## <a name="what-are-sql-elastic-pools"></a>Was sind Pools für elastische SQL-Datenbanken?
 
@@ -120,11 +120,11 @@ Wenn Sie keine Tools verwenden können, kann Ihnen die folgende Anleitung dabei 
    DTU-basiertes Kaufmodell: MAX(<*Gesamtanzahl Datenbanken* x *durchschnittliche DTU-Nutzung pro Datenbank*>,<br>  
    < *Anzahl gleichzeitiger Datenbanken mit Spitzenauslastung* X *DTU-Spitzenauslastung pro Datenbank* )
 
-   Auf virtuellen Kernen basierendes Kaufmodell: MAX(<*Gesamtanzahl Datenbanken* × *durchschnittliche Nutzung virtueller Kerne pro Datenbank*>,<br>  
+   vCore-basiertes Kaufmodell: MAX(<*Gesamtanzahl Datenbanken* × *durchschnittliche Nutzung virtueller Kerne pro Datenbank*>,<br>  
    <*Anzahl gleichzeitiger Datenbanken mit Spitzenauslastung* X *V-Kern-Spitzenauslastung pro Datenbank*)
 
 2. Schätzen Sie den für den Pool benötigten Speicherplatz, indem Sie die Menge der für alle Datenbanken im Pool benötigten Bytes addieren. Ermitteln Sie dann die eDTU-Poolgröße, die diese Menge an Speicher bietet.
-3. Verwenden Sie für das DTU-basierte Kaufmodell die größere der eDTU-Schätzungen aus Schritt 1 und Schritt 2. Verwenden Sie für das V-Kern-basierte Kaufmodell die V-Kern-Schätzung aus Schritt 1.
+3. Verwenden Sie für das DTU-basierte Kaufmodell die größere der eDTU-Schätzungen aus Schritt 1 und Schritt 2. Verwenden Sie für das vCore-basierte Kaufmodell die V-Kern-Schätzung aus Schritt 1.
 4. Auf der [SQL-Datenbank Preisseite](https://azure.microsoft.com/pricing/details/sql-database/) finden Sie die kleinste Poolgröße, die größer ist als die Schätzung aus Schritt 3.
 5. Vergleichen Sie den Poolpreis aus Schritt 5 mit dem Preis der geeigneten Computegrößen für Einzeldatenbanken.
 
@@ -132,13 +132,13 @@ Wenn Sie keine Tools verwenden können, kann Ihnen die folgende Anleitung dabei 
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>Elastische Aufträge und Pools für elastische Datenbanken
 
-Mit einem Pool werden die Verwaltungsaufgaben vereinfacht, indem Skripts in **[elastischen Aufträgen](sql-database-elastic-jobs-overview.md)** ausgeführt werden. Durch einen elastischen Auftrag werden die meisten aufwändigen Schritte beseitigt, die bei der Verwendung einer großen Anzahl von Datenbanken anfallen. Lesen Sie sich [Erste Schritte mit Aufträgen für die elastische Datenbank](sql-database-elastic-jobs-getting-started.md) durch, bevor Sie beginnen.
+Mit einem Pool werden die Verwaltungsaufgaben vereinfacht, indem Skripts in **[elastischen Aufträgen](elastic-jobs-overview.md)** ausgeführt werden. Durch einen elastischen Auftrag werden die meisten aufwändigen Schritte beseitigt, die bei der Verwendung einer großen Anzahl von Datenbanken anfallen.
 
 Weitere Informationen zu anderen Datenbanktools für die Verwendung mit mehreren Datenbanken finden Sie unter [Horizontales Hochskalieren mit Azure SQL-Datenbank](sql-database-elastic-scale-introduction.md).
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Optionen für Geschäftskontinuität für Datenbanken in einem Pool für elastische Datenbanken
 
-In einem Pool zusammengefasste Datenbanken unterstützen in der Regel die gleichen [Geschäftskontinuitätsfeatures](sql-database-business-continuity.md), die auch bei Einzeldatenbanken zur Verfügung stehen.
+Pooldatenbanken unterstützen in der Regel die gleichen [Geschäftskontinuitätsfeatures](sql-database-business-continuity.md), die auch bei Einzeldatenbanken zur Verfügung stehen.
 
 - **Point-in-Time-Wiederherstellung**
 

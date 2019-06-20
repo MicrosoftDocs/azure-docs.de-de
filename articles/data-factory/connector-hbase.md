@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60400710"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopieren von Daten aus HBase mithilfe von Azure Data Factory 
 
@@ -43,16 +43,16 @@ Folgende Eigenschaften werden für den mit HBase verknüpften Dienst unterstütz
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **HBase** | Ja |
 | host | IP-Adresse oder Hostname des HBase-Servers. (d. h. `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Ja |
-| port | Der TCP-Port, den die HBase-Instanz verwendet, um auf Clientverbindungen zu lauschen. Der Standardwert ist 9090. Geben Sie beim Herstellen einer Verbindung mit Azure HDInsights als Port 443 an. | Nein  |
-| httpPath | Die Teil-URL für den HBase-Server, z.B. `/hbaserest0` bei Verwendung von HDInsight-Clustern. | Nein  |
+| port | Der TCP-Port, den die HBase-Instanz verwendet, um auf Clientverbindungen zu lauschen. Der Standardwert ist 9090. Geben Sie beim Herstellen einer Verbindung mit Azure HDInsights als Port 443 an. | Nein |
+| httpPath | Die Teil-URL für den HBase-Server, z.B. `/hbaserest0` bei Verwendung von HDInsight-Clustern. | Nein |
 | authenticationType | Der Authentifizierungsmechanismus, der für die Verbindung mit dem HBase-Server verwendet werden soll. <br/>Zulässige Werte sind: **Anonymous**, **Basic** | Ja |
-| username | Der Benutzername, der für die Verbindung mit der HBase-Instanz verwendet wird.  | Nein  |
-| password | Das Kennwort, das zum Benutzernamen gehört. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein  |
-| enableSsl | Gibt an, ob die Verbindungen mit dem Server mit SSL verschlüsselt werden. Der Standardwert ist „false“.  | Nein  |
-| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn SSL in einer selbstgehostetem IR verwendet wird. Der Standardwert ist die Datei „cacerts.pem“, die mit der IR installiert wird.  | Nein  |
-| allowHostNameCNMismatch | Gibt an, ob ein von der Zertifizierungsstelle ausgestellter SSL-Zertifikatsname erforderlich ist, der mit dem Hostnamen des Servers übereinstimmt, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert ist „false“.  | Nein  |
-| allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „false“.  | Nein  |
-| connectVia | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Sie können die selbstgehostete Integration Runtime oder Azure Integration Runtime verwenden (sofern Ihr Datenspeicher öffentlich zugänglich ist). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein  |
+| userName | Der Benutzername, der für die Verbindung mit der HBase-Instanz verwendet wird.  | Nein |
+| password | Das Kennwort, das zum Benutzernamen gehört. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein |
+| enableSsl | Gibt an, ob die Verbindungen mit dem Server mit SSL verschlüsselt werden. Der Standardwert ist „false“.  | Nein |
+| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn SSL in einer selbstgehostetem IR verwendet wird. Der Standardwert ist die Datei „cacerts.pem“, die mit der IR installiert wird.  | Nein |
+| allowHostNameCNMismatch | Gibt an, ob ein von der Zertifizierungsstelle ausgestellter SSL-Zertifikatsname erforderlich ist, der mit dem Hostnamen des Servers übereinstimmt, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert ist „false“.  | Nein |
+| allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „false“.  | Nein |
+| connectVia | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Sie können die selbstgehostete Integration Runtime oder Azure Integration Runtime verwenden (sofern Ihr Datenspeicher öffentlich zugänglich ist). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein |
 
 >[!NOTE]
 >Wenn Ihr Cluster keine beständigen Sitzungen wie HDInsight unterstützt, fügen Sie den Knotenindex explizit am Ende der Einstellung für den HTTP-Pfad hinzu (z.B. `/hbaserest0` anstelle von `/hbaserest`).

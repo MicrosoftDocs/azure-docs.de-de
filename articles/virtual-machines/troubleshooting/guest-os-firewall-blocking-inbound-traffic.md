@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213110"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60711570"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Blockierung von eingehendem Datenverkehr durch die Firewall des Azure-VM-Gastbetriebssystem
 

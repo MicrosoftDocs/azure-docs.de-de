@@ -1,26 +1,26 @@
 ---
 title: Anleitung zum Beheben von Sicherheitsrisiken durch spekulative Ausführung in Azure | Microsoft-Dokumentation
 description: Anleitung zum Beheben von Sicherheitsrisiken durch Seitenkanalangriffe mit spekulativer Ausführung in Azure
-services: virtual-machines-windows
+services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: Spectre,Meltdown,Specter
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.author: cynthn
-ms.openlocfilehash: 55b74ecbfd51f69db3b71259f66209c02e927fe9
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 02c89cda7b2c11678539581e16d7162d3466a850
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619964"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66735276"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Anleitung zum Beheben von Sicherheitsrisiken durch Seitenkanalangriffe mit spekulativer Ausführung in Azure
 

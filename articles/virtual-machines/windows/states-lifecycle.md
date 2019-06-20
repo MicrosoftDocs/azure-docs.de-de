@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: d2a0c0dcaa37dd90550f34b92b61f6a990198880
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 921da2808757255a2a39ae8e7b927dbfde2fc627
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60583553"
 ---
-# <a name="virtual-machines-lifecycle-and-states"></a>VM-Lebenszyklus und -Status
+# <a name="virtual-machines-lifecycle-and-states"></a>Lebenszyklus und Status virtueller Computer
 
 [!INCLUDE [virtual-machines-common-states-lifecycle](../../../includes/virtual-machines-common-states-lifecycle.md)]
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
 ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295775"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61219087"
 ---
 # <a name="manage-azure-vm-backups"></a>Verwalten von Azure-VM-Sicherungen
 
@@ -103,7 +103,7 @@ Wählen Sie auf dem Tresordashboard die Kachel **Sicherungsaufträge** aus, um d
 
 Sie haben zwei Möglichkeiten, den Schutz einer virtuellen Maschine zu beenden:
 
-- Beenden aller zukünftigen Sicherungsaufträge und Löschen aller Wiederherstellungspunkte. In diesem Fall kann der virtuelle Computer nicht wiederhergestellt werden.
+- Beenden aller zukünftigen Sicherungsaufträge und Löschen aller Wiederherstellungspunkte In diesem Fall kann der virtuelle Computer nicht wiederhergestellt werden.
 - Beenden aller zukünftigen Sicherungsaufträge und Beibehalten der Wiederherstellungspunkte: Sie können den virtuellen Computer bei Bedarf wiederherstellen, müssen jedoch für das Beibehalten der Wiederherstellungspunkte im Tresor bezahlen. Weitere Informationen finden Sie unter [Azure Backup – Preise](https://azure.microsoft.com/pricing/details/backup/).
 
 >[!NOTE]

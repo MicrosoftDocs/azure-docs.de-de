@@ -10,11 +10,11 @@ ms.date: 03/28/2019
 ms.author: Mario.Hewardt
 ms.reviewer: mbullwin
 ms.openlocfilehash: 54b79897ee378cda52106fe704e25c50a4325f38
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631676"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60784192"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Upgraden des Momentaufnahmedebuggers
 

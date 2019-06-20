@@ -16,231 +16,224 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6945476811ac8e97576bc707e6bb9ad96af82c17
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: fc142bf02a44ea85861f4cc648fd7ee8602c7520
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011669"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mondaycom"></a>Tutorial: Azure Active Directory-Integration mit monday.com
 
 In diesem Tutorial erfahren Sie, wie Sie monday.com in Azure Active Directory (Azure AD) integrieren.
+
 Die Integration von monday.com in Azure AD bietet die folgenden Vorteile:
 
-* Sie können in Azure AD steuern, wer Zugriff auf monday.com hat.
-* Sie können Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei monday.com anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
-* Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
+* Sie können mit Azure AD steuern, wer Zugriff auf monday.com hat.
+* Benutzer können sich mit ihren Azure AD-Konten automatisch bei monday.com anmelden (einmaliges Anmelden; Single Sign-On, SSO).
+* Sie können Ihre Konten an einem zentralen Ort, im Azure-Portal, verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+Weitere Informationen zur Integration von SaaS-Apps (Software as a Service) in Azure AD finden Sie unter [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Um die Azure AD-Integration mit monday.com konfigurieren zu können, benötigen Sie Folgendes:
 
-* Ein Azure AD-Abonnement Sollten Sie über keine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
+* Ein Azure AD-Abonnement Wenn Sie kein Azure AD-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 * monday.com-Abonnement, für das einmaliges Anmelden aktiviert ist
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
 
-In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
+In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung und integrieren monday.com in Azure AD.
 
-* monday.com unterstützt **SP- und IDP-initiiertes** einmaliges Anmelden.
-* monday.com unterstützt die **Just-in-Time**-Benutzerbereitstellung.
+monday.com unterstützt die folgenden Features:
 
-## <a name="adding-mondaycom-from-the-gallery"></a>Hinzufügen von monday.com aus dem Katalog
+* **SP-initiiertes einmaliges Anmelden**
+* **IDP-initiiertes einmaliges Anmelden**
+* **Just-In-Time-Benutzerbereitstellung**
 
-Zum Konfigurieren der Integration von monday.com in Azure AD müssen Sie monday.com aus dem Katalog der Liste mit den verwalteten SaaS-Apps hinzufügen.
+## <a name="add-mondaycom-in-the-azure-portal"></a>Hinzufügen von monday.com im Azure-Portal
 
-**Führen Sie die folgenden Schritte aus, um monday.com aus dem Katalog hinzuzufügen:**
+Damit Sie monday.com in Azure AD integrieren können, müssen Sie monday.com zur Liste der verwalteten SaaS-Apps hinzufügen.
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 
-    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
+1. Wählen Sie im linken Menü die Option **Azure Active Directory** aus.
 
-2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
+    ![Die Option „Azure Active Directory“](common/select-azuread.png)
 
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
+1. Wählen Sie **Unternehmensanwendungen** > **Alle Anwendungen**.
 
-3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+    ![Bereich „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-    ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
+1. Wählen Sie zum Hinzufügen einer Anwendung **Neue Anwendung** aus.
 
-4. Geben Sie im Suchfeld **monday.com** ein, wählen Sie im Ergebnisbereich **monday.com** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+    ![Die Option „Neue Anwendung“](common/add-new-app.png)
+
+1. Geben Sie **monday.com** in das Suchfeld ein. Wählen Sie in den Suchergebnissen **monday.com** und dann **Hinzufügen** aus.
 
     ![monday.com in der Ergebnisliste](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei monday.com mithilfe einer Testbenutzerin namens **Britta Simon**.
-Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in monday.com eingerichtet werden.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD mit monday.com mithilfe eines Testbenutzers namens **Britta Simon**. Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in monday.com eingerichtet werden.
 
-Zum Konfigurieren und Testen des einmaligen Anmeldens in Azure AD bei monday.com müssen Sie die folgenden Schritte durchführen:
+Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD mit monday.com müssen Sie die folgenden Schritte ausführen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Konfigurieren des einmaligen Anmeldens für monday.com](#configure-mondaycom-single-sign-on)**, um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren
-3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Erstellen eines monday.com-Testbenutzers](#create-mondaycom-test-user)**, um eine Entsprechung von Britta Simon in monday.com zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist.
-6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+| Aufgabe | BESCHREIBUNG |
+| --- | --- |
+| **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** | Ermöglicht Ihren Benutzern die Verwendung dieses Features. |
+| **[Konfigurieren des einmaligen Anmeldens für monday.com](#configure-mondaycom-single-sign-on)** | Konfiguriert die Einstellungen für einmaliges Anmelden in der Anwendung. |
+| **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** | Testet das einmalige Anmelden von Azure AD für einen Benutzer namens Britta Simon. |
+| **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** | Ermöglicht Britta Simon die Verwendung des einmaligen Anmeldens von Azure AD. |
+| **[Erstellen eines monday.com-Testbenutzers](#create-a-mondaycom-test-user)** | Erstellt ein Pendant zu Britta Simon in monday.com, das mit ihrer Darstellung in Azure AD verknüpft ist. |
+| **[Testen des einmaligen Anmelden](#test-single-sign-on)** | Überprüft, ob die Konfiguration funktioniert. |
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal.
+In diesem Abschnitt konfigurieren Sie das einmalige Anmelden von Azure AD mit monday.com im Azure-Portal.
 
-Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei monday.com die folgenden Schritte aus:
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) im Anwendungsintegrationsbereich für **monday.com** die Option **Einmaliges Anmelden** aus.
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **monday.com** die Option **Einmaliges Anmelden** aus.
+    ![Option „Einmaliges Anmelden konfigurieren“](common/select-sso.png)
 
-    ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
-
-2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
+1. Wählen Sie im Bereich **SSO-Methode auswählen** den Modus **SAML** oder **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
 
     ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+1. Wählen Sie im Bereich **Einmaliges Anmelden (SSO) mit SAML einrichten** die Option **Bearbeiten** (Stiftsymbol) aus, um den Bereich **Grundlegende SAML-Konfiguration** zu öffnen.
 
     ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
-4. Führen Sie im Abschnitt **Grundlegende SAML-Konfiguration** die folgenden Schritte aus, wenn Sie über eine **Metadatendatei des Dienstanbieters** verfügen und die Anwendung im **IDP**-initiierten Modus konfigurieren möchten:
+1. Führen Sie im Bereich **Grundlegende SAML-Konfiguration** die folgenden Schritte aus, wenn Sie über eine Metadatendatei des Dienstanbieters verfügen und den *IDP-initiierten Modus* konfigurieren möchten:
 
-    a. Klicken Sie auf **Metadatendatei hochladen**.
+    1. Wählen Sie **Metadatendatei hochladen** aus.
 
-    ![Metadatendatei hochladen](common/upload-metadata.png)
+       ![Option „Metadatendatei hochladen“](common/upload-metadata.png)
 
-    b. Klicken Sie auf das **Ordnerlogo**, wählen Sie die Metadatendatei aus, und klicken Sie auf **Hochladen**.
+    1. Wählen Sie zum Auswählen der Metadatendatei das Ordnersymbol und dann **Hochladen** aus.
 
-    ![Metadatendatei auswählen](common/browse-upload-metadata.png)
+       ![Auswählen der Metadatendatei und der Schaltfläche „Hochladen“](common/browse-upload-metadata.png)
 
-    c. Nach dem erfolgreichen Upload der Metadatendatei werden die Werte unter **Bezeichner** und **Antwort-URL** im Abschnitt „Grundlegende SAML-Konfiguration“ automatisch eingefügt.
+    1. Nach dem erfolgreichen Upload der Metadatendatei werden die Werte unter **Bezeichner** und **Antwort-URL** im Bereich **Grundlegende SAML-Konfiguration** automatisch eingefügt:
 
-    ![image](common/idp-intiated.png)
+       ![Die IDP-Werte im Bereich „Grundlegende SAML-Konfiguration“](common/idp-intiated.png)
 
-    > [!Note]
-    > Sollten die Werte **Bezeichner** und **Antwort-URL** nicht automatisch aufgefüllt werden, geben Sie die erforderlichen Werte manuell ein.
+       > [!Note]
+       > Werden die Werte für **Bezeichner** und **Antwort-URL** nicht automatisch aufgefüllt, geben Sie sie manuell ein.
 
-5. Klicken Sie auf **Zusätzliche URLs festlegen**, und führen Sie den folgenden Schritt aus, wenn Sie die Anwendung im **SP-initiierten Modus** konfigurieren möchten:
+1. So konfigurieren Sie die Anwendung im *SP-initiierten Modus*:
 
-    ![image](common/metadata-upload-additional-signon.png)
+    1. Wählen Sie **Zusätzliche URLs festlegen** aus.
+    
+    1. Geben Sie im Feld **Anmelde-URL** eine URL im folgenden Format ein: https:\//\<Ihre-Domäne>.monday.com. Die Anmelde-URL erhalten Sie vom [Supportteam für den monday.com-Client](mailto:support@monday.com).
 
-    Geben Sie im Textfeld **Anmelde-URL** eine URL im folgenden Format ein: `https://<YOUR_DOMAIN>.monday.com`
+        ![Option „Zusätzliche URLs festlegen“](common/metadata-upload-additional-signon.png)
 
-    > [!NOTE]
-    > Der Wert der Anmelde-URL entspricht nicht dem tatsächlichen Wert. Ersetzen Sie diesen Wert durch die tatsächliche Anmelde-URL. Wenden Sie sich an das [Clientsupportteam von monday.com](mailto:support@monday.com), um diesen Wert zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
+1. Die monday.com-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Konfigurieren Sie die folgenden Ansprüche für diese Anwendung. Wählen Sie zum Verwalten dieser Attributwerte im Bereich **Einmaliges Anmelden (SSO) mit SAML einrichten** die Option **Bearbeiten** aus, um den Bereich **Benutzerattribute** zu öffnen.
 
-6. Die monday.com-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Konfigurieren Sie die folgenden Ansprüche für diese Anwendung. Sie können die Werte dieser Attribute im Abschnitt **Benutzerattribute** auf der Anwendungsintegrationsseite verwalten. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf die Schaltfläche **Bearbeiten**, um das Dialogfeld **Benutzerattribute** zu öffnen.
+    ![Bereich „Benutzerattribute“](common/edit-attribute.png)
 
-    ![image](common/edit-attribute.png)
+1. Wählen Sie unter **Benutzeransprüche** die Option **Bearbeiten** aus, um die Ansprüche zu bearbeiten. Wählen Sie zum Hinzufügen eines Anspruchs **Neuen Anspruch hinzufügen** aus, und konfigurieren Sie anschließend das SAML-Tokenattribut wie in der vorherigen Abbildung dargestellt. Führen Sie anschließend die folgenden Schritte aus: 
 
-7. Bearbeiten Sie im Dialogfeld **Benutzerattribute** im Abschnitt **Benutzeransprüche** die Ansprüche mithilfe des Symbols zum **Bearbeiten**, oder fügen Sie die Ansprüche über **Neuen Anspruch hinzufügen** hinzu, um das SAML-Tokenattribut wie in der obigen Abbildung gezeigt zu konfigurieren. Führen Sie dann die folgenden Schritte aus: 
+    1. Wählen Sie **Neuen Anspruch hinzufügen** aus.
 
-    | NAME | Quellattribut|
-    | -------| ---------|
-    | E-Mail | user.mail |
-    | FirstName | user.givenname |
-    | Nachname | user.surname |
+        ![Option „Neuen Anspruch hinzufügen“ im Bereich „Benutzeransprüche“](common/new-save-attribute.png)
 
-    a. Klicken Sie auf **Neuen Anspruch hinzufügen**, um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.
+    1. Legen Sie im Bereich **Benutzeransprüche verwalten** die folgenden Werte fest:
+        
+       1. Geben Sie im Feld **Name** den für die Zeile mit dem Benutzeranspruch angezeigten Attributnamen ein.
 
-    ![image](common/new-save-attribute.png)
+       1. Lassen Sie **Namespace** leer.
 
-    ![image](common/new-attribute-details.png)
+       1. Wählen Sie für **Quelle** die Option **Attribut** aus.
 
-    b. Geben Sie im Textfeld **Name** den für die Zeile angezeigten Attributnamen ein.
+       1. Wählen Sie in der Liste **Quellattribut** den Attributwert für die Zeile mit dem Benutzeranspruch aus.
 
-    c. Lassen Sie den **Namespace** leer.
+       1. Wählen Sie **OK** und anschließend **Speichern** aus.
 
-    d. Wählen Sie „Source“ als **Attribut** aus.
+       ![Option „Benutzeransprüche verwalten“](common/new-attribute-details.png)
 
-    e. Geben Sie in der Liste **Quellattribut** den für diese Zeile angezeigten Attributwert ein.
+1. Wählen Sie im Bereich **Einmaliges Anmelden (SSO) mit SAML einrichten** unter **SAML-Signaturzertifikat** die Option **Herunterladen** neben **Zertifikat (Base64)** aus. Wählen Sie eine Option zum Herunterladen entsprechend Ihren Anforderungen aus. Speichern Sie das Zertifikat auf Ihrem Computer.
 
-    f. Klicken Sie auf **OK**.
+    ![Option zum Herunterladen des Zertifikats (Base64)](common/certificatebase64.png)
 
-    g. Klicken Sie auf **Speichern**.
+1. Kopieren Sie im Abschnitt **monday.com einrichten** die folgenden URLs entsprechend Ihren Anforderungen:
 
-8. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um das Ihrer Anforderung entsprechende **Zertifikat (Base64)** aus den angegebenen Optionen herunterzuladen und auf Ihrem Computer zu speichern.
-
-    ![Downloadlink für das Zertifikat](common/certificatebase64.png)
-
-9. Kopieren Sie im Abschnitt **monday.com einrichten** die entsprechenden URLs gemäß Ihren Anforderungen.
+    * Anmelde-URL
+    * Azure AD-Bezeichner
+    * Abmelde-URL
 
     ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    a. Anmelde-URL
-
-    b. Azure AD-Bezeichner
-
-    c. Abmelde-URL
-
 ### <a name="configure-mondaycom-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für monday.com
 
-Zum Konfigurieren des einmaligen Anmeldens aufseiten von **monday.com** müssen Sie das heruntergeladene **Zertifikat (Base64)** und die kopierten URLs aus dem Azure-Portal an das [Supportteam von monday.com](mailto:support@monday.com) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+Zum Konfigurieren des einmaligen Anmeldens aufseiten von monday.com senden Sie das heruntergeladene Zertifikat (Base64) und die kopierten URLs aus dem Azure-Portal an das [Supportteam von monday.com](mailto:support@monday.com). Anhand der von Ihnen gesendeten Informationen stellt das Supportteam von monday.com sicher, dass die SAML-Verbindung für einmaliges Anmelden auf beiden Seiten ordnungsgemäß eingerichtet ist.
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
-Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
+In diesem Abschnitt erstellen Sie im Azure-Portal eine Testbenutzerin mit dem Namen Britta Simon.
 
-1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
+1. Wählen Sie im Azure-Portal **Azure Active Directory** > **Benutzer** > **Alle Benutzer** aus.
 
-    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
+    ![Die Optionen „Benutzer“ und „Alle Benutzer“](common/users.png)
 
-2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
+1. Wählen Sie **Neuer Benutzer** aus.
 
-    ![Schaltfläche „Neuer Benutzer“](common/new-user.png)
+    ![Die Option „Neuer Benutzer“](common/new-user.png)
 
-3. Führen Sie in den Benutzereigenschaften die folgenden Schritte aus.
+1. Führen Sie im Bereich **Benutzer** die folgenden Schritte aus:
 
-    ![Dialogfeld „Benutzer“](common/user-properties.png)
-
-    a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
+    1. Geben Sie in das Feld **Name** den Namen **BrittaSimon** ein.
   
-    b. Geben Sie im Feld **Benutzername** den Namen `brittasimon@yourcompanydomain.extension` ein. Zum Beispiel, BrittaSimon@contoso.com
+    1. Geben Sie im Feld **Benutzername** die Zeichenfolge **brittasimon\@\<IhreUnternehmensdomäne>.\<Erweiterung** ein. Beispiel: **brittasimon\@contoso.com**
 
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+    1. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**. Notieren Sie sich den Wert, der im Feld **Kennwort** angezeigt wird.
 
-    d. Klicken Sie auf **Create**.
+    1. Klicken Sie auf **Erstellen**.
+
+    ![Der Bereich „Benutzer“](common/user-properties.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf monday.com gewähren.
+In diesem Abschnitt gewähren Sie Britta Simon Zugriff auf monday.com, damit sie das einmalige Anmelden von Azure verwenden kann.
 
-1. Wählen Sie im Azure-Portal die Option **Unternehmensanwendungen** aus, und wählen Sie dann **Alle Anwendungen** und **monday.com** aus.
+1. Wählen Sie im Azure-Portal **Unternehmensanwendungen** > **Alle Anwendungen** > **monday.com** aus.
 
-    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
+    ![Bereich „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-2. Wählen Sie in der Anwendungsliste **monday.com**aus.
+1. Wählen Sie in der Anwendungsliste **monday.com**aus.
 
-    ![Der monday.com-Link in der Anwendungsliste](common/all-applications.png)
+    ![monday.com in der Anwendungsliste](common/all-applications.png)
 
-3. Wählen Sie im Menü auf der linken Seite **Benutzer und Gruppen** aus.
+1. Wählen Sie im Menü die Option **Benutzer und Gruppen** aus.
 
-    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
+    ![Option „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+1. Klicken Sie auf **Benutzer hinzufügen**. Wählen Sie im Bereich **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
     ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
-5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Bildschirm auf die Schaltfläche **Auswählen**.
+1. Wählen Sie im Bereich **Benutzer und Gruppen** in der Benutzerliste **Britta Simon** aus. Wählen Sie **Auswählen**.
 
-6. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** in der Liste die entsprechende Rolle für den Benutzer aus, und klicken Sie dann unten auf dem Bildschirm auf **Auswählen**.
+1. Falls Sie in der SAML-Assertion einen Rollenwert erwarten, wählen Sie im Bereich **Rolle auswählen** die entsprechende Rolle für den Benutzer aus der Liste aus. Wählen Sie **Auswählen**.
 
-7. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
+1. Wählen Sie im Bereich **Zuweisung hinzufügen** die Option **Zuweisen** aus.
 
-### <a name="create-mondaycom-test-user"></a>Erstellen eines monday.com-Testbenutzers
+### <a name="create-a-mondaycom-test-user"></a>Erstellen eines monday.com-Testbenutzers
 
-In diesem Abschnitt wird eine Benutzerin mit dem Namen „Britta Simon“ in monday.com erstellt. monday.com unterstützt die Just-in-Time-Benutzerbereitstellung, die standardmäßig aktiviert ist. Für Sie steht in diesem Abschnitt kein Aktionselement zur Verfügung. Ist ein Benutzer noch nicht in monday.com vorhanden, wird nach der Authentifizierung ein neuer Benutzer erstellt.
+In diesem Abschnitt wird in monday.com ein Benutzer mit dem Namen Britta Simon erstellt. monday.com unterstützt die Just-in-Time-Benutzerbereitstellung, die standardmäßig aktiviert ist. Für Sie steht in diesem Abschnitt kein Aktionselement zur Verfügung. Ist ein Benutzer noch nicht in monday.com vorhanden, wird nach der Authentifizierung ein neuer Benutzer erstellt.
 
 ### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 
-In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
+In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden mithilfe des Portals „Meine Apps“.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „monday.com“ klicken, sollten Sie automatisch bei Ihrer monday.com-Anwendung angemeldet werden. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Nachdem Sie einmaliges Anmelden eingerichtet haben, werden Sie bei Auswahl von **monday.com** im Portal „Meine Apps“ automatisch bei monday.com angemeldet. Weitere Informationen zum Portal „Meine Apps“ finden Sie unter [Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="next-steps"></a>Nächste Schritte
+
+Weitere Informationen finden Sie in diesen Artikeln:
 
 - [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
+- [Einmaliges Anmelden bei Anwendungen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

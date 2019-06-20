@@ -1,32 +1,25 @@
 ---
-title: Tour durch das Azure Cloud-Partnerportal | Microsoft-Dokumentation
-description: .
+title: Tour durch das Azure Cloud-Partnerportal | Azure Marketplace
+description: Übersicht über die neue Benutzeroberfläche des Cloud-Partnerportals für Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 01b93a667fef8c56d6b7c78e8c6346357a2ff36c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.author: pabutler
+ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943393"
 ---
 # <a name="cloud-partner-portal-tour"></a>Tour durch das Cloud-Partnerportal
 
 Dieser Artikel enthält eine Einführung in das [Cloud-Partnerportal](https://cloudpartner.azure.com): Inhalte, Navigation und Funktionen.   In diesem Portal können registrierte Partner für den [Azure Marketplace](https://azuremarketplace.microsoft.com) und den [AppSource Marketplace](https://azuremarketplace.microsoft.com) neue Angebote erstellen und vorhandene Angebote verwalten.  Das Cloud-Partnerportal ist nur für registrierte Partner zugänglich. Weitere Informationen finden Sie unter [Weg zum Cloud Marketplace-Herausgeber](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 [![Cloud-Partnerportal mit angezeigter Seite „Profil“](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
-<br/>   (*Klicken Sie auf die Abbildung, um sie zu vergrößern.*)
+<br/>   (*Klicken Sie auf die Abbildung, um sie zu vergrößern.* )
 
 
 ## <a name="section-contents"></a>Inhalt der Abschnitte

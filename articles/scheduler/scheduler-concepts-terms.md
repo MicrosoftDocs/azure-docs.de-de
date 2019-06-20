@@ -11,11 +11,11 @@ ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60530937"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Konzepte, Terminologie und Entitäten in Microsoft Azure Scheduler
 
@@ -83,11 +83,11 @@ Der Auftrag enthält auch vom System bereitgestellte Daten, beispielsweise die n
 
 | Element | Erforderlich | BESCHREIBUNG | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Nein  | Die Startzeit für den Auftrag mit einem Zeitzonenoffset im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | Nein | Die Startzeit für den Auftrag mit einem Zeitzonenoffset im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Ja | Die Details für die primäre Aktion (kann ein **errorAction**-Objekt enthalten) | 
-| [**errorAction**](#error-action) | Nein  | Die Details für die sekundäre Aktion, die ausgeführt wird, wenn bei der primären Aktion ein Fehler auftritt |
-| [**recurrence**](#recurrence) | Nein  | Die Details für einen Serienauftrag (z. B. Häufigkeit und Intervall) | 
-| [**retryPolicy**](#retry-policy) | Nein  | Die Details zur Wiederholungshäufigkeit für eine Aktion | 
+| [**errorAction**](#error-action) | Nein | Die Details für die sekundäre Aktion, die ausgeführt wird, wenn bei der primären Aktion ein Fehler auftritt |
+| [**recurrence**](#recurrence) | Nein | Die Details für einen Serienauftrag (z. B. Häufigkeit und Intervall) | 
+| [**retryPolicy**](#retry-policy) | Nein | Die Details zur Wiederholungshäufigkeit für eine Aktion | 
 | [**state**](#state) | Ja | Die Details für den aktuellen Zustand des Auftrags |
 | [**status**](#status) | Ja | Die Details für den aktuellen Status des Auftrags (wird vom Dienst gesteuert) |
 ||||
@@ -248,15 +248,15 @@ Ein Auftrag wird wiederholt, wenn die JSON-Definition des Auftrags das **recurre
 | Eigenschaft | Erforderlich | Value | BESCHREIBUNG | 
 |----------|----------|-------|-------------| 
 | **frequency** | Ja, wenn **recurrence** verwendet wird | Minute, Hour, Day, Week, Month, Year | Die Zeiteinheit zwischen Ausführungen. | 
-| **interval** | Nein  | 1 bis einschließlich 1.000 | Eine positive ganze Zahl, die die Anzahl von Zeiteinheiten zwischen den einzelnen Ausführungen basierend auf dem Wert von **frequency** bestimmt. | 
-| **schedule** | Nein  | Variabel | Die Details für komplexere und erweiterte Zeitpläne. Siehe **hours**, **minutes**, **weekDays**, **months** und **monthDays**. | 
-| **hours** | Nein  | 1 bis 24 | Ein Array mit den Stundenmarkierungen für die Ausführung des Auftrags. | 
-| **minutes** | Nein  | 0 bis 59 | Ein Array mit den Minutenmarkierungen für die Ausführung des Auftrags. | 
-| **months** | Nein  | 1 bis 12 | Ein Array mit den Monaten für die Ausführung des Auftrags. | 
-| **monthDays** | Nein  | Variabel | Ein Array mit den Tagen des Monats für die Ausführung des Auftrags. | 
-| **weekDays** | Nein  | Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday | Ein Array mit den Wochentagen für die Ausführung des Auftrags. | 
-| **count** | Nein  | <*none*> | Die Anzahl von Wiederholungen. In der Standardeinstellung wird ein Auftrag unendlich wiederholt. Es ist nicht möglich, **count** und **endTime** gleichzeitig zu verwenden, es wird jedoch die Regel berücksichtigt, die zuerst abgeschlossen wird. | 
-| **endTime** | Nein  | <*none*> | Das Datum und die Uhrzeit für die Beendigung der Wiederholung. In der Standardeinstellung wird ein Auftrag unendlich wiederholt. Es ist nicht möglich, **count** und **endTime** gleichzeitig zu verwenden, es wird jedoch die Regel berücksichtigt, die zuerst abgeschlossen wird. | 
+| **interval** | Nein | 1 bis einschließlich 1.000 | Eine positive ganze Zahl, die die Anzahl von Zeiteinheiten zwischen den einzelnen Ausführungen basierend auf dem Wert von **frequency** bestimmt. | 
+| **schedule** | Nein | Variabel | Die Details für komplexere und erweiterte Zeitpläne. Siehe **hours**, **minutes**, **weekDays**, **months** und **monthDays**. | 
+| **hours** | Nein | 1 bis 24 | Ein Array mit den Stundenmarkierungen für die Ausführung des Auftrags. | 
+| **minutes** | Nein | 0 bis 59 | Ein Array mit den Minutenmarkierungen für die Ausführung des Auftrags. | 
+| **months** | Nein | 1 bis 12 | Ein Array mit den Monaten für die Ausführung des Auftrags. | 
+| **monthDays** | Nein | Variabel | Ein Array mit den Tagen des Monats für die Ausführung des Auftrags. | 
+| **weekDays** | Nein | Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday | Ein Array mit den Wochentagen für die Ausführung des Auftrags. | 
+| **count** | Nein | <*none*> | Die Anzahl von Wiederholungen. In der Standardeinstellung wird ein Auftrag unendlich wiederholt. Es ist nicht möglich, **count** und **endTime** gleichzeitig zu verwenden, es wird jedoch die Regel berücksichtigt, die zuerst abgeschlossen wird. | 
+| **endTime** | Nein | <*none*> | Das Datum und die Uhrzeit für die Beendigung der Wiederholung. In der Standardeinstellung wird ein Auftrag unendlich wiederholt. Es ist nicht möglich, **count** und **endTime** gleichzeitig zu verwenden, es wird jedoch die Regel berücksichtigt, die zuerst abgeschlossen wird. | 
 ||||
 
 Weitere Informationen zu diesen Elementen finden Sie unter [Erstellen komplexer Zeitpläne und erweiterter Serien](../scheduler/scheduler-advanced-complexity.md).
@@ -278,8 +278,8 @@ Für den Fall, dass bei einem Scheduler-Auftrag ein Fehler auftritt, können Sie
 | Eigenschaft | Erforderlich | Value | BESCHREIBUNG | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Fixed**, **None** | Bestimmt, ob Sie eine Wiederholungsrichtlinie angeben (**fixed**) oder nicht (**none**). | 
-| **retryInterval** | Nein  | PT30S | Gibt das Intervall und die Häufigkeit zwischen den Wiederholungsversuchen im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) an. Der Mindestwert ist 15 Sekunden und der Höchstwert 18 Monate. | 
-| **retryCount** | Nein  | 4 | Gibt die Anzahl von Wiederholungsversuchen an. Der Höchstwert ist 20. | 
+| **retryInterval** | Nein | PT30S | Gibt das Intervall und die Häufigkeit zwischen den Wiederholungsversuchen im [ISO 8601-Format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) an. Der Mindestwert ist 15 Sekunden und der Höchstwert 18 Monate. | 
+| **retryCount** | Nein | 4 | Gibt die Anzahl von Wiederholungsversuchen an. Der Höchstwert ist 20. | 
 ||||
 
 Weitere Informationen finden Sie unter [Hochverfügbarkeit und Zuverlässigkeit](../scheduler/scheduler-high-availability-reliability.md).
@@ -307,7 +307,7 @@ Nachdem ein Auftrag gestartet wurde, gibt Scheduler Informationen zum Auftragsst
 * Anzahl von fehlgeschlagenen Ausführungen (sofern vorhanden)
 * Anzahl von Fehlern (sofern vorhanden)
 
-Beispiel: 
+Beispiel:
 
 ```json
 "status": {

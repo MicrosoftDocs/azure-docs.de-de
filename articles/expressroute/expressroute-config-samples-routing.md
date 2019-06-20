@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60367471"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Beispiele für die Routerkonfiguration zum Einrichten und Verwalten des Routings
 Diese Seite enthält Schnittstellen- und Routingkonfigurationsbeispiele für Router der Reihen Cisco IOS-XE und Juniper MX für die Arbeit mit ExpressRoute. Diese Beispiele dienen nur als Leitfaden und müssen nicht wie angegeben verwendet werden. Sie können mit Ihrem Anbieter an der Ausarbeitung geeigneter Konfigurationen für Ihr Netzwerk zusammenarbeiten. 

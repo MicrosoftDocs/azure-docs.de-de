@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: 4ef5354a94ae707df8dd1f2767efe04dfbacd7ad
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799589"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassen eines Sprachmodells mit den Video Indexer-APIs
@@ -58,7 +58,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 |accountId|Zeichenfolge|Ja|Global eindeutiger Bezeichner für das Konto|
 |accessToken|Zeichenfolge|Ja|Zugriffstoken (der Bereich muss [Kontozugriffstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) sein) zum Authentifizieren des Aufrufs. Zugriffstoken laufen nach einer Stunde ab.|
 |modelName|Zeichenfolge|Ja|Der Name für das Sprachmodell.|
-|Language|Zeichenfolge|Ja|Die Sprache des Sprachmodells. <br/>Der Parameter **language** muss mit der Sprache im BCP-47-Format als „language tag-region“ (z.B. „en-US“) angegeben werden. Unterstützte Sprachen sind Englisch (en-US), Deutsch (de-DE), Spanisch (es-SP), Arabisch (ar-EG), Französisch (fr-FR), Hindi (hi-HI), Italienisch (it-IT), Japanisch (ja-JP), Portugiesisch (pt-BR), Russisch (ru-RU) und Chinesisch (zh-CN).  |
+|language|Zeichenfolge|Ja|Die Sprache des Sprachmodells. <br/>Der Parameter **language** muss mit der Sprache im BCP-47-Format als „language tag-region“ (z.B. „en-US“) angegeben werden. Unterstützte Sprachen sind Englisch (en-US), Deutsch (de-DE), Spanisch (es-SP), Arabisch (ar-EG), Französisch (fr-FR), Hindi (hi-HI), Italienisch (it-IT), Japanisch (ja-JP), Portugiesisch (pt-BR), Russisch (ru-RU) und Chinesisch (zh-CN).  |
 
 ### <a name="request-body"></a>Anforderungstext
 
@@ -236,8 +236,8 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |accountID|Zeichenfolge|Ja|Global eindeutiger Bezeichner für das Konto|
 |modelId|Zeichenfolge|Ja|Die Sprachmodell-ID (wird beim Erstellen des Sprachmodells generiert).|
 |accessToken|Zeichenfolge|Ja|Zugriffstoken (der Bereich muss [Kontozugriffstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) sein) zum Authentifizieren des Aufrufs. Zugriffstoken laufen nach einer Stunde ab.|
-|modelName|Zeichenfolge|Nein |Der neue Name, den Sie dem Modell geben können.|
-|enable|boolean|Nein |Wählen Sie aus, ob alle Dateien in diesem Modell aktiviert (TRUE) oder deaktiviert (FALSE) sind.|
+|modelName|Zeichenfolge|Nein|Der neue Name, den Sie dem Modell geben können.|
+|enable|boolean|Nein|Wählen Sie aus, ob alle Dateien in diesem Modell aktiviert (TRUE) oder deaktiviert (FALSE) sind.|
 
 ### <a name="request-body"></a>Anforderungstext
 
@@ -306,8 +306,8 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |modelId|Zeichenfolge|Ja|ID des Sprachmodells, das die Datei enthält (wird generiert, wenn das Sprachmodell erstellt wird).|
 |fileId|Zeichenfolge|Ja|ID der Datei, die aktualisiert wird (wird generiert, wenn die Datei bei der Erstellung oder Aktualisierung des Sprachmodells hochgeladen wird).|
 |accessToken|Zeichenfolge|Ja|Zugriffstoken (der Bereich muss [Kontozugriffstoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) sein) zum Authentifizieren des Aufrufs. Zugriffstoken laufen nach einer Stunde ab.|
-|fileName|Zeichenfolge|Nein |Der Name, in den der Dateiname aktualisiert werden soll.|
-|enable|boolean|Nein |Aktualisieren Sie, ob diese Datei im Sprachmodell aktiviert (TRUE) oder deaktiviert (FALSE) ist.|
+|fileName|Zeichenfolge|Nein|Der Name, in den der Dateiname aktualisiert werden soll.|
+|enable|boolean|Nein|Aktualisieren Sie, ob diese Datei im Sprachmodell aktiviert (TRUE) oder deaktiviert (FALSE) ist.|
 
 ### <a name="request-body"></a>Anforderungstext
 

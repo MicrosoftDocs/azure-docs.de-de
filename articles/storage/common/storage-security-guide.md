@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154391"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789957"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-Sicherheitsleitfaden
 
 Azure Storage bietet umfassende Sicherheitsfunktionen, die Entwicklern das Erstellen sicherer Anwendungen ermöglichen:
 
-- Alle Daten werden automatisch mit [Storage Service Encryption (SSE)](storage-service-encryption.md) verschlüsselt, wenn sie in Azure Storage geschrieben werden. Weitere Informationen finden Sie unter [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Ankündigung: Standardverschlüsselung für Azure Blobs, Files, Table und Queue Storage).
+- Alle Daten (einschließlich Metadaten) werden mit [Storage Service Encryption (SSE)](storage-service-encryption.md) automatisch verschlüsselt, wenn sie in Azure Storage geschrieben werden. Weitere Informationen finden Sie unter [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Ankündigung: Standardverschlüsselung für Azure Blobs, Files, Table und Queue Storage).
 - Azure Active Directory (Azure AD) und die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC) werden für Azure Storage sowohl für Ressourcenverwaltungsvorgänge als auch für Datenvorgänge wie folgt unterstützt:   
     - Sie können RBAC-Rollen, die auf das Speicherkonto beschränkt sind, Dienstprinzipalen zuweisen und Azure AD verwenden, um Ressourcenverwaltungsvorgänge, z.B. die Schlüsselverwaltung, zu autorisieren.
     - Die Azure AD-Integration wird für Datenvorgänge in Blobs und Warteschlangen unterstützt. Sie können RBAC-Rollen, die auf ein Abonnement, eine Ressourcengruppe, ein Speicherkonto oder einen einzelnen Container oder eine Warteschlange bezogen sind, einem Sicherheitsprinzipal oder einer verwalteten Identität für Azure-Ressourcen zuweisen. Weitere Informationen finden Sie unter [Authentifizieren des Zugriffs auf Azure Storage mit Azure Active Directory](storage-auth-aad.md).   
@@ -238,10 +238,9 @@ Weitere ausführliche Informationen zur Verwendung von SAS und gespeicherten Zug
     Dieser Artikel enthält Beispiele für die Verwendung einer Dienstebenen-SAS mit Blobs, Warteschlangennachrichten, Tabellenbereichen und Dateien.
   * [Constructing a service SAS (Erstellen einer Dienstebenen-SAS)](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Constructing an account SAS (Erstellen einer Kontoebenen-SAS)](https://msdn.microsoft.com/library/mt584140.aspx)
-* Hierbei handelt es sich um Tutorials für die Verwendung der .NET-Clientbibliothek zum Erstellen von SAS und gespeicherten Zugriffsrichtlinien.
 
+* Dies ist ein Tutorial für die Verwendung der .NET-Clientbibliothek zum Erstellen von SAS und gespeicherten Zugriffsrichtlinien.
   * [Verwenden von Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Shared Access Signatures, Teil 2: Erstellen und Verwenden einer SAS mit dem Blobdienst](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Dieser Artikel enthält eine Erläuterung des SAS-Modells, Beispiele für SAS und Empfehlungen bewährter Methoden für die SAS-Verwendung. Auch der Widerruf der Berechtigung wird hier erörtert.
 

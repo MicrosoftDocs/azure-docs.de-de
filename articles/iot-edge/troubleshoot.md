@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797622"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Häufig auftretende Probleme und Lösungen für Azure IoT Edge
@@ -368,7 +368,7 @@ Standardmäßig werden Module in IoT Edge in ihrem eigenen isolierten Containern
 
 **Option 1: Festlegen des DNS-Servers in den Einstellungen der Containerengine**
 
-Geben Sie den DNS-Server für Ihre Umgebung in den Einstellungen der Containerengine an, die für alle über die Engine gestarteten Containermodule gelten. Erstellen Sie eine Datei mit dem Namen `daemon.json`, in der der zu verwendende DNS-Server angegeben ist. Beispiel: 
+Geben Sie den DNS-Server für Ihre Umgebung in den Einstellungen der Containerengine an, die für alle über die Engine gestarteten Containermodule gelten. Erstellen Sie eine Datei mit dem Namen `daemon.json`, in der der zu verwendende DNS-Server angegeben ist. Beispiel:
 
 ```
 {
@@ -396,7 +396,7 @@ Wenn die Datei `daemon.json` im Pfad bereits vorhanden ist, fügen Sie ihr den S
 
 **Option 2: Festlegen des DNS-Servers in der IoT Edge-Bereitstellung pro Modul**
 
-Sie können den DNS-Server für *createOptions* jedes Moduls in der IoT Edge-Bereitstellung festlegen. Beispiel: 
+Sie können den DNS-Server für *createOptions* jedes Moduls in der IoT Edge-Bereitstellung festlegen. Beispiel:
 
 ```
 "createOptions": {

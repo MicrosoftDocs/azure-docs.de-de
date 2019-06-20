@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 90a57483fc7a530f214d34bf619a718b4c196e79
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683148"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397841"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Behandeln von Problemen mit der Azure Application Gateway-Sitzungsaffinität
 
@@ -53,7 +53,7 @@ Manchmal sind die Probleme mit der Sitzungsaffinität darauf zurückzuführen, d
 
 Sie können auch mithilfe einer der folgenden Methoden überprüfen, ob der Wert von **CookieBasedAffinity** unter **backendHttpSettingsCollection** auf *Enabled* festgelegt ist:
 
-- Ausführen von [Get-AzApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsettings) in PowerShell
+- Ausführen von [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) in PowerShell
 - Durchsuchen der JSON-Datei mithilfe der Azure Resource Manager-Vorlage
 
 ```
@@ -82,11 +82,11 @@ Gehen Sie zum Beheben dieses Problems wie folgt vor:
     **Tipp:** Wenn Sie mit der Verwendung von Fiddler nicht vertraut sind, aktivieren Sie die Option **I want to collect network traffic and analyze it using web debugger** (Ich möchte Netzwerkdatenverkehr mithilfe des Webdebuggers erfassen und analysieren) am unteren Rand.
 
 2. Überprüfen und analysieren Sie die Sitzungsprotokolle, um zu ermitteln, ob die vom Client bereitgestellten Cookies die ARRAffinity-Details enthalten. Wenn Sie die ARRAffinity-Details, z. B. **ARRAffinity=** *ARRAffinityValue*, im festgelegten Cookie nicht finden, bedeutet das, dass der Client nicht mit dem ARRA-Cookie antwortet, das vom Anwendungsgateway bereitgestellt wird.
-    Beispiel: 
+    Beispiel:
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 In der Anwendung wird weiterhin versucht, das Cookie für jede Anforderung festzulegen, bis eine Antwort empfangen wird.
 
@@ -167,23 +167,23 @@ Sie können einen Webdebugger Ihrer Wahl verwenden. In diesem Beispiel wird Fidd
 
 2. Klicken Sie mit der rechten Maustaste auf die ausführbare Setupdatei, und führen Sie die Installation als Administrator aus.
 
-            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. Wenn Sie Fiddler öffnen, sollte die Erfassung von Datenverkehr automatisch gestartet werden. (Beachten Sie die Option „Capturing“ (Erfassen) in der linken unteren Ecke.) Drücken Sie F12, um die Erfassung von Datenverkehr zu starten oder zu beenden.
 
-        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. In den meisten Fällen möchten Sie wahrscheinlich entschlüsselten HTTPS-Datenverkehr erfassen. Sie können die HTTP-Entschlüsselung aktivieren, indem Sie **Tools** > **Fiddler Options** (Tools > Fiddler-Optionen) auswählen und das Kontrollkästchen **Decrypt HTTPS traffic** (HTTPS-Datenverkehr entschlüsseln) aktivieren.
 
-        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. Sie können vorherige nicht verknüpfte Sitzungen entfernen, bevor Sie das Problem reproduzieren, indem Sie wie im folgenden Screenshot gezeigt auf **X** (Symbol) > **Remove All** (Alle entfernen) klicken: 
 
-        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. Nachdem Sie das Problem reproduziert haben, speichern Sie die Datei zur Überprüfung, indem Sie **File** > **Save** > **All Sessions...** (Datei > Speichern > Alle Sitzungen...) auswählen. 
 
-        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. Überprüfen und analysieren Sie die Sitzungsprotokolle, um das Problem zu ermitteln.
 
@@ -194,11 +194,11 @@ Sie können einen Webdebugger Ihrer Wahl verwenden. In diesem Beispiel wird Fidd
    > [!NOTE]
    > Dieser ARRAffinity-Wert ist die Cookie-ID, die das Anwendungsgateway für den Client festlegt und die dieser an einen bestimmten Back-End-Server senden muss.
 
-    ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Beispiel B:** Im nächsten Sitzungsprotokoll ist angegeben, dass der Client dem Anwendungsgateway, das den ARRAAFFINITY-Wert festgelegt hat, antwortet. Wenn die ARRAffinity-Cookie-ID übereinstimmt, sollte das Paket an den gleichen Back-End-Server gesendet werden, der zuvor verwendet wurde. Sehen Sie sich die nächsten Zeilen der HTTP-Kommunikation an, um zu überprüfen, ob sich das ARRAffinity-Cookie des Clients ändert.
 
-    ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+   ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > In einer Kommunikationssitzung sollte sich das Cookie nicht ändern. Überprüfen Sie das obere Feld auf der rechten Seite. Wählen Sie die Registerkarte „Cookies“ aus, um zu überprüfen, ob der Client das Cookie verwendet und zurück an das Anwendungsgateway sendet. Wenn dies nicht der Fall ist, wird das Cookie im Clientbrowser nicht beibehalten und nicht für die Kommunikation verwendet. In einigen Fällen kann der Client falsche Informationen angeben.

@@ -10,11 +10,11 @@ ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 04cc9048271d653bd77fd7f2707c8f510ea8c29f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997948"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61456552"
 ---
 # <a name="deprecated-container-management-with-docker-swarm"></a>(VERALTET) Containerverwaltung mit Docker Swarm
 

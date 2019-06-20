@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1df35c82ffb8b98f8b7bf86c21694b62b3804e4
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894375"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298295"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration mit Azure-Diagnoseprotokollierung und Windows-Ereignisweiterleitung
 
 
 >[!IMPORTANT]
-> Das Feature Azure Log Integration gilt ab dem 01.06.2019 als veraltet. AzLog-Downloads wurden am 27. Juni 2018 deaktiviert. Um Unterstützung bei der künftigen Vorgehensweise zu erhalten, lesen Sie den Beitrag [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Verwenden von Azure Monitor für die Integration mit SIEM-Tools). 
+> Das Feature Azure Log Integration gilt ab dem 15.06.2019 als veraltet. AzLog-Downloads wurden am 27. Juni 2018 deaktiviert. Um Unterstützung bei der künftigen Vorgehensweise zu erhalten, lesen Sie den Beitrag [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Verwenden von Azure Monitor für die Integration mit SIEM-Tools). 
 
 Sie sollten Azure Log Integration nur nutzen, wenn Ihr SIEM-Anbieter (Security Incident and Event Management) keinen [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md)-Connector zur Verfügung stellt.
 
@@ -249,4 +249,4 @@ Weitere Informationen zu Azure Log Integration finden Sie in den folgenden Artik
 * [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) (Konfigurationsschritte für Partner, in englischer Sprache). In diesem Blogbeitrag erfahren Sie, wie Azure Log Integration für die Partnerlösungen Splunk, HP ArcSight und IBM QRadar konfiguriert wird. Er beschreibt unsere zurzeit geltende Empfehlung für die Konfiguration von SIEM-Komponenten. Holen Sie weitere Informationen bei Ihrem SIEM-Hersteller ein.
 * [Azure-Protokollintegration: Häufig gestellte Fragen (FAQ)](security-azure-log-integration-faq.md). In diesen häufig gestellten Fragen finden Sie Antworten zu Azure Log Integration.
 * [Integrieren von Azure Security Center-Warnungen mithilfe von Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Dieser Artikel zeigt Ihnen, wie Sie Security Center-Warnungen und Sicherheitsereignisse für virtuelle Computer synchronisieren, die von der Azure-Diagnose und Azure-Aktivitätsprotokollen erfasst werden. Sie synchronisieren die Protokolle mit Azure Monitor-Protokollen oder Ihrer SIEM Lösung.
-* [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Neue Features für die Azure-Diagnose und Azure-Überwachungsprotokolle, in englischer Sprache). In diesem Blogbeitrag werden Azure-Überwachungsprotokolle und andere Features vorgestellt, mit denen Sie sich einen Einblick in die Vorgänge Ihrer Azure-Ressourcen verschaffen können.
+* [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Neue Features für die Azure-Diagnose und Azure-Überwachungsprotokolle). In diesem Blogbeitrag werden Azure-Überwachungsprotokolle und andere Features vorgestellt, mit denen Sie sich einen Einblick in die Vorgänge Ihrer Azure-Ressourcen verschaffen können.

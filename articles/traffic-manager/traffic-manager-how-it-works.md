@@ -3,7 +3,7 @@ title: Funktionsweise von Azure Traffic Manager | Microsoft-Dokumentation
 description: Dieser Artikel beschreibt, wie Traffic Manager Datenverkehr für eine hohe Leistung und Verfügbarkeit Ihrer Webanwendungen weiterleitet.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: kumud
-ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: a74af002dfdad5df9640be4b5fdd7f657b183bd4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071184"
 ---
 # <a name="how-traffic-manager-works"></a>Funktionsweise von Traffic Manager
 

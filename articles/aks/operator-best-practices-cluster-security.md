@@ -2,18 +2,17 @@
 title: 'Best Practices für Operator: Clustersicherheit in Azure Kubernetes Services (AKS)'
 description: Lernen Sie die Best Practices für den Clusteroperator zum Verwalten der Clustersicherheit und von Upgrades in Azure Kubernetes Service (AKS) kennen.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 05/13/2019
-ms.author: v-yeche
-ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 12/06/2018
+ms.author: iainfou
+ms.openlocfilehash: 54f1455467295e786d9e634b64dfab0933d948db
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66475590"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Best Practices für Clustersicherheit und Upgrades in Azure Kubernetes Service (AKS)
 
@@ -51,7 +50,7 @@ Weitere Informationen zur Integration in Azure AD und RBAC finden Sie unter [Zug
 
 Genauso wie Sie Benutzern und Gruppen nur die minimal notwendigen Berechtigungen gewähren sollten, sollten Sie auch Container auf die Aktionen und Prozesse beschränken, die sie benötigen. Konfigurieren Sie keine Anwendungen und Container, die ausgeweitete Berechtigungen oder Stammzugriff benötigen, um das Risiko einer Attacke so gering wie möglich zu halten. Legen Sie im Podmanifest beispielsweise `allowPrivilegeEscalation: false` fest. Diese *Podsicherheitskontexte* sind in Kubernetes integriert und ermöglichen es Ihnen, zusätzliche Berechtigungen festzulegen, z. B. welche Ausführungsberechtigungen Benutzer und Gruppen haben oder welche Linux-Funktionen zur Verfügung gestellt werden. Weitere Best Practices finden Sie unter [Secure pod access to ressources (Sichern des Podzugriffs auf Ressourcen)][pod-security-contexts].
 
-Wenn Sie die Steuerungsmöglichkeiten für Containeraktionen noch feiner abstimmen möchten, können Sie dazu auch integrierte Linux-Sicherheitsfeatures wie *AppArmor* und *seccomp* verwenden. Diese Features sind auf der Knotenebene definiert und werden dann über ein Podmanifest implementiert.
+Wenn Sie die Steuerungsmöglichkeiten für Containeraktionen noch feiner abstimmen möchten, können Sie dazu auch integrierte Linux-Sicherheitsfeatures wie *AppArmor* und *seccomp* verwenden. Diese Features sind auf der Knotenebene definiert und werden dann über ein Podmanifest implementiert. In Linux integrierte Sicherheitsfunktionen sind nur auf Linux-Knoten und -Pods verfügbar.
 
 > [!NOTE]
 > Kubernetes-Umgebungen, ob in AKS oder an anderer Stelle, sind nicht völlig sicher vor feindlicher Verwendung mit mehreren Mandanten. Zusätzliche Sicherheitsfunktionen wie *AppArmor*, *seccomp*, *Pod Security Policies* oder differenziertere rollenbasierte Zugriffssteuerung (RBAC) für Knoten erschweren Angriffe. Für echte Sicherheit bei der Ausführung feindlicher Workloads mit mehreren Mandanten ist jedoch ein Hypervisor die einzige Sicherheitsstufe, der Sie vertrauen sollten. Die Sicherheitsdomäne für Kubernetes wird zum gesamten Cluster und nicht zu einem einzelnen Knoten. Für diese Art von feindlichen Workloads mit mehreren Mandanten sollten Sie physisch isolierte Cluster verwenden.
@@ -68,7 +67,7 @@ In der folgenden Beispielverwendung von AppArmor wird ein Profil erstellt, das d
 #include <tunables/global>
 profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
   #include <abstractions/base>
-
+  
   file,
   # Deny all file writes.
   deny /** w,
@@ -182,25 +181,25 @@ AKS unterstützt vier Nebenversionen von Kubernetes. Wenn also eine neue Neben-/
 
 Wenn Sie überprüfen möchten, welche Versionen für Ihr Cluster verfügbar sind, verwenden Sie den Befehl [az aks get-upgrades][az-aks-get-upgrades] wie in folgendem Beispiel beschrieben:
 
-```azurecli
+```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Sie können dann mithilfe des Befehls [az aks upgrade][az-aks-upgrade] ein Upgrade auf Ihren AKS-Cluster durchführen. Der Upgradeprozess sperrt Knoten sicher einen nach dem anderen ab und gleicht sie aus, legt einen Zeitplan für die verbleibenden Knoten fest und stellt dann einen neuen Knoten bereit, der die aktuellsten Versionen des Betriebssystems und von Kubernetes ausführt.
 
-```azurecli
+```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
 Weitere Informationen zu Upgrades in AKS erhalten Sie in den Artikeln [Unterstützte Kubernetes-Versionen in Azure Kubernetes Service (AKS)][aks-supported-versions] und [Durchführen eines Upgrades für einen Azure Kubernetes Service-Cluster (AKS)][aks-upgrade].
 
-## <a name="process-node-updates-and-reboots-using-kured"></a>Updates auf Prozessknoten und Neustarts mithilfe von kured
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Verarbeiten von Updates und Neustarts von Linux-Knoten mithilfe von kured
 
-**Best Practice-Anleitung:** AKS lädt automatisch Behebungen von Sicherheitsproblemen für jeden einzelnen Workerknoten herunter und installiert diese. Allerdings werden notwendige Neustarts nicht automatisch durchgeführt. Verwenden Sie `kured`, um auf ausstehende Neustarts zu achten, und sperren Sie den Knoten dann sicher ab, und gleichen Sie ihn aus, um dem Knoten einen Neustart zu ermöglichen. Wenden Sie anschließend die Updates an, und gehen Sie so umsichtig wie möglich mit Ihrem Betriebssystem um.
+**Best Practice-Anleitung:** AKS lädt automatisch Behebungen von Sicherheitsproblemen für jeden einzelnen Linux-Knoten herunter und installiert diese. Allerdings werden notwendige Neustarts nicht automatisch durchgeführt. Verwenden Sie `kured`, um auf ausstehende Neustarts zu achten, und sperren Sie den Knoten dann sicher ab, und gleichen Sie ihn aus, um dem Knoten einen Neustart zu ermöglichen. Wenden Sie anschließend die Updates an, und gehen Sie so umsichtig wie möglich mit Ihrem Betriebssystem um. Führen Sie für Windows Server-Knoten (derzeit in der Vorschau in AKS) regelmäßig ein AKS-Upgrade durch, um die Pods sicher abzusperren und zu leeren und aktualisierte Knoten bereitzustellen.
 
-Jeden Abend werden über die Updateverteilungskanäle Sicherheitspatches für AKS-Knoten zur Verfügung gestellt. Dieses Verhalten ist im Rahmen der Bereitstellung von Knoten in einem AKS-Cluster automatisch konfiguriert. Neustarts werden für Knoten nicht automatisch ausgeführt, wenn ein Sicherheitspatch oder Kernelupdate es erfordern würde, um Störungen und eventuelle negative Einflüsse auf ausgeführte Workloads zu minimieren.
+Jeden Abend werden über die Updateverteilungskanäle Sicherheitspatches für Linux-Knoten in AKS zur Verfügung gestellt. Dieses Verhalten ist im Rahmen der Bereitstellung von Knoten in einem AKS-Cluster automatisch konfiguriert. Neustarts werden für Knoten nicht automatisch ausgeführt, wenn ein Sicherheitspatch oder Kernelupdate es erfordern würde, um Störungen und eventuelle negative Einflüsse auf ausgeführte Workloads zu minimieren.
 
-Das Open-Source-Projekt [kured (KUbernetes REboot Daemon) (kured (Kubernetes Neustart-Daemon))][kured] von Weaveworks überwacht ausstehende Neustarts für Knoten. Wenn ein Knoten Updates implementiert, die einen Neustart erfordern, wird der Knoten sicher gesperrt und ausgeglichen, um Pods in anderen Knoten des Clusters zu verschieben und einen Zeitplan für sie festzulegen. Sobald der Knoten neu gestartet wurde, wird er dem Cluster wieder hinzugefügt, und Kubernetes fährt damit fort, Zeitpläne für Pods in ihm festzulegen. Immer nur ein Knoten auf einmal kann durch `kured` neu gestartet werden, um Störungen so gering wie möglich zu halten.
+Das Open-Source-Projekt [kured (KUbernetes REboot Daemon) (kured (Kubernetes Neustart-Daemon))][kured] von Weaveworks überwacht ausstehende Neustarts für Knoten. Wenn ein Linux-Knoten Updates implementiert, die einen Neustart erfordern, wird der Knoten sicher abgesperrt und geleert, um Pods in andere Knoten des Clusters zu verschieben und einen Zeitplan für sie festzulegen. Sobald der Knoten neu gestartet wurde, wird er dem Cluster wieder hinzugefügt, und Kubernetes fährt damit fort, Zeitpläne für Pods in ihm festzulegen. Immer nur ein Knoten auf einmal kann durch `kured` neu gestartet werden, um Störungen so gering wie möglich zu halten.
 
 ![Der Neustartvorgang eines AKS-Knotens mithilfe von kured.](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
@@ -219,14 +218,14 @@ In diesem Artikel wurde erläutert, wie AKS-Cluster gesichert werden. Wenn Sie e
 <!-- EXTERNAL LINKS -->
 [kured]: https://github.com/weaveworks/kured
 [k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
-[seccomp]: https://docs.docker.com/engine/security/seccomp/
+[seccomp]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [aks-supported-versions]: supported-kubernetes-versions.md
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md

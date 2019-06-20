@@ -2,21 +2,21 @@
 title: Erstellen, Aktualisieren von Statistiken – Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Empfehlungen und Beispiele zum Erstellen und Aktualisieren von Abfrageoptimierungsstatistiken für Tabellen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 05/09/2018
-ms.author: kevin
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279770"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851538"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Tabellenstatistik in Azure SQL Data Warehouse
 
@@ -71,7 +71,7 @@ DBCC SHOW_STATISTICS (<table_name>, <target>)
 
 ## <a name="updating-statistics"></a>Aktualisieren von Statistiken
 
-Eine bewährte Methode ist es, die Statistiken für Datenspalten im Zuge des Hinzufügens neuer Daten täglich zu aktualisieren. Bei jedem Laden von neuen Zeilen in das Data Warehouse werden neue Datumsangaben für Lade- oder Transaktionsvorgänge hinzugefügt. Hierdurch wird die Datenverteilung geändert, und die Statistiken sind nicht mehr aktuell. Im Gegensatz dazu müssen Statistiken zu einer Länderspalte in einer Kundentabelle unter Umständen nie aktualisiert werden, da sich die Verteilung der Werte in der Regel nicht ändert. Wenn davon auszugehen ist, dass die Verteilung zwischen Kunden konstant ist, bewirkt das Hinzufügen neuer Zeilen zur Tabellenvariante keine Änderung der Datenverteilung. Wenn Ihr Data Warehouse allerdings nur ein Land enthält und Sie Daten eines neuen Lands hinzufügen, führt dies dazu, dass Daten aus mehreren Ländern gespeichert werden. Sie müssen dann die Statistiken in der Länderspalte aktualisieren.
+Eine bewährte Methode ist es, die Statistiken für Datenspalten im Zuge des Hinzufügens neuer Daten täglich zu aktualisieren. Bei jedem Laden von neuen Zeilen in das Data Warehouse werden neue Datumsangaben für Lade- oder Transaktionsvorgänge hinzugefügt. Hierdurch wird die Datenverteilung geändert, und die Statistiken sind nicht mehr aktuell. Im Gegensatz dazu müssen Statistiken zu einer Länder-/Regionenspalte in einer Kundentabelle unter Umständen nie aktualisiert werden, da sich die Verteilung der Werte in der Regel nicht ändert. Wenn davon auszugehen ist, dass die Verteilung zwischen Kunden konstant ist, bewirkt das Hinzufügen neuer Zeilen zur Tabellenvariante keine Änderung der Datenverteilung. Wenn Ihr Data Warehouse allerdings nur ein Land/eine Region enthält und Sie Daten eines neuen Lands/einer neuen Region hinzufügen, führt dies dazu, dass Daten aus mehreren Ländern/Regionen gespeichert werden. Sie müssen dann die Statistiken in der Länder-/Regionenspalte aktualisieren.
 
 Im Folgenden finden Sie Empfehlungen für Updates für Statistiken:
 
@@ -148,7 +148,7 @@ Bei dieser Syntax werden alle Standardoptionen verwendet. Standardmäßig wird i
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Beispiel: 
+Beispiel:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +164,7 @@ Verwenden Sie die folgende Syntax, um die gesamte Tabelle zu verwenden:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Beispiel: 
+Beispiel:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -367,7 +367,7 @@ Verwenden Sie die folgende Syntax, um ein bestimmtes Statistikobjekt zu aktualis
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Beispiel: 
+Beispiel:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -383,7 +383,7 @@ Hier ist eine einfache Methode zum Aktualisieren aller Statistikobjekte einer Ta
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Beispiel: 
+Beispiel:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -483,7 +483,7 @@ In diesem einfachen Beispiel werden alle drei Teile eines Statistikobjekts angez
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Beispiel: 
+Beispiel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -497,7 +497,7 @@ Wenn Sie nur bestimmte Teile anzeigen möchten, verwenden Sie die `WITH`-Klausel
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Beispiel: 
+Beispiel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

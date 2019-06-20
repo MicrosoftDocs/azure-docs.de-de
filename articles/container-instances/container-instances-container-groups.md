@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cba57875daf9b570d274ec8c4e9c4146af0dc045
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65072829"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Containergruppen in Azure Container Instances
 
@@ -65,7 +65,7 @@ Weitere Informationen finden Sie unter der Eigenschaft [ResourceRequirements][re
 
 * Ordnen Sie einer Containergruppe **mindestens** 1 CPU und 1 GB Arbeitsspeicher zu. Einzelne Containerinstanzen in einer Gruppe können mit weniger als 1 CPU und 1 GB Arbeitsspeicher bereitgestellt werden. 
 
-* Informationen zur **maximalen** Zuordnung von Ressourcen in einer Containergruppe finden Sie unter [resource availability][aci-region-availability] für Azure Container Instances in der Bereitstellungsregion.
+* Informationen zur **maximalen** Zuordnung von Ressourcen in einer Containergruppe finden Sie unter [Ressourcenverfügbarkeit][region-availability] für Azure Container Instances in der Bereitstellungsregion.
 
 ## <a name="networking"></a>Netzwerk
 

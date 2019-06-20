@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Schnelle Kubernetes-Entwicklung mit Containern und Microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, Helm, Service Mesh, Service Mesh-Routing, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1ffb3f0071409e148f394913d4bda5ba73319e3e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f502b84145b81153d5e39a03cca104d4285c581
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861630"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393428"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Schnellstart: Entwickeln mit .NET Core unter Kubernetes mit Azure Dev Spaces (Visual Studio Code)
 
@@ -35,7 +35,7 @@ In diesem Leitfaden lernen Sie Folgendes:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Erstellen eines Azure Kubernetes Service-Clusters
 
-Sie müssen in einer [unterstützten Region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams) einen AKS-Cluster erstellen. Mit den unten angegebenen Befehlen wird eine Ressourcengruppe mit dem Namen *MyResourceGroup* und der AKS-Cluster *MyAKS* erstellt.
+Sie müssen in einer [unterstützten Region][supported-regions] einen AKS-Cluster erstellen. Mit den unten angegebenen Befehlen wird eine Ressourcengruppe mit dem Namen *MyResourceGroup* und der AKS-Cluster *MyAKS* erstellt.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -115,13 +115,13 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Sie können die Ausführung des Diensts verfolgen, indem Sie die öffentliche URL öffnen, die in der Ausgabe des Befehls `azds up` angezeigt wird. In diesem Beispiel lautet die öffentliche URL *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Sie können die Ausführung des Diensts verfolgen, indem Sie die öffentliche URL öffnen, die in der Ausgabe des Befehls `azds up` angezeigt wird. In diesem Beispiel lautet die öffentliche URL *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Wenn Sie die Ausführung des Befehls `azds up` mit *STRG+C* anhalten, wird der Dienst in AKS weiter ausgeführt, und die öffentliche URL bleibt verfügbar.
 
 ## <a name="update-code"></a>Aktualisieren des Codes
 
-Zum Bereitstellen einer aktualisierten Version Ihres Diensts können Sie Dateien in Ihrem Projekt aktualisieren und den Befehl `azds up` erneut ausführen. Beispiel: 
+Zum Bereitstellen einer aktualisierten Version Ihres Diensts können Sie Dateien in Ihrem Projekt aktualisieren und den Befehl `azds up` erneut ausführen. Beispiel:
 
 1. Drücken Sie *STRG+C*, wenn `azds up` noch ausgeführt wird.
 1. Aktualisieren Sie [Zeile 20 unter `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L20) in:
@@ -148,7 +148,7 @@ Zum Bereitstellen einer aktualisierten Version Ihres Diensts können Sie Dateien
 
 ## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Aktivieren von Visual Studio Code für das Debuggen in Kubernetes
 
-Öffnen Sie Visual Studio Code, klicken Sie auf *Datei* und dann auf *Öffnen...*, navigieren Sie zum Verzeichnis *dev-spaces/samples/dotnetcore/getting-started/webfrontend*, und klicken Sie auf *Öffnen*.
+Öffnen Sie Visual Studio Code, klicken Sie auf *Datei* und dann auf *Öffnen...* , navigieren Sie zum Verzeichnis *dev-spaces/samples/dotnetcore/getting-started/webfrontend*, und klicken Sie auf *Öffnen*.
 
 Das Projekt *webfrontend* ist jetzt in Visual Studio Code geöffnet. Dies ist derselbe Dienst, den Sie mit dem Befehl `azds up` ausgeführt haben. Sie müssen dieses Projekt so vorbereiten, dass Visual Studio Code für die Kommunikation mit Ihrem Entwicklerbereich verwendet wird, um diesen Dienst in AKS mit Visual Studio Code und nicht direkt mit `azds up` zu debuggen.
 
@@ -183,7 +183,7 @@ Entfernen Sie den Haltepunkt, indem Sie Ihren Cursor in `Controllers/HomeControl
 
 ## <a name="update-code-from-visual-studio-code"></a>Aktualisieren von Code aus Visual Studio Code
 
-Aktualisieren Sie während der Ausführung des Diensts im Debugmodus Zeile 20 in `Controllers/HomeController.cs`. Beispiel: 
+Aktualisieren Sie während der Ausführung des Diensts im Debugmodus Zeile 20 in `Controllers/HomeController.cs`. Beispiel:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -209,3 +209,6 @@ Informieren Sie sich darüber, wie Azure Dev Spaces Sie bei der Entwicklung komp
 
 > [!div class="nextstepaction"]
 > [Arbeiten mit mehreren Containern und Teamentwicklung](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

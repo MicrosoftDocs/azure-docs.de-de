@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ec8bebf2854e84a37e84b45564e80fc20b63d8d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60584394"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Failover auf Ihre StorSimple Cloud Appliance
 

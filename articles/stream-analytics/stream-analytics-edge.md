@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892227"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60803967"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics auf IoT Edge
  

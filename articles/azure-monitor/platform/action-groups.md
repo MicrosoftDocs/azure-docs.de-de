@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549660"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416967"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Erstellen und Verwalten von Aktionsgruppen im Azure-Portal
 ## <a name="overview"></a>Übersicht ##
@@ -26,8 +26,8 @@ In diesem Artikel wird beschrieben, wie Sie Aktionsgruppen im Azure-Portal erste
 Jede Aktion besteht aus den folgenden Eigenschaften:
 
 * **Name:** Ein eindeutiger Bezeichner innerhalb der Aktionsgruppe.  
-* **Aktionstyp:** Die ausgeführte Aktion. Beispiele sind das Senden eines Sprachanrufs, SMS, E-Mail oder das Auslösen verschiedener Arten von automatisierten Aktionen. Siehe „Typen“ weiter unten in diesem Artikel. 
-* **Details**: Die entsprechenden Details. Diese können je nach *Aktionstyp* variieren. 
+* **Aktionstyp:** Die ausgeführte Aktion. Beispiele sind das Senden eines Sprachanrufs, SMS, E-Mail oder das Auslösen verschiedener Arten von automatisierten Aktionen. Siehe „Typen“ weiter unten in diesem Artikel.
+* **Details**: Die entsprechenden Details. Diese können je nach *Aktionstyp* variieren.
 
 Weitere Informationen zum Verwenden von Azure Resource Manager-Vorlagen zur Konfigurierung von Aktionsgruppen finden Sie unter [Aktionsgruppen-Resource Manager-Vorlagen](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
@@ -35,9 +35,9 @@ Weitere Informationen zum Verwenden von Azure Resource Manager-Vorlagen zur Konf
 1. Wählen Sie im [Portal](https://portal.azure.com) die Option **Überwachen**. Im Bereich **Überwachen** sind alle Ihre Überwachungseinstellungen und -daten an einem zentralen Ort zusammengefasst.
 
     ![Der Dienst „Überwachen“](./media/action-groups/home-monitor.png)
-1. Wählen Sie **Warnungen** und dann **Aktionsgruppen verwalten** aus.
+1. Wählen Sie **Warnungen** und dann **Aktionen verwalten** aus.
 
-    ![Schaltfläche „Aktionsgruppen verwalten“](./media/action-groups/manage-action-groups.png)
+    ![Verwalten der Schaltfläche „Aktionen“](./media/action-groups/manage-action-groups.png)
 1. Wählen Sie **Aktionsgruppe hinzufügen**, und füllen Sie die Felder aus.
 
     ![Der Befehl „Aktionsgruppe hinzufügen“](./media/action-groups/add-action-group.png)
@@ -69,7 +69,7 @@ Nachdem Sie eine Aktionsgruppe erstellt haben, wird diese im Abschnitt **Aktions
 > [!NOTE]
 > Informationen zu den numerischen Grenzwerten für die unten angegebenen Elemente finden Sie unter [Grenzwerte für Monitor](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits).  
 
-**Azure-App-Pushvorgang**: Es kann sein, dass Sie in einer Aktionsgruppe über eine begrenzte Anzahl von Azure-App-Aktionen verfügen. Derzeit werden für Azure-App-Aktionen nur ServiceHealth-Warnungen unterstützt. Alle anderen Warnungstypen werden ignoriert. Weitere Informationen finden Sie unter [Konfigurieren von Warnungen, wenn eine Dienstintegritätsbenachrichtigung gesendet wird](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Azure-App-Pushvorgang**: Es kann sein, dass Sie in einer Aktionsgruppe über eine begrenzte Anzahl von Azure-App-Aktionen verfügen.
 
 **E-Mail**: E-Mails werden von den folgenden E-Mail-Adressen gesendet. Achten Sie darauf, dass Ihre E-Mail-Filterung ordnungsgemäß konfiguriert ist.
 - azure-noreply@microsoft.com
@@ -101,19 +101,19 @@ Quell-IP-Adressbereiche
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19
 
 Um Updates über Änderungen an diesen IP-Adressen zu erhalten, empfehlen wir Ihnen, eine Service Health-Warnung zu konfigurieren, die eine Überwachung auf Informationsbenachrichtigungen des Aktionsgruppendiensts ausführt.
 
-
 ## <a name="next-steps"></a>Nächste Schritte ##
-
 * Erfahren Sie mehr über das [SMS-Warnungsverhalten in Aktionsgruppen](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Erweitern Sie Ihr [Verständnis des Webhookschemas für Aktivitätsprotokollwarnungen](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Erfahren Sie mehr über den [ITSM-Connector](../../azure-monitor/platform/itsmc-overview.md).
 * Weitere Informationen zu [Ratenlimits](../../azure-monitor/platform/alerts-rate-limiting.md) für Warnungen.
 * Verschaffen Sie sich eine [Übersicht über Aktivitätsprotokollwarnungen](../../azure-monitor/platform/alerts-overview.md), und erfahren Sie, wie Sie Warnungen empfangen können.  
 * Erfahren Sie, wie Sie [Warnungen konfigurieren, wenn eine Dienstintegritätsbenachrichtigung gesendet wird](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

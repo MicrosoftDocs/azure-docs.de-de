@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471600"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606414"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurieren einer Entwicklungsumgebung für Azure Machine Learning
 
@@ -26,7 +26,7 @@ Die einzigen Voraussetzungen für die Entwicklungsumgebung sind Python 3, Anacon
 
 In diesem Artikel werden in erster Linie die folgenden Umgebungen und Tools behandelt:
 
-* Ihr eigener [cloudbasierter Notebook-Server](#notebookvm): Verwenden Sie zum Ausführen von Jupyter-Notebooks eine Computeressource auf Ihrer Arbeitsstation. Dies ist die einfachste Methode für den Einstieg, da das Azure Machine Learning SDK bereits installiert ist.
+* Ihre eigene [cloudbasierte Notebook-VM](#notebookvm): Verwenden Sie zum Ausführen von Jupyter-Notebooks eine Computeressource auf Ihrer Arbeitsstation. Dies ist die einfachste Methode für den Einstieg, da das Azure Machine Learning SDK bereits installiert ist.
 
 * [Data Science Virtual Machine (DSVM)](#dsvm): Eine vorkonfigurierte Entwicklungs- bzw. Experimentierumgebung in der Azure-Cloud, die für Data Science-Zwecke konzipiert ist und entweder auf ausschließlich CPU-basierten VM-Instanzen oder GPU-basierten Instanzen bereitgestellt werden kann. Python 3, Conda, Jupyter Notebooks und das Azure Machine Learning-SDK sind bereits installiert. Der virtuelle Computer ist mit gängigen Machine Learning- bzw. Deep Learning-Frameworks, -Tools und -Editoren zum Entwickeln von Lösungen für maschinelles Lernen ausgestattet. Dies ist wahrscheinlich die umfassendste Entwicklungsumgebung für maschinelles Lernen auf der Azure-Plattform.
 
@@ -42,9 +42,7 @@ Wenn Sie bereits über eine Python 3-Umgebung verfügen oder nur die grundlegend
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Ein Azure Machine Learning-Dienstbereich. Informationen zum Erstellen des Arbeitsbereichs finden Sie unter [Erstellen eines Azure Machine Learning Service-Arbeitsbereichs](setup-create-workspace.md).
-
-Ein Arbeitsbereich ist alles, was Sie zum Einstieg in Ihren eigenen [cloudbasierten Notebook-Server](#notebookvm), eine [DSVM](#dsvm), [Azure Databricks](#aml-databricks) oder [Azure Notebooks](#aznotebooks) benötigen.
+Ein Azure Machine Learning-Dienstbereich. Informationen zum Erstellen des Arbeitsbereichs finden Sie unter [Erstellen eines Azure Machine Learning Service-Arbeitsbereichs](setup-create-workspace.md). Ein Arbeitsbereich ist alles, was Sie zum Einstieg in Ihren eigenen [cloudbasierten Notebook-Server](#notebookvm), eine [DSVM](#dsvm), [Azure Databricks](#aml-databricks) oder [Azure Notebooks](#aznotebooks) benötigen.
 
 Um die SDK-Umgebung für Ihren [lokalen Computer](#local), Ihren [Jupyter Notebook-Server](#jupyter) oder Ihr [Visual Studio Code](#vscode) zu installieren, benötigen Sie außerdem:
 
@@ -57,16 +55,30 @@ Um die SDK-Umgebung für Ihren [lokalen Computer](#local), Ihren [Jupyter Notebo
 
 - Unter Windows benötigen Sie die Eingabeaufforderung oder die Anaconda-Eingabeaufforderung (installiert mit Anaconda und Miniconda).
 
-## <a id="notebookvm"></a>Ihr eigener cloudbasierter Notebook-Server
+## <a id="notebookvm"></a>Ihre eigene cloudbasierte Notebook-VM
 
-Erstellen Sie in Ihrem Azure Machine Learning-Arbeitsbereich einen Notebook-Server, um sich den einfachsten Einstieg in die Azure Machine Learning-Entwicklung zu ermöglichen.
+Die Notebook-VM (Vorschauversion) ist eine sichere, cloudbasierte Azure-Arbeitsstation, die Data Scientists einen Jupyter Notebook-Server, JupyterLab und eine vollständig vorbereitete Machine Learning-Umgebung bereitstellt. 
 
-* Das Azure Machine Learning SDK ist bereits installiert.
-* Die VM-Umgebung des Notebooks ist automatisch für den Einsatz in Ihrem Arbeitsbereich konfiguriert.
-* Die Ressource wird in Ihrem Arbeitsbereich erstellt und kann dort verwaltet werden.
+Die Notebook-VM ist: 
 
-Informationen zum Einstieg in die Entwicklung mit Ihrem cloudbasierten Notebook-Server finden Sie unter [Schnellstart: Verwenden eines cloudbasierten Notebook-Servers für die ersten Schritte mit Azure Machine Learning](quickstart-run-cloud-notebook.md).
++ **Sicher.** Da der Zugriff auf VMs und Notebooks standardmäßig mit HTTPS und Azure Active Directory gesichert wird, können IT-Experten das einmalige Anmelden und andere Sicherheitsfunktionen wie die mehrstufige Authentifizierung einfach erzwingen.
 
++ **Vorkonfiguriert:** Diese vollständig einsatzbereite Machine Learning-Umgebung für Python zeichnet sich durch die beliebte IaaS-Umgebung Data Science VM aus und enthält Folgendes:
+  + das aktuellste Azure Machine Learning-Python-SDK
+  + eine automatische Konfiguration für Ihren Arbeitsbereich
+  + einen Jupyter Notebook-Server
+  + die JupyterLab-Notebook-IDE
+  + vorkonfigurierte GPU-Treiber 
+  + einige Deep Learning-Frameworks
+ 
+
+  Wenn Sie das Programmieren bevorzugen, können Sie die Tutorials und Beispiele der VM nutzen, um sich in die Verwendung von Machine Learning Service einzuarbeiten. Die Beispielnotebooks sind im Azure Blob Storage-Konto Ihres Arbeitsbereichs gespeichert und können für VMs freigegeben werden. Bei der Ausführung können sie auf die Datenspeicher und die Computeressourcen Ihres Arbeitsbereichs zugreifen. 
+
++ **Schnell eingerichtet:** In Ihrem Azure Machine Learning-Arbeitsbereich können Sie jederzeit eine Notebook-VM erstellen. Geben Sie einfach einen Namen und einen Azure-VM-Typ an. Testen Sie die Einrichtung unter [Schnellstart: Verwenden eines cloudbasierten Notebook-Servers für die ersten Schritte mit Azure Machine Learning](quickstart-run-cloud-notebook.md).
+
++ **Anpassbar:** Das VM-Angebot ist schnell und sicher, bietet jedoch gleichzeitig einen uneingeschränkten Zugriff auf die Hardwarefunktionen, die Sie nach Bedarf konfigurieren können. Sie können beispielsweise in kurzer Zeit die neueste NVidia V100-VM erstellen, um neue neuronale Netzarchitekturen Schritt für Schritt zu debuggen.
+
+Wenn Sie vermeiden möchten, dass Gebühren für die Notebook-VM anfallen, müssen Sie diese [beenden](quickstart-run-cloud-notebook.md#stop-the-notebook-vm). 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -244,7 +256,7 @@ Durch die Vorgehensweise im Abschnitt [Lokaler Computer](#local) werden die erfo
 
 ### <a id="vscode"></a>Visual Studio Code
 
-Visual Studio Code ist ein Code-Editor für alle Plattformen. Für Python-Unterstützung benötigt er eine lokale Python 3- und Conda-Installation, aber er bietet zusätzliche Tools für die Arbeit mit künstlicher Intelligenz. Darüber hinaus bietet er Unterstützung für die Auswahl der Conda-Umgebung aus dem Code-Editor heraus.
+Visual Studio Code ist ein Code-Editor für alle Plattformen. Für Python-Unterstützung benötigt er eine lokale Python 3- und Conda-Installation, aber er bietet zusätzliche Tools für die Arbeit mit künstlicher Intelligenz (KI). Darüber hinaus bietet er Unterstützung für die Auswahl der Conda-Umgebung aus dem Code-Editor heraus.
 
 Um Visual Studio Code für die Entwicklung zu verwenden, gehen Sie folgendermaßen vor:
 
@@ -262,7 +274,7 @@ Um Visual Studio Code für die Entwicklung zu verwenden, gehen Sie folgendermaß
     azureml.core.VERSION
     ```
 
-1. Installationsanweisungen für die Azure Machine Learning-Erweiterung für Visual Studio Code finden Sie unter [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+1. Installationsanweisungen für die Azure Machine Learning-Erweiterung für Visual Studio Code finden Sie unter [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) (Tools für KI).
 
     Weitere Informationen finden Sie unter [Verwenden von Azure Machine Learning für Visual Studio Code](how-to-vscode-tools.md).
 
@@ -366,7 +378,7 @@ Um in Ihrem Code auf diese Datei zuzugreifen, verwenden Sie `ws=Workspace.from_c
 
 Sie können die Konfigurationsdatei auf drei Arten erstellen:
 
-* **Befolgen Sie die Schritte unter [Erstellen eines Azure Machine Learning Service-Arbeitsbereichs](setup-create-workspace.md#sdk)**: In Ihrer Azure Notebooks-Bibliothek wird eine *config.json*-Datei erstellt. Diese Datei enthält die Konfigurationsinformationen für Ihren Arbeitsbereich. Sie können die Datei *config.json* in andere Entwicklungsumgebungen herunterladen oder kopieren.
+* **Befolgen Sie die Schritte unter [Erstellen eines Azure Machine Learning Service-Arbeitsbereichs](setup-create-workspace.md#sdk)** : In Ihrer Azure Notebooks-Bibliothek wird eine *config.json*-Datei erstellt. Diese Datei enthält die Konfigurationsinformationen für Ihren Arbeitsbereich. Sie können die Datei *config.json* in andere Entwicklungsumgebungen herunterladen oder kopieren.
 
 * **Datei herunterladen**: Wählen Sie im [Azure-Portal](https://ms.portal.azure.com) im Abschnitt **Übersicht** Ihres Arbeitsbereichs **config.json herunterladen** aus.
 
@@ -397,4 +409,3 @@ Sie können die Konfigurationsdatei auf drei Arten erstellen:
 - [Trainieren eines Modells](tutorial-train-models-with-aml.md) in Azure Machine Learning mit der MNIST-Datenbank
 - Anzeigen der Referenz [Azure Machine Learning SDK für Python](https://aka.ms/aml-sdk)
 - Informationen zum [Datenvorbereitungspaket für Azure Machine Learning](https://aka.ms/data-prep-sdk)
-- 

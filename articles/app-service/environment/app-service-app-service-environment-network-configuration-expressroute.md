@@ -16,11 +16,11 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62130669"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Details zur Netzwerkkonfiguration für App Service-Umgebungen für PowerApps mit Microsoft Azure ExpressRoute
 

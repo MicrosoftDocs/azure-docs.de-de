@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b5bf778f06ff0223fd48a1282aadf223ff032b0f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919850"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241180"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Speichern und Konfigurieren der API Management-Dienstkonfiguration mit Git
 
@@ -57,7 +57,7 @@ Um Ihre Git-Konfigurationseinstellungen anzuzeigen und zu konfigurieren, können
 >
 >
 
-Informationen zum Aktivieren oder Deaktivieren des Git-Zugriffs mithilfe der REST-API finden Sie unter [Azure API Management-REST-API-Mandanten-Entität](/rest/api/apimanagement/tenantaccess?EnableGit).
+Informationen zum Aktivieren oder Deaktivieren des Git-Zugriffs mithilfe der REST-API finden Sie unter [Azure API Management-REST-API-Mandanten-Entität](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>So speichern Sie die Dienstkonfiguration im Git-Repository
 
@@ -69,7 +69,7 @@ Nach einigen Augenblicken wird die Konfiguration gespeichert, und der Konfigurat
 
 Sobald die Konfiguration im Repository gespeichert wurde, kann sie geklont werden.
 
-Informationen zum Ausführen dieses Vorgangs mit der REST-API finden Sie unter [Commit der Konfigurationsmomentaufnahme mithilfe der REST-API](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
+Informationen zum Ausführen dieses Vorgangs mit der REST-API finden Sie unter [Commit der Konfigurationsmomentaufnahme mithilfe der REST-API](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>So klonen Sie das Repository auf Ihrem lokalen Computer
 
@@ -143,7 +143,7 @@ git push
 
 Sobald ein Commit für Ihre lokalen Änderungen ausgeführt wurde und sie in das Serverrepository übertragen wurden, können Sie sie Ihrer API Management-Dienstinstanz bereitstellen.
 
-Informationen zum Ausführen dieses Vorgangs mit der REST-API finden Sie unter [Azure API Management-REST-API-Mandanten-Entität](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
+Informationen zum Ausführen dieses Vorgangs mit der REST-API finden Sie unter [Azure API Management-REST-API-Mandanten-Entität](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referenz der Datei- und Ordnerstruktur des lokalen Git-Repositorys
 
@@ -165,7 +165,7 @@ Jeder Ordner kann eine oder mehrere Dateien enthalten, und in einigen Fällen ei
 | --- | --- |
 | json |Konfigurationsinformationen zur jeweiligen Entität |
 | html |Beschreibungen der Entität, werden häufig im Entwicklerportal angezeigt |
-| Xml |Richtlinienanweisungen |
+| xml |Richtlinienanweisungen |
 | css |Stylesheets für die Anpassung des Entwicklerportals |
 
 Diese Dateien können im lokalen System erstellt, gelöscht, bearbeitet und verwaltet werden, und die Änderungen werden wieder in Ihrer API Management-Dienstinstanz bereitgestellt.
@@ -173,9 +173,9 @@ Diese Dateien können im lokalen System erstellt, gelöscht, bearbeitet und verw
 > [!NOTE]
 > Die folgenden Entitäten sind im Git-Repository nicht enthalten und können nicht mithilfe von Git konfiguriert werden.
 >
-> * [Benutzer](https://docs.microsoft.com/rest/api/apimanagement/user)
-> * [Abonnements](https://docs.microsoft.com/rest/api/apimanagement/subscription)
-> * [Eigenschaft](https://docs.microsoft.com/rest/api/apimanagement/property)
+> * [Benutzer](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
+> * [Abonnements](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
+> * [Eigenschaft](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
 > * Andere Entitäten des Entwicklerportals als Stile
 >
 
@@ -223,14 +223,14 @@ Die letzte Einstellung, `$ref-policy`, entspricht der globalen Datei mit Richtli
 ### <a name="apis-folder"></a>Ordner „apis“
 Der Ordner `apis` enthält einen Ordner für jede API in der Dienstinstanz, der die folgenden Elemente enthält.
 
-* `apis\<api name>\configuration.json` : Dies ist die Konfiguration der API, und die Datei enthält Informationen zur Back-End-Dienst-URL und zu den Vorgängen. Dies sind die gleichen Informationen, die zurückgegeben werden, wenn Sie [Abrufen einer bestimmten API](https://docs.microsoft.com/rest/api/apimanagement/apis/get) mit `export=true` im Format `application/json` aufrufen.
+* `apis\<api name>\configuration.json` : Dies ist die Konfiguration der API, und die Datei enthält Informationen zur Back-End-Dienst-URL und zu den Vorgängen. Dies sind die gleichen Informationen, die zurückgegeben werden, wenn Sie [Abrufen einer bestimmten API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) mit `export=true` im Format `application/json` aufrufen.
 * `apis\<api name>\api.description.html`: Dies ist die Beschreibung der API, und sie entspricht der Eigenschaft `description` der [Entität „API“](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\`: Dieser Ordner enthält `<operation name>.description.html`-Dateien, die den Vorgängen in der API entsprechen. Jede Datei enthält die Beschreibung eines einzelnen Vorgangs in der API, die der `description`-Eigenschaft der [Entität „Operation“](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) in der REST-API entspricht.
 
 ### <a name="groups-folder"></a>Ordner „groups“
 Der Ordner `groups` enthält einen Ordner für jede in der Dienstinstanz definierte Gruppe.
 
-* `groups\<group name>\configuration.json`: Dies ist die Konfiguration für die Gruppe. Dies sind die gleichen Informationen, die zurückgegeben werden, wenn Sie den Vorgang [Abrufen einer bestimmten Gruppe](https://docs.microsoft.com/rest/api/apimanagement/group/get) aufrufen.
+* `groups\<group name>\configuration.json`: Dies ist die Konfiguration für die Gruppe. Dies sind die gleichen Informationen, die zurückgegeben werden, wenn Sie den Vorgang [Abrufen einer bestimmten Gruppe](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) aufrufen.
 * `groups\<group name>\description.html`: Dies ist die Beschreibung der Gruppe, und sie entspricht der Eigenschaft `description` der [Entität „Group“](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>Ordner „policies“
@@ -250,7 +250,7 @@ Der Ordner `portalStyles` enthält Konfigurationen und Stylesheets für Anpassun
 ### <a name="products-folder"></a>Ordner „products“
 Der Ordner `products` enthält einen Ordner für jedes in der Dienstinstanz definierte Produkt.
 
-* `products\<product name>\configuration.json`: Dies ist die Konfiguration für das Produkt. Dies sind die gleichen Informationen, die zurückgegeben werden, wenn Sie den Vorgang [Abrufen eines bestimmten Produkts](https://docs.microsoft.com/rest/api/apimanagement/product/get) aufrufen.
+* `products\<product name>\configuration.json`: Dies ist die Konfiguration für das Produkt. Dies sind die gleichen Informationen, die zurückgegeben werden, wenn Sie den Vorgang [Abrufen eines bestimmten Produkts](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) aufrufen.
 * `products\<product name>\product.description.html`: Dies ist die Beschreibung des Produkts, und sie entspricht der Eigenschaft `description` der [Entität „Product“](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in der REST-API.
 
 ### <a name="templates"></a>Vorlagen

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: b19681fd1ad70985bccd375931f5d5801f153aa8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60895803"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Upgradehandbuch für die Rechtschreibprüfungs-API
 

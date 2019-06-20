@@ -8,17 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606348"
 ---
 # <a name="release-notes"></a>Versionshinweise
+
+## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
+
+Dies ist ein Fehlerbehebungsrelease und betrifft nur das native/verwaltete SDK. Es betrifft nicht die JavaScript-Version des SDK.
+
+**Fehlerbehebungen**
+
+* Fehlerbehebung bei FromSubscription bei Verwendung mit Unterhaltungstranskription.
+* Fehlerbehebung bei der Schlüsselwortsuche für den virtuellen Voice-First-Assistenten.
+
 
 ## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: Release von Mai 2019
 

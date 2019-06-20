@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545296"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574399"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Erstellen einer Shopsuche mit Azure Maps
 
@@ -71,7 +71,7 @@ Mit den Drahtmodellen wird eine relativ einfache Anwendung veranschaulicht. Die 
 
 ## <a name="create-the-store-location-dataset"></a>Erstellen des Datasets für die Standorte der Shops
 
-Bevor wir eine Anwendung für die Shopsuche entwickeln, müssen wir ein Dataset mit den Shops erstellen, die auf der Karte angezeigt werden sollen. In diesem Tutorial verwenden wir ein Dataset für einen fiktiven Coffee-Shop mit dem Namen Contoso Coffee. Das Dataset für diese einfache Shopsuche wird in einer Excel-Arbeitsmappe verwaltet. Das Dataset enthält 10.213 Coffee-Shop-Standorte von Contoso Coffee in neun Ländern: USA, Kanada, Vereinigtes Königreich, Frankreich, Deutschland, Italien, Niederlande, Dänemark und Spanien. In diesem Screenshot ist dargestellt, wie die Daten aussehen:
+Bevor wir eine Anwendung für die Shopsuche entwickeln, müssen wir ein Dataset mit den Shops erstellen, die auf der Karte angezeigt werden sollen. In diesem Tutorial verwenden wir ein Dataset für einen fiktiven Coffee-Shop mit dem Namen Contoso Coffee. Das Dataset für diese einfache Shopsuche wird in einer Excel-Arbeitsmappe verwaltet. Das Dataset enthält 10.213 Coffee-Shop-Standorte von Contoso Coffee in neun Ländern/Regionen: USA, Kanada, Vereinigtes Königreich, Frankreich, Deutschland, Italien, Niederlande, Dänemark und Spanien. In diesem Screenshot ist dargestellt, wie die Daten aussehen:
 
 <br/>
 <center>
@@ -93,7 +93,7 @@ Es gibt viele Möglichkeiten, um das Dataset für die Anwendung verfügbar zu ma
 
 Ein anderer Ansatz besteht darin, dieses Dataset in eine Textflatfile zu konvertieren, die vom Browser leicht analysiert werden kann. Die Datei selbst kann mit dem Rest der Anwendung gehostet werden. Diese Option sorgt für eine Vereinfachung, aber sie eignet sich gut für kleinere Datasets, weil der Benutzer alle Daten herunterlädt. Wir verwenden die Textflatfile für dieses Dataset, weil die Größe der Datendatei unter 1 MB liegt.  
 
-Speichern Sie die Arbeitsmappe als Datei mit Tabstopp-Trennzeichen, um sie in eine Textflatfile zu konvertieren. Die einzelnen Spalten sind durch ein Tabstoppzeichen getrennt, damit sie in unserem Code leicht analysiert werden können. Sie können auch das CSV-Format mit Kommas als Trennzeichen verwenden, aber für diese Option ist ein höherer Anteil an Logik für die Analyse erforderlich. Jedes Feld, das über ein Komma verfügt, wird mit Fragezeichen umschlossen. Wählen Sie **Speichern unter**, um diese Daten als Datei mit Tabstopps als Trennzeichen nach Excel zu exportieren. Wählen Sie in der Dropdownliste **Dateityp** die Option **Text (durch Tabstopps getrennt) (*.txt)**. Geben Sie der Datei den Namen *ContosoCoffee.txt*. 
+Speichern Sie die Arbeitsmappe als Datei mit Tabstopp-Trennzeichen, um sie in eine Textflatfile zu konvertieren. Die einzelnen Spalten sind durch ein Tabstoppzeichen getrennt, damit sie in unserem Code leicht analysiert werden können. Sie können auch das CSV-Format mit Kommas als Trennzeichen verwenden, aber für diese Option ist ein höherer Anteil an Logik für die Analyse erforderlich. Jedes Feld, das über ein Komma verfügt, wird mit Fragezeichen umschlossen. Wählen Sie **Speichern unter**, um diese Daten als Datei mit Tabstopps als Trennzeichen nach Excel zu exportieren. Wählen Sie in der Dropdownliste **Dateityp** die Option **Text (durch Tabstopps getrennt) (*.txt)** . Geben Sie der Datei den Namen *ContosoCoffee.txt*. 
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ In der Benutzeroberfläche ist jetzt alles eingerichtet. Jetzt müssen wir den J
 
 1. Fügen Sie der Datei *index.js* Code hinzu. Mit dem folgenden Code wird Folgendes durchgeführt: Die Karte wird initialisiert, es wird ein [Ereignislistener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) hinzugefügt, der den Abschluss des Seitenladevorgangs abwartet, es werden Ereignisse zum Überwachen des Kartenladevorgangs eingerichtet, und die Grundlage für die Suchschaltfläche und die Schaltfläche zum Anzeigen des eigenen Standorts wird geschaffen.
 
-   Wenn der Benutzer die Suchschaltfläche wählt oder nach dem Eingeben eines Standorts im Suchfeld die EINGABETASTE drückt, wird für die Abfrage des Benutzers eine Fuzzysuche initiiert. Übergeben Sie ein Array mit ISO 2-Länderwerten an die Option `countrySet`, um die Suchergebnisse für diese Länder zu begrenzen. Durch das Begrenzen der zu suchenden Länder kann die Genauigkeit der zurückgegebenen Ergebnisse erhöht werden. 
+   Wenn der Benutzer die Suchschaltfläche wählt oder nach dem Eingeben eines Standorts im Suchfeld die EINGABETASTE drückt, wird für die Abfrage des Benutzers eine Fuzzysuche initiiert. Übergeben Sie ein Array mit ISO 2-Länderwerten an die Option `countrySet`, um die Suchergebnisse auf diese Länder/Regionen zu begrenzen. Durch das Begrenzen der zu durchsuchenden Länder/Regionen kann die Genauigkeit der zurückgegebenen Ergebnisse erhöht werden. 
   
    Verwenden Sie nach Abschluss der Suche das erste Ergebnis, und legen Sie die Kartenkamera auf diesen Bereich fest. Wenn der Benutzer die Schaltfläche zum Anzeigen des eigenen Standorts wählt, sollte die in den Browser integrierte HTML5 Geolocation API verwendet werden, um den Standort des Benutzers abzurufen und ihn als Mittelpunkt der Karte festzulegen.  
 

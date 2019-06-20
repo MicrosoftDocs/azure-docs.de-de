@@ -1,6 +1,6 @@
 ---
-title: Verfügbarkeit der Azure-Infrastruktur
-description: Der Artikel beschreibt Redundanzebenen zur Gewährleistung maximaler Verfügbarkeit von Kundendaten.
+title: Verfügbarkeit der Azure-Infrastruktur – Azure-Sicherheit
+description: Dieser Artikel enthält Informationen darüber, was Microsoft unternimmt, um die Azure-Infrastruktur zu schützen und eine maximale Verfügbarkeit der Kundendaten zu gewährleisten.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105874"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64872584"
 ---
 # <a name="azure-infrastructure-availability"></a>Verfügbarkeit der Azure-Infrastruktur
-Azure bietet zuverlässige Verfügbarkeit auf Grundlage umfassender Redundanz mithilfe von Virtualisierungstechnologie. Azure bietet zahlreiche Redundanzebenen zur Gewährleistung maximaler Verfügbarkeit von Kundendaten.
+Dieser Artikel enthält Informationen darüber, was Microsoft unternimmt, um die Azure-Infrastruktur zu schützen und eine maximale Verfügbarkeit der Kundendaten zu gewährleisten. Azure bietet zuverlässige Verfügbarkeit auf Grundlage umfassender Redundanz mithilfe von Virtualisierungstechnologie.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Temporäre Ausfälle und Naturkatastrophen
 Das Microsoft Cloud Infrastructure and Operations-Team entwirft, erstellt, betreibt und verbessert den Schutz der Cloudinfrastruktur. Dieses Team stellt für die Azure-Infrastruktur Hochverfügbarkeit und Zuverlässigkeit, hohe Effizienz, intelligente Skalierbarkeit sicher. Das Team bietet eine sicherere, private und vertrauenswürdige Cloud.

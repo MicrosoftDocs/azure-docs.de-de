@@ -15,11 +15,11 @@ ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60477705"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Unterstützte Szenarien für große HANA-Instanzen
 Dieses Dokument beschreibt die unterstützten Szenarien sowie deren Architekturdetails für große HANA-Instanzen (HANA Large Instances, HLI).

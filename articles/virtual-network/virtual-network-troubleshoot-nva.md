@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 00393395745ca96ae14269ae80e4f3d25673fbfa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723012"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Probleme mit virtuellen Netzwerkappliances in Azure
 
@@ -74,7 +74,14 @@ Verwenden von PowerShell
 3. Überprüfen Sie die Eigenschaft **EnableIPForwarding**.
 4. Wenn die IP-Weiterleitung nicht aktiviert ist, führen Sie die folgenden Befehle aus, um diese zu aktivieren:
 
-   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName> $nic2.EnableIPForwarding = 1 Set-AzNetworkInterface -NetworkInterface $nic2 Execute: $nic2 #und überprüfen Sie auf Vorhandensein einer erwarteten Ausgabe: EnableIPForwarding   : True NetworkSecurityGroup : null
+   ```powershell
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   $nic2.EnableIPForwarding = 1
+   Set-AzNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
 
 **Bei Verwendung einer Standard-SKU und öffentlichen IP-Adresse muss eine NSG vorhanden sein** Bei Verwendung einer Standard-SKU und öffentlicher IP-Adressen müssen eine NSG und eine explizite Regel erstellt werden, damit der Datenverkehr an die NVA weitergeleitet werden darf.
 

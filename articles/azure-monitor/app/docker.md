@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62098030"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Überwachen von Docker-Anwendungen in Application Insights (verwaltet)
 

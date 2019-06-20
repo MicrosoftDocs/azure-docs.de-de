@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 30a090aeb2d66c732e70a9acce67d5f3374c32fa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153162"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Verwenden des Warteschlangenspeichers mit Ruby
@@ -70,7 +70,7 @@ Der folgende Code erstellt ein **Azure::QueueService** -Objekt, das Ihnen das Ar
 azure_queue_service = Azure::QueueService.new
 ```
 
-Mit der **create_queue()**-Methode können Sie eine Warteschlange mit dem angegebenen Namen erstellen.
+Mit der **create_queue()** -Methode können Sie eine Warteschlange mit dem angegebenen Namen erstellen.
 
 ```ruby
 begin
@@ -81,7 +81,7 @@ end
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Anleitung: Einfügen einer Nachricht in eine Warteschlange
-Mit der **create_message()**-Methode können Sie eine neue Nachricht erstellen und zur Warteschlange hinzufügen.
+Mit der **create_message()** -Methode können Sie eine neue Nachricht erstellen und zur Warteschlange hinzufügen.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
@@ -110,7 +110,7 @@ azure_queue_service.delete_message("test-queue",
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Anleitung: Ändern des Inhalts von Nachrichten in der Warteschlange
-Sie können den Inhalt einer Nachricht vor Ort in der Warteschlange ändern. Der folgende Code verwendet die **update_message()**-Methode zum Aktualisieren einer Nachricht. Der Code gibt ein Tupel zurück, das den Pop-Beleg der Warteschlangennachricht und einen Datums-/Uhrzeitwert in UTC zurück, der angibt, wann die Nachricht in der Warteschlange sichtbar sein wird.
+Sie können den Inhalt einer Nachricht vor Ort in der Warteschlange ändern. Der folgende Code verwendet die **update_message()** -Methode zum Aktualisieren einer Nachricht. Der Code gibt ein Tupel zurück, das den Pop-Beleg der Warteschlangennachricht und einen Datums-/Uhrzeitwert in UTC zurück, der angibt, wann die Nachricht in der Warteschlange sichtbar sein wird.
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)
@@ -125,7 +125,7 @@ Es gibt zwei Möglichkeiten, wie Sie das Abrufen von Nachrichten aus der Wartesc
 1. Sie können auch einen Nachrichtenstapel abrufen.
 2. Außerdem können Sie das Unsichtbarkeits-Zeitlimit verkürzen oder verlängern, sodass der Code mehr oder weniger Zeit zur vollständigen Verarbeitung jeder Nachricht benötigt.
 
-Das folgende Codebeispiel verwendet **list\_messages()**, um 15 Nachrichten mit einem Aufruf abzurufen. Anschließend werden die Nachrichten ausgegeben und gelöscht. Außerdem wird das Unsichtbarkeits-Zeitlimit auf fünf Minuten pro Nachricht festgelegt.
+Das folgende Codebeispiel verwendet **list\_messages()** , um 15 Nachrichten mit einem Aufruf abzurufen. Anschließend werden die Nachrichten ausgegeben und gelöscht. Außerdem wird das Unsichtbarkeits-Zeitlimit auf fünf Minuten pro Nachricht festgelegt.
 
 ```ruby
 azure_queue_service.list_messages("test-queue", 300

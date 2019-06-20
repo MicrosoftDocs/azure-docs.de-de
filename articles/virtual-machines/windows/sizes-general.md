@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: jonbeck
 ms.openlocfilehash: 543629e8b14039ce6e9a229d7bd5be05ade4d3ec
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64513834"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Universelle VM-Größen
 

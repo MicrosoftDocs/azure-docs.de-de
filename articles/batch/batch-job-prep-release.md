@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548696"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60776193"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ausführen von Tasks zum Vorbereiten und Freigeben von Aufträgen auf Azure Batch-Computeknoten
 
@@ -61,7 +61,7 @@ Eventuell wollen Sie eine Kopie der von den Aufgaben generierten Protokolle oder
 ## <a name="job-preparation-task"></a>Auftragsvorbereitungsaufgabe
 Vor der Ausführung der Aufgaben eines Auftrags führt Batch die Auftragsvorbereitungsaufgabe auf jedem Computeknoten aus, der zum Ausführen einer Aufgabe eingeplant ist. Standardmäßig wartet der Batch-Dienst, bis die Auftragsvorbereitungsaufgabe abgeschlossen ist, bevor er die geplanten Aufgaben auf dem Knoten ausführt. Sie können den Dienst allerdings auch dahingehend konfigurieren, dass er nicht wartet. Nach dem Neustart des Knotens wird die Auftragsvorbereitungsaufgabe erneut ausgeführt, aber Sie können dieses Verhalten auch deaktivieren.
 
-Die Auftragsvorbereitungsaufgabe wird nur auf Knoten ausgeführt, die zum Ausführen einer Aufgabe eingeplant sind. Das verhindert die unnötige Ausführung von Auftragsvorbereitungsaufgaben an Knoten, denen keine Aufgaben zugewiesen sind.  Dies kann eintreten, wenn die Anzahl der Aufgaben für einen Auftrag geringer ist, als die Anzahl der Knoten in einem Pool. Dies gilt auch, wenn die [gleichzeitige Aufgabenausführung](batch-parallel-node-tasks.md) aktiviert ist. Einige Knoten bleiben unbeschäftigt, wenn die Gesamtzahl von Aufgaben geringer als die Gesamtzahl der möglichen zeitgleich ausgeführten Aufgaben ist. Indem Sie die Auftragsvorbereitungsaufgabe nicht auf Knoten im Leerlauf ausführen, können Sie bei den Gebühren für Datenübertragungen sparen.
+Die Auftragsvorbereitungsaufgabe wird nur auf Knoten ausgeführt, die zum Ausführen einer Aufgabe eingeplant sind. Das verhindert die unnötige Ausführung von Auftragsvorbereitungsaufgaben an Knoten, denen keine Aufgaben zugewiesen sind. Dies kann eintreten, wenn die Anzahl der Aufgaben für einen Auftrag geringer ist, als die Anzahl der Knoten in einem Pool. Dies gilt auch, wenn die [gleichzeitige Aufgabenausführung](batch-parallel-node-tasks.md) aktiviert ist. Einige Knoten bleiben unbeschäftigt, wenn die Gesamtzahl von Aufgaben geringer als die Gesamtzahl der möglichen zeitgleich ausgeführten Aufgaben ist. Indem Sie die Auftragsvorbereitungsaufgabe nicht auf Knoten im Leerlauf ausführen, können Sie bei den Gebühren für Datenübertragungen sparen.
 
 > [!NOTE]
 > [JobPreparationTask][net_job_prep_cloudjob] unterscheidet sich vom [CloudPool.StartTask][pool_starttask] insofern, dass JobPreparationTask beim Start jedes Auftrags ausgeführt wird, während StartTask nur ausgeführt wird, wenn ein Serverknoten einem Pool erstmals hinzugefügt oder neu gestartet wird.

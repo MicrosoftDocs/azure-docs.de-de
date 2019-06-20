@@ -110,16 +110,16 @@ Diese Elemente müssen als vertrauliche Daten behandelt und in der Konfiguration
 | NAME | Wert/Beispiel | Datentyp | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Herausgeber | Microsoft.Compute.Extensions | Zeichenfolge |
-| type | CustomScript | Zeichenfolge |
+| publisher | Microsoft.Compute.Extensions | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (Beispiel) | https://github.com/MyProject/Archive/MyPythonScript.py | Array |
-| commandToExecute (Beispiel) | python MyPythonScript.py <my-param1> | Zeichenfolge |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | Zeichenfolge |
+| commandToExecute (Beispiel) | python MyPythonScript.py <my-param1> | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (Beispiel) | false | boolean |
 | timestamp (Beispiel) | 123456789 | 32-Bit-Integer |
-| storageAccountName (Beispiel) | examplestorageacct | Zeichenfolge |
-| storageAccountKey (Beispiel) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | Zeichenfolge |
+| storageAccountName (Beispiel) | examplestorageacct | string |
+| storageAccountKey (Beispiel) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Details zu Eigenschaftswerten
 * `skipDos2Unix` (optional, boolesch): Überspringen der dos2unix-Konvertierung von skriptbasierten Datei-URLs oder des Skripts.

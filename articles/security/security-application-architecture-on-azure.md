@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108074"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60597843"
 ---
 # <a name="application-architecture-on-azure"></a>Anwendungsarchitektur bei Azure
 Für den Schutz Ihrer cloudbasierten Lösungen in Microsoft Azure ist eine stabile Architekturgrundlage entscheidend. Architekten, Designer und Implementierer profitieren von einer umfassenden Kenntnis der Architektur von Anwendungen und Diensten. Diese grundlegende Kenntnis hilft Ihnen, alle Komponenten Ihrer cloudbasierten Lösungen zu verstehen, und vereinfacht die Integration der Sicherheit in alle Aspekte von Entwurf und Implementierung.

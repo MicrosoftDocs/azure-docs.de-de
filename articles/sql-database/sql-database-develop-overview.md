@@ -13,11 +13,11 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60723407"
 ---
 # <a name="sql-database-application-development-overview"></a>Übersicht zur SQL-Datenbankanwendungsentwicklung
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2deaa0ed8b21d5e091fe5d3b3e6986eaf2340281
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078124"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514708"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Erstellen einer Übersetzungs-App mit WPF
 
@@ -60,7 +60,7 @@ Bevor Sie fortfahren können, benötigen Sie Folgendes:
 Als Erstes richten wir unser Projekt in Visual Studio ein.
 
 1. Öffnen Sie Visual Studio. Wählen Sie anschließend **Datei > Neu > Projekt**.
-2. Suchen Sie im linken Bereich nach **Visual C#**, und wählen Sie diese Option aus. Wählen Sie anschließend im mittleren Bereich die Option **WPF-App (.NET Framework)**.
+2. Suchen Sie im linken Bereich nach **Visual C#** , und wählen Sie diese Option aus. Wählen Sie anschließend im mittleren Bereich die Option **WPF-App (.NET Framework)** .
    ![Erstellen einer WPF-App in Visual Studio](media/create-wpf-project-visual-studio.png)
 3. Geben Sie Ihrem Projekt einen Namen, legen Sie die Version des Frameworks auf **.NET Framework 4.5.2 oder höher** fest, und klicken Sie dann auf **OK**.
 4. Ihr Projekt wurde erstellt. Sie sehen, dass zwei Registerkarten geöffnet sind: `MainWindow.xaml` und `MainWindow.xaml.cs`. In diesem Tutorial fügen wir diesen beiden Dateien Code hinzu. Die erste Datei dient für die Benutzeroberfläche der App, und die zweite Datei ist für unsere Aufrufe der Textübersetzung und der Bing-Rechtschreibprüfung bestimmt.
@@ -76,12 +76,12 @@ Für unser Projekt benötigen wir einige .NET Framework-Assemblys und NewtonSoft
 
 Wir fügen unserem Projekt Assemblys hinzu, um Objekte zu serialisieren und zu deserialisieren und HTTP-Anforderungen und -Antworten zu verwalten.
 
-1. Suchen Sie im Projektmappen-Explorer von Visual Studio (rechter Bereich) nach Ihrem Projekt. Klicken Sie mit der rechten Maustaste auf das Projekt, und wählen Sie dann **Hinzufügen > Verweis...**, um den **Verweis-Manager** zu öffnen.
+1. Suchen Sie im Projektmappen-Explorer von Visual Studio (rechter Bereich) nach Ihrem Projekt. Klicken Sie mit der rechten Maustaste auf das Projekt, und wählen Sie dann **Hinzufügen > Verweis...** , um den **Verweis-Manager** zu öffnen.
    ![Hinzufügen von Assemblyverweisen](media/add-assemblies-sample.png)
 2. Auf der Registerkarte mit den Assemblys sind alle .NET Framework-Assemblys aufgelistet, die für den Verweis verfügbar sind. Verwenden Sie die Suchleiste oben rechts, um nach diesen Verweisen zu suchen und sie Ihrem Projekt hinzuzufügen:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. Nachdem Sie diese Verweise Ihrem Projekt hinzugefügt haben, können Sie auf **OK** klicken, um den **Verweis-Manager** zu schließen.
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Wir fügen unserem Projekt Assemblys hinzu, um Objekte zu serialisieren und zu d
 
 In unserer App wird NewtonSoft.Json verwendet, um JSON-Objekte zu deserialisieren. Verwenden Sie die hier angegebene Anleitung, um das Paket zu installieren.
 
-1. Suchen Sie im Projektmappen-Explorer von Visual Studio nach Ihrem Projekt, und klicken Sie mit der rechten Maustaste darauf. Wählen Sie **NuGet-Pakete verwalten...**.
+1. Suchen Sie im Projektmappen-Explorer von Visual Studio nach Ihrem Projekt, und klicken Sie mit der rechten Maustaste darauf. Wählen Sie **NuGet-Pakete verwalten...** .
 2. Suchen Sie nach der Registerkarte **Durchsuchen**, und wählen Sie sie aus.
 3. Geben Sie in der Suchleiste [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) ein.
    ![Suchen und Installieren von NewtonSoft.Json](media/add-nuget-packages.png)

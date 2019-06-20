@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61475887"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Verwenden der RecoveryManager-Klasse zur Behebung von Problemen mit der Shard-Zuordnung
 

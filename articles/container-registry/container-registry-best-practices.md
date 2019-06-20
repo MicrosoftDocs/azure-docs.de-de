@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
 ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60787349"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Bewährte Methoden für Azure Container Registry
 

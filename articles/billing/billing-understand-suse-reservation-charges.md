@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002730"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370225"
 ---
 # <a name="azure-software-plan-discount"></a>Rabatt für Azure-Softwarepläne
 

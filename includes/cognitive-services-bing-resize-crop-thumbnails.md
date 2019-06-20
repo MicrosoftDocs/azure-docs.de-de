@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124719"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178372"
 ---
 Einige Bing-Antworten enthalten URLs zu von Bing bereitgestellten Miniaturbildern. Miniaturbilder können vergrößert/verkleinert und zugeschnitten werden. 
 
@@ -17,7 +17,7 @@ Einige Bing-Antworten enthalten URLs zu von Bing bereitgestellten Miniaturbilder
 > Achten Sie darauf, dass Größe und Zuschnitt des Miniaturbilds ein Suchszenario ermöglichen, und respektieren Sie die Rechte Dritter gemäß den Verwendungs- und Anzeigeanforderungen der Bing-Suche-API.
 
 
-Wenn Sie die Größe eines Bilds ändern möchten, fügen Sie die Abfrageparameter „w“ (Breite), „h“ (Höhe) oder beide in die URL der Miniaturansicht ein. Geben Sie Breite und Höhe in Pixel an. Beispiel:   
+Wenn Sie die Größe eines Bilds ändern möchten, fügen Sie die Abfrageparameter „w“ (Breite), „h“ (Höhe) oder beide in die URL der Miniaturansicht ein. Geben Sie Breite und Höhe in Pixel an. Beispiel:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   

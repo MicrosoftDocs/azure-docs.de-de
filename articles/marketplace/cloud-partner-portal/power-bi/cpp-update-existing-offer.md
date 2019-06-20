@@ -1,25 +1,18 @@
 ---
-title: Aktualisieren eines Power BI-App-Angebots – Azure Marketplace | Microsoft-Dokumentation
+title: Aktualisieren eines Power BI-App-Angebots | Azure Marketplace
 description: Sie können ein Power BI-App-Angebot nach seiner Veröffentlichung im Marketplace von Microsoft AppSource aktualisieren.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 953c53b4ef2244b3444abb745f52e125306468f2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.author: pabutler
+ms.openlocfilehash: aaeb347c5b8ba6cd992054cd6ab5464f44b3a08c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807115"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942031"
 ---
 # <a name="update-a-power-bi-app-offer"></a>Aktualisieren eines Power BI-App-Angebots
 
@@ -38,7 +31,7 @@ Einige Attribute eines Power BI-App-Angebots können nach der Veröffentlichung 
 
 Power BI-Apps werden häufig regelmäßig mit neuen Inhalten, Sicherheitspatches, Funktionen usw. aktualisiert. Wenn eine App geändert wird, führen Sie die folgenden Schritte aus, um die Installations-URL zu aktualisieren:
 
-1.  Melden Sie sich beim [Cloud-Partnerportal](https://cloudpartner.azure.com/) an.
+1.  Melden Sie sich beim [Cloudpartnerportal](https://cloudpartner.azure.com/) an.
 2.  Suchen Sie unter **Alle Angebote** nach dem Angebot, das Sie aktualisieren möchten.
 3.  Geben Sie auf der Registerkarte **Technische Informationen** eine neue Installations-URL ein.
 4.  Wählen Sie **Veröffentlichen** aus, um den Workflow zum Veröffentlichen der neuen App-Version in AppSource zu starten.
@@ -48,7 +41,7 @@ Power BI-Apps werden häufig regelmäßig mit neuen Inhalten, Sicherheitspatches
 
 Die Marketplace-Metadaten des Angebots enthalten den Namen Ihres Unternehmens, Logos und andere Informationen. Führen Sie die folgenden Schritte aus, um Metadaten zu aktualisieren:
 
-1.  Melden Sie sich beim [Cloud-Partnerportal](https://cloudpartner.azure.com/) an.
+1.  Melden Sie sich beim [Cloudpartnerportal](https://cloudpartner.azure.com/) an.
 2.  Suchen Sie unter **Alle Angebote** nach dem Angebot, das Sie aktualisieren möchten.
 3.  Ändern Sie auf der Registerkarte **Details der digitalen Ladenzeile** die Metadaten, und befolgen Sie dazu die Anweisungen im Artikel [Registerkarte „Details der digitalen Ladenzeile“ für Power BI-Apps](./cpp-storefront-details-tab.md).
 4.  Wählen Sie **Veröffentlichen** aus, um den Workflow zum Veröffentlichen Ihrer Änderungen zu starten.

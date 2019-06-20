@@ -3,20 +3,20 @@ title: Verwalten von Endpunkten in Azure Traffic Manager | Microsoft Docs
 description: Dieser Artikel enthält Informationen zum Hinzufügen, Entfernen, Aktivieren und Deaktivieren von Endpunkten in Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: kumud
-ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: 573a8f7ede29b045053d77194d15707df9e23641
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009290"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071086"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Hinzufügen, Deaktivieren, Aktivieren oder Löschen von Endpunkten
 
@@ -37,7 +37,7 @@ Sie können auch einzelne Endpunkte deaktivieren, die Teil eines Traffic Manager
     1. Klicken Sie als **Typ** auf **Azure-Endpunkt**.
     2. Geben Sie einen **Namen** an, den Sie zur Bezeichnung des Endpunkts verwenden möchten.
     3. Wählen Sie als **Zielressourcentyp** in der Dropdownliste den entsprechenden Ressourcentyp aus.
-    4. Klicken Sie für **Zielressource** auf den Selektor **Auswählen...**, um Ressourcen unter dem gleichen Abonnement auf dem Blatt **Ressourcen** aufzulisten. Wählen Sie auf dem angezeigten Blatt **Ressource** den Dienst aus, den Sie als ersten Endpunkt hinzufügen möchten.
+    4. Klicken Sie für **Zielressource** auf den Selektor **Auswählen...** , um Ressourcen unter dem gleichen Abonnement auf dem Blatt **Ressourcen** aufzulisten. Wählen Sie auf dem angezeigten Blatt **Ressource** den Dienst aus, den Sie als ersten Endpunkt hinzufügen möchten.
     5. Legen Sie als **Priorität** den Wert **1** fest. Dies bewirkt, dass der gesamte Datenverkehr an diesen Endpunkt geleitet wird, sofern sein Status intakt ist.
     6. Lassen Sie **Als deaktiviert hinzufügen** deaktiviert.
     7. Klicken Sie auf **OK**
@@ -52,7 +52,7 @@ Sie können auch einzelne Endpunkte deaktivieren, die Teil eines Traffic Manager
 1. Melden Sie sich im Browser beim [Azure-Portal](https://portal.azure.com) an.
 2. Suchen Sie auf der Suchleiste des Portals nach dem Namen des **Traffic Manager-Profils**, das Sie ändern möchten, und klicken Sie in den angezeigten Ergebnissen auf das Traffic Manager-Profil.
 3. Klicken Sie auf dem Blatt **Traffic Manager-Profil** im Abschnitt **Einstellungen** auf **Endpunkte**. 
-4. Klicken Sie auf den Endpunkt, den Sie deaktivieren möchten, und klicken Sie dann auf dem angezeigten Blatt **Endpunkt** auf **Bearbeiten**.
+4. Klicken Sie auf den Endpunkt, den Sie deaktivieren möchten.
 5. Ändern Sie auf dem Blatt **Endpunkt** den Endpunktstatus in **Deaktiviert**, und klicken Sie dann auf **Speichern**.
 6. Clients senden während der Gültigkeitsdauer (Time-to-Live, TTL) weiterhin Datenverkehr an den Endpunkt. Sie können die Gültigkeitsdauer auf der Seite „Konfiguration“ des Traffic Manager-Profils ändern.
 
@@ -61,7 +61,7 @@ Sie können auch einzelne Endpunkte deaktivieren, die Teil eines Traffic Manager
 1. Melden Sie sich im Browser beim [Azure-Portal](https://portal.azure.com) an.
 2. Suchen Sie auf der Suchleiste des Portals nach dem Namen des **Traffic Manager-Profils**, das Sie ändern möchten, und klicken Sie in den angezeigten Ergebnissen auf das Traffic Manager-Profil.
 3. Klicken Sie auf dem Blatt **Traffic Manager-Profil** im Abschnitt **Einstellungen** auf **Endpunkte**. 
-4. Klicken Sie auf den Endpunkt, den Sie deaktivieren möchten, und klicken Sie dann auf dem angezeigten Blatt **Endpunkt** auf **Bearbeiten**.
+4. Klicken Sie auf den Endpunkt, den Sie aktivieren möchten.
 5. Ändern Sie auf dem Blatt **Endpunkt** den Endpunktstatus in **Aktiviert**, und klicken Sie dann auf **Speichern**.
 6. Clients senden während der Gültigkeitsdauer (Time-to-Live, TTL) weiterhin Datenverkehr an den Endpunkt. Sie können die Gültigkeitsdauer auf der Seite „Konfiguration“ des Traffic Manager-Profils ändern.
 
@@ -70,8 +70,8 @@ Sie können auch einzelne Endpunkte deaktivieren, die Teil eines Traffic Manager
 1. Melden Sie sich im Browser beim [Azure-Portal](https://portal.azure.com) an.
 2. Suchen Sie auf der Suchleiste des Portals nach dem Namen des **Traffic Manager-Profils**, das Sie ändern möchten, und klicken Sie in den angezeigten Ergebnissen auf das Traffic Manager-Profil.
 3. Klicken Sie auf dem Blatt **Traffic Manager-Profil** im Abschnitt **Einstellungen** auf **Endpunkte**. 
-4. Klicken Sie auf den Endpunkt, den Sie deaktivieren möchten, und klicken Sie dann auf dem angezeigten Blatt **Endpunkt** auf **Bearbeiten**.
-5. Ändern Sie auf dem Blatt **Endpunkt** den Endpunktstatus in **Aktiviert**, und klicken Sie dann auf **Speichern**.
+4. Klicken Sie auf den Endpunkt, den Sie löschen möchten.
+5. Klicken Sie auf dem Blatt **Endpunkt** auf **Löschen**.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

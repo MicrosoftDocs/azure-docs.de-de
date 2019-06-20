@@ -16,11 +16,11 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892471"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127632"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Anzeigen und Herunterladen der Azure-Preise für Ihre Organisation
 
@@ -78,8 +78,8 @@ Sie können auch anhand der Preise Ihrer Organisation eine Schätzung der Kosten
 
 1. Wechseln Sie zum [Azure-Preisrechner](https://azure.microsoft.com/pricing/calculator).
 1. Wählen Sie in der rechten oberen Ecke **Anmelden** aus.
-1. Wählen Sie unter **Programs and Offer (Programme und Angebot)** > **Lizenzierungsprogramm** die Option **Enterprise Agreement (EA)** aus.
-1. Wählen Sie unter **Programs and Offer (Programme und Angebot)** > **Ausgewählter Vertrag** die Option **Nichts ausgewählt** aus.
+1. Wählen Sie unter **Programs and Offer (Programme und Angebot)**  > **Lizenzierungsprogramm** die Option **Enterprise Agreement (EA)** aus.
+1. Wählen Sie unter **Programs and Offer (Programme und Angebot)**  > **Ausgewählter Vertrag** die Option **Nichts ausgewählt** aus.
 
     ![Screenshot der Schaltfläche „CSV herunterladen“ auf dem Preisblatt](./media/billing-ea-pricing/ea-pricing-calculator-estimate.png)
 

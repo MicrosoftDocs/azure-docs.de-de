@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
 ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60195127"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Überprüfen von Endpunktäußerungen im LUIS-Portal für aktives Lernen
 

@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62104730"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Überwachen und Verwalten Ihres Yammer-Kontos mithilfe von Azure Logic Apps
 
@@ -60,7 +60,7 @@ Sie können Trigger verwenden, die Antworten von Ihrem Yammer-Konto erhalten und
        Oder
 
      * Wenn Sie zwischen Schritten eine Aktion einfügen möchten, bewegen Sie den Mauszeiger über den Pfeil zwischen den Schritten. 
-     Wählen Sie das daraufhin angezeigte Pluszeichen (**+**) und dann **Aktion hinzufügen** aus.
+     Wählen Sie das daraufhin angezeigte Pluszeichen ( **+** ) und dann **Aktion hinzufügen** aus.
      
        Geben Sie im Suchfeld den Begriff „yammer“ als Filter ein. 
        Wählen Sie in der Liste mit den Aktionen die gewünschte Aktion aus.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606510"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Verwenden der Service Map-Lösung in Azure
 Service Map ermittelt automatisch Anwendungskomponenten auf Windows- und Linux-Systemen und stellt die Kommunikation zwischen Diensten dar. Mit Service Map können Sie die Server Ihrer Vorstellung gemäß anzeigen – als verbundene Systeme, die wichtige Dienste bereitstellen. Dienstzuordnung zeigt Verbindungen zwischen Servern, Prozessen, ein- und ausgehende Verbindungslatenz und Ports über die gesamte TCP-Verbindungsarchitektur an. Außer der Installation eines Agents ist keine weitere Konfiguration erforderlich.
@@ -316,7 +316,7 @@ Um dem Einfluss der Gruppierung Rechnung zu tragen, werden Informationen über d
 | `LinksFailed` |Die Anzahl der physischen Netzwerkverbindungen, die während des Berichtszeitraums für ungültig erklärt wurden. Diese Informationen sind derzeit nur für ausgehende Verbindungen verfügbar. |
 | `LinksLive` |Die Anzahl der physischen Netzwerkverbindungen, die am Ende des Berichtszeitraums offen waren|
 
-#### <a name="metrics"></a>Metriken
+#### <a name="metrics"></a>metrics
 
 Über Metriken zur Verbindungsanzahl hinaus sind in den folgenden Eigenschaften des Datensatzes auch Informationen über das Volumen der gesendeten und empfangenen Daten für eine bestimmte logische Verbindung oder einen bestimmten Netzwerkport enthalten:
 
@@ -348,7 +348,7 @@ Der Einfachheit halber ist die IP-Adresse des Remoteendes einer Verbindung in de
 
 | Eigenschaft | BESCHREIBUNG |
 |:--|:--|
-| `RemoteCountry` |Der Name des Landes, in dem „RemoteIp“ gehostet ist.  Beispielsweise *USA* |
+| `RemoteCountry` |Der Name des Landes oder der Region, in dem bzw. der „RemoteIp“ gehostet ist.  Beispielsweise *USA* |
 | `RemoteLatitude` |Der Breitengrad der Geolocation.  Beispielsweise *47,68* |
 | `RemoteLongitude` |Der Längengrad der Geolocation.  Beispielsweise *-122,12* |
 

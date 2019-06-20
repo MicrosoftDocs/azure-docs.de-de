@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
 ms.openlocfilehash: 53ebce4151bfc9ef2324f0e75eb7d199d9479e83
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "58408369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60709952"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registrieren einer vertraulichen Clientanwendung in Azure Active Directory
 
@@ -24,7 +24,7 @@ Führen Sie die folgenden Schritte aus, um eine neue vertrauliche Anwendung im P
 
 1. Klicken Sie im linken Navigationsbereich des [Azure-Portals](https://portal.azure.com) auf **Azure Active Directory**.
 
-2. Klicken Sie auf dem Blatt **Azure Active Directory** auf **App-Registrierungen (Vorschauversion)**:
+2. Klicken Sie auf dem Blatt **Azure Active Directory** auf **App-Registrierungen (Vorschauversion)** :
 
     ![Azure-Portal. Neue App-Registrierung.](media/how-to-aad/portal-aad-new-app-registration.png)
 

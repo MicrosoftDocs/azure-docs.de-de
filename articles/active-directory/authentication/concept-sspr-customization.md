@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60415656"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassen der Azure AD-Funktionalität für die Self-Service-Kennwortzurücksetzung
 

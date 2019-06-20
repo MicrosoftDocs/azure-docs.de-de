@@ -10,11 +10,11 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
 ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62106299"
 ---
 # <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Überwachen von B2B-Nachrichten mit Azure Monitor-Protokollen in Azure Logic Apps
 
@@ -54,7 +54,7 @@ Wählen Sie nach Abschluss **Add diagnostic setting** (Diagnoseeinstellung hinzu
    | **Ressource** | <*integration-account-name*> | Der Name Ihrer Azure-Ressource, in der Sie die Protokollierung aktivieren möchten | 
    ||||  
 
-   Beispiel: 
+   Beispiel:
 
    ![Einrichten der Diagnose für Ihr Integrationskonto](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
@@ -71,7 +71,7 @@ Wählen Sie nach Abschluss **Add diagnostic setting** (Diagnoseeinstellung hinzu
 
    1. Wählen Sie unter **Protokoll** die Kategorie **IntegrationAccountTrackingEvents** aus, und wählen Sie dann **Speichern** aus.
 
-   Beispiel:  
+   Beispiel: 
 
    ![Einrichten von Azure Monitor-Protokollen zum Senden von Diagnosedaten an ein Protokoll](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -96,7 +96,7 @@ Wählen Sie nach Abschluss **Add diagnostic setting** (Diagnoseeinstellung hinzu
    | **Ressource** | <*integration-account-name*> | Der Name Ihrer Azure-Ressource, in der Sie die Protokollierung aktivieren möchten | 
    ||||  
 
-   Beispiel: 
+   Beispiel:
 
    ![Einrichten der Diagnose für Ihr Integrationskonto](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
@@ -113,7 +113,7 @@ Wählen Sie nach Abschluss **Add diagnostic setting** (Diagnoseeinstellung hinzu
 
    1. Wählen Sie unter **Protokoll** die Kategorie **IntegrationAccountTrackingEvents** aus, und wählen Sie dann **Speichern** aus.
 
-   Beispiel:  
+   Beispiel: 
 
    ![Einrichten von Azure Monitor-Protokollen zum Senden von Diagnosedaten an ein Protokoll](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -126,7 +126,7 @@ In Verbindung mit Azure Monitor-Protokollen können Sie die Nutzung der Diagnose
 * [Archivieren von Azure-Diagnoseprotokollen in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Streamen von Azure-Diagnoseprotokollen an Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-Durch die Verwendung von Telemetriedaten und Analysen anderer Dienste (beispielsweise [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) und [Power BI](../azure-monitor/platform/powerbi.md)) können Sie dann eine Überwachung in Echtzeit implementieren. Beispiel: 
+Durch die Verwendung von Telemetriedaten und Analysen anderer Dienste (beispielsweise [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) und [Power BI](../azure-monitor/platform/powerbi.md)) können Sie dann eine Überwachung in Echtzeit implementieren. Beispiel:
 
 * [Streamen von Daten von Event Hubs zu Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analysieren von Streamingdaten mit Stream Analytics und Erstellen eines Dashboards für die Echtzeitanalyse in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

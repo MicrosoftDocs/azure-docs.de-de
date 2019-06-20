@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60614399"
 ---
 # <a name="application-upgrade-parameters"></a>Parameter für Anwendungsupgrades
 In diesem Artikel werden die verschiedenen Parameter beschrieben, die während des Upgrades einer Azure Service Fabric-Anwendung gelten. Parameter für Anwendungsupgrades steuern bei Upgrades angewendete Timeouts und Integritätsprüfungen, und geben die Richtlinien an, die bei einem Upgradefehler angewendet werden. Anwendungsparameter gelten für Upgrades mit:
@@ -96,7 +96,7 @@ Verwenden Sie für Service Fabric-Anwendungsupgrades mit der Service Fabric-CLI 
 | --- | --- |
 | application-id  |Die ID der Anwendung, die aktualisiert wird. <br> Dies ist üblicherweise der vollständige Name der Anwendung ohne das URI-Schema „fabric:“. Ab Version 6.0 wird für hierarchische Namen das Zeichen „\~“ als Trennzeichen verwendet. Hat der Dienst beispielsweise den Namen „fabric/meineapp/app1“, weist die Dienstidentität in 6.0 und höher den Wert „meineapp\~app1“ und in früheren Versionen den Wert „meineapp/app1“ auf.|
 application-version |Die Version des Anwendungstyps, für den das Upgrade durchgeführt wird.|
-Parameter  |Eine JSON-codierte Liste mit Außerkraftsetzungen von Anwendungsparametern, die beim Upgrade der Anwendung angewendet werden sollen.|
+parameters  |Eine JSON-codierte Liste mit Außerkraftsetzungen von Anwendungsparametern, die beim Upgrade der Anwendung angewendet werden sollen.|
 
 ### <a name="optional-parameters"></a>Optionale Parameter
 

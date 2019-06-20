@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890469"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072411"
 ---
 # <a name="what-is-speech-translation"></a>Was ist Sprachübersetzung?
 
@@ -32,9 +32,9 @@ In der folgenden Tabelle sind die Funktionen des Speech SDK und der REST-APIs au
 
 | Anwendungsfall | SDK | REST |
 |----------|-----|------|
-| Sprache-zu-Text-Übersetzung mit Erkennungsergebnissen. | Ja | Nein  |
-| Sprache-zu-Sprache-Übersetzung. | Ja | Nein  |
-| Zwischenergebnisse der Spracherkennung und Übersetzung. | Ja | Nein  |
+| Sprache-zu-Text-Übersetzung mit Erkennungsergebnissen. | Ja | Nein |
+| Sprache-zu-Sprache-Übersetzung. | Ja | Nein |
+| Zwischenergebnisse der Spracherkennung und Übersetzung. | Ja | Nein |
 
 ## <a name="get-started-with-speech-translation"></a>Erste Schritte mit der Sprachübersetzung
 
@@ -46,7 +46,7 @@ Wir bieten Schnellstarts an, die so konzipiert sind, dass Sie in weniger als 10 
 | [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Beispielcode
 

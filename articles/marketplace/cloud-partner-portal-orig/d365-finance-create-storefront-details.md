@@ -1,25 +1,18 @@
 ---
-title: Ausfüllen des Formulars „Storefrontdetails“ | Microsoft-Dokumentation
+title: Ausfüllen des Formulars „Storefrontdetails“
 description: Erläutert die Werte für das Formular „Storefrontdetails“ für eine neue Dynamics 365 Business Central-App.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935023"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Ausfüllen des Formulars „Storefrontdetails“
 ===========================================
@@ -29,7 +22,7 @@ Die einfache Auflistung der Features und Funktionen Ihrer App wird potenzielle K
 
 ### <a name="offer-summary"></a>Angebotszusammenfassung
 
-Diese Zusammenfassung wird in AppSource als Zusammenfassung in der Übersicht der Apps sowie auf der Detailseite der App direkt unter Ihrem App-Namen und dem Herausgebernamen angezeigt. Es wird empfohlen, Neugierde und eine positive geistige Akzeptanz zu wecken, indem man potenziellen Kunden eine Frage stellt, auf die sie entweder keine Antwort kennen oder auf die sie sich beziehen können. Die Frage sollte eine starke emotionale Reaktion auslösen. Sprechen Sie ein zentrales Problem an, das sie wahrscheinlich erleben und eine messbare negative Auswirkung hat. Sie darf aus höchstens 100 Zeichen bestehen.
+Diese Zusammenfassung wird in AppSource als Zusammenfassung in der Übersicht der Apps sowie auf der Detailseite der App direkt unter Ihrem App-Namen und dem Herausgebernamen angezeigt. Es wird empfohlen, Neugierde und eine positive geistige Akzeptanz zu wecken, indem man potenziellen Kunden eine Frage stellt, auf die sie entweder keine Antwort kennen oder auf die sie sich beziehen können. Die Frage sollte eine starke emotionale Reaktion auslösen. Sprechen Sie ein zentrales Problem an, das sie wahrscheinlich erleben und eine messbare negative Auswirkung hat. Sie darf maximal 100 Zeichen lang sein.
 
 ![Dynamics 365 Business Central – Angebotsübersicht](./media/d365-financials/image018.png)
 
@@ -57,9 +50,9 @@ Es muss ein aktiver Hilfe-Link vorhanden sein, der Kunden zur Onlineprodukthilfe
 
 ### <a name="supported-countriesregions"></a>Unterstützte Länder/Regionen
 
-In diesem Feld werden die Länder/Regionen bestimmt, in denen Ihr Angebot für Testzwecke zur Verfügung steht. Sie können nur Länder auswählen, in denen Microsoft Dynamics 365 Business Central bereits verfügbar ist oder sich in der Vorschauversion befindet. Die aktuelle Liste finden Sie unter [Länder und unterstützte Übersetzungen](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
+In diesem Feld werden die Länder/Regionen bestimmt, in denen Ihr Angebot für Testzwecke zur Verfügung steht. Sie können nur Länder/Regionen auswählen, in denen Microsoft Dynamics 365 Business Central bereits verfügbar ist oder sich in der Vorschauversion befindet. Die aktuelle Liste finden Sie unter [Länder/Regionen und unterstützte Übersetzungen](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
-![Ausgewählte Länder und unterstützte Übersetzungen](./media/d365-financials/image008.png)
+![Ausgewählte Länder/Regionen und unterstützte Übersetzungen](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Unterstützte Sprachen
@@ -119,7 +112,7 @@ Sie müssen eine bestimmte Supportseite bereitstellen, die den Kunden verschiede
 
 ### <a name="lead-destination"></a>Leadzielgruppe
 
-Wählen Sie ein CRM-System aus, in dem Ihr Lead gespeichert wird. Wählen Sie hier \"Azure-Tabelle\" aus, wenn Sie eines der folgenden CRM-Systeme verwenden: Salesforce, Marketo, Microsoft Dynamics CRM. Das hier von Ihnen ausgewählte CRM-System ist der Ort, an den wir Details zu den Endbenutzern schreiben, die Ihre App in AppSource testen (Leads). In Abhängigkeit von dem von Ihnen ausgewählten CRM-System klicken Sie unten auf die entsprechende URL, um Informationen darüber zu erhalten, wie Sie den nächsten Satz von Feldern ausfüllen können.
+Wählen Sie ein CRM-System aus, in dem Ihr Lead gespeichert wird. Wählen Sie hier \"Azure-Tabelle\" aus, wenn Sie eines der folgenden CRM-Systeme haben: Salesforce, Marketo, Microsoft Dynamics CRM. Das hier von Ihnen ausgewählte CRM-System ist der Ort, an den wir Details zu den Endbenutzern schreiben, die Ihre App in AppSource testen (Leads). In Abhängigkeit von dem von Ihnen ausgewählten CRM-System klicken Sie unten auf die entsprechende URL, um Informationen darüber zu erhalten, wie Sie den nächsten Satz von Feldern ausfüllen können.
 
 -   [Azure-Tabelle](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

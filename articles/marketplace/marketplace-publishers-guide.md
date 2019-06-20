@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a3d75f09ac21fcdb4862cf8eefff0b5c05fd3369
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937598"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956745"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Veröffentlichungsleitfaden für Azure Marketplace und AppSource
 
@@ -62,7 +62,7 @@ Neue Auflistungen im Marketplace haben Anspruch auf ein breit gefächertes Angeb
 
 *   Co-Selling: Beginnen oder beschleunigen Sie Ihren Vertriebsprozess mit Microsoft über den Marketplace. Zugriff auf Programme und Support zur Förderung des gemeinsamen Vertriebs mit Microsoft-Teams.
 
-Nachdem Sie Ihre Lösung an den Marketplace [übermittelt](https://azuremarketplace.microsoft.com/sell/signup) haben, kontaktiert Sie unser Onboardingteam, um Sie bei der Veröffentlichung zu unterstützen.
+Nachdem Sie Ihre Lösung an den Marketplace [übermittelt](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) haben, kontaktiert Sie unser Onboardingteam, um Sie bei der Veröffentlichung zu unterstützen.  Weitere Informationen finden Sie unter [Erstellen eines Partner Center-Kontos](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
 Weitere Informationen zu den Microsoft-Markteinführungsvorteilen und zu Möglichkeiten, das Wachstum Ihres Geschäfts im Marketplace zu steigern, finden Sie auf unter [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 

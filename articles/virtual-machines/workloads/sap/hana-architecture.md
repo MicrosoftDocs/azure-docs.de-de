@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7af578cf282c1bb8d8d7d00fee57bafed32b9a0e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030544"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239435"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architektur von SAP HANA in Azure (große Instanzen)
 
@@ -34,22 +34,22 @@ Die Gesamtarchitektur von SAP HANA in Azure (große Instanzen) bietet eine SAP T
 
 Die dargestellte Architektur ist in drei Abschnitte unterteilt:
 
-- **Rechts**: Zeigt eine lokale Infrastruktur, die verschiedene Anwendungen in Rechenzentren ausführt, sodass Endbenutzer auf branchenspezifische Anwendungen wie SAP zugreifen können. Im Idealfall wird diese lokale Infrastruktur dann über [ExpressRoute](https://azure.microsoft.com/services/expressroute/) mit Azure verbunden.
+- **Rechts:** Zeigt eine lokale Infrastruktur, die verschiedene Anwendungen in Rechenzentren ausführt, sodass Endbenutzer auf branchenspezifische Anwendungen wie SAP zugreifen können. Im Idealfall wird diese lokale Infrastruktur über [ExpressRoute](https://azure.microsoft.com/services/expressroute/) mit Azure verbunden.
 
-- **Mitte:** Zeigt Azure-IaaS und (in diesem Fall) die Verwendung von VMs zum Hosten von SAP- oder anderen Anwendungen, die SAP HANA als DBMS-System nutzen. Kleinere HANA-Instanzen, die mit dem von VMs bereitgestellten Arbeitsspeicher arbeiten, werden zusammen mit ihrer Anwendungsschicht auf VMs bereitgestellt. Weitere Informationen zu VMs finden Sie unter [Virtuelle Computer](https://azure.microsoft.com/services/virtual-machines/).
+- **Mitte:** Zeigt Azure IaaS und (in diesem Fall) die Verwendung von virtuellen Computern zum Hosten von SAP-basierten oder anderen Anwendungen, die SAP HANA als DBMS-System nutzen. Kleinere HANA-Instanzen, die mit dem von VMs bereitgestellten Arbeitsspeicher arbeiten, werden zusammen mit ihrer Anwendungsschicht auf VMs bereitgestellt. Weitere Informationen zu VMs finden Sie unter [Virtuelle Computer](https://azure.microsoft.com/services/virtual-machines/).
 
    Azure-Netzwerkdienste werden verwendet, um SAP-Systeme mit anderen Anwendungen in virtuellen Netzwerken zu gruppieren. Diese virtuellen Netzwerke stellen sowohl eine Verbindung mit lokalen Systemen als auch mit SAP HANA in Azure (große Instanzen) her.
 
-   Informationen zu SAP NetWeaver-Anwendungen und Datenbanken, deren Ausführung in Azure unterstützt wird, finden Sie im [SAP-Supporthinweis 1928533 – SAP-Anwendungen in Azure: Unterstützte Produkte und Azure-VM-Typen](https://launchpad.support.sap.com/#/notes/1928533). Eine Dokumentation zur Bereitstellung von SAP-Lösungen in Azure finden Sie in den Artikeln zu folgenden Themen:
+   Informationen zu SAP NetWeaver-Anwendungen und Datenbanken, deren Ausführung in Azure unterstützt wird, finden Sie im [SAP-Supporthinweis 1928533 – SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) (SAP-Anwendungen unter Azure: Unterstützte Produkte und Azure-VM-Typen). Eine Dokumentation zur Bereitstellung von SAP-Lösungen in Azure finden Sie in den Artikeln zu folgenden Themen:
 
   -  [Verwenden von SAP auf Windows-VMs](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Verwenden von SAP-Lösungen auf Azure-VMs](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Links:** Zeigt die SAP HANA TDI-zertifizierte Hardware im Azure-Umfeld der großen Instanz. Die Einheiten von HANA (große Instanz) sind mit den virtuellen Netzwerken Ihres Abonnements verbunden. Für diese Verbindung wird dieselbe Technologie verwendet wie für die Konnektivität zwischen lokalen Systemen und Azure.
+- **Links:** Zeigt die SAP HANA TDI-zertifizierte Hardware im Azure-Umfeld der großen Instanz. Die Einheiten von HANA (große Instanz) sind mit den virtuellen Netzwerken Ihres Azure-Abonnements verbunden. Für diese Verbindung wird die gleiche Technologie verwendet wie für die Konnektivität zwischen lokalen Systemen und Azure. Im Mai 2019 wurde eine Optimierung eingeführt, die die Kommunikation zwischen den Einheiten von HANA (große Instanz) und den virtuellen Azure-Computern ohne Beteiligung des ExpressRoute-Gateways ermöglicht. Diese Optimierung wird als ExpressRoute Fast Path bezeichnet und ist in dieser Architektur dargestellt (rote Linien). 
 
 Im Azure-Stapel für große Instanzen selbst werden die folgenden Komponenten kombiniert:
 
-- **Computing:** Server, die auf Intel Xeon E7-8890v3- oder Intel Xeon E7-8890v4-Prozessoren basieren, die die erforderliche Computingleistung bereitstellen und SAP HANA-zertifiziert sind.
+- **Computing:** Server, die auf verschiedenen Generationen von Intel Xeon-Prozessoren basieren, welche die erforderliche Rechenleistung bereitstellen und SAP HANA-zertifiziert sind.
 - **Netzwerk:** Ein einheitliches Hochgeschwindigkeitsnetzwerk-Fabric, das die Computing-, Speicher- und LAN-Komponenten miteinander verbindet.
 - **Speicher:** Eine Speicherinfrastruktur, auf die über ein einheitliches Netzwerkfabric zugegriffen wird. Die verfügbare spezifische Speicherkapazität hängt von der jeweiligen Konfiguration von SAP HANA in Azure (große Instanzen) ab, die bereitgestellt wird. Mehr Speicherkapazität ist gegen eine zusätzliche monatliche Gebühr erhältlich.
 

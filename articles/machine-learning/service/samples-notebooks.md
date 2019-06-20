@@ -1,7 +1,7 @@
 ---
 title: Jupyter-Beispiel-Notebooks
 titleSuffix: Azure Machine Learning service
-description: Es wird beschrieben, wie Sie Beispiele für Jupyter-Notebooks finden und verwenden, um den Azure Machine Learning-Dienst in Python zu erkunden.
+description: Hier erfahren Sie, wie Sie Beispiele für Jupyter-Notebooks finden und verwenden, um sich mit dem Python-SDK für Azure Machine Learning Service vertraut zu machen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,58 +9,57 @@ ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 05/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: cd88fd85ce6d18287c700a54e42b6237a42ea5c9
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: ea4d5a807c25ea0406b49dac8a83ef1a34e0e8b3
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035379"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391781"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Verwenden von Jupyter-Notebooks zum Erkunden des Azure Machine Learning-Diensts
 
-Zur Vereinfachung haben wir eine Reihe von Jupyter Python-Notebooks entwickelt, die Sie zum Erkunden des Azure Machine Learning-Diensts verwenden können. 
+Das [Notebookrepository für Azure Machine Learning](https://github.com/azure/machinelearningnotebooks) enthält die neuesten Python-SDK-Beispiele für Azure Machine Learning. Diese Juypter-Notebooks helfen Ihnen dabei, sich mit dem SDK vertraut zu machen, und fungieren als Modelle für Ihre eigenen Machine Learning-Projekte.
 
-Es wird beschrieben, wie Sie den Dienst mit der Dokumentation auf dieser Website nutzen und diese Notebooks zur Anpassung an Ihre Anforderungen verwenden. 
+In diesem Artikel erfahren Sie, wie Sie von den folgenden Umgebungen aus auf das Repository zugreifen:
 
-Verwenden Sie einen der unten stehenden Pfade, um einen Notebook-Server mit diesen Beispielnotebooks auszuführen.  Sobald der Server ausgeführt wird, finden Sie im Ordner **tutorials** die Notebooks für das Tutorial. Zudem können Sie im Ordner **how-to-use-azureml** verschiedene Features erkunden.
+- [Azure Machine Learning-Notebook (virtueller Computer)](#azure-machine-learning-notebook-vm)
+- [Eigener Notebookserver](#bring-your-own-jupyter-notebook-server)
+- [Virtueller Computer für Data Science](#data-science-virtual-machine)
+- [Azure Notebooks](#azure-notebooks)
 
-## <a name="a-managed-cloud-notebook-server"></a>Ein verwalteter cloudbasierter Notebook-Server
+> [!NOTE]
+> Nach dem Klonen des Repositorys finden Sie Tutorialnotebooks im Ordner **tutorials** und featurespezifische Notebooks im Ordner **how-to-use-azureml**.
 
-Die ersten Schritte mit Ihrem eigenen cloudbasierten Notebook-Server sind ganz einfach. Das Beispielnotebook und das [Azure Machine Learning SDK für Python](https://aka.ms/aml-sdk) werden für Sie installiert und konfiguriert, wenn Sie diese Cloudressource erstellen.  
+## <a name="azure-machine-learning-notebook-vm"></a>Azure Machine Learning-Notebook (virtueller Computer)
 
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+Den einfachsten Einstieg in die Verwendung der Beispiele bietet die [Schnellstartanleitung für cloudbasierte Notebooks](quickstart-run-cloud-notebook.md). Nach Ausführung der entsprechenden Schritte verfügen Sie über einen dedizierten Notebookserver mit vorab geladenem SDK und Beispielrepository. Ganz ohne Downloads oder Installation.
 
-* Die Beispiele sind auf der Notebook-Webseite verfügbar.
+## <a name="bring-your-own-jupyter-notebook-server"></a>Eigener Jupyter Notebook-Server
 
-## <a name="a-data-science-virtual-machine-dsvm"></a>Eine Data Science Virtual Machine-Instanz (DSVM)
-
-Das [Azure Machine Learning SDK für Python](https://aka.ms/aml-sdk) und der Notebookserver sind für Sie auf einer DSVM bereits installiert und konfiguriert. 
-
-Nach dem [Erstellen einer Data Science Virtual Machine (DSVM)](how-to-configure-environment.md#dsvm) führen Sie auf der DSVM die folgenden Schritte durch, um die Notebooks auszuführen.
-
-[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
-
-## <a name="your-own-jupyter-notebook-server"></a>Ihr eigener Jupyter Notebook-Server
-
-Führen Sie diese Schritte aus, um auf Ihrem Computer einen lokalen Jupyter Notebook-Server zu erstellen.
+Falls Sie für die lokale Entwicklung einen eigenen Notebookserver verwenden möchten, gehen Sie wie folgt vor:
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-Mit der Setupanleitung werden die Pakete installiert, die Sie zum Ausführen der Schnellstart- und Tutorial-Notebooks benötigen.  Für andere Beispiel-Notebooks müssen ggf. zusätzliche Komponenten installiert werden.  Weitere Informationen zu diesen Komponenten finden Sie unter [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install) (Installieren des Azure Machine Learning SDK für Python).
+Mit diesen Schritten werden die erforderlichen SDK-Basispakete für die Schnellstart- und Tutorialnotebooks installiert. Für andere Beispielnotebooks müssen ggf. zusätzliche Komponenten installiert werden. Weitere Informationen finden Sie unter [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install) (Installieren des Azure Machine Learning SDK für Python).
 
-## <a name="azure-notebooks"></a>Azure-Notebooks
+## <a name="data-science-virtual-machine"></a>Virtueller Computer für Data Science
 
-Die Beispielnotebooks und das [Azure Machine Learning SDK für Python](https://aka.ms/aml-sdk) wurden unter [Azure Notebooks](https://notebooks.azure.com/) bereits für Sie installiert und konfiguriert. Die Installation und zukünftige Updates werden automatisch über Azure-Dienste verwaltet.
+Data Science Virtual Machine (DSVM) ist ein benutzerdefiniertes VM-Image, das speziell für Data Science erstellt wurde. Wenn Sie [eine DSVM-Instanz erstellen](how-to-configure-environment.md#dsvm), werden das SDK und der Notebookserver für Sie installiert und konfiguriert. Sie müssen jedoch noch einen Arbeitsbereich erstellen und das Beispielrepository klonen.
 
-Verwenden Sie das [Azure-Portal](https://portal.azure.com), um das Arbeiten mit Azure Notebooks zu beginnen.  Öffnen Sie Ihren Arbeitsbereich, und wählen Sie im Abschnitt **Übersicht** die Option **Erste Schritte in Azure Notebooks** aus.
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
+
+## <a name="azure-notebooks"></a>Azure Notebooks
+
+Bei Verwendung von [Azure Notebooks](https://notebooks.azure.com/) werden das SDK und der Notebookserver für Sie installiert und konfiguriert. Azure Notebooks bietet Ihnen eine einfache und vollständig verwaltete Notebookumgebung.
+
+Navigieren Sie über das [Azure-Portal](https://portal.azure.com) zu Ihrem Azure Machine Learning-Arbeitsbereich, um auf das Beispielrepository für Azure Notebooks zuzugreifen. Wählen Sie im Abschnitt **Übersicht** die Option **Erste Schritte in Azure Notebooks** aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-+ Erkunden der Beispielnotebooks für Azure Machine Learning Service in diesem GitHub-Repository: https://aka.ms/aml-notebooks
+Erkunden Sie anhand der [Beispielnotebooks](https://aka.ms/aml-notebooks), welche Möglichkeiten Ihnen Azure Machine Learning Service bietet, oder probieren Sie die folgenden Tutorials aus:
 
-Probieren Sie diese Tutorials aus:
-+ [Trainieren eines Bildklassifizierungsmodells mit dem Azure Machine Learning-Dienst](tutorial-train-models-with-aml.md)
+- [Trainieren eines Bildklassifizierungsmodells mit dem Azure Machine Learning-Dienst](tutorial-train-models-with-aml.md)
 
-+ [Vorbereiten von Daten für die Regressionsmodellierung](tutorial-data-prep.md)
+- [Vorbereiten von Daten für die Regressionsmodellierung](tutorial-data-prep.md)

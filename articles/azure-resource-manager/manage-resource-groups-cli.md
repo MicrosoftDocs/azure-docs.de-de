@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60550545"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Verwalten von Azure Resource Manager-Gruppen mithilfe der Azure CLI
 
@@ -129,7 +129,7 @@ Sie können Ressourcengruppen und Ressourcen Tags zuordnen, um sie logisch zu or
 
 ## <a name="export-resource-groups-to-templates"></a>Exportieren von Ressourcengruppen in Vorlagen
 
-Nach dem erfolgreichen Einrichten der Ressourcengruppe kann es sein, dass Sie die Resource Manager-Vorlage für die Ressourcengruppe anzeigen lassen möchten. Das Exportieren der Vorlage hat zwei Vorteile:
+Nach dem erfolgreichen Einrichten der Ressourcengruppe sollten Sie die Resource Manager-Vorlage für die Ressourcengruppe anzeigen lassen. Das Exportieren der Vorlage hat zwei Vorteile:
 
 - Automatisieren zukünftiger Bereitstellungen der Lösung, da die Vorlage die gesamte Infrastruktur enthält.
 - Überblick über Vorlagensyntax, indem Sie sich die JavaScript Object Notation (JSON) zu Ihrer Lösung ansehen.
@@ -153,4 +153,4 @@ Der Zugriff auf Ressourcen in Azure wird mithilfe der [rollenbasierten Zugriffss
 - Weitere Informationen zu Azure Resource Manager finden Sie unter [Übersicht über den Azure Resource Manager](./resource-group-overview.md).
 - Informationen zur Resource Manager-Vorlagensyntax finden Sie unter [Verstehen der Struktur und Syntax von Azure Resource Manager-Vorlagen](./resource-group-authoring-templates.md).
 - Informationen zum Entwickeln von Vorlagen finden Sie in den [Schritt-für-Schritt-Tutorials](/azure/azure-resource-manager/).
-- Informationen zum Anzeigen der Vorlagenschemas für Azure Resource Manager finden Sie in der [Vorlagenreferenzdokumentation](/azure/templates/).
+- Informationen zum Anzeigen der Vorlagenschemas für Azure Resource Manager finden Sie in der [Referenz zu Vorlagen](/azure/templates/).

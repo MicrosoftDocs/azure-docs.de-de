@@ -4,14 +4,14 @@ description: Verwalten der Konsistenz in Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5b43d822bf29ce07f292403a3a24ad8c13964038
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925334"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389123"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Verwalten von Konsistenzebenen in Azure Cosmos DB
 
@@ -61,7 +61,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Azure-Portal
 
-Melden Sie sich zum Anzeigen oder Ändern der Standardkonsistenzebene beim Azure-Portal an. Navigieren Sie zu Ihrem Azure Cosmos-Konto, und öffnen Sie den Bereich **Standardkonsistenz**. Wählen Sie die Konsistenzebene aus, die Sie als neue Standardeinstellung verwenden möchten, und wählen Sie anschließend **Speichern**.
+Melden Sie sich zum Anzeigen oder Ändern der Standardkonsistenzebene beim Azure-Portal an. Navigieren Sie zu Ihrem Azure Cosmos-Konto, und öffnen Sie den Bereich **Standardkonsistenz**. Wählen Sie die Konsistenzebene aus, die Sie als neue Standardeinstellung verwenden möchten, und wählen Sie anschließend **Speichern**. Das Azure-Portal bietet auch eine Visualisierung verschiedener Konsistenzebenen mit Musiknoten. 
 
 ![Konsistenzmenü im Azure-Portal](./media/how-to-manage-consistency/consistency-settings.png)
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Überwachen der PBS-Metrik (Probabilistically Bounded Staleness)
 
-Wie letztlich ist letztliche Konsistenz? Im Normalfall können wir begrenzte Veraltung im Hinblick auf Versionsverlauf und Zeit anbieten. Die [**PBS-Metrik (Probabilistically Bounded Staleness)**](https://pbs.cs.berkeley.edu/) versucht, die Wahrscheinlichkeit der Veraltung zu bestimmen und zeigt sie als Metrik an. Navigieren Sie zum Anzeigen der PBS-Metrik im Azure-Portal zu Ihrem Azure Cosmos-Konto. Öffnen Sie den Bereich **Metriken**, und wählen Sie die Registerkarte **Konsistenz**. Sehen Sie sich den Graphen mit dem Namen **Wahrscheinlichkeit stark konsistenter Lesevorgänge basierend auf Ihrer Workload (siehe PBS)** an.
+Wie letztlich ist letztliche Konsistenz? Im Normalfall können wir begrenzte Veraltung im Hinblick auf Versionsverlauf und Zeit anbieten. Die [**PBS-Metrik (Probabilistically Bounded Staleness)** ](https://pbs.cs.berkeley.edu/) versucht, die Wahrscheinlichkeit der Veraltung zu bestimmen und zeigt sie als Metrik an. Navigieren Sie zum Anzeigen der PBS-Metrik im Azure-Portal zu Ihrem Azure Cosmos-Konto. Öffnen Sie den Bereich **Metriken**, und wählen Sie die Registerkarte **Konsistenz**. Sehen Sie sich den Graphen mit dem Namen **Wahrscheinlichkeit stark konsistenter Lesevorgänge basierend auf Ihrer Workload (siehe PBS)** an.
 
 ![PBS-Graph im Azure-Portal](./media/how-to-manage-consistency/pbs-metric.png)
 

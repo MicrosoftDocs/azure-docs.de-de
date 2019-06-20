@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 222f131e92a6018b4f70c65476cc2c47fb1d1dd5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 57a19b11d7aead6f67f411b75b046a9238cf7c12
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055232"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Für GPU optimierte VM-Größen
 

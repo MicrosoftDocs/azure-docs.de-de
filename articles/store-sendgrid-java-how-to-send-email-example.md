@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.openlocfilehash: 79cb9bb82862f5720d5ec2262ba30dbbcf3e3f66
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60930134"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Senden von E-Mails mit SendGrid aus Java in einer Azure-Bereitstellung
 Das folgende Beispiel zeigt, wie Sie mit SendGrid E-Mails von einer in Azure gehosteten Webseite senden können. Die Anwendung fragt den Benutzer nach Werten für die E-Mail, wie im folgenden Screenshot gezeigt.
@@ -211,7 +211,7 @@ Der folgende Code wird aufgerufen wenn der Benutzer das Formular in emailform.js
 ## <a name="next-steps"></a>Nächste Schritte
 Stellen Sie Ihre Anwendung im Serveremulator bereit, und führen Sie „emailform.jsp“ in einem Browser aus. Füllen Sie das Formular aus, klicken Sie auf **Send this email**, und sehen Sie sich das Ergebnis in „sendemail.jsp“ an.
 
-Dieser Code zeigt, wie Sie SendGrid mit Java in Azure verwenden können. Bevor Sie dieses Beispiel in einer Produktionsumgebung bereitstellen, sollten Sie einige Funktionen zur Fehlerbehandlung oder andere Features hinzufügen. Beispiel:  
+Dieser Code zeigt, wie Sie SendGrid mit Java in Azure verwenden können. Bevor Sie dieses Beispiel in einer Produktionsumgebung bereitstellen, sollten Sie einige Funktionen zur Fehlerbehandlung oder andere Features hinzufügen. Beispiel: 
 
 * Anstelle eines Web-Formulars könnten Sie auch Azure-Speicher-Blobs oder SQL Database zum Speichern von E-Mail-Adressen und -Nachrichten verwenden. Weitere Informationen zur Verwendung von Azure-Speicher-Blobs in Java finden Sie unter [Verwenden des Blob-Speicherdiensts in Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Informationen zur Verwendung von SQL Database in Java finden Sie unter [Verwenden von SQL Database in Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
 * Weitere Informationen zur Verwendung von SendGrid in Java finden Sie unter [Senden von E-Mails mit SendGrid aus Java](store-sendgrid-java-how-to-send-email.md).

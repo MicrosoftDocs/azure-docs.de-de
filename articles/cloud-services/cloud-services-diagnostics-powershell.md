@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: b20fa7a1f43369cde85c2535637eec7ceb1d3c29
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 13a855c5770281e2578523bfc1813b2e03df6651
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65539242"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivieren der Diagnose mithilfe von PowerShell in Azure Cloud Services
 Mit der Azure-Diagnoseerweiterung können Sie Diagnosedaten wie Anwendungsprotokolle, Leistungsindikatoren usw. von einem Clouddienst sammeln. In diesem Artikel wird beschrieben, wie Sie die Azure-Diagnoseerweiterung für einen Clouddienst mithilfe von PowerShell aktivieren.  Informationen zu den erforderlichen Komponenten für diesen Artikel finden Sie unter [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/overview) .
@@ -85,7 +85,7 @@ foreach ($extPath in $diagnosticsExtensions)
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
 ```
 
-Visual Studio Online verwendet einen ähnlichen Ansatz für automatisierte Bereitstellungen von Clouddiensten mit der Diagnoseerweiterung. Unter [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) finden Sie ein vollständiges Beispiel.
+Visual Studio Online verwendet einen ähnlichen Ansatz für automatisierte Bereitstellungen von Clouddiensten mit der Diagnoseerweiterung. Unter [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureCloudPowerShellDeploymentV1/Publish-AzureCloudDeployment.ps1) finden Sie ein vollständiges Beispiel.
 
 Wenn in der Diagnosekonfiguration kein `StorageAccount` angegeben wurde, müssen Sie den *StorageAccountName*-Parameter an das Cmdlet übergeben. Bei Angabe des Parameters *StorageAccountName* verwendet das Cmdlet immer das im Parameter angegebene Speicherkonto und nicht das in der Diagnosekonfigurationsdatei angegebene.
 

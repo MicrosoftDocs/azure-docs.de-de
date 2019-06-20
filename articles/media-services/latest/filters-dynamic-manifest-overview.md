@@ -11,32 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 06/11/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ab07b87d724f2006b6b5c0e4f472140f92230dea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467126"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080401"
 ---
-# <a name="dynamic-manifests"></a>Dynamische Manifeste
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Vorfiltern von Manifesten mit dem dynamischen Packager
 
-Media Services bietet **dynamische Manifeste**, die auf vordefinierten Filtern basieren. Nachdem Sie Filter definiert haben (siehe [Definieren von Filtern](filters-concept.md)), können Ihre Kunden sie zum Streamen einer spezifischen Wiedergabe oder bestimmter Subclips Ihres Videos verwenden. Dazu geben sie die Filter in der Streaming-URL an. Auf Streamingprotokolle mit adaptiver Bitrate können Filter angewandt werden: Apple HTTP Live Streaming (HLS), MPEG-DASH und Smooth Streaming. 
+Bei der Bereitstellung von Inhalten mit Adaptive Bitrate Streaming auf Geräten müssen Sie häufig mehrere Versionen eines Manifests veröffentlichen, um auf bestimmte Gerätefunktionen oder eine verfügbare Netzwerkbandbreite abzuzielen. Der [dynamische Packager](dynamic-packaging-overview.md) gestattet es Ihnen, Filter anzugeben, die bestimmte Codecs, Auflösungen, Bitraten und Audiospurkombinationen unmittelbar ausfiltern können und so die Notwendigkeit beseitigen, mehrere Kopien erstellen zu müssen. Sie müssen lediglich eine neue URL mit einem bestimmten Satz von Filtern veröffentlichen, die für Ihre Zielgeräte (iOS, Android, SmartTV oder Browser) und die Netzwerkgegebenheiten (Szenarien mit hoher Bandbreite, mobiler Datenübertragung oder niedriger Bandbreite) konfiguriert sind. In diesem Fall können Clients das Streamen Ihrer Inhalte durch die Abfragezeichenfolge manipulieren (durch Angeben verfügbarer [Medienobjekt- oder Kontofilter](filters-concept.md)) und Filter verwenden, um bestimmte Abschnitte eines Datenstroms zu filtern.
 
-Die folgende Tabelle zeigt einige Beispiele für URLs mit Filtern:
+Einige Lieferszenarien erfordern, dass Sie sicherstellen, dass ein auf bestimmte Spuren nicht zugreifen kann. Beispielsweise, wenn Sie ein Manifest, das HD-Titel enthält, nicht in einem bestimmten Abonnententarif veröffentlichen möchten. Oder wenn Sie bestimmte Titel mit Adaptive Bitrate (ABR) entfernen möchten, um die Bereitstellungskosten auf einem bestimmten Gerät zu reduzieren, das von den zusätzlichen Spuren nicht profitieren würde. In diesem Fall könnten Sie beim Erstellen einem [Streaminglocator](streaming-locators-concept.md) eine Liste zuvor erstellter Filter zuordnen. In diesem Fall können Clients nicht manipulieren, wie der Inhalt gestreamt wird, weil dies im **Streaminglocator** definiert ist.
 
-|Protocol|Beispiel|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
+Sie können die Filterung über bestimmte [Filter im Streaminglocator](filters-concept.md#associating-filters-with-streaming-locator) mit zusätzlichen, gerätespezifischen Filtern kombinieren, die Ihr Client in der URL angibt. Dies kann nützlich sein, um zusätzliche Spuren einzuschränken, wie Metadaten- oder Ereignisdatenströme, Audiosprachen oder beschreibende Audiospuren. 
+
+Diese Fähigkeit, verschiedene Filter in Ihrem Datenstrom angeben zu können, bietet eine leistungsstarke Lösung zur Manipulation **dynamischer Manifeste** für gezielte mehrfache Anwendungsfallszenarien auf Ihren Zielgeräten. In diesem Thema werden Konzepte im Zusammenhang mit **dynamischen Manifesten** erläutert. Außerdem sind Beispiele für Szenarien enthalten, in denen Sie dieses Feature möglicherweise verwenden möchten.
 
 > [!NOTE]
-> Dynamische Manifeste nehmen keine Änderungen am Medienobjekt und dem Standardmanifest für dieses Medienobjekt vor. Ihre Kunden können auswählen, ob sie einen Stream mit oder ohne Filter anfordern. 
+> Dynamische Manifeste nehmen keine Änderungen am Medienobjekt und dem Standardmanifest für dieses Medienobjekt vor. 
 > 
-
-In diesem Thema werden Konzepte im Zusammenhang mit **dynamischen Manifesten** erläutert. Außerdem sind Beispiele für Szenarien enthalten, in denen Sie dieses Feature möglicherweise verwenden möchten.
 
 ## <a name="manifests-overview"></a>Übersicht über Manifeste
 
@@ -55,6 +51,16 @@ Das REST-Beispiel finden Sie unter [Hochladen, Codieren und Streamen von Dateien
 Sie können mithilfe der [Azure Media Player-Demoseite](https://aka.ms/amp) die Bitrate eines Videostreams überwachen. Die Demoseite zeigt auf der Registerkarte **Diagnose** Diagnoseinformationen an:
 
 ![Azure Media Player-Diagnose][amp_diagnostics]
+ 
+### <a name="examples-urls-with-filters-in-query-string"></a>Beispiele: URLs mit Filtern in der Abfragezeichenfolge
+
+Auf Streamingprotokolle mit adaptiver Bitrate können Filter angewandt werden: HLS, MPEG-DASH und Smooth Streaming. Die folgende Tabelle zeigt einige Beispiele für URLs mit Filtern:
+
+|Protocol|Beispiel|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="rendition-filtering"></a>Filtern der Wiedergabe
 
@@ -122,10 +128,6 @@ Sie können bis zu drei Filter kombinieren.
 
 Weitere Informationen finden Sie in [diesem](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) Blog.
 
-## <a name="associate-filters-with-streaming-locator"></a>Zuordnen von Filtern mit Streaminglocator
-
-Sie können eine Liste von Medienobjekt- oder Kontenfiltern angeben, die für Ihren Streaminglocator gelten würden. Der [dynamische Packager](dynamic-packaging-overview.md) wendet diese Liste der Filter zusammen mit den Filtern an, die Ihr Client in der URL angibt. Diese Kombination generiert ein [dynamisches Manifest](filters-dynamic-manifest-overview.md), das auf Filtern in der URL sowie auf Filtern basiert, die Sie im Streaminglocator angeben. Es wird empfohlen, dieses Feature zu verwenden, wenn Sie Filter anwenden, aber nicht die Filternamen in der URL verfügbar machen möchten.
-
 ## <a name="considerations-and-limitations"></a>Überlegungen und Einschränkungen
 
 - Die Werte für **forceEndTimestamp**, **presentationWindowDuration** und **liveBackoffDuration** dürfen für einen VoD-Filter nicht festgelegt werden. Sie werden nur in Szenarien mit Livefiltern eingesetzt. 
@@ -136,7 +138,6 @@ Sie können eine Liste von Medienobjekt- oder Kontenfiltern angeben, die für Ih
     
     - Um die Eigenschaften der Spuren in einem Medienobjekt zu bestimmen, müssen Sie die [Manifestdatei abrufen und untersuchen](#get-and-examine-manifest-files).
     - Dies ist die Formel zum Festlegen der Zeitstempeleigenschaften für einen Medienobjektfilter: <br/>startTimestamp = &lt;Startzeit im Manifest&gt; +  &lt;erwartete Filterstartzeit in Sekunden&gt; × Zeitskala
-
 
 ## <a name="next-steps"></a>Nächste Schritte
 

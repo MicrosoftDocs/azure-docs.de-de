@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009964"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721091"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Überwachung und Diagnose mit einer Latenzzeit von 1 Sekunde
 
@@ -34,7 +34,7 @@ Mit Live Metrics Stream haben Sie folgende Möglichkeiten:
 * Überwachen Sie Windows-Leistungsindikatoren live.
 * Identifizieren Sie mühelos einen Server mit Problemen, und filtern Sie nach allen KPIs/dem Livefeed nur für diesen Server.
 
-[![Live Metrics Stream video (Video zu Live Metrics Stream)](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Video zu Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 Livemetriken werden derzeit für ASP.NET-, ASP.NET Core-, Azure Functions-, Java- und Node.js-Apps unterstützt.
 
@@ -50,22 +50,24 @@ Livemetriken werden derzeit für ASP.NET-, ASP.NET Core-, Azure Functions-, Java
 
 4. [Sichern Sie den Steuerkanal](#secure-the-control-channel), wenn Sie sensible Daten (z.B. Kundennamen) in Ihren Filtern verwenden möchten.
 
+### <a name="nodejs"></a>Node.js
+
+Um Live Metrics mit Node.js verwenden zu können, müssen Sie ein Update auf die SDK-Version 1.30 oder höher durchführen. Standardmäßig ist Live Metrics im Node.js SDK deaktiviert. Um Live Metrics zu aktivieren, fügen Sie `setSendLiveMetrics(true)` zu Ihren [Konfigurationsmethoden](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) hinzu, während Sie das SDK initialisieren.
+
 ### <a name="no-data-check-your-server-firewall"></a>Sie sehen keine Daten? Überprüfen Sie die Serverfirewall
 
 Überprüfen Sie, ob die [ausgehenden Ports für Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) in der Firewall Ihrer Server geöffnet sind. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Wie unterscheidet sich Live Metrics Stream von Metrik-Explorer und Analytics?
 
 | |Live Stream | Metrik-Explorer und Analytics |
 |---|---|---|
 |Latenz|Daten werden innerhalb einer Sekunde angezeigt.|Aggregation innerhalb mehrerer Minuten|
-|Keine Beibehaltung|Daten werden beibehalten, solange sie im Diagramm angezeigt werden, und dann verworfen.|[Daten werden 90 Tage lang aufbewahrt.](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|Keine Beibehaltung|Daten werden beibehalten, solange sie im Diagramm angezeigt werden, und dann verworfen.|[Daten werden 90 Tage lang beibehalten.](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |On-Demand-Streaming|Daten werden beim Öffnen von Live Metrics gestreamt.|Daten werden gesendet, sobald das SDK installiert und aktiviert wird.|
 |Kostenlos|Keine Gebühren für Live Stream-Daten|[Gebührenpflichtig](../../azure-monitor/app/pricing.md)
 |Stichproben|Alle ausgewählten Metriken und Indikatoren werden übertragen. Für Fehler und Stapelüberwachungen werden Stichproben erstellt. Telemetrieprozessoren werden nicht angewendet.|Für Ereignisse können [Stichproben](../../azure-monitor/app/api-filtering-sampling.md) erstellt werden.|
 |Steuerkanal|Filtersteuersignale werden an das SDK gesendet. Es empfiehlt sich, diesen Kanal zu sichern.|Unidirektionale Kommunikation zum Portal|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Auswählen und Filtern der Metriken
 
@@ -207,7 +209,7 @@ Sie sehen keine Daten? Wenn sich Ihre Anwendung in einem geschützten Netzwerk b
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Verwendungsanalyse mit Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Verwenden von Search in Application Insights](../../azure-monitor/app/diagnostic-search.md)
+* [Überwachen der Verwendung mit Application Insights](../../azure-monitor/app/usage-overview.md)
+* [Verwenden der Diagnosesuche](../../azure-monitor/app/diagnostic-search.md)
 * [Profiler](../../azure-monitor/app/profiler.md)
-* [Debugger für Momentaufnahmen](../../azure-monitor/app/snapshot-debugger.md)
+* [Snapshot Debugger](../../azure-monitor/app/snapshot-debugger.md)

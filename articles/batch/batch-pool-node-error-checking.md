@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791340"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357760"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Suchen nach Pool- und Knotenfehlern
 
@@ -84,18 +84,27 @@ Sie können ein oder mehrere Anwendungspakete für einen Pool angeben. Die angeg
 
 Die Knoteneigenschaft [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) meldet einen Fehler beim Herunterladen und Dekomprimieren eines Anwendungspakets. Azure Batch legt den Knotenstatus auf **Nicht verwendbar** fest.
 
+### <a name="container-download-failure"></a>Fehler beim Herunterladen von Containern
+
+Sie können in einem Pool eine oder mehrere Containerreferenzen angeben. Batch lädt die angegebenen Container auf die einzelnen Knoten herunter. Die [Fehler](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror)-Eigenschaft des Knotens meldet einen Fehler beim Herunterladen eines Containers und legt den Knotenstatus auf **Nicht verwendbar** fest.
+
 ### <a name="node-in-unusable-state"></a>Knoten mit dem Status „Nicht verwendbar“
 
 Es kann verschiedene Ursachen dafür geben, dass Azure Batch den [Knotenstatus](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) auf **Nicht verwendbar** festlegt. Wenn der Knotenstatus auf **Nicht verwendbar** festgelegt ist, können für den Knoten zwar keine Tasks geplant werden, es fallen jedoch weiterhin Gebühren für ihn an.
 
-Azure Batch versucht immer, nicht verwendbare Knoten wiederherzustellen. Je nach Ursache ist eine Wiederherstellung aber ggf. nicht möglich.
+Knoten mit dem Zustand **Nicht verwendbar**, aber ohne [Fehler](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror)-Zustand bedeuten, dass Batch nicht mit dem virtuellen Computer kommunizieren kann. In diesem Fall versucht Batch immer, den virtuellen Computer wiederherzustellen. Batch versucht nicht automatisch, virtuelle Computer wiederherzustellen, die keine Anwendungspakete oder Container installiert haben, obwohl ihr Zustand **Nicht verwendbar** ist.
 
 Wenn Azure Batch die Ursache bestimmen kann, wird sie von der Knoteneigenschaft [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) gemeldet.
 
 Einige weitere Beispiele für Ursachen für **nicht verwendbare** Knoten sind u. a.:
 
 - Ein benutzerdefiniertes VM-Image ist ungültig. Beispielsweise, wenn ein Image nicht ordnungsgemäß vorbereitet wurde.
+
 - Eine VM wird aufgrund eines Infrastrukturausfalls oder eines niedrigstufigen Upgrades verschoben. Azure Batch stellt den Knoten wieder her.
+
+- Ein VM-Image wurde auf Hardware bereitgestellt, von der es nicht unterstützt wird. Beispiel: Ein „HPC“-VM-Image, das auf Nicht-HPC-Hardware ausgeführt wird. Beispiel: Der Versuch, ein CentOS-HPC-Image auf einem virtuellen [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series)-Computer auszuführen.
+
+- Die VMs befinden sich in einem [virtuellen Azure-Netzwerk](batch-virtual-network.md), und der Datenverkehr zu den Schlüsselports wurde blockiert.
 
 ### <a name="node-agent-log-files"></a>Protokolldateien des Knoten-Agents
 

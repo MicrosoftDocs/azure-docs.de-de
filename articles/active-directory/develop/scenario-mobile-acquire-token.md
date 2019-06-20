@@ -1,6 +1,6 @@
 ---
-title: Mobile App, die Web-APIs aufruft (Aufrufen von Token für die App) – Microsoft Identity Platform
-description: Erfahren Sie, wie Sie eine mobile App erstellen, die Web-APIs aufruft (Abruf eines Tokens für die App).
+title: Mobile App, die Web-APIs aufruft – Abrufen eines Tokens für die App | Microsoft Identity Platform
+description: Hier finden Sie Informationen zum Erstellen einer mobilen App, die Web-APIs aufruft (Abrufen eines Tokens für die App).
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -12,46 +12,47 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6933bfbbff574495655ef9065a786fa313b02bd6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 81770b6ec4eacad10cd88978952688c29eff452d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080140"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962421"
 ---
-# <a name="mobile-app-that-calls-web-apis---acquire-a-token"></a>Mobile App, die Web-APIs aufruft – Aufruf eines Tokens
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Mobile App, die Web-APIs aufruft – Abrufen eines Tokens
 
-Bevor Sie geschützte Web-APIs aufrufen können, benötigt Ihre App ein Zugriffstoken. In diesem Artikel werden Sie durch den Prozess zum Abrufen eines Tokens mit der Microsoft-Authentifizierungsbibliothek (Microsoft Authentication Library, MSAL) geführt.
+Bevor Sie geschützte Web-APIs aufrufen können, benötigt Ihre App ein Zugriffstoken. In diesem Artikel werden Sie durch den Prozess zum Abrufen eines Tokens mit der Microsoft Authentication Library (MSAL) geführt.
 
 ## <a name="scopes-to-request"></a>Anzufordernde Bereiche
 
-Bei Anfordern von Token ist immer ein Gültigkeitsbereich erforderlich. Der Gültigkeitsbereich bestimmt, auf welche Daten Ihre App zugreifen kann.  
+Wenn Sie ein Token anfordern, müssen Sie einen Bereich definieren. Der Gültigkeitsbereich bestimmt, auf welche Daten Ihre App zugreifen kann.  
 
-Am einfachsten ist es, das `App ID URI`-Objekt der Web-API mit dem Umfang `.default` zu verwenden. So wird Microsoft Identity Platform darüber informiert, dass Ihre App alle im Portal festgelegten Gültigkeitsbereiche benötigt.
+Die einfachste Vorgehensweise besteht darin, das `App ID URI`-Objekt der Web-API mit dem Bereich `.default` zu kombinieren. Dadurch wird Microsoft Identity Platform darüber informiert, dass Ihre App alle im Portal festgelegten Bereiche benötigt.
 
-Android
+#### <a name="android"></a>Android
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
-iOS
+#### <a name="ios"></a>iOS
 ```swift
 let scopes: [String] = ["https://graph.microsoft.com/.default"]
 ```
 
-Xamarin
+#### <a name="xamarin"></a>Xamarin
 ```CSharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="acquiring-tokens"></a>Abrufen von Token
+## <a name="get-tokens"></a>Abrufen von Token
 
-### <a name="via-msal"></a>über die MSAL
+### <a name="via-msal"></a>Über MSAL
 
-Mit der MSAL können Apps Token stillschweigend und interaktiv abrufen. Rufen Sie die folgenden Methoden auf, und die MSAL gibt ein Zugriffstoken für die angeforderten Gültigkeitsbereiche zurück. Die korrekte Vorgehensweise ist es, eine stille Anforderung zu stellen und anschließend eine interaktive Anforderung durchzuführen.
+Mit der MSAL können Apps Token stillschweigend und interaktiv abrufen. Rufen Sie diese Methoden auf, dann gibt MSAL ein Zugriffstoken für die angeforderten Bereiche zurück. Die korrekte Vorgehensweise ist es, eine automatische Anforderung und anschließend eine interaktive Anforderung auszuführen.
 
 #### <a name="android"></a>Android
 
@@ -61,32 +62,32 @@ PublicClientApplication sampleApp = new PublicClientApplication(
                     this.getApplicationContext(),
                     R.raw.auth_config);
 
-// Check if there are any accounts we can sign in silently
-// Result is in our silent callback (success or error)
+// Check if there are any accounts we can sign in silently.
+// Result is in the silent callback (success or error).
 sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
     @Override
     public void onAccountsLoaded(final List<IAccount> accounts) {
 
         if (accounts.isEmpty() && accounts.size() == 1) {
-            // TODO: Create a silent callback to catch successful or failed request
+            // TODO: Create a silent callback to catch successful or failed request.
             sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
         } else {
-            /* No accounts or >1 account */
+            /* No accounts or > 1 account. */
         }
     }
 });    
 
 [...]
 
-// No accounts found, interactively request a token 
-// TODO: Create an interactive callback to catch successful or failed request
+// No accounts found. Interactively request a token.
+// TODO: Create an interactive callback to catch successful or failed request.
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
 #### <a name="ios"></a>iOS
 
 ```swift
-// Initialize our app 
+// Initialize the app.
 guard let authorityURL = URL(string: kAuthority) else {
     self.loggingText.text = "Unable to create authority URL"
     return
@@ -95,14 +96,14 @@ let authority = try MSALAADAuthority(url: authorityURL)
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 
-// Get tokens
+// Get tokens.
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
     if let error = error {
         let nsError = error as NSError
 
-        // interactionRequired means we need to ask the user to sign-in. This usually happens
-        // when the user's Refresh Token is expired or if the user has changed their password
+        // interactionRequired means you need to ask the user to sign in. This usually happens
+        // when the user's refresh token is expired or when the user has changed the password,
         // among other possible reasons.
         if (nsError.domain == MSALErrorDomain) {
             if (nsError.code == MSALError.interactionRequired.rawValue) {    
@@ -136,7 +137,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
         return
     }
 
-    // Token is ready via silent acquisition 
+    // Token is ready via silent acquisition.
     self.accessToken = result.accessToken
 }
 ```
@@ -160,13 +161,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-protocol"></a>über ein Protokoll
+### <a name="via-the-protocol"></a>Über das Protokoll
 
-Es wird nicht empfohlen, direkt gegen das Protokoll zu verstoßen. Dann kann Ihre App nicht viele SSO-Szenarios und nicht alle Szenarios für die Geräteverwaltung und den bedingten Zugriff unterstützen.
+Die direkte Verwendung des Protokolls wird nicht empfohlen. Wenn Sie dies tun, werden einige Szenarien für einmaliges Anmelden (Single Sign-On, SSO), die Geräteverwaltung und den bedingten Zugriff von der App nicht unterstützt.
 
-Wenn Sie Token für Ihre mobile App über das Protokoll abrufen, müssen Sie zwei Anforderungen stellen: Rufen Sie einen Autorisierungscode ab, und tauschen Sie diesen gegen ein Token ein. 
+Wenn Sie das Protokoll zum Abrufen von Token für mobile Apps verwenden, müssen Sie zwei Anforderungen ausführen: Sie müssen einen Autorisierungscode abrufen und diesen gegen ein Token eintauschen.
 
-#### <a name="getting-authorization-code"></a>Abrufen von Autorisierungscodes
+#### <a name="get-authorization-code"></a>Abrufen des Autorisierungscodes
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -178,7 +179,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="getting-access-and-refresh-token"></a>Abrufen von Zugriffs- und Aktualisierungstoken
+#### <a name="get-access-and-refresh-token"></a>Abrufen von Zugriffs- und Aktualisierungstoken
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

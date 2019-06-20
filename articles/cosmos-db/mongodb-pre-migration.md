@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: roaror
 ms.openlocfilehash: 476a143555323bbb5058541000a5b1a26d23b71a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012907"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61330856"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Vorbereitende Schritte für Datenmigrationen von MongoDB zur Azure Cosmos DB-API für MongoDB
 
@@ -60,7 +60,7 @@ In Azure Cosmos DB wird der Durchsatz vorab bereitgestellt und in Anforderungsei
 Im Gegensatz zu VMs oder lokalen Servern können RUs jederzeit einfach zentral hoch- und herunterskaliert werden. Sie können die Anzahl bereitgestellter RUs innerhalb von Sekunden ändern, und Ihnen wird lediglich die maximale Anzahl von RUs berechnet, die Sie für einen bestimmten 1-Stunden-Zeitraum bereitstellen. Weitere Informationen finden Sie unter [Anforderungseinheiten in Azure Cosmos DB](request-units.md).
 
 Im Folgenden sind wichtige Faktoren beschrieben, die sich auf die Anzahl der erforderlichen RUs auswirken:
-- **Größe des Elements (d.h. des Dokuments)**: Je größer ein Element/Dokument, desto mehr RUs werden beim Lesen oder Schreiben des Elements/Dokuments genutzt.
+- **Größe des Elements (d.h. des Dokuments)** : Je größer ein Element/Dokument, desto mehr RUs werden beim Lesen oder Schreiben des Elements/Dokuments genutzt.
 - **Anzahl der Elementeigenschaften**: Bei Verwendung der [standardmäßigen Indizierung](index-overview.md) aller Eigenschaften erhöht sich die Anzahl von RUs, die beim Schreiben eines Elements genutzt werden, wenn sich die Anzahl von Elementeigenschaften erhöht. Sie können die für Schreibvorgänge genutzten Anforderungseinheiten verringern, indem Sie die [Anzahl indizierter Eigenschaften begrenzen](index-policy.md).
 - **Parallele Vorgänge**: Der Verbrauch von Anforderungseinheiten hängt auch von der Frequenz ab, mit der verschiedene CRUD-Vorgänge (wie Schreib-, Lese, Aktualisierungs- und Löschvorgänge) und komplexere Abfragen ausgeführt werden. Mit [mongostat](https://docs.mongodb.com/manual/reference/program/mongostat/) können Sie den Parallelitätsbedarf Ihrer aktuellen MongoDB-Daten ausgeben.
 - **Abfragemuster**: Die Komplexität einer Abfrage wirkt sich darauf aus, wie viele Anforderungseinheiten von ihr verbraucht werden.

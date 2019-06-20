@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
 ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699440"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analysieren der Kundenabwanderung mithilfe von Azure Machine Learning Studio
@@ -25,7 +25,7 @@ Dieser Artikel beschreibt eine Referenzimplementierung für ein Projekt zur Anal
 Dieses Experiment wurde von Serge Berger, Principal Data Scientist bei Microsoft, und Roger Barga, zuvor Produktmanager für Microsoft Azure Machine Learning Studio, entwickelt und getestet. Der Azure-Dokumentationsteam bedankt sich herzlich dafür, dass beide ihre Erkenntnisse in diesem Whitepaper präsentieren.
 
 > [!NOTE]
-> Die für dieses Experiment genutzten Daten sind nicht öffentlich zugänglich. Ein Beispiel zum Erstellen eines Machine Learning-Modells für die Kundenabwanderungsanalyse finden Sie hier: [Azure AI Gallery](https://gallery.azure.ai/) in der [Vorlage für ein Abwanderungsmodell im Einzelhandel](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1).
+> Die für dieses Experiment genutzten Daten sind nicht öffentlich zugänglich. Ein Beispiel zum Erstellen eines Machine Learning-Modells für die Kundenabwanderungsanalyse finden Sie hier: [Vorlage für ein Abwanderungsmodell im Einzelhandel](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) im [Azure KI-Katalog](https://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Die folgenden Diagramme veranschaulichen die verwendeten Daten.
  
 
 > Beachten Sie, dass diese Daten privat sind, weshalb Modell und Daten nicht freigegeben werden dürfen.
-> Sie finden jedoch ein ähnliches Modell mit öffentlich verfügbaren Daten in diesem Beispielexperiment in der [Azure AI Gallery](https://gallery.azure.ai/): [Kundenabwanderung in der Telekommunikationsbranche](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Sie finden jedoch ein ähnliches Modell mit öffentlich verfügbaren Daten in diesem Beispielexperiment im [Azure KI-Katalog](https://gallery.azure.ai/): [Kundenabwanderung in der Telekommunikationsbranche](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Weitere Informationen zum Implementieren eines Abwanderungsanalysemodells mit Cortana Intelligence Suite finden Sie auch in [diesem Video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) von Senior Program Manager Wee Hyong Tok. 
 > 
@@ -188,7 +188,7 @@ Die in Machine Learning Studio gehosteten Modelle haben SAS hinsichtlich der Aus
 In der Telekommunikationsbranche haben sich verschiedene Methoden zur Analyse der Abwanderung entwickelt, darunter:  
 
 * Ableitung der Metriken für vier grundlegende Kategorien:
-  * **Entität (z.B. ein Abonnement)**. Bereitstellung grundlegender Informationen zum Abonnement und/oder Kunden, das/der Gegenstand der Abwanderung ist.
+  * **Entität (z.B. ein Abonnement)** . Bereitstellung grundlegender Informationen zum Abonnement und/oder Kunden, das/der Gegenstand der Abwanderung ist.
   * **Aktivität**. Abrufen aller möglichen Nutzungsinformationen, die sich auf die Entität beziehen, z. B. die Anzahl der Anmeldungen.
   * **Kundensupport**. Sammeln von Informationen aus Kundensupportprotokollen, um anzuzeigen, ob es für das Abonnement Probleme oder Interaktionen mit dem Kundensupport gab.
   * **Wettbewerbs- und Geschäftsdaten**. Abrufen aller möglichen Informationen zum Kunden (können nicht verfügbar oder schwer nachzuverfolgen sein).
@@ -219,7 +219,7 @@ In diesem Dokument wird ein sinnvoller Ansatz zur Bewältigung eines allgemeinen
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) (in englischer Sprache)
 
-[5] [Vorlage Telco Churn Model](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) im [Azure AI-Katalog](https://gallery.azure.ai/) 
+[5] Vorlage [Telco Churn Model](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) im [Azure KI-Katalog](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Anhang

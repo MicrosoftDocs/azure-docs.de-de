@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883008"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604043"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Grundlegendes zu den Begriffen auf der Rechnung für eine Microsoft-Kundenvereinbarung
 
@@ -63,7 +63,7 @@ Im Abschnitt **Billing summary** (Abrechnungsübersicht) werden alle in Rechnung
 | Guthaben |Gutschriften durch Rückgaben |
 | Azure credits applied (Angewendete Azure-Gutschriften) | Azure-Gutschriften, die in jedem Abrechnungszeitraum automatisch mit den Azure-Gebühren verrechnet werden |
 | Subtotal (Zwischensumme) |Der fällige Betrag ohne Steuern |
-| Tax (Steuern) |Art und Menge der berechneten Steuer, abhängig vom Land des Abrechnungsprofils. Wenn Sie keine Steuern zahlen müssen, werden auf Ihrer Rechnung keine Steuern aufgeführt. |
+| Tax (Steuern) |Art und Menge der berechneten Steuer, abhängig vom Land bzw. der Region des Abrechnungsprofils. Wenn Sie keine Steuern zahlen müssen, werden auf Ihrer Rechnung keine Steuern aufgeführt. |
 | Estimated total savings (Geschätzte Gesamteinsparungen) |Der geschätzte Gesamtbetrag an Einsparungen durch geltende Rabatte. Wenn vorhanden, werden geltende Rabatte unter der jeweiligen Kaufposition in den Details nach Rechnungsabschnitt aufgeführt. |
 
 ### <a name="invoice-sections"></a>Rechnungsabschnitte
@@ -88,7 +88,7 @@ Der fällige Gesamtbetrag für jede Dienstfamilie errechnet sich aus den *Guthab
 | Qty (Menge) | Während des Abrechnungszeitraums gekaufte oder genutzt Menge |
 | Charges/Credits (Gebühren/Guthaben) | Gebühren nach Abzug von Gutschriften/Erstattungen |
 | Azure Credit (Azure-Gutschrift) | Die Azure-Gutschriften, die mit den Gebühren/Guthaben verrechnet werden|
-| Tax rate (Steuersatz) | Steuersätze nach Land |
+| Tax rate (Steuersatz) | Steuersätze nach Land/Region |
 | Tax amount (Steuerbetrag) | Steuerbetrag, der auf Grundlage des Steuersatz auf einen Kauf angewendet wird |
 | Gesamt | Der insgesamt fällige Betrag für einen Kauf |
 

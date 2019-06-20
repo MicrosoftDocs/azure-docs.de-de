@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60348404"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-Synchronisierung: Erneutes Ausführen des Installations-Assistenten
 Beim erstmaligen Ausführen des Azure AD Connect-Installations-Assistenten werden Sie durch die Konfiguration Ihrer Installation geführt. Beim erneuten Ausführen des Installations-Assistenten werden Ihnen Wartungsoptionen angeboten.
@@ -75,7 +75,7 @@ Wenn Sie diese Option auswählen, werden alle Verzeichnisse in Ihrer Konfigurati
 ## <a name="configure-staging-mode"></a>Stagingmodus konfigurieren
 Mit dieser Option können Sie den Stagingmodus auf dem Server aktivieren und deaktivieren. Weitere Informationen zum Stagingmodus und dessen Verwendung finden Sie unter [Vorgänge](how-to-connect-sync-staging-server.md).
 
-Die Option zeigt an, ob Staging derzeit aktiviert oder deaktiviert ist:   
+Die Option zeigt an, ob Staging derzeit aktiviert oder deaktiviert ist:  
 ![Option, die auch den aktuellen Status des Stagingmodus anzeigt](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 Um den Status zu ändern, wählen Sie diese Option aus, und aktivieren bzw. deaktivieren Sie das Kontrollkästchen.  

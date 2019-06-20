@@ -1,20 +1,19 @@
 ---
 title: Konfigurieren von Apache HBase-Richtlinien in HDInsight mit dem Enterprise-Sicherheitspaket – Azure
 description: Hier erfahren Sie, wie Sie Apache Ranger-Richtlinien für HBase in Azure HDInsight mit dem Enterprise-Sicherheitspaket konfigurieren.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117284"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926097"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Konfigurieren von Apache HBase-Richtlinien in HDInsight mit dem Enterprise-Sicherheitspaket (Vorschauversion)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Konfigurieren von Apache HBase-Richtlinien in HDInsight mit dem Enterprise-Sicherheitspaket
 
 Hier erfahren Sie, wie Sie Apache Ranger-Richtlinien für Apache HBase-Cluster mit dem Enterprise-Sicherheitspaket (ESP) konfigurieren. Es werden Verbindungen von ESP-Clustern mit einer Domäne hergestellt, sodass Benutzer sich mit Anmeldeinformationen für die Domäne authentifizieren können. In diesem Tutorial erstellen Sie zwei Ranger-Richtlinien, um den Zugriff auf verschiedene Spaltenfamilien in einer HBase-Tabelle einzuschränken.
 
@@ -235,9 +234,9 @@ Basierend auf den konfigurierten Ranger-Richtlinien kann **sales_user1** alle Da
 Wenn Sie diese Anwendung nicht mehr benötigen, gehen Sie wie folgt vor, um den erstellten HBase-Cluster zu löschen:
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
-2. Geben Sie oben im Suchfeld**** den Suchbegriff **HDInsight** ein. 
+2. Geben Sie oben im **Suchfeld** den Suchbegriff **HDInsight** ein. 
 1. Wählen Sie unter **Dienste** die Option **HDInsight-Cluster** aus.
-1. Klicken Sie in der daraufhin angezeigten Liste mit den HDInsight-Clustern neben dem Cluster, den Sie für dieses Tutorial erstellt haben, auf die Auslassungspunkte (**...**). 
+1. Klicken Sie in der daraufhin angezeigten Liste mit den HDInsight-Clustern neben dem Cluster, den Sie für dieses Tutorial erstellt haben, auf die Auslassungspunkte ( **...** ). 
 1. Klicken Sie auf **Löschen**. Klicken Sie auf **Ja**.
 
 ## <a name="next-steps"></a>Nächste Schritte

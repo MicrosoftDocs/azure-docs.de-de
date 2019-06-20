@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442420"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849723"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX und Azure Machine Learning: Erstellen und Beschleunigen von ML-Modellen
 
-Erfahren Sie, wie der Einsatz von [Open Neural Network Exchange](https://onnx.ai) (ONNX) zur Optimierung Ihrer Machine Learning-Modelle beitragen kann.
+Erfahren Sie, wie der Einsatz von [Open Neural Network Exchange](https://onnx.ai) (ONNX) zur Optimierung des Rückschlusses Ihres Machine Learning-Modells beitragen kann. Rückschlüsse oder Modellbewertungen bilden die Phase, in der das bereitgestellte Modell für die Vorhersage verwendet wird, meist für Produktionsdaten. 
 
-Die Optimierung von Machine Learning-Modellen für Rückschlüsse ist schwierig, da Sie das Modell und die Rückschlussbibliothek so anpassen müssen, dass sie das Beste aus den Möglichkeiten der Hardware machen. Das Problem wird extrem kompliziert, wenn Sie eine optimale Leistung auf verschiedenen Arten von Plattformen (Cloud/Edge, CPU/GPU usw.) erzielen möchten, da jede davon unterschiedliche Fähigkeiten und Eigenschaften hat. Die Komplexität steigt, wenn Sie Modelle aus einer Vielzahl von Frameworks haben, die auf einer Vielzahl von Plattformen ausgeführt werden müssen. Es ist sehr zeitaufwendig, die verschiedenen Kombinationen von Frameworks und Hardware zu optimieren. Eine Lösung, die ein einmaliges Training in Ihrem bevorzugten Framework und die Ausführung überall in der Cloud oder am Edge ermöglicht, ist erforderlich. An dieser Stelle tritt ONNX auf den Plan.
+Die Optimierung von Machine Learning-Modellen hinsichtlich Rückschlüssen (oder Modellbewertungen) ist schwierig, da Sie das Modell und die Rückschlussbibliothek so anpassen müssen, dass sie das Beste aus den Möglichkeiten der Hardware machen. Das Problem wird extrem kompliziert, wenn Sie eine optimale Leistung auf verschiedenen Arten von Plattformen (Cloud/Edge, CPU/GPU usw.) erzielen möchten, da jede davon unterschiedliche Fähigkeiten und Eigenschaften hat. Die Komplexität steigt, wenn Sie Modelle aus einer Vielzahl von Frameworks haben, die auf einer Vielzahl von Plattformen ausgeführt werden müssen. Es ist sehr zeitaufwendig, die verschiedenen Kombinationen von Frameworks und Hardware zu optimieren. Eine Lösung, die ein einmaliges Training in Ihrem bevorzugten Framework und die Ausführung überall in der Cloud oder am Edge ermöglicht, ist erforderlich. An dieser Stelle tritt ONNX auf den Plan.
 
 Microsoft und eine Gruppe von Partnern haben ONNX als offenen Standard für die Darstellung von Machine Learning-Modellen entwickelt. Modelle aus [vielen Frameworks](https://onnx.ai/supported-tools) wie TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet und MATLAB können exportiert oder in das ONNX-Standardformat konvertiert werden. Sobald die Modelle im ONNX-Format vorliegen, können sie auf einer Vielzahl von Plattformen und Geräten ausgeführt werden.
 

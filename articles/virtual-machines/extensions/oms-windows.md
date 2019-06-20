@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142882"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790371"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor-VM-Erweiterung für Windows
 
@@ -36,6 +36,19 @@ Die Log Analytics-Agent-Erweiterung für Windows unterstützt die folgenden Vers
 
 - Windows Server 2019
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, Version 1709 und 1803
+
+### <a name="agent-and-vm-extension-version"></a>Version des Agents und der VM-Erweiterung
+Die folgende Tabelle enthält eine Zuordnung der Version der Azure Monitor-VM-Erweiterung und des Log Analytics-Agent-Pakets für jede Version. 
+
+| Version der Azure Monitor-VM-Erweiterung unter Linux | Log Analytics-Agent-Paketversion | Herausgabedatum | Versionsinformationen |
+|--------------------------------|--------------------------|--------------------------|--------------------------|
+| 8.0.11049.0 | 1.0.11049.1 | Februar 2017 | |
+| 8.0.11072.0 | 1.0.11072.1 | September 2017 | |
+| 8.0.11081.0 | 1.0.11081.5 | November 2017 | | 
+| 8.0.11103.0 | – |  April 2018 | |
+| 8.0.11136.0 | – | September 2018 |  <ul><li> Unterstützung für die Erkennung einer Änderung der Ressourcen-ID bei der VM-Verschiebung hinzugefügt </li><li> Unterstützung für Melden der Ressourcen-ID bei Verwendung einer Installation ohne Erweiterung hinzugefügt </li></ul>| 
+| 10.19.10006.0 | – | Dezember 2018 | <ul><li> Kleinere Stabilisierungskorrekturen </li></ul> | 
+| 10.19.13515.0 | 1.0.13515.1 | März 2019 | <ul><li>Kleinere Stabilisierungskorrekturen </li></ul> |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -76,7 +89,7 @@ Der folgende JSON-Code zeigt das Schema für die Log Analytics-Agent-Erweiterung
 | NAME | Wert/Beispiel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Herausgeber | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (z.B.)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65144875"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Parquet-Format in Azure Data Factory
@@ -30,7 +30,7 @@ Eine vollständige Liste mit den Abschnitten und Eigenschaften, die zum Definier
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | Die „type“-Eigenschaft des Datasets muss auf **Parquet** festgelegt werden. | Ja      |
 | location         | Speicherorteinstellungen der Datei(en) Jeder dateibasierte Connector verfügt unter `location` über seinen eigenen Speicherorttyp und unterstützte Eigenschaften. **Informationen hierzu finden Sie im Abschnitt „Dataset-Eigenschaften“ des Artikels über Connectors**. | Ja      |
-| compressionCodec | Der Codec für die Komprimierung, der beim Schreiben in Parquet-Dateien verwendet werden soll. Beim Lesen von Parquet-Dateien bestimmt Data Factory den Codec für die Komprimierung automatisch anhand der Dateimetadaten.<br>Unterstützte Typen sind „**none**“, „**gzip**“, „**snappy**“ (Standard) und „**lzo**“. Hinweis: LZO wird derzeit von der Kopieraktivität nicht unterstützt. | Nein        |
+| compressionCodec | Der Codec für die Komprimierung, der beim Schreiben in Parquet-Dateien verwendet werden soll. Beim Lesen von Parquet-Dateien bestimmt Data Factory den Codec für die Komprimierung automatisch anhand der Dateimetadaten.<br>Unterstützte Typen sind „**none**“, „**gzip**“, „**snappy**“ (Standard) und „**lzo**“. Hinweis: LZO wird derzeit von der Kopieraktivität nicht unterstützt. | Nein       |
 
 > [!NOTE]
 > Ein Leerzeichen im Spaltennamen wird für Parquet-Dateien nicht unterstützt.
@@ -70,7 +70,7 @@ Die folgenden Eigenschaften werden im Abschnitt ***\*source\**** der Kopieraktiv
 | Eigenschaft      | BESCHREIBUNG                                                  | Erforderlich |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | Die „type“-Eigenschaft der Quelle der Kopieraktivität muss auf **ParquetSource** festgelegt werden. | Ja      |
-| storeSettings | Eine Gruppe von Eigenschaften für das Lesen von Daten aus einem Datenspeicher. Jeder dateibasierte Connector verfügt unter `storeSettings` über eigene unterstützte Leseeinstellungen. **Informationen hierzu finden Sie im Abschnitt über die Eigenschaften der Kopieraktivität im Artikel über Connectors**. | Nein        |
+| storeSettings | Eine Gruppe von Eigenschaften für das Lesen von Daten aus einem Datenspeicher. Jeder dateibasierte Connector verfügt unter `storeSettings` über eigene unterstützte Leseeinstellungen. **Informationen hierzu finden Sie im Abschnitt über die Eigenschaften der Kopieraktivität im Artikel über Connectors**. | Nein       |
 
 ### <a name="parquet-as-sink"></a>Parquet als Senke
 
@@ -79,7 +79,7 @@ Die folgenden Eigenschaften werden im Abschnitt ***\*sink\**** der Kopieraktivit
 | Eigenschaft      | BESCHREIBUNG                                                  | Erforderlich |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | Die „type“-Eigenschaft der Quelle der Kopieraktivität muss auf **ParquetSink** festgelegt werden. | Ja      |
-| storeSettings | Eine Gruppe von Eigenschaften für das Schreiben von Daten in einen Datenspeicher. Jeder dateibasierte Connector verfügt unter `storeSettings` über eigene unterstützte Schreibeinstellungen. **Informationen hierzu finden Sie im Abschnitt über die Eigenschaften der Kopieraktivität im Artikel über Connectors**. | Nein        |
+| storeSettings | Eine Gruppe von Eigenschaften für das Schreiben von Daten in einen Datenspeicher. Jeder dateibasierte Connector verfügt unter `storeSettings` über eigene unterstützte Schreibeinstellungen. **Informationen hierzu finden Sie im Abschnitt über die Eigenschaften der Kopieraktivität im Artikel über Connectors**. | Nein       |
 
 ## <a name="mapping-data-flow-properties"></a>Eigenschaften von Mapping Data Flow
 

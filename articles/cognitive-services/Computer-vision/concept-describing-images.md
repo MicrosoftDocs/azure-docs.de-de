@@ -12,11 +12,11 @@ ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368379"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Beschreiben von Bildern in lesbarer Sprache
 

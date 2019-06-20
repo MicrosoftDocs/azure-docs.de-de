@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002684"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60543068"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exemplarische Vorgehensweise für eine Azure-Beispielinfrastruktur für Linux-VMs
 In diesem Artikel wird das Erstellen einer Beispielanwendungsinfrastruktur erläutert. Wir beschreiben das Entwerfen einer Infrastruktur für einen einfachen Onlineshop, wobei alle Richtlinien und Entscheidungen hinsichtlich der Namenskonventionen, Verfügbarkeit, virtuellen Netzwerke und Lastenausgleichsmodule relevant sind, und das eigentliche Bereitstellen Ihrer virtuellen Computer (VMs).
@@ -55,8 +55,8 @@ Alle oben aufgeführten Elemente werden anhand der folgenden Namenskonventionen 
 * Adventure Works Cycles verwendet **[IT-Workload]-[Standort]-[Azure-Ressource]** als Präfix.
   * In diesem Beispiel ist **azos** (Azure-Onlineshop) der Name der IT-Workload und **use** (USA, Osten 2) der Standort.
 * Virtuelle Netzwerke folgen der Konvention „AZOS-USE-VN<strong>[Nummer]</strong>“.
-* Verfügbarkeitsgruppen folgen der Konvention „azos-use-as-**[Rolle]**“.
-* Die Namen der virtuellen Computer folgen der Konvention „azos-use-vm-**[VM-Name]**“.
+* Verfügbarkeitsgruppen folgen der Konvention „azos-use-as- **[Rolle]** “.
+* Die Namen der virtuellen Computer folgen der Konvention „azos-use-vm- **[VM-Name]** “.
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure-Abonnements und -Konten
 Adventure Works Cycles verwendet das Enterprise-Abonnement mit dem Namen „Adventure Works-Enterprise-Abonnement“ zur Abrechnung dieser IT-Workload.

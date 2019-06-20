@@ -152,7 +152,7 @@ Wir empfehlen Ihnen, das Tutorial zum [Erstellen der ersten Pipeline mit Data Fa
       }
     }
     ```
-2. Erstellen Sie das **Eingabe****dataset** für Azure Data Factory. Im Gegensatz zu einigen anderen Data Factory-Datasets müssen diese Datasets die beiden Werte **folderPath** und **fileName** enthalten. Sie können die Partitionierung verwenden, damit jede Batchausführung (jeder Datenslice) eindeutige Ein- und Ausgabedateien verarbeitet oder erzeugt. Sie müssen unter Umständen einige vorgeschaltete Aktivitäten einbeziehen, um die Eingabe in das CSV-Dateiformat umzuwandeln und sie im Speicherkonto für die einzelnen Datenslices abzulegen. In diesem Fall würden Sie die im folgenden Beispiel gezeigten Einstellungen **external** und **externalData** nicht einbeziehen, und Ihr „DecisionTreeInputBlob“ würde dem Ausgabedataset einer anderen Aktivität entsprechen.
+2. Erstellen Sie das **Eingabe** **dataset** für Azure Data Factory. Im Gegensatz zu einigen anderen Data Factory-Datasets müssen diese Datasets die beiden Werte **folderPath** und **fileName** enthalten. Sie können die Partitionierung verwenden, damit jede Batchausführung (jeder Datenslice) eindeutige Ein- und Ausgabedateien verarbeitet oder erzeugt. Sie müssen unter Umständen einige vorgeschaltete Aktivitäten einbeziehen, um die Eingabe in das CSV-Dateiformat umzuwandeln und sie im Speicherkonto für die einzelnen Datenslices abzulegen. In diesem Fall würden Sie die im folgenden Beispiel gezeigten Einstellungen **external** und **externalData** nicht einbeziehen, und Ihr „DecisionTreeInputBlob“ würde dem Ausgabedataset einer anderen Aktivität entsprechen.
 
     ```JSON
     {
@@ -184,7 +184,7 @@ Wir empfehlen Ihnen, das Tutorial zum [Erstellen der ersten Pipeline mit Data Fa
     }
     ```
 
-    Die CSV-Eingabedatei muss die Spaltenkopfzeile enthalten. Bei Verwendung der **Kopieraktivität** zum Erstellen/Verschieben der CSV-Datei in den Blobspeicher müssen Sie die Senkeneigenschaft **blobWriterAddHeader** auf **true** festlegen. Beispiel: 
+    Die CSV-Eingabedatei muss die Spaltenkopfzeile enthalten. Bei Verwendung der **Kopieraktivität** zum Erstellen/Verschieben der CSV-Datei in den Blobspeicher müssen Sie die Senkeneigenschaft **blobWriterAddHeader** auf **true** festlegen. Beispiel:
 
     ```JSON
     sink:
@@ -195,7 +195,7 @@ Wir empfehlen Ihnen, das Tutorial zum [Erstellen der ersten Pipeline mit Data Fa
     ```
 
     Wenn die CSV-Datei nicht die Kopfzeile enthält, wird möglicherweise folgender Fehler angezeigt: **Fehler in Aktivität: Fehler beim Lesen der Zeichenfolge. Unerwartetes Token: StartObject. Pfad '', Zeile 1, Position 1**.
-3. Erstellen Sie das **Ausgabe****dataset** für Azure Data Factory. In diesem Beispiel wird die Partitionierung verwendet, um für die Ausführung der einzelnen Datenslices einen eindeutigen Ausgabepfad zu erstellen. Ohne die Partitionierung würde die Aktivität die Datei überschreiben.
+3. Erstellen Sie das **Ausgabe** **dataset** für Azure Data Factory. In diesem Beispiel wird die Partitionierung verwendet, um für die Ausführung der einzelnen Datenslices einen eindeutigen Ausgabepfad zu erstellen. Ohne die Partitionierung würde die Aktivität die Datei überschreiben.
 
     ```JSON
     {

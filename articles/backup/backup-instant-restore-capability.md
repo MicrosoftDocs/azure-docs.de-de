@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: sogup
-ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c375eac0de3dd89986421f8c6628d0a13784a60d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794776"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726425"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Verbesserte Sicherungs- und Wiederherstellungsleistung mit der Azure Backup-Funktion zur sofortigen Wiederherstellung
 
@@ -24,7 +24,7 @@ Das neue Modell für die sofortige Wiederherstellung bietet die folgenden Featur
 
 * Die als Teil eines Sicherungsauftrags erstellte Momentaufnahme kann genutzt werden, um für die Wiederherstellung verfügbar zu sein, ohne das Ende der Datenübertragung an den Tresor abzuwarten. Die Wartezeit, bis Momentaufnahmen vor dem Auslösen einer Wiederherstellung in den Tresor kopiert werden, wird reduziert.
 * Die Sicherungs- und Wiederherstellungszeiten werden reduziert, indem Momentaufnahmen standardmäßig zwei Tage lang lokal gespeichert werden. Dieser Standardwert für die Aufbewahrung von Momentaufnahmen kann auf einen beliebigen Wert zwischen 1 und 5 Tagen konfiguriert werden.
-* Unterstützt Datenträgergrößen bis zu 4 TB. Azure Backup unterstützt keine Stripesetdatenträger. Ein Ändern der Datenträgergröße wird von Azure Backup nicht empfohlen.
+* Unterstützt Datenträgergrößen bis zu 4 TB. Ein Ändern der Datenträgergröße wird von Azure Backup nicht empfohlen.
 * Unterstützt SSD Standard-Datenträger sowie HDD Standard-Datenträger und SSD Premium-Datenträger.
 *   Die Möglichkeit zur Verwendung der ursprünglichen Speicherkonten (pro Datenträger) eines nicht verwalteten virtuellen Computers bei der Wiederherstellung. Diese Funktion ist auch dann vorhanden, wenn die VM Datenträger enthält, die an mehrere Speicherkonten verteilt werden. Sie beschleunigt Wiederherstellungsvorgänge für verschiedene VM-Konfigurationen.
 
@@ -48,7 +48,7 @@ Standardmäßig werden Momentaufnahmen zwei Tage lang aufbewahrt. Mit diesem Fea
 * Inkrementelle Momentaufnahmen werden als Seitenblobs gespeichert. Für alle Benutzer, die nicht verwaltete Datenträger verwenden, werden die Momentaufnahmen berechnet, die in ihrem lokalen Speicherkonto gespeichert sind. Da die Wiederherstellungspunktsammlungen für Sicherungen von verwalteten virtuellen Computern Blobmomentaufnahmen auf der zugrunde liegenden Speicherebene verwenden, werden für verwaltete Datenträger Kosten angezeigt, die Preisen für Blobmomentaufnahmen entsprechen, und inkrementell sind.
 * Bei Premium-Speicherkonten werden die Momentaufnahmen, die für die Punkte zur sofortigen Wiederherstellung erstellt werden, zu den 10 TB des zugeordneten Speicherplatzes gezählt.
 * Sie haben die Möglichkeit, die Aufbewahrung von Momentaufnahmen entsprechend den Wiederherstellungsanforderungen zu konfigurieren. Je nach Anforderungen können Sie die Aufbewahrung von Momentaufnahmen auf dem Blatt „Sicherungsrichtlinie“ auf ein Minimum von einem Tag festlegen, wie es weiter unten beschrieben ist. Dadurch können Sie Kosten für die Aufbewahrung von Momentaufnahmen sparen, wenn Wiederherstellungen nicht häufig ausgeführt werden.
-* Dies ist ein unidirektionales Upgrade: Das Upgrade für sofortige Wiederherstellung kann nicht rückgängig gemacht werden.
+* Es handelt sich dabei um ein unidirektionales Upgrade: Das Upgrade für sofortige Wiederherstellung kann nicht rückgängig gemacht werden.
 
 >[!NOTE]
 >Mit diesem Upgrade für die sofortige Wiederherstellung wird die Aufbewahrungsdauer für Momentaufnahmen für alle Kunden (**sowohl neue als auch bestehende**) auf einen Standardwert von zwei Tagen festgelegt. Sie können die Dauer aber auch nach Bedarf auf einen beliebigen Wert zwischen ein und fünf Tagen festlegen.
@@ -95,7 +95,7 @@ Jeden Tag wird eine neue Momentaufnahme erstellt, sodass dann fünf einzelne Mom
 Momentaufnahmen, die im Rahmen der Funktion für die sofortige Wiederherstellung erstellt werden, sind inkrementelle Momentaufnahmen.
 
 ### <a name="how-can-i-calculate-the-approximate-cost-increase-due-to-instant-restore-feature"></a>Wie kann ich den ungefähren Kostenanstieg durch die Funktion zur sofortigen Wiederherstellung berechnen?
-Dies hängt von der Datenänderungsrate des virtuellen Computers ab. Bei einem stabilen Zustand können Sie von folgender Rechnung ausgehen: Kostenanstieg = Aufbewahrungszeitraum der Momentaufnahme * tägliche Änderungsrate pro virtuellem Computer * Speicherkosten pro GB.
+Dies hängt von der Datenänderungsrate des virtuellen Computers ab. Bei einem stabilen Zustand können Sie von folgender Rechnung ausgehen: Kostenanstieg = Aufbewahrungszeitraum der Momentaufnahme tägliche Änderungsrate pro virtuellem Computer Speicherkosten pro GB.
 
 ### <a name="if-the-recovery-type-for-a-restore-point-is-snapshot-and-vault-and-i-perform-a-restore-operation-which-recovery-type-will-be-used"></a>Wenn der Wiederherstellungstyp für einen Wiederherstellungspunkt „Momentaufnahme und Tresor“ ist, und ich einen Wiederherstellungsvorgang durchführe, welcher Wiederherstellungstyp wird dann verwendet?
 Wenn der Wiederherstellungstyp „Momentaufnahme und Tresor“ ist, erfolgt die Wiederherstellung automatisch aus der lokalen Momentaufnahme. Dieser Vorgang ist verglichen mit einer Wiederherstellung aus dem Tresor viel schneller.

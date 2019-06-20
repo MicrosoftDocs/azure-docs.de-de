@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61131554"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard-Schema
 In diesem Artikel werden einige Elemente und Typen des XML-Schemas beschrieben, auf dem [Media Encoder Standard-Voreinstellungen](media-services-mes-presets-overview.md) basieren. Der Artikel enthält eine Beschreibung der Elemente und der dazugehörigen gültigen Werte.  
@@ -38,7 +38,7 @@ Dient zum Definieren einer Voreinstellung für die Codierung.
 
 | NAME | Type | BESCHREIBUNG |
 | --- | --- | --- |
-| **Version**<br/><br/> Erforderlich |**xs: decimal** |Die voreingestellte Version. Es gelten die folgenden Einschränkungen: xs:fractionDigits value="1" und xs:minInclusive value="1", z.B. **version="1.0"**. |
+| **Version**<br/><br/> Erforderlich |**xs: decimal** |Die voreingestellte Version. Es gelten die folgenden Einschränkungen: xs:fractionDigits value="1" und xs:minInclusive value="1", z.B. **version="1.0"** . |
 
 ## <a name="Encoding"></a> Codieren
 Enthält eine Sequenz der unten angegebenen Elemente:  
@@ -160,7 +160,7 @@ Audiocodec|Details
 
 | NAME | Type | BESCHREIBUNG |
 | --- | --- | --- |
-| **FileName** |**xs:string** |Der Name der Ausgabedatei.<br/><br/> Sie können die Makros in der folgenden Tabelle verwenden, um die Ausgabedateinamen zu erstellen. Beispiel: <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |Der Name der Ausgabedatei.<br/><br/> Sie können die Makros in der folgenden Tabelle verwenden, um die Ausgabedateinamen zu erstellen. Beispiel:<br/><br/> **"Outputs": [      {       "FileName": "{Basename} *{Resolution}* {Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Makros
 

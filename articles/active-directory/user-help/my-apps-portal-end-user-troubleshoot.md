@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60475026"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Problembehandlung beim Portal „Meine Apps“
 Wenn Sie Probleme haben, sich beim Portal **Meine Apps** anzumelden oder das Portal zu verwenden, sollten Sie diese Tipps zur Fehlerbehebung ausprobieren, bevor Sie sich an den Helpdesk oder Ihren Administrator wenden.
@@ -78,8 +78,8 @@ Nachdem Sie sich am Portal **Meine Apps** angemeldet haben, können Sie auch Ihr
 
 - [Access and use apps on the My Apps portal (Zugreifen auf und Verwenden von Apps im Portal „Meine Apps“)](my-apps-portal-end-user-access.md)
 
-- [Change your profile information (Ändern von Profilinformationen)](my-apps-portal-end-user-update-profile.md)
+- [Ändern Ihrer Profilinformationen](my-apps-portal-end-user-update-profile.md)
 
-- [View and update your groups-related information (Anzeigen und Aktualisieren gruppenbezogener Informationen)](my-apps-portal-end-user-groups.md).
+- [Anzeigen und Aktualisieren gruppenbezogener Informationen](my-apps-portal-end-user-groups.md)
 
-- [Perform your own access reviews (Durchführen eigener Zugriffsüberprüfungen)](my-apps-portal-end-user-access-reviews.md)
+- [Durchführen eigener Zugriffsüberprüfungen](my-apps-portal-end-user-access-reviews.md)

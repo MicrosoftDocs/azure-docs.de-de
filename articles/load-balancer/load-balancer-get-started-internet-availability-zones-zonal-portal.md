@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
 ms.openlocfilehash: c81ff5ea330c4c0ba26a92a3b5399cfa961e4b2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60753497"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Erstellen eines Load Balancer Standard mit einem Zonen-Front-End mithilfe des Azure-Portals
 

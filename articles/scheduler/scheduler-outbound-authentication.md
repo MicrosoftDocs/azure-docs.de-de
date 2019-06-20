@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993330"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708946"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Ausgehende Authentifizierung für Azure Scheduler
 
@@ -47,9 +47,9 @@ Wenn Sie die Authentifizierung anhand des `ClientCertificate`-Modells hinzufüge
 | Element | Erforderlich | BESCHREIBUNG |
 |---------|----------|-------------|
 | **authentication** (übergeordnetes Element) | Das Authentifizierungsobjekt für die Verwendung eines SSL-Clientzertifikats |
-| **type** | JA | Der Authentifizierungstyp. Für SSL-Clientzertifikate lautet der Wert `ClientCertificate`. |
-| **pfx** | JA | Der Base64-codierte Inhalt der PFX-Datei |
-| **password** | JA | Der Parameter für den Zugriff auf die PFX-Datei |
+| **type** | Ja | Der Authentifizierungstyp. Für SSL-Clientzertifikate lautet der Wert `ClientCertificate`. |
+| **pfx** | Ja | Der Base64-codierte Inhalt der PFX-Datei |
+| **password** | Ja | Der Parameter für den Zugriff auf die PFX-Datei |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Antworttext: Clientzertifikat 
@@ -167,9 +167,9 @@ Wenn Sie die Authentifizierung anhand des `Basic`-Modells hinzufügen, geben Sie
 | Element | Erforderlich | BESCHREIBUNG |
 |---------|----------|-------------|
 | **authentication** (übergeordnetes Element) | Das Authentifizierungsobjekt für die Verwendung der Standardauthentifizierung | 
-| **type** | JA | Der Authentifizierungstyp. Für die Standardauthentifizierung lautet der Wert `Basic`. | 
-| **username** | JA | Der zu authentifizierende Benutzername | 
-| **password** | JA | Das zu authentifizierende Kennwort |
+| **type** | Ja | Der Authentifizierungstyp. Für die Standardauthentifizierung lautet der Wert `Basic`. | 
+| **username** | Ja | Der zu authentifizierende Benutzername | 
+| **password** | Ja | Das zu authentifizierende Kennwort |
 |||| 
 
 ### <a name="response-body---basic"></a>Antworttext: Standard
@@ -284,12 +284,12 @@ Wenn Sie die Authentifizierung anhand des `ActiveDirectoryOAuth`-Modells hinzuf�
 
 | Element | Erforderlich | BESCHREIBUNG |
 |---------|----------|-------------|
-| **authentication** (übergeordnetes Element) | JA | Das Authentifizierungsobjekt für die Verwendung der ActiveDirectoryOAuth-Authentifizierung |
-| **type** | JA | Der Authentifizierungstyp. Für die ActiveDirectoryOAuth-Authentifizierung lautet der Wert `ActiveDirectoryOAuth`. |
-| **tenant** | JA | Die Mandanten-ID für den Azure AD-Mandanten. Durch Ausführen von `Get-AzureAccount` in Azure PowerShell können Sie die Mandanten-ID für den Azure AD-Mandanten ermitteln. |
-| **audience** | JA | Dieser Wert ist auf `https://management.core.windows.net/` festgelegt. | 
-| **clientId** | JA | Die Client-ID für die Azure AD-Anwendung | 
-| **secret** | JA | Das Geheimnis für den Client, der das Token anfordert | 
+| **authentication** (übergeordnetes Element) | Ja | Das Authentifizierungsobjekt für die Verwendung der ActiveDirectoryOAuth-Authentifizierung |
+| **type** | Ja | Der Authentifizierungstyp. Für die ActiveDirectoryOAuth-Authentifizierung lautet der Wert `ActiveDirectoryOAuth`. |
+| **tenant** | Ja | Die Mandanten-ID für den Azure AD-Mandanten. Durch Ausführen von `Get-AzureAccount` in Azure PowerShell können Sie die Mandanten-ID für den Azure AD-Mandanten ermitteln. |
+| **audience** | Ja | Dieser Wert ist auf `https://management.core.windows.net/` festgelegt. | 
+| **clientId** | Ja | Die Client-ID für die Azure AD-Anwendung | 
+| **secret** | Ja | Das Geheimnis für den Client, der das Token anfordert | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Antworttext: Active Directory OAuth

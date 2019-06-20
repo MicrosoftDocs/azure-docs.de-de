@@ -1,6 +1,6 @@
 ---
-title: AS2-Nachrichten für die B2B-Unternehmensintegration – Azure Logic Apps | Microsoft-Dokumentation
-description: Austauschen von AS2-Nachrichten für die B2B-Unternehmensintegration in Azure Logic Apps mit Enterprise Integration Pack
+title: AS2-Nachrichten für die B2B-Unternehmensintegration – Azure Logic Apps
+description: Austauschen von AS2-Nachrichten in Azure Logic Apps mit Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,170 +8,122 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
-ms.date: 06/08/2017
-ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/22/2019
+ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872562"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64729402"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Austauschen von AS2-Nachrichten für die B2B-Unternehmensintegration in Azure Logic Apps mit Enterprise Integration Pack
 
-Bevor Sie AS2-Nachrichten für Azure Logic Apps austauschen können, müssen Sie eine AS2-Vereinbarung erstellen und in Ihrem Integrationskonto speichern. Hier erfahren Sie, wie Sie eine AS2-Vereinbarung erstellen.
+Um mit AS2-Nachrichten in Azure Logic Apps zu arbeiten, können Sie den AS2-Connector verwenden, der Auslöser und Aktionen für die Verwaltung der AS2-Kommunikation bereitstellt. Um z. B. Sicherheit und Zuverlässigkeit bei der Übertragung von Nachrichten zu gewährleisten, können Sie die folgenden Aktionen verwenden:
 
-## <a name="before-you-start"></a>Vorbereitung
+* [**Als AS2-Nachricht codieren**-Aktion](#encode) zum Bereitstellen von Verschlüsselung, digitaler Signatur und Bestätigungen durch Benachrichtigungen über den Nachrichtenstatus (MDN), die beim Unterstützen der Nichtabstreitbarkeit helfen. Diese Aktion wendet z. B. AS2/HTTP-Header an und führt die folgenden Aufgaben aus, wenn sie konfiguriert sind:
 
-Sie benötigen Folgendes:
+  * Signieren ausgehender Nachrichten
+  * Verschlüsseln ausgehender Nachrichten
+  * Komprimieren der Nachricht
+  * Dateinamen im MIME-Header übertragen
 
-* Ein bereits definiertes und mit Ihrem Azure-Abonnement verknüpftes [Integrationskonto](../logic-apps/logic-apps-enterprise-integration-accounts.md)
-* Mindestens zwei [Partner](logic-apps-enterprise-integration-partners.md), die bereits in Ihrem Integrationskonto definiert und mit dem AS2-Qualifizierer unter **Geschäftsidentitäten** konfiguriert sind
+* [**AS2-Nachricht decodieren**-Aktion](#decode) zum Bereitstellen von Entschlüsselung, digitaler Signatur und Bestätigungen durch Benachrichtigungen über den Nachrichtenstatus (MDN). Diese Aktion führt z. B. die folgenden Aufgaben aus: 
 
-> [!NOTE]
-> Beim Erstellen einer Vereinbarung muss der Inhalt der Vereinbarungsdatei dem Vereinbarungstyp entsprechen.    
+  * Verarbeiten von AS2/HTTP-Headern
+  * Abstimmen empfangener MDNs mit der ursprünglichen ausgehenden Nachricht
+  * Aktualisieren und Korrelieren von Datensätzen in der Nichtabstreitbarkeits-Datenbank
+  * Schreiben von Datensätzen für AS2-Statusberichte
+  * Base64-codierte Ausgabe von Nutzlastinhalten
+  * Ermitteln, ob MDNs erforderlich sind Ermittlung auf Grundlage der AS2-Vereinbarung, ob MDNs synchron oder asynchron sein müssen
+  * Generieren einer synchronen oder asynchronen MDN auf Grundlage der AS2-Vereinbarung
+  * Festlegen der Korrelationstoken und Eigenschaften für MDNs
 
-Nachdem Sie [ein Integrationskonto erstellt](../logic-apps/logic-apps-enterprise-integration-accounts.md) und [Partner hinzugefügt](logic-apps-enterprise-integration-partners.md) haben, können Sie eine AS2-Vereinbarung erstellen. Gehen Sie dazu wie folgt vor:
+  Diese Aktion führt auch die folgenden Aufgaben aus, wenn sie konfiguriert ist:
 
-## <a name="create-an-as2-agreement"></a>Erstellen einer AS2-Vereinbarung
+  * Überprüfen der Signatur
+  * Entschlüsseln der Nachrichten
+  * Dekomprimieren der Nachrichten 
+  * Suchen nach und Unterbinden von doppelten Nachrichten-IDs
 
-1.  Melden Sie sich beim [Azure-Portal](https://portal.azure.com "Azure-Portal") an.  
+In diesem Artikel wird gezeigt, wie Sie die AS2-Aktionen für die Codierung und Decodierung zu einer bestehenden Logik-App hinzufügen können.
 
-2. Wählen Sie im Azure-Hauptmenü die Option **Alle Dienste** aus. Geben Sie im Suchfeld das Wort „Integration“ ein, und wählen Sie dann **Integrationskonten** aus.
+## <a name="prerequisites"></a>Voraussetzungen
 
-   ![Suchen Ihres Integrationskontos](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+* Ein Azure-Abonnement. Wenn Sie noch kein Azure-Abonnement haben, [melden Sie sich für ein kostenloses Azure-Konto an](https://azure.microsoft.com/free/).
 
-   > [!TIP]
-   > Falls **Alle Dienste** nicht angezeigt wird, müssen Sie das Menü möglicherweise zuerst erweitern. Wählen Sie im oberen Bereich des reduzierten Menüs die Option **Beschriftungen anzeigen** aus.
+* Die Logik-App, von der aus Sie auf den AS2-Connector zugreifen möchten, und einen Trigger, der den Workflow Ihre Logik-App startet. Der AS2-Connector stellt nur Aktionen und keine Trigger bereit. Falls Sie noch nicht mit Logik-Apps vertraut sind, finden Sie weitere Informationen unter [Was ist Azure Logic Apps?](../logic-apps/logic-apps-overview.md) und [Schnellstart: Erstellen Ihres ersten automatisierten Workflows mit Azure Logic Apps – Azure-Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-3. Wählen Sie unter **Integrationskonten** das Integrationskonto aus, in dem Sie die Vereinbarung erstellen möchten.
+* Ein [Integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), das Ihrem Azure-Abonnement zugeordnet und mit der Logik-App verknüpft ist, in der Sie den AS2-Connector verwenden möchten. Sowohl Ihre Logik-App als auch Ihr Integrationskonto müssen an demselben Standort oder in derselben Azure-Region vorhanden sein.
 
-   ![Integrationskonto für die Erstellung der Vereinbarung auswählen](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+* Mindestens zwei [Parteien](../logic-apps/logic-apps-enterprise-integration-partners.md), die Sie bereits in Ihrem Integrationskonto unter Verwendung des AS2-Identitätsqualifizierers definiert haben.
 
-4. Wählen Sie die Kachel **Vereinbarungen** aus. Sollte die Kachel „Vereinbarungen“ nicht angezeigt werden, fügen Sie sie hinzu.
+* Bevor Sie den AS2-Connector verwenden können, müssen Sie eine AS2-[Vereinbarung](../logic-apps/logic-apps-enterprise-integration-agreements.md) zwischen den Parteien erstellen und diese Vereinbarung in Ihrem Integrationskonto speichern.
 
-    ![Kachel „Vereinbarungen“ auswählen](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+* Wenn Sie [Azure Key Vault](../key-vault/key-vault-overview.md) für die Zertifikatsverwaltung verwenden, überprüfen Sie, ob Ihre Tresorschlüssel die Vorgänge **Verschlüsseln** und **Entschlüsseln** zulassen. Andernfalls treten beim Codieren und Decodieren Fehler auf.
 
-5. Wählen Sie unter **Vereinbarungen** die Option **Hinzufügen** aus.
+  Wechseln Sie im Azure-Portal zu Ihrem Schlüsseltresor, sehen Sie sich die **zulässigen Vorgänge** für den Tresorschlüssel an und bestätigen Sie, dass die Vorgänge **Verschlüsseln** und **Entschlüsseln** ausgewählt sind.
 
-    ![„Hinzufügen“ auswählen](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
+  ![Überprüfen der Tresorschlüsselvorgänge](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
 
-6. Geben Sie unter **Hinzufügen** im Feld **Name** einen Namen für Ihre Vereinbarung ein. Wählen Sie unter **Vertragstyp** die Option **AS2** aus. Wählen Sie den **Hostpartner**, die **Hostidentität**, den **Gastpartner** und die **Gastidentität** für Ihre Vereinbarung aus.
+<a name="encode"></a>
 
-    ![Details zur Vereinbarung angeben](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
+## <a name="encode-as2-messages"></a>Codieren von AS2-Nachrichten
 
-    | Eigenschaft | BESCHREIBUNG |
-    | --- | --- |
-    | NAME |Name der Vereinbarung |
-    | Vereinbarungstyp | Muss „AS2“ sein |
-    | Hostpartner |Eine Vereinbarung benötigt einen Host- und einen Gastpartner. Der Hostpartner stellt die Organisation dar, die die Vereinbarung konfiguriert. |
-    | Hostidentität |Ein Bezeichner für den Hostpartner. |
-    | Gastpartner |Eine Vereinbarung benötigt einen Host- und einen Gastpartner. Der Gastpartner stellt die Organisation dar, die Geschäfte mit dem Hostpartner tätigt. |
-    | Gastidentität |Ein Bezeichner für den Gastpartner. |
-    | Empfangseinstellungen |Diese Eigenschaften gelten für alle Nachrichten, die von einer Vereinbarung empfangen werden. |
-    | Sendeeinstellungen |Diese Eigenschaften gelten für alle Nachrichten, die von einer Vereinbarung gesendet werden. |
+1. Öffnen Sie, falls noch nicht geschehen, Ihre Logik-App über das [Azure-Portal](https://portal.azure.com) im Designer für Logik-Apps.
 
-## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurieren der Behandlung empfangener Nachrichten durch die Vereinbarung
+1. Fügen Sie im Designer eine neue Aktion zu Ihrer Logik-App hinzu. 
 
-Nachdem Sie die Vereinbarungseigenschaften festgelegt haben, können Sie konfigurieren, wie die Vereinbarung eingehende Nachrichten identifizieren und behandeln soll, die im Rahmen dieser Vereinbarung von Ihrem Partner gesendet werden.
+1. Wählen Sie unter **Aktion auswählen** und unter dem Suchfeld **Alle** aus. Geben Sie im Suchfeld „as2 codieren“ ein, und wählen Sie diese Aktion aus: **Als AS2-Nachricht codieren**.
 
-1.  Wählen Sie unter **Hinzufügen** die Option **Empfangseinstellungen** aus.
-Konfigurieren Sie die Eigenschaften auf der Grundlage Ihrer Vereinbarung mit dem Partner, der Nachrichten mit Ihnen austauscht. Die Eigenschaften werden in der Tabelle in diesem Abschnitt beschrieben.
+   ![Wählen Sie „Als AS2-Nachricht codieren“ aus.](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
-    ![Empfangseinstellungen konfigurieren](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
+1. Wenn keine bestehende Verbindung mit Ihrem Integrationskonto vorhanden ist, werden Sie aufgefordert, diese Verbindung jetzt zu erstellen. Benennen Sie die Verbindung, wählen Sie das Integrationskonto aus, mit dem Sie eine Verbindung herstellen möchten, und wählen Sie anschließend **Erstellen** aus.
 
-2. Optional können Sie die Eigenschaften eingehender Nachrichten überschreiben, indem Sie das Kontrollkästchen **Nachrichteneigenschaften überschreiben** aktivieren.
+   ![Integrationskontoverbindung erstellen](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
+ 
+1. Geben Sie jetzt Informationen zu diesen Eigenschaften an:
 
-3. Wenn Sie festlegen möchten, dass alle eingehenden Nachrichten signiert sein müssen, aktivieren Sie das Kontrollkästchen **Nachricht muss signiert sein**. Wählen Sie zur Validierung der Nachrichtensignatur in der Liste **Zertifikat** ein vorhandenes [öffentliches Gastpartnerzertifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) aus. Oder: Erstellen Sie das Zertifikat, falls Sie noch keins besitzen.
+   | Eigenschaft | BESCHREIBUNG |
+   |----------|-------------|
+   | **AS2-From** | Der Bezeichner für den Absender der Nachricht, wie in Ihrer AS2-Vereinbarung angegeben. |
+   | **AS2-To** | Der Bezeichner für den Empfänger der Nachricht, wie in Ihrer AS2-Vereinbarung angegeben. |
+   | **body** | Die Nachrichtennutzlast. |
+   |||
 
-4.  Wenn Sie festlegen möchten, dass alle eingehenden Nachrichten verschlüsselt sein müssen, aktivieren Sie das Kontrollkästchen **Nachricht muss verschlüsselt sein**. Wählen Sie zur Entschlüsselung eingehender Nachrichten in der Liste **Zertifikat** ein vorhandenes [privates Hostpartnerzertifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) aus. Oder: Erstellen Sie das Zertifikat, falls Sie noch keins besitzen.
+   Beispiel:
 
-5. Wenn Sie festlegen möchten, dass Nachrichten komprimiert sein müssen, aktivieren Sie das Kontrollkästchen **Nachricht muss komprimiert sein**.
+   ![Eigenschaften für die Nachrichtencodierung](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
-6. Aktivieren Sie das Kontrollkästchen **MDN senden**, wenn für empfangene Nachrichten eine synchrone Benachrichtigung über den Nachrichtenstatus (Message Disposition Notification, MDN) gesendet werden soll.
+<a name="decode"></a>
 
-7. Aktivieren Sie das Kontrollkästchen **Signierte MDN senden**, wenn für empfangene Nachrichten signierte MDNs gesendet werden sollen.
+## <a name="decode-as2-messages"></a>Decodieren von AS2-Nachrichten
 
-8. Aktivieren Sie das Kontrollkästchen **Asynchrone MDN senden**, wenn für empfangene Nachrichten asynchrone MDNs gesendet werden sollen.
+1. Öffnen Sie, falls noch nicht geschehen, Ihre Logik-App über das [Azure-Portal](https://portal.azure.com) im Designer für Logik-Apps.
 
-9. Klicken Sie abschließend auf **OK**, um die Einstellungen zu speichern.
+1. Fügen Sie im Designer eine neue Aktion zu Ihrer Logik-App hinzu. 
 
-Ihre Vereinbarung kann nun eingehende Nachrichten verarbeiten, die den ausgewählten Einstellungen entsprechen.
+1. Wählen Sie unter **Aktion auswählen** und unter dem Suchfeld **Alle** aus. Geben Sie im Suchfeld „as2 decodieren“ ein, und wählen Sie diese Aktion aus: **Decodieren von AS2-Nachrichten**
 
-| Eigenschaft | BESCHREIBUNG |
-| --- | --- |
-| Nachrichteneigenschaften überschreiben |Gibt an, dass Eigenschaften in empfangenen Nachrichten überschrieben werden können. |
-| Nachricht muss signiert sein |Erfordert, dass Nachrichten digital signiert werden. Konfigurieren Sie das öffentliche Zertifikat des Gastpartners für die Signaturüberprüfung.  |
-| Nachricht muss verschlüsselt sein |Erfordert, dass Nachrichten verschlüsselt werden. Nicht verschlüsselte Nachrichten werden abgelehnt. Konfigurieren Sie das private Zertifikat des Hostpartners für das Entschlüsseln von Nachrichten.  |
-| Nachricht muss komprimiert sein |Erfordert, dass Nachrichten komprimiert werden. Nicht komprimierte Nachrichten werden abgelehnt. |
-| MDN-Text |Die standardmäßige Benachrichtigung über den Nachrichtenstatus (MDN), die an den Absender der Nachricht gesendet werden soll. |
-| MDN senden |Erfordert, dass MDNs gesendet werden. |
-| Signierte MDN senden |Erfordert, dass MDNs signiert werden. |
-| MIC-Algorithmus |Wählen Sie den Algorithmus zum Signieren der Nachrichten aus. |
-| Asynchrone MDN senden | Erfordert, dass Nachrichten asynchron gesendet werden. |
-| URL | Geben Sie die URL an, an die die MDNs gesendet werden sollen. |
+   ![Wählen Sie „AS2-Nachricht decodieren“ aus.](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
-## <a name="configure-how-your-agreement-sends-messages"></a>Konfigurieren des Nachrichtenversands Ihrer Vereinbarung
+1. Wenn keine bestehende Verbindung mit Ihrem Integrationskonto vorhanden ist, werden Sie aufgefordert, diese Verbindung jetzt zu erstellen. Benennen Sie die Verbindung, wählen Sie das Integrationskonto aus, mit dem Sie eine Verbindung herstellen möchten, und wählen Sie anschließend **Erstellen** aus.
 
-Sie können konfigurieren, wie Ihre Vereinbarung ausgehende Nachrichten identifizieren und behandeln soll, die Sie im Rahmen dieser Vereinbarung an Ihre Partner senden.
+   ![Integrationskontoverbindung erstellen](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
 
-1.  Wählen Sie unter **Hinzufügen** die Option **Sendeeinstellungen** aus.
-Konfigurieren Sie die Eigenschaften auf der Grundlage Ihrer Vereinbarung mit dem Partner, der Nachrichten mit Ihnen austauscht. Die Eigenschaften werden in der Tabelle in diesem Abschnitt beschrieben.
+1. Wählen Sie für **body** und **Headers** diese Werte aus den vorherigen Trigger- oder Aktionsausgaben aus.
 
-    ![Festlegen der Eigenschaften für „Sendeeinstellungen“](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
+   Angenommen, Ihre Logik-App empfängt Nachrichten über einen Anforderungstrigger. Sie können die Ausgaben von diesem Trigger auswählen.
 
-2. Wenn Sie signierte Nachrichten an den Partner senden möchten, aktivieren Sie das Kontrollkästchen **Nachrichtensignatur aktivieren**. Wählen Sie zum Signieren der Nachrichten in der Liste **MIC-Algorithmus** den *MIC-Algorithmus für das private Hostpartnerzertifikat* aus. Wählen Sie außerdem in der Liste **Zertifikat** ein vorhandenes [privates Hostpartnerzertifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) aus.
+   ![Wählen Sie bei den Ausgaben der Anforderung den Text und die Header aus.](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png) 
 
-3. Wenn Sie verschlüsselte Nachrichten an den Partner senden möchten, aktivieren Sie das Kontrollkästchen **Nachrichtenverschlüsselung aktivieren**. Wählen Sie zum Verschlüsseln der Nachrichten in der Liste **Verschlüsselungsalgorithmus** den *Algorithmus für das öffentliche Gastpartnerzertifikat* aus.
-Wählen Sie außerdem in der Liste **Zertifikat** ein vorhandenes [öffentliches Gastpartnerzertifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) aus.
+## <a name="sample"></a>Beispiel
 
-4. Wenn die Nachricht komprimiert werden soll, aktivieren Sie das Kontrollkästchen **Nachrichtenkomprimierung aktivieren**.
+Wenn Sie eine uneingeschränkt funktionsfähige Logik-App und ein AS2-Beispielszenario bereitstellen möchten, sehen Sie sich [Azure Logic Apps - AS2 Send Receive](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/) (Azure Logic Apps – AS2: Senden/Empfangen) an.
 
-5. Wenn der HTTP-Header „Content-Type“ in eine einzelne Zeile umgewandelt werden soll, aktivieren Sie das Kontrollkästchen **HTTP-Header erweitern**.
+## <a name="connector-reference"></a>Connector-Referenz
 
-6. Wenn Sie für die gesendeten Nachrichten synchrone MDNs erhalten möchten, aktivieren Sie das Kontrollkästchen **MDN anfordern**.
-
-7. Wenn Sie für die gesendeten Nachrichten signierte MDNs erhalten möchten, aktivieren Sie das Kontrollkästchen **Signierte MDN anfordern**.
-
-8. Wenn Sie für die gesendeten Nachrichten asynchrone MDNs erhalten möchten, aktivieren Sie das Kontrollkästchen **Asynchrone MDN anfordern**. Geben Sie bei Verwendung dieser Option die URL ein, an die die MDNs gesendet werden sollen.
-
-9. Falls Sie die Nichtabstreitbarkeit des Empfangs aktivieren möchten, aktivieren Sie das Kontrollkästchen **NRR aktivieren**.  
-
-10. Wählen Sie zum Angeben des in MIC oder zum Signieren in den ausgehenden Headern von AS2-Nachricht oder MDN zu verwendenden Algorithmusformats das **SHA2-Algorithmusformat**.  
-
-11. Klicken Sie abschließend auf **OK**, um die Einstellungen zu speichern.
-
-Ihre Vereinbarung kann nun ausgehende Nachrichten verarbeiten, die den ausgewählten Einstellungen entsprechen.
-
-| Eigenschaft | BESCHREIBUNG |
-| --- | --- |
-| Nachrichtensignatur aktivieren |Erfordert, dass alle von der Vereinbarung gesendeten Nachrichten signiert sind. |
-| MIC-Algorithmus |Der Algorithmus zum Signieren der Nachrichten. Konfiguriert den MIC-Algorithmus für das private Zertifikat des Hostpartners für das Signieren der Nachrichten. |
-| Zertifikat |Wählen Sie das Zertifikat zum Signieren der Nachrichten aus. Konfiguriert Sie das private Zertifikat des Hostpartners für das Signieren der Nachrichten. |
-| Nachrichtenverschlüsselung aktivieren |Erfordert, dass alle von dieser Vereinbarung gesendeten Nachrichten verschlüsselt sind. Konfiguriert den Algorithmus für das öffentliche Zertifikat des Gastpartners für das Verschlüsseln der Nachrichten. |
-| Verschlüsselungsalgorithmus |Der für die Verschlüsselung von Nachrichten zu verwendende Verschlüsselungsalgorithmus. Konfiguriert das öffentliche Zertifikat des Gastpartners für das Verschlüsseln der Nachrichten. |
-| Zertifikat |Das zum Verschlüsseln von Nachrichten zu verwendende Zertifikat. Konfiguriert das private Zertifikat des Gastpartners für das Verschlüsseln der Nachrichten. |
-| Nachrichtenkomprimierung aktivieren |Erfordert, dass alle von dieser Vereinbarung gesendeten Nachrichten komprimiert sind. |
-| HTTP-Header erweitern |Erweitert HTTP-Header des Typs „Content-Type“ in eine einzige Zeile. |
-| MDN anfordern |Erfordert eine MDN für alle von dieser Vereinbarung gesendeten Nachrichten. |
-| Signierte MDN anfordern |Erfordert, dass alle an diese Vereinbarung gesendeten MDNs signiert sind. |
-| Asynchrone MDN anfordern |Erfordert, dass asynchrone MDNs an diese Vereinbarung gesendet werden. |
-| URL |Geben Sie die URL an, an die die MDNs gesendet werden sollen. |
-| NRR aktivieren |Erfordert die Nichtabstreitbarkeit des Empfangs (NRR), ein Kommunikationsattribut, das nachweist, dass die Daten ordnungsgemäß empfangen wurden. |
-| SHA2-Algorithmusformat |Auswählen des in MIC oder zum Signieren in den ausgehenden Headern von AS2-Nachricht oder MDN zu verwendenden Algorithmusformats |
-
-## <a name="find-your-created-agreement"></a>Suchen der erstellten Vereinbarung
-
-1. Wählen Sie nach dem Festlegen der Vereinbarungseigenschaften auf der Seite **Hinzufügen** die Option **OK** aus, um die Erstellung Ihrer Vereinbarung abzuschließen und zu Ihrem Integrationskonto zurückzukehren.
-
-    Die neu hinzugefügte Vereinbarung ist nun in der Liste **Vereinbarungen** enthalten.
-
-2. Sie können Ihre Vereinbarungen auch in der Integrationskontoübersicht anzeigen. Wählen Sie im Menü Ihres Integrationskontos die Option **Übersicht** aus, und wählen Sie dann die Kachel **Vereinbarungen** aus. 
-
-   ![Kachel „Vereinbarungen“ auswählen, um alle Vereinbarungen anzuzeigen](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
-
-## <a name="view-the-swagger"></a>Anzeigen von Swagger
-Weitere Informationen finden Sie unter [Details zu Swagger](/connectors/as2/). 
+Technische Details wie Trigger, Aktionen und Limits, wie sie in der OpenAPI-Datei (ehemals Swagger) des Connectors beschrieben werden, finden Sie auf der [Referenzseite des Connectors](/connectors/as2/).
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Weitere Informationen zum Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informationen zum Enterprise Integration Pack")  
+
+Weitere Informationen zum [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

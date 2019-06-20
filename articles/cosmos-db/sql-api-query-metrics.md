@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983590"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237864"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimieren der Abfrageleistung mit Azure Cosmos DB
 

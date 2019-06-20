@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 7cd7c0dbb375dad78927183dbaffe574a0dc10c2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753538"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60768834"
 ---
 # <a name="show-traffic-on-the-map"></a>Anzeigen von Datenverkehr auf einer Karte
 

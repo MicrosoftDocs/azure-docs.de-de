@@ -1,18 +1,18 @@
 ---
 title: Erstellen, Anzeigen und Verwalten von Aktivitätsprotokollwarnungen in Azure Monitor
-description: Vorgehensweise zum Erstellen von Aktivitätsprotokollwarnungen über Azure-Portal, Ressourcenvorlage und PowerShell.
+description: Hier erfahren Sie, wie Sie Aktivitätsprotokollwarnungen über das Azure-Portal, mithilfe einer Azure Resource Manager-Vorlage und mithilfe von Azure PowerShell erstellen.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130084"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244955"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Erstellen, Anzeigen und Verwalten von Aktivitätsprotokollwarnungen mit Azure Monitor  
 
@@ -59,9 +59,9 @@ Gehen Sie dazu wie folgt vor:
      **Beispielansicht für Warnungsziel**
      ![Ziel auswählen](media/alerts-activity-log/select-target.png)
 
-   - Klicken Sie unter **Zielkriterien** auf **Kriterien hinzufügen**. Daraufhin werden alle verfügbaren Signale für das Ziel angezeigt, einschließlich der Signale aus verschiedenen Kategorien von **Aktivitätsprotokoll**, wobei der Kategoriename an den Namen für den **Monitordienst** angehängt wird.
+   - Klicken Sie unter **Zielkriterien** auf **Kriterien hinzufügen**. Daraufhin werden alle verfügbaren Signale für das Ziel angezeigt, einschließlich der Signale aus verschiedenen Kategorien des **** Aktivitätsprotokolls, wobei der Kategoriename an den Namen für den **Monitordienst** angehängt wird.
 
-   - Wählen Sie das Signal aus der Liste der verschiedenen möglichen Operationen für den Typ **Aktivitätsprotokoll** aus.
+   - Wählen Sie das Signal in der Liste mit den verschiedenen möglichen Vorgängen für den Typ **Aktivitätsprotokoll** aus.
 
      Sie können die Zeitachse für den Protokollverlauf und die entsprechende Warnungslogik für dieses Zielsignal auswählen:
 
@@ -97,7 +97,7 @@ Gehen Sie dazu wie folgt vor:
     Sie können eine Regel aktivieren, deaktivieren, bearbeiten oder löschen. Erfahren Sie mehr über die Verwaltung von Aktivitätsprotokollregeln.
 
 
-Alternativ ist eine einfache Analogie zum Verständnis der Bedingungen, unter denen Warnungsregeln für das Aktivitätsprotokoll erstellt werden können, die Untersuchung oder Filterung von Ereignissen über das [Aktivitätsprotokoll im Azure-Portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Azure Monitor – Aktivitätsprotokoll können Sie erforderliche Ereignisse filtern oder finden und dann eine Warnung mit der Schaltfläche **Aktivitätsprotokollwarnung hinzufügen** erstellen. Befolgen Sie dann ab Schritt 4 die erforderlichen Schritte wie im obigen Tutorial beschrieben.
+Eine einfache Analogie zum Verständnis der Bedingungen, unter denen Warnungsregeln für das Aktivitätsprotokoll erstellt werden können, stellt alternativ die Untersuchung oder Filterung von Ereignissen über das [Aktivitätsprotokoll im Azure-Portal](activity-log-view.md#azure-portal) dar. In „Azure Monitor – Aktivitätsprotokoll“ können Sie nach erforderlichen Ereignissen filtern oder suchen und dann mithilfe der Schaltfläche **Aktivitätsprotokollwarnung hinzufügen** eine Warnung erstellen. Führen Sie anschließend die oben angegebenen Tutorialschritte ab Schritt 4 aus.
     
  ![ Hinzufügen einer Warnung aus dem Aktivitätsprotokoll](media/alerts-activity-log/add-activity-log.png)
     
@@ -201,7 +201,7 @@ Die Json-Beispiel oben kann im Rahmen dieser exemplarischen Vorgehensweise z. B.
 > Es kann bis zu 5 Minuten dauern, bis eine neue Warnungsregel des Aktivitätsprotokolls aktiv wird.
 
 ## <a name="rest-api"></a>REST-API 
-[Azure Monitor – API für Aktivitätsprotokollwarnungen](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) ist eine REST-API und vollständig kompatibel mit der Azure Resource Manager-REST-API. Daher kann es über Powershell mit dem Resource Manager-Cmdlet und der Azure CLI verwendet werden.
+[Azure Monitor – API für Aktivitätsprotokollwarnungen](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) ist eine REST-API und vollständig kompatibel mit der Azure Resource Manager-REST-API. Daher kann es über Powershell mit dem Resource Manager-Cmdlet und der Azure CLI verwendet werden.
 
 ## <a name="powershell"></a>PowerShell
 

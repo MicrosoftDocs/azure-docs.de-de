@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 02/04/2019
 ms.openlocfilehash: a8e9dfe70e300e6b1d0d50aae60660644f2ab31d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61313892"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Konfigurieren der Bedrohungserkennung (Vorschau) für eine verwaltete Azure SQL-Datenbank-Instanz
 

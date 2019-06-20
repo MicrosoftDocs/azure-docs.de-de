@@ -1,25 +1,18 @@
 ---
-title: API für das Abrufen von Angeboten | Microsoft-Dokumentation
+title: API zum Abrufen von Angeboten | Azure Marketplace
 description: Die API ruft eine zusammengefasste Liste der Angebote unter einem Herausgebernamespace ab.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.author: pabutler
+ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591549"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935330"
 ---
 <a name="retrieve-offers"></a>Abrufen von Angeboten
 ===============
@@ -34,8 +27,8 @@ Ruft eine zusammengefasste Liste der Angebote unter einem Herausgebernamespace a
 
 | **Name**         |  **Beschreibung**                         |  **Datentyp** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Herausgeber-ID, z.B. `contoso` |   Zeichenfolge    |
-|  api-version     | Neueste Version der API                    |    Datum        |
+|  publisherId     | Herausgeber-ID, z.B. `contoso` |   string    |
+|  api-version     | Neueste Version der API                    |    Date        |
 |  |  |
 
 
@@ -79,7 +72,7 @@ Ruft eine zusammengefasste Liste der Angebote unter einem Herausgebernamespace a
 |  publisherId    | Bezeichner, der den Herausgeber eindeutig identifiziert                                                                      |
 |  status         | Status des Angebots. Die Liste der möglichen Werte finden Sie weiter unten unter [Angebotsstatus](#offer-status).                         |
 |  id             | GUID, die das Angebot im Herausgebernamespace eindeutig identifiziert.                                                    |
-|  Version        | Aktuelle Version des Angebots. Die version-Eigenschaft kann vom Client nicht geändert werden. Sie wird nach jeder Veröffentlichung inkrementiert. |
+|  version        | Aktuelle Version des Angebots. Die version-Eigenschaft kann vom Client nicht geändert werden. Sie wird nach jeder Veröffentlichung inkrementiert. |
 |  Definition     | Enthält eine zusammengefasste Ansicht der tatsächlichen Definition der Workload. Für eine ausführliche Definition verwenden Sie die API zum [Abrufen eines bestimmten Angebots](./cloud-partner-portal-api-retrieve-specific-offer.md). |
 |  changedTime    | Uhrzeit (UTC), zu der das Angebot letztmalig geändert wurde                                                                              |
 |  |  |

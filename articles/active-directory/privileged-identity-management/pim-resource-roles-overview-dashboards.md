@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602453"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Verwenden eines Ressourcendashboards für die Zugriffsüberprüfung in PIM

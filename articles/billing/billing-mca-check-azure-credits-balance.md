@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60372267"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Nachverfolgen des Azure-Gutschriftensaldos für die Microsoft-Kundenvereinbarung
 
@@ -59,7 +59,7 @@ Dieser Artikel bezieht sich auf ein Abrechnungskonto für eine Microsoft-Kundenv
 
    | Begriff                 | Definition                           |
    |----------------------|--------------------------------------------------------|
-   | Quelle               | Die Erwerbsquelle des Guthabens |
+   | `Source`               | Die Erwerbsquelle des Guthabens |
    | Startdatum           | Das Datum, an dem Sie die Gutschrift erhalten haben |
    | Ablaufdatum      | Das Datum, an dem das Guthaben verfällt |
    | Balance              | Der Saldo seit Ihrer letzten Rechnung |

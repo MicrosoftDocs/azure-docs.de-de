@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: mmccrory
-ms.openlocfilehash: 7028417c95aa6969793c00d0bb270c96e56164fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: memccror
+ms.openlocfilehash: 976bb43fd3e6d6fdb19c733affd4afa2e49e482c
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314781"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967686"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vorgehensweise bei einer Azure-Dienstunterbrechung mit Auswirkungen auf Azure-Clouddienste
 Bei Microsoft setzen wir uns mit großen Engagement dafür ein, dass unsere Dienste immer verfügbar sind, wenn Sie sie benötigen. Aufgrund von höherer Gewalt können jedoch gelegentlich ungeplante Dienstausfälle auftreten.
@@ -51,7 +51,7 @@ Ausführlichere Informationen zum Erstellen und Bereitstellen einer Clouddiensta
 Abhängig von Ihren Anwendungsdatenquellen müssen Sie möglicherweise die Wiederherstellungsvorgänge für Ihre Anwendungsdatenquelle überprüfen.
 
 * Informationen zu Azure Storage-Datenquellen finden Sie unter [Azure Storage-Replikation](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Dort können Sie basierend auf dem ausgewählten Replikationsmodell für Ihre Anwendung prüfen, welche Optionen Ihnen zur Verfügung stehen.
-* Informationen zu SQL-Datenbankquellen finden Sie unter [Übersicht: Geschäftskontinuität für die Cloud und Notfallwiederherstellung für Datenbanken mit SQL-Datenbank](../sql-database/sql-database-business-continuity.md). Dort können Sie basierend auf dem ausgewählten Replikationsmodell für Ihre Anwendung prüfen, welche Optionen Ihnen zur Verfügung stehen.
+* Informationen zu SQL-Datenbankquellen finden Sie unter [Übersicht:  Geschäftskontinuität für die Cloud und Notfallwiederherstellung für Datenbanken mit SQL-Datenbank](../sql-database/sql-database-business-continuity.md). Dort können Sie basierend auf dem ausgewählten Replikationsmodell für Ihre Anwendung prüfen, welche Optionen Ihnen zur Verfügung stehen.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Option 3: Warten auf die Wiederherstellung

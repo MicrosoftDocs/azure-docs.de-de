@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
 ms.openlocfilehash: fc50be2a960784895947f3f154a0251f41716fc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117301"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60565700"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Behandlung von Problemen beim Upgrade von Microsoft Azure Site Recovery-Anbietern
 

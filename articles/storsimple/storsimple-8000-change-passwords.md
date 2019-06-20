@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 7762f8499c67672f0a2ffed99e98baea4c940fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab874bbdcd47a4bfa9abfba721afa46d0f23a338
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108168"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60638007"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Verwenden des StorSimple-Geräte-Manager-Diensts zum Ändern von StorSimple-Kennwörtern
 
@@ -95,5 +95,5 @@ Das Kennwort für StorSimple Snapshot Manager sollte jetzt aktualisiert sein.
 ## <a name="next-steps"></a>Nächste Schritte
 * Weitere Informationen zur [StorSimple-Sicherheit](storsimple-8000-security.md).
 * Weitere Informationen zum [Ändern Ihrer Gerätekonfiguration](storsimple-8000-modify-device-config.md).
-* Weitere Informationen zum [Verwalten Ihres StorSimple-Geräts mithilfe des StorSimple-Geräte-Manager-Diensts](storsimple-8000-manager-service-administration.md).
+* Erfahren Sie mehr [Verwalten von StorSimple-Geräten mithilfe des StorSimple-Geräte-Manager-Diensts](storsimple-8000-manager-service-administration.md).
 

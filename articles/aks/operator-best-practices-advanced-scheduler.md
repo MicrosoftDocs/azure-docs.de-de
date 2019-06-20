@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055619"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Best Practices für erweiterte Schedulerfunktionen in Azure Kubernetes Service (AKS)
 
@@ -157,11 +157,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 Der *IgnoredDuringExecution*-Teil der Einstellung gibt an, dass der Pod aus dem Knoten entfernt werden soll, wenn sich die Bezeichnung des Knotens ändert. Der Kubernetes-Scheduler verwendet nur die aktualisierten Knotenbezeichnungen für neue Pods, die geplant werden, nicht für bereits geplante Pods auf den Knoten.

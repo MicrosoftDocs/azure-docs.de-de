@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ebeb7e109584726dcd2505fbd9d4c1d7bfde7aba
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170914"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387676"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Schnellstart: Erstellen einer Load Balancer Standard-Instanz für den Lastenausgleich virtueller Computer mit der Azure CLI
 
@@ -236,9 +236,9 @@ for i in `seq 1 2`; do
     --nics myNic$i \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
     --no-wait
-    done
+done
 ```
 Es kann einige Minuten dauern, bis die virtuellen Computer bereitgestellt wurden.
 

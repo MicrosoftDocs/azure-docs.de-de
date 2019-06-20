@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962735"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235352"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft Identity Platform – Glossar für Entwickler
 
@@ -142,7 +142,7 @@ Eine [Clientanwendung](#client-application) erhält Zugriff auf einen [Ressource
 
 Darüber hinaus werden sie im Rahmen des [Zustimmungsprozesses](#consent) verwendet, um dem Administrator oder Ressourcenbesitzer die Möglichkeit zu geben, den Clientzugriff auf Ressourcen in seinem Mandanten zu gewähren oder zu verweigern.
 
-Berechtigungsanforderungen werden im [Azure-Portal][AZURE-portal] unter „Einstellungen“ auf der Registerkarte „Anwendungen“ unter „Erforderliche Berechtigungen“ konfiguriert. Hier wählen Sie die gewünschten delegierten Berechtigungen sowie die gewünschten Anwendungsberechtigungen aus (für Letzteres ist die globale Administratorrolle erforderlich). Da ein [öffentlicher Client](#client-application) die Anmeldeinformationen nicht sicher verwalten kann, kann er nur delegierte Berechtigungen anfordern. Ein [vertraulicher Client](#client-application) kann dagegen sowohl delegierte Berechtigungen als auch Anwendungsberechtigungen anfordern. Das [Anwendungsobjekt](#application-object) des Clients speichert die deklarierten Berechtigungen in der [requiredResourceAccess-Eigenschaft][AAD-Graph-App-Entity].
+Berechtigungsanforderungen für eine Anwendung werden im [Azure-Portal][AZURE-portal] auf der Seite **API-Berechtigungen** konfiguriert. Hier wählen Sie die gewünschten delegierten Berechtigungen sowie die gewünschten Anwendungsberechtigungen aus (für Letzteres ist die globale Administratorrolle erforderlich). Da ein [öffentlicher Client](#client-application) die Anmeldeinformationen nicht sicher verwalten kann, kann er nur delegierte Berechtigungen anfordern. Ein [vertraulicher Client](#client-application) kann dagegen sowohl delegierte Berechtigungen als auch Anwendungsberechtigungen anfordern. Das [Anwendungsobjekt](#application-object) des Clients speichert die deklarierten Berechtigungen in der [requiredResourceAccess-Eigenschaft][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>Ressourcenbesitzers
 

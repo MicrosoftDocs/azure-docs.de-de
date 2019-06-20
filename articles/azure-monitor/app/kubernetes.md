@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor – Anwendungsüberwachung ohne Instrumentierung für gehostete Kubernetes-Apps | Microsoft-Dokumentation
-description: Die Anwendungsüberwachung ohne Instrumentierung für gehostete Kubernetes-Apps ist eine Lösung zur Überwachung, mit der Sie Application Insights-Telemetriedaten eingehender und ausgehender Anforderungen und von Pods, die in Ihrem Kubernetes-Cluster ausgeführt werden, mithilfe der Service Mesh-Technologie Istio aufrufen können.
+title: Verwenden von Application Insights zum Überwachen Ihres Azure Kubernetes Service (AKS) oder anderer gehosteter Kubernetes-Anwendungen – Azure Monitor | Microsoft-Dokumentation
+description: Azure Monitor verwendet die Service Mesh-Technologie Istio in Ihrem Kubernetes-Cluster, um Anwendungsüberwachung für jegliche gehosteten Kubernetes-Anwendungen bereitzustellen. Dadurch können Sie Application Insights-Telemetriedaten zu eingehenden und ausgehenden Anforderungen an und von Pods sammeln, die in Ihrem Cluster ausgeführt werden.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408210"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65555831"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Anwendungsüberwachung ohne Instrumentierung für gehostete Kubernetes-Apps
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Anwendungsüberwachung ohne Instrumentierung für gehostete Kubernetes-Anwendungen
 
 > [!IMPORTANT]
 > Diese Funktion befindet sich derzeit in der Public Preview.
@@ -74,7 +74,7 @@ Anwendungen, die außerhalb des Service Mesh ausgeführt werden, sind nicht betr
 ### <a name="deploy-zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Bereitstellen der Anwendungsüberwachung ohne Instrumentierung für gehostete Kubernetes-Apps
 
 1. Laden Sie ein [*Application Insights-Adapter*-Release](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/) herunter, und extrahieren Sie es.
-2. Navigieren Sie im Releaseordner zu */src/kubernetes/*.
+2. Navigieren Sie im Releaseordner zu */src/kubernetes/* .
 3. Bearbeiten Sie *application-insights-istio-mixer-adapter-deployment.yaml*.
     - Bearbeiten Sie den Wert der Umgebungsvariablen *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY*, sodass sie den Instrumentierungsschlüssel der Application Insights-Ressource im Azure-Portal enthält, um die Telemetriedaten zu enthalten.
     - Bearbeiten Sie ggf. den Wert der Umgebungsvariablen *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES*, sodass sie eine durch Trennzeichen getrennte Liste der Namespaces enthält, für die Sie Überwachung aktivieren möchten. Lassen sie Sie leer, um alle Namespaces zu überwachen.

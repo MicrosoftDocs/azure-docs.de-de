@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 45699c267d1009c4884dd164fd3f2950d6d5f555
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60578662"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Austauschen des EBOD-Controllers eines StorSimple-Geräts
 
@@ -54,7 +54,7 @@ Bevor Sie das fehlerhafte EBOD-Controllermodul in Ihrem StorSimple-Gerät austau
    
      **Abbildung 1** Rückseite des EBOD-Moduls
    
-   | Bezeichnung | Beschreibung |
+   | Bezeichnung | BESCHREIBUNG |
    |:--- |:--- |
    | 1 |Fehler-LED |
    | 2 |Stromversorgungs-LED |
@@ -86,7 +86,7 @@ Im folgenden Verfahren sowie in der Tabelle wird erläutert, wie ein EBOD-Contro
    
     **Abbildung 4**. Erneutes Anschließen der Kabel
    
-   | Bezeichnung | Beschreibung |
+   | Bezeichnung | BESCHREIBUNG |
    |:--- |:--- |
    | 1 |Primäres Gehäuse |
    | 2 |PCM 0 |

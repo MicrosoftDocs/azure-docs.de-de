@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844125"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236856"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrieren zu den neuen Aufträgen für die elastische Datenbank
 
 Eine Upgradeversion der [Aufträge für die elastische Datenbank](elastic-jobs-overview.md) ist verfügbar.
 
-Wenn Sie über eine vorhandene vom Kunden gehostete Version der [Aufträge für die elastische Datenbank](sql-database-elastic-jobs-overview.md) verfügen, werden Migrations-Cmdlets und -Skripts zur einfachen Migration zur neuesten Version bereitgestellt.
+Wenn Sie über eine vorhandene vom Kunden gehostete Version der Aufträge für die elastische Datenbank verfügen, werden Migrations-Cmdlets und -Skripts für die einfache Migration zur neuesten Version bereitgestellt.
 
 
 ## <a name="prerequisites"></a>Voraussetzungen
@@ -32,7 +32,7 @@ Die Upgradeversion der Aufträge für die elastische Datenbank umfasst neue Powe
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installieren der neuesten Cmdlets für elastische Aufträge
 
-Wenn Sie noch kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
+Wenn Sie nicht bereits ein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto erstellen](https://azure.microsoft.com/free/), bevor Sie beginnen.
 
 Installieren Sie das Modul **Az.Sql 1.1.1-preview**, um die aktuellen Cmdlets für elastische Aufträge zu erhalten. Führen Sie die folgenden Befehle in PowerShell mit Administratorzugriff aus.
 

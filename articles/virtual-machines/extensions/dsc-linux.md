@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b0cd88cbb3729a3e81aeb5d6f43f417c8cb2f17
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64682763"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-Erweiterung für Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -34,7 +34,7 @@ Die DSCForLinux-Erweiterung wird von Microsoft veröffentlicht und unterstützt.
 - Installieren Sie benutzerdefinierte DSC-Module für den virtuellen Linux-Computer (ExtensionAction installieren)
 - Entfernen Sie benutzerdefinierte DSC-Module für den virtuellen Linux-Computer (ExtensionAction entfernen)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 

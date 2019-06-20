@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521906"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956937"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Was ist Azure Active Directory Identity Protection (aktualisiert)?
 
@@ -147,44 +147,44 @@ Der grundlegende Ablauf der Identity Protection-Risikoerkennung und der entsprec
 
 ## <a name="common-scenarios"></a>Häufige Szenarios 
 
-Sehen wir uns das Beispiel von Sarah an, einer Mitarbeiterin von Contoso. 
+Sehen Sie sich das Beispiel zu einem Mitarbeiter von Contoso an. 
 
-1. Sarah versucht, sich über den Tor-Browser bei Exchange Online anzumelden. Zum Zeitpunkt der Anmeldung erkennt Azure AD Echtzeitrisikoereignisse. 
+1. Ein Mitarbeiter versucht, sich über den Tor-Browser bei Exchange Online anzumelden. Zum Zeitpunkt der Anmeldung erkennt Azure AD Echtzeitrisikoereignisse. 
 
-2. Azure AD erkennt, dass sich Sarah über eine anonyme IP-Adresse anmeldet, und löst die Risikostufe „Mittel“ für die Anmeldung aus. 
+2. Azure AD erkennt, dass sich der Mitarbeiter über eine anonyme IP-Adresse anmeldet, und löst die Risikostufe „Mittel“ für die Anmeldung aus. 
 
-3. Sarah erhält eine MFA-Aufforderung, da der IT-Administrator von Contoso die Identity Protection-Richtlinie für bedingten Zugriff bei einem Anmelderisiko konfiguriert hat. Die Richtlinie legt fest, dass für das Anmelderisiko „Mittel“ oder höher eine mehrstufige Authentifizierung erfolgen muss. 
+3. Der Mitarbeiter erhält eine MFA-Aufforderung, da der IT-Administrator von Contoso die Identity Protection-Richtlinie für bedingten Zugriff bei einem Anmelderisiko konfiguriert hat. Die Richtlinie legt fest, dass für das Anmelderisiko „Mittel“ oder höher eine mehrstufige Authentifizierung erfolgen muss. 
 
-4. Sarah führt die mehrstufige Authentifizierung durch und greift auf Exchange Online zu. Sarahs Benutzerrisikostufe wird nicht geändert. 
+4. Der Mitarbeiter führt die mehrstufige Authentifizierung durch und greift auf Exchange Online zu. Seine Benutzerrisikostufe wird nicht geändert. 
 
-Was ist hinter den Kulissen passiert? Der Anmeldeversuch über den Tor-Browser hat in Azure AD ein Anmelderisiko in Echtzeit für eine anonyme IP-Adresse ausgelöst. Bei der Verarbeitung der Anforderung in Azure AD wurde die in Identity Protection konfigurierte Richtlinie zum Anmelderisiko angewandt, da Sarahs Risikostufe der Anmeldung den Schwellenwert (Mittel) erreicht hat. Da Sarah sich bereits zuvor für die mehrstufige Authentifizierung registriert hat, konnte sie die mehrstufige Authentifizierung durchführen. Dadurch dass sie die mehrstufige Authentifizierung erfolgreich durchführen konnte, wurde in Azure AD signalisiert, dass sie wahrscheinlich die rechtmäßige Identitätsbesitzerin ist, und ihre Benutzerrisikostufe wurde nicht erhöht. 
+Was ist hinter den Kulissen passiert? Der Anmeldeversuch über den Tor-Browser hat in Azure AD ein Anmelderisiko in Echtzeit für eine anonyme IP-Adresse ausgelöst. Bei der Verarbeitung der Anforderung in Azure AD wurde die in Identity Protection konfigurierte Richtlinie zum Anmelderisiko angewandt, da die Risikostufe der Anmeldung des Mitarbeiters den Schwellenwert (Mittel) erreicht hat. Da sich der Mitarbeiter bereits zuvor für die mehrstufige Authentifizierung registriert hat, konnte er die mehrstufige Authentifizierung durchführen. Dadurch dass er die mehrstufige Authentifizierung erfolgreich durchführen konnte, wurde in Azure AD signalisiert, dass er wahrscheinlich der rechtmäßige Identitätsbesitzer ist, und seine Benutzerrisikostufe wurde nicht erhöht. 
 
 
-Was passiert aber, wenn nicht Sarah versucht hat, sich anzumelden? 
+Was passiert aber, wenn nicht der Mitarbeiter versucht hat, sich anzumelden? 
 
-1. Ein böswilliger Akteur mit Sarahs Anmeldeinformationen versucht, sich über den Tor-Browser bei Sarahs Exchange Online-Konto anzumelden, da er versucht, seine IP-Adresse zu verbergen. 
+1. Ein böswilliger Akteur mit den Anmeldeinformationen des Mitarbeiters versucht, sich über den Tor-Browser beim Exchange Online-Konto des Mitarbeiters anzumelden, da er versucht, seine IP-Adresse zu verbergen. 
 
 2. Azure AD erkennt, dass der Anmeldeversuch von einer anonymen IP-Adresse stammt, und löst ein Anmelderisiko in Echtzeit aus. 
 
 3. Der böswillige Akteur erhält eine MFA-Aufforderung, da der IT-Administrator von Contoso die Identity Protection-Richtlinie für bedingten Zugriff bei einem Anmelderisiko so konfiguriert hat, dass bei der Risikostufe „Mittel“ oder höher für die Anmeldung eine mehrstufige Authentifizierung erforderlich ist. 
 
-4. Der böswillige Akteur kann die mehrstufige Authentifizierung nicht durchführen und nicht auf Sarahs Exchange Online-Konto zugreifen. 
+4. Der böswillige Akteur kann die mehrstufige Authentifizierung nicht durchführen und nicht auf das Exchange Online-Konto des Mitarbeiters zugreifen. 
 
-5. Durch die fehlerhafte mehrstufige Authentifizierung wurde ein aufzuzeichnendes Risikoereignis ausgelöst, durch das sich Sarahs Benutzerrisiko für zukünftige Anmeldungen erhöht. 
+5. Durch die fehlerhafte mehrstufige Authentifizierung wurde ein aufzuzeichnendes Risikoereignis ausgelöst, durch das sich das Benutzerrisiko des Mitarbeiters für zukünftige Anmeldungen erhöht. 
 
-Nachdem ein böswilliger Akteur versucht hat, auf Sarahs Konto zuzugreifen, sehen wir uns nun an, was passiert, wenn Sarah sich das nächste Mal anmelden möchte. 
+Nachdem ein böswilliger Akteur versucht hat, auf das Konto des Mitarbeiters zuzugreifen, sehen Sie sich nun an, was passiert, wenn sich der Mitarbeiter das nächste Mal anmelden möchte. 
 
-1. Sarah versucht, sich über Outlook bei Exchange Online anzumelden. Zum Zeitpunkt der Anmeldung erkennt Azure AD Echtzeitrisikoereignisse sowie alle vorherigen Benutzerrisiken. 
+1. Der Mitarbeiter versucht, sich über Outlook bei Exchange Online anzumelden. Zum Zeitpunkt der Anmeldung erkennt Azure AD Echtzeitrisikoereignisse sowie alle vorherigen Benutzerrisiken. 
 
 2. Azure AD erkennt kein Anmelderisiko in Echtzeit, jedoch aufgrund der früheren riskanten Aktivitäten in den vorherigen Szenarien ein hohes Benutzerrisiko.  
 
-3. Sarah wird aufgefordert, das Kennwort zurückzusetzen, da der IT-Administrator von Contoso die Identity Protection-Richtlinie zum Benutzerrisiko so konfiguriert hat, dass eine Kennwortänderung erforderlich ist, wenn sich ein Benutzer mit hohem Risiko anmeldet. 
+3. Der Mitarbeiter wird aufgefordert, das Kennwort zurückzusetzen, da der IT-Administrator von Contoso die Identity Protection-Richtlinie zum Benutzerrisiko so konfiguriert hat, dass eine Kennwortänderung erforderlich ist, wenn sich ein Benutzer mit hohem Risiko anmeldet. 
 
-4. Da Sarah für SSPR und MFA registriert ist, kann sie ihr Kennwort erfolgreich zurücksetzen. 
+4. Der Mitarbeiter setzt sein Kennwort zurück, da er für Self-Service-Kennwortzurücksetzung und mehrstufige Authentifizierung registriert ist. 
 
-5. Durch die Kennwortzurücksetzung sind Sarahs Anmeldeinformationen nicht mehr kompromittiert, und ihre Identität weist wieder einen sicheren Status auf. 
+5. Durch die Kennwortzurücksetzung sind die Anmeldeinformationen des Mitarbeiters nicht mehr kompromittiert, und seine Identität weist wieder einen sicheren Status auf. 
 
-6. Sarahs vorherige Risikoereignisse sind behoben, und ihre Benutzerrisikostufe wird als Reaktion auf die Behebung der kompromittierten Anmeldeinformationen automatisch zurückgesetzt. 
+6. Die vorherigen Risikoereignisse des Mitarbeiters sind behoben, und seine Benutzerrisikostufe wird als Reaktion auf die Behebung der kompromittierten Anmeldeinformationen automatisch zurückgesetzt. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Wie konfiguriere ich Identity Protection? 
 
@@ -212,11 +212,11 @@ Weitere Informationen finden Sie unter [Zuweisen von Administratorrollen in Azur
 
 | Funktion | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| Richtlinie zum Benutzerrisiko | Ja | Nein  | Nein  |
-| Richtlinie zum Anmelderisiko | Ja | Nein  | Nein  |
+| Richtlinie zum Benutzerrisiko | Ja | Nein | Nein |
+| Richtlinie zum Anmelderisiko | Ja | Nein | Nein |
 | Bericht „Riskante Benutzer“ | Vollzugriff | Eingeschränkte Informationen | Eingeschränkte Informationen |
 | Bericht über riskante Anmeldungen | Vollzugriff | Eingeschränkte Informationen | Eingeschränkte Informationen |
-| Richtlinie für MFA-Registrierung | Ja | Nein  | Nein  |
+| Richtlinie für MFA-Registrierung | Ja | Nein | Nein |
 
 
 

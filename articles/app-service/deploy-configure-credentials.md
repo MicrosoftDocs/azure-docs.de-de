@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884386"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955984"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurieren von Anmeldeinformationen für die Azure App Service-Bereitstellung
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) unterstützt zwei Arten von Anmeldeinformationen für [lokale Git-Bereitstellungen](deploy-local-git.md) und [FTP/S-Bereitstellungen](deploy-ftp.md). Diese Anmeldeinformationen sind nicht identisch mit Ihren Azure Active Directory-Anmeldeinformationen.
@@ -33,7 +33,7 @@ Sie können die Anmeldeinformationen auf Benutzerebene auf der [Ressourcenseite]
 
 So konfigurieren Sie die Anmeldeinformationen auf Benutzerebene
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com) im linken Menü auf **App Services** > **&lt;beliebige_App>** > **Bereitstellungscenter** > **Anmeldeinformationen für die Bereitstellung**.
+1. Klicken Sie im [Azure-Portal](https://portal.azure.com) im linken Menü auf **App Services** >  **&lt;beliebige_App>**  > **Bereitstellungscenter** > **Anmeldeinformationen für die Bereitstellung**.
 
     Im Portal muss mindestens eine App vorhanden sein, bevor Sie auf die Seite mit den Anmeldeinformationen für die Bereitstellung zugreifen können. Mit der [Azure-CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) können Sie die Anmeldeinformationen auf Benutzerebene jedoch ohne eine vorhandene App konfigurieren.
 
@@ -63,7 +63,7 @@ Weil Anmeldeinformationen auf Benutzerebene mit dem Benutzer und nicht einer bes
 ## <a name="appscope"></a>Abrufen und Zurücksetzen der Anmeldeinformationen auf App-Ebene
 So rufen Sie die Anmeldeinformationen auf App-Ebene ab
 
-1. Klicken Sie im [Azure-Portal](https://portal.azure.com) im linken Menü auf **App Services** > **&lt;beliebige_App>** > **Bereitstellungscenter** > **Anmeldeinformationen für die Bereitstellung**.
+1. Klicken Sie im [Azure-Portal](https://portal.azure.com) im linken Menü auf **App Services** >  **&lt;beliebige_App>**  > **Bereitstellungscenter** > **Anmeldeinformationen für die Bereitstellung**.
 
 2. Klicken Sie auf **App-Anmeldeinformationen** und dann auf den Link **Kopieren**, um den Benutzernamen oder das Kennwort zu kopieren.
 

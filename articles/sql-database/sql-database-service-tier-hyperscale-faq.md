@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
 ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791427"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQs zu Azure SQL-Datenbank Hyperscale
@@ -53,7 +53,7 @@ Die auf virtuellen Kernen basierenden Dienstebenen unterscheiden sich in erster 
 | **Speichertyp** | Alle |Storage Premium (remote, pro Instanz) | Entkoppelter Speicher mit lokalem SSD-Cache (pro Instanz) | Äußerst schneller lokaler SSD-Speicher (pro Instanz) |
 | **Speichergröße** | Einzeldatenbank/Pool für elastische Datenbanken | 5 GB – 4 TB | Bis zu 100 TB | 5 GB – 4 TB |
 | | Verwaltete Instanz  | 32 GB – 8 TB | – | 32 GB – 4 TB |
-| **E/A-Durchsatz** | Einzeldatenbank** | 500 IOPS pro V-Kern mit maximal 7.000 IOPS | Noch unbekannt | 5.000 IOPS mit maximal 200.000 IOPS|
+| **E/A-Durchsatz** | Einzeldatenbank** | 500 IOPS pro V-Kern mit maximal 7.000 IOPS | Noch unbekannt | 5\.000 IOPS mit maximal 200.000 IOPS|
 | | Verwaltete Instanz | Hängt von der Größe der Datei ab | – | Verwaltete Instanz: Hängt von der Größe der Datei ab|
 |**Verfügbarkeit**|Alle|1 Replikat, keine Replikate mit Leseskalierung, kein lokaler Cache | Mehrere Replikate, bis zu 15 Replikate mit Leseskalierung, teilweise lokaler Cache | 3 Replikate, 1 Replikat mit Leseskalierung, zonenredundante Hochverfügbarkeit, vollständiger lokaler Cache |
 |**Sicherungen**|Alle|RA-GRS, 7 - 35 Tage (standardmäßig 7 Tage)| RA-GRS, 7-35 Tage (Standard: 7 Tage), konstante Zeitpunktwiederherstellung (Point-in-Time Recovery, PITR) | RA-GRS, 7 - 35 Tage (standardmäßig 7 Tage) |
@@ -182,11 +182,11 @@ In Hyperscale werden Datendateien im Azure-Standardspeicher gespeichert. Daten w
 
 ### <a name="can-i-manage-or-define-files-or-filegroups-with-hyperscale"></a>Können bei Hyperscale Dateien oder Dateigruppen verwaltet oder definiert werden?
 
-Nein 
+Nein
   
 ### <a name="can-i-provision-a-hard-cap-on-the-data-growth-for-my-database"></a>Kann für eine Datenbank eine feste Obergrenze für das Datenwachstum festgelegt werden?
 
-Nein 
+Nein
 
 ### <a name="how-are-data-files-laid-out-with-sql-database-hyperscale"></a>Wie sind Datendateien bei SQL-Datenbank Hyperscale angeordnet?
 
@@ -194,7 +194,7 @@ Die Datendateien werden von Seitenservern gesteuert. Wenn die Datengröße zunim
 
 ### <a name="is-database-shrink-supported"></a>Wird die Verkleinerung von Datenbanken unterstützt?
 
-Nein 
+Nein
 
 ### <a name="is-database-compression-supported"></a>Wird Datenbankkomprimierung unterstützt?
 
@@ -212,7 +212,7 @@ Ja. Sie können Ihre vorhandenen Azure SQL-Datenbank-Instanzen zu Hyperscale mig
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>Können Hyperscale-Datenbanken zu anderen Versionen migriert werden?
 
- Nein. Eine Hyperscale-Datenbank kann derzeit nicht zu einer anderen Dienstebene migriert werden.
+Nein. Eine Hyperscale-Datenbank kann derzeit nicht zu einer anderen Dienstebene migriert werden.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Müssen bei der Migration zur Dienstebene „Hyperscale“ Einbußen hinsichtlich des Funktionsumfangs in Kauf genommen werden?
 
@@ -365,19 +365,19 @@ Sie können eine Verbindung mit diesen zusätzlichen schreibgeschützten Compute
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Kann ein dedizierter Endpunkt für das Replikat mit Leseskalierung erstellt werden?
 
- Nein. Sie können eine Verbindung mit Replikaten mit Leseskalierung nur herstellen, indem Sie `ApplicationIntent=ReadOnly` angeben.
+Nein. Sie können eine Verbindung mit Replikaten mit Leseskalierung nur herstellen, indem Sie `ApplicationIntent=ReadOnly` angeben.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Führt das System einen intelligenten Lastenausgleich für die Leseworkload durch?
 
- Nein. Die schreibgeschützte Workload wird an ein zufälliges Replikat mit Leseskalierung umgeleitet.
+Nein. Die schreibgeschützte Workload wird an ein zufälliges Replikat mit Leseskalierung umgeleitet.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>Können sekundäre Computeknoten unabhängig vom primären Computeknoten zentral hoch- oder herunterskaliert werden?
 
- Nein. Die sekundären Computeknoten werden auch für die Hochverfügbarkeit verwendet. Daher müssen diese für den Fall eines Failovers die gleiche Konfiguration wie die primären Computeknoten aufweisen.
+Nein. Die sekundären Computeknoten werden auch für die Hochverfügbarkeit verwendet. Daher müssen diese für den Fall eines Failovers die gleiche Konfiguration wie die primären Computeknoten aufweisen.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Gelten für primäre Computeknoten und zusätzliche sekundäre Computeknoten unterschiedliche temp-Datenbankgrößen?
 
- Nein. Ihre `tempdb`-Datenbank ist basierend auf der bereitgestellten Computegröße konfiguriert. Die sekundären Computeknoten weisen die gleiche Größe wie die primären Computeknoten auf.
+Nein. Ihre `tempdb`-Datenbank ist basierend auf der bereitgestellten Computegröße konfiguriert. Die sekundären Computeknoten weisen die gleiche Größe wie die primären Computeknoten auf.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>Können Indizes und Ansichten für die sekundären Computeknoten hinzugefügt werden?
 

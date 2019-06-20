@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234031"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identifizieren von Problemen mit der Diagnosefunktion
@@ -142,7 +142,7 @@ In der folgenden Tabelle sind häufige Fehler aufgeführt, die für Ihre Adminis
 |6022|RemoteAppNotFound|Der von Ihnen eingegebene RemoteApp-Name stimmt nicht mit vorhandenen RemoteApps überein. Überprüfen Sie den RemoteApp-Namen auf Tippfehler, und wiederholen Sie den Vorgang.|
 |6010|PublishedItemsExist|Der Name der Ressource, die Sie veröffentlichen möchten, ist mit dem Namen einer bereits vorhandenen Ressource identisch. Ändern Sie den Namen der Ressource, und wiederholen Sie den Vorgang.|
 |7002|NameNotValidWhiteSpace|Verwenden Sie keine Leerzeichen im Namen.|
-|8.000|InvalidAuthorizationRoleScope|Der von Ihnen eingegebene Rollenname stimmt nicht mit vorhandenen Rollennamen überein. Überprüfen Sie den Rollennamen auf Tippfehler, und wiederholen Sie den Vorgang. |
+|8\.000|InvalidAuthorizationRoleScope|Der von Ihnen eingegebene Rollenname stimmt nicht mit vorhandenen Rollennamen überein. Überprüfen Sie den Rollennamen auf Tippfehler, und wiederholen Sie den Vorgang. |
 |8001|UserNotFound |Der von Ihnen eingegebene Benutzername stimmt nicht mit vorhandenen Benutzernamen überein. Überprüfen Sie den Namen auf Tippfehler, und wiederholen Sie den Vorgang.|
 |8005|UserNotFoundInAAD |Der von Ihnen eingegebene Benutzername stimmt nicht mit vorhandenen Benutzernamen überein. Überprüfen Sie den Namen auf Tippfehler, und wiederholen Sie den Vorgang.|
 |8008|TenantConsentRequired|Befolgen Sie [diese Anleitung](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service), um die Einwilligung für Ihren Mandanten zu erteilen.|

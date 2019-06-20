@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546271"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Herstellen einer Verbindung mit lokalen Datenquellen in Azure Logic Apps
@@ -72,7 +72,7 @@ Nachdem Sie das Gateway auf einem lokalen Computer installiert haben, können Si
    | **Installationsname** | Wenn Ihre Gatewayinstallation noch nicht ausgewählt ist, wählen Sie das Gateway aus, das Sie zuvor installiert haben. | 
    | | | 
 
-   Beispiel: 
+   Beispiel:
 
    ![Angeben von Details zum Erstellen Ihres lokalen Datengateways](./media/logic-apps-gateway-connection/createblade.png)
 
@@ -105,7 +105,7 @@ Nachdem Sie die Gatewayressource erstellt und Ihr Azure-Abonnement mit dieser Re
 
       Ein eindeutiger Verbindungsname vereinfacht später ein Erkennen dieser Verbindung, insbesondere wenn Sie mehrere Verbindungen herstellen. Sofern erforderlich, geben Sie auch die qualifizierte Domäne für Ihren Benutzernamen an.
    
-      Beispiel: 
+      Beispiel:
 
       ![Erstellen der Verbindung zwischen der Logik-App und dem Datengateway](./media/logic-apps-gateway-connection/blankconnection.png)
 

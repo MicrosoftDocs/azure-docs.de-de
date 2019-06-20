@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604364"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Sammeln von IIS-Protokollen in Azure Monitor
 IIS (Internet Information Services, Internetinformationsdienste) speichern Benutzeraktivitäten in Protokolldateien, die von Azure Monitor gesammelt und als [Protokolldaten](data-platform.md) gespeichert werden können.
@@ -51,7 +51,7 @@ IIS-Protokolldatensätze weisen den Typ **W3CIISLog** auf und besitzen die in de
 | csUriStem |Ziel der Anforderung, beispielsweise eine Webseite. |
 | csUriQuery |Abfrage, die der Client versucht hat auszuführen. |
 | ManagementGroupName |Name der Verwaltungsgruppe für Operations Manager-Agents.  Bei anderen Agents lautet dieser „AOI-\<Arbeitsbereich-ID\>“. |
-| RemoteIPCountry |Land der IP-Adresse des Clients. |
+| RemoteIPCountry |Land/Region der IP-Adresse des Clients. |
 | RemoteIPLatitude |Breitengrad der Client-IP-Adresse. |
 | RemoteIPLongitude |Längengrad der Client-IP-Adresse. |
 | scStatus |HTTP-Statuscode. |

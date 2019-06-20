@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925880"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730464"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushbenachrichtigungen mit Azure Notification Hubs: Häufig gestellte Fragen
 
@@ -56,7 +56,7 @@ Bei den Notification Hubs-Tarifen „Basic“ und „Standard“ können ordnung
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Wie stufe ich meinen Hub oder meinen Namespace auf einen anderen Tarif hoch oder herab?
 
-Navigieren Sie zu **[Azure-Portal]** > **Notification Hubs-Namespaces** oder **Notification Hubs**. Wählen Sie die Ressource aus, die Sie aktualisieren möchten, und navigieren Sie zu **Tarif**. Beachten Sie folgende Punkte:
+Navigieren Sie zu **[Azure-Portal]**  > **Notification Hubs-Namespaces** oder **Notification Hubs**. Wählen Sie die Ressource aus, die Sie aktualisieren möchten, und navigieren Sie zu **Tarif**. Beachten Sie folgende Punkte:
 
 * Der aktualisierte Tarif gilt für *alle* Hubs in dem Namespace, mit dem Sie arbeiten.
 * Falls die Anzahl von Geräten den Grenzwert des niedrigeren Tarifs übersteigt, zu dem Sie wechseln möchten, müssen Sie zuerst Geräte löschen.
@@ -69,13 +69,13 @@ Server-SDKs sind für .NET, Java, Node.js, PHP und Python verfügbar. Die APIs v
 
 ### <a name="which-client-platforms-do-you-support"></a>Welche Clientplattformen werden unterstützt?
 
-Pushbenachrichtigungen werden für [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) und Android), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) und [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) unterstützt. Weitere Informationen finden Sie auf der [Einführungstutorials für Notification Hubs].
+Pushbenachrichtigungen werden für [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) und Android) und [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) unterstützt. Weitere Informationen finden Sie auf der [Einführungstutorials für Notification Hubs].
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Werden SMS-, E-Mail- oder Webbenachrichtigungen unterstützt?
 
 Notification Hubs wurde primär zum Senden von Benachrichtigungen an mobile Apps entwickelt. E-Mail- oder SMS-Funktionen stehen nicht zur Verfügung. Sie können allerdings Drittanbieterplattformen mit diesen Funktionen in Notification Hubs integrieren, um native Pushbenachrichtigungen unter Verwendung von [Mobile Apps] zu senden.
 
-Notification Hubs bietet auch keinen vorgefertigten Zustelldienst für Browserpushbenachrichtigungen. Kunden können dieses Feature implementieren, indem sie zusätzlich zu den unterstützten serverseitigen Plattformen SignalR verwenden. Wenn Sie Benachrichtigungen an Browser-Apps in der Chrome Sandbox senden möchten, sehen Sie sich das Tutorial [Erste Schritte mit Notification Hubs für Chrome-Apps] an.
+Notification Hubs bietet auch keinen vorgefertigten Zustelldienst für Browserpushbenachrichtigungen. Kunden können dieses Feature implementieren, indem sie zusätzlich zu den unterstützten serverseitigen Plattformen SignalR verwenden. 
 
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Wie hängen Mobile Apps und Azure Notification Hubs zusammen, und wann verwende ich sie?
 
@@ -210,7 +210,6 @@ Sie können auch programmgesteuert auf Metriken zugreifen. Weitere Informationen
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [REST-APIs für Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Einführungstutorials für Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Erste Schritte mit Notification Hubs für Chrome-Apps]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Leitfaden zur Back-End-Registrierung]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Leitfaden zur Back-End-Registrierung 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

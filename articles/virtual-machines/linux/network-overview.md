@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 80b266c1c39debaf5fc70c6538101f2ae1d991be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171068"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Virtuelle Netzwerke und virtuelle Computer in Azure 

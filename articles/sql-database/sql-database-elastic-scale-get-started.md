@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60585013"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Erste Schritte mit Tools für elastische Datenbanken
 
@@ -84,7 +84,7 @@ Gehen Sie folgendermaßen vor, um das Beispiel herunterzuladen und auszuführen:
 
 1. Laden Sie das Beispiel [Elastic DB Tools for Azure SQL - Getting Started (Elastische DB-Tools für Azure SQL – Erste Schritte)](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) von MSDN herunter. Entzippen Sie das Beispiel an einem Speicherort Ihrer Wahl.
 
-2. Um ein Projekt zu erstellen, öffnen Sie die Projektmappe *ElasticScaleStarterKit.sln* im Verzeichnis *C#*.
+2. Um ein Projekt zu erstellen, öffnen Sie die Projektmappe *ElasticScaleStarterKit.sln* im Verzeichnis *C#* .
 
 3. Öffnen Sie in der Projektmappe für das Beispielprojekt der Datei *app.config*. Folgen Sie dann den Anweisungen in der Datei, um den Namen des Azure SQL-Datenbank-Servers und Ihre Anmeldeinformationen (Benutzername und Kennwort) hinzuzufügen.
 

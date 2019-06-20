@@ -8,13 +8,13 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: b135baf73e21cd524b6e8fad35452362f36cf0c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/14/2019
+ms.openlocfilehash: 73d7aebf3dbff59320e0ef92cbd54811503c71b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079545"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792267"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Entwerfen einer mehrmandantenfähigen Datenbank mithilfe von Azure Database for PostgreSQL – Hyperscale (Citus) (Vorschau)
 
@@ -31,72 +31,7 @@ In diesem Tutorial verwenden Sie Azure Database for PostgreSQL – Hyperscale (C
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
-
-## <a name="sign-in-to-the-azure-portal"></a>Melden Sie sich auf dem Azure-Portal an.
-
-Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-
-## <a name="create-an-azure-database-for-postgresql"></a>Erstellen einer Azure-Datenbank für PostgreSQL
-
-Führen Sie die folgenden Schritte aus, um eine Azure-Datenbank für PostgreSQL-Server zu erstellen:
-1. Klicken Sie im Azure-Portal links oben auf **Ressource erstellen**.
-2. Wählen Sie auf der Seite **Neu** die Option **Datenbanken** und dann auf der Seite **Datenbanken** die Option **Azure-Datenbank für PostgreSQL** aus.
-3. Klicken Sie als Bereitstellungsoption auf die Schaltfläche **Erstellen** unter **Hyperscale (Citus)-Servergruppe – VORSCHAU.**
-4. Geben Sie im Formular für den neuen Server folgende Informationen an:
-   - Ressourcengruppe: Klicken Sie auf den Link **Neue erstellen** unterhalb des Textfelds für dieses Feld. Geben Sie einen Namen ein, z.B. **myresourcegroup**.
-   - Name der Servergruppe: Geben Sie einen eindeutigen Namen für die neue Servergruppe ein, der ebenfalls für eine Serverunterdomäne verwendet wird.
-   - Benutzername des Administrators: Geben Sie einen eindeutigen Benutzernamen ein, er wird später zum Herstellen der Datenbankverbindung verwendet.
-   - Kennwort: muss mindestens 8 Zeichen lang sein und Zeichen aus drei der folgenden Kategorien enthalten: Großbuchstaben des englischen Alphabets, Kleinbuchstaben des englischen Alphabets, Ziffern (0–9) und nicht-alphanumerische Zeichen (!, $, #, % usw.)
-   - Standort: Verwenden Sie den Standort, der Ihren Benutzern am nächsten ist, damit sie möglichst schnell auf die Daten zugreifen können.
-
-   > [!IMPORTANT]
-   > Der hier angegebene Benutzername und das Kennwort für den Serveradministrator sind erforderlich, um später in diesem Tutorial die Anmeldung am Server und bei den zugehörigen Datenbanken auszuführen. Behalten Sie diese Angaben im Kopf, oder notieren Sie sie zur späteren Verwendung.
-
-5. Klicken Sie auf **Servergruppe konfigurieren**. Übernehmen Sie die Einstellungen in diesem Abschnitt unverändert, und klicken Sie auf **Speichern**.
-6. Klicken Sie auf **Bewerten + erstellen** und dann auf **Erstellen**, um den Server bereitzustellen. Die Bereitstellung dauert einige Minuten.
-7. Die Seite leitet zur Überwachung der Bereitstellung um. Wenn sich der Livestatus von **Ihre Bereitstellung wird ausgeführt** in **Ihre Bereitstellung wurde abgeschlossen** ändert, klicken Sie links auf der Seite auf das Menüelement **Ausgaben**.
-8. Die Seite „Ausgaben“ enthält einen Koordinatorhostnamen mit einer Schaltfläche daneben, um den Wert in die Zwischenablage zu kopieren. Notieren Sie diese Informationen zur späteren Verwendung.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Konfigurieren einer Firewallregel auf Serverebene
-
-Der Azure Database for PostgreSQL-Dienst verwendet eine Firewall auf der Serverebene. Standardmäßig hindert die Firewall alle externen Anwendungen und Tools daran, eine Verbindung mit dem Server und mit Datenbanken auf dem Server herzustellen. Wir müssen eine Regel zum Öffnen der Firewall für einen bestimmten IP-Adressbereich hinzufügen.
-
-1. Klicken Sie im Abschnitt **Ausgaben**, in dem Sie zuvor den Hostnamen des Koordinatorknotens kopiert hatten, zurück zum Menüelement **Übersicht**.
-
-2. Suchen Sie die Skalierungsgruppe für Ihre Bereitstellung in der Liste der Ressourcen, und klicken Sie darauf. (Ihrem Namen ist „sg-“ vorangestellt.)
-
-3. Klicken Sie im Menü auf der linken Seite unter **Sicherheit** auf **Firewall**.
-
-4. Klicken Sie auf den Link **+ Firewallregel für die aktuelle Client-IP-Adresse hinzufügen**. Klicken Sie abschließend auf die Schaltfläche **Speichern**.
-
-5. Klicken Sie auf **Speichern**.
-
-   > [!NOTE]
-   > Der Azure-PostgreSQL-Server kommuniziert über Port 5432. Wenn Sie versuchen, eine Verbindung aus einem Unternehmensnetzwerk heraus herzustellen, wird der ausgehende Datenverkehr über Port 5432 von der Firewall Ihres Netzwerks unter Umständen nicht zugelassen. In diesem Fall können Sie nur dann eine Verbindung mit Ihrem Azure SQL-Datenbank-Server herstellen, wenn Ihre IT-Abteilung Port 5432 öffnet.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Herstellen einer Verbindung mit der Datenbank mithilfe von psql in Cloud Shell
-
-Stellen Sie jetzt mit dem Befehlszeilen-Hilfsprogramm [psql](https://www.postgresql.org/docs/current/app-psql.html) eine Verbindung mit dem Azure Database for PostgreSQL-Server her.
-1. Starten Sie die Azure Cloud Shell über das Terminalsymbol im oberen Navigationsbereich.
-
-   ![Azure-Datenbank für PostgreSQL – Azure Cloud Shell-Terminalsymbol](./media/tutorial-design-database-hyperscale-multi-tenant/psql-cloud-shell.png)
-
-2. Die Azure Cloud Shell wird in Ihrem Browser geöffnet, sodass Sie Bash-Befehle eingeben können.
-
-   ![Azure-Datenbank für PostgreSQL – Azure Shell-Bash-Eingabeaufforderung](./media/tutorial-design-database-hyperscale-multi-tenant/psql-bash.png)
-
-3. Stellen Sie an der Cloud Shell-Eingabeaufforderung mit den psql-Befehlen eine Verbindung mit Ihrem Azure-Datenbank für PostgreSQL-Server her. Das folgende Format wird verwendet, um mit dem Hilfsprogramm [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) eine Verbindung mit einer Azure-Datenbank für PostgreSQL-Server herzustellen:
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Mit dem folgenden Befehl wird beispielsweise mit den Zugriffsanmeldeinformationen eine Verbindung mit der Standarddatenbank **citus** auf Ihrem PostgreSQL-Server **mydemoserver.postgres.database.azure.com** hergestellt. Geben Sie Ihr Serveradministrator-Kennwort ein, wenn Sie dazu aufgefordert werden.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Verwenden des psql-Hilfsprogramms zum Erstellen eines Schemas
 
@@ -250,7 +185,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 Bis jetzt wurden alle Tabellen nach `company_id` verteilt, aber einige Daten „gehören“ nicht selbstverständlich zu einem bestimmten Mandanten und können geteilt werden. Beispielsweise ist es denkbar, dass alle Firmen auf der Plattform für Beispielwerbeeinblendungen geografische Informationen für ihre Zielgruppe auf der Grundlage der IP-Adressen abrufen möchten.
 
-Erstellen Sie eine Tabelle zum Speichern von gemeinsam verwendeten geografischen Informationen. Führen Sie dies in psql aus:
+Erstellen Sie eine Tabelle zum Speichern von gemeinsam verwendeten geografischen Informationen. Führen Sie die folgenden Befehle in psql aus:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -268,7 +203,7 @@ Machen Sie als Nächstes `geo_ips` zu einer „Verweistabelle“, und speichern 
 SELECT create_reference_table('geo_ips');
 ```
 
-Laden Sie sie mit Beispieldaten. Achten Sie darauf, dies in psql in dem Verzeichnis auszuführen, in das Sie das Dataset heruntergeladen hatten.
+Laden Sie sie mit Beispieldaten. Achten Sie darauf, diesen Befehl in psql in dem Verzeichnis auszuführen, in das Sie das Dataset heruntergeladen hatten.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv
@@ -330,7 +265,7 @@ SELECT id
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-In den vorherigen Schritten haben Sie Azure-Ressourcen in einer Servergruppe erstellt. Wenn Sie diese Ressourcen nicht mehr benötigen, löschen Sie die Servergruppe. Drücken Sie die Schaltfläche *Löschen* auf der Seite *Übersicht* für Ihre Servergruppe. Wenn Sie auf einer Popupseite dazu aufgefordert werden, bestätigen Sie den Namen der Servergruppe, und klicken Sie abschließend auf die Schaltfläche *Löschen*.
+In den vorherigen Schritten haben Sie Azure-Ressourcen in einer Servergruppe erstellt. Wenn Sie diese Ressourcen nicht mehr benötigen, löschen Sie die Servergruppe. Klicken Sie auf der Seite *Übersicht* für Ihre Servergruppe auf die Schaltfläche *Löschen*. Wenn Sie auf einer Popupseite dazu aufgefordert werden, bestätigen Sie den Namen der Servergruppe, und klicken Sie abschließend auf die Schaltfläche *Löschen*.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

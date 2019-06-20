@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/18/2019
 ms.author: mlottner
 ms.openlocfilehash: 15e65c155a98ae12c156587735d34a16ed2c9109
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192656"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Untersuchen eines verdächtigen IoT-Geräts

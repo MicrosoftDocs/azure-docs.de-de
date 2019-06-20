@@ -67,9 +67,9 @@
 - name: Verweis
   items:
     - name: Bing-Bildersuche-API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference'
     - name: Bing-Bildersuche-API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference'
     - name: Azure PowerShell-Referenz
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: Azure CLI-Referenz
@@ -115,3 +115,5 @@
       href: language-support.md
     - name: Analysen für Bing-Bildersuche-API
       href: bing-image-stats.md
+    - name: Compliance
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920447"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254647"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Verbessern der Leistung von Azure-Anwendungen mit Azure Advisor
 
@@ -93,6 +93,22 @@ Azure Advisor nutzt workloadbasierte Heuristik, z. B. das Verhältnis von Lese-
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skalieren des Azure MySQL-, Azure PostgreSQL- oder Azure MariaDB-Servers auf eine höhere SKU zur Verhinderung von Verbindungseinschränkungen
 Jede neue Verbindung mit dem Datenbankserver belegt Speicher. Die Leistung des Datenbankservers verschlechtert sich, wenn aufgrund einer [Obergrenze](https://docs.microsoft.com/azure/postgresql/concepts-limits) des Speichers Fehler bei Verbindungen mit dem Server auftreten. Azure Advisor identifiziert Server, bei denen viele Verbindungsfehler auftreten, und empfiehlt die Aktualisierung der Verbindungslimits des Servers durch zentrales Hochskalieren der Computegröße oder Verwendung von arbeitsspeicheroptimierten SKUs, die über eine höhere Computegröße pro Kern verfügen, um auf dem Server mehr Speicher bereitzustellen.
+
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Skalieren Ihres Caches auf eine andere Größe oder SKU, um die Cache- und Anwendungsleistung zu verbessern
+
+Cache-Instanzen funktionieren am besten, wenn sie nicht unter hoher Arbeitsspeicherauslastung, hoher Serverlast oder hoher Netzwerkbandbreite ausgeführt werden, da diese Faktoren dazu führen können, dass die Instanzen nicht mehr reagieren oder nicht mehr verfügbar sind. Auch Datenverluste sind möglich. Advisor erkennt entsprechende Cache-Instanzen und empfiehlt entweder die Anwendung bewährter Methoden, um die Arbeitsspeicherauslastung, Serverlast oder Netzwerkbandbreite zu verringern, oder die Skalierung auf eine andere Größe oder SKU mit mehr Kapazität.
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Hinzufügen von Regionen mit Datenverkehr zu Ihrem Azure Cosmos DB-Konto
+
+Advisor erkennt Azure Cosmos DB-Konten mit Datenverkehr aus einer derzeit nicht konfigurierten Region und empfiehlt, diese Region hinzuzufügen. Dies dient zur Verbesserung der Wartezeit für Anforderungen aus der betreffenden Region und gewährleistet die Verfügbarkeit im Falle von Regionsausfällen. Weitere Informationen zur globalen Datenverteilung mit Azure Cosmos DB finden Sie [hier](https://aka.ms/cosmos/globaldistribution).
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Konfigurieren Ihrer Azure Cosmos DB-Indizierungsrichtlinie mit benutzerdefinierten eingeschlossenen oder ausgeschlossenen Pfaden
+
+Azure Advisor erkennt Cosmos DB-Container, die die standardmäßige Indizierungsrichtlinie verwenden, aber von einer benutzerdefinierten Indizierungsrichtlinie profitieren könnten (basierend auf dem Workloadmuster). Die standardmäßige Indizierungsrichtlinie indiziert sämtliche Eigenschaften. Durch die Verwendung einer benutzerdefinierten Indizierungsrichtlinie mit expliziten ein- bzw. ausgeschlossenen Pfaden für Abfragefilter lassen sich die Anforderungseinheiten und der Speicherbedarf für die Indizierung verringern. Weitere Informationen zum Ändern von Indizierungsrichtlinien finden Sie [hier](https://aka.ms/cosmosdb/modify-index-policy).
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Festlegen der Azure Cosmos DB-Abfrageseitengröße (MaxItemCount) auf „-1“ 
+
+Azure Advisor erkennt Azure Cosmos DB-Container, die die Abfrageseitengröße „100“ verwenden, und empfiehlt die Verwendung der Seitengröße „-1“, um Scanvorgänge zu beschleunigen. Weitere Informationen zur maximalen Elementanzahl finden Sie [hier](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Zugreifen auf Advisor-Empfehlungen zur Leistung
 

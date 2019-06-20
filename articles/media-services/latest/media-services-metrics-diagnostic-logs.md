@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785084"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964769"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Überwachen von Media Services-Metriken und -Diagnoseprotokollen
 
-[Azure Monitor](../../azure-monitor/overview.md) ermöglicht Ihnen die Überwachung von Metriken und Diagnoseprotokollen, die Ihnen zu verstehen helfen, wie sich Ihre Anwendungen verhalten. Alle von Azure Monitor gesammelten Daten gehören einem von zwei Grundtypen an, Metriken und Protokollen. Sie können Media Services-Diagnoseprotokolle überwachen sowie Warnungen und Benachrichtigungen für die gesammelten Metriken und Protokolle erstellen. Sie können die Metrikdaten mit dem [Metrik-Explorer](../../azure-monitor/platform/metrics-getting-started.md) visualisieren und analysieren. Sie können Protokolle an [Azure Storage](https://azure.microsoft.com/services/storage/) senden, sie an [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) streamen und in [Log Analytics](https://azure.microsoft.com/services/log-analytics/) exportieren oder Dienste von Drittanbietern nutzen.
+[Azure Monitor](../../azure-monitor/overview.md) ermöglicht Ihnen die Überwachung von Metriken und Diagnoseprotokollen, die Ihnen zu verstehen helfen, wie sich Ihre Anwendungen verhalten. Alle von Azure Monitor gesammelten Daten gehören einem von zwei Grundtypen an: Metriken und Protokollen. Sie können Media Services-Diagnoseprotokolle überwachen sowie Warnungen und Benachrichtigungen für die gesammelten Metriken und Protokolle erstellen. Sie können die Metrikdaten mit dem [Metrik-Explorer](../../azure-monitor/platform/metrics-getting-started.md) visualisieren und analysieren. Sie können Protokolle an [Azure Storage](https://azure.microsoft.com/services/storage/) senden, sie an [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) streamen und in [Log Analytics](https://azure.microsoft.com/services/log-analytics/) exportieren oder Dienste von Drittanbietern nutzen.
 
 Eine ausführliche Übersicht finden Sie unter [Azure Monitor-Metrik](../../azure-monitor/platform/data-platform.md) und [Azure Monitor-Diagnoseprotokolle](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
@@ -34,11 +34,11 @@ Metriken werden in regelmäßigen Abständen gesammelt, unabhängig davon, ob si
 
 Derzeit werden die folgenden Metriken der Media Services-[Streamingendpunkte](https://docs.microsoft.com/rest/api/media/streamingendpoints) von Azure ausgegeben:
 
-|NAME|BESCHREIBUNG|
-|---|---|
-|Requests|Liefert Details zur Gesamtzahl der Anforderungen, die durch Streamingendpunkte verarbeitet werden.|
-|Ausgehende Daten|Gesamtzahl der ausgehenden Bytes. Beispiel: Vom Streamingendpunkt gestreamte Bytes.|
-|End-to-End-Wartezeit bei Erfolg| Bietet Informationen über die End-to-End-Wartezeit erfolgreicher Anforderungen.|
+|Metrik|`Display name`|BESCHREIBUNG|
+|---|---|---|
+|Requests|Requests|Liefert Details zur Gesamtzahl der Anforderungen, die durch Streamingendpunkte verarbeitet werden.|
+|Ausgehende Daten|Ausgehende Daten|Gesamtzahl der ausgehenden Bytes. Beispiel: Vom Streamingendpunkt gestreamte Bytes.|
+|SuccessE2ELatency|End-to-End-Wartezeit bei Erfolg| Bietet Informationen über die End-to-End-Wartezeit erfolgreicher Anforderungen.|
 
 Sie würden z. B. den folgenden `az monitor metrics` CLI-Befehl ausführen, um Metriken „ausgehender Daten“ abzurufen:
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Beispiel: 
+Beispiel:
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \

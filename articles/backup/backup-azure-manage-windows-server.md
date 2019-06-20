@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268871"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66688898"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Überwachen und Verwalten von Recovery Services-Tresoren
 
@@ -30,7 +30,7 @@ Die Voraussetzungen für diesen Artikel sind: ein Azure-Abonnement, ein Recovery
 
 Öffnen Sie den Tresor, um Warnungen zu überwachen oder Verwaltungsdaten zu einem Recovery Services-Tresor anzuzeigen.
 
-1. Melden Sie sich mit Ihrem Azure-Abonnement am [Azure-Portal](https://portal.azure.com/) an.
+1. Melden Sie sich unter Verwendung Ihres Azure-Abonnements beim [Azure-Portal](https://portal.azure.com/) an.
 
 2. Klicken Sie im Portal auf **Alle Dienste**.
 
@@ -156,7 +156,7 @@ Wählen Sie den Schweregrad der Warnung aus (kritische Warnung oder allgemeine W
 
 ## <a name="manage-backup-items"></a>Verwalten von Sicherungselementen
 
-In einem Recovery Services-Tresor werden viele Arten von Sicherungsdaten gespeichert. Eine vollständige Liste der Sicherungstypen finden Sie unter [Welche Anwendungen und Workloads können gesichert werden?](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) Um die verschiedenen Server, Computer, Datenbanken und Workloads zu verwalten, klicken Sie auf die Kachel **Sicherungselemente**, um den Inhalt des Tresors anzuzeigen.
+In einem Recovery Services-Tresor werden viele Arten von Sicherungsdaten gespeichert. [Erfahren Sie mehr](backup-overview.md#what-can-i-back-up) über die Elemente, die Sie sichern können. Um die verschiedenen Server, Computer, Datenbanken und Workloads zu verwalten, klicken Sie auf die Kachel **Sicherungselemente**, um den Inhalt des Tresors anzuzeigen.
 
 ![Kachel „Sicherungselemente“](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -221,7 +221,7 @@ Der Elementtyp ist der Sicherungsverwaltungstyp der geschützten Instanz. Es gib
 Sie können einen Vorgang oder alle Vorgänge anzeigen. Sie können nicht zwei oder drei Vorgänge auswählen. Die verfügbaren Vorgänge sind:
 
 * Alle Vorgänge
-* Register 
+* Register
 * Konfigurieren der Sicherung
 * Backup
 * Restore

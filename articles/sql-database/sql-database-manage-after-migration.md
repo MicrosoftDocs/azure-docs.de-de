@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358414"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357328"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Neuer DBA in der Cloud: Verwalten Ihrer Einzel- und Pooldatenbanken in Azure SQL-Datenbank
 
@@ -29,6 +29,7 @@ Der Umstieg von der herkömmlichen, selbstverwalteten, automatisch gesteuerten U
 
 Dieser Artikel behandelt einige der Hauptmerkmale von Azure SQL-Datenbank als Plattform, die bei der Arbeit mit Einzel- und Pooldatenbanken in Pools für elastische Datenbanken optimale Unterstützung bietet. darunter:
 
+- Überwachen von Datenbanken über das Azure-Portal
 - Geschäftskontinuität und Notfallwiederherstellung (Business Continuity Disaster Recovery, BCDR)
 - Sicherheit und Compliance
 - Intelligente Datenbanküberwachung und -wartung
@@ -36,6 +37,25 @@ Dieser Artikel behandelt einige der Hauptmerkmale von Azure SQL-Datenbank als Pl
 
 > [!NOTE]
 > Dieser Artikel gilt für die folgenden Bereitstellungsoptionen in Azure SQL-Datenbank: einzelne Datenbanken und Pools für elastische Datenbanken. Er gilt nicht für die Bereitstellungsoption „Verwaltete Instanz“ in SQL-Datenbank.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Überwachen von Datenbanken über das Azure-Portal
+
+Im [Azure-Portal](https://portal.azure.com/) können Sie die Nutzung einer einzelnen Datenbank überwachen, indem Sie die Datenbank auswählen und auf das Diagramm **Überwachung** klicken. Dadurch wird das Fenster **Metrik** geöffnet, in dem Sie durch Klicken auf die Schaltfläche **Diagramm bearbeiten** Änderungen vornehmen können. Fügen Sie die folgenden Metriken hinzu:
+
+- CPU-Prozentsatz
+- DTU-Prozentsatz
+- E/A-Prozentsatz für Daten
+- Datenbankgröße als Prozentsatz
+
+Nachdem Sie diese Metriken hinzugefügt haben, können Sie sie im Diagramm **Überwachung** mit weiteren Informationen im Fenster **Metrik** anzeigen. Alle vier Metriken geben die durchschnittliche prozentuale Nutzung relativ zur **DTU** der Datenbank an. In den Artikeln [DTU-basiertes Kaufmodell für Azure SQL-Datenbank](sql-database-service-tiers-dtu.md) und [vCore-basiertes Kaufmodell](sql-database-service-tiers-vcore.md) finden Sie weitere Informationen zu Dienstebenen.  
+
+![Tarifbezogenes Überwachen der Datenbankleistung.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+Sie können zudem Benachrichtigungen für die Leistungsmetriken konfigurieren. Klicken Sie im Fenster **Metrik** auf die Schaltfläche **Warnung hinzufügen**. Befolgen Sie die Anweisungen des Assistenten, um die Benachrichtigung zu konfigurieren. Sie haben die Möglichkeit, Benachrichtigungen für den Fall zu konfigurieren, dass Metriken einen Schwellenwert überschreiten oder unterschreiten.
+
+Wenn Sie beispielsweise einen Anstieg der Workload Ihrer Datenbank erwarten, können Sie eine E-Mail-Benachrichtigung konfigurieren, die immer dann gesendet wird, wenn eine der Leistungsmetriken der Datenbank 80 % erreicht. Sie können dies als Frühwarnung verwenden, um zu ermitteln, wann Sie eventuell zur nächsthöheren Computegröße wechseln müssen.
+
+Anhand der Leistungsmetriken können Sie auch ermitteln, ob Sie möglicherweise eine Herabstufung auf eine niedrigere Computegröße vornehmen können. Angenommen, Sie verwenden eine Datenbank der Dienstebene "Standard S2", und alle Leistungsmetriken zeigen, dass die Datenbank zu jedem Zeitpunkt durchschnittlich nicht mehr als 10 % nutzt. Hier ist es wahrscheinlich, dass sich die Datenbank auch mit der Dienstebene "Standard S1" verwenden lässt. Bevor Sie sich für einen Wechsel zu einer niedrigeren Computegröße entscheiden, müssen Sie aber auch Workloads berücksichtigen, die Spitzen oder Schwankungen aufweisen können.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Geschäftskontinuität und Notfallwiederherstellung (Business Continuity Disaster Recovery, BCDR)
 
@@ -127,7 +147,7 @@ Sie können auch [reservierte IP-Adressen](../virtual-network/virtual-networks-r
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Über welchen Port werden Verbindungen mit SQL-Datenbank hergestellt?
 
-Über Port 1433. SQL-Datenbank kommuniziert über diesen Port. Um Verbindungen aus einem Unternehmensnetzwerk herzustellen, müssen Sie in den Firewalleinstellungen Ihrer Organisation eine ausgehende Regel hinzufügen. Port 1433 sollte grundsätzlich nicht außerhalb von Azure verfügbar gemacht werden. SSMS kann in Azure mithilfe der [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps) ausgeführt werden. Dafür müssen Sie keine ausgehenden Verbindungen mit Port 1433 öffnen. Die IP-Adresse ist statisch, sodass die Datenbank nur für die RemoteApp geöffnet sein kann. Außerdem unterstützt sie die mehrstufige Authentifizierung (Multi Factor Authentication, MFA).
+Über Port 1433. SQL-Datenbank kommuniziert über diesen Port. Um Verbindungen aus einem Unternehmensnetzwerk herzustellen, müssen Sie in den Firewalleinstellungen Ihrer Organisation eine ausgehende Regel hinzufügen. Port 1433 sollte grundsätzlich nicht außerhalb von Azure verfügbar gemacht werden.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Wie werden Aktivitäten auf dem Server und in der Datenbank in SQL-Datenbank überwacht und geregelt?
 
@@ -152,7 +172,7 @@ Zum Schutz sensibler Daten, die aktiv oder ruhend sein können, bietet SQL-Daten
 |**Merkmale**|**Always Encrypted**|**Transparente Datenverschlüsselung (TDE)**|
 |---|---|---|
 |**Umfang der Verschlüsselung**|Komplettlösung|Ruhende Daten|
-|**Datenbankserver kann auf sensible Daten zuzugreifen.**|Nein |Ja, da die Verschlüsselung ruhende Daten betrifft.|
+|**Datenbankserver kann auf sensible Daten zuzugreifen.**|Nein|Ja, da die Verschlüsselung ruhende Daten betrifft.|
 |**Zulässige T-SQL-Vorgänge**|Übereinstimmungsvergleich|Die gesamte T-SQL-Oberfläche ist verfügbar.|
 |**Sind zur Verwendung der Funktion Änderungen an Apps erforderlich?**|Wenig|Sehr wenig|
 |**Granularität der Verschlüsselung**|Spaltenebene|Datenbankebene|
@@ -160,7 +180,7 @@ Zum Schutz sensibler Daten, die aktiv oder ruhend sein können, bietet SQL-Daten
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Wie wird der Zugriff auf sensible Daten in der Datenbank beschränkt?
 
-Jede Anwendung verfügt zu einem gewissen Grad über sensible Daten in der Datenbank, die vor unbefugtem Zugriff geschützt werden müssen. Bestimmte Mitarbeiter innerhalb der Organisation benötigen Zugang zu diesen Daten, während sie anderen verborgen bleiben sollten. Ein Beispiel sind Mitarbeitergehälter. Ein Vorgesetzter muss auf die Gehaltsinformationen seiner Mitarbeiter zugreifen können, einzelne Teammitglieder dürfen allerdings keinen Zugang zu den Gehaltsinformationen ihrer Kollegen haben. In einem weiteren Szenario könnten Datenentwickler in der Entwicklungs- oder Testphase mit sensiblen Daten interagieren, z. B. mit Sozialversicherungsnummern von Kunden. Auch diese Informationen müssen dem Entwickler nicht verfügbar gemacht werden. In diesen Fällen müssen Ihre sensiblen Daten entweder maskiert oder überhaupt nicht bereitgestellt werden. SQL-Datenbank bietet zwei Methoden, um nicht autorisierten Benutzern den Zugang zu sensiblen Daten zu verweigern:
+Jede Anwendung verfügt zu einem gewissen Grad über sensible Daten in der Datenbank, die vor unbefugtem Zugriff geschützt werden müssen. Bestimmte Mitarbeiter innerhalb der Organisation benötigen Zugang zu diesen Daten, während sie anderen verborgen bleiben sollten. Ein Beispiel sind Mitarbeitergehälter. Ein Vorgesetzter muss auf die Gehaltsinformationen seiner Mitarbeiter zugreifen können; einzelne Teammitglieder dürfen allerdings keinen Zugang zu den Gehaltsinformationen ihrer Kollegen haben. In einem weiteren Szenario könnten Datenentwickler in der Entwicklungs- oder Testphase mit sensiblen Daten interagieren, z. B. mit Sozialversicherungsnummern von Kunden. Auch diese Informationen müssen dem Entwickler nicht verfügbar gemacht werden. In diesen Fällen müssen Ihre sensiblen Daten entweder maskiert oder überhaupt nicht bereitgestellt werden. SQL-Datenbank bietet zwei Methoden, um nicht autorisierten Benutzern den Zugang zu sensiblen Daten zu verweigern:
 
 Die [dynamische Datenmaskierung](sql-database-dynamic-data-masking-get-started.md) ist eine Funktion zum Maskieren von Daten, mit der Sie die Offenlegung sensibler Daten beschränken können. So werden die Daten auf der Anwendungsschicht für nicht berechtigte Benutzer maskiert. Sie definieren eine Maskierungsregel, die ein Maskierungsmuster erstellen (z.B. zum Anzeigen nur der letzten vier Ziffern einer nationalen ID-SSN in der Form: XXX-XX-0000 und Markieren des größten Teils als „X“) und ermitteln kann, welche Benutzer von der Maskierungsregel ausgeschlossen werden sollen. Die Daten werden dynamisch maskiert. Für die verschiedenen Datenkategorien stehen mehrere Maskierungsfunktionen zur Verfügung. Dank der dynamischen Datenmaskierung können sensible Daten in Ihrer Datenbank automatisch erkannt und maskiert werden.
 
@@ -313,7 +333,7 @@ SQL-Datenbank nutzt intelligente Technologien, mit denen bestimmte Datenbeschäd
 Hier gibt mehrere Möglichkeiten:
 
 - **[Datensynchronisierung](sql-database-sync-data.md)** – Diese Funktion unterstützt Sie bei der bidirektionalen Synchronisierung von Daten zwischen mehreren lokalen SQL Server-Datenbanken und SQL-Datenbank. Um Daten mit lokalen SQL Server-Datenbanken zu synchronisieren, müssen Sie den Synchronisierungs-Agent auf einem lokalen Computer installieren und konfigurieren und den ausgehenden TCP-Port 1433 öffnen.
-- **[Transaktionsreplikation](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**: Mit der Transaktionsreplikation können Sie Ihre lokalen Daten mit Azure SQL DB synchronisieren. Dabei stellt die lokale Umgebung den Verleger und Azure SQL DB den Abonnenten dar. Zurzeit wird nur dieses Szenario unterstützt. Weitere Informationen dazu, wie Sie Daten mit minimaler Ausfallzeit aus der lokalen Infrastruktur zu Azure SQL migrieren, finden Sie unter: [Verwenden der Transaktionsreplikation](sql-database-single-database-migrate.md#method-2-use-transactional-replication).
+- **[Transaktionsreplikation](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** : Mit der Transaktionsreplikation können Sie Ihre lokalen Daten mit Azure SQL DB synchronisieren. Dabei stellt die lokale Umgebung den Verleger und Azure SQL DB den Abonnenten dar. Zurzeit wird nur dieses Szenario unterstützt. Weitere Informationen dazu, wie Sie Daten mit minimaler Ausfallzeit aus der lokalen Infrastruktur zu Azure SQL migrieren, finden Sie unter: [Verwenden der Transaktionsreplikation](sql-database-single-database-migrate.md#method-2-use-transactional-replication).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

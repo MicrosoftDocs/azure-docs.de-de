@@ -15,11 +15,11 @@ ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c82c5c74fe13bad99528486be69089df5f477457
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60708582"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>OS-Sicherung und -Wiederherstellung für Typ-II-SKUs
 

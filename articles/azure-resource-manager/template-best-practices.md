@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440471"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60389575"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Bewährte Methoden für Azure Resource Manager-Vorlagen
 
@@ -36,7 +36,7 @@ Außerdem gelten folgenden Beschränkungen:
 * 256 Variablen
 * 800 Ressourcen (einschließlich copy-Anzahl)
 * 64 Ausgabewerte
-* 24.576 Zeichen in einem Vorlagenausdruck
+* 24\.576 Zeichen in einem Vorlagenausdruck
 
 Sie können einige Vorlagengrenzwerte überschreiten, indem Sie eine geschachtelte Vorlage verwenden. Weitere Informationen finden Sie unter [Verwenden von verknüpften Vorlagen bei der Bereitstellung von Azure-Ressourcen](resource-group-linked-templates.md). Um die Anzahl von Parametern, Variablen oder Ausgaben zu reduzieren, können Sie mehrere Werte in einem Objekt kombinieren. Weitere Informationen finden Sie unter [Objekte als Parameter](resource-manager-objects-as-parameters.md).
 

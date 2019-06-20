@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60591794"
 ---
 # <a name="sqlfilter-syntax"></a>SqlFilter-Syntax
 

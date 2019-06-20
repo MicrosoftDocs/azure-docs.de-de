@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 10/01/2016
+ms.date: 5/6/2019
 ms.author: crdun
-ms.openlocfilehash: 805868617fe7161159c72ba53ac0c94247722ac9
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72fd043321aefe74e95b34ec24c7be2ffd409439
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765966"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240329"
 ---
 # <a name="create-an-android-app"></a>Erstellen einer Android-App
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -33,16 +33,16 @@ Das Absolvieren dieses Lernprogramms ist Voraussetzung für alle anderen Android
 Für dieses Tutorial benötigen Sie Folgendes:
 
 * Die [Android Developer Tools](https://developer.android.com/sdk/index.html) mit der integrierten Entwicklungsumgebung Android Studio sowie der neuesten Android-Plattform
-* Azure Mobile Android SDK, das automatisch als Teil des heruntergeladenen Schnellstartprojekts referenziert ist
+* Azure Mobile Android SDK.
 * Ein [aktives Azure-Konto](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Erstellen eines neuen mobilen Azure-App-Back-Ends
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-the-server-project"></a>Konfigurieren des Serverprojekts
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Erstellen einer Datenbankverbindung und Konfigurieren des Client- und Serverprojekts
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-android-app"></a>Herunterladen und Ausführen der Android-App
+## <a name="run-the-android-app"></a>Ausführen der Android-App
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- URLs -->

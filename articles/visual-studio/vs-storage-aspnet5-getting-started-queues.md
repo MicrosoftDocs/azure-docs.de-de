@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
 ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999768"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60508472"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Erste Schritte mit Queue Storage und verbundenen Visual Studio-Diensten (ASP.NET Core)
 

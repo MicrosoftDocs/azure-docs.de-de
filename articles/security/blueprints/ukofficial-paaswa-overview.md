@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482984"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66753861"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-Blaupause für Sicherheit und Compliance: Hosten von PaaS-Webanwendungen für UK OFFICIAL-Workloads
 
@@ -125,7 +125,7 @@ Azure SQL-Datenbank in dieser Vorlage
 
 In der Azure SQL-Datenbankinstanz werden die folgenden Datenbanksicherheitsmaßnahmen verwendet:
 
-- [Firewallregeln auf Server- oder Datenbankebene](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) oder über [Dienstendpunkte im virtuellen Netzwerk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) mit [Regeln für virtuelle Netzwerke](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
+- [Firewallregeln auf Server- oder Datenbankebene](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) oder über [VNET-Dienstendpunkte](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) mit [VNET-Regeln](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
 - [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) trägt zum Schutz von Azure SQL-Datenbank und Azure Data Warehouse vor der Bedrohung durch schädliche Aktivitäten bei. TDE ver- und entschlüsselt die Datenbank, die zugehörigen Sicherungen und die Transaktionsprotokolldateien im Ruhezustand in Echtzeit, ohne dass Änderungen an der Anwendung erforderlich sind.
 - Mithilfe der [Azure AD-Authentifizierung](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) können Sie die Identitäten von Datenbankbenutzern und anderen Microsoft-Diensten an einem zentralen Ort verwalten. Die zentrale ID-Verwaltung ermöglicht eine einheitliche Verwaltung von Datenbankbenutzern und vereinfacht die Berechtigungsverwaltung.
 - Verwenden von Azure Active Directory für die Datenbankverwaltung
@@ -191,7 +191,7 @@ In dieser Vorlage werden die folgenden Application Insights-Komponenten verwende
 
 #### <a name="azure-activity-logs"></a>Azure-Aktivitätsprotokolle
 
-Mit [Azure-Aktivitätsprotokollen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log) werden Ereignisse auf Steuerungsebene für Ihre Abonnements überwacht. Mit dem Aktivitätsprotokoll können Sie die Antworten auf die Fragen „Was“, „Wer“ und „Wann“ für alle Schreibvorgänge (PUT, POST, DELETE) ermitteln, die für die Ressourcen Ihres Abonnements durchgeführt wurden. Sie können auch den Status des Vorgangs und andere relevante Eigenschaften verstehen.
+Mit [Azure-Aktivitätsprotokollen](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) werden Ereignisse auf Steuerungsebene für Ihre Abonnements überwacht. Mit dem Aktivitätsprotokoll können Sie die Antworten auf die Fragen „Was“, „Wer“ und „Wann“ für alle Schreibvorgänge (PUT, POST, DELETE) ermitteln, die für die Ressourcen Ihres Abonnements durchgeführt wurden. Sie können auch den Status des Vorgangs und andere relevante Eigenschaften verstehen.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;cenkdin
 ms.openlocfilehash: 5b023a152cf93ec6ff688674e991ad55db215965
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309488"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60767811"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Erstellen von Filtern mit der Azure Media Services-REST-API 
 > [!div class="op_single_selector"]

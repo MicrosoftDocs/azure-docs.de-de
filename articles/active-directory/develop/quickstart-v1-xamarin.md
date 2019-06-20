@@ -3,8 +3,8 @@ title: Erste Schritte in Azure AD Xamarin | Microsoft-Dokumentation
 description: Erstellen Sie Xamarin-Anwendungen, die für die Anmeldung in Azure AD integriert sind und über OAuth durch Azure AD geschützte APIs aufrufen.
 services: active-directory
 documentationcenter: xamarin
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881884"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121914"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Schnellstart: Erstellen einer Xamarin-App, die die Microsoft-Anmeldung integriert
 
@@ -57,14 +57,14 @@ Damit Ihre Anwendung Token abrufen kann, müssen Sie sie zunächst bei Ihrem Azu
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
 2. Klicken Sie auf der oberen Leiste auf Ihr Konto. Wählen Sie dann in der Liste **Verzeichnis** den Active Directory-Mandanten aus, bei dem Sie die App registrieren möchten.
 3. Klicken Sie im linken Bereich auf **Alle Dienste**, und wählen Sie **Azure Active Directory** aus.
-4. Klicken Sie auf **App-Registrierungen**, und wählen Sie **Hinzufügen** aus.
-5. Folgen Sie den Bildschirmaufforderungen, und erstellen Sie eine neue **native Clientanwendung**.
+4. Klicken Sie auf **App-Registrierungen**, und wählen Sie dann **Registrierung einer neuen Anwendung** aus.
+5. Folgen Sie den Eingabeaufforderungen, um eine neue Clientanwendung zu erstellen.
    * **Name** enthält eine Beschreibung der App für Benutzer.
+   * Wählen Sie unter **Unterstützte Kontotypen** **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten** aus.
    * **Umleitungs-URI** ist eine Kombination aus einem Schema und einer Zeichenfolge, die Azure AD für die Rückgabe der Tokenantworten verwendet. Geben Sie einen Wert ein (beispielsweise `http://DirectorySearcher`).
 6. Nach Abschluss der Registrierung weist Azure AD der App eine eindeutige Anwendungs-ID zu. Kopieren Sie den Wert auf der Registerkarte **Anwendung**, da Sie ihn später benötigen.
-7. Wählen Sie auf der Seite **Einstellungen** zunächst **Erforderliche Berechtigungen** und dann **Hinzufügen** aus.
-8. Wählen Sie **Microsoft Graph** als API aus. Fügen Sie unter **Delegierte Berechtigungen** die Berechtigung **Verzeichnisdaten lesen** hinzu. 
-   Mit dieser Berechtigung kann die App die Graph-API auf Benutzer abfragen.
+7. Wählen Sie auf der Seite **API-Berechtigungen** die Option **Berechtigung hinzufügen** aus. Wählen Sie in **Hiermit wählen Sie eine API aus** die Option ***Microsoft Graph*** aus.
+8. Wählen Sie unter **Delegierte Berechtigungen** die Berechtigung **User.Read** aus, und klicken Sie dann auf **Hinzufügen**, um den Vorgang zu speichern. Mit dieser Berechtigung kann die Anwendung die Azure AD Graph-API nach Benutzern abfragen.
 
 ## <a name="step-3-install-and-configure-adal"></a>Schritt 3: Installieren und Konfigurieren der ADAL
 

@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
 ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60387407"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Verwenden der Azure Active Directory-Authentifizierung für die Authentifizierung mit SQL
 

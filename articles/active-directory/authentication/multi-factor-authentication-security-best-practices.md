@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60357977"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Sicherheitsanleitung zur Verwendung von Azure Multi-Factor Authentication mit Azure AD-Konten
 
@@ -112,7 +112,7 @@ In der Liste sind zusätzliche Überlegungen und Anleitungen für jede Komponent
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Artikel sind einige bewährte Methoden für Azure MFA beschrieben. Zusätzlich sind weitere Ressourcen verfügbar, die Sie bei der Planung Ihrer MFA-Bereitstellung nutzen können.  In der nachfolgenden Liste sind einige wichtige Artikel aufgeführt, die Sie bei diesen Aufgaben unterstützen können:
+In diesem Artikel sind einige bewährte Methoden für Azure MFA beschrieben. Zusätzlich sind weitere Ressourcen verfügbar, die Sie bei der Planung Ihrer MFA-Bereitstellung nutzen können. In der nachfolgenden Liste sind einige wichtige Artikel aufgeführt, die Sie bei diesen Aufgaben unterstützen können:
 
 * [Berichte in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
 * [Einrichten meines Kontos für die zweistufige Überprüfung](../user-help/multi-factor-authentication-end-user-first-time.md)

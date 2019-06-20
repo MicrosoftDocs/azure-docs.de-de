@@ -3,18 +3,18 @@ title: Kennenlernen der Benutzeroberfläche von Azure IoT Central | Microsoft-Do
 description: Machen Sie sich als Ersteller mit den wichtigsten Bereichen der Benutzeroberfläche von Azure IoT Central vertraut, die Sie zur Erstellung von IoT-Lösungen verwenden.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 53306b2087a47f5a61fc2a228e2d1f527127f746
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233449"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476321"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Kennenlernen der Benutzeroberfläche von Azure IoT Central
 
@@ -63,7 +63,9 @@ Sie können zwischen einem hellen und einem dunklen Benutzeroberflächendesign w
 
 ![Dashboard](media/overview-iot-central-tour/homepage.png)
 
-Nach der Anmeldung bei Ihrer Azure IoT Central-Anwendung wird als Erstes das Dashboard angezeigt. Als Ersteller können Sie das Anwendungsdashboard für andere Benutzer anpassen, indem Sie Kacheln hinzufügen. Weitere Informationen finden Sie im Tutorial [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) (Anpassen der Azure IoT Central-Ansicht für Bediener). Benutzer können auch [ihre eigenen Dashboards erstellen](howto-personalize-dashboard.md).
+* Nach der Anmeldung bei Ihrer Azure IoT Central-Anwendung wird als Erstes das Dashboard angezeigt. Als Ersteller können Sie das Anwendungsdashboard für andere Benutzer anpassen, indem Sie Kacheln hinzufügen. Weitere Informationen finden Sie im Tutorial [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) (Anpassen der Azure IoT Central-Ansicht für Bediener).
+
+* Als Bediener können Sie personalisierte Dashboards erstellen und zwischen diesen und dem Standarddashboard wechseln. Weitere Informationen finden Sie in der Anleitung [Erstellen und Verwalten persönlicher Dashboards](howto-personalize-dashboard.md).
 
 ## <a name="device-explorer"></a>Device Explorer
 
@@ -96,19 +98,26 @@ Auf der Seite „Aufträge“ können Sie Massenvorgänge für die Geräteverwal
 
 ![Seite „Gerätevorlagen“](media/overview-iot-central-tour/templates.png)
 
-Auf der Seite „Gerätevorlagen“ können Ersteller die Gerätevorlagen in der Anwendung erstellen und verwalten. Weitere Informationen finden Sie im Tutorial [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) (Definieren eines neuen Gerätetyps in Ihrer Azure IoT Central-Anwendung).
+Auf der Seite „Gerätevorlagen“ können Ersteller die Gerätevorlagen in der Anwendung erstellen und verwalten. In einer Gerätevorlage werden spezielle Geräteeigenschaften angegeben, z.B. die folgenden:
+
+- Telemetriedaten, Status und Ereignismessungen.
+- Einstellungen und Eigenschaften.
+- Befehle.
+- Regeln auf Grundlage von Ereignissen oder Telemetriewerten.
+
+Weitere Informationen finden Sie im Tutorial [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) (Definieren eines neuen Gerätetyps in Ihrer Azure IoT Central-Anwendung).
 
 ## <a name="continuous-data-export"></a>Kontinuierlicher Datenexport
 
 ![Seite „Kontinuierlicher Datenexport“](media/overview-iot-central-tour/export.png)
 
-Auf der Seite „Kontinuierlicher Datenexport“ können Administratoren definieren, wie Daten (beispielsweise Telemetriedaten) aus der Anwendung exportiert werden sollen. Die exportierten Daten können von anderen Diensten gespeichert oder zu Analysezwecken genutzt werden. Weitere Informationen finden Sie im Artikel [Exportieren von Daten in Azure IoT Central](howto-export-data.md).
+Auf der Seite „Kontinuierlicher Datenexport“ können Administratoren definieren, wie Daten (beispielsweise Telemetriedaten) aus der Anwendung gestreamt werden sollen. Die exportierten Daten können von anderen Diensten gespeichert oder zu Analysezwecken genutzt werden. Weitere Informationen finden Sie im Artikel [Exportieren von Daten in Azure IoT Central](howto-export-data.md).
 
 ## <a name="administration"></a>Verwaltung
 
 ![Verwaltungsseite](media/overview-iot-central-tour/administration.png)
 
-Die Verwaltungsseite enthält Links zu den Tools, die ein Administrator verwendet, um beispielsweise Benutzer und Rollen in der Anwendung zu definieren. Weitere Informationen finden Sie im Artikel [How to administer your application](howto-administer.md) (Verwalten Ihrer Anwendung).
+Die Verwaltungsseite enthält Links zu den Tools, die ein Administrator verwendet, um beispielsweise Benutzer und Rollen in der Anwendung zu definieren oder die Benutzeroberfläche anzupassen. Weitere Informationen finden Sie im Artikel [How to administer your application](howto-administer.md) (Verwalten Ihrer Anwendung).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

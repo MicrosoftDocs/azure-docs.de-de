@@ -2,18 +2,18 @@
 title: Tutorial zu Kubernetes in Azure – Skalieren von Anwendungen
 description: In diesem Azure Kubernetes Service-Tutorial (AKS) erfahren Sie, wie Knoten und Pods im Kubernetes skaliert und die horizontale automatische Pod-Skalierung implementiert werden.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 74cd73cd7f9d5be9da552fb22ef2a2750ddc8321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 062e16c0d196cf91d6e0adde46ed973f1c0d1191
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029855"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304424"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Skalieren von Anwendungen in Azure Kubernetes Service (AKS)
 
@@ -83,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Um die automatische Skalierungsfunktion zu verwenden, müssen CPU-Anforderungen und -Grenzwerte Ihrer Pods definiert sein. In der `azure-vote-front`-Bereitstellung fordert der Front-End-Container bereits 0,25 CPU an, und es gilt ein Grenzwert von 0,5 CPU. Diese Ressourcenanforderungen und -grenzwerte sind so definiert, wie im folgenden Beispielcodeausschnitt gezeigt:
+Um die automatische Skalierungsfunktion zu verwenden, müssen für alle Container in Ihren Pods sowie für Ihre Pods CPU-Anforderungen und -Grenzwerte definiert sein. In der `azure-vote-front`-Bereitstellung fordert der Front-End-Container bereits 0,25 CPU an, und es gilt ein Grenzwert von 0,5 CPU. Diese Ressourcenanforderungen und -grenzwerte sind so definiert, wie im folgenden Beispielcodeausschnitt gezeigt:
 
 ```yaml
 resources:

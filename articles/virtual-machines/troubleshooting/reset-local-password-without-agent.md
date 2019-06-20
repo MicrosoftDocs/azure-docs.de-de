@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105606"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708132"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Zurücksetzen eines lokalen Windows-Kennworts im Offlinemodus für einen virtuellen Azure-Computer
 Sie können das lokale Windows-Kennwort eines virtuellen Computers in Azure im [Azure-Portal oder mithilfe von Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) zurücksetzen, sofern der Azure-Gast-Agent installiert ist. Diese Methode ist die einfachste Möglichkeit zum Zurücksetzen eines Kennworts für einen virtuellen Azure-Computer. Wenn der Azure-Gast-Agent nicht reagiert oder nach dem Hochladen eines benutzerdefinierten Images nicht installiert wird, können Sie ein Windows-Kennwort manuell zurücksetzen. In diesem Artikel wird erläutert, wie das Kennwort eines lokalen Kontos durch Anfügen des virtuellen Quellbetriebssystem-Datenträgers an einen anderen virtuellen Computer zurückgesetzt wird. Die in diesem Artikel beschriebenen Schritte gelten nicht für Windows-Domänencontroller. 
@@ -106,7 +106,7 @@ Versuchen Sie zunächst immer, ein Kennwort im [Azure-Portal oder mithilfe von A
      ```
      
      ![Erstellen von „gpt.ini“](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Erstellen Sie `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Stellen Sie sicher, dass ausgeblendete Ordner angezeigt werden. Erstellen Sie gegebenenfalls den Ordner `Machine` oder `Scripts`.
+5. Erstellen Sie `scripts.ini` in `\Windows\System32\GroupPolicy\Machines\Scripts\`. Stellen Sie sicher, dass ausgeblendete Ordner angezeigt werden. Erstellen Sie gegebenenfalls den Ordner `Machine` oder `Scripts`.
    
    * Fügen Sie in der erstellten Datei `scripts.ini` die folgenden Zeilen ein:
      
@@ -156,7 +156,7 @@ Versuchen Sie zunächst immer, ein Kennwort im [Azure-Portal oder mithilfe von A
     
     * In „%windir%\System32“
       * Entfernen von „FixAzureVM.cmd“
-    * In „%windir%\System32\GroupPolicy\Machine\“
+    * Aus %windir%\System32\GroupPolicy\Machine\Scripts
       * Entfernen von „scripts.ini“
     * In „%windir%\System32\GroupPolicy“
       * Entfernen von „gpt.ini“ (Wenn „gpt.ini“ bereits vorhanden war und Sie die Datei in „gpt.ini.bak“ umbenannt haben, benennen Sie die BAK-Datei wieder in „gpt.ini“ um.)

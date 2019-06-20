@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341401"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60389921"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Beheben von Fehlern bei der Ressourcenanbieterregistrierung
 

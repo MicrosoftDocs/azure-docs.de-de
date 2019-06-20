@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Schnelle Kubernetes-Entwicklung mit Containern und Microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, Helm, Service Mesh, Service Mesh-Routing, kubectl, k8s '
-ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609074"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234006"
 ---
 # <a name="troubleshooting-guide"></a>Handbuch zur Problembehandlung
 
@@ -157,7 +157,7 @@ Dieser Fehler kann angezeigt werden, wenn „azds.exe“ nicht installiert oder 
 
 ### <a name="try"></a>Versuchen Sie Folgendes:
 
-1. Überprüfen Sie, ob „azds.exe“ in „%ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (Preview)“ vorhanden ist. Wenn ja, fügen Sie diesen Speicherort der PATH-Umgebungsvariablen hinzu.
+1. Überprüfen Sie, ob „azds.exe“ in „%ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI“ vorhanden ist. Wenn ja, fügen Sie diesen Speicherort der PATH-Umgebungsvariablen hinzu.
 2. Wenn „azds.exe“ nicht installiert ist, führen Sie den folgenden Befehl aus:
 
     ```cmd
@@ -228,7 +228,7 @@ Installieren Sie die [VS Code-Erweiterung für Azure Dev Spaces](get-started-net
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Debugfehler „Ungültiger ‚cwd‘-Wert ‚/src‘. Das System kann die angegebene Datei nicht finden.“ oder „launch: program ‚/src/[Pfad zur Projektbinärdatei]‘ ist nicht vorhanden“.
 Bei der Ausführung des VS Code-Debuggers wird der folgende Fehler gemeldet: `Invalid 'cwd' value '/src'. The system cannot find the file specified.` und/oder `launch: program '/src/[path to project executable]' does not exist`.
 
-### <a name="reason"></a>Grund
+### <a name="reason"></a>`Reason`
 Standardmäßig verwendet die VS Code-Erweiterung `src` als Arbeitsverzeichnis für das Projekt im Container. Wenn Sie Ihre `Dockerfile` aktualisiert haben, um ein anderes Arbeitsverzeichnis anzugeben, kann dieser Fehler angezeigt werden.
 
 ### <a name="try"></a>Versuchen Sie Folgendes:
@@ -236,7 +236,7 @@ Aktualisieren Sie die Datei `launch.json` unter dem Unterverzeichnis `.vscode` I
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Der Typ- oder Namespacename „MyLibrary“ konnte nicht gefunden werden
 
-### <a name="reason"></a>Grund 
+### <a name="reason"></a>`Reason` 
 Der Buildkontext befindet sich standardmäßig auf Projekt-/Dienstebene, aus diesem Grund kann ein verwendetes Bibliotheksprojekt nicht gefunden werden.
 
 ### <a name="try"></a>Versuchen Sie Folgendes:
@@ -251,7 +251,7 @@ Ein Beispiel finden Sie unter https://github.com/sgreenmsft/buildcontextsample
 Sie müssen in Ihrem Azure-Abonnement zum Verwalten von Azure Dev Spaces Zugriff als *Besitzer* oder *Mitwirkender* haben. Diese Fehlermeldung wird möglicherweise angezeigt, wenn Sie versuchen, Dev Spaces zu verwalten, und nicht über Zugriff als *Besitzer* oder *Mitwirkender* auf das zugehörige Azure-Abonnement verfügen.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
-### <a name="reason"></a>Grund
+### <a name="reason"></a>`Reason`
 Für das ausgewählte Azure-Abonnement ist der `Microsoft.DevSpaces`-Namespace nicht registriert.
 
 ### <a name="try"></a>Versuchen Sie Folgendes:
@@ -263,7 +263,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Dev Spaces-Timeout beim Schritt *Warten auf Containerimagebuild* mit virtuellen AKS-Knoten
 
-### <a name="reason"></a>Grund
+### <a name="reason"></a>`Reason`
 Dieses Timeout tritt auf, wenn Sie versuchen, mit Dev Spaces einen Dienst auszuführen, der für die Ausführung auf einem [virtuellen AKS-Knoten](https://docs.microsoft.com/azure/aks/virtual-nodes-portal) konfiguriert ist. Dev Spaces unterstützt derzeit nicht das Erstellen oder Debuggen von Diensten auf virtuellen Knoten.
 
 Wenn Sie `azds up` mit dem `--verbose`-Schalter ausführen oder ausführliche Protokollierung in Visual Studio aktivieren, finden Sie weitere Informationen unter:
@@ -293,10 +293,20 @@ Dieser Fehler tritt auf, wenn der Helm-Client nicht mehr mit dem im Cluster ausg
 ### <a name="try"></a>Versuchen Sie Folgendes:
 Ein Neustart der Agent-Knoten in Ihrem Cluster behebt in der Regel dieses Problem.
 
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>„Fehler: Fehler beim Freigeben von azds-\<identifier\>-\<spacename\>-\<servicename\>: Dienst '\<servicename\>' ist bereits vorhanden“ oder „Pullzugriff für \<servicename\> verweigert, Repository ist nicht vorhanden oder erfordert ggf. 'docker login'“
+
+### <a name="reason"></a>`Reason`
+Diese Fehler können auftreten, wenn Sie die Ausführung von direkten Helm-Befehlen (z. B. `helm install`, `helm upgrade` oder `helm delete`) in demselben Entwicklungsbereich mit Dev Spaces-Befehlen (z. B. `azds up` und `azds down`) mischen. Sie treten auf, weil Dev Spaces über eine eigene Tiller-Instanz verfügt, die zu einem Konflikt mit Ihrer eigenen Tiller-Instanz in demselben Entwicklungsbereich führt.
+
+### <a name="try"></a>Versuchen Sie Folgendes:
+Es ist kein Problem, Helm-Befehle und Dev Spaces-Befehle in demselben AKS-Cluster zu verwenden, aber für jeden Dev Spaces-fähigen Namespace sollte entweder die eine oder die andere Option gewählt werden.
+
+Angenommen, Sie nutzen einen Helm-Befehl zum Ausführen Ihrer gesamten Anwendung in einem übergeordneten Entwicklungsbereich. Sie können aus diesem übergeordneten Bereich untergeordnete Entwicklungsbereiche erstellen, Dev Spaces zum Ausführen von einzelnen Diensten in den untergeordneten Bereichen nutzen und die Dienste zusammen testen. Wenn Sie zum Einchecken Ihrer Änderungen bereit sind, können Sie einen Helm-Befehl verwenden, um den aktualisierten Code im übergeordneten Entwicklungsbereich bereitzustellen. Vermeiden Sie die Nutzung von `azds up` zum Ausführen des aktualisierten Diensts im übergeordneten Entwicklungsbereich, da sich sonst ein Konflikt mit dem Dienst ergibt, der ursprünglich mit Helm ausgeführt wurde.
+
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev Spaces-Proxy beeinträchtigt ggf. andere Pods, die in einer Dev Space-Instanz ausgeführt werden
 
 ### <a name="reason"></a>Grund
-Wenn Sie Dev Spaces auf einem Namespace in Ihrem AKS-Cluster aktivieren, wird ein zusätzlicher Container namens _mindaro-proxy_ in jedem Pod installiert, der in diesem Namespace ausgeführt wird. Dieser Container fängt Aufrufe an die Dienste im Pod ab. Dies ist eine wesentliche Entwicklungsfunktion des Dev Spaces-Teams; sie kann jedoch mit bestimmten in diesen Pods ausgeführten Diensten in Konflikt stehen. Es treten erfahrungsgemäß Konflikte bei Pods auf, in denen Azure Cache for Redis ausgeführt wird. Es treten Verbindungsfehler und Fehler bei der Kommunikation zwischen Primär- und Sekundärgerät auf.
+Wenn Sie Dev Spaces auf einem Namespace in Ihrem AKS-Cluster aktivieren, wird ein zusätzlicher Container namens _mindaro-proxy_ in jedem Pod installiert, der in diesem Namespace ausgeführt wird. Dieser Container fängt Aufrufe an die Dienste im Pod ab. Dies ist eine wesentliche Entwicklungsfunktion des Dev Spaces-Teams; sie kann jedoch mit bestimmten in diesen Pods ausgeführten Diensten in Konflikt stehen. Es treten erfahrungsgemäß Konflikte bei Pods auf, in denen Azure Cache for Redis ausgeführt wird. Es treten Verbindungsfehler und Fehler bei der Kommunikation zwischen dem Primär- und Sekundärgerät auf.
 
 ### <a name="try"></a>Versuchen Sie Folgendes:
 Sie können die betroffenen Pods zu einem Namespace innerhalb des Clusters verschieben, in dem Dev Spaces _nicht_ aktiviert ist. Der Rest der Anwendung kann weiterhin in einem Namespace ausgeführt werden, in dem Dev Spaces aktiviert ist. Dev Spaces installiert den Container _mindaro-proxy_ nicht in Namespaces, für die Dev Spaces nicht aktiviert ist.
@@ -319,7 +329,7 @@ configurations:
 
 ## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Fehler „Internal watch failed: watch ENOSPC“ beim Anfügen eines Debuggers an eine Node.js-Anwendung
 
-### <a name="reason"></a>Grund
+### <a name="reason"></a>`Reason`
 
 Der Knoten, auf dem der Pod mit der Node.js-Anwendung ausgeführt wird, der Sie einen Debugger anfügen möchten, hat den Wert *fs.inotify.max_user_watches* überschritten. In einigen Fällen ist möglicherweise der [Standardwert für *fs.inotify.max_user_watches* zu klein, um das direkte Anfügen eines Debuggers an einen Pod zu verarbeiten](https://github.com/Azure/AKS/issues/772).
 
@@ -328,7 +338,7 @@ Als vorübergehende Problemumgehung können Sie den Wert für *fs.inotify.max_us
 
 ## <a name="new-pods-are-not-starting"></a>Neue Pods werden nicht gestartet.
 
-### <a name="reason"></a>Grund
+### <a name="reason"></a>`Reason`
 
 Der Kubernetes-Initialisierer kann die PodSpec wegen Änderungen an der rollenbasierten Zugriffssteuerung (RBAC) bei der Rolle *cluster-admin* (Clusteradministrator) im Cluster nicht auf neue Pods anwenden. Der neue Pod kann auch eventuell eine ungültige PodSpec besitzen, z. B. dass das dem Pod zugeordnete Dienstkonto nicht mehr vorhanden ist. Um die Pods anzuzeigen, die sich aufgrund eines Initialisiererproblems im Zustand *Ausstehend* befinden, verwenden Sie den Befehl `kubectl get pods`:
 
@@ -360,11 +370,11 @@ Nachdem Ihr Controller neu installiert wurde, stellen Sie Ihre Pods erneut berei
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Fehlerhafte RBAC-Berechtigungen zum Aufrufen von Dev Spaces-Controller und -APIs
 
-### <a name="reason"></a>Grund
+### <a name="reason"></a>`Reason`
 Der Benutzer, der auf den Azure Dev Spaces-Controller zugreift, benötigt Lesezugriff auf die Administrator-*kubeconfig* im AKS-Cluster. Diese Berechtigung ist zum Beispiel in der [integrierten Administratorrolle für Azure Kubernetes Service-Cluster](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions) verfügbar. Der Benutzer, der auf den Azure Dev Spaces-Controller zugreift muss außerdem die RBAC-Rolle die *Mitwirkender* oder *Besitzer* für den Controller besitzen.
 
 ### <a name="try"></a>Testen
-Weitere Informationen zum Aktualisieren der Berechtigungen eines Benutzers für einen AKS-Cluster finden Sie [hier](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+Weitere Informationen zum Aktualisieren der Berechtigungen eines Benutzers für einen AKS-Cluster finden Sie [hier](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
 So aktualisieren Sie die RBAC-Rolle des Benutzers für den Controller
 
@@ -372,10 +382,30 @@ So aktualisieren Sie die RBAC-Rolle des Benutzers für den Controller
 1. Navigieren Sie zu der Ressourcengruppe, die den Controller enthält, die in der Regel mit Ihrem AKS-Cluster identisch ist.
 1. Aktivieren Sie das Kontrollkästchen *Ausgeblendete Typen anzeigen*.
 1. Klicken Sie auf den Controller.
-1. Öffnen Sie den Bereich *Zugriffssteuerung (IAM)*.
+1. Öffnen Sie den Bereich *Zugriffssteuerung (IAM)* .
 1. Klicken Sie auf die Registerkarte *Rollenzuweisungen*.
 1. Klicken Sie auf *Hinzufügen* und dann auf  *Rollenzuweisung hinzufügen*.
     * Wählen Sie für *Rolle* entweder *Mitwirkender* oder *Besitzer* aus.
     * Wählen Sie für *Zugriff zuweisen zu* die Option *Azure AD-Benutzer, -Gruppe oder -Dienstprinzipal* aus.
     * Suchen Sie für *Auswählen* nach dem Benutzer, dem Sie Berechtigungen erteilen möchten.
 1. Klicken Sie auf *Speichern*.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Fehler bei der Controllererstellung aufgrund der Länge des Controllernamens
+
+### <a name="reason"></a>`Reason`
+Der Name eines Azure Dev Spaces-Controllers darf nicht länger als 31 Zeichen sein. Wenn beim Aktivieren von Dev Spaces in einem AKS-Cluster oder Erstellen eines Controllers für Ihren Namen des Controllers die Länge von 31 Zeichen überschritten wird, erhalten Sie einen Fehler der folgenden Art:
+
+*Fehler beim Erstellen eines Dev Spaces-Controllers für den Cluster „a-controller-name-that-is-way-too-long-aks-east-us“: Name des Azure Dev Spaces-Controllers „a-controller-name-that-is-way-too-long-aks-east-us“ ist ungültig. Verletzte Einschränkungen: Namen von Azure Dev Spaces-Controllern dürfen maximal 31 Zeichen lang sein*
+
+### <a name="try"></a>Testen
+
+Erstellen eines Controllers mit einem alternativen Namen:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Fehler beim Aktivieren von Dev Spaces, wenn Windows-Knotenpools einem AKS-Cluster hinzugefügt werden
+
+### <a name="reason"></a>`Reason`
+Zurzeit ist Azure Dev Spaces nur für die Ausführung auf Linux-Pods und -Knoten vorgesehen. Zu diesem Zeitpunkt können Sie Azure Dev Spaces auf einem AKS-Cluster mit einem Windows-Knotenpool nicht aktivieren.

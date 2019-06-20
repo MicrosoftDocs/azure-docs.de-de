@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 980dc850537b7419e4ee48391acd5ba971fb3fed
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154192"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306731"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage-Explorer – Leitfaden zur Problembehandlung
 
@@ -81,20 +81,20 @@ Wenn Sie nicht sicher sind, woher das Zertifikat kommt, können Sie zur Lösung 
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (eine Light-Version sollte ausreichend sein)
     * Mac und Linux: sollte im Betriebssystem enthalten sein
 2. Führen Sie OpenSSL aus.
-    * Windows: Öffnen Sie das Installationsverzeichnis, klicken Sie auf **/bin/**, und doppelklicken Sie dann auf **openssl.exe**.
+    * Windows: Öffnen Sie das Installationsverzeichnis, klicken Sie auf **/bin/** , und doppelklicken Sie dann auf **openssl.exe**.
     * Mac und Linux: Führen Sie **openssl** über ein Terminal aus.
 3. Führen Sie `s_client -showcerts -connect microsoft.com:443` aus.
-4. Suchen Sie nach selbstsignierten Zertifikaten. Gehen Sie wie folgt vor, wenn Sie nicht sicher sind, welche Zertifikate selbstsigniert sind: Suchen Sie nach Stellen, an denen der Antragssteller (`("s:")`) und der Zertifikataussteller (`("i:")`) identisch sind.
-5. Wenn Sie selbstsignierte Zertifikate gefunden haben, kopieren Sie für jedes Zertifikat den gesamten Inhalt von einschließlich **-----BEGIN CERTIFICATE-----** bis **-----END CERTIFICATE-----**, und fügen Sie ihn in eine neue CER-Datei ein.
+4. Suchen Sie nach selbstsignierten Zertifikaten. Gehen Sie wie folgt vor, wenn Sie nicht sicher sind, welche Zertifikate selbstsigniert sind: Suchen Sie nach Stellen, an denen der Antragssteller `("s:")` und der Zertifikataussteller `("i:")` identisch sind.
+5. Wenn Sie selbstsignierte Zertifikate gefunden haben, kopieren Sie für jedes Zertifikat den gesamten Inhalt von einschließlich **-----BEGIN CERTIFICATE-----** bis **-----END CERTIFICATE-----** , und fügen Sie ihn in eine neue CER-Datei ein.
 6. Öffnen Sie den Storage-Explorer, klicken Sie auf **Bearbeiten** > **SSL-Zertifikate** > **Zertifikate importieren**, suchen Sie über die Dateiauswahl die erstellten CER-Dateien, wählen Sie sie aus, und öffnen Sie sie.
 
-Wenn Sie mit den oben beschriebenen Schritten keine selbstsignierten Zertifikate finden, wenden Sie sich über das Feedbacktool an uns, um weitere Unterstützung zu erhalten. Alternativ können Sie Storage-Explorer auch über die Befehlszeile mit dem `--ignore-certificate-errors`-Flag starten. Wenn Azure Storage-Explorer mit diesem Flag gestartet wird, ignoriert er Zertifikatfehler.
+Wenn Sie mit den oben beschriebenen Schritten keine selbstsignierten Zertifikate finden, wenden Sie sich über das Feedbacktool an uns, um weitere Unterstützung zu erhalten. Sie können Storage-Explorer auch über die Befehlszeile mit dem `--ignore-certificate-errors`-Flag starten. Wenn Azure Storage-Explorer mit diesem Flag gestartet wird, ignoriert er Zertifikatfehler.
 
 ## <a name="sign-in-issues"></a>Probleme bei der Anmeldung
 
 ### <a name="blank-sign-in-dialog"></a>Leeres Anmeldedialogfeld
 
-Leere Anmeldedialogfelder werden meist dadurch verursacht, dass ADFS von Storage-Explorer die Durchführung einer Umleitung anfordert, die von Electron nicht unterstützt wird. Als Problemumgehung können Sie versuchen, den Gerätecodefluss für die Anmeldung zu verwenden. Führen Sie dazu die folgenden Schritte aus:
+Leere Anmeldedialogfelder werden meist dadurch verursacht, dass ADFS von Storage-Explorer die Durchführung einer Umleitung anfordert, die von Electron nicht unterstützt wird. Als Problemumgehung können Sie versuchen, den Gerätecodefluss für die Anmeldung zu verwenden. Dazu müssen Sie die folgenden Schritte ausführen:
 
 1. Menü: „Vorschau“ > „Use Device Code Sign-In“ (Gerätecodeanmeldung verwenden).
 2. Öffnen Sie das Dialogfeld „Verbinden“ (über das Steckersymbol in der vertikalen Leiste auf der linken Seite oder über die Option „Konto hinzufügen“ im Kontobereich).
@@ -109,7 +109,7 @@ Falls Sie Probleme beim Anmelden am gewünschten Konto haben, weil über Ihren S
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Schleife für eine erneute Authentifizierung oder Änderung des UPN
 
-Wenn Sie sich in einer Schleife für eine erneute Authentifizierung befinden oder den UPN von einem Ihrer Konten geändert haben, versuchen Sie Folgendes:
+Wenn Sie sich in einer Schleife für eine erneute Authentifizierung befinden oder den UPN von einem Ihrer Konten geändert haben, versuchen Sie folgende Schritte:
 
 1. Entfernen Sie alle Konten, und schließen Sie dann den Storage-Explorer.
 2. Löschen Sie den Ordner „.IdentityService“ von Ihrem Computer. Der Ordner befindet sich unter Windows unter `C:\users\<username>\AppData\Local`. Bei Mac und Linux finden Sie den Ordner im Stammverzeichnis Ihres Benutzerverzeichnisses.
@@ -140,7 +140,7 @@ Die macOS-Keychain kann sich manchmal in einem Zustand befinden, der Probleme in
 * Neustart von Storage-Explorer
 * Wenn das Fenster „Authentifizierung“ leer ist, warten Sie mindestens eine Minute, bevor Sie das Dialogfeld für die Authentifizierung schließen.
 * Stellen Sie sicher, dass Ihre Proxy- und Zertifikateinstellungen für Ihren Computer und den Storage-Explorer ordnungsgemäß konfiguriert sind.
-* Wenn Sie unter Windows arbeiten und auf demselben Computer Zugriff auf Visual Studio 2017 haben und sich anmelden können, können Sie versuchen, sich bei Visual Studio 2017 anzumelden. Nach einer erfolgreichen Anmeldung bei Visual Studio 2017 sollten Sie den Storage-Explorer öffnen und Ihr Konto im Kontobereich sehen können.
+* Wenn Sie unter Windows arbeiten und auf demselben Computer Zugriff auf Visual Studio 2019 haben und sich anmelden können, können Sie versuchen, sich bei Visual Studio 2019 anzumelden. Nach einer erfolgreichen Anmeldung bei Visual Studio 2019 können Sie den Storage-Explorer öffnen und Ihr Konto im Kontobereich sehen.
 
 Wenn keine dieser Methoden funktioniert, [eröffnen Sie auf GitHub ein Problem](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -150,11 +150,11 @@ Wenn Sie nach erfolgreicher Anmeldung Ihre Abonnements nicht abrufen können, pr
 
 * Überprüfen Sie, ob Ihr Konto Zugriff auf die erwarteten Abonnements hat. Sie können Ihren Zugriff überprüfen, indem Sie sich am Portal für die Azure-Umgebung anmelden, die Sie verwenden möchten.
 * Stellen Sie sicher, dass die Anmeldung mit der richtigen Azure-Umgebung (Azure, Azure China 21Vianet, Azure Deutschland, Azure US Government oder Benutzerdefinierte Umgebung) erfolgt ist.
-* Wenn Sie sich hinter einem Proxy befinden, stellen Sie sicher, dass Sie den Storage-Explorer-Proxy richtig konfiguriert haben.
+* Wenn Sie sich hinter einem Proxy befinden, sollten Sie sicherstellen, dass Sie den Storage-Explorer-Proxy richtig konfiguriert haben.
 * Entfernen Sie das Konto, und fügen Sie es wieder hinzu.
 * Wenn ein Link namens „Weitere Informationen“ vorhanden ist, prüfen Sie, welche Fehlermeldungen für die fehlerhaften Mandanten gemeldet werden. Wenn Sie sich nicht sicher sind, wie Sie mit den angezeigten Fehlermeldungen umgehen sollen, können Sie jederzeit [ein Thema auf GitHub erstellen](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cannot-remove-attached-account-or-storage-resource"></a>Zugeordnetes Konto oder verbundene Speicherressource kann nicht entfernt werden
+## <a name="cant-remove-attached-account-or-storage-resource"></a>Zugeordnetes Konto oder verbundene Speicherressource kann nicht entfernt werden
 
 Wenn ein zugeordnetes Konto oder eine verbundene Speicherressource über die Benutzeroberfläche nicht entfernt werden kann, können Sie alle zugeordneten Ressourcen manuell löschen, indem Sie die folgenden Ordner löschen:
 
@@ -190,7 +190,7 @@ Wenn weiterhin Probleme auftreten, probieren Sie die folgenden Methoden zur Prob
 
 ### <a name="tools-for-diagnosing-issues"></a>Tools zum Diagnostizieren von Problemen
 
-Wenn Sie über Netzwerktools verfügen, z.B. Fiddler für Windows, können Sie die Probleme unter Umständen wie folgt diagnostizieren:
+Wenn Sie über Netzwerktools verfügen, z.B. Fiddler für Windows, können Sie die Probleme wie folgt diagnostizieren:
 
 * Wenn Sie über den Proxy arbeiten müssen, müssen Sie das Netzwerktool möglicherweise so konfigurieren, dass eine Verbindung über den Proxy hergestellt wird.
 * Überprüfen Sie die vom Netzwerktool verwendete Portnummer.
@@ -209,7 +209,7 @@ Wenn Ihre Proxyeinstellungen richtig sind, müssen Sie sich möglicherweise an d
 
 Wenn Sie die Verbindung mit Azure über einen Proxy hergestellt haben, überprüfen Sie, ob die Proxyeinstellungen richtig sind. Wenn Ihnen vom Besitzer des Abonnements oder Kontos Zugriff auf eine Ressource erteilt wurde, sollten Sie sich vergewissern, dass Sie über die Berechtigung zum Lesen oder Auflisten für diese Ressource verfügen.
 
-## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Verbindungszeichenfolge weist keine vollständigen Konfigurationseinstellungen auf.
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Verbindungszeichenfolge weist keine vollständigen Konfigurationseinstellungen auf
 
 Wenn Sie diese Fehlermeldung erhalten, verfügen Sie möglicherweise nicht über die erforderlichen Berechtigungen zum Abrufen der Schlüssel für Ihr Speicherkonto. Um zu überprüfen, ob dies der Fall ist, navigieren Sie zum Portal, und suchen Sie Ihr Speicherkonto. Klicken Sie hierzu einfach mit der rechten Maustaste auf den Knoten für Ihr Speicherkonto, und klicken Sie dann auf „Im Portal öffnen“. Wechseln Sie dann zum Blatt „Zugriffsschlüssel“. Wenn Sie nicht über Berechtigungen zum Anzeigen von Schlüsseln verfügen, wird eine Seite mit der Meldung „Sie haben keinen Zugriff“ angezeigt. Um dieses Problem zu umgehen, können Sie den Kontoschlüssel von einer anderen Person erhalten und mit Name und Schlüssel anfügen, oder Sie können eine andere Person um die SAS für das Speicherkonto bitten und mit dieser das Speicherkonto anfügen.
 

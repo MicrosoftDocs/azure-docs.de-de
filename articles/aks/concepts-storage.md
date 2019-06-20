@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60466816"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Speicheroptionen für Anwendungen in Azure Kubernetes Service (AKS)
 

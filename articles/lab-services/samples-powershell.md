@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: spelluru
-ms.openlocfilehash: 5b126ac5d5cadaa1f81cce955ff5b76883103c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09b93cc1d1f05e185a1550fb8141423447e802b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64730604"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Azure PowerShell-Beispiele für Azure Lab Services
 

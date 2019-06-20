@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 1317a4731d3598c5fba317167ba4a45d95823ca2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60593269"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Behandlung von Problemen bei der Bereitstellung virtueller Linux-Computer in Azure
 

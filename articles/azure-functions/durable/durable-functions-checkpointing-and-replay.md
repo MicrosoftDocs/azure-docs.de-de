@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60648498"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Prüfpunkte und Wiedergabe in Durable Functions (Azure Functions)
 
@@ -78,7 +78,7 @@ Nachdem der Prüfpunktvorgang abgeschlossen ist, kann die Orchestratorfunktion a
 
 Nach Abschluss des Vorgangs sieht der Verlauf der obigen Funktion in Azure Table Storage etwa wie folgt aus (zu Darstellungszwecken gekürzt):
 
-| PartitionKey (InstanceId)                     | EventType             | Zeitstempel               | Eingabe | NAME             | Ergebnis                                                    | Status |
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Eingabe | NAME             | Ergebnis                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |

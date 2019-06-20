@@ -10,11 +10,11 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518999"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60737414"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook und Modulkataloge für Azure Automation
 

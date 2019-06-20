@@ -5,12 +5,12 @@ author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892482"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304766"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Einrichten von Micro Focus CICS BankDemo für Micro Focus Enterprise Developer 4.0 in Azure
 
@@ -20,13 +20,13 @@ CICS steht für „Customer Information Control System“, die Transaktionsplatt
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- Eine VM mit [Enterprise Developer](set-up-micro-focus-azure.md). Beachten Sie, dass Enterprise Developer zu Entwicklungs- und Testzwecken mit einer vollständigen Instanz von Enterprise Server ausgeliefert wird. Dies ist die Enterprise Server-Instanz, die für diese Demo verwendet wird.
+- Eine VM mit [Enterprise Developer](set-up-micro-focus-azure.md). Beachten Sie, dass Enterprise Developer zu Entwicklungs- und Testzwecken mit einer vollständigen Instanz von Enterprise Server ausgeliefert wird. Diese Instanz ist die Enterprise Server-Instanz, die für diese Demo verwendet wird.
 
 - [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Laden Sie die Software auf die Enterprise Developer-VM herunter, und installieren Sie sie. Enterprise Server erfordert eine Datenbank für die Verwaltung von CICS-Regionen, und die BankDemo-Anwendung verwendet auch eine SQL Server-Datenbank namens BANKDEMO. Bei dieser Demo wird davon ausgegangen, dass Sie SQL Server Express für beide Datenbanken verwenden. Wählen Sie beim Installationsprozess die Standardinstallation aus.
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS wird verwendet, um die Datenbanken zu verwalten und ein T-SQL-Skript auszuführen. Laden Sie die Software auf die Enterprise Developer-VM herunter, und installieren Sie sie.
 
-- [Visual Studio 2017](https://azure.microsoft.com/downloads/) mit dem neuesten Service Pack oder [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), das Sie kostenlos herunterladen können.
+- [Visual Studio 2019](https://azure.microsoft.com/downloads/) mit dem neuesten Service Pack oder [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), das Sie kostenlos herunterladen können.
 
 - Rumba Desktop oder einen anderen 3270-Emulator.
 
@@ -38,7 +38,7 @@ Nachdem Sie Enterprise Developer 4.0 auf der VM installiert haben, müssen Sie d
 
 2. Klicken Sie auf das Symbol **Suchen** neben der Schaltfläche **Start**, und geben Sie **Windows-Features** ein. Der Server-Manager-Assistent zum Hinzufügen von Rollen und Features wird geöffnet.
 
-3. Wählen Sie die Rolle **Webserver (IIS)** aus, und aktivieren Sie die Kontrollkästchen für folgende Optionen:
+3. Wählen Sie die Rolle **Webserver (IIS)** aus, und aktivieren Sie dann die folgenden Optionen:
 
     - Webverwaltungstools
     - Kompatibilität mit der IIS 6-Verwaltung (wählen Sie alle verfügbaren Features aus)
@@ -46,7 +46,7 @@ Nachdem Sie Enterprise Developer 4.0 auf der VM installiert haben, müssen Sie d
     - IIS-Verwaltungsskripts und -tools
     - IIS-Verwaltungsdienst
 
-4. Wählen Sie **WWW-Dienste** aus, und aktivieren Sie folgende Optionen:
+4. Wählen Sie **WWW-Dienste** aus, und aktivieren Sie die folgenden Optionen:
 
      Anwendungsentwicklungsfeatures:
     - .NET-Erweiterbarkeit
@@ -59,12 +59,12 @@ Nachdem Sie Enterprise Developer 4.0 auf der VM installiert haben, müssen Sie d
 
 5. Wählen Sie **Windows-Prozessaktivierungsdienst** und alle untergeordneten Elemente aus.
 
-6. Aktivieren Sie unter **Features** den Eintrag **Microsoft .NET Framework 3.5.1** sowie folgende Optionen:
+6. Aktivieren Sie für **Features** den Eintrag **Microsoft .NET Framework 3.5.1** sowie die folgenden Optionen:
 
     - Windows Communication Foundation – HTTP-Aktivierung
     - Windows Communication Foundation – Nicht-HTTP-Aktivierung
 
-7. Aktivieren Sie unter **Features** den Eintrag **Microsoft .NET Framework 4.6** sowie folgende Optionen:
+7. Aktivieren Sie für **Features** den Eintrag **Microsoft .NET Framework 4.6.** sowie die folgenden Optionen:
 
    - Named Pipe-Aktivierung
    - TCP-Aktivierung
@@ -80,7 +80,7 @@ Nachdem Sie Enterprise Developer 4.0 auf der VM installiert haben, müssen Sie d
     - **Net.Pipe-Listeneradapter**
     - **Net.Tcp-Listeneradapter**
 
-10. Um die IIS- und WAS-Unterstützung zu konfigurieren, suchen Sie im Menü die **Micro Focus Enterprise Developer-Eingabeaufforderung (64 Bit)**, und führen Sie diese als **Administrator** aus.
+10. Um die IIS- und WAS-Unterstützung zu konfigurieren, suchen Sie im Menü die **Micro Focus Enterprise Developer-Eingabeaufforderung (64 Bit)** , und führen Sie diese als **Administrator** aus.
 
 11. Geben Sie **wassetup -i** ein, und drücken Sie die **EINGABETASTE**.
 
@@ -197,7 +197,7 @@ Die Abfrage sollte fehlerfrei ausgeführt werden. Nach Abschluss verfügen Sie �
 
      ![Bildschirm für neue XA-Ressourcendefinition für Datenbank](media/09-demo-xa.png)
 
-6. Klicken Sie auf die Auslassungspunkte (**…**), um den Assistenten „Connection String“ (Verbindungszeichenfolge) zu öffnen. Geben Sie unter **Server Name** (Servername) die Zeichenfolge **(local)\\SQLEXPRESS** ein. Wählen Sie als **Logon** (Anmeldung) die Option **Windows Authentication** (Windows-Authentifizierung) aus. Geben Sie **BANKDEMO** als Datenbanknamen ein.
+6. Klicken Sie auf die Auslassungspunkte ( **…** ), um den Assistenten „Connection String“ (Verbindungszeichenfolge) zu öffnen. Geben Sie unter **Server Name** (Servername) die Zeichenfolge **(local)\\SQLEXPRESS** ein. Wählen Sie als **Logon** (Anmeldung) die Option **Windows Authentication** (Windows-Authentifizierung) aus. Geben Sie **BANKDEMO** als Datenbanknamen ein.
 
      ![Bildschirm zum Bearbeiten der Verbindungszeichenfolge](media/10-demo-string.png)
 
@@ -216,13 +216,13 @@ Die Abfrage sollte fehlerfrei ausgeführt werden. Nach Abschluss verfügen Sie �
 
 4. Wählen Sie im unteren Bereich des Felds **Start/Stop Region** (Region starten/beenden), das im mittleren Bereich angezeigt wird, die Option **Start** aus. Nach wenigen Sekunden wird die Region gestartet.
 
-     ![SQL-Feld zum Starten/Beenden](/media/11-demo-sql.png)
+     ![SQL-Feld zum Starten/Beenden](media/11-demo-sql.png)
 
      ![Bildschirm für gestartete CICS-Region für BANKDEMO](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Erstellen eines Listeners
 
-Sie müssen einen Listener für die TN3270-Sitzungen erstellen, die auf die BankDemo-Anwendung zugreifen.
+Erstellen Sie einen Listener für die TN3270-Sitzungen, die auf die BankDemo-Anwendung zugreifen.
 
 1. Erweitern Sie im linken Bereich **Configuration Editors** (Konfigurations-Editoren), und wählen Sie **Listener** aus.
 
@@ -236,7 +236,7 @@ Sie müssen einen Listener für die TN3270-Sitzungen erstellen, die auf die Bank
 
 6. Fügen Sie einen TN3270-Kanal hinzu, indem Sie mit der rechten Maustaste auf die Region **BANKDEMO** klicken und **Add Channel** (Kanal hinzufügen) auswählen.
 
-7. Geben Sie unter **Name** die Zeichenfolge **TN3270** ein. Geben Sie als **Port** den Wert **9024** ein. (Beachten Sie, dass die ESDEMO-Anwendung Port 9230 verwendet und Sie daher einen anderen Port benötigen.)
+7. Geben Sie unter **Name** die Zeichenfolge **TN3270** ein. Geben Sie als **Port** den Wert **9024** ein. Die ESDEMO-Anwendung verwendet Port 9230, weshalb Sie einen anderen Port verwenden müssen.
 
 8. Um die Datei zu speichern, klicken Sie auf das Symbol zum **Speichern**, oder wählen Sie **File** \> **Save** (Datei > Speichern) aus.
 
@@ -247,7 +247,7 @@ Sie müssen einen Listener für die TN3270-Sitzungen erstellen, die auf die Bank
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Konfigurieren von Rumba für den Zugriff auf die BankDemo-Anwendung
 
-Als Letztes müssen Sie mithilfe des 3270-Emulators Rumba eine 3270-Sitzung konfigurieren. Mit diesem Schritt ermöglichen Sie den Zugriff auf die BankDemo-Anwendung über den soeben erstellten Listener.
+Als Letztes müssen Sie mithilfe des 3270-Emulators Rumba eine 3270-Sitzung konfigurieren. Mit diesem Schritt ermöglichen Sie den Zugriff auf die BankDemo-Anwendung über den erstellten Listener.
 
 1. Starten Sie Rumba Desktop über das Windows-**Startmenü**.
 

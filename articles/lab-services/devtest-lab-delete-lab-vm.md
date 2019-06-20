@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
 ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127411"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Löschen eines Labs oder eines virtuellen Computers in einem Lab in Azure DevTest Labs
 In diesem Artikel wird veranschaulicht, wie Sie ein Lab oder eine VM in einem Lab löschen.

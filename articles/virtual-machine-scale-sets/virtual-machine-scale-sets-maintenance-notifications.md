@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
 ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992416"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60618454"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Benachrichtigungen zu geplanten Wartungen für VM-Skalierungsgruppen
 
@@ -89,7 +89,7 @@ Die Spalte **Self-Service-Wartung** wird nun in der Liste der VM-Skalierungsgrup
 | Wert | BESCHREIBUNG |
 |-------|-------------|
 | Ja | Mindestens ein virtueller Computer in Ihrer VM-Skalierungsgruppe befindet sich in einem Self-Service-Wartungsfenster. Sie können die Wartung jederzeit in diesem Self-Service-Zeitfenster starten. | 
-| Nein  | Es gibt keine virtuellen Computer in einem Self-Service-Fenster in der betroffenen VM-Skalierungsgruppe. | 
+| Nein | Es gibt keine virtuellen Computer in einem Self-Service-Fenster in der betroffenen VM-Skalierungsgruppe. | 
 | - | Ihre VM-Skalierungsgruppen sind nicht Teil einer geplanten Wartungsaktion.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Benachrichtigungen und Warnungen im Portal

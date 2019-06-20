@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 42a9c4f9983a68459351fc98fb8b757759e585bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6af5e7c7d8788dffa8f144b2ee77c291ceda86c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736280"
 ---
 # <a name="routing-architecture-overview"></a>Übersicht über die Routingarchitektur
 
@@ -45,4 +45,4 @@ Zum Schluss wird die Benutzeranforderung (sofern keine Zwischenspeicherung konfi
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie, wie Sie ein [Azure Front Door Service-Profil erstellen](quickstart-create-front-door.md).
+- Erfahren Sie mehr über das [Erstellen einer Front Door-Instanz](quickstart-create-front-door.md).

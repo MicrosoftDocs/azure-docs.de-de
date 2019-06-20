@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 5106b22500b73b650742e7fe0f881c2a4c984eff
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66752725"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-Anwendungen: Leitfaden für die Veröffentlichung von Angeboten
 
@@ -25,14 +25,14 @@ SaaS-Anwendungen stehen in beiden Azure-Storefronts zur Verfügung. In der folge
 | Storefront-Option | Auflisten | Trial/Transact (Testversion/Transaktion) |  
 | --- | --- | --- |  
 | AppSource | Ja (Kontaktaufnahme) | Ja (Power BI/Dynamics) |
-| Azure Marketplace | Nein  | Ja (SaaS-Apps) |   
+| Azure Marketplace | Nein | Ja (SaaS-Apps) |   
 
 **Liste**:  Diese Veröffentlichungsoption besteht aus dem Angebotstyp „Kontakt mit mir aufnehmen“ und wird verwendet, wenn eine Teilnahme auf Testversions- oder Transaktionsebene nicht möglich ist. Dieser Ansatz hat den Vorteil, dass Herausgeber, die eine Lösung auf dem Markt anbieten, sofort Leads gewinnen können, die zu Abschlüssen führen und zum Wachstum Ihres Geschäfts beitragen.  
 **Testversion/Transaktion**:  Der Kunde hat die Möglichkeit, Ihre Lösung direkt zu kaufen oder eine Testversion für Ihre Lösung anzufordern. Die Bereitstellung einer Testversion führt zu einer stärkeren Einbindung von Kunden und ermöglicht es ihnen, Ihre Lösung vor dem Kauf in Augenschein zu nehmen. Eine Testversion steigert Ihre Verkaufschancen in den Storefronts, und die Interaktion mit den Kunden führt in der Regel zu weiteren und lukrativeren Leads. Testversionen müssen mindestens für die Dauer des Testzeitraums kostenlosen Support enthalten.  
 
 | SaaS-Apps-Angebot | Geschäftliche Anforderungen | Technische Anforderungen |  
 | --- | --- | --- |  
-| **Kontaktaufnahme** | Ja | Nein  |  
+| **Kontaktaufnahme** | Ja | Nein |  
 | **Power BI/Dynamics** | Ja | Ja (Azure AD-Integration) |  
 | **SaaS-Apps**| Ja | Ja (Azure AD-Integration) |     
 
@@ -148,4 +148,4 @@ Falls Sie dies noch nicht getan haben,
 Wenn Sie registriert sind und ein neues Angebot erstellen oder an einem vorhandenen arbeiten,
 
 - [melden Sie sich beim Cloud-Partnerportal an](https://cloudpartner.azure.com), um Ihr Angebot zu erstellen oder zu vervollständigen.
-- Unter [Azure-SaaS-Anwendungsangebot](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) finden Sie weitere Informationen.
+- Unter [Azure-SaaS-Anwendungsangebot](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) finden Sie weitere Informationen.

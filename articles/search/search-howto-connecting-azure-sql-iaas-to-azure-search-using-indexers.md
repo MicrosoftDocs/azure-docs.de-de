@@ -10,11 +10,11 @@ ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60871279"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurieren einer Verbindung eines Azure Search-Indexers mit SQL Server auf einer Azure-VM
 Wie in [Verbinden von Azure SQL-Datenbank mit Azure Search mithilfe von Indexern](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq) erläutert, wird das Erstellen von Indexern für **SQL Server auf Azure-VMs** (oder kurz **SQL Azure-VMs**) von Azure Search unterstützt. Zunächst müssen aber einige sicherheitsbezogene Voraussetzungen erfüllt werden. 

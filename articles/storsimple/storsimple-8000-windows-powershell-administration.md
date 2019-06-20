@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003118"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64698401"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Verwenden von Windows PowerShell für StorSimple zum Verwalten eines StorSimple-Geräts
 
@@ -159,7 +159,7 @@ Die folgende Tabelle zeigt eine Zusammenfassung aller allgemeinen Verwaltungsauf
 
 Windows PowerShell für StorSimple bietet Hilfe zu Cmdlets. Diese Hilfe ist auch als aktuelle Onlineversion verfügbar, die Sie zum Aktualisieren der auf Ihrem System installierten Hilfe-Inhalte verwenden können.
 
-Hilfe-Informationen werden an dieser Schnittstelle ähnlich wie in Windows PowerShell abgerufen, und die meisten hilfebezogenen Cmdlets funktionieren. Hilfe zu Windows PowerShell ist online in der TechNet-Bibliothek verfügbar: [Skripterstellung mit Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
+Hilfe-Informationen werden an dieser Schnittstelle ähnlich wie in Windows PowerShell abgerufen, und die meisten hilfebezogenen Cmdlets funktionieren. Hilfe zu Windows PowerShell können Sie online hier finden: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
 
 Im Folgenden finden Sie eine kurze Beschreibung der Hilfetypen für diese Windows PowerShell-Schnittstelle und Anweisungen zum Aktualisieren der Hilfe.
 

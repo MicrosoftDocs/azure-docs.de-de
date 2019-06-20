@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974288"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720435"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Pläne und Abrechnung für Microsoft Azure Scheduler
 
@@ -29,7 +29,7 @@ In Azure Scheduler enthält eine Auftragssammlung eine bestimmte Anzahl von Auft
 |:--- |:--- |:--- |:--- |:--- |
 | **Standard** | 50 Aufträge pro Sammlung | Eine pro Minute. Aufträge können nicht häufiger als einmal pro Minute ausgeführt werden. | Jedes Azure-Abonnement kann bis zu 100 Standard-Auftragssammlungen enthalten. | Zugriff auf sämtliche Scheduler-Features | 
 | **P10 Premium** | 50 Aufträge pro Sammlung | Eine pro Minute. Aufträge können nicht häufiger als einmal pro Minute ausgeführt werden. | Jedes Azure-Abonnement kann bis zu 10.000 P10 Premium-Auftragssammlungen enthalten. <a href="mailto:wapteams@microsoft.com">Wenden Sie sich an uns</a>, wenn Sie mehr Sammlungen benötigen. | Zugriff auf sämtliche Scheduler-Features |
-| **P20 Premium** | 1.000 Aufträge pro Sammlung | Eine pro Minute. Aufträge können nicht häufiger als einmal pro Minute ausgeführt werden. | Jedes Azure-Abonnement kann bis zu 5.000 P20 Premium-Auftragssammlungen enthalten. <a href="mailto:wapteams@microsoft.com">Wenden Sie sich an uns</a>, wenn Sie mehr Sammlungen benötigen. | Zugriff auf sämtliche Scheduler-Features |
+| **P20 Premium** | 1\.000 Aufträge pro Sammlung | Eine pro Minute. Aufträge können nicht häufiger als einmal pro Minute ausgeführt werden. | Jedes Azure-Abonnement kann bis zu 5.000 P20 Premium-Auftragssammlungen enthalten. <a href="mailto:wapteams@microsoft.com">Wenden Sie sich an uns</a>, wenn Sie mehr Sammlungen benötigen. | Zugriff auf sämtliche Scheduler-Features |
 |||||| 
 
 ## <a name="pricing"></a>Preise
@@ -82,6 +82,6 @@ P20 Premium-Auftragssammlungen haben den gleichen Funktionsumfang wie P10 Premiu
 
 ## <a name="see-also"></a>Weitere Informationen
 
-* [Was ist Azure Scheduler?](scheduler-intro.md)
+* [Was ist der Azure Scheduler?](scheduler-intro.md)
 * [Konzepte, Terminologie und Entitätshierarchie für Azure Scheduler](scheduler-concepts-terms.md)
 * [Einschränkungen, Standardwerte und Fehlercodes für Azure Scheduler](scheduler-limits-defaults-errors.md)

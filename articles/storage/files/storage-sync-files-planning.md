@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696513"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65597079"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planung für die Bereitstellung einer Azure-Dateisynchronisierung
 Mit der Azure-Dateisynchronisierung können Sie die Dateifreigaben Ihrer Organisation in Azure Files zentralisieren, ohne auf die Flexibilität, Leistung und Kompatibilität eines lokalen Dateiservers verzichten zu müssen. Mit der Azure-Dateisynchronisierung werden Ihre Windows Server-Computer zu einem schnellen Cache für Ihre Azure-Dateifreigabe. Sie können ein beliebiges Protokoll verwenden, das unter Windows Server verfügbar ist, um lokal auf Ihre Daten zuzugreifen, z.B. SMB, NFS und FTPS. Sie können weltweit so viele Caches wie nötig nutzen.
@@ -178,9 +178,9 @@ Für Volumes, bei denen Cloudtiering nicht aktiviert ist, unterstützt die Azure
 ### <a name="distributed-file-system-dfs"></a>Verteiltes Dateisystem (Distributed File System, DFS)
 Die Azure-Dateisynchronisierung unterstützt die Interoperabilität mit DFS-Namespaces (DFS-N) und DFS-Replikation (DFS-R).
 
-**DFS-Namespaces (DFS-N)**: Die Azure-Dateisynchronisierung wird auf DFS-N-Servern vollständig unterstützt. Sie können den Azure-Dateisynchronisierungs-Agent auf einem oder mehreren DFS-N-Membern installieren, um Daten zwischen den Serverendpunkten und dem Cloudendpunkt zu synchronisieren. Weitere Informationen finden Sie unter [Übersicht über DFS-Namespaces](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS-Namespaces (DFS-N)** : Die Azure-Dateisynchronisierung wird auf DFS-N-Servern vollständig unterstützt. Sie können den Azure-Dateisynchronisierungs-Agent auf einem oder mehreren DFS-N-Membern installieren, um Daten zwischen den Serverendpunkten und dem Cloudendpunkt zu synchronisieren. Weitere Informationen finden Sie unter [Übersicht über DFS-Namespaces](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS-Replikation (DFS-R)**: Da DFS-R und die Azure-Dateisynchronisierung beides Replikationslösungen sind, empfehlen wir in den meisten Fällen das Ersetzen von DFS-R durch die Azure-Dateisynchronisierung. Es gibt aber mehrere Szenarien, in denen die parallele Nutzung von DFS-R und Azure-Dateisynchronisierung sinnvoll sein kann:
+**DFS-Replikation (DFS-R)** : Da DFS-R und die Azure-Dateisynchronisierung beides Replikationslösungen sind, empfehlen wir in den meisten Fällen das Ersetzen von DFS-R durch die Azure-Dateisynchronisierung. Es gibt aber mehrere Szenarien, in denen die parallele Nutzung von DFS-R und Azure-Dateisynchronisierung sinnvoll sein kann:
 
 - Sie migrieren von einer DFS-R-Bereitstellung zu einer Azure-Dateisynchronisierungsbereitstellung. Weitere Informationen finden Sie unter [Migrieren einer DFS-R-Bereitstellung (DFS-Replikation) zur Azure-Dateisynchronisierung](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Nicht jeder lokale Server, für den eine Kopie Ihrer Dateidaten erforderlich ist, kann direkt mit dem Internet verbunden werden.
@@ -256,10 +256,18 @@ Die Azure-Dateisynchronisierung ist nur in den folgenden Regionen verfügbar:
 | Asien, Südosten | Singapur |
 | UK, Süden | London |
 | UK, Westen | Cardiff |
+| US Gov Arizona (Vorschauversion) | Arizona |
+| US Gov Texas (Vorschauversion) | Texas |
+| US Gov Virginia (Vorschauversion) | Virginia |
 | Europa, Westen | Niederlande |
+| USA, Westen-Mitte | Wyoming |
 | USA (Westen) | Kalifornien |
+| USA, Westen 2 | Washington |
 
 Die Azure-Dateisynchronisierung unterstützt nur die Synchronisierung mit einer Azure-Dateifreigabe in der gleichen Region wie der Speichersynchronisierungsdienst.
+
+> [!Note]  
+> Azure-Dateisynchronisierung steht für die Government-Regionen derzeit nur in der privaten Vorschau zur Verfügung. Anleitungen zum Registrieren im Vorschauprogramm finden Sie in unseren [Versionshinweisen](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020).
 
 ### <a name="azure-disaster-recovery"></a>Azure-Notfallwiederherstellung
 Um vor dem Verlust einer Azure-Region zu schützen, integriert die Azure-Dateisynchronisierung die Option für [Redundanz durch georedundante Speicher](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). Der GRS funktioniert durch die Verwendung von asynchroner Blockreplikation zwischen Speichern in der primären Region, mit der Sie normalerweise interagieren, und Speichern in der gekoppelten sekundären Region. Bei einem Notfall, infolgedessen eine Azure-Region vorübergehend oder dauerhaft offline geschaltet wird, führt Microsoft für den Speicher ein Failover auf die gekoppelte Region durch. 
@@ -271,8 +279,9 @@ Um die Failoverintegration zwischen georedundantem Speicher und der Azure-Dateis
 
 | Primäre Region      | Regionspaar      |
 |---------------------|--------------------|
-| Australien (Osten)      | Australien, Südosten |
+| Australien (Osten)      | Australien, Südosten|
 | Australien, Südosten | Australien (Osten)     |
+| Brasilien Süd        | USA Süd Mitte   |
 | Kanada, Mitte      | Kanada, Osten        |
 | Kanada, Osten         | Kanada, Mitte     |
 | Indien, Mitte       | Indien (Süden)        |
@@ -280,16 +289,24 @@ Um die Failoverintegration zwischen georedundantem Speicher und der Azure-Dateis
 | Asien, Osten           | Asien, Südosten     |
 | USA (Ost)             | USA (Westen)            |
 | USA (Ost) 2           | USA (Mitte)         |
+| Japan, Osten          | Japan, Westen         |
+| Japan, Westen          | Japan, Osten         |
 | Korea, Mitte       | Korea, Süden        |
 | Korea, Süden         | Korea, Mitte      |
 | Nordeuropa        | Europa, Westen        |
 | USA Nord Mitte    | USA Süd Mitte   |
+| USA Süd Mitte    | USA Nord Mitte   |
 | Indien (Süden)         | Indien, Mitte      |
 | Asien, Südosten      | Asien, Osten          |
 | UK, Süden            | UK, Westen            |
 | UK, Westen             | UK, Süden           |
+| US Gov Arizona      | US Gov Texas       |
+| US Gov Iowa         | US Government, Virginia    |
+| US Gov Virginia      | US Gov Texas       |
 | Europa, Westen         | Nordeuropa       |
+| USA, Westen-Mitte     | USA, Westen 2          |
 | USA (Westen)             | USA (Ost)            |
+| USA, Westen 2           | USA, Westen-Mitte    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Updaterichtlinie für den Azure-Dateisynchronisierungs-Agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

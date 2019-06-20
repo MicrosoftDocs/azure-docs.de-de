@@ -10,16 +10,16 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873757"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242920"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Laden von Daten in Azure SQL Data Warehouse
 
-In diesem Tutorial wird PolyBase zum Laden des Data Warehouse „WideWorldImportersDW“ aus Azure-Blobspeicher in Azure SQL Data Warehouse verwendet. In diesem Tutorial werden das [Azure-Portal](https://portal.azure.com) und [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) für folgende Zwecke verwendet: 
+In diesem Tutorial wird PolyBase zum Laden des Data Warehouse „WideWorldImportersDW“ aus Azure-Blobspeicher in Azure SQL Data Warehouse verwendet. In diesem Tutorial werden das [Azure-Portal](https://portal.azure.com) und [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) für folgende Zwecke verwendet:
 
 > [!div class="checklist"]
 > * Erstellen eines Data Warehouse im Azure-Portal
@@ -37,7 +37,6 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 ## <a name="before-you-begin"></a>Voraussetzungen
 
 Bevor Sie mit diesem Tutorial beginnen, laden Sie die neueste Version von [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) herunter, und installieren Sie sie.
-
 
 ## <a name="log-in-to-the-azure-portal"></a>Anmelden beim Azure-Portal
 
@@ -1121,7 +1120,7 @@ Sie haben folgende Schritte ausgeführt:
 > * Anzeigen des Fortschritts beim Laden von Daten
 > * Erstellen von Statistiken für die neu geladenen Daten
 
-Fahren Sie mit der Übersicht über die Migration fort, um zu erfahren, wie Sie eine vorhandene Datenbank in SQL Data Warehouse migrieren.
+Fahren Sie mit der Entwicklungsübersicht fort, um zu erfahren, wie Sie eine vorhandene Datenbank in SQL Data Warehouse migrieren.
 
 > [!div class="nextstepaction"]
->[Informationen zum Migrieren einer vorhandenen Datenbank in SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Entwurfsentscheidungen zum Migrieren einer vorhandenen Datenbank in SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

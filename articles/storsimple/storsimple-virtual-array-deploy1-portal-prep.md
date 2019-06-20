@@ -16,11 +16,11 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127139"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Bereitstellen von StorSimple Virtual Array – Vorbereiten des Azure-Portals
 
@@ -44,7 +44,7 @@ Sehen Sie sich die folgenden Artikel in der angegebenen Reihenfolge an, um Ihr S
 | --- | --- | --- | --- |
 | 1. |**Einrichten des Azure-Portals** |Erstellen und konfigurieren Sie Ihren StorSimple-Geräte-Manager-Dienst, bevor Sie ein StorSimple Virtual Array bereitstellen. |[Vorbereiten des Portals](storsimple-virtual-array-deploy1-portal-prep.md) |
 | 2. |**Bereitstellen des Virtual Array** |Stellen Sie für Hyper-V ein StorSimple Virtual Array auf einem Hostsystem mit Hyper-V unter Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 bereit, und stellen Sie die Verbindung her. <br></br> <br></br> Stellen Sie für VMware ein StorSimple Virtual Array auf einem Hostsystem mit VMware ESXi 5.0, 5.5, 6.0 oder 6.5 bereit, und stellen Sie eine Verbindung her.<br></br> |[Bereitstellen eines Virtual Arrays in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Bereitstellen eines virtuellen Arrays in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
-| 3. |**Einrichten des Virtual Array** |Führen Sie für Ihren Dateiserver das anfängliche Setup durch, registrieren Sie Ihren StorSimple-Dateiserver, und führen Sie die Geräteinstallation durch. Anschließend können Sie die SMB-Freigaben bereitstellen. <br></br> <br></br>  Führen Sie für Ihren iSCSI-Server das anfängliche Setup durch, registrieren Sie Ihren StorSimple-iSCSI-Server, und führen Sie die Geräteinstallation durch. Anschließend können Sie die iSCSI-Volumes bereitstellen. |[Einrichten des virtuellen Arrays als Dateiserver](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Einrichten des virtuellen Arrays als iSCSI-Server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
+| 3. |**Einrichten des Virtual Array** |Führen Sie für Ihren Dateiserver das anfängliche Setup durch, registrieren Sie Ihren StorSimple-Dateiserver, und führen Sie die Geräteinstallation durch. Anschließend können Sie die SMB-Freigaben bereitstellen. <br></br> <br></br> Führen Sie für Ihren iSCSI-Server das anfängliche Setup durch, registrieren Sie Ihren StorSimple-iSCSI-Server, und führen Sie die Geräteinstallation durch. Anschließend können Sie die iSCSI-Volumes bereitstellen. |[Einrichten des virtuellen Arrays als Dateiserver](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Einrichten des virtuellen Arrays als iSCSI-Server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Sie können jetzt mit der Einrichtung des Azure-Portals beginnen.
 

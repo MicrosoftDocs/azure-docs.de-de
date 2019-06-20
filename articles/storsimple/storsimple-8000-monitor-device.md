@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23479266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60634561"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Verwenden des StorSimple-Geräte-Manager-Diensts zum Überwachen von StorSimple-Geräten
 
@@ -28,7 +28,7 @@ Sie können den StorSimple-Geräte-Manager-Dienst verwenden, um bestimmte Gerät
 
 Um die Überwachungsinformationen für ein bestimmtes Gerät anzuzeigen, wählen Sie im Azure-Portal den StorSimple-Geräte-Manager-Dienst aus. Wählen Sie in der Geräteliste Ihr Gerät aus, und navigieren Sie dann zu **Überwachung**. Es werden dann Diagramme zu **Kapazität**, **Verwendung** und **Leistung** für das ausgewählte Gerät angezeigt.
 
-## <a name="capacity"></a>Kapazität
+## <a name="capacity"></a>Capacity
 **Kapazität** verfolgt den bereitgestellten Speicherplatz und den auf dem Gerät verbleibenden Speicherplatz. Die verbleibende Kapazität wird als lokal oder mehrstufig angezeigt.
 
 Die bereitgestellte und verbleibende Kapazität wird dann weiter in mehrstufige und lokale Volume unterteilt. Für jedes Volume werden die bereitgestellte Kapazität und die verbleibende Kapazität auf dem Gerät angezeigt.

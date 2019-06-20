@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61004492"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Erstellen von Variablen für das Speichern und Verwalten von Werten in Azure Logic Apps
 
@@ -76,7 +76,7 @@ Sie können eine Variable erstellen und ihren Datentyp und Anfangswert deklarier
    |----------|----------|-------|--------------|
    | Name | Ja | <*Variablenname*> | Der Name für die zu erhöhende Variable | 
    | Type | Ja | <*Variablentyp*> | Der Datentyp für die Variable | 
-   | Value | Nein  | <*Anfangswert*> | Der Anfangswert für die Variable <p><p>**Tipp**: Obwohl es sich um eine optionale Einstellung handelt, ist es eine bewährte Methode, diesen Wert einzustellen, damit Sie immer den Anfangswert für Ihre Variable kennen. | 
+   | Value | Nein | <*Anfangswert*> | Der Anfangswert für die Variable <p><p>**Tipp**: Obwohl es sich um eine optionale Einstellung handelt, ist es eine bewährte Methode, diesen Wert einzustellen, damit Sie immer den Anfangswert für Ihre Variable kennen. | 
    ||||| 
 
    ![Initialisieren einer Variablen](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -211,10 +211,10 @@ Um eine Variable um einen konstanten Wert zu erhöhen oder zu *inkrementieren*, 
    | Eigenschaft | Erforderlich | Value |  BESCHREIBUNG |
    |----------|----------|-------|--------------|
    | Name | Ja | <*Variablenname*> | Der Name für die zu erhöhende Variable | 
-   | Value | Nein  | <*Inkrementwert*> | Der zum Erhöhen der Variablen verwendete Wert. Der Standardwert ist eins. <p><p>**Tipp**: Obwohl es sich um eine optionale Einstellung handelt, ist es eine bewährte Methode, diesen Wert einzustellen, damit Sie immer den spezifischen Wert für die schrittweise Erhöhung Ihrer Variablen kennen. | 
+   | Value | Nein | <*Inkrementwert*> | Der zum Erhöhen der Variablen verwendete Wert. Der Standardwert ist eins. <p><p>**Tipp**: Obwohl es sich um eine optionale Einstellung handelt, ist es eine bewährte Methode, diesen Wert einzustellen, damit Sie immer den spezifischen Wert für die schrittweise Erhöhung Ihrer Variablen kennen. | 
    |||| 
 
-   Beispiel:  
+   Beispiel: 
    
    ![Beispiel für Inkrementwert](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -256,7 +256,7 @@ Variablen werden häufig verwendet, um die Anzahl der Durchläufe einer Schleife
 
    ![Hinzufügen der Aktion „Variable initialisieren“](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-4. Zum Durchlaufen der einzelnen Anlagen fügen Sie eine *For Each*-Schleife hinzu, indem Sie **Neuer Schritt** > **Mehr** > **„For Each“-Schleife hinzufügen** wählen.
+4. Zum Durchlaufen der einzelnen Anlagen fügen Sie eine *For Each*-Schleife hinzu, indem Sie **Neuer Schritt** > **Mehr** >  **„For Each“-Schleife hinzufügen** wählen.
 
    ![Hinzufügen einer „For Each“-Schleife](./media/logic-apps-create-variables-store-values/add-loop.png)
 
@@ -331,7 +331,7 @@ Für die Aktion **Variablenwert verringern** gibt es folgende Eigenschaften:
 | Eigenschaft | Erforderlich | Value |  BESCHREIBUNG |
 |----------|----------|-------|--------------|
 | Name | Ja | <*Variablenname*> | Der Name für die zu verringernde Variable | 
-| Value | Nein  | <*Inkrementwert*> | Der zum Verringern der Variablen verwendete Wert. Der Standardwert ist eins. <p><p>**Tipp**: Obwohl es sich um eine optionale Einstellung handelt, ist es eine bewährte Methode, diesen Wert einzustellen, damit Sie immer den spezifischen Wert für die schrittweise Verringerung Ihrer Variablen kennen. | 
+| Value | Nein | <*Inkrementwert*> | Der zum Verringern der Variablen verwendete Wert. Der Standardwert ist eins. <p><p>**Tipp**: Obwohl es sich um eine optionale Einstellung handelt, ist es eine bewährte Methode, diesen Wert einzustellen, damit Sie immer den spezifischen Wert für die schrittweise Verringerung Ihrer Variablen kennen. | 
 ||||| 
 
 Wenn Sie vom Designer in den Code-Editor wechseln, wird die Aktion **Variablenwert verringern** innerhalb Ihrer Logik-App-Definition im JSON-Format angezeigt:

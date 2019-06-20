@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60592247"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Erfüllen der Voraussetzungen für die Erstellung von AlwaysOn-Verfügbarkeitsgruppen in Azure Virtual Machines
 
@@ -43,7 +43,7 @@ Sie benötigen ein Azure-Konto. Sie können entweder ein [kostenloses Azure-Kont
 
 ## <a name="create-a-resource-group"></a>Erstellen einer Ressourcengruppe
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
-2. Klicken Sie auf **+**, um ein neues Objekt im Portal zu erstellen.
+2. Klicken Sie auf **+** , um ein neues Objekt im Portal zu erstellen.
 
    ![Neues Objekt](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -190,7 +190,7 @@ Die folgende Tabelle enthält die Einstellungen für die beiden Computer:
 | **Öffentliche IP-Adresse** |*Gleicher Name wie der VM* |
 | **Netzwerksicherheitsgruppe** |*Gleicher Name wie der VM* |
 | **Verfügbarkeitsgruppe** |adavailabilityset </br>**Fehlerdomänen**: 2 </br>**Updatedomänen**: 2|
-| **Diagnose** |Aktiviert |
+| **Diagnose** |Enabled |
 | **Diagnosespeicherkonto** |*Automatisch erstellt* |
 
    >[!IMPORTANT]
@@ -206,7 +206,7 @@ In den folgenden Schritten konfigurieren Sie den Computer **ad-primary-dc** als 
 1. Öffnen Sie im Portal die Ressourcengruppe **SQL-HA-RG**, und wählen Sie den Computer **ad-primary-dc** aus. Klicken Sie unter **ad-primary-dc** auf **Verbinden**, um eine RDP-Datei für den Remotedesktopzugriff zu öffnen.
 
     ![Herstellen einer Verbindung mit einem virtuellen Computer](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
-2. Melden Sie sich mit Ihrem konfigurierten Administratorkonto (**\DomainAdmin**) und Kennwort (**Contoso!0000**) an.
+2. Melden Sie sich mit Ihrem konfigurierten Administratorkonto ( **\DomainAdmin**) und Kennwort (**Contoso!0000**) an.
 3. Standardmäßig sollte das Dashboard **Server-Manager** angezeigt werden.
 4. Klicken Sie im Dashboard auf den Link **Rollen und Features hinzufügen** .
 

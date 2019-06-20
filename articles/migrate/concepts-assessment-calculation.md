@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 012a352b00de2e2d1bf64fd18125ddd10faba5cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60679118"
 ---
 # <a name="assessment-calculations"></a>Bewertungsberechnungen
 

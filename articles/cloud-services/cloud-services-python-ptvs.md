@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125439"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python-Web- und -Workerrollen mit Python-Tools für Visual Studio
 
@@ -36,7 +36,7 @@ Dieser Artikel enthält eine Übersicht über die Verwendung von Python-Web- und
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Was sind Python-Web- und Workerrollen?
-Azure stellt drei Computemodelle bereit, die Sie zum Ausführen von Anwendungen verwenden können: [Web-Apps-Feature in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] und [Azure Cloud Services][execution model-cloud services]. Alle drei Modelle unterstützen Python. Cloud Services, die auch Web- und Workerrollen umfassen, ermöglichen *Platform as a Service (PaaS)*. In einem Clouddienst bietet eine Webrolle einen speziellen IIS-Webserver (Internet Information Services), um Front-End-Webanwendungen zu hosten, während eine Workerrolle asynchrone, langfristige oder fortwährende Aufgaben ausführen kann, die unabhängig von einer Benutzerinteraktion oder -eingabe sind.
+Azure stellt drei Computemodelle bereit, die Sie zum Ausführen von Anwendungen verwenden können: [Web-Apps-Feature in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] und [Azure Cloud Services][execution model-cloud services]. Alle drei Modelle unterstützen Python. Cloud Services, die auch Web- und Workerrollen umfassen, ermöglichen *Platform as a Service (PaaS)* . In einem Clouddienst bietet eine Webrolle einen speziellen IIS-Webserver (Internet Information Services), um Front-End-Webanwendungen zu hosten, während eine Workerrolle asynchrone, langfristige oder fortwährende Aufgaben ausführen kann, die unabhängig von einer Benutzerinteraktion oder -eingabe sind.
 
 Weitere Informationen finden Sie unter [Was ist ein Clouddienst?].
 

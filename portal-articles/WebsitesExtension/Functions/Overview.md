@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: cc37fbe218dd94da865e61e4b4275a7171fdbe7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344139"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64708117"
 ---
 # <a name="azure-functions-documentation"></a>Dokumentation zu Azure Functions
 

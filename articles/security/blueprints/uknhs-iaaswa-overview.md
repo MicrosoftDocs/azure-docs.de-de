@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 5f7f9641e8fc7cd4c0e8dd153b350b9dd876b004
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168689"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62115430"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Azure-Blaupause für Sicherheit und Compliance: IaaS-Webanwendung gemäß NHS (Vereinigtes Königreich)
 

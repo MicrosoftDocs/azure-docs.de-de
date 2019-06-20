@@ -12,11 +12,11 @@ ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684020"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61379270"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Lebenszyklus einer Wissensdatenbank in QnA Maker
 QnA Maker lernt am besten in einem iterativen Zyklus aus Modelländerungen, Ausdrucksbeispielen, Veröffentlichungen und dem Sammeln von Daten aus Endpunktabfragen. 
@@ -31,7 +31,7 @@ Der Endpunkt der QnA Maker-Knowledge Base (KB) stellt die am besten übereinstim
 Die Knowledge Base ist bereit für das Testen, nachdem sie mit manuell bearbeiteten oder automatisch extrahierten Inhalten aufgefüllt wurde. Interaktive Tests können im QnA Maker-Portal über den Bereich **Testen** ausgeführt werden, indem häufige Benutzerabfragen eingegeben werden und dann überprüft wird, ob die zurückgegebenen Antworten richtig sind und eine ausreichende Zuverlässigkeitsbewertung aufweisen. 
 
 * **Optimieren niedriger Zuverlässigkeitsbewertungen**: Fügen Sie alternative Fragen hinzu. 
-* **Wenn eine Abfrage fälschlicherweise die [Standardantwort zurückgibt](confidence-score.md#change-default-answer)**: Fügen Sie neue Antworten auf die richtige Frage hinzu. 
+* **Wenn eine Abfrage fälschlicherweise die [Standardantwort zurückgibt](confidence-score.md#change-default-answer)** : Fügen Sie neue Antworten auf die richtige Frage hinzu. 
 
 Diese nahe Abfolge von Tests und Updates wird so lange fortgesetzt, bis Sie mit den Ergebnissen zufrieden sind. Erfahren Sie mehr über das [Testen Ihrer Knowledge Base](../How-To/test-knowledge-base.md).
 

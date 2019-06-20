@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60333950"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bereitstellen eines Azure Machine Learning Studio-Webdiensts
 
@@ -32,9 +32,9 @@ Die Eingabe für BES gleicht der für RRS verwendeten Dateneingabe. BES liest im
 
 Allgemein betrachtet stellen Sie Ihr Modell in drei Schritten bereit:
 
-* **[Erstellen eines Trainingsexperiments]**: In Studio können Sie ein Vorhersageanalysemodell mit Trainingsdaten, die Sie angeben, unter Verwendung eines großen Satzes von integrierten Machine Learning-Algorithmen trainieren und testen.
-* **[Konvertierten in ein Vorhersageexperiment]**: Sobald Ihr Modell mit vorhandenen Daten trainiert wurde, können Sie es verwenden, um neue Daten zu bewerten. Sie bereiten das Experiment auf Vorhersagen vor und optimieren es.
-* **Bereitstellung** als **[Neuer Webdienst]** oder **[Klassischer Webdienst]**: Wenn Sie Ihr Vorhersageexperiment als Azure-Webdienst bereitstellen, können Benutzer Daten an Ihr Modell senden und dessen Vorhersagen empfangen.
+* **[Erstellen eines Trainingsexperiments]** : In Studio können Sie ein Vorhersageanalysemodell mit Trainingsdaten, die Sie angeben, unter Verwendung eines großen Satzes von integrierten Machine Learning-Algorithmen trainieren und testen.
+* **[Konvertierten in ein Vorhersageexperiment]** : Sobald Ihr Modell mit vorhandenen Daten trainiert wurde, können Sie es verwenden, um neue Daten zu bewerten. Sie bereiten das Experiment auf Vorhersagen vor und optimieren es.
+* **Bereitstellung** als **[Neuer Webdienst]** oder **[Klassischer Webdienst]** : Wenn Sie Ihr Vorhersageexperiment als Azure-Webdienst bereitstellen, können Benutzer Daten an Ihr Modell senden und dessen Vorhersagen empfangen.
 
 ## <a name="create-a-training-experiment"></a>Erstellen eines Trainingsexperiments
 
@@ -143,7 +143,7 @@ Die Preise sind regionsspezifisch. Daher müssen Sie einen Abrechnungsplan für 
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Bereitstellen des Webdiensts in einer anderen Region
 
-1. Klicken Sie auf der Microsoft Azure Machine Learning Web Services-Seite auf die Menüoption **Web Services (Webdienste)**.
+1. Klicken Sie auf der Microsoft Azure Machine Learning Web Services-Seite auf die Menüoption **Web Services (Webdienste)** .
 2. Wählen Sie den Webdienst aus, den Sie in einer neuen Region bereitstellen.
 3. Klicken Sie auf **Copy**.
 4. Geben Sie in **Web Service Name**einen neuen Namen für den Webdienst ein.

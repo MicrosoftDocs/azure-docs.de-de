@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002939"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991376"
 ---
 # <a name="understand-and-work-with-scopes"></a>Verstehen von und Arbeiten mit Bereichen
 
@@ -60,14 +60,14 @@ Cost Management unterstützt für jeden der folgenden Bereiche die folgenden int
 - [**Besitzer**](../role-based-access-control/built-in-roles.md#owner): Ermöglicht das Anzeigen von Kosten und das Verwalten sämtlicher Aspekte einschließlich Kostenkonfiguration.
 - [**Mitwirkender**](../role-based-access-control/built-in-roles.md#contributor): Ermöglicht das Anzeigen von Kosten und das Verwalten sämtlicher Aspekte einschließlich Kostenkonfiguration, aber ausschließlich Zugriffssteuerung.
 - [**Leser**](../role-based-access-control/built-in-roles.md#reader): Ermöglicht das Anzeigen sämtlicher Daten einschließlich Kostendaten und Konfiguration, aber nicht das Vornehmen von Änderungen.
-- [**Cost Management-Mitwirkender**](../role-based-access-control/built-in-roles.md#cost-management-contributor): Ermöglicht das Anzeigen der Kosten und das Verwalten der Kostenkonfiguration.
-- [**Cost Management-Leser**](../role-based-access-control/built-in-roles.md#cost-management-reader): Ermöglicht das Anzeigen der Kosten und Konfiguration.
+- [**Cost Management-Mitwirkender**](../role-based-access-control/built-in-roles.md#cost-management-contributor): Ermöglicht das Anzeigen der Kosten, das Verwalten der Kostenkonfiguration und die Anzeige von Empfehlungen.
+- [**Cost Management-Leser**](../role-based-access-control/built-in-roles.md#cost-management-reader): Ermöglicht die Anzeige von Kostendaten, Kostenkonfiguration und Empfehlungen.
 
 „Cost Management-Mitwirkender“ ist die empfohlene Rolle mit geringstmöglichen Berechtigungen. Sie ermöglicht den Zugriff für die Erstellung und Verwaltung von Budgets und Exporten, um die Kosten effektiver zu überwachen und zu dokumentieren. Cost Management-Mitwirkende benötigen ggf. auch zusätzliche Rollen, um Kostenverwaltungsszenarien durchgängig unterstützen zu können. Stellen Sie sich die folgenden Szenarien vor:
 
 - **Eingreifen bei Überschreitung von Budgets**: Cost Management-Mitwirkende benötigen auch Zugriff für das Erstellen und/oder Verwalten von Aktionsgruppen, um bei Überschreitungen automatisch zu reagieren. Erwägen Sie das Zuweisen der Rolle [Mitwirkender an der Überwachung](../role-based-access-control/built-in-roles.md#monitoring-contributor) zu einer Ressourcengruppe, die die zu verwendende Aktionsgruppe enthält, wenn Budgetschwellenwerte überschritten werden. Die Automatisierung bestimmter Aktionen erfordert zusätzliche Rollen für die verwendeten spezifischen Dienste, wie z.B. Azure Automation und Azure Functions.
 - **Planen des Exports von Kostendaten**: Cost Management-Mitwirkende benötigen auch Zugriff für das Verwalten von Speicherkonten, um einen Export zum Kopieren von Daten in ein Speicherkonto zu planen. Erwägen Sie das Zuweisen der Rolle [Speicherkontomitwirkender](../role-based-access-control/built-in-roles.md#storage-account-contributor) zu einer Ressourcengruppe, die das Speicherkonto enthält, in das Kostendaten exportiert werden.
-- **Anzeigen von Empfehlungen für Kosteneinsparungen**: Cost Management-Leser und -Mitwirkende haben in der Standardeinstellung keinen Zugriff auf Empfehlungen. Der Zugriff auf Empfehlungen erfordert Lesezugriff auf einzelne Ressourcen. Erwägen Sie das Gewähren der Rolle [Leser](../role-based-access-control/built-in-roles.md#reader) oder einer [dienstspezifischen Rolle](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Anzeigen von Empfehlungen für Kosteneinsparungen**: Cost Management-Leser und Cost Management-Mitwirkende haben in der Standardeinstellung Zugriff auf die *Anzeige* von Empfehlungen. Der Zugriff auf die Kostenempfehlungen erfordert jedoch den Zugriff auf einzelne Ressourcen. Erwägen Sie, eine [dienstspezifische Rolle](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) zuzulassen, wenn Sie auf eine kostenbasierte Empfehlung reagieren möchten.
 
 ## <a name="enterprise-agreement-scopes"></a>Enterprise Agreement-Bereiche
 
@@ -218,7 +218,7 @@ Bei der Arbeit mit Cost Management-APIs ist es wichtig, den Bereich zu kennen. E
 4. Kopieren Sie den Wert des Felds „Ressourcen-ID“.
 5. Ihr Bereich ist: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Cost Management wird derzeit in [Azure Global](https://management.azure.com) und [Azure Government](https://management.usgovcloudapi.net) unterstützt. Weitere Informationen zu Azure Government finden Sie unter [API-Endpunkte für Azure Global und Azure Government](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Cost Management wird derzeit in [Azure Global](https://management.azure.com) und [Azure Government](https://management.usgovcloudapi.net) unterstützt. Weitere Informationen zu Azure Government finden Sie unter [API-Endpunkte für Azure Global und Azure Government](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411361"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Fehler beim Streamingendpunkt (Ursprung) 
@@ -82,7 +82,7 @@ Die für eine Ressource in einer `PUT`- oder `POST`-Operation bereitgestellte ID
 
 ## <a name="412-precondition-failure"></a>412 Fehler bei Vorbedingung
 
-In der Operation wurde ein eTag festgelegt, das sich von der auf dem Server verfügbaren Version unterscheidet, d. h. es liegt ein Fehler bei vollständiger Parallelität vor. Wiederholen Sie die Anforderung nach dem Lesen der neuesten Version der Ressource und dem Aktualisieren des eTag für die Anforderung.
+In der Operation wurde ein eTag festgelegt, das sich von der auf dem Server verfügbaren Version unterscheidet, d.h., es liegt ein Fehler bei vollständiger Parallelität vor. Wiederholen Sie die Anforderung nach dem Lesen der neuesten Version der Ressource und dem Aktualisieren des eTag für die Anforderung.
 
 |Fehlercode|Hexadezimalwert |Fehlerbeschreibung|
 |---|---|---|
@@ -101,7 +101,7 @@ Das vom Client gesendete Nutzlastformat wird nicht unterstützt.
 |MPE_ENC_MULTIPLE_SAME_DELIVERY_TYPE|0x8088024E |Die ursprünglichen Einstellungen werden möglicherweise von mehreren Ausgabeformaten gemeinsam genutzt.|
 |MPE_FORMAT_NOT_SUPPORTED|0x80890205|Medienformat oder -typ nicht unterstützt. Media Services unterstützt beispielsweise keinen Qualitätsstufenzähler über 64. Im FLV-Videotag unterstützt Media Services keine Videoframes mit mehreren SPS und mehrere PPS.|
 |MPE_INPUT_FORMAT_NOT_SUPPORTED|0x80890218| Eingabeformat des angeforderten Medienobjekts nicht unterstützt. Media Services unterstützt Smooth (live), MP4 (VoD) und Formate des progressiven Downloads.|
-|MPE_OUTPUT_FORMAT_NOT_SUPPORTED|0x8089020D|Angefordertes Ausgabeformat nicht unterstützt. Media Services unterstützt Smooth, DASH(CSF, CMAF), HLS (v3, v4, CMAF) und Formate des progressiven Downloads.|
+|MPE_OUTPUT_FORMAT_NOT_SUPPORTED|0x8089020D|Angefordertes Ausgabeformat nicht unterstützt. Media Services unterstützt Smooth, DASH (CSF, CMAF), HLS (v3, v4, CMAF) und Formate des progressiven Downloads.|
 |MPE_ENCRYPTION_NOT_SUPPORTED|0x80890208|Nicht unterstützter Verschlüsselungstyp gefunden.|
 |MPE_MEDIA_TYPE_NOT_SUPPORTED|0x8089020E|Angeforderter Medientyp vom Ausgabeformat nicht unterstützt. Unterstützt werden Video, Audio oder „SUBT“-Untertitel.|
 |MPE_MEDIA_ENCODING_NOT_SUPPORTED|0x8089020F|Quellobjektmedium wurde mit einem Medienformat codiert, das nicht mit dem Ausgabeformat kompatibel ist.|
@@ -109,7 +109,7 @@ Das vom Client gesendete Nutzlastformat wird nicht unterstützt.
 |MPE_AUDIO_ENCODING_NOT_SUPPORTED|0x80890211|Quellmedienobjekt wurde mit einem Audioformat codiert, das nicht mit dem Ausgabeformat kompatibel ist. Unterstützte Audioformate sind AAC, E-AC3 (DD+), Dolby DTS.|
 |MPE_SOURCE_PROTECTION_CONVERSION_NOT_SUPPORTED|0x80890212|Das geschützte Quellmedienobjekt kann nicht in das Ausgabeformat konvertiert werden.|
 |MPE_OUTPUT_PROTECTION_FORMAT_NOT_SUPPORTED|0x80890213|Schutzformat wird vom Ausgabeformat nicht unterstützt.|
-|MPE_INPUT_PROTECTION_FORMAT_NOT_SUPPORTED|0x80890219|Schutzformat wird vom Ausgabeformat nicht unterstützt.|
+|MPE_INPUT_PROTECTION_FORMAT_NOT_SUPPORTED|0x80890219|Schutzformat wird vom Eingabeformat nicht unterstützt.|
 |MPE_INVALID_VIDEO_NAL_UNIT|0x80890231|Ungültige Video-NAL-Einheit, z.B. kann nur die erste NAL in diesem Sample ein AUD sein.|
 |MPE_INVALID_NALU_SIZE|0x80890260|Ungültiger Wert für die Größe der NAL-Einheit.|
 |MPE_INVALID_NALU_LENGTH_FIELD|0x80890261|Ungültiger Wert für die Länge der NAL-Einheit.|
@@ -206,4 +206,4 @@ Im Artikel [Azure Media Services-Community](media-services-community.md) finden 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Beispiel: Zugriff auf ErrorCode und Message aus ApiException mit .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)
+[Beispiel: Zugriff auf ErrorCode und Meldung von ApiException mit .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)

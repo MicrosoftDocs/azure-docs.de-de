@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
-ms.openlocfilehash: 22cab5f22eccabf9176d777b1e3a3356cbf37c4f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6db6d9c86e6da047c45ae7b1c43cf5f55c7e2b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64922857"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Authentifizieren von Batch Management-Lösungen mit Active Directory
 
@@ -36,7 +36,7 @@ Weitere Informationen zur Nutzung der Batch Management .NET-Bibliothek und des A
 
 Die Azure [Active Directory Authentication Library][aad_adal] (ADAL) stellt eine programmgesteuerte Schnittstelle für Azure AD bereit, die Sie in Ihren Anwendungen einsetzen können. Zum Aufrufen von ADAL aus Ihrer Anwendung müssen Sie Ihre Anwendung in einem Azure AD-Mandanten registrieren. Beim Registrieren Ihrer Anwendung stellen Sie für Azure AD Informationen zu Ihrer Anwendung bereit, einschließlich eines entsprechenden Namens im Azure AD-Mandanten. Azure AD stellt dann eine Anwendungs-ID bereit, die Sie verwenden, um Ihre Anwendung zur Laufzeit Azure AD zuzuordnen. Weitere Informationen zur Anwendungs-ID finden Sie unter [Anwendungs- und Dienstprinzipalobjekte in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Führen Sie die Schritte im Abschnitt [Adding an Application](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) (Hinzufügen einer Anwendung) des Artikels [Integrating applications with Azure Active Directory][aad_integrate] (Integrieren von Anwendungen in Azure Active Directory) aus, um die AccountManagement-Beispielanwendung zu registrieren. Geben Sie als Typ der Anwendung **Systemeigene Clientanwendung** an. Der OAuth 2.0-URI nach Industriestandard für den **Umleitungs-URI** ist `urn:ietf:wg:oauth:2.0:oob`. Für den **Umleitungs-URI** können Sie einen beliebigen gültigen URI angeben (z. B. `http://myaccountmanagementsample`), da dies kein echter Endpunkt sein muss:
+Führen Sie die Schritte im Abschnitt [Adding an Application](../active-directory/develop/quickstart-register-app.md) (Hinzufügen einer Anwendung) des Artikels [Integrating applications with Azure Active Directory][aad_integrate] (Integrieren von Anwendungen in Azure Active Directory) aus, um die AccountManagement-Beispielanwendung zu registrieren. Geben Sie als Typ der Anwendung **Systemeigene Clientanwendung** an. Der OAuth 2.0-URI nach Industriestandard für den **Umleitungs-URI** ist `urn:ietf:wg:oauth:2.0:oob`. Für den **Umleitungs-URI** können Sie einen beliebigen gültigen URI angeben (z. B. `http://myaccountmanagementsample`), da dies kein echter Endpunkt sein muss:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

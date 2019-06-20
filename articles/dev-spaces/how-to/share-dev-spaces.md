@@ -10,11 +10,11 @@ ms.topic: conceptual
 description: Schnelle Kubernetes-Entwicklung mit Containern und Microservices in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, Helm, Service Mesh, Service Mesh-Routing, kubectl, k8s '
 ms.openlocfilehash: 62d4affa5ef49de7600f9ccc800ea6bf83e4bd49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099575"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60686626"
 ---
 # <a name="share-azure-dev-spaces"></a>Freigeben von Azure Dev Spaces
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6adc5dfa740d440e78bf2f276447c4585503d7c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606473"
 ---
 # <a name="heading"></a>Verarbeiten von Daten auf einer SQL Server-VM in Azure
 In diesem Dokument werden das Durchsuchen von Daten und das Generieren von Funktionen aus Daten auf einer SQL Server-VM in Azure beschrieben. Dies kann über eine Datenanalyse mithilfe von SQL oder über die Verwendung einer Programmiersprache wie Python erreicht werden.
@@ -87,7 +87,7 @@ Es folgt eine kurze Einführung in Positionsdaten mit Längen- und Breitengrad (
 * Das Vorzeichen gibt an, ob sich die Position im Norden, Süden, Osten oder Westen auf dem Globus befindet.
 * Ein Hunderterwert ungleich null gibt an, dass der Längengrad und nicht der Breitengrad verwendet wird!
 * Die Zehnerstelle gibt eine Position auf ca. 1.000 km Genauigkeit an. Damit verfügen Sie über nützliche Informationen zum Kontinent oder Ozean.
-* Die Einheitenstelle (ein Dezimalzeichen) gibt die Position auf etwa 111 km (60 nautische Meilen, etwa 69 Meilen) genau an. Damit wissen Sie ungefähr, welches Land gemeint ist.
+* Die Einheitenstelle (ein Dezimalzeichen) gibt die Position auf etwa 111 km (60 nautische Meilen, etwa 69 Meilen) genau an. Damit wissen Sie ungefähr, welches Land/welche Region gemeint ist.
 * Die erste Dezimalstelle gibt einen Wert von etwa 11,1 km Genauigkeit an: Sie können damit die Position von einer großen Stadt von der einer benachbarten großen Stadt unterscheiden.
 * Die zweite Dezimalstelle bietet eine Genauigkeit von ca. 1,1 km: Damit können Sie Dörfer voneinander trennen.
 * Die dritte Dezimalstelle ist auf etwa 110 m genau: Sie können so große landwirtschaftliche Felder oder Industriegebiete identifizieren.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c20cbf50129247fa01f10f12a99c558bc86492b8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f39eb7dbe74c194af43a99f69858215d9d7d251b
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145178"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688770"
 ---
 # <a name="getting-started-with-status-monitor-v2"></a>Erste Schritte mit Statusmonitor v2
 
@@ -64,7 +64,7 @@ Laden Sie hier die neueste Version des Moduls manuell herunter: https://www.powe
 
 ### <a name="unzip-and-install-status-monitor-v2"></a>Extrahieren und Installieren von Statusmonitor v2
 ```powershell
-$pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.2.1-alpha.nupkg"
+$pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
 $pathToNupkg | rename-item -newname $pathToZip
 $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.ApplicationMonitor"
@@ -84,7 +84,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - [Untersuchen Sie Metriken](../../azure-monitor/app/metrics-explorer.md) für die Überwachung von Leistung und Auslastung.
 - [Durchsuchen Sie Ereignisse und Protokolle](../../azure-monitor/app/diagnostic-search.md), um Probleme zu diagnostizieren.
 - [Verwenden Sie Analytics](../../azure-monitor/app/analytics.md) für erweiterte Abfragen.
-- [Erstellen Sie Dashboards.](../../azure-monitor/app/app-insights-dashboards.md)
+- [Erstellen Sie Dashboards.](../../azure-monitor/app/overview-dashboard.md)
 
  Hinzufügen weiterer Telemetrieelemente:
 

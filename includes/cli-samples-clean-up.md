@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.openlocfilehash: e7494db94c7d8f0fc610ab297798749bffd55e7c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331041"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126325"
 ---
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 

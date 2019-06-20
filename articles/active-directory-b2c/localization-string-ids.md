@@ -2,20 +2,20 @@
 title: Lokalisierungszeichenfolgen-IDs – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Geben Sie die IDs für eine Inhaltsdefinition mit der ID „api.signuporsignin“ in einer benutzerdefinierten Richtlinie in Azure Active Directory B2C an.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c6cabcc89e66e9fbf153f2931bfe8b9b70c5f426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682704"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510924"
 ---
 # <a name="localization-string-ids"></a>Lokalisierungszeichenfolgen-IDs
 
@@ -33,7 +33,7 @@ Die folgenden IDs werden für eine Inhaltsdefinition mit der ID `api.signuporsig
 | **logonIdentifier_email** | E-Mail-Adresse |
 | **requiredField_email** | Geben Sie Ihre E-Mail-Adresse ein. |
 | **invalid_email** | Geben Sie eine gültige E-Mail-Adresse ein. |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
 | **local_intro_username** | Melden Sie sich mit Ihrem Benutzernamen an. |
 | **logonIdentifier_username** | Username |
 | **requiredField_username** | Geben Sie Ihren Benutzernamen ein. |
@@ -120,7 +120,7 @@ Folgende IDs dienen der Inhaltsdefinition mit der ID `api.localaccountsignup` od
 | **ver_incorrect_format** | Falsches Format. |
 | **ver_but_edit** | E-Mail-Adresse ändern |
 | **ver_but_verify** | Code überprüfen |
-| **alert_no** | Nein  |
+| **alert_no** | Nein |
 | **ver_info_msg** | Der Prüfcode wurde an Ihr Postfach gesendet. Kopieren Sie den Code in das nachstehende Eingabefeld. |
 | **day** | Day (Tag) |
 | **ver_fail_throttled** | Es wurden zu viele Anforderungen zur Überprüfung dieser E-Mail-Adresse gesendet. Warten Sie einige Minuten, und versuchen Sie es erneut. |

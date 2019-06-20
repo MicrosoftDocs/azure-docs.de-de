@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317492"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61436595"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Verwenden des CloudEvents-Schemas mit Event Grid
 
@@ -64,16 +64,16 @@ CloudEvents v0.1 hat folgende Eigenschaften:
 
 | CloudEvents        | Type     | JSON-Beispielwert             | BESCHREIBUNG                                                        | Event Grid-Zuordnung
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | Zeichenfolge   | "com.example.someevent"          | Typ des aufgetretenen Vorkommens                                   | eventType
-| eventTypeVersion   | Zeichenfolge   | "1.0"                            | Die Version des eventType (optional)                            | dataVersion
-| cloudEventsVersion | Zeichenfolge   | "0.1"                            | Die Version der CloudEvents-Spezifikation, die das Ereignis verwendet        | *übergeben*
-| Quelle             | URI      | "/mycontext"                     | Beschreibt den Ereignisproduzenten                                       | topic#subject
-| eventID            | Zeichenfolge   | "1234-1234-1234"                 | ID des Ereignisses                                                    | id
-| eventTime          | Zeitstempel| "2018-04-05T17:31:00Z"           | Zeitstempel des Ereignisses (optional)                    | eventTime
+| eventType          | string   | "com.example.someevent"          | Typ des aufgetretenen Vorkommens                                   | eventType
+| eventTypeVersion   | string   | "1.0"                            | Die Version des eventType (optional)                            | dataVersion
+| cloudEventsVersion | string   | "0.1"                            | Die Version der CloudEvents-Spezifikation, die das Ereignis verwendet        | *übergeben*
+| source             | URI      | "/mycontext"                     | Beschreibt den Ereignisproduzenten                                       | topic#subject
+| eventID            | string   | "1234-1234-1234"                 | ID des Ereignisses                                                    | id
+| eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Zeitstempel des Ereignisses (optional)                    | eventTime
 | schemaURL          | URI      | „https:\//myschema.com“           | Eine Verknüpfung mit dem Schema, das dem Attribut entspricht (optional) | *nicht verwendet*
-| contentType        | Zeichenfolge   | "application/json"               | Beschreibt das Datencodierungsformat (optional)                       | *nicht verwendet*
+| contentType        | string   | "application/json"               | Beschreibt das Datencodierungsformat (optional)                       | *nicht verwendet*
 | Erweiterungen         | Map      | { "extA": "vA", "extB", "vB" }  | Zusätzliche Metadaten (optional)                                 | *nicht verwendet*
-| data               | Objekt   | { "objA": "vA", "objB", "vB" }  | Die Ereignisnutzlast (optional)                                       | data
+| data               | Object   | { "objA": "vA", "objB", "vB" }  | Die Ereignisnutzlast (optional)                                       | data
 
 Weitere Informationen finden Sie in der [CloudEvents-Spezifikation](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

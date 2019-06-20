@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991363"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480320"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Behandeln von Azure Files-Problemen unter Windows
 
@@ -136,20 +136,19 @@ Der Fehler 1816 tritt auf, wenn Sie die Obergrenze der parallelen offenen Handle
 
 Reduzieren Sie die Anzahl der gleichzeitig geöffneten Handles, indem Sie einige Handles schließen und es anschließend erneut versuchen. Weitere Informationen finden Sie unter [Checkliste zur Leistung und Skalierbarkeit von Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fehler „Zugriff verweigert“ beim Navigieren zu einer Azure-Dateifreigabe im Portal
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fehlermeldung „Autorisierungsfehler“ beim Navigieren zu einer Azure-Dateifreigabe im Portal
 
 Wenn Sie zu einer Azure-Dateifreigabe im Portal navigieren, erhalten Sie ggf. den folgenden Fehler:
 
-Zugriff verweigert.  
-Sie haben keinen Zugriff.  
-Sie scheinen keinen Zugriff auf diesen Inhalt zu haben. Wenden Sie sich an den Besitzer, um Zugriff zu erhalten.  
+Autorisierungsfehler  
+Sie haben keinen Zugriff. 
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Ursache 1: Ihr Benutzerkonto besitzt keinen Zugriff auf das Speicherkonto
 
 ### <a name="solution-for-cause-1"></a>Lösung für Ursache 1
 
-Navigieren Sie zu dem Speicherkonto, in dem sich die Azure-Dateifreigabe befindet, klicken Sie auf **Zugriffssteuerung (IAM)**, und überprüfen Sie, ob Ihr Benutzerkonto Zugriff auf das Speicherkonto besitzt. Weitere Informationen finden Sie unter [Sichern Ihres Speicherkontos mit rollenbasierter Zugriffssteuerung (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Navigieren Sie zu dem Speicherkonto, in dem sich die Azure-Dateifreigabe befindet, klicken Sie auf **Zugriffssteuerung (IAM)** , und überprüfen Sie, ob Ihr Benutzerkonto Zugriff auf das Speicherkonto besitzt. Weitere Informationen finden Sie unter [Sichern Ihres Speicherkontos mit rollenbasierter Zugriffssteuerung (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Ursache 2: Virtuelle Netzwerk- oder Firewallregeln sind für das Speicherkonto aktiviert.
 

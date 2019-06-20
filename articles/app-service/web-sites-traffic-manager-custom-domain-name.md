@@ -16,11 +16,11 @@ ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128518"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Konfigurieren eines benutzerdefinierten Domänennamens für eine Web-App in Azure App Services, der Traffic Manager verwendet.
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]

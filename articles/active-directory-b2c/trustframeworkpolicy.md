@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie das TrustFrameworkPolicy-Element einer benutzerdefinierten Richtlinie in Azure Active Directory B2C angeben.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1102aee9d7fa5fe3df0e048398cdc8bd71ff0a3c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684147"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512302"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -41,12 +41,12 @@ Das **TrustFrameworkPolicy**-Element enthält die folgenden Attribute:
 | Attribut | Erforderlich | BESCHREIBUNG |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Ja | Die Schemaversion, die zum Ausführen der Richtlinie verwendet werden soll. Der Wert muss `0.3.0.0` sein. |
-| TenantObjectId | Nein  | Der eindeutige Objektbezeichner des Azure Active Directory (Azure AD) B2C-Mandanten. |
+| TenantObjectId | Nein | Der eindeutige Objektbezeichner des Azure Active Directory (Azure AD) B2C-Mandanten. |
 | TenantId | Ja | Der eindeutige Bezeichner des Mandanten, zu dem diese Richtlinie gehört. |
-|  `PolicyId` | Ja | Der eindeutige Bezeichner für die Richtlinie. Diesem Bezeichner muss das Präfix *B2C_1A_* vorangestellt werden. |
+| `PolicyId` | Ja | Der eindeutige Bezeichner für die Richtlinie. Diesem Bezeichner muss das Präfix *B2C_1A_* vorangestellt werden. |
 | PublicPolicyUri | Ja | Der URI für die Richtlinie, bei dem es sich um eine Kombination der Mandanten-ID und der Richtlinien-ID handelt. |
-| DeploymentMode | Nein  | Mögliche Werte: `Production`, `Debugging` oder `Development`. `Production` ist die Standardeinstellung. Verwenden Sie diese Eigenschaft, um Ihre Richtlinie zu debuggen. Weitere Informationen finden Sie unter [Sammeln von Protokollen](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | Nein  | Der Endpunkt, der verwendet wird, wenn **DeploymentMode** auf `Development` festgelegt ist. Der Wert muss `urn:journeyrecorder:applicationinsights` sein. Weitere Informationen finden Sie unter [Sammeln von Protokollen](active-directory-b2c-troubleshoot-custom.md). |
+| DeploymentMode | Nein | Mögliche Werte: `Production`, `Debugging` oder `Development`. `Production` ist die Standardeinstellung. Verwenden Sie diese Eigenschaft, um Ihre Richtlinie zu debuggen. Weitere Informationen finden Sie unter [Sammeln von Protokollen](active-directory-b2c-troubleshoot-custom.md). |
+| UserJourneyRecorderEndpoint | Nein | Der Endpunkt, der verwendet wird, wenn **DeploymentMode** auf `Development` festgelegt ist. Der Wert muss `urn:journeyrecorder:applicationinsights` sein. Weitere Informationen finden Sie unter [Sammeln von Protokollen](active-directory-b2c-troubleshoot-custom.md). |
 
 
 Das folgende Beispiel zeigt, wie das **TrustFrameworkPolicy**-Element angegeben wird:
@@ -91,7 +91,7 @@ Das **BasePolicy**-Element enthält die folgenden Elemente:
 | Element | Vorkommen | BESCHREIBUNG |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Der Bezeichner Ihres Azure AD B2C-Mandanten. |
-|  `PolicyId` | 1:1 | Der Bezeichner der übergeordneten Richtlinie. |
+| `PolicyId` | 1:1 | Der Bezeichner der übergeordneten Richtlinie. |
 
 
 Im folgenden Beispiel wird gezeigt, wie Sie eine Basisrichtlinie angeben. Diese Richtlinie **B2C_1A_TrustFrameworkExtensions** ist von der Richtlinie **B2C_1A_TrustFrameworkBase** abgeleitet. 
@@ -138,7 +138,7 @@ Richtlinie „B2C_1A_signup_signin“:
 
 Eine User Journey definiert die Geschäftslogik, die ein Benutzer durchläuft. Jede User Journey umfasst einen Satz von Orchestrierungsschritten, mit dem nacheinander eine Reihe von Aktionen in Bezug auf die Authentifizierung und Informationserfassung ausführt wird. 
 
-Die Richtliniendatei **SocialAndLocalAccounts** im [Starter Pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) enthält die User Journeys SignUpOrSignIn, ProfileEdit und PasswordReset. Sie können weitere User Journeys für andere Szenarien, wie z.B. das Ändern einer E-Mail-Adresse, das Verknüpfen und Aufheben der Verknüpfung mit einem Social Media-Konto oder das Zurücksetzen eines Kennworts, hinzufügen. 
+Die Richtliniendatei **SocialAndLocalAccounts** im [Starter Pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) enthält die User Journeys SignUpOrSignIn, ProfileEdit und PasswordReset. Sie können weitere User Journeys für andere Szenarien, wie z.B. das Ändern einer E-Mail-Adresse oder das Verknüpfen und Aufheben der Verknüpfung mit einem Social Media-Konto hinzufügen. 
 
 Die Orchestrierungsschritte können ein [technisches Profil](technicalprofiles.md) aufrufen. Ein technisches Profil bietet ein Framework mit einem integrierten Mechanismus für die Kommunikation mit verschiedenen Typen von Parteien. Mit einem technischen Profil können unter anderem folgende Aktionen ausgeführt werden:
 
@@ -157,4 +157,3 @@ Die Orchestrierungsschritte können ein [technisches Profil](technicalprofiles.m
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

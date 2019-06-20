@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 5281b561f2f14c5d777ef496210b16b4c87ccebf
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c887c5ea72a64828749bfc62756e59a8a22ea9df
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "66133738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66729636"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Erstellen eines Anwendungsgateways mit interner Umleitung mithilfe von Azure PowerShell
 
@@ -36,7 +36,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Wenn Sie PowerShell lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial mindestens Version 1.0.0 des Azure PowerShell-Moduls verwenden. Führen Sie `Get-Module -ListAvailable Az` aus, um die Version zu ermitteln. Wenn Sie ein Upgrade ausführen müssen, finden Sie unter [Installieren des Azure PowerShell-Moduls](/powershell/azure/install-az-ps) Informationen dazu. Wenn Sie PowerShell lokal ausführen, müssen Sie auch `Login-AzAccount` ausführen, um eine Verbindung mit Azure herzustellen.
 
@@ -300,7 +300,7 @@ Geben Sie Ihren Domänennamen in die Adressleiste Ihres Browsers ein. Z.B. http:
 
 ![Testen der Contoso-Website im Anwendungsgateway](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Ändern Sie die Adresse in Ihre andere Domäne, z.B. http://www.contoso.org. Danach sollten Sie sehen, dass der Datenverkehr an den Listener für www\.contoso.com zurückgeleitet wurde.
+Ändern Sie die Adresse in Ihre andere Domäne, z.B. http://www.contoso.org. Danach sollten Sie sehen, dass der Datenverkehr an den Listener für www\. contoso.com zurückgeleitet wurde.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

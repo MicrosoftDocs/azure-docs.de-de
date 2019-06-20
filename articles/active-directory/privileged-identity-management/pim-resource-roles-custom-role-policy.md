@@ -15,10 +15,10 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e814cde49374b52266f725b4d57657a507874ab
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602027"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>Verwenden benutzerdefinierter Rollen für Azure-Ressourcen in PIM

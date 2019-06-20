@@ -1,25 +1,18 @@
 ---
-title: Einhaltung der DSGVO | Microsoft-Dokumentation
+title: Einhaltung der DSGVO | Azure Marketplace
 description: Cloud-Partnerportal und DSGVO.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4e6f5095081f0549bc127b9b6949908a64214aee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935418"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Einhaltung der DSGVO im Cloud-Partnerportal
 ====================================

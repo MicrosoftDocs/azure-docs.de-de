@@ -295,16 +295,16 @@ Beim Verschieben von Daten in MongoDB werden die folgenden Zuordnungen zwischen 
 
 | MongoDB-Typ | Typ ".NET Framework" |
 | --- | --- |
-| Binär |Byte[] |
+| Binary |Byte[] |
 | Boolescher Wert |Boolescher Wert |
-| Datum |Datetime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Zeichenfolge |
-| Zeichenfolge |Zeichenfolge |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
-| Objekt |Renormalisiert in vereinfachte Spalten mit dem geschachtelten Trennzeichen „_“ |
+| Object |Renormalisiert in vereinfachte Spalten mit dem geschachtelten Trennzeichen „_“ |
 
 > [!NOTE]
 > Weitere Informationen zur Unterstützung für Arrays mit virtuellen Tabellen finden Sie im Abschnitt [Unterstützung für komplexe Typen mit virtuellen Tabellen](#support-for-complex-types-using-virtual-tables) unten.

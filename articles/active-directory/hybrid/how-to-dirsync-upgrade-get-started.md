@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852953"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60348612"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Upgrade von DirSync
 Azure AD Connect ist der Nachfolger von DirSync. Dieses Thema beschreibt die Möglichkeiten, die Sie beim Upgrade von DirSync haben. Die Schritte funktionieren nicht für ein Upgrade von einer anderen Version von Azure AD Connect oder von Azure AD Sync.
@@ -49,12 +49,12 @@ Je nach Ihrer aktuellen DirSync-Bereitstellung gibt es unterschiedliche Optionen
 > Wenn Sie ein Upgrade von DirSync auf Azure AD Connect planen, sollten Sie DirSync nicht selbst deinstallieren, bevor Sie das Upgrade durchführen. Azure AD Connect liest und migriert die Konfiguration aus DirSync und führt die Deinstallation nach der Untersuchung des Servers durch.
 
 **Direktes Upgrade**  
- Die erwartete Zeit zum Durchführen des Upgrades wird vom Assistenten angezeigt. Diese Schätzung basiert auf der Annahme, dass ein Upgrade für eine Datenbank mit 50.000 Objekten (Benutzern, Kontakten und Gruppen) drei Stunden dauert. Wenn die Anzahl von Objekten in der Datenbank unter 50.000 liegt, empfiehlt Azure AD Connect ein direktes Upgrade. Wenn Sie den Vorgang fortsetzen, werden Ihre aktuellen Einstellungen während des Upgrades automatisch angewendet, und Ihr Server setzt die aktive Synchronisierung automatisch fort.
+Die erwartete Zeit zum Durchführen des Upgrades wird vom Assistenten angezeigt. Diese Schätzung basiert auf der Annahme, dass ein Upgrade für eine Datenbank mit 50.000 Objekten (Benutzern, Kontakten und Gruppen) drei Stunden dauert. Wenn die Anzahl von Objekten in der Datenbank unter 50.000 liegt, empfiehlt Azure AD Connect ein direktes Upgrade. Wenn Sie den Vorgang fortsetzen, werden Ihre aktuellen Einstellungen während des Upgrades automatisch angewendet, und Ihr Server setzt die aktive Synchronisierung automatisch fort.
 
 Falls Sie eine Konfigurationsmigration und eine parallele Bereitstellung durchführen möchten, können Sie die Empfehlung des direkten Upgrades ignorieren. Beispielsweise können Sie die Gelegenheit nutzen, um die Hardware und das Betriebssystem zu aktualisieren. Weitere Informationen finden Sie im Abschnitt [Parallele Bereitstellung](#parallel-deployment).
 
 **Parallele Bereitstellung**  
- Eine parallele Bereitstellung wird empfohlen, wenn Sie über mehr als 50.000 Objekte verfügen. Bei dieser Bereitstellung werden Verzögerungen für Ihre Benutzer vermieden. Bei der Azure AD Connect-Installation wird die erwartete Ausfallzeit in Verbindung mit dem Upgrade geschätzt, aber wenn Sie DirSync in der Vergangenheit bereits aktualisiert haben, ist Ihre eigene Erfahrung vermutlich ausschlaggebender.
+Eine parallele Bereitstellung wird empfohlen, wenn Sie über mehr als 50.000 Objekte verfügen. Bei dieser Bereitstellung werden Verzögerungen für Ihre Benutzer vermieden. Bei der Azure AD Connect-Installation wird die erwartete Ausfallzeit in Verbindung mit dem Upgrade geschätzt, aber wenn Sie DirSync in der Vergangenheit bereits aktualisiert haben, ist Ihre eigene Erfahrung vermutlich ausschlaggebender.
 
 ### <a name="supported-dirsync-configurations-to-be-upgraded"></a>Unterstützte zu aktualisierende DirSync-Konfigurationen
 Die folgenden Konfigurationsänderungen werden für DirSync-Upgrades unterstützt:
@@ -97,11 +97,11 @@ Zusätzliche Schritte sind in folgenden Fällen erforderlich:
 3. Klicken Sie auf „Weiter“, um die Analyse der vorhandenen DirSync-Installation zu starten.  
    ![Analysieren der vorhandenen Installation der Verzeichnissynchronisierung](./media/how-to-dirsync-upgrade-get-started/Analyze.png)
 4. Nach Abschluss der Analyse werden Empfehlungen dazu angezeigt, wie Sie fortfahren können.  
-   * Wenn Sie SQL Server Express verwenden und über weniger als 50.000 Objekte verfügen, wird der folgende Bildschirm angezeigt:   
+   * Wenn Sie SQL Server Express verwenden und über weniger als 50.000 Objekte verfügen, wird der folgende Bildschirm angezeigt:  
      ![Abgeschlossene Analyse bereit für die Aktualisierung von DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * Wenn Sie eine SQL Server-Vollversion für DirSync verwenden, wird stattdessen die folgende Seite angezeigt:  
      ![Analyse abgeschlossen; bereit für Upgrade von DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
-      Informationen zum vorhandenen SQL Server-Datenbankserver, der von DirSync verwendet wird, werden angezeigt. Führen Sie bei Bedarf die entsprechenden Anpassungen durch. Klicken Sie auf **Weiter** , um die Installation fortzusetzen.
+     Informationen zum vorhandenen SQL Server-Datenbankserver, der von DirSync verwendet wird, werden angezeigt. Führen Sie bei Bedarf die entsprechenden Anpassungen durch. Klicken Sie auf **Weiter** , um die Installation fortzusetzen.
    * Falls Sie über mehr als 50.000 Objekte verfügen, wird stattdessen der folgende Bildschirm angezeigt:  
      ![Analyse abgeschlossen; bereit für Upgrade von DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      Klicken Sie auf das Kontrollkästchen neben der folgenden Nachricht, um ein direktes Upgrade durchzuführen: **Mit der Aktualisierung von DirSync auf diesem Computer fortfahren.**
@@ -158,7 +158,7 @@ Bei der Installation von Azure AD Connect auf einem neuen Server wird davon ausg
    * Einen benutzerdefinierten Speicherort für Azure AD Connect.
    * Eine vorhandene Instanz von SQL Server (Standard: Azure AD Connect installiert SQL Server 2012 Express). Verwenden Sie nicht dieselbe Datenbankinstanz wie für Ihren DirSync-Server.
    * Ein Dienstkonto für die Verbindung zu SQL Server (wenn Ihre SQL Server-Datenbank remotegesteuert ist, muss dieses Konto ein Domänendienstkonto sein).
-     Auf diesem Bildschirm werden die folgenden Optionen angezeigt:   
+     Auf diesem Bildschirm werden die folgenden Optionen angezeigt:  
      ![Geben Sie Ihre Azure AD-Anmeldeinformationen ein.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Klicken Sie auf **Weiter**.
 8. Lassen Sie auf der Seite **Bereit zur Konfiguration** das Kontrollkästchen **Starten Sie den Synchronisierungsvorgang, sobald die Konfiguration abgeschlossen wurde** aktiviert. Der Server befindet sich nun im [Stagingmodus](how-to-connect-sync-staging-server.md), und Änderungen werden nicht nach Azure AD exportiert.

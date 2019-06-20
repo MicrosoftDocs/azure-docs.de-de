@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bf0c6a5234846499d7b8a49f427dba7af36edc15
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937970"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849718"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Kommerzielle Transaktionen ‎in Azure Marketplace: Möglichkeiten und Überlegungen
 
@@ -137,11 +137,14 @@ Diese Option muss für den Verkauf über Microsoft konfiguriert sein und kann mi
 |*Microsoft führt die Abrechnung mit dem Kunden durch*    |  *100,00 USD pro Monat (Hinweis: Herausgeber muss alle anfallenden oder weiterzugebenden Infrastrukturkosten in der Lizenzgebühr berücksichtigen)*  |
 
 * In diesem Szenario stellt Microsoft 100,00 USD für Ihre Softwarelizenz in Rechnung und zahlt 80,00 USD an den Herausgeber aus.
+* Für Partner, die für die reduzierte Marketplace-Dienstgebühr qualifiziert sind, wird von Mai 2019 bis Juni 2020 eine reduzierte Transaktionsgebühr für die SaaS-Angebote angezeigt. In diesem Szenario stellt Microsoft 100,00 USD für Ihre Softwarelizenz in Rechnung und zahlt 90,00 USD an den Herausgeber aus.
 
 |Berechnung durch Microsoft  | 100,00 USD pro Monat  |
 |---------|---------|
-|Microsoft zahlt Ihnen 80% Ihrer Lizenzkosten    |   80,00 USD pro Monat     |
-|Microsoft behält 20% Ihrer Lizenzkosten ein   |  20,00 USD pro Monat       |
+|Microsoft zahlt Ihnen 80% Ihrer Lizenzkosten <br> \* Für jede qualifizierte SaaS-App zahlt Microsoft 90 % Ihrer Lizenzkosten.   |   80,00 USD pro Monat <br> \* 90,00 USD pro Monat    |
+|Microsoft behält 20% Ihrer Lizenzkosten ein <br> \* Für jede qualifizierte SaaS-App behält Microsoft 10 % Ihrer Lizenzkosten.  |  20,00 USD pro Monat <br> \* 10,00 USD     |
+
+* **Reduzierte Marketplace-Dienstgebühr:** Für SaaS-Produkte, die Sie in unserem kommerziellen Marketplace veröffentlichen, reduziert Microsoft die Marketplace-Dienstgebühr von 20 % (wie in der Microsoft-Herausgebervereinbarung angegeben) auf 10 %.  Damit Ihr Produkt qualifiziert ist, muss mindestens eines Ihrer Produkte von Microsoft als bereit für IP-Co-Selling oder als priorisiert für IP-Co-Selling gekennzeichnet sein. Die Berechtigung muss mindestens fünf (5) Arbeitstage vor dem Ende des jeweiligen Kalendermonats bestehen, damit die reduzierte Marketplace-Dienstgebühr für den Monat in Anspruch genommen werden kann. Die reduzierte Marketplace-Dienstgebühr gilt nicht für virtuelle Computer, verwaltete Apps oder andere Produkte, die über unseren kommerziellen Marketplace zur Verfügung gestellt werden.  Die reduzierte Marketplace-Dienstgebühr ist für qualifizierte Angebote verfügbar, wobei die Lizenzgebühren von Microsoft zwischen dem 1. Mai 2019 und dem 30. Juni 2020 vereinnahmt werden.  Nach diesem Zeitpunkt gilt für die Marketplace-Dienstgebühr wieder der normale Betrag.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Rechnungsstellung für den Kunden, Zahlung, Abrechnung und Inkasso
 
@@ -159,7 +162,7 @@ Kunden können auch per Kreditkarte und monatlicher Rechnung bezahlen. In diesem
 
 Beispiel, wenn der Kunde mit einer Kreditkarte bezahlt:
 
-|BESCHREIBUNG    |    Datum  |
+|BESCHREIBUNG    |    Date  |
 |----------|----------|
 |Auftragszeitraum   | 15. August 2018 bis 30. August 2018 |
 |Laufzeitende (Monat)   | 30. August 2018 |
@@ -173,7 +176,7 @@ Beispiel, wenn der Kunde mit einer Kreditkarte bezahlt:
 
 Wenn der Kunde im Enterprise Agreement-Rahmen bezahlt:
 
-| BESCHREIBUNG |    Datum  |
+| BESCHREIBUNG |    Date  |
 |----------|----------|
 |Auftragszeitraum | 15. August 2018 bis 30. August 2018 |
 |Laufzeitende (Quartal) | 30. September 2018 |

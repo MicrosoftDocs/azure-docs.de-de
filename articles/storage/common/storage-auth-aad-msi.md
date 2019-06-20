@@ -9,12 +9,12 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787963"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Authentifizieren des Zugriffs auf Blobs und Warteschlangen mit Azure Active Directory und verwalteten Identitäten für Azure-Ressourcen
 
@@ -48,12 +48,12 @@ Zum Autorisieren von Anforderungen für Blob Storage und Queue Storage mit einer
 
 Mit der Clientbibliothek zur App-Authentifizierung wird die Authentifizierung automatisch verwaltet. Mit der Bibliothek werden die Anmeldeinformationen des Entwicklers für die Authentifizierung bei der lokalen Entwicklung verwendet. Während der lokalen Entwicklung sind Entwickleranmeldeinformationen sicherer, da Sie keine Azure AD-Anmeldeinformationen erstellen oder Anmeldeinformationen zwischen Entwicklern freigeben müssen. Wenn die Lösung später in Azure bereitgestellt wird, wechselt die Bibliothek automatisch zur Verwendung der Anwendungsanmeldeinformationen.
 
-Zur Verwendung der Bibliothek für die App-Authentifizierung in einer Azure Storage-Anwendung installieren Sie das neueste Vorschaupaket von [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) sowie die neueste Version der [Azure Storage-Clientbibliothek für .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Fügen Sie dem Code folgende **using**-Anweisungen hinzu:
+Zur Verwendung der Bibliothek für die App-Authentifizierung in einer Azure Storage-Anwendung installieren Sie das neueste Vorschaupaket von [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) sowie die neueste Version der [allgemeinen Azure Storage-Clientbibliothek für .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) und der [Clientbibliothek für Azure Blob Storage für .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Fügen Sie dem Code folgende **using**-Anweisungen hinzu:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 ```
 
 Die Bibliothek zur App-Authentifizierung enthält die Klasse **AzureServiceTokenProvider**. Eine Instanz dieser Klasse kann an einen Rückruf übergeben werden, mit dem ein Token abgerufen und dann vor dem Ablaufen erneuert wird.

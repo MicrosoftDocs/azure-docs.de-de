@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a45a1fbe0d7a99c970d6f8f5626c1349f9d8b1ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123697"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Unterstützung für Az-Module in Azure Automation
 
@@ -63,7 +63,7 @@ Dieser Importvorgang kann auch über den [PowerShell-Katalog](https://www.powers
 
 ## <a name="test-your-runbooks"></a>Testen Ihres Runbooks
 
-Sobald die `Az`-Module in Ihr Automation-Konto importiert wurden, können Sie nun mit der Bearbeitung Ihrer Runbooks beginnen, um stattdessen das Az-Modul zu verwenden. Die Mehrheit der Cmdlets haben den gleichen Namen, außer `AzureRM` wurde in `Az` geändert. Eine Liste der Module, die diesem Prozess nicht verwenden, finden Sie unter [Liste der Ausnahmen](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names).
+Sobald die `Az`-Module in Ihr Automation-Konto importiert wurden, können Sie nun mit der Bearbeitung Ihrer Runbooks beginnen, um stattdessen das Az-Modul zu verwenden. Die Mehrheit der Cmdlets haben den gleichen Namen, außer `AzureRM` wurde in `Az` geändert. Eine Liste der Module, die diesem Prozess nicht verwenden, finden Sie unter [Liste der Ausnahmen](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 Eine Möglichkeit, Ihre Runbooks zu testen, bevor Sie Ihr Runbook für die Verwendung der neuen Cmdlets ändern, besteht darin, `Enable-AzureRMAlias -Scope Process` am Anfang eines Runbooks zu verwenden. Wenn Sie dies zu Ihrem Runbook hinzufügen, kann Ihr Runbook ohne Änderungen ausgeführt werden.
 

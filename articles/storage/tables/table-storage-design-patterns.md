@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62101424"
 ---
 # <a name="table-design-patterns"></a>Entwurfsmuster für die Tabelle
 Dieser Abschnitt beschreibt einige Muster, die zur Verwendung mit Tabellenspeicherdienstlösungen geeignet sind. Darüber hinaus wird gezeigt, wie Sie einige der in anderen Artikeln zum Tabellenspeicherentwurf angesprochenen Probleme und Kompromisse praktisch behandeln können. Das folgende Diagramm fasst die Beziehungen zwischen den verschiedenen Mustern zusammen:  
@@ -263,7 +263,7 @@ In einer relationalen Datenbank normalisieren Sie typischerweise Daten, um Dupli
 ![Abteilungsentität und Mitarbeiterentität](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Lösung
-Anstatt die Daten in zwei separaten Entitäten zu speichern, denormalisieren Sie die Daten und bewahren eine Kopie der Details des Managers in der Abteilungsentität auf. Beispiel:   
+Anstatt die Daten in zwei separaten Entitäten zu speichern, denormalisieren Sie die Daten und bewahren eine Kopie der Details des Managers in der Abteilungsentität auf. Beispiel:  
 
 ![Abteilungsentität](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -711,7 +711,7 @@ Der Tabellenspeicherdienst ist ein *schemaloser* Tabellenspeicher. Das bedeutet,
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Zeitstempel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -803,7 +803,7 @@ Beachten Sie, dass jede Entität trotzdem über **PartitionKey**-, **RowKey**- u
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Zeitstempel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>

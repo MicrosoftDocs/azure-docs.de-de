@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009014"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62112356"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Arbeiten mit Werten für Datum und Uhrzeit in Azure Monitor-Protokollabfragen
 
@@ -136,11 +136,11 @@ Diese Abfrage erzeugt die folgenden Ergebnisse:
 
 |timestamp|count_|
 |--|--|
-|2018-07-28T00:00:00.000|7.136|
-|2018-07-29T00:00:00.000|12.315|
-|2018-07-30T00:00:00.000|16.847|
-|2018-07-31T00:00:00.000|12.616|
-|2018-08-01T00:00:00.000|5.416|
+|2018-07-28T00:00:00.000|7\.136|
+|2018-07-29T00:00:00.000|12\.315|
+|2018-07-30T00:00:00.000|16\.847|
+|2018-07-31T00:00:00.000|12\.616|
+|2018-08-01T00:00:00.000|5\.416|
 
 
 ## <a name="time-zones"></a>Zeitzonen

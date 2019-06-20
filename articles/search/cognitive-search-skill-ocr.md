@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9bc4167134bb70fa938ecd37d81482dc4e1508dd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d9b68bda2a6cff533286d9ee944abf1c92cc2bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65523238"
 ---
 # <a name="ocr-cognitive-skill"></a>Der Skill „OCR“
 
@@ -50,6 +50,7 @@ Bei den Parametern wird zwischen Groß- und Kleinschreibung unterschieden.
 | detectOrientation | Aktiviert die automatische Erkennung der Bildausrichtung. <br/> Gültige Werte: „true“ und „false“|
 |defaultLanguageCode | <p>  Sprachcode des Eingabetexts. Unterstützte Sprachen: <br/> zh-Hans (Vereinfachtes Chinesisch) <br/> zh-Hant (Traditionelles Chinesisch) <br/>cs (Tschechisch) <br/>da (Dänisch) <br/>nl (Niederländisch) <br/>en (Englisch) <br/>fi (Finnisch)  <br/>fr (Französisch) <br/>  de (Deutsch) <br/>el (Griechisch) <br/> hu (Ungarisch) <br/> it (Italienisch) <br/>  ja (Japanisch) <br/> ko (Koreanisch) <br/> nb (Norwegisch) <br/>   pl (Polnisch) <br/> pt (Portugiesisch) <br/>  ru (Russisch) <br/>  es (Spanisch) <br/>  sv (Schwedisch) <br/>  tr (Türkisch) <br/> ar (Arabisch) <br/> ro (Rumänisch) <br/> sr-Cyrl (Serbisch, kyrillisch) <br/> sr-Latn (Serbisch, lateinisch) <br/>  sk (Slowakisch) <br/>  unk (Unbekannt) <br/><br/> Wenn der Sprachcode nicht angegeben oder Null ist, wird als Sprache automatisch Englisch festgelegt. Wenn die Sprache explizit auf „unk“ festgelegt ist, wird die Sprache automatisch erkannt. </p> |
 | textExtractionAlgorithm | „printed“ (gedruckt) oder „handwritten“ (handgeschrieben) Der OCR-Algorithmus für die Erkennung von „handgeschriebenem“ Text befindet sich derzeit in der Vorschau und ist nur in englischer Sprache verfügbar. |
+|lineEnding | Der Wert, der zwischen jeder erkannten Zeile verwendet werden soll. Mögliche Werte: 'Space','CarriageReturn','LineFeed'.  Der Standardwert ist 'Space'. |
 
 ## <a name="skill-inputs"></a>Skilleingaben
 

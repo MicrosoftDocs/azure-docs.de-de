@@ -2,20 +2,20 @@
 title: Beheben von Problemen mit benutzerdefinierten Richtlinien in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Hier finden Sie Informationen zu den Ansätzen der Fehlerbehebung bei Verwendung von benutzerdefinierten Richtlinien in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5345069005f9161ff04fffb063fda99b7594ec08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 552f056a6637b3ebacfbd15eb878c28adbec6b88
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509970"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Beheben von Problemen mit benutzerdefinierten Azure AD B2C-Richtlinien und dem Framework für die Identitätsfunktion
 
@@ -57,8 +57,8 @@ Fehlercodeausschnitt: `Reason: User is currently logged as a user of 'yourtenant
 
 * Verwenden Sie `Run Now` und `https://jwt.io`, um Ihre Richtlinien unabhängig von Ihrer Webanwendung oder mobilen Anwendung zu testen. Diese Website verhält sich wie eine Anwendung der vertrauenden Seite. Sie zeigt den Inhalt des JSON Web Token (JWT) an, das von Ihrer Azure AD B2C-Richtlinie generiert wird. Verwenden Sie die folgenden Werte, um eine Testanwendung in Identity Experience Framework zu erstellen:
     * Name: TestApp
-    * Web-App/Web-API: Nein 
-    * Nativer Client: Nein 
+    * Web-App/Web-API: Nein
+    * Nativer Client: Nein
 
 * Verwenden Sie [Fiddler](https://www.telerik.com/fiddler), um den Austausch von Nachrichten zwischen Ihrem Clientbrowser und Azure AD B2C nachzuverfolgen. So erhalten Sie Hinweise dazu, an welcher Stelle für Ihre User Journey in den Orchestrierungsschritten ein Fehler auftritt.
 

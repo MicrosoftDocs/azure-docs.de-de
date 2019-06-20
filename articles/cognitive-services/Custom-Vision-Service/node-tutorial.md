@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9d9021cd3acaebe689c583281e0316b30d5892c0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 86e9508049635d51726e9d0bcbdc5a4d52539f3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482452"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384166"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Schnellstart: Erstellen eines Bildklassifizierungsprojekts mit dem Custom Vision SDK für Node.js
 
@@ -49,8 +49,9 @@ Fügen Sie Ihrem Skript den folgenden Code hinzu, um ein neues Custom Vision Ser
 
 ```javascript
 const util = require('util');
-const TrainingApi = require("azure-cognitiveservices-customvision-training");
-const PredictionApi = require("azure-cognitiveservices-customvision-prediction");
+const fs = require('fs');
+const TrainingApiClient = require("azure-cognitiveservices-customvision-training");
+const PredictionApiClient = require("azure-cognitiveservices-customvision-prediction");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -168,7 +169,7 @@ Results:
          Japanese Cherry: 0.01%
 ```
 
-Daraufhin können Sie sich vergewissern, dass das Testbild (unter **<Basisimage-URL>/Images/Test/**) ordnungsgemäß gekennzeichnet ist. Sie können auch zur [Custom Vision-Website](https://customvision.ai) zurückgehen und den aktuellen Status Ihres neu erstellten Projekts ansehen.
+Daraufhin können Sie sich vergewissern, dass das Testbild (unter **<Basisimage-URL>/Images/Test/** ) ordnungsgemäß gekennzeichnet ist. Sie können auch zur [Custom Vision-Website](https://customvision.ai) zurückgehen und den aktuellen Status Ihres neu erstellten Projekts ansehen.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

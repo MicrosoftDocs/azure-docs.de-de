@@ -9,11 +9,11 @@ ms.date: 03/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60883263"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Voraussetzungen und Checkliste für ExpressRoute
 Zum Herstellen einer Verbindung mit den Microsoft-Clouddiensten über ExpressRoute müssen Sie sicherstellen, dass die unten in den Abschnitten genannten Voraussetzungen erfüllt sind.

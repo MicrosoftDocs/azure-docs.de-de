@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: api-management
 author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
@@ -10,17 +10,17 @@ ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
 ms.openlocfilehash: fc945a7e9389c8aec48a6a1dba969fbf92002d3a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553541"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178494"
 ---
-| Ressource | Begrenzung |
+| Resource | Begrenzung |
 | --- | --- |
 | Maximale Anzahl von Skalierungseinheiten | Zehn pro Region<sup>1</sup> |
 | Cachegröße | 5 GB pro Einheit<sup>2</sup> |
-| Gleichzeitige Back-End-Verbindungen<sup>3</sup> pro HTTP-Autorität | 2.048 pro Einheit<sup>4</sup> |
+| Gleichzeitige Back-End-Verbindungen<sup>3</sup> pro HTTP-Autorität | 2\.048 pro Einheit<sup>4</sup> |
 | Maximale Größe zwischengespeicherter Antworten | 2 MB |
 | Maximale Größe eines Richtliniendokuments | 256 KB<sup>5</sup> | 
 | Maximale Anzahl benutzerdefinierter Gatewaydomänen pro Dienstinstanz<sup>6</sup> | 20 |
@@ -29,7 +29,7 @@ ms.locfileid: "57553541"
 | Maximale Anzahl von Abonnements pro Dienstinstanz<sup>7</sup> | 500 |
 | Maximale Anzahl von Clientzertifikaten pro Dienstinstanz<sup>7</sup> | 50 | 
 | Maximale Anzahl von APIs pro Dienstinstanz<sup>7</sup> | 50 | 
-| Maximale Anzahl von API-Vorgängen pro Dienstinstanz<sup>7</sup> | 1.000 | 
+| Maximale Anzahl von API-Vorgängen pro Dienstinstanz<sup>7</sup> | 1\.000 | 
 | Maximale Gesamtdauer der Anforderungen<sup>7</sup> | 30 Sekunden | 
 | Maximale gepufferte Nutzlastgröße<sup>7</sup> | 2 MB | 
 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
 ms.openlocfilehash: 2d2661593ba3d9be2755d81803c8e248a2f7d0e1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60810610"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh-Terminologie
 

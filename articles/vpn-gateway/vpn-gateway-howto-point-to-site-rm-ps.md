@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: f3c02e80016e43bdd83218851de5ceb72be7f268
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096281"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989445"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurieren einer Point-to-Site-Verbindung mit einem VNET unter Verwendung der nativen Azure-Zertifikatauthentifizierung: PowerShell
 
@@ -131,8 +131,8 @@ Deklarieren Sie die gewünschten Variablen. Verwenden Sie das unten gezeigte Bei
 Konfigurieren und erstellen Sie das virtuelle Netzwerkgateway für Ihr VNet.
 
 * „-GatewayType“ muss **Vpn** und „-VpnType“ muss **RouteBased** lauten.
-* Mit „-VpnClientProtocol“ werden die Tunnelarten angegeben, die Sie aktivieren möchten. Die zwei Tunneloptionen lauten **SSTP** und **IKEv2**. Sie können entscheiden, ob Sie eine der beiden Optionen oder beide aktivieren. Wenn Sie beide aktivieren möchten, geben Sie beide Namen durch Komma getrennt ein. Der strongSwan-Client unter Android und Linux und der native IKEv2-VPN-Client unter iOS und OSX verwenden nur den IKEv2-Tunnel für die Verbindungsherstellung. Windows-Clients probieren zunächst IKEv2. Wird keine Verbindung hergestellt, verwenden sie SSTP.
-* Die Basic-SKU des Gateways für virtuelle Netzwerke verfügt nicht über eine Unterstützung der IKEv2- oder RADIUS-Authentifizierung. Wenn Sie planen, Verbindungen von Mac-Clients mit Ihrem virtuellen Netzwerk zuzulassen, sollten Sie nicht die Basic-SKU verwenden.
+* Mit „-VpnClientProtocol“ werden die Tunnelarten angegeben, die Sie aktivieren möchten. Die Tunneloptionen sind **OpenVPN, SSTP** und **IKEv2**. Sie können eine dieser beiden Optionen oder jede unterstützte Kombination aktivieren. Wenn Sie mehrere Typen aktivieren möchten, geben Sie die Namen mit Kommas als Trennzeichen an. OpenVPN und SSTP können nicht zusammen aktiviert werden. Der strongSwan-Client unter Android und Linux und der native IKEv2-VPN-Client unter iOS und OSX verwenden nur den IKEv2-Tunnel für die Verbindungsherstellung. Windows-Clients probieren zunächst IKEv2. Wird keine Verbindung hergestellt, verwenden sie SSTP. Sie können den OpenVPN-Client verwenden, um eine Verbindung mit dem OpenVPN-Tunneltyp herzustellen.
+* Die Basic-SKU des virtuellen Netzwerkgateways unterstützt weder IKEv2-, noch OpenVPN- noch RADIUS-Authentifizierung. Wenn Sie planen, Verbindungen von Mac-Clients mit Ihrem virtuellen Netzwerk zuzulassen, sollten Sie nicht die Basic-SKU verwenden.
 * Je nach ausgewählter [Gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md) kann die Erstellung eines VPN-Gateways bis zu 45 Minuten dauern. In diesem Beispiel wird IKEv2 verwendet.
 
 ```azurepowershell-interactive

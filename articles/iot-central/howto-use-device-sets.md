@@ -3,17 +3,17 @@ title: Verwenden von Gerätegruppen in Ihrer Azure IoT Central-Anwendung | Micro
 description: Erfahren Sie, wie Sie als Operator Gerätegruppen in der Azure IoT Central-Anwendung verwenden.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 02/05/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759814"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052942"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Verwenden von Gerätegruppen in Ihrer Azure IoT Central-Anwendung
 

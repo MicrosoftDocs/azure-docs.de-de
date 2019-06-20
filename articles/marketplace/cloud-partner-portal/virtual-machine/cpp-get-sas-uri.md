@@ -1,25 +1,18 @@
 ---
-title: Abrufen des Shared Access Signature-URI für Ihr Microsoft Azure-basiertes VM-Image | Microsoft-Dokumentation
+title: Abrufen des Shared Access Signature-URI für Ihr Microsoft Azure-basiertes VM-Image | Azure Marketplace
 description: In diesem Artikel wird erläutert, wie Sie den Shared Access Signature-URI (SAS) für Ihre VM-Images abrufen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113519"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938666"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Abrufen des Shared Access Signature-URI für Ihr VM-Image
 

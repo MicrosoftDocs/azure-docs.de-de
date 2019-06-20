@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
 ms.openlocfilehash: a6542838acba3143123dc90d96746179a2b4469b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989133"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60236139"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Löschen eines Log Analytics-Arbeitsbereichs mit dem Azure-Portal
 In diesem Artikel wird gezeigt, wie Sie mit dem Azure-Portal einen nicht mehr benötigten Log Analytics-Arbeitsbereich löschen. 

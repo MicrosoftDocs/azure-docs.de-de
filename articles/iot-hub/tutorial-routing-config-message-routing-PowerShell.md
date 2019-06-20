@@ -10,11 +10,11 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 51e9bc85c2ee843aa096674a25a1f634bd08b838
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162621"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutorial: Konfigurieren des IoT Hub-Nachrichtenroutings mithilfe von Azure PowerShell
 
@@ -277,7 +277,7 @@ Add-AzIotHubRoute `
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Nachdem Sie die Ressourcen eingerichtet und die Nachrichtenrouten konfiguriert haben, erfahren Sie im nächsten Tutorial, wie Sie Nachrichten an IoT Hub senden, die dann an die verschiedenen Ziele weitergeleitet werden. 
+Nachdem Sie die Ressourcen eingerichtet und die Nachrichtenrouten konfiguriert haben, können Sie sich nun im nächsten Tutorial darüber informieren, wie Sie Nachrichten an IoT Hub senden, die dann an die verschiedenen Ziele weitergeleitet werden. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Part 2 - View the routed messages](tutorial-routing-view-message-routing-results.md) (Tutorial: Teil 2: Anzeigen der Ergebnisse des Nachrichtenroutings)
+> [Teil 2: Anzeigen der Ergebnisse des Nachrichtenroutings](tutorial-routing-view-message-routing-results.md)

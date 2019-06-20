@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820843"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736223"
 ---
 # <a name="front-door-routing-methods"></a>Datenverkehrsrouting in Azure Front Door Service
 

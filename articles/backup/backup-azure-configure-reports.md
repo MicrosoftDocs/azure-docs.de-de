@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60642677"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurieren von Azure Backup-Berichten
 Dieser Artikel erläutert die Schritte zum Konfigurieren von Berichten für Azure Backup mit dem Recovery Services-Tresor. Außerdem erfahren Sie, wie Sie mit Power BI auf Berichte zugreifen. Nachdem Sie diese Schritte abgeschlossen haben, können Sie direkt Power BI aufrufen, um Berichte anzuzeigen, anzupassen und zu erstellen.

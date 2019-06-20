@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cfbd68e66730fc338130bc16849fe0b2f4abd6be
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203637"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244406"
 ---
 # <a name="os-patching-for-hdinsight"></a>Patchen des Betriebssystems für HDInsight 
 
@@ -45,6 +45,7 @@ Zur Verwendung des Skripts benötigen Sie die folgenden Informationen:
 
 > [!NOTE]  
 > Sie müssen dieses Skript als permanent kennzeichnen, wenn Sie es auf einen vorhandenen Cluster anwenden. Andernfalls verwenden durch Skalierungsvorgänge erstellte neue Knoten den Standardpatchzeitplan.  Wenn Sie das Skript im Rahmen der Clustererstellung anwenden, ist es automatisch permanent.
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

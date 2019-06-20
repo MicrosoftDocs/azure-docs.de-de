@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65191526"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referenz für Risikoereignisse in Azure Active Directory Identity Protection

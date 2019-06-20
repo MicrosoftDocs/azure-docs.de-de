@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138128"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952484"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Verbinden von Windows-Computern mit Azure Monitor
 
@@ -54,9 +54,9 @@ Vor der Installation des Log Analytics-Agents für Windows benötigen Sie die Ar
 Um die Verwendung des Protokolls [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) für die Kommunikation zwischen dem Windows-Agent und dem Log Analytics-Dienst zu konfigurieren, können Sie die folgenden Schritte ausführen, um die Aktivierung vor der Installation des Agents auf dem virtuellen Computer oder danach durchzuführen.   
 
 1. Suchen Sie nach dem folgenden Registrierungsschlüssel: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
-2. Erstellen Sie einen Unterschlüssel unter **Protokolle** für TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
-3. Erstellen Sie einen Unterschlüssel **Client** unter dem Versionsunterschlüssel des TLS 1.2-Protokolls, den Sie zuvor erstellt haben. Beispiel: **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
-4. Erstellen Sie die folgenden DWORD-Werte unter **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1. 2\Client**:
+2. Erstellen Sie einen Unterschlüssel unter **Protokolle** für TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. Erstellen Sie einen Unterschlüssel **Client** unter dem Versionsunterschlüssel des TLS 1.2-Protokolls, den Sie zuvor erstellt haben. Beispiel: **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Erstellen Sie die folgenden DWORD-Werte unter **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
 
     * **Enabled** [Wert = 1]
     * **DisabledByDefault** [Wert = 0]  

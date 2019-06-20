@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a4f9d9a7fe368ec4ffaceff80ce42d42a318c68d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763570"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61489040"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Bereitstellen lokaler StorSimple-Geräte (Update 3 und höher)
 

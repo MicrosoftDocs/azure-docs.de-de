@@ -1,19 +1,19 @@
 ---
-title: Kopieren von Daten in Ihre Microsoft Azure Data Box über SMB | Microsoft-Dokumentation
+title: Tutorial zum Kopieren von Daten über SMB auf die Azure Data Box | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Daten über SMB in Ihre Azure Data Box kopieren.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6b2a0655173405008e0bccf3e31a8db391da6127
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118083"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496288"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Kopieren von Daten in eine Azure Data Box über SMB
 
@@ -41,8 +41,8 @@ Stellen Sie Folgendes sicher, bevor Sie beginnen:
 
 Je nach ausgewähltem Speicherkonto erstellt Data Box bis zu:
 - Drei Freigaben für jedes verknüpfte Speicherkonto für GPv1 und GPv2
-- Eine Freigabe für Storage Premium. 
-- Eine Freigabe für ein Blobspeicherkonto. 
+- Eine Freigabe für Storage Premium
+- Eine Freigabe für das Blob Storage-Konto
 
 Unter Blockblob- und Seitenblobfreigaben sind Entitäten der ersten Ebene Container, und Entitäten der zweiten Ebene sind Blobs. Unter Freigaben für Azure Files sind Entitäten erster Ebene Freigaben. Entitäten zweiter Ebene sind Dateien.
 
@@ -91,7 +91,7 @@ Wenn Sie einen Windows Server-Hostcomputer verwenden, führen Sie die folgenden 
 
     **Erstellen Sie immer einen Ordner für die Dateien, die Sie unter die Freigabe kopieren möchten, und kopieren Sie die Dateien dann in diesen Ordner**. Der Ordner, der unter der Blockblob- und der Seitenblob Freigabe erstellt wurde, entspricht einem Container, in den Daten als Blobs hochgeladen werden. Es ist nicht möglich, Dateien direkt in den *root*-Ordner im Speicherkonto zu kopieren.
     
-Wenn Sie einen Linux-Client verwenden, stellen Sie mit folgendem Code die SMB-Freigabe bereit. Der unten angegebene Parameter „vers“ ist die Version des SMB, den Ihr Linux-Host unterstützt. Geben Sie die entsprechende Version in den folgenden Befehl ein. Von Data Box unterstützte SMB-Versionen finden Sie unter [Unterstützte Dateisysteme für Linux-Clients](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients). 
+Wenn Sie einen Linux-Client verwenden, stellen Sie mit folgendem Code die SMB-Freigabe bereit. Der unten angegebene Parameter „vers“ ist die Version des SMB, den Ihr Linux-Host unterstützt. Geben Sie die entsprechende Version in den folgenden Befehl ein. Von Data Box unterstützte SMB-Versionen finden Sie unter [Unterstützte Dateisysteme für Linux-Clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients). 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
     
@@ -132,7 +132,7 @@ Nachdem Sie eine Verbindung mit der SMB-Freigabe hergestellt haben, beginnen Sie
 |/z    | Kopiert Dateien im Neustartmodus. Verwenden Sie diese Option, wenn die Umgebung instabil ist. Diese Option reduziert den Durchsatz durch eine zusätzliche Protokollierung.      |
 | /zb     | Verwendet den Neustartmodus. Wenn der Zugriff verweigert wird, wird der Sicherungsmodus verwendet. Diese Option reduziert den Durchsatz durch das Setzen von Prüfpunkten.         |
 |/efsraw     | Kopiert alle verschlüsselten Dateien im EFS-Raw-Modus. Verwenden Sie diese Option nur mit verschlüsselten Dateien.         |
-|log+:<LogFile>| Fügt die Ausgabe an die vorhandene Protokolldatei an.|    
+|log+:\<LogFile>| Fügt die Ausgabe an die vorhandene Protokolldatei an.|    
  
 Das folgende Beispiel zeigt die Ausgabe des Robocopy-Befehls zum Kopieren von Dateien auf die Data Box.
     
@@ -202,7 +202,7 @@ Verwenden Sie zum Optimieren der Leistung die folgenden Robocopy-Parameter beim 
 
 Weitere Informationen zum Robocopy-Befehl finden Sie unter [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy und einige Beispiele).
 
-Öffnen Sie den Zielordner, um die kopierten Dateien anzuzeigen und zu überprüfen. Falls während des Kopierprozesses Fehler auftreten, laden Sie zur Problembehandlung die Fehlerdateien herunter.
+Öffnen Sie den Zielordner, um die kopierten Dateien anzuzeigen und zu überprüfen. Falls während des Kopierprozesses Fehler auftreten, laden Sie zur Problembehandlung die Fehlerdateien herunter. Weitere Informationen finden Sie unter [Anzeigen von Fehlerprotokollen beim Kopieren von Daten auf die Data Box](data-box-logs.md#view-error-log-during-data-copy). Eine detaillierte Liste von Fehlern beim Datenkopiervorgang finden Sie unter [Behandeln von Problemen bei der Data Box](data-box-troubleshoot.md).
 
 Um die Datenintegrität zu gewährleisten, wird inline eine Prüfsumme berechnet, während die Daten kopiert werden. Überprüfen Sie nach Abschluss des Kopiervorgangs den belegten Speicherplatz und den freien Speicherplatz auf Ihrem Gerät.
     

@@ -1,5 +1,5 @@
 ---
-title: 'Arbeiten mit Projektionen in einem Wissensspeicher: Azure Search'
+title: Arbeiten mit Projektionen in einem Wissensspeicher (Vorschau) – Azure Search
 description: Speichern und formen Sie Ihre angereicherten Daten aus der KI-basierten Indizierungspipeline zur Verwendung in von der Suche abweichenden Szenarien.
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027678"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540808"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Arbeiten mit Projektionen in einem Wissensspeicher in Azure Search
 
+> [!Note]
+> Wissensspeicher befinden sich in der Vorschau und sind nicht für die Produktion ausgelegt. Dieses Feature wird durch die [REST-API-Version 2019-05-06-Preview](search-api-preview.md) bereitgestellt. Das .NET SDK wird derzeit nicht unterstützt.
+>
+
 Azure Search ermöglicht eine Inhaltsanreicherung über KI-basierte kognitive Qualifikationen und benutzerdefinierte Qualifikationen als Teil der Indizierung. Anreicherungen strukturieren Ihre Dokumente und machen die Suche effektiver. In vielen Fällen sind die angereicherten Dokumente für von der Suche abweichenden Szenarien nützlich, z. B. für das Knowledge Mining.
 
-Projektionen als Komponente des [Wissensspeichers (Vorschau)](knowledge-store-concept-intro.md) sind Ansichten von angereicherten Dokumenten, die für das Knowledge Mining in physischen Speichern gespeichert werden können. Mit einer Projektion können Sie Ihre Daten in einer Form „projizieren“, die Ihren Anforderungen entspricht, und Beziehungen beibehalten, sodass die Daten in Tools wie Power BI ohne zusätzlichen Aufwand gelesen werden können. 
+Projektionen als Komponente des [Wissensspeichers](knowledge-store-concept-intro.md) sind Ansichten von angereicherten Dokumenten, die für das Knowledge Mining in physischen Speichern gespeichert werden können. Mit einer Projektion können Sie Ihre Daten in einer Form „projizieren“, die Ihren Anforderungen entspricht, und Beziehungen beibehalten, sodass die Daten in Tools wie Power BI ohne zusätzlichen Aufwand gelesen werden können. 
 
 Projektionen können tabellarisch sein, wobei die Daten in Zeilen und Spalten in Azure Table Storage gespeichert werden oder als JSON-Objekte, die in Azure Blob Storage gespeichert werden. Sie können mehrere Projektionen Ihrer Daten definieren, wenn diese angereichert werden. Dies ist nützlich, wenn Sie die gleichen Daten für einzelne Anwendungsfälle unterschiedlich formen möchten. 
 

@@ -10,10 +10,10 @@ ms.date: 05/03/2019
 ms.author: mhopkins
 ms.subservice: common
 ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209688"
 ---
 # <a name="azure-storage-samples-using-net"></a>Azure Storage-Beispiele mit .NET

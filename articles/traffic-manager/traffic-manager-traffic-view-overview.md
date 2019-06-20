@@ -3,21 +3,21 @@ title: Datenverkehrsansicht im Azure Traffic Manager
 description: Einführung in die Traffic Manager-Datenverkehrsansicht
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a34cf3e41e04367b1cf38015861518fb74dd3f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534939"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070944"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager-Datenverkehrsansicht
 

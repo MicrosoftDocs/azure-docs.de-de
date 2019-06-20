@@ -8,14 +8,14 @@ manager: ''
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 05/10/2019
 ms.author: eamono
-ms.openlocfilehash: d0764131f0e7e321a87ed383636606b2124ef7d9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58173769"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521428"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutorial: Integration von Azure Automation mit Event Grid und Microsoft Teams
 
@@ -52,10 +52,13 @@ Um dieses Tutorial abzuschließen, ist ein [Azure Automation-Konto](../automatio
 
 4. Wählen Sie **Importieren** aus und nennen Sie es **Watch-VMWrite**.
 
-5. Nach dem Import wählen Sie **Bearbeiten** aus, um die Runbookquelle anzuzeigen. Wählen Sie die Schaltfläche **Veröffentlichen** aus.
+5. Nach dem Import wählen Sie **Bearbeiten** aus, um die Runbookquelle anzuzeigen. 
+6. Aktualisieren Sie die Zeile 74 im Skript, sodass `Tag` anstelle von `Tags` verwendet wird.
 
-> [!NOTE]
-> Zeile 74 im Skript muss in `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose` geändert werden. Der Parameter `-Tags` lautet nun `-Tag`.
+    ```powershell
+    Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
+    ```
+7. Wählen Sie die Schaltfläche **Veröffentlichen** aus.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Erstellen eines optionalen Microsoft Teams-Webhooks
 
@@ -67,7 +70,7 @@ Um dieses Tutorial abzuschließen, ist ein [Azure Automation-Konto](../automatio
 
 3. Geben Sie **AzureAutomationIntegration** für den Namen ein und wählen Sie **Erstellen** aus.
 
-4. Kopieren Sie den Webhook in die Zwischenablage und speichern Sie ihn. Die Webhook-URL wird zum Senden von Informationen an Microsoft Teams verwendet.
+4. Kopieren Sie die Webhook-URL in die Zwischenablage und speichern Sie sie. Die Webhook-URL wird zum Senden von Informationen an Microsoft Teams verwendet.
 
 5. Wählen Sie **Fertig** aus, um den Webhook zu speichern.
 
@@ -96,14 +99,16 @@ Um dieses Tutorial abzuschließen, ist ein [Azure Automation-Konto](../automatio
 2. Klicken Sie auf **+ Ereignisabonnement**.
 
 3. Konfigurieren Sie das Abonnement mit den folgenden Informationen:
+    1. Wählen Sie unter **Thementyp** die Option **Azure-Abonnements** aus.
+    2. Deaktivieren Sie das Kontrollkästchen **Alle Ereignistypen abonnieren**.
+    3. Geben Sie **AzureAutomation** für den Namen ein.
+    4. Deaktivieren Sie in der Dropdownliste **Definierte Ereignistypen** alle Optionen bis auf **Resource Write Success** (Ressourcenschreiberfolg).
 
-   * Wählen Sie unter **Thementyp** die Option **Azure-Abonnements** aus.
-   * Deaktivieren Sie das Kontrollkästchen **Alle Ereignistypen abonnieren**.
-   * Geben Sie **AzureAutomation** für den Namen ein.
-   * Deaktivieren Sie in der Dropdownliste **Definierte Ereignistypen** alle Optionen bis auf **Resource Write Success** (Ressourcenschreiberfolg).
-   * Wählen Sie unter **Endpunkttyp** die Option **Webhook** aus.
-   * Klicken Sie auf **Endpunkt auswählen**. Fügen Sie auf der daraufhin geöffneten Seite **Webhook auswählen** die Webhook-URL ein, die Sie für das Runbook „Watch-VMWrite“ erstellt haben.
-   * Geben Sie unter **FILTER** das Abonnement und die Ressourcengruppe ein, in denen Sie nach den neu erstellten virtuellen Computern suchen möchten. Diese sollte wie folgt aussehen: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`.
+        > [!NOTE] 
+        > Azure Resource Manager unterscheidet zurzeit nicht zwischen „Erstellen“ und „Aktualisieren“, sodass die Implementierung dieses Tutorials für alle „Microsoft.Resources.ResourceWriteSuccess“-Ereignisse in Ihrem Azure-Abonnement zu einer großen Anzahl von Aufrufen führen kann.
+    1. Wählen Sie unter **Endpunkttyp** die Option **Webhook** aus.
+    2. Klicken Sie auf **Endpunkt auswählen**. Fügen Sie auf der daraufhin geöffneten Seite **Webhook auswählen** die Webhook-URL ein, die Sie für das Runbook „Watch-VMWrite“ erstellt haben.
+    3. Geben Sie unter **FILTER** das Abonnement und die Ressourcengruppe ein, in denen Sie nach den neu erstellten virtuellen Computern suchen möchten. Diese sollte wie folgt aussehen: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`.
 
 4. Wählen Sie **Erstellen** aus, um das Event Grid-Abonnement zu speichern.
 

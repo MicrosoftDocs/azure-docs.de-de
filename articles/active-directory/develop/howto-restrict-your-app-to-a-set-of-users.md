@@ -18,10 +18,10 @@ ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e07d9f0fa6ec6b4abc7ce96279b7b02faae298fa
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540199"
 ---
 # <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Gewusst wie: Beschränken Ihrer App auf eine Gruppe von Benutzern
@@ -62,7 +62,7 @@ Die Option zum Beschränken einer App auf eine bestimmte Gruppe von Benutzern od
 
 1. Wählen Sie in der Liste die Anwendung aus, der Sie einen Benutzer oder eine Sicherheitsgruppe zuweisen möchten.
 1. Wählen Sie auf der Seite **Übersicht** im Navigationsmenü der Anwendung auf der linken Seite die Option **Eigenschaften**.
-1. Suchen Sie nach der Einstellung **Benutzerzuweisung erforderlich?**, und legen Sie sie auf **Ja** fest. Wenn diese Option auf **Ja** festgelegt ist, müssen Benutzer zuerst dieser Anwendung zugewiesen werden, bevor sie darauf zugreifen können.
+1. Suchen Sie nach der Einstellung **Benutzerzuweisung erforderlich?** , und legen Sie sie auf **Ja** fest. Wenn diese Option auf **Ja** festgelegt ist, müssen Benutzer zuerst dieser Anwendung zugewiesen werden, bevor sie darauf zugreifen können.
 1. Wählen Sie **Speichern**, um diese Konfigurationsänderung zu speichern.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Zuweisen von Benutzern und Gruppen zur App

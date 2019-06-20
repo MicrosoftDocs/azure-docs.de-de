@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: fbc5a149e59bff1897d3949185272e9ca664f989
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717828"
 ---
 # <a name="azure-functions-f-developer-reference"></a>F#-Entwicklerreferenz zu Azure Functions
@@ -57,7 +57,7 @@ Sie können die freigegebene Datei [host.json](functions-host-json.md) zum Konfi
 Die in [Version 2.x](functions-versions.md) der Functions-Runtime erforderlichen Bindungserweiterungen sind in der Datei `extensions.csproj` definiert, die eigentlichen Bibliotheksdateien befinden sich im Ordner `bin`. Wenn Sie lokal entwickeln, müssen Sie [Bindungserweiterungen registrieren](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Wenn Sie Funktionen im Azure-Portal entwickeln, wird diese Registrierung für Sie ausgeführt.
 
 ## <a name="binding-to-arguments"></a>Binden an Argumente
-Jede Bindung unterstützt eine Gruppe von Argumenten. Dies ist in der [Entwicklerreferenz zu Triggern und Bindungen in Azure Functions](functions-triggers-bindings.md) ausführlich beschrieben. Eine Argumentbindung, die von einem Blobtrigger beispielsweise unterstützt wird, ist ein POCO-Element. Dies kann mit einem F#-Eintrag ausgedrückt werden. Beispiel: 
+Jede Bindung unterstützt eine Gruppe von Argumenten. Dies ist in der [Entwicklerreferenz zu Triggern und Bindungen in Azure Functions](functions-triggers-bindings.md) ausführlich beschrieben. Eine Argumentbindung, die von einem Blobtrigger beispielsweise unterstützt wird, ist ein POCO-Element. Dies kann mit einem F#-Eintrag ausgedrückt werden. Beispiel:
 
 ```fsharp
 type Item = { Id: string }
@@ -71,7 +71,7 @@ Für Ihre F#-Azure-Funktion wird mindestens ein Argument verwendet. Wenn wir von
 
 Im obigen Beispiel ist `blob` ein Eingabeargument und `output` ein Ausgabeargument. Beachten Sie, dass wir `byref<>` für `output` verwendet haben (das Hinzufügen der Anmerkung `[<Out>]` ist nicht erforderlich). Mit dem Typ `byref<>` kann Ihre Funktion ändern, auf welchen Eintrag oder welches Objekt das Argument verweist.
 
-Wenn ein F#-Eintrag als Eingabetyp verwendet wird, muss die Eintragsdefinition mit `[<CLIMutable>]` gekennzeichnet werden. So kann das Azure Functions-Framework die Felder richtig festlegen, bevor der Eintrag an Ihre Funktion übergeben wird. Im Hintergrund generiert `[<CLIMutable>]` Setter für die Eintragseigenschaften. Beispiel: 
+Wenn ein F#-Eintrag als Eingabetyp verwendet wird, muss die Eintragsdefinition mit `[<CLIMutable>]` gekennzeichnet werden. So kann das Azure Functions-Framework die Felder richtig festlegen, bevor der Eintrag an Ihre Funktion übergeben wird. Im Hintergrund generiert `[<CLIMutable>]` Setter für die Eintragseigenschaften. Beispiel:
 
 ```fsharp
 [<CLIMutable>]
@@ -83,7 +83,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-Eine F#-Klasse kann auch für in- und out-Argumente verwendet werden. Für eine Klasse benötigen Eigenschaften normalerweise „Getter“ und „Setter“. Beispiel: 
+Eine F#-Klasse kann auch für in- und out-Argumente verwendet werden. Für eine Klasse benötigen Eigenschaften normalerweise „Getter“ und „Setter“. Beispiel:
 
 ```fsharp
 type Item() =
@@ -96,7 +96,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Protokollierung
-Zum Protokollieren der Ausgabe in Ihren [Streamingprotokollen](../app-service/troubleshoot-diagnostic-logs.md) in F# sollte Ihre Funktion ein Argument vom Typ [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) verwenden. Der Einheitlichkeit halber empfehlen wir Ihnen, diesem Argument den Namen `log`zu geben. Beispiel: 
+Zum Protokollieren der Ausgabe in Ihren [Streamingprotokollen](../app-service/troubleshoot-diagnostic-logs.md) in F# sollte Ihre Funktion ein Argument vom Typ [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) verwenden. Der Einheitlichkeit halber empfehlen wir Ihnen, diesem Argument den Namen `log`zu geben. Beispiel:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -188,7 +188,7 @@ Darüber hinaus stehen die folgenden besonderen Assemblys zur Verfügung, auf di
 Wenn Sie auf eine private Assembly verweisen müssen, können Sie die Assemblydatei in einen `bin`-Ordner relativ zu Ihrer Funktion hochladen und anhand des Dateinamens darauf verweisen (Beispiel: `#r "MyAssembly.dll"`). Informationen zum Hochladen von Dateien in Ihren Funktionenordner finden Sie im folgenden Abschnitt zur Paketverwaltung.
 
 ## <a name="editor-prelude"></a>Editor-Einleitung
-Ein Editor, der F#-Compilerdienste unterstützt, besitzt keine Informationen zu den Namespaces und Assemblys, die in Azure Functions automatisch enthalten sind. Daher kann es nützlich sein, eine Einleitung einzufügen, die dem Editor als Unterstützung beim Suchen nach den von Ihnen verwendeten Assemblys und beim expliziten Öffnen von Namespaces dient. Beispiel: 
+Ein Editor, der F#-Compilerdienste unterstützt, besitzt keine Informationen zu den Namespaces und Assemblys, die in Azure Functions automatisch enthalten sind. Daher kann es nützlich sein, eine Einleitung einzufügen, die dem Editor als Unterstützung beim Suchen nach den von Ihnen verwendeten Assemblys und beim expliziten Öffnen von Namespaces dient. Beispiel:
 
 ```fsharp
 #if !COMPILED
@@ -264,7 +264,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Wiederverwenden von .fsx-Code
-Sie können Code aus anderen `.fsx`-Dateien verwenden, indem Sie eine `#load`-Direktive nutzen. Beispiel: 
+Sie können Code aus anderen `.fsx`-Dateien verwenden, indem Sie eine `#load`-Direktive nutzen. Beispiel:
 
 `run.fsx`
 

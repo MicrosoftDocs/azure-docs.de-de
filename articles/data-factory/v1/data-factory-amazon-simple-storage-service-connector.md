@@ -97,9 +97,9 @@ Abschnitte wie „structure“, „availability“ und „policy“ sind bei all
 | bucketName |Der Name des S3-Buckets. |Zeichenfolge |Ja |
 | key |Der S3-Objektschlüssel. |Zeichenfolge |Nein  |
 | prefix |Präfix für den S3-Objektschlüssel. Objekte, deren Schlüssel mit diesem Präfix beginnen, werden ausgewählt. Gilt nur, wenn der Schlüssel leer ist. |Zeichenfolge |Nein  |
-| Version |Die Version des S3-Objekts, wenn die S3-Versionsverwaltung aktiviert ist. |Zeichenfolge |Nein  |
+| version |Die Version des S3-Objekts, wenn die S3-Versionsverwaltung aktiviert ist. |Zeichenfolge |Nein  |
 | format | Die folgenden Formattypen werden unterstützt: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** und **ParquetFormat**. Sie müssen die **type** -Eigenschaft unter „format“ auf einen dieser Werte festlegen. Weitere Informationen finden Sie in den Abschnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format) und [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Wenn Sie Dateien unverändert zwischen dateibasierten Speichern kopieren möchten (binäre Kopie), können Sie den Formatabschnitt in den Definitionen von Eingabe- und Ausgabedatasets überspringen. |Nein  | |
-| Komprimierung | Geben Sie den Typ und den Grad der Komprimierung für die Daten an. Die unterstützten Typen sind: **GZip**, **Deflate**, **BZip2** und **ZipDeflate**. Die folgenden Ebenen werden unterstützt: **Optimal** und **Fastest**. Weitere Informationen finden Sie unter [Datei- und Komprimierungsformate in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nein  | |
+| compression | Geben Sie den Typ und den Grad der Komprimierung für die Daten an. Die unterstützten Typen sind: **GZip**, **Deflate**, **BZip2** und **ZipDeflate**. Die folgenden Ebenen werden unterstützt: **Optimal** und **Fastest**. Weitere Informationen finden Sie unter [Datei- und Komprimierungsformate in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nein  | |
 
 
 > [!NOTE]

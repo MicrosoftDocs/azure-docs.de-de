@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730528"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60194046"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Threat Intelligence-gestütztes Filtern für Azure Firewall – Öffentliche Vorschauversion
 

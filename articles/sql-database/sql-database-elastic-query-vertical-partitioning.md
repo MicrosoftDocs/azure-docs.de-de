@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60585402"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Ausführen von Abfragen über Clouddatenbanken mit unterschiedlichen Schemas hinweg (Vorschau)
 
@@ -51,7 +51,7 @@ Die Anmeldeinformationen werden von der elastischen Abfrage für die Verbindung 
     [;]
 
 > [!NOTE]
-> Stellen Sie sicher, dass `<username>` kein **„\@Servername“**-Suffix enthält. 
+> Stellen Sie sicher, dass `<username>` kein **„\@Servername“** -Suffix enthält. 
 >
 
 ## <a name="create-external-data-sources"></a>Erstellen externer Datenquellen

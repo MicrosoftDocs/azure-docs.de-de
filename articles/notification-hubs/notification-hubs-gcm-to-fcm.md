@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: jowargo
 ms.openlocfilehash: 4cbfc67bc66e84b4743f3326db40872241e5d474
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787014"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61458296"
 ---
 # <a name="azure-notification-hubs-and-the-google-firebase-cloud-messaging-fcm-migration"></a>Azure Notification Hubs und die Google FCM-Migration (Firebase Cloud Messaging)
 

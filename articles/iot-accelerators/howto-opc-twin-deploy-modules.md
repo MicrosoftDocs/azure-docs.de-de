@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f0fc3722ee440b6f50b86f916afef7ddc5876eef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66693404"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Bereitstellen des OPC Twin-Moduls und der Abhängigkeiten von Grund auf
 
@@ -33,69 +33,71 @@ Alle Module werden mit einem Bereitstellungsmanifest bereitgestellt.  Ein Beispi
 
 ```json
 {
-  "modulesContent": {
-    "$edgeAgent": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "runtime": {
-          "type": "docker",
-          "settings": {
-            "minDockerVersion": "v1.25",
-            "loggingOptions": "",
-            "registryCredentials": {}
-          }
-        },
-        "systemModules": {
-          "edgeAgent": {
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "runtime": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-              "createOptions": ""
+              "minDockerVersion": "v1.25",
+              "loggingOptions": "",
+              "registryCredentials": {}
             }
           },
-          "edgeHub": {
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}], \"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
-            }
-          }
-        },
-        "modules": {
-          "opctwin": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "never",
-            "settings": {
-              "image": "mcr.microsoft.com/iotedge/opc-twin:latest",
-              "createOptions": "{\"HostConfig\": { \"NetworkMode\": \"host\", \"CapAdd\": [\"NET_ADMIN\"] } }"
+          "systemModules": {
+            "edgeAgent": {
+              "type": "docker",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "createOptions": ""
+              }
+            },
+            "edgeHub": {
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}], \"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+              }
             }
           },
-          "opcpublisher": {
-            "version": "2.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "never",
-            "settings": {
-              "image": "mcr.microsoft.com/iotedge/opc-publisher:latest",
-              "createOptions": "{\"Hostname\": \"publisher\", \"Cmd\": [ \"publisher\", \"--pf=./pn.json\", \"--di=60\", \"--to\", \"--aa\", \"--si=0\", \"--ms=0\" ], \"ExposedPorts\": { \"62222/tcp\": {} }, \"HostConfig\": { \"PortBindings\": { \"62222/tcp\": [{ \"HostPort\": \"62222\" }] } } }"
+          "modules": {
+            "opctwin": {
+              "version": "1.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/iotedge/opc-twin:latest",
+                "createOptions": "{\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"CapAdd\":[\"NET_ADMIN\"]}}"
+              }
+            },
+            "opcpublisher": {
+              "version": "2.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/iotedge/opc-publisher:latest",
+                "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=./pn.json\",\"--di=60\",\"--to\",\"--aa\",\"--si=0\",\"--ms=0\"],\"ExposedPorts\":{\"62222/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
+              }
             }
           }
         }
-      }
-    },
-    "$edgeHub": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "routes": {
-          "opctwinToIoTHub": "FROM /messages/modules/opctwin/outputs/* INTO $upstream",
-          "opcpublisherToIoTHub": "FROM /messages/modules/opcpublisher/outputs/* INTO $upstream"
-        },
-        "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 7200
+      },
+      "$edgeHub": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "routes": {
+            "opctwinToIoTHub": "FROM /messages/modules/opctwin/* INTO $upstream",
+            "opcpublisherToIoTHub": "FROM /messages/modules/opcpublisher/* INTO $upstream"
+          },
+          "storeAndForwardConfiguration": {
+            "timeToLiveSecs": 7200
+          }
         }
       }
     }
@@ -220,7 +222,7 @@ Für die Problembehandlung und das Debuggen ist es nützlich, die Edgemodule lok
    ```
 
 > [!NOTE]
-> Installieren Sie `iotedgehubdev` unter Linux/macOS im Verzeichnis **root**. (*Verwenden Sie für den Befehl „pip install“ nicht die Option „--user“*.)
+> Installieren Sie `iotedgehubdev` unter Linux/macOS im Verzeichnis **root**. (*Verwenden Sie für den Befehl „pip install“ nicht die Option „--user“* .)
 > Stellen Sie sicher, dass auf demselben Computer zusätzlich zu iotedgehubdev keine Azure IoT Edge-Runtime ausgeführt wird, da hierfür dieselben Ports benötigt werden.
 
 ### <a name="quickstart"></a>Schnellstart

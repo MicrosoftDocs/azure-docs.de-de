@@ -9,11 +9,11 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: f728baedf9e325f224ce52e64325064f553d2671
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60893701"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Zugriff auf die Azure Cosmos DB-Cassandra-API über Spark in YARN mit HDInsight
 

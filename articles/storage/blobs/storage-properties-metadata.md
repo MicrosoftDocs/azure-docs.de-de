@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8a85319a12f04a11e3914716d9ff84cdb6de8d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916579"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65787861"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Festlegen und Abrufen von Eigenschaften und Metadaten
 
-Objekte in Azure Storage unterstützen zusätzlich zu den Daten, die sie enthalten, Systemeigenschaften und benutzerdefinierte Metadaten. In diesem Artikel wird das Verwalten von Systemeigenschaften und benutzerdefinierten Metadaten mithilfe der [Azure Storage-Clientbibliothek für .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) beschrieben.
+Objekte in Azure Storage unterstützen zusätzlich zu den Daten, die sie enthalten, Systemeigenschaften und benutzerdefinierte Metadaten. In diesem Artikel wird das Verwalten von Systemeigenschaften und benutzerdefinierten Metadaten mithilfe der [Azure Storage-Clientbibliothek für .NET](/dotnet/api/overview/azure/storage/client) beschrieben.
 
 * **Systemeigenschaften**:  Systemeigenschaften sind in jeder Speicherressource vorhanden. Einige davon können gelesen oder festgelegt werden, während andere schreibgeschützt sind. Darüber hinaus entsprechen einige Systemeigenschaften bestimmten HTTP-Standardheadern. Diese Eigenschaften werden für Sie von den Azure Storage-Clientbibliotheken verwaltet.
 
@@ -27,7 +27,7 @@ Das Abrufen von Eigenschafts- und Metadatenwerten einer Speicherressource ist ei
 > [!IMPORTANT]
 > Wenn Sie feststellen, dass Eigenschaften- oder Metadatenwerte für eine Speicherressource nicht ausgefüllt wurden, überprüfen Sie, ob Ihr Code die **FetchAttributes**- oder **FetchAttributesAsync**-Methode aufruft.
 >
-> Name-Wert-Paare für Metadaten sind gültige HTTP-Header und sollten daher allen Einschränkungen für HTTP-Header entsprechen. Metadatennamen müssen gültige HTTP-Headernamen sein, dürfen nur ASCII-Zeichen enthalten und sollten als „Keine Beachtung von Groß-/Kleinschreibung“ behandelt werden. Metadatenwerte mit Nicht-ASCII-Zeichen sollten Base64- oder URL-codiert werden.
+> Name-Wert-Paare für Metadaten sind gültige HTTP-Header und sollten daher allen Einschränkungen für HTTP-Header entsprechen. Metadatennamen müssen gültige HTTP-Headernamen und gültige C#-Bezeichner sein, dürfen nur ASCII-Zeichen enthalten und sollten als „Keine Beachtung von Groß-/Kleinschreibung“ behandelt werden. Metadatenwerte mit Nicht-ASCII-Zeichen sollten Base64- oder URL-codiert werden.
 
 ## <a name="setting-and-retrieving-properties"></a>Festlegen und Abrufen von Eigenschaften
 Zum Abrufen von Eigenschaftswerten rufen Sie die **FetchAttributesAsync**-Methode für das Blob oder den Container auf, um die Eigenschaften aufzufüllen, und lesen anschließend die Werte.
@@ -99,5 +99,8 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-* [Azure Storage-Clientbibliothek für .NET-Referenz](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Azure Storage-Clientbibliothek für .NET-NuGet-Paket](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Storage-Clientbibliothek für .NET-Referenz](/dotnet/api/?term=Microsoft.Azure.Storage)
+* [Azure Blob Storage-Clientbibliothek für .NET-Paket](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Azure Queue Storage-Clientbibliothek für .NET-Paket](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Azure File Storage-Clientbibliothek für .NET-Paket](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+

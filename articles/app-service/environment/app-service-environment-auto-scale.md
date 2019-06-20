@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270024"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955961"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Automatische Skalierung und App Service-Umgebung v1
 
@@ -63,7 +63,7 @@ Die automatische Skalierung einer App Service-Umgebung kann am besten anhand ein
 In diesem Artikel werden alle erforderlichen Aspekte für die Einrichtung der automatischen Skalierung beschrieben. Es werden die einzelnen Interaktionen beschrieben, die relevant sind, wenn Sie die automatische Skalierung von App Service-Umgebungen beim Hosten in einer App Service-Umgebung verwenden.
 
 ### <a name="scenario-introduction"></a>Einführung in das Szenario
-Frank ist Systemadministrator in einem Unternehmen. Er hat einen Teil der Workloads, die er verwaltet, zu einer App Service-Umgebung migriert.
+Frank ist Systemadministrator in einem Unternehmen. Er hat einen Teil der Workloads, die er verwaltet, in eine App Service-Umgebung migriert.
 
 Die App Service-Umgebung ist wie folgt für die manuelle Skalierung konfiguriert:
 

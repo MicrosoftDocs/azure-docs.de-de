@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a0ff97eb17dcf2625e1bb75dabf3e4a9686b5b85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725715"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427842"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Erste Schritte mit Key Vault-Zertifikaten
 Die folgenden Szenarien stellen verschiedene der primären Verwendungen des Key Vault-Zertifikatverwaltungdiensts dar. Dazu gehören auch die zusätzlichen Schritte, die zum Erstellen Ihres ersten Zertifikats in Ihrem Schlüsseltresor erforderlich sind.
@@ -39,8 +39,7 @@ Zertifikate bestehen aus drei zusammenhängenden Ressourcen, die als Key Vault-Z
 -   Onboarding als IT-Administrator, PKI-Administrator oder als ein anderer Benutzer, der Konten bei Zertifizierungsstellen verwaltet, für ein bestimmtes Unternehmen (z.B. Contoso) ist eine Voraussetzung für die Verwendung von Key Vault-Zertifikaten.  
     Die folgenden Zertifizierungsstellen sind aktuell Key Vault-Partneranbieter:  
     -   DigiCert: Key Vault bietet OV-SSL-Zertifikate mit DigiCert.  
-    -   GlobalSign: Key Vault bietet OV-SSL-Zertifikate mit GlobalSign.  
-    -   WoSign: Key Vault bietet OV-SSL- oder EV-SSL-Zertifikate mit WoSign. Dies basiert auf der Einstellung, die von Kunden in ihrem WoSign-Konto im WoSign-Portal konfiguriert wurde.  
+    -   Globaltrust: Key Vault bietet OV-SSL-Zertifikate mit Globaltrust.  
 
 **Schritt 2**: Ein Kontoadministrator für den Anbieter einer Zertifizierungsstelle erstellt Anmeldeinformationen, die von Key Vault verwendet werden, um SSL-Zertifikate über Key Vault zu registrieren, zu erneuern und zu verwenden.
 

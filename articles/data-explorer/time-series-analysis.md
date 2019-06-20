@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273072"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604049"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Zeitreihenanalysen in Azure Data Explorer
 
@@ -34,7 +34,7 @@ Die resultierende Tabelle enthält eine Zeitstempelspalte, drei kontextbezogene 
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | Country |
+|   | TimeStamp | BrowserVer | OsVer | Land/Region |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Vereinigtes Königreich |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Vereinigtes Königreich |
@@ -142,7 +142,7 @@ demo_series3
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | Zeiträume | Treffer | Tage |
+|   | Zeiträume | Treffer | days |
 |   | 84 | 0.820622786055595 | 7 |
 |   | 12 | 0.764601405803502 | 1 |
 
@@ -260,3 +260,8 @@ demo_many_series1
 In weniger als zwei Minuten hat Azure Data Explorer fast 20.000 Zeitreihen analysiert und zwei anomale Zeitreihen erkannt, in denen die Anzahl von Lesevorgängen plötzlich sehr stark gesunken ist.
 
 Diese erweiterte Funktionalität und die hohe Verarbeitungsgeschwindigkeit von Azure Data Explorer sorgen für eine einzigartige, leistungsstarke Lösung für die Analyse von Zeitreihen.
+
+## <a name="next-steps"></a>Nächste Schritte
+
+* Informationen zu [Anomalieerkennung in Zeitreihen und Vorhersage](/azure/data-explorer/anomaly-detection) in Azure Data Explorer.
+* Informationen zu [Machine Learning-Funktionen](/azure/data-explorer/machine-learning-clustering) in Azure Data Explorer.

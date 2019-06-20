@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62130125"
 ---
 # <a name="get-started-with-reliable-services"></a>Erste Schritte mit Reliable Services
 > [!div class="op_single_selector"]

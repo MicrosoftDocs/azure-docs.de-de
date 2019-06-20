@@ -8,11 +8,11 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.openlocfilehash: a5d00c24531099e66afcb6ccf07cfdf99abd28d1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295146"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60846241"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Was ist Azure Database for MariaDB?
 

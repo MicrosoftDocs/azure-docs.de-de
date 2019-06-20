@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: clausjor
 ms.subservice: blobs
 ms.openlocfilehash: 8e9e27f14c4ccd6f5822033baa21aaafcf96c428
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148500"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: Zugriffsebenen „Heiß“, „Kalt“ und „Archiv“
@@ -89,7 +89,7 @@ Mit dem Blobebenentiering können Sie mithilfe eines einzelnen Vorgangs namens [
 
 Der Zeitpunkt der letzten Änderung der Blobebene wird über die Blobeigenschaft **Access Tier Change Time** (Änderungszeitpunkt der Zugriffsebene) verfügbar gemacht. Wenn sich ein Blob auf der Archivebene befindet, kann es nicht überschrieben werden. Daher ist das Hochladen desselben Blobs in diesem Szenario nicht zulässig. Sie können ein Blob auf der heißen und kalten Ebene überschreiben. In diesem Fall erbt das neue Blob die Ebene des Blobs, das überschrieben wurde.
 
-Ein Konto kann Blobs aus allen drei Zugriffsebenen enthalten. Blobs, denen keine explizite Ebene zugewiesen ist, leiten die Ebene von der Zugriffsebeneneinstellung des Kontos ab. Wenn die Zugriffsebene vom Konto abgeleitet wird, sehen Sie, dass die Blobeigenschaft **Access Tier Inferred** (Abgeleitete Zugriffsebene) auf TRUE festgelegt ist und die Blobeigenschaft **Access Tier** (Zugriffsebene) des Blobs mit der Kontoebene übereinstimmt. Im Azure-Portal wird die „Abgeleitete Zugriffsebene“-Eigenschaft mit der Blobzugriffsebene angezeigt (z.B. **Heiß (abgeleitet)** oder **Kalt (abgeleitet)**).
+Ein Konto kann Blobs aus allen drei Zugriffsebenen enthalten. Blobs, denen keine explizite Ebene zugewiesen ist, leiten die Ebene von der Zugriffsebeneneinstellung des Kontos ab. Wenn die Zugriffsebene vom Konto abgeleitet wird, sehen Sie, dass die Blobeigenschaft **Access Tier Inferred** (Abgeleitete Zugriffsebene) auf TRUE festgelegt ist und die Blobeigenschaft **Access Tier** (Zugriffsebene) des Blobs mit der Kontoebene übereinstimmt. Im Azure-Portal wird die „Abgeleitete Zugriffsebene“-Eigenschaft mit der Blobzugriffsebene angezeigt (z.B. **Heiß (abgeleitet)** oder **Kalt (abgeleitet)** ).
 
 > [!NOTE]
 > Für die Archivspeicherebene und das Blobebenentiering werden nur Blockblobs unterstützt. Außerdem ist es nicht möglich, die Ebene eines Blockblobs zu ändern, das über Momentaufnahmen verfügt.
@@ -198,7 +198,7 @@ Ja. Sie können die Standardzugriffsebene ändern, indem Sie für das Speicherko
 
 **Kann ich meine Standard-Kontozugriffsebene auf „Archiv“ festlegen?**
 
- Nein. Nur die Zugriffsebenen „Heiß“ und „Kalt“ können als Standard-Kontozugriffsebene festgelegt werden. „Archiv“ kann nur auf Objektebene festgelegt werden.
+Nein. Nur die Zugriffsebenen „Heiß“ und „Kalt“ können als Standard-Kontozugriffsebene festgelegt werden. „Archiv“ kann nur auf Objektebene festgelegt werden.
 
 **In welchen Regionen sind die Zugriffsebenen „Heiß“, „Kalt“ und „Archiv“ verfügbar?**
 

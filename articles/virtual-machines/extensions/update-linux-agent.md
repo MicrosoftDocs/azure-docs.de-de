@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: roiyz
 ms.openlocfilehash: 5d53f34ea6b0983d0687cdaf6ec6271c703bb055
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60799763"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Vorgehensweise zum Aktualisieren des Azure Linux-Agents auf einer VM
 

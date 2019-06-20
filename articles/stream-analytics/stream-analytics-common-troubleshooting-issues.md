@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61362115"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Häufig auftretende Probleme bei Stream Analytics und Schritten zur Problembehandlung
 
@@ -75,7 +75,7 @@ Wenn Sie während der normalen Ausführung des Auftrags feststellen, dass die Au
 
 Um diese Details anzuzeigen, wählen Sie im Azure-Portal den Streamingauftrag und das **Auftragsdiagramm** aus. Für jede Eingabe gibt es eine Backlogereignismetrik pro Partition. Wenn die Backlogereignismetrik weiter ansteigt, ist dies ein Indikator für begrenzte Systemressourcen. Gründe hierfür können eine Drosselung der Ausgabesenke oder eine hohe CPU-Auslastung sein. Weitere Informationen zur Verwendung des Auftragsdiagramms finden Sie unter [Datengesteuertes Debuggen mithilfe des Auftragsdiagramms](stream-analytics-job-diagram-with-metrics.md).
 
-## <a name="handle-duplicate-records-in-azure-sql-database-output"></a>Handhaben doppelter Datensätze in der Azure SQL-Datenbankausgabe
+## <a name="handle-duplicate-records-in-azure-sql-database-output"></a>Handhaben doppelter Datensätze in der Azure SQL-Datenbank-Ausgabe
 
 Wenn Sie Azure SQL-Datenbank als Ausgabe an einen Stream Analytics-Auftrag konfigurieren, fügt dieser die Datensätze als Masseneintrag in der Zieltabelle hinzu. Im Allgemeinen garantiert Azure Stream Analytics [mindestens eine Übermittlung]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) an die Ausgabesenke. Sie können jedoch auch eine [genau einmalige Übermittlung]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) an die SQL-Ausgabe erreichen, wenn für die SQL-Tabelle eine UNIQUE-Einschränkung definiert wurde. 
 

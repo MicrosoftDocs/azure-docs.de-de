@@ -39,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: Testen einer Portalschnittstelle
           href: test-createuidefinition.md
+        - name: Anfordern des Just-In-Time-Zugriffs
+          href: request-just-in-time-access.md
         - name: Aktualisieren von verwalteten Ressourcen
           href: update-managed-resources.md
         - name: Veröffentlichen der Anwendungsdefinition über das Portal
@@ -51,6 +53,8 @@
       items:
         - name: Überwachen der verwalteten Anwendung
           href: monitor-managed-application-portal.md
+        - name: Genehmigen des Just-In-Time-Zugriffs
+          href: approve-just-in-time-access.md
 - name: Verweis
   items:
     - name: Azure-Befehlszeilenschnittstelle

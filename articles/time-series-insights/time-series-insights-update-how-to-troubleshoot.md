@@ -2,7 +2,7 @@
 title: Diagnose und Problembehandlung in Azure Time Series Insights (Vorschauversion) | Microsoft-Dokumentation
 description: Machen Sie sich mit der Diagnose und Problembehandlung mit Azure Time Series Insights Preview vertraut.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4a63bfd4e82147fe3324e146f2aaff8889da87e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d18f8f4808d5ca9dd7eca1561b1ee08c2073f5fa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472329"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237543"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnostizieren und Behandeln von Problemen
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510920"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225359"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Lesereplikate in Azure Database for MySQL
 
@@ -42,8 +42,7 @@ Wenn ein Masterserver keine vorhandenen Replikatserver aufweist, wird der Master
 
 Wenn Sie den Workflow zum Erstellen von Replikaten starten, wird ein leerer Azure Database for MySQL-Server erstellt. Der neue Server wird mit den Daten gefüllt, die auf dem Masterserver vorhanden waren. Die Erstellungszeit hängt von der Datenmenge auf dem Masterserver und der verstrichenen Zeit seit der letzten wöchentlichen vollständigen Sicherung ab. Dieser Zeitraum kann wenige Minuten bis zu mehrere Stunden umfassen.
 
-> [!NOTE]
-> Wenn Sie auf Ihren Servern keine Speicherwarnung eingerichtet haben, empfehlen wir, dies nachzuholen. Die Warnung informiert Sie, wenn ein Server sich dem Speicherlimit nähert und dadurch die Replikation beeinträchtigt wird.
+Jedes Replikat ist für die [automatische Vergrößerung](concepts-pricing-tiers.md#storage-auto-grow) von Speicher aktiviert. Das Feature der automatischen Vergrößerung sorgt dafür, dass im Replikat genügend Speicherplatz für die replizierten Daten vorhanden ist, und verhindert damit Unterbrechungen bei der Replikation durch Fehler aufgrund von unzureichendem Speicher.
 
 [Erfahren Sie, wie Sie ein Lesereplikat im Azure-Portal erstellen](howto-read-replicas-portal.md).
 

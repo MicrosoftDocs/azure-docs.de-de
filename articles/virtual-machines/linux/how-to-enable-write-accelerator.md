@@ -18,10 +18,10 @@ ms.author: raiye
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
 ms.openlocfilehash: fcd7b43bf142ab33c1a3421cbc539bb2646d48f2
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587683"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60543239"
 ---
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]

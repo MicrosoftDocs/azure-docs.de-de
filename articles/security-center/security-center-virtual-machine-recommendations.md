@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
 ms.openlocfilehash: a4aaf440856746895a31914aeee2bddec2ce23f6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60544981"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Grundlegendes zu Azure Security Center-Empfehlungen für Ressourcen
 
@@ -50,7 +50,7 @@ Den folgenden Tabellen können Sie entnehmen, welche Empfehlungen für Compute S
 | WebSockets für Webanwendung deaktivieren| Empfiehlt, die Verwendung von WebSockets innerhalb von Webanwendungen sorgfältig zu prüfen.  Das WebSockets-Protokoll ist für verschiedene Arten von Sicherheitsrisiken anfällig. |
 | Benutzerdefinierte Domänen für Webanwendung verwenden | Empfiehlt, benutzerdefinierte Domänen zu verwenden, damit eine Webanwendung vor gängigen Angriffen wie Phishing und anderen DNS-bezogenen Angriffen geschützt wird. |
 | IP-Einschränkungen für Webanwendung konfigurieren | Empfiehlt, eine Liste mit IP-Adressen zu definieren, die auf Ihre Anwendung zugreifen dürfen.  Mithilfe von IP-Einschränkungen kann eine Webanwendung vor gängigen Angriffen geschützt werden. |
-| Nicht allen („*“) Ressourcen Zugriff auf Ihre Anwendung erteilen | Rät davon ab, den WEBSITE_LOAD_CERTIFICATES-Parameter auf „*“ festzulegen. Durch die Einstellung des Parameters auf „*“ werden alle Zertifikate in den persönlichen Zertifikatspeicher Ihrer Webanwendungen geladen.  Dies kann zum Missbrauch des Prinzips der „geringsten Rechte“ führen, da es unwahrscheinlich ist, dass die Website Zugriff auf sämtliche Zertifikate zur Laufzeit benötigt. |
+| Nicht allen („*“) Ressourcen Zugriff auf Ihre Anwendung erteilen | Rät davon ab, den WEBSITE_LOAD_CERTIFICATES-Parameter auf „ *“ festzulegen. Durch die Einstellung des Parameters auf „* “ werden alle Zertifikate in den persönlichen Zertifikatspeicher Ihrer Webanwendungen geladen.  Dies kann zum Missbrauch des Prinzips der „geringsten Rechte“ führen, da es unwahrscheinlich ist, dass die Website Zugriff auf sämtliche Zertifikate zur Laufzeit benötigt. |
 | Nicht jeder Ressource den Zugriff auf Ihre Anwendung über CORS gestatten | Empfiehlt, nur erforderlichen Domänen die Interaktion mit Ihrer Webanwendung zu ermöglichen. Bei der Ressourcenfreigabe zwischen verschiedenen Ursprüngen (Cross-Origin Resource Sharing, CORS) sollte nicht allen Domänen gestattet werden, auf Ihre Webanwendung zuzugreifen. |
 | Die neueste unterstützte .NET Framework-Version für Webanwendungen verwenden | Empfiehlt, die neueste .NET Framework-Version für die neuesten Sicherheitsklassen zu verwenden. Die Verwendung von älteren Klassen und Typen kann die Anfälligkeit Ihrer Anwendung für Sicherheitsrisiken erhöhen. |
 | Die neueste unterstützte Java-Version für Webanwendungen verwenden | Empfiehlt, die neueste Java-Version für die neuesten Sicherheitsklassen zu verwenden. Die Verwendung von älteren Klassen und Typen kann die Anfälligkeit Ihrer Anwendung für Sicherheitsrisiken erhöhen. |

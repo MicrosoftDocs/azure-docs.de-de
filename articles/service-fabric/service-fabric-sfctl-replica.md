@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d0a7199ff0e9cb17c3fbc179a9b37a6620f521f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60544669"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Ermöglicht es, Replikate zu verwalten, die zu Servicepartitionen gehören.

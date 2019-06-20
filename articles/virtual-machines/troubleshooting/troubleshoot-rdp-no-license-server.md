@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913852"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60318951"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Remotedesktop-Lizenzserver beim Herstellen einer Verbindung mit einer Azure-VM nicht verfügbar
 

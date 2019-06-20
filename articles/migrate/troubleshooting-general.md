@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652636"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60533249"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problembehandlung für Azure Migrate
 
@@ -317,7 +317,7 @@ Führen Sie folgende Schritte aus, um die Ereignisablaufverfolgung für Windows 
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Fehlercodes des Collectors und empfohlene Aktionen
 
-| Fehlercode | Fehlerbezeichnung   | Message   | Mögliche Ursachen | Empfohlene Maßnahme  |
+| Fehlercode | Fehlerbezeichnung   | `Message`   | Mögliche Ursachen | Empfohlene Maßnahme  |
 | --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | Der Collector ist abgelaufen.                                                        | Collector abgelaufen.                                                                                    | Laden Sie eine neue Version des Collectors herunter, und wiederholen Sie den Vorgang.                                                                                      |
 | 751       | UnableToConnectToServer        | Fehler bei der Verbindungsherstellung mit vCenter Server-Instanz „%Name;“. Fehler: %ErrorMessage;     | Weitere Informationen finden Sie in der Fehlermeldung.                                                             | Beheben Sie das Problem, und wiederholen Sie den Vorgang.                                                                                                           |

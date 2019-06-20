@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
 ms.openlocfilehash: b4a68d7cb7ee82adb2f458b3013cc64e347e16c8
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64993129"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Geplante Wartung für virtuelle Computer in Azure

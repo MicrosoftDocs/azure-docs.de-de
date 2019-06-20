@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: bc946587cf54142278472652449db40096ca27b8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117213"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712312"
 ---
 # <a name="expressroute-qos-requirements"></a>QoS-Anforderungen für ExpressRoute
 Skype for Business umfasst verschiedene Workloads mit jeweils unterschiedlichen QoS-Anforderungen. Wenn Sie Sprachdienste über ExpressRoute bereitstellen möchten, sollten die im Folgenden beschriebenen Anforderungen erfüllt sein.
@@ -25,9 +25,9 @@ Skype for Business umfasst verschiedene Workloads mit jeweils unterschiedlichen 
 > 
 > 
 
-Die folgende Tabelle enthält eine Liste mit DSCP-Markierungen, die von Skype for Business verwendet werden. Weitere Informationen finden Sie unter [Verwalten der Dienstqualität für Skype for Business](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) .
+Die folgende Tabelle enthält eine Liste mit DSCP-Markierungen, die von Microsoft-Teams und Skype for Business verwendet werden. Weitere Informationen finden Sie unter [Verwalten der Dienstqualität für Skype for Business](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) .
 
-| **Datenverkehrsklasse** | **Behandlung (DSCP-Markierung)** | **Skype for Business-Workloads** |
+| **Datenverkehrsklasse** | **Behandlung (DSCP-Markierung)** | **Microsoft Teams- und Skype for Business-Workloads** |
 | --- | --- | --- |
 | **Voice** |EF (46) |Skype-/Lync-Sprachanrufe |
 | **Interactive** |AF41 (34) |Video, VBSS |

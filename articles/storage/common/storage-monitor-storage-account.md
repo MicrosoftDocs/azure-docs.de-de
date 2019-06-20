@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153634"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Überwachen eines Speicherkontos im Azure-Portal
@@ -39,7 +39,7 @@ ms.locfileid: "65153634"
 
     ![Überwachungsoptionen](./media/storage-monitor-storage-account/storage-enable-metrics-01.png)
 
-   Zum Festlegen der Datenaufbewahrungsrichtlinie verschieben Sie den Schieberegler **Aufbewahrung (Tage)**, oder geben Sie die Anzahl der Tage ein, für die Daten aufbewahrt werden sollen (zwischen 1 und 365). Die Standardeinstellung für neue Speicherkonten beträgt sieben Tage. Wenn Sie keine Aufbewahrungsrichtlinie festlegen möchten, geben Sie null (0) ein. Ist keine Aufbewahrungsrichtlinie festgelegt, müssen Sie die Überwachungsdaten selbst löschen.
+   Zum Festlegen der Datenaufbewahrungsrichtlinie verschieben Sie den Schieberegler **Aufbewahrung (Tage)** , oder geben Sie die Anzahl der Tage ein, für die Daten aufbewahrt werden sollen (zwischen 1 und 365). Die Standardeinstellung für neue Speicherkonten beträgt sieben Tage. Wenn Sie keine Aufbewahrungsrichtlinie festlegen möchten, geben Sie null (0) ein. Ist keine Aufbewahrungsrichtlinie festgelegt, müssen Sie die Überwachungsdaten selbst löschen.
 
    > [!WARNING]
    > Ihnen werden Gebühren berechnet, wenn Sie Metrikdaten manuell löschen. Veraltete Analysedaten (Daten, die älter sind als die Aufbewahrungsrichtlinie) werden vom System kostenlos gelöscht. Wir empfehlen, die Aufbewahrungsrichtlinie entsprechend dem Zeitraum festzulegen, den Sie Speicheranalysedaten für Ihr Konto behalten möchten. Weitere Informationen finden Sie unter [Abrechnung für Speichermetriken](storage-analytics-metrics.md#billing-on-storage-metrics).
@@ -94,8 +94,8 @@ Die Metriken, die Sie in **Diagnose** ausgewählt haben, bestimmen die Auflösun
 
 Sie können Warnungen erstellen, damit Sie benachrichtigt werden, wenn Speicherressourcenmetriken Schwellenwerte erreichen.
 
-1. Um das ‚Blatt **Warnungsregeln** zu öffnen, scrollen Sie zum Abschnitt **ÜBERWACHUNG** des **Menüblatts** nach unten, und wählen Sie **Warnungen (klassisch)**.
-2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)**, um das Blatt **Warnungsregel hinzufügen** zu öffnen.
+1. Um das ‚Blatt **Warnungsregeln** zu öffnen, scrollen Sie zum Abschnitt **ÜBERWACHUNG** des **Menüblatts** nach unten, und wählen Sie **Warnungen (klassisch)** .
+2. Wählen Sie **Metrikwarnung hinzufügen (klassisch)** , um das Blatt **Warnungsregel hinzufügen** zu öffnen.
 3. Geben Sie einen **Namen** und eine **Beschreibung** für Ihre neue Warnungsregel ein.
 4. Wählen Sie die **Metrik**, für die Sie eine Warnung hinzufügen möchten, eine **Bedingung** für die Warnung und einen **Schwellenwert**. Der Schwellenwerteinheiten-Typ ändert sich je nach der Metrik, die Sie ausgewählt haben. Beispielsweise ist „count“ der Einheitentyp für *ContainerCount*, die Einheit für die Metrik *PercentNetworkError* ist dagegen ein Prozentsatz.
 5. Wählen Sie den **Zeitraum** aus. Metriken, die den Schwellenwert innerhalb des Zeitraums erreichen oder überschreiten, lösen eine Warnung aus.
@@ -108,7 +108,7 @@ Sie können Warnungen erstellen, damit Sie benachrichtigt werden, wenn Speicherr
 Sie können Ihrem Portaldashboard Azure Storage-Metrikdiagramme für beliebige Ihrer Speicherkonten hinzufügen.
 
 1. Wählen Sie **Dashboard bearbeiten**, während Ihr Dashboard im [Azure-Portal](https://portal.azure.com) angezeigt wird.
-1. Wählen Sie im **Kachelkatalog** die Option **Kacheln suchen nach:** > **Typ**.
+1. Wählen Sie im **Kachelkatalog** die Option **Kacheln suchen nach:**  > **Typ**.
 1. Wählen Sie **Typ** > **Speicherkonten**.
 1. Wählen Sie in **Ressourcen** das Speicherkonto aus, dessen Metriken Sie dem Dashboard hinzufügen möchten.
 1. Wählen Sie **Kategorien** > **Überwachung**.

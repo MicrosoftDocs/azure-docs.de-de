@@ -9,11 +9,11 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60366481"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Erstellen und Ändern einer ExpressRoute-Verbindung
 
@@ -84,19 +84,19 @@ Auf dieser Seite bietet der **Anbieterstatus** Informationen zum aktuellen Zusta
 Wenn Sie eine neue ExpressRoute-Verbindung erstellen, weist die Verbindung folgenden Zustand auf:
 
 Anbieterstatus: Nicht bereitgestellt<BR>
-Schaltkreisstatus: Aktiviert
+Schaltkreisstatus: Enabled
 
 ![Bereitstellung initiieren](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Die Verbindung wechselt in den folgenden Zustand, wenn sie vom Konnektivitätsanbieter für Sie aktiviert wird:
 
 Anbieterstatus: Bereitstellung<BR>
-Schaltkreisstatus: Aktiviert
+Schaltkreisstatus: Enabled
 
 Damit Sie eine ExpressRoute-Verbindung verwenden können, muss sie sich im folgenden Zustand befinden:
 
 Anbieterstatus: Bereitgestellt<BR>
-Schaltkreisstatus: Aktiviert
+Schaltkreisstatus: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Überprüfen Sie regelmäßig den Status und Zustand des Verbindungsschlüssels.
 

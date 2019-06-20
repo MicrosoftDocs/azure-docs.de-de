@@ -11,11 +11,11 @@ ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 21204e85adf1c68264ea448360c9e1120567ef3f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764573"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60530915"
 ---
 # <a name="what-is-azure-scheduler"></a>Was ist Azure Scheduler?
 

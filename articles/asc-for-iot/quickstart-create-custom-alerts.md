@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192468"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786180"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Schnellstart: Erstellen benutzerdefinierter Benachrichtigungen
 
@@ -50,13 +50,12 @@ Verwenden Sie Sicherheitsgruppen, um Ihre Geräte in logischen Kategorien zu gru
 ## <a name="customize-an-alert"></a>Anpassen einer Benachrichtigung
 
 1. Öffnen Sie Ihre IoT Hub-Instanz. 
-2. Wählen Sie **Sicherheit** und anschließend **Benutzerdefinierte Benachrichtigungen** aus. 
-3. Wählen Sie die Sicherheitsgruppen aus, auf die Sie die Anpassung anwenden möchten. 
-4. Klicken Sie auf **Add a custom alert** (Benutzerdefinierte Benachrichtigung hinzufügen).
-5. Geben Sie einen Namen für die Benachrichtigung ein. (Hinweis: Benachrichtigungsnamen können nach der Erstellung nicht mehr geändert werden.) 
-6. Wählen Sie in der Dropdownliste ein Verhalten für die benutzerdefinierte Benachrichtigung aus. 
-7. Bearbeiten Sie die erforderlichen Eigenschaften, und klicken Sie anschließend auf **OK**.
-8. Klicken Sie auf **SPEICHERN**. Wenn Sie die neue Benachrichtigung nicht speichern, wird sie beim nächsten Schließen von IoT Hub gelöscht.
+2. Klicken Sie im Abschnitt **Sicherheit** auf **Benutzerdefinierte Benachrichtigungen**. 
+3. Wählen Sie eine Sicherheitsgruppe aus, auf die Sie die Anpassung anwenden möchten. 
+4. Klicken Sie auf **Add a custom alert** (Benutzerdefinierte Benachrichtigung hinzufügen). 
+5. Wählen Sie in der Dropdownliste ein Verhalten für die benutzerdefinierte Benachrichtigung aus. 
+6. Bearbeiten Sie die erforderlichen Eigenschaften, und klicken Sie anschließend auf **OK**.
+7. Klicken Sie auf **SPEICHERN**. Wenn Sie die neue Benachrichtigung nicht speichern, wird sie beim nächsten Schließen von IoT Hub gelöscht.
 
  
 ## <a name="alerts-available-for-customization"></a>Anpassbare Benachrichtigungen

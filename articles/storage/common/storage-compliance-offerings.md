@@ -9,11 +9,11 @@ ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61483433"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage-Complianceangebote
 

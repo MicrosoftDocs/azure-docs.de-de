@@ -16,11 +16,11 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59258911"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60290788"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Verwenden von verwalteten Identitäten für Azure-Ressourcen auf einem virtuellen Azure-Computer zum Abrufen eines Zugriffstokens 
 
@@ -64,7 +64,7 @@ Eine Clientanwendung kann ein [App-exklusives Zugriffstoken](../develop/develope
 
 Die grundlegende Schnittstelle zum Abrufen eines Zugriffstokens basiert auf REST, sodass sie für alle auf dem virtuellen Computer ausgeführten Clientanwendungen, die HTTP-REST-Aufrufe ausführen können, zur Verfügung steht. Dies ähnelt dem Azure AD-Programmiermodell, aber der Client verwendet einen Endpunkt auf dem virtuellen Computer (und keinen Azure AD-Endpunkt).
 
-Beispielanforderung mit dem Azure-IMDS-Endpunkt (Instance Metadata Service) *(empfohlen)*:
+Beispielanforderung mit dem Azure-IMDS-Endpunkt (Instance Metadata Service) *(empfohlen)* :
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -81,7 +81,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `client_id` | (Optional) Ein Abfragezeichenfolgen-Parameter, der den client_id-Wert der verwalteten Identität angibt, für die das Token gelten soll. Erforderlich, wenn Ihr virtueller Computer über mehrere vom Benutzer zugewiesene verwaltete Identitäten verfügt.|
 | `mi_res_id` | (Optional) Ein Abfragezeichenfolgenparameter, der das Element „mi_res_id“ (Azure-Ressourcen-ID) der verwalteten Identität angibt, für die das Token gelten soll. Erforderlich, wenn Ihr virtueller Computer über mehrere vom Benutzer zugewiesene verwaltete Identitäten verfügt. |
 
-Beispielanforderung mit dem VM-Erweiterungsendpunkt für verwaltete Identitäten für Azure-Ressourcen *(Veraltung geplant für Januar 2019)*:
+Beispielanforderung mit dem VM-Erweiterungsendpunkt für verwaltete Identitäten für Azure-Ressourcen *(Veraltung geplant für Januar 2019)* :
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -381,7 +381,7 @@ In diesem Abschnitt sind die möglichen Fehlerantworten aufgeführt. Der Status 
 |           | access_denied | Der Ressourcenbesitzer oder Autorisierungsserver hat die Anforderung verweigert. |  |
 |           | unsupported_response_type | Der Autorisierungsserver unterstützt das Abrufen eines Zugriffstokens mit dieser Methode nicht. |  |
 |           | invalid_scope | Der angeforderte Bereich ist ungültig, unbekannt oder falsch formatiert. |  |
-| 500 Interner Serverfehler | unknown | Beim Abrufen des Tokens aus Active Directory ist ein Fehler aufgetreten. Details finden Sie in den Protokollen unter *\<Dateipfad\>*. | Stellen Sie sicher, dass verwaltete Identitäten für Azure-Ressourcen auf dem virtuellen Computer aktiviert wurden. Hilfe zur Konfiguration des virtuellen Computers finden Sie unter [Konfigurieren von verwalteten Identitäten für Azure-Ressourcen auf einem virtuellen Computer über das Azure-Portal](qs-configure-portal-windows-vm.md).<br><br>Überprüfen Sie zudem, ob Ihr HTTP GET-Anforderungs-URI richtig formatiert ist. Dies gilt vor allem für den Ressourcen-URI, der in der Abfragezeichenfolge angegeben ist. Unter „Beispiel für eine Anforderung“ im vorherigen REST-Abschnitt finden Sie ein Beispiel, und unter [Azure-Dienste, die die Azure AD-Authentifizierung unterstützen](services-support-msi.md) finden Sie eine Liste mit Diensten und den dazugehörigen Ressourcen-IDs.
+| 500 Interner Serverfehler | unknown | Beim Abrufen des Tokens aus Active Directory ist ein Fehler aufgetreten. Details finden Sie in den Protokollen unter *\<Dateipfad\>* . | Stellen Sie sicher, dass verwaltete Identitäten für Azure-Ressourcen auf dem virtuellen Computer aktiviert wurden. Hilfe zur Konfiguration des virtuellen Computers finden Sie unter [Konfigurieren von verwalteten Identitäten für Azure-Ressourcen auf einem virtuellen Computer über das Azure-Portal](qs-configure-portal-windows-vm.md).<br><br>Überprüfen Sie zudem, ob Ihr HTTP GET-Anforderungs-URI richtig formatiert ist. Dies gilt vor allem für den Ressourcen-URI, der in der Abfragezeichenfolge angegeben ist. Unter „Beispiel für eine Anforderung“ im vorherigen REST-Abschnitt finden Sie ein Beispiel, und unter [Azure-Dienste, die die Azure AD-Authentifizierung unterstützen](services-support-msi.md) finden Sie eine Liste mit Diensten und den dazugehörigen Ressourcen-IDs.
 
 ## <a name="retry-guidance"></a>Informationen zur Wiederholung 
 

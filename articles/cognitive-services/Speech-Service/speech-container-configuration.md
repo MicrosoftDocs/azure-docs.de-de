@@ -3,19 +3,19 @@ title: Konfigurieren von Speech-Containern
 titleSuffix: Azure Cognitive Services
 description: Speech-Container
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: diberry
-ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072442"
 ---
 # <a name="configure-speech-service-containers"></a>Konfigurieren von Containern für den Speech-Dienst
 
@@ -52,7 +52,7 @@ Diese Einstellung finden Sie hier:
 
 |Erforderlich| NAME | Datentyp | BESCHREIBUNG |
 |--|------|-----------|-------------|
-|Ja| `Billing` | Zeichenfolge | URI des Abrechnungsendpunkts<br><br>Beispiel:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|Ja| `Billing` | string | URI des Abrechnungsendpunkts<br><br>Beispiel:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
 ## <a name="eula-setting"></a>Eula-Einstellung
 
@@ -80,8 +80,8 @@ Die genaue Syntax für den Bereitstellungspunkt auf dem Host variiert je nach Be
 
 |Optional| NAME | Datentyp | BESCHREIBUNG |
 |-------|------|-----------|-------------|
-|Nicht zulässig| `Input` | Zeichenfolge | Wird von Speech-Containern nicht verwendet.|
-|Optional| `Output` | Zeichenfolge | Das Ziel der Ausgabeeinbindung. Standardwert: `/output`. Dies ist der Speicherort der Protokolle. Beinhaltet Containerprotokolle. <br><br>Beispiel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Nicht zulässig| `Input` | string | Wird von Speech-Containern nicht verwendet.|
+|Optional| `Output` | string | Das Ziel der Ausgabeeinbindung. Standardwert: `/output`. Dies ist der Speicherort der Protokolle. Beinhaltet Containerprotokolle. <br><br>Beispiel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Beispiele für den Befehl „docker run“ 
 

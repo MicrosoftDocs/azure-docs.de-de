@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60611524"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bewährte Methoden für die Azure Service Fabric-Sicherheit
 Die Bereitstellung einer Anwendung in Azure ist schnell, einfach und kostengünstig. Bevor Sie Ihre Cloudanwendung für die Produktion bereitstellen, überprüfen Sie unsere Liste grundlegender und empfohlener bewährter Methoden zum Implementieren sicherer Cluster in der Anwendung.
@@ -139,10 +139,10 @@ Das Zertifikat muss die folgenden Anforderungen für SSL-Zertifikate in Azure er
 -   Der Name des Antragstellers für das Zertifikat muss dem Domänennamen entsprechen, über den auf den Clouddienst zugegriffen wird.
 
     - Beschaffen Sie einen benutzerdefinierten Domänennamen, den Sie für den Zugriff auf Ihren Clouddienst verwenden können.
-    - Verwenden Sie beim Anfordern eines Zertifikats von einer Zertifizierungsstelle einen Antragstellernamen, der dem benutzerdefinierte Domänenname des Diensts entspricht. Wenn beispielsweise der benutzerdefinierte Domänenname __contoso__**.com** lautet, sollte das Zertifikat von der Zertifizierungsstelle den Antragstellernamen **.contoso.com** oder __www__**.contoso.com** haben.
+    - Verwenden Sie beim Anfordern eines Zertifikats von einer Zertifizierungsstelle einen Antragstellernamen, der dem benutzerdefinierte Domänenname des Diensts entspricht. Wenn beispielsweise der benutzerdefinierte Domänenname __contoso__ **.com** lautet, sollte das Zertifikat von der Zertifizierungsstelle den Antragstellernamen **.contoso.com** oder __www__ **.contoso.com** haben.
 
     >[!NOTE]
-    >Für die Domäne __cloudapp__**.net** können Sie kein SSL-Zertifikat von einer Zertifizierungsstelle beziehen.
+    >Für die Domäne __cloudapp__ **.net** können Sie kein SSL-Zertifikat von einer Zertifizierungsstelle beziehen.
 
 -   Das Zertifikat muss mindestens eine 2.048-Bit-Verschlüsselung aufweisen.
 

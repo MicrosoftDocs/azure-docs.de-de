@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408575"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393548"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Schnellstart: Erstellen einer Java Spring-App mit App Configuration
 
@@ -29,7 +29,7 @@ Für die Ausführung der Schritte in diesem Schnellstart können Sie einen belie
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Installieren Sie für diesen Schnellstart ein unterstütztes [Java Development Kit (JDK)](https://aka.ms/azure-jdks) (Version 8) und [Apache Maven](https://maven.apache.org/) (Version 3.0 oder höher).
+Installieren Sie für diesen Schnellstart ein unterstütztes [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) (Version 8) und [Apache Maven](https://maven.apache.org/) (Version 3.0 oder höher).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ Installieren Sie für diesen Schnellstart ein unterstütztes [Java Development K
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wählen Sie **Konfigurations-Explorer** > **+ Erstellen** aus, um die folgenden Schlüssel-Wert-Paare hinzuzufügen:
+6. Wählen Sie **Konfigurations-Explorer** >  **+ Erstellen** aus, um die folgenden Schlüssel-Wert-Paare hinzuzufügen:
 
     | Schlüssel | Wert |
     |---|---|

@@ -12,11 +12,11 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60305701"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Der Team Data Science-Prozess in Aktion: Verwenden von Azure HDInsight Hadoop-Clustern in einem 1-TB-Dataset
 
@@ -52,7 +52,7 @@ In dieser exemplarischen Vorgehensweise werden zwei beispielhafte Vorhersageprob
 1. **Binäre Klassifizierung**: Sagt vorher, ob ein Benutzer auf eine Anzeige geklickt hat:
 
    * Klasse 0: Kein Klick
-   * Klasse 1: Klicken Sie auf 
+   * Klasse 1: Klicken Sie auf
 2. **Regression:** Sagt anhand der Benutzerfunktionen die Wahrscheinlichkeit eines Anzeigenklicks vorher.
 
 ## <a name="setup"></a>Einrichten eines HDInsight Hadoop-Clusters für Data Science

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: 1b130dff9d290dcce566570fd015d227d44a1310
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 9654fd66faa1f745f25494e8b54625a92eb1745b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66111624"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Lastenausgleich bei Konfigurationen mit mehreren IP-Adressen mit PowerShell
 

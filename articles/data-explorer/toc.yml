@@ -7,48 +7,16 @@
 - name: Schnellstarts
   expanded: true
   items:
-    - name: Erstellen eines Clusters und einer Datenbank
-      items:
-        - name: Azure-Portal
-          href: create-cluster-database-portal.md
-        - name: Azure-Befehlszeilenschnittstelle
-          href: create-cluster-database-cli.md
-        - name: PowerShell
-          href: create-cluster-database-powershell.md
-        - name: 'C#'
-          href: create-cluster-database-csharp.md
-        - name: Python
-          href: create-cluster-database-python.md
-    - name: Erfassen von Daten
-      items:
-        - name: Streamen von Daten – Event Hub
-          href: ingest-data-event-hub.md
-        - name: Streamen von Daten – Event Grid
-          href: ingest-data-event-grid.md
-        - name: 'Streamen von Daten: Kafka'
-          href: ingest-data-kafka.md
-        - name: Durchführen der Batchverarbeitung für Daten – Python
-          href: python-ingest-data.md
-        - name: 'Durchführen der Batchverarbeitung für Daten: Node SDK'
-          href: node-ingest-data.md
-        - name: 'Durchführen der Batchverarbeitung für Daten: .NET Standard SDK'
-          href: net-standard-ingest-data.md
-        - name: 'Durchführen der Batchverarbeitung für Daten: Logstash'
-          href: ingest-data-logstash.md
+    - name: 'Erstellen eines Clusters und einer Datenbank: Azure-Portal'
+      href: create-cluster-database-portal.md
+    - name: Erfassen von Beispieldaten
+      href: ingest-sample-data.md
     - name: Abfragen von Daten
       items:
         - name: Web-Benutzeroberfläche
           href: web-query-data.md
         - name: Python
           href: python-query-data.md
-    - name: Visualisieren von Daten
-      items:
-        - name: 'Power BI: Connector'
-          href: power-bi-connector.md
-        - name: 'Power BI: Importierte Abfrage'
-          href: power-bi-imported-query.md
-        - name: 'Power BI: SQL-Abfrage'
-          href: power-bi-sql-query.md
 - name: Lernprogramme
   items:
     - name: Erfassen von Daten ohne Verwendung von Code
@@ -60,12 +28,38 @@
     - name: Übersicht über die Datenerfassung
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
+    - name: Übersicht über die Datenvisualisierung
+      href: viz-overview.md
 - name: Anleitungen
   items:
-    - name: Erste Schritte
+    - name: Erstellen eines Clusters und einer Datenbank
       items:
-        - name: Erfassen von Beispieldaten
-          href: ingest-sample-data.md
+        - name: Azure-Befehlszeilenschnittstelle
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Erfassen von Daten
+      items:
+        - name: Event Hub
+          href: ingest-data-event-hub.md
+        - name: Event Grid
+          href: ingest-data-event-grid.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Python
+          href: python-ingest-data.md
+        - name: Node SDK
+          href: node-ingest-data.md
+        - name: .NET Standard SDK
+          href: net-standard-ingest-data.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: Kopieren von Daten mit Azure Data Factory
+          href: data-factory-load-data.md
     - name: Bereitstellen
       items:
         - name: DevOps-Aufgabe
@@ -80,6 +74,24 @@
           href: anomaly-detection.md
         - name: Machine Learning
           href: machine-learning-clustering.md
+    - name: Visualisieren von Daten
+      items:
+        - name: Power BI
+          items:
+            - name: Connector
+              href: power-bi-connector.md
+            - name: Importierte Abfrage
+              href: power-bi-imported-query.md
+            - name: SQL-Abfrage
+              href: power-bi-sql-query.md
+        - name: ODBC-Connector
+          href: connect-odbc.md
+        - name: Sisense
+          href: sisense.md
+        - name: Grafana
+          href: grafana.md
+        - name: Tableau
+          href: tableau.md
     - name: Verwalten
       items:
         - name: Verwalten von Datenbankberechtigungen
@@ -94,11 +106,11 @@
           href: delete-data.md
         - name: Behandeln von doppelten Daten
           href: dealing-with-duplicates.md
-    - name: Überwachung
+    - name: Überwachen
       items:
         - name: Verwenden von Metriken zum Überwachen der Clusterintegrität
           href: using-metrics.md
-    - name: Verwenden von anderen Tools
+    - name: Integration in andere Tools
       items:
         - name: Apache Spark-Connector
           href: spark-connector.md
@@ -106,12 +118,6 @@
           href: connect-from-databricks.md
         - name: Analysieren von Daten in Jupyter Notebooks und Kqlmagic
           href: kqlmagic.md
-        - name: Kopieren von Daten mit Azure Data Factory
-          href: data-factory-load-data.md
-        - name: Visualisieren von Daten in Grafana
-          href: grafana.md
-        - name: Herstellen einer Verbindung mit ODBC
-          href: connect-odbc.md
     - name: Problembehandlung
       items:
         - name: Erstellen eines Clusters

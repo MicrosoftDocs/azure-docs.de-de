@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630193"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60860377"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installieren von Update 4 auf Ihrem StorSimple-Gerät
 
@@ -76,16 +76,16 @@ Sie müssen die folgenden Hotfixes in der vorgeschriebenen Reihenfolge und in di
 
 | Reihenfolge | KB | BESCHREIBUNG | Updatetyp | Installationszeit |Installationsordner|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Softwareupdate |Regulär  <br></br>Unterbrechungsfrei |ca. 25 Min. |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |Updates von LSI-Treiber und -Firmware <br> Update der USM-Firmware (Version 3.38) |Regulär  <br></br>Unterbrechungsfrei |ca. 3 Stunden <br> (enthält 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Sicherheitsupdatepaket für das Betriebssystem <br> Herunterladen von Windows Server 2012 R2 |Regulär  <br></br>Unterbrechungsfrei |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Paket mit Betriebssystemupdates <br> Herunterladen von Windows Server 2012 R2 |Regulär  <br></br>Unterbrechungsfrei |- |SecondOrderUpdate|
+| 1. |KB4011839 |Softwareupdate |Regulär <br></br>Unterbrechungsfrei |ca. 25 Min. |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |Updates von LSI-Treiber und -Firmware <br> Update der USM-Firmware (Version 3.38) |Regulär <br></br>Unterbrechungsfrei |ca. 3 Stunden <br> (enthält 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Sicherheitsupdatepaket für das Betriebssystem <br> Herunterladen von Windows Server 2012 R2 |Regulär <br></br>Unterbrechungsfrei |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Paket mit Betriebssystemupdates <br> Herunterladen von Windows Server 2012 R2 |Regulär <br></br>Unterbrechungsfrei |- |SecondOrderUpdate|
 
 Sie müssen zusätzlich zu den in den vorhergehenden Tabellen enthaltenen Updates ggf. auch Updates der Firmware von Datenträgern installieren. Sie können überprüfen, ob Sie Updates für die Datenträgerfirmware benötigen, indem Sie das Cmdlet `Get-HcsFirmwareVersion` ausführen. Wenn Sie die Firmwareversionen `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106` ausführen, müssen Sie diese Updates nicht installieren.
 
 | Reihenfolge | KB | BESCHREIBUNG | Updatetyp | Installationszeit | Installationsordner|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Datenträgerfirmware |Wartung  <br></br>Mit Unterbrechung |~ 30 Min. | ThirdOrderUpdate |
+| 3. |KB3121899 |Datenträgerfirmware |Wartung <br></br>Mit Unterbrechung |~ 30 Min. | ThirdOrderUpdate |
 
 <br></br>
 

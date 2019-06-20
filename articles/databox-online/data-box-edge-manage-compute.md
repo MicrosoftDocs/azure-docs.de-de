@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997647"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953126"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Verwalten der Computekonfiguration Ihres Azure Data Box Edge-Geräts
 
 In diesem Artikel erfahren Sie, wie Sie die Computekonfiguration Ihres Azure Data Box Edge-Geräts verwalten. Die Computekonfiguration kann über das Azure-Portal oder über die lokale Webbenutzeroberfläche verwaltet werden. Verwenden Sie das Azure-Portal, um Module, Trigger und die Computekonfiguration zu verwalten, und die lokale Webbenutzeroberfläche, um Computeeinstellungen zu verwalten.
-
-> [!IMPORTANT]
-> Data Box Edge befindet sich in der Vorschauphase. Lesen Sie die [Azure-Vertragsbedingungen für Vorschauversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), bevor Sie diese Lösung bestellen und bereitstellen.
-
 
 In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
@@ -133,24 +129,6 @@ Gehen Sie im Azure-Portal wie folgt vor, um die Zugriffsschlüssel für Ihr Ger�
 
 3. Schließen Sie das Dialogfeld, wenn die Synchronisierung abgeschlossen ist.
 
-## <a name="enable-a-network-interface-for-compute"></a>Aktivieren einer Netzwerkschnittstelle für Computeeinstellungen
-
-Unter Umständen müssen Sie auf ein Modul zugreifen, das auf dem Data Box Edge-Gerät ausgeführt wird. Für den externen Zugriff auf das Modul müssen Sie einer Netzwerkschnittstelle auf Ihrem Gerät eine IP-Adresse zuweisen. Sie können diese Computeeinstellungen über Ihre lokale Webbenutzeroberfläche verwalten.
-
-Führen Sie zum Konfigurieren von Computeeinstellungen die folgenden Schritte auf der lokalen Webbenutzeroberfläche aus.
-
-1. Navigieren Sie auf der lokalen Webbenutzeroberfläche zu **Konfiguration > Computeeinstellungen**.  
-
-2. **Aktivieren** Sie die Netzwerkschnittstelle, über die Sie eine Verbindung mit den Computemodulen auf dem Gerät herstellen möchten. 
-
-    - Geben Sie bei Verwendung von statischen IP-Adressen eine IP-Adresse für die Netzwerkschnittstelle ein.
-    - Bei Verwendung von DHCP werden die IP-Adressen automatisch zugewiesen.
-
-3. Wählen Sie zum Anwenden der Einstellungen die Option **Übernehmen** aus.
-
-    ![Aktivieren von Computeeinstellungen](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie, wie Sie [Benutzer über das Azure-Portal verwalten](data-box-edge-manage-users.md).
+- Informationen zum [Verwalten von Edgecomputingnetzwerken über das Azure-Portal](data-box-edge-extend-compute-access-modules.md).

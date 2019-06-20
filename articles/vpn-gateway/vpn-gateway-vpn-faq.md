@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 05/14/2019
 ms.author: yushwang
-ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 23dc017b6ffcca8761966a10bd5cb45b32c7a602
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65786695"
 ---
 # <a name="vpn-gateway-faq"></a>Häufig gestellte Fragen zum VPN-Gateway
 
@@ -32,7 +32,7 @@ Verbindungen mit mehreren Standorten können mit Windows PowerShell und den REST
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>Gibt es eine zusätzliche Gebühr für das Einrichten eines VPN-Gateways als aktiv/aktiv?
 
- Nein. 
+Nein. 
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Welche Optionen stehen mir bei standortübergreifenden Verbindungen zur Verfügung?
 
@@ -69,7 +69,7 @@ Richtlinienbasierte Gateways implementieren richtlinienbasierte VPNs verwendet. 
 Routenbasierte Gateways implementieren die routenbasierten VPNs. Bei routingbasierten VPNs werden Pakete auf der Grundlage der Routen der IP-Weiterleitungs- oder -Routingtabelle an die entsprechenden VPN-Tunnelschnittstellen weitergeleitet. An den Tunnelschnittstellen werden die Pakete dann ver- bzw. entschlüsselt. Die Richtlinie bzw. der Datenverkehrselektor für routenbasierte VPNs werden im Any-to-Any-Format (bzw. als Platzhalter) konfiguriert.
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Kann ich meine richtlinienbasiertes VPN-Gateway zu einem routenbasierten aktualisieren?
- Nein. Ein Azure-VNET-Gatewaytyp kann nicht von richtlinienbasiert zu routenbasiert geändert werden oder umgekehrt. Das Gateway muss gelöscht und neu erstellt werden. Dieser Prozess dauert etwa 60 Minuten. Die IP-Adresse des Gateways und der vorinstallierte Schlüssel (PSK) werden nicht beibehalten.
+Nein. Ein Azure-VNET-Gatewaytyp kann nicht von richtlinienbasiert zu routenbasiert geändert werden oder umgekehrt. Das Gateway muss gelöscht und neu erstellt werden. Dieser Prozess dauert etwa 60 Minuten. Die IP-Adresse des Gateways und der vorinstallierte Schlüssel (PSK) werden nicht beibehalten.
 1. Löschen Sie alle Verbindungen, die dem zu löschenden Gateway zugeordnet sind.
 1. Löschen des Gateways:
 1. [Azure-Portal](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -85,15 +85,15 @@ Bei der Gatewayerstellung geben Sie die Anzahl der im Subnetz enthaltenen IP-Adr
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Kann ich virtuelle Computer oder Rolleninstanzen in meinem Gatewaysubnetz bereitstellen?
 
- Nein.
+Nein.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Kann ich die IP-Adresse meines VPN-Gateways vor dessen Erstellung erhalten?
 
- Nein. Die IP-Adresse kann erst nach der Erstellung des Gateways bezogen werden. Wenn Sie das VPN-Gateway löschen und anschließend neu erstellen, ändert sich die IP-Adresse.
+Nein. Die IP-Adresse kann erst nach der Erstellung des Gateways bezogen werden. Wenn Sie das VPN-Gateway löschen und anschließend neu erstellen, ändert sich die IP-Adresse.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>Kann ich eine statische öffentliche IP-Adresse für mein VPN-Gateway anfordern?
 
- Nein. Nur die Zuweisung dynamischer IP-Adressen wird unterstützt. Das bedeutet jedoch nicht, dass sich die IP-Adresse ändert, nachdem sie Ihrem VPN-Gateway zugewiesen wurde. Die IP-Adresse des VPN-Gateways ändert sich nur, wenn das Gateway gelöscht und neu erstellt wird. Die öffentliche IP-Adresse des VPN-Gateways ändert sich bei Größenänderungen, beim Zurücksetzen oder bei anderen internen Wartungs-/Upgradeprozessen Ihres VPN-Gateways nicht. 
+Nein. Nur die Zuweisung dynamischer IP-Adressen wird unterstützt. Das bedeutet jedoch nicht, dass sich die IP-Adresse ändert, nachdem sie Ihrem VPN-Gateway zugewiesen wurde. Die IP-Adresse des VPN-Gateways ändert sich nur, wenn das Gateway gelöscht und neu erstellt wird. Die öffentliche IP-Adresse des VPN-Gateways ändert sich bei Größenänderungen, beim Zurücksetzen oder bei anderen internen Wartungs-/Upgradeprozessen Ihres VPN-Gateways nicht. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Wie wird mein VPN-Tunnel authentifiziert?
 
@@ -190,7 +190,7 @@ Datenverkehr kann bei Verwendung des klassischen Bereitstellungsmodells über da
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Generiert Azure für alle meine VPN-Verbindungen für das gleiche virtuelle Netzwerk den gleichen vorinstallierten IPsec-/IKE-Schlüssel?
 
-Nein. Azure generiert für unterschiedliche VPN-Verbindungen standardmäßig unterschiedliche vorinstallierte Schlüssel. Mit der REST-API oder dem PowerShell-Cmdlet „Set VPN Gateway Key“ können Sie jedoch den Schlüsselwert nach Ihren Vorstellungen festlegen. Bei dem Schlüssel muss es sich zwingend um eine alphanumerische Zeichenfolge mit einer Länge zwischen einem und 128 Zeichen handeln.
+Nein. Azure generiert für unterschiedliche VPN-Verbindungen standardmäßig unterschiedliche vorinstallierte Schlüssel. Mit der REST-API oder dem PowerShell-Cmdlet „Set VPN Gateway Key“ können Sie jedoch den Schlüsselwert nach Ihren Vorstellungen festlegen. Der Schlüssel MUSS aus druckbaren ASCII-Zeichen bestehen.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>Erhalte ich durch mehr Standort-zu-Standort-VPNs mehr Bandbreite als bei einem einzelnen virtuellen Netzwerk?
 
@@ -227,7 +227,7 @@ Außerdem kann die Verbindung mit dem virtuellen Computer von einem anderen virt
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>Wenn sich mein virtueller Computer in einem virtuellen Netzwerk mit standortübergreifender Verbindung befindet, wird dann der gesamte Datenverkehr meines virtuellen Computers über diese Verbindung abgewickelt?
 
- Nein. Nur der Datenverkehr mit einer IP-Zieladresse, die innerhalb der angegebenen lokalen Netzwerk-IP-Adressbereiche des virtuellen Netzwerks liegt, wird über das Gateway des virtuellen Netzwerks abgewickelt. Datenverkehr mit einer IP-Zieladresse im virtuellen Netzwerk bleibt innerhalb des virtuellen Netzwerks. Anderer Datenverkehr wird über den Load Balancer an die öffentlichen Netzwerke oder (bei erzwungener Tunnelung) über das Azure-VPN-Gateway gesendet.
+Nein. Nur der Datenverkehr mit einer IP-Zieladresse, die innerhalb der angegebenen lokalen Netzwerk-IP-Adressbereiche des virtuellen Netzwerks liegt, wird über das Gateway des virtuellen Netzwerks abgewickelt. Datenverkehr mit einer IP-Zieladresse im virtuellen Netzwerk bleibt innerhalb des virtuellen Netzwerks. Anderer Datenverkehr wird über den Load Balancer an die öffentlichen Netzwerke oder (bei erzwungener Tunnelung) über das Azure-VPN-Gateway gesendet.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Wie führe ich die Problembehandlung für die RDP-Verbindung mit einem virtuellen Computer durch?
 

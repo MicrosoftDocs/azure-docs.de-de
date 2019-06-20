@@ -17,10 +17,10 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: 50e13f13cfd244f0199920c210abf4acc7c53d4a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150135"
 ---
 # <a name="troubleshooting-shared-image-galleries"></a>Problembehandlung für Kataloge mit freigegebenen Images

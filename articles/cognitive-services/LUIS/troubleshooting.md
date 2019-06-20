@@ -9,18 +9,22 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235790"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417981"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding: häufig gestellte Fragen (FAQ)
 
 Dieser Artikel enthält Antworten auf häufig gestellte Fragen zu Language Understanding (LUIS).
+
+## <a name="whats-new"></a>Neuigkeiten
+
+[Erfahren Sie mehr über](whats-new.md) Neuerungen in Language Understanding.
 
 <a name="luis-authoring"></a>
 
@@ -46,7 +50,7 @@ Ja, beim Hinzufügen von weiteren Bezeichnungen für andere Absichten sollten Si
 Informationen hierzu finden Sie im Tutorial zur [Bing-Rechtschreibprüfungs-API v7](luis-tutorial-bing-spellcheck.md). LUIS setzt die Einschränkungen um, die durch die Bing-Rechtschreibprüfungs-API v7 vorgegeben werden.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Wie kann ich eine LUIS-App programmgesteuert bearbeiten?
-Sie können Ihre LUIS-App mit der [Erstellungs-API](https://aka.ms/luis-authoring-apis) programmgesteuert bearbeiten. Unter [Aufrufen der Erstellungs-API für LUIS-Apps](./luis-quickstart-node-add-utterance.md) und [Build a LUIS app programmatically using Node.js (Programmgesteuertes Erstellen einer LUIS-App mit Node.js)](./luis-tutorial-node-import-utterances-csv.md) finden Sie Beispiele zum Aufrufen der Erstellungs-API. Die Erstellungs-API setzt voraus, dass Sie einen [Erstellungsschlüssel](luis-concept-keys.md#authoring-key) anstelle eines Endpunktschlüssels verwenden. Bei der programmgesteuerte Erstellung sind bis 1.000.000 Aufrufe pro Monat und fünf Transaktionen pro Sekunde möglich. Weitere Informationen zu den mit LUIS verwendeten Schlüsseln finden Sie unter [Verwalten von Schlüsseln](./luis-concept-keys.md).
+Sie können Ihre LUIS-App mit der [Erstellungs-API](https://go.microsoft.com/fwlink/?linkid=2092087) programmgesteuert bearbeiten. Unter [Aufrufen der Erstellungs-API für LUIS-Apps](./luis-quickstart-node-add-utterance.md) und [Build a LUIS app programmatically using Node.js (Programmgesteuertes Erstellen einer LUIS-App mit Node.js)](./luis-tutorial-node-import-utterances-csv.md) finden Sie Beispiele zum Aufrufen der Erstellungs-API. Die Erstellungs-API setzt voraus, dass Sie einen [Erstellungsschlüssel](luis-concept-keys.md#authoring-key) anstelle eines Endpunktschlüssels verwenden. Bei der programmgesteuerte Erstellung sind bis 1.000.000 Aufrufe pro Monat und fünf Transaktionen pro Sekunde möglich. Weitere Informationen zu den mit LUIS verwendeten Schlüsseln finden Sie unter [Verwalten von Schlüsseln](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Wo finde ich das Feature für Muster, mit den bisher nach regulären Ausdrücken gesucht werden konnte?
 Das bisherige **Feature für Muster** ist als veraltet gekennzeichnet und wurde durch **[Muster](luis-concept-patterns.md)** ersetzt.
@@ -295,6 +299,12 @@ Die folgenden Features wurden bei der Build 2019-Konferenz veröffentlicht:
 * [Migrationsanleitung für die Vorschauversion der V3-API](luis-migration-api-v3.md)
 * [Verbessertes Analytics-Dashboard](luis-how-to-use-dashboard.md)
 * [Verbesserte vordefinierte Domänen](luis-reference-prebuilt-domains.md) 
+* [Entitäten vom Typ „dynamische Liste“](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Externe Entitäten](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
+Videos:
+
+* [How to use Azure Conversational AI to scale your business for the next generation (Bereiten Sie Ihr Unternehmen mit Azure Conversational AI auf die nächste Generation vor)](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

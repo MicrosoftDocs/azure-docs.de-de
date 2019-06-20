@@ -2,22 +2,22 @@
 title: Grundlegendes zu Azure AD-Anwendungsproxyconnectors | Microsoft-Dokumentation
 description: Hier finden Sie grundlegende Informationen zu Azure AD-Anwendungsproxy-Connectors.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2a2aa8204ef442bbe3a0e6ff9018cd3f153910
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406496"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113085"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Grundlegendes zu Azure AD-Anwendungsproxyconnectors
 
@@ -50,7 +50,7 @@ Auf dem Windows-Server muss TLS 1.2 aktiviert werden, bevor Sie den Anwendungspr
 
 Weitere Informationen zu den Netzwerkanforderungen für den Connectorserver finden Sie unter [Erste Schritte mit dem Anwendungsproxy und Installieren des Connectors](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Wartung 
+## <a name="maintenance"></a>Wartung
 Die Connectors und der Dienst führen alle Aufgaben in Bezug auf Hochverfügbarkeit aus. Diese können dynamisch hinzugefügt oder entfernt werden. Jedes Mal, wenn eine neue Anforderung eintrifft, wird diese an einen der gerade verfügbaren Connectors geleitet. Falls ein Connector vorübergehend nicht verfügbar ist, reagiert er nicht auf diesen Datenverkehr.
 
 Die Connectors sind zustandslos und verfügen über keine Konfigurationsdaten auf dem Computer. Die einzigen Daten, die sie speichern, sind die Einstellungen für das Verbinden des Diensts mit dessen Authentifizierungszertifikat. Wenn die Verbindung mit dem Dienst hergestellt wird, werden alle erforderlichen Konfigurationsdaten abgerufen und jeweils nach einigen Minuten aktualisiert.
@@ -87,7 +87,9 @@ Weitere Informationen zu Connectorgruppen finden Sie unter [Veröffentlichen von
 
 ## <a name="capacity-planning"></a>Capacity Planning 
 
-Sie sollten unbedingt sicherstellen, dass Sie ausreichend Kapazität zwischen den Connectors zum Verarbeiten des erwarteten Datenverkehrs geplant haben. Im Allgemeinen gilt: Je mehr Benutzer Sie haben, desto größer muss der Computer dimensioniert sein. Die Tabelle weiter unten bietet einen Überblick über das Volumen, das von verschiedenen Computern bewältigt werden kann. Hinweis: Da Nutzungsmuster variieren und sich somit nicht für die Lastprognose eignen, basieren die Angaben nicht auf Benutzern, sondern jeweils auf den erwarteten Transaktionen pro Sekunde (TPS). Abhängig von der Antwortgröße und der Antwortzeit der Back-End-Anwendung ist außerdem mit gewissen Abweichungen zu rechnen: Bei größeren Antworten und längeren Antwortzeiten verringert sich der TPS-Maximalwert. Es wird empfohlen, zusätzliche Computer einzusetzen, damit die auf die Computer verteilte Last etwa 50 % beträgt. Die zusätzliche Kapazität sorgt für Hochverfügbarkeit und Resilienz.
+Sie sollten unbedingt sicherstellen, dass Sie ausreichend Kapazität zwischen den Connectors zum Verarbeiten des erwarteten Datenverkehrs geplant haben. Um Hochverfügbarkeit und Skalierung zu gewährleisten, wird empfohlen, jeder Connectorgruppe mindestens zwei Connectors zuzuweisen. Mit drei Connectors sind Sie in dem Fall, dass Sie einen Computer warten müssen, optimal aufgestellt. 
+
+Im Allgemeinen gilt: Je mehr Benutzer Sie haben, desto größer muss der Computer dimensioniert sein. Die Tabelle weiter unten bietet einen Überblick über das Volumen und die erwartete Latenz bei verschiedenen Computern. Hinweis: Da Nutzungsmuster variieren und sich somit nicht für die Lastprognose eignen, basieren die Angaben nicht auf Benutzern, sondern jeweils auf den erwarteten Transaktionen pro Sekunde (TPS). Abhängig von der Antwortgröße und der Antwortzeit der Back-End-Anwendung ist außerdem mit gewissen Abweichungen zu rechnen: Bei größeren Antworten und längeren Antwortzeiten verringert sich der TPS-Maximalwert. Es wird empfohlen, zusätzliche Computer einzusetzen, um für die auf die Computer verteilte Last immer ausreichend Puffer zur Verfügung zu haben. Die zusätzliche Kapazität sorgt für Hochverfügbarkeit und Resilienz.
 
 |Kerne|RAM|Erwartete Wartezeit (ms) – P99|TPS (maximal)|
 | ----- | ----- | ----- | ----- |

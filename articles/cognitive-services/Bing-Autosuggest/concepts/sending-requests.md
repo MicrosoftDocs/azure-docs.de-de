@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 597ef48fd7499a9d33b214b182d6dd1354756cdf
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011582"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382694"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Senden von Anforderungen an die Bing-Vorschlagssuche-API
 
@@ -33,7 +33,7 @@ Um mithilfe der Bing-API vorgeschlagene Abfragen zu erhalten, senden Sie eine `G
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-Weitere Informationen zu Headern, Parametern, Marktcodes, Antwortobjekten, Fehlern usw. finden Sie in der Referenz [Bing-Vorschlagssuche-API V7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference).
+Weitere Informationen zu Headern, Parametern, Marktcodes, Antwortobjekten, Fehlern usw. finden Sie in der Referenz [Bing-Vorschlagssuche-API V7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference).
 
 Die **Bing**-APIs unterstützen Suchaktionen, die Ergebnisse gemäß ihrem Typ zurückgeben. Alle Suchendpunkte geben Ergebnisse als JSON-Antwortobjekte zurück.
 Alle Endpunkte unterstützen Abfragen, die eine bestimmte Sprache und/oder einen bestimmten Ort nach Längengrad, Breitengrad und Suchradius zurückgeben.
@@ -168,5 +168,5 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>Nächste Schritte
 
 - [Worum handelt es sich bei der Bing-Vorschlagssuche?](../get-suggested-search-terms.md)
-- [Referenz für die Bing-Vorschlagssuche-API V7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Referenz für die Bing-Vorschlagssuche-API V7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
 - [Abrufen vorgeschlagener Suchbegriffe über die Bing-Vorschlagssuche-API](get-suggestions.md)

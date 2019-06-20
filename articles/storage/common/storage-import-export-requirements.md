@@ -9,11 +9,11 @@ ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679725"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478588"
 ---
 # <a name="azure-importexport-system-requirements"></a>Systemanforderungen für Azure Import/Export
 
@@ -50,7 +50,7 @@ Weitere Informationen zu Speicherkonten finden Sie unter [Azure-Speicherkonten �
 Bei jedem Auftrag können lediglich Daten auf ein oder von einem Speicherkonto übertragen werden. Anders ausgedrückt: Ein einzelner Import/Export-Auftrag kann nicht mehrere Speicherkonten umfassen. Weitere Informationen zum Erstellen eines neuen Speicherkontos finden Sie unter [Erstellen eines Speicherkontos](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> Der Azure Import/Export-Dienst unterstützt keine Speicherkonten, für die das Feature für [Dienstendpunkte im virtuellen Netzwerk](../../virtual-network/virtual-network-service-endpoints-overview.md)  aktiviert wurde. 
+> Der Azure Import/Export-Dienst unterstützt keine Speicherkonten, für die das Feature für [VNET-Dienstendpunkte](../../virtual-network/virtual-network-service-endpoints-overview.md) aktiviert wurde. 
 
 ## <a name="supported-storage-types"></a>Unterstützte Speichertypen
 

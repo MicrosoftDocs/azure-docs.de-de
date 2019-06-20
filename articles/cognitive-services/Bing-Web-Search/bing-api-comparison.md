@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 5a883fcb3533374afbbf946281b6a4a1e9a2912e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61431360"
 ---
 # <a name="what-are-the-bing-search-apis"></a>Was sind die Bing-Suche-APIs?
 

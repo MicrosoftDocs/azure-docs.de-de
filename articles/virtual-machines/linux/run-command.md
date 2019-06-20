@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64570599"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Ausführen von Shellskripts in einer Linux-VM mit „Befehl ausführen“
 
@@ -78,9 +78,9 @@ Diese Tabelle enthält die Liste der für virtuelle Linux-Computer verfügbaren 
 
 ## <a name="limiting-access-to-run-command"></a>Einschränken des Zugriffs auf „Befehl ausführen“
 
-Das Auflisten der ausführbaren Befehle oder das Anzeigen der Details zu einem Befehl erfordert die Berechtigung `Microsoft.Compute/locations/runCommands/read`, über die die integrierte [Leser](../../role-based-access-control/built-in-roles.md#reader)-Rolle und höhere Rollen verfügen.
+Das Auflisten der ausführbaren Befehle oder das Anzeigen der Details zu einem Befehl erfordert die Berechtigung `Microsoft.Compute/locations/runCommands/read` auf Abonnementebene, über die die integrierte Rolle [Leser](../../role-based-access-control/built-in-roles.md#reader) und höhere Rollen verfügen.
 
-Für das Ausführen eines Befehls ist die Berechtigung `Microsoft.Compute/virtualMachines/runCommand/action` erforderlich, über die die [Mitwirkender](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)-Rolle und höhere Rollen verfügen.
+Für das Ausführen eines Befehls ist die Berechtigung `Microsoft.Compute/virtualMachines/runCommand/action` auf Abonnementebene erforderlich, über die die Rolle [Mitwirkender für virtuelle Computer](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) und höhere Rollen verfügen.
 
 Um „Befehl ausführen“ zu verwenden, können Sie eine der [integrierten](../../role-based-access-control/built-in-roles.md) Rollen verwenden oder eine [benutzerdefinierte](../../role-based-access-control/custom-roles.md) Rolle erstellen.
 

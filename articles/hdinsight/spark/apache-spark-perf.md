@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66476103"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimieren von Apache Spark-Aufträgen
 
@@ -59,10 +59,10 @@ Wenn Sie einen neuen Spark-Cluster erstellen, stehen Azure Blob Storage oder Azu
 
 | Speichertyp | Dateisystem | Geschwindigkeit | Kurzlebig | Anwendungsfälle |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb[s]:**//url/ | **Standard** | Ja | Kurzlebiger Cluster |
-| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Schneller** | Ja | Kurzlebiger Cluster |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Schneller** | Ja | Kurzlebiger Cluster |
-| Lokales HDFS | **hdfs:**//url/ | **Sehr schnell** | Nein  | Interaktiver 24/7-Cluster |
+| Azure Blob Storage | **wasb:** //url/ | **Standard** | Ja | Kurzlebiger Cluster |
+| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **Schneller** | Ja | Kurzlebiger Cluster |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Schneller** | Ja | Kurzlebiger Cluster |
+| Lokales HDFS | **hdfs:** //url/ | **Sehr schnell** | Nein | Interaktiver 24/7-Cluster |
 
 ## <a name="use-the-cache"></a>Verwenden des Caches
 

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360149"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418257"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Unterstützungsmatrix für die Notfallwiederherstellung von VMware-VMs und physischen Servern
 
@@ -60,10 +60,10 @@ Nur Linux-Computer mit dem folgenden Speicher können repliziert werden:
 Host – NIC-Teamvorgang | Ja 
 Host – VLAN | Ja 
 Host – IPv4 | Ja 
-Host – IPv6 | Nein  
-Gast-VM – NIC-Teamvorgang | Nein 
+Host – IPv6 | Nein 
+Gast-VM – NIC-Teamvorgang | Nein
 Gast-VM – IPv4 | Ja
-Gast-VM – IPv6 | Nein 
+Gast-VM – IPv6 | Nein
 Gast-VM – Windows/Linux – Statische IP-Adresse | Ja
 Gast-VM – Multi-NIC | Ja
 
@@ -87,14 +87,14 @@ VMDK | Ja
 VHD/VHDX | – 
 Gen 2-VM | – 
 Freigegebener Clusterdatenträger | Ja 
-Verschlüsselter Datenträger | Nein  
+Verschlüsselter Datenträger | Nein 
 UEFI| Ja 
-NFS | Nein  
-SMB 3.0 | Nein  
+NFS | Nein 
+SMB 3.0 | Nein 
 RDM | Ja 
 Datenträger > 1 TB | Ja 
 Volume mit Stripesetdatenträgern > 1 TB<br/><br/> LVM | Ja 
-Speicherplätze | Nein  
+Speicherplätze | Nein 
 Datenträger laufendem Systembetrieb hinzufügen/entfernen | Ja 
 Ausschließen von Datenträgern | Ja 
 Multipfad (MPIO) | – 
@@ -103,8 +103,8 @@ Multipfad (MPIO) | –
 
 **Aktion** | **Unterstützt** 
 --- | --- 
-Verschieben von Tresoren zwischen Ressourcengruppen (innerhalb oder zwischen Abonnements) | Nein  
-Verschieben von Speicher, Netzwerk, Azure-VMs zwischen Ressourcengruppen (innerhalb oder zwischen Abonnements) | Nein  
+Verschieben von Tresoren zwischen Ressourcengruppen (innerhalb oder zwischen Abonnements) | Nein 
+Verschieben von Speicher, Netzwerk, Azure-VMs zwischen Ressourcengruppen (innerhalb oder zwischen Abonnements) | Nein 
 
 ## <a name="mobility-service-and-updates"></a>Mobilitätsdienst und -updates
 

@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539614"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60487031"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Sicherheitsüberlegungen für Datenverschiebung
 
@@ -94,7 +94,7 @@ Die Anmeldeinformationen für Ihre lokalen Datenspeicher sind lokal gespeichert 
 
 - Verwenden von **Nur-Text** (weniger sicher) über HTTPS aus dem Azure-Portal/Kopier-Assistenten. Die Anmeldeinformationen werden im Nur-Text-Format an das lokale Gateway übergeben.
 - Verwenden der **JavaScript-Kryptografiebibliothek aus dem Kopier-Assistenten**.
-- Verwenden der **ClickOnce-basierten Anwendung „Anmeldeinformationsverwaltung“**. Die ClickOnce-Anwendung wird auf dem lokalen Computer ausgeführt, der Zugriff auf das Gateway hat, und legt die Anmeldeinformationen für den Datenspeicher fest. Diese Option und die nächste sind die sichersten Optionen. Die Anwendung „Anmeldeinformationsverwaltung“ verwendet standardmäßig den Port 8050 auf dem Computer mit dem Gateway für sichere Kommunikation.  
+- Verwenden der **ClickOnce-basierten Anwendung „Anmeldeinformationsverwaltung“** . Die ClickOnce-Anwendung wird auf dem lokalen Computer ausgeführt, der Zugriff auf das Gateway hat, und legt die Anmeldeinformationen für den Datenspeicher fest. Diese Option und die nächste sind die sichersten Optionen. Die Anwendung „Anmeldeinformationsverwaltung“ verwendet standardmäßig den Port 8050 auf dem Computer mit dem Gateway für sichere Kommunikation.  
 - Verwenden Sie das PowerShell-Cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue), um Anmeldeinformationen zu verschlüsseln. Das Cmdlet verwendet das Zertifikat, für dessen Verwendung dieses Gateway konfiguriert ist, um die Anmeldeinformationen zu verschlüsseln. Sie können die verschlüsselten Anmeldeinformationen, die von diesem Cmdlet zurückgegeben wurden, dem **EncryptedCredential**-Element des **connectionString**-Werts in der JSON-Datei, die Sie mit dem [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice)-Cmdlet verwenden, oder im JSON-Codeausschnitt im Data Factory-Editor im Portal hinzufügen. Diese Option und die ClickOnce-Anwendung sind die sichersten Optionen. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Verschlüsselung über die JavaScript-Kryptografiebibliothek
@@ -127,7 +127,7 @@ Das virtuelle Netzwerk ist eine logische Darstellung Ihres Netzwerks in der Clou
 
 In der folgenden Tabelle sind die Empfehlungen für die Netzwerk- und Gatewaykonfiguration zusammengefasst, die sich aus verschiedenen Kombinationen von Quell- und Zielstandort für hybride Datenverschiebung ergeben.
 
-| Quelle | Ziel | Netzwerkkonfiguration | Gatewaysetup |
+| `Source` | Ziel | Netzwerkkonfiguration | Gatewaysetup |
 | ------ | ----------- | --------------------- | ------------- | 
 | Lokal | Virtuelle Computer und Clouddienste, die in virtuellen Netzwerken bereitgestellt werden | IPSec-VPN (Punkt-zu-Standort oder Standort-zu-Standort) | Gateway kann entweder lokal oder auf einem virtuellen Azure-Computer in VNet installiert sein | 
 | Lokal | Virtuelle Computer und Clouddienste, die in virtuellen Netzwerken bereitgestellt werden | ExpressRoute (privates Peering) | Gateway kann entweder lokal oder auf einem virtuellen Azure-Computer installiert sein | 

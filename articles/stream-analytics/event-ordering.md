@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60789483"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurieren von Richtlinien für die Ereignisreihenfolge in Azure Stream Analytics
 
@@ -73,7 +73,9 @@ Wenn mehrere Teile des gleichen Eingabedatenstroms kombiniert werden, ist die To
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-Mit dieser Meldung werden Sie informiert, dass mindestens eine Partition in Ihrer Eingabe leer ist. Ihre Ausgabe verzögert sich somit um den Schwellenwert für die Eingangsverzögerung. Sie haben zwei Möglichkeiten, um das Problem zu beheben: 1. Stellen Sie sicher, dass alle Partitionen Ihres Event Hubs oder IoT Hubs Eingaben empfangen. 2. Verwenden Sie in Ihrer Abfrage die Klausel „Partition by PartitionId“. 
+Mit dieser Meldung werden Sie informiert, dass mindestens eine Partition in Ihrer Eingabe leer ist. Ihre Ausgabe verzögert sich somit um den Schwellenwert für die Eingangsverzögerung. Sie haben zwei Möglichkeiten, um das Problem zu beheben: 
+1. Stellen Sie sicher, dass alle Partitionen Ihres Event Hubs oder IoT Hubs Eingaben empfangen. 
+2. Verwenden Sie in Ihrer Abfrage die Klausel „Partition by PartitionId“. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 * [Grundlegendes zur Behandlung von Zeitangaben](stream-analytics-time-handling.md)

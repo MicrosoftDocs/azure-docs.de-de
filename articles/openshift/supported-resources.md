@@ -2,18 +2,18 @@
 title: Unterstützte Ressourcen für Azure Red Hat OpenShift | Microsoft-Dokumentation
 description: Sie erfahren, welche Azure-Regionen und VM-Größen von Microsoft Azure Red Hat OpenShift unterstützt werden.
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 22cc195b7808ad4a9111aafcf883a68c51f3709f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/15/2019
+ms.openlocfilehash: c226227797802ab58d1bcbaadb7e97e780b30560
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66306214"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Azure Red Hat OpenShift-Ressourcen
 
@@ -21,17 +21,7 @@ In diesem Thema werden die Azure-Regionen und VM-Größen aufgeführt, die vom M
 
 ## <a name="azure-regions"></a>Azure-Regionen
 
-Sie können Azure Red Hat OpenShift-Cluster in folgenden Azure-Regionen weltweit bereitstellen:
-
-|Region|CLI-Code|
-|-|-|
-|🇦🇺 Australien, Osten|`australiaeast`|
-|🇨🇦 Kanada, Mitte|`canadacentral`|
-|🇨🇦 Kanada, Osten|`canadaeast`|
-|🇺🇸 USA, Osten|`eastus`|
-|🇺🇸 USA, Westen|`westus`|
-|🇪🇺 Europa, Westen|`westeurope`|
-|🇪🇺 Europa, Norden|`northeurope`|
+Unter [Verfügbare Produkte nach Region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) finden Sie eine aktuelle Liste der Regionen, in denen Sie Azure Red Hat OpenShift-Cluster bereitstellen können.
 
 ## <a name="virtual-machine-sizes"></a>Größen virtueller Computer
 

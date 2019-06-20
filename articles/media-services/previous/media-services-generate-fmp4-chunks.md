@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189030"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463843"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Erstellen einer Codierungsaufgabe, die fMP4-Blöcke generiert
 

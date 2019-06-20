@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60347998"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-Synchronisierung: Verzeichniserweiterungen
 Sie können Verzeichniserweiterungen verwenden, um das Schema in Azure Active Directory (Azure AD) um Ihre eigenen Attribute aus dem lokalen Active Directory zu erweitern. Dank dieses Features können Sie Branchen-Apps erstellen, indem Sie Attribute nutzen, die Sie weiterhin lokal verwalten. Diese Attribute können über [Azure AD Graph-API-Verzeichniserweiterungen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) oder über [Microsoft Graph](https://developer.microsoft.com/graph/) genutzt werden. Sie können die verfügbaren Attribute mithilfe von [Azure AD Graph-Explorer](https://graphexplorer.azurewebsites.net/) bzw. des [Microsoft Graph-Testers](https://developer.microsoft.com/graph/graph-explorer) anzeigen.
@@ -35,7 +35,7 @@ Sie konfigurieren im Installations-Assistenten im Pfad der benutzerdefinierten E
 
 ![Schemaerweiterungs-Assistent](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
- Bei der Installation werden folgenden Attribute als zulässige Kandidaten angezeigt:
+Bei der Installation werden folgenden Attribute als zulässige Kandidaten angezeigt:
 
 * Benutzer- und Gruppenobjekttypen
 * Einwertige Attribute: Zeichenfolge, Boolescher Wert, ganze Zahl, Binärwert
@@ -62,7 +62,7 @@ Diese Attribute sind jetzt über die Azure AD Graph-API verfügbar. Sie können 
 Sie können die Attribute auch mithilfe des [Microsoft Graph-Testers](https://developer.microsoft.com/graph/graph-explorer#) über die Microsoft Graph-API abfragen.
 
 >[!NOTE]
-> Sie müssen angeben, dass die Attribute zurückgegeben werden. Wählen Sie explizit Attribute wie das folgende aus: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
+> Sie müssen angeben, dass die Attribute zurückgegeben werden. Wählen Sie explizit Attribute wie das folgende aus: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Weitere Informationen finden Sie unter [Microsoft Graph: Verwenden von Abfrageparametern](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 

@@ -6,7 +6,7 @@
         - name: Was ist die VMware-Lösung von CloudSimple?
           href: cloudsimple-vmware-solutions-overview.md
         - name: Schlüsselkonzepte für die Verwaltung
-          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+          href: key-concepts.md
     - name: Schnellstart
       expanded: true
       items:
@@ -15,13 +15,13 @@
         - name: Konfigurieren einer Private Cloud-Umgebung
           href: quickstart-create-private-cloud.md
         - name: Erstellen eines virtuellen VMware-Computers in einer Private Cloud
-          href: 'https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/'
+          href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: Nutzen von virtuellen VMware-Computern in Azure
           href: quickstart-create-vmware-virtual-machine.md
     - name: Konzepte
       items:
         - name: Dienst
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+          href: cloudsimple-service.md
         - name: Nodes
           href: cloudsimple-node.md
         - name: Private Cloud
@@ -45,21 +45,21 @@
         - name: VMware in einer privaten Cloud
           href: vmware-components.md
         - name: Sicherheitsübersicht
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+          href: cloudsimple-security.md
         - name: Knotenkontingent
           href: node-quota.md
         - name: Wartung und Updates
           href: cloudsimple-maintenance-updates.md
         - name: Häufig gestellte Fragen
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+          href: cloudsimple-faq.md
     - name: Lernprogramme
       items:
         - name: Ressourcenanbieter aktivieren
-          href: 'https://docs.azure.cloudsimple.com/enable-cloudsimple-service/'
+          href: enable-cloudsimple-service.md
         - name: Erstellen des CloudSimple-Diensts
-          href: 'https://docs.azure.cloudsimple.com/create-cloudsimple-service/'
+          href: create-cloudsimple-service.md
         - name: Zugriff auf das CloudSimple-Portal
-          href: 'https://docs.azure.cloudsimple.com/access-cloudsimple-portal/'
+          href: access-cloudsimple-portal.md
         - name: Verwalten von Knoten
           items:
             - name: Kauf von Knoten

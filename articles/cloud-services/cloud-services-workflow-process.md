@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
 ms.openlocfilehash: 7c8459a6694663a49203b6ec21a760d3e6bd60c3
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60480745"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Workflow der klassischen Windows-Azure-VM-Architektur 
 Dieser Artikel bietet eine Übersicht über die Workflowprozesse, die beim Bereitstellen oder Aktualisieren einer Azure-Ressource (z. B. einer VM) stattfinden. 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190219"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988573"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurieren der Verwaltung von Authentifizierungssitzungen mit bedingtem Zugriff
 
@@ -50,7 +50,7 @@ Durch die Azure AD-Standardeinstellung für die Persistenz von Browsersitzungen 
 
 ## <a name="configuring-authentication-session-controls"></a>Konfigurieren von Steuerungen für Authentifizierungssitzungen
 
-Der bedingte Zugriff ist eine Azure AD Premium-Funktion und erfordert eine Premium-Lizenz. Weitere Informationen zum bedingten Zugriff finden Sie unter [Was ist bedingter Zugriff in Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
+Der bedingte Zugriff ist eine Azure AD Premium-Funktion und erfordert eine Premium-Lizenz. Weitere Informationen zum bedingten Zugriff finden Sie unter [Was ist bedingter Zugriff in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
 > Wenn Sie die derzeit in der Public Preview verfügbare Funktion für die [konfigurierbare Tokengültigkeitsdauer](../develop/active-directory-configurable-token-lifetimes.md) verwenden, sollten Sie beachten, dass die Erstellung von zwei verschiedenen Richtlinien für dieselbe Benutzer- oder App-Kombination nicht unterstützt wird: eine mit dieser Funktion und eine andere mit der konfigurierbaren Tokengültigkeitsdauer. Microsoft beabsichtigt, die Funktion für die konfigurierbare Tokengültigkeitsdauer am 15. Oktober einzustellen und durch die Funktion für die Verwaltung von Authentifizierungssitzungen mit bedingtem Zugriff zu ersetzen.  
@@ -80,7 +80,7 @@ Wenn Sie unterschiedliche Anmeldehäufigkeiten für unterschiedliche Web-Apps ko
 1. Wählen Sie alle erforderlichen Bedingungen aus.
 
    > [!NOTE]
-   > Beachten Sie, dass die Auswahl von „Alle Cloud-Apps“ als Bedingung bei dieser Steuerung erforderlich ist.
+   > Beachten Sie, dass die Auswahl von „Alle Cloud-Apps“ als Bedingung bei dieser Steuerung erforderlich ist. Die Browsersitzungspersistenz wird durch das Token der Authentifizierungssitzung gesteuert. Da alle Registerkarten in einer Browsersitzung über dasselbe Sitzungstoken verfügen, müssen sie alle denselben Persistenzzustand aufweisen.
 
 1. Wechseln Sie zu **Zugriffskontrollen** > **Sitzung**, und klicken Sie auf **Persistente Browsersitzung**.
 1. Wählen Sie einen Wert aus der Dropdownliste aus.
@@ -91,7 +91,7 @@ Wenn Sie unterschiedliche Anmeldehäufigkeiten für unterschiedliche Web-Apps ko
 > [!NOTE]
 > Wenn Sie beide Richtlinien konfiguriert haben, wird die Einstellung „Angemeldet bleiben?“, die Sie im Azure-Portal im Bereich für Unternehmensbranding für denselben Benutzer festgelegt haben, durch die Konfiguration der persistenten Browsersitzung unter „Bedingter Azure AD-Zugriff“ außer Kraft gesetzt.
 
-## <a name="validation"></a>Überprüfung
+## <a name="validation"></a>Überprüfen
 
 Verwenden Sie das Was-wäre-wenn-Tool, um eine Anmeldung des Benutzers bei der Zielanwendung und weitere Bedingungen zu simulieren, die davon abhängig sind, wie Sie die Richtlinie konfiguriert haben. Die Steuerungen für die Verwaltung von Authentifizierungssitzungen werden in den Ergebnissen des Tools angezeigt.
 

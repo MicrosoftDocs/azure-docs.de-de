@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922882"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Herstellen einer Verbindung zwischen Configuration Manager und Azure Monitor
@@ -49,7 +49,7 @@ Im Folgenden weisen Sie in Ihrem Log Analytics-Arbeitsbereich dem AD-Anwendungs-
 
 1. Klicken Sie links oben im Azure-Portal auf **Alle Dienste**. Geben Sie in der Liste mit den Ressourcen **Log Analytics** ein. Sobald Sie mit der Eingabe beginnen, wird die Liste auf der Grundlage Ihrer Eingabe gefiltert. Wählen Sie **Log Analytics**.
 2. Wählen Sie in der Liste mit den Log Analytics-Arbeitsbereichen den zu ändernden Arbeitsbereich aus.
-3. Klicken Sie im linken Bereich auf **Zugriffssteuerung (IAM)**.
+3. Klicken Sie im linken Bereich auf **Zugriffssteuerung (IAM)** .
 4. Klicken Sie auf der Seite „Zugriffssteuerung (IAM)“ auf **Rollenzuweisung hinzufügen**. Der Bereich **Rollenzuweisung hinzufügen** wird angezeigt.
 5. Wählen Sie im Bereich **Rollenzuweisung hinzufügen** in der Dropdownliste **Rolle** die Rolle **Mitwirkender** aus.  
 6. Wählen Sie unter der Dropdownliste **Zugriff zuweisen zu** die zuvor in AD erstellte Configuration Manager-Anwendung, und klicken Sie dann auf **OK**.  

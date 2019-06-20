@@ -3,8 +3,8 @@ title: Konfigurieren des einmaligen Anmeldens per Kennwort für eine Azure AD-Ka
 description: Hier erfahren Sie, wie Sie eine Anwendung für das sichere einmalige Anmelden mit Kennwort konfigurieren, wenn die Anwendung bereits im Azure AD-Anwendungskatalog aufgeführt ist.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64fc7104427fd14bcb6989298a2896ec82c34f17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d53dbcddf2025ddc3111bc585655e2c157844b18
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082244"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190170"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Konfigurieren des einmaligen Anmeldens per Kennwort für eine Azure AD-Kataloganwendung
 
@@ -36,7 +36,7 @@ Eine der verfügbaren Methoden für das einmalige Anmelden ist die Option [Kennw
 
 -   Ermöglichen Sie es Ihren **Benutzern**, für vorhandene Anwendungskonten eigene Benutzernamen und Kennwörter festzulegen und diese manuell im [Anwendungszugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) einzugeben.
 
--   Ermöglichen Sie es einem **Mitglied der Gruppe „Business“**, mithilfe des Features [Self-Service-Anwendungszugriff](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) die Benutzernamen und Kennwörter festzulegen, die einem Benutzer zugewiesen werden.
+-   Ermöglichen Sie es einem **Mitglied der Gruppe „Business“** , mithilfe des Features [Self-Service-Anwendungszugriff](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) die Benutzernamen und Kennwörter festzulegen, die einem Benutzer zugewiesen werden.
 
 -   Ermöglichen Sie es einem **Administrator**, beim [Zuweisen von Benutzern zu einer Anwendung](#assign-a-user-to-an-application-directly) das Feature zum Aktualisieren von Anmeldeinformationen zu verwenden, um die den Benutzern zugewiesenen Benutzernamen und Kennwörter anzugeben.
 

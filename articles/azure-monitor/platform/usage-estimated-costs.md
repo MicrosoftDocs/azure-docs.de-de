@@ -10,11 +10,11 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007694"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60453835"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Überwachen der Nutzung und geschätzten Kosten in Azure Monitor
 
@@ -68,7 +68,7 @@ Die Seite zeigt auch andere Anzeigen, die für das neue Preismodell verwendet we
 
 Das neue Preismodell enthält keine knotenbasierten Datenzuordnungen. Daher werden diese Anzeigen für die Datenerfassung zu einer neuen gemeinsamen Anzeige für die Datenerfassung namens **Shared Services\Datenerfassung** zusammengefasst. 
 
-Es gibt eine weitere Änderung der in Log Analytics oder Application Insights erfassten Daten in Regionen mit höheren Kosten. Daten für diese hochpreisigeren Regionen werden mit den neuen regionalen Verbrauchseinheiten angezeigt. Ein Beispiel ist **Datenerfassung (USA, Westen-Mitte)**.
+Es gibt eine weitere Änderung der in Log Analytics oder Application Insights erfassten Daten in Regionen mit höheren Kosten. Daten für diese hochpreisigeren Regionen werden mit den neuen regionalen Verbrauchseinheiten angezeigt. Ein Beispiel ist **Datenerfassung (USA, Westen-Mitte)** .
 
 > [!NOTE]
 > Die Kontoebenenberechtigungen pro Knoten für das OMS-Abonnement (Operations Management Suite) werden nicht in die geschätzten Kosten pro Abonnement einbezogen. Wenden Sie sich in diesem Fall an Ihren Kontobeauftragten, um ausführlichere Informationen zum neuen Preismodell zu erhalten.
@@ -102,7 +102,7 @@ Die Kostenschätzung zeigt die Auswirkungen dieser Änderungen.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Durchführen der Umstellung auf das neue Preismodell
 
-Wenn Sie entschieden haben, das neue Preismodell für ein bestimmtes Abonnement zu übernehmen, navigieren Sie zu jeder Application Insights-Ressource, öffnen Sie **Nutzung und geschätzte Kosten**, stellen Sie sicher, dass der Basic-Tarif gewählt ist, und navigieren Sie dann zu jedem Log Analytics-Arbeitsbereich, öffnen Sie die **Tarif**-Seite, und ändern Sie den Tarif in **Pro GB (2018)**. 
+Wenn Sie entschieden haben, das neue Preismodell für ein bestimmtes Abonnement zu übernehmen, navigieren Sie zu jeder Application Insights-Ressource, öffnen Sie **Nutzung und geschätzte Kosten**, stellen Sie sicher, dass der Basic-Tarif gewählt ist, und navigieren Sie dann zu jedem Log Analytics-Arbeitsbereich, öffnen Sie die **Tarif**-Seite, und ändern Sie den Tarif in **Pro GB (2018)** . 
 
 > [!NOTE]
 > Die Anforderung, dass alle Application Insights-Ressourcen und Log Analytics-Arbeitsbereiche innerhalb eines bestimmten Abonnements das neueste Preismodell übernehmen, wurde jetzt aufgehoben, um die Flexibilität zu steigern und die Konfiguration zu vereinfachen. 

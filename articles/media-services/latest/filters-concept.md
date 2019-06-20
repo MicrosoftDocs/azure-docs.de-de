@@ -11,45 +11,37 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465539"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225412"
 ---
-# <a name="define-account-filters-and-asset-filters"></a>Definieren von Konto- und Medienobjektfiltern  
+# <a name="filters"></a>Filter
 
-Bei der Inhaltsbereitstellung für Ihre Kunden (Livestreaming von Ereignissen oder Video on Demand) benötigen Ihre Kunden möglicherweise mehr Flexibilität als in der Manifestdatei für das Standardmedienobjekt beschrieben. Azure Media Services ermöglicht es Ihnen, Kontofilter und Medienobjektfilter für Ihre Inhalte zu definieren. 
+Bei der Inhaltsbereitstellung für Ihre Kunden (Livestreaming von Ereignissen oder Video on Demand) benötigen Ihre Kunden möglicherweise mehr Flexibilität als in der Manifestdatei für das Standardmedienobjekt beschrieben. Azure Media Services bietet [dynamische Manifeste](filters-dynamic-manifest-overview.md), die auf vordefinierten Filtern basieren. 
 
 Filter sind serverseitige Regeln, die Ihren Kunden Folgendes ermöglichen: 
 
-- Wiedergabe von einzelnen Abschnitten eines Videos (anstelle des gesamten Videos) Beispiel: 
+- Wiedergabe von einzelnen Abschnitten eines Videos (anstelle des gesamten Videos) Beispiel:
   - Reduzieren des Manifests, um einen Subclip eines Liveereignisses anzuzeigen („Filtern von Subclips“), oder
   - Kürzen des Starts eines Videos ("Kürzen eines Videos").
 - Ausschließliche Bereitstellung der angegebenen Wiedergaben und/oder Sprachspuren, die vom Gerät für die Inhaltswiedergabe unterstützt werden („Filtern der Wiedergabe“) 
 - Anpassen des Präsentationsfensters (DVR), um eine begrenzte Größe des DVR-Fensters im Player anzugeben („Anpassen des Präsentationsfensters“).
 
-Media Services bietet [dynamische Manifeste](filters-dynamic-manifest-overview.md), die auf vordefinierten Filtern basieren. Sobald Sie Filter definiert haben, können Ihre Kunden diese in der Streaming-URL verwenden. Auf Streamingprotokolle mit adaptiver Bitrate können Filter angewandt werden: Apple HTTP Live Streaming (HLS), MPEG-DASH und Smooth Streaming.
+Media Services ermöglicht es Ihnen, **Kontofilter** und **Medienobjektfilter** für Ihre Inhalte zu erstellen. Darüber hinaus können Sie Ihre zuvor erstellten Filter einem **Streaminglocator** zuordnen.
 
-Die folgende Tabelle zeigt einige Beispiele für URLs mit Filtern:
+## <a name="defining-filters"></a>Definieren von Filtern
 
-|Protocol|Beispiel|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Verwenden Sie für HLS v3: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## <a name="define-filters"></a>Definieren von Filtern
-
-Es gibt zwei Typen von Filtern für Medienobjekte: 
+Es gibt zwei Arten von Filtern: 
 
 * [Kontofilter](https://docs.microsoft.com/rest/api/media/accountfilters) (global): Diese Filter können auf jedes Medienobjekt im Azure Media Services-Konto angewendet werden und haben die Lebensdauer des Kontos.
 * [Medienobjektfilter](https://docs.microsoft.com/rest/api/media/assetfilters) (lokal): Sie können nur auf ein Medienobjekt angewendet werden, dem der Filter bei der Erstellung zugeordnet wurde, und haben die Lebensdauer des Medienobjekts. 
 
-Die Filtertypen [Kontofilter](https://docs.microsoft.com/rest/api/media/accountfilters) und [Medienobjektfilter](https://docs.microsoft.com/rest/api/media/assetfilters) umfassen dieselben Eigenschaften zur Definition/Beschreibung des Filters. Außer beim Erstellen des **Medienobjektfilters** müssen Sie den Namen des Medienobjekts angeben, dem Sie den Filter zuordnen möchten.
+Die Typen **Kontofilter** und **Medienobjektfilter** besitzen exakt dieselben Eigenschaften zum Definieren/Beschreiben des jeweiligen Filters. Außer beim Erstellen des **Medienobjektfilters** müssen Sie den Namen des Medienobjekts angeben, dem Sie den Filter zuordnen möchten.
 
 Abhängig vom Szenario entscheiden Sie, welcher Filtertyp (Medienobjektfilter oder Kontofilter) besser geeignet ist. Kontofilter eignen sich für Geräteprofile (Wiedergabefilterung), Medienobjektfilter hingegen können zum Kürzen eines bestimmten Medienobjekts eingesetzt werden.
 
@@ -88,11 +80,9 @@ Spureigenschaftsbedingungen für die Filterung beschreiben Spurtypen, Werte (sie
 |**Name**|Verwenden Sie den Namen der Spur zur Filterung.|
 |**Typ**|Verwenden Sie den Typ der Spur zur Filterung.<br/><br/>Die folgenden Werte sind zulässig: video, audio, text|
 
-## <a name="associate-filters-with-streaming-locator"></a>Zuordnen von Filtern mit Streaminglocator
+### <a name="example"></a>Beispiel
 
-Sie können eine Liste von Medienobjekt- oder Kontenfiltern angeben, die für Ihren Streaminglocator gelten würden. Der [dynamische Packager](dynamic-packaging-overview.md) wendet diese Liste der Filter zusammen mit den Filtern an, die Ihr Client in der URL angibt. Diese Kombination erzeugt ein [dynamisches Manifest](filters-dynamic-manifest-overview.md), das auf Filtern in den URL + Filtern basiert, die Sie im Streaminglocator angeben. Es wird empfohlen, dieses Feature zu verwenden, wenn Sie Filter anwenden, aber nicht die Filternamen in der URL verfügbar machen möchten.
-
-## <a name="definition-example"></a>Definitionsbeispiel
+Das folgende Beispiel definiert einen Livestreamingfilter: 
 
 ```json
 {
@@ -146,6 +136,23 @@ Sie können eine Liste von Medienobjekt- oder Kontenfiltern angeben, die für Ih
   }
 }
 ```
+
+## <a name="associating-filters-with-streaming-locator"></a>Zuordnen von Filtern mit Streaminglocator
+
+Sie können eine Liste von [Medienobjekt- oder Kontofiltern](filters-concept.md) für Ihren [Streaminglocator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body) angeben. Der [dynamische Paketerstellungs-Manager](dynamic-packaging-overview.md) wendet diese Liste der Filter zusammen mit den Filtern an, die Ihr Client in der URL angibt. Diese Kombination generiert ein [dynamisches Manifest](filters-dynamic-manifest-overview.md), das auf Filtern in den URL und Filtern basiert, die Sie im Streaminglocator angeben. 
+
+Hierzu folgende Beispiele:
+
+* [Zuordnen von Filtern mit Streaminglocator: .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [Zuordnen von Filtern mit Streaminglocator: CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## <a name="updating-filters"></a>Aktualisieren von Filtern
+ 
+**Streaminglocators** können nicht aktualisiert werden, während Filter aktualisierbar sind. 
+
+Es wird nicht empfohlen, die Definition von Filtern zu aktualisieren, die einem aktiv veröffentlichten **Streaminglocator** zugeordnet sind, insbesondere wenn CDN aktiviert ist. Streamingserver und CDNs können interne Caches besitzen, die dazu führen können, dass veraltete zwischengespeicherte Daten zurückgegeben werden. 
+
+Wenn die Filterdefinition geändert werden muss, erwägen Sie, einen neuen Filter zu erstellen und diesen der **Streaminglocator**-URL hinzuzufügen oder einen neuen **Streaminglocator** zu veröffentlichen, der direkt auf den Filter verweist.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

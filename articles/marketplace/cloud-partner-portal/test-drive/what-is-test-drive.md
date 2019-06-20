@@ -1,25 +1,19 @@
 ---
-title: Was ist die Testversion? | Microsoft-Dokumentation
+title: Was ist die Testversion? | Azure Marketplace
 description: Erläuterung des Features der Marketplace-Testversion
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0bdff77a4be6a28e2799d4f481492d2c7ba6bda0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: pabutler
+ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938448"
 ---
 <a name="what-is-test-drive"></a>Was ist die Testversion?
 ===================
@@ -53,8 +47,8 @@ Nachfolgend ein Beispiel dafür, wie ein Angebot aussieht, wenn es Zeit für die
 
 Unabhängig davon, wie komplex Ihre Anwendung ist, hilft Ihre Microsoft-Testversion Ihnen dabei, Ihr Produkt für den Kunden zum Leben zu erwecken. Heute bieten wir drei verschiedene Arten von Testversionen an, die auf dem jeweiligen Produkttyp, Szenario und Marketplace basieren.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Eine Azure Resource Manager-Testversion ist eine Bereitstellungsvorlage, die alle Azure-Ressourcen enthält, aus denen eine vom Herausgeber erstellte Lösung besteht. Produkte, die für dieses Szenario geeignet sind, sind Produkte, in denen nur Azure-Ressourcen verwendet werden.
-- **[Logik-App](./logic-app-test-drive.md)**: Eine Logik-App-Testversion ist eine Bereitstellungsvorlage, die für alle komplexen Lösungsarchitekturen vorgesehen ist. Alle Dynamics-Anwendungen oder benutzerdefinierten Produkte sollten mit diesem Testversionstyp genutzt werden.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Eine Azure Resource Manager-Testversion ist eine Bereitstellungsvorlage, die alle Azure-Ressourcen enthält, aus denen eine vom Herausgeber erstellte Lösung besteht. Produkte, die für dieses Szenario geeignet sind, sind Produkte, in denen nur Azure-Ressourcen verwendet werden.
+- **[Logik-App](./logic-app-test-drive.md)** : Eine Logik-App-Testversion ist eine Bereitstellungsvorlage, die für alle komplexen Lösungsarchitekturen vorgesehen ist. Alle Dynamics-Anwendungen oder benutzerdefinierten Produkte sollten mit diesem Testversionstyp genutzt werden.
 - **Power BI**: Eine Power BI-Testversion ist einfach ein eingebetteter Link zu einem kundenspezifischen Dashboard. Für jedes Produkt, mit dem einfach eine interaktive Power BI-Visualisierung demonstriert werden soll, sollte dieser Testversionstyp verwendet werden.
     Sie müssen hier lediglich Ihre eingebettete Power BI-URL hochladen.
 

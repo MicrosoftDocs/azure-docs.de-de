@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 8f1ed582b7abf43afd38ca5c358aa7e179bfecb3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702274"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Übermitteln von Aufträgen über R Tools für Visual Studio
@@ -39,7 +39,7 @@ RTVS verbessert den R-Workflow mit Tools wie dem [R Interactive-Fenster](https:/
 6. Sie haben die Möglichkeit, die Data Science-Einstellungen auf Ihre Visual Studio-Umgebung anzuwenden. Dadurch erhalten Sie ein neues Layout für Ihren Arbeitsbereich für die R Tools.
    1. Wenn Sie Ihre aktuellen Visual Studio-Einstellungen speichern möchten, verwenden Sie den Befehl **Tools > Einstellungen importieren/exportieren**, klicken Sie auf **Ausgewählte Umgebungseinstellungen exportieren**, und geben Sie einen Dateinamen an. Wenn Sie die Einstellungen wiederherstellen möchten, verwenden Sie den gleichen Befehl, und klicken Sie auf **Ausgewählte Umgebungseinstellungen importieren**.
 
-   2. Navigieren Sie zum Menüelement **R Tools**, und klicken Sie auf **Data Science-Einstellungen...**.
+   2. Navigieren Sie zum Menüelement **R Tools**, und klicken Sie auf **Data Science-Einstellungen...** .
 
        ![Data Science-Einstellungen...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
@@ -65,7 +65,7 @@ RTVS verbessert den R-Workflow mit Tools wie dem [R Interactive-Fenster](https:/
 
 Mithilfe einer Microsoft ML Server-/Microsoft R Client-Instanz auf einem Windows-Computer mit PuTTY können Sie einen Computekontext erstellen, der verteilte `RevoScaleR`-Funktionen zwischen Ihrem lokalen Client und Ihrem HDInsight-Cluster ausführt. Verwenden Sie `RxSpark`, um den Computekontext zu erstellen, und geben Sie dabei Ihren Benutzernamen, den Edgeknoten des Apache Hadoop-Clusters, SSH-Switches und so weiter an.
 
-1. Öffnen Sie zum Ermitteln des Hostnamens für den Edgeknoten in Azure den Bereich für Ihren HDInsight-ML Services-Cluster, und klicken Sie im oberen Menü des Übersichtsbereichs auf **Secure Shell (SSH)**.
+1. Öffnen Sie zum Ermitteln des Hostnamens für den Edgeknoten in Azure den Bereich für Ihren HDInsight-ML Services-Cluster, und klicken Sie im oberen Menü des Übersichtsbereichs auf **Secure Shell (SSH)** .
 
     ![Secure Shell (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 

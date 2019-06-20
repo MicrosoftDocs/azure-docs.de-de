@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 29a45c0d32e35b5d321670bf25334a2976b93e56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693680"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ein- und Ausschalten von Geräten der StorSimple 8000-Serie
 

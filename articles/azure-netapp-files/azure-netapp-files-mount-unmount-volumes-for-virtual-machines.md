@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: b-juche
 ms.openlocfilehash: a401cae7140d9ceec5ec81274e1b6f3b2b46b55a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546607"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60371508"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Einbinden oder Aufheben der Einbindung eines Volumes auf virtuellen Windows- oder Linux-Computern 
 

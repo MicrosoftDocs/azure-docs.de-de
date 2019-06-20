@@ -329,17 +329,17 @@ Die folgende Tabelle beschreibt die JSON-Eigenschaften, die in der JSON-Definiti
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 | -------- | ----------- | -------- |
 | name | Der Name der Aktivität in der Pipeline. | JA |
-| Beschreibung | Text, der beschreibt, welche Aktion die Aktivität ausführt. | Nein  |
+| description | Text, der beschreibt, welche Aktion die Aktivität ausführt. | Nein |
 | type | Diese Eigenschaft muss auf „HDInsightSpark“ festgelegt werden. | JA |
 | linkedServiceName | Name des mit HDInsight verknüpften Diensts, in dem das Spark-Programm ausgeführt wird. | JA |
 | rootPath | Der Blobcontainer und -ordner mit der Spark-Datei. Für den Dateinamen wird zwischen Groß- und Kleinschreibung unterschieden. | JA |
 | entryFilePath | Der relative Pfad zum Stammordner des Spark-Codes bzw. -Pakets. | JA |
-| className | Die Java-/Spark-Hauptklasse der Anwendung. | Nein  |
-| arguments | Eine Liste der Befehlszeilenargumente für das Spark-Programm. | Nein  |
-| proxyUser | Das Benutzerkonto, dessen Identität angenommen werden soll, um das Spark-Programm auszuführen. | Nein  |
-| sparkConfig | Geben Sie Werte für die Spark-Konfigurationseigenschaften an, die unter [Spark-Konfiguration: Anwendungseigenschaften](https://spark.apache.org/docs/latest/configuration.html#available-properties) aufgeführt sind. | Nein  |
-| getDebugInfo | Gibt an, ob die Spark-Protokolldateien in den Speicher kopiert werden, der vom HDInsight-Cluster verwendet oder von „sparkJobLinkedService“ angegeben wird. Zulässige Werte sind “Keine“, „Immer“ oder „Fehler“. Der Standardwert lautet „Keine“. | Nein  |
-| sparkJobLinkedService | Der verknüpfte Speicherdienst, der die Datei sowie die Abhängigkeiten und Protokolle für den Spark-Auftrag enthält. Wenn Sie für diese Eigenschaft keinen Wert angeben, wird der Speicher verwendet, der dem HDInsight-Cluster zugeordnet ist. | Nein  |
+| className | Die Java-/Spark-Hauptklasse der Anwendung. | Nein |
+| arguments | Eine Liste der Befehlszeilenargumente für das Spark-Programm. | Nein |
+| proxyUser | Das Benutzerkonto, dessen Identität angenommen werden soll, um das Spark-Programm auszuführen. | Nein |
+| sparkConfig | Geben Sie Werte für die Spark-Konfigurationseigenschaften an, die unter [Spark-Konfiguration: Anwendungseigenschaften](https://spark.apache.org/docs/latest/configuration.html#available-properties) aufgeführt sind. | Nein |
+| getDebugInfo | Gibt an, ob die Spark-Protokolldateien in den Speicher kopiert werden, der vom HDInsight-Cluster verwendet oder von „sparkJobLinkedService“ angegeben wird. Zulässige Werte sind “Keine“, „Immer“ oder „Fehler“. Der Standardwert lautet „Keine“. | Nein |
+| sparkJobLinkedService | Der verknüpfte Speicherdienst, der die Datei sowie die Abhängigkeiten und Protokolle für den Spark-Auftrag enthält. Wenn Sie für diese Eigenschaft keinen Wert angeben, wird der Speicher verwendet, der dem HDInsight-Cluster zugeordnet ist. | Nein |
 
 ## <a name="folder-structure"></a>Ordnerstruktur
 Die Spark-Aktivität unterstützt im Gegensatz zu Pig- und Hive-Aktivitäten keine Inlineskripts. Spark-Aufträge lassen sich zudem besser erweitern als Pig- oder Hive-Aufträge. Bei Spark-Aufträgen können Sie mehrere Abhängigkeiten wie z.B. JAR-Pakete (im Java-CLASSPATH platziert), Python-Dateien (im PYTHONPATH platziert) sowie beliebige andere Dateien bereitstellen.
@@ -350,11 +350,11 @@ Erstellen Sie folgende Ordnerstruktur in dem Blobspeicher, auf den der verknüpf
 | ---- | ----------- | -------- | ---- |
 | . | Der Stammpfad des Spark-Auftrags im verknüpften Speicherdienst. | JA | Ordner |
 | &lt;benutzerdefiniert&gt; | Der Pfad, der auf die Eingabedatei des Spark-Auftrags zeigt. | JA | Datei |
-| ./jars | Alle Dateien in diesem Ordner werden hochgeladen und im Java-CLASSPATH des Clusters platziert. | Nein  | Ordner |
-| ./pyFiles | Alle Dateien in diesem Ordner werden hochgeladen und im PYTHONPATH des Clusters platziert. | Nein  | Ordner |
-| ./files | Alle Dateien in diesem Ordner werden hochgeladen und im Executor-Arbeitsverzeichnis platziert. | Nein  | Ordner |
-| ./archives | Alle Dateien in diesem Ordner sind nicht komprimiert. | Nein  | Ordner |
-| ./logs | Der Ordner, in dem Protokolle aus dem Spark-Cluster gespeichert werden.| Nein  | Ordner |
+| ./jars | Alle Dateien in diesem Ordner werden hochgeladen und im Java-CLASSPATH des Clusters platziert. | Nein | Ordner |
+| ./pyFiles | Alle Dateien in diesem Ordner werden hochgeladen und im PYTHONPATH des Clusters platziert. | Nein | Ordner |
+| ./files | Alle Dateien in diesem Ordner werden hochgeladen und im Executor-Arbeitsverzeichnis platziert. | Nein | Ordner |
+| ./archives | Alle Dateien in diesem Ordner sind nicht komprimiert. | Nein | Ordner |
+| ./logs | Der Ordner, in dem Protokolle aus dem Spark-Cluster gespeichert werden.| Nein | Ordner |
 
 Hier finden Sie ein Beispiel für einen Speicher mit zwei Spark-Auftragsdateien in dem Azure-Blobspeicher, auf den der verknüpfte HDInsight-Dienst verweist:
 

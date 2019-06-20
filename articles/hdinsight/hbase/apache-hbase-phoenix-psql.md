@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
 ms.openlocfilehash: fe6705dc3dedd521357f924dd433c7eacf88ba84
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718632"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Massenladen von Daten in Apache Phoenix mithilfe von psql

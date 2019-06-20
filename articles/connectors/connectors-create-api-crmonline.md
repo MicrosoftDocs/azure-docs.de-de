@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310573"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60313748"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Verwalten von Dynamics 365-Datensätzen in Azure Logic Apps
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
 ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472502"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Wiederherstellen des Systemstatus von Windows Server
@@ -37,7 +37,7 @@ Die folgenden Schritte erläutern das Ausführen eines Rollbacks Ihrer Windows S
 
     ![Daten wiederherstellen](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Wählen Sie im Bereich **Erste Schritte** die Option **Dieser Server (`<server name>`)**, um die Daten auf demselben Server oder Computer wiederherzustellen, und klicken Sie auf **Weiter**.
+3. Wählen Sie im Bereich **Erste Schritte** die Option **Dieser Server (`<server name>`)** , um die Daten auf demselben Server oder Computer wiederherzustellen, und klicken Sie auf **Weiter**.
 
     ![Auswählen der Option „Dieser Server“ zum Wiederherstellen der Daten auf demselben Computer](./media/backup-azure-restore-system-state/samemachine.png)
 

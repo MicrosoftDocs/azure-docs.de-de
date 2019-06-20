@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 05/16/2019
 ms.author: jonbeck
-ms.openlocfilehash: 2a621f40894f530e6f8b06fac073cc7ad98fd893
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 3201183bbd012340575ee2c117b4b2083ceea711
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498076"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832140"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Arbeitsspeicheroptimierte Größen virtueller Computer
 
@@ -29,6 +29,7 @@ ms.locfileid: "52498076"
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 
 ## <a name="other-sizes"></a>Andere Größen
 - [Allgemeiner Zweck](sizes-general.md)
@@ -39,4 +40,7 @@ ms.locfileid: "52498076"
 - [Vorherige Generationen](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nächste Schritte
-Weitere Informationen dazu, wie Sie mit [Azure-Computeeinheiten (ACU)](acu.md) die Computeleistung von Azure-SKUs vergleichen können.
+
+* Weitere Informationen dazu, wie Sie mit [Azure-Computeeinheiten (ACU)](acu.md) die Computeleistung von Azure-SKUs vergleichen können.
+
+* Weitere Informationen zum [Erstellen und Verwalten virtueller Linux-Computer mit der Azure CLI](tutorial-manage-vm.md)

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Schnelle Kubernetes-Entwicklung mit Containern, Microservices und Java in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Container, Java, Helm, Service Mesh, Service Mesh-Routing, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2a7ff71a8143883226c10754afc9757aea310c63
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425745"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393459"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Schnellstart: Entwickeln mit Java unter Kubernetes mithilfe von Azure Dev Spaces
 
@@ -37,11 +37,11 @@ In diesem Leitfaden lernen Sie Folgendes:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Erstellen eines Azure Kubernetes Service-Clusters
 
-Sie müssen in einer [unterstützten Region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams) einen AKS-Cluster erstellen. Mit den unten angegebenen Befehlen wird eine Ressourcengruppe mit dem Namen *MyResourceGroup* und der AKS-Cluster *MyAKS* erstellt.
+Sie müssen in einer [unterstützten Region][supported-regions] einen AKS-Cluster erstellen. Mit den unten angegebenen Befehlen wird eine Ressourcengruppe mit dem Namen *MyResourceGroup* und der AKS-Cluster *MyAKS* erstellt.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivieren von Azure Dev Spaces in Ihrem AKS-Cluster
@@ -113,16 +113,16 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Sie können die Ausführung des Diensts verfolgen, indem Sie die öffentliche URL öffnen, die in der Ausgabe des Befehls `azds up` angezeigt wird. In diesem Beispiel lautet die öffentliche URL *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Sie können die Ausführung des Diensts verfolgen, indem Sie die öffentliche URL öffnen, die in der Ausgabe des Befehls `azds up` angezeigt wird. In diesem Beispiel lautet die öffentliche URL *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Wenn Sie die Ausführung des Befehls `azds up` mit *STRG+C* anhalten, wird der Dienst in AKS weiter ausgeführt, und die öffentliche URL bleibt verfügbar.
 
 ## <a name="update-code"></a>Aktualisieren des Codes
 
-Zum Bereitstellen einer aktualisierten Version Ihres Diensts können Sie Dateien in Ihrem Projekt aktualisieren und den Befehl `azds up` erneut ausführen. Beispiel: 
+Zum Bereitstellen einer aktualisierten Version Ihres Diensts können Sie Dateien in Ihrem Projekt aktualisieren und den Befehl `azds up` erneut ausführen. Beispiel:
 
 1. Drücken Sie *STRG+C*, wenn `azds up` noch ausgeführt wird.
-1. Aktualisieren Sie [Zeile 16 unter `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) in:
+1. Aktualisieren Sie [Zeile 19 unter `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) in:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -145,7 +145,7 @@ Zum Bereitstellen einer aktualisierten Version Ihres Diensts können Sie Dateien
 
 ## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Aktivieren von Visual Studio Code für das Debuggen in Kubernetes
 
-Öffnen Sie Visual Studio Code, klicken Sie auf *Datei* und dann auf *Öffnen...*, navigieren Sie zum Verzeichnis *dev-spaces/samples/java/getting-started/webfrontend*, und klicken Sie auf *Öffnen*.
+Öffnen Sie Visual Studio Code, klicken Sie auf *Datei* und dann auf *Öffnen...* , navigieren Sie zum Verzeichnis *dev-spaces/samples/java/getting-started/webfrontend*, und klicken Sie auf *Öffnen*.
 
 Das Projekt *webfrontend* ist jetzt in Visual Studio Code geöffnet. Dies ist derselbe Dienst, den Sie mit dem Befehl `azds up` ausgeführt haben. Sie müssen dieses Projekt so vorbereiten, dass Visual Studio Code für die Kommunikation mit Ihrem Entwicklerbereich verwendet wird, um diesen Dienst in AKS mit Visual Studio Code und nicht direkt mit `azds up` zu debuggen.
 
@@ -178,17 +178,17 @@ Klicken Sie auf *Debuggen* und dann auf *Debuggen beenden*, um den Debugger zu b
 
 Starten Sie Ihren Dienst im Debugmodus mit *Launch Java Program (AZDS)* (Java-Programm starten (AZDS)).
 
-Navigieren Sie zurück zur Ansicht *Explorer*, indem Sie auf *Ansicht* und dann auf *Explorer* klicken. Öffnen Sie `src/main/java/com/ms/sample/webfrontend/Application.java`, und klicken Sie in Zeile 16, um den Cursor darin zu platzieren. Drücken Sie zum Festlegen eines Haltepunkts *F9*, oder klicken Sie auf *Debuggen* und dann auf *Haltepunkt umschalten*.
+Navigieren Sie zurück zur Ansicht *Explorer*, indem Sie auf *Ansicht* und dann auf *Explorer* klicken. Öffnen Sie `src/main/java/com/ms/sample/webfrontend/Application.java`, und klicken Sie in Zeile 19, um den Cursor darin zu platzieren. Drücken Sie zum Festlegen eines Haltepunkts *F9*, oder klicken Sie auf *Debuggen* und dann auf *Haltepunkt umschalten*.
 
-Öffnen Sie Ihren Dienst in einem Browser. Sie sehen, dass keine Meldung angezeigt wird. Wechseln Sie zurück zu Visual Studio Code. Sie sehen, dass Zeile 16 hervorgehoben ist. Durch den von Ihnen festgelegten Haltepunkt wurde der Dienst in Zeile 16 angehalten. Drücken Sie zum Fortsetzen des Diensts *F5*, oder klicken Sie auf *Debuggen* und dann auf *Weiter*. Wechseln Sie zurück zum Browser. Sie sehen, dass die Meldung jetzt angezeigt wird.
+Öffnen Sie Ihren Dienst in einem Browser. Sie sehen, dass keine Meldung angezeigt wird. Wechseln Sie zurück zu Visual Studio Code. Sie sehen, dass Zeile 19 hervorgehoben ist. Durch den von Ihnen festgelegten Haltepunkt wurde der Dienst in Zeile 19 angehalten. Drücken Sie zum Fortsetzen des Diensts *F5*, oder klicken Sie auf *Debuggen* und dann auf *Weiter*. Wechseln Sie zurück zum Browser. Sie sehen, dass die Meldung jetzt angezeigt wird.
 
 Beim Ausführen Ihres Diensts in Kubernetes mit einem angefügten Debugger haben Sie Vollzugriff auf Debuginformationen, z. B. Aufrufliste, lokale Variablen und Ausnahmeninformationen.
 
-Entfernen Sie den Haltepunkt, indem Sie Ihren Cursor in `src/main/java/com/ms/sample/webfrontend/Application.java` in Zeile 16 platzieren und *F9* drücken.
+Entfernen Sie den Haltepunkt, indem Sie Ihren Cursor in `src/main/java/com/ms/sample/webfrontend/Application.java` in Zeile 19 platzieren und *F9* drücken.
 
 ## <a name="update-code-from-visual-studio-code"></a>Aktualisieren von Code aus Visual Studio Code
 
-Aktualisieren Sie während der Ausführung des Diensts im Debugmodus Zeile 16 in `src/main/java/com/ms/sample/webfrontend/Application.java`. Beispiel: 
+Aktualisieren Sie während der Ausführung des Diensts im Debugmodus Zeile 19 in `src/main/java/com/ms/sample/webfrontend/Application.java`. Beispiel:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```
@@ -213,3 +213,6 @@ Informieren Sie sich darüber, wie Azure Dev Spaces Sie bei der Entwicklung komp
 
 > [!div class="nextstepaction"]
 > [Arbeiten mit mehreren Containern und Teamentwicklung](multi-service-java.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

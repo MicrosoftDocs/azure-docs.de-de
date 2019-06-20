@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27742812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693753"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Ersetzen des Notfallakkus auf dem StorSimple-Gerät
 

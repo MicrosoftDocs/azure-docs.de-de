@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: raynew
 ms.openlocfilehash: c11d2f22fa08417107b0eecdd902b4521410b358
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60544914"
 ---
 # <a name="group-machines-for-assessment"></a>Gruppieren von Computern für die Bewertung
 

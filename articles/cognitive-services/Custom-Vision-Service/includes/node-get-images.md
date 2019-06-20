@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/05/2018
 ms.author: areddish
 ms.openlocfilehash: 09067b957b5da9b7c54958d9f30381b8d141e639
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751560"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66239227"
 ---
 ## <a name="get-the-sample-images"></a>Abrufen der Beispielbilder
 

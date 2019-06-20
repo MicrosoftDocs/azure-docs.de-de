@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
 ms.openlocfilehash: 9590728cec663b36c889dc26a6216c3d474244e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60735462"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Durchführen von Analysen mit Azure Machine Learning Studio mit einer lokalen SQL Server-Datenbank
 

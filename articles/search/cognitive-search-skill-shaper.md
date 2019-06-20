@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023716"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540830"
 ---
 #   <a name="shaper-cognitive-skill"></a>Der Skill „Shaper“
 
@@ -29,7 +29,7 @@ Die API-Version bestimmt die mögliche Tiefe für die Strukturierung.
 | Version 2019-05-06-Preview der REST-API (.NET SDK wird nicht unterstützt) | Komplexe Objekte, mehrere Ebenen tief in einer Definition der Qualifikation **Shaper**. |
 | 2019-05-06** (allgemein verfügbar), 2017-11-11-Preview| Komplexe Objekte, eine Ebene tief. Eine Form mit mehreren Ebenen erfordert die Verkettung von mehreren Shaper-Schritten.|
 
-Die Vorschauversion der Qualifikation **Shaper**, die in [Szenario 3](#nested-complex-types) gezeigt wird, fügt der Eingabe die neue optionale *sourceContext*-Eigenschaft hinzu. Die Eigenschaften *source* und *sourceContext* schließen sich gegenseitig aus. Wenn die Eingabe im Kontext der Qualifikation liegt, verwenden Sie einfach *source*. Wenn die Eingabe einen *anderen* Kontext als die Qualifikation aufweist, verwenden Sie *sourceContext*. Für *sourceContext* müssen Sie eine geschachtelte Eingabe mit dem Element definieren, das als Quelle verwendet werden soll. 
+Wie von `api-version=2019-05-06-Preview` bereitgestellt, fügt die Qualifikation **Shaper**, die in [Szenario 3](#nested-complex-types) gezeigt wird, der Eingabe eine neue optionale *sourceContext*-Eigenschaft hinzu. Die Eigenschaften *source* und *sourceContext* schließen sich gegenseitig aus. Wenn die Eingabe im Kontext der Qualifikation liegt, verwenden Sie einfach *source*. Wenn die Eingabe einen *anderen* Kontext als die Qualifikation aufweist, verwenden Sie *sourceContext*. Für *sourceContext* müssen Sie eine geschachtelte Eingabe mit dem Element definieren, das als Quelle verwendet werden soll. 
 
 In der Antwort lautet der Ausgabename bei allen API-Versionen immer „output“. Intern kann die Pipeline einen anderen Namen zuordnen (z. B. „analyzedText“ wie in den folgenden Beispielen), die Qualifikation **Shaper** selbst gibt in der Antwort jedoch „output“ zurück. Dies kann wichtig sein, wenn Sie angereicherte Dokumente debuggen und die Namensdiskrepanz bemerken, oder wenn Sie einen benutzerdefinierten Skill erstellen und die Antwort selbst strukturieren.
 
@@ -196,7 +196,7 @@ In diesem Fall vereinfacht **Shaper** alle Kapiteltitel, um ein einzelnes Array 
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Szenario 3: Eingabekonsolidierung aus geschachtelten Kontexten
 
 > [!NOTE]
-> Geschachtelte Strukturen, die in der API-Version 2019-05-06-Preview unterstützt werden, können in einem [Wissensspeicher](knowledge-store-concept-intro.md) oder einem Azure Search-Index verwendet werden.
+> Geschachtelte Strukturen, die in der [REST-API-Version 2019-05-06-Preview](search-api-preview.md) unterstützt werden, können in einem [Wissensspeicher](knowledge-store-concept-intro.md) oder einem Azure Search-Index verwendet werden.
 
 Angenommen, Sie verfügen über Titel, Kapitel und Inhalt eines Buchs, haben die Erkennung von Entitäten und Schlüsselausdrücken für den Inhalt ausgeführt und möchten jetzt die Ergebnisse der einzelnen Qualifikationen in einer einzelnen Form mit den Kapitelnamen, Entitäten und Schlüsselbegriffen aggregieren.
 

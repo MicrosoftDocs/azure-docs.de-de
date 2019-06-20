@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60636430"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Verwalten aller Richtlinien für ein Lab in Azure DevTest Labs
 
@@ -39,7 +39,7 @@ Die Richtlinie für die zulässigen VM-Größen hilft dabei, unnötigen Aufwand 
 
 1. Wenn Sie diese Richtlinie aktiviert haben, wählen Sie mindestens eine VM-Größe, die im Lab erstellt werden kann.
 
-1. Wählen Sie **Speichern**aus.
+1. Wählen Sie **Speichern** aus.
 
 ## <a name="set-virtual-machines-per-user"></a>Festlegen der virtuellen Computer pro Benutzer
 Mit der Richtlinie für **Virtuelle Computer pro Benutzer** können Sie die Anzahl von virtuellen Computern angeben, die von einem einzelnen Benutzer erstellt werden können. Wenn ein Benutzer versucht, einen virtuellen Computer zu erstellen oder anzufordern, und das Benutzerlimit erreicht wurde, wird in einer Fehlermeldung darauf hingewiesen, dass der virtuelle Computer nicht erstellt/angefordert werden kann. 
@@ -52,7 +52,7 @@ Mit der Richtlinie für **Virtuelle Computer pro Benutzer** können Sie die Anza
 
 1. Wählen Sie **Ja**, um die Anzahl von virtuellen Computern zu begrenzen, die eine SSD (Solid-State Disk) verwenden können. Wenn Sie die Anzahl von virtuellen Computern, die eine SSD verwenden können, nicht begrenzen möchten, wählen Sie **Nein**. Wenn Sie **Ja** auswählen, geben Sie einen Wert für die Anzahl von virtuellen Computern ein, die mit einer SSD erstellt werden können. 
 
-1. Wählen Sie **Speichern**aus.
+1. Wählen Sie **Speichern** aus.
 
 ## <a name="set-virtual-machines-per-lab"></a>Festlegen der virtuellen Computer pro Lab
 Mit der Richtlinie für **Virtuelle Computer pro Lab** können Sie die Anzahl von virtuellen Computern angeben, die für das aktuelle Lab erstellt werden können. Wenn ein Benutzer versucht, einen virtuellen Computer zu erstellen, und die Labgrenze erreicht wurde, wird in einer Fehlermeldung darauf hingewiesen, dass der virtuelle Computer nicht erstellt werden kann. 
@@ -65,7 +65,7 @@ Mit der Richtlinie für **Virtuelle Computer pro Lab** können Sie die Anzahl vo
 
 1. Wählen Sie **Ja**, um die Anzahl von virtuellen Computern zu begrenzen, die eine SSD (Solid-State Disk) verwenden können. Wenn Sie die Anzahl von virtuellen Computern, die eine SSD verwenden können, nicht begrenzen möchten, wählen Sie **Nein**. Wenn Sie **Ja** auswählen, geben Sie einen Wert für die Anzahl von virtuellen Computern ein, die mit einer SSD erstellt werden können. 
 
-1. Wählen Sie **Speichern**aus.
+1. Wählen Sie **Speichern** aus.
 
 ## <a name="set-auto-shutdown"></a>Festlegen des automatischen Herunterfahrens
 Die Richtlinie „Automatisch herunterfahren“ hilft dabei, unnötigen Aufwand im Lab zu minimieren, indem sie Ihnen ermöglicht, die Uhrzeit anzugeben, zu der die virtuellen Computer für dieses Lab heruntergefahren werden.
@@ -82,7 +82,7 @@ Die Richtlinie „Automatisch herunterfahren“ hilft dabei, unnötigen Aufwand 
 
    Weitere Informationen zu Webhooks finden Sie unter [Erstellen eines Webhooks oder einer API-Azure-Funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
-1. Wählen Sie **Speichern**aus.
+1. Wählen Sie **Speichern** aus.
 
 Standardmäßig gilt diese Richtlinie nach der Aktivierung für alle virtuellen Computer im aktuellen Lab. Um diese Einstellung von einem bestimmten virtuellen Computer zu entfernen, öffnen Sie den Verwaltungsbereich des virtuellen Computers, und ändern Sie die Einstellung **Automatisch herunterfahren**.
 
@@ -91,7 +91,7 @@ Als Labbesitzer können Sie einen Zeitplan für das Herunterfahren für alle vir
 
 1. Wählen Sie auf der Startseite Ihres Labs **Konfiguration und Richtlinien** aus.
 2. Wählen Sie im linken Menü im Abschnitt **Zeitpläne** die Option **Richtlinien zum automatischen Herunterfahren** aus.
-3. Wählen Sie eine der Optionen aus. In den folgenden Abschnitten erhalten Sie weitere Informationen zu diesen Optionen: Die festgelegte Richtlinie gilt nur für neue virtuelle Computer, die im Lab erstellt werden, nicht aber für die bereits vorhandenen virtuellen Computer. 
+3. Wählen Sie eine der Optionen aus. Die folgenden Abschnitte enthalten weitere Informationen zu diesen Optionen: Die festgelegte Richtlinie gilt nur für neu im Lab erstellte virtuelle Computer und nicht für bereits vorhandene virtuelle Computer. 
 
     ![Optionen zum automatischen Herunterfahren](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
@@ -121,7 +121,7 @@ Mit der Richtlinie „Automatisch starten“ können Sie angeben, wann die virtu
 
 3. Wenn Sie diese Richtlinie aktivieren, geben Sie die geplante Startzeit, die Zeitzone und die Wochentage an, an denen die Uhrzeit gelten soll. 
 
-4. Wählen Sie **Speichern**aus.
+4. Wählen Sie **Speichern** aus.
 
 Nach der Aktivierung wird diese Richtlinie nicht automatisch auf alle virtuellen Computer im aktuellen Lab angewendet. Um diese Einstellung auf einen bestimmten virtuellen Computer anzuwenden, öffnen Sie den Verwaltungsbereich des virtuellen Computers, und ändern Sie die Einstellung **Automatisch starten**.
 

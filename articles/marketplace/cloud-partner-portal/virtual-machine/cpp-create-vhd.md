@@ -1,25 +1,18 @@
 ---
-title: Erstellen einer mit Azure kompatiblen VHD für den Azure Marketplace | Microsoft-Dokumentation
+title: Erstellen einer mit Azure kompatiblen VHD für den Azure Marketplace
 description: Dieser Artikel erläutert, wie Sie eine VHD für ein VM-Angebot im Azure Marketplace erstellen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 04a1741bbe4e60567a22445c5674ec03b232640c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: a47d16108d98c5449d57d1db4892bffcead7e5f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793075"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072606"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Erstellen einer Azure-kompatiblen VHD
 
@@ -33,7 +26,7 @@ Dieser Artikel beschreibt die Schritte, die ausgeführt werden müssen, um eine 
 Die Betriebssystem-VHD für Ihr VM-Image muss auf einem von Azure genehmigten Basisimage basieren, das Windows Server oder SQL Server enthält.
 Erstellen Sie zunächst einen virtuellen Computer aus einem der folgenden Images, die sich im Microsoft Azure-Portal befinden:
 
--   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/), [2012 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/), [2008 R2 SP1](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/))
+-   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
 -   [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 -   [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 

@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 930676a396ae316ec761ba5d03ad1a1d0fd7a425
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1441ee9a3d4a563ab35cd9b01e8347d8f51b827a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60743363"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Steuern des Routings und Verwenden virtueller Geräte (klassisch) mithilfe von PowerShell
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
-> * [Azure-CLI](tutorial-create-route-table-cli.md)
+> * [Azure-Befehlszeilenschnittstelle](tutorial-create-route-table-cli.md)
 > * [PowerShell (klassisch)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (klassisch)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Bevor Sie mit Azure-Ressourcen arbeiten, sollten Sie wissen, dass Azure derzeit über zwei Bereitstellungsmodelle verfügt: die Bereitstellung mit dem Azure Resource Manager und die klassische Bereitstellung. Stellen Sie sicher, dass Sie die [Bereitstellungsmodelle und -tools](../azure-resource-manager/resource-manager-deployment-model.md) verstanden haben, bevor Sie mit Azure-Ressouren arbeiten. Klicken Sie zum Anzeigen der Dokumentation für verschiedene Tools auf eine Option oben in diesem Artikel. Dieser Artikel gilt für das klassische Bereitstellungsmodell.
+> Bevor Sie mit Azure-Ressourcen arbeiten, müssen Sie sich darüber im Klaren sein, dass Azure derzeit über zwei Bereitstellungsmodelle verfügt: Azure Resource Manager und klassische Bereitstellung. Stellen Sie sicher, dass Sie die [Bereitstellungsmodelle und -tools](../azure-resource-manager/resource-manager-deployment-model.md) verstanden haben, bevor Sie mit Azure-Ressouren arbeiten. Klicken Sie zum Anzeigen der Dokumentation für verschiedene Tools auf eine Option oben in diesem Artikel. Dieser Artikel gilt für das klassische Bereitstellungsmodell.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]

@@ -16,19 +16,19 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2dca71023cbed34ef3661ca980cf1eac4ca620c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784294"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-Synchronisierung: Mit Azure Active Directory synchronisierte Attribute
 In diesem Thema werden die Attribute aufgelistet, die bei der Azure AD Connect-Synchronisierung synchronisiert werden.  
 Die Attribute sind nach den zugehörigen Azure AD-Apps gruppiert.
 
 ## <a name="attributes-to-synchronize"></a>Zu synchronisierende Attribute
-Häufig wird die Frage gestellt, *welche Attribute als Mindestvoraussetzung synchronisiert werden müssen*. Die standardmäßige und empfohlene Vorgehensweise besteht darin, die Standardattribute beizubehalten, damit in der Cloud eine vollständige GAL (Globale Adressliste) erstellt werden kann und alle Features in Office 365-Workloads abgerufen werden können. In einigen Fällen können Attribute vorhanden sein, die für Ihre Organisation nicht mit der Cloud synchronisiert werden sollen, da sie sensible Daten oder personenbezogene Informationen (Personally Identifiable Information, PII) enthalten, wie etwa in diesem Beispiel:   
+Häufig wird die Frage gestellt, *welche Attribute als Mindestvoraussetzung synchronisiert werden müssen*. Die standardmäßige und empfohlene Vorgehensweise besteht darin, die Standardattribute beizubehalten, damit in der Cloud eine vollständige GAL (Globale Adressliste) erstellt werden kann und alle Features in Office 365-Workloads abgerufen werden können. In einigen Fällen können Attribute vorhanden sein, die für Ihre Organisation nicht mit der Cloud synchronisiert werden sollen, da sie sensible Daten oder personenbezogene Informationen (Personally Identifiable Information, PII) enthalten, wie etwa in diesem Beispiel:  
 ![Fehlerhafte Attribute](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
 In diesem Fall beginnen Sie mit der in diesem Thema angegebenen Liste von Attributen und identifizieren die Attribute, die unter Umständen sensible oder personenbezogene Informationen enthalten und nicht synchronisiert werden können. Deaktivieren Sie diese Attribute per [Azure AD-App- und Attributfilterung](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering) während der Installation.
@@ -256,7 +256,7 @@ In diesem Fall beginnen Sie mit der in diesem Thema angegebenen Liste von Attrib
 | userPrincipalName |X | | |Dieser Benutzerprinzipalname (UPN) ist die Anmelde-ID für den Benutzer. Meistens identisch mit dem Wert [mail]. |
 | wWWHomePage |X |X | | |
 
-## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (nachfolgend Skype for Business genannt)
+## <a name="teams-and-skype-for-business-online"></a>Teams und Skype for Business Online
 | Attributname | Benutzer | Kontakt | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definiert, ob ein Konto aktiviert ist. |
@@ -419,7 +419,7 @@ Diese Attribute für **Benutzer** ergänzen die anderen Apps, die Sie ausgewähl
 | domainNetBios |X |Auch als „netBiosName“ bezeichnet. Beispiel: CONTOSO |
 | msDS-KeyCredentialLink |X |Nach der Registrierung des Benutzers in Windows Hello für Business | 
 
-## <a name="exchange-hybrid-writeback"></a>Exchange-Hybridrückschreiben  
+## <a name="exchange-hybrid-writeback"></a>Exchange-Hybridrückschreiben
 Diese Attribute werden vom Azure AD in das lokale Active Directory zurückgeschrieben, wenn Sie **Exchange-Hybrid**aktivieren. Abhängig von Ihrer Exchange-Version werden möglicherweise weniger Attribute synchronisiert.
 
 | Attributname (lokales AD) | Attributname (Connect-Benutzeroberfläche) | Benutzer | Kontakt | Group | Comment |

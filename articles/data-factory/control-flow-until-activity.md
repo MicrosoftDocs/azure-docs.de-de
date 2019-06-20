@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155170"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Until-Aktivität in Azure Data Factory
@@ -54,11 +54,11 @@ Die Until-Aktivität erfüllt die gleiche Funktion wie eine do-until-Schleifenst
 
 Eigenschaft | BESCHREIBUNG | Zulässige Werte | Erforderlich
 -------- | ----------- | -------------- | --------
-name | Der Name der `Until`-Aktivität. | Zeichenfolge | Ja
-type | Muss auf **Until** festgelegt werden. | Zeichenfolge | Ja
+name | Der Name der `Until`-Aktivität. | string | Ja
+type | Muss auf **Until** festgelegt werden. | string | Ja
 expression | Ausdruck, der als „true“ oder „false“ ausgewertet werden muss. | Ausdruck  | Ja
-timeout | Für die do-until-Schleife tritt nach der hier angegebenen Zeit ein Timeout auf. | Eine Zeichenfolge. `d.hh:mm:ss` oder `hh:mm:ss`. Standardwert: sieben Tage. Maximalwert: 90 Tage | Nein 
-Aktivitäten | Reihe von Aktivitäten, die ausgeführt werden, bis der Ausdruck als `true` ausgewertet wird. | Array von Aktivitäten |  Ja
+timeout | Für die do-until-Schleife tritt nach der hier angegebenen Zeit ein Timeout auf. | Eine Zeichenfolge. `d.hh:mm:ss` oder `hh:mm:ss`. Standardwert: sieben Tage. Maximalwert: 90 Tage | Nein
+activities | Reihe von Aktivitäten, die ausgeführt werden, bis der Ausdruck als `true` ausgewertet wird. | Array von Aktivitäten |  Ja
 
 ## <a name="example-1"></a>Beispiel 1
 

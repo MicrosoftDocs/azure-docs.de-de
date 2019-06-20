@@ -7,21 +7,21 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8689918bf33b0efdd9bbfabc6d3751672959c6bb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753077"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955686"
 ---
-# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Tutorial: Erstellen eines Anwendungsgateways mit SSL-Beendigung mithilfe der Azure-Befehlszeilenschnittstelle
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Erstellen eines Anwendungsgateways mit SSL-Beendigung mithilfe der Azure-Befehlszeilenschnittstelle
 
 Sie können über die Azure-Befehlszeilenschnittstelle ein [Anwendungsgateway](overview.md) mit einem Zertifikat für die [SSL-Beendigung](ssl-overview.md) erstellen, das eine [VM-Skalierungsgruppe](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) als Back-End-Server verwendet. In diesem Beispiel enthält die Skalierungsgruppe zwei VM-Instanzen, die zum standardmäßigen Back-End-Pool des Anwendungsgateways hinzugefügt werden.
 
-In diesem Tutorial lernen Sie Folgendes:
+In diesem Artikel werden folgende Vorgehensweisen behandelt:
 
 > [!div class="checklist"]
 > * Erstellen eines selbstsignierten Zertifikats
@@ -29,17 +29,17 @@ In diesem Tutorial lernen Sie Folgendes:
 > * Erstellen eines Anwendungsgateways mit dem Zertifikat
 > * Erstellen einer VM-Skalierungsgruppe mit dem standardmäßigen Back-End-Pool
 
-Sie können dieses Tutorial auch mit [Azure PowerShell](tutorial-ssl-powershell.md) durcharbeiten.
+Sie können für dieses Verfahren auch [Azure PowerShell](tutorial-ssl-powershell.md) verwenden.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für dieses Tutorial die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
+Wenn Sie die CLI lokal installieren und verwenden möchten, müssen Sie für diesen Artikel die Azure CLI-Version 2.0.4 oder höher ausführen. Führen Sie `az --version` aus, um die Version zu finden. Informationen zum Durchführen einer Installation oder eines Upgrades finden Sei bei Bedarf unter [Installieren der Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Erstellen eines selbstsignierten Zertifikats
 
-Für die Produktion sollten Sie ein gültiges, von einem vertrauenswürdigen Anbieter signiertes Zertifikat importieren. Für dieses Tutorial erstellen Sie mit dem openssl-Befehl ein selbstsigniertes Zertifikat und eine PFX-Datei.
+Für die Produktion sollten Sie ein gültiges, von einem vertrauenswürdigen Anbieter signiertes Zertifikat importieren. Für diesen Artikel erstellen Sie mit dem openssl-Befehl ein selbstsigniertes Zertifikat und eine PFX-Datei.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Kopieren Sie die öffentliche IP-Adresse, und fügen Sie sie in die Adressleiste des Browsers ein. In diesem Beispiel lautet die URL **https://52.170.203.149**.
+Kopieren Sie die öffentliche IP-Adresse, und fügen Sie sie in die Adressleiste des Browsers ein. In diesem Beispiel lautet die URL **https://52.170.203.149** .
 
 ![Sicherheitswarnung](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -183,5 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Erstellen eines Anwendungsgateways als Host für mehrere Websites](./tutorial-multiple-sites-cli.md)
+* [Erstellen eines Anwendungsgateways als Host für mehrere Websites](./tutorial-multiple-sites-cli.md)

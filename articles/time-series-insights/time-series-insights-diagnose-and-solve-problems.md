@@ -4,19 +4,19 @@ description: In diesem Artikel wird beschrieben, wie häufig auftretende Problem
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: fa2e26666ce863d98b5c47201eeadb1d7f6a5d2c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471698"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164514"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostizieren und Beheben von Problemen in der Time Series Insights-Umgebung
 
@@ -108,9 +108,9 @@ Die erste Spaltenüberschrift sollte der Name Ihrer Timestamp-Eigenschaft sein. 
 
 Folgende Werte sollten nicht angezeigt werden:
 
-- *(abc)*: Zeigt an, dass Time Series Insights die Datenwerte als Zeichenfolgen liest.
+- *(abc)* : Zeigt an, dass Time Series Insights die Datenwerte als Zeichenfolgen liest.
 - *Kalendersymbol*: Zeigt an, dass Time Series Insights den Datenwert als *datetime* (Datum/Uhrzeit) liest.
-- *#*: Zeigt an, dass Time Series Insights die Datenwerte als „integer“ (ganze Zahl) liest.
+- *#* : Zeigt an, dass Time Series Insights die Datenwerte als „integer“ (ganze Zahl) liest.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

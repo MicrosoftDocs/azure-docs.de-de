@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127088"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>DNS-Namensauflösungsoptionen für virtuelle Linux-Computer in Azure
 Azure stellt die DNS-Namensauflösung standardmäßig für alle in einem einzelnen virtuellen Netzwerk enthaltenen virtuellen Computer bereit. Sie können Ihre eigene Lösung für die DNS-Namensauflösung implementieren, indem Sie auf Ihren in Azure gehosteten virtuellen Computern Ihre eigenen DNS-Dienste konfigurieren. Die folgenden Szenarien sollten Ihnen dabei helfen, situationsabhängig die jeweils am besten geeignete Lösung zu wählen.
@@ -72,7 +72,7 @@ Verschiedene DNS-Cachingpakete, z.B. dnsmasq, stehen zur Verfügung. Es folgen d
 **Ubuntu (verwendet resolvconf)**
   * Installieren Sie das dnsmasq-Paket („sudo apt-get install dnsmasq“).
 
-**SUSE (verwendet netconf)**:
+**SUSE (verwendet netconf)** :
 1. Installieren Sie das dnsmasq-Paket („sudo zypper install dnsmasq“).
 2. Aktivieren Sie den dnsmasq-Dienst („systemctl enable dnsmasq.service“).
 3. Starten Sie den dnsmasq-Dienst („systemctl start dnsmasq.service“).

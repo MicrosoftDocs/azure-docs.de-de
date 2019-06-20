@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137779"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162077"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Übersicht über den Azure Resource Graph-Dienst
 
@@ -63,9 +63,15 @@ Um Resource Graph verwenden zu können, müssen Sie über die richtigen Rechte f
 
 ## <a name="throttling"></a>Drosselung
 
-Abfragen an Ressource Graph werden bei der Ausführung als kostenloser Dienst gedrosselt, um für alle Kunden die beste Erfahrung und Antwortzeit bereitzustellen. Wenn Ihre Organisation die Resource Graph-API für umfangreiche und häufige Abfragen verwenden möchte, verwenden Sie das Feedback-Portal auf der Resource Graph-Seite. Geben Sie Ihr Geschäftsszenario an, und aktivieren Sie das Kontrollkästchen „Microsoft darf mich bezüglich meines Feedbacks per E-Mail kontaktieren“, damit das Team Sie kontaktiert.
+Abfragen an Ressource Graph werden bei der Ausführung als kostenloser Dienst gedrosselt, um für alle Kunden die beste Erfahrung und Antwortzeit bereitzustellen. Wenn Ihre Organisation die Resource Graph-API für umfangreiche und häufige Abfragen verwenden möchte, verwenden Sie das Feedback-Portal auf der [Portal-Seite zu Resource Graph](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Geben Sie Ihr Geschäftsszenario an, und aktivieren Sie das Kontrollkästchen „Microsoft darf mich bezüglich meines Feedbacks per E-Mail kontaktieren“, damit das Team Sie kontaktieren kann.
 
-Resource Graph wird auf Mandantenebene gedrosselt. Der Dienst setzt den `x-ms-ratelimit-remaining-tenant-reads`-Antwortheader außer Kraft und legt ihn so fest, dass die pro Benutzer im Mandanten verbleibenden Abfragen ersichtlich sind. Resource Graph setzt das Kontingent alle 5 Sekunden zurück, statt jede Stunde. Weitere Informationen finden Sie unter [Drosselung von Resource Manager-Anforderungen](../../azure-resource-manager/resource-manager-request-limits.md).
+Resource Graph drosselt Abfragen auf Benutzerebene. Die Dienstantwort enthält die folgenden HTTP-Header:
+
+- `x-ms-user-quota-remaining` (int): Das verbleibende Ressourcenkontingent für den Benutzer. Dieser Wert entspricht der Anzahl von Abfragen.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): Der Zeitraum, bis das Kontingent eines Benutzers zurückgesetzt wird
+
+Weitere Informationen finden Sie unter [Drosselung von Resource Manager-Anforderungen](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>Ausführen Ihrer ersten Abfrage
 

@@ -1,5 +1,5 @@
 ---
-title: Auslösen von Chaos in Service Fabric-Clustern | Microsoft-Dokumentation
+title: Auslösen von Chaos in Service Fabric-Clustern | Microsoft Docs
 description: Verwenden von Fault Injection und Cluster Analysis Service-APIs zum Verwalten von Chaostests im Cluster.
 services: service-fabric
 documentationcenter: .net
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
 ms.openlocfilehash: a1b334b34e8e234d9ce5cc5ad5cd77bf5ba7118c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60583872"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Auslösen von kontrolliertem Chaos in Service Fabric-Clustern
 Große verteilte Systeme wie Cloudinfrastrukturen sind grundsätzlich unzuverlässig. Azure Service Fabric ermöglicht Entwicklern, aufbauend auf einer unzuverlässigen Infrastruktur zuverlässige verteilte Dienste zu erstellen. Um robuste, verteilte Dienste in einer unzuverlässigen Infrastruktur zu schreiben, müssen Entwickler in der Lage sein, die Stabilität ihrer Dienste zu testen, während die zugrunde liegende unzuverlässige Infrastruktur komplizierte Statusübergänge aufgrund von Fehlern durchläuft.

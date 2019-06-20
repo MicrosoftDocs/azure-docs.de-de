@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65780537"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Übernehmen eines nicht verwalteten Verzeichnisses als Administrator in Azure Active Directory
 
@@ -37,7 +37,7 @@ Während der Administratorübernahme können Sie die Inhaberschaft wie in [Schne
 
 Einige Produkte, die SharePoint und OneDrive enthalten, z.B. Office 365, unterstützen keine externe Übernahme. Wenn dieses Szenario auf Sie zutrifft oder Sie ein Administrator sind und einen nicht verwalteten Schattenmandanten übernehmen möchten, der von Benutzern erstellt wurde, die die Self-Service-Registrierung verwendet haben, können Sie dies mit einer internen Administratorübernahme tun.
 
-1. Erstellen Sie einen Benutzerkontext im nicht verwalteten Mandanten, z.B. über eine Registrierung bei Power BI. Genau dies tun Sie in diesem Beispiel.
+1. Erstellen Sie einen Benutzerkontext im nicht verwalteten Mandanten über eine Registrierung bei Power BI. Genau dies tun Sie in diesem Beispiel.
 
 2. Öffnen Sie die [Power BI-Website](https://powerbi.com), und klicken Sie auf **Kostenloser Einstieg**. Geben Sie ein Benutzerkonto ein, das den Domänennamen für die Organisation verwendet, z.B. `admin@fourthcoffee.xyz`. Nachdem Sie den Prüfcode eingegeben haben, suchen Sie in Ihren E-Mails nach dem Bestätigungscode.
 

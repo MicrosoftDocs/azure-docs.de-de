@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: tulasim
 ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61372366"
 ---
 # <a name="share-or-upgrade-your-qna-maker-service"></a>Freigabe oder Ausführen eines Upgrades für Ihren QnA Maker-Dienst
 Geben Sie Ihre QnA Maker-Dienste frei, oder führen Sie ein Upgrade der Dienste durch, um die Ressourcen effektiver zu verwalten. 

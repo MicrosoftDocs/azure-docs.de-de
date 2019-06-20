@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62098700"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Hinzufügen von Pushbenachrichtigungen zur Xamarin.Forms-App
 
@@ -232,7 +232,7 @@ Die ersten beiden Schritte sind nur beim Testen in einem Emulator erforderlich.
 2. Fügen Sie auf dem Android-Gerät ein Google-Konto hinzu, indem Sie auf **Apps** > **Einstellungen** > **Konto hinzufügen** klicken. Befolgen Sie anschließend die Anweisungen zum Hinzufügen eines vorhandenen Google-Kontos zum Gerät bzw. zum Erstellen eines neuen Kontos.
 3. Klicken Sie in Visual Studio oder Xamarin Studio mit der rechten Maustaste auf das Projekt **Droid**, und klicken Sie dann auf **Als Startprojekt festlegen**.
 4. Klicken Sie auf **Ausführen**, um das Projekt zu erstellen und die App auf Ihrem Android-Gerät oder im Emulator zu starten.
-5. Geben Sie in der App eine Aufgabe ein, und klicken Sie dann auf das Pluszeichen (**+**).
+5. Geben Sie in der App eine Aufgabe ein, und klicken Sie dann auf das Pluszeichen ( **+** ).
 6. Überprüfen Sie, ob beim Hinzufügen eines Elements eine Benachrichtigung empfangen wird.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Konfigurieren und Ausführen des iOS-Projekts (optional)
@@ -326,7 +326,7 @@ Ihre App kann Pushbenachrichtigungen nun unterstützen.
    > [!NOTE]
    > Sie müssen Pushbenachrichtigungen von Ihrer App ausdrücklich akzeptieren. Diese Anforderung tritt nur beim ersten Lauf der App auf.
 
-3. Geben Sie in der App eine Aufgabe ein, und klicken Sie dann auf das Pluszeichen (**+**).
+3. Geben Sie in der App eine Aufgabe ein, und klicken Sie dann auf das Pluszeichen ( **+** ).
 4. Stellen Sie sicher, dass Sie eine Benachrichtigung erhalten haben, und klicken Sie dann auf **OK**, um diese zu schließen.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Konfigurieren und Ausführen von Windows-Projekten (optional)
@@ -398,7 +398,7 @@ In diesem Abschnitt geht es um das Ausführen der Projekte „Xamarin.Forms WinA
 
 1. Klicken Sie in Visual Studio mit der rechten Maustaste auf ein Windows-Projekt, und klicken Sie auf **Als Startprojekt festlegen**.
 2. Klicken Sie auf die Schaltfläche **Ausführen** , um das Projekt zu erstellen und die App zu starten.
-3. Geben Sie in der App einen Namen für ein neues TodoItem ein, und klicken Sie dann auf das Pluszeichen (**+**), um es hinzuzufügen.
+3. Geben Sie in der App einen Namen für ein neues TodoItem ein, und klicken Sie dann auf das Pluszeichen ( **+** ), um es hinzuzufügen.
 4. Überprüfen Sie, ob beim Hinzufügen des Elements eine Benachrichtigung empfangen wird.
 
 ## <a name="next-steps"></a>Nächste Schritte
@@ -409,12 +409,12 @@ Sie können sich ausführlicher über Pushbenachrichtigungen informieren:
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Remotebenachrichtigungen mit Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [Azure Notification Hubs - Diagnosis guidelines](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-   (Azure Notification Hubs – Diagnoserichtlinien): Benachrichtigungen können aus unterschiedlichen Gründen verloren gehen oder nicht bei Geräten ankommen. In diesem Thema wird gezeigt, wie Sie die Grundursache von Pushbenachrichtigungsfehlern analysieren und ermitteln.
+  (Azure Notification Hubs – Diagnoserichtlinien): Benachrichtigungen können aus unterschiedlichen Gründen verloren gehen oder nicht bei Geräten ankommen. In diesem Thema wird gezeigt, wie Sie die Grundursache von Pushbenachrichtigungsfehlern analysieren und ermitteln.
 
 Außerdem können Sie mit einem der folgenden Tutorials fortfahren:
 
 * [Hinzufügen von Authentifizierung zur App](app-service-mobile-xamarin-forms-get-started-users.md)  
-   Hier erhalten Sie Informationen zur Authentifizierung von Benutzern der App mit einem Identitätsanbieter.
+  Hier erhalten Sie Informationen zur Authentifizierung von Benutzern der App mit einem Identitätsanbieter.
 * [Aktivieren der Offlinesynchronisierung für Ihre App](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Informieren Sie sich, wie Sie die Offlineunterstützung für Ihre App mit einem Mobile Apps-Back-End hinzufügen. Die Offlinesynchronisierung ermöglicht Endbenutzern die Interaktion mit einer mobilen App (also das Anzeigen, Hinzufügen oder Ändern von Daten) auch ohne bestehende Netzwerkverbindung.
 

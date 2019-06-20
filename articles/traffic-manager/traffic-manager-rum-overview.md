@@ -3,21 +3,21 @@ title: Benutzer-Realmessungen im Azure Traffic Manager
 description: Einführung in Benutzer-Realmessungen in Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cbde96f135aa52ada9bb10b47ca81687992e5833
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070982"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Übersicht über Benutzer-Realmessungen in Traffic Manager
 

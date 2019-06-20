@@ -2,20 +2,20 @@
 title: Konfigurieren des Sitzungsverhaltens – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Konfigurieren des Sitzungsverhaltens in Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700985"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512560"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurieren des Sitzungsverhaltens in Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Azure AD B2C unterstützt das [OpenID Connect-Authentifizierungsprotokoll](activ
 
 ## <a name="session-behavior-properties"></a>Eigenschaften des Sitzungsverhaltens
 
-- **Lebensdauer der Web-App-Sitzung (Minuten)**: Die Gültigkeitsdauer von Azure AD B2C-Sitzungscookies, die nach erfolgreicher Authentifizierung des Benutzers im Browser gespeichert werden
+- **Lebensdauer der Web-App-Sitzung (Minuten)** : Die Gültigkeitsdauer von Azure AD B2C-Sitzungscookies, die nach erfolgreicher Authentifizierung des Benutzers im Browser gespeichert werden
     - Standardwert: 1.440 Minuten.
     - Minimum (inklusive): 15 Minuten.
     - Maximum (inklusive): 1.440 Minuten.
@@ -54,7 +54,7 @@ Mit diesen Eigenschaften werden die folgenden Anwendungsfälle ermöglicht:
 4. Wählen Sie **Benutzerflows (Richtlinien)** aus.
 5. Öffnen Sie den Benutzerflow, den Sie zuvor erstellt haben. 
 6. Wählen Sie **Eigenschaften** aus.
-7. Konfigurieren Sie **Lebensdauer der Web-App-Sitzung (Minuten)**, **Timeout für Web-App-Sitzung**, **Konfiguration des einmaligen Anmeldens** und **ID-Token in Abmeldeanforderungen erforderlich** nach Bedarf.
+7. Konfigurieren Sie **Lebensdauer der Web-App-Sitzung (Minuten)** , **Timeout für Web-App-Sitzung**, **Konfiguration des einmaligen Anmeldens** und **ID-Token in Abmeldeanforderungen erforderlich** nach Bedarf.
 
     ![Konfigurieren des Sitzungsverhaltens](./media/session-behavior/session-behavior.png)
     

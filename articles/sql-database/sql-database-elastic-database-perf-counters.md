@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61475693"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Erstellen von Leistungsindikatoren zum Nachverfolgen der Leistung des Shardzuordnungs-Managers
 
@@ -66,7 +66,7 @@ Die Leistungsindikatoren werden von allen Cachevorgängen aktualisiert, die für
 * Die Erstellung der Leistungskategorie und -indikatoren sollte nur einmal vor der Erstellung des ShardMapManager-Objekts erfolgen. Jede Ausführung des Befehls „CreatePerformanceCategoryAndCounters()“ löscht die vorherigen Leistungsindikatoren (von allen Instanzen werden Datenverluste gemeldet) und erstellt neue.  
 * Leistungsindikatorinstanzen werden pro Prozess erstellt. Jeder Anwendungsabsturz oder jede Entfernung einer Shardzuordnung aus dem Cache führt dazu, dass die Leistungsindikatorinstanzen gelöscht werden.  
 
-### <a name="see-also"></a>Siehe auch 
+### <a name="see-also"></a>Siehe auch
 
 [Übersicht über Features für elastische Datenbanken](sql-database-elastic-scale-introduction.md)  
 

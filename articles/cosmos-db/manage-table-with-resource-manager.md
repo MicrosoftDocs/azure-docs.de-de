@@ -4,24 +4,24 @@ description: Verwenden Sie Azure Resource Manager-Vorlagen zum Erstellen und Kon
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 33e47d67365e76142d5b584d49d8e7265445bf03
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82e2a436bf6b25b6164d845d234896390a262292
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080462"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968826"
 ---
-# <a name="create-azure-cosmos-db-table-api-resources-from-a-resource-manager-template"></a>Erstellen von Ressourcen für die Tabellen-API von Azure Cosmos DB anhand einer Resource Manager-Vorlage
+# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Verwalten von Ressourcen für die Tabellen-API von Azure Cosmos DB mithilfe von Azure Resource Manager-Vorlagen
 
-Erfahren Sie, wie Sie mit einer Azure Resource Manager-Vorlage Ressourcen für die Tabellen-API von Azure Cosmos DB erstellen. Im folgenden Beispiel wird eine Tabellen-API für Azure Cosmos DB anhand einer [Azure-Schnellstartvorlage](https://aka.ms/table-arm-qs) erstellt. Diese Vorlage erstellt ein Azure Cosmos-Konto für die Tabellen-API mit einer Tabelle mit einem Durchsatz von 400 RU/s (Ressourceneinheiten pro Sekunde).
+## Erstellen von Azure Cosmos-Konto und -Tabelle <a id="create-resource"></a>
 
-Hier ist eine Kopie der Vorlage angegeben:
+Erstellen Sie Azure Cosmos DB-Ressourcen mithilfe einer Azure Resource Manager-Vorlage. Diese Vorlage erstellt ein Azure Cosmos-Konto für die Tabellen-API mit einer Tabelle mit einem Durchsatz von 400 RU/s (Ressourceneinheiten pro Sekunde). Kopieren Sie die Vorlage, und stellen Sie sie wie unten gezeigt bereit, oder besuchen Sie den [Azure-Schnellstartkatalog](https://azure.microsoft.com/resources/templates/101-cosmosdb-table/), und führen Sie die Bereitstellung über das Azure-Portal durch. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
 
 [!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
 
-## <a name="deploy-via-powershell"></a>Bereitstellen über PowerShell
+### <a name="deploy-via-powershell"></a>Bereitstellen über PowerShell
 
 Um die Resource Manager-Vorlage mit PowerShell bereitzustellen, **kopieren** Sie das Skript, und klicken Sie auf **Ausprobieren**, um Azure Cloud-Shell zu öffnen. Klicken Sie zum Einfügen des Skripts mit der rechten Maustaste auf die Shell, und wählen Sie **Einfügen** aus:
 
@@ -45,12 +45,9 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-Wenn Sie eine lokal installierte Version von PowerShell anstelle von Azure Cloud Shell verwenden möchten, müssen Sie das Azure PowerShell-Modul [installieren](/powershell/azure/install-az-ps). Führen Sie `Get-Module -ListAvailable Az` aus, um die Version zu finden. 
+Wenn Sie eine lokal installierte Version von PowerShell anstelle von Azure Cloud Shell verwenden möchten, müssen Sie das Azure PowerShell-Modul [installieren](/powershell/azure/install-az-ps). Führen Sie `Get-Module -ListAvailable Az` aus, um die Version zu finden.
 
-Im vorherigen Beispiel haben Sie auf eine Vorlage verwiesen, die auf GitHub gespeichert ist. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
-
-
-## <a name="deploy-via-azure-cli"></a>Bereitstellen über Azure CLI
+### <a name="deploy-via-azure-cli"></a>Bereitstellen über Azure CLI
 
 Um die Resource Manager-Vorlage mit der Azure CLI bereitzustellen, **kopieren** Sie das Skript, und klicken Sie auf **Ausprobieren**, um Azure Cloud-Shell zu öffnen. Klicken Sie zum Einfügen des Skripts mit der rechten Maustaste auf die Shell, und wählen Sie **Einfügen** aus:
 
@@ -72,8 +69,44 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 Der Befehl `az cosmosdb show` zeigt das neu erstellte Azure Cosmos-Konto, nachdem es bereitgestellt wurde. Wenn Sie eine lokal installierte Version von Azure CLI anstelle von CloudShell verwenden möchten, lesen Sie den Artikel [Azure-Befehlszeilenschnittstelle (CLI)](/cli/azure/).
 
-Im vorherigen Beispiel haben Sie auf eine Vorlage verwiesen, die auf GitHub gespeichert ist. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
+## Aktualisieren des Durchsatzes (RU/s) für eine Tabelle <a id="table-ru-update"></a>
 
+Mit der folgenden Vorlage wird der Durchsatz einer Tabelle aktualisiert. Kopieren Sie die Vorlage, und stellen Sie sie wie unten gezeigt bereit, oder besuchen Sie den [Azure-Schnellstartkatalog](https://azure.microsoft.com/resources/templates/101-cosmosdb-table-ru-update/), und führen Sie die Bereitstellung über das Azure-Portal durch. Sie können die Vorlage auch auf Ihren lokalen Computer herunterladen oder eine neue Vorlage erstellen und den lokalen Pfad mit dem Parameter `--template-file` angeben.
+
+[!code-json[cosmosdb-table-ru-update](~/quickstart-templates/101-cosmosdb-table-ru-update/azuredeploy.json)]
+
+### <a name="deploy-table-throughput-via-powershell"></a>Bereitstellen von Tabellendurchsatz über PowerShell
+
+Um die Resource Manager-Vorlage mit PowerShell bereitzustellen, **kopieren** Sie das Skript, und klicken Sie auf **Ausprobieren**, um Azure Cloud-Shell zu öffnen. Klicken Sie zum Einfügen des Skripts mit der rechten Maustaste auf die Shell, und wählen Sie **Einfügen** aus:
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$tableName = Read-Host -Prompt "Enter the table name"
+$throughput = Read-Host -Prompt "Enter new throughput for table"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-table-ru-update/azuredeploy.json" `
+    -accountName $accountName `
+    -tableName $tableName `
+    -throughput $throughput
+```
+
+### <a name="deploy-table-template-via-azure-cli"></a>Bereitstellen einer Tabellenvorlage über die Azure CLI
+
+Um die Resource Manager-Vorlage mit der Azure CLI bereitzustellen, kopieren Sie das Skript, und klicken Sie auf **Ausprobieren**, um Azure Cloud-Shell zu öffnen. Klicken Sie zum Einfügen des Skripts mit der rechten Maustaste auf die Shell, und wählen Sie **Einfügen** aus:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the table name: ' tableName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-table-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName tableName=$tableName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Nächste Schritte
 

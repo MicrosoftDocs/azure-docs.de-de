@@ -3,7 +3,7 @@ title: Vergleich von Azure AD Join mit Azure Active Directory Domain Services | 
 description: Entscheidung zwischen Azure AD Join und Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: ergreenl
-ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: eaa8cb54a46b1ff3c2c0f7c40c824f6ddcca16b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178935"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234961"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Wählen zwischen Azure Active Directory Join und Azure Active Directory Domain Services
 In diesem Artikel werden die Unterschiede zwischen Azure Active Directory Join (AD) und Azure AD Domain Services beschrieben, um Ihnen auf Basis Ihrer Anwendungsfälle eine Entscheidungshilfe zu bieten.
@@ -58,7 +58,7 @@ Bei einem in eine Domäne eingebundenen Computer erfolgt die Benutzerauthentifiz
 |:---| --- | --- |
 | Gerät gesteuert von | Azure AD | Verwaltete Azure AD Domain Services-Domäne |
 | Darstellung im Verzeichnis | Geräteobjekte im Azure AD-Verzeichnis. | Computerobjekte in der verwalteten AAD-DS-Domäne. |
-| Authentifizierung | Auf OAuth/OpenID Connect basierende Protokolle | Kerberos, NTLM-Protokolle |
+| Authentication | Auf OAuth/OpenID Connect basierende Protokolle | Kerberos, NTLM-Protokolle |
 | Verwaltung | Software zur mobilen Geräteverwaltung (Mobile Device Management, MDM) wie z.B. Intune | Gruppenrichtlinie |
 | Netzwerk | Im Internet einsetzbar | Setzt voraus, dass die Computer sich im selben virtuellen Netzwerk befinden wie die verwaltete Domäne.|
 | Ideal für... | Mobile oder Desktop-Endbenutzergeräte | In Azure bereitgestellte Server-VMs |
@@ -66,14 +66,14 @@ Bei einem in eine Domäne eingebundenen Computer erfolgt die Benutzerauthentifiz
 
 ## <a name="next-steps"></a>Nächste Schritte
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Weitere Informationen zu Azure AD Domain Services
-* [Azure AD Domain Services](active-directory-ds-overview.md)
+* [Azure AD Domain Services](overview.md)
 * [Funktionen](active-directory-ds-features.md)
-* [Bereitstellungsszenarien](active-directory-ds-scenarios.md)
-* [So entscheiden Sie, ob Azure AD Domain Services für Ihren Anwendungsfall geeignet ist](active-directory-ds-comparison.md)
-* [Synchronisierung in einer durch Azure AD Domain Services verwalteten Domäne](active-directory-ds-synchronization.md)
+* [Bereitstellungsszenarien](scenarios.md)
+* [So entscheiden Sie, ob Azure AD Domain Services für Ihren Anwendungsfall geeignet ist](comparison.md)
+* [Synchronisierung in einer durch Azure AD Domain Services verwalteten Domäne](synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Weitere Informationen zu Azure AD Join
 * [Einführung in die Geräteverwaltung in Azure Active Directory](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Erste Schritte mit Azure AD Domain Services
-* [Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals (Vorschauversion)](active-directory-ds-getting-started.md)
+* [Aktivieren von Azure Active Directory Domain Services mithilfe des Azure-Portals (Vorschauversion)](create-instance.md)

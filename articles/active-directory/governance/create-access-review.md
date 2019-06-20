@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495053"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66734562"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Erstellen einer Zugriffsüberprüfung für Gruppen oder Anwendungen in Azure AD-Zugriffsüberprüfungen
 
@@ -30,12 +30,14 @@ In diesem Artikel wird die Erstellung einer oder mehrerer Zugriffsüberprüfunge
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-- [Aktivierte Zugriffsüberprüfungen](access-reviews-overview.md)
+- Azure AD Premium P2
 - Globaler Administrator oder Benutzeradministrator
+
+Weitere Informationen finden Sie unter [Welche Benutzer benötigen Lizenzen?](access-reviews-overview.md#which-users-must-have-licenses)
 
 ## <a name="create-one-or-more-access-reviews"></a>Erstellen einer oder mehrerer Zugriffsüberprüfungen
 
-1. Melden Sie sich beim Azure-Portal an, und öffnen Sie die [Seite „Zugriffsüberprüfungen“](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Melden Sie sich beim Azure-Portal an, und öffnen Sie die Seite [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Klicken Sie im linken Menü auf **Zugriffsüberprüfungen**.
 
@@ -77,9 +79,13 @@ In diesem Artikel wird die Erstellung einer oder mehrerer Zugriffsüberprüfunge
 
     ![Erstellen einer Zugriffsüberprüfung – Prüfer](./media/create-access-review/reviewers.png)
 
-1. Wählen Sie im Abschnitt **Programme** das gewünschte Programm aus. Sie können die Nachverfolgung und das Erfassen von Zugriffsüberprüfungen für verschiedene Zwecke vereinfachen, indem Sie diese Aufgaben in Programmen organisieren. Das **Standardprogramm** ist immer vorhanden. Sie können aber auch ein anderes Programm erstellen. Sie können z.B. ein Programm für jede Konformitätsinitiative oder für jedes Geschäftsziel verwenden.
+1. Wählen Sie im Abschnitt **Programme** das gewünschte Programm aus. **Standardprogramm** ist immer vorhanden.
 
     ![Erstellen einer Zugriffsüberprüfung – Programme](./media/create-access-review/programs.png)
+
+    Sie können die Nachverfolgung und das Erfassen von Zugriffsüberprüfungen für verschiedene Zwecke vereinfachen, indem Sie diese Aufgaben in Programmen organisieren. Jede Zugriffsüberprüfung kann mit einem Programm verknüpft werden. Wenn Sie dann Berichte für einen Auditor vorbereiten, können Sie sich auf die Zugriffsüberprüfungen im Bereich einer bestimmten Initiative konzentrieren. Programme und Ergebnisse der Zugriffsüberprüfung werden Benutzern mit der Rolle „Globaler Administrator“, „Benutzeradministrator“, „Sicherheitsadministrator“ oder „Sicherheitsleseberechtigter“ angezeigt.
+
+    Um eine Liste der Programme anzuzeigen, navigieren Sie zur Seite „Zugriffsüberprüfungen“, und wählen Sie **Programme** aus. Globale Administratoren und Benutzeradministratoren können weitere Programme erstellen. Sie können z.B. ein Programm für jede Konformitätsinitiative oder für jedes Geschäftsziel verwenden. Wenn ein Programm nicht mehr benötigt wird und keine Steuerelemente mit ihm verknüpft sind, können Sie es löschen.
 
 ### <a name="upon-completion-settings"></a>Einstellungen nach Abschluss
 
@@ -110,6 +116,8 @@ In diesem Artikel wird die Erstellung einer oder mehrerer Zugriffsüberprüfunge
 
 1. Legen Sie **Erinnerungen** auf **Aktivieren** fest, damit Azure AD Erinnerungen zu laufenden Zugriffsüberprüfungen an Prüfer sendet, die ihre Überprüfung noch nicht abgeschlossen haben.
 
+    Standardmäßig sendet Azure AD automatisch eine Erinnerung, wenn die Prüfer nach der Hälfte der Zeit noch nicht reagiert haben.
+
 ## <a name="start-the-access-review"></a>Starten der Zugriffsüberprüfung
 
 Klicken Sie nach dem Festlegen der Einstellungen für eine Zugriffsüberprüfung auf **Starten**. Die Zugriffsüberprüfung wird in der Liste mit einer Angabe des Status angezeigt.
@@ -118,19 +126,7 @@ Klicken Sie nach dem Festlegen der Einstellungen für eine Zugriffsüberprüfung
 
 Standardmäßig sendet Azure AD kurz nach dem Start der Überprüfung eine E-Mail an die Prüfer. Wenn Sie nicht möchten, dass Azure AD die E-Mail sendet, stellen Sie sicher, dass die Prüfer darüber in Kenntnis gesetzt werden, dass sie eine ausstehende Zugriffsüberprüfung abschließen müssen. Sie können ihnen die Anweisungen zum [Überprüfen des Zugriffs auf Gruppen oder Anwendungen](perform-access-review.md) anzeigen. Wenn Ihre Überprüfung für Gäste gedacht ist, die ihren eigenen Zugriff überprüfen sollen, können Sie ihnen die Anweisungen zum [Überprüfen des eigenen Zugriffs auf Gruppen oder Anwendungen ](review-your-access.md) anzeigen.
 
-Wenn es sich bei einigen Prüfern um Gäste handelt: Gäste werden nur dann per E-Mail benachrichtigt, wenn sie die Einladung bereits angenommen haben.
-
-## <a name="manage-the-access-review"></a>Verwalten der Zugriffsüberprüfung
-
-Sie können den Fortschritt der Überprüfungen durch die Prüfer auf der Seite **Übersicht** der Zugriffsüberprüfung nachverfolgen. Zugriffsrechte werden im Verzeichnis erst geändert, wenn die [Überprüfung abgeschlossen](complete-access-review.md) ist.
-
-![Fortschritt der Zugriffsüberprüfungen](./media/create-access-review/overview-progress.png)
-
-Einmalige Überprüfung: Führen Sie nach Ablauf des Zugriffsüberprüfungszeitraums oder nach Beenden der Zugriffsüberprüfung durch den Administrator die Schritte unter [Durchführen einer Gruppen oder Anwendungen betreffenden Zugriffsüberprüfung](complete-access-review.md) aus, um die Ergebnisse anzuzeigen und anzuwenden.  
-
-Um eine Serie von Zugriffsüberprüfungen zu verwalten, navigieren Sie zur Zugriffsüberprüfung. Dort finden Sie unter den geplanten Überprüfungen die anstehenden Überprüfungen, und Sie können das Enddatum bearbeiten oder Prüfer entsprechend hinzufügen/entfernen.
-
-Basierend auf Ihrer Auswahl unter **Einstellungen nach Abschluss** wird nach dem Enddatum der Überprüfung oder bei manueller Beendigung der Überprüfung die automatische Anwendung ausgeführt. Der Status der Überprüfung ändert sich von **Abgeschlossen** über Zwischenzustände wie **Wird angewandt** schließlich in den Status **Angewandt**. Erwartungsgemäß sollten abgelehnte Benutzer (sofern vorhanden) innerhalb weniger Minuten aus der Gruppenmitgliedschaft oder Anwendungszuweisung entfernt werden.
+Wenn Sie Gäste als Prüfer zugewiesen haben, diese die Einladung aber nicht angenommen haben, erhalten sie keine E-Mail zu Zugriffsüberprüfungen, da die Einladung zuerst akzeptiert werden muss, bevor Überprüfungen vorgenommen werden können.
 
 ## <a name="create-reviews-via-apis"></a>Erstellen von Überprüfungen über APIs
 

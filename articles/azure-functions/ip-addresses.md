@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: glenga
 ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849478"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61035859"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-Adressen in Azure Functions
 

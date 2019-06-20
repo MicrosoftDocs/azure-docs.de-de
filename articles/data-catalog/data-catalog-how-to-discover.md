@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61001410"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Ermitteln von Datenquellen in Azure Data Catalog
 

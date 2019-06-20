@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
 ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011621"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60362117"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Erste Schritte mit Azure-Tabellenspeicher und verbundenen Visual Studio-Diensten
 

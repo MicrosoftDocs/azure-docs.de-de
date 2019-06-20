@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57457760"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178320"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Erstellen eines Namespace im Azure-Portal
 Um mit der Verwendung von Service Bus-Nachrichtenentitäten in Azure beginnen zu können, müssen Sie zuerst einen Namespace mit einem in Azure eindeutigen Namen erstellen. Ein Namespace ist ein Bereichscontainer für die Adressierung von Service Bus-Ressourcen innerhalb Ihrer Anwendung.
@@ -36,7 +36,7 @@ So erstellen Sie einen Namespace
     7. Klicken Sie auf **Erstellen**. Ihr Dienstnamespace wird nun erstellt und aktiviert. Ggf. müssen Sie einige Minuten warten, bis die Ressourcen für Ihr Konto durch das System bereitgestellt werden.
    
         ![Namespace erstellen](./media/service-bus-create-namespace-portal/create-namespace.png)
-4. Vergewissern Sie sich, dass der Service Bus-Namespace erfolgreich bereitgestellt wurde. Wählen Sie auf der Symbolleiste das **Glockensymbol (Warnungen)**, um entsprechende Benachrichtigungen anzuzeigen. Wählen Sie in der Benachrichtigung den **Namen der Ressourcengruppe** aus, wie in der folgenden Abbildung gezeigt. Sie sehen die Ressourcengruppe, die den Service Bus-Namespace enthält.
+4. Vergewissern Sie sich, dass der Service Bus-Namespace erfolgreich bereitgestellt wurde. Wählen Sie auf der Symbolleiste das **Glockensymbol (Warnungen)** , um entsprechende Benachrichtigungen anzuzeigen. Wählen Sie in der Benachrichtigung den **Namen der Ressourcengruppe** aus, wie in der folgenden Abbildung gezeigt. Sie sehen die Ressourcengruppe, die den Service Bus-Namespace enthält.
 
     ![Bereitstellungswarnung](./media/service-bus-create-namespace-portal/deployment-alert.png)
 5. Wählen Sie auf der Seite **Ressourcengruppe** den **Service Bus-Namespace** für Ihre Ressourcengruppe aus. 

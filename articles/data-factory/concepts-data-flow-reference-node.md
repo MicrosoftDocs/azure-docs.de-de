@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 626943143e8fa193f143e66d856d9b00e3589fb5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732802"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61262669"
 ---
 # <a name="mapping-data-flow-reference-node"></a>Mapping Data Flow: Verweisknoten
 

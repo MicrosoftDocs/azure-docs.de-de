@@ -9,11 +9,11 @@ ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
 ms.openlocfilehash: ae072fde48af9a4c81c8503762003eda17721bd9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830668"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158632"
 ---
 > [!div class="op_single_selector"]
 > * [C#](../articles/iot-hub/quickstart-device-streams-proxy-csharp.md)

@@ -2,25 +2,25 @@
 title: 'Schnellstart: Konfigurieren der End-to-End-SSL-Verschlüsselung mit Azure Application Gateway im Azure-Portal | Microsoft-Dokumentation'
 description: Hier erfahren Sie, wie Sie das Azure-Portal zum Erstellen einer Azure Application Gateway-Instanz mit End-to-End-SSL-Verschlüsselung verwenden.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58229325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64946798"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Konfigurieren von End-to-End-SSL mit Application Gateway im Azure-Portal
 
 In diesem Artikel erfahren Sie, wie Sie das Azure-Portal zum Konfigurieren der End-to-End-SSL-Verschlüsselung mit einer Application Gateway v1-SKU verwenden.  
 
 > [!NOTE]
-> Zum Aktivieren der End-to-End-Konfiguration mit einer Application Gateway v2-SKU sind vertrauenswürdige Stammzertifikate erforderlich. Die Unterstützung für das Hinzufügen vertrauenswürdiger Stammzertifikate im Portal ist noch nicht verfügbar. Daher sollten Sie bei Verwendung einer v2-SKU die Anweisungen unter [Konfigurieren von End-to-End-SSL mit Application Gateway mithilfe von PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) befolgen.
+> Zum Aktivieren der End-to-End-Konfiguration mit einer Application Gateway v2-SKU sind vertrauenswürdige Stammzertifikate erforderlich. Die Unterstützung für das Hinzufügen vertrauenswürdiger Stammzertifikate im Portal ist noch nicht verfügbar. Daher sollten Sie bei Verwendung einer v2-SKU die Anweisungen unter [Konfigurieren von End-to-End-SSL mithilfe von PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) befolgen.
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
@@ -63,7 +63,7 @@ Informationen zum Aktivieren der SSL-Beendigung beim Erstellen eines neuen Anwen
 
 Sie müssen zunächst die SSL-Beendigung im Listener aktivieren, um ein vorhandenes Anwendungsgateway mit End-to-End-SSL-Verschlüsselung zu konfigurieren. Dadurch wird die SSL-Verschlüsselung für die Kommunikation zwischen dem Client und dem Anwendungsgateway aktiviert. Anschließend müssen Sie die Zertifikate für die Back-End-Server in den HTTP-Einstellungen in die Whitelist aufnehmen, um die SSL-Verschlüsselung für die Kommunikation zwischen dem Anwendungsgateway und den Back-End-Servern zu aktivieren, wodurch die End-to-End-SSL-Verschlüsselung ermöglicht wird.
 
-Sie müssen einen Listener mit HTTPS-Protokoll und -Zertifikat zum Aktivieren der SSL-Beendigung verwenden. Sie können das Protokoll eines vorhandenen Listeners nicht ändern. Daher können Sie entweder einen vorhandenen Listener mit HTTPS-Protokoll und -Zertifikat verwenden oder einen neuen Listener erstellen. Wenn Sie sich für ersteres entscheiden, können Sie die folgenden Schritte zum **Aktivieren der SSL-Beendigung in einem vorhandenen Anwendungsgateway** überspringen und mit dem Abschnitt **Aufnehmen der Zertifikate für Back-End-Server in die Whitelist** fortfahren. Wenn Sie sich für letzteres entschieden haben, führen Sie die folgenden Schritte aus. 
+Sie müssen einen Listener mit HTTPS-Protokoll und -Zertifikat zum Aktivieren der SSL-Beendigung verwenden. Sie können das Protokoll eines vorhandenen Listeners nicht ändern. Daher können Sie entweder einen vorhandenen Listener mit HTTPS-Protokoll und -Zertifikat verwenden oder einen neuen Listener erstellen. Wenn Sie sich für ersteres entscheiden, können Sie die folgenden Schritte zum **Aktivieren der SSL-Beendigung in einem vorhandenen Anwendungsgateway** überspringen und mit dem Abschnitt **Aufnehmen der Zertifikate für Back-End-Server in die Whitelist** fortfahren. Wenn Sie sich für letzteres entschieden haben, verwenden Sie diese Schritte.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Aktivieren der SSL-Beendigung in einem vorhandenen Anwendungsgateway
 

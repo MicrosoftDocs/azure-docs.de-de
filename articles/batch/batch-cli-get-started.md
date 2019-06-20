@@ -16,11 +16,11 @@ ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60782554"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Verwalten von Batch-Ressourcen mit der Azure CLI
 
@@ -39,7 +39,7 @@ Sie können die aktuelle Azure-Befehlszeilenschnittstelle in [Azure Cloud Shell]
 
 ## <a name="command-help"></a>Hilfe zu Befehlen
 
-Sie können Hilfetext für jeden Befehl der Azure-Befehlszeilenschnittstelle anzeigen, indem Sie `-h` an den Befehl anhängen. Geben Sie keine weiteren Optionen an. Beispiel: 
+Sie können Hilfetext für jeden Befehl der Azure-Befehlszeilenschnittstelle anzeigen, indem Sie `-h` an den Befehl anhängen. Geben Sie keine weiteren Optionen an. Beispiel:
 
 * Geben Sie Folgendes ein, um Hilfe zum Befehl `az` zu erhalten: `az -h`
 * Verwenden Sie Folgendes, um eine Liste mit allen Batch-Befehlen der Befehlszeilenschnittstelle zu erhalten: `az batch -h`
@@ -122,7 +122,7 @@ Sehen Sie sich die [CLI-Skriptbeispiele](cli-samples.md) für Batch an, um gäng
 
 ## <a name="json-files-for-resource-creation"></a>JSON-Dateien für die Erstellung von Ressourcen
 
-Beim Erstellen von Batch-Ressourcen wie Pools und Aufträgen können Sie eine JSON-Datei mit der Konfiguration der neuen Ressource angeben, anstatt die entsprechenden Parameter als Befehlszeilenoptionen zu übergeben. Beispiel: 
+Beim Erstellen von Batch-Ressourcen wie Pools und Aufträgen können Sie eine JSON-Datei mit der Konfiguration der neuen Ressource angeben, anstatt die entsprechenden Parameter als Befehlszeilenoptionen zu übergeben. Beispiel:
 
 ```azurecli
 az batch pool create my_batch_pool.json

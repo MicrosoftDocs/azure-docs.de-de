@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: cbdbedf32e8a3dad85262f287b27a03df780d95a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60393060"
 ---
 # <a name="monitoring-the-cluster"></a>Überwachen des Clusters
 

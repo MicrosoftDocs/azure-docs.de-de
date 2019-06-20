@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 036a06111c3ec0ad54ac4bad4f75a9be10dbdd2b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136482"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258717"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-Sicherheit 
 
@@ -201,6 +201,14 @@ Im folgenden Beispiel ist dargestellt, wie Sie dies für die Cosmos DB-Ressource
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Windows-Sicherheitsbaselines
+[Es empfiehlt sich, eine branchenübliche Konfiguration zu implementieren, die allgemein bekannt ist und ausführlich getestet wurde (beispielsweise Microsoft-Sicherheitsbaselines), anstatt eine eigene Baseline zu erstellen.](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) Zur Bereitstellung für Ihre VM-Skalierungsgruppen können Sie beispielsweise den Azure-DSC-Erweiterungshandler (Desired State Configuration) verwenden, um die virtuellen Computer zu konfigurieren, sobald sie online geschaltet werden, damit auf ihnen die Produktionssoftware ausgeführt wird.
+
+## <a name="azure-firewall"></a>Azure Firewall
+[Azure Firewall ist ein verwalteter, cloudbasierter Netzwerksicherheitsdienst zum Schutz Ihrer Azure Virtual Network-Ressourcen. Hierbei handelt es sich um eine vollständig zustandsbehaftete Firewall-as-a-Service mit integrierter Hochverfügbarkeit und uneingeschränkter Cloudskalierbarkeit.](https://docs.microsoft.com/azure/firewall/overview) Dadurch lässt sich ausgehender HTTP/S-Datenverkehr auf eine Liste vollständig qualifizierter Domänennamen (Fully Qualified Domain Names, FQDNs) einschließlich Platzhaltern beschränken. Diese Funktion erfordert keine SSL-Beendigung. Es wird empfohlen, [FQDN-Tags von Azure Firewall](https://docs.microsoft.com/azure/firewall/fqdn-tags) für Windows-Updates zu nutzen und Netzwerkdatenverkehr für Microsoft Windows Update-Endpunkte zu aktivieren, damit dieser Ihre Firewall passieren kann.
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 

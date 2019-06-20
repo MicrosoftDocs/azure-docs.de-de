@@ -8,11 +8,11 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790911"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Abrufen der Ressourcenintegrität mithilfe der REST-API 
 
@@ -34,8 +34,8 @@ Die folgenden Header sind erforderlich:
 
 |Anforderungsheader|BESCHREIBUNG|  
 |--------------------|-----------------|  
-|*Inhaltstyp*:|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
-|*Autorisierung*:|Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |  
+|*Content-Type:*|Erforderlich. Legen Sie diese Option auf `application/json` fest.|  
+|*Authorization:*|Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer` [Zugriffstoken](/rest/api/azure/#authorization-code-grant-interactive-clients) fest. |  
 
 ### <a name="uri-parameters"></a>URI-Parameter
 

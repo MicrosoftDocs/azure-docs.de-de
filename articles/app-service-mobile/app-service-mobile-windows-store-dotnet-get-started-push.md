@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 7efd853e7b66933cac811625d7510139864f41f3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128031"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Hinzufügen von Pushbenachrichtigungen zu Ihrer Windows-App
 
@@ -39,7 +39,7 @@ Wenn Sie das heruntergeladene Schnellstart-Serverprojekt nicht verwenden, müsse
 
 Sie müssen Ihre App an den Microsoft Store übermitteln und dann Ihr Serverprojekt für die Integration in die [Windows-Benachrichtigungsdienste (Windows Notification Services, WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) konfigurieren, um Pushbenachrichtigungen senden zu können.
 
-1. Klicken Sie im Projektmappen-Explorer von Visual Studio mit der rechten Maustaste auf das UWP-App-Projekt, und klicken Sie dann auf **Store** > **App mit Store verknüpfen...**.
+1. Klicken Sie im Projektmappen-Explorer von Visual Studio mit der rechten Maustaste auf das UWP-App-Projekt, und klicken Sie dann auf **Store** > **App mit Store verknüpfen...** .
 
     ![Verknüpfen der App mit Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 

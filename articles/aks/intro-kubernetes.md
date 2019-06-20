@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995029"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073815"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Mit Azure Kubernetes Service (AKS) können Sie ganz einfach einen Kubernetes-Cluster in Azure bereitstellen. AKS verringert die Komplexität und den operativen Mehraufwand für die Kubernetes-Verwaltung, indem ein Großteil dieser Verantwortung an Azure übertragen wird. Azure führt als gehosteter Kubernetes-Dienst wichtige Aufgaben für Sie aus, z.B. Systemüberwachung und Wartung. Die Kubernetes-Master werden von Azure verwaltet. Sie verwalten und warten nur die Agent-Knoten. Als verwalteter Kubernetes-Dienst ist AKS kostenlos. Sie zahlen nur für die Agent-Knoten in den Clustern, nicht für den Master.
 
-Sie können einen AKS-Cluster im Azure-Portal, mit der Azure-Befehlszeilenschnittstelle oder vorlagengesteuerten Bereitstellungsoptionen wie etwa Resource Manager-Vorlagen und Terraform erstellen. Wenn Sie einen AKS-Cluster bereitstellen, werden der Kubernetes-Master und alle Knoten für Sie bereitgestellt und konfiguriert. Zusätzliche Features wie erweiterte Netzwerke, Azure Active Directory-Integration und Überwachung können ebenfalls im Rahmen der Bereitstellung konfiguriert werden.
+Sie können einen AKS-Cluster im Azure-Portal, mit der Azure-Befehlszeilenschnittstelle oder vorlagengesteuerten Bereitstellungsoptionen wie etwa Resource Manager-Vorlagen und Terraform erstellen. Wenn Sie einen AKS-Cluster bereitstellen, werden der Kubernetes-Master und alle Knoten für Sie bereitgestellt und konfiguriert. Zusätzliche Features wie erweiterte Netzwerke, Azure Active Directory-Integration und Überwachung können ebenfalls im Rahmen der Bereitstellung konfiguriert werden. Die Unterstützung von Windows Server-Containern in AKS befindet sich derzeit in der Vorschauphase.
 
 Weitere Informationen zu Kubernetes-Grundlagen finden Sie unter [Grundlegende Kubernetes-Konzepte für AKS][concepts-clusters-workloads].
 
@@ -43,9 +43,9 @@ Um die Leistung Ihrer AKS-Cluster und bereitgestellten Anwendungen zu verstehen,
 
 Weitere Informationen finden Sie unter [Überwachen der Integrität von Azure Kubernetes Service-Containern (AKS) (Vorschauversion)][container-health].
 
-## <a name="cluster-and-node"></a>Cluster- und Knoten
+## <a name="clusters-and-nodes"></a>Cluster und Knoten
 
-AKS-Knoten werden auf virtuellen Azure-Computern ausgeführt. Sie können eine Verbindung des Speichers mit Knoten und Pods herstellen, Clusterkomponenten aktualisieren und GPUs verwenden.
+AKS-Knoten werden auf virtuellen Azure-Computern ausgeführt. Sie können eine Verbindung des Speichers mit Knoten und Pods herstellen, Clusterkomponenten aktualisieren und GPUs verwenden. AKS unterstützt Kubernetes-Cluster, auf denen mehrere Knotenpools ausgeführt werden, um gemischte Betriebssysteme und Windows Server-Container (derzeit in der Vorschauphase) zu unterstützen. Linux-Knoten führen ein angepasstes Ubuntu-Betriebssystemimage und Windows Server-Knoten ein angepasstes Windows Server 2019-Betriebssystemimage aus.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Clusterknoten und Skalierung von Pods
 

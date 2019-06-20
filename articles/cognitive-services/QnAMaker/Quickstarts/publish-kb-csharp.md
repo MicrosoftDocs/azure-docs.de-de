@@ -11,19 +11,19 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 8a6a46708b78b3f92087ace02173f9f081fa85b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170512"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827589"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Schnellstart: Veröffentlichen einer Wissensdatenbank in QnA Maker mit C#
 
 In diesem REST-basierten Schnellstart wird das programmgesteuerte Veröffentlichen Ihrer Wissensdatenbank (Knowledge Base, KB) Schritt für Schritt beschrieben. Bei der Veröffentlichung wird die aktuelle Version der Wissensdatenbank per Pushvorgang an einen dedizierten Azure Search-Index übertragen und ein Endpunkt erstellt, der in Ihrer Anwendung oder Ihrem Chatbot aufgerufen werden kann.
 
 In dieser Schnellstartanleitung werden QnA Maker-APIs aufgerufen:
-* [Veröffentlichen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): Für diese API sind keine Informationen im Text der Anforderung erforderlich.
+* [Veröffentlichen](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish): Für diese API sind keine Informationen im Text der Anforderung erforderlich.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -40,8 +40,8 @@ In dieser Schnellstartanleitung werden QnA Maker-APIs aufgerufen:
 
 ## <a name="create-knowledge-base-project"></a>Erstellen eines Wissensdatenbank-Projekts
 
-1. Öffnen Sie Visual Studio 2017 Community Edition.
-1. Erstellen Sie ein neues Projekt vom Typ **Konsolen-App (.NET Core)**, und nennen Sie es `QnaMakerQuickstart`. Übernehmen Sie für die übrigen Einstellungen die Standardwerte.
+1. Öffnen Sie Visual Studio 2019 Community Edition.
+1. Erstellen Sie ein neues Projekt vom Typ **Konsolen-App (.NET Core)** , und nennen Sie es `QnaMakerQuickstart`. Übernehmen Sie für die übrigen Einstellungen die Standardwerte.
 
 ## <a name="add-required-dependencies"></a>Hinzufügen von erforderlichen Abhängigkeiten
 
@@ -76,4 +76,4 @@ Nachdem Ihre Wissensdatenbank veröffentlicht wurde, können Sie sie vom Endpunk
 Nachdem die Wissensdatenbank veröffentlicht wurde, benötigen Sie die [Endpunkt-URL, um eine Antwort zu generieren](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
-> [REST-API-Referenz für QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [REST-API-Referenz für QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

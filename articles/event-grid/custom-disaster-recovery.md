@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863167"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305075"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Erstellen einer eigenen Notfallwiederherstellung für benutzerdefinierte Themen in Event Grid
-
 Die Notfallwiederherstellung konzentriert sich auf die Wiederherstellung nach einem schwerwiegenden Ausfall der Anwendungsfunktionalität. In diesem Tutorial wird Schritt für Schritt erläutert, wie Sie Ihre Ereignisarchitektur einrichten, um eine Wiederherstellung durchzuführen, wenn in einer bestimmten Region Fehler des Event Grid-Diensts auftreten.
 
 In diesem Tutorial erfahren Sie, wie Sie eine Aktiv/Passiv-Failoverarchitektur für benutzerdefinierte Themen in Event Grid erstellen. Zum Durchführen des Failovers spiegeln Sie Ihre Themen und Abonnements in zwei Regionen, und anschließend verwalten Sie ein Failover, wenn ein Thema fehlerhaft wird. Die Architektur in diesem Tutorial führt ein Failover für den gesamten neuen Datenverkehr aus. Beachten Sie, dass bereits aktive Ereignisse bei diesem Setup erst wiederhergestellt werden, wenn die betroffene Region wieder fehlerfrei ist.
+
+> [!NOTE]
+> Event Grid unterstützt jetzt die automatische Notfallwiederherstellung mit Georeplikation (GeoDR) auf Serverseite. Sie können weiterhin die clientseitige Notfallwiederherstellungslogik implementieren, wenn Sie den Failoverprozess präziser steuern möchten. Ausführliche Informationen zur automatischen Notfallwiederherstellung mit Georeplikation finden Sie unter [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md) (Serverseitige Notfallwiederherstellung mit Georeplikation in Azure Event Grid).
 
 ## <a name="create-a-message-endpoint"></a>Erstellen eines Nachrichtenendpunkts
 

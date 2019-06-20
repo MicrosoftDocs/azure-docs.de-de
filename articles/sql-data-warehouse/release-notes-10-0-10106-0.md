@@ -4,28 +4,46 @@ description: Versionshinweise zu Azure SQL Data Warehouse
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
-ms.date: 04/10/2019
+ms.subservice: ''
+ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917247"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417702"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse – Versionshinweise
 
 In diesem Artikel sind die neuen Funktionen und Verbesserungen in den neuesten Versionen von [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md) zusammengefasst. Dieser Artikel enthält zudem wichtige Inhaltsaktualisierungen, die nicht in direktem Zusammenhang mit einer Version stehen, aber im gleichen Zeitraum veröffentlicht werden. Informationen zu Verbesserungen bei anderen Azure-Diensten finden Sie unter [Dienstupdates](https://azure.microsoft.com/updates).
 
+## <a name="check-your-azure-sql-data-warehouse-version"></a>Überprüfen Ihrer Azure SQL Data Warehouse-Version
+
+Da in allen Regionen neue Features eingeführt werden, überprüfen Sie die in Ihrer Instanz bereitgestellte Version sowie die aktuellen Versionshinweise für Azure SQL Data Warehouse, um zu ermitteln, ob ein Feature verfügbar ist. Stellen Sie über SQL Server Management Studio (SSMS) eine Verbindung mit Ihrer Azure SQL Data Warehouse-Instanz her, um deren Version zu überprüfen. Führen Sie `SELECT @@VERSION AS 'SQL Data Warehouse';` aus, um zur aktuellen Version von Azure SQL Data Warehouse zurückzukehren.
+
+Beispielausgabe: ![SQL Data Warehouse-Version](./media/release-notes/sql_data_warehouse_version.png)
+
+Verwenden Sie das identifizierte Datum, um zu bestätigen, welches Release auf Ihre Azure SQL Data Warehouse-Instanz angewendet wurde.
+
+## <a name="may-2019"></a>Mai 2019
+
+| Verbesserungen beim Dienst | Details |
+| --- | --- |
+|**Dynamische Datenmaskierung (Preview)**|Mit der dynamischen Datenmaskierung (DDM) wird der unerlaubte Zugriff auf Ihre sensiblen Daten in Ihrer Data Warehouse-Instanz verhindert, indem diese basierend auf den von Ihnen definierten Maskierungsregeln direkt in den Abfrageergebnissen verborgen werden. Weitere Informationen finden Sie unter [Dynamische Datenmaskierung für SQL-Datenbank](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Workloadpriorisierung jetzt allgemein verfügbar**|Mithilfe der Workloadklassifizierung und -priorisierung können Sie die Ausführungsreihenfolge von Abfragen beeinflussen. Weitere Informationen zur Wichtigkeit von Workloads finden Sie in den Übersichtsartikeln zu den Themen [Klassifizierung](sql-data-warehouse-workload-classification.md) und [Wichtigkeit](sql-data-warehouse-workload-importance.md) in der Dokumentation. Beachten Sie ferner das Dokument [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest).<br/><br/>Die Wichtigkeit der Workload können Sie in den folgenden Videos in Aktion sehen:<br/> -[Workload Management concepts](https://www.youtube.com/embed/QcCRBAhoXpM) (Workloadverwaltungskonzepte)<br/> -[Workload Management scenarios](https://www.youtube.com/embed/_2rLMljOjw8) (Szenarios für die Workloadverwaltung)|
+|**Additional T-SQL support** (Weitere T-SQL-Unterstützung)|Die T-SQL-Sprachoberfläche für SQL Data Warehouse wurde erweitert und bietet nun Unterstützung für: </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**JSON-Funktionen**|Mithilfe der folgenden neuen JSON-Funktionen können Business Analysts in Azure Data Warehouse nun die vertraute T-SQL-Programmiersprache für die Abfrage und Bearbeitung von Dokumenten verwenden, die als JSON-Daten formatiert sind:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
+|**Zwischenspeichern von Resultsets (Preview)**|Das Zwischenspeichern von Resultsets ermöglicht sofortige Abfrageantwortzeiten, und Erkenntnisse sind für Business Analysts und berichtende Benutzer schneller verfügbar. Weitere Informationen finden Sie unter</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET Options (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) (ALTER DATABASE SET-Optionen (Transact SQL))</br> - [SET RESULT SET CACHING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET-Anweisungen (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**Sortierter gruppierter Columnstore-Index (Vorschau)**|Columnstore ist ein wichtiges Element beim Speichern und effizienten Abfragen großer Datenmengen. Columnstore teilt für jede Tabelle die eingehenden Daten in Zeilengruppen auf, und jede Spalte in einer Zeilengruppe bildet ein Segment auf dem Datenträger.  Sortierte gruppierte Columnstore-Indizes optimieren die Abfrageausführung, indem sie eine effiziente Löschung von Segmenten ermöglichen.   Weitere Informationen finden Sie unter</br> -  [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
+
 ## <a name="march-2019"></a>März 2019
 
 | Verbesserungen beim Dienst | Details |
 | --- | --- |
-|**Wichtigkeit einer Workload jetzt für Vorschau von Gen2 verfügbar**|Die Wichtigkeit der Workload gibt Data Engineers die Möglichkeit, diese Wichtigkeit für die Klassifizierung von Anforderungen zu verwenden. Anforderungen mit höherer Wichtigkeit erhalten schneller Zugriff auf Ressourcen, sodass SLAs besser eingehalten werden können.  Mithilfe der Wichtigkeit der Workload können Arbeiten mit hohem Geschäftsnutzen die SLAs in einer freigegebenen Umgebung mit weniger Ressourcen einhalten.<br/><br/>Die Vorschauversion der Klassifizierung und Bedeutung der Workloadverwaltung ist für Builds mit dem Veröffentlichungsdatum 9. April 2019 oder später verfügbar. Benutzer sollten es vermeiden, Builds für Tests der Workloadverwaltung zu verwenden, deren Veröffentlichungsdatum vor diesem Datum liegt. Um festzustellen, ob Ihr Build für die Workloadverwaltung geeignet ist, führen Sie `select @@version` aus, wenn Sie mit Ihrer SQL Data Warehouse-Instanz verbunden sind.</br></br>Weitere Informationen zur Wichtigkeit von Workloads finden Sie in den Übersichtsartikeln zu den Themen [Klassifizierung](sql-data-warehouse-workload-classification.md) und [Wichtigkeit](sql-data-warehouse-workload-importance.md) in der Dokumentation. Beachten Sie ferner das Dokument [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest).<br/><br/>Die Wichtigkeit der Workload können Sie in den folgenden Videos in Aktion sehen:<br/>[Workload-Verwaltungskonzepte](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Szenarios für die Workloadverwaltung](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**Datenermittlung und -klassifizierung**|Die Datenermittlung und -klassifizierung für Azure SQL Data Warehouse befindet sich jetzt in der öffentlichen Vorschauversion. Es ist wichtig, vertrauliche Daten und die Daten Ihrer Kunden zu schützen. Je mehr Ihre Unternehmens- und Kundendaten anwachsen, desto schwieriger wird das Ermitteln, Klassifizieren und Schützen Ihrer Daten. Die Funktion zur Datenermittlung und -klassifizierung, die wir nativ in Azure SQL Data Warehouse bereitstellen, vereinfacht den Schutz Ihrer Daten. Allgemeine Vorteile dieser Funktion:<br/>&bull; &nbsp; Einhalten von Datenschutzstandards und gesetzlichen Bestimmungen<br/>&bull; &nbsp; Beschränken des Zugriffs auf und Härten der Sicherheit von Data Warehouses mit vertraulichen Daten<br/>&bull; &nbsp; Überwachen und Generieren von Warnungen bei abweichenden Zugriffen auf vertrauliche Daten<br/>&bull; &nbsp; Visualisieren vertraulicher Daten im zentralen Dashboard des Azure-Portals </br></br>Datenermittlung und -klassifizierung ist für Azure SQL Data Warehouse jetzt in allen Azure-Regionen im Rahmen von Advanced Data Security verfügbar. Die Funktion umfasst auch die Bewertung von Sicherheitsrisiken und die Bedrohungserkennung. Weitere Informationen zur Datenermittlung und -klassifizierung finden Sie im [Blogbeitrag](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) und in unserer [Onlinedokumentation](/azure/sql-database/sql-database-data-discovery-and-classification).|
 |**GROUP BY ROLLUP**|ROLLUP ist nun eine unterstützte GROUP BY-Option in Azure Data Warehouse.   GROUP BY ROLLUP erstellt für jede Kombination von Spaltenausdrücken eine Gruppe. GROUP BY fasst außerdem die Ergebnisse zu Zwischen- und Gesamtsummen zusammen. Die GROUP BY-Funktion wird von rechts nach links verarbeitet. Sie reduziert die Anzahl der Spaltenausdrücke, mit denen die Gruppen und Aggregationen erstellt werden.  Die Reihenfolge der Spalten wirkt sich auf die Ausgabe von ROLLUP aus und kann Auswirkungen auf die Anzahl der Zeilen im Resultset haben.<br/><br/>Weitere Informationen zu GROUP BY ROLLUP finden Sie unter [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest).
 |**Verbesserte Genauigkeit für den DWU-Verbrauch und CPU-Portalmetriken**|SQL Data Warehouse verbessert die Genauigkeit der Metrik im Azure-Portal erheblich.  Diese Version umfasst eine Fehlerbehebung für die Metrikdefinition zur CPU-Auslastung und zum DWU-Verbrauch, sodass Ihre Workload auf allen Computeknoten korrekt widergespiegelt wird. Vor dieser Fehlerbehebung wurden nicht alle Metrikwerte gemeldet. Es wird eine Zunahme von DWU-Verbrauch und CPU-Metriken im Azure-Portal erwartet. |

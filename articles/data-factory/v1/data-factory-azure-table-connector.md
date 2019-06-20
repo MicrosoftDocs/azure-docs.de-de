@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146931"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Verschieben von Daten in eine und aus einer Azure-Tabelle mithilfe von Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -479,7 +479,7 @@ Beim Verschieben von Daten in die und aus der Azure-Tabelle werden die folgenden
 | --- | --- | --- |
 | Edm.Binary |Byte[] |Ein Array von Bytes mit einer Größe bis zu 64KB. |
 | Edm.Boolean |bool |Ein boolescher Wert. |
-| Edm.DateTime |DateTime |Ein 64-Bit-Wert, ausgedrückt als koordinierte Weltzeit (UTC). Der unterstützte DateTime-Bereich beginnt um 00:00 Uhr, Mitternacht, 1. Januar, 1601 n. Chr. (unsere Zeitrechnung), UTC Der Bereich endet am 31. Dezember 9999. |
+| Edm.DateTime |Datetime |Ein 64-Bit-Wert, ausgedrückt als koordinierte Weltzeit (UTC). Der unterstützte DateTime-Bereich beginnt um 00:00 Uhr, Mitternacht, 1. Januar, 1601 n. Chr. (unsere Zeitrechnung), UTC Der Bereich endet am 31. Dezember 9999. |
 | Edm.Double |double |Ein 64-Bit-Gleitkommawert. |
 | Edm.Guid |Guid |Ein 128-Bit-GUID. |
 | Edm.Int32 |Int32 |Eine 32-Bit-Ganzzahl. |

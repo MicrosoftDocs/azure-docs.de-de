@@ -3,8 +3,8 @@ title: Visualisieren von Netzwerk-Datenverkehrsmustern mithilfe von Azure Networ
 description: Auf dieser Seite wird beschrieben, wie Sie die Network Watcher-Paketerfassung mit CapAnalysis zum Visualisieren von Mustern im eingehenden und ausgehenden VM-Datenverkehr verwenden.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: kumud
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302232"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64936021"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualisieren von Mustern im eingehenden und ausgehenden VM-Datenverkehr mithilfe von Open Source-Tools
 
@@ -76,7 +76,7 @@ CapAnalysis umfasst verschiedene Optionen zum Visualisieren Ihrer Paketerfassung
 
 1. GeoMAP
 
-    Dieser Bereich enthält eine Kartenansicht für Ihren Netzwerkdatenverkehr, wobei die Farben jeweils das Datenverkehrsvolumen für die einzelnen Länder angeben. Sie können hervorgehobene Länder auswählen, um weitere Datenflussstatistiken anzuzeigen, z.B. den Anteil der Daten, die von IP-Adressen in diesem Land gesendet bzw. empfangen werden.
+    Dieser Bereich enthält eine Kartenansicht für Ihren Netzwerkdatenverkehr, wobei die Farben jeweils das Datenverkehrsvolumen für die einzelnen Länder/Regionen angeben. Sie können hervorgehobene Länder/Regionen auswählen, um weitere Datenflussstatistiken anzuzeigen, z. B. den Anteil der Daten, die von IP-Adressen in diesem Land bzw. in dieser Region gesendet bzw. empfangen werden.
 
     ![GeoMAP][8]
 
@@ -96,8 +96,8 @@ Mit der Paketerfassungsfunktion von Network Watcher können Sie die Daten erfass
 
 Weitere Informationen zu NSG-Datenflussprotokollen finden Sie unter [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md) (Einführung in die Datenflussprotokollierung für Netzwerksicherheitsgruppen).
 
-Erfahren Sie unter [Visualisieren der Datenflussprotokolle von Netzwerksicherheitsgruppen mit Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-<!--Image references-->, wie Sie Ihre NSG-Datenflussprotokolle mit Power BI visualisieren.
+Erfahren Sie unter [Visualisieren der Datenflussprotokolle von Netzwerksicherheitsgruppen mit Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md), wie Sie Ihre NSG-Datenflussprotokolle mit Power BI visualisieren.
+<!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
 [2]: ./media/network-watcher-using-open-source-tools/figure2.png

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 16ccd89fe6eaad3fd6c2704b2f324f486eee45e1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66111643"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178069"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Häufige Fehler bei der Migration von einer klassischen Bereitstellung zu einer Azure Resource Manager-Bereitstellung
 In diesem Artikel werden die Fehler aufgeführt und beschrieben, die bei der Migration von IaaS-Ressourcen vom klassischen Azure-Bereitstellungsmodell zum Azure Resource Manager-Stapel am häufigsten auftreten.

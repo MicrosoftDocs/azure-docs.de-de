@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775032"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64575357"
 ---
 # <a name="glossary"></a>Glossar
 
@@ -37,7 +37,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="antimeridian"></a> **Antimeridian**: Die Linie des 180. Längengrads in östlicher und westlicher Richtung, der auch als 180. Meridian bezeichnet wird. Er liegt auf der gegenüberliegenden Seite des Nullmeridians auf dem Globus.
 
-<a name="application-programming-interface-api"></a> **Anwendungsprogrammierschnittstelle (Application Programming Interface, API)**: Eine Spezifikation, die Entwicklern das Erstellen von Anwendungen ermöglicht.
+<a name="application-programming-interface-api"></a> **Anwendungsprogrammierschnittstelle (Application Programming Interface, API)** : Eine Spezifikation, die Entwicklern das Erstellen von Anwendungen ermöglicht.
 
 <a name="api-key"></a> **API-Schlüssel**: Siehe „Azure Maps-Schlüssel“.
 
@@ -51,7 +51,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="autosuggest"></a> **Vorschlagssuche**: Ein Feature in einer Anwendung, das die logischen Möglichkeiten für die Benutzereingabe vorhersagt.
 
-<a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: Der frühere Name von Azure Maps in der Vorschau.
+<a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)** : Der frühere Name von Azure Maps in der Vorschau.
 
 <a name="azure-maps-key"></a> **Azure Maps-Schlüssel**: Ein Azure Maps-Schlüssel ist eine eindeutige Zeichenfolge, die zur Authentifizierung einer Azure Maps-Anwendung eines Benutzers oder einer Dienstanforderung dient. 
 
@@ -63,7 +63,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="bearing"></a> **Peilung**: Die horizontale Richtung eines Punkts in Bezug auf einen anderen Punkt. Dies wird als Winkel relativ zur nördlichen Richtung von Grad 0 bis zum 360. Grad im Uhrzeigersinn ausgedrückt. 
 
-<a name="boundary"></a> **Grenze**: Eine Linie oder ein Polygon, die bzw. das angrenzende politische Einheiten (z.B. Länder, Ortsteile und Ländereien) trennt. Eine Grenze kann, muss jedoch nicht entlang von physischen Gegebenheiten wie Flüssen, Bergen oder Mauern verlaufen.
+<a name="boundary"></a> **Grenze**: Eine Linie oder ein Polygon, die bzw. das angrenzende politische Einheiten (z.B. Länder/Regionen, Ortsteile und Ländereien) trennt. Eine Grenze kann, muss jedoch nicht entlang von physischen Gegebenheiten wie Flüssen, Bergen oder Mauern verlaufen.
 
 <a name="bounds"></a> **Begrenzungen**: Siehe [Begrenzungsrahmen](#bounding-box).
 
@@ -91,13 +91,13 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="coordinate-system"></a> **Koordinatensystem**: Ein Referenzframework, das verwendet wird, um die Positionen von Punkten im Raum in zwei oder drei Dimensionen zu definieren.
 
-<a name="country-code"></a> **Ländercode**: Ein eindeutiger Bezeichner für ein Land basierend auf dem ISO-Standard. ISO2 ist ein Code mit zwei Buchstaben für ein Land (z.B. „US“), das bei ISO3 als Code mit drei Zeichen (z.B. „USA“) dargestellt wird.
+<a name="country-code"></a> **Ländercode**: Ein eindeutiger Bezeichner für ein Land/eine Region basierend auf dem ISO-Standard. ISO2 ist ein Code mit zwei Buchstaben für ein Land (z.B. „US“), das bei ISO3 als Code mit drei Zeichen (z.B. „USA“) dargestellt wird.
 
-<a name="country-subdivision"></a> **Primäre Untereinheit eines Landes**: Eine Untereinheit eines Landes auf oberster Ebene, z.B. ein Bundesstaat, ein Bundesland, ein Kanton oder eine Provinz.
+<a name="country-subdivision"></a> **Primäre Untereinheit eines Landes**: Eine Untereinheit eines Landes/einer Region auf oberster Ebene, z.B. ein Bundesstaat, ein Bundesland, ein Kanton oder eine Provinz.
 
-<a name="country-secondary-subdivision"></a> **Sekundäre Untereinheit eines Landes**: Eine Untereinheit eines Landes auf zweiter Ebene, z.B. ein Landkreis.
+<a name="country-secondary-subdivision"></a> **Sekundäre Untereinheit eines Landes**: Eine Untereinheit eines Landes/einer Region auf zweiter Ebene, z.B. ein Landkreis.
 
-<a name="country-tertiary-subdivision"></a> **Tertiäre Untereinheit eines Landes**: Eine Untereinheit eines Landes auf dritter Ebene, z.B. ein Bezirk.
+<a name="country-tertiary-subdivision"></a> **Tertiäre Untereinheit eines Landes**: Eine Untereinheit eines Landes/einer Region auf dritter Ebene, z.B. ein Bezirk.
 
 <a name="cross-street"></a> **Querstraße**: Ein Punkt, an dem sich mindestens zwei Straßen kreuzen.
 
@@ -109,7 +109,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="dbf-file"></a> **DBF-Datei**: Ein Datenbankdateiformat, das in Kombination mit Shape-Dateien (SHP) verwendet wird.
 
-<a name="degree-minutes-seconds-dms"></a> **Degree Minutes Seconds (DMS)**: Die Maßeinheit, die den Breiten- und Längengrad beschreibt. Ein Grad ist der 360. Teil eines Kreises. Ein Grad ist wiederum in 60 Minuten unterteilt, und eine Minute in 60 Sekunden.
+<a name="degree-minutes-seconds-dms"></a> **Degree Minutes Seconds (DMS)** : Die Maßeinheit, die den Breiten- und Längengrad beschreibt. Ein Grad ist der 360. Teil eines Kreises. Ein Grad ist wiederum in 60 Minuten unterteilt, und eine Minute in 60 Sekunden.
 
 <a name="delaunay-triangulation"></a> **Delaunay-Triangulierung**: Eine Methode zum Erstellen eines Netzes aus zusammenhängenden, nicht überlappenden Dreiecken aus einem Dataset von Punkten. Der Umkreis, der die einzelnen Dreiecke umgibt, enthält keine anderen Punkte aus dem Dataset im Inneren.
 
@@ -117,7 +117,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="destination"></a> **Ziel**: Ein Endpunkt oder Ort, den ein Benutzer bereist.
 
-<a name="digital-elevation-model-dem"></a> **Digitales Höhenmodell (DHM)**: Ein Dataset mit Höhenwerten in Bezug zu einer Fläche, die innerhalb einer Fläche mit einem gängigen Datum in regelmäßigen Abständen erfasst werden. DHMs werden üblicherweise verwendet, um Geländereliefs darzustellen.
+<a name="digital-elevation-model-dem"></a> **Digitales Höhenmodell (DHM)** : Ein Dataset mit Höhenwerten in Bezug zu einer Fläche, die innerhalb einer Fläche mit einem gängigen Datum in regelmäßigen Abständen erfasst werden. DHMs werden üblicherweise verwendet, um Geländereliefs darzustellen.
 
 <a name="dijkstra's-algorithm"></a> **Dijkstra-Algorithmus**: Ein Algorithmus, der die Konnektivität eines Netzes untersucht, um den kürzesten Pfad zwischen zwei Punkten zu finden.
 
@@ -185,7 +185,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="great-circle-distance"></a> **Großkreisentfernung**: Die kürzeste Entfernung zwischen zwei Punkten auf der Oberfläche einer Kugel.
 
-<a name="greenwich-mean-time-gmt"></a> **Greenwich Mean Time (GMT)**: Die Uhrzeit am Nullmeridian, der durch das Royal Greenwich Observatory in Greenwich, England, Großbritannien, verläuft.
+<a name="greenwich-mean-time-gmt"></a> **Greenwich Mean Time (GMT)** : Die Uhrzeit am Nullmeridian, der durch das Royal Greenwich Observatory in Greenwich, England, Großbritannien, verläuft.
 
 <a name="guid"></a> **GUID**: Ein global eindeutiger Bezeichner (Globally Unique Identifier). Eine Zeichenfolge, die eine Schnittstelle, Klasse, Typbibliothek, Komponentenkategorie oder einen Datensatz eindeutig identifiziert.
 
@@ -273,7 +273,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="point"></a> **Point**: Eine Geometrie, die eine einzelne Position auf der Karte darstellt. 
 
-<a name="points-of-interest-poi"></a> **Point of Interest (POI)**: Ein Unternehmen, ein Orientierungspunkt oder ein allgemeiner Interessenbereich.
+<a name="points-of-interest-poi"></a> **Point of Interest (POI)** : Ein Unternehmen, ein Orientierungspunkt oder ein allgemeiner Interessenbereich.
 
 <a name="polygon"></a> **Polygon**: Eine Volumengeometrie, die einen Bereich auf einer Karte darstellt. 
 
@@ -283,7 +283,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="post-code"></a> **Postleitzahl**: Siehe [Postleitzahl](#postal-code).
 
-<a name="postal-code"></a> **Postleitzahl**: Eine Reihe von Buchstaben, Zahlen oder beides in einem bestimmten Format, mit der das Postwesen eines Landes geografische Bereiche in Zonen unterteilt, um die Postzustellung zu vereinfachen.
+<a name="postal-code"></a> **Postleitzahl**: Eine Reihe von Buchstaben, Zahlen oder beides in einem bestimmten Format, mit der das Postwesen eines Landes/einer Region geografische Bereiche in Zonen unterteilt, um die Postzustellung zu vereinfachen.
 
 <a name="prime-meridian"></a> **Nullmeridian**: Die Linie des Längengrads, der 0 Grad darstellt. Längengradwerte sinken in der Regel in westlicher Richtung bis auf -180 Grad und steigen in östlicher Richtung bis auf 180 Grad. 
 
@@ -297,7 +297,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="quadtree"></a> **Quadtree**: Eine Datenstruktur, bei der jeder Knoten genau vier untergeordnete Elemente aufweist. Das in Azure Maps verwendete Kachelsystem basiert auf einer QuadTree-Struktur, bei der die einzelnen Kartenkacheln beim Vergrößern auf einen Faktor durch den Benutzer in vier untergeordnete Kacheln gegliedert werden.  Weitere Informationen finden Sie unter [Zoomfaktoren und Grobraster](zoom-levels-and-tile-grid.md).
 
-<a name="queries-per-second-qps"></a> **Abfragen pro Sekunde (Queries Per Second, QPS)**: Die Anzahl der Abfragen oder Anforderungen, die innerhalb einer Sekunde an einen Dienst oder eine Plattform gesendet werden können. 
+<a name="queries-per-second-qps"></a> **Abfragen pro Sekunde (Queries Per Second, QPS)** : Die Anzahl der Abfragen oder Anforderungen, die innerhalb einer Sekunde an einen Dienst oder eine Plattform gesendet werden können. 
 
 ## <a name="r"></a>R
 
@@ -321,7 +321,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="route"></a> **Route**: Ein Pfad zwischen mindestens zwei Orten, der zudem zusätzliche Informationen wie Anweisungen für Wegpunkte entlang der Route enthalten kann.
 
-<a name="requests-per-second-rps"></a> **Anforderungen pro Sekunde (RPS)**: Siehe [Abfragen pro Sekunde (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a> **Anforderungen pro Sekunde (RPS)** : Siehe [Abfragen pro Sekunde (QPS)](#queries-per-second-qps). 
 
 <a name="rss"></a> **RSS**: Abhängig von der Quelle das Akronym für „Really Simple Syndication“, „Resource Description Framework (RDF) Site Summary“ oder „Rich Site Summary“. Ein einfaches, strukturiertes XML-Format für die Freigabe von Inhalten für andere Websites. RSS-Dokumente enthalten Metadatenelemente, z.B. Datum, Autor, Titel, eine kurze Beschreibung und einen Hyperlink. Diese Informationen unterstützen einen Benutzer (oder einen RSS-Veröffentlichungsdienst) bei der Entscheidung, bei welchen Materialien eine weitergehende Untersuchung lohnt.
 
@@ -329,9 +329,9 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="satellite-imagery"></a> **Satellitenbilder**: Bilder, die von Flugzeugen und direkt nach unten zeigenden Satelliten aufgezeichnet wurden.
 
-<a name="software-development-kit-sdk"></a> **Software Development Kit (SDK)**: Eine Sammlung von Dokumentation, Beispielcodes und Beispiel-Apps, mit denen ein Entwickler Apps mittels einer API erstellen kann.
+<a name="software-development-kit-sdk"></a> **Software Development Kit (SDK)** : Eine Sammlung von Dokumentation, Beispielcodes und Beispiel-Apps, mit denen ein Entwickler Apps mittels einer API erstellen kann.
 
-<a name="shapefile-shp"></a> **Shape-Datei (SHP)**: Wird auch als „ESRI-Shape-Datei“ bezeichnet und ist ein Vektordaten-Speicherformat zum Speichern der Position, Form und Attribute geografischer Merkmale. Eine Shape-Datei wird in einer Gruppe verwandter Dateien gespeichert.
+<a name="shapefile-shp"></a> **Shape-Datei (SHP)** : Wird auch als „ESRI-Shape-Datei“ bezeichnet und ist ein Vektordaten-Speicherformat zum Speichern der Position, Form und Attribute geografischer Merkmale. Eine Shape-Datei wird in einer Gruppe verwandter Dateien gespeichert.
 
 <a name="spherical-mercator-projection"></a> **Spherical Mercator-Projektion**: Siehe [Web Mercator](#web-mercator). 
 
@@ -351,11 +351,11 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="terrain"></a> **Gelände**: Eine Landfläche mit bestimmten Merkmalen wie sandiges oder bergiges Gelände.
 
-<a name="thematic-maps"></a> **Thematische Karten**: Eine thematische Karte ist eine einfache Karte, die ein Thema zu einem geografischen Gebiet widerspiegeln soll. Ein häufiges Szenario für diesen Kartentyp ist die Einfärbung von Verwaltungsgebieten wie Ländern, die auf bestimmten Datenmetriken basieren.
+<a name="thematic-maps"></a> **Thematische Karten**: Eine thematische Karte ist eine einfache Karte, die ein Thema zu einem geografischen Gebiet widerspiegeln soll. Ein häufiges Szenario für diesen Kartentyp ist die Einfärbung von Verwaltungsgebieten wie Ländern/Regionen, die auf bestimmten Datenmetriken basieren.
 
 <a name="tile-layer"></a> **Kachelebene**: Eine Ebene, die durch das Zusammenstellen von Kartenkacheln (rechteckige Abschnitte) in einer zusammenhängenden Ebene angezeigt werden. Bei den Kacheln handelt es sich entweder um Rasterbildkacheln oder Vektorkacheln. Rasterkachelebenen werden in der Regel vorzeitig gerendert und als Bilder auf einem Server gespeichert. Dies kann viel Speicherplatz beanspruchen. Vektorkachelebenen werden in der Clientanwendung dynamisch gerendert, daher sind die Speicheranforderungen auf Serverseite geringer.
 
-<a name="time-zone"></a> **Zeitzone**: Eine Region auf der Welt, die aus rechtlichen, kommerziellen und gesellschaftlichen Gründen eine einheitliche Standardzeit einhält. Zeitzonen folgen in der Regel den Grenzen der Länder und deren Unterteilung.
+<a name="time-zone"></a> **Zeitzone**: Eine Region auf der Welt, die aus rechtlichen, kommerziellen und gesellschaftlichen Gründen eine einheitliche Standardzeit einhält. Zeitzonen folgen in der Regel den Grenzen der Länder/Regionen und deren Unterteilung.
 
 <a name="transaction"></a> **Transaktion**: Azure Maps verwendet ein transaktionales Lizenzierungsmodell, bei dem Folgendes gilt:
 
@@ -364,7 +364,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="transformation"></a> **Transformation**: Der Vorgang, bei dem Daten zwischen verschiedenen geografischen Koordinatensystemen konvertiert werden. Dies können z.B. Daten sein, die im Vereinigten Königreich erfasst wurden und auf dem geografischen Koordinatensystem OSGB 1936 basieren. Azure Maps verwendet eine Variante des Referenzkoordinatensystems [EPSG:3857](https://epsg.io/3857), nämlich WGS 84. Um die Daten ordnungsgemäß anzuzeigen, müssen die Koordinaten von einem System zum anderen transformiert werden.
 
-<a name="traveling-salesmen-problem-tsp"></a> **Problem des Handlungsreisenden (Traveling Salesmen Problem, TSP)**:  Optimierungsproblem von Hamilton, bei dem ein Vertriebsmitarbeiter den effizientesten Weg finden muss, um eine Reihe von Orten zu besuchen, und dann zum Startort zurückkehren muss.  
+<a name="traveling-salesmen-problem-tsp"></a> **Problem des Handlungsreisenden (Traveling Salesmen Problem, TSP)** :  Optimierungsproblem von Hamilton, bei dem ein Vertriebsmitarbeiter den effizientesten Weg finden muss, um eine Reihe von Orten zu besuchen, und dann zum Startort zurückkehren muss.  
 
 <a name="trilateration"></a> **Trilateration**: Der Vorgang, bei dem die Position eines Punkts auf der Erdoberfläche in Bezug zu zwei weiteren Punkten bestimmt wird, indem die Abstände zwischen allen drei Punkten gemessen wird.
 
@@ -376,7 +376,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="vector-tile"></a> **Vektorkachel**: Eine Open Data-Spezifikation für die Speicherung von räumlichen Vektordaten mit dem gleichen Kachelsystem wie das Kartensteuerelement. Siehe auch [Kachelebene](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a> **Tourenplanungsproblem (Vehicle Routing Problem, VRP)**: Eine Klasse von Problemen, bei denen eine Gruppe von geordneten Routen für eine Fahrzeugflotte berechnet und gleichzeitig ein Satz von Einschränkungen berücksichtigt wird. Diese Einschränkungen können z.B. Einschränkungen im Hinblick auf Zustellungszeitfenster, Kapazitäten für mehrere Routen und Reisedauer umfassen.
+<a name="vehicle-routing-problem-vrp"></a> **Tourenplanungsproblem (Vehicle Routing Problem, VRP)** : Eine Klasse von Problemen, bei denen eine Gruppe von geordneten Routen für eine Fahrzeugflotte berechnet und gleichzeitig ein Satz von Einschränkungen berücksichtigt wird. Diese Einschränkungen können z.B. Einschränkungen im Hinblick auf Zustellungszeitfenster, Kapazitäten für mehrere Routen und Reisedauer umfassen.
 
 <a name="voronoi-diagram"></a> **Voronoi-Diagramm**: Eine Zerlegung des Raums in Bereiche und Zellen, die eine Gruppe von geometrischen Objekten (normalerweise Punktfunktionen) umgeben. Diese Zellen oder Polygone müssen die Kriterien für Delaunay-Dreiecke erfüllen. Alle Punkte innerhalb eines Bereichs befinden sich näher am Objekt, das es umgibt, als an anderen Objekten in der Gruppe. Voronoi-Diagramme werden häufig verwendet, um Einflussbereiche um geografische Funktionen voneinander abzugrenzen. 
 
@@ -386,7 +386,7 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="waypoint-optimization"></a> **Wegpunktoptimierung**: Der Vorgang, bei dem eine Gruppe von Wegpunkten neu angeordnet wird, um die Fahrtzeit oder -strecke zu minimieren, die zum Passieren aller angegebenen Wegpunkte benötigt wird. Je nach Komplexität der Optimierung wird dies als [Problem des Handlungsreisenden](#traveling-salesmen-problem-tsp) oder [Tourenplanungsproblem](#vehicle-routing-problem-vrp) bezeichnet.
 
-<a name="web-map-service-wms"></a> **Web Map Service (WMS)**: WMS ist ein OGC-Standard (Open Geographic Consortium), der bildbasierte Kartendienste definiert. WMS-Dienste stellen nach Bedarf Kartenbilder für bestimmte Bereiche innerhalb einer Karte bereit. Bilder umfassen vorab gerenderte Symbologie und können in einem von mehreren benannten Formaten gerendert werden, sofern dies vom Dienst definiert wird.
+<a name="web-map-service-wms"></a> **Web Map Service (WMS)** : WMS ist ein OGC-Standard (Open Geographic Consortium), der bildbasierte Kartendienste definiert. WMS-Dienste stellen nach Bedarf Kartenbilder für bestimmte Bereiche innerhalb einer Karte bereit. Bilder umfassen vorab gerenderte Symbologie und können in einem von mehreren benannten Formaten gerendert werden, sofern dies vom Dienst definiert wird.
 
 <a name="web-mercator"></a> **Web Mercator**: Wird auch als „Spherical Mercator-Projektion“ bezeichnet und stellt eine geringfügig abgewandelte Variante der Mercator-Projektion dar, die vorrangig in webbasierten Kartierungsprogrammen verwendet wird. Sie basiert auf den gleichen Formeln, die bei der standardmäßigen Mercator-Projektion für Karten kleinen Maßstabs verwendet werden. Allerdings werden bei Web Mercator die sphärischen Formeln in allen Maßstäben verwendet, während bei Mercator-Karten großen Maßstabs normalerweise die Ellipsenform der Projektion verwendet wird. Die Abweichung ist im globalem Maßstab zwar nicht wahrnehmbar, führt jedoch dazu, dass Karten von lokalen Bereichen geringfügig von den tatsächlichen ellipsenähnlichen Mercator-Karten im selben Maßstab abweichen.
 
@@ -398,5 +398,5 @@ Die folgende Liste enthält Wörter, die häufig im Zusammenhang mit Azure Maps 
 
 <a name="zip-code"></a> **ZIP-Code**: Siehe [Postleitzahl](#postal-code).
 
-<a name="Zoom level"></a> **Zoomfaktor**: Gibt die Detailstufe und den Anteil der Karte an, die sichtbar ist. Wenn die Karte bis auf Stufe 0 verkleinert wird, ist oftmals die gesamte Weltkarte zu sehen, es werden jedoch nur wenige Details wie Ländernamen und -grenzen sowie die Namen der Ozeane gezeigt. Wenn die Karte bis hin zu Stufe 17 vergrößert wird, zeigt die Karte einen Bereich mit einigen Vierteln und detaillierten Straßeninformationen an. Weitere Informationen finden Sie unter [Zoomfaktoren und Grobraster](zoom-levels-and-tile-grid.md).
+<a name="Zoom level"></a> **Zoomfaktor**: Gibt die Detailstufe und den Anteil der Karte an, die sichtbar ist. Wenn die Karte bis auf Stufe 0 verkleinert wird, ist oftmals die gesamte Weltkarte zu sehen. Es werden jedoch nur wenige Details wie Namen und Grenzen von Ländern/Regionen sowie die Namen der Ozeane gezeigt. Wenn die Karte bis hin zu Stufe 17 vergrößert wird, zeigt die Karte einen Bereich mit einigen Vierteln und detaillierten Straßeninformationen an. Weitere Informationen finden Sie unter [Zoomfaktoren und Grobraster](zoom-levels-and-tile-grid.md).
 

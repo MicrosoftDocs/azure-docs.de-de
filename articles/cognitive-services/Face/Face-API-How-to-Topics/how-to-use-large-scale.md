@@ -1,5 +1,5 @@
 ---
-title: 'Beispiel: Verwenden der Funktion für die Verarbeitung in großem Umfang – Gesichtserkennungs-API'
+title: 'Beispiel: Verwenden der Funktion für die Verarbeitung in großem Umfang: Gesichtserkennungs-API'
 titleSuffix: Azure Cognitive Services
 description: Erfahren Sie, wie Sie die Funktion für die Verarbeitung in großem Umfang in der Gesichtserkennungs-API verwenden.
 services: cognitive-services
@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 35ab2d36a5d6c9977398fdbc16ba22eb1d9656a4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5a4085f713d66859a464ab59b00d856921db8ec3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65229837"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124475"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>Beispiel: Verwenden der Funktion für die Verarbeitung in großem Umfang
+# <a name="example-use-the-large-scale-feature"></a>Beispiel: Verwenden des Features für die Verarbeitung in großem Umfang
 
-Dieses Handbuch ist ein erweiterter Artikel zum Hochskalieren von den herkömmlichen Funktionen **PersonGroup** und **FaceList** auf **LargePersonGroup** bzw. **LargeFaceList**. In diesem Handbuch wird der Migrationsprozess erläutert. Es werden grundlegende Kenntnisse der Verwendung von **PersonGroup**, **FaceList**, des Vorgangs zum [Trainieren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) und der Funktionen zur Gesichtserkennung vorausgesetzt. Im konzeptionellen Leitfaden zur [Gesichtserkennung](../concepts/face-recognition.md) finden Sie weitere Informationen dazu.
+Diese Anleitung ist ein erweiterter Artikel zum Hochskalieren von den herkömmlichen Objekten PersonGroup und FaceList auf die Objekte LargePersonGroup bzw. LargeFaceList. Diese Anleitung veranschaulicht den Migrationsprozess. Es werden grundlegende Kenntnisse der Verwendung der Objekte PersonGroup und FaceList, des Vorgangs zum [Trainieren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) und der Funktionen zur Gesichtserkennung vorausgesetzt. Im konzeptionellen Leitfaden zur [Gesichtserkennung](../concepts/face-recognition.md) finden Sie weitere Informationen zu diesen Themen.
 
-„LargePersonGroup“ und „LargeFaceList“ werden zusammen als „umfangreiche Vorgänge“ bezeichnet. „LargePersonGroup“ kann bis zu 1.000.000 Personen mit maximal 248 Gesichtern und „LargeFaceList“ bis zu 1.000.000 Gesichter enthalten. Die umfangreichen Vorgänge ähneln den herkömmlichen Funktionen „PersonGroup“ und „FaceList“, weisen jedoch aufgrund der neuen Architektur einige wichtige Unterschiede auf. 
+LargePersonGroup und LargeFaceList werden zusammen als „umfangreiche Vorgänge“ bezeichnet. LargePersonGroup kann bis zu 1 Million Personen mit jeweils maximal 248 Gesichtern enthalten. LargeFaceList kann bis zu 1 Million Gesichter enthalten. Die umfangreichen Vorgänge ähneln den herkömmlichen Objekten PersonGroup und FaceList, weisen jedoch aufgrund der neuen Architektur einige Unterschiede auf. 
 
-Die Beispiele sind in C# geschrieben und verwenden die Clientbibliothek für die Gesichtserkennungs-API.
+Die Beispiele wurden in C# unter Verwendung der Clientbibliothek für die Gesichtserkennungs-API von Azure Cognitive Services geschrieben.
 
 > [!NOTE]
-> Um die Gesichtssuchleistung für Identification und FindSimilar in großem Maßstab zu aktivieren, müssen Sie zur Vorabverarbeitung für LargeFaceList und LargePersonGroup ein Training durchführen. Die Trainingszeit variiert abhängig von der tatsächlichen Kapazität von Sekunden bis zu rund einer halben Stunde. Während des Trainingszeitraums können weiterhin Identification und FindSimilar ausgeführt werden, wenn zuvor ein erfolgreiches Training durchgeführt wurde. Der Nachteil ist jedoch, dass die neu hinzugefügten Personen/Gesichter nicht im Ergebnis vorkommen, bis eine neue Nachmigration zu umfangreichem Training abgeschlossen ist.
+> Um die Suchleistung bei der Gesichtserkennung für Identification und FindSimilar in großem Maßstab zu aktivieren, müssen Sie zur Vorabverarbeitung für LargeFaceList und LargePersonGroup ein Training durchführen. Die Trainingszeit variiert abhängig von der tatsächlichen Kapazität von Sekunden bis zu rund einer halben Stunde. Während des Trainingszeitraums können weiterhin Identification und FindSimilar ausgeführt werden, wenn zuvor ein erfolgreiches Training durchgeführt wurde. Der Nachteil ist jedoch, dass die neu hinzugefügten Personen und Gesichter erst im Ergebnis vorkommen, wenn eine neue Nachmigration zu umfangreichem Training abgeschlossen wurde.
 
 ## <a name="step-1-initialize-the-client-object"></a>Schritt 1: Initialisieren des Clientobjekts
 
-Wenn Sie eine Gesichtserkennungs-API-Clientbibliothek verwenden, werden der Abonnementschlüssel und der Subskriptionsendpunkt durch den Konstruktor der Klasse FaceServiceClient übergeben. Beispiel: 
+Wenn Sie eine Clientbibliothek der Gesichtserkennungs-API verwenden, werden der Abonnementschlüssel und der Abonnementendpunkt durch den Konstruktor der FaceServiceClient-Klasse übergeben. Beispiel: 
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";
@@ -39,24 +39,24 @@ string SubscriptionRegion = "https://westcentralus.api.cognitive.microsoft.com/f
 FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);
 ```
 
-Sie können den Abonnementschlüssel mit dem entsprechenden Endpunkt auf der Seite Marketplace des Azure-Portals abrufen.
+Sie können den Abonnementschlüssel mit dem zugehörigen Endpunkt im Azure Marketplace über das Azure-Portal abrufen.
 Weitere Informationen finden Sie unter [Abonnements](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
 ## <a name="step-2-code-migration"></a>Schritt 2: Codemigration
 
-Dieser Abschnitt konzentriert sich nur auf die Migration der PersonGroup/FaceList-Implementierung zu LargePersonGroup/LargeFaceList. Obwohl sich „LargePersonGroup“ und “LargeFaceList“ in Entwurf und interner Implementierung von „PersonGroup“ und “FaceList“ unterscheiden, ähneln sich die API-Schnittstellen im Interesse der Abwärtskompatibilität.
+Dieser Abschnitt konzentriert sich nur auf die Migration der Implementierung von PersonGroup und FaceList zu LargePersonGroup bzw. LargeFaceList. Obwohl sich LargePersonGroup und LargeFaceList in Entwurf und interner Implementierung von PersonGroup und FaceList unterscheiden, ähneln sich die API-Schnittstellen im Interesse der Abwärtskompatibilität.
 
-Migration von Daten wird nicht unterstützt – Sie müssen stattdessen LargePersonGroup/LargeFaceList neu erstellen.
+Die Datenmigration wird nicht unterstützt. Sie erstellen die LargePersonGroup oder LargeFaceList stattdessen neu.
 
-### <a name="migrate-persongroup-to-largepersongroup"></a>Migrieren von „PersonGroup“ zu „LargePersonGroup“
+### <a name="migrate-a-persongroup-to-a-largepersongroup"></a>Migrieren einer PersonGroup zu einer LargePersonGroup
 
-Die Migration von „PersonGroup“ zu „LargePersonGroup“ ist einfach, weil ihre Vorgänge auf Gruppenebene identisch sind.
+Das Migrieren einer PersonGroup zu einer LargePersonGroup ist einfach. Sie nutzen genau die gleichen Vorgänge auf Gruppenebene.
 
-Bei der auf PersonGroup/Person bezogenen Implementierung ist nur zu beachten, die API-Pfade bzw- die SDK-Klasse/das SDK-Modul zu LargePersonGroup und LargePersonGroup Person zu ändern.
+Bei der auf PersonGroup oder Person bezogenen Implementierung müssen die API-Pfade bzw. die SDK-Klasse / das SDK-Modul in LargePersonGroup und LargePersonGroup Person geändert werden.
 
-Sie müssen alle Gesichter und Personen von „PersonGroup“ der neuen Funktion „LargePersonGroup“ hinzufügen. Informationen finden Sie unter [Beispiel: Hinzufügen von Gesichtern](how-to-add-faces.md).
+Fügen Sie alle Gesichter und Personen von PersonGroup der neuen LargePersonGroup hinzu. Weitere Informationen finden Sie unter [Hinzufügen von Gesichtern](how-to-add-faces.md).
 
-### <a name="migrate-facelist-to-largefacelist"></a>Migrieren von „FaceList“ zu „LargeFaceList“
+### <a name="migrate-a-facelist-to-a-largefacelist"></a>Migrieren einer FaceList zu einer LargeFaceList
 
 | FaceList-APIs | LargeFaceList-APIs |
 |:---:|:---:|
@@ -68,7 +68,7 @@ Sie müssen alle Gesichter und Personen von „PersonGroup“ der neuen Funktion
 | - | Trainieren |
 | - | Trainingsstatus abrufen |
 
-Die vorstehende Tabelle ist ein Vergleich der Vorgänge von FaceList und LargeFaceList auf Listenebene. Wie gezeigt, weist LargeFaceList im Vergleich zu FaceList die neuen Vorgänge Trainieren und „Trainingsstatus abrufen“ auf. Das Abrufen von LargeFaceList wird als Vorbedingung des Vorgangs [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) trainiert, während für FaceList kein Trainieren erforderlich ist. Der folgende Codeausschnitt zeigt eine Hilfsfunktion zum Warten auf das Training einer LargeFaceList.
+Die vorstehende Tabelle ist ein Vergleich der Vorgänge von FaceList und LargeFaceList auf Listenebene. Wie gezeigt, weist LargeFaceList im Vergleich zu FaceList die neuen Vorgänge „Trainieren“ und „Trainingsstatus abrufen“ auf. Das Trainieren der LargeFaceList ist eine Vorbedingung für den Vorgang [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). Für FaceList ist kein Training erforderlich. Der folgende Codeausschnitt zeigt eine Hilfsfunktion zum Warten auf das Training einer LargeFaceList:
 
 ```CSharp
 /// <summary>
@@ -118,7 +118,7 @@ private static async Task TrainLargeFaceList(
 }
 ```
 
-Bisher würde eine typische Verwendung von „FaceList“ mit Hinzufügen von Gesichtern und „FindSimilar“ etwa so aussehen:
+Bisher würde eine typische Verwendung von FaceList mit Hinzufügen von Gesichtern und FindSimilar wie folgt aussehen:
 
 ```CSharp
 // Create a FaceList.
@@ -151,7 +151,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-Beim Migrieren zu „LargeFaceList“ würde dies wie folgt aussehen:
+Beim Migrieren zu LargeFaceList würde dies wie folgt aussehen:
 
 ```CSharp
 // Create a LargeFaceList.
@@ -188,44 +188,47 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-Wie oben gezeigt, sind Datenverwaltungs- und FindSimilar-Teil fast identisch. Die einzige Ausnahme ist, dass ein neues Training zur Vorabverarbeitung in LargeFaceList abgeschlossen werden muss, damit FindSimilar funktioniert.
+Wie oben gezeigt, sind der Datenverwaltungs- und der FindSimilar-Teil fast identisch. Die einzige Ausnahme ist, dass ein neues Training zur Vorabverarbeitung in LargeFaceList abgeschlossen werden muss, damit FindSimilar funktioniert.
 
 ## <a name="step-3-train-suggestions"></a>Schritt 3: Vorschläge zum Trainieren
 
-Obwohl das Training[FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) und [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) beschleunigt, leidet die Trainingszeit insbesondere bei umfangreicher Verarbeitung. Die geschätzte Trainingszeit in verschiedenen Maßstäben ist in der folgenden Tabelle aufgeführt:
+Obwohl das Training [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) und [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) beschleunigt, leidet die Trainingszeit insbesondere bei umfangreicher Verarbeitung. Die geschätzte Trainingszeit bei verschiedenen Maßstäben ist in der folgenden Tabelle aufgeführt.
 
-| Skalierung (Gesichter oder Personen) | Geschätzte Trainingszeit |
+| Skalierung für Gesichter oder Personen | Geschätzte Trainingszeit |
 |:---:|:---:|
-| 1.000 | 1-2 S |
-| 10.000 | 5-10 S |
-| 100.000 | 1-2 Min |
-| 1.000.000 | 10-30 Min |
+| 1.000 | 1–2 s |
+| 10.000 | 5–10 s |
+| 100.000 | 1–2 min |
+| 1.000.000 | 10–30 min |
 
-Um die Funktion für die Verarbeitung in großem Umfang besser zu nutzen, sollten Sie ein paar Strategien befolgen.
+Um die umfangreiche Verarbeitung besser nutzen zu können, empfehlen wir die folgenden Strategien.
 
-## <a name="step-31-customize-time-interval"></a>Schritt 3.1: Anpassen des Zeitintervalls
+### <a name="step-31-customize-time-interval"></a>Schritt 3.1: Anpassen des Zeitintervalls
 
-Wie in `TrainLargeFaceList()` gezeigt, verzögert ein `timeIntervalInMilliseconds` den unendlichen Trainingsstatus-Prüfvorgang. Bei LargeFaceList mit mehr Gesichtern reduziert ein längeres Intervall die Anzahl der Aufrufe und die Kosten. Das Zeitintervall sollte der erwarteten Kapazität von LargeFaceList angepasst werden.
+Wie in `TrainLargeFaceList()` gezeigt, verzögert ein Zeitintervall in Millisekunden den Prüfvorgang bei einem unendlichen Trainingsstatus. Bei LargeFaceList mit mehr Gesichtern reduziert ein längeres Intervall die Anzahl der Aufrufe und die Kosten. Passen Sie das Zeitintervall an die erwartete Kapazität von LargeFaceList an.
 
-Die gleiche Strategie gilt auch für „LargePersonGroup“. Beispielsweise könnte `timeIntervalInMilliseconds` beim Training von „LargePersonGroup“ mit 1.000.000 Personen 60.000 betragen (1-Minuten-Intervall).
+Die gleiche Strategie gilt auch für „LargePersonGroup“. Wenn Sie z. B. eine LargePersonGroup mit 1 Million Personen trainieren, kann `timeIntervalInMilliseconds` 60.000 bedeuten, also ein Intervall von 1 Minute.
 
-## <a name="step-32-small-scale-buffer"></a>Schritt 3.2: Kleiner Puffer
+### <a name="step-32-small-scale-buffer"></a>Schritt 3.2: Kleiner Puffer
 
-Personen/Gesichter können in LargePersonGroup/LargeFaceList erst nach dem Trainieren gesucht werden. In einem dynamischen Szenario werden ständig neue Personen/Gesichter hinzugefügt und müssen sofort suchbar sein, doch das Training könnte länger dauern als gewünscht. Um dieses Problem zu minimieren, können Sie eine sehr kleine LargePersonGroup/LargeFaceList nur als Puffer für die neu hinzugefügten Einträge verwenden. Dieser Puffer benötigt aufgrund seiner wesentlich geringeren Größe weniger Zeit, und die sofortige Suche in diesem temporären Puffer sollte funktionieren. Verwenden Sie diesen Puffer in Kombination mit dem Training für Haupt-LargePersonGroup/-LargeFaceList, indem Sie das Haupttraining in einem längeren Intervall ausführen, z.B. täglich um Mitternacht.
+Personen oder Gesichter können in einer LargePersonGroup oder einer LargeFaceList erst nach dem Trainieren gesucht werden. In einem dynamischen Szenario werden ständig neue Personen oder Gesichter hinzugefügt und müssen sofort gesucht werden können, doch das Training könnte länger dauern als gewünscht. 
+
+Um dieses Problem zu minimieren, verwenden Sie eine sehr kleine LargePersonGroup LargeFaceList nur als Puffer für die neu hinzugefügten Einträge. Dieser Puffer benötigt aufgrund der kleineren Größe weniger Zeit für das Trainieren. Die sofortige Durchsuchbarkeit sollte für diesen temporären Puffer funktionieren. Verwenden Sie diesen Puffer in Kombination mit dem Training für Haupt-LargePersonGroup oder -LargeFaceList, indem Sie das Haupttraining in einem längeren Intervall ausführen. Dies könnte z. B. täglich um Mitternacht erfolgen.
 
 Ein Beispielworkflow:
-1. Erstellen Sie eine Haupt-LargePersonGroup/-LargeFaceList (Hauptsammlung) und eine Puffer-LargePersonGroup/-LargeFaceList (Puffersammlung). Die Puffersammlung gilt nur für neu hinzugefügte Personen/Gesichter.
-1. Fügen Sie neue Personen/Gesichter sowohl der Haupt- als auch der Puffersammlung hinzu.
-1. Trainieren Sie nur die Puffersammlung mit einem kurzen Zeitintervall, damit die neu hinzugefügten Einträge wirksam werden.
-1. Rufen Sie Identification/FindSimilar sowohl für die Haupt- als auch die Puffersammlung aus, und führen Sie die Ergebnisse zusammen.
-1. Wenn die Größe der Puffersammlung einen Schwellenwert erreicht, oder während einer Leerlaufzeit des Systems, erstellen Sie eine neue Puffersammlung, und lösen Sie das Training der Hauptsammlung aus.
+
+1. Erstellen Sie eine Haupt-LargePersonGroup oder -LargeFaceList, die die Hauptsammlung darstellt. Erstellen Sie eine Puffer-LargePersonGroup oder -LargeFaceList, die die Puffersammlung darstellt. Die Puffersammlung gilt nur für neu hinzugefügte Personen oder Gesichter.
+1. Fügen Sie neue Personen oder Gesichter sowohl der Haupt- als auch der Puffersammlung hinzu.
+1. Trainieren Sie nur die Puffersammlung mit einem kurzen Zeitintervall, damit die neu hinzugefügten Einträge übernommen werden.
+1. Rufen Sie Identification oder FindSimilar sowohl für die Haupt- als auch die Puffersammlung auf. Führen Sie die Ergebnisse zusammen.
+1. Wenn die Größe der Puffersammlung einen Schwellenwert erreicht, oder wenn eine Leerlaufzeit des Systems auftritt, erstellen Sie eine neue Puffersammlung. Lösen Sie das Training für die Hauptsammlung aus.
 1. Löschen Sie nach dem Ende des Trainings der Hauptsammlung die alte Puffersammlung.
 
-## <a name="step-33-standalone-training"></a>Schritt 3.3: Eigenständiges Trainieren
+### <a name="step-33-standalone-training"></a>Schritt 3.3: Eigenständiges Trainieren
 
-Wenn eine relativ lange Latenz akzeptabel ist, muss das Training nicht direkt nach dem Hinzufügen neuer Daten ausgelöst werden. Stattdessen kann das Training von der Hauptlogik getrennt und regelmäßig ausgelöst werden. Diese Strategie eignet sich für dynamische Szenarien mit akzeptabler Latenz und kann auf statische Szenarien angewendet werden, um die Häufigkeit des Trainings weiter zu verringern.
+Wenn eine relativ lange Latenz akzeptabel ist, muss das Training nicht direkt nach dem Hinzufügen neuer Daten ausgelöst werden. Stattdessen kann das Training von der Hauptlogik getrennt und regelmäßig ausgelöst werden. Diese Strategie eignet sich für dynamische Szenarien mit einer akzeptablen Latenz. Sie kann bei statischen Szenarien angewandt werden, um die Häufigkeit der Trainings weiter zu reduzieren.
 
-Angenommen, eine `TrainLargePersonGroup`-Funktion ähnelt `TrainLargeFaceList`. Eine typische Implementierung des eigenständigen Trainings für LargePersonGroup durch Aufrufen der [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx)-Klasse in `System.Timers` wäre:
+Angenommen, eine `TrainLargePersonGroup`-Funktion ähnelt `TrainLargeFaceList`. Eine typische Implementierung des eigenständigen Trainings für eine LargePersonGroup durch Aufrufen der [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx)-Klasse in `System.Timers` wäre:
 
 ```CSharp
 private static void Main()
@@ -235,15 +238,15 @@ private static void Main()
     const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
     FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
-    // Setup a standalone training at regular intervals.
-    const int TimeIntervalForStatus = 1000 * 60; // 1 minute interval for getting training status.
-    const double TimeIntervalForTrain = 1000 * 60 * 60; // 1 hour interval for training.
+    // Set up standalone training at regular intervals.
+    const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.
+    const double TimeIntervalForTrain = 1000 * 60 * 60; // 1-hour interval for training.
     var trainTimer = new Timer(TimeIntervalForTrain);
     trainTimer.Elapsed += (sender, args) => TrainTimerOnElapsed(LargePersonGroupId, TimeIntervalForStatus);
     trainTimer.AutoReset = true;
     trainTimer.Enabled = true;
 
-    // Other operations like creating persons, adding faces and Identification except for Train.
+    // Other operations like creating persons, adding faces, and identification, except for Train.
     // ...
 }
 
@@ -257,14 +260,14 @@ Weitere Informationen zu Datenverwaltung und identifikationsbezogenen Implementi
 
 ## <a name="summary"></a>Zusammenfassung
 
-In diesem Handbuch haben Sie gelernt, vorhandenen PersonGroup-/FaceList-Code (nicht Daten) zu LargePersonGroup/LargeFaceList zu migrieren:
+In dieser Anleitung haben Sie gelernt, vorhandenen PersonGroup- oder FaceList-Code (nicht Daten) zu LargePersonGroup oder LargeFaceList zu migrieren:
 
-- LargePersonGroup und LargeFaceList funktionieren ähnlich wie PersonGroup/FaceList, abgesehen davon, dass bei LargeFaceList ein Training erforderlich ist.
-- Wählen Sie die richtige Trainingsstrategie zur dynamischen Datenaktualisierung für umfangreiche Datasets.
+- LargePersonGroup und LargeFaceList funktionieren ähnlich wie PersonGroup bzw. FaceList, abgesehen davon, dass bei LargeFaceList ein Training erforderlich ist.
+- Wählen Sie die richtige Trainingsstrategie zur dynamischen Datenaktualisierung für umfangreiche Datasets aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Befolgen Sie die Anweisungen, um zu erfahren, wie Sie Gesichter zu „PersonGroup“ hinzufügen oder den Vorgang zum Identifizieren für „PersonGroup“ ausführen.
 
 - [Hinzufügen von Gesichtern](how-to-add-faces.md)
-- [Gesichtsidentifikation in Bildern](HowtoIdentifyFacesinImage.md)
+- [Identifizieren von Gesichtern in Bildern](HowtoIdentifyFacesinImage.md)

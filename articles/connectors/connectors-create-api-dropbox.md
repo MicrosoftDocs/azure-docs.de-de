@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60312538"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Hochladen und Verwalten von Dateien in Dropbox mithilfe von Azure Logic Apps
 
@@ -57,7 +57,7 @@ Wählen Sie in der Liste mit den Aktionen diese Aktion aus: **Dateiinhalt anhand
 
 1. Wenn Sie Azure Logic Apps noch nicht für den Zugriff auf Dropbox autorisiert haben, autorisieren Sie den Zugriff jetzt.
 
-1. Um zum Dateipfad zu wechseln, den Sie verwenden möchten, wählen Sie neben dem Feld **Dateipfad** die Auslassungspunkte (**...**) aus. 
+1. Um zum Dateipfad zu wechseln, den Sie verwenden möchten, wählen Sie neben dem Feld **Dateipfad** die Auslassungspunkte ( **...** ) aus. 
 
    Sie können auch in das Feld **Dateipfad** klicken und aus der dynamischen Inhaltsliste **Dateipfad**auswählen, dessen Wert als Ausgabe des Triggers verfügbar ist, den Sie im vorherigen Abschnitt hinzugefügt haben.
 

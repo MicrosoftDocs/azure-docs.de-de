@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619440"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61131756"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Medienanalyse mithilfe des Azure-Portals 
 > [!NOTE]

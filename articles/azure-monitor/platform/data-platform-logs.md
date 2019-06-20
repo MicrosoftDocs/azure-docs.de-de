@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003682"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244857"
 ---
 # <a name="logs-in-azure-monitor"></a>Protokolle in Azure Monitor
 
@@ -79,7 +79,7 @@ Azure Monitor kann Protokolldaten aus einer Vielzahl von Quellen sammeln, sowohl
 | Daten | BESCHREIBUNG |
 |:---|:---|
 | Azure Active Directory-Überwachungsprotokolle | Über Diagnoseeinstellungen für jedes Verzeichnis konfiguriert. Informationen finden Sie unter [Integrieren von Azure AD-Protokollen in Azure Monitor-Protokolle](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Aktivitätsprotokolle | Standardmäßig separat gespeichert und können für Warnungen nahezu in Echtzeit verwendet werden. Installieren Sie die Lösung für die Aktivitätsprotokollanalyse, um in den Log Analytics-Arbeitsbereich zu schreiben. Informationen finden Sie unter [Erfassen und Analysieren von Azure-Aktivitätsprotokollen in Log Analytics](collect-activity-logs.md). |
+| Aktivitätsprotokolle | Standardmäßig separat gespeichert und können für Warnungen nahezu in Echtzeit verwendet werden. Installieren Sie die Lösung für die Aktivitätsprotokollanalyse, um in den Log Analytics-Arbeitsbereich zu schreiben. Informationen finden Sie unter [Erfassen und Analysieren von Azure-Aktivitätsprotokollen in Log Analytics](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Azure-Ressourcen
 
@@ -87,7 +87,7 @@ Azure Monitor kann Protokolldaten aus einer Vielzahl von Quellen sammeln, sowohl
 |:---|:---|
 | Ressourcendiagnose | Konfigurieren von Diagnoseeinstellungen zum Schreiben in Diagnosedaten, einschließlich Metriken in einen Log Analytics-Arbeitsbereich. Informationen finden Sie unter [Streamen von Azure-Diagnoseprotokollen an Log Analytics](diagnostic-logs-stream-log-store.md). |
 | Überwachungslösungen | Überwachungslösungen schreiben gesammelte Daten in ihren Log Analytics-Arbeitsbereich. Eine Liste der Lösungen finden Sie unter [Ausführliche Informationen zu Datensammlungen für Verwaltungslösungen in Azure](../insights/solutions-inventory.md). Ausführliche Informationen zum Installieren und Verwenden von Lösungen finden Sie unter [Überwachungslösungen in Azure Monitor](../insights/solutions.md). |
-| Metriken | Senden von Plattformmetriken für Azure Monitor-Ressourcen an einen Log Analytics-Arbeitsbereich, um Protokolldaten über längere Zeiträume aufzubewahren und um mithilfe der [Abfragesprache Kusto](/azure/kusto/query/) komplexe Analysen mit anderen Datentypen durchzuführen. Informationen finden Sie unter [Streamen von Azure-Diagnoseprotokollen an Log Analytics](diagnostic-logs-stream-log-store.md). |
+| metrics | Senden von Plattformmetriken für Azure Monitor-Ressourcen an einen Log Analytics-Arbeitsbereich, um Protokolldaten über längere Zeiträume aufzubewahren und um mithilfe der [Abfragesprache Kusto](/azure/kusto/query/) komplexe Analysen mit anderen Datentypen durchzuführen. Informationen finden Sie unter [Streamen von Azure-Diagnoseprotokollen an Log Analytics](diagnostic-logs-stream-log-store.md). |
 | Azure Table Storage | Sammeln von Daten aus Azure Storage, wohin einige Azure-Ressourcen Überwachungsdaten schreiben. Informationen finden Sie unter [Verwenden von Azure Blob Storage für IIS und Azure Table Storage für Ereignisse mit Log Analytics](azure-storage-iis-table.md). |
 
 ### <a name="virtual-machines"></a>Virtual Machines

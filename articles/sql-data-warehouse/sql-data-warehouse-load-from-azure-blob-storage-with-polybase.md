@@ -2,24 +2,24 @@
 title: Laden von Contoso Retail-Daten in Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Verwenden Sie PolyBase- und T-SQL-Befehle, um zwei Tabellen aus den Contoso Retail-Daten in Azure SQL Data Warehouse zu laden.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5cf4ac0e0950e7b6ab6345476501931a9cb46b27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996955"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244476"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Laden von Contoso Retail-Daten in Azure SQL Data Warehouse
 
-Verwenden Sie PolyBase- und T-SQL-Befehle, um zwei Tabellen aus den Contoso Retail-Daten in Azure SQL Data Warehouse zu laden. Folgen Sie im Repository für Microsoft SQL Server-Beispiele dem Beispiel [Laden des kompletten Contoso Retail-Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md), um das komplette DataSet zu laden.
+In diesem Tutorial erfahren Sie, wie Sie PolyBase- und T-SQL-Befehle verwenden, um zwei Tabellen aus den Contoso Retail-Daten in Azure SQL Data Warehouse zu laden. 
 
 In diesem Lernprogramm führen Sie folgende Schritte aus:
 
@@ -28,15 +28,15 @@ In diesem Lernprogramm führen Sie folgende Schritte aus:
 3. Durchführen von Optimierungen, nachdem das Laden abgeschlossen ist
 
 ## <a name="before-you-begin"></a>Voraussetzungen
-Sie benötigen ein Azure-Konto, das bereits über eine SQL Data Warehouse-Datenbank verfügt, um dieses Tutorial ausführen zu können. Sollten Sie noch keines haben, finden Sie weitere Informationen unter [Erstellen eines SQL Data Warehouse][Create a SQL Data Warehouse].
+Sie benötigen ein Azure-Konto, das bereits über eine SQL Data Warehouse-Instanz verfügt, um dieses Tutorial ausführen zu können. Wenn Sie noch kein Data Warehouse bereitgestellt haben, finden Sie entsprechende Anweisungen unter [Schnellstart: Erstellen und Abfragen einer Azure SQL Data Warehouse-Instanz im Azure-Portal][Create a SQL Data Warehouse].
 
 ## <a name="1-configure-the-data-source"></a>1. Konfigurieren der Datenquelle
-PolyBase verwendet externe T-SQL-Objekte, um den Speicherort und die Attribute der externen Daten zu definieren. Die externen Objektdefinitionen werden in SQL Data Warehouse gespeichert. Die Daten selbst werden extern gespeichert.
+PolyBase verwendet externe T-SQL-Objekte, um den Speicherort und die Attribute der externen Daten zu definieren. Die externen Objektdefinitionen werden in SQL Data Warehouse gespeichert. Die Daten werden extern gespeichert.
 
 ### <a name="11-create-a-credential"></a>1.1. Erstellen einer Anmeldeinformation
 **Überspringen Sie diesen Schritt** , wenn Sie die öffentliche Contoso-Daten laden. Sie benötigen keinen sicheren Zugriff auf die öffentlichen Daten, da diese schon für jeden zugänglich sind.
 
-**Überspringen Sie diesen Schritt nicht** , wenn Sie dieses Tutorial als Vorlage für das Laden Ihrer eigenen Daten verwenden. Für den Zugriff auf die Daten durch eine Anmeldeinformation, verwenden Sie das folgende Skript zum Erstellen einer datenbankbezogenen Anmeldeinformation, und verwenden Sie es anschließend zum Definieren des Speicherorts der Datenquelle.
+**Überspringen Sie diesen Schritt nicht**, wenn Sie dieses Tutorial als Vorlage für das Laden Ihrer eigenen Daten verwenden. Für den Zugriff auf die Daten durch eine Anmeldeinformation, verwenden Sie das folgende Skript zum Erstellen einer datenbankbezogenen Anmeldeinformation, und verwenden Sie es anschließend zum Definieren des Speicherorts der Datenquelle.
 
 ```sql
 -- A: Create a master key.
@@ -71,8 +71,6 @@ WITH (
 );
 ```
 
-Fahren Sie mit Schritt 2 fort.
-
 ### <a name="12-create-the-external-data-source"></a>1.2. Erstellen der externen Datenquelle
 Verwenden Sie den Befehl [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE], um den Speicherort und den Typ der Daten zu speichern. 
 
@@ -91,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Konfigurieren des Datenformats
-Die Daten werden in Textdateien in Azure Blob Storage gespeichert, und jedes Feld wird durch ein Trennzeichen getrennt. Führen Sie diesen [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]-Befehl aus, um das Format der Daten in den Textdateien anzugeben. Die Contoso-Dateien sind nicht komprimiert und nicht durch senkrechte Striche getrennt.
+Die Daten werden in Textdateien in Azure Blob Storage gespeichert, und jedes Feld wird durch ein Trennzeichen getrennt. Führen Sie in SSMS diesen [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]-Befehl aus, um das Format der Daten in den Textdateien anzugeben. Die Contoso-Dateien sind nicht komprimiert und nicht durch senkrechte Striche getrennt.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -117,12 +115,11 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. Erstellen von externen Tabellen
-Führen Sie dieses Skript zum Erstellen der externen DimProduct und FactOnlineSales-Tabellen aus. Wir definieren hier nur Tabellennamen und Datentypen und binden diese an den Speicherort und an das Format der Azure Blob Storage-Dateien Die Definition wird in SQL Data Warehouse gespeichert und die Daten befinden sich weiterhin im Azure Storage-Blob.
+Führen Sie das folgende Skript zum Erstellen der externen DimProduct und FactOnlineSales-Tabellen aus. Wir definieren hier nur Spaltennamen und Datentypen und binden diese an den Speicherort und an das Format der Azure Blob Storage-Dateien. Die Definition wird in SQL Data Warehouse gespeichert und die Daten befinden sich weiterhin im Azure Storage-Blob.
 
 Der Parameter **LOCATION** ist der Ordner im Stammordner im Azure-Speicherblob. Jede Tabelle befindet sich in einem anderen Ordner.
 
 ```sql
-
 --DimProduct
 CREATE EXTERNAL TABLE [asb].DimProduct (
     [ProductKey] [int] NOT NULL,
@@ -205,7 +202,7 @@ WITH
 ```
 
 ## <a name="4-load-the-data"></a>4. Laden der Daten
-Es gibt verschiedene Arten, auf externe Daten zuzugreifen.  Sie können Daten direkt aus der externen Tabelle abfragen, Daten in neue Datenbanktabellen laden oder externe Daten zu vorhandenen Datenbanktabellen hinzufügen.  
+Es gibt verschiedene Arten, auf externe Daten zuzugreifen.  Sie können Daten direkt aus den externen Tabellen abfragen, sie in neue Tabellen im Data Warehouse laden oder externe Daten zu vorhandenen Data Warehouse-Tabellen hinzufügen.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. Erstellen eines neuen Schemas
 CTAS erstellt eine neue Tabelle, die Daten enthält.  Erstellen Sie zunächst ein Schema für die Contoso-Daten.
@@ -216,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Laden der Daten in neue Tabellen
-Um Daten aus Azure Blob Storage zu laden und in einer Tabelle innerhalb Ihrer Datenbank zu speichern, verwenden Sie die Anweisung [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Das Laden mit CTAS nutzt die stark typisierten externen Tabellen, die Sie gerade erstellt haben. Verwenden Sie eine [CTAS][CTAS]-Anweisung pro Tabelle, um die Daten in neue Tabellen zu laden. 
+Wenn Daten aus Azure Blob Storage geladen und in einer Tabelle innerhalb des Data Warehouse gespeichert werden sollen, verwenden Sie die Anweisung [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Beim Laden mit CTAS wird die stark typisierte externe Tabelle verwendet, die Sie erstellt haben. Wenn die Daten in neue Tabellen geladen werden sollen, verwenden Sie die [CTAS][CTAS]-Anweisung pro Tabelle. 
  
 CTAS erstellt eine neue Tabelle und füllt sie mit den Ergebnissen einer SELECT-Anweisung. CTAS definiert die neue Tabelle, sodass sie die gleichen Spalten und Datentypen wie die Ergebnisse der SELECT-Anweisung aufweist. Wenn Sie alle Spalten einer externen Tabelle auswählen, wird die neue Tabelle ein Replikat der Spalten und Datentypen in der externen Tabelle sein.
 
@@ -267,7 +264,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Optimieren der Columnstore-Komprimierung
-Standardmäßig speichert SQL Data Warehouse die Tabelle als gruppierten Columnstore-Index. Nach Abschluss eines Ladevorgangs sind einige der Datenzeilen möglicherweise nicht in den Columnstore-Index komprimiert.  Es gibt zahlreiche Gründe, warum dies geschieht. Weitere Informationen finden Sie unter [Verwalten von Columnstore-Indizes][manage columnstore indexes].
+Standardmäßig speichert SQL Data Warehouse die Tabelle als gruppierten Columnstore-Index. Nach Abschluss eines Ladevorgangs sind einige der Datenzeilen möglicherweise nicht in den Columnstore-Index komprimiert.  Dieses Problem kann aus verschiedenen Gründen auftreten. Weitere Informationen finden Sie unter [Verwalten von Columnstore-Indizes][manage columnstore indexes].
 
 Um die Abfrageleistung und die Columnstore-Komprimierung nach dem Ladevorgang zu optimieren, stellen Sie die Tabelle wieder her, um den Columstore-Index zu zwingen alle Zeilen zu komprimieren. 
 
@@ -282,7 +279,7 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 Weitere Informationen zum Verwalten von Columnstore-Indizes finden Sie im Artikel [Verwalten von Columnstore-Indizes][manage columnstore indexes].
 
 ## <a name="6-optimize-statistics"></a>6. Optimieren von Statistiken
-Es empfiehlt sich, Statistiken für einzelne Spalten sofort nach dem Ladevorgang zu erstellen. Es gibt einige Optionen für Statistiken. Beim Erstellen einer Einspaltenstatistik auf jeder Spalten vergeht möglicherweise viel Zeit bis alle Statistiken wiederhergestellt werden. Wenn Sie wissen, dass bestimmte Spalten nicht in den Abfrageprädikaten erhalten sein werden, können Sie die Erstellung von Statistiken für diese Spalten überspringen.
+Es empfiehlt sich, Statistiken für einzelne Spalten sofort nach dem Ladevorgang zu erstellen. Wenn Sie wissen, dass bestimmte Spalten nicht in den Abfrageprädikaten enthalten sein werden, können Sie die Erstellung von Statistiken für diese Spalten überspringen. Beim Erstellen einer Einspaltenstatistik auf jeder Spalten vergeht möglicherweise viel Zeit bis alle Statistiken wiederhergestellt werden. 
 
 Wenn Sie Einzelspaltenstatistiken für jede Spalte jeder Tabelle erstellen möchten, können Sie das Codebeispiel für die gespeicherte Prozedur `prc_sqldw_create_stats` im Artikel [Statistiken][statistics] verwenden.
 
@@ -333,7 +330,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ## <a name="achievement-unlocked"></a>Der Weg ist frei!
 Sie haben erfolgreich öffentliche Daten in Azure SQL Data Warehouse geladen. Großartig!
 
-Jetzt können Sie die Tabellen mit Abfragen wie die folgenden abfragen:
+Sie können jetzt damit beginnen, die Tabellen abzufragen, um Ihre Daten zu untersuchen. Führen Sie die folgende Abfrage aus, um den gesamten Umsatz pro Marke anzuzeigen:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -344,7 +341,9 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
-Verwenden Sie das Skript unter „Weitere Hinweise zur Entwicklung“ in der [Entwicklungsübersicht für SQL Data Warehouse][SQL Data Warehouse development overview].
+Folgen Sie im Repository für Microsoft SQL Server-Beispiele dem Beispiel zum [Laden des kompletten Contoso Retail-Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md), um das komplette Dataset zu laden.
+
+Weitere Hinweise zur Entwicklung finden Sie in der [Entwicklungsübersicht für SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 

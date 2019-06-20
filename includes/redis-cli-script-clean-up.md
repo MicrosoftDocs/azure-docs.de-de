@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
 ms.openlocfilehash: e5166934c4f7e1ecc917d2a5afcbb26ea9a637a2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53108973"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177895"
 ---
 ## <a name="clean-up-deployment"></a>Bereinigen der Bereitstellung 
 

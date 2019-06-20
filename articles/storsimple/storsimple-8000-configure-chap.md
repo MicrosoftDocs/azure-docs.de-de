@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60362787"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurieren von CHAP für Ihr StorSimple-Gerät
 

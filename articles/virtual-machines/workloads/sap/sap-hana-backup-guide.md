@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60937026"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Sicherungsanleitung für SAP HANA in Azure Virtual Machines
 

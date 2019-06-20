@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678478"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919308"
 ---
 # <a name="virtual-network-peering"></a>Peering in virtuellen Netzwerken
 
@@ -78,7 +78,7 @@ Sie können auch die [Anleitung zum Beheben von Problemen beim Peering in virtue
 ## <a name="requirements-and-constraints"></a>Anforderungen und Einschränkungen
 
 Die folgenden Einschränkungen gelten nur, wenn virtuelle Netzwerke über globales Peering verbunden werden:
-- Ressourcen in einem virtuellen Netzwerk können nicht mit der Front-End-IP-Adresse eines Load Balancers Standard in einem per globalem Peering verbundenen virtuellen Netzwerk kommunizieren. Unterstützung für Load Balancer Standard besteht nur innerhalb der gleichen Region. Unterstützung für Load Balancer Standard besteht für globales VNet-Peering.
+- Ressourcen in einem virtuellen Netzwerk können nicht mit der Front-End-IP-Adresse eines Load Balancers Standard in einem per globalem Peering verbundenen virtuellen Netzwerk kommunizieren. Unterstützung für Load Balancer Standard besteht nur innerhalb der gleichen Region. Unterstützung für Load Balancer Standard besteht für beide – VNet-Peering und globales VNet-Peering. Dienste, die einen Load Balancer im Tarif „Basic“ verwenden, die nicht über das globale VNET-Peering funktionieren, sind [hier](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) dokumentiert.
 
 Informationen zu Anforderungen und Einschränkungen finden Sie unter [Erstellen, Ändern oder Löschen eines Peerings virtueller Netzwerke](virtual-network-manage-peering.md#requirements-and-constraints). Informationen zu den Grenzwerten für die Anzahl von Peerings, die für ein virtuelles Netzwerk erstellt werden können, finden Sie unter [Netzwerkgrenzwerte – Azure Resource Manager](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 635e72a8e8a70b8885afea282511fbfaf24d2f94
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957339"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729467"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>JavaScript-Entwicklerhandbuch für Azure Functions
 
@@ -110,7 +110,7 @@ In JavaScript werden [Bindungen](functions-triggers-bindings.md) in der Datei �
 
 ### <a name="inputs"></a>Eingaben
 Eingaben werden in Azure Functions in zwei Kategorien unterteilt: die Triggereingabe und die zusätzliche Eingabe. Trigger und andere Eingabebindungen (Bindungen des Typs `direction === "in"`) können von einer Funktion auf drei Arten gelesen werden:
- - **_[Empfohlen]_ Als an die Funktion übergebene Parameter.** Sie werden in der Reihenfolge, in der sie in *function.json* definiert sind, an die Funktion übergeben. Die in *function.json* definierte `name`-Eigenschaft muss nicht mit dem Namen des Parameters übereinstimmen, obwohl dies empfehlenswert ist.
+ - ** _[Empfohlen]_ Als an die Funktion übergebene Parameter.** Sie werden in der Reihenfolge, in der sie in *function.json* definiert sind, an die Funktion übergeben. Die in *function.json* definierte `name`-Eigenschaft muss nicht mit dem Namen des Parameters übereinstimmen, obwohl dies empfehlenswert ist.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -141,7 +141,7 @@ Ausgaben (Bindungen des Typs `direction === "out"`) können von einer Funktion a
 
 Sie können Ausgabebindungen mit einer der folgenden Methoden Daten zuweisen. Achten Sie darauf, dass Sie nicht beide Methoden verwenden.
 
-- **_[Empfohlen für mehrere Ausgaben]_ Zurückgeben eines Objekts.** Bei Verwendung einer asynchronen Funktion (mit Rückgabe einer Zusage) kann ein Objekt mit zugewiesenen Ausgabedaten zurückgegeben werden. Im folgenden Beispiel werden die Ausgabebindungen in *function.json* mit „httpResponse“ und „queueOutput“ benannt.
+- ** _[Empfohlen für mehrere Ausgaben]_ Zurückgeben eines Objekts.** Bei Verwendung einer asynchronen Funktion (mit Rückgabe einer Zusage) kann ein Objekt mit zugewiesenen Ausgabedaten zurückgegeben werden. Im folgenden Beispiel werden die Ausgabebindungen in *function.json* mit „httpResponse“ und „queueOutput“ benannt.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Sie können Ausgabebindungen mit einer der folgenden Methoden Daten zuweisen. Ac
   ```
 
   Bei Verwendung einer synchronen Funktion kann dieses Objekt mithilfe von [`context.done`](#contextdone-method) zurückgegeben werden (siehe Beispiel).
-- **_[Empfohlen für eine einzelne Ausgabe]_ Direktes Zurückgeben eines Werts und Verwenden des Bindungsnamens „$return“.** Dies ist nur bei asynchronen Funktionen (mit Rückgabe einer Zusage) möglich. Siehe dazu das Beispiel unter [Exportieren einer Async-Funktion](#exporting-an-async-function). 
+- ** _[Empfohlen für eine einzelne Ausgabe]_ Direktes Zurückgeben eines Werts und Verwenden des Bindungsnamens „$return“.** Dies ist nur bei asynchronen Funktionen (mit Rückgabe einer Zusage) möglich. Siehe dazu das Beispiel unter [Exportieren einer Async-Funktion](#exporting-an-async-function). 
 - **Zuweisen von Werten zu `context.bindings`.** Sie können „context.bindings“ direkt Werte zuweisen.
 
   ```javascript
@@ -397,9 +397,9 @@ Beim Arbeiten mit HTTP-Triggern bestehen verschiedene Möglichkeiten, auf die HT
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Nur Antwort]_ Durch Aufrufen von `context.res.send(body?: any)`.** Eine HTTP-Antwort wird mit der Eingabe `body` als Antworttext erstellt. `context.done()` wird implizit aufgerufen.
++ ** _[Nur Antwort]_ Durch Aufrufen von `context.res.send(body?: any)`.** Eine HTTP-Antwort wird mit der Eingabe `body` als Antworttext erstellt. `context.done()` wird implizit aufgerufen.
 
-+ **_[Nur Antwort]_ Durch Aufrufen von `context.done()`.** Eine besondere Art der HTTP-Bindung gibt die Antwort zurück, die der `context.done()`-Methode übergeben wird. Die folgende HTTP-Ausgabebindung definiert einen `$return`-Ausgabeparameter:
++ ** _[Nur Antwort]_ Durch Aufrufen von `context.done()`.** Eine besondere Art der HTTP-Bindung gibt die Antwort zurück, die der `context.done()`-Methode übergeben wird. Die folgende HTTP-Ausgabebindung definiert einen `$return`-Ausgabeparameter:
 
     ```json
     {
@@ -465,23 +465,16 @@ Es gibt zwei Möglichkeiten zum Installieren von Paketen für Ihre Funktions-App
 
 ## <a name="environment-variables"></a>Umgebungsvariablen
 
-In Functions werden [App-Einstellungen](functions-app-settings.md), z.B. Dienstverbindungszeichenfolgen, während der Ausführung als Umgebungsvariablen verfügbar gemacht. Auf diese Einstellungen können Sie über `process.env` zugreifen, wie dies hier in der `GetEnvironmentVariable`-Funktion gezeigt wird:
+In Functions werden [App-Einstellungen](functions-app-settings.md), z.B. Dienstverbindungszeichenfolgen, während der Ausführung als Umgebungsvariablen verfügbar gemacht. Sie können über `process.env` auf diese Einstellungen zugreifen, wie hier in den zweiten und dritten Aufrufen von `context.log()` gezeigt, in denen die Umgebungsvariablen `AzureWebJobsStorage` und `WEBSITE_SITE_NAME` protokolliert werden:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]

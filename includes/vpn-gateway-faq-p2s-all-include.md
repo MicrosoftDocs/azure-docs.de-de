@@ -1,19 +1,19 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/18/2019
+ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f72ce02a8655ea97497098dc1412f69e07686861
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 20f0d6a88fead155225cff69ab89635de587a46d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59284908"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455164"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Wie viele VPN-Clientendpunkte kann meine Punkt-zu-Standort-Konfiguration umfassen?
 
@@ -38,9 +38,11 @@ Folgende Clientbetriebssysteme werden unterstützt:
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Können Proxys und Firewalls mit der Punkt-zu-Standort-Funktion durchlaufen werden?
 
-Azure unterstützt zwei Arten von P2S-VPN-Optionen:
+Azure unterstützt drei Arten von P2S-VPN-Optionen:
 
 * Secure Sockets Tunneling Protocol (SSTP). SSTP ist eine Microsoft-eigene SSL-basierte Lösung, die Firewalls durchdringen kann, da die meisten Firewalls den von SSL verwendeten TCP-Port 443 öffnen.
+
+* OpenVPN. OpenVPN ist eine SSL-basierte Lösung, die Firewalls durchdringen kann, weil die meisten Firewalls den von SSL verwendeten TCP-Port 443 öffnen.
 
 * IKEv2-VPN. IKEv2-VPN ist eine standardbasierte IPsec-VPN-Lösung, die UDP-Port 500 und 4500 und IP-Protokollnummer 50 verwendet. Firewalls öffnen nicht immer diese Ports, daher kann IKEv2-VPN unter Umständen Proxys und Firewalls nicht überwinden.
 
@@ -66,7 +68,7 @@ Der genaue Durchsatz der VPN-Tunnel lässt sich nur schwer ermitteln. IPsec und 
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Kann ich für Point-to-Site-Verbindungen einen beliebigen VPN-Softwareclient mit SSTP- und/oder IKEv2-Unterstützung verwenden?
 
-Nein. Sie können nur den nativen VPN-Client unter Windows für SSTP und den nativen VPN-Client unter Mac für IKEv2 verwenden. Informationen finden Sie in der Liste der unterstützten Clientbetriebssysteme.
+Nein. Sie können nur den nativen VPN-Client unter Windows für SSTP und den nativen VPN-Client unter Mac für IKEv2 verwenden. Allerdings können Sie den OpenVPN-Client auf allen Plattformen verwenden, um über das OpenVPN-Protokoll eine Verbindung herzustellen. Informationen finden Sie in der Liste der unterstützten Clientbetriebssysteme.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Unterstützt Azure IKEv2-VPN unter Windows?
 
@@ -76,7 +78,7 @@ Vorbereitung von Windows 10 oder Server 2016 für IKEv2:
 
 1. Installieren Sie das Update.
 
-   | Betriebssystemversion | Datum | Anzahl/Link |
+   | Betriebssystemversion | Date | Anzahl/Link |
    |---|---|---|
    | Windows Server 2016<br>Windows 10, Version 1607 | 17. Januar 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, Version 1703 | 17. Januar 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

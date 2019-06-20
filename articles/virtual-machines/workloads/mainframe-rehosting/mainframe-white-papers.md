@@ -9,11 +9,11 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 29665639e90f729f5506a0a12241bb04fd88e69c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896691"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60859323"
 ---
 # <a name="azure-white-papers-about-mainframe-topics"></a>Azure-Whitepaper zu Mainframethemen
 

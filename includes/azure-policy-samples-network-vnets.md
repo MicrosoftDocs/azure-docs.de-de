@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
@@ -9,11 +9,11 @@ ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: f93e22012a4855257f5372c1fc1dbc05ad29a6cd
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318217"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178238"
 ---
 ### <a name="virtual-networks"></a>Virtuelle Netzwerke
 

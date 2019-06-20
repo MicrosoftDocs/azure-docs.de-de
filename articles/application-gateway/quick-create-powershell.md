@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d41480def95137e1dc938c845f8cec1d59e26036
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 6c472c30514e6acd3b21822e31f2cefc0da5bc98
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521783"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729652"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Schnellstart: Weiterleiten von Webdatenverkehr per Azure Application Gateway – Azure PowerShell
 
@@ -23,7 +23,7 @@ Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](htt
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -151,7 +151,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 ### <a name="create-the-backend-pool"></a>Erstellen des Back-End-Pools
 
 1. Erstellen Sie mit [New-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) den Back-End-Pool für das Anwendungsgateway. 
-2. Konfigurieren Sie mit [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsettings) die Einstellungen für den Back-End-Pool.
+2. Konfigurieren Sie mit [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsetting) die Einstellungen für den Back-End-Pool.
 
 ```azurepowershell-interactive
 $address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -159,7 +159,7 @@ $address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name my
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
   -Name myAGBackendPool `
   -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
-$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSetting `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `

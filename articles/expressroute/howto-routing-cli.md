@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a2bb8f5d27f1829f891a0638642093df1fa35b81
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088450"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717036"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Erstellen und Ändern des Peerings für eine ExpressRoute-Verbindung mithilfe von CLI
 
@@ -322,6 +322,10 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 ## <a name="public"></a>Öffentliches Azure-Peering:
 
 Dieser Abschnitt unterstützt Sie beim Erstellen, Abrufen, Aktualisieren und Löschen der öffentlichen Azure-Peeringkonfiguration für eine ExpressRoute-Verbindung.
+
+> [!Note]
+> Öffentliches Azure-Peering gilt für neue Leitungen als veraltet. Weitere Informationen finden Sie unter [ExpressRoute-Peering](expressroute-circuit-peerings.md).
+>
 
 ### <a name="to-create-azure-public-peering"></a>So erstellen Sie ein öffentliches Azure-Peering
 

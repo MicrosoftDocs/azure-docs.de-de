@@ -13,12 +13,12 @@ caps.latest.revision: 28
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: ed071d1da30a598eef830b4485c246ffae09c950
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb833904502c0c42b46201fd46a368de0376277c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62130267"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure Cloud Services – Netzwerkkonfigurationsschema
 

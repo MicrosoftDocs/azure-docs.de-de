@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258394"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254319"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Übersicht über SSL-Beendigung und End-to-End-SSL mit Application Gateway
 
@@ -48,6 +48,9 @@ Das Anwendungsgateway unterstützt die folgenden Arten von Zertifikaten:
 - Selbstsignierte Zertifikate: Clientbrowser vertrauen diesen Zertifikaten nicht und warnen den Benutzer, dass das virtuelle Zertifikat des Diensts keiner Vertrauenskette angehört. Selbstsignierte Zertifikate eignen sich gut für Tests oder Umgebungen, in denen Administratoren die Clients kontrollieren und Sicherheitswarnungen des Browsers sicher umgehen können. Produktionsworkloads sollten niemals selbstsignierte Zertifikate verwenden.
 
 Weitere Informationen finden Sie im Artikel zum [Konfigurieren der SSL-Beendigung mit Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+### <a name="size-of-the-certificate"></a>Größe des Zertifikats
+Lesen Sie den Abschnitt [Application Gateway-Grenzwerte](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) durch, um die maximal unterstützte Größe von SSL-Zertifikaten zu erfahren.
 
 ## <a name="end-to-end-ssl-encryption"></a>End-to-End-SSL-Verschlüsselung
 

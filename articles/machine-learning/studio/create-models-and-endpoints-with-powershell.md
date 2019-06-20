@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
 ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848916"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60773688"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Erstellen mehrerer Studio-Modelle und Webdienst-Endpunkte in einem Experiment mit PowerShell
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: d615eb2a23b953bad5e41859357d9ae9e9be2ba6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521215"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60197607"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Batchtests mit einem Satz von Beispieläußerungen
 

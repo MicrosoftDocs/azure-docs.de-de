@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
-ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61473007"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status von Migrationsszenarien, die in Azure Database Migration Service unterstützt werden
 Azure Database Migration Service wurde zur Unterstützung verschiedener Migrationsszenarien (Quelle-Ziel-Paare) und sowohl für die Offline- (einmalig) als auch die Onlinemigration (fortlaufende Synchronisierung) konzipiert. Der in Azure Database Migration Service bereitgestellte Szenarioumfang wird im Lauf der Zeit erweitert. In regelmäßigen Abständen werden neue Szenarios hinzugefügt. In diesem Artikel werden die Migrationsszenarien, die derzeit in Azure Database Migration Service unterstützt werden, und der Status der einzelnen Szenarien (private Vorschau, öffentliche Vorschau oder allgemein verfügbar) definiert.
@@ -39,7 +39,7 @@ In den folgenden Tabellen sind die Migrationsszenarien aufgeführt, die bei Verw
 ### <a name="offline-one-time-migration-support"></a>Unterstützung der Offlinemigration (einmalig)
 Die folgende Tabelle enthält die Azure Database Migration Service-Unterstützung für Offlinemigrationen.
 
-| Ziel  | Quelle | Support | Status |
+| Ziel  | `Source` | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL-Datenbank** | SQL Server | ✔ | Allgemein verfügbar |
 |   | RDS SQL |  |  |
@@ -58,7 +58,7 @@ Die folgende Tabelle enthält die Azure Database Migration Service-Unterstützun
 ### <a name="online-continuous-sync-migration-support"></a>Unterstützung der Onlinemigration (fortlaufende Synchronisierung)
 Die folgende Tabelle enthält die Azure Database Migration Service-Unterstützung für Onlinemigrationen.
 
-| Ziel  | Quelle | Support | Status |
+| Ziel  | `Source` | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL-Datenbank** | SQL Server | ✔ | Allgemein verfügbar |
 |   | RDS SQL | ✔ | Allgemein verfügbar |

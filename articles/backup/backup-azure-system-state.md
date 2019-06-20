@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
 ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60782538"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sichern des Windows-Systemstatus in der Ressourcen Manager-Bereitstellung
 Dieser Artikel beschreibt, wie Sie den Systemstatus von Windows Server in Azure sichern. Dies ist ein Tutorial, in dem die Grundlagen beschrieben werden.

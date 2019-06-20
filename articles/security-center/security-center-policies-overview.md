@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec674641991a1b5a1e0ca92c133be235dd91dfae
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60703522"
 ---
 # <a name="security-center-settings"></a>Security Center-Einstellungen
 Dieser Artikel enthält eine Übersicht über die Einstellungen in Security Center.
@@ -39,8 +39,8 @@ Unter „Sicherheitsrichtlinie“ stehen folgende Einstellungen zur Verfügung:
 ## <a name="who-can-edit-security-policies"></a>Wer kann Sicherheitsrichtlinien bearbeiten?
 Security Center verwendet die rollenbasierte Zugriffssteuerung (Role-Based Access Control, RBAC). Dabei werden integrierte Rollen bereitgestellt, die Benutzern, Gruppen und Diensten in Azure zugewiesen werden können. In Security Center werden den Benutzern nur Informationen zu den Ressourcen angezeigt, auf die sie Zugriff haben. Das bedeutet, dass Benutzern die Rolle *Besitzer*, *Mitwirkender* oder *Leser* für das Abonnement zugewiesen wird, zu dem die Ressource gehört. Neben diesen Rollen gibt es zwei spezifische Security Center-Rollen:
 
-- **Benutzer mit Leseberechtigung für Sicherheitsfunktionen**: Kann Informationen in Security Center (wie etwa Empfehlungen, Warnungen, Richtlinien und die Integrität) anzeigen, aber keine Änderungen vornehmen.
-- **Sicherheitsadministrator**: Verfügt über dieselben Anzeigeberechtigungen wie ein *Benutzer mit Leseberechtigung für Sicherheitsfunktionen*, ist zusätzlich aber auch zum Aktualisieren der Sicherheitsrichtlinie und zum Verwerfen von Empfehlungen und Warnungen berechtigt.
+- **Sicherheitsleseberechtigter**: Kann Informationen in Security Center (wie etwa Empfehlungen, Warnungen, Richtlinien und die Integrität) anzeigen, aber keine Änderungen vornehmen.
+- **Sicherheitsadministrator**: Verfügt über dieselben Anzeigeberechtigungen wie ein *Sicherheitsleseberechtigter*, ist zusätzlich aber auch zum Aktualisieren der Sicherheitsrichtlinie und zum Verwerfen von Empfehlungen und Warnungen berechtigt.
 
 
 ## <a name="next-steps"></a>Nächste Schritte

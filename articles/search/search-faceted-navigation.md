@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65793619"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implementieren der Facettennavigation in Azure Search
 Bei der Facettennavigation handelt es sich um einen Filtermechanismus für die selbstständige Drilldownnavigation in Suchanwendungen. Der Begriff „Facettennavigation“ ist Ihnen zwar möglicherweise nicht bekannt, aber Sie haben diese wahrscheinlich bereits verwendet. Die Facettennavigation ist im Prinzip nichts weiter als die Kategorien, die zum Filtern der Ergebnisse verwendet werden.
 
- ![Azure Search-Demo „Job Portal“][1]
+ ![Azure Search-Demo „Job Portal“](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search-Demo „Job Portal“")
 
 Die Facettennavigation ist ein alternativer Einstiegspunkt für die Suche. Sie bietet eine praktische Alternative zum manuellen Eintippen komplexer Suchausdrücke. Facetten unterstützen Sie bei der Suche und stellen sicher, dass Sie Ergebnisse erhalten. Als Entwickler können Sie mithilfe von Facets besonders hilfreiche Suchkriterien für die Navigation in Ihrem Suchindex verfügbar machen. Bei Onlinehändlern basiert die Facettennavigation häufig auf Marken, Abteilungen (Kinderschuhe), Größe, Preis, Beliebtheit und Bewertungen. 
 
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Ein Facettenabfrageparameter wird auf ein Feld festgelegt und kann abhängig vom Datentyp durch eine kommagetrennte Liste mit `count:<integer>`, `sort:<>`, `interval:<integer>` und `values:<list>` weiter parametrisiert werden. Für numerische Daten wird beim Einrichten von Bereichen eine Werteliste unterstützt. Ausführlichere Informationen zur Verwendung finden Sie unter [Dokumente durchsuchen (Azure Search-API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .
 
-Neben Facetten muss die von Ihrer Anwendung erstellte Anforderung auch Filter zum Einschränken der auf der Grundlage der Facettenwertauswahl infrage kommenden Dokumente erstellen. Für ein Fahrradgeschäft bietet Facettennavigation bietet Hinweise zu Fragen wie *Welche Farben, Hersteller und Fahrradtypen sind verfügbar?*. Filtern Sie Antworten auf Fragen wie *Welche Fahrräder in diesem Preisspanne sind rote Mountainbikes?*. Wenn Sie durch Klicken auf „Rot“ angeben, dass nur rote Produkte angezeigt werden sollen, enthält die nächste von der Anwendung gesendete Abfrage `$filter=Color eq ‘Red’`.
+Neben Facetten muss die von Ihrer Anwendung erstellte Anforderung auch Filter zum Einschränken der auf der Grundlage der Facettenwertauswahl infrage kommenden Dokumente erstellen. Für ein Fahrradgeschäft bietet Facettennavigation bietet Hinweise zu Fragen wie *Welche Farben, Hersteller und Fahrradtypen sind verfügbar?* . Filtern Sie Antworten auf Fragen wie *Welche Fahrräder in diesem Preisspanne sind rote Mountainbikes?* . Wenn Sie durch Klicken auf „Rot“ angeben, dass nur rote Produkte angezeigt werden sollen, enthält die nächste von der Anwendung gesendete Abfrage `$filter=Color eq ‘Red’`.
 
 Mit dem folgenden Codeausschnitt von der `JobsSearch.cs`-Seite wird die Berufsbezeichnung dem Filter hinzugefügt, wenn Sie einen Wert aus der Berufsbezeichnungsfacette auswählen.
 
@@ -270,11 +270,11 @@ Wenn Sie die Facettenliste dynamisch auf der Grundlage nicht vertrauenswürdiger
 ### <a name="filtering-tips"></a>Filtertipps
 **Erhöhen Sie die Genauigkeit der Suche mit Filtern**
 
- Verwenden Sie Filter. Wenn Sie sich ausschließlich auf Suchausdrücke verlassen, wird aufgrund der Wortstammerkennung unter Umständen ein Dokument zurückgegeben, bei dem keines der Felder den exakten Facettenwert enthält.
+Verwenden Sie Filter. Wenn Sie sich ausschließlich auf Suchausdrücke verlassen, wird aufgrund der Wortstammerkennung unter Umständen ein Dokument zurückgegeben, bei dem keines der Felder den exakten Facettenwert enthält.
 
 **Erhöhen Sie die Leistung der Suche mit Filtern**
 
- Filter grenzen die für die Suche infrage kommenden Dokumente ein und schließen sie von der Sortierung aus. Wenn Sie über eine große Anzahl von Dokumenten verfügen, können Sie die Leistung mit einem selektiven Facettendrilldownelement in der Regel steigern.
+Filter grenzen die für die Suche infrage kommenden Dokumente ein und schließen sie von der Sortierung aus. Wenn Sie über eine große Anzahl von Dokumenten verfügen, können Sie die Leistung mit einem selektiven Facettendrilldownelement in der Regel steigern.
   
 **Filtern Sie nur die facettierten Felder**
 
@@ -305,11 +305,11 @@ Beachten Sie die Unterscheidung zwischen Facettenergebnissen und Suchergebnissen
 > Die Erläuterung von `count` kann verwirrend sein, wenn mehrere Typen vorhanden sind. Die folgende Tabelle bietet einen kurzen Überblick über die Verwendung des Begriffs in Azure Search-API, Beispielcode und Dokumentation: 
 
 * `@colorFacet.count`<br/>
-   Im Darstellungscode wird die Facette mit einem count-Parameter versehen, um die Anzahl der Facettenergebnisse anzuzeigen. In den Facettenergebnissen gibt „count“ die Anzahl von Dokumenten an, die dem Facettenbegriff oder -bereich entsprechen.
+  Im Darstellungscode wird die Facette mit einem count-Parameter versehen, um die Anzahl der Facettenergebnisse anzuzeigen. In den Facettenergebnissen gibt „count“ die Anzahl von Dokumenten an, die dem Facettenbegriff oder -bereich entsprechen.
 * `&facet=City,count:12`<br/>
-   In einer Facettenabfrage können Sie „count“ auf einen Wert festlegen.  Der Standardwert lautet „10“, Sie können jedoch einen größeren oder kleineren Wert angeben. Mit `count:12` werden in den Facettenergebnissen die 12 relevantesten Übereinstimmungen (auf der Grundlage der Dokumentanzahl) zurückgegeben.
+  In einer Facettenabfrage können Sie „count“ auf einen Wert festlegen.  Der Standardwert lautet „10“, Sie können jedoch einen größeren oder kleineren Wert angeben. Mit `count:12` werden in den Facettenergebnissen die 12 relevantesten Übereinstimmungen (auf der Grundlage der Dokumentanzahl) zurückgegeben.
 * "`@odata.count`"<br/>
-   In der Abfrageantwort gibt dieser Wert die Anzahl übereinstimmender Elemente in den Suchergebnissen an. Dieser ist häufig größer als die Summe aller Facettenergebnisse, da hier auch Elemente enthalten sind, die zwar dem Suchbegriff entsprechen, für die aber keine übereinstimmenden Facettenwerte vorhanden sind.
+  In der Abfrageantwort gibt dieser Wert die Anzahl übereinstimmender Elemente in den Suchergebnissen an. Dieser ist häufig größer als die Summe aller Facettenergebnisse, da hier auch Elemente enthalten sind, die zwar dem Suchbegriff entsprechen, für die aber keine übereinstimmenden Facettenwerte vorhanden sind.
 
 **Ermitteln Sie die Anzahl in Facettenergebnissen**
 
@@ -339,9 +339,9 @@ Azure Search vereinfacht die Bereichserstellung durch zwei Bereichsberechnungsan
 Um Preisfacets in Schritten von 10 $ festzulegen, geben Sie Folgendes an: `&facet=price,interval:10`
 
 **Vorgehensweise 2: Verwenden einer Werteliste**  
- Bei numerischen Daten können Sie eine Werteliste verwenden.  Sehen Sie sich die folgende Darstellung des Facettenbereichs für ein `listPrice`-Feld an:
+Bei numerischen Daten können Sie eine Werteliste verwenden.  Sehen Sie sich die folgende Darstellung des Facettenbereichs für ein `listPrice`-Feld an:
 
-  ![Beispielwerteliste][5]
+  ![Beispielwerteliste](media/search-faceted-navigation/Facet-5-Prices.PNG "Beispielwerteliste")
 
 Verwenden Sie zum Angeben eines Facettenbereichs wie im vorhergehenden Screenshot eine Werteliste:
 
@@ -352,7 +352,7 @@ Jeder Bereich wird mit „0“ als Ausgangspunkt und einem Wert aus der Liste al
 ### <a name="build-a-filter-for-a-range"></a>Erstellen Sie einen Filter für einen Bereich
 Wenn Sie Dokumente auf der Grundlage eines von Ihnen ausgewählten Bereichs filtern möchten, können Sie die Filteroperatoren `"ge"` und `"lt"` in einem zweiteiligen Ausdruck verwenden, um die Endpunkte des Bereichs zu definieren. Beispiel: Wenn Sie für ein `listPrice`-Feld den Bereich 10–25 wählen, ist der Filter `$filter=listPrice ge 10 and listPrice lt 25`. Im Beispielcode legt der Filterausdruck die Endpunkte über die Parameter **priceFrom** und **priceTo** fest. 
 
-  ![Abfrage für einen Bereich von Werten][6]
+  ![Abfrage für einen Bereich von Werten](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Abfrage für einen Bereich von Werten")
 
 <a name="geofacets"></a> 
 
@@ -385,11 +385,11 @@ Achten Sie bei der Arbeit mit Suchergebnissen auf die Veränderung der Abfrageko
    
    Zusammen mit den Suchergebnissen wird auch eine Facettennavigationsstruktur zurückgegeben. Die Facettennavigationsstruktur auf der Suchergebnisseite enthält jeweils die Anzahl für die einzelnen Facettenergebnisse. Es sind keine Facetten ausgewählt, daher werden alle übereinstimmenden Ergebnisse zurückgegeben.
    
-   ![Suchergebnisse vor dem Auswählen von Facetten][11]
+   ![Suchergebnisse vor dem Auswählen von Facetten](media/search-faceted-navigation/faceted-search-before-facets.png "Suchergebnisse vor dem Auswählen von Facetten")
 
 4. Klicken Sie auf eine Berufsbezeichnung, einen Standort oder ein Mindestgehalt. Die Facetten waren beim ersten Suchvorgang NULL, wenn sie jedoch Werte erhalten, werden Elemente, die den Kriterien nicht mehr entsprechen, aus den Suchergebnissen entfernt.
    
-   ![Suchergebnisse nach dem Auswählen von Facetten][12]
+   ![Suchergebnisse nach dem Auswählen von Facetten](media/search-faceted-navigation/faceted-search-after-facets.png "Suchergebnisse nach dem Auswählen von Facetten")
 
 5. Klicken Sie am oberen Seitenrand auf das `[X]` hinter den ausgewählten Facetten, um sie zu löschen, damit Sie verschiedene Abfrageverhalten testen können.
    
@@ -400,42 +400,6 @@ Achten Sie bei der Arbeit mit Suchergebnissen auf die Veränderung der Abfrageko
 
 Weitere Einblicke in die Entwurfsprinzipien der Facettennavigation erhalten Sie unter folgenden Links:
 
-* [Designing for Faceted Search](http://www.uie.com/articles/faceted_search/)
 * [Entwurfsmuster: Facettennavigation](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [Front End Concerns When Implementing Faceted Search – Part 1 ](https://articles.uie.com/faceted_search2/) (Front-End-Aspekte bei der Implementierung von facettierten Suche – Teil 1)
 

@@ -16,11 +16,11 @@ ms.date: 07/06/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175318"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60339830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Tutorial: Azure Active Directory-Integration mit SecureW2 JoinNow Connector
 
@@ -84,11 +84,11 @@ Damit das einmalige Anmelden funktioniert, muss Azure AD wissen, welcher Benutze
 
 Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD bei SecureW2 JoinNow Connector zu konfigurieren und zu testen:
 
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-2. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-3. **[Erstellen eines SecureW2 JoinNow Connector-Testbenutzers](#create-a-securew2-joinnow-connector-test-user)**, um eine Entsprechung von Britta Simon in SecureW2 JoinNow Connector zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist.
-4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-5. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+3. **[Erstellen eines SecureW2 JoinNow Connector-Testbenutzers](#create-a-securew2-joinnow-connector-test-user)** , um eine Entsprechung von Britta Simon in SecureW2 JoinNow Connector zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 

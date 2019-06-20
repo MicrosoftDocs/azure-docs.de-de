@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64570645"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integration Ihrer VPN-Infrastruktur in Azure MFA mit der Netzwerkrichtlinienserver-Erweiterung für Azure
 
@@ -76,7 +76,7 @@ Wenn die NPS-Erweiterung für Azure im NPS integriert ist, gestaltet sich ein er
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-In diesem Abschnitt werden die erforderlichen Voraussetzungen zur Integration von MFA in das Remotedesktopgateway ausführlich beschrieben. Bevor Sie beginnen, müssen folgende Voraussetzungen erfüllt und eingerichtet sein:
+In diesem Abschnitt werden die erforderlichen Voraussetzungen zur Integration von MFA in das VPN ausführlich beschrieben. Bevor Sie beginnen, müssen folgende Voraussetzungen erfüllt und eingerichtet sein:
 
 * VPN-Infrastruktur
 * Rolle „Netzwerkrichtlinien- und Zugriffsdienste“
@@ -143,7 +143,7 @@ Die ordnungsgemäße Funktionsweise des NPS-Servers in diesem Szenario setzt sei
 
 2. Wählen Sie im Server-Manager **Extras** und dann **Netzwerkrichtlinienserver** aus.
 
-3. Klicken Sie in der Netzwerkrichtlinienserver-Konsole mit der rechten Maustaste auf **NPS (Lokal)**, und wählen Sie dann **Server in Active Directory registrieren** aus. Wählen Sie zweimal **OK** aus.
+3. Klicken Sie in der Netzwerkrichtlinienserver-Konsole mit der rechten Maustaste auf **NPS (Lokal)** , und wählen Sie dann **Server in Active Directory registrieren** aus. Wählen Sie zweimal **OK** aus.
 
     ![Menüoption „Server in Active Directory registrieren“](./media/howto-mfa-nps-extension-vpn/image2.png)
 
@@ -171,7 +171,7 @@ Sie können eine standardmäßige (assistentenbasierte) oder die erweiterte Konf
 
 6. Wählen Sie **OK** und anschließend **Weiter** aus.
 
-7. Akzeptieren Sie im Fenster **Authentifizierungsmethoden konfigurieren** die Standardauswahl **Microsoft-verschlüsselte Authentifizierung, Version 2 (MS-CHAPv2)**, oder wählen Sie eine andere Option aus. Wählen Sie dann **Weiter** aus.
+7. Akzeptieren Sie im Fenster **Authentifizierungsmethoden konfigurieren** die Standardauswahl **Microsoft-verschlüsselte Authentifizierung, Version 2 (MS-CHAPv2)** , oder wählen Sie eine andere Option aus. Wählen Sie dann **Weiter** aus.
 
     > [!NOTE]
     > Wenn Sie das Extensible Authentication-Protokoll (EAP) konfigurieren, müssen Sie entweder das Microsoft Challenge Handshake Authentication-Protokoll (CHAPv2) oder das Protected Extensible Authentication-Protokoll (PEAP) verwenden. Kein anderes EAP wird unterstützt.
@@ -230,7 +230,7 @@ In diesem Abschnitt konfigurieren Sie Ihren VPN-Server zur Verwendung der RADIUS
 
 2. Wählen Sie im Server-Manager die Option **Tools** und dann **Routing und RAS** aus.
 
-3. Klicken Sie im Fenster **Routing und RAS** mit der rechten Maustaste auf **\<Servername> (Lokal)**, und wählen Sie dann **Eigenschaften** aus.
+3. Klicken Sie im Fenster **Routing und RAS** mit der rechten Maustaste auf **\<Servername> (Lokal)** , und wählen Sie dann **Eigenschaften** aus.
 
 4. Wählen Sie im Fenster **\<Servername> (Lokal) Eigenschaften** die Registerkarte **Sicherheit** aus.
 
@@ -338,7 +338,7 @@ Im Rahmen der Konfiguration der NPS-Erweiterung müssen Sie Administratoranmelde
 
 ### <a name="install-the-nps-extension"></a>Installieren der NPS-Erweiterung
 
-Die NPS-Erweiterung muss auf einem Server installiert sein, auf dem die Rolle „Netzwerkrichtlinien- und Zugriffsdienste“ installiert ist und der in Ihrem Entwurf als RADIUS-Server dient. Installieren Sie die NPS-Erweiterung *nicht* auf Ihrem Remotedesktopserver.
+Die NPS-Erweiterung muss auf einem Server installiert sein, auf dem die Rolle „Netzwerkrichtlinien- und Zugriffsdienste“ installiert ist und der in Ihrem Entwurf als RADIUS-Server dient. Installieren Sie die NPS-Erweiterung *nicht* auf Ihrem VPN-Server.
 
 1. Laden Sie die NPS-Erweiterung aus dem [Microsoft Download Center](https://aka.ms/npsmfa) herunter.
 

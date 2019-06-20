@@ -15,11 +15,11 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2f4c74076f2763addc1f2b971d8ea0ca29ce6fd0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60203974"
 ---
 # <a name="additional-network-requirements-for-large-instances"></a>Zusätzliche Netzwerkanforderungen für große Instanzen
 

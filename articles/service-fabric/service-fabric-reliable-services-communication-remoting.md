@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: f9cd6e2fee738d2d42c790b4eb7b9a876a44b01d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670794"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772974"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Dienstremoting in C# mit Reliable Services
 

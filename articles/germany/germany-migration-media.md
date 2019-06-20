@@ -10,11 +10,11 @@ ms.date: 08/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ms.openlocfilehash: 9c1426391edb42ecc3e74ee84649bb69196c45dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60686334"
 ---
 # <a name="migrate-media-resources-to-global-azure"></a>Migrieren von Medienressourcen zu Azure weltweit
 

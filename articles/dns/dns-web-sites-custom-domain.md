@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: d2cb0ef904935d1736c23aeaf23030da99e41a71
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9d7a277db7550c1850ec0c9d555553064ab19f7c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665949"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730274"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Erstellen von DNS-Einträgen in einer benutzerdefinierten Domäne für eine Web-App 
 
@@ -41,7 +41,7 @@ In diesem Tutorial lernen Sie Folgendes:
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) erstellen, bevor Sie beginnen.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -175,7 +175,7 @@ set-AzWebApp `
 > [!NOTE]
 > Geben Sie unbedingt das Präfix `http://` mit an, andernfalls versucht der Browser ggf., die URL zu antizipieren.
 
-Für beide URLs sollte die gleiche Seite angezeigt werden. Beispiel: 
+Für beide URLs sollte die gleiche Seite angezeigt werden. Beispiel:
 
 ![Contoso-App-Dienst](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

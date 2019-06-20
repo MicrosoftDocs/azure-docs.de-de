@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540974"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595306"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch-Dienst – Kontingente und Limits
 
@@ -34,8 +34,6 @@ Wenn Sie Produktionsworkloads in Batch ausführen möchten, müssen Sie möglich
 
 > [!NOTE]
 > Bei einem Kontingent handelt es sich um ein Kreditlimit und keine Kapazitätsgarantie. Wenn Sie einen umfangreichen Kapazitätsbedarf haben, wenden Sie sich an den Azure-Support.
-> 
-> 
 
 ## <a name="resource-quotas"></a>Ressourcenkontingente
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -52,7 +50,7 @@ Wenn Sie ein Batch-Konto erstellen, bei dem der Poolzuordnungsmodus auf **Benutz
 | **Serverknoten im Pool mit [aktivierter Kommunikation zwischen den Knoten](batch-mpi.md)**  ||
 | Poolzuordnungsmodus für den Batch-Dienst | 100 |
 | Poolzuordnungsmodus für das Batch-Abonnement | 80 |
-| **Serverknoten im [mit benutzerdefinierten VM-Images erstellten Pool](batch-custom-images.md)**<sup>1</sup> ||
+| **Serverknoten im [mit benutzerdefinierten VM-Images erstellten Pool](batch-custom-images.md)** <sup>1</sup> ||
 | Dedizierte Knoten | 2000 |
 | Knoten mit niedriger Priorität | 1000 |
 
@@ -84,45 +82,57 @@ Sie können die Kontingente Ihres Batch-Kontos im [Azure-Portal][portal] anzeige
 
 Führen Sie die folgenden Schritte aus, um über das [Azure-Portal][portal] eine Kontingenterhöhung für Ihr Batch-Konto oder Abonnement anzufordern. Die Art der Kontingenterhöhung richtet sich nach dem Poolzuordnungsmodus Ihres Batch-Kontos. Um eine Erhöhung des Kontingents anzufordern, müssen Sie die VM-Serien angeben, deren Kontingent erhöht werden soll. Wenn die Erhöhung des Kontingents angewendet wird, gilt sie für alle VM-Serien.
 
-### <a name="increase-a-batch-cores-quota"></a>Erhöhen des Kernkontingents für Batch 
+### <a name="increase-cores-quota-in-batch"></a>Erhöhen des Kernkontingents in Batch 
 
-1. Wählen Sie auf Ihrem Portaldashboard die Kachel **Hilfe und Support** oder das Fragezeichen (**?**) in der oberen rechten Ecke des Portals.
+1. Wählen Sie auf Ihrem Portaldashboard die Kachel **Hilfe und Support** oder das Fragezeichen ( **?** ) in der oberen rechten Ecke des Portals.
 1. Wählen Sie **Neue Supportanfrage** > **Grundlagen** aus.
 1. Gehen Sie unter **Grundlegende Einstellungen** wie folgt vor:
    
-    a. **Problemtyp** > **Kontingent**
+    a. **Problemtyp** > **Grenzwerte für Dienste und Abonnements (Kontingente)**
    
     b. Wählen Sie Ihr Abonnement aus.
    
     c. **Kontingenttyp** > **Batch**
-   
-    d. **Supportplan** > **Kontingentsupport – inbegriffen**
-   
+      
     Klicken Sie auf **Weiter**.
-1. Gehen Sie unter **Problem** wie folgt vor:
-   
-    a. Wählen Sie einen **Schweregrad** gemäß der [geschäftlichen Auswirkung][support_sev] aus.
-   
-    b. Geben Sie unter **Details**jedes Kontingent an, das Sie ändern möchten, sowie den Batch-Kontonamen und das neue Limit.
-   
+    
+1. Unter **Details** finden Sie folgende Informationen:
+      
+    a. Geben Sie unter **Details angeben** den Speicherort, den Kontingenttyp und das Batch-Konto an.
+    
+    ![Erhöhen des Batch-Kontingente][quota_increase]
+
+    Es gibt folgende Kontingenttypen:
+
+    * **Pro Batch-Konto**  
+        Spezifische Werte für ein einzelnes Batch-Konto, einschließlich dedizierter und mit niedriger Priorität versehener Kerne, sowie die Anzahl der Aufträge und Pools.
+        
+    * **Pro Region**  
+        Werte, die für alle Batch-Konten in einer Region gelten und die Anzahl der Batch-Konten pro Region und Abonnement beinhalten.
+
+    Das Kontingent mit niedriger Priorität ist ein einzelner Wert für alle VM-Serien. Wenn Sie eingeschränkte SKUs benötigen, müssen Sie **Kerne mit niedriger Priorität** auswählen und die anzufordernden VM-Produktfamilien einschließen.
+
+    b. Wählen Sie einen **Schweregrad** gemäß der [geschäftlichen Auswirkung][support_sev] aus.
+
     Klicken Sie auf **Weiter**.
+
 1. Gehen Sie unter **Kontaktinformationen** wie folgt vor:
    
     a. Wählen Sie eine **bevorzugte Kontaktmethode**aus.
    
     b. Überprüfen Sie die erforderlichen Kontaktdetails, und geben Sie sie ein.
    
-    Klicken Sie auf **Erstellen** , um die Supportanfrage zu übermitteln.
+    Wählen Sie **Erstellen** aus, um die Supportanfrage zu übermitteln.
 
-Nachdem Sie die Supportanfrage übermittelt haben, wird sich der Azure-Support mit Ihnen in Verbindung setzen. Beachten Sie, dass die Bearbeitung der Anfrage bis zu zwei Werktage in Anspruch nehmen kann.
+Nachdem Sie die Supportanfrage übermittelt haben, wird sich der Azure-Support mit Ihnen in Verbindung setzen. Kontingentanfragen können innerhalb weniger Minuten abgeschlossen werden oder bis zu zwei Werktage dauern.
 
 ## <a name="related-quotas-for-vm-pools"></a>Verknüpfte Kontingente für VM-Pools
 
 Batch-Pools in der Konfiguration von virtuellen Computern, die in einem virtuellen Azure-Network bereitgestellt wurden, ordnen automatisch zusätzliche Azure-Netzwerkressourcen zu. Die folgenden Ressourcen sind für alle 50 Poolknoten in einem virtuellen Netzwerk erforderlich:
 
-* 1 [Netzwerksicherheitsgruppe](../virtual-network/security-overview.md#network-security-groups)
-* 1 [öffentliche IP-Adresse](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* 1 [Lastenausgleich](../load-balancer/load-balancer-overview.md)
+* Eine [Netzwerksicherheitsgruppe](../virtual-network/security-overview.md#network-security-groups)
+* Eine [öffentliche IP-Adresse](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* Ein [Load Balancer](../load-balancer/load-balancer-overview.md)
 
 Diese Ressourcen werden in dem Abonnement zugeordnet, das das virtuelle Netzwerk enthält, das beim Erstellen des Batch-Pools bereitgestellt wurde. Diese Ressourcen werden durch die [Ressourcenkontingente](../azure-subscription-service-limits.md) des Abonnements beschränkt. Wenn Sie große Poolbereitstellungen in einem virtuellen Netzwerk planen, überprüfen Sie die Kontingente des Abonnements für diese Ressourcen. Fordern Sie bei Bedarf eine Erhöhung im Azure-Portal an, indem Sie **Hilfe und Support** auswählen.
 
@@ -137,3 +147,4 @@ Diese Ressourcen werden in dem Abonnement zugeordnet, das das virtuelle Netzwerk
 [support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
+[quota_increase]: ./media/batch-quota-limit/quota-increase.png

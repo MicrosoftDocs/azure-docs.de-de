@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60399340"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Erstellen von Features für Daten in einem Hadoop-Cluster mit Hive-Abfragen
 Dieses Dokument veranschaulicht, wie Features für Daten in einem Azure HDInsight Hadoop-Cluster mithilfe von Hive-Abfragen erstellt werden. Diese Hive-Abfragen verwenden eingebettete Hive-UDFs (User Defined Function, benutzerdefinierte Funktion), für die die Skripts bereitgestellt werden.
@@ -96,7 +96,7 @@ Liegt ein "datetime"-Feld nicht im Standardformat vor, muss zunächst das "datet
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Wenn *\<datetime field>* in dieser Abfrage das Muster *03/26/2015 12:04:39* hat, muss das '*\<Muster von datetime field>'* als `'MM/dd/yyyy HH:mm:ss'` vorliegen. Zum Testen können Sie folgenden Code ausführen:
+Wenn *\<datetime field>* in dieser Abfrage das Muster *03/26/2015 12:04:39* hat, muss das ' *\<Muster von datetime field>'* als `'MM/dd/yyyy HH:mm:ss'` vorliegen. Zum Testen können Sie folgenden Code ausführen:
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -139,7 +139,7 @@ Eine vollständige Liste der eingebetteten Hive-UDFs finden Sie im Abschnitt **B
 ## <a name="tuning"></a> Weiterführende Themen: Optimieren von Hive-Parametern zur Verbesserung der Abfragegeschwindigkeit
 Die Standardeinstellungen für die Parameter von Hive-Clustern eignen sich möglicherweise nicht für die Hive-Abfragen und die von den Abfragen verarbeiteten Daten. In diesem Abschnitt werden einige Parameter beschrieben, mit denen Sie die Leistung der Hive-Abfragen optimieren können. Sie müssen die Abfragen zur Parameteroptimierung vor den Abfragen der Verarbeitungsdaten einfügen.
 
-1. **Java-Heapspeicher**: Für Abfragen, bei denen große Datasets zusammengeführt oder lange Datensätze verarbeitet werden, besteht ein typischer Fehler darin, dass **nicht genügend Heapspeicher verfügbar ist**. Dieser Fehler kann durch Festlegen der Parameter *mapreduce.map.java.opts* und *mapreduce.task.io.sort.mb* auf die gewünschten Werte vermieden werden. Beispiel: 
+1. **Java-Heapspeicher**: Für Abfragen, bei denen große Datasets zusammengeführt oder lange Datensätze verarbeitet werden, besteht ein typischer Fehler darin, dass **nicht genügend Heapspeicher verfügbar ist**. Dieser Fehler kann durch Festlegen der Parameter *mapreduce.map.java.opts* und *mapreduce.task.io.sort.mb* auf die gewünschten Werte vermieden werden. Beispiel:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;

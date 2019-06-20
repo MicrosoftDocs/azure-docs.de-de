@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049971"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65796358"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importieren und Exportieren von IoT Hub-Geräteidentitäten per Massenvorgang
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>Grenzwerte bei Geräteimport-/exportaufträgen
+
+Bei allen IoT Hub-Tarifen ist jeweils nur 1 aktiver Geräteimport- oder -exportauftrag zulässig. Außerdem gibt es in IoT Hub Grenzwerte für die Rate der Auftragsvorgänge. Weitere Informationen finden Sie unter [Referenz: IoT Hub-Kontingente und Drosselung](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Exportieren von Geräten
 
@@ -256,8 +260,8 @@ Verwenden Sie die optionale **importMode**-Eigenschaft in den Importserialisieru
 | importMode | BESCHREIBUNG |
 | --- | --- |
 | **createOrUpdate** |Wenn ein Gerät mit der angegebenen **ID**nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten ohne Berücksichtigung des **ETag** -Werts überschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
-| **create** |Wenn ein Gerät mit der angegebenen **ID**nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
-| **aktualisieren** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten ohne Berücksichtigung des **ETag**-Werts überschrieben. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. |
+| **erstellen** |Wenn ein Gerät mit der angegebenen **ID**nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
+| **update** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten ohne Berücksichtigung des **ETag**-Werts überschrieben. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. |
 | **updateIfMatchETag** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten nur überschrieben, wenn es eine Übereinstimmung mit einem **ETag** gibt. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. <br/>Wenn es keine Übereinstimmung mit einem **ETag** gibt, wird ein Fehler in die Protokolldatei geschrieben. |
 | **createOrUpdateIfMatchETag** |Wenn ein Gerät mit der angegebenen **ID**nicht vorhanden ist, wird es neu registriert. <br/>Wenn das Gerät bereits vorhanden ist, werden vorhandene Informationen mit den bereitgestellten Eingabedaten nur überschrieben, wenn es eine Übereinstimmung mit einem **ETag** gibt. <br/>Wenn es keine Übereinstimmung mit einem **ETag** gibt, wird ein Fehler in die Protokolldatei geschrieben. <br> Der Benutzer kann optional Zwillingsdaten mit den Gerätedaten angeben. Das ETag des Zwillings wird, sofern angegeben, unabhängig vom Geräte-ETag verarbeitet. Wenn ein Konflikt mit dem ETag des vorhandenen Zwillings vorliegt, wird ein Fehler in die Protokolldatei geschrieben. |
 | **delete** |Wenn ein Gerät mit der angegebenen **ID** bereits vorhanden ist, wird es ohne Berücksichtigung des **ETag**-Werts gelöscht. <br/>Wenn das Gerät nicht vorhanden ist, wird ein Fehler in die Protokolldatei geschrieben. |
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Abrufen des SAS-URI des Containers
 
-Das folgende Codebeispiel veranschaulicht das Erstellen eines [SAS-URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) mit Lese-, Schreib- und Löschberechtigungen für einen Blobcontainer:
+Das folgende Codebeispiel veranschaulicht das Erstellen eines [SAS-URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) mit Lese-, Schreib- und Löschberechtigungen für einen Blobcontainer:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,11 +424,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 In diesem Artikel haben Sie gelernt, wie Massenvorgänge auf die Identitätsregistrierung in einem IoT Hub angewendet werden. Folgen Sie diesen Links, um mehr über das Verwalten von Azure IoT Hub zu erfahren:
 
 * [IoT Hub-Metriken](iot-hub-metrics.md)
-* [Vorgangsüberwachung](iot-hub-operations-monitoring.md)
+* [IoT Hub-Protokolle](iot-hub-monitor-resource-health.md)
 
 Weitere Informationen zu den Funktionen von IoT Hub finden Sie unter:
 
-* [Entwicklerhandbuch für IoT Hub](iot-hub-devguide.md)
+* [Entwicklungsleitfaden für IoT Hub](iot-hub-devguide.md)
 * [Bereitstellen von KI auf Edge-Geräten mit Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Informationen, die Sie beim Erforschen der Verwendung des IoT Hub Device Provisioning-Diensts für die Just-in-Time-Bereitstellung ohne Benutzereingriff unterstützen, finden Sie in: 

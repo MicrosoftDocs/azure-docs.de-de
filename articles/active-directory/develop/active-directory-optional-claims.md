@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139238"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119719"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gewusst wie: Bereitstellen optionaler Ansprüche für Ihre Azure AD-App
 
@@ -126,6 +126,9 @@ Dieses OptionalClaims-Objekt bewirkt, dass das an den Client zurückgegebene ID-
 
 Sie können optionale Ansprüche für Ihre Anwendung konfigurieren, indem Sie das Anwendungsmanifest ändern (siehe Beispiel unten). Weitere Informationen finden Sie im Artikel [Grundlegendes zum Azure AD-Anwendungsmanifest](reference-app-manifest.md).
 
+> [!IMPORTANT]
+> Zugriffstoken werden **immer** mit dem Manifest der Ressource und nicht des Clients generiert.  Daher entspricht die Ressource in der Anforderung `...scope=https://graph.microsoft.com/user.read...` dem Graph.  Folglich wird das Zugriffstoken unter Verwendung des Graph-Manifests und nicht des Clientmanifests erstellt.  Wenn Sie das Manifest für Ihre Anwendung ändern, hat das daher keinen Einfluss auf die Token für den Graph.  Um zu überprüfen, ob Ihre Änderungen an `accessToken` wirksam sind, fordern Sie ein Token für Ihre Anwendung, aber keine andere App an.  
+
 **Beispielschema:**
 
 ```json
@@ -217,7 +220,7 @@ Dieser Abschnitt behandelt die Konfigurationsoptionen unter den optionalen Anspr
    - DistributionList
    - DirectoryRole
 
-   Beispiel: 
+   Beispiel:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

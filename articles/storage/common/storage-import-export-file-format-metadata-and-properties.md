@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478554"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Format der Metadaten- und Eigenschaftendateien des Azure Import/Export-Diensts
 Sie können Metadaten und Eigenschaften als Teil eines Import- oder Exportauftrags für mindestens ein Blob angeben. Zum Festlegen von Metadaten oder Eigenschaften für Blobs, die als Teil eines Importauftrags erstellt werden, geben Sie eine Metadaten- oder Eigenschaftendatei auf der Festplatte an, die die zu importierenden Daten enthält. Bei einem Exportauftrag werden Metadaten und Eigenschaften in eine entsprechende Datei auf der Festplatte geschrieben, die an Sie zurückgesendet wird.  
@@ -33,7 +33,7 @@ Das Format einer Metadatendatei lautet wie folgt:
 |XML-Element|Type|BESCHREIBUNG|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Stammelement|Das Stammelement der Metadatendatei|  
-|`metadata-name`|Zeichenfolge|Optional. Das XML-Element gibt den Namen der Metadaten für das Blob an, und sein Wert gibt den Wert der Metadateneinstellung an.|  
+|`metadata-name`|string|Optional. Das XML-Element gibt den Namen der Metadaten für das Blob an, und sein Wert gibt den Wert der Metadateneinstellung an.|  
   
 ## <a name="properties-file-format"></a>Format der Eigenschaftendatei  
 Das Format einer Eigenschaftendatei lautet wie folgt:  
@@ -55,14 +55,14 @@ Das Format einer Eigenschaftendatei lautet wie folgt:
 |XML-Element|Type|BESCHREIBUNG|  
 |-----------------|----------|-----------------|  
 |`Properties`|Stammelement|Das Stammelement der Eigenschaftendatei|  
-|`Last-Modified`|Zeichenfolge|Optional. Die Zeit der letzten Änderung des Blobs. Nur für Exportaufträge|  
-|`Etag`|Zeichenfolge|Optional. Der ETag-Wert des Blobs. Nur für Exportaufträge|  
-|`Content-Length`|Zeichenfolge|Optional. Die Größe des Blobs in Byte. Nur für Exportaufträge|  
-|`Content-Type`|Zeichenfolge|Optional. Der Inhaltstyp des Blobs|  
-|`Content-MD5`|Zeichenfolge|Optional. MD5-Hash des Blobs|  
-|`Content-Encoding`|Zeichenfolge|Optional. Inhaltscodierung des Blobs|  
-|`Content-Language`|Zeichenfolge|Optional. Inhaltssprache des Blob|  
-|`Cache-Control`|Zeichenfolge|Optional. Die Cachesteuerelement-Zeichenfolge für das Blob|  
+|`Last-Modified`|string|Optional. Die Zeit der letzten Änderung des Blobs. Nur für Exportaufträge|  
+|`Etag`|string|Optional. Der ETag-Wert des Blobs. Nur für Exportaufträge|  
+|`Content-Length`|string|Optional. Die Größe des Blobs in Byte. Nur für Exportaufträge|  
+|`Content-Type`|string|Optional. Der Inhaltstyp des Blobs|  
+|`Content-MD5`|string|Optional. MD5-Hash des Blobs|  
+|`Content-Encoding`|string|Optional. Inhaltscodierung des Blobs|  
+|`Content-Language`|string|Optional. Inhaltssprache des Blob|  
+|`Cache-Control`|string|Optional. Die Cachesteuerelement-Zeichenfolge für das Blob|  
 
 ## <a name="next-steps"></a>Nächste Schritte
 

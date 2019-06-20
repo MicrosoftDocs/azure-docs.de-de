@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b9f7a5332c8529753f2e22efd6af3d04cb3f44b6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992022"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479751"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Verizon-spezifische HTTP-Header für Azure CDN-Regel-Engine
 
 Wenn bei **Azure CDN Premium-Produkten von Verizon** eine HTTP-Anforderung an den Ursprungsserver gesendet wird, kann der POP-Server (Point-of-Presence) mindestens einen reservierten Header (oder proxyspezifische Header) in der Clientanforderung an den POP-Server hinzufügen. Diese Header stellen zusätzliche Header zu den empfangenen Standardweiterleitungsheadern dar. Informationen zu Standardanforderungsheadern finden Sie unter [Anforderungsfelder](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
 
-Wenn Sie verhindern möchten, dass einer dieser reservierten Header in der Azure CDN (Content Delivery Network) POP-Anforderung an den Ursprungsserver hinzugefügt wird, müssen Sie eine Regel mit dem [Feature „Spezielle Proxyheader“](cdn-rules-engine-reference-features.md#proxy-special-headers) in der Regel-Engine erstellen. Schließen Sie in dieser Regel den Header aus, den Sie aus der Standardliste der Header im Feld „Header“ entfernen möchten. Wenn Sie das [Feature „Cacheantwortheader debuggen“](cdn-rules-engine-reference-features.md#debug-cache-response-headers) aktiviert haben, achten Sie darauf, dass Sie die erforderlichen `X-EC-Debug`-Header hinzufügen. 
+Wenn Sie verhindern möchten, dass einer dieser reservierten Header in der Azure CDN (Content Delivery Network) POP-Anforderung an den Ursprungsserver hinzugefügt wird, müssen Sie eine Regel mit dem [Feature „Spezielle Proxyheader“](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) in der Regel-Engine erstellen. Schließen Sie in dieser Regel den Header aus, den Sie aus der Standardliste der Header im Feld „Header“ entfernen möchten. Wenn Sie das [Feature „Cacheantwortheader debuggen“](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) aktiviert haben, achten Sie darauf, dass Sie die erforderlichen `X-EC-Debug`-Header hinzufügen. 
 
 Um beispielsweise den `Via`-Header zu entfernen, muss das headers-Feld der Regel die folgende Liste von Headern enthalten: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
@@ -42,7 +42,7 @@ X-Host | Gibt den Hostnamen der Anforderung an. | cdn.mydomain.com
 X-Midgress | Gibt an, ob die Anforderung von einem Proxy über einen zusätzlichen CDN-Server übermittelt wurde. Beispielsweise von einem POP-Server an einen Shield-Ursprungsserver oder von einem POP-Server an einen ADN-Gatewayserver. <br />Dieser Header wird nur dann der Anforderung hinzugefügt, wenn Midgress-Datenverkehr stattfindet. In diesem Fall wird der Header auf 1 festgelegt, um anzugeben, dass die Anforderung über einen Proxy durch einen zusätzlichen CDN-Server übermittelt wurde.| 1
 [Host](#host-request-header) | Identifiziert den Host und den Port für den angeforderten Inhalt. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifiziert die Failoverliste von ADN-Gatewayservern, die einem Kundenursprung zugewiesen wurden. <br />Origin Shield: Gibt die Gruppe der Origin Shield-Server an, die einem Kundenursprung zugewiesen wurden. | `icn1,hhp1,hnd1`
-X-EC-_&lt;name&gt;_ | Anforderungsheader, die mit *X-EG* beginnen (z.B. X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)), sind für die Verwendung durch das CDN reserviert.| waf-production
+X-EC- _&lt;name&gt;_ | Anforderungsheader, die mit *X-EG* beginnen (z.B. X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)), sind für die Verwendung durch das CDN reserviert.| waf-production
 
 ## <a name="via-request-header"></a>Via-Anforderungsheader
 Das Format, durch das der `Via`-Anforderungsheader einen POP-Server identifiziert, wird durch die folgende Syntax angegeben:

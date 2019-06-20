@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: fa3abb9fc7b899fa5c74d6f1cd73ebbbb72b6047
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e644a4df99669e7ad69e08090418c2a3cffc7e9d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776630"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389816"
 ---
 # <a name="what-are-parallel-documents"></a>Was sind parallele Dokumente?
 

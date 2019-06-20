@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 1e689d7ce65fda43e5657383ed44890c90c095cd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025690"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237951"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Vorbereiten von Daten für Custom Speech
 
@@ -27,9 +27,9 @@ Die folgende Tabelle enthält die zulässigen Datentypen, gibt an, wann der jewe
 
 | Datentyp | Für Tests verwendet | Menge | Für Training verwendet | Menge |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Ja<br>Zur visuellen Prüfung verwendet | Mindestens 5 Audiodateien | Nein  | Nicht zutreffend |
+| [Audio](#audio-data-for-testing) | Ja<br>Zur visuellen Prüfung verwendet | Mindestens 5 Audiodateien | Nein | Nicht zutreffend |
 | [Audio + menschenmarkierte Transkripte](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Zur Bewertung der Genauigkeit verwendet | 0,5 – 5 Stunden Audio | Ja | 1 – 1.000 Stunden Audio |
-| [Zugehöriger Text](##related-text-data-for-training) | Nein  | Nicht zutreffend | Ja | 1 – 200 MB zugehöriger Text |
+| [Zugehöriger Text](##related-text-data-for-training) | Nein | Nicht zutreffend | Ja | 1 – 200 MB zugehöriger Text |
 
 Dateien sollten nach Typ in einem Dataset gruppiert und als ZIP-Datei hochgeladen werden. Jedes Dataset darf nur einen einzelnen Datentyp enthalten.
 
@@ -58,7 +58,7 @@ Anhand der folgenden Tabelle können Sie sicherstellen, dass Ihre Audiodateien f
 | Samplingrate | 8.000 Hz oder 16.000 Hz |
 | Kanäle | 1 (Mono) |
 | Maximale Länge pro Audioaufnahme | 2 Stunden |
-| Samplingformat | PCM, 16 Bit |
+| Beispielformat | PCM, 16 Bit |
 | Archivierungsformat | .zip |
 | Maximale Archivgröße | 2 GB |
 
@@ -66,8 +66,8 @@ Wenn Ihre Audiodaten diese Eigenschaften nicht erfüllen oder Sie prüfen möcht
 
 | Aktivität | BESCHREIBUNG | SoX-Befehl |
 |----------|-------------|-------------|
-| Audioformat überprüfen | Verwenden Sie diesen Befehl, um das Audiodateiformat zu überprüfen. | `soxi <filename>.wav` |
-| Audioformat konvertieren | Verwenden Sie diesen Befehl, um die Audiodatei in einen einzigen Kanal, 16 Bit, 48 KHz, zu konvertieren. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
+| Audioformat überprüfen | Verwenden Sie diesen Befehl, um das Audiodateiformat zu überprüfen. | `sox --i <filename>` |
+| Audioformat konvertieren | Verwenden Sie diesen Befehl, um die Audiodatei in einen einzigen Kanal, 16 Bit, 16 KHz, zu konvertieren. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Audio- und menschenmarkierte Transkriptionsdaten für Tests/Training
 
@@ -79,13 +79,13 @@ Um die Genauigkeit der Microsoft-Spracherkennung bei der Verarbeitung Ihrer Audi
 | Samplingrate | 8.000 Hz oder 16.000 Hz |
 | Kanäle | 1 (Mono) |
 | Maximale Länge pro Audioaufnahme | 60 s |
-| Samplingformat | PCM, 16 Bit |
+| Beispielformat | PCM, 16 Bit |
 | Archivierungsformat | .zip |
 | Maximale ZIP-Dateigröße | 2 GB |
 
 In Hinsicht auf Probleme wie die Löschung oder Ersetzung von Wörtern sind erhebliche Datenmengen erforderlich, um die Erkennung zu verbessern. Im Allgemeinen wird empfohlen, wortwörtliche Transkriptionen für ungefähr 10 bis 1.000 Stunden Audio bereitzustellen. Die Transkriptionen für sämtliche WAV-Dateien sollten in einer einzelnen Textdatei enthalten sein. Jede Zeile der Transkriptionsdatei muss den Namen einer der Audiodateien enthalten – gefolgt von der jeweiligen Transkription. Der Dateiname und die Transkription sollten durch ein Tabulatorzeichen (\t) getrennt werden.
 
-  Beispiel: 
+  Beispiel:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -142,7 +142,7 @@ Hier sehen Sie Beispiele für eine gesprochene Äußerung und die jeweilige benu
 |--------------|--------------------------|
 | drei c p o | 3CPO |  
 | c n t k | CNTK |
-| i doppel e | IEE |
+| i doppel e | IEEE |
 
 Die gesprochene Form ist die jeweilige Lautfolge. Sie kann aus Buchstaben, Wörtern, Silben oder einer Kombination aus allen drei bestehen.
 

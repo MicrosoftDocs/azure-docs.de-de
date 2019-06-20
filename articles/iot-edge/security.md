@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 8aadddbc9ae13a87f89db4d7e7189ea7aa8aeef5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883503"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60612026"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Sicherheitsstandards für Azure IoT Edge
 

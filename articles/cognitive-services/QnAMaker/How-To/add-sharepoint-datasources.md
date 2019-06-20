@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 671d76b6c0a5a2cdac5797668fb0e5651b5823e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281742"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954958"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Hinzufügen einer geschützten SharePoint-Datenquelle zu Ihrer Wissensdatenbank
 
@@ -53,7 +53,7 @@ Die Anforderung beginnt mit einer Popup-Aufforderung zur Authentifizierung eines
 
 ![Authentifizieren des Benutzerkontos](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Nachdem der QnA Maker-Manager das Konto ausgewählt hat, erhält der Active Directory-Administrator eine Benachrichtigung mit dem Hinweis, dass er der QnA Maker-App (nicht dem QnA Maker-Manager) Zugriff auf die SharePoint-Ressource gewähren muss. Der Active Directory-Manager muss diesen Schritt für jede SharePoint-Ressource, aber nicht für jedes Dokument in dieser Ressource ausführen. 
+Nachdem der QnA Maker-Manager das Konto ausgewählt hat, erhält der Active Directory-Administrator eine Benachrichtigung mit dem Hinweis, dass der QnA Maker-App (nicht dem QnA Maker-Manager) Zugriff auf die SharePoint-Ressource erhalten muss. Der Active Directory-Manager muss diesen Schritt für jede SharePoint-Ressource, aber nicht für jedes Dokument in dieser Ressource ausführen. 
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active Directory-Manager: Gewähren von Dateilesezugriff für QnA Maker
 
@@ -99,7 +99,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 -->
 ### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Gewähren des Zugriffs über das Azure Active Directory Admin Center
 
-1. Der Active Directory-Manager meldet sich beim Azure-Portal an und öffnet **[Unternehmensanwendungen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**. 
+1. Der Active Directory-Manager meldet sich beim Azure-Portal an und öffnet **[Unternehmensanwendungen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** . 
 
 1. Suchen Sie nach `QnAMakerPortalSharepoint`, und wählen Sie dann die QnA Maker-App aus. 
 
@@ -142,7 +142,7 @@ Use the following steps to transform the Sharepoint URL into a sharing token.
 
 ### Add or update a Sharepoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) or [updating a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {

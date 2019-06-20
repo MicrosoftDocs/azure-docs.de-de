@@ -10,11 +10,11 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61289800"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Erste Schritte mit Azure Search in Java
 > [!div class="op_single_selector"]
@@ -87,7 +87,7 @@ Alle nachfolgenden Dateiänderungen und Ausführungsanweisungen werden an den Da
 ## <a name="configure-the-service-url-and-api-key"></a>Konfigurieren von Dienst-URL und API-Schlüssel
 1. Doppelklicken Sie in **Projektexplorer** auf **config.properties**, um die Konfigurationseinstellungen zu bearbeiten, die den Servernamen und den API-Schlüssel enthalten.
 2. Schlagen Sie die Schritte weiter oben in diesem Artikel nach, mit denen Sie die Dienst-URL und den API-Schlüssel im [Azure-Portal](https://portal.azure.com)ermittelt haben, um die Werte zu erhalten, die Sie jetzt in **config.properties**eingeben.
-3. Ersetzen Sie in der Datei **config.properties**, "API Key" durch den API-Schlüssel ihres Diensts. Anschließend ersetzt der Dienstname (die erste Komponente der URL https://servicename.search.windows.net)) „service name“ in der gleichen Datei.
+3. Ersetzen Sie in der Datei **config.properties**, "API Key" durch den API-Schlüssel ihres Diensts. Anschließend ersetzt der Dienstname (die erste Komponente der URL https://servicename.search.windows.net) ) „service name“ in der gleichen Datei.
    
     ![][5]
 
@@ -97,13 +97,13 @@ Alle nachfolgenden Dateiänderungen und Ausführungsanweisungen werden an den Da
    
     ![][6]
 3. Klicken Sie auf **Anwenden**.
-4. Wählen Sie **Fenster** > **Voreinstellungen** > **Server** > **Laufzeitumgebungen** > **Hinzufügen..**.
+4. Wählen Sie **Fenster** > **Voreinstellungen** > **Server** > **Laufzeitumgebungen** > **Hinzufügen..** .
 5. Erweitern Sie Apache, und wählen Sie die Version des Apache Tomcat-Servers, die Sie zuvor installiert haben. Auf unserem System wurde Version 8 installiert.
    
     ![][7]
 6. Geben Sie auf der nächsten Seite das Tomcat-Installationsverzeichnis an. Auf einem Windows-Computer ist dies wahrscheinlich „C:\Programme\Apache Software Foundation\Tomcat *Version*“.
 7. Klicken Sie auf **Fertig stellen**.
-8. Wählen Sie **Fenster** > **Voreinstellungen** > **Java** > **Installierte JREs** > **Hinzufügen..**.
+8. Wählen Sie **Fenster** > **Voreinstellungen** > **Java** > **Installierte JREs** > **Hinzufügen..** .
 9. Wählen Sie in **JRE hinzufügen** die Option **Standard VM** aus.
 10. Klicken Sie auf **Weiter**.
 11. Klicken Sie auf der JRE-Startseite in "JRE Definition" auf **Directory**.
@@ -118,7 +118,7 @@ Alle nachfolgenden Dateiänderungen und Ausführungsanweisungen werden an den Da
 Sie haben die Konfigurationsaufgaben nun abgeschlossen. Als Nächstes erstellen Sie das Projekt und führen Sie es aus.
 
 ## <a name="build-the-project"></a>Erstellen des Projekts
-1. Klicken Sie in Projektexplorer mit der rechten Maustaste auf den Projektnamen, und wählen Sie **Ausführen als** > **Maven-Build...**, um das Projekt zu konfigurieren.
+1. Klicken Sie in Projektexplorer mit der rechten Maustaste auf den Projektnamen, und wählen Sie **Ausführen als** > **Maven-Build...** , um das Projekt zu konfigurieren.
    
     ![][10]
 2. Geben Sie in "Edit Configuration" unter "Goals" das Ziel "clean install" ein, und klicken Sie dann auf **Run**.

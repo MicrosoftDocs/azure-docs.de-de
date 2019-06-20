@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 4285ee94d2f2a9b5fff9d1896cdf7013f88801ab
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4ba5c8b69776b39d8a6640744b0c24600f3a0d5b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979628"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178278"
 ---
 #### <a name="to-create-a-new-service"></a>So erstellen Sie einen neuen Dienst
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140618"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178773"
 ---
 1. Melden Sie sich beim [Azure-Portal] an.
 2. Wählen Sie **+ NEU** > **Web + Mobil** > **Mobile App** aus, und geben Sie einen Namen für Ihr Mobile Apps-Back-End an.

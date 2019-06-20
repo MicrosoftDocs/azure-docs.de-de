@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: 59003e71324f5342cb2b724f670603fd6b67afe4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305224"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257561"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Erstellen einer Benutzeroberfläche im Azure-Portal für die verwaltete Anwendung
 In diesem Dokument werden die grundlegenden Konzepte der Datei „createUiDefinition.json“ vorgestellt. Das Azure-Portal verwendet diese Datei zum Generieren der Benutzeroberfläche zum Erstellen einer verwalteten Anwendung.
@@ -39,14 +39,16 @@ In diesem Dokument werden die grundlegenden Konzepte der Datei „createUiDefini
 Ein CreateUiDefinition-Element enthält immer drei Eigenschaften: 
 
 * handler
-* Version
-* Parameter
+* version
+* parameters
 
 Bei verwalteten Anwendungen muss für „handler“ immer `Microsoft.Compute.MultiVm` angegeben werden. Die letzte unterstützte Version ist `0.1.2-preview`.
 
 Das Schema der parameters-Eigenschaft hängt von der Kombination aus den angegebenen Werten für „handler“ und „version“ ab. Für verwaltete Anwendungen lauten die unterstützten Eigenschaften `basics`, `steps` und `outputs`. Die Eigenschaften „basics“ und „steps“ enthalten die _Elemente_  (wie Textfelder und Dropdownfelder), die im Azure-Portal angezeigt werden sollen. Mit der outputs-Eigenschaft werden die Ausgabewerte der angegebenen Elemente den Parametern der Azure Resource Manager-Bereitstellungsvorlage zugeordnet.
 
 Die Aufnahme von `$schema` wird empfohlen, ist aber optional. Wenn ein Wert angegeben wird, muss der Wert für `version` der Version im `$schema`-URI entsprechen.
+
+Sie können einen JSON-Editor zum Erstellen Ihrer Benutzeroberflächendefinition verwenden, oder Sie können die Benutzeroberflächendefinitions-Sandbox verwenden, um die Benutzeroberflächendefinition zu erstellen und eine Vorschau davon anzuzeigen. Weitere Informationen zur Sandbox finden Sie unter [Testen Ihrer Portaloberfläche für Azure Managed Applications](test-createuidefinition.md).
 
 ## <a name="basics"></a>Grundlagen
 „basics“ ist stets der erste Schritt des Assistenten, der erstellt wird, wenn das Azure-Portal die Datei analysiert. Das Portal zeigt nicht nur die in `basics` angegebenen Elemente an, sondern fügt zusätzlich Elemente für Benutzer zum Auswählen des Abonnements, der Ressourcengruppe und des Standort für die Bereitstellung ein. Im Allgemeinen sollten Elemente, die bereitstellungsweite Parameter abfragen (wie den Namen eines Clusters oder Administratoranmeldeinformationen), in diesem Schritt enthalten sein.

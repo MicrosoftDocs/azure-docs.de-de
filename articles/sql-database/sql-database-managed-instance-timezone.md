@@ -1,6 +1,6 @@
 ---
 title: 'Verwaltete Azure SQL-Datenbank-Instanz: Zeitzonen | Microsoft-Dokumentation'
-description: Enthält eine Beschreibung der Besonderheiten der Zeitzonen einer verwalteten Azure SQL-Datenbank-Instanz.
+description: Enthält eine Beschreibung der Besonderheiten von Zeitzonen einer verwalteten Azure SQL-Datenbank-Instanz.
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -10,42 +10,42 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/22/2019
+ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489689"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016388"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Zeitzone in einer verwalteten Azure SQL-Datenbank-Instanz (Vorschauversion)
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Zeitzonen in einer verwalteten Azure SQL-Datenbank-Instanz
 
-Die Verwendung der Koordinierten Weltzeit (Coordinated Universal Time, UTC) ist eine empfohlene Vorgehensweise für die Datenschicht von Cloudlösungen. Die verwaltete Azure SQL-Datenbank-Instanz verfügt aber über eine Zeitzonenauswahl, um die Anforderungen vorhandener Anwendungen zu erfüllen, die Datums- und Uhrzeitwerte speichern und Datums- und Uhrzeitfunktionen im impliziten Kontext einer bestimmten Zeitzone aufrufen.
+„Koordinierte Weltzeit (UTC)“ ist die empfohlene Zeitzone für die Datenschicht von Cloudlösungen. Bei einer verwalteten Azure SQL-Datenbank-Instanz können Sie auch zwischen Zeitzonen wählen, um die Anforderungen vorhandener Anwendungen zu erfüllen, für die Datums- und Uhrzeitwerte gespeichert und Datums- und Uhrzeitfunktionen mit einem impliziten Kontext einer spezifischen Zeitzone aufgerufen werden.
 
-Bei T-SQL-Funktionen wie [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) oder bei CLR-Code wird die Zeitzone beachtet, die für die Instanzebene festgelegt wurde. Auch bei SQL-Agentaufträgen wird der Zeitplan gemäß der Zeitzone der Instanz befolgt.
+Bei T-SQL-Funktionen wie [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) oder bei CLR-Code wird die Zeitzone beachtet, die für die Instanzebene festgelegt wurde. Auch bei SQL Server-Agentaufträgen wird der Zeitplan gemäß der Zeitzone der Instanz befolgt.
 
   >[!NOTE]
   > Verwaltete Instanzen sind die einzige Bereitstellungsoption von Azure SQL-Datenbank, für die die Zeitzoneneinstellung unterstützt wird. Für andere Bereitstellungsoptionen wird immer UTC genutzt.
-Verwenden Sie [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) in SQL-Einzel- und -Pooldatenbanken, wenn Sie Datums- und Uhrzeitinformationen in anderen Zeitzonen als UTC interpretieren müssen.
+Verwenden Sie [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) in SQL-Einzel- und -Pooldatenbanken, wenn Sie Datums- und Uhrzeitinformationen in einer anderen Zeitzone als UTC interpretieren müssen.
 
 ## <a name="supported-time-zones"></a>Unterstützte Zeitzonen
 
-Eine Reihe von unterstützten Zeitzonen wird vom zugrunde liegenden Betriebssystem der verwalteten Instanz geerbt. Diese werden regelmäßig aktualisiert, um neue Zeitzonendefinitionen zu erhalten und Änderungen widerzuspiegeln.
+Vom zugrunde liegenden Betriebssystem der verwalteten Instanz werden verschiedene unterstützte Zeitzonen geerbt. Es wird regelmäßig eine Aktualisierung durchgeführt, um neue Zeitzonendefinitionen einzubinden und Änderungen an vorhandenen Definitionen widerzuspiegeln. 
 
 Eine Liste mit Namen der unterstützten Zeitzonen wird über die Systemansicht [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) verfügbar gemacht.
 
-## <a name="setting-time-zone"></a>Festlegen der Zeitzone
+## <a name="set-a-time-zone"></a>Festlegen einer Zeitzone
 
-Eine Zeitzone einer verwalteten Instanz kann nur während der Instanzerstellung festgelegt werden. Die Standardzeitzone ist die Koordinierte Weltzeit (UTC).
+Eine Zeitzone einer verwalteten Instanz kann nur während der Instanzerstellung festgelegt werden. Die Standardzeitzone ist UTC.
 
   >[!NOTE]
   > Die Zeitzone einer vorhandenen verwalteten Instanz kann nicht geändert werden.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>Festlegen der Zeitzone über das Azure-Portal
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Festlegen der Zeitzone über das Azure-Portal
 
-Wählen Sie beim Eingeben der Parameter für die neue Instanz in der Liste mit den unterstützten Zeitzonen eine Zeitzone aus:
+Wählen Sie beim Eingeben der Parameter für eine neue Instanz in der Liste mit den unterstützten Zeitzonen eine Zeitzone aus. 
   
-![Festlegen der Zeitzone während der Instanzerstellung](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Festlegen einer Zeitzone während der Instanzerstellung](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-Vorlage
 
@@ -66,11 +66,11 @@ Geben Sie die timezoneId-Eigenschaft in Ihrer [Resource Manager-Vorlage](https:/
 
 ```
 
-Die Liste mit den unterstützten Werten für die timezoneId-Eigenschaft finden Sie am Ende dieses Artikels.
+Eine Liste mit unterstützten Werten für die timezoneId-Eigenschaft finden Sie am Ende dieses Artikels.
 
-Wenn nichts anderes angegeben ist, wird die Zeitzone auf UTC festgelegt.
+Wenn nichts anderes angegeben ist, wird UTC als Zeitzone festgelegt.
 
-## <a name="checking-the-time-zone-of-instance"></a>Überprüfen der Zeitzone einer Instanz
+## <a name="check-the-time-zone-of-an-instance"></a>Überprüfen der Zeitzone einer Instanz
 
 Mit der Funktion [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) wird ein Anzeigename der Zeitzone einer Instanz zurückgegeben.
 
@@ -78,24 +78,23 @@ Mit der Funktion [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functio
 
 ### <a name="restore-and-import"></a>Wiederherstellung und Import
 
-Sie können für eine verwaltete Instanz Sicherungsdateien wiederherstellen oder Daten importieren, wenn die entsprechende Instanz oder der Server über andere Zeitzoneneinstellungen verfügt. Gehen Sie hierbei aber mit Bedacht vor, und analysieren Sie das Anwendungsverhalten und die Ergebnisse der Abfragen und Berichte, wie Sie dies auch beim Übertragen von Daten zwischen zwei SQL Server-Instanzen mit verschiedenen Zeitzoneneinstellungen tun.
+Sie können für eine verwaltete Instanz eine Sicherungsdatei wiederherstellen oder Daten importieren, wenn die entsprechende Instanz oder der Server über andere Zeitzoneneinstellungen verfügt. Gehen Sie hierbei mit Bedacht vor. Analysieren Sie das Anwendungsverhalten und die Ergebnisse der Abfragen und Berichte, wie Sie dies auch beim Übertragen von Daten zwischen zwei SQL Server-Instanzen mit verschiedenen Zeitzoneneinstellungen tun.
 
 ### <a name="point-in-time-restore"></a>Point-in-Time-Wiederherstellung
 
-Beim Durchführen der Point-in-Time-Wiederherstellung wird die Uhrzeit für die Wiederherstellung als UTC-Zeit interpretiert, um Mehrdeutigkeiten aufgrund von Sommerzeit und den damit verbundenen Änderungen zu vermeiden.
+Wenn Sie eine Point-in-Time-Wiederherstellung durchführen, wird der Wiederherstellungszeitpunkt als UTC-Zeit interpretiert. Mit dieser Einstellung wird jedwede Mehrdeutigkeit aufgrund von Sommerzeit und den damit verbundenen Umstellungen vermieden.
 
 ### <a name="auto-failover-groups"></a>Autofailover-Gruppen
 
-Die Verwendung der gleichen Zeitzone für die primären und sekundären Instanzen einer Failovergruppe ist nicht zwingend notwendig, wird aber dringend empfohlen.
-  >[!IMPORTANT]
-  > Es gibt zwar gültige Szenarien für die Verwendung einer anderen Zeitzone auf der Geo-Sekundärinstanz, die nur für die Leseskalierung verwendet wird. Beachten Sie aber, dass bei einem manuellen oder automatischen Failover auf die sekundäre Instanz die ursprüngliche Zeitzone beibehalten wird.
+Die Verwendung der gleichen Zeitzone für eine primäre und sekundäre Instanz einer Failovergruppe wird zwar nicht erzwungen, aber dringend empfohlen.
+
+  >[!WARNING]
+  > Wir empfehlen Ihnen dringend, in einer Failovergruppe jeweils die gleiche Zeitzone für die primäre und die sekundäre Instanz zu verwenden. Aufgrund von einigen selten vorkommenden Szenarien wird die Beibehaltung der Zeitzone für primäre und sekundäre Instanzen nicht erzwungen. Es ist wichtig zu verstehen, dass bei einem manuellen oder automatischen Failover für die sekundäre Instanz die ursprüngliche Zeitzone beibehalten wird.
 
 ## <a name="limitations"></a>Einschränkungen
 
 - Die Zeitzone der vorhandenen verwalteten Instanz kann nicht geändert werden.
-- Für externe Prozesse, die über die SQL-Agentaufträge gestartet werden, wird die Zeitzone der Instanz nicht beachtet.
-- Für das native PowerShell-Cmdlet [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) der verwalteten Instanz wird das Übergeben des Zeitzonenparameters noch nicht unterstützt. Verwenden Sie stattdessen den PowerShell-Wrapper mit der [Resource Manager-Vorlage](https://aka.ms/sql-mi-create-arm-posh).
-- Für den CLI-Befehl [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) wird der Zeitzonenparameter noch nicht unterstützt.
+- Für externe Prozesse, die über die SQL Server-Agentaufträge gestartet werden, wird die Zeitzone der Instanz nicht beachtet.
 
 ## <a name="list-of-supported-time-zones"></a>Liste mit den unterstützten Zeitzonen
 
@@ -240,7 +239,7 @@ Die Verwendung der gleichen Zeitzone für die primären und sekundären Instanze
 | Samoa Normalzeit | (UTC+13:00) Samoa |
 | Linieninseln Normalzeit | (UTC+14:00) Kiritimati-Insel |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Weitere Informationen 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

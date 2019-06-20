@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: cosmos-db
 author: rimman
 ms.service: cosmos-db
@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 ms.author: rimman
 ms.custom: include file
 ms.openlocfilehash: f000f10a3b20fda04c908a6dea0cc9799b49ef76
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151413"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178638"
 ---
 1. Melden Sie sich in einem neuen Fenster beim [Azure-Portal](https://portal.azure.com/) an.
 2. Klicken Sie im linken Menü auf **Ressource erstellen** > **Datenbanken** und anschließend unter **Azure Cosmos DB** auf **Erstellen**.

@@ -12,4 +12,4 @@ ms.lasthandoff: 12/14/2018
 ms.locfileid: "53410821"
 ---
 >[!Note]
->**Azure Batch AI wird eingestellt.** Die Unterstützung für diesen Dienst wird nach und nach eingestellt. Die Funktionen von Azure Batch AI sind nun als verwaltetes Computeziel in Azure Machine Learning Service verfügbar. Weitere Informationen finden Sie unter [Was passiert mit Batch AI?](../articles/batch-ai/overview-what-happened-batch-ai.md).
+>**Azure Batch AI wird eingestellt.** Die Unterstützung für diesen Dienst wird nach und nach eingestellt. Die Funktionen von Azure Batch KI sind nun als verwaltetes Computeziel in Azure Machine Learning Service verfügbar. Weitere Informationen finden Sie unter [Was passiert mit Batch AI?](../articles/batch-ai/overview-what-happened-batch-ai.md).

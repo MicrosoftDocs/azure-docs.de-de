@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409911"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT für Azure – Übersicht über die Bereitstellung
 

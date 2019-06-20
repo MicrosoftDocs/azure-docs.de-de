@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 2d6836b2bf667e4170e67a95dc1daad72a769eb9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736156"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178325"
 ---
 ### <a name="create-a-console-application"></a>Erstellen einer Konsolenanwendung
 
-Erstellen Sie in Visual Studio ein neues Projekt vom Typ **Konsolen-App (.NET Framework)**.
+Erstellen Sie in Visual Studio ein neues Projekt vom Typ **Konsolen-App (.NET Framework)** .
 
 ### <a name="add-the-relay-nuget-package"></a>Hinzufügen des Relay-NuGet-Pakets
 

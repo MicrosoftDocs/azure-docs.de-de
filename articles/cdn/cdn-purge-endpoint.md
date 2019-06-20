@@ -5,21 +5,21 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916478"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909683"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Löschen eines Azure CDN-Endpunkts
 ## <a name="overview"></a>Übersicht
@@ -69,7 +69,7 @@ Dieses Lernprogramm führt Sie durch das Löschen von Assets aus allen Edgeknote
     ![Löschschaltfläche](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Die Bearbeitung von Löschanforderungen dauert mit **Azure CDN von Verizon** (Standard oder Premium) etwa 2 bis 3 Minuten und mit **Azure CDN von Akamai** ca. 7 Minuten.  Die Anzahl gleichzeitiger Löschanforderungen auf Profilebene ist bei Azure CDN auf 50 begrenzt. 
+> Die Bearbeitung von Löschanforderungen dauert mit **Azure CDN von Microsoft** and **Azure CDN von Verizon** (Standard oder Premium) etwa 2 Minuten und mit **Azure CDN von Akamai** ca. 10 Sekunden.  Die Anzahl gleichzeitiger Löschanforderungen auf Profilebene ist bei Azure CDN auf 50 begrenzt. 
 > 
 > 
 

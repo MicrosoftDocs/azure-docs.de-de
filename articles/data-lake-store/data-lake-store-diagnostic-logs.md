@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877957"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878717"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Zugreifen auf Diagnoseprotokolle für Azure Data Lake Storage Gen1
 Erfahren Sie, wie Sie die Diagnoseprotokollierung für Ihr Azure Data Lake Storage Gen1-Konto aktivieren und wie Sie die für Ihr Konto erfassten Protokolle anzeigen.
@@ -115,25 +115,25 @@ Hier ist ein Beispiel für einen Eintrag im JSON-formatierten Anforderungsprotok
 #### <a name="request-log-schema"></a>Anforderungsprotokollschema
 | NAME | Type | BESCHREIBUNG |
 | --- | --- | --- |
-| time |Zeichenfolge |Der Zeitstempel (UTC) des Protokolls. |
-| Ressourcen-ID |Zeichenfolge |Die ID der Ressource, auf der der Vorgang stattfand. |
-| category |Zeichenfolge |Die Protokollkategorie. Beispiel: **Anforderungen**. |
-| operationName |Zeichenfolge |Der Name des protokollierten Vorgangs. Beispielsweise „getfilestatus“. |
-| resultType |Zeichenfolge |Der Status des Vorgangs, beispielsweise 200. |
-| callerIpAddress |Zeichenfolge |Die IP-Adresse des Clients, der die Anforderung gestellt hat. |
-| correlationId |Zeichenfolge |Die ID des Protokolls, die verwendet werden kann, um einen Satz verwandter Protokolleinträge zu gruppieren. |
+| time |string |Der Zeitstempel (UTC) des Protokolls. |
+| Ressourcen-ID |string |Die ID der Ressource, auf der der Vorgang stattfand. |
+| category |string |Die Protokollkategorie. Beispiel: **Anforderungen**. |
+| operationName |string |Der Name des protokollierten Vorgangs. Beispielsweise „getfilestatus“. |
+| resultType |string |Der Status des Vorgangs, beispielsweise 200. |
+| callerIpAddress |string |Die IP-Adresse des Clients, der die Anforderung gestellt hat. |
+| correlationId |string |Die ID des Protokolls, die verwendet werden kann, um einen Satz verwandter Protokolleinträge zu gruppieren. |
 | identity |Object |Die Identität, die das Protokoll erstellt hat. |
 | properties |JSON |Weitere Informationen siehe unten. |
 
 #### <a name="request-log-properties-schema"></a>Eigenschaftenschema des Anforderungsprotokolls
 | NAME | Type | BESCHREIBUNG |
 | --- | --- | --- |
-| HttpMethod |Zeichenfolge |Die HTTP-Methode, die für den Vorgang verwendet werden. Beispiel: GET. |
-| path |Zeichenfolge |Der Pfad, in dem der Vorgang durchgeführt wurde. |
+| HttpMethod |string |Die HTTP-Methode, die für den Vorgang verwendet werden. Beispiel: GET. |
+| `Path` |string |Der Pfad, in dem der Vorgang durchgeführt wurde. |
 | RequestContentLength |int |Die Inhaltslänge der HTTP-Anforderung. |
-| ClientRequestId |Zeichenfolge |Die ID, die diese Anforderung eindeutig identifiziert. |
-| StartTime |Zeichenfolge |Der Zeitpunkt, zu dem der Server die Anforderung empfangen hat. |
-| EndTime |Zeichenfolge |Der Zeitpunkt, zu dem der Server eine Antwort gesendet hat. |
+| ClientRequestId |string |Die ID, die diese Anforderung eindeutig identifiziert. |
+| StartTime |string |Der Zeitpunkt, zu dem der Server die Anforderung empfangen hat. |
+| EndTime |string |Der Zeitpunkt, zu dem der Server eine Antwort gesendet hat. |
 
 ### <a name="audit-logs"></a>Überwachungsprotokolle
 Hier ist ein Beispiel für einen Eintrag im JSON-formatierten Überwachungsprotokoll. Jeder Blob hat ein Stammobjekt namens **records** , das ein Array von Protokollobjekten enthält.
@@ -162,20 +162,20 @@ Hier ist ein Beispiel für einen Eintrag im JSON-formatierten Überwachungsproto
 #### <a name="audit-log-schema"></a>Überwachungsprotokollschema
 | NAME | Type | BESCHREIBUNG |
 | --- | --- | --- |
-| time |Zeichenfolge |Der Zeitstempel (UTC) des Protokolls. |
-| Ressourcen-ID |Zeichenfolge |Die ID der Ressource, auf der der Vorgang stattfand. |
-| category |Zeichenfolge |Die Protokollkategorie. Beispiel: **Überwachung**. |
-| operationName |Zeichenfolge |Der Name des protokollierten Vorgangs. Beispielsweise „getfilestatus“. |
-| resultType |Zeichenfolge |Der Status des Vorgangs, beispielsweise 200. |
-| resultSignature |Zeichenfolge |Weitere Details zum Vorgang |
-| correlationId |Zeichenfolge |Die ID des Protokolls, die verwendet werden kann, um einen Satz verwandter Protokolleinträge zu gruppieren. |
+| time |string |Der Zeitstempel (UTC) des Protokolls. |
+| Ressourcen-ID |string |Die ID der Ressource, auf der der Vorgang stattfand. |
+| category |string |Die Protokollkategorie. Beispiel: **Überwachung**. |
+| operationName |string |Der Name des protokollierten Vorgangs. Beispielsweise „getfilestatus“. |
+| resultType |string |Der Status des Vorgangs, beispielsweise 200. |
+| resultSignature |string |Weitere Details zum Vorgang |
+| correlationId |string |Die ID des Protokolls, die verwendet werden kann, um einen Satz verwandter Protokolleinträge zu gruppieren. |
 | identity |Object |Die Identität, die das Protokoll erstellt hat. |
 | properties |JSON |Weitere Informationen siehe unten. |
 
 #### <a name="audit-log-properties-schema"></a>Eigenschaftenschema des Überwachungsprotokolls
 | NAME | Type | BESCHREIBUNG |
 | --- | --- | --- |
-| StreamName |Zeichenfolge |Der Pfad, in dem der Vorgang durchgeführt wurde. |
+| StreamName |string |Der Pfad, in dem der Vorgang durchgeführt wurde. |
 
 ## <a name="samples-to-process-the-log-data"></a>Beispiele für die Verarbeitung der Protokolldaten
 Beim Senden von Protokollen aus Azure Data Lake Storage Gen1 an Azure Monitor-Protokolle (Informationen zum Verwenden von Azure Monitor-Protokollen finden Sie unter [Anzeigen oder Analysieren der mit der Azure Monitor-Protokollsuche gesammelten Daten](../azure-monitor/learn/tutorial-viewdata.md)) gibt die folgende Abfrage eine Tabelle mit einer Liste der Benutzeranzeigenamen, die Uhrzeit der Ereignisse, die Anzahl von Ereignissen zur Zeit des Ereigniseintritts sowie ein visuelles Diagramm zurück. Diese kann ganz einfach bearbeitet werden, sodass Benutzer-GUIDs oder weitere Attribute angezeigt werden:

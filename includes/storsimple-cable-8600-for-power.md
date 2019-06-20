@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888527"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178127"
 ---
 #### <a name="to-cable-your-device-for-power"></a>So verkabeln Sie das Gerät für die Stromversorgung
 > [!NOTE]

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
 ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523519"
 ---
 # <a name="manage-account-and-authoring-key"></a>Verwalten von Konto und Authoringschlüssel

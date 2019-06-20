@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 058a1f964eb14d89628c92cbadd80511b7a27bae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61230496"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Verwenden des Haivision KB-Liveencoders zum Senden eines Single-Bitrate-Livedatenstroms  
 > [!div class="op_single_selector"]

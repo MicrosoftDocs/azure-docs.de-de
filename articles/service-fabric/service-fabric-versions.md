@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/24/2018
+ms.date: 05/24/2019
 ms.author: aljo
-ms.openlocfilehash: 5d4ba32b3074098b3e3c1f2a4f42ac0e069e0a5f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 606b14fba093b6ec8039c646a49bc3bf7d24eb51
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409898"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296780"
 ---
 # <a name="supported-service-fabric-versions"></a>Unterstützte Service Fabric-Versionen
 
@@ -102,3 +102,4 @@ In der folgende Tabelle werden die Versionsnamen von Service Fabric und die zuge
 | 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 | 6.4.658.9590 | Nicht verfügbar |
+| 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 68fa8510b45d5bd00128b57ffcccd19b1c55359b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: edf5f2b681123243f55b1c2bf19a500e68171c0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66165733"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Bereitstellen von SQL Server-VMs mit Azure PowerShell
 

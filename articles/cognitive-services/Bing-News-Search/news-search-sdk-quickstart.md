@@ -3,20 +3,20 @@ title: 'Schnellstart: Durchführen einer Neuigkeitensuche – Bing-News-Suche-SD
 titleSuffix: Azure Cognitive Services
 description: Verwenden Sie diese Schnellstartanleitung, um mit dem Bing-News-Suche-SDK für C# nach Nachrichten zu suchen und die Antwort zu verarbeiten.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 01/10/2019
-ms.author: v-gedod
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fe9010215e5b6c4c9ece2372e3ce87bcf99b150c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9e0a4da2662b9d4b4b775631705e7b4fcc1eecea
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262889"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798674"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Schnellstart: Durchführen einer Neuigkeitensuche mit dem Bing-News-Suche-SDK für C#
 
@@ -24,7 +24,7 @@ Verwenden Sie diese Schnellstartanleitung, um unter Verwendung des Bing-News-Suc
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Eine beliebige [Visual Studio 2017](https://www.visualstudio.com/downloads/)-Edition.
+* Eine beliebige Edition von [Visual Studio 2017 oder höher](https://www.visualstudio.com/downloads/).
 * Das [Json.NET](https://www.newtonsoft.com/json)-Framework, das als NuGet-Paket verfügbar ist
 * Unter Linux/macOS kann diese Anwendung mit [Mono](https://www.mono-project.com/) ausgeführt werden
 
@@ -41,7 +41,7 @@ Siehe auch [Cognitive Services-Preise – Bing-Suche-API](https://azure.microsof
 
 ## <a name="create-and-initialize-a-project"></a>Erstellen und Initialisieren eines Projekts
 
-1. Erstellen Sie eine neue C#-Konsolenprojektmappe in Visual Studio. Fügen Sie dann Folgendes in die Hauptcodedatei ein:
+1. Erstellen Sie in Visual Studio eine neue C#-Konsolenprojektmappe. Fügen Sie dann Folgendes in die Hauptcodedatei ein:
     
     ```csharp
     using System;

@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011366"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60591600"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurieren der SQL Server-Failoverclusterinstanz auf Azure Virtual Machines
 
@@ -109,7 +109,7 @@ Wenn diese Voraussetzungen erfüllt sind, können Sie mit dem Erstellen Ihres Fa
 
    Falls Sie die Ressourcengruppe für Ihre virtuellen Computer noch nicht erstellt haben, können Sie dies beim Erstellen einer Azure-Verfügbarkeitsgruppe nachholen. Führen Sie die folgenden Schritte zum Erstellen der Verfügbarkeitsgruppe aus, wenn Sie das Azure-Portal verwenden:
 
-   - Klicken Sie im Azure-Portal auf **+**, um den Azure Marketplace zu öffnen. Suchen Sie nach der Option **Verfügbarkeitsgruppe**.
+   - Klicken Sie im Azure-Portal auf **+** , um den Azure Marketplace zu öffnen. Suchen Sie nach der Option **Verfügbarkeitsgruppe**.
    - Klicken Sie auf **Verfügbarkeitsgruppe**.
    - Klicken Sie auf **Create**.
    - Legen Sie auf dem Blatt **Verfügbarkeitsgruppe erstellen** die folgenden Werte fest:
@@ -162,7 +162,7 @@ Wenn diese Voraussetzungen erfüllt sind, können Sie mit dem Erstellen Ihres Fa
 
 1. Entfernen Sie die SQL Server-Instanz, wenn Sie eines der SQL Server-basierten VM-Images verwenden.
 
-   - Klicken Sie unter **Programme und Funktionen** mit der rechten Maustaste auf **Microsoft SQL Server 2016 (64 Bit)**, und klicken Sie dann auf **Deinstallieren/ändern**.
+   - Klicken Sie unter **Programme und Funktionen** mit der rechten Maustaste auf **Microsoft SQL Server 2016 (64 Bit)** , und klicken Sie dann auf **Deinstallieren/ändern**.
    - Klicken Sie auf **Entfernen**.
    - Wählen Sie die Standardinstanz aus.
    - Entfernen Sie alle Funktionen unter **Datenbank-Engine-Dienst**. Achten Sie darauf, dass Sie **Freigegebene Funktionen** nicht entfernen. Sehen Sie sich die folgende Abbildung an:
@@ -238,7 +238,7 @@ Führen Sie die Validierung für den Cluster auf der Benutzeroberfläche oder mi
 Führen Sie die folgenden Schritte auf einem der beiden virtuellen Computer aus, um den Cluster über die Benutzeroberfläche zu validieren.
 
 1. Klicken Sie in **Server-Manager** auf **Tools** und dann auf **Failovercluster-Manager**.
-1. Klicken Sie im **Failovercluster-Manager** auf **Aktion** und dann auf **Konfiguration überprüfen...**.
+1. Klicken Sie im **Failovercluster-Manager** auf **Aktion** und dann auf **Konfiguration überprüfen...** .
 1. Klicken Sie auf **Weiter**.
 1. Geben Sie unter **Server oder Cluster auswählen** den Namen der beiden virtuellen Computer ein.
 1. Wählen Sie unter **Testoptionen** die Option **Nur ausgewählte Tests ausführen**. Klicken Sie auf **Weiter**.
@@ -420,8 +420,8 @@ So erstellen Sie den Lastenausgleich
    - **Back-End-Pool**: Verwenden Sie den Namen des Back-End-Pools, den Sie zuvor konfiguriert haben.
    - **Integritätstest**: Verwenden Sie den Integritätstest, den Sie zuvor konfiguriert haben.
    - **Sitzungspersistenz**: None (Keine):
-   - **Leerlaufzeitüberschreitung (Minuten)**: 4.
-   - **Floating IP (Direct Server Return)**: Enabled
+   - **Leerlaufzeitüberschreitung (Minuten)** : 4.
+   - **Floating IP (Direct Server Return)** : Enabled
 
 1. Klicken Sie auf **OK**.
 

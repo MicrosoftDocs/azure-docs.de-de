@@ -17,11 +17,11 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ecddbb54137c018c1acc202e4056672eb626f87d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888939"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60613782"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Verwalten der Verfügbarkeit virtueller Linux-Computer
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880575"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60885339"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Erste Schritte mit Azure Data Lake Store mithilfe der Azure CLI
 

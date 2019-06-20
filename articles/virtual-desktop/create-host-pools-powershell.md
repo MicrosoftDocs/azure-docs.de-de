@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236659"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833973"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Erstellen eines Hostpools mit PowerShell
 
@@ -26,12 +26,6 @@ Führen Sie das folgende Cmdlet aus, um sich an der Windows Virtual Desktop-Umge
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
-```
-
-Führen Sie anschließend das folgende Cmdlet aus, um den Kontext für Ihre Mandantengruppe festzulegen. Falls Sie den Namen der Mandantengruppe nicht kennen, befindet sich Ihr Mandant wahrscheinlich in der „Standardmandantengruppe“, und Sie können dieses Cmdlet überspringen.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Führen Sie als Nächstes dieses Cmdlet aus, um für Ihren Windows Virtual Desktop-Mandanten einen neuen Hostpool zu erstellen:
@@ -81,9 +75,12 @@ Führen Sie auf jedem virtuellen Computer die folgenden Schritte aus, damit der 
 
 1. [Stellen Sie eine Verbindung mit dem virtuellen Computer her](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine), indem Sie die Anmeldeinformationen verwenden, die Sie beim Erstellen des virtuellen Computers angegeben haben.
 2. Starten Sie auf dem virtuellen Computer die **Systemsteuerung**, und wählen Sie **System**.
-3. Wählen Sie **Computername**, **Einstellungen ändern** und dann **Ändern...**.
+3. Wählen Sie **Computername**, **Einstellungen ändern** und dann **Ändern...** .
 4. Wählen Sie **Domäne**, und geben Sie dann die Active Directory-Domäne im virtuellen Netzwerk ein.
 5. Authentifizieren Sie sich mit einem Domänenkonto, das über Berechtigungen für in die Domäne eingebundene Computer verfügt.
+
+    >[!NOTE]
+    > Wenn Sie Ihre virtuellen Computer einer Azure AD Domain Services-Umgebung beitreten lassen, stellen Sie sicher, dass Ihre Domänenbeitrittsbenutzer ebenfalls Mitglied der [Gruppe „AAD DC-Administratoren“](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group) ist.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrieren der virtuellen Computer für den Windows Virtual Desktop-Hostpool (Vorschauversion)
 

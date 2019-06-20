@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 256d530590fadc9e2aeb1ea1efb7a52608014978
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988562"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736580"
 ---
 # <a name="health-probes"></a>Integritätstests
 
@@ -58,5 +58,5 @@ Sobald ein Back-End zu einem fehlerfreien Integritätsstatus zurückkehrt, wird 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie mehr über das [Erstellen einer Front Door-Instanz](quickstart-create-front-door.md).
-- Informieren Sie sich über die [Funktionsweise von Front Door](front-door-routing-architecture.md).
+- Erfahren Sie mehr über das [Erstellen einer Azure Front Door Service-Konfiguration](quickstart-create-front-door.md).
+- Informieren Sie sich über die [Funktionsweise von Azure Front Door Service](front-door-routing-architecture.md).

@@ -1,19 +1,19 @@
 ---
-title: Kopieren von Daten in Ihre Microsoft Azure Data Box über NFS | Microsoft-Dokumentation
+title: Tutorial zum Kopieren von Daten auf die Azure Data Box über NFS | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie Daten über NFS in Ihre Azure Data Box kopieren.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 672bcc3d0cb15ef348d090ed6c5a38d6912465ef
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404704"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496310"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Kopieren von Daten in eine Azure Data Box über NFS
 
@@ -130,7 +130,9 @@ Befolgen Sie die nachstehenden Richtlinien, wenn Sie die rsync-Option für einen
 > [!IMPORTANT]
 > Folgende Linux-Dateitypen werden nicht unterstützt: symbolische Verknüpfungen, Zeichendateien, Blockdateien, Sockets und Pipes. Diese Dateitypen führen zu Fehlern bei der **Versandvorbereitung**.
 
-- Um die Datenintegrität zu gewährleisten, wird inline eine Prüfsumme berechnet, während die Daten kopiert werden. Überprüfen Sie nach Abschluss des Kopiervorgangs den belegten Speicherplatz und den freien Speicherplatz auf Ihrem Gerät.
+Öffnen Sie den Zielordner, um die kopierten Dateien anzuzeigen und zu überprüfen. Falls während des Kopierprozesses Fehler auftreten, laden Sie zur Problembehandlung die Fehlerdateien herunter. Weitere Informationen finden Sie unter [Anzeigen von Fehlerprotokollen beim Kopieren von Daten auf die Data Box](data-box-logs.md#view-error-log-during-data-copy). Eine detaillierte Liste von Fehlern beim Datenkopiervorgang finden Sie unter [Behandeln von Problemen bei der Data Box](data-box-troubleshoot.md).
+
+Um die Datenintegrität zu gewährleisten, wird inline eine Prüfsumme berechnet, während die Daten kopiert werden. Überprüfen Sie nach Abschluss des Kopiervorgangs den belegten Speicherplatz und den freien Speicherplatz auf Ihrem Gerät.
     
    ![Überprüfen des freien und belegten Speicherplatzes im Dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

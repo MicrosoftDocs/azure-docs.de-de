@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54154996"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604197"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Auswirkungsanalyse mit Application Insights
 
@@ -63,7 +63,7 @@ Impact unterstützt sowohl standardmäßige als auch benutzerdefinierte Eigensch
 2. Wählen Sie in der Dropdownliste **Analysieren der Auswirkungen von** „Land oder Region“.
 3. Wählen Sie für die Dropdownliste **auf die Verwendung von** ein benutzerdefiniertes Ereignis aus, das einem Element der Benutzeroberfläche in der Seitenansicht entspricht, die Sie in Schritt 1 ausgewählt haben.
 
-In diesem Fall passen die Ergebnisse nicht mehr wie im ersten Beispiel in ein Modell mit fortlaufender X-Achse. Stattdessen wird eine Visualisierung dargestellt, die einem segmentierten Trichter ähnelt. Sortieren Sie nach **Verwendung**, um die Variation der Konvertierung zu Ihrem benutzerdefinierten Ereignis auf Länderbasis anzuzeigen.
+In diesem Fall passen die Ergebnisse nicht mehr wie im ersten Beispiel in ein Modell mit fortlaufender X-Achse. Stattdessen wird eine Visualisierung dargestellt, die einem segmentierten Trichter ähnelt. Sortieren Sie nach **Verwendung**, um die Variation der Konvertierung zu Ihrem benutzerdefinierten Ereignis auf Länder-/Regionsbasis anzuzeigen.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Wie berechnet das Impact-Tool diese Konvertierungsraten?

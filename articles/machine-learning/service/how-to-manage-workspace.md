@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
-ms.date: 09/24/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 7f0806a1d68cd2cede1ae51f0a50a8125c1e7c8b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359885"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66016527"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Erstellen und Verwalten von Azure Machine Learning Service-Arbeitsbereichen
 
-In diesem Artikel wird erläutert, wie Sie [**Azure Machine Learning Service-Arbeitsbereiche**](concept-azure-machine-learning-architecture.md#workspace) im Azure-Portal für [Azure Machine Learning Service](overview-what-is-azure-ml.md) erstellen, anzeigen und löschen.  Sie können Arbeitsbereiche auch mit der [CLI](reference-azure-machine-learning-cli.md) oder mit [Python-Code](https://aka.ms/aml-sdk) erstellen und löschen.
+In diesem Artikel wird erläutert, wie Sie [**Azure Machine Learning Service-Arbeitsbereiche**](concept-workspace.md) im Azure-Portal für [Azure Machine Learning Service](overview-what-is-azure-ml.md) erstellen, anzeigen und löschen.  Sie können Arbeitsbereiche auch über die [CLI](reference-azure-machine-learning-cli.md) oder mit [Python-Code](https://aka.ms/aml-sdk) oder [über die VS Code-Erweiterung](how-to-vscode-tools.md#get-started-with-azure-machine-learning) erstellen und löschen.
 
-## <a name="create-a-workspace"></a>Erstellen eines Arbeitsbereichs 
+## <a name="create-a-workspace"></a>Erstellen eines Arbeitsbereichs
 
 Zum Erstellen eines Arbeitsbereichs benötigen Sie ein Azure-Abonnement. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein kostenloses Konto erstellen, bevor Sie beginnen. Probieren Sie noch heute die [kostenlose oder kostenpflichtige Version von Azure Machine Learning Service](https://aka.ms/AMLFree) aus.
 
@@ -30,7 +30,7 @@ Zum Erstellen eines Arbeitsbereichs benötigen Sie ein Azure-Abonnement. Wenn Si
 
 ## <a name="view"></a>Anzeigen eines Arbeitsbereichs
 
-1. Wählen Sie links oben im Portal die Option **Alle Dienste** aus. 
+1. Wählen Sie links oben im Portal die Option **Alle Dienste** aus.
 
 1. Geben Sie **Machine Learning Service** in das Filterfeld **Alle Dienste** ein.  
 
@@ -49,8 +49,7 @@ Verwenden Sie die Schaltfläche „Löschen“ oben in dem Arbeitsbereich, den S
 
   ![Schaltfläche „Löschen“](media/how-to-manage-workspace/delete-workspace.png)
 
-
-## <a name="clean-up-resources"></a>Bereinigen von Ressourcen 
+## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

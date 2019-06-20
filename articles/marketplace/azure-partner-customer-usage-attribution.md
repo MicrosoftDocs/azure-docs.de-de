@@ -1,20 +1,18 @@
 ---
-title: Zuordnen der Nutzung durch Azure-Partner und -Kunden
+title: Zuordnen der Nutzung durch Azure-Partner und -Kunden | Azure Marketplace
 description: Übersicht über die Nachverfolgung der Kundennutzung für Azure Marketplace-Lösungen
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
-manager: nunoc
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807181"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Zuordnen der Nutzung durch Kunden von Azure-Partnern
 
@@ -94,7 +92,7 @@ Wenn Sie eine Azure Resource Manager-Vorlage verwenden, sollten Sie Ihre Lösung
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Markieren einer Bereitstellung mithilfe der Resource Manager-APIs
 
-Fügen Sie Entwerfen Ihrer API-Aufrufe eine GUID in den Benutzer-Agent-Header in der Anforderung ein, um die Zuordnung der Nutzung durch Kunden zu aktivieren. Fügen Sie die GUID für jedes Angebot oder SKU hinzu. Formatieren Sie die Zeichenfolge mit dem Präfix **pid-**, und fügen Sie die vom Partner generierte GUID ein. Nachfolgend finden Sie ein Beispiel für das GUID-Format zum Einfügen in den Benutzer-Agent:
+Fügen Sie Entwerfen Ihrer API-Aufrufe eine GUID in den Benutzer-Agent-Header in der Anforderung ein, um die Zuordnung der Nutzung durch Kunden zu aktivieren. Fügen Sie die GUID für jedes Angebot oder SKU hinzu. Formatieren Sie die Zeichenfolge mit dem Präfix **pid-** , und fügen Sie die vom Partner generierte GUID ein. Nachfolgend finden Sie ein Beispiel für das GUID-Format zum Einfügen in den Benutzer-Agent:
 
 ![GUID-Beispielformat](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
@@ -210,7 +208,7 @@ Nachdem Sie die GUID in der Vorlage oder im Benutzer-Agent hinzugefügt und die 
 
 Nachdem Sie Ihre Vorlage geändert und eine Testbereitstellung ausgeführt haben, können Sie mit dem folgenden PowerShell-Skript die Ressourcen abrufen, die Sie bereitgestellt und markiert haben.
 
-Mit dem Skript können Sie überprüfen, ob die GUID erfolgreich der Resource Manager-Vorlage hinzugefügt wurde. Das Skript gilt nicht für die Bereitstellung über die Resource Manager-API.
+Mit dem Skript können Sie überprüfen, ob die GUID erfolgreich der Resource Manager-Vorlage hinzugefügt wurde. Das Skript gilt nicht für Resource Manager-API- oder Terraform-Bereitstellungen.
 
 Melden Sie sich bei Azure an. Wählen Sie das Abonnement mit der Bereitstellung aus, die Sie vor dem Ausführen des Skripts überprüfen möchten. Führen Sie das Skript im Abonnementkontext der Bereitstellung aus.
 
@@ -249,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Bericht
 
-Den Bericht für die Zuordnung der Nutzung durch Kunden finden Sie Dashboard „Analyse“ im Partner Center ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+Den Bericht für die Zuordnung der Nutzung durch Kunden finden Sie Dashboard „Analyse“ im Partner Center ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Um den Bericht anzuzeigen, müssen Sie sich mit Ihren Anmeldeinformationen für das Partner Center anmelden. Wenn Sie Probleme mit dem Bericht oder der Anmeldung haben, erstellen Sie eine Supportanfrage gemäß der Anleitung im Abschnitt „Support“.
 
 Wählen Sie in der Dropdownliste für den Partnerzuordnungstyp „Tracked Template“ (Nachverfolgte Vorlage) aus, um den Bericht anzuzeigen.
 
@@ -269,7 +267,13 @@ Wenn Sie Software von \<PARTNER> bereitstellen, kann Microsoft die Installation 
 
 ## <a name="get-support"></a>Support
 
-Befolgen Sie diese Schritte, wenn Sie Hilfe beim Marketplace-Onboarding und/oder bei der Zuordnung der Nutzung durch Kunden benötigen:
+Es gibt zwei Supportkanäle, abhängig vom Problem, mit dem Sie sich befassen.
+
+Wenn Probleme im Partner Center auftreten, z.B. beim Anzeigen des Berichts über die Zuordnung der Nutzung durch Kunden oder beim Anmelden, erstellen Sie hier eine Supportanfrage an das Partner Center-Supportteam: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+
+Wenn Sie Unterstützung beim Marketplace-Onboarding und/oder beim Zuordnen der Nutzung durch Kunden im Allgemeinen benötigen, wie z. B. beim Einrichten der Zuordnen der Nutzung durch Kunden, führen Sie die folgenden Schritte aus:
 
 1. Navigieren Sie zur [Supportseite](https://go.microsoft.com/fwlink/?linkid=844975).
 
@@ -316,7 +320,7 @@ Im Anschluss werden Sie von einem technischen Berater eines Microsoft-Partners k
 
 ## <a name="faq"></a>Häufig gestellte Fragen
 
-**Welchen Vorteil bietet das Hinzufügen der GUID zur Vorlage?**
+**Welchen Vorteil hat das Hinzufügen der GUID zur Vorlage?**
 
 Microsoft stellt Partnern eine Ansicht über die Kundenbereitstellungen ihrer Lösungen und Erkenntnisse über den Einfluss auf die Nutzung bereit. Sowohl Microsoft als auch der Partner können diese Informationen dazu verwenden, eine engere Beziehung zwischen den Vertriebsteams zu fördern. Microsoft und der Partner können damit auch eine konsistentere Ansicht des Einflusses der einzelnen Partner auf das Azure-Wachstum erhalten.
 
@@ -324,7 +328,7 @@ Microsoft stellt Partnern eine Ansicht über die Kundenbereitstellungen ihrer L�
 
 Ja, ein Kunde oder Implementierungspartner kann die Vorlage anpassen und die GUID ändern oder entfernen. Es wird empfohlen, dass Partner ihren Kunden und Partnern proaktiv die Funktion der Ressource und der GUID beschreiben, um das Entfernen oder Ändern der GUID zu verhindern. Eine Änderung der GUID hat nur Auswirkungen auf neue, noch nicht vorhandene Bereitstellungen und Ressourcen.
 
-**Kann ich Vorlagen nachverfolgen, die nicht über ein Microsoft-Repository, sondern z. B. über GitHub bereitgestellt wurden?**
+**Kann ich Vorlagen nachverfolgen, die nicht über ein Microsoft-Repository, sondern z.B. über GitHub bereitgestellt wurden?**
 
 Ja, solange die GUID bei der Bereitstellung der Vorlage vorhanden ist, wird die Nutzung nachverfolgt. Partner müssen über ein Profil im Cloudpartnerportal verfügen, um die GUIDs zu registrieren, die für Bereitstellungen außerhalb vom Azure Marketplace verwendet werden.
 
@@ -336,17 +340,17 @@ Kunden können ihre Nutzung einzelner Ressourcen oder benutzerdefinierter Ressou
 
 Diese neue Methode für das Verbinden von Bereitstellung und Nutzung mit der Lösung eines Partners stellt einen Mechanismus zum Verknüpfen einer Partnerlösung mit der Azure-Nutzung bereit. Mit DPOR soll ein Beratungspartner (Systemintegrator) oder Verwaltungspartner (Managed Services Provider) dem Azure-Abonnement eines Kunden zugeordnet werden.
 
-**Welche Vorteile bietet die Verwendung des GUID-Generatorformulars von Azure Storage?**
+**Was ist der Vorteil bei der Verwendung des GUID-Generatorformulars von Azure Storage?**
 
 Das GUID-Generatorformular von Azure Storage generiert eine GUID garantiert im erforderlichen Format. Wenn Sie außerdem eine der Verfolgungsmethoden von Azure Storage für die Datenebene verwenden, können Sie dieselbe GUID für die Verfolgung der Marketplace-Steuerungsebene verwenden. Auf diese Weise können Sie eine einzelne einheitliche GUID für die Partnerzuordnung nutzen, ohne separate GUIDs verwalten zu müssen.
 
-**Kann ich eine private, benutzerdefinierte virtuelle Festplatte (VHD) für ein Angebot für Lösungsvorlagen im Azure Marketplace verwenden?**
+**Kann ich eine private, benutzerdefinierte virtuelle Festplatte für ein Angebot für Lösungsvorlagen im Azure Marketplace verwenden?**
 
 Nein, das ist nicht möglich. Das VM-Image muss aus dem Azure Marketplace stammen. Weitere Informationen finden Sie unter [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
 
 Sie können ein mit einer benutzerdefinierten virtuellen Festplatte ein VM-Angebot im Marketplace erstellen und es als „Privat“ markieren, sodass andere Benutzer dieses nicht einsehen können. Verweisen Sie dann in der Lösungsvorlage auf diese VM.
 
-**Warum konnte die *contentVersion*-Eigenschaft für die Hauptvorlage nicht aktualisiert werden?**
+**Warum ist das Aktualisieren der Eigenschaft *contentVersion* für die Hauptvorlage fehlgeschlagen?**
 
 Es liegt wahrscheinlich ein Fehler vor, bei dem die Vorlage mithilfe der TemplateLink-Eigenschaft einer anderen Vorlage bereitgestellt wurde, die eine ältere contentVersion-Eigenschaft erwartet. Verwenden Sie als Problemumgehung die Metadateneigenschaft:
 

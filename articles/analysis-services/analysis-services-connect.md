@@ -9,11 +9,11 @@ ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 9a8863189ee9cb63d86b157c0bbebb6fd16116b0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669621"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61027982"
 ---
 # <a name="connecting-to-servers"></a>Herstellen einer Verbindung mit Servern
 

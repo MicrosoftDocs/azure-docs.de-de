@@ -10,11 +10,11 @@ ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f190d60a059108b9763f35e2ee8cf99ae77b694
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60499959"
 ---
 # <a name="runbook-input-parameters"></a>Runbookeingabeparameter
 
@@ -79,7 +79,7 @@ Dann können Sie den folgenden Wert an den Parameter übergeben:
 
 Zum Konfigurieren eines [grafischen Runbooks](automation-first-runbook-graphical.md) mit Eingabeparametern erstellen wir ein grafisches Runbook, das Details zu virtuellen Computern – entweder eines einzelnen oder aller virtuellen Computer innerhalb einer Ressourcengruppe – ausgibt. Das Konfigurieren eines Runbooks erfodert, wie unten beschrieben, zwei Hauptaktivitäten.
 
-[**Authentifizieren Sie Runbooks mit der Azure-Option „Ausführendes Konto“**](automation-sec-configure-azure-runas-account.md) für die Authentifizierung bei Azure.
+[**Authentifizieren Sie Runbooks mit der Azure-Option „Ausführendes Konto“** ](automation-sec-configure-azure-runas-account.md) für die Authentifizierung bei Azure.
 
 Rufen Sie mit [**Get-AzureRmVm**](/powershell/module/azurerm.compute/get-azurermvm) die Eigenschaften eines virtuellen Computers ab.
 

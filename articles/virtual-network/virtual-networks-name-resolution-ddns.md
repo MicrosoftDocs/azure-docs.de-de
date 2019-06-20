@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
 ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60640377"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Registrieren von Hostnamen in Ihrem eigenen DNS-Server mit dynamischem DNS
 
@@ -35,7 +35,7 @@ Per Beitritt in die Domäne eingebundene Windows-Clients registrieren ihre IP-Ad
 ## <a name="linux-clients"></a>Linux-Clients
 Linux-Clients registrieren sich beim Start in der Regel nicht selbst beim DNS-Server. Es wird davon ausgegangen, dass der DHCP-Server dies übernimmt. Die DHCP-Server von Azure verfügen nicht über die Anmeldeinformationen, um Datensätze im DNS-Server zu registrieren. Sie können ein Tool namens `nsupdate` verwenden, das im Bind-Paket enthalten ist, um DDNS-Updates zu senden. Da das DDNS-Protokoll standardisiert ist, können Sie `nsupdate` auch dann verwenden, wenn Sie Bind nicht auf dem DNS-Server nutzen.
 
-Sie können die vom DHCP-Client bereitgestellten Hooks verwenden, um den Hostnameneintrag im DNS-Server zu erstellen und zu verwalten. Während des DHCP-Zyklus führt der Client die Skripts in */etc/dhcp/dhclient-exit-hooks.d/* aus. Sie können die Hooks verwenden, um die neue IP-Adresse mit `nsupdate` zu registrieren. Beispiel: 
+Sie können die vom DHCP-Client bereitgestellten Hooks verwenden, um den Hostnameneintrag im DNS-Server zu erstellen und zu verwalten. Während des DHCP-Zyklus führt der Client die Skripts in */etc/dhcp/dhclient-exit-hooks.d/* aus. Sie können die Hooks verwenden, um die neue IP-Adresse mit `nsupdate` zu registrieren. Beispiel:
 
 ```bash
 #!/bin/sh

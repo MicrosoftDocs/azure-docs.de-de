@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371093"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239073"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Stellen einer Frage, die Sie mit Daten beantworten können
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Reihe „Data Science für Einsteiger“

@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 12/14/2018
 ms.author: jgao
 ms.openlocfilehash: eb46966c3a28b3fa4c2b23668109b7c5d23a609b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60390867"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Bereitstellen von Konfigurationen nach der Bereitstellung mithilfe von Erweiterungen
 

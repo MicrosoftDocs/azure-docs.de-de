@@ -16,11 +16,11 @@ ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 23809abd06d626eb87e5d5d15d265f1769b97b66
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60809085"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Erfahren Sie, wie Sie eine Service Fabric-Anwendungen mithilfe von Visual Studio aktualisieren.
 
@@ -70,7 +70,7 @@ Wir aktualisieren den `WebFrontEnd_cpu`-Parameter, um die CPU-Ressourcen auf `1.
 > Standardmäßig wird die Parameterdatei, die ein Peer der profile.yaml-Datei ist, verwendet, um die Werte für diese profile.yaml-Datei bereitzustellen.
 > Beispielsweise bietet Umgebungen > Cloud > parameters.yaml die Parameterwerte für Umgebungen > Cloud > profile.yaml.
 >
-> Sie können dies außer Kraft setzen, indem Sie der profile.yaml-Datei Folgendes hinzufügen:`parametersFilePath=”relative or full path to the parameters file”` Beispiel: `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` oder `parametersFilePath=”..\CommonParameters.yaml”`
+> Sie können dies außer Kraft setzen, indem Sie der profile.yaml-Datei Folgendes hinzufügen:`parametersFilePath=”relative or full path to the parameters file”` Beispiel:  oder `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Ändern des Modells
 

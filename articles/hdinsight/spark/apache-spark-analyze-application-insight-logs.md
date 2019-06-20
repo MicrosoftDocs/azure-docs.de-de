@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 45cbb26eb74dd78bf46a6b148a32a7762bb31fbc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 730ecd306bf33709ed5d9fa334b64f7cd7a482dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696880"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066484"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analysieren von Application Insights-Telemetrieprotokollen mit Apache Spark in HDInsight
 
@@ -26,9 +26,6 @@ Erfahren Sie, wie Sie mit [Apache Spark](https://spark.apache.org/) in HDInsight
 * Eine Anwendung, die zur Verwendung von Application Insights konfiguriert ist.
 
 * Sie müssen mit der Erstellung eines Linux-basierten HDInsight-Clusters vertraut sein. Weitere Informationen finden Sie unter [Erste Schritte: Erstellen von Apache Spark auf HDInsight](apache-spark-jupyter-spark-sql.md).
-
-  > [!IMPORTANT]  
-  > Die Schritte in diesem Dokument erfordern einen HDInsight-Cluster mit Linux. Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. Weitere Informationen finden Sie unter [Welche Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Ein Webbrowser.
 

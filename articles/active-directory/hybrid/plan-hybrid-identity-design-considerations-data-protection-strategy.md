@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091476"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918423"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definieren der Datenschutzstrategie für Ihre Hybrididentitätslösung
 In dieser Aufgabe definieren Sie die Datenschutzstrategie für Ihre Hybrididentitätslösung, um die geschäftlichen Anforderungen zu erfüllen, die Sie hier definiert haben:
@@ -82,14 +82,14 @@ Ein wesentlicher Bestandteil des Content Managements ist, zu verstehen, wer auf 
 
 | Content Management-Optionen | Vorteile | Nachteile |
 | --- | --- | --- |
-| Zentralisiert lokal (Active Directory Rights Management-Server) |Volle Kontrolle über die Serverinfrastruktur, verantwortlich für die Klassifizierung der Daten  <br> Integrierte Funktion in Windows Server, keine zusätzliche Lizenz bzw. kein zusätzliches Abonnement erforderlich <br> Kann mit Azure AD in ein Hybridszenario integriert werden <br> Unterstützt Information Rights Management-Funktionen (IRM) in Microsoft Online-Diensten wie Exchange Online und SharePoint Online sowie Office 365 <br>  Unterstützt lokale Microsoft-Serverprodukte wie Exchange Server, SharePoint Server und Dateiserver, auf denen Windows Server und Dateiklassifizierungsinfrastruktur (File Classification Infrastructure, FCI) ausgeführt werden. |Höherer Wartungsaufwand (Erledigung von Updates, Konfigurationsvorgängen und potenziellen Upgrades), da sich der Server im Besitz der IT-Abteilung befindet <br> Erfordert eine lokale Serverinfrastruktur<br> Keine native Nutzung der Azure-Funktionen |
-| Zentralisiert in der Cloud (Azure RMS) |Einfacher zu verwalten im Vergleich zur lokalen Lösung  <br> Kann mit AD DS in ein Hybridszenario integriert werden <br>  Vollständig in Azure AD integriert <br> Benötigt zum Bereitstellen des Diensts keinen lokalen Server <br> Unterstützt lokale Microsoft-Serverprodukte wie Exchange Server, SharePoint Server und Dateiserver, auf denen Windows Server und Dateiklassifizierungsinfrastruktur (File Classification Infrastructure, FCI) ausgeführt werden <br> IT-Abteilung hat vollständige Kontrolle über Schlüssel ihrer Mandanten mit BYOK-Funktion |Ihre Organisation muss ein Cloudabonnement besitzen, das RMS unterstützt  <br>  Ihre Organisation benötigt ein Azure AD-Verzeichnis zur Unterstützung der Benutzerauthentifizierung für RMS |
-| Hybrid (Azure RMS integriert mit lokalem Active Directory Rights Management-Server) |Dieses Szenario bietet die Vorteile beider Alternativen, zentralisiert lokal und in der Cloud. |Ihre Organisation muss ein Cloudabonnement besitzen, das RMS unterstützt  <br> Ihre Organisation benötigt ein Azure AD-Verzeichnis zur Unterstützung der Benutzerauthentifizierung für RMS <br>  Verbindung zwischen Azure-Clouddienst und lokaler Infrastruktur ist erforderlich |
+| Zentralisiert lokal (Active Directory Rights Management-Server) |Volle Kontrolle über die Serverinfrastruktur, verantwortlich für die Klassifizierung der Daten <br> Integrierte Funktion in Windows Server, keine zusätzliche Lizenz bzw. kein zusätzliches Abonnement erforderlich <br> Kann mit Azure AD in ein Hybridszenario integriert werden <br> Unterstützt Information Rights Management-Funktionen (IRM) in Microsoft Online-Diensten wie Exchange Online und SharePoint Online sowie Office 365 <br> Unterstützt lokale Microsoft-Serverprodukte wie Exchange Server, SharePoint Server und Dateiserver, auf denen Windows Server und Dateiklassifizierungsinfrastruktur (File Classification Infrastructure, FCI) ausgeführt werden. |Höherer Wartungsaufwand (Erledigung von Updates, Konfigurationsvorgängen und potenziellen Upgrades), da sich der Server im Besitz der IT-Abteilung befindet <br> Erfordert eine lokale Serverinfrastruktur<br> Keine native Nutzung der Azure-Funktionen |
+| Zentralisiert in der Cloud (Azure RMS) |Einfacher zu verwalten im Vergleich zur lokalen Lösung <br> Kann mit AD DS in ein Hybridszenario integriert werden <br>  Vollständig in Azure AD integriert <br> Benötigt zum Bereitstellen des Diensts keinen lokalen Server <br> Unterstützt lokale Microsoft-Serverprodukte wie Exchange Server, SharePoint Server und Dateiserver, auf denen Windows Server und Dateiklassifizierungsinfrastruktur (File Classification Infrastructure, FCI) ausgeführt werden <br> IT-Abteilung hat vollständige Kontrolle über Schlüssel ihrer Mandanten mit BYOK-Funktion |Ihre Organisation muss ein Cloudabonnement besitzen, das RMS unterstützt <br> Ihre Organisation benötigt ein Azure AD-Verzeichnis zur Unterstützung der Benutzerauthentifizierung für RMS |
+| Hybrid (Azure RMS integriert mit lokalem Active Directory Rights Management-Server) |Dieses Szenario bietet die Vorteile beider Alternativen, zentralisiert lokal und in der Cloud. |Ihre Organisation muss ein Cloudabonnement besitzen, das RMS unterstützt <br> Ihre Organisation benötigt ein Azure AD-Verzeichnis zur Unterstützung der Benutzerauthentifizierung für RMS <br> Verbindung zwischen Azure-Clouddienst und lokaler Infrastruktur ist erforderlich |
 
 ## <a name="define-access-control-options"></a>Definieren von Zugriffssteuerungsoptionen
 Durch die optimale Nutzung der in Azure AD verfügbaren Funktionen für Authentifizierung, Autorisierung und Zugriffssteuerung ermöglichen Sie Ihrem Unternehmen die Nutzung eines Repositorys für die zentrale Identität und Benutzern und Partnern einmaliges Anmelden (Single Sign-On, SSO). Dies ist in der folgenden Abbildung dargestellt:
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![Zentrale Verwaltung](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Zentralisierte Verwaltung und vollständige Integration in andere Verzeichnisse
 
@@ -115,7 +115,7 @@ Mit Azure AD-Unterstützung können mobile Geschäftsanwendungen die gleiche mü
 
 Sobald der Benutzer mithilfe von Azure AD authentifiziert ist, muss seine Zugriffsebene ausgewertet werden. Die Zugriffsebene, über die der Benutzer für eine Ressource verfügt, kann variieren. In Azure AD kann eine zusätzliche Sicherheitsstufe durch Steuern des Zugriffs auf einige Ressourcen hinzugefügt werden. Bedenken Sie aber, dass die Ressource selbst auch eine eigene separate Zugriffssteuerungsliste haben kann, z.B. die Zugriffssteuerung für Dateien, die sich auf einem Dateiserver befinden. In der folgenden Abbildung sind die Ebenen der Zugriffssteuerung zusammengefasst, die für ein Hybridszenario gelten können:
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![Zugriffssteuerung](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Jede Interaktion in dem in Abbildung X gezeigten Diagramm stellt eine Zugriffssteuerungsszenerie dar, die von Azure AD abgedeckt werden kann. Im Folgenden werden die einzelnen Szenarien beschrieben:
 

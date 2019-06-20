@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012668"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304140"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Bereitstellen und Untersuchen einer eigenständigen SaaS-Anwendung für einzelne Mandanten, die Azure SQL-Datenbank verwendet
 
@@ -27,7 +27,7 @@ Das Muster für eigenständige Anwendungen oder App-pro-Mandant stellt eine Anwe
 
 In diesem Tutorial stellen Sie drei eigenständige Anwendungen für drei Mandanten in Ihrem Azure-Abonnement bereit.  Sie haben Vollzugriff auf die einzelnen Anwendungskomponenten, um diese untersuchen und verwenden zu können.
 
-Der Quellcode der Anwendung und die Verwaltungsskripts sind im GitHub-Repository [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) verfügbar. Die Anwendung wurde mit Visual Studio 2015 erstellt und lässt sich ohne Aktualisierung in Visual Studio 2017 nicht erfolgreich öffnen und kompilieren.
+Der Quellcode der Anwendung und die Verwaltungsskripts sind im GitHub-Repository [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) verfügbar. Die Anwendung wurde mit Visual Studio 2015 erstellt und lässt sich ohne Update auf Visual Studio 2019 nicht erfolgreich öffnen und kompilieren.
 
 
 In diesem Tutorial lernen Sie Folgendes kennen:
@@ -107,7 +107,7 @@ Jede Mandantendatenbank ist eine *eigenständige* Datenbank mit 50 DTUs.
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - Weitere Informationen zu mehrinstanzenfähigen SaaS-Anwendungen finden Sie unter [Entwurfsmuster für mehrinstanzenfähige SaaS-Anwendungen](saas-tenancy-app-design-patterns.md).
@@ -126,6 +126,6 @@ In diesem Tutorial haben Sie Folgendes gelernt:
 > * Informationen zu Servern und Datenbanken, aus denen sich die App zusammensetzt
 > * Löschen von Beispielressourcen, um die zugehörige Abrechnung einzustellen
 
-Gehen Sie als Nächstes das Tutorial [Bereitstellen und Katalogisieren](saas-standaloneapp-provision-and-catalog.md) durch, in dem Sie die Verwendung eines Katalogs von Mandanten untersuchen, die viele mandantenübergreifende Szenarien ermöglicht, z.B. Schemaverwaltung oder Mandantenanalyse.
+Arbeiten Sie als Nächstes das Tutorial [Bereitstellen und Katalogisieren](saas-standaloneapp-provision-and-catalog.md) durch, in dem Sie die Verwendung eines Katalogs von Mandanten untersuchen, die viele mandantenübergreifende Szenarien ermöglicht, z.B. Schemaverwaltung oder Mandantenanalyse.
  
 

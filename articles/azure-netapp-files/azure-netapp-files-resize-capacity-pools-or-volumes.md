@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2018
+ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f08eaee038ad18c600826dea6fe0fd85935de59a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c58ceef57b984f46b86bb2a8577c53b75082b78b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65794611"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Ändern der Größe eines Kapazitätspools oder Volumes
 Sie können die Größe eines Kapazitätspools oder eines Volumes nach Bedarf anpassen. 
 
 ## <a name="resize-the-capacity-pool"></a>Anpassen der Größe des Kapazitätspools 
 
-Sie können die Größe des Kapazitätspools in 4-TiB-Schritten erhöhen oder verringern. Durch eine Größenänderung des Kapazitätspools wird die erworbene Azure NetApp Files-Kapazität geändert.
+Sie können die Größe des Kapazitätspools in 1-TiB-Schritten erhöhen oder verringern. Allerdings kann die Größe des Kapazitätspools nicht kleiner als 4 TiB sein. Durch eine Größenänderung des Kapazitätspools wird die erworbene Azure NetApp Files-Kapazität geändert.
 
 1. Klicken Sie auf dem Blatt „Manage NetApp Account“ (NetApp-Konto verwalten) auf den Kapazitätspool, dessen Größe Sie anpassen möchten. 
 2. Klicken Sie mit der rechten Maustaste auf den Namen des Kapazitätspools, oder klicken Sie am Ende der Zeile mit dem Kapazitätspool auf das Symbol „...“, um das Kontextmenü anzuzeigen. 

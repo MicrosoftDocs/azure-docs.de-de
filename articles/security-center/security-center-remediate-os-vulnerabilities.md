@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60332946"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Korrigieren von Sicherheitskonfigurationen in Azure Security Center
 Azure Security Center analysiert täglich das Betriebssystem Ihrer virtuellen Computer (VMs) und physischen Computer auf Konfigurationen, die sie möglicherweise anfälliger für Angriffe machen. Security Center empfiehlt die Behandlung von Sicherheitsrisiken, wenn die Betriebssystemkonfiguration nicht den empfohlenen Sicherheitskonfigurationsregeln entspricht, und empfiehlt Konfigurationsänderungen, um diese Sicherheitsrisiken zu beseitigen.

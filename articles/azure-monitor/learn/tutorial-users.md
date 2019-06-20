@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90357c13003820a25ee52aab5cda83029c9d85ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449596"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601556"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Verwenden von Azure Application Insights zur Analyse der Kundeninteraktion mit Ihrer Anwendung
 
@@ -35,7 +35,7 @@ Azure Application Insights sammelt Nutzungsinformationen, mit denen Sie nachvoll
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-- Installieren Sie [Visual Studio 2017](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
+- [Installieren Sie Visual Studio 2019](https://www.visualstudio.com/downloads/) mit den folgenden Workloads:
     - ASP.NET und Webentwicklung
     - Azure-Entwicklung
 - Laden Sie den [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger) herunter, und installieren Sie diesen.
@@ -59,11 +59,11 @@ Im Bereich **Benutzer** können Sie wichtige Benutzerdaten auf unterschiedliche 
 
     ![Ändern des Zeitbereichs](media/tutorial-users/TimeRange.png)
 
-4. Klicken Sie auf die Dropdownliste **Split by** (Trennen nach), um sich im Diagramm eine Aufschlüsselung nach Benutzereigenschaft anzeigen zu lassen.  Wählen Sie aus der Dropdownliste **Land oder Region** einen entsprechenden Eintrag aus.  Im Diagramm werden nun zwar dieselben Daten angezeigt, jedoch können Sie sich eine Aufschlüsselung nach der Anzahl der Benutzer jedes Landes anzeigen lassen.
+4. Klicken Sie auf die Dropdownliste **Split by** (Trennen nach), um sich im Diagramm eine Aufschlüsselung nach Benutzereigenschaft anzeigen zu lassen.  Wählen Sie aus der Dropdownliste **Land oder Region** einen entsprechenden Eintrag aus.  Im Diagramm werden nun zwar dieselben Daten angezeigt, jedoch können Sie sich eine Aufschlüsselung nach der Anzahl der Benutzer jedes Landes/jeder Region anzeigen lassen.
 
     ![Diagramm „Land oder Region“](media/tutorial-users/CountryorRegion.png)
 
-5. Positionieren Sie den Cursor über verschiedenen Balken im Diagramm. Beachten Sie hierbei, dass sich die angezeigte Anzahl für jedes Land nur auf das Zeitfenster bezieht, das von diesem Balken dargestellt wird.
+5. Positionieren Sie den Cursor über verschiedenen Balken im Diagramm. Beachten Sie hierbei, dass sich die angezeigte Anzahl für jedes Land/jede Region nur auf das Zeitfenster bezieht, das von diesem Balken dargestellt wird.
 6. Auf der rechten Seite befindet sich die Spalte **Insights**, in der Benutzerdaten analysiert werden.  Hier werden Informationen wie die Anzahl der individuellen Sitzungen innerhalb des festgelegten Zeitraums und Datensätze mit gemeinsamen Eigenschaften angezeigt, die einen Großteil der Benutzerdaten darstellen. 
 
     ![Spalte „Insights“](media/tutorial-users/insights.png)

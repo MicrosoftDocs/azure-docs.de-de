@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231156"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001442"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Schnellstart: Hinzufügen von „Mit Microsoft anmelden“ zu einer ASP.NET-Web-App
 
@@ -199,14 +199,15 @@ Erstellen Sie in Visual Studio eine neue Ansicht zum Anzeigen der Ansprüche des
 
 ### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registrieren Ihrer Anwendung im Azure-Portal und Hinzufügen ihrer Informationen in *web.config*
 
-1. Navigieren Sie zu [Microsoft Azure-Portal – App-Registrierungen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps), um eine Anwendung zu registrieren.
-2. Wählen Sie **Registrierung einer neuen Anwendung** aus.
-3. Geben Sie einen Namen für Ihre Anwendung ein.
-4. Fügen Sie die *SSL-URL* des Visual Studio-Projekts in **Anmelde-URL** ein. Diese URL wird auch automatisch der Liste der Antwort-URLs für die Anwendung hinzugefügt, die Sie registrieren.
-5. Wählen Sie **Erstellen** aus, um die Anwendung zu registrieren. Durch diese Aktion gelangen Sie zurück zur Liste der Anwendungen.
-6. Suchen Sie nun nach der Anwendung, die Sie soeben erstellt haben, und/oder wählen Sie sie aus, um ihre Eigenschaften anzuzeigen.
-7. Kopieren Sie die GUID unter **Anwendungs-ID** in die Zwischenablage.
-8. Wechseln Sie zurück zu Visual Studio, und ersetzen Sie in `web.config` den Wert von `Enter_the_Application_Id_here` durch die Anwendungs-ID der Anwendung, die Sie registriert haben.
+1. Melden Sie sich mit einem Geschäfts-, Schul- oder Unikonto oder mit einem persönlichen Microsoft-Konto beim [Azure-Portal](https://portal.azure.com/) an.
+2. Wenn Sie mit Ihrem Konto auf mehrere Mandanten zugreifen können, klicken Sie rechts oben auf Ihr Konto, und legen Sie Ihre Portalsitzung auf den gewünschten Azure AD-Mandanten fest.
+3. Navigieren Sie zur Seite [App-Registrierungen](https://go.microsoft.com/fwlink/?linkid=2083908) von Microsoft Identity Platform für Entwickler.
+4. Wählen Sie **Neue Registrierung** aus.
+5. Geben Sie auf der daraufhin angezeigten Seite **Anwendung registrieren** einen Namen für Ihre Anwendung ein.
+6. Wählen Sie unter **Unterstützte Kontotypen** **Konten in allen Organisationsverzeichnissen und persönliche Microsoft-Konten** aus.
+7. Wählen Sie die **Webplattform** unter dem Abschnitt **Umleitungs-URI** aus, und legen Sie den Wert auf die *SSL-URL* des Visual Studio-Projekts (den Speicherort, an den Azure AD Token zurückgibt) fest.
+78. Wenn Sie so weit sind, klicken Sie auf **Registrieren**. Kopieren Sie auf der Seite **Übersicht** der App den Wert von **Anwendungs-ID (Client)** .
+9. Wechseln Sie zurück zu Visual Studio, und ersetzen Sie in `web.config` den Wert von `Enter_the_Application_Id_here` durch die Anwendungs-ID der Anwendung, die Sie registriert haben.
 
 > [!TIP]
 > Wenn Ihr Konto für den Zugriff auf mehrere Verzeichnisse konfiguriert ist, müssen Sie das richtige Verzeichnis für die Organisation, für die Sie die Anwendung registrieren möchten, auswählen. Klicken Sie zu diesem Zweck rechts oben im Azure-Portal auf Ihren Kontonamen, und überprüfen Sie das ausgewählte Verzeichnis wie angegeben:<br/>![Auswählen des richtigen Verzeichnisses](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
@@ -279,7 +280,7 @@ Wenn Sie einen Test durchführen möchten, verwenden Sie ein Geschäftskonto (Az
 
 #### <a name="expected-results"></a>Erwartete Ergebnisse
 
-Nach seiner Anmeldung wird der Benutzer zur Startseite Ihrer Website umgeleitet. Dabei handelt es sich um die HTTPS-URL, die im Microsoft-Anwendungsregistrierungsportal in Ihre Anwendungsregistrierungsinformationen eingegeben wurde. Diese Seite zeigt jetzt *Hello {Benutzer}*, einen Link zum Abmelden und einen Link zum Anzeigen der Ansprüche des Benutzers. Hierbei handelt es sich um einen Link zum Authorize-Controller, den Sie zuvor erstellt haben.
+Nach seiner Anmeldung wird der Benutzer zur Startseite Ihrer Website umgeleitet. Dabei handelt es sich um die HTTPS-URL, die im Microsoft-Anwendungsregistrierungsportal in Ihre Anwendungsregistrierungsinformationen eingegeben wurde. Diese Seite zeigt jetzt *Hello {Benutzer}* , einen Link zum Abmelden und einen Link zum Anzeigen der Ansprüche des Benutzers. Hierbei handelt es sich um einen Link zum Authorize-Controller, den Sie zuvor erstellt haben.
 
 ### <a name="see-users-claims"></a>Anzeigen der Ansprüche des Benutzers
 
@@ -298,7 +299,7 @@ Klicken Sie auf den Link, um die Ansprüche des Benutzers anzuzeigen. Dadurch ge
 
 Darüber hinaus sehen Sie eine Tabelle mit allen Benutzeransprüchen, die in der Authentifizierungsanforderung enthalten sind. Eine Liste aller Ansprüche in einem ID-Token mit einer Erläuterung finden Sie in unter [Liste der Ansprüche im ID-Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-### <a name="optional-access-a-method-that-has-an-authorize-attribute"></a>(Optional) Zugreifen auf eine Methode mit einem *[Authorize]*-Attribut
+### <a name="optional-access-a-method-that-has-an-authorize-attribute"></a>(Optional) Zugreifen auf eine Methode mit einem *[Authorize]* -Attribut
 
 In diesem Schritt testen Sie den Zugriff auf den Claims-Controller als anonymer Benutzer:<br/>
 Klicken Sie auf den Link zum Abmelden des Benutzers, und schließen Sie den Abmeldevorgang ab.<br/>

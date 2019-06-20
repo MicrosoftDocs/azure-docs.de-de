@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1c07da0121b8e350c55b139901d56cfe2133386d
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649974"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864499"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Erstellen Ihrer ersten Funktion mit Visual Studio
 
 Mit Azure Functions können Sie Code in einer [serverlosen](https://azure.microsoft.com/solutions/serverless/) Umgebung ausführen, ohne vorher eine VM erstellen oder eine Webanwendung veröffentlichen zu müssen.
 
-In diesem Artikel erfahren Sie, wie Sie die Visual Studio 2017-Tools für Azure Functions verwenden, um eine „hello world“-Funktion lokal zu erstellen und zu testen. Anschließend veröffentlichen Sie den Funktionscode in Azure. Diese Tools sind als Teil der Azure-Entwicklungsworkload in Visual Studio 2017 verfügbar.
+In diesem Artikel erfahren Sie, wie Sie die Visual Studio 2019-Tools für Azure Functions verwenden, um eine „hello world“-Funktion lokal zu erstellen und zu testen. Anschließend veröffentlichen Sie den Funktionscode in Azure. Diese Tools sind als Teil der Azure-Entwicklungsworkload in Visual Studio 2019 verfügbar.
 
 ![localhost-Antwort der Funktion im Browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -34,7 +34,7 @@ Dieses Thema enthält ein [Video](#watch-the-video) zu einigen grundlegenden Sch
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Installieren Sie [Visual Studio 2017](https://azure.microsoft.com/downloads/), und vergewissern Sie sich, dass auch die Workload **Azure-Entwicklung** installiert ist.
+* Installieren Sie [Visual Studio 2019](https://azure.microsoft.com/downloads/), und vergewissern Sie sich, dass auch die Workload **Azure-Entwicklung** installiert ist.
 
 * Stellen Sie sicher, dass Sie über die [neuesten Azure Functions-Tools](functions-develop-vs.md#check-your-tools-version) verfügen.
 

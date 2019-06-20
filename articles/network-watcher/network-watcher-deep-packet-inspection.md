@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64716902"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Paketuntersuchung mit Azure Network Watcher
@@ -41,7 +41,7 @@ In diesem Szenario führen Sie Folgendes durch:
 
 In diesem Szenario wird veranschaulicht, wie Sie die anfängliche Roundtripzeit (Round Trip Time, RTT) einer TCP-Konversation (Transmission Control Protocol) zwischen zwei Endpunkten anzeigen.
 
-Bei der Herstellung einer TCP-Verbindung basieren die ersten drei Pakete, die für die Verbindung gesendet werden, auf einem Muster, das üblicherweise als Drei-Wege-Handshake bezeichnet wird. Indem die ersten beiden gesendeten Pakete dieses Handshake-Vorgangs untersucht werden (eine erste Anforderung vom Client und eine Antwort vom Server), können wir die Wartezeit bei der Herstellung der Verbindung berechnen. Diese Wartezeit wird als Roundtripzeit (Round Trip Time, RTT) bezeichnet. Weitere Informationen zum TCP-Protokoll und zum Drei-Wege-Handshake finden Sie unter der folgenden Ressource: [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
+Bei der Herstellung einer TCP-Verbindung basieren die ersten drei Pakete, die für die Verbindung gesendet werden, auf einem Muster, das üblicherweise als Drei-Wege-Handshake bezeichnet wird. Indem die ersten beiden gesendeten Pakete dieses Handshake-Vorgangs untersucht werden (eine erste Anforderung vom Client und eine Antwort vom Server), können wir die Wartezeit bei der Herstellung der Verbindung berechnen. Diese Wartezeit wird als Roundtripzeit (Round Trip Time, RTT) bezeichnet. Weitere Informationen zum TCP-Protokoll und zum Drei-Wege-Handshake finden Sie unter der folgenden Ressource: [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
 
 ### <a name="step-1"></a>Schritt 1
 
@@ -79,7 +79,7 @@ In diesem Beispiel überprüfen wir eine zuvor durchgeführte Paketerfassung auf
 
 ### <a name="step-1"></a>Schritt 1
 
-Verwenden Sie die gleiche Erfassung wie im vorherigen Szenario, und klicken Sie auf **Statistics (Statistiken)** > **Protocol Hierarchy (Protokollhierarchie)**.
+Verwenden Sie die gleiche Erfassung wie im vorherigen Szenario, und klicken Sie auf **Statistics (Statistiken)**  > **Protocol Hierarchy (Protokollhierarchie)** .
 
 ![Menü „Protocol Hierarchy“ (Protokollhierarchie)][2]
 
@@ -95,7 +95,7 @@ Das Verständnis der Arten von Datenverkehr, der Endpunkte und der Ports, über 
 
 ### <a name="step-1"></a>Schritt 1
 
-Verwenden Sie die gleiche Erfassung wie im vorherigen Szenario, und klicken Sie auf **Statistics (Statistiken)** > **IPv4 Statistics (IPv4-Statistiken)** > **Destinations and Ports (Ziele und Ports)**.
+Verwenden Sie die gleiche Erfassung wie im vorherigen Szenario, und klicken Sie auf **Statistics (Statistiken)**  > **IPv4 Statistics (IPv4-Statistiken)**  > **Destinations and Ports (Ziele und Ports)** .
 
 ![Fenster für Paketerfassung][4]
 

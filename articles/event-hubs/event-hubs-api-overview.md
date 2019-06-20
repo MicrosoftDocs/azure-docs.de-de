@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
 ms.openlocfilehash: 80566b0246179064d2a479b8c9bf3c79a2a93aac
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60822615"
 ---
 # <a name="available-event-hubs-apis"></a>Verfügbare Event Hubs-APIs
 

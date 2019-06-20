@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.openlocfilehash: c32592ce539eeb2dec71792e4a6eb31e7d904eff
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60312432"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Deltakopiervorgänge aus einer Datenbank mit einer Steuertabelle
 
@@ -112,7 +112,7 @@ Die Vorlage definiert fünf Parameter:
 
      ![Festlegen der Aktivität „Gespeicherte Prozedur“](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
 
-10. Schreiben Sie den Inhalt **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}**, und klicken Sie dann auf **Fertig stellen**.  
+10. Schreiben Sie den Inhalt **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** , und klicken Sie dann auf **Fertig stellen**.  
 
      ![Schreiben des Inhalts für die Parameter der gespeicherten Prozedur](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
      

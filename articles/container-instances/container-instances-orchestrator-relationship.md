@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838144"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65072990"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances und Containerorchestratoren
 
@@ -56,7 +56,7 @@ Anstatt die Anzahl der virtuellen Computer in Ihrem Cluster horizontal hochzuska
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Beispiel für die Implementierung: virtuelle Knoten für Azure Kubernetes Service (AKS)
 
-Um Anwendungsworkloads in einem [Azure Kubernetes Service-Cluster](../aks/intro-kubernetes.md) (AKS) schnell zu skalieren, können Sie *virtuelle Knoten* verwenden, die dynamisch in Azure Container Instances erstellt wurden. Die virtuellen Knoten ermöglichen (derzeit noch als Vorschauversion) die Netzwerkkommunikation zwischen Pods, die in ACI und dem AKS-Cluster ausgeführt werden. 
+Um Anwendungsworkloads in einem [Azure Kubernetes Service-Cluster](../aks/intro-kubernetes.md) (AKS) schnell zu skalieren, können Sie *virtuelle Knoten* verwenden, die dynamisch in Azure Container Instances erstellt wurden. Virtuelle Knoten ermöglichen die Netzwerkkommunikation zwischen Pods, die in ACI und dem AKS-Cluster ausgeführt werden. 
 
 Aktuell werden Linux-Containerinstanzen von virtuellen Knoten unterstützt. Verwenden Sie für erste Schritte mit virtuellen Knoten die [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) oder das [Azure-Portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 

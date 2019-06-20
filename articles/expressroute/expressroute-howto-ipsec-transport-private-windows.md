@@ -9,11 +9,11 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60366927"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurieren des IPsec-Transportmodus für privates ExpressRoute-Peering
 
@@ -104,7 +104,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 1. Um ein neues Gruppenrichtlinienobjekt zu erstellen, das mit einer Organisationseinheit verknüpft ist, öffnen Sie das Gruppenrichtlinienverwaltungs-Snap-In, und suchen Sie nach der Organisationseinheit, mit der das Gruppenrichtlinienobjekt verknüpft werden soll. In diesem Beispiel hat die Organisationseinheit den Namen **IPSecOU**. 
 
    [![9]][9]
-2. Wählen Sie im Gruppenrichtlinienverwaltungs-Snap-In die Organisationseinheit aus, und klicken Sie mit der rechten Maustaste. Klicken Sie in der Dropdownliste auf **Gruppenrichtlinienobjekt hier erstellen und verknüpfen...**.
+2. Wählen Sie im Gruppenrichtlinienverwaltungs-Snap-In die Organisationseinheit aus, und klicken Sie mit der rechten Maustaste. Klicken Sie in der Dropdownliste auf **Gruppenrichtlinienobjekt hier erstellen und verknüpfen...** .
 
    [![10]][10]
 3. Geben Sie dem Gruppenrichtlinienobjekt einen intuitiven Namen, damit Sie es später leicht finden können. Klicken Sie auf **OK**, um das Gruppenrichtlinienobjekt zu erstellen und zu verknüpfen.
@@ -252,7 +252,7 @@ Fügen Sie der IPSec-Richtlinie die **IP-Filterliste** und die **Filteraktion** 
 6. Wählen Sie die vorhandene Filteraktion **myEncryption** aus, die Sie zuvor erstellt haben.
 
    [![46]][46]
-7. Windows unterstützt vier verschiedene Arten der Authentifizierung: Kerberos, Zertifikate, NTLMv2 und vorinstallierte Schlüssel. Da hier mit Hosts gearbeitet wird, die in eine Domäne eingebunden sind, aktivieren Sie **Active Directory-Standard (Kerberos V5-Protokoll)**, und klicken Sie dann auf **Weiter**.
+7. Windows unterstützt vier verschiedene Arten der Authentifizierung: Kerberos, Zertifikate, NTLMv2 und vorinstallierte Schlüssel. Da hier mit Hosts gearbeitet wird, die in eine Domäne eingebunden sind, aktivieren Sie **Active Directory-Standard (Kerberos V5-Protokoll)** , und klicken Sie dann auf **Weiter**.
 
    [![47]][47]
 8. Die neue Richtlinie erstellt die Sicherheitsregel **azure-onpremises-HTTP8080**. Klicken Sie auf **OK**.

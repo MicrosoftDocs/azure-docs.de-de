@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
 ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60328713"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Erstellen einer vollständigen Linux-Umgebung mit der klassischen Azure-Befehlszeilenschnittstelle
 In diesem Artikel erstellen wir ein einfaches Netzwerk mit einem Load Balancer und zwei virtuellen Computern, die zu Entwicklungszwecken und für einfache Berechnungen nützlich sind. Wir führen Sie Befehl für Befehl durch den Prozess, bis Sie über zwei funktionierende, sichere virtuelle Linux-Computer verfügen, mit denen Sie über das Internet von jedem Ort aus eine Verbindung herstellen können. Anschließend können Sie sich mit komplexeren Netzwerken und Umgebungen beschäftigen.

@@ -1,29 +1,25 @@
 ---
-title: Aufrufen, Auslösen oder Schachteln von Workflows mit HTTP-Endpunkten – Azure Logic Apps | Microsoft-Dokumentation
+title: Aufrufen, Auslösen oder Schachteln von Workflows mit HTTP-Endpunkten – Azure Logic Apps
 description: Einrichten von HTTP-Endpunkten zum Aufrufen, Auslösen oder Schachteln von Workflows für Azure Logic Apps
 services: logic-apps
-keywords: Workflows, HTTP-Endpunkte
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904370"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495052"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Aufrufen, Auslösen oder Schachteln von Workflows mit HTTP-Endpunkten in Logik-Apps
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Aufrufen, Auslösen oder Schachteln von Workflows mit HTTP-Endpunkten in Azure Logic Apps
 
 Sie können synchrone HTTP-Endpunkte nativ als Trigger in Logik-Apps verfügbar machen, sodass Sie Ihre Logik-Apps über eine URL auslösen oder aufrufen können. Sie können Workflows auch durch die Verwendung eines Musters aufrufbarer Endpunkte in Ihren Logik-Apps schachteln.
 

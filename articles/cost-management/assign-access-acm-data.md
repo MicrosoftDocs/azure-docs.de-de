@@ -5,23 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014183"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493756"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Zuweisen des Zugriffs auf Daten in Cost Management
 
 Für Benutzer mit Azure Enterprise Agreements wird die Zugriffsebene auf Daten in Azure Cost Management durch eine Kombination aus im Azure-Portal und im Enterprise-Portal (EA-Portal) gewährten Berechtigungen definiert. Für Benutzer mit anderen Typen von Azure-Konten ist die Zugriffsebene auf Cost Management-Daten einfacher. Dieser Artikel führt Sie durch das Zuweisen des Zugriffs auf Daten in Cost Management. Nachdem die Kombination von Berechtigungen zugewiesen wurde, kann der Benutzer anhand des Bereichs, auf den er Zugriff hat, und des im Azure-Portal ausgewählten Bereichs auf Daten zugreifen.
 
 Der von einem Benutzer ausgewählte Bereich wird im gesamten Cost Management verwendet, um Daten zu konsolidieren und den Zugriff auf Kosteninformationen zu steuern. Bei Verwendung von Bereichen findet keine Mehrfachauswahl durch Benutzer statt. Stattdessen wählen sie einen größeren Bereich aus, auf den untergeordnete Bereiche erweitert werden, und filtern diese dann nach den gewünschten Elementen für die Anzeige. Diese Datenkonsolidierung sollten Sie verstehen, da einige Personen keinen Zugriff auf einen übergeordneten Bereich haben, in den die untergeordneten Bereiche zusammengefasst werden.
+
+Sehen Sie sich das Video [Zuweisen des Zugriffs mit Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) an, um mehr über die Zuweisung des Zugriffs auf Anzeigekosten und -gebühren mit der rollenbasierten Zugriffssteuerung von Azure zu erfahren.
+
+>[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
 ## <a name="cost-management-scopes"></a>Bereiche in Cost Management
 
@@ -166,6 +170,13 @@ Für den Zugriff auf den Ressourcengruppenbereich ist mindestens die Berechtigun
 7. Wählen Sie unter **Zugriff zuweisen zu** die Option **Azure AD-Benutzer, -Gruppe oder -Anwendung** aus.
 8. Um den Zugriff zuzuweisen, suchen Sie den Benutzer, und wählen Sie ihn aus.
 9. Klicken Sie auf **Speichern**.
+
+## <a name="cross-tenant-authentication-issues"></a>Mandantenübergreifende Authentifizierungsprobleme
+
+Zurzeit bietet Azure Cost Management eingeschränkte Unterstützung für die mandantenübergreifende Authentifizierung. Unter bestimmten Umständen wird bei der Kostenanalyse der Fehler **Zugriff verweigert** zurückgegeben, wenn Sie versuchen, sich mandantenübergreifend zu authentifizieren. Dieses Problem kann auftreten, wenn Sie die rollenbasierte Zugriffssteuerung für das Abonnement eines anderen Mandanten konfigurieren und dann versuchen, Kostendaten anzuzeigen.
+
+*So können Sie das Problem umgehen*: Nachdem Sie die mandantenübergreifende rollenbasierte Zugriffssteuerung konfiguriert haben, warten Sie eine Stunde. Versuchen Sie dann, in beiden Mandanten Kosten in der Kostenanalyse anzuzeigen oder Benutzern Zugriff auf Cost Management zu gewähren.  
+
 
 ## <a name="next-steps"></a>Nächste Schritte
 

@@ -1,6 +1,6 @@
 ---
 title: Abhängigkeitsnachverfolgung in Azure Application Insights | Microsoft Docs
-description: Analysieren Sie die Auslastung, Verfügbarkeit und Leistung Ihrer lokalen oder Microsoft Azure-Webanwendung mit Application Insights.
+description: Überwachen Sie Abhängigkeitsaufrufe von Ihrer lokalen oder Microsoft Azure-Webanwendung mit Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,80 +12,165 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273106"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299292"
 ---
-# <a name="set-up-application-insights-dependency-tracking"></a>Einrichten von Application Insights: Abhängigkeitsüberwachung
-Eine *Abhängigkeit* ist eine externe Komponente, die von Ihrer App aufgerufen wird. In der Regel handelt es sich um einen Dienst, der über HTTP oder eine Datenbank oder ein Dateisystem aufgerufen wird. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misst, wie lange die Anwendung auf Abhängigkeiten wartet, und wie oft ein Abhängigkeitsaufruf nicht funktioniert. Sie können bestimmte Aufrufe untersuchen, und diese mit Anforderungen und Ausnahmen in Verbindung bringen.
+# <a name="dependency-tracking-in-azure-application-insights"></a>Abhängigkeitsnachverfolgung in Azure Application Insights 
 
-Der standardmäßig verfügbare Abhängigkeitsmonitor meldet derzeit Aufrufe an diese Abhängigkeitstypen:
+Eine *Abhängigkeit* ist eine externe Komponente, die von Ihrer App aufgerufen wird. In der Regel handelt es sich um einen Dienst, der über HTTP oder eine Datenbank oder ein Dateisystem aufgerufen wird. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misst Sie die Dauer von Abhängigkeitsaufrufen, gibt an, ob sie durchgeführt werden können, und stellt zusätzliche Informationen wie den Namen der Abhängigkeit etc. bereit. Sie können bestimmte Abhängigkeitsaufrufe untersuchen und sie mit Anforderungen und Ausnahmen in Zusammenhang setzen.
 
-* Server
-  * SQL-Datenbanken
-  * ASP.NET-Web- und WCF-Dienste, die HTTP-basierte Bindungen verwenden
-  * Lokale oder Remote-HTTP-Aufrufe
-  * Azure Cosmos DB, Tabelle, Blob Storage und Warteschlange 
-* Webseiten
-  * AJAX-Aufrufe
+## <a name="automatically-tracked-dependencies"></a>Automatisch nachverfolgte Abhängigkeiten
 
-Überwachung funktioniert unter Verwendung der [Bytecodeinstrumentierung](https://msdn.microsoft.com/library/z9z62c29.aspx) mit ausgewählten Methoden, oder basierend auf DiagnosticSource-Rückrufen (in den neuesten .NET SDKs) aus dem .NET Framework. Der Leistungsaufwand ist minimal.
+Application Insights-SDKs für .NET und .NET Core werden mit `DependencyTrackingTelemetryModule` geliefert. Hierbei handelt es sich um ein Telemetriemodul, das Abhängigkeiten automatisch erfasst. Diese Abhängigkeitserfassung ist für [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)- und [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)-Anwendungen automatisch aktiviert, wenn diese gemäß der verknüpften offiziellen Dokumentation konfiguriert werden. `DependencyTrackingTelemetryModule` ist im Lieferumfang [dieses](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet-Pakets enthalten und wird bei Verwendung eines der NuGet-Pakete `Microsoft.ApplicationInsights.Web` oder `Microsoft.ApplicationInsights.AspNetCore` automatisch geladen.
 
-Mit [TrackDependency-API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)können Sie auch eigene SDK-Aufrufe zum Überwachen anderer Abhängigkeiten schreiben, sowohl in Client- als auch Servercode.
+ Folgende Abhängigkeiten werden von `DependencyTrackingTelemetryModule` derzeit automatisch verfolgt:
 
-> [!NOTE]
-> Azure Cosmos DB wird nur dann automatisch nachverfolgt, wenn [HTTP/HTTPS](../../cosmos-db/performance-tips.md#networking) verwendet wird. Der TCP-Modus wird von Application Insights nicht erfasst.
+|Abhängigkeiten |Details|
+|---------------|-------|
+|Http/Https | Lokale oder Remote-HTTP/HTTPS-Aufrufe |
+|WCF-Aufrufe| Wird nur dann automatisch nachverfolgt, wenn auf HTTP/HTTPS basierende Bindungen verwendet werden.|
+|SQL | Aufrufe mit `SqlClient`. Informationen zum Erfassen von SQL-Abfragen finden Sie [hier](##advanced-sql-tracking-to-get-full-sql-query).  |
+|[Azure-Speicher (Blob, Tabelle und Warteschlange)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Aufrufe mit Azure Storage-Client. |
+|[EventHub-Client-SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 und höher. |
+|[ServiceBus-Client-SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 und höher. |
+|Azure Cosmos DB | Wird nur dann automatisch nachverfolgt, wenn HTTP/HTTPS verwendet wird. Der TCP-Modus wird von Application Insights nicht erfasst. |
 
-## <a name="set-up-dependency-monitoring"></a>Einrichten der Abhängigkeitsüberwachung
-Teilinformationen von Abhängigkeiten werden automatisch durch das [Application Insights-SDK](asp-net.md) gesammelt. Installieren Sie den entsprechenden Agent für den Hostserver, um umfassende Daten zu erhalten.
 
-| Plattform | Installieren |
+## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Einrichten einer automatischen Abhängigkeitsüberwachung in Konsolen-Apps
+
+Um Abhängigkeiten automatisch über .NET-/.NET Core-Konsolen-Apps nachzuverfolgen, installieren Sie das Nuget-Paket `Microsoft.ApplicationInsights.DependencyCollector`, und initialisieren Sie `DependencyTrackingTelemetryModule` wie folgt:
+
+```csharp
+    DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
+    depModule.Initialize(TelemetryConfiguration.Active);
+```
+
+### <a name="how-automatic-dependency-monitoring-works"></a>Funktionsweise der automatischen Abhängigkeitsüberwachung
+
+Abhängigkeiten werden über eine der folgenden Methoden automatisch gesammelt:
+
+* Über die Bytecodeinstrumentierung um ausgewählte Methoden (InstrumentationEngine entweder aus StatusMonitor oder der Azure-Web-App-Erweiterung)
+* EventSource-Rückrufe
+* DiagnosticSource-Rückrufe (in den neuesten.NET-/.NET Core-SDKs)
+
+## <a name="manually-tracking-dependencies"></a>Manuelle Nachverfolgung von Abhängigkeiten
+
+Es folgen einige Beispiele für Abhängigkeiten, die nicht automatisch erfasst werden und daher eine manuelle Nachverfolgung erfordern.
+
+* Azure Cosmos DB wird nur dann automatisch nachverfolgt, wenn [HTTP/HTTPS](../../cosmos-db/performance-tips.md#networking) verwendet wird. Der TCP-Modus wird von Application Insights nicht erfasst.
+* Redis
+
+Abhängigkeiten, die nicht automatisch vom SDK erfasst werden, können Sie manuell mithilfe der [TrackDependency-API](api-custom-events-metrics.md#trackdependency) nachverfolgen, die von den Standardmodulen zur automatischen Erfassung verwendet wird.
+
+Beispiel: Wenn Sie Ihren Code mit einer Assembly erstellen, die Sie nicht selbst geschrieben haben, könnten Sie die Zeit aller Aufrufe ermitteln, um herauszufinden, welchen Beitrag sie an Ihren Reaktionszeiten hat. Um diese Daten in den Abhängigkeitsdiagrammen in Application Insights anzuzeigen, senden Sie sie mit `TrackDependency`.
+
+```csharp
+
+    var startTime = DateTime.UtcNow;
+    var timer = System.Diagnostics.Stopwatch.StartNew();
+    try
+    {
+        // making dependency call
+        success = dependency.Call();
+    }
+    finally
+    {
+        timer.Stop();
+        telemetryClient.TrackDependency("myDependencyType", "myDependencyCall", "myDependencyData",  startTime, timer.Elapsed, success);
+    }
+```
+
+Alternativ stellt `TelemetryClient` die Erweiterungsmethoden `StartOperation` und `StopOperation` bereit, die zum manuellen Nachverfolgen von Abhängigkeiten verwendet werden können, wie [hier](custom-operations-tracking.md#outgoing-dependencies-tracking) gezeigt.
+
+Wenn Sie das Standardmodul für die Nachverfolgung von Abhängigkeiten deaktivieren möchten, entfernen Sie für ASP.NET-Anwendungen den Verweis auf DependencyTrackingTelemetryModule in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Befolgen Sie für ASP.NET Core-Anwendungen die [hier](asp-net-core.md#configuring-or-removing-default-telemetrymodules) aufgeführten Anweisungen.
+
+## <a name="tracking-ajax-calls-from-web-pages"></a>Nachverfolgen von AJAX-Aufrufen von Webseiten
+
+Für Webseiten erfasst das JavaScript-SDK von Application Insights AJAX-Aufrufe automatisch als Abhängigkeiten, wie [hier](javascript.md#ajax-performance) beschrieben. Dieses Dokument konzentriert sich auf Abhängigkeiten von Serverkomponenten.
+
+## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Erweiterte SQL-Nachverfolgung zum Abrufen vollständiger SQL-Abfragen
+
+Für SQL-Aufrufe wird der Name des Servers und der Datenbank immer erfasst und als Name der erfassten `DependencyTelemetry` gespeichert. Es gibt ein zusätzliches Feld namens „data“, das den vollständigen Text der SQL-Abfrage enthalten kann.
+
+Für ASP.NET Core-Anwendungen ist kein zusätzlicher Schritt erforderlich, um die vollständige SQL-Abfrage abzurufen.
+
+Bei ASP.NET-Anwendungen wird die vollständige SQL-Abfrage mithilfe der Bytecodeinstrumentierung erfasst. Hierzu ist die Instrumentierungs-Engine erforderlich. Zudem sind zusätzliche plattformspezifische Schritte nötig, die unten beschrieben werden.
+
+| Plattform | Erforderliche Schritte zum Abrufen der vollständigen SQL-Abfrage |
 | --- | --- |
-| IIS-Server |[Installieren Sie den Statusmonitor auf dem Server,](../../azure-monitor/app/monitor-performance-live-website-now.md), oder [aktualisieren Sie Ihre Anwendung auf .NET Framework 4.6 oder höher](https://go.microsoft.com/fwlink/?LinkId=528259), und installieren Sie das [Application Insights SDK](asp-net.md) in Ihrer App. |
-| Azure-Web-App |[Öffnen Sie das Blatt „Application Insights“ in der Systemsteuerung Ihrer Web-App](../../azure-monitor/app/azure-web-apps.md) und wählen Sie bei Aufforderung „Installieren“ aus. |
-| Azure Cloud Service |[Verwenden Sie die Startaufgabe](../../azure-monitor/app/cloudservices.md), oder [Installieren Sie .NET Framework 4.6 oder höher](../../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure-Web-App |In der Systemsteuerung Ihrer Web-App [öffnen Sie das Application Insights-Blatt](../../azure-monitor/app/azure-web-apps.md), und aktivieren Sie SQL-Befehle unter .NET. |
+| IIS-Server (Azure-VM, lokal usw.) | [Installieren Sie den Statusmonitor auf Ihrem Server, auf dem die Anwendung ausgeführt wird](../../azure-monitor/app/monitor-performance-live-website-now.md), und starten Sie IIS neu.
+| Azure Cloud Service |[Verwenden Sie den Starttask](../../azure-monitor/app/cloudservices.md) zum [Installieren des Statusmonitors](monitor-performance-live-website-now.md#download). |
+| IIS Express | Nicht unterstützt
+
+In den oben genannten Fällen können Sie die ordnungsgemäße Installation der Instrumentierungs-Engine überprüfen, indem Sie sicherstellen, dass die SDK-Version der erfassten `DependencyTelemetry` „rddp“ lautet. „rdddsd“ oder „rddf“ weisen darauf hin, dass Abhängigkeiten über DiagnosticSource- oder EventSource-Rückrufe gesammelt werden und die vollständige SQL-Abfrage daher nicht erfasst wird.
 
 ## <a name="where-to-find-dependency-data"></a>Hier finden Sie Abhängigkeitsdaten
-* [Anwendungszuordnung](#application-map) visualisiert Abhängigkeiten zwischen Ihrer App und angrenzenden Komponenten.
-* [Die Blätter „Performance“ (Leistung) „Browser“ und „Failure“ (Fehler)](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance) zeigen Serverabhängigkeitsdaten.
-* [Das Blatt „Browser“](#ajax-calls) zeigt AJAX-Aufrufe von Browsern Ihrer Benutzer.
+
+* [Anwendungszuordnung](app-map.md) visualisiert Abhängigkeiten zwischen Ihrer App und angrenzenden Komponenten.
+* Die [Transaktionsdiagnose](transaction-diagnostics.md) zeigt einheitliche, korrelierte Serverdaten.
+* [Das Blatt „Browser“](javascript.md#ajax-performance) zeigt AJAX-Aufrufe von Browsern Ihrer Benutzer.
 * Navigieren Sie zu langsamen oder fehlgeschlagenen Aufrufen, um ihre Abhängigkeitsaufrufe zu überprüfen.
 * [Analyse](#analytics) kann verwendet werden, um Abhängigkeitsdaten abzufragen.
 
-## <a name="application-map"></a>Anwendungszuordnung
-Die Anwendungszuordnung dient als visuelle Hilfe zum Erkennen von Abhängigkeiten zwischen den Komponenten Ihrer Anwendung. Sie wird automatisch aus der Telemetrie Ihrer App generiert. Dieses Beispiel zeigt die AJAX-Aufrufe aus den Browserskripts und REST-Aufrufe aus der Serveranwendung zu zwei externen Diensten.
-
-![Anwendungszuordnung](./media/asp-net-dependencies/cloud-rolename.png)
-
-* **Navigieren Sie aus den Feldern** zur relevanten Abhängigkeit und zu anderen Diagrammen.
-* **Heften Sie die Zuordnung** an das [Dashboard](../../azure-monitor/app/app-insights-dashboards.md) an, wo sie voll funktionsfähig sein wird.
-
-[Weitere Informationen](../../azure-monitor/app/app-map.md)
-
-## <a name="performance-and-failure-blades"></a>Blätter „Performance“ und „Failure“
-Das Blatt „Performance“ zeigt die Dauer von Abhängigkeitsaufrufen, die durch die Serveranwendung durchgeführt werden.
-
-**Die Fehleranzahl** wird auf dem Blatt **Ausfälle** angezeigt. Ein Fehler ist jeder Rückgabecode, der nicht im Bereich 200-399 liegt, oder unbekannt ist.
-
-> [!NOTE]
-> **100 % Fehler?** - Dies liegt wahrscheinlich daran, dass Sie nur teilweise Abhängigkeitsdaten erhalten. Sie müssen [die für Ihre Plattform geeignete Abhängigkeitsüberwachung einrichten](#set-up-dependency-monitoring).
->
->
-
-## <a name="ajax-calls"></a>AJAX-Aufrufe
-Das Blatt „Browser“ zeigt die Dauer und Fehlerquote von AJAX-Aufrufen durch [JavaScript auf Ihren Webseiten](../../azure-monitor/app/javascript.md) an. Sie werden als Abhängigkeiten angezeigt.
-
 ## <a name="diagnosis"></a>Diagnostizieren langsamer Anforderungen
+
 Jedes Anforderungsereignis bezieht sich auf Abhängigkeitsaufrufe, Ausnahmen und andere Ereignisse, die nachverfolgt werden, während Ihre App die Anforderung verarbeitet. Wenn einige Anforderungen also eine schlechte Leistung zeigen, können Sie herausfinden, ob es an langsamen Antworten einer Abhängigkeit liegt.
+
+Wir sehen uns nun ein Beispiel dazu an.
+
+### <a name="tracing-from-requests-to-dependencies"></a>Ablaufverfolgung von Anforderungen bis Abhängigkeiten
+
+Öffnen Sie das Blatt „Performance“, und betrachten Sie das Raster der Anforderungen:
+
+![Liste der Anforderungen mit Mittelwerten und Anzahlen](./media/asp-net-dependencies/02-reqs.png)
+
+Die zuerst aufgeführte Instanz dauert lange. Mal sehen, ob wir herausfinden, wo die Zeit beansprucht wird.
+
+Klicken Sie auf diese Zeile, um einzelne Anforderungsereignisse anzuzeigen:
+
+![Liste der Anforderungsinstanzen](./media/asp-net-dependencies/03-instances.png)
+
+Klicken Sie auf eine beliebige Instanz mit langer Ausführungsdauer, um diese näher zu überprüfen, und scrollen Sie nach unten zu den Remoteabhängigkeitsaufrufen, die im Zusammenhang mit dieser Anforderung bestehen:
+
+![Finden von Aufrufen von Remoteabhängigkeiten, Identifizieren ungewöhnlich langer Laufzeiten](./media/asp-net-dependencies/04-dependencies.png)
+
+Der Großteil der Zeit zur Verarbeitung dieser Anforderung wurde für einen Aufruf eines lokalen Diensts aufgewendet.
+
+Wählen Sie diese Zeile aus, um weitere Informationen zu erhalten:
+
+![Klicken Sie sich durch diese Remoteabhängigkeit, um die Ursache herauszufinden](./media/asp-net-dependencies/05-detail.png)
+
+Offenbar liegt das Problem bei dieser Abhängigkeit. Nachdem das Problem jetzt identifiziert ist, müssen wir noch herausfinden, warum dieser Aufruf so lange dauert.
+
+### <a name="request-timeline"></a>Anfordern der Zeitachse
+
+In einem anderen Fall handelt es sich nicht um einen Abhängigkeitsaufruf mit langer Ausführungsdauer. Wenn wir aber zur Zeitachsenansicht wechseln, können wir sehen, wo die Verzögerung in unserer internen Verarbeitung aufgetreten ist:
+
+![Finden von Aufrufen von Remoteabhängigkeiten, Identifizieren ungewöhnlich langer Laufzeiten](./media/asp-net-dependencies/04-1.png)
+
+Es scheint eine große Unterbrechung nach dem ersten Abhängigkeitsaufruf zu geben, daher sollten wir den Code betrachten, um den Grund dafür herauszufinden.
 
 ### <a name="profile-your-live-site"></a>Erstellen eines Profils Ihrer Livewebsite
 
-Sie möchten wissen, was am längsten gedauert hat? Der [Application Insights-Profiler](../../azure-monitor/app/profiler.md) verfolgt HTTP-Aufrufe Ihrer Livewebsite und zeigt an, welche Funktionen im Code die meiste Zeit in Anspruch genommen haben.
+Sie möchten wissen, was am längsten gedauert hat? Der [Application Insights-Profiler](../../azure-monitor/app/profiler.md) verfolgt HTTP-Aufrufe zu Ihrer Livewebsite zurück und zeigt an, welche Funktionen im Code die meiste Zeit in Anspruch genommen haben.
+
+## <a name="failed-requests"></a>Anforderungsfehler
+
+Anforderungsfehler können auch fehlgeschlagenen Aufrufen von Abhängigkeiten zugeordnet werden. Wir können erneut bis zum Problem durchklicken.
+
+![Klicken Sie auf das Diagramm mit Anforderungsfehlern](./media/asp-net-dependencies/06-fail.png)
+
+Klicken Sie auf einen Anforderungsfehler, und sehen Sie sich die zugeordneten Ereignisse an.
+
+![Klicken Sie auf den Anforderungstyp, klicken Sie auf die Instanz, um eine andere Ansicht derselben Instanz abzurufen, und klicken Sie darauf, um Details zur Ausnahme zu erhalten.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analytics
+
 Sie können Abhängigkeiten in der [Abfragesprache Kusto](/azure/kusto/query/) verfolgen. Hier einige Beispiele.
 
 * Suchen fehlgeschlagener Abhängigkeitsaufrufe:
@@ -123,49 +208,22 @@ Sie können Abhängigkeiten in der [Abfragesprache Kusto](/azure/kusto/query/) v
       on operation_Id
 ```
 
+## <a name="video"></a>Video
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="custom-dependency-tracking"></a>Benutzerdefinierte Nachverfolgung von Abhängigkeiten
-Das Standardmodul für die Nachverfolgung von Abhängigkeiten ermittelt automatisch externe Abhängigkeiten wie Datenbanken und REST-APIs. Es kann jedoch gewünscht sein, einige zusätzliche Komponenten auf die gleiche Weise zu behandeln.
+## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-Sie können Code schreiben, der Abhängigkeitsinformationen unter Verwendung der gleichen [TrackDependency-API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency) sendet, die von den Standardmodulen verwendet wird.
+### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*Wie meldet die automatische Abhängigkeitserfassung fehlerhafte Aufrufe an Abhängigkeiten?*
 
-Beispiel: Wenn Sie Ihren Code mit einer Assembly erstellen, die Sie nicht selbst geschrieben haben, könnten Sie die Zeit aller Aufrufe ermitteln, um herauszufinden, welchen Beitrag sie an Ihren Reaktionszeiten hat. Um diese Daten in den Abhängigkeitsdiagrammen in Application Insights anzuzeigen, senden Sie sie mit `TrackDependency`.
+* Bei fehlerhaften Abhängigkeitsaufrufen wird das Feld „success“ auf FALSE festgelegt. `DependencyTrackingTelemetryModule` gibt keine Auskunft über `ExceptionTelemetry`. Das vollständige Datenmodell für Abhängigkeiten wird [hier](data-model-dependency-telemetry.md) beschrieben.
 
-```csharp
+## <a name="open-source-sdk"></a>Open Source SDK
+Wie jedes Application Insights-SDK ist auch das Modul zur Abhängigkeitserfassung ein Open Source-Modul. Lesen Sie den Code, tragen Sie zum Code bei, oder melden Sie Issues im [offiziellen GitHub-Repository](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
 
-            var startTime = DateTime.UtcNow;
-            var timer = System.Diagnostics.Stopwatch.StartNew();
-            try
-            {
-                success = dependency.Call();
-            }
-            finally
-            {
-                timer.Stop();
-                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
-                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
-            }
-```
-
-Wenn Sie das Standardmodul für die Nachverfolgung von Abhängigkeiten deaktivieren möchten, entfernen Sie den Verweis auf "DependencyTrackingTelemetryModule" in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md).
-
-## <a name="troubleshooting"></a>Problembehandlung
-*Das Erfolgsflag für die Abhängigkeit zeigt immer entweder TRUE oder FALSE.*
-
-*SQL-Abfrage, die nicht vollständig angezeigt wird*
-
-Sehen Sie in der Tabelle unten nach, und stellen Sie sicher, dass Sie die richtige Konfiguration ausgewählt haben, um die Abhängigkeitsüberwachung für Ihre Anwendung zu aktivieren.
-
-| Plattform | Installieren |
-| --- | --- |
-| IIS-Server |Entweder [Installieren Sie Statusmonitor auf Ihrem Server](../../azure-monitor/app/monitor-performance-live-website-now.md), oder [aktualisieren Sie Ihre Anwendung auf .NET Framework 4.6 oder höher](https://go.microsoft.com/fwlink/?LinkId=528259), und installieren Sie das [Application Insights SDK](asp-net.md) in Ihrer App. |
-| IIS Express |Verwenden Sie stattdessen IIS-Server. |
-| Azure-Web-App |[Öffnen Sie das Blatt „Application Insights“ in der Systemsteuerung Ihrer Web-App](../../azure-monitor/app/azure-web-apps.md) und wählen Sie bei Aufforderung „Installieren“ aus. |
-| Azure Cloud Service |[Verwenden Sie die Startaufgabe](../../azure-monitor/app/cloudservices.md), oder [Installieren Sie .NET Framework 4.6 oder höher](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## <a name="next-steps"></a>Nächste Schritte
+
 * [Ausnahmen](../../azure-monitor/app/asp-net-exceptions.md)
 * [Daten zu Seiten und Benutzern](../../azure-monitor/app/javascript.md)
 * [Availability](../../azure-monitor/app/monitor-web-app-availability.md)

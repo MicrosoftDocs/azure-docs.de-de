@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/29/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e07c53192ea2c8b792256af944c81c9c909dc55
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64920267"
 ---
-# <a name="consent-to-linkedin-account-connections-for-an-azure-active-directory-organization"></a>Einwilligung zu LinkedIn-Kontoverbindungen für eine Azure Active Directory-Organisation
+# <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrieren von LinkedIn-Kontoverbindungen in Azure Active Directory
 
 Sie können Benutzern in Ihrer Organisation den Zugriff auf ihre LinkedIn-Verbindungen in einigen Microsoft-Anwendungen gestatten. Es werden keine Daten freigegeben, bis der Benutzer der Verbindung seiner Konten zustimmt. Sie können Ihre Organisation in das Azure Active Directory (Azure AD) [Admin Center](https://aad.portal.azure.com) integrieren.
 
@@ -34,30 +34,67 @@ Sie können Benutzern in Ihrer Organisation den Zugriff auf ihre LinkedIn-Verbin
 >
 > Nachdem LinkedIn-Kontoverbindungen für Ihre Organisation aktiviert wurden, funktionieren die Kontoverbindungen, nachdem die Benutzer zugestimmt haben, dass Apps in ihrem Auftrag auf Unternehmensdaten zugreifen. Informationen zur Einstellung für die Benutzereinwilligung finden Sie unter [Aufheben des Zugriffs eines Benutzers auf eine Anwendung](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
-## <a name="use-the-azure-portal-to-enable-linkedin-account-connections"></a>Verwenden des Azure-Portals zum Aktivieren von LinkedIn-Kontoverbindungen
+## <a name="enable-linkedin-account-connections-in-the-azure-portal"></a>Aktivieren von LinkedIn-Kontoverbindungen im Azure-Portal
 
 Sie können LinkedIn-Kontoverbindungen nur für die Benutzer aktivieren, auf die Sie Zugriff erhalten möchten – von der gesamten Organisation bis hin zu ausgewählten Benutzern in Ihrer Organisation.
 
 1. Melden Sie sich beim [Azure AD Admin Center](https://aad.portal.azure.com/) mit dem Konto eines globalen Administrators für die Azure AD-Organisation an.
-2. Wählen Sie **Benutzer** aus.
-3. Wählen Sie auf dem Blatt **Benutzer** die Option **Benutzereinstellungen** aus.
-4. Gestatten Sie Benutzern unter **LinkedIn-Kontoverbindungen** das Verbinden ihrer Konten, damit sie in einigen Microsoft-Anwendungen auf ihre LinkedIn-Verbindungen zugreifen können. Es werden keine Daten freigegeben, bis der Benutzer der Verbindung seiner Konten zustimmt.
+1. Wählen Sie **Benutzer** aus.
+1. Wählen Sie auf dem Blatt **Benutzer** die Option **Benutzereinstellungen** aus.
+1. Gestatten Sie Benutzern unter **LinkedIn-Kontoverbindungen** das Verbinden ihrer Konten, damit sie in einigen Microsoft-Anwendungen auf ihre LinkedIn-Verbindungen zugreifen können. Es werden keine Daten freigegeben, bis der Benutzer der Verbindung seiner Konten zustimmt.
 
-  * Wählen Sie **Ja** aus, um die Einwilligung zu diesem Dienst für alle Benutzer in der Organisation zu geben.
-  * Wählen Sie **Ausgewählt** aus, um die Einwilligung nur für ausgewählte Benutzer in der Organisation zu geben.
-  * Wählen Sie **Nein** aus, um die Einwilligung für Benutzer in Ihrer Organisation zu widerrufen.
+    * Wählen Sie **Ja** aus, um den Dienst für alle Benutzer in Ihrer Organisation zu aktivieren.
+    * Wählen Sie **Ausgewählt** aus, um nur eine Gruppe von ausgewählten Benutzern in Ihrer Organisation zu aktivieren.
+    * Wählen Sie **Nein** aus, um die Zustimmung für alle Benutzer in Ihrer Organisation zu widerrufen.
 
     ![Integrieren von LinkedIn-Kontoverbindungen in der Organisation](./media/linkedin-integration/linkedin-integration.png)
 
-5. Wenn Sie fertig sind, wählen Sie **Speichern** aus, um Ihre Einstellungen zu speichern.
-     
+1. Wenn Sie fertig sind, wählen Sie **Speichern** aus, um Ihre Einstellungen zu speichern.
+
+> [!Important]
+> Die LinkedIn-Integration wird erst dann vollständig für Ihre Benutzer aktiviert, wenn diese ihre Einwilligung zum Verbinden ihrer Konten gegeben haben. Wenn Sie die Kontoverbindungen für Ihre Benutzer aktivieren, werden keine Daten freigegeben.
+
+### <a name="assign-selected-users-with-a-group"></a>Zuweisen ausgewählter Benutzer mithilfe einer Gruppe
+Die Option „Ausgewählt“, die eine Liste von Benutzern enthält, wurde durch die Option zum Auswählen einer Gruppe von Benutzern ersetzt, damit Sie die Möglichkeit haben, LinkedIn- und Microsoft-Konten anstatt für viele einzelne Benutzer für eine einzelne Gruppe zu aktivieren. Wenn Sie für ausgewählte einzelne Benutzer keine LinkedIn-Kontoverbindungen aktiviert haben, müssen Sie nichts weiter tun. Wenn Sie zuvor LinkedIn-Kontoverbindungen für ausgewählte einzelne Benutzer aktiviert haben, sollten Sie folgende Schritte ausführen:
+
+1. Rufen Sie die aktuelle Liste mit den einzelnen Benutzern ab.
+1. Verschieben Sie die aktuell aktivierten einzelnen Benutzer in eine Gruppe.
+1. Verwenden Sie in der LinkedIn-Kontoverbindungseinstellung im Azure AD-Verwaltungscenter die obige Gruppe als ausgewählte Gruppe.
+
+> [!NOTE]
+> Auch wenn Sie die aktuell ausgewählten einzelnen Benutzer nicht in eine Gruppe verschieben, werden diesen weiterhin LinkedIn-Informationen in Microsoft-Apps angezeigt.
+
+### <a name="get-the-current-list-of-selected-users"></a>Abrufen der aktuellen Liste mit den ausgewählten Benutzern
+
+1. Melden Sie sich bei Microsoft 365 mit Ihrem Administratorkonto an.
+1. Wechseln Sie zur Adresse https://linkedinselectedusermigration.azurewebsites.net/. Die Liste der Benutzer, die für LinkedIn-Kontoverbindungen ausgewählt wurden, wird angezeigt.
+1. Exportieren Sie die Liste in eine CSV-Datei.
+
+### <a name="move-the-currently-selected-individual-users-to-a-group"></a>Verschieben der aktuell ausgewählten einzelnen Benutzer in eine Gruppe
+
+1. Starten von PowerShell
+1. Installieren Sie das Azure AD Modul, indem Sie `Install-Module AzureAD` ausführen.
+1. Führen Sie das folgende Skript aus:
+
+  ``` PowerShell
+  $groupId = "GUID of the target group"
+  
+  $users = Get-Content 
+  Path to the CSV file
+  
+  $i = 1
+  foreach($user in $users} { Add-AzureADGroupMember -ObjectId $groupId -RefObjectId $user ; Write-Host $i Added $user ; $i++ ; Start-Sleep -Milliseconds 10 }
+  ```
+
+Unter [Aktivieren von LinkedIn-Kontoverbindungen im Azure-Portal](#enable-linkedin-account-connections-in-the-azure-portal) finden Sie Informationen, wie Sie die Gruppe aus Schritt 2 in der LinkedIn-Kontoverbindungseinstellung im Azure AD-Verwaltungscenter als ausgewählte Gruppe verwenden können.
+
 ## <a name="use-group-policy-to-enable-linkedin-account-connections"></a>Verwenden der Gruppenrichtlinie zum Aktivieren von LinkedIn-Kontoverbindungen
 
 1. Laden Sie die [Dateien mit den administrativen Vorlagen für Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030) herunter.
-2. Extrahieren Sie die **ADMX**-Dateien, und kopieren Sie sie in Ihren zentralen Speicher.
-3. Öffnen Sie die Gruppenrichtlinienverwaltung.
-4. Erstellen Sie ein Gruppenrichtlinienobjekt mit folgender Einstellung: **Benutzerkonfiguration** > **Administrative Vorlagen** > **Microsoft Office 2016** > **Verschiedenes** > **LinkedIn-Integration zulassen**.
-5. Wählen Sie **Aktiviert** oder **Deaktiviert** aus.
+1. Extrahieren Sie die **ADMX**-Dateien, und kopieren Sie sie in Ihren zentralen Speicher.
+1. Öffnen Sie die Gruppenrichtlinienverwaltung.
+1. Erstellen Sie ein Gruppenrichtlinienobjekt mit folgender Einstellung: **Benutzerkonfiguration** > **Administrative Vorlagen** > **Microsoft Office 2016** > **Verschiedenes** > **LinkedIn-Integration zulassen**.
+1. Wählen Sie **Aktiviert** oder **Deaktiviert** aus.
   
    Zustand | Wirkung
    ------ | ------

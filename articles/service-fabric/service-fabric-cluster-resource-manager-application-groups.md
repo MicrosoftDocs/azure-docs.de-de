@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670633"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62114072"
 ---
 # <a name="introduction-to-application-groups"></a>Einführung in Anwendungsgruppen
 Der Clusterressourcen-Manager von Service Fabric verwaltet die Clusterressourcen in der Regel durch gleichmäßiges Verteilen der Last (durch [Metriken](service-fabric-cluster-resource-manager-metrics.md) dargestellt) über den gesamten Cluster. Service Fabric verwaltet die Kapazität der Knoten im Cluster und den Cluster als Ganzes über [Kapazität](service-fabric-cluster-resource-manager-cluster-description.md). Metriken und Kapazität funktionieren hervorragend für eine Vielzahl von Workloads, aber die Muster, die intensiven Gebrauch von anderen Service Fabric-Anwendungsinstanzen machen, bringen manchmal zusätzliche Anforderungen ein. Dazu zählen beispielsweise:
@@ -186,7 +186,7 @@ Die ApplicationLoad-Abfrage gibt grundlegende Informationen zu der Anwendungskap
 * Anwendungskapazität: Der maximal zulässige Wert der Anwendungslast.
 
 ## <a name="removing-application-capacity"></a>Entfernen der Anwendungskapazität
-Sobald die Anwendungskapazitätsparameter für eine Anwendung festgelegt sind, können sie mit den APIs zur Anwendungsaktualisierung oder PowerShell-Cmdlets entfernt werden. Beispiel: 
+Sobald die Anwendungskapazitätsparameter für eine Anwendung festgelegt sind, können sie mit den APIs zur Anwendungsaktualisierung oder PowerShell-Cmdlets entfernt werden. Beispiel:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
@@ -195,7 +195,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 Dieser Befehl entfernt alle Verwaltungsparameter zur Anwendungskapazität aus der Anwendungsinstanz. Dazu zählen „MinimumNodes“, „MaximumNodes“ und ggf. die Metriken der Anwendung. Der Befehl zeigt eine sofortige Wirkung. Nach Abschluss dieses Befehls weist der Clusterressourcen-Manager das Standardverhalten für die Verwaltung von Anwendungen auf. Parameter zur Anwendungskapazität können über `Update-ServiceFabricApplication`/`System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()` erneut angegeben werden.
 
-### <a name="restrictions-on-application-capacity"></a>Einschränkungen der Anwendungskapazität 
+### <a name="restrictions-on-application-capacity"></a>Einschränkungen der Anwendungskapazität
 Es gibt mehrere Einschränkungen für Anwendungskapazitätsparameter, die berücksichtigt werden müssen. Wenn Überprüfungsfehler vorhanden sind, erfolgen keine Änderungen.
 
 - Alle Integerparameter müssen positive Zahlen sein.

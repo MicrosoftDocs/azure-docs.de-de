@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681453"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64876850"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Verschieben eines Recovery Services-Tresors zwischen Azure-Abonnements und Ressourcengruppen
 
@@ -21,7 +21,7 @@ In diesem Artikel wird das Verschieben eines für Azure Backup konfigurierten Re
 
 ## <a name="supported-region"></a>Unterstützte Region
 
-Das Verschieben von Ressourcen für den Recovery Services-Tresor wird derzeit unterstützt in „Australien, Osten“, „Australien, Südosten“, „Kanada, Mitte“, „Kanada, Osten“, „Asien, Südosten“, „Asien, Osten“, „USA, Mitte“, „USA, Norden-Mitte“, „USA, Osten“, „USA, Osten 2“, „USA, Süden-Mitte“, „USA, Westen-Mitte“, „USA, Westen-Mitte 2“, „USA, Westen“, „Indien, Mitte“, „Indien, Süden“, „Japan, Osten“, „Japan, Westen“, „Südkorea, Mitte“, „Südkorea, Süden“, „Europa, Norden“, „Europa, Westen“, „Südafrika, Norden“, „Südafrika, Westen“, „Vereinigtes Königreich, Süden“, „Vereinigtes Königreich, Westen“, „VAE, Mitte“ und „VAE, Norden“.
+Das Verschieben von Ressourcen für den Recovery Services-Tresor wird derzeit unterstützt in „Australien, Osten“, „Australien, Südosten“, „Kanada, Mitte“, „Kanada, Osten“, „Asien, Südosten“, „Asien, Osten“, „USA, Mitte“, „USA, Norden-Mitte“, „USA, Osten“, „USA, Osten 2“, „USA, Süden-Mitte“, „USA, Westen-Mitte“, „USA, Westen-Mitte 2“, „USA, Westen“, „Indien, Mitte“, „Indien, Süden“, „Japan, Osten“, „Japan, Westen“, „Südkorea, Mitte“, „Südkorea, Süden“, „Europa, Norden“, „Europa, Westen“, „Südafrika, Norden“, „Südafrika, Westen“, „Vereinigtes Königreich, Süden“ und „Vereinigtes Königreich, Westen“.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Voraussetzungen für das Verschieben eines Recovery Services-Tresors
 

@@ -15,11 +15,11 @@ ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60734207"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Entwurf eines Multi-DRM-Inhaltsschutzsystems mit Zugriffssteuerung 
 

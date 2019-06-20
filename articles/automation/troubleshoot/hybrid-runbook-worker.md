@@ -10,11 +10,11 @@ ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ea6599152d3cbf1f50132f5b207c19148401f798
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60564258"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Problembehandlung für Hybrid Runbook Worker
 

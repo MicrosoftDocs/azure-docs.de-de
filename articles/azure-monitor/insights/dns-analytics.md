@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60496365"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Sammeln von Erkenntnissen zu Ihrer DNS-Infrastruktur mit der DNS Analytics-Vorschaulösung
 
@@ -43,9 +43,9 @@ In der folgenden Tabelle sind die verbundenen Quellen beschrieben, die von der L
 | **Verbundene Quelle** | **Unterstützung** | **Beschreibung** |
 | --- | --- | --- |
 | [Windows-Agents](../platform/agent-windows.md) | Ja | Die Lösung erfasst DNS-Informationen von Windows-Agents. |
-| [Linux-Agents](../learn/quick-collect-linux-computer.md) | Nein  | Die Lösung erfasst keine DNS-Informationen von direkten Linux-Agents. |
+| [Linux-Agents](../learn/quick-collect-linux-computer.md) | Nein | Die Lösung erfasst keine DNS-Informationen von direkten Linux-Agents. |
 | [System Center Operations Manager-Verwaltungsgruppe](../platform/om-agents.md) | Ja | Die Lösung erfasst DNS-Informationen von Agents in einer verbundenen Operations Manager-Verwaltungsgruppe. Es ist keine direkte Verbindung zwischen dem Operations Manager-Agent und Azure Monitor erforderlich. Daten werden von der Verwaltungsgruppe an den Log Analytics-Arbeitsbereich weitergeleitet. |
-| [Azure-Speicherkonto](../platform/collect-azure-metrics-logs.md) | Nein  | Azure-Speicher wird von der Lösung nicht verwendet. |
+| [Azure-Speicherkonto](../platform/collect-azure-metrics-logs.md) | Nein | Azure-Speicher wird von der Lösung nicht verwendet. |
 
 ### <a name="data-collection-details"></a>Details zur Datensammlung
 

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60694341"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Erstellen von Berichten für horizontal hochskalierte Clouddatenbanken (Vorschau)
 
@@ -55,7 +55,7 @@ Die Anmeldeinformationen werden von der elastischen Abfrage für die Verbindung 
     [;]
 
 > [!NOTE]
-> Stellen Sie sicher, dass der *„\<Benutzername\>“* kein *„\@Servername“*-Suffix enthält.
+> Stellen Sie sicher, dass der *„\<Benutzername\>“* kein *„\@Servername“* -Suffix enthält.
 
 ## <a name="12-create-external-data-sources"></a>1.2 Erstellen externer Datenquellen
 
@@ -89,7 +89,7 @@ Rufen Sie die Liste der aktuellen externen Datenquellen ab:
 Die externe Datenquelle verweist auf Ihre Shardzuordnung. Eine elastische Abfrage verwendet anschließend die externe Datenquelle und zugrunde liegende Shardzuordnung zum Auflisten der Datenbanken, die zur Datenebene gehören.
 Die gleichen Anmeldeinformationen werden während der Verarbeitung der elastischen Abfrage zum Lesen der Shardzuordnung und für den Zugriff auf die Daten in den Shards verwendet .
 
-## <a name="13-create-external-tables"></a>1.3 Erstellen externer Tabellen 
+## <a name="13-create-external-tables"></a>1.3 Erstellen externer Tabellen
 
 Syntax:  
 
@@ -143,7 +143,7 @@ Die Klauseln SCHEMA\_NAME und OBJECT\_NAME ordnen die Definition der externen Ta
 
 Die DISTRIBUTION-Klausel gibt die Datenverteilung für diese Tabelle an: Der Abfrageprozessor nutzt die Informationen in der DISTRIBUTION-Klausel, um die effizientesten Abfragepläne zu erstellen.
 
-1. **SHARDED** bedeutet, dass Daten Datenbanken übergreifend horizontal partitioniert werden. Der Partitionierungsschlüssel für die Datenverteilung wird im **<sharding_column_name>**-Parameter erfasst.
+1. **SHARDED** bedeutet, dass Daten Datenbanken übergreifend horizontal partitioniert werden. Der Partitionierungsschlüssel für die Datenverteilung wird im **<sharding_column_name>** -Parameter erfasst.
 2. **REPLICATED** bedeutet, dass identische Kopien der Tabelle in jeder Datenbank vorhanden sind. Sie müssen sicherstellen, dass die Replikate in allen Datenbanken identisch sind.
 3. **ROUND\_ROBIN** bedeutet, dass die Tabelle mit einer anwendungsabhängigen Verteilungsmethode horizontal partitioniert wurde.
 

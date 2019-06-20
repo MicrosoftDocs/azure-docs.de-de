@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a1ab0ee411f05b353317b0d781e0cb292c7d6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64918440"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Ermitteln der Content Management-Anforderungen für Ihre Hybrid-Identitätslösung
 Wenn Sie die Content Management-Anforderungen Ihres Unternehmens genau kennen, kann sich dies direkt auf die Entscheidung auswirken, welche Hybrid-Identitätslösung verwendet werden soll. Aufgrund der Nutzung mehrerer Geräte und der Mitnahme eigener Geräte durch Benutzer ([BYOD](https://aka.ms/byodcg)) muss das Unternehmen seine Daten schützen und gleichzeitig dafür sorgen, dass der Datenschutz für Benutzer gewahrt bleibt. Wenn Benutzer ein eigenes Gerät verwenden, verfügen sie möglicherweise auch über verschiedene anwendungsspezifische Anmeldeinformationen. Es ist wichtig zu unterscheiden, welche Inhalte mit persönlichen Anmeldeinformationen und welche Inhalte mit den Anmeldeinformationen des Unternehmens erstellt wurden. Ihre Identitätslösung sollte in der Lage sein, mit Clouddiensten zu interagieren, um für Endbenutzer eine nahtlose Erfahrung zu schaffen, und dabei den Datenschutz sicherzustellen und den Schutz vor Datenlecks zu erhöhen. 
 
 Ihre Identitätslösung wird von unterschiedlichen technischen Steuerungen genutzt, um Content Management bereitzustellen. Dies ist in der folgenden Abbildung dargestellt:
 
-![](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![Sicherheitskontrollen](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Sicherheitskontrollen, für die Ihr Identitätsverwaltungssystem verwendet wird**
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
 ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127912"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Hinzufügen der Authentifizierung zu Ihrer Xamarin.Android-App
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

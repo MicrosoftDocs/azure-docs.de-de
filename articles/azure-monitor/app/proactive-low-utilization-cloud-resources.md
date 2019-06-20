@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
 ms.openlocfilehash: 7cf72068b9cabceb0c5b535986ac4dfb62151b94
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61297502"
 ---
 # <a name="low-cpu-utilization-in-cloud-resources-preview"></a>Niedrige CPU-Auslastung in Cloudressourcen (Vorschau)
 

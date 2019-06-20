@@ -10,16 +10,16 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1d344f388b03acb3a81fcfde0e214eb7d82dc9b9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885071"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390495"
 ---
 # <a name="how-to-page-through-news-search-results"></a>Durchblättern der Ergebnisse der News-Suche
 
-Wenn Sie die News-Suche-API aufrufen, gibt Bing eine Liste mit Ergebnissen zurück, die für Ihre Abfrage relevant sind. Um die geschätzte Gesamtzahl der verfügbaren Ergebnisse aufzurufen, greifen Sie auf das Feld [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) des Antwortobjekts zu.  
+Wenn Sie die News-Suche-API aufrufen, gibt Bing eine Liste mit Ergebnissen zurück, die für Ihre Abfrage relevant sind. Um die geschätzte Gesamtzahl der verfügbaren Ergebnisse aufzurufen, greifen Sie auf das Feld [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) des Antwortobjekts zu.  
   
 Das folgende Beispiel zeigt das `totalEstimatedMatches`-Feld mit einer News-Antwort.  
 
@@ -32,7 +32,7 @@ Das folgende Beispiel zeigt das `totalEstimatedMatches`-Feld mit einer News-Antw
 }  
 ```  
   
-Wenn Sie die verfügbaren Artikel durchblättern möchten, verwenden Sie die Abfrageparameter [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) und [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset).  
+Wenn Sie die verfügbaren Artikel durchblättern möchten, verwenden Sie die Abfrageparameter [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) und [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset).  
  
 
 |Parameter  |BESCHREIBUNG  |

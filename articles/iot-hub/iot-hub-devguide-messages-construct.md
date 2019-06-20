@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 08eb7171249c42348877afedc80c6c6338265422
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861728"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252801"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Erstellen und Lesen von IoT Hub-Nachrichten
 
@@ -43,6 +43,8 @@ D2C-Messaging mit IoT Hub weist folgende Merkmale auf:
 
 * Wie in [Verwalten des Zugriffs auf IoT Hub](iot-hub-devguide-security.md) erläutert, ermöglicht IoT Hub Authentifizierung und Zugriffssteuerung auf Gerätebasis.
 
+* Sie können Nachrichten mit Informationen stempeln, die in die Anwendungseigenschaften aufgenommen. Weitere Informationen finden Sie unter [Nachrichtenergänzungen](iot-hub-message-enrichments-overview.md).
+
 Weitere Informationen zum Codieren und Decodieren von Nachrichten, die über verschiedene Protokollen gesendet werden, finden Sie unter [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 In der folgenden Tabelle werden die Systemeigenschaften in IoT Hub-Nachrichten aufgeführt.
@@ -55,7 +57,7 @@ In der folgenden Tabelle werden die Systemeigenschaften in IoT Hub-Nachrichten a
 | absolute-expiry-time |Datum und Uhrzeit des Nachrichtenablaufs. | Ja |
 | iothub-enqueuedtime |Datum und Uhrzeit des Empfangs der [C2D](iot-hub-devguide-c2d-guidance.md)-Nachricht durch IoT Hub. | „Nein“ bei C2D-Nachrichten; andernfalls „Ja“. |
 | correlation-id |Eine Zeichenfolgeneigenschaft in einer Antwortnachricht, die normalerweise die Nachrichten-ID der Anforderung im Anforderung-Antwort-Muster enthält. | Ja |
-| user-id |Eine ID zum Festlegen des Ursprungs von Nachrichten. Wenn IoT Hub Nachrichten generiert, wird diese Eigenschaft auf `{iot hub name}`festgelegt. | Nein  |
+| user-id |Eine ID zum Festlegen des Ursprungs von Nachrichten. Wenn IoT Hub Nachrichten generiert, wird diese Eigenschaft auf `{iot hub name}`festgelegt. | Nein |
 | iothub-ack |Ein Feedbacknachrichtengenerator. Diese Eigenschaft wird in C2D-Nachrichten verwendet, um IoT Hub anzuweisen, als Ergebnis der Nachrichtenverarbeitung durch das Gerät Feedbacknachrichten zu generieren. Mögliche Werte: **Kein** (Standardeinstellung): Es wird keine Feedbacknachricht generiert. **Positiv**: Es wird eine Feedbacknachricht empfangen, wenn die Nachricht abgeschlossen wurde. **Negativ**: Es wird eine Feedbacknachricht empfangen, wenn die Nachricht ohne vollständige Verarbeitung durch das Gerät abgelaufen ist (oder die maximale Anzahl von Zustellversuchen erreicht wurde). **Voll**: Feedback wird sowohl bei erfolgreicher als auch nicht erfolgreicher Nachrichtenverarbeitung generiert. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Ja |
 | iothub-connection-device-id |Eine ID, die von IoT Hub für D2C-Nachrichten festgelegt wird. Diese Eigenschaft enthält die **deviceId** des Geräts, das die Nachricht sendet. | „Nein“ bei D2C-Nachrichten; andernfalls „Ja“. |
 | iothub-connection-auth-generation-id |Eine ID, die von IoT Hub für D2C-Nachrichten festgelegt wird. Diese Eigenschaft enthält die **generationId** (gemäß [Geräteidentitätseigenschaften](iot-hub-devguide-identity-registry.md#device-identity-properties)) des Geräts, das die Nachricht gesendet hat. | „Nein“ bei D2C-Nachrichten; andernfalls „Ja“. |

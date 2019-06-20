@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543286"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64692379"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Grundlegendes zur Behandlung von Zeitangaben in Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Um die Diskussion besser zu gestalten, lassen Sie uns einige Hintergrundkonzepte
 
 - **Verarbeitungszeit**: Der Zeitpunkt, an dem das Ereignis das Verarbeitungssystem erreicht und beobachtet wird. Zum Beispiel, wenn der Sensor im Mauthäuschen das Auto erkennt und das Computersystem einen Moment benötigt, um die Daten zu verarbeiten.
 
-- **Wasserzeichen**: Ein Ereigniszeitmarker, der alle Ereignisse anzeigt, die bis dato in den Streaming-Prozessor eingegangen sind. Mit Wasserzeichen zeigt das System den Fortschritt beim Erfassen der Ereignisse an. Aufgrund der Art der Streams hören die eingehenden Ereignisdaten nie auf, sodass Wasserzeichen den Fortschritt bis zu einem bestimmten Punkt im Stream anzeigen.
+- **Wasserzeichen**: Ein Ereigniszeitmarker, der anzeigt, bis zu welchem Punkt Ereignisse in den Streaming-Prozessor eingegangen sind. Mit Wasserzeichen zeigt das System den Fortschritt beim Erfassen der Ereignisse an. Aufgrund der Art der Streams hören die eingehenden Ereignisdaten nie auf, sodass Wasserzeichen den Fortschritt bis zu einem bestimmten Punkt im Stream anzeigen.
 
    Das Wasserzeichenkonzept ist wichtig. Mit Wasserzeichen kann Stream Analytics bestimmen, wann das System vollständige, korrekte und wiederholbare Ergebnisse liefern kann, die nicht zurückgezogen werden müssen. Die Verarbeitung kann auf eine garantierte Weise erfolgen, die vorhersehbar und wiederholbar ist. Wenn zum Beispiel eine Nachzählung für eine Fehlerbehandlung durchgeführt werden muss, sind Wasserzeichen sichere Start- und Endpunkte.
 

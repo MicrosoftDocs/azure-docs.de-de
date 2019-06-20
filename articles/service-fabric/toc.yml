@@ -517,6 +517,8 @@
               href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
             - name: Einrichten eines Linux-Clusters unter Windows
               href: service-fabric-local-linux-cluster-windows.md
+            - name: Bereitstellen einer .NET Core-App in einem Linux-Remotecluster über VS
+              href: service-fabric-how-to-publish-linux-app-vs.md
         - name: Arbeiten in einer Linux-/Eclipse-Entwicklungsumgebung
           items:
             - name: Erste Schritte mit dem Eclipse-Plug-In für die Entwicklung mit Java
@@ -842,8 +844,8 @@
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Preisrechner
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Leitfäden zur Problembehandlung
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
+    - name: Versionshinweise
+      href: release-notes.md
     - name: Beispielcode
       href: 'https://aka.ms/servicefabricsamples'
     - name: Supportoptionen
@@ -852,5 +854,7 @@
       href: service-fabric-versions.md
     - name: Dienstupdates
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: Leitfäden zur Problembehandlung
+      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

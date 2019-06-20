@@ -9,11 +9,11 @@ ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527811"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61023549"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Grenzwerte von Azure Analysis Services-Ressourcen und -Objekten
 
@@ -58,15 +58,15 @@ Dieser Tarif ist am besten für unternehmenskritische Produktionsanwendungen gee
 
 Hierbei handelt um theoretische Grenzwerte. Die Leistung wird bei geringeren Werten beeinträchtigt.
 
-|Objekt|Maximale Größe/Anzahl|  
+|Object|Maximale Größe/Anzahl|  
 |------------|----------------------------|  
-|Datenbanken in einer Instanz|16.000|  
-|Kombinierte Anzahl an Tabellen und Spalten in einer Datenbank|16.000|  
+|Datenbanken in einer Instanz|16\.000|  
+|Kombinierte Anzahl an Tabellen und Spalten in einer Datenbank|16\.000|  
 |Zeilen in einer Tabelle|Unbegrenzt<br /><br /> **Warnung:** Mit der Einschränkung, dass keine einzelne Spalte in der Tabelle mehr als 1.999.999.999.999.997 verschiedene Werte haben kann.|  
-|Hierarchien in einer Tabelle|15.999|  
-|Ebenen in einer Hierarchie|15.999|  
-|Beziehungen|8.000|  
-|Schlüsselspalten in allen Tabellen|15.999|  
+|Hierarchien in einer Tabelle|15\.999|  
+|Ebenen in einer Hierarchie|15\.999|  
+|Beziehungen|8\.000|  
+|Schlüsselspalten in allen Tabellen|15\.999|  
 |Messungen in Tabellen|2^31-1 = 2.147483.647|  
 |Von einer Abfrage zurückgegebene Zellen|2^31-1 = 2.147483.647|  
 |Datensatzgröße der Quellabfrage|64 K|  

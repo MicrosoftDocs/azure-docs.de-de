@@ -3,8 +3,8 @@ title: Installieren der Browsererweiterung für den Anwendungszugriffsbereich �
 description: Korrigieren Sie allgemeine Fehler, die beim Installieren der Browsererweiterung für den Zugriffsbereich auftreten können.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/4/2018
-ms.author: celested
+ms.date: 05/04/2018
+ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216568ac43c8e1b04c91d9a8f611a0ceb2e430af
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 598a69593046354e83fe35b7b2ecfb0745e8b637
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674003"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66388330"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installieren der Browsererweiterung für den Zugriffsbereich
 
@@ -63,7 +63,8 @@ Gehen Sie zum Installieren der Browsererweiterung für den Zugriffsbereich wie f
 Sie können die Erweiterung für Chrome und Microsoft Edge auch direkt von den folgenden Websites herunterladen:
 
 - [Chrome-Erweiterung](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge-Erweiterung](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge-Erweiterung](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Firefox-Erweiterung](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Verwenden der Erweiterung zur sicheren Anmeldung bei „Meine Apps“
 * Falls sich Ihre Meine Apps-URL von `https://myapps.microsoft.com` unterscheidet, konfigurieren Ihre Standard-URL wie folgt:

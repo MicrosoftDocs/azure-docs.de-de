@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9edc0b552f5c2f38e646bc4b44dd8df5c16b0457
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61408485"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Verwenden des Geräteübersichtsblatts für den StorSimple-Geräte-Manager, der mit dem StorSimple Virtual Array verbunden ist
 

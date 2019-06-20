@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 01349dbc5fe98fd69ce7219ef6f2029d7bb815d0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067909"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Einführung in die Azure IoT-Referenzarchitektur
 
 In diesem Artikel wird die [Azure IoT-Referenzarchitektur](https://aka.ms/iotrefarchitecture) vorgestellt. Zudem wird erläutert, wie die [Azure IoT-Solution Accelerators](about-iot-accelerators.md) deren Empfehlungen folgen.
 
-Die Open-Source-Solution Accelerators [Remote Monitoring](iot-accelerators-remote-monitoring-sample-walkthrough.md) und [Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md) befolgen viele der Empfehlungen aus der Referenzarchitektur. Sie können diese Solution Accelerators als Ausgangspunkt für Ihre eigene IoT-Lösung oder als Lernhilfe verwenden.
+Die Open-Source-Solution Accelerators [Remote Monitoring](iot-accelerators-remote-monitoring-sample-walkthrough.md) und [Connected Factory](iot-accelerators-connected-factory-features.md) befolgen viele der Empfehlungen aus der Referenzarchitektur. Sie können diese Solution Accelerators als Ausgangspunkt für Ihre eigene IoT-Lösung oder als Lernhilfe verwenden.
 
 ## <a name="overview"></a>Übersicht
 

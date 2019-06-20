@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61436493"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Blobspeicheranforderungen für Azure Data Box
 
@@ -29,7 +29,7 @@ Sie sollten die Informationen sorgfältig lesen, bevor Sie eine Verbindung mit d
 |    Azure-Dateispeicher                                   |    Cloudbasierte SMB-Dateifreigaben unterstützt              |    Nicht unterstützt      |
 |    Dienstverschlüsselung für ruhende Daten                  |    256-Bit-AES-Verschlüsselung                             |    256-Bit-AES-Verschlüsselung |
 |    Speicherkontotyp                                 |    Allgemeine Speicherkonten und Azure Blob Storage-Konten    |    Nur Konten vom Typ „Universell V1“|
-|    Blobname                                            |    1.024 Zeichen (2.048 Bytes)                     |    880 Zeichen (1.760 Bytes)|
+|    Blobname                                            |    1\.024 Zeichen (2.048 Bytes)                     |    880 Zeichen (1.760 Bytes)|
 |    Maximale Blockblobgröße                              |    4,75 TB (100 MB X 50.000 Blöcke)                   |    4,75 TB (100 MB × 50.000 Blöcke) für Azure Data Box ab Version 1.8.|
 |    Maximale Seitenblobgröße                               |    8 TB                                               |    1 TB                   |
 |    Seitenblob – Seitengröße                                  |    512 Bytes                                          |    4 KB                   |
@@ -57,7 +57,7 @@ Für Data Box-Blobspeicher sind bestimmte Clientbibliotheken vorhanden, und es g
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    NuGet-Paket: https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>GitHub-Release: https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    app.config-Datei                 |
 |    Java                |    7.0.0                                           |    Maven-Paket: https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub-Release: https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Verbindungszeichenfolgen-Setup         |
-|    Node.js             |    2.8.3                                           |    NPM-Link:   https://www.npmjs.com/package/azure-storage (Befehl: `npm install azure-storage@2.7.0`)   <br>GitHub-Release: https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Dienstinstanzdeklaration    |
+|    Node.js             |    2.8.3                                           |    NPM-Link:   https://www.npmjs.com/package/azure-storage (Befehl: `npm install azure-storage@2.7.0` )   <br>GitHub-Release: https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Dienstinstanzdeklaration    |
 |    C++                 |    5.2.0                                           |    NuGet-Paket: https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub-Release: https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Verbindungszeichenfolgen-Setup         |
 |    PHP                 |    1.2.0                                           |    GitHub-Release:<br>Allgemein: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Installation über Composer (Weitere Informationen finden Sie unten.)                                                                                                             |    Verbindungszeichenfolgen-Setup         |
 |    Python              |    1.1.0                                           |    GitHub-Release:<br>Allgemein: https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob: https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Dienstinstanzdeklaration    |

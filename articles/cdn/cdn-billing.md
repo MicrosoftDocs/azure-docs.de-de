@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
 ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735799"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60782059"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Grundlegendes zur Abrechnung für Azure CDN
 

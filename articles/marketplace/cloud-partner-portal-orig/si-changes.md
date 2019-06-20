@@ -1,25 +1,18 @@
 ---
-title: Verkäufer-Insights – Anmerkungen zu dieser Version | Microsoft-Dokumentation
+title: Verkäufer-Insights – Anmerkungen zu dieser Version
 description: Enthält Informationen zu Änderungen an den Verkäufer-Insights.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 3/3/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 7df96d53b02e80283f263901dc7e26ed4edb947d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: pabutler
+ms.openlocfilehash: c6e9e4fe672c7e171ed4b1cd60655f9e71a562e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342376"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943124"
 ---
 # <a name="seller-insights-release-notes"></a>Verkäufer-Insights – Anmerkungen zu dieser Version 
 

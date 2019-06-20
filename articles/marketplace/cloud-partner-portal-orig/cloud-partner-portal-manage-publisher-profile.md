@@ -2,24 +2,18 @@
 title: Verwalten der Herausgeberprofile „Azure Marketplace“ und „AppSource“
 description: Verwalten der Herausgeberprofile „Azure Marketplace“ und „AppSource“
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
 manager: pbutlerm
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c73c846db4b22d8c19ccdaa2ec99a3fe7fdadf78
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.author: pabutler
+ms.openlocfilehash: a72259e1deb97ca0256de5bfd3b2f6c78d92e3c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935347"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Verwalten der Herausgeberprofile „Azure Marketplace“ und „AppSource“
 

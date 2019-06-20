@@ -1,21 +1,21 @@
 ---
-title: Entitäts-Resolver in einem Conversation Learner-Modell – Microsoft Cognitive Services | Microsoft-Dokumentation
+title: Entitäts-Resolver in einem Conversation Learner-Modell – Azure Cognitive Services | Microsoft-Dokumentation
 titleSuffix: Azure
 description: Erfahren Sie, wie Sie Entitäts-Resolver in Conversation Learner verwenden.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: cca78e2536a922165f40bbcbabcae005021aa70b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167846"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475740"
 ---
 # <a name="entity-resolvers"></a>Entitäts-Resolver
 
@@ -94,4 +94,4 @@ Beginnen Sie auf der Homepage in der Webbenutzeroberfläche.
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Alternative Eingaben](./10-alternative-inputs.md)
+> [Enum-Entitäten](./tutorial-enum-set-entity.md)

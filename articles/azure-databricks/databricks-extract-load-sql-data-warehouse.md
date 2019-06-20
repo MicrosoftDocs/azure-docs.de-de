@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/07/2019
-ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/17/2019
+ms.openlocfilehash: a6a681ace95f9bab3c77e4a0f9982a2281c778b8
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203353"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "65966429"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrahieren, Transformieren und Laden von Daten mithilfe von Azure Databricks
 
@@ -55,16 +55,15 @@ Schließen Sie diese Aufgaben ab, bevor Sie dieses Tutorial beginnen:
 
 * Erstellen Sie ein Azure Data Lake Storage Gen2-Speicherkonto. Weitere Informationen finden Sie unter [Schnellstart: Erstellen eines Azure Data Lake Storage Gen2-Speicherkontos](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-*  Erstellen eines Dienstprinzipals Informationen finden Sie unter [Gewusst wie: Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Erstellen eines Dienstprinzipals Informationen finden Sie unter [Gewusst wie: Erstellen einer Azure AD-Anwendung und eines Dienstprinzipals mit Ressourcenzugriff über das Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
    Bei den Schritten in diesem Artikel müssen einige bestimmte Aktionen ausgeführt werden.
 
-   * Achten Sie beim Ausführen der Schritte im Abschnitt [Zuweisen der Anwendung zu einer Rolle](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) des Artikels darauf, dem Dienstprinzipal die Rolle **Mitwirkender an Storage-Blobdaten** zuzuweisen.
+   * Achten Sie beim Ausführen der Schritte im Abschnitt [Zuweisen der Anwendung zu einer Rolle](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) des Artikels darauf, dem Dienstprinzipal die Rolle **Mitwirkender an Storage-Blobdaten** im Bereich des Data Lake Storage Gen2-Kontos zuzuweisen. Wenn Sie die Rolle der übergeordneten Ressourcengruppe oder dem übergeordneten Abonnement zuweisen, treten jedoch Berechtigungsfehler auf, bis die Rollenzuweisungen an das Speicherkonto weitergegeben wurden.
 
-     > [!IMPORTANT]
-     > Achten Sie darauf, die Rolle im Kontext des Data Lake Storage Gen2-Kontos zuzuweisen. Sie können eine Rolle der übergeordneten Ressourcengruppe oder dem übergeordneten Abonnement zuweisen. In diesem Fall tritt jedoch ein Berechtigungsfehler auf, bis die Rollenzuweisungen an das Speicherkonto weitergegeben wurden.
+      Wenn Sie es vorziehen, eine Zugriffssteuerungsliste (ACL) zu verwenden, um den Dienstprinzipal mit einer bestimmten Datei oder einem bestimmten Verzeichnis zu verknüpfen, verweisen Sie auf [Zugriffssteuerung in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-   * Fügen Sie beim Ausführen der Schritte im Abschnitt [Abrufen von Werten für die Anmeldung](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) des Artikels die Werte für Mandanten-ID, Anwendungs-ID und Authentifizierungsschlüssel in eine Textdatei ein. Sie benötigen sie in Kürze.
+   * Fügen Sie beim Ausführen der Schritte im Abschnitt [Abrufen von Werten für die Anmeldung](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) des Artikels die Werte für Mandanten-ID, App-ID und Kennwort in eine Textdatei ein. Sie benötigen sie in Kürze.
 
 * Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 
@@ -104,11 +103,9 @@ In diesem Abschnitt erstellen Sie einen Azure Databricks-Dienst über das Azure-
     |**Location**     | Wählen Sie **USA, Westen 2** aus.  Informationen zu weiteren verfügbaren Regionen finden Sie unter [Verfügbare Produkte nach Region](https://azure.microsoft.com/regions/services/).      |
     |**Tarif**     |  Wählen Sie **Standard** aus.     |
 
-3. Aktivieren Sie das Kontrollkästchen **An Dashboard anheften**, und klicken Sie anschließend auf **Erstellen**.
+3. Die Kontoerstellung dauert einige Minuten. Den Status des Vorgangs können Sie anhand der Statusanzeige im oberen Bereich verfolgen.
 
-4. Die Kontoerstellung dauert einige Minuten. Während der Erstellung des Kontos wird im Portal auf der rechten Seite die Kachel **Bereitstellung für "Azure Databricks" wird gesendet** angezeigt. Den Status des Vorgangs können Sie anhand der Statusanzeige im oberen Bereich verfolgen.
-
-    ![Kachel zur Bereitstellung von Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-deployment-tile.png "Kachel zur Bereitstellung von Databricks")
+4. Aktivieren Sie das Kontrollkästchen **An Dashboard anheften**, und klicken Sie anschließend auf **Erstellen**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Erstellen eines Spark-Clusters in Azure Databricks
 
@@ -148,22 +145,37 @@ In diesem Abschnitt erstellen Sie ein Notebook im Azure Databricks-Arbeitsberei
 
 4. Klicken Sie auf **Erstellen**.
 
-5. Kopieren Sie den folgenden Codeblock, und fügen Sie ihn in die erste Zelle ein:
+5. Der folgende Codeblock legt die Standardanmeldeinformationen für jedes ADLS Gen 2-Konto fest, auf das in der Spark-Sitzung zugegriffen wird. Der zweite Codeblock fügt den Kontonamen an die Einstellung an, um Anmeldeinformationen für ein bestimmtes ADLS Gen 2-Konto anzugeben.  Kopieren Sie jeden Codeblock, und fügen Sie diese in die erste Zelle Ihres Azure Databricks-Notebooks ein.
+
+   **Sitzungskonfiguration**
+
+   ```scala
+   spark.conf.set("fs.azure.account.auth.type", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+   ```
+
+   **Kontokonfiguration**
 
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. Ersetzen Sie in diesem Codeblock die Platzhalterwerte `application-id`, `authentication-id`, `tenant-id` und `storage-account-name` durch die Werte, die Sie bei der Vorbereitung dieses Tutorials gesammelt haben. Ersetzen Sie den Platzhalterwert `file-system-name` durch den gewünschten Namen für das Dateisystem.
+6. Ersetzen Sie in diesem Codeblock die Platzhalterwerte `appID`, `password`, `tenant-id` und `storage-account-name` durch die Werte, die Sie bei der Vorbereitung dieses Tutorials gesammelt haben. Ersetzen Sie den Platzhalterwert `file-system-name` durch den gewünschten Namen für das Dateisystem.
 
-   * `application-id` und `authentication-id` stammen aus der App, die Sie im Rahmen der Dienstprinzipalerstellung bei Active Directory registriert haben.
+   * `appID` und `password` stammen aus der App, die Sie im Rahmen der Dienstprinzipalerstellung bei Active Directory registriert haben.
 
    * `tenant-id` stammt aus Ihrem Abonnement.
 
@@ -324,7 +336,7 @@ Der SQL Date Warehouse-Connector verwendet, wie bereits erwähnt, Azure Blob Sto
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Geben Sie die Werte für die Verbindungsherstellung mit der Azure SQL Data Warehouse-Instanz an. Im Rahmen der Vorbereitung muss bereits eine SQL Data Warehouse-Instanz erstellt worden sein.
+4. Geben Sie die Werte für die Verbindungsherstellung mit der Azure SQL Data Warehouse-Instanz an. Im Rahmen der Vorbereitung muss bereits eine SQL Data Warehouse-Instanz erstellt worden sein. Verwenden Sie den vollqualifizierten Servernamen für **dwServer**. Beispiel: `<servername>.database.windows.net`.
 
    ```scala
    //SQL Data Warehouse related settings

@@ -15,10 +15,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f7d4f6216b4a57796ab5c0296713316dd97c47a8
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64987888"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Failoverprozedur für die Notfallwiederherstellung

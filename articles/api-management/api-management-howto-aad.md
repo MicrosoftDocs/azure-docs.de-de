@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 10792c912e3028cd12eedb83b1b211bab20bc5a7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961058"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956309"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorisieren von Entwicklerkonten mithilfe von Azure Active Directory in Azure API Management
 
@@ -34,121 +34,66 @@ Dieser Artikel zeigt, wie Sie den Zugriff auf das Entwicklerportal für Benutzer
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorisieren von Entwicklerkonten mithilfe von Azure AD
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an. 
-1. Select ![Pfeil](./media/api-management-howto-aad/arrow.png).
-1. Geben Sie im Suchfeld **api** ein.
-1. Wählen Sie **API Management-Dienste** aus.
-1. Wählen Sie Ihre API Management-Dienstinstanz aus.
-1. Wählen Sie unter **SICHERHEIT** die Option **Identitäten** aus.
-
-1. Wählen Sie oben **+ Hinzufügen** aus.
+2. Select ![Pfeil](./media/api-management-howto-aad/arrow.png).
+3. Geben Sie im Suchfeld **api** ein.
+4. Wählen Sie **API Management-Dienste** aus.
+5. Wählen Sie Ihre API Management-Dienstinstanz aus.
+6. Wählen Sie unter **Sicherheit** die Option **Identitäten** aus.
+7. Wählen Sie oben **+ Hinzufügen** aus.
 
     Auf der rechten Seite wird der Bereich **Identitätsanbieter hinzufügen** geöffnet.
-1. Wählen Sie für **Anbietertyp** die Option **Azure Active Directory** aus.
+8. Wählen Sie für **Anbietertyp** die Option **Azure Active Directory** aus.
 
     Im Bereich werden Steuerelemente angezeigt, mit denen Sie weitere erforderliche Informationen eingeben können. Zu den Steuerelementen gehören **Client-ID** und **Clientgeheimnis**. (Sie erhalten weiter unten in diesem Artikel Informationen zu diesen Steuerelementen.)
-1. Notieren Sie sich den Inhalt der **Umleitungs-URL**.
+9. Notieren Sie sich den Inhalt der **Umleitungs-URL**.
     
    ![Schritte zum Hinzufügen eines Identitätsanbieters im Azure-Portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
-1. Öffnen Sie in Ihrem Browser eine weitere Registerkarte. 
-1. Öffnen Sie das [Azure-Portal](https://portal.azure.com).
-1. Select ![Pfeil](./media/api-management-howto-aad/arrow.png).
-1. Geben Sie **Active** ein. Der Bereich **Azure Active Directory** wird geöffnet.
-1. Wählen Sie **Azure Active Directory**.
-1. Wählen Sie unter **VERWALTEN** die Option **App-Registrierungen** aus.
-1. Wählen Sie **Registrierung einer neuen Anwendung** aus.
-
-    ![Auswahl zum Erstellen einer neuen App-Registrierung](./media/api-management-howto-aad/api-management-with-aad002.png)
-
-    Auf der rechten Seite wird der Bereich **Erstellen** angezeigt. Dort geben Sie die relevanten Informationen zur Azure AD-App ein.
-1. Geben Sie einen Namen für die Anwendung ein.
-1. Wählen Sie **Web-App/API** als Anwendungstyp aus.
-1. Geben Sie als Anmelde-URL die Anmelde-URL Ihres Entwicklerportals ein. In diesem Beispiel ist die Anmelde-URL gleich `https://apimwithaad.portal.azure-api.net/signin`.
-1. Klicken Sie auf **Erstellen**, um die Anwendung zu erstellen.
-1. Um Ihre App zu finden, wählen Sie **App-Registrierungen** aus, und suchen Sie nach dem Namen.
-
-    ![Feld für die Suche nach einer App](./media/api-management-howto-aad/find-your-app.png)
-1. Nach dem Registrieren der Anwendung wechseln Sie zu **Antwort-URL** und stellen sicher, dass die **Umleitungs-URL** auf den Wert aus Schritt 9 festgelegt ist. 
-1. Wenn Sie Ihre Anwendung konfigurieren möchten (z.B. wenn Sie die **App-ID-URL** ändern möchten), wählen Sie **Eigenschaften** aus.
-
-    ![Öffnen des Eigenschaftenbereichs](./media/api-management-howto-aad/api-management-with-aad004.png)
-
-    Wenn für diese Anwendung mehrere Azure AD-Instanzen verwendet werden, wählen Sie unter **Mehrinstanzenfähig** die Option **Ja** aus. Der Standardwert lautet **Nein**.
-1. Legen Sie die Anwendungsberechtigungen fest, indem Sie **Erforderliche Berechtigungen** auswählen.
-1. Wählen Sie Ihre Anwendung aus, und aktivieren Sie die Kontrollkästchen **Verzeichnisdaten lesen** und **Anmelden und Benutzerprofil lesen**.
-
-    ![Kontrollkästchen für Berechtigungen](./media/api-management-howto-aad/api-management-with-aad005.png)
-
-1. Wählen Sie **Berechtigungen erteilen** aus, um Anwendungsberechtigungen zu genehmigen.
-
-    Weitere Informationen zu Anwendungsberechtigungen und delegierten Berechtigungen finden Sie unter [Zugreifen auf die Graph-API][Accessing the Graph API].
+10. Öffnen Sie in Ihrem Browser eine weitere Registerkarte. 
+11. Navigieren Sie im Microsoft Azure-Portal zu [App-Registrierungen](https://go.microsoft.com/fwlink/?linkid=2083908), um eine App in Active Directory Domain Services zu registrieren.
+12. Wählen Sie unter **Verwalten** die Option **App-Registrierungen** aus.
+13. Wählen Sie **Neue Registrierung** aus. Legen Sie auf der Seite **Anwendung registrieren** folgende Werte fest:
     
-1. Kopieren Sie im linken Bereich den Wert für **Anwendungs-ID**.
+* Legen Sie für **Name** einen aussagekräftigen Namen fest, z. B. *Entwicklerportal*.
+* Legen Sie **Unterstützte Kontotypen** auf **Nur Konten in diesem Organisationsverzeichnis** fest. 
+* Legen Sie **Umleitungs-URI** auf den Wert aus Schritt 9 fest. 
+* Klicken Sie auf **Registrieren**. 
 
-    ![Wert „Anwendungs-ID“](./media/api-management-howto-aad/application-id.png)
-1. Wechseln Sie zurück zu Ihrer API Management-Anwendung. 
-
-    Fügen Sie den Wert **Anwendungs-ID** im Fenster **Identitätsanbieter hinzufügen** in das Feld **Client-ID** ein.
-1. Wechseln Sie zurück zur Azure AD-Konfiguration, und wählen Sie **Schlüssel** aus.
-1. Erstellen Sie einen neuen Schlüssel, indem Sie einen Namen und eine Dauer angeben. 
-1. Wählen Sie **Speichern**aus. Der Schlüssel wird generiert.
-
-    Kopieren Sie den Schlüssel in die Zwischenablage.
-
-    ![Auswahl zum Erstellen eines Schlüssels](./media/api-management-howto-aad/api-management-with-aad006.png)
-
-    > [!NOTE]
-    > Notieren Sie sich diesen Schlüssel. Nachdem Sie das Fenster für die Azure AD-Konfiguration geschlossen haben, ist eine Anzeige des Schlüssels nicht mehr möglich.
-    > 
-    > 
-
-1. Wechseln Sie zurück zu Ihrer API Management-Anwendung. 
-
-    Fügen Sie den Schlüssel im Fenster **Identitätsanbieter hinzufügen** in das Textfeld **Clientgeheimnis** ein.
+14.  Kopieren Sie nach der Registrierung der Anwendung die **Anwendungs-ID (Client)** von der Seite **Übersicht**. 
+15. Navigieren Sie zurück zur API Management-Instanz. Fügen Sie den Wert **Anwendungs-ID (Client)** im Fenster **Identitätsanbieter hinzufügen** in das Feld **Client-ID** ein.
+16. Wechseln Sie zur Konfiguration von Azure AD zurück, und wählen Sie **Certificates & secrets** (Zertifikate und Geheimnisse) unter **Verwalten** aus. Klicken Sie auf **Neuer geheimer Clientschlüssel**. Geben Sie für **Beschreibung** einen Wert ein, wählen Sie eine Option für **Gültig bis** aus, und klicken Sie auf **Hinzufügen**. Kopieren Sie den Wert für den geheimen Clientschlüssel, bevor Sie die Seite verlassen. Sie benötigen diese Angaben im nächsten Schritt. 
+17. Klicken Sie unter **Verwalten** auf **Authentifizierung**, und legen Sie **ID-Token** unter **Implizite Genehmigung** fest.
+18. Wechseln Sie zur API Management-Instanz zurück, und fügen Sie den geheimen Clientschlüssel in das Feld **Geheimer Clientschlüssel** ein.
 
     > [!IMPORTANT]
     > Aktualisieren Sie unbedingt den **geheimen Clientschlüssel**, bevor der Schlüssel abläuft. 
     >  
     >
 
-1. Das Fenster **Identitätsanbieter hinzufügen** enthält auch das Textfeld **Zulässige Mandanten**. Geben Sie die in diesem Feld die Domänen der Azure AD-Instanzen ein, für die Sie den APIs der API Management-Dienstinstanz Zugriff gewähren möchten. Sie können mehrere Domänen durch neue Zeilen, Leerzeichen oder Kommas trennen.
+19. Das Fenster **Identitätsanbieter hinzufügen** enthält auch das Textfeld **Zulässige Mandanten**. Geben Sie die in diesem Feld die Domänen der Azure AD-Instanzen ein, für die Sie den APIs der API Management-Dienstinstanz Zugriff gewähren möchten. Sie können mehrere Domänen durch neue Zeilen, Leerzeichen oder Kommas trennen.
 
-    Sie können im Abschnitt **Zulässige Mandanten** mehrere Domänen angeben. Bevor sich Benutzer aus einer anderen Domäne als der ursprünglichen Domäne (der Domäne, in der die Anwendung registriert wurde) anmelden können, muss ein globaler Administrator dieser anderen Domäne der Anwendung Berechtigungen für den Verzeichnisdatenzugriff erteilen. Um Berechtigungen zu erteilen, müssen Sie als globaler Administrator folgendermaßen vorgehen:
-    
-    a. Wechseln Sie zu `https://<URL of your developer portal>/aadadminconsent` (z. B. https://contoso.portal.azure-api.net/aadadminconsent).
-    
-    b. Geben Sie den Domänennamen des Azure AD-Mandanten ein, auf den Zugriff erteilt werden soll.
-    
-    c. Klicken Sie auf **Submit** (Senden). 
-    
-    Im folgenden Beispiel versucht ein globaler Administrator von miaoaad.onmicrosoft.com, Berechtigungen für dieses spezifische Entwicklerportal zu erteilen. 
+> [!NOTE]
+> Sie können im Abschnitt **Zulässige Mandanten** mehrere Domänen angeben. Bevor sich Benutzer aus einer anderen Domäne als der ursprünglichen Domäne (der Domäne, in der die Anwendung registriert wurde) anmelden können, muss ein globaler Administrator dieser anderen Domäne der Anwendung Berechtigungen für den Verzeichnisdatenzugriff erteilen. Sie müssen als globaler Administrator folgendermaßen vorgehen, um Berechtigungen zu erteilen: a) Wechseln Sie zu `https://<URL of your developer portal>/aadadminconsent` (z. B. https://contoso.portal.azure-api.net/aadadminconsent).
+> b. Geben Sie den Domänennamen des Azure AD-Mandanten ein, auf den Zugriff erteilt werden soll.
+> c. Klicken Sie auf **Submit** (Senden). 
 
-1. Nachdem Sie die gewünschte Konfiguration angegeben haben, wählen Sie **Hinzufügen** aus.
-
-    ![Schaltfläche „Hinzufügen“ im Bereich „Identitätsanbieter hinzufügen“](./media/api-management-howto-aad/api-management-with-aad007.png)
+20.  Nachdem Sie die gewünschte Konfiguration angegeben haben, wählen Sie **Hinzufügen** aus.
 
 Nachdem die Änderungen gespeichert wurden, können sich Benutzer der angegebenen Azure AD-Instanz beim Entwicklerportal anmelden, indem sie die unter [Anmelden beim Entwicklerportal mit einem Azure AD-Konto](#log_in_to_dev_portal) beschriebenen Schritte ausführen.
-
-![Eingabe des Namens eines Azure AD-Mandanten](./media/api-management-howto-aad/api-management-aad-consent.png)
-
-Auf dem nächsten Bildschirm wird der globale Administrator aufgefordert, die Berechtigungserteilung zu bestätigen. 
-
-![Bestätigung der Berechtigungszuweisung](./media/api-management-howto-aad/api-management-permissions-form.png)
-
-Wenn ein nicht globaler Administrator versucht, sich anzumelden, bevor Berechtigungen durch einen globalen Administrator erteilt wurden, tritt ein Anmeldefehler auf, und ein Fehlerbildschirm wird angezeigt.
 
 ## <a name="add-an-external-azure-ad-group"></a>Hinzufügen einer externen Azure AD-Gruppe
 
 Nachdem Sie den Zugriff für Benutzer in einer Azure AD-Instanz aktiviert haben, können Sie Azure AD-Gruppen in API Management hinzufügen. Anschließend ist es einfacher, die Zuordnung der Entwickler in der Gruppe zu den gewünschten Produkten zu verwalten.
 
-Um eine externe Azure AD-Gruppe zu konfigurieren, muss zunächst die Azure AD-Instanz über die Registerkarte **Identitäten** konfiguriert werden – siehe hierzu die Vorgehensweise im vorherigen Abschnitt. 
+ > [!IMPORTANT]
+ > Bevor eine externe Azure AD-Gruppe hinzugefügt werden kann, muss zunächst die Azure AD-Instanz über die Registerkarte **Identitäten** konfiguriert werden. Die Vorgehensweise finden Sie im vorherigen Abschnitt. Darüber hinaus muss die Anwendung Zugriff mit der Berechtigung `Directory.Read.All` auf die Azure AD-Graph-API zugreifen können. 
 
 Externe Azure AD-Gruppen werden über die Registerkarte **Gruppen** Ihrer API Management-Instanz hinzugefügt.
 
 1. Wählen Sie die Registerkarte **Gruppen** .
-1. Klicken Sie auf die Schaltfläche **AAD-Gruppe hinzufügen**.
+2. Klicken Sie auf die Schaltfläche **AAD-Gruppe hinzufügen**.
    ![Schaltfläche „AAD-Gruppe hinzufügen“](./media/api-management-howto-aad/api-management-with-aad008.png)
-1. Wählen Sie die Gruppe aus, die Sie hinzufügen möchten.
-1. Klicken Sie auf die Schaltfläche **Auswählen**.
+3. Wählen Sie die Gruppe aus, die Sie hinzufügen möchten.
+4. Klicken Sie auf die Schaltfläche **Auswählen**.
 
 Nachdem Sie eine externe Azure AD-Gruppe hinzugefügt haben, können Sie ihre Eigenschaften überprüfen und konfigurieren. Wählen Sie den Namen der Gruppe auf der Registerkarte **Gruppen** aus. Von hier aus können Sie Informationen wie z.B. **Name** und **Beschreibung** der Gruppe bearbeiten.
  

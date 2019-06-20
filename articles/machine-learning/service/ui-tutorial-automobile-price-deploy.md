@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787834"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389219"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Bereitstellen eines Machine Learning-Modells mithilfe der grafischen Benutzeroberfläche
 
@@ -107,7 +107,7 @@ Sie können einen Webdienst auf der grafischen Benutzeroberfläche auf der Regis
 
     ![Screenshot der Testseite für den Webdienst](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Geben Sie Testdaten ein, oder verwenden Sie die automatisch ausgefüllten Beispieldaten, und wählen Sie unten die Option **Test** (Testen) aus. Die Testanforderung wird an den Webdienst gesendet, und die Ergebnisse werden auf der Seite angezeigt.
+1. Geben Sie Testdaten ein, oder verwenden Sie die automatisch ausgefüllten Beispieldaten, und wählen Sie unten die Option **Test** (Testen) aus. Die Testanforderung wird an den Webdienst gesendet, und die Ergebnisse werden auf der Seite angezeigt. Für die Eingabedaten wird zwar ein Preiswert generiert, dieser wird jedoch nicht zum Generieren des Vorhersagewerts verwendet.
 
 ## <a name="manage-the-web-service"></a>Verwalten des Webdiensts
 

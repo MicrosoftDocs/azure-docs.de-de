@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61369292"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Senden von Nachrichten an einen MQTT-Server
 

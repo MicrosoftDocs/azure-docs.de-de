@@ -1,6 +1,6 @@
 ---
-title: Herstellen einer Verbindung zwischen Active Directory und Azure Active Directory | Microsoft-Dokumentation
-description: Azure AD Connect integriert Ihre lokalen Verzeichnisse in Azure Active Directory. Dadurch können Sie eine einzige Identität für in Azure AD integrierte in Office 365-, Azure- und SaaS-Anwendungen bereitstellen.
+title: Was bedeutet Hybrididentität in Azure Active Directory?
+description: Bei der Hybrididentität gibt es eine gemeinsame Benutzeridentität für die lokale und die cloudbasierte Authentifizierung und Autorisierung.
 keywords: Einführung in Azure AD Connect, Übersicht über Azure AD Connect, was ist Azure AD Connect, Active Directory installieren
 services: active-directory
 author: billmath
@@ -9,24 +9,26 @@ ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881803"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896828"
 ---
-# <a name="what-is-hybrid-identity"></a>Was ist eine Hybrididentität?
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Was bedeutet Hybrididentität in Azure Active Directory?
 
-Heutzutage werden Unternehmen und Konzerne immer mehr zu einer Mischung aus lokalen Anwendungen und Cloudanwendungen.  Benutzer benötigen lokal und in der Cloud Zugriff auf diese Anwendungen. Diese Anforderung ist ein schwieriges Szenario geworden. 
+Heutzutage werden Unternehmen und Konzerne immer mehr zu einer Mischung aus lokalen Anwendungen und Cloudanwendungen.  Benutzer benötigen lokal und in der Cloud Zugriff auf diese Anwendungen. Wenn Benutzer sowohl lokal als auch in der Cloud verwaltet werden, ergeben sich herausfordernde Szenarien. 
 
 Identitätslösungen von Microsoft umfassen lokale und cloudbasierte Funktionen.  Diese Lösungen schaffen eine gemeinsame Benutzeridentität für die Authentifizierung und Autorisierung bei allen Ressourcen, unabhängig vom Standort. Wir bezeichnen dies als **Hybrididentität**.
 
-Um Hybrididentität zu erreichen, kann, je nach Szenario, eine der drei Authentifizierungsmethoden verwendet werden.   Die drei Methoden sind: 
+Durch die Hybrididentität in Azure AD und die Hybrididentitätsverwaltung sind diese Szenarien möglich.
+
+Um Hybrididentität in Azure AD zu erreichen, kann je nach Szenario eine von drei Authentifizierungsmethoden verwendet werden.   Die drei Methoden sind: 
 
 - **[Kennworthashsynchronisierung (Password hash synchronization, PHS)](whatis-phs.md)**  
 - **[Passthrough-Authentifizierung (PTA)](how-to-connect-pta.md)**  
@@ -60,6 +62,10 @@ Im Folgenden sind einige verbreitete Hybrididentitäts- und Zugriffsverwaltungss
 >  
 > <sup>4</sup> AD FS kann in Ihre Unternehmens-PKI integriert werden, damit die Anmeldung mithilfe von Zertifikaten möglich ist. Bei diesen Zertifikaten kann es sich um Softzertifikate handeln, die über vertrauenswürdige Bereitstellungskanäle bereitgestellt werden, etwa MDM-, GPO- oder Smartcard-Zertifikate (einschließlich PIV/CAC-Karten) oder Hello for Business (cert-trust). Weitere Informationen zur Unterstützung der Smartcard-Authentifizierung finden Sie in [diesem Blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Lizenzanforderungen für die Verwendung von Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Nächste Schritte 
 

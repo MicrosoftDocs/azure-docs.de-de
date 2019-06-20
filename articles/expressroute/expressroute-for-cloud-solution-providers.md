@@ -9,11 +9,11 @@ ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
 ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60367545"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute für Cloudlösungsanbieter (Cloud Solution Providers, CSPs)
 Mit den von Microsoft bereitgestellten Diensten mit Hyperskalierung können traditionelle Wiederverkäufer und Distributoren (CSPs) schnell neue Dienste und Lösungen für Ihre Kunden bereitstellen, ohne in die Entwicklung dieser neuen Dienste investieren zu müssen. Microsoft stellt zudem Programme und APIs zur direkten Verwaltung dieser neuen Dienste bereit, sodass der Cloudlösungsanbieter (Cloud Solution Provider, CSP) Microsoft Azure-Ressourcen im Auftrag Ihrer Kunden verwalten kann. Eine dieser Ressourcen ist ExpressRoute. Mit ExpressRoute kann der CSP vorhandene Kundenressourcen mit Azure-Diensten verknüpfen. ExpressRoute ist eine private Hochgeschwindigkeitsverbindung für die Kommunikation mit Diensten in Azure. 
@@ -62,7 +62,7 @@ Die Entscheidung für eine dieser beiden Optionen hängt von den Anforderungen I
 
 * **Rollenbasierte Zugriffssteuerung** (Role Based Access Control, RBAC): RBAC basiert auf Azure Active Directory.  Weitere Informationen zu Azure RBAC finden Sie [hier](../role-based-access-control/role-assignments-portal.md).
 * **Netzwerk** : Behandelt die verschiedenen Netzwerkthemen in Microsoft Azure.
-* **Azure Active Directory (Azure AD)**: Azure AD stellt die Identitätsverwaltung für Microsoft Azure und SaaS-Drittanbieteranwendungen bereit. Weitere Informationen zu Azure AD finden Sie [hier](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** : Azure AD stellt die Identitätsverwaltung für Microsoft Azure und SaaS-Drittanbieteranwendungen bereit. Weitere Informationen zu Azure AD finden Sie [hier](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Netzwerkgeschwindigkeiten
 ExpressRoute unterstützt Netzwerkgeschwindigkeiten zwischen 50 Mbit/s und 10 Gbit/s. Dadurch können Kunden eine für ihre individuelle Umgebung benötigte Netzwerkbandbreite erwerben.

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "65025605"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Was ist die Freihanderkennungs-API?

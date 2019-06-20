@@ -15,12 +15,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: victorh
-ms.openlocfilehash: b3a4abf4d0f408cdb49020d831b50d943c3467dd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 10f115b64f0bd3f7e557da2bedbf3327d0ef483d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62122288"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Übersicht über die Integration von Application Gateway in Azure Security Center
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: f7f4f9ae6a80052e06b2cafa68cb5c11dfa1333a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233845"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62097928"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Verwalten von Azure Cache for Redis mit Azure PowerShell
 > [!div class="op_single_selector"]
@@ -128,7 +128,7 @@ Die folgende Tabelle enthält Eigenschaften und Beschreibungen für Parameter, d
 | Parameter | BESCHREIBUNG | Standard |
 | --- | --- | --- |
 | NAME |Name des Caches | |
-| Standort |Ort des Caches | |
+| Location |Ort des Caches | |
 | ResourceGroupName |Name der Ressourcengruppe, in der der Cache erstellt werden soll | |
 | Größe |Die Größe des Caches. Gültige Werte sind: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Die Anzahl der zu erstellenden Shards beim Erstellen eines Premium-Caches mit Clusterunterstützung. Gültige Werte sind: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |

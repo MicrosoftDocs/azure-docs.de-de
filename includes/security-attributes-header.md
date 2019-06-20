@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cd0ab47a46e452701307986d3fbfc7cdfe040c58
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114727"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177809"
 ---
 Ein Sicherheitsattribut stellt eine Qualitätseigenschaft oder ein Feature eines Azure-Diensts dar. Es ermöglicht dem Dienst, Sicherheitsrisiken zu verhindern, zu erkennen und darauf zu reagieren.
 

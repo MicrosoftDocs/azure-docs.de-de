@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
 ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143289"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Häufig gestellte Fragen zu Service Fabric Mesh
@@ -49,7 +49,7 @@ Wir haben die Lebensdauer einer Anwendung zurzeit auf zwei Tage beschränkt. Dad
 
 Wenn dies geschieht, können Sie bestätigen, dass das System sie heruntergefahren hat, indem Sie in der Azure CLI den Befehl `az mesh app show` ausführen. Überprüfen Sie, ob er `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` zurückgibt. 
 
-Beispiel:  
+Beispiel: 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -110,7 +110,7 @@ Bei aus einem Container an den Service Fabric-DNS-Dienst ausgehenden DNS-Abfrage
 
 - Verwenden Sie Windows Fall Creators Update (Version 1709) oder höher als Basiscontainerimage.
 - Wenn der Dienstname allein nicht funktioniert, versuchen Sie es mit dem vollqualifizierten Namen: ServiceName.ApplicationName.
-- Fügen Sie in der Docker-Datei für Ihren Dienst `EXPOSE <port>` hinzu. Dabei ist „port“ der Port, über den Ihr Dienst bereitgestellt wird. Beispiel: 
+- Fügen Sie in der Docker-Datei für Ihren Dienst `EXPOSE <port>` hinzu. Dabei ist „port“ der Port, über den Ihr Dienst bereitgestellt wird. Beispiel:
 
 ```Dockerfile
 EXPOSE 80

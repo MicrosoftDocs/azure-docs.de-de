@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: d5557ce1dda7bb36b8b0a6a44fcaca50e0667bb7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429964"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178583"
 ---
 Zuerst müssen Sie Ihre App auf der Website eines Identitätsanbieters registrieren und anschließend die vom Anbieter generierten Anmeldeinformationen im Mobile Apps-Back-End festlegen.
 

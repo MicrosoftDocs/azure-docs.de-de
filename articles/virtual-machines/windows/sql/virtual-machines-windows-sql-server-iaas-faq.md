@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
 ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61477262"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Häufig gestellte Fragen zu SQL Server auf virtuellen Windows-Computern in Azure
 
@@ -60,7 +60,7 @@ Dieser Artikel bietet Antworten auf einige der häufigsten Fragen zur Ausführun
 
 1. **Ist es möglich, Konfigurationen einzurichten, die nicht im Katalog der virtuellen Computer gezeigt werden (z.B. Windows 2008 R2 + SQL Server 2012) ?**
 
-    Nein. Für Katalogimages von virtuellen Computern, die SQL Server enthalten, müssen Sie eines der bereitgestellten Images entweder über das Azure-Portal oder über [PowerShell](virtual-machines-windows-ps-sql-create.md) auswählen. 
+   Nein. Für Katalogimages von virtuellen Computern, die SQL Server enthalten, müssen Sie eines der bereitgestellten Images entweder über das Azure-Portal oder über [PowerShell](virtual-machines-windows-ps-sql-create.md) auswählen. 
 
 
 ## <a name="creation"></a>Erstellung
@@ -97,7 +97,7 @@ Dieser Artikel bietet Antworten auf einige der häufigsten Fragen zur Ausführun
 
 1. **Sind für den Wechsel des Lizenzierungsmodells Ausfallzeiten für SQL Server erforderlich?**
 
-    Nein. Das [Ändern das Lizenzierungsmodells](virtual-machines-windows-sql-ahb.md) erfordert keine Ausfallzeiten für SQL Server, da die Änderung sofort wirksam werden und kein Neustart des virtuellen Computers erforderlich ist. Um jedoch Ihre SQL Server-VM bei dem SQL VM-Ressourcenanbieter zu registrieren, ist die [SQL IaaS-Erweiterung](virtual-machines-windows-sql-server-agent-extension.md) eine Voraussetzung, und durch die Installation der SQL IaaS-Erweiterung wird der SQL Server-Dienst neu gestartet. Somit sollte die Installation der SQL IaaS-Erweiterung, falls diese erforderlich ist, während eines Wartungsfensters erfolgen. 
+   Nein. Das [Ändern das Lizenzierungsmodells](virtual-machines-windows-sql-ahb.md) erfordert keine Ausfallzeiten für SQL Server, da die Änderung sofort wirksam werden und kein Neustart des virtuellen Computers erforderlich ist. Um jedoch Ihre SQL Server-VM bei dem SQL VM-Ressourcenanbieter zu registrieren, ist die [SQL IaaS-Erweiterung](virtual-machines-windows-sql-server-agent-extension.md) eine Voraussetzung, und durch die Installation der SQL IaaS-Erweiterung wird der SQL Server-Dienst neu gestartet. Somit sollte die Installation der SQL IaaS-Erweiterung, falls diese erforderlich ist, während eines Wartungsfensters erfolgen. 
 
 1. **Können CSP-Abonnements den Azure-Hybridvorteil aktivieren?**
 

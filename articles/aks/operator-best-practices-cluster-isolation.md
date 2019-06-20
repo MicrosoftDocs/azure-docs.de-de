@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
 ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60465305"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Best Practices für Clusterisolierung in Azure Kubernetes Service (AKS)
 

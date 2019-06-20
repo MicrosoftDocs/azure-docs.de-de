@@ -8,12 +8,12 @@ ms.author: sngun
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e43b2d6f5a127f7f0f81c2dfc2fd3737c9ee787
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880261"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861307"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Schnellstart: Erstellen einer Cassandra-App mit dem .NET-SDK und Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Azure Cosmos DB ist ein global verteilter Datenbankdienst von Microsoft mit mehr
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternativ können Sie [Azure Cosmos DB ohne Azure-Abonnement testen](https://azure.microsoft.com/try/cosmosdb/) – kostenlos und ohne Verpflichtung.
 
 Zudem benötigen Sie: 
-* Falls Sie Visual Studio 2017 noch nicht installiert haben, können Sie die **kostenlose** [Visual Studio 2017 Community-Edition](https://www.visualstudio.com/downloads/) herunterladen und verwenden. Aktivieren Sie beim Setup von Visual Studio die Option **Azure-Entwicklung**.
+* Falls Sie Visual Studio 2019 noch nicht installiert haben, können Sie die **kostenlose** [Visual Studio 2019 Community-Edition](https://www.visualstudio.com/downloads/) herunterladen und verwenden. Aktivieren Sie beim Setup von Visual Studio die Option **Azure-Entwicklung**.
 * Installieren Sie [Git](https://www.git-scm.com/), um das Beispiel zu klonen.
 
 <a id="create-account"></a>
@@ -122,7 +122,7 @@ Wechseln Sie nun zurück zum Azure-Portal, um die Informationen der Verbindungsz
 
     ![Anzeigen und Kopieren eines Zugriffsschlüssels im Azure-Portal auf der Seite „Verbindungszeichenfolge“](./media/create-cassandra-dotnet/keys.png)
 
-2. Öffnen Sie in Visual Studio 2017 die Datei „Program.cs“. 
+2. Öffnen Sie in Visual Studio die Datei „Program.cs“. 
 
 3. Ersetzen Sie `<FILLME>` in Zeile 13 durch den Benutzernamen aus dem Portal.
 

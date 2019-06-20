@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736281"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Abgleich von Anforderungen mit Routingregeln durch Front Door
 
@@ -48,7 +48,7 @@ Beim Abgleich mit Front-End-Hosts wird folgende Logik verwendet:
 
 Um diesen Prozess genauer zu erklären, betrachten wir eine Beispielkonfiguration von Front Door-Routen (nur linke Seite):
 
-| Routingregel | Front-End-Hosts | path |
+| Routingregel | Front-End-Hosts | `Path` |
 |-------|--------------------|-------|
 | Eine Datei | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
@@ -78,7 +78,7 @@ Nach dem Ermitteln des Front-End-Hosts und dem Filtern möglicher Routingregeln,
 
 Sehen wir uns weitere Beispiele an, um dies genauer zu erläutern:
 
-| Routingregel | Front-End-Host    | path     |
+| Routingregel | Front-End-Host    | `Path`     |
 |-------|---------|----------|
 | Eine Datei     | www\.contoso.com | /        |
 | b     | www\.contoso.com | /\*      |
@@ -112,7 +112,7 @@ In dieser Konfiguration würde sich folgende Treffertabelle ergeben:
 >
 > Beispielkonfiguration:
 >
-> | Weiterleiten | Host             | path    |
+> | Weiterleiten | Host             | `Path`    |
 > |-------|------------------|---------|
 > | Eine Datei     | profile.contoso.com | /api/\* |
 >

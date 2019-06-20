@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121960"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243921"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Kopieren von Daten aus SAP ECC mithilfe von Azure Data Factory
 
@@ -32,6 +32,9 @@ Dieser SAP ECC-Connector unterstützt insbesondere Folgendes:
 - Kopieren von Daten aus SAP ECC auf SAP NetWeaver ab Version 7.0 
 - Kopieren von Daten aus Objekten, die von SAP ECC-OData-Diensten (SAP Table/Views, BAPI, Data Extractors usw.) verfügbar gemacht werden, oder von an SAP PI gesendeten Daten/IDOCs, die als OData über relative Adapter empfangen werden können
 - Kopieren von Daten mithilfe der Standardauthentifizierung
+
+>[!TIP]
+>Zum Kopieren von Daten aus SAP ECC über SAP Table/View können Sie den[SAP Table Connector](connector-sap-table.md) verwenden, der leistungsfähiger und skalierbar ist.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -55,9 +58,9 @@ Folgende Eigenschaften werden für den mit SAP ECC verknüpften Dienst unterstü
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **SapEcc** | Ja |
 | url | Die URL des SAP ECC OData-Diensts | Ja |
-| username | Der Benutzername, mit dem die Verbindung mit SAP ECC hergestellt wird | Nein  |
-| password | Das Klartextkennwort, mit dem die Verbindung mit SAP ECC hergestellt wird | Nein  |
-| connectVia | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Sie können die selbstgehostete Integration Runtime oder Azure Integration Runtime verwenden (sofern Ihr Datenspeicher öffentlich zugänglich ist). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein  |
+| userName | Der Benutzername, mit dem die Verbindung mit SAP ECC hergestellt wird | Nein |
+| password | Das Klartextkennwort, mit dem die Verbindung mit SAP ECC hergestellt wird | Nein |
+| connectVia | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Sie können die selbstgehostete Integration Runtime oder Azure Integration Runtime verwenden (sofern Ihr Datenspeicher öffentlich zugänglich ist). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein |
 
 **Beispiel:**
 
@@ -121,7 +124,7 @@ Legen Sie zum Kopieren von Daten aus SAP ECC den Quelltyp in der Kopieraktivitä
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
 | type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **SapEccSource** | Ja |
-| query | OData-Abfrageoptionen zum Filtern von Daten. Beispiel: „$select=Name,Description&$top=10“.<br/><br/>Das SAP ECC-Connector kopiert Daten aus der kombinierten URL: (im verknüpften Dienst angegebene URL)/(im Dataset angegebener Pfad)?(in der Quelle der Kopieraktivität angegebene Abfrage). Lesen Sie hierzu [OData-URL-Komponenten](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nein  |
+| query | OData-Abfrageoptionen zum Filtern von Daten. Beispiel: „$select=Name,Description&$top=10“.<br/><br/>Das SAP ECC-Connector kopiert Daten aus der kombinierten URL: (im verknüpften Dienst angegebene URL)/(im Dataset angegebener Pfad)?(in der Quelle der Kopieraktivität angegebene Abfrage). Lesen Sie hierzu [OData-URL-Komponenten](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nein |
 
 **Beispiel:**
 

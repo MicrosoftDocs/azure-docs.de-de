@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508419"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497108"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network – häufig gestellte Fragen
 
@@ -180,16 +180,17 @@ Ja. Für alle in einem VNet bereitgestellten VMs und Cloud Services-Rolleninstan
 ## <a name="azure-services-that-connect-to-vnets"></a>Azure-Dienste mit Verbindung mit VNets
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Kann ich Azure App Service-Web-Apps mit einem VNet verwenden?
-Ja. Sie können Web-Apps in einem VNet mit einer ASE (App Service Environment, App Service-Umgebung) bereitstellen. Wenn Sie für Ihr VNET eine Point-to-Site-Verbindung konfiguriert haben, können alle Web-Apps eine sichere Verbindung herstellen und auf Ressourcen im VNET zugreifen. Weitere Informationen finden Sie in den folgenden Artikeln:
+Ja. Sie können Web-Apps in einem VNet bereitstellen. Dazu verwenden Sie eine ASE (App Service-Umgebung), verbinden das Back-End Ihrer Apps mit Ihren VNets mit VNet-Integration und sperren den eingehenden Datenverkehr zu Ihrer App mit Dienstendpunkten. Weitere Informationen finden Sie in den folgenden Artikeln:
 
+* [App Service-Netzwerkfunktionen](../app-service/networking-features.md)
 * [Erstellen von Web-Apps in einer App Service-Umgebung](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integrieren Ihrer App in ein Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Using VNet Integration and Hybrid Connections with Web Apps (in englischer Sprache)](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [Azure App Service – Zugriffseinschränkungen](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Können Cloud Services mit Web- und Workerrollen (PaaS) in einem VNet bereitgestellt werden?
 Ja. Sie können Cloud Services-Rolleninstanzen (optional) in VNets bereitstellen. Hierfür geben Sie den Namen des VNet und die Rollen-/Subnetzzuordnungen im Netzwerkkonfigurationsabschnitt der Dienstkonfiguration an. Sie müssen keine Binärdateien aktualisieren.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>Kann ich für eine VM-Skalierungsgruppe (Virtual Machine Scale Set, VMSS) eine Verbindung mit einem VNet herstellen?
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>Kann ich für eine VM-Skalierungsgruppe eine Verbindung mit einem VNet herstellen?
 Ja. Sie müssen für eine VM-Skalierungsgruppe eine Verbindung mit einem VNet herstellen.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Gibt es eine vollständige Liste der Azure-Dienste, über die ich Ressourcen in einem VNET bereitstellen kann?
@@ -219,7 +220,7 @@ Ja. Ausführliche Informationen finden Sie im Artikel [Die Netzwerksicherheit in
 ## <a name="apis-schemas-and-tools"></a>APIs, Schemas und Tools
 
 ### <a name="can-i-manage-vnets-from-code"></a>Können VNets programmgesteuert verwaltet werden?
-Ja. Sie können REST-APIs für VNETs im Rahmen des [Azure Resource Manager-Bereitstellungsmodells](/rest/api/virtual-network) und des [klassischen Bereitstellungsmodells (Dienstverwaltung)](https://go.microsoft.com/fwlink/?LinkId=296833) verwenden.
+Ja. Sie können REST-APIs für VNETs im Rahmen des [Azure Resource Manager-Bereitstellungsmodells](/rest/api/virtual-network) und des [klassischen Bereitstellungsmodells](https://go.microsoft.com/fwlink/?LinkId=296833) verwenden.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Sind Tools zur Unterstützung von VNets verfügbar?
 Ja. Weitere Informationen zur Verwendung von folgenden Tools:
@@ -239,7 +240,7 @@ Ja. Globales VNET-Peering ermöglicht Ihnen das Peering mit VNETs in unterschied
 Wenn sich die zwei virtuellen Netzwerke in unterschiedlichen Regionen befinden (Globales VNet-Peering), können Sie sich nicht mit Ressourcen verbinden, die Basic-Load Balancer verwenden. Sie können sich mit Ressourcen verbinden, die Load Balancer Standard verwenden.
 Die folgenden Ressourcen verwenden Basic-Load Balancer, d. h. Sie können nicht über globales VNet-Peering mit ihnen kommunizieren:
 - VMs hinter Basic-Load Balancern
-- Microsoft Azure Virtual Machine Scale Sets mit Basic-Load Balancern 
+- VM-Skalierungsgruppen mit Basic-Load Balancern 
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
@@ -247,7 +248,7 @@ Die folgenden Ressourcen verwenden Basic-Load Balancer, d. h. Sie können nicht 
 - API Management
 - Active Directory Domain Service (ADDS)
 - Logic Apps
-- HD Insight
+- HDInsight
 -   Azure Batch
 - AKS
 - App Service-Umgebung
@@ -285,7 +286,7 @@ Nein. Transitives Peering wird nicht unterstützt. Sie müssen hierzu eine Peeri
 Nein. Für VNET-Peering, ob lokal oder global, bestehen keine Bandbreiteneinschränkungen. Die Bandbreite wird nur durch die VM oder die Computeressource beschränkt.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Wie kann ich Probleme beim VNet-Peering beheben?
-Hier ist eine [Anleitung zur Problembehandlung] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues)), die Sie testen können.
+Hier ist eine [Anleitung zur Problembehandlung](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues), die Sie ausprobieren können.
 
 ## <a name="virtual-network-tap"></a>TAP eines virtuellen Netzwerks
 

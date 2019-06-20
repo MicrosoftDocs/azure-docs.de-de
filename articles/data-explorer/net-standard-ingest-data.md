@@ -1,22 +1,22 @@
 ---
-title: 'Schnellstart: Erfassen von Daten mit dem .NET Standard SDK für Azure Data Explorer (Vorschauversion)'
-description: In diesem Schnellstart erfahren Sie, wie Sie mit dem .NET Standard SDK Daten in Azure Data Explorer erfassen (laden).
+title: Erfassen von Daten mit dem .NET Standard SDK für Azure Data Explorer (Vorschauversion)
+description: In diesem Artikel erfahren Sie, wie Sie mit dem .NET Standard SDK Daten in Azure Data Explorer erfassen (laden).
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/18/2018
-ms.openlocfilehash: 6a068c45a13bd45a09ed51fd154b5842938e0c5e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 53cf055a0900a25923fe67b961755c1f4367e1fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044666"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496890"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Schnellstart: Erfassen von Daten mit dem .NET Standard SDK für Azure Data Explorer (Vorschauversion)
+# <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Erfassen von Daten mit dem .NET Standard SDK für Azure Data Explorer (Vorschauversion)
 
-Azure Data Explorer (ADX) ist ein schneller und hochgradig skalierbarer Dienst zur Untersuchung von Protokoll- und Telemetriedaten. Azure Data Explorer bietet zwei Clientbibliotheken für .NET Standard: eine [Erfassungsbibliothek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) und eine [Datenbibliothek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Mit diesen Bibliotheken können Sie über Ihren Code Daten in einem Cluster erfassen (laden) und Daten abfragen. In diesem Schnellstart erstellen Sie zunächst eine Tabelle und eine Datenzuordnung in einem Testcluster. Anschließend stellen Sie die Erfassung im Cluster in eine Warteschlange und überprüfen die Ergebnisse.
+Azure Data Explorer (ADX) ist ein schneller und hochgradig skalierbarer Dienst zur Untersuchung von Protokoll- und Telemetriedaten. Azure Data Explorer bietet zwei Clientbibliotheken für .NET Standard: eine [Erfassungsbibliothek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) und eine [Datenbibliothek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Mit diesen Bibliotheken können Sie über Ihren Code Daten in einem Cluster erfassen (laden) und Daten abfragen. In diesem Artikel erstellen Sie zunächst eine Tabelle und eine Datenzuordnung in einem Testcluster. Anschließend stellen Sie die Erfassung im Cluster in eine Warteschlange und überprüfen die Ergebnisse.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -226,7 +226,7 @@ Führen Sie den folgenden Befehl aus, um den Status aller Erfassungsvorgänge in
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn Sie unsere anderen Schnellstarts und Tutorials durchgehen möchten, behalten Sie die erstellten Ressourcen bei. Wenn dies nicht der Fall ist, führen Sie den folgenden Befehl in der Datenbank aus, um die Tabelle `StormEvents` zu bereinigen.
+Wenn Sie unsere anderen Artikel durcharbeiten möchten, behalten Sie die erstellten Ressourcen bei. Wenn dies nicht der Fall ist, führen Sie den folgenden Befehl in der Datenbank aus, um die Tabelle `StormEvents` zu bereinigen.
 
 ```Kusto
 .drop table StormEvents
@@ -234,5 +234,4 @@ Wenn Sie unsere anderen Schnellstarts und Tutorials durchgehen möchten, behalte
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Write queries](write-queries.md) (Schreiben von Abfragen)
+* [Write queries](write-queries.md) (Schreiben von Abfragen)

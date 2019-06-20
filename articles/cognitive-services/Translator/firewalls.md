@@ -3,19 +3,19 @@ title: Übersetzung hinter Firewalls – Textübersetzungs-API
 titlesuffix: Azure Cognitive Services
 description: Übersetzen Sie mithilfe der Textübersetzungs-API hinter IP-Firewalls.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: ebc8b7ce4ed0242f1bc62e3b97b6594cfe810374
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/04/2019
+ms.author: v-pawal
+ms.openlocfilehash: be70043be7e05ea795f2b82774faec49419d5c43
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915746"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66515027"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Übersetzung hinter IP-Firewalls mithilfe der Textübersetzungs-API
 

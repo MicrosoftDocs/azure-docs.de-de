@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463792"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Arbeiten mit Kanälen, die Livestreams mit Mehrfachbitrate von lokalen Encodern empfangen
 
@@ -189,7 +189,7 @@ In der folgenden Tabelle ist die Zuordnung der Kanalstatus zu den Abrechnungsmod
 | **Wird gestartet** |**Wird gestartet** |Nein (Übergangsstatus) |
 | **Wird ausgeführt** |**Bereit** (keine ausgeführten Programme)<p><p>oder<p>**Streaming** (mindestens ein ausgeführtes Programm) |Ja |
 | **Wird beendet** |**Wird beendet** |Nein (Übergangsstatus) |
-| **Beendet** |**Beendet** |Nein  |
+| **Beendet** |**Beendet** |Nein |
 
 ## <a id="cc_and_ads"></a>Untertitel und Werbeeinblendungen
 Die folgende Tabelle enthält die unterstützten Standards für Untertitel und Werbeeinblendungen.

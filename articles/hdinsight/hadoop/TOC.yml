@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: Übersicht
   items:
-    - name: Informationen zu Apache Hadoop in HDInsight
+    - name: Worum handelt es sich bei Apache Hadoop in HDInsight?
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: Apache Hadoop-Architektur in HDInsight
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: Apache Hadoop-Komponenten in HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: Schnellstarts
   items:
     - name: 'Erstellen eines Apache Hadoop-Clusters: Portal'
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: 'Erstellen eines Apache Hadoop-Clusters: Resource Manager-Vorlage'
+    - name: 'Erstellen eines Apache Hadoop-Clusters: Vorlage'
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Lernprogramme
@@ -28,9 +19,6 @@
       maintainContext: true
     - name: Erstellen bedarfsgesteuerter Cluster
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-      maintainContext: true
-    - name: Überwachen der Clusterverfügbarkeit mit Ambari und Azure Monitor-Protokollen
-      href: ../hdinsight-cluster-availability.md
       maintainContext: true
 - name: Beispiele
   items:
@@ -45,6 +33,18 @@
       maintainContext: true
 - name: Konzepte
   items:
+    - name: Überwachen der Clusterverfügbarkeit mit Ambari und Azure Monitor-Protokollen
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: Apache Hadoop-Architektur in HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: Apache Hadoop-Komponenten in HDInsight
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: Planen der Clusterkapazität
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -130,7 +130,7 @@
           href: apache-hadoop-hive-pig-udf-dotnet-csharp.md
         - name: Verwenden von Python mit Apache Hive und Apache Pig
           href: python-udf-hdinsight.md
-        - name: 'Erstellen von .NET HDInsight-Anwendungen für die nicht interaktive Authentifizierung '
+        - name: Erstellen von .NET HDInsight-Anwendungen für die nicht interaktive Authentifizierung
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
     - name: Verwenden von Use HDInsight-Tools
@@ -423,7 +423,7 @@
       items:
         - name: Architektur des virtuellen HDInsight-Netzwerks
           href: ../hdinsight-virtual-network-architecture.md
-        - name: Einschränkung für ausgehenden Datenverkehr in HDInsight
+        - name: Verwenden einer Firewall zum Einschränken des ausgehenden Datenverkehrs
           href: ../hdinsight-restrict-outbound-traffic.md
         - name: HDInsight in Azure VNET
           href: ../hdinsight-extend-hadoop-virtual-network.md
@@ -471,9 +471,6 @@
   items:
     - name: Windows-Cluster
       items:
-        - name: Migrieren von Windows-Clustern zu Linux-Clustern
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: Migrieren von .NET-Lösungen zu Linux-Clustern
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true

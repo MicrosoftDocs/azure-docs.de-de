@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 56a2b89277cbf8866c1992a6738bd80106ef3313
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906518"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480010"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Abfragen von Apache Hive über den JDBC-Treiber in HDInsight
 
@@ -28,7 +28,6 @@ Weitere Informationen zur Hive-JDBC-Schnittstelle finden Sie unter [HiveJDBCInte
 * einen HDInsight Hadoop-Cluster. Hinweise zum Erstellen finden Sie unter [Erste Schritte mit Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) Version 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) oder höher.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL ist eine JDBC-Clientanwendung.
-
 
 ## <a name="jdbc-connection-string"></a>Verbindungszeichenfolge für JDBC
 
@@ -54,20 +53,12 @@ SQuirreL SQL ist ein JDBC-Client, der für die Remoteausführung von Hive-Abfrag
 
 1. Erstellen Sie ein Verzeichnis zur Aufnahme bestimmter Dateien, die aus Ihrem Cluster kopiert werden müssen.
 
-2. Ersetzen Sie im folgenden Skript `sshuser` durch den Namen des SSH-Benutzerkontonamens für den Cluster.  Ersetzen Sie `CLUSTERNAME` durch den Namen des HDInsight-Clusters.  Geben Sie an einer Befehlszeile die folgenden Befehle ein, um Dateien aus einem HDInsight-Cluster zu kopieren:
+2. Ersetzen Sie im folgenden Skript `sshuser` durch den Namen des SSH-Benutzerkontonamens für den Cluster.  Ersetzen Sie `CLUSTERNAME` durch den Namen des HDInsight-Clusters.  Ändern Sie an einer Befehlszeile Ihre Arbeitsverzeichnis in das, das Sie im vorherigen Schritt erstellt haben, und geben Sie dann den folgenden Befehl ein, um Dateien aus einem HDInsight-Cluster zu kopieren:
 
-    ```bash
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-codec*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libfb*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+    ```cmd
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/{hadoop-auth.jar,hadoop-common.jar,lib/log4j-*.jar,lib/slf4j-*.jar} .
+
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/{commons-codec*.jar,commons-logging-*.jar,hive-*-1.2*.jar,httpclient-*.jar,httpcore-*.jar,libfb*.jar,libthrift-*.jar} .
     ```
 
 3. Starten Sie die SQuirreL SQL-Anwendung. Wählen Sie auf der linken Seite des Fensters **Drivers** aus.
@@ -82,7 +73,7 @@ SQuirreL SQL ist ein JDBC-Client, der für die Remoteausführung von Hive-Abfrag
 
     * **Name**: Hive
     * **Beispiel-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Extra Class Path**: Fügen Sie mit der Schaltfläche „Add“ alle JAR-Dateien hinzu, die Sie zuvor heruntergeladen haben.
+    * **Extra Class Path**: Fügen Sie mit der Schaltfläche **Add** alle JAR-Dateien hinzu, die Sie zuvor heruntergeladen haben.
     * **Class Name:** org.apache.hive.jdbc.HiveDriver
 
    ![Dialogfeld „Add Driver“](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)

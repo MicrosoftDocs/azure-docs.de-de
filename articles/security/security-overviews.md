@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/16/2018
 ms.author: tomsh
 ms.openlocfilehash: 853dd89f4df59338a4f520106bff70d67cbab2a3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60597636"
 ---
 # <a name="azure-security-technical-overviews"></a>Technische Übersichten zur Azure-Sicherheit
 

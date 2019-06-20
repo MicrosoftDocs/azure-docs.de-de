@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 57894770ad9d27430d5803c9a93ce6973355878a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62123245"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementieren von Features auf Dienstebene in Ihrem Akteurdienst
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7d26d4c924ba2b7116b95e0b396652e49ca1b8f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701696"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059387"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimieren von Apache Hive-Abfragen in Azure HDInsight
 
@@ -39,7 +39,7 @@ Weitere Informationen zum Skalieren von HDInsight finden Sie unter [Skalieren vo
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>Verwenden von Apache Tez anstelle von MapReduce
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) ist eine Alternative zur Ausführungs-Engine MapReduce. Linux-basierte HDInsight-Cluster haben Tez standardmäßig aktiviert.
+[Apache Tez](https://tez.apache.org/) ist eine Alternative zur Ausführungs-Engine MapReduce. Linux-basierte HDInsight-Cluster haben Tez standardmäßig aktiviert.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -51,7 +51,7 @@ Tez ist jedoch aus folgenden Gründen schneller:
 * **Wiederverwendung von Containern**. Tez versucht, Container möglichst wiederzuverwenden, und verringert so Latenzzeiten aufgrund von Containerstarts.
 * **Techniken für die fortlaufende Optimierung**. Bislang erfolgte die Optimierung in der Regel in der Kompilierungsphase. Nun aber stehen mehr Informationen zu den Eingaben zur Verfügung, die auch während der Laufzeit eine Optimierung ermöglichen. Tez verwendet fortlaufende Optimierungstechniken, durch die der Plan noch weit in der Laufzeitphase optimiert werden kann.
 
-Weitere Informationen zu diesen Konzepten finden unter [Apache Tez](https://hortonworks.com/hadoop/tez/).
+Weitere Informationen zu diesen Konzepten finden unter [Apache Tez](https://tez.apache.org/).
 
 Sie können jede Hive-Abfrage Tez-kompatibel machen, indem Sie der Abfrage den folgenden Festlegungsbefehl voranstellen:
 
@@ -121,7 +121,7 @@ Für die erstellte Partitionstabelle können Sie eine statische oder eine dynami
 Weitere Informationen finden Sie unter [Partitionierte Tabellen](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>Verwenden des Dateiformats ORC
-Hive unterstützt verschiedene Dateiformate. Beispiel: 
+Hive unterstützt verschiedene Dateiformate. Beispiel:
 
 * **Text**: Das Standarddateiformat, das in den meisten Szenarien funktioniert.
 * **Avro**: Dieses Dateiformat eignet sich besonders für Interoperabilitätsszenarien.
@@ -147,7 +147,7 @@ Zum Aktivieren von ORC erstellen Sie zunächst eine Tabelle mit der Klausel *Sto
    STORED AS ORC;
    ```
    
-Danach fügen Sie der ORC-Tabelle Daten aus der Stagingtabelle hinzu. Beispiel: 
+Danach fügen Sie der ORC-Tabelle Daten aus der Stagingtabelle hinzu. Beispiel:
 
    ```hive
    INSERT INTO TABLE lineitem_orc

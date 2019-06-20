@@ -1,5 +1,5 @@
 ---
-title: Wissensspeicher – Einführung und Übersicht – Azure Search
+title: Wissensspeicher – Einführung und Übersicht (Vorschauversion) – Azure Search
 description: Senden Sie angereicherte Dokumente an Azure Storage, wo Sie die angereicherten Dokumente in Azure Search und anderen Anwendungen anzeigen, umstrukturieren und nutzen können.
 manager: cgronlun
 author: HeidiSteen
@@ -9,16 +9,20 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030088"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540746"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Was ist ein Wissensspeicher in Azure Search?
 
-Ein Wissensspeicher ist ein optionales Feature von Azure Search, das sich derzeit in der öffentlichen Vorschau befindet. Es dient der Speicherung angereicherter Dokumente und Metadaten, die von einer KI-basierten Indizierungspipeline [(kognitive Suche)](cognitive-search-concept-intro.md) erstellt werden. Die Speicherung von Wissensspeichern erfolgt unter einem Azure Storage-Konto, das Sie als Teil der Pipeline konfigurieren. Bei der Aktivierung verwendet der Suchdienst dieses Storage-Konto, um eine Darstellung der einzelnen angereicherten Dokumente zwischenzuspeichern. 
+> [!Note]
+> Wissensspeicher befinden sich in der Vorschau und sind nicht für die Produktion ausgelegt. Dieses Feature wird durch die [REST-API-Version 2019-05-06-Preview](search-api-preview.md) bereitgestellt. Das .NET SDK wird derzeit nicht unterstützt.
+>
+
+Ein Wissensspeicher ist ein optionales Feature von Azure Search, das der Speicherung angereicherter Dokumente und Metadaten dient, die von einer KI-basierten Indizierungspipeline ([kognitive Suche](cognitive-search-concept-intro.md)) erstellt werden. Die Speicherung von Wissensspeichern erfolgt unter einem Azure Storage-Konto, das Sie als Teil der Pipeline konfigurieren. Bei der Aktivierung verwendet der Suchdienst dieses Storage-Konto, um eine Darstellung der einzelnen angereicherten Dokumente zwischenzuspeichern. 
 
 Wenn Sie die kognitive Suche schon in der Vergangenheit verwendet haben, wissen Sie bereits, dass Sie Qualifikationsgruppen nutzen können, um ein Dokument eine Sequenz von Anreicherungen durchlaufen zu lassen. Das Ergebnis kann ein Azure Search-Index oder (neu in dieser Vorschauversion) Projektionen in einem Wissensspeicher sein.
 
@@ -32,7 +36,7 @@ Um Wissensspeicher zu verwenden, fügen Sie einer Qualifikationsgruppe ein `know
 
 Ein Wissensspeicher enthält die Struktur, den Kontext und den eigentlichen Inhalt. Diese Informationen werden aus unstrukturierten und teilweise strukturierten Datendateien wie Blobs und analysierten Bilddateien oder sogar aus strukturierten Daten gewonnen, die umgeformt wurden. In einer [ausführlichen exemplarischen Vorgehensweise](knowledge-store-howto.md), die für diese Vorschau verfasst wurde, können Sie genau sehen, wie ein komplexes JSON-Dokument in Unterstrukturen partitioniert, in neue Strukturen zusammengesetzt und für nachfolgende Prozesse wie Machine Learning- und Data Science-Workloads verfügbar gemacht wird.
 
-Auch wenn es bereits nützlich ist zu sehen, was eine KI-basierte Indizierungspipeline erstellen kann, liegt die eigentliche Stärke von Wissensspeichern in der Möglichkeit, Daten neu zu strukturieren. Sie können mit einer grundlegenden Qualifikationsgruppe beginnen und diese dann durchlaufen, um immer neue Strukturebenen zu erschaffen, die Sie dann in neuen Strukturen kombinieren können, um sie in Azure Search und anderen Apps zu verwenden.
+Auch wenn es bereits nützlich ist, zu sehen, was eine KI-basierte Indizierungspipeline erstellen kann, liegt die eigentliche Stärke von Wissensspeichern in der Möglichkeit, Daten neu zu strukturieren. Sie können mit einer grundlegenden Qualifikationsgruppe beginnen und diese dann durchlaufen, um immer neue Strukturebenen zu erschaffen, die Sie dann in neuen Strukturen kombinieren können, um sie in Azure Search und anderen Apps zu verwenden.
 
 Wissensspeicher bieten u. a. folgende Vorteile:
 

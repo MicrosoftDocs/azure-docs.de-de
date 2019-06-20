@@ -12,11 +12,11 @@ ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 02111ac90fe97ddaddbd41ad42410e7e76f1c405
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61379268"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Was ist eine QnA Maker-Wissensdatenbank?
 

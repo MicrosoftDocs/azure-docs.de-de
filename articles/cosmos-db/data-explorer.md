@@ -4,14 +4,14 @@ description: Azure Cosmos DB Explorer ist eine eigenständige webbasierte Schnit
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: d50bf7d865cb286f2a1421156b477dc92dc978d1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 04cfdd1f96f83898710b6f292116f0afddc8df96
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453602"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237236"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Arbeiten mit Daten unter Verwendung von Azure Cosmos-Explorer 
 

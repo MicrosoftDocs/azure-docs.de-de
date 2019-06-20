@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1e18addc43e53cb45e92966607ad5d1db2b42c3c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 40864bab068659be016161f7dc40243ebbd45174
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60812588"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Überwachen von Aufträgen in Azure Data Lake Analytics über das Azure-Portal
 

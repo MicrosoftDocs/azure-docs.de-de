@@ -2,18 +2,18 @@
 title: Tutorial zu Kubernetes in Azure – Upgrade eines Clusters
 description: In diesem Azure Kubernetes Service-Tutorial (AKS) erfahren Sie, wie Sie ein Upgrade eines vorhandenen AKS-Clusters auf die neueste verfügbare Kubernetes-Version durchführen.
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: b0d0d8326d6274252f4c4a865bc8f022daf9e199
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09e3fab67486b4677c5848d81fb39a68e511b6ac
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029355"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305210"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Durchführen eines Upgrades für Kubernetes in Azure Kubernetes Service (AKS)
 

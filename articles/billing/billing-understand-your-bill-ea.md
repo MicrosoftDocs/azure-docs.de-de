@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64571211"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Grundlegendes zu Ihrer Azure Enterprise-Rechnung
 
@@ -29,7 +29,7 @@ Das Guthaben Ihrer Organisation schließt Ihre finanzielle Verpflichtung ein. De
 
 ## <a name="invoices-for-most-customers"></a>Rechnungen für die meisten Kunden
 
-Dieser Abschnitt gilt nicht für Azure-Kunden in Australien, Japan oder Singapur. Wenn Sie in einem dieser Länder sind, lesen Sie [Rechnungen für andere Kunden](#invoices-for-other-customers).
+Dieser Abschnitt gilt nicht für Azure-Kunden in Australien, Japan oder Singapur. Wenn Sie sich in einem dieser Länder/Regionen befinden, lesen Sie [Rechnungen für andere Kunden](#invoices-for-other-customers).
 
 Wenn einer der folgenden Punkte während des Abrechnungszyklus auftritt, erhalten Sie eine Azure-Rechnung:
 

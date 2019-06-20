@@ -17,56 +17,56 @@ ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3f50f013020c704ddc294a59f8c6c5dac24bbd5a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60835276"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines – SAP ASE-DBMS-Bereitstellung für SAP-Workload
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
-[773830]:https://launchpad.support.sap.com/#/notes/773830
+[773830]: https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
-[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1245200]: https://launchpad.support.sap.com/#/notes/1245200
 [1409604]:https://launchpad.support.sap.com/#/notes/1409604
-[1558958]:https://launchpad.support.sap.com/#/notes/1558958
-[1585981]:https://launchpad.support.sap.com/#/notes/1585981
-[1588316]:https://launchpad.support.sap.com/#/notes/1588316
-[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1558958]: https://launchpad.support.sap.com/#/notes/1558958
+[1585981]: https://launchpad.support.sap.com/#/notes/1585981
+[1588316]: https://launchpad.support.sap.com/#/notes/1588316
+[1590719]: https://launchpad.support.sap.com/#/notes/1590719
 [1597355]:https://launchpad.support.sap.com/#/notes/1597355
-[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1605680]: https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
-[1619967]:https://launchpad.support.sap.com/#/notes/1619967
-[1750510]:https://launchpad.support.sap.com/#/notes/1750510
-[1752266]:https://launchpad.support.sap.com/#/notes/1752266
-[1757924]:https://launchpad.support.sap.com/#/notes/1757924
-[1757928]:https://launchpad.support.sap.com/#/notes/1757928
-[1758182]:https://launchpad.support.sap.com/#/notes/1758182
-[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1619967]: https://launchpad.support.sap.com/#/notes/1619967
+[1750510]: https://launchpad.support.sap.com/#/notes/1750510
+[1752266]: https://launchpad.support.sap.com/#/notes/1752266
+[1757924]: https://launchpad.support.sap.com/#/notes/1757924
+[1757928]: https://launchpad.support.sap.com/#/notes/1757928
+[1758182]: https://launchpad.support.sap.com/#/notes/1758182
+[1758496]: https://launchpad.support.sap.com/#/notes/1758496
 [1772688]:https://launchpad.support.sap.com/#/notes/1772688
-[1814258]:https://launchpad.support.sap.com/#/notes/1814258
-[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1814258]: https://launchpad.support.sap.com/#/notes/1814258
+[1882376]: https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
-[1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1941500]:https://launchpad.support.sap.com/#/notes/1941500
-[1956005]:https://launchpad.support.sap.com/#/notes/1956005
-[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1922555]: https://launchpad.support.sap.com/#/notes/1922555
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1941500]: https://launchpad.support.sap.com/#/notes/1941500
+[1956005]: https://launchpad.support.sap.com/#/notes/1956005
+[1973241]: https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
 [2069760]:https://launchpad.support.sap.com/#/notes/2069760
-[2121797]:https://launchpad.support.sap.com/#/notes/2121797
-[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2121797]: https://launchpad.support.sap.com/#/notes/2121797
+[2134316]: https://launchpad.support.sap.com/#/notes/2134316
 [2171857]:https://launchpad.support.sap.com/#/notes/2171857
 [2178632]:https://launchpad.support.sap.com/#/notes/2178632
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498

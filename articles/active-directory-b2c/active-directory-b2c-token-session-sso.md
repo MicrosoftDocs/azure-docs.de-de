@@ -2,20 +2,20 @@
 title: Sitzungs- und SSO-Konfiguration in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Sitzungs- und SSO-Konfiguration in Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: daff37ca803a7eebdc07a78d6d02f5cee36de2f5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 472e494d445ae4a22c988076994649543ec1f7f8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703812"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508117"
 ---
 # <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Sitzungs- und SSO-Konfiguration in Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Diese Funktion ermöglicht Ihnen eine präzisere Steuerung der folgenden Einstel
 
 Azure AD B2C unterstützt das [OpenID Connect-Authentifizierungsprotokoll](active-directory-b2c-reference-oidc.md) zum Aktivieren der sicheren Anmeldung bei Webanwendungen. Sie können die folgenden Eigenschaften zum Verwalten von Webanwendungssitzungen verwenden:
 
-- **Lebensdauer der Web-App-Sitzung (Minuten)**: Die Gültigkeitsdauer von Azure AD B2C-Sitzungscookies, die nach erfolgreicher Authentifizierung des Benutzers im Browser gespeichert werden
+- **Lebensdauer der Web-App-Sitzung (Minuten)** : Die Gültigkeitsdauer von Azure AD B2C-Sitzungscookies, die nach erfolgreicher Authentifizierung des Benutzers im Browser gespeichert werden
     - Standardwert: 1.440 Minuten.
     - Minimum (inklusive): 15 Minuten.
     - Maximum (inklusive): 1.440 Minuten.

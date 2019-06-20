@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 03b453e441b92d21f29e7e1f401bebae0b8589da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171447"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Bereitstellen einer verwalteten Anwendung für einen Dienstkatalog mit PowerShell
 

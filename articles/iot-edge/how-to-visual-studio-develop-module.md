@@ -1,24 +1,24 @@
 ---
 title: Entwickeln und Debuggen von Modulen in Visual Studio – Azure IoT Edge | Microsoft-Dokumentation
-description: Entwickeln und Debuggen von Modulen für Azure IoT Edge mithilfe von Visual Studio 2017
+description: Entwickeln und Debuggen von Modulen für Azure IoT Edge mithilfe von Visual Studio 2019
 services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/03/2019
+ms.date: 05/27/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f2228726d4edc25efe46a660d25d398959c3ea59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851599"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474785"
 ---
-# <a name="use-visual-studio-2017-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Entwickeln und Debuggen von Modulen für Azure IoT Edge (Vorschauversion) mithilfe von Visual Studio 2017
+# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Entwickeln und Debuggen von Modulen für Azure IoT Edge mithilfe von Visual Studio 2019 (Vorschau)
 
-Sie können Ihre Geschäftslogik in Azure IoT Edge-Module umwandeln. In diesem Artikel erfahren Sie, wie Sie Visual Studio 2017 als Haupttool zum Entwickeln und Debuggen von Modulen verwenden.
+Sie können Ihre Geschäftslogik in Azure IoT Edge-Module umwandeln. In diesem Artikel erfahren Sie, wie Sie Visual Studio 2019 als Haupttool zum Entwickeln und Debuggen von Modulen verwenden.
 
 Die Azure IoT Edge-Tools für Visual Studio bietet die folgenden Vorteile:
 
@@ -27,7 +27,7 @@ Die Azure IoT Edge-Tools für Visual Studio bietet die folgenden Vorteile:
 - Sie können Ihre Azure IoT-Module in C oder C# programmieren und dabei von sämtlichen Vorteilen der Entwicklung mit Visual Studio profitieren.
 - Sie können Ihre Azure IoT Edge-Geräte und -Module in der Benutzeroberfläche verwalten.
 
-In diesem Artikel erfahren Sie, wie Sie Ihre IoT Edge-Module mithilfe der Azure IoT Edge-Tools für Visual Studio 2017 entwickeln. Außerdem erfahren Sie, wie Sie Ihr Projekt auf Ihrem Azure IoT Edge-Gerät bereitstellen.
+In diesem Artikel erfahren Sie, wie Sie Ihre IoT Edge-Module mithilfe der Azure IoT Edge-Tools für Visual Studio 2019 entwickeln. Außerdem erfahren Sie, wie Sie Ihr Projekt auf Ihrem Azure IoT Edge-Gerät bereitstellen.
 
 > [!TIP]
 > Die von Visual Studio erstellte Struktur eines IoT Edge-Projekts ist nicht die gleiche wie in Visual Studio Code.
@@ -36,11 +36,14 @@ In diesem Artikel erfahren Sie, wie Sie Ihre IoT Edge-Module mithilfe der Azure
 
 In diesem Artikel wird davon ausgegangen, dass Sie einen Computer oder virtuellen Computer unter Windows als Entwicklungscomputer verwenden. Ihr IoT Edge-Gerät kann ein anderes physisches Gerät sein.
 
-Weil in diesem Artikel Visual Studio 2017 als Hauptentwicklungstool verwendet wird, installieren Sie Visual Studio. Schließen Sie die Workloads **Azure-Entwicklung** und **Desktopentwicklung mit C++** in Ihre Visual Studio 2017-Installation ein. Sie können [Visual Studio 2017 ändern](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017), um die erforderlichen Workloads hinzuzufügen.
+Da in diesem Artikel Visual Studio 2019 als Hauptentwicklungstool verwendet wird, installieren Sie Visual Studio. Schließen Sie die Workloads **Azure-Entwicklung** und **Desktopentwicklung mit C++** in Ihre Visual Studio 2019-Installation ein. Sie können [Visual Studio 2019 ändern](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019), um die erforderlichen Workloads hinzuzufügen.
 
-Wenn Ihr Visual Studio 2017 bereit ist, benötigen Sie auch die folgenden Tools und Komponenten:
+Wenn Visual Studio 2019 bereit ist, benötigen Sie auch die folgenden Tools und Komponenten:
 
-- Laden Sie die [Azure IoT Edge-Erweiterung (Vorschauversion)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) vom Visual Studio Marketplace herunter, und installieren Sie sie, um ein IoT Edge-Projekt in Visual Studio 2017 erstellen zu können.
+- Laden Sie die [Azure IoT Edge-Tools (Vorschau)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) vom Visual Studio Marketplace herunter, und installieren Sie sie, um ein IoT Edge-Projekt in Visual Studio 2019 erstellen zu können.
+
+> [!TIP]
+> Wenn Sie Visual Studio 2017 verwenden, laden Sie die [Azure IoT Edge-Tools (Vorschau)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) für VS 2017 vom Visual Studio Marketplace herunter, und installieren Sie sie.
 
 - Laden Sie die [Docker Community Edition](https://docs.docker.com/install/) auf Ihren Entwicklungscomputer herunter, und installieren Sie sie, um Ihre Modulimages erstellen und ausführen zu können. Sie müssen für die Docker CE festlegen, dass sie entweder im Linux-Containermodus oder im Windows-Containermodus ausgeführt wird.
 
@@ -74,7 +77,7 @@ Wenn Ihr Visual Studio 2017 bereit ist, benötigen Sie auch die folgenden Tools 
 
 1. Wählen Sie im Menü **Extras** die Option **Erweiterungen und Updates** aus. Erweitern Sie **Installiert > Tools**. Dort finden Sie **Azure IoT Edge-Tools** und **Cloud-Explorer für Visual Studio**.
 
-1. Notieren Sie sich die installierte Version. Sie können diese Version mit der neuesten Version in Visual Studio Marketplace vergleichen ([Cloud-Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)).
+1. Notieren Sie sich die installierte Version. Sie können diese Version mit der neuesten Version in Visual Studio Marketplace vergleichen ([Cloud-Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS2019), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)).
 
 1. Wenn Ihre Version älter ist als die Versionen, die auf dem Visual Studio Marketplace zur Verfügung stehen, aktualisieren Sie Ihre Tools in Visual Studio, wie im folgenden Abschnitt gezeigt wird.
 
@@ -92,24 +95,19 @@ Wenn Ihr Visual Studio 2017 bereit ist, benötigen Sie auch die folgenden Tools 
 
 Die Azure IoT Edge-Projektvorlage in Visual Studio erstellt ein Projekt, das auf Azure IoT Edge-Geräten im Azure IoT Hub bereitgestellt werden kann. Sie erstellen zunächst eine Azure IoT Edge-Lösung und generieren anschließend das erste Modul in dieser Lösung. Jede IoT Edge-Lösung kann mehrere Module enthalten.
 
-1. Wählen Sie in Visual Studio im Menü **Datei** die Optionen **Neu** > **Projekt**.
+1. Suchen Sie im Visual Studio-Dialogfeld „Neues Projekt“ das Projekt **Azure IoT Edge**, wählen Sie es aus, und klicken Sie auf **Weiter**. Im Fenster zum Konfigurieren des Projekts geben Sie einen Namen und den Speicherort für Ihr Projekt ein, und wählen Sie dann **Erstellen** aus. Der Standardname für das Projekt ist **AzureIoTEdgeApp1**.
 
-1. Wählen Sie im Dialogfeld **Neues Projekt** Folgendes aus: **Installiert** > **Azure IoT** > **Azure IoT Edge**. Geben Sie einen Namen für Ihr Projekt ein, geben Sie den gewünschten Speicherort an, und wählen Sie **OK** aus. Der Standardname für das Projekt ist **AzureIoTEdgeApp1**.
+   ![Erstellen eines neuen Projekts](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-   ![Neues Projekt](./media/how-to-visual-studio-develop-csharp-module/create-new.jpg)
+1. Wählen Sie im Fenster **IoT Edge-Anwendung und -Modul hinzufügen** entweder **C#-Modul** oder **C++-Modul** aus, und geben Sie den Namen und das Imagerepository für Ihr Modul an. Visual Studio füllt den Modulnamen automatisch mit **localhost:5000/<Name Ihres Moduls\>** aus. Ersetzen Sie ihn durch Ihre eigenen Registrierungsinformationen. Wenn Sie eine lokale Docker-Registrierung zum Testen verwenden, können Sie **localhost** nutzen. Nutzen Sie den Anmeldeserver aus Ihren Registrierungseinstellungen, wenn Sie Azure Container Registry verwenden. Der Anmeldeserver hat die Form * **\<Registrierungsname\>*.azurecr.io**. Ersetzen Sie nur den Teil **localhost:5000** der Zeichenfolge, damit das endgültige Ergebnis die folgende Form hat: * *\<* Registrierungsname *\>.azurecr.io/* \<Name Ihres Moduls\>***. Der Standardname für das Modul ist **IoTEdgeModule1**.
 
-1. Wählen Sie im Fenster**zum Hinzufügen der IoT Edge-Anwendung und des Moduls** entweder **Linux Amd64** oder **Windows Amd64** oder beide Optionen als Anwendungsplattform aus. Wenn Sie beide Optionen auswählen, wird eine Lösung mit zwei Projekten erstellt, die jeweils auf das Standardcodemodul verweisen.
-
-   > [!TIP]
-   > Das Erstellen von Projekten für die ARM-Plattform wird derzeit von der Azure IoT Edge-Erweiterung für Visual Studio nicht unterstützt. Ein Beispiel für die Entwicklung einer Lösung für „ARM32v7/armhf“ mithilfe von Visual Studio Code finden Sie in [diesem IoT Developer-Blogeintrag](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/).
-
-1. Wählen Sie entweder  **C#-Modul** oder **C++-Modul** aus, und geben Sie den Namen und das Imagerepository für Ihr Modul an. Visual Studio füllt den Modulnamen automatisch mit **localhost:5000/<Name Ihres Moduls\>** aus. Ersetzen Sie ihn durch Ihre eigenen Registrierungsinformationen. Wenn Sie eine lokale Docker-Registrierung zum Testen verwenden, können Sie **localhost** nutzen. Nutzen Sie den Anmeldeserver aus Ihren Registrierungseinstellungen, wenn Sie Azure Container Registry verwenden. Der Anmeldeserver hat die Form ***\<Registrierungsname\>*.azurecr.io**. Ersetzen Sie nur den Teil **localhost:5000** der Zeichenfolge, damit das endgültige Ergebnis die folgende Form hat: **\<* Registrierungsname*\>.azurecr.io/*\<Name Ihres Moduls\>***. Der Standardname für das Modul ist **IoTEdgeModule1**.
+   ![Anwendung und Modul hinzufügen](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
 1. Wählen Sie **OK** aus, um die Azure IoT Edge-Lösung mit einem Modul zu erstellen, das entweder C# oder C verwendet.
 
-Ihre Lösung enthält nun das Projekt **AzureIoTEdgeApp1.Linux.Amd64** oder das Projekt **AzureIoTEdgeApp1.Windows.Amd64** (oder beide) sowie das Projekt **IoTEdgeModule1**. Jedes Projekt vom Typ **AzureIoTEdgeApp1** enthält eine Datei namens `deployment.template.json`. Diese Datei definiert die Module, die Sie für Ihre IoT Edge-Lösung erstellen und bereitstellen möchten, sowie die Routen zwischen Modulen. Die Standardlösung besteht aus einem **TempSensor**-und einem **IoTEdgeModule1**-Modul. Das **TempSensor**-Modul generiert simulierte Daten für das **IoTEdgeModule1**-Modul, und der Standardcode im **IoTEdgeModule1**-Modul sendet empfangene Nachrichten direkt an den Azure IoT Hub.
+Ihre Lösung enthält nun das Projekt **AzureIoTEdgeApp1.Linux.Amd64** oder das Projekt **AzureIoTEdgeApp1.Windows.Amd64** sowie das Projekt **IoTEdgeModule1**. Jedes Projekt vom Typ **AzureIoTEdgeApp1** enthält eine Datei namens `deployment.template.json`. Diese Datei definiert die Module, die Sie für Ihre IoT Edge-Lösung erstellen und bereitstellen möchten, sowie die Routen zwischen Modulen. Die Standardlösung besteht aus einem **TempSensor**-und einem **IoTEdgeModule1**-Modul. Das **TempSensor**-Modul generiert simulierte Daten für das **IoTEdgeModule1**-Modul, und der Standardcode im **IoTEdgeModule1**-Modul sendet empfangene Nachrichten direkt an den Azure IoT Hub.
 
-Das **IoTEdgeModule1**-Projekt ist eine .NET Core 2.1-Konsolenanwendung. Es enthält die erforderlichen Dockerfiles, die Sie für Ihr IoT Edge-Gerät benötigen, das entweder mit einem Windows-Container oder einem Linux-Container läuft. Die Datei `module.json` beschreibt die Metadaten eines Moduls. Der eigentliche Modulcode, der das Azure IoT-Geräte-SDK als Abhängigkeit verwendet, befindet sich in der Datei `Program.cs` oder `main.c`.
+Das Projekt **IoTEdgeModule1** ist eine .NET Core 2.1-Konsolenanwendung, wenn es sich um ein C#-Modul handelt. Es enthält die erforderlichen Dockerfiles, die Sie für Ihr IoT Edge-Gerät benötigen, das entweder mit einem Windows-Container oder einem Linux-Container läuft. Die Datei `module.json` beschreibt die Metadaten eines Moduls. Der eigentliche Modulcode, der das Azure IoT-Geräte-SDK als Abhängigkeit verwendet, befindet sich in der Datei `Program.cs` oder `main.c`.
 
 ## <a name="develop-your-module"></a>Entwickeln Ihres Moduls
 
@@ -123,7 +121,7 @@ Wenn Sie bereit sind, die Modulvorlage mit Ihrem eigenen Code anzupassen, erstel
 
    ![Kopieren der Edge-Geräteverbindungszeichenfolge](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. Klicken Sie mit der rechten Maustaste auf das Projekt **AzureIoTEdgeApp1**. Klicken Sie dann auf **Set Edge Device Connection String** (Edge-Geräteverbindungszeichenfolge festlegen), um das Setupfenster für Azure IoT Edge zu öffnen.
+1. Wechseln Sie zu **Tools** > **Azure IoT Edge-Tools** > **IoT Edge Simulator einrichten**, fügen Sie die Verbindungszeichenfolge ein, und klicken Sie auf **OK**.
 
    ![Öffnen des Fensters „Set Edge Device Connection String“ (Edge-Geräteverbindungszeichenfolge festlegen)](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 
@@ -225,7 +223,7 @@ Nachdem Sie ein Einzelmodul entwickelt haben, möchten Sie jetzt vielleicht eine
 
 Im Schnellstartartikel, anhand dessen Sie Ihr IoT Edge-Gerät eingerichtet haben, haben Sie ein Modul über das Azure-Portal bereitgestellt. Sie können Module auch mit dem Cloud-Explorer für Visual Studio bereitstellen. Weil Sie ein Bereitstellungsmanifest für Ihr Szenario und die Datei `deployment.json` schon vorbereitet haben, müssen Sie lediglich ein Gerät auswählen, um die Bereitstellung zu empfangen.
 
-1. Öffnen Sie den **Cloud-Explorer** durch Klicken auf **Ansicht** > **Cloud-Explorer**. Vergewissern Sie sich, dass Sie bei Visual Studio 2017 angemeldet sind.
+1. Öffnen Sie den **Cloud-Explorer** durch Klicken auf **Ansicht** > **Cloud-Explorer**. Vergewissern Sie sich, dass Sie bei Visual Studio 2019 angemeldet sind.
 
 1. Erweitern Sie in **Cloud-Explorer** Ihr Abonnement, suchen Sie Ihren Azure IoT Hub und das Azure IoT Edge-Gerät, das Sie bereitstellen möchten.
 
@@ -238,9 +236,9 @@ Im Schnellstartartikel, anhand dessen Sie Ihr IoT Edge-Gerät eingerichtet haben
 
 ## <a name="view-generated-data"></a>Anzeigen generierter Daten
 
-1. Wenn Sie die D2C-Nachricht für ein bestimmtes Gerät überwachen möchten, wählen Sie dieses Gerät in der Liste aus, und klicken Sie im Fenster **Aktion** auf **Überwachung von D2C-Nachrichten starten**.
+1. Um die D2C-Nachricht für ein bestimmtes Gerät zu überwachen, wählen Sie dieses Gerät in der Liste aus, und klicken Sie im Fenster **Aktion** auf **Überwachen des integrierten Ereignisendpunkts starten**.
 
-1. Um die Überwachung von Daten zu beenden, wählen Sie das Gerät in der Liste aus. Wählen Sie dann im Fenster **Aktion** die Option **Überwachen von D2C-Nachrichten beenden** aus.
+1. Um die Überwachung von Daten zu beenden, wählen Sie das Gerät in der Liste aus. Wählen Sie dann im Fenster **Aktion** die Option **Überwachen des integrierten Ereignisendpunkts beenden** aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

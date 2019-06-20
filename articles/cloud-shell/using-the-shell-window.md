@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 2511f2c8fb706e232cde9ee4c02c7f8114bd3a2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60200611"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Verwenden des Azure Cloud Shell-Fensters
 

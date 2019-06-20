@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65538295"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vorschau: Erstellen einer Azure Image Builder-Vorlage 
@@ -447,7 +447,7 @@ Verteilungseigenschaften für Kataloge mit freigegebenen Images:
 > [!NOTE]
 > Sie können Azure Image Builder in einer Region verwenden, in der sich der Katalog nicht befindet, jedoch muss der Azure Image Builder-Dienst das Image zwischen den Rechenzentren übertragen, was länger dauert. Image Builder versieht das Image automatisch mit einer Version, basierend auf einem monotonen Integer, den Sie derzeit nicht festlegen können. 
 
-### <a name="distribute-vhd"></a>Distribute: VHD   
+### <a name="distribute-vhd"></a>Distribute: VHD  
 Sie können die Ausgabe in einer VHD erstellen. Anschließend können Sie die VHD kopieren und für die Veröffentlichung im Azure Marketplace oder mit Azure Stack verwenden.  
 
 ```json

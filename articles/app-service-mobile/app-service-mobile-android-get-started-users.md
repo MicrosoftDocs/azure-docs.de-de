@@ -14,18 +14,18 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7b80c1148cf2716e71308d953ac445c4bb50cbc5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595527"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62119760"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Hinzufügen der Authentifizierung zu Ihrer Android-App
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Zusammenfassung
-In diesem Tutorial verwenden Sie einen unterstützten Identitätsanbieter, um dem Aufgabenlisten-Schnellstartprojekt unter Android eine Authentifizierung hinzuzufügen. Dieses Tutorial baut auf dem Tutorial [Erste Schritte mit Mobile Apps] auf, das Sie zuerst abschließen müssen.
+In diesem Tutorial verwenden Sie einen unterstützten Identitätsanbieter, um dem Aufgabenlisten-Schnellstartprojekt unter Android eine Authentifizierung hinzuzufügen. Dieses Tutorial baut auf dem Tutorial [Erste Schritte mit mobilen Apps] auf, das Sie zuerst abschließen müssen.
 
 ## <a name="register"></a>Registrieren Ihrer App für die Authentifizierung und Konfigurieren von Azure App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -47,7 +47,7 @@ Eine sichere Authentifizierung erfordert, dass Sie ein neues URL-Schema für Ihr
 ## <a name="permissions"></a>Einschränken von Berechtigungen für authentifizierte Benutzer
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* Öffnen Sie in Android Studio das Projekt, das Sie im Tutorial [Erste Schritte mit Mobile Apps] erstellt haben. Klicken Sie im Menü **Ausführen** auf **App ausführen**. Vergewissern Sie sich, dass nach dem Start der App ein Ausnahmefehler mit dem Statuscode 401 (nicht autorisiert) ausgelöst wird.
+* Öffnen Sie in Android Studio das Projekt, das Sie im Tutorial [Erste Schritte mit mobilen Apps] erstellt haben. Klicken Sie im Menü **Ausführen** auf **App ausführen**. Vergewissern Sie sich, dass nach dem Start der App ein Ausnahmefehler mit dem Statuscode 401 (nicht autorisiert) ausgelöst wird.
 
      Diese Ausnahme wird ausgelöst, weil die App als nicht authentifizierter Benutzer versucht, auf das Back-End zuzugreifen, aber die *TodoItem*-Tabelle nun eine Authentifizierung erfordert.
 
@@ -79,5 +79,5 @@ Nachdem Sie dieses einfache Tutorial zur Authentifizierung abgeschlossen haben, 
 
 
 <!-- URLs. -->
-[Erste Schritte mit Mobile Apps]: app-service-mobile-android-get-started.md
+[Erste Schritte mit mobilen Apps]: app-service-mobile-android-get-started.md
 [Azure-Portal]: https://portal.azure.com/

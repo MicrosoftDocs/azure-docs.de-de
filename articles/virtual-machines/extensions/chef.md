@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
 ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60800265"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Chef-VM-Erweiterung für Linux und Windows
 
@@ -70,24 +70,24 @@ Der folgende JSON-Code zeigt das Schema für die Chef-VM-Erweiterung. Die Erweit
 
 | NAME | Wert/Beispiel | Datentyp
 | ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | Zeichenfolge (Datum) |
-| Herausgeber | `Chef.Bootstrap.WindowsAzure` | Zeichenfolge |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | Zeichenfolge |
-| typeHandlerVersion | `1210.12` | Zeichenfolge (Double) |
+| apiVersion | `2017-12-01` | string (date) |
+| publisher | `Chef.Bootstrap.WindowsAzure` | string |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Einstellungen
 
 | NAME | Wert/Beispiel | Datentyp | Erforderlich?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | Zeichenfolge (URL) | J |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | Zeichenfolge | J |
-| settings/runlist | `recipe[mycookbook::default]` | Zeichenfolge | J |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | J |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | J |
+| settings/runlist | `recipe[mycookbook::default]` | string | J |
 
 ### <a name="protected-settings"></a>Geschützte Einstellungen
 
 | NAME | Beispiel | Datentyp | Erforderlich?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | Zeichenfolge | J |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | J |
 
 <!--
 ### Linux-specific settings

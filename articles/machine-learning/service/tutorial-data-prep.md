@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 8b7bf5a0ece3927c7dbafdec9716b7c6f8dfbc0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470265"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474710"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Vorbereiten von Daten für die Regressionsmodellierung
 
-In diesem Tutorial erfahren Sie, wie Sie Daten mit dem [Datenvorbereitungspaket für Azure Machine Learning](https://aka.ms/data-prep-sdk) für die Regressionsmodellierung vorbereiten. Sie führen verschiedene Transformationen durch, um zwei Datasets für New Yorker Taxis zu filtern und miteinander zu kombinieren.
+In diesem Tutorial erfahren Sie, wie Sie Daten mit dem [Datenvorbereitungspaket](https://aka.ms/data-prep-sdk) aus dem [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) für die Regressionsmodellierung vorbereiten. Sie führen verschiedene Transformationen durch, um zwei Datasets für New Yorker Taxis zu filtern und miteinander zu kombinieren.
 
 Dieses Tutorial ist der **erste Teil einer zweiteiligen Reihe**. Nach Abschluss der Tutorialreihe können Sie die Kosten für eine Taxifahrt prognostizieren, indem Sie ein Modell mit Datenfeatures trainieren. Zu den Features zählen der Abholzeitpunkt (Tag und Uhrzeit), die Anzahl der Fahrgäste und der Abholort.
 
@@ -38,7 +38,7 @@ In diesem Tutorial führen Sie Folgendes durch:
 Fahren Sie mit dem Abschnitt [Einrichten Ihrer Entwicklungsumgebung](#start) fort, um mehr zu den Schritten mit Notebooks zu erfahren, oder rufen Sie anhand der nachfolgenden Anweisungen das Notebook ab, und führen Sie es unter Azure Notebooks oder auf Ihrem eigenen Notebook-Server aus. Für die Ausführung des Notebooks ist Folgendes erforderlich:
 
 * Ein Python 3.6-Notebook-Server mit folgenden Komponenten:
-    * Das Datenaufbereitungs-SDK für Python von Azure Machine Learning
+    * Paket `azureml-dataprep` aus dem Azure Machine Learning SDK
 * Das Tutorial-Notebook
 
 * Verwenden eines [cloudbasierten Notebook-Servers in Ihrem Arbeitsbereich](#azure) 
@@ -46,7 +46,7 @@ Fahren Sie mit dem Abschnitt [Einrichten Ihrer Entwicklungsumgebung](#start) for
 
 ### <a name="azure"></a>Verwenden eines cloudbasierten Notebook-Servers in Ihrem Arbeitsbereich
 
-Die ersten Schritte mit Ihrem eigenen cloudbasierten Notebook-Server sind ganz einfach. Das [Azure Machine Learning SDK für Python](https://aka.ms/aml-sdk) wird für Sie installiert und konfiguriert, wenn Sie diese Cloudressource erstellen.
+Die ersten Schritte mit Ihrem eigenen cloudbasierten Notebook-Server sind ganz einfach. Das Azure Machine Learning SDK für Python wird für Sie installiert und konfiguriert, wenn Sie diese Cloudressource erstellen.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
@@ -56,8 +56,8 @@ Die ersten Schritte mit Ihrem eigenen cloudbasierten Notebook-Server sind ganz e
 
 Führen Sie diese Schritte aus, um auf Ihrem Computer einen lokalen Jupyter Notebook-Server zu erstellen.  Führen Sie nach den Schritten das Notebook **tutorials/regression-part1-data-prep.ipynb** aus.
 
-1. Führen Sie die Installationsschritte unter [[Schnellstart: Verwenden von Python für die ersten Schritte mit Azure Machine Learning](quickstart-run-local-notebook.md)](setup-create-workspace.md#python) aus, um eine Miniconda-Umgebung zu erstellen.  Den Abschnitt **Erstellen eines Arbeitsbereichs** können Sie überspringen, wenn Sie möchten, Sie benötigen ihn jedoch für [Teil 2](tutorial-auto-train-models.md) dieser Tutorialreihe.
-1. Installieren Sie das Datenaufbereitungs-SDK mithilfe von `pip install azureml-dataprep` in Ihrer Umgebung.
+1. Führen Sie die Installationsschritte unter [Schnellstart: Verwenden von Python für die ersten Schritte mit Azure Machine Learning](setup-create-workspace.md#sdk) aus, um eine Miniconda-Umgebung zu erstellen und das SDK zu installieren.  Den Abschnitt **Erstellen eines Arbeitsbereichs** können Sie überspringen, wenn Sie möchten, Sie benötigen ihn jedoch für [Teil 2](tutorial-auto-train-models.md) dieser Tutorialreihe.
+1. Das Paket `azureml-dataprep` wird beim Installieren des SDK automatisch installiert.
 1. Klonen Sie das [GitHub-Repository](https://aka.ms/aml-notebooks).
 
     ```
@@ -85,14 +85,14 @@ Installieren Sie wie folgt die erforderlichen Pakete, sofern sie noch nicht vorh
 pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
-Importieren Sie das SDK.
+Importieren Sie das Paket.
 
 ```python
 import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> Achten Sie darauf, dass Sie die aktuelle Version installieren. Dieses Tutorial funktioniert nicht mit Versionen unter 1.1.0.
+> Stellen Sie sicher, dass Sie die aktuelle Paketversion „azureml.dataprep“ installieren. Dieses Tutorial funktioniert nicht mit Versionen unter 1.1.0.
 
 ## <a name="load-data"></a>Laden von Daten
 

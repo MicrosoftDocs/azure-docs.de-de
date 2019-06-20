@@ -8,10 +8,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
 ms.openlocfilehash: 78ea29b9b37c55a588a44f8d4b69486b89ee2fee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684829"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinieren von ScaleR und SparkR in HDInsight

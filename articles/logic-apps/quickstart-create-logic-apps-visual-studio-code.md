@@ -11,11 +11,11 @@ ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
 ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60512245"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Schnellstart: Erstellen und Verwalten automatisierter Logik-App-Workflows – Visual Studio Code
 

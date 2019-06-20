@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60699272"
 ---
 # <a name="learn-image-moderation-concepts"></a>Lernen von Bildmoderationskonzepten
 

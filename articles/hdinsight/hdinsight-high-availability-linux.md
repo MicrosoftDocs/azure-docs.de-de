@@ -1,29 +1,26 @@
 ---
 title: Hochverfügbarkeit für Hadoop – Azure HDInsight
 description: Erfahren Sie, wie HDInsight-Cluster durch die Verwendung eines zusätzlichen Hauptknotens eine höhere Zuverlässigkeit und Verfügbarkeit bieten. Sie erfahren, wie dies Hadoop-Dienste wie Ambari und Hive beeinflusst, und wie eine Verbindung mit jedem Hauptknoten über SSH hergestellt wird.
-services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
 keywords: Hochverfügbarkeit, Hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704929"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Verfügbarkeit und Zuverlässigkeit von Apache Hadoop-Clustern in HDInsight
 
 HDInsight-Cluster stellen zwei Hauptknoten bereit, um die Verfügbarkeit und Zuverlässigkeit von ausgeführten Apache Hadoop-Diensten und -Aufträgen zu verbessern.
 
 Hadoop erzielt Hochverfügbarkeit und Zuverlässigkeit durch das Replizieren von Diensten und Daten über mehrere Knoten in einem Cluster. Hadoop-Standarddistributionen weisen jedoch typischerweise nur einen einzigen Hauptknoten auf. Jeder Ausfall dieses Hauptknotens kann dazu führen, dass der Cluster nicht mehr funktioniert. HDInsight bietet zwei Hauptknoten, um die Verfügbarkeit und Zuverlässigkeit von Hadoop zu verbessern.
-
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Verfügbarkeit und Zuverlässigkeit von Knoten
 
@@ -105,7 +102,7 @@ Um den Status von Diensten zu überprüfen, die auf den Hauptknoten ausgeführt 
 
 ### <a name="ambari-web-ui"></a>Ambari-Webbenutzeroberfläche
 
-Die Ambari-Webbenutzeroberfläche kann unter https://CLUSTERNAME.azurehdinsight.net angezeigt werden. Ersetzen Sie **CLUSTERNAME** durch den Namen Ihres Clusters. Wenn Sie dazu aufgefordert werden, geben Sie die HTTP-Anmeldeinformationen für Ihren Cluster ein. Der standardmäßige HTTP-Benutzername ist **admin** , und das Kennwort ist das Kennwort, das Sie beim Erstellen des Clusters eingegeben haben.
+Die Ambari-Webbenutzeroberfläche kann unter `https://CLUSTERNAME.azurehdinsight.net` angezeigt werden. Ersetzen Sie **CLUSTERNAME** durch den Namen Ihres Clusters. Wenn Sie dazu aufgefordert werden, geben Sie die HTTP-Anmeldeinformationen für Ihren Cluster ein. Der standardmäßige HTTP-Benutzername ist **admin** , und das Kennwort ist das Kennwort, das Sie beim Erstellen des Clusters eingegeben haben.
 
 Die installierten Dienste werden im linken Bereich der Ambari-Seite aufgelistet.
 
@@ -248,27 +245,25 @@ Wählen Sie auf der Ambari-Webbenutzeroberfläche den Dienst, für den Sie Proto
 
 ## <a name="how-to-configure-the-node-size"></a>Konfigurieren der Knotengröße
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Die Größe eines Knotens kann nur beim Erstellen des Clusters ausgewählt werden. Eine Liste der verschiedenen VM-Größen, die für HDInsight verfügbar sind, finden Sie auf der Seite [HDInsight-Preise](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Beim Erstellen eines Clusters können Sie die Größe der Knoten angeben. Die folgenden Informationen bieten eine Anleitung, wie die Größe im [Azure-Portal][preview-portal], mit [Azure PowerShell][azure-powershell] und mit der [klassischen Azure CLI][azure-cli] festgelegt werden kann:
+Beim Erstellen eines Clusters können Sie die Größe der Knoten angeben. Die folgenden Informationen bieten eine Anleitung, wie die Größe über das [Azure-Portal][preview-portal], das [Azure PowerShell-Modul Az][azure-powershell] und mit der [Azure CLI][azure-cli] festgelegt werden kann:
 
 * **Azure-Portal**: Beim Erstellen eines Clusters können Sie die Größe der vom Cluster genutzten Knoten festlegen:
 
     ![Screenshot des Assistenten zur Clustererstellung mit der Auswahl der Knotengröße](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Klassische Azure-Befehlszeilenschnittstelle**: Die Größe der Haupt-, Worker- und ZooKeeper-Knoten kann bei Verwendung des Befehls `azure hdinsight cluster create` mit den Parametern `--headNodeSize`, `--workerNodeSize` und `--zookeeperNodeSize` festgelegt werden.
+* **Azure CLI**: Die Größe der Haupt-, Worker- und ZooKeeper-Knoten kann bei Verwendung des Befehls [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) mit den Parametern `--headnode-size`, `--workernode-size` und `--zookeepernode-size` festgelegt werden.
 
-* **Azure PowerShell:** Die Größe der Haupt-, Worker- und ZooKeeper-Knoten kann bei Verwendung des Cmdlets `New-AzHDInsightCluster` mit den Parametern `-HeadNodeVMSize`, `-WorkerNodeSize` und `-ZookeeperNodeSize` festgelegt werden.
+* **Azure PowerShell:** Die Größe der Haupt-, Worker- und ZooKeeper-Knoten kann bei Verwendung des Cmdlets [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) mit den Parametern `-HeadNodeSize`, `-WorkerNodeSize` und `-ZookeeperNodeSize` festgelegt werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 Über die folgenden Links erhalten Sie weiterführende Informationen.
 
 * [Apache Ambari-REST-Referenz](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Installieren der klassischen Azure CLI](../cli-install-nodejs.md)
-* [Installieren und Konfigurieren von Azure PowerShell](/powershell/azure/overview)
+* [Installieren und Konfigurieren der Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Installieren und Konfigurieren des Azure PowerShell-Moduls Az](/powershell/azure/overview)
 * [Verwalten von HDInsight mit Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Bereitstellen Linux-basierter HDInsight-Cluster](hdinsight-hadoop-provision-linux-clusters.md)
 

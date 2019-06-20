@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
 ms.openlocfilehash: 2468f61c187d9b10ed9fe55ccf76e5d2561d0505
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889810"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370729"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Grundlegendes zur Zuordnung kostenloser Dienste zu Verbrauchseinheiten
 

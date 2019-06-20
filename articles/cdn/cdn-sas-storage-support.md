@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60324103"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Verwenden von Azure CDN mit SAS
 
@@ -39,7 +39,7 @@ Nachdem Sie ein SAS-Token generiert haben, können Sie auf die BLOB-Speicherdate
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-Beispiel: 
+Beispiel:
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -60,7 +60,7 @@ Diese Option ist die einfachste und verwendet nur ein einziges SAS-Token, das vo
    
    Die resultierende CDN-Endpunkt-URL hat das folgende Format: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   Beispiel:    
+   Beispiel:   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -91,7 +91,7 @@ Diese Option ist nur für **Azure CDN Premium von Verizon**-Profile verfügbar. 
 
 2. Nach Aktivierung der neuen Regel können Benutzer auch ohne Verwendung des SAS-Tokens in der URL auf Dateien im angegebenen Container am CDN-Endpunkt zugreifen. Das Format sieht wie folgt aus: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   Beispiel:    
+   Beispiel:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -106,7 +106,7 @@ Um die Azure CDN-Sicherheitstokenauthentifizierung zu verwenden, müssen Sie üb
    Eine Endpunkt-URL mit Sicherheitstoken hat das folgende Format:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   Beispiel:    
+   Beispiel:   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```

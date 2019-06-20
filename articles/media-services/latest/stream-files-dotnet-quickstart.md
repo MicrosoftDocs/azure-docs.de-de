@@ -1,6 +1,6 @@
 ---
 title: 'Streamen von Videodateien mit Azure Media Services: .NET | Microsoft Docs'
-description: Führen Sie die in diesem Schnellstart beschriebenen Schritte aus, um ein neues Azure Media Services-Konto zu erstellen, eine Datei zu codieren und in Azure Media Player zu streamen.
+description: Führen Sie die in diesem Tutorial beschriebenen Schritte aus, um ein neues Azure Media Services-Konto zu erstellen, eine Datei zu codieren und in Azure Media Player zu streamen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,23 @@ editor: ''
 keywords: azure media services, streamen
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a50d78645630e499b11f012da122b12b026ae6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3834b4f07f6450f498831accfa6640f55bc5855a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857860"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550179"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Schnellstart: Streamen von Videodateien: .NET
+# <a name="tutorial-stream-video-files---net"></a>Tutorial: Streamen von Videodateien: .NET
 
-Dieser Schnellstart zeigt, wie einfach es ist, zu Codieren und mit dem Streaming von Videos für eine Vielzahl von Browsern und Geräten mit Azure Media Services zu beginnen. Ein Eingabeinhalt kann über HTTPS-URLs, SAS-URLs oder Pfade zu Dateien in Azure Blob Storage angegeben werden.
+Dieses Tutorial zeigt, wie einfach es ist, Videos zu codieren und mit deren Streaming für eine Vielzahl von Browsern und Geräten mit Azure Media Services zu beginnen. Ein Eingabeinhalt kann über HTTPS-URLs, SAS-URLs oder Pfade zu Dateien in Azure Blob Storage angegeben werden.
 Das Beispiel in diesem Thema codiert Inhalte, die Sie über eine HTTPS-URL zugänglich machen. Beachten Sie, dass AMS v3 derzeit keine segmentierte Transfercodierung über HTTPS-URLs unterstützt.
 
-Am Ende des Schnellstarts sind Sie in der Lage, ein Video zu streamen.  
+Am Ende des Tutorials sind Sie in der Lage, ein Video zu streamen.  
 
 ![Video abspielen](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -66,7 +66,7 @@ Um eine Erläuterung dazu zu erhalten, was jede Funktion im Beispiel bewirkt, un
 Wenn Sie die App ausführen, werden URLs angezeigt, die zur Wiedergabe des Videos mit verschiedenen Protokollen verwendet werden können. 
 
 1. Drücken Sie STRG+F5 zum Ausführen der *EncodeAndStreamFiles*-Anwendung.
-2. Wählen Sie das **HLS**-Protokoll von Apple (endet auf *manifest(format=m3u8-aapl)*) aus, und kopieren Sie die Streaming-URL aus der Konsole.
+2. Wählen Sie das **HLS**-Protokoll von Apple (endet auf *manifest(format=m3u8-aapl)* ) aus, und kopieren Sie die Streaming-URL aus der Konsole.
 
 ![Output](./media/stream-files-tutorial-with-api/output.png)
 
@@ -89,7 +89,7 @@ Azure Media Player kann zum Testen verwendet werden, sollte jedoch nicht in eine
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn Sie die Ressourcen in der Ressourcengruppe einschließlich der in dieser Schnellstartanleitung erstellten Media Services- und Speicherkonten nicht mehr benötigen, löschen Sie die Ressourcengruppe.
+Wenn Sie die Ressourcen in der Ressourcengruppe einschließlich der in diesem Tutorial erstellten Media Services- und Speicherkonten nicht mehr benötigen, löschen Sie die Ressourcengruppe.
 
 Führen Sie den folgenden CLI-Befehl aus:
 

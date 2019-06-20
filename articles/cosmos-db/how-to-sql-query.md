@@ -4,14 +4,14 @@ description: Informationen zu SQL-Syntax, Datenbankkonzepten und SQL-Abfragen f�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148951"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388480"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-Abfragebeispiele für Azure Cosmos DB
 
@@ -139,7 +139,7 @@ Die Abfrage hat folgende Ergebnisse:
     }]
 ```
 
-Die folgende Abfrage gibt alle Vornamen von Kindern der Familie zurück, deren `id` den Wert `WakefieldFamily` aufweist, und zwar geordnet nach dem Wohnort.
+Die folgende Abfrage gibt alle Vornamen von Kindern der Familie zurück, deren `id` dem Text `WakefieldFamily` entspricht, und zwar geordnet nach der Stadt.
 
 ```sql
     SELECT c.givenName
@@ -756,7 +756,7 @@ Diese Abfrage ruft die `id` der Familien in aufsteigender Reihenfolge nach dem N
 
 ## <a id="OffsetLimitClause"></a>OFFSET LIMIT-Klausel
 
-OFFSET LIMIT ist eine optionale Klausel zum Überspringen einer bestimmten Anzahl von Werten aus der Abfrage. In der OFFSET LIMIT-Klausel müssen sowohl für OFFSET als auch für LIMIT Werte angegeben werden.
+OFFSET LIMIT ist eine optionale Klausel zum Überspringen einer bestimmten Anzahl von Werten aus der Abfrage. In der OFFSET LIMIT-Klausel müssen sowohl für OFFSET als auch für LIMIT Werte angegeben werden. Derzeit wird diese Klausel nur für Abfragen in einer einzelnen Partition unterstützt, partitionsübergreifende Abfragen unterstützen sie noch nicht. 
 
 Wenn OFFSET LIMIT in Verbindung mit einer ORDER BY-Klausel verwendet wird, wird das Resultset erstellt, indem zunächst Werte übersprungen und dann die sortierten Werte angenommen werden. Wenn keine ORDER BY-Klausel verwendet wird, gilt eine deterministische Reihenfolge der Werte.
 
@@ -867,6 +867,13 @@ Die Ergebnisse sind wie folgt:
         ]
       }
     ]
+```
+
+Die folgende SQL-Abfrage ist ein weiteres Beispiel für die Verwendung von Arrays in Unterabfragen. Diese Abfrage ruft alle unterschiedlichen Vornamen von Kindern in einem Array ab.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
@@ -1979,7 +1986,7 @@ Der Abfrageanbieter unterstützt die folgenden skalaren Ausdrücke:
 
 - Konstante Werte, einschließlich konstanter Werte der primitiven Datentypen zum Auswertungszeitpunkt der Abfrage.
   
-- Indexausdrücke auf Eigenschaften/Arrays, die sich auf die Eigenschaft eines Objekts oder eines Arrayelements beziehen. Beispiel: 
+- Indexausdrücke auf Eigenschaften/Arrays, die sich auf die Eigenschaft eines Objekts oder eines Arrayelements beziehen. Beispiel:
   
   ```
     family.Id;

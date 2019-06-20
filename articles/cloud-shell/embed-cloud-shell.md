@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: damaerte
 ms.openlocfilehash: bbf6c1f3049265961559ea34c8b748b2b4d263b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995983"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60614311"
 ---
 # <a name="embed-azure-cloud-shell"></a>Einbetten von Azure Cloud Shell
 

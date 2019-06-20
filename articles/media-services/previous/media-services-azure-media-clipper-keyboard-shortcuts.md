@@ -10,11 +10,11 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 2eb32b8ec265a4afa2581374c1f07ac06958a576
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61466105"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Konfigurieren von Azure Media Clipper-Tastenkombinationen 
 

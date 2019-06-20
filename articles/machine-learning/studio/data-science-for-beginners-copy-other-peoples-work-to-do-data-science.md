@@ -1,7 +1,7 @@
 ---
 title: Kopieren der Data Science-Beispiele von anderen
 titleSuffix: Azure Machine Learning Studio
-description: 'Das Geschäftsgeheimnis von Data Science: Lassen Sie Andere Ihre Arbeit machen. Rufen Sie Machine Learning-Beispiele aus dem Azure AI-Katalog ab.'
+description: 'Das Geschäftsgeheimnis von Data Science: Lassen Sie Andere Ihre Arbeit machen. Rufen Sie Machine Learning-Beispiele aus dem Azure KI-Katalog ab.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,18 +11,18 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369206"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751821"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopieren der Arbeit anderer für Ihre Data Science
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Reihe „Data Science für Einsteiger“
-Eines der Branchengeheimnisse von Data Science besteht darin, Ihre Arbeit von anderen erledigen zu lassen. Suchen Sie im Azure AI-Katalog ein Beispiel für einen Clusteringalgorithmus, das Sie für Ihr eigenes Machine Learning-Experiment verwenden können.
+Eines der Branchengeheimnisse von Data Science besteht darin, Ihre Arbeit von anderen erledigen zu lassen. Suchen Sie im Azure KI-Katalog ein Beispiel für einen Clusteringalgorithmus, das Sie für Ihr eigenes Machine Learning-Experiment verwenden können.
 
 > [!IMPORTANT]
-> Der **Cortana Intelligence-Katalog** wurde in **Azure AI-Katalog** umbenannt. Daher weichen der Text und die Abbildungen in dieser Abschrift leicht vom Video ab, in dem noch der vorherige Name verwendet wird.
+> Der **Cortana Intelligence-Katalog** wurde in **Azure KI-Katalog** umbenannt. Daher weichen der Text und die Abbildungen in dieser Abschrift leicht vom Video ab, in dem noch der vorherige Name verwendet wird.
 >
 
 Die Reihe bietet den größten Nutzen, wenn Sie sich alle Videos ansehen. [Zur Liste der Videos wechseln](#other-videos-in-this-series)
@@ -48,18 +48,18 @@ In diesem Artikel lernen Sie einen Ort mit Beispielen kennen, die Sie als Ausgan
 
 Eines der Branchengeheimnisse von Data Science besteht darin, Ihre Arbeit von anderen erledigen zu lassen.
 
-## <a name="find-examples-in-the-azure-ai-gallery"></a>Suchen nach Beispielen im Azure AI-Katalog
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Suchen nach Beispielen im Azure KI-Katalog
 
 Microsoft bietet einen cloudbasierten Dienst namens [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), den Sie kostenlos testen können. Dabei wird ein Arbeitsbereich bereitgestellt, in dem Sie mit unterschiedlichen Machine Learning-Algorithmen experimentieren können. Nachdem Sie Ihre Lösung erstellt haben, können Sie sie als Webdienst starten.
 
-Ein Teil dieses Diensts ist der **[Azure AI-Katalog](https://gallery.azure.ai/)**. Er enthält Ressourcen, z.B. eine Sammlung mit Azure Machine Learning Studio-Experimenten oder Modelle, die von Benutzern erstellt und für andere Benutzer zur Verfügung gestellt wurden. Diese Experimente stellen eine hervorragende Möglichkeit dar, die investierte Arbeit anderer Benutzer als Starthilfe für Ihre eigenen Lösungen zu nutzen. Er ist für alle interessierten Benutzer zugänglich.
+Ein Teil dieses Diensts ist der **[Azure KI-Katalog](https://gallery.azure.ai/)** . Er enthält Ressourcen, z.B. eine Sammlung mit Azure Machine Learning Studio-Experimenten oder Modelle, die von Benutzern erstellt und für andere Benutzer zur Verfügung gestellt wurden. Diese Experimente stellen eine hervorragende Möglichkeit dar, die investierte Arbeit anderer Benutzer als Starthilfe für Ihre eigenen Lösungen zu nutzen. Er ist für alle interessierten Benutzer zugänglich.
 
-![Azure AI-Katalog](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
+![Azure KI-Katalog](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Wenn Sie oben auf **Experimente** klicken, werden die neuesten und beliebtesten Experimente im Katalog angezeigt. Sie können die restlichen Experimente durchsuchen, indem Sie oben im Fenster auf **Alle durchsuchen** klicken. Sie können Suchbegriffe eingeben und Suchfilter auswählen.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>Suchen und Verwenden eines Beispiels eines Clusteringalgorithmus
-Angenommen, Sie möchten ein Beispiel für die Funktionsweise des Clusterings anzeigen. Sie suchen dann nach Experimenten mit dem Begriff **„Clustering-Sweep“**.
+Angenommen, Sie möchten ein Beispiel für die Funktionsweise des Clusterings anzeigen. Sie suchen dann nach Experimenten mit dem Begriff **„Clustering-Sweep“** .
 
 ![Nach Clusteringexperimenten suchen](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 
@@ -82,11 +82,11 @@ Ich kann auf den Link klicken, um direkt zu **Azure Machine Learning Studio**zu 
 Außerdem verfüge ich jetzt über einen Ausgangspunkt. Ich kann die Daten des Erstellers gegen meine Daten austauschen und das Modell für meine Zwecke optimieren. So verschaffe ich mir einen Vorsprung, und ich kann auf der Arbeit von Benutzern aufbauen, die wissen, was sie tun.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Suchen nach Experimenten zur Veranschaulichung von Machine Learning-Verfahren
-Der [Azure AI-Katalog](https://gallery.azure.ai) enthält noch weitere Experimente, die speziell als Gewusst-wie-Beispiele für Personen bereitgestellt wurden, für die Data Science neu ist. Im Katalog ist beispielsweise ein Experiment enthalten, das veranschaulicht, wie Sie mit fehlenden Werten umgehen ([Methods for handling missing values](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)Methoden zum Behandeln fehlender Werte). Es werden 15 unterschiedliche Wege zum Ersetzen leerer Werte beschrieben, und es werden jeweils die Vorteile der einzelnen Methoden und die Anwendungsmöglichkeiten erläutert.
+Der [Azure KI-Katalog](https://gallery.azure.ai) enthält noch weitere Experimente, die speziell als Gewusst-wie-Beispiele für Personen bereitgestellt wurden, für die Data Science neu ist. Im Katalog ist beispielsweise ein Experiment enthalten, das veranschaulicht, wie Sie mit fehlenden Werten umgehen ([Methods for handling missing values](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)Methoden zum Behandeln fehlender Werte). Es werden 15 unterschiedliche Wege zum Ersetzen leerer Werte beschrieben, und es werden jeweils die Vorteile der einzelnen Methoden und die Anwendungsmöglichkeiten erläutert.
 
 ![In Machine Learning Studio geöffnete Katalogexperimente – Methoden für fehlende Werte](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-Im [Azure AI-Katalog](https://gallery.azure.ai) finden Sie funktionierende Experimente, die Sie als Ausgangspunkt für Ihre eigenen Lösungen verwenden können.
+Im [Azure KI-Katalog](https://gallery.azure.ai) finden Sie funktionierende Experimente, die Sie als Ausgangspunkt für Ihre eigenen Lösungen verwenden können.
 
 Sehen Sie sich unbedingt auch die anderen Videos in der Reihe „Data Science für Einsteiger“ von Microsoft Azure Machine Learning Studio an.
 

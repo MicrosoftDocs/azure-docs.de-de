@@ -5,7 +5,7 @@
   items:
     - name: Was ist Identity Governance?
       href: identity-governance-overview.md
-    - name: Was ist Berechtigungsverwaltung?  (Vorschau)
+    - name: Was ist Berechtigungsverwaltung? (Vorschau)
       href: entitlement-management-overview.md
     - name: Worum handelt es sich bei Zugriffsüberprüfungen?
       href: access-reviews-overview.md
@@ -27,8 +27,6 @@
           href: manage-guest-access-with-access-reviews.md
         - name: Verwaltung des Benutzerzugriffs mit Überprüfungen
           href: manage-user-access-with-access-reviews.md
-        - name: Verwalten von Programmen und ihren Steuerelementen
-          href: manage-programs-controls.md
         - name: 'Verwalten von Benutzern, die vom bedingten Zugriff ausgeschlossen wurden'
           href: conditional-access-exclusion.md
 - name: Anleitungen
@@ -64,8 +62,6 @@
               href: review-your-access.md
             - name: Abschließen einer Zugriffsüberprüfung
               href: complete-access-review.md
-            - name: Abrufen der Ergebnisse der Zugriffsüberprüfung
-              href: retrieve-access-review.md
         - name: Azure AD-Rollen
           items:
             - name: Erstellen einer Zugriffsüberprüfung

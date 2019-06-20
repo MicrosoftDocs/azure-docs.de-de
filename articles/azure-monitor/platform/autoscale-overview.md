@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085642"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60787579"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Übersicht über die automatische Skalierung in Microsoft Azure Virtual Machines, Cloud Services und Web-Apps
 In diesem Artikel wird beschrieben, was die automatische Skalierung von Microsoft Azure ist, welche Vorteile sie hat und wie Sie mit der Nutzung beginnen.  
@@ -43,7 +43,7 @@ Für Skalierungsgruppen für virtuelle Computer werden Telemetriedaten von Azure
 ## <a name="custom-metrics"></a>Benutzerdefinierte Metriken
 Sie können auch eigene benutzerdefinierten Metriken verwenden, die von Ihren Anwendungen ausgegeben werden können. Wenn Sie Ihre Anwendungen für das Senden von Metriken an Application Insights konfiguriert haben, können Sie anhand dieser Metriken entscheiden, ob die Skalierung angewendet werden soll oder nicht.
 
-## <a name="time"></a>Zeit
+## <a name="time"></a>Time
 Für zeitplanbasierte Regeln gilt die UTC-Zeit. Sie müssen die Zeitzone richtig einrichten, wenn Sie Ihre Regeln festlegen.  
 
 ## <a name="rules"></a>Regeln

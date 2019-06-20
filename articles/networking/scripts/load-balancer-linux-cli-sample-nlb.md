@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 916e9e1f7287757f19e93ecf7b8cc38f556e2dc8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60564645"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Lastenausgleich für den Datenverkehr zu virtuellen Computern für Hochverfügbarkeit
 

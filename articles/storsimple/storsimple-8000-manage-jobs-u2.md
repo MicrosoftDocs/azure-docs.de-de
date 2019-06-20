@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: bf8038b7171053b75eeb9aed88bff4246e65a8a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720692"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Anzeigen und Verwalten von Aufträgen mithilfe des StorSimple-Geräte-Manager-Diensts (Update 3 und höher)
 

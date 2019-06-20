@@ -13,11 +13,11 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: c38b1ccf7f7ccfe57e2b29f236f642238c4706a7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61363596"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager: Löschvorgang von Ressourcengruppen
 

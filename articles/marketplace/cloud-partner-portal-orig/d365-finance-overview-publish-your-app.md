@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
 ms.openlocfilehash: 062a16d02f26e3f2f6eb815432bed024d5e3746e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935014"
 ---
 # <a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Veröffentlichen Ihrer Microsoft Dynamics 365 Business Central-App in Microsoft AppSource

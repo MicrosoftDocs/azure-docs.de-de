@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 11819730e05e425066e1f060769e14d5290f877d
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024572"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851978"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Trainieren von PyTorch-Modellen mit Azure Machine Learning Service
 
@@ -105,7 +105,7 @@ run = exp.submit(pt_est)
 
 ## <a name="export-to-onnx"></a>Exportieren nach ONNX
 
-Um optimierte Rückschlüsse mit der [ONNX-Runtime](concept-onnx.md) zu erzielen, können Sie Ihr trainiertes PyTorch-Modul ins ONNX-Format konvertieren. Ein Beispiel finden Sie im [Tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb).
+Um Rückschlüsse mit der [ONNX-Runtime](concept-onnx.md) zu optimieren, konvertieren Sie Ihr trainiertes PyTorch-Modell in dass ONNX-Format. Rückschlüsse oder Modellbewertungen bilden die Phase, in der das bereitgestellte Modell für die Vorhersage verwendet wird, meist für Produktionsdaten. Ein Beispiel finden Sie im [Tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb).
 
 ## <a name="examples"></a>Beispiele
 

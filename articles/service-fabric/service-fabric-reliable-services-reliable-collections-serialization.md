@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
 ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522385"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60723593"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Reliable Collection-Objektserialisierung in Azure Service Fabric
 Reliable Collection repliziert und speichert seine Elemente, um sicherzustellen, dass sie über Computer- und Stromausfälle hinaus erhalten bleiben.
@@ -43,7 +43,7 @@ Reliable State Manager verfügt über integrierte Serialisierungsprogramme für 
 - Zeichenfolge
 - decimal
 - double
-- Gleitkommawert
+- float
 - int
 - uint
 - lang

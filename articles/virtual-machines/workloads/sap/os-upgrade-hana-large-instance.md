@@ -15,11 +15,11 @@ ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60935635"
 ---
 # <a name="operating-system-upgrade"></a>Betriebssystemupgrade
 In diesem Dokument werden die Details zu Betriebssystemupgrades für SAP HANA (große Instanzen) beschrieben.

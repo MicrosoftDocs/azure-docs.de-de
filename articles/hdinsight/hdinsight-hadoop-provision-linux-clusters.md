@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: 2f8c3aa0a5d37327ba49aebb1def94e90751b7cc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 05/28/2019
+ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597571"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299385"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Einrichten von Clustern in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka usw.
 
@@ -22,7 +22,7 @@ ms.locfileid: "65597571"
 
 Erfahren Sie, wie Sie Cluster in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML Services oder Apache Storm einrichten und konfigurieren. Darüber hinaus lernen Sie Cluster anzupassen und Sicherheit hinzuzufügen, indem Sie sie mit einer Domäne verknüpfen.
 
-Ein Hadoop-Cluster besteht aus mehreren virtuellen Computern (Knoten), die zur verteilten Verarbeitung von Aufgaben verwendet werden. Azure HDInsight verwaltet die Implementierungsdetails der Installation und Konfiguration einzelner Knoten, sodass Sie nur allgemeine Konfigurationsinformationen bereitstellen müssen. 
+Ein Hadoop-Cluster besteht aus mehreren virtuellen Computern (Knoten), die zur verteilten Verarbeitung von Aufgaben verwendet werden. Azure HDInsight verwaltet die Implementierungsdetails der Installation und Konfiguration einzelner Knoten, sodass Sie nur allgemeine Konfigurationsinformationen bereitstellen müssen.
 
 > [!IMPORTANT]  
 > Die Abrechnung für einen HDInsight-Cluster beginnt, sobald der Cluster erstellt wurde, und endet mit dem Löschen des Clusters. Die Gebühren werden anteilig nach Minuten erhoben. Daher sollten Sie Ihren Cluster immer löschen, wenn Sie ihn nicht mehr verwenden. Erfahren Sie, wie Sie [einen Cluster löschen](hdinsight-delete-cluster.md).
@@ -52,11 +52,7 @@ Befolgen Sie die Anweisungen auf dem Bildschirm, um eine grundlegenden Clusterei
 * Clusteranmeldung und SSH-Benutzername
 * [Location](#location)
 
-> [!IMPORTANT]  
-> Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. Weitere Informationen finden Sie unter [Ende des Lebenszyklus von HDInsight 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
-
-## <a name="resource-group-name"></a>Ressourcengruppenname 
+## <a name="resource-group-name"></a>Ressourcengruppenname
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) können Sie mit den Ressourcen in Ihrer Anwendung als Gruppe arbeiten, bezeichnet als „Azure-Ressourcengruppe“. Sie können alle Ressourcen für Ihre Anwendung in einem einzigen, koordinierten Vorgang bereitstellen, aktualisieren, überwachen oder löschen.
 
@@ -160,10 +156,10 @@ Jeder Clustertyp verfügt über eine eigene Anzahl von Knoten, Terminologie für
 
 | Type | Nodes | Diagramm |
 | --- | --- | --- |
-| Hadoop |Hauptknoten (2), Datenknoten (1+) |![HDInsight-Hadoop-Clusterknoten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |Hauptknoten (2), Workerknoten (1+) |![HDInsight-Hadoop-Clusterknoten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | hbase |Hauptserver (2), Regionsserver (1+), Master-/Zookeeper-Knoten (3) |![HDInsight-HBase-Clusterknoten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus-Knoten (2), Supervisor-Server (1+), Zookeeper-Knoten (3) |![HDInsight-Storm-Clusterknoten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Hauptknoten (2), Workerknoten (1+), Zookeeper-Knoten (3) (kostenlos für Zookeeper-VM-Größe A1) |![HDInsight-Spark-Clusterknoten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Spark |Hauptknoten (2), Workerknoten (1+), ZooKeeper-Knoten (3) (kostenlos für ZooKeeper-VMs der Größe A1) |![HDInsight-Spark-Clusterknoten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 Weitere Informationen finden Sie unter [Standardknotenkonfiguration und VM-Größen für Cluster](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in „Welche Hadoop-Komponenten und -Versionen gibt es in HDInsight?“.
 
@@ -172,17 +168,16 @@ Die Kosten von HDInsight-Clustern ergeben sich aus der Anzahl der Knoten und aus
 Unterschiedliche Clustertypen weisen verschiedene Knotentypen, eine unterschiedliche Anzahl von Knoten sowie verschiedene Knotengrößen auf:
 * Hadoop-Standardclustertyp: 
     * Zwei *Hauptknoten*  
-    * Vier *Datenknoten*
+    * Vier *Workerknoten*
 * Storm-Standardclustertyp: 
     * Zwei *Nimbusknoten*
     * Drei *Zookeeper-Knoten*
     * Vier *Supervisorknoten* 
 
-Wenn Sie HDInsight gerade testen, sollten Sie nur einen Datenknoten verwenden. Weitere Informationen zu den Preisen von HDInsight finden Sie unter [HDInsight – Preise](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Wenn Sie HDInsight gerade erst testen, empfehlen wir, nur einen Workerknoten zu verwenden. Weitere Informationen zu den Preisen von HDInsight finden Sie unter [HDInsight – Preise](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > Die Begrenzung der Clustergröße variiert je nach Azure-Abonnement. Wenden Sie sich an den [Azure-Abrechnungssupport](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request), um diese Begrenzung zu erhöhen.
->
 
 Wenn Sie das Azure-Portal zum Konfigurieren des Clusters verwenden, ist die Knotengröße über das Blatt **Knotentarife** verfügbar. Außerdem werden im Portal die Kosten angezeigt, die den unterschiedlichen Knotengrößen zugeordnet sind. 
 
@@ -196,9 +191,7 @@ Wählen Sie bei der Bereitstellung von Clustern die Computeressourcen basierend 
 Wenn Sie wissen möchten, welchen Wert Sie beim Erstellen eines Clusters mithilfe unterschiedlicher SDKs oder von Azure PowerShell als VM-Größe angeben sollten, lesen Sie unter [VM-Größen für HDInsight-Cluster](../cloud-services/cloud-services-sizes-specs.md#size-tables) nach. Verwenden Sie im verknüpften Artikel in den Tabellen den Wert in der Spalte **Größe**.
 
 > [!IMPORTANT]  
-> Wenn Sie mehr als 32 Workerknoten benötigen, müssen Sie eine Hauptknotengröße von mindestens 8 Kernen und 14 GB Arbeitsspeicher (RAM) auswählen.
->
->
+> Wenn Sie mehr als 32 Workerknoten in einem Cluster benötigen, müssen Sie eine Hauptknotengröße von mindestens 8 Kernen und 14 GB Arbeitsspeicher (RAM) auswählen.
 
 Weitere Informationen finden Sie unter [Größen für virtuelle Computer](../virtual-machines/windows/sizes.md). Informationen zu den Preisen der unterschiedlichen Größen finden Sie unter [HDInsight-Preise](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -212,8 +205,6 @@ Einige systemeigene Java-Komponenten wie Apache Mahout und Cascading können auf
 > Wenn bei der Bereitstellung von JAR-Dateien für HDInsight-Cluster oder beim Aufrufen von JAR-Dateien für HDInsight-Cluster Probleme auftreten, wenden Sie sich an den [Microsoft-Support](https://azure.microsoft.com/support/options/).
 >
 > Cascading wird von HDInsight nicht unterstützt, und es steht kein Microsoft-Support dafür zur Verfügung. Listen der unterstützten Komponenten finden Sie unter [Neuheiten in den von HDInsight bereitgestellten Clusterversionen](hdinsight-component-versioning.md).
->
->
 
 Es kann vorkommen, dass Sie die folgenden Konfigurationsdateien während des Erstellungsprozesses bearbeiten möchten:
 

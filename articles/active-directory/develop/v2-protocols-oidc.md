@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544816"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity Platform und das OpenID Connect-Protokoll
@@ -91,7 +91,7 @@ Wenn die Web-App den Benutzer authentifizieren muss, kann sie ihn direkt an den 
 > [!IMPORTANT]
 > Zur erfolgreichen Anforderung eines ID-Tokens vom Endpunkt „/authorization“ muss für die App-Registrierung im [Registrierungsportal](https://portal.azure.com) auf der Registerkarte „Authentifizierung“ die implizite Genehmigung von „id_tokens“ aktiviert sein (dadurch wird das Flag `oauth2AllowIdTokenImplicitFlow` im [Anwendungsmanifest ](reference-app-manifest.md) auf `true` festgelegt). Wenn sie nicht aktiviert ist, wird ein `unsupported_response`-Fehler zurückgegeben: „The provided value for the input parameter 'response_type' isn't allowed for this client. Expected value is ‚code‘“. (Der angegebene Wert für den Eingabeparameter ‚response_type‘ ist für diesen Client nicht zulässig. Erwarteter Wert: ‚code‘.)
 
-Beispiel: 
+Beispiel:
 
 ```
 // Line breaks are for legibility only.
@@ -113,7 +113,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Bedingung | BESCHREIBUNG |
 | --- | --- | --- |
 | `tenant` | Erforderlich | Mit dem `{tenant}`-Wert im Pfad der Anforderung kann festgelegt werden, welche Benutzer sich bei der Anwendung anmelden können. Zulässige Werte sind `common`, `organizations`, `consumers` und Mandantenbezeichner. Weitere Informationen finden Sie in den [Protokollgrundlagen](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | Erforderlich | Die **Anwendungs-ID (Client-ID)**, die Ihrer App im [Azure-Portal auf der Seite „App-Registrierungen“](https://go.microsoft.com/fwlink/?linkid=2083908) zugewiesen wurde. |
+| `client_id` | Erforderlich | Die **Anwendungs-ID (Client-ID)** , die Ihrer App im [Azure-Portal auf der Seite „App-Registrierungen“](https://go.microsoft.com/fwlink/?linkid=2083908) zugewiesen wurde. |
 | `response_type` | Erforderlich | Muss das `id_token` für die OpenID Connect-Anmeldung enthalten. Es kann auch andere `response_type`-Werte enthalten, z.B. `code`. |
 | `redirect_uri` | Empfohlen | Der Umleitungs-URI der App, in dem Authentifizierungsantworten gesendet und von der App empfangen werden können. Er muss genau mit einer der Umleitungs-URIs übereinstimmen, die Sie im Portal registriert haben – mit dem Unterschied, dass er URL-codiert sein muss. Wenn dieser Parameter nicht vorhanden ist, wählt der Endpunkt nach dem Zufallsprinzip einen registrierten Umleitungs-URI aus, der an den Benutzer zurückgesendet wird. |
 | `scope` | Erforderlich | Eine durch Leerzeichen getrennte Liste von Bereichen. Für OpenID Connect muss der Bereich `openid`enthalten sein, der auf der Zustimmungsbenutzeroberfläche die Anmeldeberechtigung ergibt. Sie können in diese Anforderung auch andere Bereiche für das Anfordern der Zustimmung aufnehmen. |

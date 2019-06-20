@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57879853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61430750"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Verschieben von Daten in und aus Azure Blob Storage mithilfe des Azure Storage-Explorers
 Der Azure Storage-Explorer ist ein kostenloses Tool von Microsoft, das Ihnen das Arbeiten mit Azure Storage-Daten unter Windows, macOS und Linux ermöglicht. Dieses Thema beschreibt Verwendung des Tools zum Hoch- und Herunterladen von Daten aus Azure Blob Storage. Das Tool kann von der Seite [Microsoft Azure Storage-Explorer](https://storageexplorer.com/)heruntergeladen werden.
@@ -50,6 +50,6 @@ Die folgenden Schritte beschreiben das Hoch- und Herunterladen von Daten mithilf
 5. Geben Sie im Feld **Kontoname** den Namen des Speicherkontos ein, und wählen Sie **Weiter** aus. ![Externen Speicher anfügen](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. Das hinzugefügte Speicherkonto sollte jetzt aufgeführt werden. Um in einem Speicherkonto einen Blobcontainer zu erstellen, klicken Sie mit der rechten Maustaste auf den Knoten **Blobcontaine**r in diesem Konto, wählen Sie die Option **Blobcontainer erstellen** aus, und geben Sie einen Namen ein.
 7. Um Daten in einen Container hochzuladen, wählen Sie den Zielcontainer aus, und klicken Sie auf die Schaltfläche **Hochladen**.![Speicherkonten](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
-8. Klicken Sie rechts neben dem Feld **Dateien** auf die Schaltfläche **...**, wählen Sie im Dateisystem eine oder mehrere Dateien zum Hochladen aus, und klicken Sie auf **Hochladen**, um mit dem Hochladen der Dateien zu beginnen.![Dateien hochladen](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
+8. Klicken Sie rechts neben dem Feld **Dateien** auf die Schaltfläche **...** , wählen Sie im Dateisystem eine oder mehrere Dateien zum Hochladen aus, und klicken Sie auf **Hochladen**, um mit dem Hochladen der Dateien zu beginnen.![Dateien hochladen](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. Um Daten herunterzuladen, wählen Sie das Blob im entsprechenden Container aus und klicken auf **Herunterladen**. ![Dateien herunterladen](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
 ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281658"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60844022"
 ---
 # <a name="introduction-to-auto-scaling"></a>Einführung in die automatische Skalierung
 Die automatische Skalierung ist eine weitere Funktion von Service Fabric, mit der Ihre Dienste basierend auf der Last, die von Diensten gemeldet wird, oder basierend auf ihrer Ressourcennutzung dynamisch skaliert werden können. Die automatische Skalierung bietet eine hervorragende Flexibilität und ermöglicht die Bereitstellung zusätzlicher Instanzen oder Partitionen Ihres Diensts bei Bedarf. Der gesamte Prozess der automatischen Skalierung ist automatisiert und transparent. Sobald Sie Ihre Richtlinien für einen Dienst eingerichtet haben, müssen Sie keine manuellen Skalierungsvorgänge auf Dienstebene mehr durchführen. Die automatische Skalierung kann während der Erstellung des Diensts oder zu einem beliebigen Zeitpunkt durch Aktualisieren des Diensts aktiviert werden.

@@ -53,4 +53,4 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Nutzungsbedingungen vorschreiben?</a>
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Verwendung von Nutzungsbedingungen vorschreiben?</a>

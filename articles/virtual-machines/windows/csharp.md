@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883057"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304590"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Erstellen und Verwalten von virtuellen Windows-Computern in Azure mithilfe von C# #
 
@@ -80,12 +80,12 @@ Bevor Sie mit diesem Schritt beginnen, stellen Sie sicher, dass Sie Zugriff auf 
 4. Legen Sie eine Umgebungsvariable in Windows mit dem Namen AZURE_AUTH_LOCATION mit vollständigem Pfad zur erstellten Autorisierungsdatei fest. Sie können z.B. den folgende PowerShell-Befehl verwenden:
 
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
 ### <a name="create-the-management-client"></a>Erstellen des Verwaltungsclients
 
-1. Öffnen Sie die Datei „Program.cs“ für das von Ihnen erstellte Projekt, und fügen Sie die folgenden using-Anweisungen dann am Anfang der Datei den vorhandenen Anweisungen hinzu:
+1. Öffnen Sie die Datei „Program.cs“ für das von Ihnen erstellte Projekt. Fügen Sie dann am Anfang der Datei den vorhandenen Anweisungen die folgenden using-Anweisungen hinzu:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -365,7 +365,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Hinzufügen eines Datenträgers zur VM
 
-Um dem virtuellen Computer einen Datenträger hinzuzufügen, fügen Sie der „Main“-Methode diesen Code hinzu. Damit wird ein Datenträger der Größe 2 GB mit der LUN 0 und dem Cachetyp „ReadWrite“ hinzugefügt:
+Um dem virtuellen Computer einen Datenträger hinzuzufügen, fügen Sie der „Main“-Methode diesen Code hinzu. In diesem Beispiel wird ein Datenträger der Größe 2 GB hinzugefügt, mit der LUN „0“ und dem Cachetyp „ReadWrite“:
 
 ```
 Console.WriteLine("Adding data disk to vm...");

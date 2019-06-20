@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60419908"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Machen Sie einen lokalen Windows Communication Foundation-Anwendungsdienst (WCF-Dienst) für eine Webanwendung in der Cloud mit Azure Relay verfügbar. 
 In diesem Artikel wird gezeigt, wie Sie mit Microsoft Azure und Visual Studio eine Hybridcloudanwendung erstellen. Sie erstellen eine Anwendung, die mehrere in der Cloud ausgeführte Azure-Ressourcen nutzt.
@@ -81,7 +81,7 @@ Zunächst erstellen Sie ein simuliertes lokales Produktkatalogsystem.  Bei diese
 ### <a name="create-the-project"></a>Erstellen des Projekts
 1. Starten Sie Microsoft Visual Studio mit Administratorrechten. Klicken Sie hierzu mit der rechten Maustaste auf das Visual Studio-Programmsymbol und anschließend auf **Als Administrator ausführen**.
 2. Klicken Sie in Visual Studio im Menü **Datei** auf **Neu** und anschließend auf **Projekt**.
-3. Klicken Sie in **Installierte Vorlagen** unter **Visual C#** auf **Konsolen-App (.NET Framework)**. Geben Sie in das Feld **Name** den Namen **ProductsServer** ein:
+3. Klicken Sie in **Installierte Vorlagen** unter **Visual C#** auf **Konsolen-App (.NET Framework)** . Geben Sie in das Feld **Name** den Namen **ProductsServer** ein:
 
    ![Dialogfeld "Neues Projekt"][11]
 4. Klicken Sie auf **OK**, um das Projekt **ProductsServer** zu erstellen.
@@ -185,7 +185,7 @@ Zunächst erstellen Sie ein simuliertes lokales Produktkatalogsystem.  Bei diese
         }
     }
     ```
-12. Doppelklicken Sie im Projektmappen-Explorer auf die Datei **App.config**, um sie im Visual Studio-Editor zu öffnen. Fügen Sie unten im `<system.ServiceModel>`-Element (aber noch innerhalb von `<system.ServiceModel>`) den folgenden XML-Code hinzu: Ersetzen Sie dabei *yourServiceNamespace* durch den Namen Ihres Namespace und *yourKey* durch den SAS-Schlüssel, den Sie zuvor aus dem Portal abgerufen haben:
+12. Doppelklicken Sie im Projektmappen-Explorer auf die Datei **App.config**, um sie im Visual Studio-Editor zu öffnen. Fügen Sie unten im `<system.ServiceModel>`-Element (aber noch innerhalb von `<system.ServiceModel>`) den folgenden XML-Code hinzu: Ersetzen Sie dabei yourServiceNamespace durch den Namen Ihres Namespace und *yourKey* durch den SAS-Schlüssel, den Sie zuvor aus dem Portal abgerufen haben:
 
     ```xml
     <system.serviceModel>
@@ -229,7 +229,7 @@ In diesem Abschnitt erstellen Sie eine einfache ASP.NET-Anwendung, in der aus Ih
 
 1. Stellen Sie sicher, dass Visual Studio mit Administratorberechtigungen ausgeführt wird.
 2. Klicken Sie in Visual Studio im Menü **Datei** auf **Neu** und anschließend auf **Projekt**.
-3. Klicken Sie in **Installierte Vorlagen** unter **Visual C#** auf **ASP.NET-Webanwendung (.NET Framework)**. Nennen Sie das Projekt **ProductsPortal**. Klicken Sie dann auf **OK**.
+3. Klicken Sie in **Installierte Vorlagen** unter **Visual C#** auf **ASP.NET-Webanwendung (.NET Framework)** . Nennen Sie das Projekt **ProductsPortal**. Klicken Sie dann auf **OK**.
 
    ![Dialogfeld "Neues Projekt"][15]
 
@@ -350,7 +350,7 @@ Im nächsten Schritt wird der lokale Produktserver mit der ASP.NET-Webanwendung 
 
    ![Als Link hinzufügen][24]
 
-6. Öffnen Sie nun die Datei **HomeController.cs** im Visual Studio-Editor, und ersetzen Sie die Namespacedefinition durch den folgenden Code: Achten Sie darauf, *yourServiceNamespace* durch den Namen Ihres Dienstnamespaces und *yourKey* durch Ihren SAS-Schlüssel zu ersetzen. Der Client kann nun den lokalen Dienst aufrufen und das Ergebnis des Aufrufs zurückgeben.
+6. Öffnen Sie nun die Datei **HomeController.cs** im Visual Studio-Editor, und ersetzen Sie die Namespacedefinition durch den folgenden Code: Achten Sie darauf, yourServiceNamespace durch den Namen Ihres Dienstnamespaces und *yourKey* durch Ihren SAS-Schlüssel zu ersetzen. Der Client kann nun den lokalen Dienst aufrufen und das Ergebnis des Aufrufs zurückgeben.
 
    ```csharp
    namespace ProductsWeb.Controllers

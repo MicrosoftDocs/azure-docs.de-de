@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: kumud
 ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413854"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer mit TCP-Rücksetzung bei Leerlauf (öffentliche Vorschau)

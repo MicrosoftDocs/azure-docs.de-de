@@ -12,11 +12,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60767964"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Aktivität „Variable festlegen“ in Azure Data Factory
 
@@ -27,7 +27,7 @@ Verwenden Sie die Aktivität „Variable festlegen“, um den Wert einer vorhand
 Eigenschaft | BESCHREIBUNG | Erforderlich
 -------- | ----------- | --------
 name | Der Name der Aktivität in der Pipeline. | Ja
-Beschreibung | Text, der beschreibt, welche Aktion die Aktivität ausführt. | no
+description | Text, der beschreibt, welche Aktion die Aktivität ausführt. | no
 type | Der Aktivitätstyp ist SetVariable. | Ja
 value | Ein Zeichenfolgenliteral- oder Ausdrucksobjektwert, der zum Festlegen der angegebenen Variable verwendet wird. | Ja
 variableName | Der Name der Variablen, die von dieser Aktivität festgelegt wird. | Ja

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 731102037b596091b80fbdfa02a8ff3c111b556e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60706985"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Hinzufügen einer Firewall der nächsten Generation in Azure Security Center
 In Azure Security Center wird unter Umständen empfohlen, dass Sie zum Verbessern Ihrer Sicherheitsmaßnahmen eine Firewall der nächsten Generation (Next Generation Firewall, NGFW) eines Microsoft-Partners hinzufügen. In diesem Dokument sehen wir uns ein Beispiel zu dieser Vorgehensweise an.

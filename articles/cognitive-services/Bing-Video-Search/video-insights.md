@@ -10,16 +10,16 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: b024d61c3542293202f0b409b8b3e520a75168c0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c5f3a43a6c48714566b5c53b33fe541b50d61589
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870723"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383899"
 ---
 # <a name="get-insights-about-a-video"></a>Abrufen von Auswertungen zu einem Video
 
-Jedes Video von der Bing-Videosuche-API zurückgegebene Video enthält eine Video-ID, die Sie verwenden können, um weitere Informationen zum Video (z.B. verwandte Videos) abzurufen. Verwenden Sie zum Abrufen von Auswertungen zu einem Video dessen [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid)-Token in der API-Antwort. 
+Jedes Video von der Bing-Videosuche-API zurückgegebene Video enthält eine Video-ID, die Sie verwenden können, um weitere Informationen zum Video (z.B. verwandte Videos) abzurufen. Verwenden Sie zum Abrufen von Auswertungen zu einem Video dessen [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid)-Token in der API-Antwort. 
 
 ```json
     "value" : [
@@ -34,7 +34,7 @@ Jedes Video von der Bing-Videosuche-API zurückgegebene Video enthält eine Vide
     ],
 ```
 
-Senden Sie dann eine GET-Anforderung an den Videodetailsendpunkt mit der ID. Legen Sie den [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id)-Abfrageparameter auf das `videoId`-Token fest. Um die Auswertungen anzugeben, die Sie abrufen möchten, legen Sie den [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested)-Abfrageparameter fest. Um alle Auswertungen abzurufen, legen Sie `modules` auf „Alle“ fest. Die Antwort enthält alle Auswertungen, die Sie angefordert haben (wenn verfügbar).
+Senden Sie dann eine GET-Anforderung an den Videodetailsendpunkt mit der ID. Legen Sie den [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id)-Abfrageparameter auf das `videoId`-Token fest. Um die Auswertungen anzugeben, die Sie abrufen möchten, legen Sie den [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested)-Abfrageparameter fest. Um alle Auswertungen abzurufen, legen Sie `modules` auf „Alle“ fest. Die Antwort enthält alle Auswertungen, die Sie angefordert haben (wenn verfügbar).
 
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
@@ -48,7 +48,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>Abrufen von Auswertungen zu verwandten Videos  
 
-Um Videos abzurufen, die mit dem angegebenen Video verwandt sind, legen Sie den [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested)-Abfrageparameter auf `RelatedVideos` fest.
+Um Videos abzurufen, die mit dem angegebenen Video verwandt sind, legen Sie den [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested)-Abfrageparameter auf `RelatedVideos` fest.
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
@@ -60,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Die Antwort auf diese Anforderung wird ein [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails)-Objekt auf oberster Ebene anstelle eines [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos)-Objekts enthalten.  
+Die Antwort auf diese Anforderung wird ein [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)-Objekt auf oberster Ebene anstelle eines [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos)-Objekts enthalten.  
   
 ```json
 {

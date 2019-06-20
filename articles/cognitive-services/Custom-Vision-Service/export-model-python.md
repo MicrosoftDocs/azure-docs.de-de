@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: babc9f8c7b8a05c4a91ead4990267311e926fd47
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350452"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236424"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Ausführen des TensorFlow-Modells in Python
 
@@ -130,6 +130,7 @@ In den obenstehenden Schritten werden die folgenden Hilfsfunktionen verwendet:
 ```Python
 def convert_to_opencv(image):
     # RGB -> BGR conversion is performed as well.
+    image = image.convert('RGB')
     r,g,b = np.array(image).T
     opencv_image = np.array([b,g,r]).transpose()
     return opencv_image

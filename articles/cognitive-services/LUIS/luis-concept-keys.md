@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998742"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66473589"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Erstellungsschlüssel und Endpunktschlüssel für Vorhersageabfragen in LUIS
 LUIS verwendet zwei Schlüssel: [Erstellungs-](#programmatic-key) und [Endpunktschlüssel](#endpoint-key). Der Erstellungsschlüssel wird automatisch erstellt, wenn Sie Ihr LUIS-Konto erstellen. Wenn Sie Ihre LUIS-App veröffentlichen möchten, müssen Sie den [Endpunktschlüssel erstellen](luis-how-to-azure-subscription.md), ihn Ihrer LUIS-App [zuweisen](luis-how-to-azure-subscription.md) und ihn [für Endpunktabfragen verwenden](#use-endpoint-key-in-query). 
@@ -49,11 +49,11 @@ Wenn Sie **Produktionsendpunkte abfragen** möchten, müssen Sie eine Azure-Ress
 
 Nach Abschluss der Erstellung der Azure-Ressource müssen Sie der App [den Schlüssel zuweisen](luis-how-to-azure-subscription.md). 
 
-    * Der Endpunktschlüssel umfasst ein Kontingent an Endpunkttreffern basierend auf dem Nutzungsplan, den Sie beim Erstellen des Schlüssels angegeben haben. Weitere Informationen zu den Preisen finden Sie unter [Cognitive Services-Preise](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
+* Der Endpunktschlüssel umfasst ein Kontingent an Endpunkttreffern basierend auf dem Nutzungsplan, den Sie beim Erstellen des Schlüssels angegeben haben. Weitere Informationen zu den Preisen finden Sie unter [Cognitive Services-Preise](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
 
-    * Der Endpunktschlüssel kann für alle LUIS-Apps oder für bestimmte LUIS-Apps verwendet werden. 
+* Der Endpunktschlüssel kann für alle LUIS-Apps oder für bestimmte LUIS-Apps verwendet werden. 
 
-    * Verwenden Sie die Endpunktschlüssel nicht für das Erstellen von LUIS-Apps. 
+* Verwenden Sie die Endpunktschlüssel nicht für das Erstellen von LUIS-Apps. 
 
 ## <a name="use-endpoint-key-in-query"></a>Verwenden des Endpunktschlüssels in Abfragen
 Der LUIS-Endpunkt akzeptiert zwei Arten von Abfragen, die beide den Endpunktschlüssel verwenden, jedoch an verschiedenen Positionen:

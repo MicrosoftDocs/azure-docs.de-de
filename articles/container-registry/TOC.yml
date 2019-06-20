@@ -89,12 +89,14 @@
               href: container-registry-auth-aks.md
         - name: Inhaltsvertrauensstellung
           href: container-registry-content-trust.md
-    - name: Erstellen und Patchen
+    - name: ACR-Aufgaben
       items:
-        - name: ACR-Aufgaben
+        - name: Übersicht über ACR Tasks
           href: container-registry-tasks-overview.md
         - name: Mehrstufige Aufgaben
           href: container-registry-tasks-multi-step.md
+        - name: Verwenden mit verwalteter Identität
+          href: container-registry-tasks-authentication-managed-identity.md
     - name: Registrierungen und anderen Azure-Dienste
       items:
         - name: Azure Container Instances

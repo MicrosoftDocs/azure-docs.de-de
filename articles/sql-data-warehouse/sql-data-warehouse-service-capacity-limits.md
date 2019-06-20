@@ -2,20 +2,20 @@
 title: Kapazitätslimits – Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Die maximalen Werte, die für verschiedene Komponenten von Azure SQL Data Warehouse zulässig sind.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/14/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f3c2ecbb4c83132b674b4c296adc1339027f5215
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62213ca1910ff26287bcd398d89fe7f8caf3cfac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66514678"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Kapazitätsgrenzen von SQL Data Warehouse
 Die maximalen Werte, die für verschiedene Komponenten von Azure SQL Data Warehouse zulässig sind.
@@ -24,7 +24,7 @@ Die maximalen Werte, die für verschiedene Komponenten von Azure SQL Data Wareho
 | Category (Kategorie) | BESCHREIBUNG | Maximum |
 |:--- |:--- |:--- |
 | [Data Warehouse-Einheiten (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max. DWUs für ein einzelnes SQL Data Warehouse | Gen1: DW6000<br></br>Gen2: DW30000c |
-| [Data Warehouse-Einheiten (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standard-DTU pro Server |54.000<br></br>Standardmäßig verfügt jede SQL Server-Instanz (z.B. „myserver.database.windows.net“) über ein Kontingent von 54.000 DTUs, das bis zu DW6000c zulässt. Bei diesem Kontingentwert handelt es sich einfach um ein Sicherheitslimit. Sie können Ihr Kontingent erhöhen, indem Sie [ein Supportticket erstellen](sql-data-warehouse-get-started-create-support-ticket.md) und als Anfragetyp *Kontingent* auswählen.  Multiplizieren Sie zum Berechnen Ihrer DTU-Anforderungen die Anzahl der insgesamt benötigten DWUs mit 7,5, oder multiplizieren Sie die erforderlichen cDWUs mit 9,0. Beispiel: <br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW6000c x 9.0 = 54.000 DTUs<br></br>Sie können den aktuellen DTU-Verbrauch im Portal über die Option „SQL-Server“ anzeigen. Sowohl angehaltene als auch nicht angehaltene Datenbanken werden in das DTU-Kontingent eingerechnet. |
+| [Data Warehouse-Einheiten (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standard-DTU pro Server |54.000<br></br>Standardmäßig verfügt jede SQL Server-Instanz (z.B. „myserver.database.windows.net“) über ein Kontingent von 54.000 DTUs, das bis zu DW6000c zulässt. Bei diesem Kontingentwert handelt es sich einfach um ein Sicherheitslimit. Sie können Ihr Kontingent erhöhen, indem Sie [ein Supportticket erstellen](sql-data-warehouse-get-started-create-support-ticket.md) und als Anfragetyp *Kontingent* auswählen.  Multiplizieren Sie zum Berechnen Ihrer DTU-Anforderungen die Anzahl der insgesamt benötigten DWUs mit 7,5, oder multiplizieren Sie die erforderlichen cDWUs mit 9,0. Beispiel:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW6000c x 9.0 = 54.000 DTUs<br></br>Sie können den aktuellen DTU-Verbrauch im Portal über die Option „SQL-Server“ anzeigen. Sowohl angehaltene als auch nicht angehaltene Datenbanken werden in das DTU-Kontingent eingerechnet. |
 | Datenbankverbindung |Maximale Anzahl gleichzeitig geöffneter Sitzungen |1024<br/><br/>Die Anzahl der gleichzeitig geöffneten Sitzungen variiert je nach ausgewählter DWU. DWU600c und höher unterstützt maximal 1024 offene Sitzungen. DWU500c und darunter unterstützt maximal 512 gleichzeitig geöffnete Sitzungen. Beachten Sie, dass die Anzahl der Abfragen begrenzt ist, die gleichzeitig ausgeführt werden können. Wenn der Grenzwert überschritten wird, gelangt die Anforderung in eine interne Warteschlange, in der sie auf die Verarbeitung wartet. |
 | Datenbankverbindung |Maximaler Arbeitsspeicher für vorbereitete Anweisungen |20 MB |
 | [Workloadverwaltung](resource-classes-for-workload-management.md) |Maximale Anzahl gleichzeitiger Abfragen |128<br/><br/> SQL Data Warehouse kann maximal 128 gleichzeitige Abfragen ausführen. Darüber hinausgehende Abfragen werden in eine Warteschlange eingereiht.<br/><br/>Die Anzahl der gleichzeitigen Abfragen kann abnehmen, wenn Benutzern höhere Ressourcenklassen zugeordnet werden oder wenn SQL Data Warehouse eine niedrigere Einstellung für [Data Warehouse-Einheit](memory-and-concurrency-limits.md) aufweist. Ausführungen einiger Abfragen, z.B. DMV-Abfragen, sind immer zulässig und haben keine Auswirkungen auf das Limit für gleichzeitige Abfragen. Ausführlichere Informationen zur Ausführung gleichzeitiger Abfragen finden Sie im Artikel zu [Parallelitätshöchstwerten](memory-and-concurrency-limits.md#concurrency-maximums). |
@@ -38,7 +38,7 @@ Die maximalen Werte, die für verschiedene Komponenten von Azure SQL Data Wareho
 | Table |Tabellen pro Datenbank | 100.000 |
 | Table |Spalten pro Tabelle |1024 Spalten |
 | Table |Bytes pro Spalte |Abhängig von der Spalte [Datentyp](sql-data-warehouse-tables-data-types.md). Grenzwert ist 8.000 für Char-Datentypen, 4.000 für Nvarchar oder 2GB für MAX-Datentypen. |
-| Table |Bytes pro Zeile, definierte Größe |8.060 Bytes<br/><br/>Die Anzahl von Bytes pro Zeile wird auf die gleiche Weise wie bei SQL Server mit aktivierter Seitenkomprimierung berechnet. Wie SQL Server unterstützt SQL Data Warehouse die Speicherung von Zeilenüberlaufsdaten, sodass **Spalten variabler Länge** aus der Zeile verschoben werden können. Wenn Zeilen variabler Länge aus der Zeile verschoben werden, wird nur der 24-Byte-Stamm im Hauptdatensatz gespeichert. Weitere Informationen finden Sie unter [Zeilenüberlaufdaten mit über 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Table |Bytes pro Zeile, definierte Größe |8\.060 Bytes<br/><br/>Die Anzahl von Bytes pro Zeile wird auf die gleiche Weise wie bei SQL Server mit aktivierter Seitenkomprimierung berechnet. Wie SQL Server unterstützt SQL Data Warehouse die Speicherung von Zeilenüberlaufsdaten, sodass **Spalten variabler Länge** aus der Zeile verschoben werden können. Wenn Zeilen variabler Länge aus der Zeile verschoben werden, wird nur der 24-Byte-Stamm im Hauptdatensatz gespeichert. Weitere Informationen finden Sie unter [Zeilenüberlaufdaten mit über 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Table |Partitionen pro Tabelle |15.000<br/><br/>Um eine hohe Leistung zu erzielen, empfehlen wir, die Anzahl der Partitionen zu minimieren, die Sie zum Erfüllen Ihrer Geschäftsanforderungen benötigen. Mit einer steigenden Anzahl von Partitionen wächst der Verarbeitungsaufwand für Datendefinitionssprache (DDL)- und Datenbearbeitungssprache (DML)-Vorgänge, was zu Leistungseinbußen führt. |
 | Table |Zeichen pro Partitionsbegrenzungswert. |4000 |
 | Index |Nicht gruppierte Indizes pro Tabelle. |50<br/><br/>Gilt nur für Rowstore-Tabellen |
@@ -67,8 +67,8 @@ Die maximalen Werte, die für verschiedene Komponenten von Azure SQL Data Wareho
 | SELECT-Ergebnisse |Spalten pro Zeile |4096<br/><br/>Das Ergebnis einer SELECT-Anweisung kann nie mehr als 4.096 Spalten pro Zeile enthalten. Es gibt keine Garantie, dass Sie stets über 4096 verfügen. Wenn der Abfrageplan eine temporäre Tabelle erfordert, gilt möglicherweise der Maximalwert von 1024 Spalten pro Tabelle. |
 | SELECT |Geschachtelte Unterabfragen |32<br/><br/>In einer SELECT-Anweisung sind maximal 32 geschachtelte Unterabfragen zulässig. Es gibt keine Garantie, dass Sie stets über 32 verfügen. Ein JOIN-Befehl kann z. B. eine Unterabfrage in den Abfrageplan einführen. Die Anzahl der Unterabfragen kann auch durch den verfügbaren Speicher eingeschränkt werden. |
 | SELECT |Spalten pro JOIN |1024 Spalten<br/><br/>Für einen JOIN sind maximal 1.024 Spalten zulässig. Es gibt keine Garantie, dass Sie stets über 1024 verfügen. Wenn der JOIN-Plan eine temporäre Tabelle mit mehr Spalten als das JOIN-Ergebnis erfordert, gilt die Grenze von 1024 für die temporäre Tabelle. |
-| SELECT |Bytes pro GROUP BY-Spalten. |8.060<br/><br/>Die Maximalgröße von Spalten in der GROUP BY-Klausel beträgt 8.060 Bytes. |
-| SELECT |Bytes pro ORDER BY-Spalten |8.060 Bytes<br/><br/>Die Maximalgröße von Spalten in der ORDER BY-Klausel beträgt 8.060 Bytes. |
+| SELECT |Bytes pro GROUP BY-Spalten. |8\.060<br/><br/>Die Maximalgröße von Spalten in der GROUP BY-Klausel beträgt 8.060 Bytes. |
+| SELECT |Bytes pro ORDER BY-Spalten |8\.060 Bytes<br/><br/>Die Maximalgröße von Spalten in der ORDER BY-Klausel beträgt 8.060 Bytes. |
 | Bezeichner pro Anweisung |Anzahl referenzierter Bezeichner |65.535<br/><br/>SQL Data Warehouse beschränkt die Anzahl von Bezeichnern, die in einem einzelnen Ausdruck einer Abfrage enthalten sein können. Das Überschreiten dieses Werts führt zum SQL Server-Fehler 8632. Weitere Informationen finden Sie unter [Interner Fehler: Ein Ausdrucksdienstelimit wurde erreicht.](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a) |
 | Zeichenfolgenliterale | Anzahl von Zeichenfolgenliteralen in einer Anweisung | 20.000 <br/><br/>SQL Data Warehouse beschränkt die Anzahl von Zeichenfolgenkonstanten in einem einzelnen Ausdruck einer Abfrage. Das Überschreiten dieses Werts führt zum SQL Server-Fehler 8632.|
 

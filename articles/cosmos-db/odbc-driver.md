@@ -4,14 +4,14 @@ description: Es wird beschrieben, wie Sie den Azure Cosmos DB-ODBC-Treiber zum E
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 352cd23f00e911b895e52aacaced1bfba38f7f84
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851059"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257253"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Herstellen einer Azure Cosmos DB-Verbindung mithilfe von BI-Analysetools per ODBC-Treiber
 
@@ -209,7 +209,7 @@ Sie können Ihren neuen DSN verwenden, um Azure Cosmos DB mit beliebigen ODBC-ko
 
     ![Daten in Power BI Desktop abrufen](./media/odbc-driver/odbc-driver-power-bi-get-data.png)
 
-1. Klicken Sie im Fenster **Get Data** (Daten abrufen) auf **Other (Andere)** | **ODBC** | **Verbinden**.
+1. Klicken Sie im Fenster **Get Data** (Daten abrufen) auf **Other (Andere)**  | **ODBC** | **Verbinden**.
 
     ![ODBC-Datenquelle im Power BI-Fenster „Daten abrufen“ auswählen](./media/odbc-driver/odbc-driver-power-bi-get-data-2.png)
 

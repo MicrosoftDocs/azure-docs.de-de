@@ -1,28 +1,28 @@
 ---
-title: 'Schnellstart: Erfassen von Daten mit der Azure Data Explorer-Bibliothek für Node'
-description: In dieser Schnellstartanleitung erfahren Sie, wie Sie mit Node.js Daten in Azure Data Explorer erfassen (laden).
+title: Erfassen von Daten mit der Azure Data Explorer-Bibliothek für Node
+description: In diesem Artikel erfahren Sie, wie Sie Daten mit Node.js in Azure Data Explorer erfassen (laden).
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/25/2018
-ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800418"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494495"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Schnellstart: Erfassen von Daten mit der Azure Data Explorer-Bibliothek für Node
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Erfassen von Daten mit der Azure Data Explorer-Bibliothek für Node
 
-Azure-Daten-Explorer ist ein schneller und hochgradig skalierbarer Dienst zur Untersuchung von Daten (Protokoll- und Telemetriedaten). Azure Data Explorer bietet zwei Clientbibliotheken für Node: eine [Erfassungsbibliothek](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) und eine [Datenbibliothek](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Mit diesen Bibliotheken können Sie über Ihren Code Daten in einem Cluster erfassen (laden) und Daten abfragen. In diesem Schnellstart erstellen Sie zunächst eine Tabelle und eine Datenzuordnung in einem Testcluster. Anschließend stellen Sie die Erfassung im Cluster in eine Warteschlange und überprüfen die Ergebnisse.
+Azure-Daten-Explorer ist ein schneller und hochgradig skalierbarer Dienst zur Untersuchung von Daten (Protokoll- und Telemetriedaten). Azure Data Explorer bietet zwei Clientbibliotheken für Node: eine [Erfassungsbibliothek](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) und eine [Datenbibliothek](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Mit diesen Bibliotheken können Sie über Ihren Code Daten in einem Cluster erfassen (laden) und Daten abfragen. In diesem Artikel erstellen Sie zunächst eine Tabelle und eine Datenzuordnung in einem Testcluster. Anschließend stellen Sie die Erfassung im Cluster in eine Warteschlange und überprüfen die Ergebnisse.
 
 Wenn Sie über kein Azure-Abonnement verfügen, können Sie ein [kostenloses Azure-Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Zusätzlich zu einem Azure-Abonnement benötigen Sie zum Abschließen dieses Schnellstarts Folgendes:
+Zusätzlich zu einem Azure-Abonnement benötigen Sie Folgendes für diesen Artikel:
 
 * [Einen Testcluster und eine Testdatenbank](create-cluster-database-portal.md)
 
@@ -158,7 +158,7 @@ Führen Sie den folgenden Befehl aus, um den Status aller Erfassungsvorgänge in
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn Sie unsere anderen Schnellstarts und Tutorials durchgehen möchten, behalten Sie die erstellten Ressourcen bei. Wenn dies nicht der Fall ist, führen Sie den folgenden Befehl in der Datenbank aus, um die Tabelle `StormEvents` zu bereinigen.
+Wenn Sie unsere anderen Artikel durcharbeiten möchten, behalten Sie die erstellten Ressourcen bei. Wenn dies nicht der Fall ist, führen Sie den folgenden Befehl in der Datenbank aus, um die Tabelle `StormEvents` zu bereinigen.
 
 ```Kusto
 .drop table StormEvents
@@ -166,5 +166,4 @@ Wenn Sie unsere anderen Schnellstarts und Tutorials durchgehen möchten, behalte
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-> [!div class="nextstepaction"]
-> [Write queries](write-queries.md) (Schreiben von Abfragen)
+* [Write queries](write-queries.md) (Schreiben von Abfragen)

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012905"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60494768"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Abfragen von Protokollen aus Azure Monitor für Container
 Azure Monitor für Container erfasst Leistungsmetriken, Inventurdaten und Informationen zum Integritätsstatus von Containerhosts und Containern und leitet diese an den Log Analytics-Arbeitsbereich in Azure Monitor weiter. Alle drei Minuten werden Daten gesammelt. Diese Daten stehen in Azure Monitor für [Abfragen](../../azure-monitor/log-query/log-query-overview.md) zur Verfügung. Diese Daten können in verschiedenen Szenarios von Nutzen sein, z.B. bei der Migrationsplanung, Kapazitätsanalyse, Ermittlung und Ad-hoc-Behebung von Leistungsproblemen.

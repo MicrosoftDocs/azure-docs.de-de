@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111695"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60911444"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Aktivieren von Netzwerksicherheitsgruppen in Azure Security Center
 Azure Security Center empfiehlt die Aktivierung einer Netzwerksicherheitsgruppe (NSG), sofern noch keine aktiviert ist. NSGs enthalten eine Zugriffssteuerungsliste (Access Control List, ACL) zum Zulassen oder Verweigern von eingehendem Netzwerkdatenverkehr für Ihre VM-Instanzen in einem virtuellen Netzwerk. NSGs können Subnetzen oder einzelnen VM-Instanzen innerhalb dieses Subnetzes zugeordnet werden. Wenn eine NSG einem Subnetz zugeordnet ist, gelten die ACL-Regeln für alle VM-Instanzen in diesem Subnetz. Darüber hinaus kann Datenverkehr zu einem einzelnen virtuellen Computer weiter beschränkt werden, indem eine NSG direkt diesem virtuellen Computer zugewiesen wird. Weitere Informationen finden Sie unter [Was ist eine Netzwerksicherheitsgruppe (NSG)?](../virtual-network/security-overview.md)
@@ -33,7 +33,7 @@ Wenn Sie keine Netzwerksicherheitsgruppen aktiviert haben, zeigt Security Center
 
 ## <a name="implement-the-recommendation"></a>Implementieren der Empfehlung
 1. Wählen Sie auf dem Blatt **Empfehlungen** aus, ob **Netzwerksicherheitsgruppen** in Subnetzen oder auf virtuellen Computern aktiviert werden sollen.
-   ![][1]
+   ![Aktivieren von Netzwerksicherheitsgruppen][1]
 2. Daraufhin wird das Blatt zum **Konfigurieren fehlender Netzwerksicherheitsgruppen** für Subnetze oder virtuelle Computer geöffnet (je nachdem, welche Empfehlung Sie ausgewählt haben). Wählen Sie ein Subnetz oder einen virtuellen Computer aus, um eine Netzwerksicherheitsgruppe dafür zu konfigurieren.
 
    ![Konfigurieren der NSG (Subnetz)][2]

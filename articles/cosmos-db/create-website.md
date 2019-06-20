@@ -4,14 +4,14 @@ description: Erfahren Sie, wie Sie ein Azure Cosmos DB-Konto, eine Azure App Ser
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 93cdea453050df8899abf9233991715ae237bcd4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041015"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257235"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Bereitstellen von Azure Cosmos DB und Azure App Service-Web-Apps mithilfe einer Vorlage des Azure Resource Managers
 In diesem Lernprogramm erfahren Sie, wie Sie mithilfe einer Azure Resource Manager-Vorlage [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), eine [Azure App Service-Web-App](https://go.microsoft.com/fwlink/?LinkId=529714) und eine Beispielwebanwendung bereitstellen und integrieren.

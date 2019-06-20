@@ -1,25 +1,18 @@
 ---
-title: Erstellen oder Ändern ein Angebots | Microsoft-Dokumentation
+title: Erstellen oder Ändern eines Angebots | Azure Marketplace
 description: API zum Erstellen eines neuen oder Aktualisieren eines vorhandenen Angebots.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935521"
 ---
 <a name="create-or-modify-an-offer"></a>Erstellen oder Ändern ein Angebots
 =========================
@@ -34,9 +27,9 @@ Dieser Aufruf aktualisiert ein bestimmtes Angebot im Herausgebernamespace oder e
 
 |  **Name**         |  **Beschreibung**                      |  **Datentyp**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Herausgeberbezeichner, z. B. `contoso` |   Zeichenfolge |
-| offerId           |  Angebots-ID                     |   Zeichenfolge        |
-| api-version       |  Neueste Version der API            |   Datum           |
+| publisherId       |  Herausgeber-ID, z.B. `contoso` |   string |
+| offerId           |  Angebots-ID                     |   string        |
+| api-version       |  Aktuelle Version der API            |   Date           |
 |  |  |  |
 
 <a name="header"></a>Header
@@ -255,7 +248,7 @@ Im folgenden Beispiel wird ein Angebot mit der Angebots-ID (offerId) `contosovir
 | --------  |  ---------------                                                                            |
 |  200      | `OK`. Die Anforderung wurde erfolgreich verarbeitet, und das Angebot wurde erfolgreich geändert.           |
 |  201      | `Created`. Die Anforderung wurde erfolgreich verarbeitet, und das Angebot wurde erfolgreich erstellt.   |
-|  400      | `Bad/Malformed request`. Der Fehlerantworttext stellt möglicherweise weitere Informationen bereit.            |
+|  400      | `Bad/Malformed request`. Der Fehlerantworttext enthält ggf. weitere Informationen.            |
 |  403      | `Forbidden`. Der Client hat keinen Zugriff auf den angeforderten Namespace.                     |
 |  404      | `Not found`. Die Entität, auf die im Client verwiesen wird, gibt es nicht.                           |
 |  412      | Der Server erfüllt nicht alle Voraussetzungen, die die anfordernde Person in der Anforderung angegeben hat. Der Client sollte das ETAG prüfen, das mit der Anforderung gesendet wurde. |

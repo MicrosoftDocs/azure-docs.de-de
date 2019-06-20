@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60544812"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Einführung in den Fault Analysis Service
 Der Fault Analysis Service ist für das Testen von Diensten ausgelegt, die in Microsoft Azure Service Fabric erstellt werden. Mit dem Fault Analysis Service können Sie aussagekräftige Fehler auslösen und vollständige Testszenarien für Ihre Anwendungen ausführen. Mit diesen Fehlern und Szenarien werden die verschiedenen Zustände und Übergänge durchgespielt und überprüft, die während der Lebensdauer eines Diensts auftreten – und zwar auf kontrollierte, sichere und einheitliche Weise.
 
-Aktionen sind die individuellen Fehler, die auf einen Dienst angewendet werden, um ihn zu testen. Ein Dienstentwickler kann sie als Bausteine zum Schreiben komplizierter Szenarien verwenden. Beispiel: 
+Aktionen sind die individuellen Fehler, die auf einen Dienst angewendet werden, um ihn zu testen. Ein Dienstentwickler kann sie als Bausteine zum Schreiben komplizierter Szenarien verwenden. Beispiel:
 
 * Starten Sie einen Knoten neu, um eine beliebige Anzahl von Situationen zu simulieren, in denen ein Computer oder ein virtueller Computer neu gestartet wird.
 * Verschieben Sie ein Replikat Ihres zustandsbehafteten Diensts, um Lastenausgleich, Failover oder ein Anwendungsupgrade zu simulieren.

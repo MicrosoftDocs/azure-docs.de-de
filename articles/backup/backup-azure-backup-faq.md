@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66688730"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – häufig gestellte Fragen
 In diesem Artikel werden allgemeine Fragen um Azure Backup-Dienst beantwortet.
@@ -120,9 +120,9 @@ Die folgenden Größengrenzwerte gelten:
 Betriebssystem/Computer | Größengrenzwert der Datenquelle
 --- | --- 
 Windows 8 oder höher | 54.400 GB
-Windows 7 |1.700 GB
+Windows 7 |1\.700 GB
 Windows Server 2012 oder höher | 54.400 GB
-Windows Server 2008, Windows Server 2008 R2 | 1.700 GB
+Windows Server 2008, Windows Server 2008 R2 | 1\.700 GB
 Azure-VM | 16 Datenträger<br/><br/> Datenträger bis 4.095 GB
 
 ### <a name="how-is-the-data-source-size-determined"></a>Wie wird die Größe der Datenquelle bestimmt?
@@ -169,7 +169,7 @@ Nein. Aufbewahrungsrichtlinien können nur bei den Sicherungspunkten angewendet 
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Dauert die Wiederherstellung eines älteren Datenpunkts länger, wenn eine Sicherung lange Zeit aufbewahrt wird? <br/>
- Nein. Die Dauer zum Wiederherstellen des ältesten oder neuesten Punkts ist gleich. Jeder Wiederherstellungspunkt verhält sich wie ein vollständiger Punkt.
+Nein. Die Dauer zum Wiederherstellen des ältesten oder neuesten Punkts ist gleich. Jeder Wiederherstellungspunkt verhält sich wie ein vollständiger Punkt.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Wenn jeder Wiederherstellungspunkt sich wie ein vollständiger Punkt verhält, wie wirkt sich dies auf den gesamten abrechenbaren Sicherungsspeicher aus?
 Bei typischen Produkten für die langfristige Aufbewahrung werden Sicherungsdaten als vollständige Punkte gespeichert.
@@ -182,8 +182,8 @@ Die Speicherarchitektur von Azure Backup bietet Ihnen die Vorteile beider Ansät
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Gibt es eine Beschränkung für die Anzahl von Wiederherstellungspunkten, die erstellt werden können?
 Pro geschützter Instanz können bis zu 9.999 Wiederherstellungspunkte erstellt werden. Geschützte Instanzen sind Computer, Server (physisch oder virtuell) oder Workloads, die in Azure gesichert werden.
 
-- Erfahren Sie mehr über [Sicherung und Wiederherstellung](./backup-introduction-to-azure-backup.md#backup-and-retention).
-- Erfahren Sie etwas über [geschützte Instanzen](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance).
+- Erfahren Sie mehr über [Sicherung und Wiederherstellung](./backup-overview.md#backup-and-retention).
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Wie oft kann ich in Azure gesicherte Daten wiederherstellen?
 Es gibt keine Beschränkung für die Anzahl der Wiederherstellungen aus Azure Backup.

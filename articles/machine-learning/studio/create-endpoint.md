@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
 ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751177"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Erstellen von Endpunkten für bereitgestellte Azure Machine Learning Studio-Webdienste
 

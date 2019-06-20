@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606518"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Der Team Data Science-Prozess in Aktion: Verwenden von SQL Server
 In diesem Tutorial werden Sie durch die Erstellung und Bereitstellung eines Machine Learning-Modells geleitet. Hierfür werden SQL Server und das öffentlich zugängliche Dataset [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) verwendet. Die Prozedur entspricht dem standardmäßigen Data Science-Workflow: Erfassen und Durchsuchen der Daten, Entwickeln von Features zur Vereinfachung des Lernens und anschließendes Erstellen und Bereitstellen eines Modells.
@@ -515,7 +515,7 @@ In diesem Beispiel wird ein kontinuierliches numerisches Feld in vordefinierte K
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Funktionsverarbeitung: Extrahieren von Ortsfunktionen aus den Dezimalwerten für „latitude“ und „longitude“
-In diesem Beispiel wird die dezimale Darstellung eines Felds "latitude" und/oder "longitude" in mehrere Regionsfelder unterschiedlicher Granularität aufgeteilt, wie z. B. Land, Stadt, Stadtteil, Straße usw. Beachten Sie, dass die neuen Geocode-Felder keinen tatsächlichen Positionen zugeordnet sind. Informationen über die Zuordnung von Geocode-Positionen finden Sie in den [REST-Diensten für Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
+In diesem Beispiel wird die dezimale Darstellung eines Felds "latitude" und/oder "longitude" in mehrere Regionsfelder unterschiedlicher Granularität aufgeteilt, wie z.B. Land, Stadt/Region, Stadtteil, Straße usw. Beachten Sie, dass die neuen Geocode-Felder keinen tatsächlichen Positionen zugeordnet sind. Informationen über die Zuordnung von Geocode-Positionen finden Sie in den [REST-Diensten für Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent

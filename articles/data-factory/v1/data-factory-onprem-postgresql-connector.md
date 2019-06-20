@@ -20,7 +20,7 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58081830"
 ---
-# <a name="move-data-from-postgresql-using-azure-data-factory"></a>Verschieben von Daten aus PostgreSQL mithilfe von Azure Data Factory 
+# <a name="move-data-from-postgresql-using-azure-data-factory"></a>Verschieben von Daten aus PostgreSQL mithilfe von Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-postgresql-connector.md)
 > * [Version 2 (aktuelle Version)](../connector-postgresql.md)
@@ -77,10 +77,10 @@ Die folgende Tabelle enthält eine Beschreibung der JSON-Elemente, die für den 
 | type |Die type-Eigenschaft muss auf Folgendes festgelegt werden: **OnPremisesPostgreSql**. |Ja |
 | server |Name des PostgreSQL-Servers. |Ja |
 | database |Name der PostgreSQL-Datenbank. |Ja |
-| schema |Name des Schemas in der Datenbank. Beim Schemanamen wird die Groß- und Kleinschreibung beachtet. |Nein  |
+| schema |Name des Schemas in der Datenbank. Beim Schemanamen wird die Groß- und Kleinschreibung beachtet. |Nein |
 | authenticationType |Typ der Authentifizierung für die Verbindung mit der PostgreSQL-Datenbank. Mögliche Werte: „Anonymous“, „Basic“ und „Windows“. |Ja |
-| username |Geben Sie den Benutzernamen an, wenn Sie die Standard- oder Windows-Authentifizierung verwenden. |Nein  |
-| password |Geben Sie das Kennwort für das Benutzerkonto an, das Sie für den Benutzernamen angegeben haben. |Nein  |
+| username |Geben Sie den Benutzernamen an, wenn Sie die Standard- oder Windows-Authentifizierung verwenden. |Nein |
+| password |Geben Sie das Kennwort für das Benutzerkonto an, das Sie für den Benutzernamen angegeben haben. |Nein |
 | gatewayName |Name des Gateways, das der Data Factory-Dienst zum Herstellen einer Verbindung mit der lokalen PostgreSQL-Datenbank verwenden soll. |Ja |
 
 ## <a name="dataset-properties"></a>Dataset-Eigenschaften
@@ -306,36 +306,36 @@ Beim Verschieben von Daten in PostgreSQL werden die folgenden Zuordnungen zwisch
 
 | Typ "PostgreSQL-Datenbank" | PostgreSQL-Aliase | Typ ".NET Framework" |
 | --- | --- | --- |
-| abstime | |DateTime |
+| abstime | |Datetime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
-| boolean |bool |Boolescher Wert |
+| boolean |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
-| character [(n)] |char [(n)] |Zeichenfolge |
-| character varying [(n)] |varchar [(n)] |Zeichenfolge |
-| cid | |Zeichenfolge |
-| cidr | |Zeichenfolge |
+| character [(n)] |char [(n)] |String |
+| character varying [(n)] |varchar [(n)] |String |
+| cid | |String |
+| cidr | |String |
 | circle | |Byte[], String |
-| date | |DateTime |
-| daterange | |Zeichenfolge |
+| date | |Datetime |
+| daterange | |String |
 | double precision |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |Zeichenfolge |
-| int4range | |Zeichenfolge |
-| int8range | |Zeichenfolge |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | integer |int, int4 |Int32 |
 | interval [fields] [(p)] | |Timespan |
-| json | |Zeichenfolge |
+| json | |String |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Zeichenfolge |
+| numrange | |String |
 | oid | |Int32 |
 | path | |Byte[], String |
 | pg_lsn | |Int64 |
@@ -345,7 +345,7 @@ Beim Verschieben von Daten in PostgreSQL werden die folgenden Zuordnungen zwisch
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |Zeichenfolge |
+| text | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Zuordnen von Quell- zur Senkenspalten
 Weitere Informationen zum Zuordnen von Spalten im Quelldataset zu Spalten im Senkendataset finden Sie unter [Zuordnen von Datasetspalten in Azure Data Factory](data-factory-map-columns.md).

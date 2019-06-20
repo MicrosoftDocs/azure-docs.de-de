@@ -14,11 +14,11 @@ ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60373085"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Leistung in Webanwendungen überwachen
 
@@ -103,7 +103,7 @@ Legen Sie die Ressource vor den anderen Eigenschaften fest. Wählen Sie nicht di
 
 Achten Sie auf die Einheiten, die beim Eingeben des Schwellenwerts gefordert sind.
 
-*Ich sehe keine Schaltfläche zum Hinzufügen von Benachrichtigungen.*  – Handelt es sich um ein Gruppenkonto, für das Sie nur über schreibgeschützten Zugriff verfügen? Wenden Sie sich an den Kontoadministrator.
+*Ich sehe keine Schaltfläche zum Hinzufügen von Benachrichtigungen.* – Handelt es sich um ein Gruppenkonto, für das Sie nur über schreibgeschützten Zugriff verfügen? Wenden Sie sich an den Kontoadministrator.
 
 ## <a name="diagnosis"></a>Diagnostizieren von Problemen
 Im Folgenden finden Sie einige Tipps zum Feststellen und Diagnostizieren von Leistungsproblemen:

@@ -2,20 +2,20 @@
 title: Azure SQL-Datenbank – Versionshinweise | Microsoft-Dokumentation
 description: Weitere Informationen zu den neuen Features und Verbesserungen in Azure SQL-Datenbank und in der zugehörigen Dokumentation
 services: sql-database
-author: CarlRabeler
+author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.author: carlrab
-ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.date: 05/15/2019
+ms.author: sstein
+ms.openlocfilehash: d527c4fed9c43e62d815078c049d4d8e6f8a46b7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406583"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787711"
 ---
 # <a name="sql-database-release-notes"></a>Versionshinweise zu SQL-Datenbank
 
@@ -25,27 +25,26 @@ In diesem Artikel erhalten Sie weitere Informationen zu den neuen Features und V
 
 | Feature | Details |
 | ---| --- |
-| Serverlose Computeebene | Weitere Informationen finden Sie unter [SQL-Datenbank – serverlos (Vorschau)](sql-database-serverless.md).|
-| Aufträge für die elastische Datenbank | Weitere Informationen finden Sie unter [Erstellen, Konfigurieren und Verwalten von Aufträgen für die elastische Datenbank](elastic-jobs-overview.md). |
-| Elastische Transaktionen | [Übersicht über elastische Datenbanktransaktionen mit Azure SQL-Datenbank](sql-database-elastic-transactions-overview.md) |
-| Elastische Abfragen | Weitere Informationen finden Sie unter [Übersicht über elastische Abfragen](sql-database-elastic-query-overview.md). |
-| Replikation mit verwalteten Instanzen |Weitere Informationen finden Sie unter [Konfigurieren der Replikation in einer verwalteten Azure SQL-Datenbank-Instanzdatenbank](replication-with-sql-database-managed-instance.md).|
-| Instanzensortierung bei verwalteten Instanzen |Weitere Informationen finden Sie unter [Verwenden von PowerShell mit einer Azure Resource Manager-Vorlage zum Erstellen einer verwalteten Instanz in Azure SQL-Datenbank](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
-| R-Dienste/maschinelles Lernen mit Singletons und Pools für elastische Datenbanken |Weitere Informationen finden Sie unter [Machine Learning Services in Azure SQL-Datenbank](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 | Beschleunigte Datenbankwiederherstellung bei Singletons und Pools für elastische Datenbanken | Weitere Informationen finden Sie unter [Schnellere Datenbankwiederherstellung](sql-database-accelerated-database-recovery.md).|
-| Datenermittlung und -klassifizierung  |Weitere Informationen finden Sie unter [Azure SQL-Datenbank und SQL Data Warehouse: Datenermittlung und -klassifizierung](sql-database-data-discovery-and-classification.md).|
-| Transparent Data Encryption (TDE) mit Bring Your Own Key-Szenarien (BYOK) bei verwalteten Instanzen |Weitere Informationen finden Sie unter [Azure SQL Transparent Data Encryption mithilfe von Schlüsseln, die vom Kunden in Azure Key Vault verwaltet werden: Bring Your Own Key-Unterstützung](transparent-data-encryption-byok-azure-sql.md).|
-| Erneutes Erstellen gelöschter Datenbanken mit verwalteten Instanzen |Weitere Informationen finden Sie unter [Re-create dropped databases in Azure SQL Managed Instance](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266) (Erneutes Erstellen gelöschter Datenbanken in verwalteten Azure SQL-Datenbank-Instanzen).|
-| Bedrohungserkennung bei verwalteten Instanzen |Weitere Informationen finden Sie unter [Konfigurieren der Bedrohungserkennung für eine verwaltete Azure SQL-Datenbank-Instanz](sql-database-managed-instance-threat-detection.md).|
-| Hyperscale-Dienstebene mit Singletons |Weitere Informationen finden Sie unter [Hyperscale-Dienstebene für bis zu 100 TB](sql-database-service-tier-hyperscale.md)|
-| Abfrage-Editor im Azure-Portal |Weitere Informationen finden Sie unter [Verwenden des SQL-Abfrage-Editors im Azure-Portal zum Verbinden und Abfragen von Daten](sql-database-connect-query-portal.md).|
 |Geschätzte eindeutige Anzahl|Weitere Informationen finden Sie unter [Geschätzte Abfrageverarbeitung](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batchmodus für Rowstore (unter Kompatibilitätsgrad 150)|Weitere Informationen finden Sie unter [Batchmodus bei Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
+| Datenermittlung und -klassifizierung  |Weitere Informationen finden Sie unter [Azure SQL-Datenbank und SQL Data Warehouse: Datenermittlung und -klassifizierung](sql-database-data-discovery-and-classification.md).|
+| Aufträge für die elastische Datenbank | Weitere Informationen finden Sie unter [Erstellen, Konfigurieren und Verwalten von Aufträgen für die elastische Datenbank](elastic-jobs-overview.md). |
+| Elastische Abfragen | Weitere Informationen finden Sie unter [Übersicht über elastische Abfragen](sql-database-elastic-query-overview.md). |
+| Elastische Transaktionen | [Verteilte Transaktionen über Clouddatenbanken](sql-database-elastic-transactions-overview.md). |
+| Instanzensortierung bei verwalteten Instanzen |Weitere Informationen finden Sie unter [Verwenden von PowerShell mit einer Azure Resource Manager-Vorlage zum Erstellen einer verwalteten Instanz in Azure SQL-Datenbank](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 |Feedback zur Speicherzuweisung (Zeilenmodus) (unter Kompatibilitätsgrad 150)|Weitere Informationen finden Sie unter [Feedback zur Speicherzuweisung im Zeilenmodus](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
-|Verzögerte Kompilierung von Tabellenvariablen (unter Kompatibilitätsgrad 150)|Weitere Informationen finden Sie unter [Verzögerte Kompilierung von Tabellenvariablen](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
+| Abfrage-Editor im Azure-Portal |Weitere Informationen finden Sie unter [Verwenden des SQL-Abfrage-Editors im Azure-Portal zum Verbinden und Abfragen von Daten](sql-database-connect-query-portal.md).|
+| R-Dienste/maschinelles Lernen mit Singletons und Pools für elastische Datenbanken |Weitere Informationen finden Sie unter [Machine Learning Services in Azure SQL Database (Machine Learning Services in Azure SQL-Datenbank)](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
+| Erneutes Erstellen gelöschter Datenbanken mit verwalteten Instanzen |Weitere Informationen finden Sie unter [Re-create dropped databases in Azure SQL Managed Instance (Erneutes Erstellen gelöschter Datenbanken in verwalteten Azure SQL-Datenbank-Instanzen)](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266).|
+| Replikation mit verwalteten Instanzen |Weitere Informationen finden Sie unter [Konfigurieren der Replikation in einer verwalteten Azure SQL-Datenbank-Instanzdatenbank](replication-with-sql-database-managed-instance.md).|
+| Serverlose Computeebene | Weitere Informationen finden Sie unter [SQL-Datenbank – serverlos (Vorschau)](sql-database-serverless.md).|
 |Azure SQL-Analyse|Weitere Informationen finden Sie unter [Azure SQL-Analyse](../azure-monitor/insights/azure-sql.md).|
-| Unterstützung von Zeitzonen für verwaltete Instanzen|Weitere Informationen finden Sie unter [Time Zone in Azure SQL Database Managed Instance (Zeitzone in verwalteter Azure SQL-Datenbank-Instanz)](sql-database-managed-instance-timezone.md).|
-|||
+|Verzögerte Kompilierung von Tabellenvariablen (unter Kompatibilitätsgrad 150)|Weitere Informationen finden Sie unter [Verzögerte Kompilierung von Tabellenvariablen](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
+| Bedrohungserkennung bei verwalteten Instanzen |Weitere Informationen finden Sie unter [Konfigurieren der Bedrohungserkennung (Vorschau) für eine verwaltete Azure SQL-Datenbank-Instanz](sql-database-managed-instance-threat-detection.md).|
+| Unterstützung von Zeitzonen für verwaltete Instanzen|Weitere Informationen finden Sie unter [Zeitzone in einer verwalteten Azure SQL-Datenbank-Instanz (Vorschauversion)](sql-database-managed-instance-timezone.md).|
+| Transparent Data Encryption (TDE) mit Bring Your Own Key-Szenarien (BYOK) bei verwalteten Instanzen |Weitere Informationen finden Sie unter [Azure SQL Transparent Data Encryption mithilfe von Schlüsseln, die vom Kunden in Azure Key Vault verwaltet werden: Bring Your Own Key-Unterstützung](transparent-data-encryption-byok-azure-sql.md).|
+| &nbsp; |
 
 ## <a name="may-2019"></a>Mai 2019
 
@@ -53,9 +52,18 @@ In diesem Artikel erhalten Sie weitere Informationen zu den neuen Features und V
 
 | Verbesserungen beim Dienst | Details |
 | --- | --- |
-|Hyperscale-Dienstebene| Weitere Informationen finden Sie unter [Dienstebene „Hyperscale“ (Vorschau) für bis zu 100TB](sql-database-service-tier-hyperscale.md).|
-|Serverlose Computeebene| Weitere Informationen finden Sie unter [SQL-Datenbank – serverlos (Vorschau)](sql-database-serverless.md).|
+|Die Dienstebene „Hyperscale“ ist jetzt allgemein verfügbar.| Weitere Informationen finden Sie unter [Dienstebene „Hyperscale“ für bis zu 100TB](sql-database-service-tier-hyperscale.md) und [Skalieren Sie Ihre Azure-Datenbankworkloads durch Hyperscale mit Höchstleistung](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
+|Die serverlose Computeebene befindet sich jetzt in der öffentlichen Vorschauphase. | Weitere Informationen finden Sie unter [SQL-Datenbank – serverlos (Vorschau)](sql-database-serverless.md).|
+| Die Transaktionsprotokollraten und die Ziel-IOPS für Datenbanken wurden mithilfe des vCore-basierten Kaufmodells erhöht.| Weitere Informationen finden Sie unter [Limits des vCore-basierten Kaufmodells für eine Einzeldatenbank in Azure SQL-Datenbank](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) und [Ressourcenlimits für Einzeldatenbanken, die das DTU-basierte Kaufmodell verwenden](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
+| &nbsp; |
 
+### <a name="documentation-improvements"></a>Verbesserungen bei der Dokumentation
+
+| Verbesserungen bei der Dokumentation | Details |
+| --- | --- |
+| Die Dokumentation für die Dienstebene „Hyperscale“ wurde aktualisiert, damit sie dem Stand der allgemeinen Verfügbarkeit entspricht.| Weitere Informationen finden Sie unter [Dienstebene „Hyperscale“ (Vorschau) für bis zu 100TB](sql-database-service-tier-hyperscale.md).|
+|Im Rahmen der öffentlichen Vorschauphase der serverlosen Computeebene wurde die entsprechende Dokumentation veröffentlicht.| Weitere Informationen finden Sie unter [SQL-Datenbank – serverlos (Vorschau)](sql-database-serverless.md).|
+| &nbsp; |
 
 ## <a name="april-2019"></a>April 2019
 
@@ -63,15 +71,18 @@ In diesem Artikel erhalten Sie weitere Informationen zu den neuen Features und V
 
 | Verbesserungen beim Dienst | Details |
 | --- | --- |
-| Öffentliche Endpunkte für die verwaltete Instanz | Weitere Informationen finden Sie unter [Sicheres Verwenden einer verwalteten Azure SQL-Datenbank-Instanz mit öffentlichem Endpunkt](sql-database-managed-instance-public-endpoint-securely.md).
-| Zeitzonenunterstützung für die verwaltete Instanz | Weitere Informationen finden Sie unter [Zeitzone in einer verwalteten Azure SQL-Datenbank-Instanz (Vorschauversion)](sql-database-managed-instance-timezone.md)
+| Öffentliche Endpunkte für eine verwaltete Azure SQL-Datenbank-Instanz befinden sich jetzt in der öffentlichen Vorschauphase.| Weitere Informationen finden Sie unter [Sicheres Verwenden einer verwalteten Azure SQL-Datenbank-Instanz mit öffentlichen Endpunkten](sql-database-managed-instance-public-endpoint-securely.md).|
+| Die Zeitzonenunterstützung für eine verwaltete Azure SQL-Datenbank-Instanz befindet sich jetzt in der öffentlichen Vorschauphase.| Weitere Informationen finden Sie unter [Zeitzone in einer verwalteten Azure SQL-Datenbank-Instanz (Vorschauversion)](sql-database-managed-instance-timezone.md).|
+| Der Schutz von Azure SQL-Datenbank mithilfe von verwalteten Identitäten befindet sich jetzt in der zweiten öffentlichen Vorschauphase.| Weitere Informationen finden Sie unter [Securing Azure SQL Databases with managed identities just got easier (Noch einfacherer Schutz von Azure SQL-Datenbanken mithilfe von verwalteten Identitäten)](https://azure.microsoft.com/blog/securing-azure-sql-databases-with-managed-identities-just-got-easier/).|
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbesserungen bei der Dokumentation
 
 | Verbesserungen bei der Dokumentation | Details |
 | --- | --- |
-| Öffentliche Endpunkte für die verwaltete Instanz | Weitere Informationen finden Sie unter [Sicheres Verwenden einer verwalteten Azure SQL-Datenbank-Instanz mit öffentlichem Endpunkt](sql-database-managed-instance-public-endpoint-securely.md).
-| Zeitzonenunterstützung für die verwaltete Instanz | Weitere Informationen finden Sie unter [Zeitzone in einer verwalteten Azure SQL-Datenbank-Instanz (Vorschauversion)](sql-database-managed-instance-timezone.md)
+| Öffentliche Endpunkte für eine verwaltete Azure SQL-Datenbank-Instanz befinden sich jetzt in der öffentlichen Vorschauphase.| Weitere Informationen finden Sie unter [Sicheres Verwenden einer verwalteten Azure SQL-Datenbank-Instanz mit öffentlichen Endpunkten](sql-database-managed-instance-public-endpoint-securely.md).|
+| Die Zeitzonenunterstützung für eine verwaltete Azure SQL-Datenbank-Instanz befindet sich jetzt in der öffentlichen Vorschauphase.| Weitere Informationen finden Sie unter [Zeitzone in einer verwalteten Azure SQL-Datenbank-Instanz (Vorschauversion)](sql-database-managed-instance-timezone.md). |
+| Ressourcengovernance in Azure SQL-Datenbank | Weitere Informationen finden Sie unter [Resource governance in Azure SQL Database (Ressourcengovernance in Azure SQL-Datenbank)](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/). || &nbsp; |
 
 ## <a name="march-2019"></a>März 2019
 
@@ -79,14 +90,13 @@ In diesem Artikel erhalten Sie weitere Informationen zu den neuen Features und V
 
 | Verbesserungen beim Dienst | Details |
 | --- | --- |
-| Allgemeine Verfügbarkeit: Unterstützung für die horizontale Leseskalierung in Azure SQL-Datenbank | Weitere Informationen finden Sie unter [Horizontale Leseskalierung](sql-database-read-scale-out.md).|
+| Unterstützung für die horizontale Leseskalierung in Azure SQL-Datenbank ist nun allgemein verfügbar. | Weitere Informationen finden Sie unter [Verwenden von schreibgeschützten Replikaten für den Lastenausgleich schreibgeschützter Abfrageworkloads](sql-database-read-scale-out.md).|
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Verbesserungen bei der Dokumentation
 
 | Verbesserungen bei der Dokumentation | Details |
 | --- | --- |
-| Unterstützung von Zeitzonen für verwaltete Instanzen|Weitere Informationen finden Sie unter [Time Zone in Azure SQL Database Managed Instance (Zeitzone in verwalteter Azure SQL-Datenbank-Instanz)](sql-database-managed-instance-timezone.md).|
 | Hinzugefügt: Protokollbeschränkungen für Singletons|Weitere Informationen finden Sie unter [Limits des auf virtuellen Kernen basierenden Kaufmodells für eine Einzeldatenbank in Azure SQL-Datenbank](sql-database-vcore-resource-limits-single-databases.md).|
 | Hinzugefügt: Protokollbeschränkungen für Pools für elastische Datenbanken und Pooldatenbanken|Weitere Informationen finden Sie unter [Ressourcenlimits für Pools für elastische Datenbanken, die das V-Kern-basierte Kaufmodell verwenden](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Hinzugefügt: Transaktionsprotokollratengovernance| Neuer Inhalt für die [Transaktionsprotokollratengovernance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)|
@@ -102,7 +112,7 @@ In diesem Artikel erhalten Sie weitere Informationen zu den neuen Features und V
 |Allgemein verfügbar: Erstellen eines fortsetzbaren Onlineindizes| Weitere Informationen finden Sie unter [CREATE INDEX (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
 |Verbessert: Unterstützung für verwaltete Instanzen für Routingtabellen| Weitere Informationen finden Sie unter [Netzwerkanforderungen](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
 |Hinzugefügt: Unterstützung für das Umbenennen von Datenbank in verwalteten Instanzen | Weitere Informationen finden Sie in der Syntax zu [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) und [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql).|
-|SQL-Datenbank als Quelle von Verweisdaten für Stream Analytics | Weitere Informationen finden Sie unter [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
+|SQL-Datenbank als Quelle von Verweisdaten für Stream Analytics | Weitere Informationen finden Sie unter [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) und [Azure Stream Analytics now supports Azure SQL Database as reference data input (Azure Stream Analytics unterstützt nun Azure SQL-Datenbank als Eingabequelle von Verweisdaten)](https://azure.microsoft.com/blog/azure-stream-analytics-now-supports-azure-sql-database-as-reference-data-input/).|
 |Hinzugefügt: Unterstützung für verwaltete Instanzen im Datenmigrations-Assistenten |Weitere Informationen finden Sie unter [What's new in DMA (Neuerungen im Datenmigrations-Assistenten)](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
 |Hinzugefügt: Unterstützung für Zielbereitschaftsüberprüfung für verwaltete Instanzen in SQL Server Migration Assistant | Weitere Informationen finden Sie unter [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
 |Hinzugefügt: Unterstützung der Migration von Amazon RDS zu verwalteten Instanzen im Datenmigrationsdienst | Weitere Informationen finden Sie unter [Tutorial: Migrieren von RDS SQL Server zu Azure SQL-Datenbank oder zu einer verwalteten Azure SQL-Datenbank-Instanz mithilfe von DMS (online)](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
@@ -116,7 +126,6 @@ In diesem Artikel erhalten Sie weitere Informationen zu den neuen Features und V
 |Aktualisiert: tempdb-Größen für das DTU-basierte Kaufmodell | Weitere Informationen finden Sie unter [Tempdb-Datenbank in SQL-Datenbank](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 |Aktualisiert: Unterstützung für das Importieren und Exportieren mit BACPAC-Datei für verwaltete Instanzen| Weitere Informationen finden Sie unter [Importieren einer BACPAC-Datei](sql-database-import.md) und [Exportieren einer Azure SQL-Datenbank in eine BACPAC-Datei](sql-database-export.md). |
 | &nbsp; |
-
 
 ## <a name="january-2019"></a>Januar 2019
 
@@ -133,7 +142,7 @@ In diesem Artikel erhalten Sie weitere Informationen zu den neuen Features und V
 
 | Verbesserungen bei der Dokumentation | Details |
 | --- | --- |
-| Verwaltete Instanzen und Transaktionsreplikation | Ein Artikel über die Verwendung der [Transaktionsreplikation mit verwalteten Instanzen](replication-with-sql-database-managed-instance.md) wurde hinzugefügt. |
+| Verwaltete Instanzen und Transaktionsreplikation | Ein Artikel über die Verwendung der [Transaktionsreplikation mit verwalteten Azure SQL-Datenbank-Instanzen](replication-with-sql-database-managed-instance.md) wurde hinzugefügt. |
 | Hinzugefügt: Tutorial zu Azure AD mit verwalteten Instanzen | In diesem Tutorial zu [Azure AD mit verwalteten Instanzen](sql-database-managed-instance-aad-security-tutorial.md) wird veranschaulicht, wie Sie die Sicherheit von verwalteten Instanzen mithilfe von Azure AD-Anmeldungen konfigurieren und testen können. |
 | Aktualisiert: Auftragsautomatisierung mit Transact-SQL-Skripts | Die Erläuterungen zur Verwendung der [Auftragsautomatisierung mithilfe von Transact-SQL-Skripts](sql-database-job-automation-overview.md) für Singletons, Pools für elastische Datenbanken und verwaltete Instanzen wurden aktualisiert und verbessert. |
 | Aktualisiert: Sicherheit für verwaltete Instanzen | Die Erläuterungen zum [Sicherheitsmodell für verwaltete Instanzen](sql-database-security-overview.md) wurden aktualisiert und verbessert, und es wurden Vergleiche mit den Sicherheitsmodellen für Singletons und Pools für elastische Datenbanken hinzugefügt. |

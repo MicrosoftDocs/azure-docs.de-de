@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 42b8c4caa53ffa6b3bc1148544c75602597ac452
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153839"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824452"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kontingente und Einschränkungen für Azure Media Services (v3)
 
@@ -43,7 +43,7 @@ In diesem Artikel werden die Kontingente und Einschränkungen für Azure Media S
 | Streamingrichtlinien | 100 <sup>(5)</sup> |
 | Transformationen pro Media Services-Konto | 100  (feststehend)|
 | Eindeutige Streaminglocator, die einem Medienobjekt gleichzeitig zugeordnet sind | 100<sup>(6)</sup> (feststehend) |
-| Richtlinie für Inhaltsschlüssel |30 | 
+| Optionen pro Richtlinie für den Inhaltsschlüssel |30 | 
 
 <sup>1</sup> In Azure Blob Storage werden derzeit als Größe für ein einzelnes Blob bis zu 5 TB unterstützt. In Media Services gelten abhängig von den vom Dienst verwendeten VM-Größen weitere Grenzwerte. Die Größenbeschränkung gilt sowohl für die von Ihnen hochgeladenen Dateien als auch für Dateien, die in Folge der Verarbeitung durch Media Services (Codierung oder Analyse) generiert werden. Wenn Ihre Quelldatei größer als 260 GB ist, wird Ihr Auftrag wahrscheinlich nicht erfolgreich sein. 
 

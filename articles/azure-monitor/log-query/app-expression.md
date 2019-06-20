@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
 ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889453"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60589245"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>app()-Ausdruck in Azure Monitor-Abfragen
 

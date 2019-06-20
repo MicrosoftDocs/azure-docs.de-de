@@ -121,6 +121,8 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Anpassen der Entwickleroberfläche
       items:
+        - name: Zugreifen auf das neue Entwicklerportal und Anpassen dieses Portals
+          href: api-management-howto-developer-portal.md
         - name: Ändern von Seiteninhalt und Layout
           href: api-management-modify-content-layout.md
         - name: Anpassen der Systemseiten mithilfe von Vorlagen

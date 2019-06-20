@@ -66,6 +66,8 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: 'Teil 2: Anzeigen der Ergebnisse der Nachrichtenweiterleitung'
           href: tutorial-routing-view-message-routing-results.md
+    - name: Nachrichtenergänzungen
+      href: tutorial-message-enrichments.md
     - name: Verwenden von Metriken und Diagnoseprotokollen
       href: tutorial-use-metrics-and-diags.md
     - name: Ausführen eines manuellen Failovers
@@ -78,6 +80,8 @@
       href: tutorial-connectivity.md
 - name: Konzepte
   items:
+    - name: 'Nachrichtenergänzungen: Übersicht'
+      href: iot-hub-message-enrichments-overview.md
     - name: Geräteverwaltung – Übersicht
       href: iot-hub-device-management-overview.md
     - name: Vergleichen von IoT Hub und Event Hubs
@@ -343,7 +347,7 @@
               href: iot-hub-visual-studio-cloud-device-messaging.md
             - name: Datenvisualisierung in Power BI
               href: iot-hub-live-data-visualization-in-power-bi.md
-            - name: Datenvisualisierung mit Web-Apps
+            - name: Datenvisualisierung in einer Web-App
               href: iot-hub-live-data-visualization-in-web-apps.md
             - name: Wettervorhersage mit Azure Machine Learning
               href: iot-hub-weather-forecast-machine-learning.md
@@ -415,9 +419,9 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Microsoft Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: IoT-Geräte-SDKs
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

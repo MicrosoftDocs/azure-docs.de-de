@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: ad7e760bf84ee08e3928164432564fb23c10d211
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60330651"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Entfernen einer Transparent Data Encryption (TDE)-Schutzvorrichtung mithilfe von PowerShell
 
@@ -41,7 +41,7 @@ Wenn der Verdacht besteht, dass ein Schlüssel kompromittiert ist, d.h ein Diens
 
 Denken Sie daran: Sobald die TDE-Schutzvorrichtung aus Key Vault gelöscht ist, **werden alle Verbindungen mit den verschlüsselten Datenbanken unter dem Server blockiert, und diese Datenbanken werden offline geschaltet und innerhalb von 24 Stunden gelöscht**. Auf alte Sicherungen, die mit dem kompromittierten Schlüssel verschlüsselt wurden, kann nicht mehr zugegriffen werden.
 
-In den folgenden Schritten wird beschrieben, wie Sie die Fingerabdrücke der TDE-Schutzvorrichtung überprüfen, die von den virtuellen Protokolldateien (Virtual Log Files, VLF) einer bestimmten Datenbank weiterhin verwendet werden. Der Fingerabdruck der aktuellen TDE-Schutzvorrichtung für die Datenbank und die Datenbank-ID können gefunden werden durch Ausführung von: SELECT [database_id],       [encryption_state], [encryptor_type], /*asymmetrischer Schlüssel bedeutet „AKV“, „Zertifikat“ bedeutet „vom Dienst verwaltete Schlüssel“*/ [encryptor_thumbprint], FROM [sys].[dm_database_encryption_keys] 
+In den folgenden Schritten wird beschrieben, wie Sie die Fingerabdrücke der TDE-Schutzvorrichtung überprüfen, die von den virtuellen Protokolldateien (Virtual Log Files, VLF) einer bestimmten Datenbank weiterhin verwendet werden. Der Fingerabdruck der aktuellen TDE-Schutzvorrichtung für die Datenbank und die Datenbank-ID können gefunden werden durch Ausführung von: SELECT [database_id],       [encryption_state], [encryptor_type], /*asymmetrischer Schlüssel bedeutet „AKV“, „Zertifikat“ bedeutet „vom Dienst verwaltete Schlüssel“* / [encryptor_thumbprint], FROM [sys].[dm_database_encryption_keys] 
  
 Die folgende Abfrage gibt die verwendeten VLFs und die der Verschlüsselung entsprechenden Fingerabdrücke zurück. Jeder andere Fingerabdruck bezieht sich auf einen anderen Schlüssel in Azure Key Vault (AKV): SELECT * FROM sys.dm_db_log_info (database_id) 
 

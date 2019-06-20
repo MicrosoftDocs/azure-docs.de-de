@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60285483"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referenz zu Überwachungsaktivitäten von Azure AD
 
@@ -103,9 +103,9 @@ Dieser Artikel enthält die Überwachungsaktivitäten, die in Ihren Überwachung
 |Verzeichnisverwaltung|Remove OAuth2PermissionGrant (OAuth2PermissionGrant entfernen)|
 |Verzeichnisverwaltung|Remove app role assignment from service principal (App-Rollenzuweisung von Dienstprinzipal entfernen)|
 |Verzeichnisverwaltung|Besitzer aus Anwendung entfernen|
-|Ressource|Remove owner from service principal (Besitzer aus Dienstprinzipal entfernen)|
-|Ressource|Richtlinie aus Dienstprinzipal entfernen|
-|Ressource|Dienstprinzipal entfernen|
+|Resource|Remove owner from service principal (Besitzer aus Dienstprinzipal entfernen)|
+|Resource|Richtlinie aus Dienstprinzipal entfernen|
+|Resource|Dienstprinzipal entfernen|
 
 
 ## <a name="automated-password-rollover"></a>Automated password rollover (Automatisiertes Kennwortrollover)
@@ -269,79 +269,79 @@ Dieser Artikel enthält die Überwachungsaktivitäten, die in Ihren Überwachung
 |Schlüssel|Directory deleted (Verzeichnis gelöscht)|
 |Andere|Directory deleted permanently (Verzeichnis unwiderruflich gelöscht)|
 |Andere|Directory scheduled for deletion (Löschen des Verzeichnisses geplant)|
-|Ressource|Promote company to partner (Unternehmen zu Partner heraufstufen)|
-|Ressource|Rights Management-Eigenschaften bereinigen|
-|Ressource|Partner aus Unternehmen entfernen|
-|Ressource|Remove unverified domain (Nicht überprüfte Domäne entfernen)|
-|Ressource|Remove verified domain (Überprüfte Domäne entfernen)|
-|Ressource|Unternehmensinformationen festlegen|
-|Ressource|DirSync-Funktion festlegen|
-|Ressource|DirSyncEnabled-Flag festlegen|
-|Ressource|Set Partnership (Partnerschaft festlegen)|
-|Ressource|Schwellenwert für versehentliches Löschen festlegen|
-|Ressource|Zulässigen Datenspeicherort für Unternehmen festlegen|
-|Ressource|Funktion für multinationales Unternehmen auf „Aktiviert“ festlegen|
-|Ressource|Verzeichnisfunktion für Mandanten festlegen|
-|Ressource|Domänenauthentifizierung festlegen|
-|Ressource|Verbundeinstellungen für Domäne festlegen|
-|Ressource|Kennwortrichtlinie festlegen|
-|Ressource|Eigenschaften für Rights Management festlegen|
-|Ressource|Update company (Unternehmen aktualisieren)|
-|Ressource|Unternehmenseinstellungen aktualisieren|
-|Ressource|Domäne aktualisieren|
-|Ressource|Domäne überprüfen|
-|Ressource|Per E-Mail verifizierte Domäne überprüfen|
-|Ressource|Onboarding|
-|Ressource|Warnungseinstellungen aktualisieren|
-|Ressource|Update weekly digest settings (Einstellungen für wöchentliche Übersicht aktualisieren)|
-|Ressource|Disable password writeback for directory (Kennwortrückschreiben für Verzeichnis deaktivieren)|
-|Ressource|Enable password writeback for directory (Kennwortrückschreiben für Verzeichnis aktivieren)|
-|Ressource|Add app role assignment to group (App-Rollenzuweisung zu Gruppe hinzufügen)|
-|Ressource|Gruppe hinzufügen|
-|Ressource|Mitglied zur Gruppe hinzufügen|
-|Ressource|Add owner to group (Besitzer zu Gruppe hinzufügen)|
-|Ressource|Create group settings (Gruppeneinstellungen erstellen)|
-|Ressource|Gruppe löschen|
-|Ressource|Delete group settings (Gruppeneinstellungen löschen)|
-|Ressource|Finish applying group based license to users (Gruppenbasierte Lizenzzuweisung zu Benutzern fertig stellen)|
-|Ressource|Hard Delete group (Gruppe endgültig löschen)|
-|Ressource|Remove app role assignment from group (App-Rollenzuweisung von Gruppe entfernen)|
-|Ressource|Mitglied aus Gruppe entfernen|
-|Ressource|Remove owner from group (Besitzer aus Gruppe entfernen)|
-|Ressource|Gruppe wiederherstellen|
-|Ressource|Set group license (Gruppenlizenz festlegen)|
-|Ressource|Gruppe für Verwaltung durch Benutzer festgelegt|
-|Ressource|Start applying group based license to users (Starten der gruppenbasierten Lizenzzuweisung zu Benutzern)|
-|Ressource|Trigger group license recalculation (Neuberechnung der Gruppenlizenzen auslösen)|
-|Ressource|Gruppe aktualisieren|
-|Ressource|Update group settings (Gruppeneinstellungen aktualisieren)|
-|Ressource|Mitglied hinzufügen|
-|Ressource|Erstellen einer Gruppe|
-|Ressource|Gruppe löschen|
-|Ressource|Mitglied entfernen|
-|Ressource|Gruppe aktualisieren|
-|Ressource|Approve a pending request to join a group (Ausstehende Gruppenbeitrittsanforderung genehmigen)|
-|Ressource|Cancel a pending request to join a group (Ausstehende Gruppenbeitrittsanforderung abbrechen)|
-|Ressource|Create lifecycle management policy (Richtlinie für Lebenszyklusverwaltung erstellen)|
-|Ressource|Delete a pending request to join a group (Ausstehende Gruppenbeitrittsanforderung löschen)|
-|Ressource|Reject a pending request to join a group (Ausstehende Gruppenbeitrittsanforderung ablehnen)|
-|Ressource|Gruppe verlängern|
-|Ressource|Request to join a group (Gruppenbeitritt anfordern)|
-|Ressource|Set dynamic group properties (Dynamische Gruppeneigenschaften festlegen)|
-|Ressource|Update lifecycle management policy (Richtlinie für Lebenszyklusverwaltung aktualisieren)|
-|Ressource|Add a key based on ASCII secret to a CPIM key container (Schlüssel basierend auf einem ASCII-Geheimnis zu einem CPIM-Schlüsselcontainer hinzufügen)|
-|Ressource|Add a key to a CPIM key container (Schlüssel zu einem CPIM-Schlüsselcontainer hinzufügen)|
-|Ressource|Delete a CPIM key container (CPIM-Schlüsselcontainer löschen)|
-|Ressource|Delete key container (Schlüsselcontainer löschen)|
-|Ressource|Get key container active key metadata in JWK (Schlüsselcontainermetadaten zu aktiven Schlüsseln abrufen)|
-|Ressource|Get key container metadata (Metadaten des Schlüsselcontainers abrufen)|
-|Ressource|Gets a CPIM key container in jwk format (CPIM-Schlüsselcontainer im JWK-Format abrufen)|
-|Ressource|Gets list of key containers in the tenant (Liste der Schlüsselcontainer im Mandanten abrufen)|
-|Ressource|Restore a CPIM key container backup (Sicherung eines CPIM-Schlüsselcontainers wiederherstellen)|
-|Ressource|Save key container (Schlüsselcontainer speichern)|
-|Ressource|Upload a CPIM encrypted key (Verschlüsselten CPIM-Schlüssel hochladen)|
-|Ressource|Issue an authorization code to the application (Autorisierungscode für die Anwendung ausstellen)|
-|Ressource|Issue an id_token to the application (ID-Token für die Anwendung ausstellen)|
+|Resource|Promote company to partner (Unternehmen zu Partner heraufstufen)|
+|Resource|Rights Management-Eigenschaften bereinigen|
+|Resource|Partner aus Unternehmen entfernen|
+|Resource|Remove unverified domain (Nicht überprüfte Domäne entfernen)|
+|Resource|Remove verified domain (Überprüfte Domäne entfernen)|
+|Resource|Unternehmensinformationen festlegen|
+|Resource|DirSync-Funktion festlegen|
+|Resource|DirSyncEnabled-Flag festlegen|
+|Resource|Set Partnership (Partnerschaft festlegen)|
+|Resource|Schwellenwert für versehentliches Löschen festlegen|
+|Resource|Zulässigen Datenspeicherort für Unternehmen festlegen|
+|Resource|Funktion für multinationales Unternehmen auf „Aktiviert“ festlegen|
+|Resource|Verzeichnisfunktion für Mandanten festlegen|
+|Resource|Domänenauthentifizierung festlegen|
+|Resource|Verbundeinstellungen für Domäne festlegen|
+|Resource|Kennwortrichtlinie festlegen|
+|Resource|Eigenschaften für Rights Management festlegen|
+|Resource|Update company (Unternehmen aktualisieren)|
+|Resource|Unternehmenseinstellungen aktualisieren|
+|Resource|Domäne aktualisieren|
+|Resource|Domäne überprüfen|
+|Resource|Per E-Mail verifizierte Domäne überprüfen|
+|Resource|Onboarding|
+|Resource|Warnungseinstellungen aktualisieren|
+|Resource|Update weekly digest settings (Einstellungen für wöchentliche Übersicht aktualisieren)|
+|Resource|Disable password writeback for directory (Kennwortrückschreiben für Verzeichnis deaktivieren)|
+|Resource|Enable password writeback for directory (Kennwortrückschreiben für Verzeichnis aktivieren)|
+|Resource|Add app role assignment to group (App-Rollenzuweisung zu Gruppe hinzufügen)|
+|Resource|Gruppe hinzufügen|
+|Resource|Mitglied zur Gruppe hinzufügen|
+|Resource|Add owner to group (Besitzer zu Gruppe hinzufügen)|
+|Resource|Create group settings (Gruppeneinstellungen erstellen)|
+|Resource|Gruppe löschen|
+|Resource|Delete group settings (Gruppeneinstellungen löschen)|
+|Resource|Finish applying group based license to users (Gruppenbasierte Lizenzzuweisung zu Benutzern fertig stellen)|
+|Resource|Hard Delete group (Gruppe endgültig löschen)|
+|Resource|Remove app role assignment from group (App-Rollenzuweisung von Gruppe entfernen)|
+|Resource|Mitglied aus Gruppe entfernen|
+|Resource|Remove owner from group (Besitzer aus Gruppe entfernen)|
+|Resource|Gruppe wiederherstellen|
+|Resource|Set group license (Gruppenlizenz festlegen)|
+|Resource|Gruppe für Verwaltung durch Benutzer festgelegt|
+|Resource|Start applying group based license to users (Starten der gruppenbasierten Lizenzzuweisung zu Benutzern)|
+|Resource|Trigger group license recalculation (Neuberechnung der Gruppenlizenzen auslösen)|
+|Resource|Gruppe aktualisieren|
+|Resource|Update group settings (Gruppeneinstellungen aktualisieren)|
+|Resource|Mitglied hinzufügen|
+|Resource|Erstellen einer Gruppe|
+|Resource|Gruppe löschen|
+|Resource|Mitglied entfernen|
+|Resource|Gruppe aktualisieren|
+|Resource|Approve a pending request to join a group (Ausstehende Gruppenbeitrittsanforderung genehmigen)|
+|Resource|Cancel a pending request to join a group (Ausstehende Gruppenbeitrittsanforderung abbrechen)|
+|Resource|Create lifecycle management policy (Richtlinie für Lebenszyklusverwaltung erstellen)|
+|Resource|Delete a pending request to join a group (Ausstehende Gruppenbeitrittsanforderung löschen)|
+|Resource|Reject a pending request to join a group (Ausstehende Gruppenbeitrittsanforderung ablehnen)|
+|Resource|Gruppe verlängern|
+|Resource|Request to join a group (Gruppenbeitritt anfordern)|
+|Resource|Set dynamic group properties (Dynamische Gruppeneigenschaften festlegen)|
+|Resource|Update lifecycle management policy (Richtlinie für Lebenszyklusverwaltung aktualisieren)|
+|Resource|Add a key based on ASCII secret to a CPIM key container (Schlüssel basierend auf einem ASCII-Geheimnis zu einem CPIM-Schlüsselcontainer hinzufügen)|
+|Resource|Add a key to a CPIM key container (Schlüssel zu einem CPIM-Schlüsselcontainer hinzufügen)|
+|Resource|Delete a CPIM key container (CPIM-Schlüsselcontainer löschen)|
+|Resource|Delete key container (Schlüsselcontainer löschen)|
+|Resource|Get key container active key metadata in JWK (Schlüsselcontainermetadaten zu aktiven Schlüsseln abrufen)|
+|Resource|Get key container metadata (Metadaten des Schlüsselcontainers abrufen)|
+|Resource|Gets a CPIM key container in jwk format (CPIM-Schlüsselcontainer im JWK-Format abrufen)|
+|Resource|Gets list of key containers in the tenant (Liste der Schlüsselcontainer im Mandanten abrufen)|
+|Resource|Restore a CPIM key container backup (Sicherung eines CPIM-Schlüsselcontainers wiederherstellen)|
+|Resource|Save key container (Schlüsselcontainer speichern)|
+|Resource|Upload a CPIM encrypted key (Verschlüsselten CPIM-Schlüssel hochladen)|
+|Resource|Issue an authorization code to the application (Autorisierungscode für die Anwendung ausstellen)|
+|Resource|Issue an id_token to the application (ID-Token für die Anwendung ausstellen)|
 
 
 ## <a name="core-directory"></a>Core directory (Kernverzeichnis)
@@ -432,18 +432,18 @@ Dieser Artikel enthält die Überwachungsaktivitäten, die in Ihren Überwachung
 |Richtlinienverwaltung|GetIEFPolicies|
 |Richtlinienverwaltung|GetIdentityProviders|
 |Richtlinienverwaltung|GetTrustFrameworkPolicy|
-|Ressource|MigrateTenantMetadata|
-|Ressource|Verschieben von Ressourcen|
-|Ressource|Patch IdentityProvider (IdentityProvider patchen)|
-|Ressource|PutTrustFrameworkPolicy|
-|Ressource|PutTrustFrameworkpolicy|
-|Ressource|User Journey entfernen|
-|Ressource|Update Custom IDP (Benutzerdefinierten IDP aktualisieren)|
-|Ressource|Update IDP (IDP aktualisieren)|
-|Ressource|Lokalen IDP aktualisieren|
-|Ressource|Update a B2C directory resource (B2C-Verzeichnisressource aktualisieren)|
-|Ressource|Aktualisieren von Richtlinien|
-|Ressource|Update subscription status (Abonnementstatus aktualisieren)|
+|Resource|MigrateTenantMetadata|
+|Resource|Verschieben von Ressourcen|
+|Resource|Patch IdentityProvider (IdentityProvider patchen)|
+|Resource|PutTrustFrameworkPolicy|
+|Resource|PutTrustFrameworkpolicy|
+|Resource|User Journey entfernen|
+|Resource|Update Custom IDP (Benutzerdefinierten IDP aktualisieren)|
+|Resource|Update IDP (IDP aktualisieren)|
+|Resource|Lokalen IDP aktualisieren|
+|Resource|Update a B2C directory resource (B2C-Verzeichnisressource aktualisieren)|
+|Resource|Aktualisieren von Richtlinien|
+|Resource|Update subscription status (Abonnementstatus aktualisieren)|
 |Rollenverwaltung|Update user attribute (Benutzerattribut aktualisieren)|
 |Rollenverwaltung|Validate move resources (Verschiebung von Ressourcen überprüfen)|
 |Rollenverwaltung|Gerät hinzufügen|

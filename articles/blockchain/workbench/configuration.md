@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578746"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60578979"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referenz zur Azure Blockchain Workbench-Konfiguration
 
@@ -43,7 +43,7 @@ Eine Blockchainanwendung enthält Konfigurationsmetadaten, Workflows und Benutze
 |-------|-------------|:--------:|
 | ApplicationName | Eindeutiger Anwendungsname. Der entsprechende intelligente Vertrag muss den gleichen **Anwendungsnamen** für die jeweilige Vertragsklasse verwenden.  | Ja |
 | DisplayName | Der Anzeigename der Anwendung | Ja |
-| BESCHREIBUNG | Beschreibung der Anwendung | Nein  |
+| BESCHREIBUNG | Beschreibung der Anwendung | Nein |
 | ApplicationRoles | Sammlung von [Anwendungsrollen](#application-roles). Benutzerrollen, die innerhalb der Anwendung agieren oder teilnehmen können.  | Ja |
 | Workflows | Sammlung von [Workflows](#workflows). Jeder Workflow fungiert als Zustandsautomat, um den Ablauf der Geschäftslogik zu steuern. | Ja |
 
@@ -57,7 +57,7 @@ Die Geschäftslogik einer Anwendung kann als Zustandsautomat modelliert werden, 
 |-------|-------------|:--------:|-----------:|
 | NAME | Eindeutiger Workflowname. Der entsprechende intelligente Vertrag muss den gleichen **Namen** für die jeweilige Vertragsklasse verwenden. | Ja | 50 |
 | DisplayName | Der Anzeigename des Workflows | Ja | 255 |
-| BESCHREIBUNG | Die Beschreibung des Workflows | Nein  | 255 |
+| BESCHREIBUNG | Die Beschreibung des Workflows | Nein | 255 |
 | Initiators | Sammlung von [Anwendungsrollen](#application-roles). Rollen, die Benutzern zugeordnet sind, die zum Erstellen von Verträgen im Workflow berechtigt sind. | Ja | |
 | StartState | Der Name des Anfangszustands des Workflows | Ja | |
 | Eigenschaften | Sammlung von [Bezeichnern](#identifiers). Stellt Daten dar, die Off-Chain gelesen oder in einem Tool zum Erstellen von Benutzeroberflächen visualisiert werden können. | Ja | |
@@ -104,7 +104,7 @@ Unterstützte Datentypen:
 
 #### <a name="using-a-property-of-type-array"></a>Verwenden einer Eigenschaft vom Typ „Array“
 
-Wenn Sie eine Eigenschaft vom Typ „Array“ in der Konfiguration definieren, müssen Sie eine explizite Get-Funktion angeben, um die öffentliche Eigenschaft des Arraytyps in Solidity zurückzugeben. Beispiel: 
+Wenn Sie eine Eigenschaft vom Typ „Array“ in der Konfiguration definieren, müssen Sie eine explizite Get-Funktion angeben, um die öffentliche Eigenschaft des Arraytyps in Solidity zurückzugeben. Beispiel:
 
 ```
 function GetQuotes() public constant returns (int[]) {
@@ -211,7 +211,7 @@ Definiert Funktionen, die im Workflow ausgeführt werden können.
 |-------|-------------|:--------:|-----------:|
 | NAME | Der eindeutige Name der Funktion. Der entsprechende intelligente Vertrag muss den gleichen **Namen** für die jeweilige Funktion verwenden. | Ja | 50 |
 | DisplayName | Der Anzeigename der Funktion | Ja | 255 |
-| BESCHREIBUNG | Beschreibung der Funktion | Nein  | 255 |
+| BESCHREIBUNG | Beschreibung der Funktion | Nein | 255 |
 | Parameter | Sammlung von [Bezeichnern](#identifiers), die den Parametern der Funktion entsprechen. | Ja | |
 
 ### <a name="functions-example"></a>Funktionsbeispiel
@@ -259,10 +259,10 @@ Eine Sammlung von eindeutigen Zuständen innerhalb eines Workflows. Jeder Zustan
 |-------|-------------|:--------:|-----------:|
 | NAME | Eindeutiger Name des Zustands. Der entsprechende intelligente Vertrag muss den gleichen **Namen** für den jeweiligen Zustand verwenden. | Ja | 50 |
 | DisplayName | Der Anzeigename des Zustands | Ja | 255 |
-| BESCHREIBUNG | Beschreibung des Zustands | Nein  | 255 |
+| BESCHREIBUNG | Beschreibung des Zustands | Nein | 255 |
 | PercentComplete | Ein ganzzahliger Wert in der Blockchain Workbench-Benutzeroberfläche, der den Fortschritt der Ablaufsteuerung innerhalb der Geschäftslogik anzeigt. | Ja | |
 | Style | Visueller Hinweis, ob es sich um einen erfolgreichen oder fehlerhaften Zustand handelt. Es gibt zwei gültige Werte: `Success` oder `Failure`. | Ja | |
-| Transitions | Sammlung von verfügbaren [Übergängen](#transitions) von dem aktuellen Zustand in die nächsten Zustände. | Nein  | |
+| Transitions | Sammlung von verfügbaren [Übergängen](#transitions) von dem aktuellen Zustand in die nächsten Zustände. | Nein | |
 
 ### <a name="states-example"></a>Beispiel zu Zuständen (States)
 
@@ -326,10 +326,10 @@ Verfügbare Aktionen zum Erreichen des nächsten Zustands. Eine oder mehrere Ben
 
 | Feld | BESCHREIBUNG | Erforderlich |
 |-------|-------------|:--------:|
-| AllowedRoles | Liste der Anwendungsrollen, die einen Übergang initiieren dürfen. Alle Benutzer der angegebenen Rolle können die Aktion möglicherweise ausführen. | Nein  |
-| AllowedInstanceRoles | Liste der Benutzerrollen, die am intelligenten Vertrag teilnehmen oder darin festgelegt sind, um den Übergang zu initiieren. Instanzrollen werden in den **Eigenschaften** innerhalb von Workflows definiert. AllowedInstanceRoles stellt einen Benutzer dar, der bei einer Instanz eines Smart Contract involviert ist. Über AllowedInstanceRoles können Sie die Durchführung einer Aktion für eine Benutzerrolle in einer Vertragsinstanz beschränken.  Beispielsweise empfiehlt es sich, nur dem Benutzer, der den Vertrag erstellt hat (InstanceOwner), die Kündigung eines Vertrags zu ermöglichen, nicht allen Benutzern mit dem Rollentyp (Owner). Hierfür müssen Sie die Rolle in AllowedRoles angegeben haben. | Nein  |
+| AllowedRoles | Liste der Anwendungsrollen, die einen Übergang initiieren dürfen. Alle Benutzer der angegebenen Rolle können die Aktion möglicherweise ausführen. | Nein |
+| AllowedInstanceRoles | Liste der Benutzerrollen, die am intelligenten Vertrag teilnehmen oder darin festgelegt sind, um den Übergang zu initiieren. Instanzrollen werden in den **Eigenschaften** innerhalb von Workflows definiert. AllowedInstanceRoles stellt einen Benutzer dar, der bei einer Instanz eines Smart Contract involviert ist. Über AllowedInstanceRoles können Sie die Durchführung einer Aktion für eine Benutzerrolle in einer Vertragsinstanz beschränken.  Beispielsweise empfiehlt es sich, nur dem Benutzer, der den Vertrag erstellt hat (InstanceOwner), die Kündigung eines Vertrags zu ermöglichen, nicht allen Benutzern mit dem Rollentyp (Owner). Hierfür müssen Sie die Rolle in AllowedRoles angegeben haben. | Nein |
 | DisplayName | Der Anzeigename des Übergangs | Ja |
-| BESCHREIBUNG | Die Beschreibung des Übergangs | Nein  |
+| BESCHREIBUNG | Die Beschreibung des Übergangs | Nein |
 | Funktion | Der Name der Funktion zum Initiieren des Übergangs | Ja |
 | NextStates | Eine Sammlung möglicher nächster Zustände nach einem erfolgreichen Übergang | Ja |
 
@@ -372,7 +372,7 @@ Anwendungsrollen definieren eine Reihe von Rollen, die Benutzern zugewiesen werd
 | Feld | BESCHREIBUNG | Erforderlich | Max. Länge |
 |-------|-------------|:--------:|-----------:|
 | NAME | Der eindeutige Name der Anwendungsrolle. Der entsprechende intelligente Vertrag muss den gleichen **Namen** für die jeweilige Rolle verwenden. Basistypnamen sind reserviert. Einer Anwendungsrolle kann nicht der Name eines [Typs](#type) gegeben werden.| Ja | 50 |
-| BESCHREIBUNG | Die Beschreibung der Anwendungsrolle | Nein  | 255 |
+| BESCHREIBUNG | Die Beschreibung der Anwendungsrolle | Nein | 255 |
 
 ### <a name="application-roles-example"></a>Beispiel zu Anwendungsrollen (ApplicationRoles)
 
@@ -396,7 +396,7 @@ Bezeichner stellen eine Sammlung von Informationen zur Beschreibung von Workflow
 |-------|-------------|:--------:|-----------:|
 | NAME | Der eindeutige Name der Eigenschaft bzw. des Parameters. Der entsprechende intelligente Vertrag muss den gleichen **Namen** für die jeweilige Eigenschaft bzw. den jeweiligen Parameter verwenden. | Ja | 50 |
 | DisplayName | Der Anzeigename der Eigenschaft bzw. des Parameters | Ja | 255 |
-| BESCHREIBUNG | Die Beschreibung der Eigenschaft bzw. des Parameters | Nein  | 255 |
+| BESCHREIBUNG | Die Beschreibung der Eigenschaft bzw. des Parameters | Nein | 255 |
 
 ### <a name="identifiers-example"></a>Beispiel zu Bezeichnern
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 1f86690b97fc7d65afed650664a76200ef490f33
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517112"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754726"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Schnellstart: Erstellen einer To-Do-App mit Xamarin mithilfe eines Azure Cosmos DB-SQL-API-Kontos
 
@@ -37,7 +37,7 @@ In diesem Schnellstart wird veranschaulicht, wie Sie mithilfe des Azure-Portals 
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Falls Sie unter Windows entwickeln und Visual Studio 2017 noch nicht installiert haben, können Sie die **kostenlose** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) herunterladen und verwenden. Stellen Sie sicher, dass Sie während des Visual Studio-Setups die Workloads **Azure-Entwicklung** und **Mobile-Entwicklung mit .NET** aktivieren.
+Falls Sie unter Windows entwickeln und Visual Studio 2019 noch nicht installiert haben, können Sie die **kostenlose** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) herunterladen und verwenden. Stellen Sie sicher, dass Sie während des Visual Studio-Setups die Workloads **Azure-Entwicklung** und **Mobile-Entwicklung mit .NET** aktivieren.
 
 Bei Verwendung eines Macintosh können Sie die **kostenlose** Version von [Visual Studio für Mac](https://www.visualstudio.com/vs/mac/) herunterladen.
 
@@ -48,7 +48,7 @@ Bei Verwendung eines Macintosh können Sie die **kostenlose** Version von [Visua
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Hinzufügen einer Sammlung
+## <a name="add-a-container"></a>Hinzufügen eines Containers
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -92,7 +92,7 @@ Wechseln Sie zurück zum Azure-Portal, um die Informationen zum API-Schlüssel z
 
     ![Anzeigen und Kopieren eines Zugriffsschlüssels im Azure-Portal auf dem Blatt „Schlüssel“](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Öffnen Sie in Visual Studio 2017 oder Visual Studio für Mac im Ordner „azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers“ die Datei „APIKeys.cs“.
+2. Öffnen Sie in Visual Studio 2019 oder Visual Studio für Mac im Ordner „azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers“ die Datei „APIKeys.cs“.
 
 3. Kopieren Sie den URI-Wert aus dem Portal (mithilfe der Schaltfläche zum Kopieren), und legen Sie ihn in „APIKeys.cs“ als Wert für die Variable `CosmosEndpointUrl` fest.
 
@@ -245,7 +245,7 @@ Die folgenden Schritte veranschaulichen, wie Sie die App mit dem Debugger von Vi
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-In diesem Schnellstart haben Sie gelernt, wie Sie ein Azure Cosmos DB-Konto sowie eine Sammlung mit dem Daten-Explorer erstellen und eine Xamarin-App erstellen und bereitstellen können. Jetzt können Sie zusätzliche Daten in Ihr Azure Cosmos DB-Konto importieren.
+In diesem Schnellstart haben Sie gelernt, wie Sie ein Azure Cosmos-Konto sowie einen Container mit dem Daten-Explorer erstellen und eine Xamarin-App erstellen und bereitstellen. Jetzt können Sie zusätzliche Daten in Ihr Azure Cosmos-Konto importieren.
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB (Importieren von Daten in Azure Cosmos DB)](import-data.md)

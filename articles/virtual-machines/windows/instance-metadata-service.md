@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993068"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65792096"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-Instanzmetadatendienst
 
@@ -37,7 +37,7 @@ Der Endpunkt steht unter einer bekannten, nicht routingfähigen IP-Adresse zur V
 
 Der Dienst ist in Azure-Regionen allgemein verfügbar. Unter Umständen sind nicht alle API-Versionen in allen Azure-Regionen verfügbar.
 
-Regionen                                        | Verfügbarkeit?                                 | Unterstützte Versionen
+Regions                                        | Verfügbarkeit?                                 | Unterstützte Versionen
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Allgemein verfügbar in globalen Azure-Regionen](https://azure.microsoft.com/regions/)     | Allgemein verfügbar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allgemein verfügbar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
@@ -110,7 +110,7 @@ API | Standarddatenformat | Andere Formate
 /scheduledevents | json | none
 /attested | json | none
 
-Um auf ein nicht standardmäßiges Antwortformat zuzugreifen, geben Sie das angeforderte Format als QueryString-Parameter in der Anforderung an. Beispiel: 
+Um auf ein nicht standardmäßiges Antwortformat zuzugreifen, geben Sie das angeforderte Format als QueryString-Parameter in der Anforderung an. Beispiel:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -342,7 +342,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 Daten | BESCHREIBUNG | Eingeführt in Version
 -----|-------------|-----------------------
-attested | Siehe [Bestätigte Daten](#attested-data) | 01.10.2018
+attested | Siehe [Bestätigte Daten](#attested-data) | 01\.10.2018
 identity | Verwaltete Identitäten für Azure-Ressourcen. Siehe [Abrufen eines Zugriffstokens](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | Siehe [Instanz-API](#instance-api) | 2017-04-02
 scheduledevents | Siehe [Azure-Metadatendienst: Geplante Ereignisse (Vorschau) für Windows-VMs](scheduled-events.md) | 2017-08-01
@@ -355,24 +355,24 @@ scheduledevents | Siehe [Azure-Metadatendienst: Geplante Ereignisse (Vorschau) f
 
 Daten | BESCHREIBUNG | Eingeführt in Version
 -----|-------------|-----------------------
-azEnvironment | Azure-Umgebung, in der die VM ausgeführt wird | 01.10.2018
+azEnvironment | Azure-Umgebung, in der die VM ausgeführt wird | 01\.10.2018
 customData | Siehe [Benutzerdefinierte Daten](#custom-data) | 2019-02-01
 location | Azure-Region, in der die VM ausgeführt wird | 2017-04-02
 name | Name des virtuellen Computers | 2017-04-02
-offer | Stellen Sie Informationen für das VM-Image bereit. Dieser Wert ist nur für Images vorhanden, die mithilfe des Azure-Imagekatalogs bereitgestellt werden. | 2017-04-02
+offer | Angebotsinformationen für das VM-Image, diese sind nur für Images vorhanden, die über den Azure-Imagekatalog bereitgestellt werden | 2017-04-02
 osType | Linux oder Windows | 2017-04-02
 placementGroupId | [Platzierungsgruppe](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) der VM-Skalierungsgruppe | 2017-08-01
-Tarif | Der [Tarif](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) für einen virtuellen Computer im entsprechenden Azure Marketplace-Image, enthält Namen, Produkt und Herausgeber | 2018-04-02
+Tarif | Der [Tarif](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) mit Name, Produkt und Herausgeber für einen virtuellen Computer, wenn es sich um ein Azure Marketplace-Image handelt | 2018-04-02
 platformUpdateDomain |  [Updatedomäne](manage-availability.md), in der die VM ausgeführt wird | 2017-04-02
 platformFaultDomain | [Fehlerdomäne](manage-availability.md), in der die VM ausgeführt wird | 2017-04-02
-Anbieter | Anbieter des virtuellen Computers | 01.10.2018
+Anbieter | Anbieter des virtuellen Computers | 01\.10.2018
 publicKeys | [Sammlung von öffentlichen Schlüsseln](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey), dem virtuellen Computer und den entsprechenden Pfaden zugewiesen | 2018-04-02
-Herausgeber | Herausgeber des VM-Images | 2017-04-02
+publisher | Herausgeber des VM-Images | 2017-04-02
 resourceGroupName | [Ressourcengruppe](../../azure-resource-manager/resource-group-overview.md) für den virtuellen Computer | 2017-08-01
 sku | Spezifische SKU für das VM-Image | 2017-04-02
 subscriptionId | Azure-Abonnement für den virtuellen Computer | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) für den virtuellen Computer  | 2017-08-01
-Version | Version des VM-Image | 2017-04-02
+version | Version des VM-Image | 2017-04-02
 vmId | [Eindeutiger Bezeichner](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) für die VM | 2017-04-02
 vmScaleSetName | [Name Ihrer VM-Skalierungsgruppe](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [Größe des virtuellen Computers](sizes.md) | 2017-04-02
@@ -619,7 +619,7 @@ Sobald Sie über die oben beschriebene Signatur verfügen, können Sie verifizie
 > [!NOTE]
 > Die Zertifikate für öffentliche Clouds und Sovereign Clouds unterscheiden sich voneinander.
 
- Regionen | Zertifikat
+ Regions | Zertifikat
 ---------|-----------------
 [Allgemein verfügbar in globalen Azure-Regionen](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
@@ -688,9 +688,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Benutzerdefinierte Daten
-Instance Metadata Service bietet für den virtuellen Computer die Möglichkeit, auf eigene benutzerdefinierte Daten zuzugreifen. Die binären Daten müssen weniger als 64 KB umfassen und werden dem virtuellen Computer in base64-codiertem Format bereitgestellt. Weitere Informationen zum Erstellen eines virtuellen Computers mit benutzerdefinierten Daten finden Sie unter [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata) (Bereitstellen eines virtuellen Computers mit benutzerdefinierten Daten).
+Instance Metadata Service bietet für den virtuellen Computer die Möglichkeit, auf eigene benutzerdefinierte Daten zuzugreifen. Die binären Daten müssen weniger als 64 KB umfassen und werden dem virtuellen Computer in base64-codiertem Format bereitgestellt.
+
+Benutzerdefinierte Azure-Daten können über REST-APIs, PowerShell-Cmdlets, die Azure-Befehlszeilenschnittstelle oder eine ARM-Vorlage in die VM eingefügt werden.
+
+Ein Beispiel für die Azure-Befehlszeilenschnittstelle finden Sie unter [Benutzerdefinierte Daten und Cloudinitialisierung in Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+
+Ein Beispiel für eine ARM-Vorlage finden Sie unter [Bereitstellen eines virtuellen Computers mit CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 Benutzerdefinierte Daten sind für alle auf dem virtuellen Computer ausgeführten Prozesse verfügbar. Es wird Kunden empfohlen, in benutzerdefinierte Daten keine geheimen Informationen einzuschließen.
+
+Zurzeit wird gewährleistet, dass benutzerdefinierte Daten während des Startvorgangs einer VM verfügbar sind. Wenn Aktualisierungen an der VM vorgenommen werden (z.B. das Hinzufügen von Datenträgern oder das Ändern der Größe der VM), stellt der Instance Metadata Service keine benutzerdefinierten Daten bereit. Die dauerhafte Bereitstellung benutzerdefinierter Daten über Instance Metadata Service ist derzeit in Vorbereitung.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Abrufen von benutzerdefinierten Daten auf virtuellen Computern
 Instance Metadata Service stellt dem virtuellen Computer benutzerdefinierte Daten in base64-codiertem Format bereit. Im folgenden Beispiel wird die base64-codierte Zeichenfolge decodiert.

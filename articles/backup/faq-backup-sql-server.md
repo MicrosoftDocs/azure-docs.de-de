@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64700169"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Häufig gestellte Fragen zu SQL Server-Datenbanken, die auf einer Azure VM-Sicherungsinstanz ausgeführt werden
 
 In diesem Artikel werden häufige Fragen zum Sichern von SQL Server-Datenbanken beantwortet, die auf virtuellen Azure-Computern (VMs) ausgeführt werden und für die der Dienst [Azure Backup](backup-overview.md) genutzt wird.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Kann ich Azure Backup für IaaS-VM und SQL Server auf demselben Computer verwenden?
+Ja – sowohl die VM-Sicherung als auch die SQL-Sicherung können sich auf demselben virtuellen Computer befinden. In diesem Fall lösen wir auf dem virtuellen Computer intern eine vollständige Kopiesicherung aus, damit die Protokolle nicht abgeschnitten werden.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>Wird der Sicherungsvorgang bei Problemen von der Lösung wiederholt bzw. werden Sicherungen automatisch repariert?
 
@@ -33,7 +37,7 @@ Unter bestimmten Umständen löst der Azure Backup-Dienst korrigierende Sicherun
 Die automatische Korrektur wird für alle Benutzer standardmäßig als Funktion aktiviert. Gehen Sie aber wie folgt vor, falls Sie sich dagegen entscheiden:
 
   * Erstellen Sie auf der SQL Server-Instanz im Ordner *C:\Programme\Azure Workload Backup\bin* die Datei **ExtensionSettingsOverrides.json** (bzw. bearbeiten Sie sie).
-  * Legen Sie unter  **ExtensionSettingsOverrides.json** Folgendes fest: *{"EnableAutoHealer": false}*.
+  * Legen Sie unter  **ExtensionSettingsOverrides.json** Folgendes fest: *{"EnableAutoHealer": false}* .
   * Speichern Sie Ihre Änderungen, und schließen Sie die Datei.
   * Öffnen Sie auf der SQL Server-Instanz den **Task-Manager**, und starten Sie dann den Dienst **AzureWLBackupCoordinatorSvc** neu.  
 
@@ -45,7 +49,8 @@ Ja. Sie können die Rate verringern, mit der die Sicherungsrichtlinie ausgeführ
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Speichern Sie Ihre Änderungen, und schließen Sie die Datei.
-4. Öffnen Sie auf der SQL Server-Instanz **Task-Manager**. Starten Sie den Dienst **AzureWLBackupCoordinatorSvc** neu.
+4. Öffnen Sie auf der SQL Server-Instanz **Task-Manager**. Starten Sie den Dienst **AzureWLBackupCoordinatorSvc** neu.<br/> <br/>
+ Während diese Methode hilfreich ist, wenn die Sicherungsanwendung viele Ressourcen verbraucht, ist [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) von SQL Server eine allgemeinere Möglichkeit zur Angabe von Grenzwerten für die Menge an CPU, physischer E/A und Speicher, den eingehende Anwendungsanforderungen nutzen können.
 
 > [!NOTE]
 > Auf der Benutzeroberfläche können Sie trotzdem jederzeit entsprechend viele Sicherungen einplanen, aber sie werden – gemäß dem obigen Beispiel – in einem gleitenden Fenster verarbeitet, z. B. mit der Anzahl 5.
@@ -54,7 +59,7 @@ Ja. Sie können die Rate verringern, mit der die Sicherungsrichtlinie ausgeführ
 Gemäß den SQL-Einschränkungen können Sie für das sekundäre Replikat eine Sicherung vom Typ „Nur vollständig kopieren“ ausführen. Eine vollständige Sicherung ist nicht zulässig.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Kann ich Verfügbarkeitsgruppen lokal schützen?
- Nein. Azure Backup schützt SQL Server-Datenbanken, die in Azure ausgeführt werden. Wenn eine Verfügbarkeitsgruppe auf Azure und lokale Computer verteilt ist, kann die Verfügbarkeitsgruppe nur geschützt werden, sofern das primäre Replikat in Azure ausgeführt wird. Außerdem werden mit Azure Backup nur die Knoten geschützt, die in derselben Azure-Region wie der Recovery Services-Tresor ausgeführt werden.
+Nein. Azure Backup schützt SQL Server-Datenbanken, die in Azure ausgeführt werden. Wenn eine Verfügbarkeitsgruppe auf Azure und lokale Computer verteilt ist, kann die Verfügbarkeitsgruppe nur geschützt werden, sofern das primäre Replikat in Azure ausgeführt wird. Außerdem werden mit Azure Backup nur die Knoten geschützt, die in derselben Azure-Region wie der Recovery Services-Tresor ausgeführt werden.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Kann ich Verfügbarkeitsgruppen regionsübergreifend schützen?
 Der Recovery Services-Tresor von Azure Backup kann alle Knoten erkennen und schützen, die sich in derselben Region wie der Tresor befinden. Wenn sich Ihre SQL Server Always On-Verfügbarkeitsgruppe über mehrere Azure-Regionen erstreckt, richten Sie die Sicherung über die Region ein, die über den primären Knoten verfügt. Azure Backup kann alle Datenbanken in der Verfügbarkeitsgruppe gemäß Ihrer Sicherungseinstellung erkennen und schützen. Wenn Ihre Sicherungseinstellung nicht erfüllt wird, tritt für Sicherungen ein Fehler auf, und die entsprechende Warnung wird angezeigt.

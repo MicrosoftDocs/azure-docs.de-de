@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrieren vom Verbund zur Kennworthashsynchronisierung für Azure AD | Microsoft-Dokumentation'
+title: 'Azure AD Connect: Migrieren vom Verbund, PHS für Azure AD | Microsoft-Dokumentation'
 description: Dieser Artikel enthält Informationen zum Umstellen Ihrer Hybrididentitätsumgebung vom Verbund auf die Kennworthashsynchronisierung.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a1d2c587129f9f9f09c8f3871748449dc7b1755b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532778"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474028"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrieren vom Verbund zur Kennworthashsynchronisierung für Azure Active Directory
 
@@ -86,7 +86,7 @@ Führen Sie die Schritte in den folgenden Abschnitten aus, um sich darüber zu i
 
    * Führen Sie die Schritte in diesem Artikel aus, wenn **Kennworthashsynchronisierung** auf **Deaktiviert** festgelegt ist, um die Option zu aktivieren.
    * Wenn **Kennworthashsynchronisierung** auf **Aktiviert** festgelegt ist, können Sie zum Abschnitt **Schritt 1: Aktivieren der Kennworthashsynchronisierung** in diesem Artikel springen.
-4. Scrollen Sie auf der Seite **Lösung prüfen** zu **Active Directory-Verbunddienste (AD FS)**.<br />
+4. Scrollen Sie auf der Seite **Lösung prüfen** zu **Active Directory-Verbunddienste (AD FS)** .<br />
 
    * ‎Wenn die AD FS-Konfiguration in diesem Abschnitt angezeigt wird, können Sie mit Sicherheit davon ausgehen, dass AD FS ursprünglich mit Azure AD Connect konfiguriert wurde. Sie können Ihre Domänen von Verbundidentität auf die verwaltete Identität umstellen, indem Sie die Azure AD Connect-Option **Benutzeranmeldung ändern** verwenden. Der Prozess wird im Abschnitt **Option A: Wechseln vom Verbund zur Kennworthashsynchronisierung mit Azure AD Connect** ausführlich beschrieben.
    * Wenn AD FS in den aktuellen Einstellungen nicht aufgeführt ist, müssen Sie Ihre Domänen per PowerShell manuell von der Verbundidentität auf die verwaltete Identität umstellen. Weitere Informationen zu diesem Prozess finden Sie im Abschnitt **Option B: Wechseln vom Verbund zur Kennworthashsynchronisierung mit Azure AD Connect und PowerShell**.
@@ -113,7 +113,7 @@ Weitere Informationen und Beispiele finden Sie in diesen Artikeln:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Wenn **SupportsMfa** auf **True** festgelegt ist, verwenden Sie eine lokale Lösung für die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), um eine zweite Faktorabfrage in den Benutzerauthentifizierungsflow einzufügen. Diese Einrichtung funktioniert für Azure AD-Authentifizierungsszenarien nicht mehr. 
+> Wenn **SupportsMfa** auf **True** festgelegt ist, verwenden Sie eine lokale Lösung für die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), um eine zweite Faktorabfrage in den Benutzerauthentifizierungsflow einzufügen. Dieses Setup funktioniert nach der Konvertierung dieser Domäne von der Verbund- zur verwalteten Authentifizierung nicht mehr bei Azure AD-Authentifizierungsszenarien. Nach der Deaktivierung des Verbunds lösen Sie die Beziehung zu Ihrem lokalen Verbund, und dazu zählen auch lokale MFA-Adapter. 
 >
 > Verwenden Sie stattdessen den cloudbasierten Dienst „Azure Multi-Factor Authentication“, um dieselbe Funktion zu erzielen. Evaluieren Sie Ihre Anforderungen an die mehrstufige Authentifizierung sorgfältig, bevor Sie fortfahren. Stellen Sie vor dem Konvertieren Ihrer Domänen sicher, dass Sie wissen, wie Sie Azure Multi-Factor Authentication nutzen, welche Auswirkungen mit der Lizenzierung verbunden sind und wie der Prozess der Benutzerregistrierung abläuft.
 

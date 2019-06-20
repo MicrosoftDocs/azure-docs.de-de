@@ -1,25 +1,18 @@
 ---
-title: Menü „Neues Angebot“ für Azure Marketplace | Microsoft-Dokumentation
-description: .
+title: Menü „Neues Angebot“ für Azure Marketplace
+description: Übersicht über das Menü „Neues Angebot“ im Cloud-Partnerportal für Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 04cac492fd044471a646444afc21bc70f92537d2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: pabutler
+ms.openlocfilehash: 8ec1a6a6ec77838ec75666d219d90739bf74517b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943271"
 ---
 # <a name="new-offer-menu"></a>Menü „Neues Angebot“
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956221"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397823"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Verwenden von Key Vault-Verweisen in App Service und Azure Functions (Vorschauversion)
 
@@ -37,7 +37,7 @@ Um Geheimnisse aus Key Vault auslesen zu können, müssen Sie einen Tresor erste
    > [!NOTE] 
    > Key Vault-Verweise unterstützen derzeit nur systemseitig zugewiesene verwaltete Identitäten. Vom Benutzer zugewiesene Identitäten können nicht verwendet werden.
 
-1. Erstellen Sie eine [Zugriffsrichtlinie im Schlüsseltresor](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) für die zuvor von Ihnen erstellte Anwendungsidentität. Aktivieren Sie die „Get“-Geheimnisberechtigung für diese Richtlinie. Konfigurieren Sie nicht die Einstellungen „Autorisierte Anwendung“ oder `appliationId`, da dies mit einer verwalteten Identität nicht kompatibel ist.
+1. Erstellen Sie eine [Zugriffsrichtlinie im Schlüsseltresor](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) für die zuvor von Ihnen erstellte Anwendungsidentität. Aktivieren Sie die „Get“-Geheimnisberechtigung für diese Richtlinie. Konfigurieren Sie nicht die Einstellungen „Autorisierte Anwendung“ oder `applicationId`, da dies mit einer verwalteten Identität nicht kompatibel ist.
 
 ## <a name="reference-syntax"></a>Verweissyntax
 

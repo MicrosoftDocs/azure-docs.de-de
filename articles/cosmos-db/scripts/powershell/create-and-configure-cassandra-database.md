@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 08/08/2018
+ms.date: 05/29/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c008abcb0fb18c83772678cb0dc34481dc1d7d75
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: b3abe4e51f75996db88dcebb5e98baf5b5fc08dd
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079555"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479298"
 ---
 # <a name="azure-cosmos-db-create-a-cassandra-api-account-using-powershell"></a>Azure Cosmos DB: Erstellen eines Cassandra-API-Kontos mithilfe von PowerShell
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60444223"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Verwenden des Azure-Plug-Ins für Sekundärgeräte mit Hudson Continuous Integration
 Das Azure-Plug-In für Sekundärgeräte für Hudson ermöglicht Ihnen das Bereitstellen untergeordneter Knoten in Azure beim Ausführen von verteilten Builds.
@@ -152,7 +152,7 @@ In diesem Abschnitt erstellen Sie eine Hudson-Aufgabe, die auf einen untergeordn
 5. Wählen Sie auf der Konfigurationsseite des Auftrags **Restrict where this project can be run**aus.
 6. Wählen Sie **Node and label menu** und dann **linux** aus (Sie haben diese Bezeichnung beim Erstellen der virtuellen Computervorlage im vorherigen Abschnitt angegeben).
 7. Klicken Sie im Abschnitt **Build** auf **Add build step**, und wählen Sie **Execute shell** aus.
-8. Bearbeiten Sie das folgende Skript, ersetzen Sie **{Ihr GitHub-Kontoname}**, **{Name Ihres Projekts}** und **{Ihr Projektverzeichnis}** durch entsprechende Werte, und fügen Sie das bearbeitete Skript im angezeigten Textbereich ein.
+8. Bearbeiten Sie das folgende Skript, ersetzen Sie **{Ihr GitHub-Kontoname}** , **{Name Ihres Projekts}** und **{Ihr Projektverzeichnis}** durch entsprechende Werte, und fügen Sie das bearbeitete Skript im angezeigten Textbereich ein.
    
         # Clone from git repo
    

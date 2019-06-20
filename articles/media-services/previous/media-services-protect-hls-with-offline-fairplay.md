@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 31da745727d567e1b3b85b3508df368d78ad84a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935406"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay-Streaming im Offlinemodus für iOS 
 
@@ -42,8 +42,8 @@ Die DRM/AES-Verschlüsselung (Digital Rights Management/Advanced Encryption Stan
 Neben dem Schutz von Inhalten für das Onlinestreaming über verschiedene Streamingprotokolle ist auch der Offlinemodus für geschützte Inhalte ein häufig gefordertes Feature. Für die folgenden Szenarien ist die Unterstützung des Offlinemodus erforderlich:
 
 * Wiedergabe, wenn keine Internetverbindung verfügbar ist, z. B. auf Reisen.
-* Einige Inhaltsanbieter verbieten möglicherweise die Bereitstellung von DRM-Lizenzen außerhalb bestimmter Landesgrenzen. Wenn Benutzer Inhalte auf Reisen außerhalb des Landes ansehen möchten, ist ein Offline-Download erforderlich.
-* In einigen Ländern ist die Verfügbarkeit und/oder Bandbreite des Internets noch begrenzt. Benutzer können sich für den vorherigen Download entscheiden, um Inhalte in ausreichender Auflösung für ein zufriedenstellendes Anzeigeerlebnis ansehen zu können. In diesem Fall liegt das Problem typischerweise nicht in der Verfügbarkeit des Netzwerks, sondern in der begrenzten Netzwerkbandbreite. OTT-/OVP-Anbieter (Over-the-Top/Online Video Platform) fordern die Unterstützung eines Offlinemodus.
+* Einige Inhaltsanbieter verbieten möglicherweise die Bereitstellung von DRM-Lizenzen außerhalb bestimmter Landesgrenzen/Regionen. Wenn Benutzer Inhalte auf Reisen außerhalb des Landes oder der Region ansehen möchten, ist ein Offlinedownload erforderlich.
+* In einigen Ländern/Regionen ist die Verfügbarkeit und/oder Bandbreite des Internets noch begrenzt. Benutzer können sich für den vorherigen Download entscheiden, um Inhalte in ausreichender Auflösung für ein zufriedenstellendes Anzeigeerlebnis ansehen zu können. In diesem Fall liegt das Problem typischerweise nicht in der Verfügbarkeit des Netzwerks, sondern in der begrenzten Netzwerkbandbreite. OTT-/OVP-Anbieter (Over-the-Top/Online Video Platform) fordern die Unterstützung eines Offlinemodus.
 
 Dieser Artikel befasst sich mit der Unterstützung von FairPlay Streaming (FPS) im Offlinemodus für Zielgeräte mit iOS 10 oder höher. Dieses Feature wird für andere Apple-Plattformen wie watchOS, tvOS oder Safari unter macOS nicht unterstützt.
 
@@ -207,7 +207,7 @@ Die folgenden häufig gestellten Fragen helfen bei der Problembehandlung:
 - **Warum wird im Offlinemodus nach dem Hinzufügen von „audio-only=false“ weiterhin nur Audio ohne Video wiedergegeben?** Je nach Cacheschlüsseldesign des Content Delivery Network (CDN) wird der Inhalt möglicherweise zwischengespeichert. Löschen Sie den Cacheinhalt.
 - **Wird der FPS-Offlinemodus zusätzlich zu iOS 10 auch unter iOS 11 unterstützt?** Ja. Der FPS-Offlinemodus wird für iOS 10 und iOS 11 unterstützt.
 - **Warum kann ich das Dokument zur Offlinewiedergabe mit FairPlay Streaming und HTTP Live Streaming nicht im FPS Server SDK finden?** Seit FPS Server SDK Version 4 wurde dieses Dokument in den FairPlay Streaming-Programmierleitfaden integriert.
-- **Wofür steht der letzte Parameter in der folgenden API für den FPS-Offlinemodus?**
+- **Wofür steht der letzte Parameter in der folgenden API für den FPS-Offlinemodus?** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     Die Dokumentation zu dieser API finden Sie unter [Methode „FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration“](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Der Parameter repräsentiert die Dauer der Offlinemiete mit der Einheit „Stunde“.

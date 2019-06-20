@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905136"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953027"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Sichere Installation und Bedienung Ihrer Azure Data Box
 ![Symbol "Warnung"](./media/data-box-safety/warning_icon.png)
@@ -78,7 +78,7 @@ Die folgenden Symbole finden Sie in den Sicherheitsvorkehrungen, die beachtet we
 * Stellen Sie eine geeignete Stromquelle mit elektrischem Überlastschutz bereit, um die folgenden Leistungsvorgaben zu erfüllen:
 
     - Spannung: 100 V bis 240 V Wechselstrom
-    - Strom:  max. 6 A
+    - Stromstärke: 6 A, maximal
     - Häufigkeit: 50 bis 60 Hz
 
 ![Symbol "Warnung"](./media/data-box-safety/warning_icon.png)**VORSICHT:**
@@ -101,10 +101,10 @@ Für dieses Gerät gilt Folgendes:
 - Eingestuft als IT-Gerät und entwickelt für den Betrieb in einer typischen Rechenzentrumsumgebung. Die Eignung dieses Produkts für andere Umgebungen kann weitere Prüfungen erfordern.
 - Entwickelt für den Einsatz mit NRTL-gelisteten (UL, CSA, ETL usw.) und mit IEC/EN 60950-1 oder IEC/EN 62368-1 konformen IT-Geräten (mit CE-Zeichen).
 - Entwickelt für den Betrieb in der folgenden Umgebung. 
-    - Betriebstemperatur:  10° C bis 35° C
+    - Betriebstemperatur: 10° bis 35° C
     - Lagertemperatur: -20° C bis 50° C
-    - Relative Luftfeuchtigkeit:  15 % bis 85 % (nicht kondensierend) 
-    - Betriebshöhe:  Getestet für 0 bis 2000 Meter
+    - Relative Luftfeuchtigkeit: 15 % bis 85 % (nicht kondensierend) 
+    - Betriebshöhe: Getestet für 0 bis 2000 Meter
 
 Die Leistungsdaten der Stromversorgung entnehmen Sie dem mit dem Gerät gelieferten Typenschild. 
 
@@ -118,7 +118,7 @@ Die Leistungsdaten der Stromversorgung entnehmen Sie dem mit dem Gerät geliefer
 
 Dieses Gerät wurde getestet und entspricht den Grenzwerten für ein Digitalgerät der Klasse A gemäß Teil 15 der FCC-Vorschriften. Diese Grenzwerte dienen dazu, einen angemessenen Schutz vor schädlichen Störungen zu bieten, wenn das Gerät in einer gewerblichen Umgebung betrieben wird. Dieses Gerät erzeugt und nutzt Hochfrequenzenergie und kann diese ausstrahlen. Wenn es nicht gemäß Bedienungsanleitung installiert und eingesetzt wird, kann es zu schädlichen Störungen der Hochfrequenzkommunikation kommen. Der Betrieb dieses Geräts in einem Wohngebiet kann zu schädlichen Störungen führen. In einem solchen Fall ist der Benutzer verpflichtet, die Störungen auf eigene Kosten zu beseitigen.
 
-Dieses Gerät entspricht Teil 15 der Lizenzbestimmungen von FCC Rules and Industry Canada – ausgenommen RSS-Standard(s). Der Betrieb unterliegt den beiden folgenden Bedingungen:  1.) Dieses Gerät darf keine schädlichen Störungen verursachen. 2.) Dieses Gerät muss alle empfangenen Störungen akzeptieren, einschließlich Störungen, die einen unerwünschten Betrieb des Geräts verursachen können.
+Dieses Gerät entspricht Teil 15 der Lizenzbestimmungen von FCC Rules and Industry Canada – ausgenommen RSS-Standard(s). Der Betrieb unterliegt den beiden folgenden Bedingungen: 1.) Dieses Gerät darf keine schädlichen Störungen verursachen. 2.) Dieses Gerät muss alle empfangenen Störungen akzeptieren, einschließlich Störungen, die einen unerwünschten Betrieb des Geräts verursachen können.
 
 ![Kanada](./media/data-box-safety/canada.png)
 

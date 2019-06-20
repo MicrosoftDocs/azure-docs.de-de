@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: ac6b008597b6d6e557a0cc412c00c2202231bc3d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267730"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178731"
 ---
 > [!NOTE]
 > Mehrteilige Anforderungen umfassen in der Regel drei Informationselemente:

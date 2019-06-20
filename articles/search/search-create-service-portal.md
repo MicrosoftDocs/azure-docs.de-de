@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471590"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393797"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Erstellen eines Azure Search-Diensts im Portal
 
@@ -69,11 +69,14 @@ Wenn Sie keine Ressourcen in einer einzigen Gruppe kombinieren oder vorhandene R
 
 ## <a name="select-a-location"></a>Standort auswählen
 
-Als Azure-Dienst kann Azure Search in Rechenzentren auf der ganzen Welt gehostet werden. [Die Preise können sich je nach geografischer Lage unterscheiden.](https://azure.microsoft.com/pricing/details/search/)
+Als Azure-Dienst kann Azure Search in Rechenzentren auf der ganzen Welt gehostet werden. Sie finden die Liste der unterstützten Regionen in der [Preisübersicht](https://azure.microsoft.com/pricing/details/search/). 
 
-Wenn von einem anderen Azure-Dienst (Azure Storage, Azure Cosmos DB, Azure SQL-Datenbank) bereitgestellte Daten indizieren, erstellen Sie Ihren Azure Search-Dienst in der gleichen Region, um Bandbreitenkosten zu sparen. Bei Diensten in der gleichen Region fallen keine Gebühren für ausgehende Daten an.
+Wenn Sie Daten indizieren, die von einem anderen Azure-Dienst (Azure Storage, Azure Cosmos DB, Azure SQL-Datenbank) bereitgestellt werden, empfiehlt es sich, den Azure Search-Dienst in der gleichen Region zu erstellen, um Bandbreitenkosten zu vermeiden. Bei Diensten in der gleichen Region fallen keine Gebühren für ausgehende Daten an.
 
 Wenn Sie KI-Erweiterungen der kognitiven Suche verwenden, erstellen Sie Ihren Dienst in der gleichen Region wie Ihre Cognitive Services-Ressource. Die Zusammenstellung von Diensten ist eine Voraussetzung für KI-Erweiterungen.
+
+> [!Note]
+> „Indien, Mitte“ ist zurzeit für neue Dienste nicht verfügbar. Dienste, die bereits in „Indien, Mitte“ bereitgestellt sind, können ohne Einschränkungen zentral hochskaliert werden, und Ihr Dienst wird in dieser Region vollständig unterstützt. Die Einschränkung in dieser Region ist nur vorübergehend, und dieser Hinweis wird entfernt, wenn sie nicht mehr gilt.
 
 ## <a name="select-a-pricing-tier-sku"></a>Auswählen eines Tarifs (SKU)
 

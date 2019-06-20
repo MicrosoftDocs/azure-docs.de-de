@@ -2,20 +2,20 @@
 title: Verweisen einer Unternehmens-Internetdomäne auf einen Azure Traffic Manager-Domänennamen
 description: In diesem Artikel erfahren Sie, wie Sie mit Ihrem Unternehmensdomänennamen auf einen Traffic Manager-Domänennamen verweisen.
 services: traffic-manager
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: kumud
-ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: cd99d8829a8a7bb57b6affe98c1257eaa3ea8ce7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070966"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Verweisen einer Unternehmens-Internetdomäne auf einen Azure Traffic Manager-Domänennamen
 

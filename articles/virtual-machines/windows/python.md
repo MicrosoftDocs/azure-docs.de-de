@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.openlocfilehash: 748bc08e003d398e96ef55493e4f3b0bf6b7da28
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326975"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61034755"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Erstellen und Verwalten von Windows-VMs in Azure mithilfe von Python
 

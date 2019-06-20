@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60242699"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Nahtloses einmaliges Anmelden mit Azure Active Directory: Schnellstart
 
@@ -124,7 +124,7 @@ Es gibt zwei Möglichkeiten, die Einstellungen von Benutzern für Intranetzonen 
 
 1. Öffnen Sie das Tool Gruppenrichtlinienverwaltungs-Editor.
 2. Bearbeiten Sie die Gruppenrichtlinie, die auf einige oder alle Benutzer angewendet wird. In diesem Beispiel wird **Standardrichtlinie der Domäne** verwendet.
-3. Navigieren Sie zu **Benutzerkonfiguration** > **Richtlinie** > **Verwaltungsvorlagen** > **Windows-Komponenten** > **Internet Explorer** > **Internetsystemsteuerung** > **Seite „Sicherheit“**. Wählen Sie dann **Liste der Site zu Zonenzuweisungen**.
+3. Navigieren Sie zu **Benutzerkonfiguration** > **Richtlinie** > **Verwaltungsvorlagen** > **Windows-Komponenten** > **Internet Explorer** > **Internetsystemsteuerung** > **Seite „Sicherheit“** . Wählen Sie dann **Liste der Site zu Zonenzuweisungen**.
     ![Einmaliges Anmelden](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Aktivieren Sie die Richtlinie, und geben Sie die folgenden Werte in das Dialogfeld ein:
    - **Wertname:** Die Azure AD-URL, an die die Kerberos-Tickets weitergeleitet werden.
@@ -144,7 +144,7 @@ Es gibt zwei Möglichkeiten, die Einstellungen von Benutzern für Intranetzonen 
 
     ![Einmaliges Anmelden](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navigieren Sie zu **Benutzerkonfiguration** > **Verwaltungsvorlagen** **Richtlinie** > **> **Windows-Komponenten** > **Internet Explorer** > **Internetsystemsteuerung** > **Seite „Sicherheit“** > **Intranetzone**. Wählen Sie dann **Aktualisierungen der Statusleiste per Skript zulassen**.
+6. Navigieren Sie zu **Benutzerkonfiguration** > **Verwaltungsvorlagen** **Richtlinie** > **> **Windows-Komponenten** > **Internet Explorer** > **Internetsystemsteuerung** > **Seite „Sicherheit“**  > **Intranetzone**. Wählen Sie dann **Aktualisierungen der Statusleiste per Skript zulassen**.
 
     ![Einmaliges Anmelden](./media/how-to-connect-sso-quick-start/sso11.png)
 

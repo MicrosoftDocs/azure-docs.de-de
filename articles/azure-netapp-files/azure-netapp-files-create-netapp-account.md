@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65522812"
 ---
 # <a name="create-a-netapp-account"></a>Erstellen eines NetApp-Kontos
 Nach der Erstellung eines NetApp-Kontos können Sie einen Kapazitätspool einrichten und anschließend ein Volume erstellen. Neue NetApp-Konten werden über das Blatt „Azure NetApp Files“ erstellt.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
-Sie müssen Ihr Abonnement registriert haben, um den NetApp-Ressourcenanbieter und das Public Preview-Feature zu nutzen.
+Sie müssen eine E-Mail vom Azure NetApp Files-Team erhalten haben, in der bestätigt wird, dass Sie Zugriff auf den Dienst erhalten haben. Siehe [Übermitteln einer Wartelistenanforderung für den Zugriff auf den Dienst](azure-netapp-files-register.md#waitlist).
 
-[Registrieren für Azure NetApp Files](azure-netapp-files-register.md)
+Sie müssen außerdem Ihr Abonnement registriert haben, um den NetApp-Ressourcenanbieter zu nutzen. Siehe [Registrieren des NetApp-Ressourcenanbieters](azure-netapp-files-register.md#resource-provider).
 
 ## <a name="steps"></a>Schritte 
 
@@ -56,6 +56,11 @@ Sie müssen Ihr Abonnement registriert haben, um den NetApp-Ressourcenanbieter u
 
 5. Klicken Sie auf **Create**.     
    Das erstellte NetApp-Konto wird nun auf dem Blatt „Azure NetApp Files“ angezeigt. 
+
+> [!NOTE] 
+> Wenn Ihnen nicht der Zugriff auf den Azure NetApp Files-Dienst gewährt wurde, erhalten Sie den folgenden Fehler, wenn Sie versuchen, das erste NetApp-Konto zu erstellen:  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
 ## <a name="next-steps"></a>Nächste Schritte  
 

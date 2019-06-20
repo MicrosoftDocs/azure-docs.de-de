@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60919782"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimieren Ihrer Active Directory-Umgebung mit der Active Directory-Integritätsüberprüfung-Lösung in Azure Monitor
 

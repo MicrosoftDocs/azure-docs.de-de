@@ -12,11 +12,11 @@ ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: be75490e4e86956337ce38133df6095790b3a374
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60303644"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Durchsuchen von Daten auf einer SQL Server-VM in Azure
 
@@ -41,7 +41,7 @@ Hier finden Sie einige SQL-Beispielskripts, die zum Durchsuchen von Daten auf ei
 3. Abrufen der Anzahl von Ebenen in Kombination zweier kategorischer Spalten: 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
-4. Abrufen der Verteilung der numerischen Spalten 
+4. Abrufen der Verteilung der numerischen Spalten
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 

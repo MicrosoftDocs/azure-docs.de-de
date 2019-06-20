@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/15/2019
+ms.date: 05/31/2019
 ms.author: pafarley
-ms.openlocfilehash: 17cf1d88701370c4f81eab4f0d2df33ee2e94af5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 28acc2d1eafacb9e53fac3e3cce092738401f838
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796386"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475385"
 ---
 # <a name="configure-form-recognizer-containers"></a>Konfigurieren des Containers für die Formularerkennung
 
@@ -111,10 +111,10 @@ Im Folgenden finden Sie Docker-Beispiele für den Container für die Formularerk
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
-Eula=accept \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
+Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
@@ -125,10 +125,10 @@ FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
-Eula=accept \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
+Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \

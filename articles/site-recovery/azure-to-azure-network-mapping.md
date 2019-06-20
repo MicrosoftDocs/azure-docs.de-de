@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65521754"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Einrichten der Netzwerkzuordnung und IP-Adressierung für VNETs
 
@@ -58,7 +58,7 @@ Das Subnetz der Ziel-VM wird basierend auf dem Namen des Subnetzes der Quell-VM 
 
 - Wenn im Zielnetzwerk ein Subnetz mit demselben Namen wie bei der Quell-VM verfügbar ist, wird dieses Subnetz für die Ziel-VM ausgewählt.
 - Wenn im Zielnetzwerk kein Subnetz mit demselben Namen vorhanden ist, wird das erste Subnetz in der alphabetischen Reihenfolge als Zielsubnetz ausgewählt.
-- Sie können dies in den Einstellungen unter **Compute und Netzwerk** für die VM ändern.
+- Sie können das Zielsubnetz in den **Compute und Netzwerk**-Einstellungen für die VM ändern.
 
     ![Fenster „Eigenschaften für Compute und Netzwerk“](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 

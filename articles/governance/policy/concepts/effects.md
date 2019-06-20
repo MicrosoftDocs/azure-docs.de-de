@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793943"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116202"
 ---
 # <a name="understand-azure-policy-effects"></a>Grundlegendes zu Azure Policy-Auswirkungen
 
@@ -30,7 +30,7 @@ Aktuell werden in einer Richtliniendefinition sechs Auswirkungen unterstützt:
 
 ## <a name="order-of-evaluation"></a>Reihenfolge der Auswertung
 
-Anforderungen zum Erstellen oder Aktualisieren einer Ressource über Azure Resource Manager werden von Policy zuerst ausgewertet. Policy erstellt eine Liste aller Zuweisungen, die auf die Ressource zutreffen, und wertet dann die Ressource anhand jeder Definition aus. Policy verarbeitet einige der Auswirkungen, bevor die Anforderung an den geeigneten Ressourcenanbieter übergeben wird. Auf diese Weise wird eine unnötige Verarbeitung durch einen Ressourcenanbieter verhindert, wenn eine Ressource nicht den konfigurierten Governancevorgaben von Azure Policy entspricht.
+Anforderungen zum Erstellen oder Aktualisieren einer Ressource über Azure Resource Manager werden von Azure Policy zuerst ausgewertet. Azure Policy erstellt eine Liste aller Zuweisungen, die auf die Ressource zutreffen, und wertet dann die Ressource anhand jeder Definition aus. Azure Policy verarbeitet einige der Auswirkungen, bevor die Anforderung an den geeigneten Ressourcenanbieter übergeben wird. Auf diese Weise wird eine unnötige Verarbeitung durch einen Ressourcenanbieter verhindert, wenn eine Ressource nicht den konfigurierten Governancevorgaben von Azure Policy entspricht.
 
 - Zuerst wird **Deaktiviert** überprüft, um zu ermitteln, ob die Richtlinienregel ausgewertet werden soll.
 - Anschließend wird **Anfügen** ausgewertet. Die Anforderung kann durch „append“ geändert werden, deshalb kann eine über „append“ durchgeführte Änderung die Auslösung der Auswirkungen „audit“ oder „deny“ verhindern.
@@ -49,7 +49,7 @@ Diese Auswirkung ist in Testsituationen oder nach dem Parametrisieren der Auswir
 
 ### <a name="append-evaluation"></a>Auswertung von „append“
 
-Die Auswertung von „append“ erfolgt vor der Anforderungsverarbeitung durch einen Ressourcenanbieter während der Erstellung oder Aktualisierung einer Ressource. Mit „append“ werden Felder zur Ressource hinzugefügt, wenn die **if**-Bedingung der Richtlinienregel erfüllt ist. Wenn die Auswirkung „append“ einen Wert in der ursprünglichen Anforderung mit einem anderen Wert überschreiben würde, fungiert sie als Auswirkung „deny“ und lehnt die Anforderung ab. Um einen neuen Wert an ein vorhandenes Array anzufügen, verwenden Sie die **[\*]**-Version des Alias.
+Die Auswertung von „append“ erfolgt vor der Anforderungsverarbeitung durch einen Ressourcenanbieter während der Erstellung oder Aktualisierung einer Ressource. Mit „append“ werden Felder zur Ressource hinzugefügt, wenn die **if**-Bedingung der Richtlinienregel erfüllt ist. Wenn die Auswirkung „append“ einen Wert in der ursprünglichen Anforderung mit einem anderen Wert überschreiben würde, fungiert sie als Auswirkung „deny“ und lehnt die Anforderung ab. Um einen neuen Wert an ein vorhandenes Array anzufügen, verwenden Sie die **[\*]** -Version des Alias.
 
 Wenn eine Richtliniendefinition mit Auswirkung „append“ im Rahmen eines Auswertungszyklus ausgeführt wird, werden keine Änderungen an bereits vorhandenen Ressourcen durchgeführt. Stattdessen werden alle Ressourcen mit Erfüllung der **if**-Bedingung als nicht konform markiert.
 
@@ -88,8 +88,7 @@ Beispiel 2: Zwei **field/value**-Paare zum Anfügen einer Gruppe von Tags.
 }
 ```
 
-Beispiel 3: Einzelnes **field/value**-Paar, das einen Nicht-**[\*]**
-[-Alias](definition-structure.md#aliases) mit einem Array-**value** verwendet, um IP-Regeln für ein Speicherkonto festzulegen. Wenn der Nicht-**[\*]**-Alias ein Array ist, wird der **value** durch den Effekt als gesamtes Array angefügt. Wenn das Array bereits vorhanden ist, wird durch den Konflikt ein deny-Ereignis ausgelöst.
+Beispiel 3: Einzelnes **field/value**-Paar, das einen Nicht- **[\*]** -[Alias](definition-structure.md#aliases) mit einem Arraywert (**value**) verwendet, um IP-Regeln für ein Speicherkonto festzulegen. Wenn der Nicht- **[\*]** -Alias ein Array ist, wird der **value** durch den Effekt als gesamtes Array angefügt. Wenn das Array bereits vorhanden ist, wird durch den Konflikt ein deny-Ereignis ausgelöst.
 
 ```json
 "then": {
@@ -104,7 +103,7 @@ Beispiel 3: Einzelnes **field/value**-Paar, das einen Nicht-**[\*]**
 }
 ```
 
-Beispiel 4: Einzelnes **field/value**-Paar, das einen **[\*]** [-Alias](definition-structure.md#aliases) mit einem Array-**value** verwendet, um IP-Regeln für ein Speicherkonto festzulegen. Durch die Verwendung des **[\*]**-Alias fügt der Effekt den **value** an ein Array an, das möglicherweise bereits vorhanden ist. Wenn das Array noch nicht vorhanden ist, wird es erstellt.
+Beispiel 4: Einzelnes **field/value**-Paar, das einen **[\*]** [-Alias](definition-structure.md#aliases) mit einem Array-**value** verwendet, um IP-Regeln für ein Speicherkonto festzulegen. Durch die Verwendung des **[\*]** -Alias fügt der Effekt den **value** an ein Array an, das möglicherweise bereits vorhanden ist. Wenn das Array noch nicht vorhanden ist, wird es erstellt.
 
 ```json
 "then": {
@@ -149,7 +148,7 @@ Die Auswirkung „audit“ wird verwendet, um ein Warnungsereignis im Aktivität
 
 ### <a name="audit-evaluation"></a>Auswertung von „audit“
 
-„audit“ ist die letzte Auswirkung, die von Policy während der Erstellung oder Aktualisierung einer Ressource überprüft wird. Policy sendet dann die Ressource an den Ressourcenanbieter. „audit“ funktioniert bei einer Ressourcenanforderung und einem Auswertungszyklus auf gleiche Weise. Policy fügt dem Aktivitätsprotokoll einen `Microsoft.Authorization/policies/audit/action`-Vorgang hinzu und markiert die Ressource als nicht konform.
+„audit“ ist die letzte Auswirkung, die von Azure Policy während der Erstellung oder Aktualisierung einer Ressource überprüft wird. Azure Policy sendet dann die Ressource an den Ressourcenanbieter. „audit“ funktioniert bei einer Ressourcenanforderung und einem Auswertungszyklus auf gleiche Weise. Azure Policy fügt dem Aktivitätsprotokoll einen `Microsoft.Authorization/policies/audit/action`-Vorgang hinzu und markiert die Ressource als nicht konform.
 
 ### <a name="audit-properties"></a>Eigenschaften von „audit“
 
@@ -171,7 +170,7 @@ Die Auswirkung „AuditIfNotExists“ ermöglicht das Überwachen von Ressourcen
 
 ### <a name="auditifnotexists-evaluation"></a>Auswertung von „AuditIfNotExists“
 
-„AuditIfNotExists“ wird ausgeführt, nachdem ein Ressourcenanbieter eine Anforderung zum Erstellen oder Aktualisieren einer Ressource verarbeitet hat und ein Erfolgsstatuscode zurückgegeben wurde. Die Überprüfung findet statt, wenn keine entsprechenden Ressourcen vorhanden sind oder wenn die über **ExistenceCondition** definierten Ressourcen nicht als TRUE ausgewertet werden. Policy fügt dem Aktivitätsprotokoll auf gleiche Weise wie bei der Auswirkung „audit“ einen `Microsoft.Authorization/policies/audit/action`-Vorgang hinzu. Bei Auslösung ist die Ressource, die die **if**-Bedingung erfüllt hat, die Ressource, die als nicht konform markiert wird.
+„AuditIfNotExists“ wird ausgeführt, nachdem ein Ressourcenanbieter eine Anforderung zum Erstellen oder Aktualisieren einer Ressource verarbeitet hat und ein Erfolgsstatuscode zurückgegeben wurde. Die Überprüfung findet statt, wenn keine entsprechenden Ressourcen vorhanden sind oder wenn die über **ExistenceCondition** definierten Ressourcen nicht als TRUE ausgewertet werden. Azure Policy fügt dem Aktivitätsprotokoll auf gleiche Weise wie bei der Auswirkung „audit“ einen `Microsoft.Authorization/policies/audit/action`-Vorgang hinzu. Bei Auslösung ist die Ressource, die die **if**-Bedingung erfüllt hat, die Ressource, die als nicht konform markiert wird.
 
 ### <a name="auditifnotexists-properties"></a>Eigenschaften von „AuditIfNotExists“
 
@@ -300,7 +299,7 @@ Beispiel: Mithilfe einer Auswertung von SQL Server-Datenbanken wird bestimmt, ob
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -340,7 +339,7 @@ Beispiel: Mithilfe einer Auswertung von SQL Server-Datenbanken wird bestimmt, ob
 
 ## <a name="layering-policies"></a>Mehrere Richtlinien
 
-Eine Ressource kann durch mehrere Zuweisungen beeinflusst werden. Diese Zuweisungen können für denselben Bereich oder verschiedene Bereiche gelten. Für jede dieser Zuweisungen ist wahrscheinlich auch eine andere Auswirkung definiert. Die Bedingung und die Auswirkung für jede Richtlinie werden unabhängig ausgewertet. Beispiel: 
+Eine Ressource kann durch mehrere Zuweisungen beeinflusst werden. Diese Zuweisungen können für denselben Bereich oder verschiedene Bereiche gelten. Für jede dieser Zuweisungen ist wahrscheinlich auch eine andere Auswirkung definiert. Die Bedingung und die Auswirkung für jede Richtlinie werden unabhängig ausgewertet. Beispiel:
 
 - Richtlinie 1
   - Schränkt den Ressourcenstandort auf „USA, Westen“ ein
@@ -369,8 +368,8 @@ Jede Zuweisung wird einzeln ausgewertet. Daher ist es nicht möglich, dass eine 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Unter [Azure Policy-Beispiele](../samples/index.md) finden Sie Beispiele
-- Befassen Sie sich mit der [Struktur von Azure Policy-Definitionen](definition-structure.md).
+- Sehen Sie sich die Beispiele unter [Azure Policy-Beispiele](../samples/index.md) an.
+- Lesen Sie die Informationen unter [Struktur von Azure Policy-Definitionen](definition-structure.md).
 - Informieren Sie sich über das [programmgesteuerte Erstellen von Richtlinien](../how-to/programmatically-create.md).
 - Informieren Sie sich über das [Abrufen von Konformitätsdaten](../how-to/getting-compliance-data.md).
 - Erfahren Sie, wie Sie [nicht konforme Ressourcen korrigieren](../how-to/remediate-resources.md) können.

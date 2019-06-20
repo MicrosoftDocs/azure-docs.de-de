@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 3c91fd6140b460d29b33e7d9b1fabafbbcf99422
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 6ab701adcc2122270c607604f222ac5edbceeb37
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406217"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730501"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Konfigurieren eines Gateways für ein virtuelles Netzwerk für ExpressRoute mit PowerShell
 > [!div class="op_single_selector"]

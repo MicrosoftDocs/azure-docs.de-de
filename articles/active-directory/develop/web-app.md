@@ -3,8 +3,8 @@ title: Web-Apps in Azure Active Directory
 description: Beschreibt, worum es sich bei Web-Apps handelt, und stellt die Grundlagen des Protokollflusses, der Registrierung und des Tokenablaufs für diesen App-Typ vor.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58367914"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65544724"
 ---
 # <a name="web-apps"></a>Web-Apps
 
@@ -45,7 +45,7 @@ Sehen Sie sich die Codebeispiele für Szenarien vom Typ „Webbrowser zu Webanwe
 
 ## <a name="app-registration"></a>App-Registrierung
 
-Wenn Sie eine Web-App registrieren möchten, helfen Ihnen die Informationen unter [Registrieren einer App mit dem Azure AD v1.0-Endpunkt](quickstart-v1-add-azure-ad-app.md) weiter.
+Informationen zum Registrieren einer Web-App finden Sie unter [Registrieren einer App](quickstart-register-app.md).
 
 * Einzelinstanzenfähige Anwendung: Wenn Sie eine Anwendung nur für Ihre Organisation erstellen, muss diese über das Azure-Portal im Verzeichnis Ihres Unternehmens registriert werden.
 * Mehrinstanzenfähige Anwendung: Wenn Sie eine Anwendung erstellen, die von Benutzern außerhalb Ihrer Organisation verwendet werden kann, muss diese ebenfalls im Verzeichnis Ihres Unternehmens registriert werden. Darüber hinaus muss sie aber auch im Verzeichnis jeder anderen Organisation registriert werden, von der die Anwendung verwendet wird. Um Ihre Anwendung in deren Verzeichnis verfügbar zu machen, können Sie einen Registrierungsprozess für Ihre Kunden einschließen, über den sie Ihrer Anwendung zustimmen können. Bei der Registrierung für Ihre Anwendung erscheint ein Dialogfeld mit den erforderlichen Berechtigungen für die Anwendung sowie mit einer Zustimmungsoption. Je nachdem, welche Berechtigungen erforderlich sind, wird unter Umständen die Zustimmung eines Administrators aus der anderen Organisation benötigt. Wenn der Benutzer oder Administrator seine Zustimmung gibt, wird die Anwendung in dessen Verzeichnis registriert.

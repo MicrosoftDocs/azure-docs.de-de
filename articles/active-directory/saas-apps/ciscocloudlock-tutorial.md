@@ -1,228 +1,211 @@
 ---
-title: 'Tutorial: Azure Active Directory-Integration in The Cloud Security Fabric | Microsoft-Dokumentation'
-description: In diesem Artikel erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active Directory und The Cloud Security Fabric konfigurieren.
+title: 'Tutorial: Azure Active Directory-Integration in Cloud Security Fabric | Microsoft-Dokumentation'
+description: Erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active Directory und Cloud Security Fabric konfigurieren.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 549e8810-1b3b-4351-bf4b-f07de98980d1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a556b38ca4947b71555ba7b023607b392900bdaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6c43a38a456eb0fce3f46409bd256f0fc42e8ade
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210389"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899972"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutorial: Azure Active Directory-Integration in The Cloud Security Fabric
+# <a name="tutorial-azure-active-directory-integration-with-cloud-security-fabric"></a>Tutorial: Azure Active Directory-Integration in Cloud Security Fabric
 
-In diesem Tutorial erfahren Sie, wie Sie Azure Active Directory (Azure AD) in The Cloud Security Fabric integrieren.
+In diesem Tutorial erfahren Sie, wie Sie Azure Active Directory (Azure AD) in Cloud Security Fabric integrieren.
+Die Integration von Cloud Security Fabric in Azure AD bietet die folgenden Vorteile:
 
-Die Integration von The Cloud Security Fabric in Azure AD bietet die folgenden Vorteile:
+* Sie können in Azure AD steuern, wer Zugriff auf Cloud Security Fabric hat.
+* Sie können es Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei Cloud Security Fabric anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
+* Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-- Sie können in Azure AD steuern, wer auf The Cloud Security Fabric Zugriff hat.
-- Sie können es Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei The Cloud Security Fabric anzumelden (einmaliges Anmelden).
-- Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
-
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Um die Azure AD-Integration in The Cloud Security Fabric konfigurieren zu können, benötigen Sie Folgendes:
+Um die Azure AD-Integration in Cloud Security Fabric zu konfigurieren, benötigen Sie Folgendes:
 
-- Ein Azure AD-Abonnement
-- Ein The Cloud Security Fabric-Abonnement, für das einmaliges Anmelden aktiviert ist
-
-> [!NOTE]
-> Um die Schritte in diesem Tutorial zu testen, wird empfohlen, keine Produktionsumgebung zu verwenden.
-
-Um die Schritte in diesem Tutorial zu testen, sollten Sie folgende Empfehlungen beachten:
-
-- Verwenden Sie die Produktionsumgebung nur, wenn dies unbedingt erforderlich ist.
-- Wenn Sie keine Azure AD-Testumgebung haben, können Sie eine [einmonatige Testversion anfordern](https://azure.microsoft.com/pricing/free-trial/).
+* Ein Azure AD-Abonnement Sollten Sie über keine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
+* Ein Cloud Security Fabric-Abonnement, für das einmaliges Anmelden aktiviert ist
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
-In diesem Tutorial testen Sie das einmalige Anmelden für Azure AD in einer Testumgebung. Das in diesem Tutorial beschriebene Szenario besteht aus zwei Hauptbestandteilen:
 
-1. Hinzufügen von The Cloud Security Fabric aus dem Katalog
-1. Konfigurieren und Testen der einmaligen Anmeldung von Azure AD
+In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
 
-## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>Hinzufügen von The Cloud Security Fabric aus dem Katalog
-Zum Konfigurieren der Integration von The Cloud Security Fabric in Azure AD müssen Sie The Cloud Security Fabric aus dem Katalog zur Liste mit den verwalteten SaaS-Apps hinzufügen.
+* Cloud Security Fabric unterstützt **SP**-initiiertes einmaliges Anmelden.
 
-**Um The Cloud Security Fabric aus dem Katalog hinzuzufügen, führen Sie die folgenden Schritte aus:**
+## <a name="adding-cloud-security-fabric-from-the-gallery"></a>Hinzufügen von Cloud Security Fabric aus dem Katalog
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**. 
+Um die Integration von Cloud Security Fabric in Azure AD zu konfigurieren, müssen Sie Cloud Security Fabric aus dem Katalog zur Liste mit den verwalteten SaaS-Apps hinzufügen.
 
-    ![Schaltfläche „Azure Active Directory“][1]
+**Um Cloud Security Fabric aus dem Katalog hinzuzufügen, führen Sie die folgenden Schritte aus:**
 
-1. Navigieren Sie zu **Unternehmensanwendungen**. Wechseln Sie dann zu **Alle Anwendungen**.
+1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
 
-    ![Blatt „Unternehmensanwendungen“][2]
-    
-1. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-    ![Schaltfläche „Neue Anwendung“][3]
+2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
 
-1. Geben Sie im Suchfeld **The Cloud Security Fabric**  ein, wählen Sie im Ergebnisbereich **The Cloud Security Fabric** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-    ![The Cloud Security Fabric in der Ergebnisliste](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
+3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
+
+    ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
+
+4. Geben Sie im Suchfeld **Cloud Security Fabric** ein, wählen Sie im Ergebnisbereich **Cloud Security Fabric** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+
+    ![Cloud Security Fabric in der Ergebnisliste](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt konfigurieren und testen Sie anhand eines Testbenutzers namens Britta Simon das einmalige Anmelden von Azure AD mit The Cloud Security Fabric.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei Cloud Security Fabric mithilfe einer Testbenutzerin namens **Britta Simon**.
+Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in Cloud Security Fabric eingerichtet werden.
 
-Damit das einmalige Anmelden funktioniert, muss Azure AD wissen, welcher Benutzer in The Cloud Security Fabric als Gegenstück zu einem Benutzer in Azure AD fungiert. Anders ausgedrückt: Zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in The Cloud Security Fabric muss eine Verknüpfungsbeziehung eingerichtet werden.
+Sie müssen die folgenden Aufgaben ausführen, um das einmalige Anmelden von Azure AD bei Cloud Security Fabric zu konfigurieren und zu testen:
 
-Zum Konfigurieren und Testen des einmaligen Anmeldens von Azure AD bei The Cloud Security Fabric müssen die folgenden Bausteine ausgeführt werden:
-
-1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
-1. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)**, um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
-1. **[Erstellen eines The Cloud Security Fabric-Testbenutzers](#create-a-the-cloud-security-fabric-test-user)**, um ein Pendant von Britta Simon in The Cloud Security Fabric zu erhalten, das mit ihrer Darstellung in Azure AD verknüpft ist.
-1. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-1. **[Testen der einmaligen Anmeldung](#test-single-sign-on)**, um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für Cloud Security Fabric](#configure-cloud-security-fabric-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines Cloud Security Fabric-Testbenutzers](#create-cloud-security-fabric-test-user)** , um eine Entsprechung von Britta Simon in Cloud Security Fabric zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist.
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal und konfigurieren das einmalige Anmelden in Ihrer The Cloud Security Fabric-Anwendung.
+In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal.
 
-**Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD in The Cloud Security Fabric die folgenden Schritte aus:**
+Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD bei Cloud Security Fabric zu konfigurieren:
 
-1. Klicken Sie im Azure-Portal auf der Anwendungsintegrationsseite für **The Cloud Security Fabric** auf **Einmaliges Anmelden**.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **Cloud Security Fabric** die Option **Einmaliges Anmelden** aus.
 
-    ![Konfigurieren des Links für einmaliges Anmelden][4]
+    ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
 
-1. Wählen Sie im Dialogfeld **Einmaliges Anmelden** als **Modus** die Option **SAML-basierte Anmeldung** aus, um einmaliges Anmelden zu aktivieren.
+2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
 
-    ![Dialogfeld „Einmaliges Anmelden“](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_samlbase.png)
+    ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-1. Führen Sie die folgenden Schritte im Abschnitt **Domäne und URLs für The Cloud Security Fabric** aus:
+3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
 
-    ![Informationen zum einmaligen Anmelden für The Cloud Security Fabric-Domäne und -URLs](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
+    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
 
-    a. Geben Sie im Textfeld **Anmelde-URL** eine URL wie die Folgende ein:
+4. Führen Sie im Abschnitt **Grundlegende SAML-Konfiguration** die folgenden Schritte aus:
+
+    ![SSO-Informationen zur Domäne und zu den URLs für Cloud Security Fabric](common/sp-identifier.png)
+
+    a. Geben Sie im Textfeld **Anmelde-URL** eine URL ein:
 
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
-    b. Geben Sie im Textfeld **Identifier** (Bezeichner) eine URL nach folgendem Muster ein:
-    
+    b. Geben Sie im Textfeld **Bezeichner (Entitäts-ID)** eine URL im folgenden Format ein:
+
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
     | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
     > [!NOTE]
-    > Der ID-Wert ist nicht der tatsächliche Wert. Aktualisieren Sie den Wert mit dem tatsächlichen Bezeichner. Wenden Sie sich an das [The Cloud Security Fabric-Kundensupportteam](mailto:support@cloudlock.com), um den Wert in Erfahrung zu bringen. 
+    > Der ID-Wert ist nicht der tatsächliche Wert. Aktualisieren Sie den Wert mit dem tatsächlichen Bezeichner. Wenden Sie sich an das [The Cloud Security Fabric-Kundensupportteam](mailto:support@cloudlock.com), um den Wert in Erfahrung zu bringen. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-1. Klicken Sie im Abschnitt **SAML-Signaturzertifikat** auf **Metadaten-XML**, und speichern Sie die Metadatendatei dann auf Ihrem Computer.
+5. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um den Ihren Anforderungen entsprechenden **Verbundmetadaten-XML**-Code aus den verfügbaren Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
-    ![Downloadlink für das Zertifikat](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_certificate.png)
+    ![Downloadlink für das Zertifikat](common/metadataxml.png)
 
-1. Klicken Sie auf die Schaltfläche **Save** .
+6. Kopieren Sie im Abschnitt **Cloud Security Fabric einrichten** die entsprechenden URLs gemäß Ihren Anforderungen.
 
-    ![Schaltfläche „Speichern“ beim Konfigurieren des einmaligen Anmeldens](./media/ciscocloudlock-tutorial/tutorial_general_400.png)
+    ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-1. Zum Konfigurieren des einmaligen Anmeldens bei **The Cloud Security Fabric** müssen Sie die heruntergeladene **Metadaten-XML**-Datei an das [The Cloud Security Fabric-Supportteam](mailto:support@cloudlock.com) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+    a. Anmelde-URL
+
+    b. Azure AD-Bezeichner
+
+    c. Abmelde-URL
+
+### <a name="configure-cloud-security-fabric-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für Cloud Security Fabric
+
+Um das einmalige Anmelden auf der Seite von **Cloud Security Fabric** zu konfigurieren, müssen Sie die heruntergeladene **Verbundmetadaten-XML** und die entsprechenden aus dem Azure-Portal kopierten URLs an das [Cloud Security Fabric-Supportteam](mailto:support@cloudlock.com) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
 
 ### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
 Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
 
-   ![Erstellen eines Azure AD-Testbenutzers][100]
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
 
-**Um einen Testbenutzer in Azure AD zu erstellen, führen Sie die folgenden Schritte aus:**
+    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
 
-1. Klicken Sie im linken Bereich des Azure-Portals auf die Schaltfläche **Azure Active Directory**.
+2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
 
-    ![Schaltfläche „Azure Active Directory“](./media/ciscocloudlock-tutorial/create_aaduser_01.png)
+    ![Schaltfläche „Neuer Benutzer“](common/new-user.png)
 
-1. Navigieren Sie zu **Benutzer und Gruppen**, und klicken Sie dann auf **Alle Benutzer**, um die Liste mit den Benutzern anzuzeigen.
+3. Führen Sie in den Benutzereigenschaften die folgenden Schritte aus.
 
-    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](./media/ciscocloudlock-tutorial/create_aaduser_02.png)
+    ![Dialogfeld „Benutzer“](common/user-properties.png)
 
-1. Klicken Sie oben im Dialogfeld **Alle Benutzer** auf **Hinzufügen**, um das Dialogfeld **Benutzer** zu öffnen.
+    a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
+  
+    b. Geben Sie im Feld **Benutzername** den Namen `brittasimon@yourcompanydomain.extension` ein. Zum Beispiel, BrittaSimon@contoso.com
 
-    ![Schaltfläche „Hinzufügen“](./media/ciscocloudlock-tutorial/create_aaduser_03.png)
-
-1. Führen Sie im Dialogfeld **Neuer Benutzer** die folgenden Schritte aus:
-
-    ![Dialogfeld „Benutzer“](./media/ciscocloudlock-tutorial/create_aaduser_04.png)
-
-    a. Geben Sie in das Feld **Name** den Namen **BrittaSimon** ein.
-
-    b. Geben Sie im Feld **Benutzername** die E-Mail-Adresse des Benutzers Britta Simon ein.
-
-    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld **Kennwort** angezeigt wird.
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
 
     d. Klicken Sie auf **Create**.
 
-### <a name="create-a-the-cloud-security-fabric-test-user"></a>Erstellen eines The Cloud Security Fabric-Testbenutzers
-
-In diesem Abschnitt erstellen Sie in The Cloud Security Fabric einen Benutzer namens Britta Simon. Das  [The Cloud Security Fabric-Supportteam](mailto:support@cloudlock.com)  kann Sie beim Hinzufügen von Benutzern auf der The Cloud Security Fabric-Plattform unterstützen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können. 
-
 ### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
-In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf The Cloud Security Fabric gewähren.
+In diesem Abschnitt ermöglichen Sie Britta Simon die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf Cloud Security Fabric gewähren.
 
-![Zuweisen der Benutzerrolle][200]
+1. Wählen Sie im Azure-Portal nacheinander die Optionen **Unternehmensanwendungen**, **Alle Anwendungen** und **Cloud Security Fabric** aus.
 
-**Um Britta Simon The Cloud Security Fabric zuzuweisen, führen Sie die folgenden Schritte aus:**
+    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-1. Öffnen Sie im Azure-Portal die Anwendungsansicht, navigieren Sie zur Verzeichnisansicht, wechseln Sie dann zu **Unternehmensanwendungen**, und klicken Sie auf **Alle Anwendungen**.
+2. Wählen Sie in der Anwendungsliste **Cloud Security Fabric** aus.
 
-    ![Benutzer zuweisen][201]
+    ![Der Link „The Cloud Security Fabric“ in der Anwendungsliste](common/all-applications.png)
 
-1. Wählen Sie in der Anwendungsliste **The Cloud Security Fabric** aus.
+3. Wählen Sie im Menü auf der linken Seite **Benutzer und Gruppen** aus.
 
-    ![Der Link „The Cloud Security Fabric“ in der Anwendungsliste](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
+    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-1. Klicken Sie im Menü auf der linken Seite auf **Benutzer und Gruppen**.
+4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
-    ![Link „Benutzer und Gruppen“][202]
+    ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
-1. Klicken Sie auf die Schaltfläche **Hinzufügen**. Wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Bildschirm auf die Schaltfläche **Auswählen**.
 
-    ![Bereich „Zuweisung hinzufügen“][203]
+6. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** in der Liste die entsprechende Rolle für den Benutzer aus, und klicken Sie dann unten auf dem Bildschirm auf **Auswählen**.
 
-1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste **Britta Simon** aus.
+7. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
 
-1. Klicken Sie im Dialogfeld **Benutzer und Gruppen** auf die Schaltfläche **Auswählen**.
+### <a name="create-cloud-security-fabric-test-user"></a>Erstellen eines Cloud Security Fabric-Testbenutzers
 
-1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf **Zuweisen**.
+In diesem Abschnitt erstellen Sie in Cloud Security Fabric eine Benutzerin namens Britta Simon. Das  [Cloud Security Fabric-Supportteam](mailto:support@cloudlock.com) kann Sie beim Hinzufügen von Benutzern auf der Cloud Security Fabric-Plattform unterstützen. Benutzer müssen erstellt und aktiviert werden, damit Sie einmaliges Anmelden verwenden können.
 
 ### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „The Cloud Security Fabric“ klicken, sollten Sie automatisch bei Ihrer The Cloud Security Fabric-Anwendung angemeldet werden.
-Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](../user-help/active-directory-saas-access-panel-introduction.md).
+Wenn Sie im Zugriffsbereich auf die Kachel „Cloud Security Fabric“ klicken, sollten Sie automatisch bei der Cloud Security Fabric-Anwendung angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 
-* [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](tutorial-list.md)
-* [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/ciscocloudlock-tutorial/tutorial_general_01.png
-[2]: ./media/ciscocloudlock-tutorial/tutorial_general_02.png
-[3]: ./media/ciscocloudlock-tutorial/tutorial_general_03.png
-[4]: ./media/ciscocloudlock-tutorial/tutorial_general_04.png
+- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/ciscocloudlock-tutorial/tutorial_general_100.png
-
-[200]: ./media/ciscocloudlock-tutorial/tutorial_general_200.png
-[201]: ./media/ciscocloudlock-tutorial/tutorial_general_201.png
-[202]: ./media/ciscocloudlock-tutorial/tutorial_general_202.png
-[203]: ./media/ciscocloudlock-tutorial/tutorial_general_203.png

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 9088e9ad98633b46dc3a7f0ee9002a0dd9fc5a55
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65551879"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beschränkungen in Azure Database for MySQL
 In den folgenden Abschnitten werden die Kapazitäts- und funktionalen Beschränkungen sowie Beschränkungen bei der Unterstützung der Speicher-Engine und von Datenmanipulationsanweisungen im Datenbankdienst beschrieben. Sehen Sie sich auch die [allgemeinen Einschränkungen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) an, die für die MySQL-Datenbank-Engine gelten.
@@ -27,12 +27,12 @@ Die folgende Tabelle enthält die maximale Anzahl von Verbindungen nach Tarif un
 |Allgemeiner Zweck| 4| 625|
 |Allgemeiner Zweck| 8| 1250|
 |Allgemeiner Zweck| 16| 2500|
-|Allgemeiner Zweck| 32| 5.000|
+|Allgemeiner Zweck| 32| 5\.000|
 |Allgemeiner Zweck| 64| 10000|
 |Arbeitsspeicheroptimiert| 2| 600|
 |Arbeitsspeicheroptimiert| 4| 1250|
 |Arbeitsspeicheroptimiert| 8| 2500|
-|Arbeitsspeicheroptimiert| 16| 5.000|
+|Arbeitsspeicheroptimiert| 16| 5\.000|
 |Arbeitsspeicheroptimiert| 32| 10000|
 
 Wenn Verbindungen den Grenzwert übersteigen, erhalten Sie möglicherweise den folgenden Fehler:
@@ -80,6 +80,9 @@ Wenn Verbindungen den Grenzwert übersteigen, erhalten Sie möglicherweise den f
 
 ### <a name="vnet-service-endpoints"></a>VNET-Dienstendpunkte
 - VNET-Dienstendpunkte werden nur für Server vom Typ „Universell“ und „Arbeitsspeicheroptimiert“ unterstützt.
+
+### <a name="storage-size"></a>Speichergröße
+- Informationen zu den Beschränkungen der Speichergröße pro Tarif finden Sie unter [Tarife](concepts-pricing-tiers.md).
 
 ## <a name="current-known-issues"></a>Aktuelle bekannte Probleme
 - Die MySQL-Serverinstanz zeigt die falsche Serverversion an, nachdem die Verbindung hergestellt wurde. Um die richtige Engine-Version der Serverinstanzen abzurufen, verwenden Sie den Befehl `select version();`.

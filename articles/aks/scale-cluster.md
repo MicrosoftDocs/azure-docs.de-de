@@ -5,22 +5,22 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 05/31/2019
 ms.author: iainfoulds
-ms.openlocfilehash: 558a3b6dc15293ab9a0895aa4f9f709ba2d0a51f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: de3f8613c93715aecf7e9e066a8ad1d82e4379e3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214622"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475134"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Skalieren der Anzahl der Knoten in einem Azure Kubernetes Service-Cluster (AKS)
 
-Wenn sich die Ressourcenanforderungen Ihrer Anwendungen ändern, können Sie einen AKS-Cluster manuell zur Ausführung einer anderen Anzahl von Knoten skalieren. Beim Herunterskalieren werden die Knoten sorgfältig [gesperrt und ausgeglichen][kubernetes-drain], um die Unterbrechung ausgeführter Anwendungen zu minimieren. Beim Hochskalieren wartet der Befehl `az`, bis die Knoten vom Kubernetes-Cluster als `Ready` markiert worden sind.
+Wenn sich die Ressourcenanforderungen Ihrer Anwendungen ändern, können Sie einen AKS-Cluster manuell zur Ausführung einer anderen Anzahl von Knoten skalieren. Beim Herunterskalieren werden die Knoten sorgfältig [gesperrt und ausgeglichen][kubernetes-drain], um die Unterbrechung ausgeführter Anwendungen zu minimieren. Beim zentralen Hochskalieren wartet AKS, bis die Knoten vom Kubernetes-Cluster als `Ready` markiert wurden, bevor Pods für diese Knoten geplant werden.
 
 ## <a name="scale-the-cluster-nodes"></a>Skalieren der Clusterknoten
 
-Rufen Sie zuerst den *Namen* Ihres Knotenpools mithilfe des [az aks show][az-aks-show]-Befehls ab. Im folgenden Beispiel wird der Knotenpoolnamen für den Cluster namens *myAKSCluster* in der Ressourcengruppe *myResourceGroup* abgerufen:
+Rufen Sie zuerst mithilfe des Befehls [az aks show][az-aks-show] den *Namen* Ihres Knotenpools ab. Das folgende Beispiel ruft den Knotenpoolnamen für den Cluster namens *myAKSCluster* in der Ressourcengruppe *myResourceGroup* ab:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
@@ -44,7 +44,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query agent
 ]
 ```
 
-Verwenden Sie den Befehl `az aks scale`, um die Clusterknoten zu skalieren. Das folgende Beispiel skaliert einen Cluster namens *myAKSCluster* auf einen einzelnen Knoten. Stellen Sie Ihren eigenen *--nodepool-name* aus dem vorherigen Befehl bereit, z.B. *nodepool1*:
+Verwenden Sie den Befehl [az aks scale][az-aks-scale], um die Clusterknoten zu skalieren. Das folgende Beispiel skaliert einen Cluster namens *myAKSCluster* auf einen einzelnen Knoten. Stellen Sie Ihren eigenen *--nodepool-name* aus dem vorherigen Befehl bereit, z.B. *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
@@ -68,49 +68,13 @@ Die folgende Beispielausgabe zeigt, dass der Cluster erfolgreich auf einen einzi
       "vnetSubnetId": null
     }
   ],
-  "dnsPrefix": "myAKSClust-myResourceGroup-19da35",
-  "enableRbac": true,
-  "fqdn": "myaksclust-myresourcegroup-19da35-0d60b16a.hcp.eastus.azmk8s.io",
-  "id": "/subscriptions/<guid>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.9.11",
-  "linuxProfile": {
-    "adminUsername": "azureuser",
-    "ssh": {
-      "publicKeys": [
-        {
-          "keyData": "[...]"
-        }
-      ]
-    }
-  },
-  "location": "eastus",
-  "name": "myAKSCluster",
-  "networkProfile": {
-    "dnsServiceIp": "10.0.0.10",
-    "dockerBridgeCidr": "172.17.0.1/16",
-    "networkPlugin": "kubenet",
-    "networkPolicy": null,
-    "podCidr": "10.244.0.0/16",
-    "serviceCidr": "10.0.0.0/16"
-  },
-  "nodeResourceGroup": "MC_myResourceGroup_myAKSCluster_eastus",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "servicePrincipalProfile": {
-    "clientId": "[...]",
-    "secret": null
-  },
-  "tags": null,
-  "type": "Microsoft.ContainerService/ManagedClusters"
+  [...]
 }
 ```
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Erfahren Sie mehr über die Bereitstellung und Verwaltung von AKS mit den AKS-Tutorials.
-
-> [!div class="nextstepaction"]
-> [AKS-Tutorial][aks-tutorial]
+In diesem Artikel haben Sie einen AKS-Cluster manuell skaliert, um die Anzahl von Knoten zu erhöhen oder zu verringern. Sie können auch die [Autoskalierung für Cluster][cluster-autoscaler] verwenden (derzeit in der Vorschau in AKS), um Ihren Cluster automatisch zu skalieren.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -118,3 +82,5 @@ Erfahren Sie mehr über die Bereitstellung und Verwaltung von AKS mit den AKS-Tu
 <!-- LINKS - internal -->
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[cluster-autoscaler]: cluster-autoscaler.md

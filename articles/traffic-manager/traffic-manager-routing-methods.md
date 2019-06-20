@@ -2,20 +2,20 @@
 title: 'Azure Traffic Manager: Routingmethoden für Datenverkehr'
 description: Dieser Artikel erläutert Ihnen die verschiedenen Methoden für das Datenverkehrsrouting, die von Traffic Manager verwendet werden.
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: kumud
-ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.author: allensu
+ms.openlocfilehash: 9068cb0dad742ac6e5eeae0b3a1b801d08d4734c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054723"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070992"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager-Routingmethoden
 

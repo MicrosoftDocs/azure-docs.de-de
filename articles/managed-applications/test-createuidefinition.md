@@ -1,40 +1,58 @@
 ---
 title: Testen der Benutzeroberflächendefinition für Azure Managed Applications | Microsoft-Dokumentation
 description: Hier wird beschrieben, wie Sie die Benutzeroberfläche zum Erstellen Ihrer Azure Managed Applications-Instanz über das Portal testen.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2018
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747087"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257602"
 ---
-# <a name="test-azure-portal-interface-for-your-managed-application"></a>Testen der Azure-Portalschnittstelle für die verwaltete Anwendung
-Nach dem [Erstellen der Datei „createUiDefinition.json“](create-uidefinition-overview.md) für Ihre Azure Managed Applications-Instanz müssen Sie die Benutzeroberfläche testen. Um das Testen zu vereinfachen, verwenden Sie ein Skript, das Ihre Datei in das Portal lädt. Sie müssen Ihre verwaltete Anwendung nicht tatsächlich bereitstellen.
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testen Ihrer Portalschnittstelle für Azure Managed Applications
+
+Nachdem Sie [die Datei „createUiDefinition.json“](create-uidefinition-overview.md) für Ihre verwaltete Anwendung erstellt haben, müssen Sie die Benutzeroberfläche testen. Um das Testen zu vereinfachen, verwenden Sie eine Sandbox-Umgebung, die Ihre Datei in das Portal lädt. Sie müssen Ihre verwaltete Anwendung nicht tatsächlich bereitstellen. Die Sandbox bietet Ihre Benutzeroberfläche in der aktuellen, Vollbildportalerfahrung dar. Alternativ können Sie ein PowerShell-Skript zum Testen der Schnittstelle verwenden, aber dieses verwendet eine Legacyansicht des Portals. In diesem Artikel werden beide Ansätze beschrieben. Die Sandbox ist die empfohlene Methode, um eine Vorschau der Schnittstelle anzuzeigen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Die Datei **createUiDefinition.json**. Falls diese Datei nicht vorhanden ist, kopieren Sie die [Beispieldatei](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json), und speichern Sie sie lokal.
+* Die Datei **createUiDefinition.json**. Falls Sie nicht über diese Datei verfügen, kopieren Sie die [Beispieldatei](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * Ein Azure-Abonnement. Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
-## <a name="download-test-script"></a>Herunterladen des Testskripts
+## <a name="use-sandbox"></a>Verwenden der Sandbox
+
+1. Öffnen Sie die [Sandboc für das Erstellen von Benutzeroberflächendefinitionen](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+
+   ![Anzeigen der Sandbox](./media/test-createuidefinition/show-sandbox.png)
+
+1. Ersetzen Sie die leere Definition durch den Inhalt Ihrer Datei „createUiDefinition.json“. Wählen Sie **Vorschau** aus.
+
+   ![Auswählen von „Vorschau“](./media/test-createuidefinition/select-preview.png)
+
+1. Das von Ihnen erstellte Formular wird angezeigt. Sie können die Benutzererfahrung schrittweise durchlaufen und die Werte eingeben.
+
+   ![Anzeigen des Formulars](./media/test-createuidefinition/show-ui-form.png)
+
+### <a name="troubleshooting"></a>Problembehandlung
+
+Wenn Ihr Formular nach Auswahl von **Vorschau** nicht angezeigt wird, liegt vielleicht ein Syntaxfehler vor. Suchen Sie nach dem rote Kennzeichen in der rechten Scrollleiste, und navigieren Sie zu ihm.
+
+![Anzeigen eines Syntaxfehlers](./media/test-createuidefinition/show-syntax-error.png)
+
+Wenn Ihr Formular nicht angezeigt und stattdessen das Symbol einer Wolke mit Tränen angezeigt wird, enthält Ihr Formular einen Fehler, z. B. eine fehlende Eigenschaft. Öffnen Sie die Web Developer Tools in Ihrem Browser. In der **Konsole** werden wichtige Meldungen zur Benutzeroberfläche angezeigt.
+
+![Anzeigen des Fehlers](./media/test-createuidefinition/show-error.png)
+
+## <a name="use-test-script"></a>Verwenden des Testskripts
 
 Kopieren Sie zum Testen der Oberfläche im Portal eins der folgenden Skripts auf den lokalen Computer:
 
 * [PowerShell-Skript zum Querladen](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Azure CLI-Skript zum Querladen](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
-
-## <a name="run-script"></a>Ausführen des Skripts
 
 Führen Sie zum Anzeigen Ihrer Benutzeroberflächendatei im Portal das heruntergeladene Skript aus. Mit dem Skript wird ein Speicherkonto in Ihrem Azure-Abonnement erstellt und anschließend die Datei „createUiDefinition.json“ in das Speicherkonto hochgeladen. Das Speicherkonto wird erstellt, wenn das Skript erstmals ausgeführt wird oder das Speicherkonto gelöscht wurde. Wenn das Speicherkonto in Ihrem Azure-Abonnement bereits vorhanden ist, wird das Skript erneut verwendet. Anschließend wird das Portal durch das Skript geöffnet und die Datei aus dem Speicherkonto heruntergeladen.
 
@@ -70,19 +88,9 @@ Verwenden Sie für die Azure-Befehlszeilenschnittstelle den folgenden Befehl:
 ./sideload-createuidef.sh
 ```
 
-## <a name="test-your-interface"></a>Testen der Benutzeroberfläche
-
 Das Skript öffnet eine neue Registerkarte im Browser. Das Portal mit der Schnittstelle zum Erstellen der verwalteten Anwendung wird angezeigt.
 
 ![Anzeigen des Portals](./media/test-createuidefinition/view-portal.png)
-
-Öffnen Sie Web Developer Tools in Ihrem Browser, bevor Sie die Felder ausfüllen. In der **Konsole** werden wichtige Meldungen zur Benutzeroberfläche angezeigt.
-
-![Klicken auf „Konsole“](./media/test-createuidefinition/select-console.png)
-
-Wenn Ihre Benutzeroberflächendefinition einen Fehler enthält, wird die Beschreibung in der Konsole angezeigt.
-
-![Anzeigen des Fehlers](./media/test-createuidefinition/show-error.png)
 
 Geben Sie Werte für die Felder an. Anschließend werden die Werte angezeigt, die an die Vorlage übergeben werden.
 
@@ -90,15 +98,7 @@ Geben Sie Werte für die Felder an. Anschließend werden die Werte angezeigt, di
 
 Sie können diese Werte als Parameterdatei für das Testen Ihrer Bereitstellungsvorlage verwenden.
 
-## <a name="troubleshooting-the-interface"></a>Problembehandlung für die Schnittstelle
-
-Es werden möglicherweise einige dieser häufigen Fehler angezeigt:
-
-* Ihre Schnittstelle wird im Portal nicht geladen. Stattdessen wird eine Wolke mit einer Träne angezeigt. In der Regel wird dieses Symbol angezeigt, wenn ein Syntaxfehler in der Datei vorliegt. Öffnen Sie die Datei in VS Code (oder anderen JSON-Editor, der über Schemavalidierung verfügt), und suchen Sie nach Syntaxfehlern.
-
-* Das Portal wurde auf der Zusammenfassungsseite eingefroren. Diese Unterbrechung kommt in der Regel vor, wenn der Ausgabeabschnitt einen Fehler enthält. Beispielsweise haben wie möglicherweise auf ein nicht vorhandenes Steuerelement verwiesen.
-
-* Ein Parameter in der Ausgabe ist leer. Der Parameter verweist möglicherweise auf eine nicht vorhandene Eigenschaft. Beispielsweise ist der Verweis auf das Steuerelement gültig, aber der Eigenschaftenverweis ist es nicht.
+Wenn das Portal bei der Zusammenfassungsseite hängen bleibt, kann ein Fehler im Ausgabeabschnitt vorliegen. Beispielsweise haben wie möglicherweise auf ein nicht vorhandenes Steuerelement verwiesen. Wenn ein Parameter in der Ausgabe leer ist, verweist er möglicherweise auf eine nicht vorhandene Eigenschaft. Beispielsweise ist der Verweis auf das Steuerelement gültig, aber der Eigenschaftenverweis ist es nicht.
 
 ## <a name="test-your-solution-files"></a>Testen Ihrer Lösungsdateien
 

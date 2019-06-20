@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3957fefb44bd8e4732f74f69d5522bd499100d0b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 13bf27fd58530c357e3bb83f7cbc503855d40304
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075334"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurieren des Application Insights-SDK mit "ApplicationInsights.config" oder XML
 Das Application Insights .NET-SDK umfasst eine Reihe von NuGet-Paketen. Das [Kernpaket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) stellt die API für das Senden von Telemetriedaten an Application Insights bereit. [Zusätzliche Pakete](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieten *Telemetriemodule* und *-initialisierer* für die automatische Nachverfolgung von Telemetriedaten von Ihrer Anwendung und deren Kontext. Durch Anpassen der Konfigurationsdatei können Sie Telemetriemodule und -initialisierer aktivieren oder deaktivieren sowie Parameter für einige von ihnen festlegen.
@@ -30,14 +30,14 @@ Es gibt keine gleichwertige Datei zum Steuern des [SDK in einer Webseite][client
 In diesem Dokument sind die Abschnitte beschrieben, die in der Konfigurationsdatei enthalten sind, wie die Steuerung der Komponenten des SDK damit durchgeführt wird und welche NuGet-Pakete diese Komponenten laden.
 
 > [!NOTE]
-> Die Anweisungen für „ApplicationInsights.config“ und „ApplicationInsights.xml“ gelten nicht für das .NET Core SDK. Für Änderungen an einer .NET Core-Anwendung verwenden wir in der Regel die Datei „appsettings.json“. Ein Beispiel dafür finden Sie der [Dokumentation zu Momentaufnahmedebugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger).
+> Die Anweisungen für „ApplicationInsights.config“ und „ApplicationInsights.xml“ gelten nicht für das .NET Core SDK. Anweisungen zum Konfigurieren von .NET Core-Anwendungen finden Sie in [dieser](../../azure-monitor/app/asp-net-core.md) Anleitung.
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetriemodule (ASP.NET)
-Jedes Telemetriemodul erfasst eine bestimmte Art von Daten und verwendet die Haupt-API zum Senden der Daten. Die Module werden von verschiedenen NuGet-Paketen installiert, mit denen der CONFIG-Datei auch die erforderlichen Zeilen hinzugefügt werden.
+Jedes Telemetriemodul erfasst eine bestimmte Art von Daten und verwendet die Kern-API zum Senden der Daten. Die Module werden von verschiedenen NuGet-Paketen installiert, mit denen der CONFIG-Datei auch die erforderlichen Zeilen hinzugefügt werden.
 
 Für jedes Modul gibt es in der Konfigurationsdatei einen Knoten. Um ein Modul zu deaktivieren, löschen Sie den Knoten, oder kommentieren Sie ihn aus.
 
-### <a name="dependency-tracking"></a>Abhängigkeitsüberwachung 
+### <a name="dependency-tracking"></a>Abhängigkeitsüberwachung
 [Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md) werden Telemetriedaten zu Aufrufen erfasst, die von Ihrer App für Datenbanken und externe Dienste und Datenbanken durchgeführt werden. Damit dieses Modul auf einem IIS-Server funktioniert, müssen Sie den [Statusmonitor installieren][redfield]. Zur Verwendung in Azure-Web-Apps oder auf virtuellen Computern [wählen Sie die Application Insights-Erweiterung](azure-web-apps.md).
 
 Sie können auch eigenen Code zur Abhängigkeitsnachverfolgung mithilfe der [TrackDependency-API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)schreiben.
@@ -52,10 +52,12 @@ Dient zum [Sammeln von Systemleistungsindikatoren](../../azure-monitor/app/perfo
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) .
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights-Diagnosetelemetrie
-`DiagnosticsTelemetryModule` gibt Fehler im eigentlichen Application Insights-Instrumentationscode an. Dies geschieht beispielsweise, wenn der Code nicht auf Leistungsindikatoren zugreifen kann oder wenn `ITelemetryInitializer` eine Ausnahme auslöst wird. Telemetriedaten der Ablaufverfolgung, die in diesem Modul nachverfolgt werden, werden in der [Diagnosesuche][diagnostic] angezeigt. Sendet Diagnosedaten an dc.services.vsallin.net.
+`DiagnosticsTelemetryModule` gibt Fehler im eigentlichen Application Insights-Instrumentationscode an. Dies geschieht beispielsweise, wenn der Code nicht auf Leistungsindikatoren zugreifen kann oder wenn `ITelemetryInitializer` eine Ausnahme auslöst wird. Telemetriedaten der Ablaufverfolgung, die in diesem Modul nachverfolgt werden, werden in der [Diagnosesuche][diagnostic] angezeigt.
 
+```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) . Wenn Sie nur dieses Paket installieren, wird die Datei „ApplicationInsights.config“ nicht automatisch erstellt.
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
+```
 
 ### <a name="developer-mode"></a>Entwicklermodus
 `DeveloperModeWithDebuggerAttachedTelemetryModule` erzwingt, dass `TelemetryChannel` von Application Insights Daten sofort sendet (jeweils nur ein Telemetrieelement), wenn ein Debugger an den Anwendungsprozess angefügt ist. So wird die Zeitdauer zwischen dem Moment, in dem die Anwendung die Telemetrie nachverfolgt, und der Anzeige im Application Insights-Portal reduziert. Für die CPU und die Netzwerkbandbreite ist dies eine erhebliche Belastung.
@@ -97,10 +99,10 @@ Das Microsoft.ApplicationInsights-Paket enthält die [Kern-API](https://msdn.mic
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) . Wenn Sie nur dieses NuGet-Paket installieren, wird keine CONFIG-Datei generiert.
 
 ## <a name="telemetry-channel"></a>Telemetriekanal
-Der Telemetriekanal verwaltet die Pufferung und Übertragung von Telemetriedaten an den Application Insights-Dienst.
+Der [Telemetriekanal](telemetry-channels.md) verwaltet die Pufferung und Übertragung von Telemetriedaten an den Application Insights-Dienst.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` ist der Standardkanal für Dienste. Hierbei werden Daten im Arbeitsspeicher gepuffert.
-* `Microsoft.ApplicationInsights.PersistenceChannel` ist eine Alternative für Konsolenanwendungen. Alle nicht geleerten Daten können im beständigen Speicher gespeichert werden, wenn Ihre App geschlossen wird, und sie werden gesendet, wenn die App erneut gestartet wird.
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` ist der Standardkanal für Webanwendungen. Er puffert Daten im Arbeitsspeicher und nutzt Wiederholungsmechanismen und lokalen Datenträgerspeicher für eine zuverlässigere Übermittlung von Telemetriedaten.
+* `Microsoft.ApplicationInsights.InMemoryChannel` ist ein einfacher Telemetriekanal, der dann verwendet wird, wenn kein anderer Kanal konfiguriert ist. 
 
 ## <a name="telemetry-initializers-aspnet"></a>Telemetrieinitialisierer (ASP.NET)
 Mit Telemetrieinitialisierern werden Kontexteigenschaften festgelegt, die mit jedem Element der Telemetrie gesendet werden.

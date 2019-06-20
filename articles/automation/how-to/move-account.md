@@ -10,11 +10,11 @@ ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 59d433bfb888eaa41cc8f66bdf3ad28c16efbe5c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61302559"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Verschieben Ihres Azure Automation-Kontos in ein anderes Abonnement
 

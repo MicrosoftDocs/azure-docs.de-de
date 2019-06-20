@@ -69,7 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '(Vorschauversion) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Konfigurieren der Zeitzone</a> während der Instanzerstellung.'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Konfigurieren der Zeitzone</a> während der Instanzerstellung.'
           - html: 'Erstellen Sie Instanzen mit <a href="https://aka.ms/managed-instance-collation">Sortierung Ihrer Wahl auf Serverebene</a>.'
           - html: 'Mit der Funktion „Geowiederherstellung“ können Sie <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">Ihre Datenbank mit PowerShell in einem anderen Rechenzentrum wiederherstellen</a>.'
           - html: '(Vorschauversion) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Erneutes Erstellen gelöschter Datenbanken mit PowerShell</a>'

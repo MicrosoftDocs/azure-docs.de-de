@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149592"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178290"
 ---
 #### <a name="to-download-hotfixes"></a>So laden Sie Hotfixes herunter
 
@@ -92,7 +92,7 @@ Führen Sie zum Installieren und Überprüfen der Hotfixes für den normalen Mod
     > [!NOTE]
     > In manchen Fällen gibt das Cmdlet `False` zurück, wenn das Update noch ausgeführt wird. Um sicherzustellen, dass das Update abgeschlossen ist, warten Sie einige Minuten, führen Sie diesen Befehl erneut aus, und überprüfen Sie, ob `RunInProgress` gleich `False` ist. Wenn dies der Fall ist, wurde das Hotfix abgeschlossen.
 
-6. Überprüfen Sie nach dem Abschließen des Softwareupdates die Versionen der Systemsoftware. Geben Sie Folgendes ein: 
+6. Überprüfen Sie nach dem Abschließen des Softwareupdates die Versionen der Systemsoftware. Geben Sie Folgendes ein:
    
     `Get-HcsSystem`
    
@@ -123,7 +123,7 @@ Beachten Sie, dass Sie diese Updates nicht installieren müssen, wenn Ihre Daten
 
 Folgen Sie den Anweisungen unten, um die Datenträger-Firmwareupdates zu installieren.
 
-1. Versetzen Sie das Gerät in den Wartungsmodus. **Es empfiehlt sich, kein Windows PowerShell-Remoting zu verwenden, wenn Sie eine Verbindung mit einem Gerät im Wartungsmodus herstellen. Führen Sie dieses Cmdlet stattdessen auf dem Gerätecontroller aus, wenn eine Verbindung über die serielle Konsole des Geräts besteht.** Geben Sie Folgendes ein: 
+1. Versetzen Sie das Gerät in den Wartungsmodus. **Es empfiehlt sich, kein Windows PowerShell-Remoting zu verwenden, wenn Sie eine Verbindung mit einem Gerät im Wartungsmodus herstellen. Führen Sie dieses Cmdlet stattdessen auf dem Gerätecontroller aus, wenn eine Verbindung über die serielle Konsole des Geräts besteht.** Geben Sie Folgendes ein:
    
     `Enter-HcsMaintenanceMode`
    
@@ -164,7 +164,7 @@ Folgen Sie den Anweisungen unten, um die Datenträger-Firmwareupdates zu install
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Überwachen Sie den Installationsstatus mit dem Befehl `Get-HcsUpdateStatus` . Das Update ist abgeschlossen, wenn `RunInProgress` in `False` geändert wird.
-4. Nachdem die Installation abgeschlossen ist, wird der Controller, auf dem der Hotfix für den Wartungsmodus installiert wurde, neu gestartet. Verwenden Sie Option 1, **Anmeldung mit Vollzugriff**, und überprüfen Sie die Firmwareversion des Datenträgers. Geben Sie Folgendes ein: 
+4. Nachdem die Installation abgeschlossen ist, wird der Controller, auf dem der Hotfix für den Wartungsmodus installiert wurde, neu gestartet. Verwenden Sie Option 1, **Anmeldung mit Vollzugriff**, und überprüfen Sie die Firmwareversion des Datenträgers. Geben Sie Folgendes ein:
    
    `Get-HcsFirmwareVersion`
    

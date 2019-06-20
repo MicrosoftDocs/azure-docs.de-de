@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150560"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961453"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Herstellen einer Verbindung mit virtuellen Azure-Netzwerken in Azure Logic Apps mithilfe einer Integrationsdienstumgebung
 
@@ -24,7 +24,7 @@ Für Szenarios, in denen Ihre Logik-Apps und Integrationskonten Zugriff auf ein 
 
 In diesem Artikel wird gezeigt, wie Sie die folgenden Aufgaben ausführen:
 
-* Einrichten von Ports in Ihrem virtuellen Azure-Netzwerk, damit der Datenverkehr durch Ihre Integrationsdienstumgebung über Subnetze in Ihrem virtuellen Netzwerk übertragen werden kann.
+* Stellen Sie sicher, dass alle notwenigen Ports in einem virtuellen Netzwerk offen sind, damit der Datenverkehr durch Ihre Integrationsdienstumgebung über Subnetze in das virtuelle Netzwerk übertragen werden kann.
 
 * Erstellen Ihrer Integrationsdienstumgebung.
 
@@ -39,7 +39,7 @@ Weitere Informationen zu Integrationsdienstumgebungen finden Sie unter [Zugriff 
 * Ein Azure-Abonnement. Wenn Sie nicht über ein Azure-Abonnement verfügen, können Sie sich <a href="https://azure.microsoft.com/free/" target="_blank">für ein kostenloses Azure-Konto registrieren</a>.
 
   > [!IMPORTANT]
-  > Für Logik-Apps, integrierte Aktionen und Connectors, die in Ihrer ISE ausgeführt werden, gilt ein anderer als der nutzungsbasierte Tarif. Weitere Informationen hierzu finden Sie unter [Logic Apps – Preise](../logic-apps/logic-apps-pricing.md).
+  > Für Logik-Apps, integrierte Trigger, integrierte Aktionen und Connectors, die in Ihrer ISE ausgeführt werden, gilt ein anderer als der nutzungsbasierte Tarif. Weitere Informationen hierzu finden Sie unter [Logic Apps – Preise](../logic-apps/logic-apps-pricing.md).
 
 * Ein [virtuelles Azure-Netzwerk](../virtual-network/virtual-networks-overview.md). Wenn Sie kein virtuelles Netzwerk besitzen, erfahren Sie, wie Sie [ein virtuelles Azure-Netzwerk erstellen](../virtual-network/quick-create-portal.md). 
 
@@ -60,11 +60,13 @@ Weitere Informationen zu Integrationsdienstumgebungen finden Sie unter [Zugriff 
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>Einrichten von Netzwerkports
+## <a name="check-network-ports"></a>Überprüfen von Netzwerkports
 
-Damit Ihre Integrationsdienstumgebung ordnungsgemäß funktioniert und der Zugriff darauf gewährleistet ist, müssen bestimmte Ports in Ihrem virtuellen Netzwerk verfügbar sein. Wenn einer dieser Ports nicht verfügbar sein sollte, verlieren Sie möglicherweise den Zugriff auf Ihre Integrationsdienstumgebung, was zu Funktionsstörungen führen kann. Wenn Sie eine Integrationsdienstumgebung in einem virtuellen Netzwerk verwenden, ist ein häufiges Einrichtungsproblem, dass ein oder mehrere Ports blockiert sind. Für Verbindungen zwischen Ihrer Integrationsdienstumgebung und dem Zielsystem kann der von Ihnen verwendete Connector auch eigene Portanforderungen aufweisen. Wenn Sie beispielsweise über den FTP-Connector mit einem FTP-System kommunizieren, stellen Sie sicher, dass der Port, den Sie auf diesem FTP-System verwenden, wie z.B. Port 21 zum Senden von Befehlen, verfügbar ist.
+Wenn Sie eine Integrationsdienstumgebung mit einem virtuellen Netzwerk verwenden, besteht ein häufiges Einrichtungsproblem darin, dass ein oder mehrere Ports blockiert sind. Die Connectors, die Sie zum Herstellen von Verbindungen zwischen Ihrer Integrationsdienstumgebung und dem Zielsystem verwenden, können außerdem eigene Portanforderungen aufweisen. Wenn Sie beispielsweise über den FTP-Connector mit einem FTP-System kommunizieren, stellen Sie sicher, dass der Port, den Sie auf diesem FTP-System verwenden, wie z.B. Port 21 zum Senden von Befehlen, verfügbar ist.
 
-Sie können [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md) für diese Subnetze einrichten, [indem Sie den Datenverkehr in Subnetzen filtern](../virtual-network/tutorial-filter-network-traffic.md), um den Datenverkehr in den Subnetzen des virtuellen Netzwerks zu steuern, in denen Sie Ihre Integrationsdienstumgebung bereitstellen. In diesen Tabellen werden die Ports in Ihrem virtuellen Netzwerk beschrieben, die Ihre Integrationsdienstumgebung verwendet, und wo diese Ports verwendet werden. Die [Resource Manager-Diensttags](../virtual-network/security-overview.md#service-tags) stellen eine Gruppe von IP-Adresspräfixen dar, deren Aufgabe es ist, die Komplexität bei der Erstellung von Sicherheitsregeln zu verringern.
+Sie können [Netzwerksicherheitsgruppen](../virtual-network/security-overview.md), [indem Sie den Datenverkehr in Subnetzen filtern](../virtual-network/tutorial-filter-network-traffic.md), um den Datenverkehr in den Subnetzen des virtuellen Netzwerks zu steuern, in denen Sie die Integrationsdienstumgebung bereitstellen. In Ihrer Integrationsdienstumgebung müssen aber bestimmte Ports zu dem virtuellen Netzwerk, das Netzwerksicherheitsgruppen verwendet, offen sein. Auf diese Weise bleibt Ihre Integrationsdienstumgebung im Zugriff und kann ordnungsgemäß funktionieren, sodass Sie den Zugriff auf Ihre Integrationsdienstumgebung nicht verlieren. Andernfalls, wenn erforderlichen Ports nicht verfügbar sind, funktioniert Ihre Integrationsdienstumgebung nicht mehr.
+
+In diesen Tabellen werden die Ports in Ihrem virtuellen Netzwerk beschrieben, die Ihre Integrationsdienstumgebung verwendet, und wo diese Ports verwendet werden. Die [Resource Manager-Diensttags](../virtual-network/security-overview.md#service-tags) stellen eine Gruppe von IP-Adresspräfixen dar, deren Aufgabe es ist, die Komplexität bei der Erstellung von Sicherheitsregeln zu verringern.
 
 > [!IMPORTANT]
 > Für die interne Kommunikation in Ihren Subnetzen ist es für die ISE erforderlich, dass Sie alle Ports in diesen Subnetzen öffnen.
@@ -132,7 +134,7 @@ Geben Sie in das Suchfeld „Integrationsdienstumgebung“ als Ihren Filter ein.
 
    * Das Format [Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) und einen Class B-Adressraum
 
-   * Es muss mindestens `/27` im Adressbereich verwenden, weil jedes Subnetz *mindestens* 32 Adressen aufweisen muss. Beispiel: 
+   * Es muss mindestens `/27` im Adressbereich verwenden, weil jedes Subnetz *mindestens* 32 Adressen aufweisen muss. Beispiel:
 
      * `10.0.0.0/27` hat 32 Adressen, da 2<sup>(32 – 27)</sup> 2<sup>5</sup> oder 32 ist.
 
@@ -159,7 +161,7 @@ Geben Sie in das Suchfeld „Integrationsdienstumgebung“ als Ihren Filter ein.
    1. Geben Sie im Bereich **Subnetz hinzufügen** diese Informationen an.
 
       * **Name**: Der Name für Ihr Subnetz.
-      * **Adressbereich (CIDR-Block)**: Der Bereich Ihres Subnetzes in Ihrem virtuellen Netzwerk und im CIDR-Format
+      * **Adressbereich (CIDR-Block)** : Der Bereich Ihres Subnetzes in Ihrem virtuellen Netzwerk und im CIDR-Format
 
       ![Hinzufügen von Subnetzdetails](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
@@ -199,33 +201,19 @@ Weitere Informationen zum Erstellen von Subnetzen finden Sie unter [Hinzufügen 
 
 ## <a name="create-logic-app---ise"></a>Erstellen einer Logik-App – Integrationsdienstumgebung
 
-Um Logik-Apps zu erstellen, die Ihre Integrationsdienstumgebung verwenden, führen Sie die Schritte in [Erstellen einer Logik-App](../logic-apps/quickstart-create-first-logic-app-workflow.md) aus, jedoch mit folgenden Unterschieden: 
-
-* Wenn Sie Ihre Logik-App erstellen, wählen Sie unter der Eigenschaft **Standort** Ihre Integrationsdienstumgebung im Abschnitt **Integrationsdienstumgebungen** aus, z. B.:
+Um Logik-Apps zu erstellen, die in Ihrer Integrationsdienstumgebung ausgeführt werden, [erstellen Sie Ihre Logik-Apps auf die übliche Weise](../logic-apps/quickstart-create-first-logic-app-workflow.md), außer wenn Sie die Eigenschaft **Standort** festlegen, wählen Sie Ihre Integrationsdienstumgebung im Abschnitt **Integrationsdienstumgebungen** aus, z. B.:
 
   ![Auswählen der Integrationsdienstumgebung](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* Sie können dieselben integrierten Trigger und Aktionen (wie z.B. HTTP) verwenden, die in derselben ISE wie Ihre Logik-App ausgeführt werden. Connectors mit der Bezeichnung **ISE** werden auch in derselben Integrationsdienstumgebung wie Ihre Logik-App ausgeführt. Connectors ohne die Bezeichnung **ISE** werden im globalen Logic Apps-Dienst ausgeführt.
-
-  ![Auswählen der ISE-Connectors](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* Nachdem Sie Ihre Integrationsdienstumgebung in ein virtuelles Azure-Netzwerk eingefügt haben, können die Logik-Apps in Ihrer Integrationsdienstumgebung direkt auf Ressourcen in diesem virtuellen Netzwerk zugreifen. Bei lokalen Systemen, die mit einem virtuellen Netzwerk verbunden sind, fügen Sie eine Integrationsdienstumgebung in dieses Netzwerk ein, damit Ihre Logik-Apps direkt auf diese Systeme zugreifen können, indem sie eins der folgenden Elemente verwenden: 
-
-  * ISE-Connector für dieses System, z.B. SQL Server
-  
-  * HTTP-Aktion 
-  
-  * Benutzerdefinierter Connector
-
-  Für lokale Systeme, die sich nicht in einem virtuellen Netzwerk befinden oder die keine Integrationsdienstumgebungs-Connectors aufweisen, [richten Sie zuerst das lokale Datengateway ein](../logic-apps/logic-apps-gateway-install.md).
+Informationen zu den Unterschieden, wie Trigger und Aktionen funktionieren und wie sie bezeichnet werden, wenn Sie eine Integrationsdienstumgebung verwenden, im Vergleich zum globalen Logic Apps-Dienst, finden Sie unter [„Isoliert“ gegenüber „Global“ in der Übersicht zur Integrationsdienstumgebung](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="create-integration-account---ise"></a>Erstellen des Integrationskontos – Integrationsdienstumgebung
 
-Um ein Integrationskonto mit Logik-Apps in einer Integrationsdienstumgebung zu verwenden, muss dieses Integrationskonto *dieselbe Umgebung* wie die Logik-Apps verwenden. Logik-Apps in einer Integrationsdienstumgebung können nur auf Integrationskonten in derselben Integrationsdienstumgebung verweisen. 
+Wenn Sie ein Integrationskonto mit Logik-Apps in einer Integrationsdienstumgebung verwenden möchten, muss dieses Integrationskonto *dieselbe Umgebung* wie die Logik-Apps verwenden. Logik-Apps in einer Integrationsdienstumgebung können nur auf Integrationskonten in derselben Integrationsdienstumgebung verweisen.
 
-Führen Sie zum Erstellen eines Integrationskontos, das eine Integrationsdienstumgebung verwendet, die Schritte in [Erstellen von Integrationskonten](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) aus, mit Ausnahme der Eigenschaft **Standort**, an deren Stelle nun der Abschnitt **Integrationsdienstumgebungen** angezeigt wird. Wählen Sie stattdessen Ihre Integrationsdienstumgebung aus, anstelle einer Region, z. B.:
+Um ein Integrationskonto zu erstellen, dass eine Integrationsdienstumgebung verwendet, [erstellen Sie Ihr Integrationskonto auf die übliche Weise](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), außer wenn Sie die Eigenschaft **Standort** festlegen, wählen Sie Ihre Integrationsdienstumgebung im Abschnitt **Integrationsdienstumgebungen** aus, z. B.:
 
 ![Auswählen der Integrationsdienstumgebung](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

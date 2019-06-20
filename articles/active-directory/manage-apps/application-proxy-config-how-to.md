@@ -3,8 +3,8 @@ title: Konfigurieren einer Anwendungsproxyanwendung | Microsoft-Dokumentation
 description: Informationen zum Erstellen und Konfigurieren einer Anwendungsproxyanwendung in wenigen einfachen Schritten
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f22f064043467bf52c23cab547a7e6c8ba2205
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172313"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825932"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Konfigurieren einer Anwendungsproxyanwendung
 

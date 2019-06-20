@@ -8,11 +8,11 @@ ms.date: 1/17/2019
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790611"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60715843"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Anwendungsgateways – Hosten mehrerer Websites
 

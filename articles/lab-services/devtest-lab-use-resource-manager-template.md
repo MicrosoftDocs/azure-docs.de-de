@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648434"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62101563"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Erstellen von virtuellen Computern mit einer Azure Resource Manager-Vorlage 
 

@@ -10,11 +10,11 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60846772"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Herstellen einer Verbindung mit lokalen Dateisystemen mit Azure Logic Apps
 
@@ -72,7 +72,7 @@ Für dieses Beispiel benötigen Sie Folgendes:
    | -------- | -------- | ----- | ----------- | 
    | **Verbindungsname** | Ja | <*verbindungsname*> | Der gewünschte Name für die Verbindung. | 
    | **Stammordner** | Ja | <*Name des Stammordners*> | Der Stammordner für Ihr Dateisystem – beispielsweise, wenn Sie Ihr lokales Datengateway installiert haben, ein lokaler Ordner auf dem Computer, auf dem das lokale Datengateway installiert ist, oder der Ordner für eine Netzwerkfreigabe, auf die der Computer zugreifen kann. <p>Beispiel: `\\PublicShare\\DropboxFiles` <p>Der Stammordner ist der übergeordnete Hauptordner, der bei allen dateibezogenen Aktionen für relative Pfade verwendet wird. | 
-   | **Authentifizierungstyp** | Nein  | <*Authentifizierungstyp*> | Die Art der Authentifizierung, die von Ihrem Dateisystem verwendet wird (beispielsweise **Windows**). | 
+   | **Authentifizierungstyp** | Nein | <*Authentifizierungstyp*> | Die Art der Authentifizierung, die von Ihrem Dateisystem verwendet wird (beispielsweise **Windows**). | 
    | **Benutzername** | Ja | <*Domäne*>\\<*Benutzername*> | Der Benutzername für den Computer, auf dem sich das Dateisystem befindet | 
    | **Kennwort** | Ja | <*Ihr Kennwort*> | Das Kennwort für den Computer, auf dem sich das Dateisystem befindet | 
    | **Gateway** | Ja | <*Name des installierten Gateways*> | Der Name für das zuvor installierte Gateway. | 

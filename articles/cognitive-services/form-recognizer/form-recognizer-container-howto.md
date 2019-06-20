@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: pafarley
-ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 1c9e68f643f27f70190b5847225692d554cc5480
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507811"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475446"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installieren und Ausführen eines Containers für die Formularerkennung
 Die Formularerkennung wendet die Machine Learning-Technologie an, um Schlüssel-Wert-Paare und Tabellen aus Formularen zu identifizieren und zu extrahieren. Diesen werden Werte und Tabelleneinträge zugeordnet, und dann werden strukturierte Daten ausgegeben, die die Beziehungen in der Originaldatei enthalten. Sie können Ihr benutzerdefiniertes Formularerkennungsmodell mithilfe einer einfachen REST-API aufrufen, um die Komplexität zu reduzieren und es einfach in Ihren Prozess zur Workflowautomatisierung oder eine andere Anwendung zu integrieren. Es werden nur fünf Dokumente (oder ein leeres Formular) benötigt, sodass Sie schnell, präzise und auf Ihre spezifischen Inhalte zugeschnittene Ergebnisse ohne komplizierte manuelle Eingriffe oder umfangreiche datenwissenschaftliche Kenntnisse erzielen können. Es sind keine Datenbeschriftungen oder Datenanmerkungen erforderlich.
@@ -35,7 +35,7 @@ Zur Verwendung von Containern für die Formularerkennung müssen Sie die folgend
 |Kenntnisse zu Docker | Sie sollten über Grundkenntnisse der Konzepte von Docker, einschließlich Registrierungen, Repositorys, Container und Containerimages, verfügen und die grundlegenden `docker`-Befehle kennen.|
 |Azure-Befehlszeilenschnittstelle| Sie müssen Sie die [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) auf Ihrem Host installieren.|
 |Maschinelles Sehen-API-Ressource| Um gescannte Dokumente und Bilder zu verarbeiten, wird eine **Maschinelles Sehen-Ressource** benötigt. Sie können entweder als Azure-Ressource (REST-API oder SDK) oder als [Container](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) `cognitive-services-recognize-text` auf das Feature **Texterkennung** zugreifen. Die üblichen Gebühren werden abgerechnet. <br><br>Sie müssen sowohl den Schlüssel- als auch den Abrechnungsendpunkt für Ihre spezifische Maschinelles Sehen-Ressource (Azure-Cloud oder Cognitive Services-Container) übergeben. Verwenden Sie diesen Schlüssel- und Abrechnungsendpunkt als {COMPUTER_VISION_API_KEY} und {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Wenn Sie den **`cognitive-services-recognize-text`-Container** verwenden, stellen Sie Folgendes sicher:<br><br>*Ihr Maschinelles Sehen-Schlüssel für den Formularerkennungscontainer ist der Schlüssel, der im Maschinelles Sehen-Befehl `docker run` für den `cognitive-services-recognize-text`-Container angegeben ist.<br>*Ihr Abrechnungsendpunkt ist der Endpunkt des Containers, z.B. `https://localhost:5000`. Wenn Sie sowohl den Maschinelles Sehen- als auch den Formularerkennungscontainer gemeinsam auf demselben Host verwenden, können nicht beide mit dem Standardport `5000` gestartet werden.  |  
-|Formularerkennungsressource |Um diese Container zu verwenden, benötigen Sie Folgendes:<br><br>Eine Azure-Ressource vom Typ _Formularerkennung_, um den entsprechenden Abrechnungsschlüssel und den URI des Abrechnungsendpunkts zu erhalten. Beide Werte stehen im Azure-Portal auf der Übersichtsseite und auf der Schlüsselseite der **Formularerkennung** zur Verfügung und werden zum Starten des Containers benötigt.<br><br>**{BILLING_KEY}**: Der Ressourcenschlüssel.<br><br>**{BILLING_ENDPOINT_URI}**: Der Endpunkt-URI. Beispiel: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
+|Formularerkennungsressource |Um diese Container zu verwenden, benötigen Sie Folgendes:<br><br>Eine Azure-Ressource vom Typ _Formularerkennung_, um den entsprechenden Abrechnungsschlüssel und den URI des Abrechnungsendpunkts zu erhalten. Beide Werte stehen im Azure-Portal auf der Übersichtsseite und auf der Schlüsselseite der **Formularerkennung** zur Verfügung und werden zum Starten des Containers benötigt.<br><br>**{BILLING_KEY}** : Der Ressourcenschlüssel.<br><br>**{BILLING_ENDPOINT_URI}** : Der Endpunkt-URI. Beispiel: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>Anfordern des Zugriffs auf die Containerregistrierung
 
@@ -114,9 +114,9 @@ Ersetzen Sie im folgenden Beispiel für den Befehl `docker run` diese Parameter 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
@@ -142,6 +142,8 @@ Führen Sie den ersten Container an Port 5000 aus.
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+--mount type=bind,source=c:\input,target=/input  \
+--mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
@@ -282,6 +284,10 @@ Der Container für die Formularerkennung sendet Abrechnungsinformationen an Azur
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Weitere Informationen zu diesen Optionen finden Sie unter [Konfigurieren von Containern](form-recognizer-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Zusammenfassung
 

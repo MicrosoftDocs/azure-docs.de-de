@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 3fd460409cab8dce0f5c4ce31f5323f19706d268
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8341e9057b07fbb72957eddc342ae875e4591993
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60912259"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure-Dienst für dedizierte HSMs – Unterstützbarkeit
 

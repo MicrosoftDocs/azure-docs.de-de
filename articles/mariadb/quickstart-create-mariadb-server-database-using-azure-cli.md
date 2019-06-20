@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171424"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Erstellen eines Azure Database for MariaDB-Servers mit der Azure-Befehlszeilenschnittstelle
 
@@ -55,7 +55,7 @@ geo-redundant-backup | **Disabled** | Gibt an, ob georedundante Sicherungen für
 location | **westus** | Der Azure-Standort für den Server.
 ssl-enforcement | **Aktiviert** | Gibt an, ob SSL für diesen Server aktiviert werden soll. Zulässige Werte: **Aktiviert**, **Deaktiviert**.
 storage-size | **51.200** | Die Speicherkapazität des Servers (Einheit: MB). Gültige Speichergrößen sind Werte ab 5.120 MB (Minimum) mit Erhöhungen in Inkrementen von 1.024 MB. Weitere Informationen zu den Grenzwerten für die Speichergröße finden Sie unter [Tarife](./concepts-pricing-tiers.md). 
-Version | **10.2** | Die Hauptversion der MariaDB-Engine.
+version | **10.2** | Die Hauptversion der MariaDB-Engine.
 admin-user | **myadmin** | Der Benutzername für die Administratoranmeldung. Der **admin-user**-Parameter darf nicht auf **azure_superuser**, **admin**, **administrator**, **root**, **guest** oder **public** festgelegt werden.
 admin-password | *Ihr Kennwort* | Das Kennwort des Administratorbenutzers. Ihr Kennwort muss zwischen acht und 128 Zeichen lang sein. Es muss Zeichen aus drei der folgenden Kategorien enthalten: Englische Großbuchstaben, englische Kleinbuchstaben, Zahlen und nicht alphanumerische Zeichen.
 

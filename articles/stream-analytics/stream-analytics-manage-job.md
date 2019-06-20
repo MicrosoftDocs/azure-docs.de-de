@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.custom: mvc
+ms.date: 06/03/2019
+ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523544"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493413"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analysieren von Telefonanrufdaten mit Stream Analytics und Visualisieren der Ergebnisse in einem Power BI-Dashboard
 
@@ -32,10 +32,10 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Stellen Sie zunächst sicher, dass Sie über Folgendes verfügen:
+Führen Sie zunächst folgende Aktionen aus:
 
 * Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen.
-* Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
+* Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 * Laden Sie die App [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) zum Generieren von Anrufereignissen aus dem Microsoft Download Center herunter, oder rufen Sie den Quellcode von [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator) ab.
 * Sie benötigen ein Power BI-Konto.
 
@@ -45,8 +45,8 @@ Damit Stream Analytics den Datenstrom mit den betrügerischen Anrufen analysiere
 
 Gehen Sie wie folgt vor, um einen Event Hub zu erstellen und Anrufdaten an diesen Event Hub zu senden:
 
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
-2. Wählen Sie **Ressource erstellen** > **Internet der Dinge (IoT)** > **Event Hubs**.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
+2. Wählen Sie **Ressource erstellen** > **Internet der Dinge (IoT)**  > **Event Hubs**.
 
    ![Erstellen eines Azure Event Hubs im Portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
 3. Geben Sie im Bereich **Namespace erstellen** die folgenden Werte an:
@@ -56,7 +56,7 @@ Gehen Sie wie folgt vor, um einen Event Hub zu erstellen und Anrufdaten an diese
    |NAME     | myEventHubsNS        |  Ein eindeutiger Name zum Identifizieren des Event Hub-Namespace.       |
    |Abonnement     |   \<Ihr Abonnement\>      |   Wählen Sie ein Azure-Abonnement aus, unter dem Sie den Event Hub erstellen möchten.      |
    |Ressourcengruppe     |   MyASADemoRG      |  Wählen Sie **Neu erstellen** aus, und geben Sie einen neuen Ressourcengruppennamen für Ihr Konto ein.       |
-   |Standort     |   USA, Westen 2      |    Der Standort, an dem der Event Hub-Namespace bereitgestellt werden kann.     |
+   |Location     |   USA, Westen 2      |    Der Standort, an dem der Event Hub-Namespace bereitgestellt werden kann.     |
 
 4. Verwenden Sie für die verbleibenden Einstellungen die Standardoptionen, und wählen Sie **Erstellen**.
 
@@ -71,7 +71,7 @@ Gehen Sie wie folgt vor, um einen Event Hub zu erstellen und Anrufdaten an diese
 
 Bevor eine Anwendung Daten an Azure Event Hubs senden kann, muss der Event Hub mit einer Richtlinie versehen werden, die einen entsprechenden Zugriff ermöglicht. Die Zugriffsrichtlinie erzeugt eine Verbindungszeichenfolge, die Autorisierungsinformationen enthält.
 
-1. Navigieren Sie zum Event Hub *MyEventHub*, den Sie im vorherigen Schritt erstellt haben. Wählen Sie unter **Einstellungen** die Option **SAS-Richtlinien** und anschließend **+ Hinzufügen** aus.
+1. Navigieren Sie zum Event Hub „MyEventHub“*, den Sie im vorherigen Schritt erstellt haben. Wählen Sie unter **Einstellungen** die Option **SAS-Richtlinien** und anschließend **+ Hinzufügen** aus.
 
 2. Nennen Sie die Richtlinie **MyPolicy**, und vergewissern Sie sich, dass das Kontrollkästchen **Verwalten** aktiviert ist. Klicken Sie anschließend auf **Erstellen**.
 
@@ -99,7 +99,7 @@ Vor dem Starten der TelcoGenerator-App sollten Sie diese so konfigurieren, dass 
 3. Aktualisieren Sie das `<appSettings>`-Element in der CONFIG-Datei mit den folgenden Details:
 
    * Legen Sie den Wert des Schlüssels *EventHubName* auf den Wert von „EntityPath“ in der Verbindungszeichenfolge fest.
-   * Legen Sie den Wert des Schlüssels *Microsoft.ServiceBus.ConnectionString* auf die Verbindungszeichenfolge ohne EntityPath-Wert fest.
+   * Legen Sie den Wert des Schlüssels *Microsoft.ServiceBus.ConnectionString* auf die Verbindungszeichenfolge ohne EntityPath-Wert fest (vergessen Sie nicht, das voranstehende Semikolon zu entfernen).
 
 4. Speichern Sie die Datei .
 5. Öffnen Sie nun ein Befehlsfenster, und wechseln Sie zu dem Ordner, in dem Sie die TelcoGenerator-Anwendung entzippt haben. Geben Sie dann den folgenden Befehl ein:
@@ -118,7 +118,7 @@ Vor dem Starten der TelcoGenerator-App sollten Sie diese so konfigurieren, dass 
    |**Datensatz**  |**Definition**  |
    |---------|---------|
    |CallrecTime    |  Der Zeitstempel für die Startzeit des Anrufs.       |
-   |SwitchNum     |  Die für die Anrufverbindung verwendete Vermittlungsstelle. In diesem Beispiel werden die Vermittlungen durch Zeichenfolgen ausgedrückt, die das Ursprungsland (USA, China, Großbritannien, Deutschland oder Australien) darstellen.       |
+   |SwitchNum     |  Die für die Anrufverbindung verwendete Vermittlungsstelle. In diesem Beispiel werden die Vermittlungen durch Zeichenfolgen ausgedrückt, die das Ursprungsland/die Ursprungsregion (USA, China, Großbritannien, Deutschland oder Australien) darstellen.       |
    |CallingNum     |  Die Telefonnummer des Anrufers.       |
    |CallingIMSI     |  Die IMSI (International Mobile Subscriber Identity). Dies ist eine eindeutige ID des Anrufers.       |
    |CalledNum     |   Die Telefonnummer des Angerufenen.      |
@@ -130,7 +130,7 @@ Nachdem Sie nun über einen Datenstrom mit Anrufereignissen verfügen, können S
 
 1. Navigieren Sie zum [Azure-Portal](https://portal.azure.com/), um einen Stream Analytics-Auftrag zu erstellen.
 
-2. Wählen Sie **Ressource erstellen** > **Internet der Dinge (IoT)** > **Stream Analytics-Auftrag**.
+2. Wählen Sie **Ressource erstellen** > **Internet der Dinge (IoT)**  > **Stream Analytics-Auftrag**.
 
 3. Fügen Sie die folgenden Werte in den Bereich **Neuer Stream Analytics-Auftrag** ein:
 
@@ -139,11 +139,11 @@ Nachdem Sie nun über einen Datenstrom mit Anrufereignissen verfügen, können S
    |Auftragsname     |  ASATutorial       |   Ein eindeutiger Name zum Identifizieren des Event Hub-Namespace.      |
    |Abonnement    |  \<Ihr Abonnement\>   |   Wählen Sie ein Azure-Abonnement aus, unter dem Sie den Auftrag erstellen möchten.       |
    |Ressourcengruppe   |   MyASADemoRG      |   Wählen Sie **Vorhandene verwenden**, und geben Sie einen neuen Ressourcengruppennamen für Ihr Konto ein.      |
-   |Standort   |    USA, Westen 2     |      Der Standort, an dem der Auftrag bereitgestellt werden kann. Es empfiehlt sich, den Auftrag und den Event Hub in derselben Region zu platzieren, damit Sie die optimale Leistung erzielen und Ihnen keine Kosten für die Übertragung von Daten zwischen Regionen entstehen.      |
-   |Hosting-Umgebung    | Cloud        |     Für Stream Analytics-Aufträge ist eine Cloud- oder Edge-Bereitstellung möglich. Mit der Option „Cloud“ können die Aufträge in der Azure Cloud und mit der Option „Edge“ auf einem IoT Edge-Gerät bereitgestellt werden.    |
+   |Location   |    USA, Westen 2     |      Der Standort, an dem der Auftrag bereitgestellt werden kann. Es empfiehlt sich, den Auftrag und den Event Hub in derselben Region zu platzieren, damit Sie die optimale Leistung erzielen und Ihnen keine Kosten für die Übertragung von Daten zwischen Regionen entstehen.      |
+   |Hosting-Umgebung    | Cloud        |     Für Stream Analytics-Aufträge ist eine Cloud- oder Edge-Bereitstellung möglich. Mit der Option „Cloud“ können die Aufträge in Azure Cloud und mit der Option „Edge“ auf einem IoT Edge-Gerät bereitgestellt werden.    |
    |Streamingeinheiten     |    1       |      Streamingeinheiten sind die Computingressourcen, die für die Ausführung eines Auftrags erforderlich sind. Standardmäßig ist dieser Wert auf 1 festgelegt. Informationen zum Skalieren von Streamingeinheiten finden Sie im Artikel [Überblick über Streamingeinheiten und Informationen zu Anpassungen](stream-analytics-streaming-unit-consumption.md).      |
 
-4. Verwenden Sie für die verbleibenden Einstellungen die Standardoptionen, wählen Sie **Erstellen**, und warten Sie auf den erfolgreichen Abschluss der Bereitstellung.
+4. Verwenden Sie für die verbleibenden Einstellungen die Standardoptionen, wählen Sie **Erstellen** aus, und warten Sie auf den erfolgreichen Abschluss der Bereitstellung.
 
    ![Erstellen eines Azure Stream Analytics-Auftrags](media/stream-analytics-manage-job/create-stream-analytics-job.png)
 
@@ -163,7 +163,7 @@ Im nächsten Schritt wird für den Auftrag eine Eingabequelle zum Lesen von Date
    |Abonnement    |   \<Ihr Abonnement\>      |   Wählen Sie das Azure-Abonnement aus, unter dem Sie den Event Hub erstellt haben. Der Event Hub kann sich unter demselben oder einem anderen Abonnement wie der Stream Analytics-Auftrag befinden.       |
    |Event Hub-Namespace    |  myEventHubsNS       |  Wählen Sie den Event Hub-Namespace aus, den Sie im vorherigen Abschnitt erstellt haben. Alle Event Hub-Namespaces, die unter Ihrem aktuellen Abonnement verfügbar sind, sind in der Dropdownliste aufgeführt.       |
    |Event Hub-Name    |   MyEventHub      |  Wählen Sie den Event Hub aus, den Sie im vorherigen Abschnitt erstellt haben. Alle Event Hubs, die unter Ihrem aktuellen Abonnement verfügbar sind, sind in der Dropdownliste aufgeführt.       |
-   |Event Hub-Richtlinienname   |  Mypolicy       |  Wählen Sie die Event Hub-SAS-Richtlinie aus, die Sie im vorherigen Abschnitt erstellt haben. Alle Event Hub-Richtlinien, die unter Ihrem aktuellen Abonnement verfügbar sind, sind in der Dropdownliste aufgeführt.       |
+   |Event Hub-Richtlinienname   |  MyPolicy       |  Wählen Sie die Event Hub-SAS-Richtlinie aus, die Sie im vorherigen Abschnitt erstellt haben. Alle Event Hub-Richtlinien, die unter Ihrem aktuellen Abonnement verfügbar sind, sind in der Dropdownliste aufgeführt.       |
 
 4. Verwenden Sie für die restlichen Einstellungen die Standardoptionen, und klicken Sie auf **Speichern**.
 
@@ -212,7 +212,7 @@ Bei den betrügerischen Anrufen in diesem Beispiel ruft der gleiche Benutzer inn
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Sie können für die Streamingdaten eine Selbstverknüpfung basierend auf dem Wert `CallRecTime` durchführen, um die Daten auf betrügerische Anrufe zu prüfen. Anschließend können Sie nach Anrufdatensätzen suchen, bei denen der Wert `CallingIMSI` (die ursprüngliche Anzahl) identisch ist, aber nicht der Wert `SwitchNum` (Ursprungsland). Wenn Sie eine Verknüpfung per JOIN-Vorgang für Streamingdaten durchführen, müssen bei der Verknüpfung einige Beschränkungen dazu festgelegt werden, welchen Zeitabstand die übereinstimmenden Zeilen haben können. Da die Streamingdaten endlos sind, werden die Zeitgrenzen für die Beziehung in der **ON**-Klausel der Verknüpfung angegeben. Hierfür wird die Funktion [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) verwendet.
+   Sie können für die Streamingdaten eine Selbstverknüpfung basierend auf dem Wert `CallRecTime` durchführen, um die Daten auf betrügerische Anrufe zu prüfen. Anschließend können Sie nach Anrufdatensätzen suchen, bei denen der Wert `CallingIMSI` (die ursprüngliche Anzahl) identisch ist, aber nicht der Wert `SwitchNum` (Ursprungsland/-region). Wenn Sie eine Verknüpfung per JOIN-Vorgang für Streamingdaten durchführen, müssen bei der Verknüpfung einige Beschränkungen dazu festgelegt werden, welchen Zeitabstand die übereinstimmenden Zeilen haben können. Da die Streamingdaten endlos sind, werden die Zeitgrenzen für die Beziehung in der **ON**-Klausel der Verknüpfung angegeben. Hierfür wird die Funktion [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) verwendet.
 
    Diese Abfrage entspricht bis auf die Funktion **DATEDIFF** einer regulären SQL-Verknüpfung. Die in dieser Abfrage verwendete Funktion **DATEDIFF** gilt speziell für Streaming Analytics und muss in der `ON...BETWEEN`-Klausel verwendet werden.
 
@@ -248,7 +248,7 @@ Sie können eine Abfrage unter Verwendung von Beispieldaten mithilfe des Abfrage
 
 4. Wählen Sie in Ihrem Power BI-Arbeitsbereich die Option **+ Erstellen** aus, um ein neues Dashboard namens *Fraudulent Calls* zu erstellen.
 
-5. Wählen Sie im oberen Fensterbereich **Kachel hinzufügen** aus. Wählen Sie dann **Benutzerdefinierte Streamingdaten** und anschließend **Weiter** aus. Wählen Sie unter **Ihre Datasets** das Dataset **ASAdataset** aus. Wählen Sie in der Dropdownliste **Visualisierungstyp** die Option **Karte** aus, und fügen Sie unter **Felder** die Option **fraudulentcalls** hinzu. Wählen Sie **Weiter** aus, um einen Namen für die Kachel einzugeben, und wählen Sie dann **Übernehmen** aus, um die Kachel zu erstellen.
+5. Wählen Sie im oberen Fensterbereich **Kachel hinzufügen** aus. Wählen Sie dann **Benutzerdefinierte Streamingdaten** und anschließend **Weiter** aus. Wählen Sie unter **Ihre Datasets** das Dataset **ASAdataset** aus. Wählen Sie in der Dropdownliste **Visualisierungstyp** die Option **Karte** aus, und fügen Sie unter **Felder** die Option **fraudulent calls** hinzu. Wählen Sie **Weiter** aus, um einen Namen für die Kachel einzugeben, und wählen Sie dann **Übernehmen** aus, um die Kachel zu erstellen.
 
    ![Erstellen von Power BI-Dashboard-Kacheln](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -258,18 +258,18 @@ Sie können eine Abfrage unter Verwendung von Beispieldaten mithilfe des Abfrage
    * Fügen Sie einen Wert hinzu, und wählen Sie **fraudulentcalls**.
    * Wählen Sie für **Das anzuzeigende Zeitfenster** die letzten zehn Minuten aus.
 
-7. Nach dem Hinzufügen beider Kacheln sollte Ihr Dashboard wie im folgenden Beispiel aussehen. Beachten Sie Folgendes: Wenn Ihre Event Hub-Absenderanwendung und Ihre Streaming Analytics-Anwendung ausgeführt werden, wird Ihr Power BI-Dashboard regelmäßig aktualisiert, wenn neue Daten eintreffen.
+7. Nach dem Hinzufügen beider Kacheln sollte Ihr Dashboard wie im folgenden Beispiel aussehen. Beachten Sie Folgendes: Wenn Ihre Event Hub-Absenderanwendung und Ihre Streaming Analytics-Anwendung ausgeführt werden, wird Ihr Power BI-Dashboard regelmäßig aktualisiert, wenn neue Daten eintreffen.
 
    ![Anzeigen der Ergebnisse im Power BI-Dashboard](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Einbetten Ihres Power BI-Dashboards in eine Webanwendung
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Einbetten Ihres Power BI-Dashboards in eine Webanwendung
 
-Für diesen Teil des Tutorials verwenden Sie eine [ASP.NET](https://asp.net/)-Beispielwebanwendung, die vom Power BI-Team zum Einbetten Ihres Dashboards erstellt wurde. Weitere Informationen zum Einbetten von Dashboards finden Sie im Artikel [Einbetten mit Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+Für diesen Teil des Tutorials verwenden Sie eine [ASP.NET](https://asp.net/)-Beispielwebanwendung, die vom Power BI-Team zum Einbetten Ihres Dashboards erstellt wurde. Weitere Informationen zum Einbetten von Dashboards finden Sie im Artikel [Einbetten mit Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
 Navigieren Sie zum Einrichten der Anwendung zum GitHub-Repository [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples), und befolgen Sie die Anleitung im Abschnitt **User Owns Data** (Benutzer ist Besitzer der Daten). (Verwenden Sie die Umleitungs- und Startseiten-URLs im Unterabschnitt **integrate-dashboard-web-app**.). Da wir das Dashboard-Beispiel verwenden, können Sie den Beispielcode für **integrate-dashboard-web-app** aus dem [GitHub-Repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app) nutzen.
 Nachdem die Anwendung in Ihrem Browser ausgeführt wird, können Sie das Dashboard, das Sie zuvor erstellt haben, mit diesen Schritten in die Webseite einbetten:
 
-1. Wählen Sie die Option **Bei Power BI anmelden**, mit der der Anwendung Zugriff auf die Dashboards in Ihrem Power BI-Konto gewährt wird.
+1. Wählen Sie die Option **Bei Power BI anmelden**, mit der der Anwendung Zugriff auf die Dashboards in Ihrem Power BI-Konto gewährt wird.
 
 2. Wählen Sie die Schaltfläche **Get Dashboards** (Dashboards abrufen), mit der die Dashboards Ihres Kontos in einer Tabelle angezeigt werden. Suchen Sie nach dem Namen des zuvor erstellten Dashboards (**powerbi-embedded-dashboard**), und kopieren Sie die entsprechende **EmbedUrl**.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518860"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515908"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Einführung in den Handler der Azure-Erweiterung zum Konfigurieren des gewünschten Zustands
 
@@ -81,7 +81,7 @@ Sie können diese Informationen im [Azure-Portal](../../automation/automation-ds
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Achten Sie beim Namen der Knotenkonfiguration darauf, dass Sie wirklich den Namen der *Knotenkonfiguration* verwenden, nicht den der Konfiguration.
+Achten Sie beim Namen der Knotenkonfiguration darauf, dass die Knotenkonfiguration in Azure State Configuration vorhanden ist.  Ist das nicht der Fall, gibt die Erweiterungsbereitstellung einen Fehler zurück.  Achten Sie außerdem darauf, dass Sie den Namen der *Knotenkonfiguration* verwenden, nicht den der Konfiguration.
 Eine Konfiguration ist in einem Skript definiert, das [zum Kompilieren der Knotenkonfiguration (MOF-Datei)](https://docs.microsoft.com/azure/automation/automation-dsc-compile) verwendet wird.
 Der Name ist immer die Konfiguration, gefolgt von einem Punkt `.` und entweder `localhost` oder dem Namen eines bestimmten Computers.
 

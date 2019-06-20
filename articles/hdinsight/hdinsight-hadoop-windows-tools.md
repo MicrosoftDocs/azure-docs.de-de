@@ -1,19 +1,18 @@
 ---
 title: Verwenden eines Windows-Computers mit Hadoop in HDInsight – Azure
 description: Verwenden eines Windows-Computers mit Hadoop in HDInsight Verwalten und Abfragen von Clustern mit PowerShell, Visual Studio und Linux-Tools Entwickeln von Big Data-Lösungen mit .NET
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/17/2017
-ms.openlocfilehash: b8bad1d0f53ce4e4c924734201165e1b050c153f
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/24/2019
+ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361471"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64926032"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeiten im Apache Hadoop-Ökosystem in HDInsight auf einem Windows-Computer
 
@@ -30,11 +29,11 @@ Beispiele für Aufgaben, die Sie mit PowerShell erledigen können:
 * [Ausführen von Apache Hive-Abfragen mit PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Verwalten von Clustern mit PowerShell](hdinsight-administer-use-powershell.md).
 
-Führen Sie die Schritte zum [Installieren und Konfigurieren von Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) aus, um die neueste Version zu erhalten. Wenn Sie über Skripts verfügen, die zur Verwendung der neuen Cmdlets für Azure Resource Manager angepasst werden müssen, finden Sie unter [Migrieren zu Azure Resource Manager-basierten Entwicklungstools für HDInsight-Cluster](hdinsight-hadoop-development-using-azure-resource-manager.md) weitere Informationen.
+Führen Sie die Schritte zum [Installieren und Konfigurieren von Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) aus, um die neueste Version zu erhalten.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Hilfsprogramme für die Ausführung in einem Browser
 Die folgenden Hilfsprogramme verfügen über eine Webbenutzeroberfläche, die in einem Browser ausgeführt wird:
-* **[Azure Cloud Shell (Vorschau)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** ist eine interaktive Befehlszeilen-Shell, die in Ihrem Browser und aus dem Azure-Portal heraus ausgeführt wird.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** ist eine interaktive Befehlszeilen-Shell, die in Ihrem Browser und aus dem Azure-Portal heraus ausgeführt wird.
 * Die **[Apache Ambari-Webbenutzeroberfläche](hdinsight-hadoop-manage-ambari.md)** ist ein Hilfsprogramm zum Verwalten und Überwachen im Azure-Portal, mit dem Sie verschiedene Arten von Aufträgen verwalten können. Beispiele:
     * [Verwenden von Apache Ambari mit der REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Hive-Ansicht in Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -58,9 +57,6 @@ Beispiele für Aufgaben, die Sie mit dem .NET SDK in Visual Studio ausführen k�
 * [Ausführen von Apache Hive-Abfragen mit dem .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Verwenden benutzerdefinierter C#-Funktionen mit Apache Hive- und Apache Pig-Streaming für Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> [!TIP]
-> Wenn Sie .NET-Lösungen für Windows-basierte HDInsight-Cluster ausführen, ist dies ein guter Zeitpunkt, eine Migration zu Linux-basierten Clustern zu planen. Weitere Informationen finden Sie unter [Migrieren von .NET-Lösungen für Windows-basierte HDInsight-Cluster zu Linux-basierten HDInsight-Clustern](hdinsight-hadoop-migrate-dotnet-to-linux.md).
-
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA und Eclipse-IDE für Spark-Cluster
 Sowohl [Intellij IDEA](https://www.jetbrains.com/idea/download) als auch die [Eclipse-IDE](https://www.eclipse.org/downloads/) können für Folgendes verwendet werden:
 * Entwickeln und Übermitteln einer Scala Spark-Anwendung an einen HDInsight Spark-Cluster
@@ -78,14 +74,17 @@ Apache Spark-Cluster in HDInsight enthalten Apache Zeppelin-Notebooks und -Kerne
 * [Lesen Sie, wie Sie Kernel in Apache Spark-Clustern mit Jupyter-Notebooks verwenden, um Spark-Anwendungen zu testen.](spark/apache-spark-zeppelin-notebook.md)
 * [Lesen Sie, wie Sie Apache Zeppelin-Notebooks in Apache Spark-Clustern verwenden, um Spark-Aufträge auszuführen.](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Ausführen von Linux-basierten Tools und Technologien unter Windows
 
 In Situationen, in denen Sie Tools oder Technologien verwenden müssen, die nur unter Linux verfügbar sind, sollten Sie die folgenden Möglichkeiten in Erwägung ziehen:
 
-* **Bash (Beta) unter Windows 10** stellt ein Linux-Subsystem unter Windows bereit. Bash erlaubt die direkte Ausführung von Linux-Hilfsprogrammen, ohne eine dedizierte Linux-Installation verwalten zu müssen. [Installieren und Ausführen der Bash-Betaversion unter Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **Bash auf Ubuntu unter Windows 10** stellt ein Linux-Subsystem unter Windows bereit. Bash erlaubt die direkte Ausführung von Linux-Hilfsprogrammen, ohne eine dedizierte Linux-Installation verwalten zu müssen. Die Installationsschritte finden Sie unter [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) (Windows-Subsystem für Linux: Installationshandbuch für Windows 10).  Es funktionieren auch andere [Unix-Shells](https://www.gnu.org/software/bash/).
 * **Docker für Windows** ermöglicht den Zugriff auf viele Linux-basierten Tools und kann direkt unter Windows ausgeführt werden. Sie können Docker beispielsweise verwenden, um den Beeline-Client für Hive direkt unter Windows auszuführen. Sie können auch Docker verwenden, um ein lokales Jupyter-Notebook auszuführen und eine Remoteverbindung mit Spark in HDInsight herzustellen. [Erste Schritte mit Docker für Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** ermöglicht das Durchsuchen des Clusterdateisystems über eine SSH-Verbindung auf einer grafischen Benutzeroberfläche.
+
+## <a name="cross-platform-tools"></a>Plattformübergreifende Tools
+
+Die Azure-Befehlszeilenschnittstelle (CLI) ist die plattformübergreifende Befehlszeilenumgebung von Microsoft zum Verwalten von Azure-Ressourcen.  Weitere Informationen finden Sie unter [Azure-Befehlszeilenschnittstelle (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Nächste Schritte
 Wenn Sie nicht mit der Arbeit in Linux-basierten Clustern vertraut sind, lesen Sie die folgenden Artikel:

@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
 ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922441"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentifizieren von Lösungen des Azure Batch-Diensts mit Active Directory
@@ -138,7 +138,7 @@ Führen Sie im Azure-Portal die folgenden Schritte aus:
 Zur Authentifizierung bei einem Dienstprinzipal müssen Sie Ihrer Anwendung eine RBAC-Rolle zuweisen. Folgen Sie diesen Schritten:
 
 1. Navigieren Sie im Azure-Portal zu dem Batch-Konto, das von Ihrer Anwendung verwendet wird.
-2. Wählen Sie auf dem Blatt **Einstellungen** für das Batch-Konto die Option **Zugriffssteuerung (IAM)**.
+2. Wählen Sie auf dem Blatt **Einstellungen** für das Batch-Konto die Option **Zugriffssteuerung (IAM)** .
 3. Klicken Sie auf die Registerkarte **Rollenzuweisungen**.
 4. Klicken Sie auf die Schaltfläche **Rollenzuweisung hinzufügen**. 
 5. Wählen Sie aus der Dropdownliste **Rolle** entweder die Rolle _Mitwirkender_ oder _Leser_ für Ihre Anwendung. Weitere Informationen zu diesen Rollen finden Sie unter [Erste Schritte mit der rollenbasierten Zugriffssteuerung im Azure-Portal](../role-based-access-control/overview.md).  

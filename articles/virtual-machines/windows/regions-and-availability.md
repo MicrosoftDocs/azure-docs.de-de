@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.openlocfilehash: cc7b4e917b4d38e476ebbc8da7ba113a10606846
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721085"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60699595"
 ---
 [!INCLUDE [virtual-machines-common-regions-and-availability](../../../includes/virtual-machines-common-regions-and-availability.md)]
 

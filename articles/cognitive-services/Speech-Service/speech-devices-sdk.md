@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409101"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Informationen zum Speech-Geräte-SDK

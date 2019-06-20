@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60508938"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Kopieren von Daten aus Presto mithilfe von Azure Data Factory (Vorschau)
 
@@ -44,20 +44,20 @@ Folgende Eigenschaften werden für den mit Presto verknüpften Dienst unterstüt
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **Presto** | JA |
-| host | IP-Adresse oder Hostname des Presto-Servers. (z.B. 192.168.222.160)  | JA |
-| serverVersion | Die Version des Presto-Servers. (z.B. 0.148-t)  | JA |
-| catalog | Der Katalogkontext für alle Anforderungen an den Server.  | JA |
-| port | Der TCP-Port, den der Presto-Server verwendet, um auf Clientverbindungen zu lauschen. Der Standardwert ist 8080.  | Nein  |
-| authenticationType | Der Authentifizierungsmechanismus, der für die Verbindung mit dem Presto-Server verwendet werden soll. <br/>Zulässige Werte sind: **Anonym**, **LDAP** | JA |
-| username | Der Benutzername, der für die Verbindung mit dem Presto-Server verwendet werden soll.  | Nein  |
-| password | Das Kennwort, das zum Benutzernamen gehört. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein  |
-| enableSsl | Gibt an, ob die Verbindungen mit dem Server mit SSL verschlüsselt werden. Der Standardwert ist „false“.  | Nein  |
-| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn SSL in einer selbstgehostetem IR verwendet wird. Der Standardwert ist die Datei „cacerts.pem“, die mit der IR installiert wird.  | Nein  |
-| useSystemTrustStore | Gibt an, ob ein Zertifizierungsstellenzertifikat aus dem Vertrauensspeicher des Systems oder aus einer angegebenen PEM-Datei verwendet werden soll. Der Standardwert ist „false“.  | Nein  |
-| allowHostNameCNMismatch | Gibt an, ob ein von der Zertifizierungsstelle ausgestellter SSL-Zertifikatsname erforderlich ist, der mit dem Hostnamen des Servers übereinstimmt, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert ist „false“.  | Nein  |
-| allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „false“.  | Nein  |
-| timeZoneID | Die lokale Zeitzone, die von der Verbindung verwendet wird. Gültige Werte für diese Option sind in der Zeitzonendatenbank der IANA angegeben. Der Standardwert ist die Zeitzone des Systems.  | Nein  |
+| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **Presto** | Ja |
+| host | IP-Adresse oder Hostname des Presto-Servers. (z.B. 192.168.222.160)  | Ja |
+| serverVersion | Die Version des Presto-Servers. (z.B. 0.148-t)  | Ja |
+| catalog | Der Katalogkontext für alle Anforderungen an den Server.  | Ja |
+| port | Der TCP-Port, den der Presto-Server verwendet, um auf Clientverbindungen zu lauschen. Der Standardwert ist 8080.  | Nein |
+| authenticationType | Der Authentifizierungsmechanismus, der für die Verbindung mit dem Presto-Server verwendet werden soll. <br/>Zulässige Werte sind: **Anonym**, **LDAP** | Ja |
+| userName | Der Benutzername, der für die Verbindung mit dem Presto-Server verwendet werden soll.  | Nein |
+| password | Das Kennwort, das zum Benutzernamen gehört. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein |
+| enableSsl | Gibt an, ob die Verbindungen mit dem Server mit SSL verschlüsselt werden. Der Standardwert ist „false“.  | Nein |
+| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn SSL in einer selbstgehostetem IR verwendet wird. Der Standardwert ist die Datei „cacerts.pem“, die mit der IR installiert wird.  | Nein |
+| useSystemTrustStore | Gibt an, ob ein Zertifizierungsstellenzertifikat aus dem Vertrauensspeicher des Systems oder aus einer angegebenen PEM-Datei verwendet werden soll. Der Standardwert ist „false“.  | Nein |
+| allowHostNameCNMismatch | Gibt an, ob ein von der Zertifizierungsstelle ausgestellter SSL-Zertifikatsname erforderlich ist, der mit dem Hostnamen des Servers übereinstimmt, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert ist „false“.  | Nein |
+| allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „false“.  | Nein |
+| timeZoneID | Die lokale Zeitzone, die von der Verbindung verwendet wird. Gültige Werte für diese Option sind in der Zeitzonendatenbank der IANA angegeben. Der Standardwert ist die Zeitzone des Systems.  | Nein |
 
 **Beispiel:**
 
@@ -91,7 +91,7 @@ Legen Sie zum Kopieren von Daten aus Presto die „type“-Eigenschaft des Datas
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **PrestoObject** | JA |
+| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **PrestoObject** | Ja |
 | tableName | Name der Tabelle. | Nein (wenn „query“ in der Aktivitätsquelle angegeben ist) |
 
 **Beispiel**
@@ -120,7 +120,7 @@ Legen Sie zum Kopieren von Daten aus Presto den Quelltyp in der Kopieraktivität
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **PrestoSource** | JA |
+| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **PrestoSource** | Ja |
 | query | Verwendet die benutzerdefinierte SQL-Abfrage zum Lesen von Daten. Beispiel: `"SELECT * FROM MyTable"`. | Nein (wenn „tableName“ im Dataset angegeben ist) |
 
 **Beispiel:**

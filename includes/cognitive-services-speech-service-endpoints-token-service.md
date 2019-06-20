@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 0d0ebe57c26f5cc5b42fb449ffb10b444a03f734
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237089"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178380"
 ---
 Region| Tokendienstendpunkt
 -|-

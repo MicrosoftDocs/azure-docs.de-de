@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 58471dc539f72c49b041638e928dda751f4bf5a2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65551029"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Vorbereiten und Anpassen eines VHD-Masterimages
 
-In diesem Artikel wird beschrieben, wie Sie ein VHD-Masterimage (Virtual Hard Disk) für den Upload in Azure vorbereiten und virtuelle Computer (VMs) erstellen und darauf Software installieren und konfigurieren. Diese Anleitung gilt für eine Konfiguration, die für Windows Virtual Desktop (Vorschauversion) spezifisch ist und für die vorhandenen Prozesse Ihrer Organisation genutzt werden kann.
+In diesem Artikel wird beschrieben, wie Sie ein VHD-Masterimage (Virtual Hard Disk) für den Upload in Azure vorbereiten und virtuelle Computer (VMs) erstellen und darauf Software installieren. Diese Anleitung gilt für eine Konfiguration, die für Windows Virtual Desktop (Vorschauversion) spezifisch ist und für die vorhandenen Prozesse Ihrer Organisation genutzt werden kann.
 
 ## <a name="create-a-vm"></a>Erstellen einer VM
 
@@ -28,11 +28,11 @@ Die zweite Möglichkeit ist die lokale Erstellung des Images, indem das Image he
 
 ### <a name="local-image-creation"></a>Lokales Erstellen des Images
 
-Nachdem Sie das Image an einen lokalen Speicherort heruntergeladen haben, öffnen Sie **Hyper-V-Manager**, um eine VM mit der gerade kopierten VHD zu erstellen. Unten ist eine einfache Version angegeben. Eine ausführlichere Anleitung finden Sie unter [Create a virtual machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) (Erstellen eines virtuellen Computers in Hyper-V).
+Nachdem Sie das Image an einen lokalen Speicherort heruntergeladen haben, öffnen Sie **Hyper-V-Manager**, um eine VM mit der kopierten VHD zu erstellen. Die folgenden Anleitungen gelten für eine einfache Version. Eine ausführlichere Anleitung finden Sie unter [Erstellen eines virtuellen Computers in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
 
 Erstellen Sie wie folgt eine VM mit der kopierten VHD:
 
-1. Öffnen Sie den **Assistenten „Neuer virtueller Computer“**.
+1. Öffnen Sie den **Assistenten „Neuer virtueller Computer“** .
 
 2. Wählen Sie auf der Seite „Generation angeben“ die Option **Generation 1** aus.
 
@@ -50,7 +50,7 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 ### <a name="fixed-disk"></a>Datenträger mit fester Größe
 
-Wenn Sie eine VM aus einer vorhandenen VHD erstellen, wird standardmäßig ein dynamischer Datenträger erstellt. Sie können stattdessen einen Datenträger mit fester Größe erstellen, indem Sie wie in der folgenden Abbildung gezeigt die Option **Datenträger bearbeiten...** wählen. Eine ausführlichere Anleitung finden Sie unter [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+Wenn Sie eine VM aus einer vorhandenen VHD erstellen, wird standardmäßig ein dynamischer Datenträger erstellt. Sie können dies in einen Datenträger mit fester Größe ändern, indem Sie wie in der folgenden Abbildung die Option **Datenträger bearbeiten...** wählen. Eine ausführlichere Anleitung finden Sie unter [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 ![Screenshot: Option „Datenträger bearbeiten“](media/35772414b5a0f81f06f54065561d1414.png)
 
@@ -62,101 +62,11 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Software: Vorbereitung und Installation
 
-In diesem Abschnitt wird beschrieben, wie Sie Office 365 ProPlus, OneDrive, FSLogix, Windows Defender und andere gängige Anwendungen vorbereiten und installieren. Wenn Ihre Benutzer auf bestimmte Branchenanwendungen zugreifen müssen, empfehlen wir Ihnen, die Installation durchzuführen, nachdem Sie die Anleitung in diesem Abschnitt befolgt haben.
+In diesem Abschnitt wird beschrieben, wie Sie FSLogix, Windows Defender und andere gängige Anwendungen vorbereiten und installieren. 
 
-In diesem Abschnitt wird davon ausgegangen, dass Sie über erhöhte Rechte für die VM verfügen – unabhängig davon, ob sie in Azure oder in Hyper-V-Manager bereitgestellt wird.
+Wenn Sie Office 365 ProPlus und OneDrive auf Ihrer VM installieren, lesen Sie [Installieren von Office auf einem VHD-Masterimage](install-office-on-wvd-master-image.md). Folgen Sie dem Link unter „Nächste Schritte“ dieses Artikels, um zu diesem Artikel zurückzukehren und den VHD-Masterprozess abzuschließen.
 
-### <a name="install-office-in-shared-computer-activation-mode"></a>Installieren von Office im Modus „Aktivierung gemeinsam genutzter Computer“
-
-Verwenden Sie das [Office-Bereitstellungstool](https://www.microsoft.com/download/details.aspx?id=49117), um Office zu installieren. Windows 10 Enterprise (mehrere Sitzungen) unterstützt nur Office 365 ProPlus (nicht Office 2019 (unbefristet).
-
-Für das Office-Bereitstellungstool wird eine XML-Konfigurationsdatei benötigt. Informationen zum Anpassen des folgenden Beispiels finden Sie unter [Konfigurationsoptionen für das Office-Bereitstellungstool](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
-
-Mit dieser von uns bereitgestellten XML-Beispieldatei für die Konfiguration wird Folgendes durchgeführt:
-
-- Installieren von Office über den Insiderkanal und Bereitstellen von Updates über den Insiderkanal bei deren Ausführung
-- Verwenden der X64-Architektur
-- Deaktivieren automatischer Updates
-- Installieren von Visio und Project
-- Entfernen aller vorhandenen Installationen von Office und Migrieren der zugehörigen Einstellungen
-- Aktivieren der Lizenzierung gemeinsam genutzter Computer für den Betrieb in einer Terminalserverumgebung
-
-Folgendes wird dagegen von dieser XML-Beispielkonfigurationsdatei nicht erledigt:
-
-- Installieren von Skype for Business
-- Installieren von OneDrive im Modus „Pro Benutzer“ Weitere Informationen finden Sie unter [Installieren von OneDrive im Modus „Pro Computer“](#install-onedrive-in-per-machine-mode).
-
->[!NOTE]
->Die Lizenzierung gemeinsam genutzter Computer kann über Gruppenrichtlinienobjekte (GPOs) oder Registrierungseinstellungen eingerichtet werden. Das Gruppenrichtlinienobjekt befindet sich unter **Computerkonfiguration\\Richtlinien\\Administrative Vorlagen\\Microsoft Office 2016 (Computer)\\Lizenzierungseinstellungen**.
-
-Das Office-Bereitstellungstool enthält die Datei „setup.exe“. Führen Sie den folgenden Befehl auf einer Befehlszeile aus, um Office zu installieren:
-
-```batch
-Setup.exe /configure configuration.xml
-```
-
-#### <a name="sample-configurationxml"></a>Beispieldatei „configuration.xml“
-
-Mit der folgenden XML-Beispieldatei wird das Insiders-Release installiert (auch als „Insiders Fast“ oder „Insiders Main“ bezeichnet).
-
-```xml
-<Configuration>
-    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
-</Configuration>
-```
-
->[!NOTE]
->Das Office-Team empfiehlt die Verwendung der 64-Bit-Installation für den Parameter **OfficeClientEdition**.
-
-Nach der Installation von Office können Sie das Standardverhalten von Office aktualisieren. Führen Sie die folgenden Befehle einzeln oder in einer Batchdatei aus, um das Verhalten zu aktualisieren.
-
-```batch
-rem Mount the default user registry hive
-reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
-rem Must be executed with default registry hive mounted.
-reg add HKU\TempDefault\SOFTWARE\Policies\Microsoft\office\16.0\common /v InsiderSlabBehavior /t REG_DWORD /d 2 /f
-rem Set Outlook's Cached Exchange Mode behavior
-rem Must be executed with default registry hive mounted.
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v enable /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v syncwindowsetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSettingMonths  /t REG_DWORD /d 1 /f
-rem Unmount the default user registry hive
-reg unload HKU\TempDefault
-
-rem Set the Office Update UI behavior.
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideupdatenotifications /t REG_DWORD /d 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
-```
+Wenn Ihre Benutzer auf bestimmte Branchenanwendungen zugreifen müssen, empfehlen wir Ihnen, die Installation durchzuführen, nachdem Sie die Anleitung in diesem Abschnitt befolgt haben.
 
 ### <a name="disable-automatic-updates"></a>Deaktivieren automatischer Updates
 
@@ -178,56 +88,6 @@ Führen Sie diesen Befehl aus, um ein Startlayout für Windows 10-PCs anzugeben
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
-
-### <a name="install-onedrive-in-per-machine-mode"></a>Installieren von OneDrive im Modus „Pro Computer“
-
-Normalerweise wird OneDrive im Modus „Pro Benutzer“ installiert. In dieser Umgebung sollte die Anwendung pro Computer installiert werden.
-
-Hier ist beschrieben, wie Sie OneDrive im Modus „Pro Computer“ installieren:
-
-1. Erstellen Sie zunächst einen Speicherort zum Bereitstellen des OneDrive-Installationsprogramms. Hierfür ist ein lokaler Datenträgerordner oder ein Speicherort vom Typ [\\\\unc](file://unc) geeignet.
-
-2. Laden Sie die Datei „OneDriveSetup.exe“ mit diesem Link an Ihren bereitgestellten Speicherort herunter: <https://aka.ms/OneDriveWVD-Installer>.
-
-3. Wenn Sie Office mit OneDrive installiert und **\<ExcludeApp ID="OneDrive" /\>** weggelassen haben, sollten Sie alle vorhandenen OneDrive-Installationen im Modus „Pro Benutzer“ entfernen, indem Sie an einer Eingabeaufforderung mit erhöhten Rechten den folgenden Befehl ausführen:
-    
-    ```batch
-    "[staged location]\OneDriveSetup.exe" /uninstall
-    ```
-
-4. Führen Sie diesen Befehl an einer Eingabeaufforderung mit erhöhten Rechten aus, um den Registrierungswert **AllUsersInstall** festzulegen:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
-    ```
-
-5. Führen Sie diesen Befehl aus, um OneDrive im Modus „Pro Computer“ zu installieren:
-
-    ```batch
-    Run "[staged location]\OneDriveSetup.exe" /allusers
-    ```
-
-6. Führen Sie diesen Befehl aus, um OneDrive mit der Anmeldung für alle Benutzer zu starten:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
-    ```
-
-7. Aktivieren Sie die Option **Silently configure user account** (Benutzerkonto im Hintergrund konfigurieren), indem Sie den folgenden Befehl ausführen.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
-    ```
-
-8. Sie können bekannte Windows-Ordner umleiten und in OneDrive verschieben, indem Sie den folgenden Befehl ausführen.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
-    ```
-
-### <a name="teams-and-skype"></a>Teams und Skype
-
-Windows Virtual Desktop unterstützt Skype for Business und Teams offiziell nicht.
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Einrichten des Benutzerprofilcontainers (FSLogix)
 

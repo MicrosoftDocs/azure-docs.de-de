@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279974"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356977"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Erstellen dynamischer Blaupausen mithilfe von Parametern
 
@@ -44,7 +44,8 @@ Wenn für die Blaupausenzuweisung eine **systemseitig zugewiesene verwaltete Ide
 
 Wenn für die Blaupausenzuweisung eine **benutzerseitig zugewiesene verwaltete Identität** verwendet wird, _kann_ der Key Vault, auf den verwiesen wird, in einem zentralen Abonnement vorhanden sein. Der verwalteten Identität müssen vor der Blaupausenzuweisung die entsprechenden Rechte für den Key Vault gewährt werden.
 
-In beiden Fällen muss für den Key Vault auf der Seite **Zugriffsrichtlinien** die Option **Zugriff auf Azure Resource Manager für Vorlagenbereitstellung aktivieren** konfiguriert sein. Eine Anleitung zum Aktivieren dieses Features finden Sie unter [Key Vault – Aktivieren der Vorlagenbereitstellung](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> [!IMPORTANT]
+> In beiden Fällen muss für den Key Vault auf der Seite **Zugriffsrichtlinien** die Option **Zugriff auf Azure Resource Manager für Vorlagenbereitstellung aktivieren** konfiguriert sein. Eine Anleitung zum Aktivieren dieses Features finden Sie unter [Key Vault – Aktivieren der Vorlagenbereitstellung](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Weitere Informationen zu Azure Key Vault finden Sie im [Überblick über Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
@@ -169,7 +170,7 @@ Das Erstellen **statischer Parameter** für ein Artefakt ist ähnlich, akzeptier
 
 ### <a name="dynamic-parameters"></a>Dynamische Parameter
 
-Das Gegenteil eines statischen Parameters ist ein **dynamischer Parameter**. Dieser Parameter ist nicht in der Blaupause definiert, sondern wird bei jeder Zuweisung der Blaupause definiert. Im Beispiel mit der Ressourcengruppe ist die Verwendung eines **dynamischen Parameters** für den Ressourcengruppennamen sinnvoll. Dadurch wird bei jeder Zuweisung der Blaupause ein anderer Name angegeben.
+Das Gegenteil eines statischen Parameters ist ein **dynamischer Parameter**. Dieser Parameter ist nicht in der Blaupause definiert, sondern wird bei jeder Zuweisung der Blaupause definiert. Im Beispiel mit der Ressourcengruppe ist die Verwendung eines **dynamischen Parameters** für den Ressourcengruppennamen sinnvoll. Dadurch wird bei jeder Zuweisung der Blaupause ein anderer Name angegeben. Eine Liste der Blaupausenfunktionen finden Sie in der Referenz [Blaupausenfunktionen](../reference/blueprint-functions.md).
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Festlegen dynamischer Parameter im Portal
 
@@ -185,9 +186,7 @@ Das Gegenteil eines statischen Parameters ist ein **dynamischer Parameter**. Die
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Festlegen dynamischer Parameter über die REST-API
 
-Zum Festlegen von **dynamischen Parametern** während der Zuweisung wird der jeweilige Wert direkt eingegeben.
-Anstelle einer Funktion wie `parameters()` wird eine passende Zeichenfolge als Wert angegeben.
-Artefakte für eine Ressourcengruppe werden mit einem Vorlagennamen und den Eigenschaften **name** und **location** definiert. Alle anderen Parameter für das enthaltene Artefakt werden unter **parameters** mit einem **\<Name\>**-**Wert**-Schlüsselpaar definiert. Wenn die Blaupause für einen dynamischen Parameter konfiguriert ist, der bei der Zuweisung nicht angegeben wird, tritt bei der Zuweisung ein Fehler auf.
+Zum Festlegen von **dynamischen Parametern** während der Zuweisung wird der jeweilige Wert direkt eingegeben. Anstelle einer Funktion wie [parameters()](../reference/blueprint-functions.md#parameters) wird eine passende Zeichenfolge als Wert angegeben. Artefakte für eine Ressourcengruppe werden mit einem Vorlagennamen und den Eigenschaften **name** und **location** definiert. Alle anderen Parameter für das enthaltene Artefakt werden unter **parameters** mit einem **\<Name\>** -**Wert**-Schlüsselpaar definiert. Wenn die Blaupause für einen dynamischen Parameter konfiguriert ist, der bei der Zuweisung nicht angegeben wird, tritt bei der Zuweisung ein Fehler auf.
 
 - REST-API-URI
 
@@ -240,6 +239,7 @@ Artefakte für eine Ressourcengruppe werden mit einem Vorlagennamen und den Eige
 
 ## <a name="next-steps"></a>Nächste Schritte
 
+- Weitere Informationen finden Sie in der Liste der [Blaupausenfunktionen](../reference/blueprint-functions.md).
 - Erfahren Sie mehr über den [Lebenszyklus von Blaupausen](lifecycle.md).
 - Erfahren Sie, wie Sie die [Abfolge von Blaupausen](sequencing-order.md) anpassen können.
 - Erfahren Sie, wie Sie [Ressourcen in Blaupausen sperren](resource-locking.md) können.

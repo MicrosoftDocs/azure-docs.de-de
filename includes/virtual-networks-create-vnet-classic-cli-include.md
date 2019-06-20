@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-network
 author: genlin
 ms.service: virtual-network
@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116914"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178009"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Erstellen eines klassischen VNet über die Azure-Befehlszeilenschnittstelle
 Sie können die Azure-Befehlszeilenschnittstelle verwenden, um Ihre Azure-Ressourcen über die Eingabeaufforderung eines beliebigen Computers mit Windows, Linux oder OSX zu verwalten.
@@ -32,12 +32,12 @@ Sie können die Azure-Befehlszeilenschnittstelle verwenden, um Ihre Azure-Ressou
             info:    network vnet create command OK
    
    * **--vnet**. Name des zu erstellenden VNet. In diesem Szenario *TestVNet*.
-   * **-e (oder --address-space)**. VNet-Adressraum. In diesem Szenario *192.168.0.0*.
-   * **-i (oder --cidr)**. Netzwerkmaske im CIDR-Format. In diesem Szenario *16*.
+   * **-e (oder --address-space)** . VNet-Adressraum. In diesem Szenario *192.168.0.0*.
+   * **-i (oder --cidr)** . Netzwerkmaske im CIDR-Format. In diesem Szenario *16*.
    * **-n (oder --subnet-name**). Name des ersten Subnetzes. In diesem Szenario *FrontEnd*.
-   * **-p (oder --subnet-start-ip)**. IP-Startadresse für das Subnetz oder Subnetzadressraum. In diesem Szenario *192.168.1.0*.
-   * **-r (oder --subnet-cidr)**. Netzwerkmaske im CIDR-Format für das Subnetz. In diesem Szenario *24*.
-   * **-l (oder --location)**. Azure-Region, in der das VNET erstellt wird. In diesem Szenario *USA, Mitte*.
+   * **-p (oder --subnet-start-ip)** . IP-Startadresse für das Subnetz oder Subnetzadressraum. In diesem Szenario *192.168.1.0*.
+   * **-r (oder --subnet-cidr)** . Netzwerkmaske im CIDR-Format für das Subnetz. In diesem Szenario *24*.
+   * **-l (oder --location)** . Azure-Region, in der das VNET erstellt wird. In diesem Szenario *USA, Mitte*.
 3. Führen Sie den Befehl **azure network vnet subnet create** aus, um ein Subnetz zu erstellen:
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
@@ -54,9 +54,9 @@ Sie können die Azure-Befehlszeilenschnittstelle verwenden, um Ihre Azure-Ressou
             data:    Address prefix                  : 192.168.2.0/24
             info:    network vnet subnet create command OK
    
-   * **-t (oder --vnet-name)**. Name des VNet, in dem das Subnetz erstellt wird. In diesem Szenario *TestVNet*.
-   * **-n (oder --name)**. Name des neuen Subnetzes. In diesem Szenario *BackEnd*.
-   * **-a (oder --address-prefix)**. Subnetz-CIDR-Block. In diesem Szenario *192.168.2.0/24*.
+   * **-t (oder --vnet-name)** . Name des VNet, in dem das Subnetz erstellt wird. In diesem Szenario *TestVNet*.
+   * **-n (oder --name)** . Name des neuen Subnetzes. In diesem Szenario *BackEnd*.
+   * **-a (oder --address-prefix)** . Subnetz-CIDR-Block. In diesem Szenario *192.168.2.0/24*.
 4. Führen Sie den Befehl **azure network vnet show** aus, um die Eigenschaften des neuen VNET anzuzeigen:
    
             azure network vnet show

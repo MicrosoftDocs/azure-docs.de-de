@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900827"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860314"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Sprachübersetzungsanwendung in C#
 
@@ -34,7 +34,7 @@ Eine Visual Studio-Projektmappendatei für diese Anwendung finden Sie auf [GitHu
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Für dieses Tutorial können Sie eine beliebige Edition von Visual Studio 2017 (einschließlich Community Edition) verwenden.
+Für dieses Tutorial können Sie eine beliebige Edition von Visual Studio 2019 (einschließlich Community Edition) verwenden.
 
 Die Visual Studio-Projektmappe erstellt auch ein Installationsprogramm für die Anwendung. Um diese Funktion nutzen zu können, benötigen Sie das [WiX-Toolset](http://wixtoolset.org/) und die [WiX-Toolset-Erweiterung für Visual Studio](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension).
 

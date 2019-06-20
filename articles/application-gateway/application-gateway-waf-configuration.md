@@ -4,16 +4,15 @@ description: Dieser Artikel enthält Informationen zur Konfiguration von Anforde
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.workload: infrastructure-services
-ms.date: 1/29/2019
+ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791759"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65620274"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>WAF-Anforderungsgrößenlimits und Ausschlusslisten
 
@@ -25,7 +24,7 @@ Die Web Application Firewall (WAF) von Azure Application Gateway bietet Schutz f
 
 Die Web Application Firewall ermöglicht Ihnen das Konfigurieren von Anforderungsgrößenlimits mit Ober- und Untergrenzen. Die folgenden zwei Konfigurationen für Größenlimits sind verfügbar:
 
-- Der Wert im Feld für die maximale Größe des Anforderungstexts wird in KB angegeben und bestimmt das Anforderungsgrößenlimit insgesamt mit Ausnahme von Dateiuploads. In diesem Feld können Werte von mindestens 1 KB bis maximal 128 KB angegeben werden. Der Standardwert für die Größe des Anforderungstexts beträgt 128 KB.
+- Der Wert im Feld für die maximale Größe des Anforderungstexts wird in Kilobyte angegeben und bestimmt das Anforderungsgrößenlimit insgesamt mit Ausnahme von Dateiuploads. In diesem Feld können Werte von mindestens 1 KB bis maximal 128 KB angegeben werden. Der Standardwert für die Größe des Anforderungstexts beträgt 128 KB.
 - Der Wert im Feld für das Dateiuploadlimit wird in MB angegeben und bestimmt die maximal zulässige Größe für Dateiuploads. Für dieses Feld kann ein Mindestwert von 1 MB und ein Höchstwert von 500 MB für große SKU-Instanzen angegeben werden. Für mittlere SKU-Instanzen gilt ein Höchstwert von 100 MB. Der Standardwert für die Größe von Dateiuploads beträgt 100 MB.
 
 Die WAF bietet außerdem einen konfigurierbaren Knopf zum Aktivieren bzw. Deaktivieren der Anforderungstextüberprüfung. Standardmäßig ist die Überprüfung des Anforderungstexts aktiviert. Ist die Überprüfung des Anforderungstexts deaktiviert, wertet die WAF die Inhalte des HTTP-Nachrichtentexts nicht aus. In diesem Fall erzwingt die WAF weiterhin WAF-Regeln für Header, Cookies und den URI. Ist die Überprüfung des Anforderungstexts deaktiviert, ist das Feld für die maximale Größe des Anforderungstexts nicht verfügbar, und es kann kein Wert festgelegt werden. Wenn Sie die Überprüfung des Anforderungstexts deaktivieren, können Nachrichten, die größer als 128 KB sind, an die WAF gesendet werden, aber der Nachrichtentext wird nicht auf Sicherheitsrisiken überprüft.
@@ -40,11 +39,12 @@ Die folgenden Attribute können zu Ausschlusslisten hinzugefügt werden:
 
 * Anforderungsheader
 * Anforderungscookies
-* Anforderungstext
+* Anforderungsattributnamen (Argumente)
 
    * Mehrteilige Formulardaten
    * XML
    * JSON
+   * URL-Abfrageargumente
 
 Sie können eine exakte Übereinstimmung für Anforderungsheader, Test, Cookies oder Abfragezeichenfolgenattribute angeben.  Oder Sie können optional teilweise Übereinstimmungen angeben. Der Ausschluss bezieht sich immer auf ein Headerfeld, niemals auf seinen Wert. Ausschlussregeln sind global gültig und gelten für alle Seiten und Regeln.
 
@@ -62,37 +62,36 @@ In allen Fällen muss beim Abgleich die Groß-/Kleinschreibung beachtet werden, 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Im folgenden Azure PowerShell-Codeausschnitt wird die Verwendung von Ausschlüssen veranschaulicht:
+Die folgenden Beispiele veranschaulichen die Verwendung von Ausschlüssen.
+
+### <a name="example-1"></a>Beispiel 1
+
+In diesem Beispiel möchten Sie den Header „User-Agent“ (Benutzer-Agent) ausschließen. Der Anforderungsheader „User-Agent“ (Benutzer-Agent) umfasst eine charakteristische Zeichenfolge, die es den Netzwerkprotokollpeers ermöglicht, den Anwendungstyp, das Betriebssystem, den Softwarehersteller oder die Softwareversion des anfordernden Softwarebenutzer-Agent zu ermitteln. Weitere Informationen finden Sie unter [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) (Benutzer-Agent).
+
+Es gibt alle möglichen Gründe, die Auswertung dieses Headers zu deaktivieren. Die WAF könnte eine Zeichenfolge als schädlich einstufen. Beispielsweise den klassischen SQL-Angriff „x=x“ in einer Zeichenfolge. In einigen Fällen kann dies berechtigter Datenverkehr sein. Sie müssen diesen Header daher möglicherweise von der WAF-Auswertung ausschließen.
+
+Das folgende Azure PowerShell-Cmdlet schließt den Header „User-Agent“ (Benutzer-Agent) von der Auswertung aus:
 
 ```azurepowershell
-// exclusion 1: exclude request head start with xyz
-// exclusion 2: exclude request args equals a
-
-$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
-
-$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
-
-// add exclusion lists to the firewall config
-
-$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestHeaderNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "User-Agent"
 ```
 
-Im folgenden JSON-Codeausschnitt wird die Verwendung von Ausschlüssen veranschaulicht:
+### <a name="example-2"></a>Beispiel 2
 
-```json
-"webApplicationFirewallConfiguration": {
-          "enabled": "[parameters('wafEnabled')]",
-          "firewallMode": "[parameters('wafMode')]",
-          "ruleSetType": "[parameters('wafRuleSetType')]",
-          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
-          "disabledRuleGroups": [],
-          "exclusions": [
-            {
-                "matchVariable": "RequestArgNames",
-                "selectorMatchOperator": "StartsWith",
-                "selector": "a^bc"
-            }
+Dieses Beispiel schließt den Wert im Parameter *user* aus, der in der Anforderung über die URL übergeben wird. Nehmen wir beispielsweise Folgendes an: In Ihrer Umgebung enthält das Benutzerfeld üblicherweise eine Zeichenfolge, die von der WAF als schädlich eingestuft und daher von dieser blockiert wird.  Sie können in diesem Fall den Benutzerparameter ausschließen, sodass die WAF in dem Feld keine Auswertung vornimmt.
+
+Das folgende Azure PowerShell-Cmdlet schließt den Benutzerparameter von der Auswertung aus:
+
+```azurepowershell
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestArgNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "user"
 ```
+Wenn also die URL **http://www.contoso.com/?user=fdafdasfda** an die WAF übergeben wird, wertet diese die Zeichenfolge **fdafdasfda** nicht aus.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

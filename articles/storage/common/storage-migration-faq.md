@@ -9,10 +9,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114905"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Häufig gestellte Fragen zur Azure Storage-Migration
@@ -37,7 +37,7 @@ Das Automatisierungsskript ist auf die Azure Resource Manager-Bereitstellung und
 
 **Fallen für das Kopieren von Daten zwischen zwei Dateifreigaben im selben Speicherkonto in der gleichen Region Gebühren an?**
 
- Nein. Für diesen Vorgang fallen keine Gebühren an.
+Nein. Für diesen Vorgang fallen keine Gebühren an.
 
 **Wie kann ich mein gesamtes Speicherkonto in einem anderen Speicherkonto sichern?**
 
@@ -193,7 +193,7 @@ Sie können eine VHD mit dem [Storage-Explorer](https://azure.microsoft.com/feat
 
 **Gelten für das Ändern der Replikation eines Speicherkontos von georedundantem Speicher in lokal redundanten Speicher bestimmte Voraussetzungen?**
 
- Nein. 
+Nein. 
 
 **Wie greife ich auf redundanten Azure Files-Speicher zu?**
 
@@ -276,7 +276,7 @@ So gewähren Sie anderen Personen Zugriff auf die Speicherressourcen:
 
 -   Bei Verwendung von georedundantem Speicher mit Lesezugriff können Sie jederzeit auf Daten in der sekundären Region zugreifen. Verwenden Sie eine der folgenden Methoden an:  
       
-    - **AzCopy:** Fügen Sie in der URL an den Speicherkontonamen **-secondary** an, um auf den sekundären Endpunkt zuzugreifen. Beispiel:   
+    - **AzCopy:** Fügen Sie in der URL an den Speicherkontonamen **-secondary** an, um auf den sekundären Endpunkt zuzugreifen. Beispiel:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

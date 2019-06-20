@@ -3,20 +3,20 @@ title: Konfigurieren von Containern – maschinelles Sehen
 titlesuffix: Azure Cognitive Services
 description: Konfigurieren Sie verschiedene Einstellungen für Texterkennungscontainer für maschinelles Sehen.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
+ms.date: 06/10/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 1fa6f04f28da2613f8b78e8885515ac40fa5961e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678682"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071304"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Konfigurieren von Docker-Containern für die Texterkennung
 
@@ -53,7 +53,7 @@ Denken Sie daran, die `vision/v1.0`-Weiterleitung an den Endpunkt-URI anzufügen
 
 |Erforderlich| NAME | Datentyp | BESCHREIBUNG |
 |--|------|-----------|-------------|
-|Ja| `Billing` | Zeichenfolge | URI des Abrechnungsendpunkts<br><br>Beispiel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Ja| `Billing` | string | URI des Abrechnungsendpunkts<br><br>Beispiel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula-Einstellung
 
@@ -81,8 +81,8 @@ Die genaue Syntax für den Bereitstellungspunkt auf dem Host variiert je nach Be
 
 |Optional| NAME | Datentyp | BESCHREIBUNG |
 |-------|------|-----------|-------------|
-|Nicht zulässig| `Input` | Zeichenfolge | Wird von Containern für Maschinelles Sehen nicht verwendet.|
-|Optional| `Output` | Zeichenfolge | Das Ziel der Ausgabeeinbindung. Standardwert: `/output`. Dies ist der Speicherort der Protokolle. Beinhaltet Containerprotokolle. <br><br>Beispiel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Nicht zulässig| `Input` | string | Wird von Containern für Maschinelles Sehen nicht verwendet.|
+|Optional| `Output` | string | Das Ziel der Ausgabeeinbindung. Standardwert: `/output`. Dies ist der Speicherort der Protokolle. Beinhaltet Containerprotokolle. <br><br>Beispiel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Beispiele für den Befehl „docker run“ 
 
@@ -97,7 +97,7 @@ Ersetzen Sie {_argument_name_} durch Ihre eigenen Werte:
 
 | Platzhalter | Wert | Format oder Beispiel |
 |-------------|-------|---|
-|{BILLING_KEY} | Der Endpunktschlüssel der Cognitive Services-Ressource |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | Der Endpunktschlüssel der Cognitive Services-Ressource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | Der Wert für den Abrechnungsendpunkt, einschließlich Region.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]

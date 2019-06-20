@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7030ae1c3a28cdd74671dc95dce59cf86cacf4c9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192489"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786160"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Schnellstart: Aktivieren des Diensts in IoT Hub
 
@@ -30,7 +30,7 @@ ms.locfileid: "65192489"
 In diesem Artikel erfahren Sie, wie Sie die Vorschauversion des Diensts „ASC für IoT“ (Azure Security Center) in Ihrer IoT Hub-Instanz aktivieren.  
 
 > [!NOTE]
-> Azure Security Center für IoT unterstützt derzeit nur IoT Hub-Instanzen ab dem Standard-Tarif.
+> Azure Security Center für IoT unterstützt derzeit nur IoT Hub-Instanzen im Standard-Tarif.
 > Azure Security Center für IoT ist eine Lösung für einen einzelnen Hub. Sollten Sie mehrere Hubs benötigen, sind mehrere Lösungen erforderlich. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Voraussetzungen für die Dienstaktivierung
@@ -38,8 +38,12 @@ In diesem Artikel erfahren Sie, wie Sie die Vorschauversion des Diensts „ASC f
 - Log Analytics-Arbeitsbereich
   - Von ASC für IoT werden in Ihrem Log Analytics-Arbeitsbereich standardmäßig zwei Arten von Informationen gespeichert: **Sicherheitswarnungen** und **Empfehlungen**. 
   - Sie können noch einen weiteren Informationstyp hinzufügen: **Rohereignisse**. Hinweis: Für die Speicherung von **Rohereignissen** in Log Analytics fallen zusätzliche Speicherkosten an. 
-- IoT Hub (ab Standard-Tarif)
+- IoT Hub (Standard-Tarif)
 - Erfüllen aller [Dienstvoraussetzungen](service-prerequisites.md) 
+- Unterstützte Servicebereiche
+  - USA (Mitte)
+  - Nordeuropa
+  - Asien, Südosten
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Aktivieren von ASC für IoT in Ihrer IoT Hub-Instanz 
 

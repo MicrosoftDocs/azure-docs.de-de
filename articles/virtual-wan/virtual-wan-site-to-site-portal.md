@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 4b44eec5557d2083c38fe2714d93800f79b21b0f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338444"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689505"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Erstellen einer Site-to-Site-Verbindung per Azure Virtual WAN
 
@@ -32,6 +32,7 @@ In diesem Tutorial lernen Sie Folgendes:
 > * Erstellen einer Site
 > * Erstellen eines Hubs
 > * Verbinden eines Hubs mit einer Site
+> * Erstellen eines kompatiblen VNets (falls Sie noch keines besitzen)
 > * Verbinden eines VNET mit einem Hub
 > * Herunterladen und Anwenden der VPN-Gerätekonfiguration
 > * Anzeigen Ihrer Virtual WAN-Instanz
@@ -40,21 +41,15 @@ In diesem Tutorial lernen Sie Folgendes:
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="vnet"></a>1. Erstellen eines virtuellen Netzwerks
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="openvwan"></a>2. Erstellen eines virtuellen WAN
+## <a name="openvwan"></a>1. Erstellen eines virtuellen WAN
 
 Navigieren Sie in einem Browser zum [Azure-Portal](https://aka.ms/azurevirtualwanpreviewfeatures) , und melden Sie sich mit Ihrem Azure-Konto an.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="site"></a>3. Erstellen einer Site
+## <a name="site"></a>2. Erstellen einer Site
 
 Erstellen Sie beliebig viele Sites, die Ihren physischen Standorten entsprechen. Erstellen Sie beispielsweise drei separate Sites, wenn Sie jeweils über eine Filiale in New York, London und Los Angeles verfügen. Diese Sites enthalten Ihre lokalen VPN-Geräteendpunkte. Derzeit können Sie für Ihre Site nur eine private Adresse angeben.
 
@@ -62,21 +57,21 @@ Erstellen Sie beliebig viele Sites, die Ihren physischen Standorten entsprechen.
 2. Klicken Sie auf der Seite **VPN sites** (VPN-Standorte) auf **+Create site** (+ Standort erstellen).
 3. Füllen Sie auf der Seite **Create site** (Standort erstellen) die folgenden Felder aus:
 
-   * **Name**: Dies ist der Name, den Sie Ihrer lokalen Site geben möchten.
-   * **Öffentliche IP-Adresse**: Dies ist die öffentliche IP-Adresse des VPN-Geräts, das sich in Ihrer lokalen Site befindet.
+   * **Name**: Der Name, den Sie Ihrer lokalen Site geben möchten.
+   * **Öffentliche IP-Adresse**: Die öffentliche IP-Adresse des VPN-Geräts, das sich in Ihrer lokalen Site befindet.
    * **Privater Adressraum**: Dies ist der IP-Adressraum Ihrer lokalen Site. Der Datenverkehr, der für diesen Adressraum bestimmt ist, wird an Ihre lokale Site geleitet.
    * **Abonnement**: Überprüfen Sie das Abonnement.
    * **Ressourcengruppe**: Die Ressourcengruppe, die Sie verwenden möchten.
-   * **Standort**.
-4. Klicken Sie auf **Show advanced** (Erweiterte anzeigen), um die zusätzlichen Einstellungen anzuzeigen. Sie können **BGP** wählen, um BGP zu aktivieren. Diese Funktionalität wird dann für alle Verbindungen aktiviert, die für diese Site in Azure erstellt werden. Sie können auch unter **Geräteinformationen** (optionale Felder) eingeben. Das Azure-Team kann Ihre Umgebung so besser verstehen und in Zukunft weitere Optimierungsmöglichkeiten hinzufügen oder Sie bei der Problembehandlung unterstützen.
+   * **Location**
+4. Klicken Sie auf **Show advanced** (Erweiterte anzeigen), um die zusätzlichen Einstellungen anzuzeigen. Sie können **BGP** wählen, um BGP zu aktivieren, wodurch BGP-Funktionen für alle Verbindungen aktiviert werden, die für diese Site in Azure erstellt werden. Sie können auch unter **Geräteinformationen** (optionale Felder) eingeben. Diese Vorgehensweise kann dem Azure-Team helfen, Ihre Umgebung besser zu verstehen, um in Zukunft weitere Optimierungsmöglichkeiten hinzuzufügen oder Sie bei der Problembehandlung zu unterstützen.
 5. Klicken Sie auf **Confirm** (Bestätigen).
 6. Nach dem Klicken auf **Confirm** (Bestätigen) können Sie den Status auf der Seite „VPN sites“ (VPN-Standorte) anzeigen. Für den Standort ändert sich der Status von **Wird bereitgestellt** in **Bereitgestellt**.
 
-## <a name="hub"></a>4. Erstellen eines Hubs
+## <a name="hub"></a>3. Erstellen eines Hubs
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="associate"></a>5. Zuordnen der Standorte zum Hub
+## <a name="associate"></a>4. Zuordnen der Standorte zum Hub
 
 Hubs sollten normalerweise Standorten zugeordnet werden, die sich in derselben Region wie das VNet befinden.
 
@@ -85,6 +80,12 @@ Hubs sollten normalerweise Standorten zugeordnet werden, die sich in derselben R
 3. Sie können hier auch einen bestimmten **PSK** hinzufügen oder den Standardwert verwenden.
 4. Klicken Sie auf **Confirm** (Bestätigen).
 5. Sie können den Verbindungsstatus auf der Seite **VPN sites** (VPN-Standorte) anzeigen.
+
+## <a name="vnet"></a>5. Erstellen eines virtuellen Netzwerks
+
+Falls Sie noch nicht über ein VNET verfügen, können Sie mit PowerShell oder im Azure-Portal schnell eins erstellen. Wenn Sie bereits über ein VNET verfügen, sollten Sie sich vergewissern, dass es die erforderlichen Kriterien erfüllt und dass kein Gateway für virtuelle Netzwerke verwendet wird.
+
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
 ## <a name="vnet"></a>6. Verbinden Ihres VNET mit einem Hub
 
@@ -114,7 +115,7 @@ Verwenden Sie die VPN-Gerätekonfiguration, um Ihr lokales VPN-Gerät zu konfigu
 Die Gerätekonfigurationsdatei enthält die Einstellungen, die beim Konfigurieren Ihrer lokalen VPN-Geräte verwendet werden. Beachten Sie beim Anzeigen dieser Datei die folgenden Informationen:
 
 * **vpnSiteConfiguration**: In diesem Abschnitt sind die Gerätedetails für die Einrichtung einer Site angegeben, für die eine Verbindung mit dem virtuellen WAN hergestellt wird. Sie enthält den Namen und die öffentliche IP-Adresse des Zweigstellengeräts.
-* **vpnSiteConnections**: Dieser Abschnitt enthält die folgenden Informationen:
+* **vpnSiteConnections**: Dieser Abschnitt enthält die folgenden Einstellungen:
 
     * **Adressraum** des virtuellen Hub-VNET<br>Beispiel:
  
@@ -126,7 +127,7 @@ Die Gerätekonfigurationsdatei enthält die Einstellungen, die beim Konfiguriere
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **IP-Adressen** des vpngateway für den virtuellen Hub. Da für das vpngateway jede Verbindung aus zwei Tunneln mit Aktiv-Aktiv-Konfiguration besteht, sind in dieser Datei beide IP-Adressen angegeben. In diesem Beispiel werden für jede Site „Instance0“ und „Instance1“ angezeigt.<br>Beispiel:
+    * **IP-Adressen** des vpngateway für den virtuellen Hub. Da jede Verbindung des vpngateway aus zwei Tunneln mit Aktiv-Aktiv-Konfiguration besteht, werden in dieser Datei beide IP-Adressen aufgelistet. In diesem Beispiel werden für jede Site „Instance0“ und „Instance1“ angezeigt.<br>Beispiel:
 
         ``` 
         "Instance0":"104.45.18.186"

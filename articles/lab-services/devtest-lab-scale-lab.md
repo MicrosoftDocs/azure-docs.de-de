@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60623467"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Skalierungskontingente und -beschränkungen in DevTest Labs
 Bei der Arbeit mit DevTest Labs werden Sie möglicherweise feststellen, dass bestimmte Standardbeschränkungen für Azure-Ressourcen gelten, die sich auf den DevTest Labs-Dienst auswirken können. Diese Beschränkungen werden als **Kontingente** bezeichnet.

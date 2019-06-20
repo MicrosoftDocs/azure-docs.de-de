@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
 ms.openlocfilehash: 1f71276c25e3ec1e5791d9b35f89aa95190c6afd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341957"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60543256"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Verwenden von Azure Policy, um die Installation von Erweiterungen auf virtuellen Linux-Computern einzuschränken
 

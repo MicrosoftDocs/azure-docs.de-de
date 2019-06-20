@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cc5d953ec412c1c747989d58303beae05f2039c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66118058"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234301"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Voraussetzungen für Azure Disk Encryption (Vorgängerversion)
 
@@ -246,7 +246,7 @@ Im Artikel [Erstellen einer Azure Active Directory-Anwendung und eines Dienstpri
 1. [Überprüfen Sie die erforderlichen Berechtigungen.](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
 2. [Erstellen Sie eine Azure Active Directory-Anwendung.](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Sie können einen beliebigen Namen und eine beliebige Anmelde-URL verwenden, wenn Sie die Anwendung erstellen.
-3. [Rufen Sie die Anwendungs-ID und den Authentifizierungsschlüssel ab.](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 
+3. [Rufen Sie die Anwendungs-ID und den Authentifizierungsschlüssel ab.](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) 
      - Der Authentifizierungsschlüssel ist der geheime Clientschlüssel und wird als „AadClientSecret“ für „Set-AzVMDiskEncryptionExtension“ verwendet. 
         - Der Authentifizierungsschlüssel wird von der Anwendung als Anmeldeinformation für die Anmeldung in Azure AD verwendet. Im Azure-Portal heißt dieses Geheimnis „Schlüssel“, hat jedoch keinen Bezug zu Schlüsseltresoren. Schützen Sie dieses Geheimnis entsprechend. 
      - Die Anwendungs-ID wird später als „AadClientId“ für „Set-AzVMDiskEncryptionExtension“ und als „ServicePrincipalName“ für „Set-AzKeyVaultAccessPolicy“ verwendet. 

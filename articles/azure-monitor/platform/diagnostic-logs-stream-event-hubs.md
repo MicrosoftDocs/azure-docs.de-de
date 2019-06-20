@@ -9,11 +9,11 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314076"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60237698"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Streamen von Azure-Diagnoseprotokollen an Event Hubs
 **[Azure-Diagnoseprotokolle](diagnostic-logs-overview.md)** können nahezu in Echtzeit an eine beliebige Anwendung gestreamt werden – entweder mithilfe der integrierten Portaloption „In Event Hubs exportieren“ oder durch Aktivieren der Event Hub-Autorisierungsregel-ID in einer Diagnoseeinstellung (über die Azure PowerShell-Cmdlets oder über die Azure CLI).
@@ -184,10 +184,10 @@ Hier sehen Sie ein Beispiel für eine Datenausgabe aus Event Hubs:
 | records |Ein Array sämtlicher Protokollereignisse in dieser Nutzlast. |
 | time |Der Zeitpunkt, zu dem das Ereignis aufgetreten ist. |
 | category |Die Protokollkategorie für dieses Ereignis. |
-| Ressourcen-ID |Die Ressourcen-ID der Ressource, die dieses Ereignis generiert hat. |
+| resourceId |Die Ressourcen-ID der Ressource, die dieses Ereignis generiert hat. |
 | operationName |Der Name des Vorgangs. |
 | level |Optional. Gibt die Protokollereignisebene an. |
-| Eigenschaften |Die Eigenschaften des Ereignisses. |
+| properties |Die Eigenschaften des Ereignisses. |
 
 Eine Liste mit allen Ressourcenanbietern, die das Streamen an Event Hubs unterstützen, finden Sie [hier](diagnostic-logs-overview.md).
 

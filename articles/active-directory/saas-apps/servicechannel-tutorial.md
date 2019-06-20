@@ -4,248 +4,232 @@ description: Erfahren Sie, wie Sie das einmalige Anmelden zwischen Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: c3546eab-96b5-489b-a309-b895eb428053
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/3/2017
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ce9573f78b6e8a9db65f35b7fc7711a8d3534508
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433466"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: Azure Active Directory-Integration mit ServiceChannel
 
 In diesem Tutorial erfahren Sie, wie Sie ServiceChannel in Azure Active Directory (Azure AD) integrieren.
-
 Die Integration von ServiceChannel in Azure AD bietet die folgenden Vorteile:
 
-- Sie können in Azure AD steuern, wer Zugriff auf ServiceChannel haben soll.
-- Sie können es Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei ServiceChannel anzumelden (einmaliges Anmelden).
-- Sie können Ihre Konten an einem zentralen Ort verwalten – im Azure-Verwaltungsportal.
+* Sie können in Azure AD steuern, wer Zugriff auf ServiceChannel hat.
+* Sie können es Ihren Benutzern ermöglichen, sich mit ihren Azure AD-Konten automatisch bei ServiceChannel anzumelden (einmaliges Anmelden; Single Sign-On, SSO).
+* Sie können Ihre Konten über das Azure-Portal an einem zentralen Ort verwalten.
 
-Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Weitere Informationen zur Integration von SaaS-Apps in Azure AD finden Sie unter [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 Um die Azure AD-Integration mit ServiceChannel konfigurieren zu können, benötigen Sie Folgendes:
 
-- Ein Azure AD-Abonnement
-- Ein ServiceChannel-Abonnement, für das einmaliges Anmelden aktiviert ist
-
-> [!NOTE]
-> Um die Schritte in diesem Tutorial zu testen, wird empfohlen, keine Produktionsumgebung zu verwenden.
-
-Um die Schritte in diesem Tutorial zu testen, sollten Sie folgende Empfehlungen beachten:
-
-- Sie sollten keine Produktionsumgebung verwenden, sofern dies nicht erforderlich ist.
-- Wenn Sie keine Azure AD-Testumgebung haben, können Sie [hier](https://azure.microsoft.com/pricing/free-trial/)eine einmonatige Testversion anfordern.
+* Ein Azure AD-Abonnement Sollten Sie über keine Azure AD-Umgebung verfügen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) verwenden.
+* Ein ServiceChannel-Abonnement, für das einmaliges Anmelden aktiviert ist
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
-In diesem Tutorial testen Sie das einmalige Anmelden für Azure AD in einer Testumgebung. Das in diesem Tutorial beschriebene Szenario besteht aus zwei Hauptbestandteilen:
 
-1. Hinzufügen von ServiceChannel aus dem Katalog
-1. Konfigurieren und Testen der einmaligen Anmeldung von Azure AD
+In diesem Tutorial konfigurieren und testen Sie das einmalige Anmelden von Azure AD in einer Testumgebung.
+
+* ServiceChannel unterstützt **IDP**-initiiertes einmaliges Anmelden.
+* ServiceChannel unterstützt die **Just-in-Time**-Benutzerbereitstellung.
 
 ## <a name="adding-servicechannel-from-the-gallery"></a>Hinzufügen von ServiceChannel aus dem Katalog
+
 Zum Konfigurieren der Integration von ServiceChannel in Azure AD müssen Sie ServiceChannel aus dem Katalog der Liste der verwalteten SaaS-Apps hinzufügen.
 
 **Führen Sie die folgenden Schritte aus, um ServiceChannel aus dem Katalog hinzuzufügen:**
 
-1. Klicken Sie im linken Navigationsbereich des **[Azure-Verwaltungsportals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**. 
+1. Klicken Sie im linken Navigationsbereich des **[Azure-Portals](https://portal.azure.com)** auf das Symbol für **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Schaltfläche „Azure Active Directory“](common/select-azuread.png)
 
-1. Navigieren Sie zu **Unternehmensanwendungen**. Wechseln Sie dann zu **Alle Anwendungen**.
+2. Navigieren Sie zu **Unternehmensanwendungen**, und wählen Sie die Option **Alle Anwendungen** aus.
 
-    ![ANWENDUNGEN][2]
-    
-1. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Hinzufügen**.
+    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-    ![ANWENDUNGEN][3]
+3. Klicken Sie oben im Dialogfeld auf die Schaltfläche **Neue Anwendung**, um eine neue Anwendung hinzuzufügen.
 
-1. Geben Sie im Suchfeld den Suchbegriff **ServiceChannel** ein.
+    ![Schaltfläche „Neue Anwendung“](common/add-new-app.png)
 
-    ![Erstellen eines Azure AD-Testbenutzers](./media/servicechannel-tutorial/tutorial-servicechannel_000.png)
+4. Geben Sie im Suchfeld **ServiceChannel** ein, wählen Sie im Ergebnisbereich **ServiceChannel** aus, und klicken Sie anschließend auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
 
-1. Wählen Sie im Ergebnisbereich die Option **ServiceChannel** aus, und klicken Sie dann auf die Schaltfläche **Hinzufügen**, um die Anwendung hinzuzufügen.
+    ![ServiceChannel in der Ergebnisliste](common/search-new-app.png)
 
-    ![Erstellen eines Azure AD-Testbenutzers](./media/servicechannel-tutorial/tutorial-servicechannel_2.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurieren und Testen des einmaligen Anmeldens in Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurieren und Testen der einmaligen Anmeldung von Azure AD
-In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei ServiceChannel mithilfe eines Testbenutzers namens „Britta Simon“.
-
-Damit einmaliges Anmelden funktioniert, muss Azure AD wissen, welcher Benutzer in ServiceChannel als Gegenstück für einen Benutzer in Azure AD fungiert. Anders ausgedrückt: Zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in ServiceChannel muss eine Linkbeziehung eingerichtet werden.
-
-Diese Linkbeziehung wird hergestellt, indem Sie den **Benutzernamen** in Azure AD als Wert für den **Benutzernamen** in ServiceChannel zuweisen.
+In diesem Abschnitt konfigurieren und testen Sie das einmalige Anmelden von Azure AD bei ServiceChannel mithilfe einer Testbenutzerin namens **Britta Simon**.
+Damit einmaliges Anmelden funktioniert, muss eine Linkbeziehung zwischen einem Azure AD-Benutzer und dem entsprechenden Benutzer in ServiceChannel eingerichtet werden.
 
 Zum Konfigurieren und Testen des einmaligen Anmeldens in Azure AD bei ServiceChannel müssen Sie die folgenden Bausteine ausführen:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**, um Ihren Benutzern das Verwenden dieser Funktion zu ermöglichen.
-1. **[Erstellen eines Azure AD-Testbenutzers](#creating-an-azure-ad-test-user)** , um das einmalige Anmelden von Azure AD mit der Testbenutzerin Britta Simon zu testen.
-1. **[Erstellen eines ServiceChannel-Testbenutzers](#creating-a-servicechannel-test-user)**: Zum Testen des einmaligen Anmeldens über Azure AD mit dem Testbenutzer „Britta Simon“.
-1. **[Zuweisen des Azure AD-Testbenutzers](#assigning-the-azure-ad-test-user)**, um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
+1. **[Konfigurieren des einmaligen Anmeldens von Azure AD](#configure-azure-ad-single-sign-on)** , um Ihren Benutzern das Verwenden dieses Features zu ermöglichen.
+2. **[Konfigurieren des einmaligen Anmeldens für ServiceChannel](#configure-servicechannel-single-sign-on)** , um die Einstellungen für einmaliges Anmelden auf der Anwendungsseite zu konfigurieren.
+3. **[Erstellen eines Azure AD-Testbenutzers](#create-an-azure-ad-test-user)** , um das einmalige Anmelden mit Azure AD mit dem Testbenutzer Britta Simon zu testen.
+4. **[Zuweisen des Azure AD-Testbenutzers](#assign-the-azure-ad-test-user)** , um Britta Simon für das einmalige Anmelden von Azure AD zu aktivieren.
+5. **[Erstellen eines ServiceChannel-Testbenutzers](#create-servicechannel-test-user)** , um eine Entsprechung von Britta Simon in ServiceChannel zu erhalten, die mit ihrer Darstellung in Azure AD verknüpft ist.
+6. **[Testen der einmaligen Anmeldung](#test-single-sign-on)** , um zu überprüfen, ob die Konfiguration funktioniert.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens von Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens in Azure AD
 
-In diesem Abschnitt aktivieren Sie das einmalige Anmelden mit Azure AD im Azure-Verwaltungsportal und konfigurieren das einmalige Anmelden in Ihrer ServiceChannel-Anwendung.
+In diesem Abschnitt aktivieren Sie das einmalige Anmelden von Azure AD im Azure-Portal.
 
-**Führen Sie zum Konfigurieren des einmaligen Anmeldens von Azure AD bei ServiceChannel die folgenden Schritte aus:**
+Führen Sie die folgenden Schritte aus, um das einmalige Anmelden von Azure AD bei ServiceChannel zu konfigurieren:
 
-1. Klicken Sie im Azure-Verwaltungsportal auf der Anwendungsintegrationsseite für **ServiceChannel** auf **Einmaliges Anmelden**.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com/) auf der Anwendungsintegrationsseite für **ServiceChannel** die Option **Einmaliges Anmelden** aus.
 
-    ![Configure single sign-on][4]
+    ![Konfigurieren des Links für einmaliges Anmelden](common/select-sso.png)
 
-1. Wählen Sie im Dialogfeld **Einmaliges Anmelden** als **Modus** die Option **SAML-basierte Anmeldung** aus, um einmaliges Anmelden zu aktivieren.
- 
-    ![Configure single sign-on](./media/servicechannel-tutorial/tutorial-servicechannel_01.png)
+2. Wählen Sie im Dialogfeld **SSO-Methode auswählen** den Modus **SAML/WS-Fed** aus, um einmaliges Anmelden zu aktivieren.
 
-1. Führen Sie die folgenden Schritte auf der Seite **Domäne und URLs für ServiceChannel** aus:
+    ![Auswahlmodus für einmaliges Anmelden](common/select-saml-option.png)
 
-    ![Configure single sign-on](./media/servicechannel-tutorial/tutorial-servicechannel_urls.png)
+3. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** auf das Symbol **Bearbeiten**, um das Dialogfeld **Grundlegende SAML-Konfiguration** zu öffnen.
+
+    ![Bearbeiten der SAML-Basiskonfiguration](common/edit-urls.png)
+
+4. Führen Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** die folgenden Schritte aus:
+
+    ![SSO-Informationen zur Domäne und zu den URLs für ServiceChannel](common/idp-intiated.png)
 
     a. Geben Sie im Textfeld **Bezeichner** den Wert `http://adfs.<domain>.com/adfs/service/trust` ein.
 
-    b. Geben Sie im Textfeld **Antwort-URL** eine URL nach folgendem Muster ein: `https://<customer domain>.servicechannel.com/saml/acs`
+    b. Geben Sie im Textfeld **Antwort-URL** eine URL im folgenden Format ein: `https://<customer domain>.servicechannel.com/saml/acs`
 
-    > [!NOTE] 
-    > Hinweis: Hierbei handelt es sich um Beispielwerte. Sie müssen diese Werte mit dem eigentlichen Bezeichner und der Antwort-URL aktualisieren. Hier empfehlen wir Ihnen, den eindeutigen Wert der Zeichenfolge im Bezeichner zu verwenden. Wenden Sie sich an das [Supportteam von ServiceChannel](https://servicechannel.zendesk.com/hc/en-us), um diese Werte zu erhalten.
+    > [!NOTE]
+    > Hierbei handelt es sich um Beispielwerte. Aktualisieren Sie diese Werte mit dem eigentlichen Bezeichner und der Antwort-URL. Hier empfehlen wir Ihnen, den eindeutigen Wert der Zeichenfolge im Bezeichner zu verwenden. Wenden Sie sich an das [Supportteam für den ServiceChannel-Client](https://servicechannel.zendesk.com/hc/en-us), um diese Werte zu erhalten. Sie können sich auch die Muster im Abschnitt **Grundlegende SAML-Konfiguration** im Azure-Portal ansehen.
 
-1. Die ServiceChannel-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt ein Beispiel für diese Attributzuordnungen: **NameIdentifier (Benutzer-ID)** ist der einzige verpflichtende Anspruch. Der Standardwert ist **user.userprincipalname**, ServiceChannel erwartet allerdings, dass dies **user.mail** zugeordnet werden muss. Wenn Sie planen, die bedarfsabhängige Benutzerbereitstellung zu aktivieren, sollten Sie die folgenden Anforderungen wie unten gezeigt hinzufügen. Der **Rollenanspruch** muss **user.assignedroles** zugeordnet werden, das die Rolle des Benutzers enthält.  
+5. Die ServiceChannel-Anwendung erwartet die SAML-Assertionen in einem bestimmten Format. Daher müssen Sie Ihrer Konfiguration der SAML-Tokenattribute benutzerdefinierte Attributzuordnungen hinzufügen. Der folgende Screenshot zeigt die Liste der Standardattribute. **nameidentifier** ist hier **user.userprincipalname** zugeordnet. Die ServiceChannel-Anwendung erwartet, dass **nameidentifier** der Wert **user.mail** zugeordnet ist. Sie müssen die Attributzuordnung daher entsprechend ändern, indem Sie auf das Symbol **Bearbeiten** klicken.
 
     Weitere Anleitungen zu Anforderungen finden Sie im ServiceChannel-Handbuch [hier](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example).
-    
-    ![Configure single sign-on](./media/servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
-    > [!NOTE] 
+    ![image](common/edit-attribute.png)
+
+    > [!NOTE]
     > Informationen zum Konfigurieren von **Rolle** in Azure AD finden Sie unter [Verwalten des Zugriffs mithilfe der RBAC und des Azure-Portals](../../role-based-access-control/role-assignments-portal.md).
 
-1. Klicken Sie im Abschnitt **Benutzerattribute** auf **Alle weiteren Benutzerattribute anzeigen und bearbeiten**, und legen Sie die Attribute fest.
+6. Neben den oben genannten Punkten sollten Sie, wenn Sie beabsichtigen, die Just-in-Time-Benutzerbereitstellung zu aktivieren, die folgenden Ansprüche hinzufügen, wie unten beschrieben. Der **Rollenanspruch** muss **user.assignedroles** zugeordnet werden, das die Rolle des Benutzers enthält. Führen Sie im Dialogfeld **Benutzerattribute** im Abschnitt **Benutzeransprüche** die folgenden Schritte aus, um das SAML-Tokenattribut wie in der folgenden Tabelle gezeigt hinzuzufügen:
 
-    | Attributname | Attributwert |
-    | --- | --- |    
-    | Rolle| user.assignedroles |
+    | NAME   |  Quellattribut |
+    | ------ | --- |
+    | Rolle   | user.assignedroles |
 
-    a. Klicken Sie auf **Attribut hinzufügen**, um das Dialogfeld **Benutzerattribut hinzufügen** zu öffnen.
+    a. Klicken Sie auf **Neuen Anspruch hinzufügen**, um das Dialogfeld **Benutzeransprüche verwalten** zu öffnen.
 
-    ![Configure single sign-on](./media/servicechannel-tutorial/tutorial_servicechannel_04.png)
+    ![image](common/new-save-attribute.png)
 
-    ![Configure single sign-on](./media/servicechannel-tutorial/tutorial_servicechannel_05.png)
-    
+    ![image](common/new-attribute-details.png)
+
     b. Geben Sie im Textfeld **Name** den für die Zeile angezeigten Attributnamen ein.
-    
-    c. Geben Sie in der Liste **Wert** den für diese Zeile angezeigten Wert ein.
-    
-    d. Klicken Sie auf **OK**.
-    
-1. Klicken Sie im Abschnitt **SAML-Signaturzertifikat** auf **Zertifikat (Base64)**, und speichern Sie die Zertifikatdatei auf Ihrem Computer.
 
-    ![Configure single sign-on](./media/servicechannel-tutorial/tutorial-servicechannel_05.png) 
+    c. Lassen Sie den **Namespace** leer.
 
-1. Klicken Sie auf **Speichern**.
+    d. Wählen Sie „Source“ als **Attribut** aus.
 
-    ![Configure single sign-on](./media/servicechannel-tutorial/tutorial_general_400.png)
+    e. Geben Sie in der Liste **Quellattribut** den für diese Zeile angezeigten Attributwert ein.
 
-1. Klicken Sie im Abschnitt **ServiceChannel-Konfiguration** auf **ServiceChannel konfigurieren**, um das Fenster **Anmeldung konfigurieren** zu öffnen. Notieren Sie die **SAML-Entitäts-ID** aus dem Abschnitt mit der **Kurzübersicht**.
+    f. Klicken Sie auf **OK**.
 
-1. Für die Konfiguration des einmaligen Anmeldens auf der **ServiceChannel**-Seite müssen Sie das heruntergeladene **Zertifikat (Base64)** und die **SAML-Entitäts-ID** an das [ServiceChannel-Supportteam](https://servicechannel.zendesk.com/hc/en-us) senden. Er führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
+    g. Klicken Sie auf **Speichern**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
-In diesem Abschnitt wird im Azure-Verwaltungsportal eine Testbenutzerin namens Britta Simon erstellt.
+7. Klicken Sie auf der Seite **Einmaliges Anmelden (SSO) mit SAML einrichten** im Abschnitt **SAML-Signaturzertifikat** auf **Herunterladen**, um das Ihrer Anforderung entsprechende **Zertifikat (Base64)** aus den angegebenen Optionen herunterzuladen und auf Ihrem Computer zu speichern.
 
-![Azure AD-Benutzer erstellen][100]
+    ![Downloadlink für das Zertifikat](common/certificatebase64.png)
 
-**Um einen Testbenutzer in Azure AD zu erstellen, führen Sie die folgenden Schritte aus:**
+8. Kopieren Sie im Abschnitt **ServiceChannel einrichten** die entsprechenden URLs gemäß Ihren Anforderungen.
 
-1. Klicken Sie im linken Navigationsbereich des **Azure-Verwaltungsportals** auf das Symbol für **Azure Active Directory**.
+    ![Kopieren der Konfiguration-URLs](common/copy-configuration-urls.png)
 
-    ![Erstellen eines Azure AD-Testbenutzers](./media/servicechannel-tutorial/create_aaduser_01.png) 
+    a. Anmelde-URL
 
-1. Wechseln Sie zu **Benutzer und Gruppen**, und klicken Sie auf **Alle Benutzer**, um die Liste der Benutzer anzuzeigen.
-    
-    ![Erstellen eines Azure AD-Testbenutzers](./media/servicechannel-tutorial/create_aaduser_02.png) 
+    b. Azure AD-Bezeichner
 
-1. Klicken Sie oben im Dialogfeld auf **Hinzufügen**, um das Dialogfeld **Benutzer** zu öffnen.
- 
-    ![Erstellen eines Azure AD-Testbenutzers](./media/servicechannel-tutorial/create_aaduser_03.png) 
+    c. Abmelde-URL
 
-1. Führen Sie auf der Dialogfeldseite **Benutzer** die folgenden Schritte aus:
- 
-    ![Erstellen eines Azure AD-Testbenutzers](./media/servicechannel-tutorial/create_aaduser_04.png) 
+### <a name="configure-servicechannel-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens für ServiceChannel
 
-    a. Geben Sie in das Textfeld **Name** den Namen **BrittaSimon** ein.
+Um das einmalige Anmelden auf der Seite von **ServiceChannel** zu konfigurieren, müssen Sie das heruntergeladene **Zertifikat (Base64)** und die entsprechenden aus dem Azure-Portal kopierten URLs an das [ServiceChannel-Supportteam](https://servicechannel.zendesk.com/hc/en-us) senden. Es führt die Einrichtung durch, damit die SAML-SSO-Verbindung auf beiden Seiten richtig festgelegt ist.
 
-    b. Geben Sie in das Textfeld **Benutzername** die **E-Mail-Adresse** von Britta Simon ein.
+### <a name="create-an-azure-ad-test-user"></a>Erstellen eines Azure AD-Testbenutzers
 
-    c. Wählen Sie **Kennwort anzeigen** aus, und notieren Sie sich den Wert des **Kennworts**.
+Das Ziel dieses Abschnitts ist das Erstellen eines Testbenutzers namens Britta Simon im Azure-Portal.
 
-    d. Klicken Sie auf **Create**. 
+1. Wählen Sie im Azure-Portal im linken Bereich die Option **Azure Active Directory**, **Benutzer** und dann **Alle Benutzer** aus.
 
-### <a name="creating-a-servicechannel-test-user"></a>Erstellen eines ServiceChannel-Testbenutzers
+    ![Links „Benutzer und Gruppen“ und „Alle Benutzer“](common/users.png)
 
-Die Anwendung unterstützt die Just-in-Time-Benutzerbereitstellung. Nach der Authentifizierung werden in der Anwendung automatisch Benutzer erstellt. Bitte wenden Sie sich für die vollständige Benutzerbereitstellung an das [ServiceChannel-Supportteam](https://servicechannel.zendesk.com/hc/en-us).
+2. Wählen Sie oben im Bildschirm die Option **Neuer Benutzer** aus.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
+    ![Schaltfläche „Neuer Benutzer“](common/new-user.png)
+
+3. Führen Sie in den Benutzereigenschaften die folgenden Schritte aus.
+
+    ![Dialogfeld „Benutzer“](common/user-properties.png)
+
+    a. Geben Sie im Feld **Name** den Namen **BrittaSimon** ein.
+  
+    b. Geben Sie im Feld **Benutzername** den Namen `brittasimon@yourcompanydomain.extension` ein.  
+    Zum Beispiel, BrittaSimon@contoso.com
+
+    c. Aktivieren Sie das Kontrollkästchen **Kennwort anzeigen**, und notieren Sie sich den Wert, der im Feld „Kennwort“ angezeigt wird.
+
+    d. Klicken Sie auf **Create**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Zuweisen des Azure AD-Testbenutzers
 
 In diesem Abschnitt ermöglichen Sie „Britta Simon“ die Verwendung des einmaligen Anmeldens von Azure, indem Sie ihr Zugriff auf ServiceChannel gewähren.
 
-![Benutzer zuweisen][200] 
+1. Wählen Sie im Azure-Portal nacheinander die Optionen **Unternehmensanwendungen**, **Alle Anwendungen** und **ServiceChannel** aus.
 
-**Rühren Sie die folgenden Schritte aus, um „Britta Simon“ ServiceChannel zuzuweisen:**
+    ![Blatt „Unternehmensanwendungen“](common/enterprise-applications.png)
 
-1. Öffnen Sie im Azure-Verwaltungsportal die Anwendungsansicht, navigieren Sie zur Verzeichnisansicht, wechseln Sie dann zu **Unternehmensanwendungen**, und klicken Sie auf **Alle Anwendungen**.
+2. Wählen Sie in der Anwendungsliste den Eintrag **ServiceChannel** aus.
 
-    ![Benutzer zuweisen][201] 
+    ![ServiceChannel-Link in der Anwendungsliste](common/all-applications.png)
 
-1. Wählen Sie in der Anwendungsliste den Eintrag **ServiceChannel** aus.
+3. Wählen Sie im Menü auf der linken Seite **Benutzer und Gruppen** aus.
 
-    ![Configure single sign-on](./media/servicechannel-tutorial/tutorial-servicechannel_app01.png) 
+    ![Link „Benutzer und Gruppen“](common/users-groups-blade.png)
 
-1. Klicken Sie im Menü auf der linken Seite auf **Benutzer und Gruppen**.
+4. Klicken Sie auf die Schaltfläche **Benutzer hinzufügen**, und wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
 
-    ![Benutzer zuweisen][202] 
+    ![Bereich „Zuweisung hinzufügen“](common/add-assign-user.png)
 
-1. Klicken Sie auf die Schaltfläche **Hinzufügen**. Wählen Sie dann im Dialogfeld **Zuweisung hinzufügen** die Option **Benutzer und Gruppen** aus.
+5. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Liste „Benutzer“ den Eintrag **Britta Simon** aus, und klicken Sie dann unten im Bildschirm auf die Schaltfläche **Auswählen**.
 
-    ![Benutzer zuweisen][203]
+6. Wenn Sie einen beliebigen Rollenwert in der SAML-Assertion erwarten, wählen Sie im Dialogfeld **Rolle auswählen** in der Liste die entsprechende Rolle für den Benutzer aus, und klicken Sie dann unten auf dem Bildschirm auf **Auswählen**.
 
-1. Wählen Sie im Dialogfeld **Benutzer und Gruppen** in der Benutzerliste **Britta Simon** aus.
+7. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf die Schaltfläche **Zuweisen**.
 
-1. Klicken Sie im Dialogfeld **Benutzer und Gruppen** auf die Schaltfläche **Auswählen**.
+### <a name="create-servicechannel-test-user"></a>Erstellen eines ServiceChannel-Testbenutzers
 
-1. Klicken Sie im Dialogfeld **Zuweisung hinzufügen** auf **Zuweisen**.
-    
-### <a name="testing-single-sign-on"></a>Testen der einmaligen Anmeldung
+Die Anwendung unterstützt die Just-in-Time-Benutzerbereitstellung. Nach der Authentifizierung werden in der Anwendung automatisch Benutzer erstellt. Bitte wenden Sie sich für die vollständige Benutzerbereitstellung an das [ServiceChannel-Supportteam](https://servicechannel.zendesk.com/hc/en-us).
+
+### <a name="test-single-sign-on"></a>Testen des einmaligen Anmeldens
 
 In diesem Abschnitt testen Sie die Azure AD-Konfiguration für einmaliges Anmelden über den Zugriffsbereich.
 
-Wenn Sie im Zugriffsbereich auf die Kachel „ServiceChannel“ klicken, sollten Sie automatisch bei Ihrer ServiceChannel-Anwendung angemeldet werden.
+Wenn Sie im Zugriffsbereich auf die Kachel „ServiceChannel“ klicken, sollten Sie automatisch bei der ServiceChannel-Anwendung angemeldet werden, für die Sie einmaliges Anmelden eingerichtet haben. Weitere Informationen zum Zugriffsbereich finden Sie unter [Einführung in den Zugriffsbereich](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 
-* [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](tutorial-list.md)
-* [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Liste der Tutorials zur Integration von SaaS-Apps in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Was bedeuten Anwendungszugriff und einmaliges Anmelden mit Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
-
-[1]: ./media/servicechannel-tutorial/tutorial_general_01.png
-[2]: ./media/servicechannel-tutorial/tutorial_general_02.png
-[3]: ./media/servicechannel-tutorial/tutorial_general_03.png
-[4]: ./media/servicechannel-tutorial/tutorial_general_04.png
-
-[100]: ./media/servicechannel-tutorial/tutorial_general_100.png
-
-[200]: ./media/servicechannel-tutorial/tutorial_general_200.png
-[201]: ./media/servicechannel-tutorial/tutorial_general_201.png
-[202]: ./media/servicechannel-tutorial/tutorial_general_202.png
-[203]: ./media/servicechannel-tutorial/tutorial_general_203.png
+- [Was ist der bedingte Zugriff in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850852"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147477"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Bereitstellen eines auf Service Fabric Reliable Disk basierenden Volumes in einer Azure Service Fabric Mesh-Anwendung 
 Die gängige Methode, den Zustand mit Container-Apps persistent zu speichern, ist die Verwendung von Remotespeicher wie Azure File Storage oder Datenbanken wie Azure Cosmos DB. Dies führt für den Remotespeicher zu erheblicher Netzwerklatenz durch Lese- und Schreibzugriffe.
@@ -73,7 +73,7 @@ Beachten Sie den Namen der Gatewayressource, die den Ressourcentyp `Microsoft.Se
 
 Sobald die Anwendung erfolgreich bereitgestellt wurde, rufen Sie die IP-Adresse der Gatewayressource für die App ab. Verwenden Sie den Gatewaynamen, der im Abschnitt oben genannt wurde.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 Die Ausgabe sollte über eine Eigenschaft `ipAddress` verfügen, die die öffentliche IP-Adresse für den Dienstendpunkt darstellt. Öffnen Sie diese in einem Browser. Es wird eine Webseite mit dem Zählerwert angezeigt, der jede Sekunde aktualisiert wird.

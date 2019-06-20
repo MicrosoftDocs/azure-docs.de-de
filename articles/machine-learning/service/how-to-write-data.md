@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66752868"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Schreiben und Konfigurieren von Daten mit dem Azure Machine Learning Data Prep SDK
 
@@ -73,7 +73,7 @@ Beispielausgabe:
 
 ### <a name="delimited-file-example"></a>Beispiel für eine durch Trennzeichen getrennte Datei
 
-Der folgende Code verwendet die [`write_to_csv()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-csv-directory-path--destinationpath--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow)-Funktion zum Schreiben von Daten in eine durch Trennzeichen getrennte Datei.
+Der folgende Code verwendet die [`write_to_csv()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow)-Funktion zum Schreiben von Daten in eine durch Trennzeichen getrennte Datei.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -121,7 +121,7 @@ Der vorhergehende Code gibt folgende Ausgabe zurück:
 
 ### <a name="parquet-file-example"></a>Beispiel für eine Parquet-Datei
 
-Ähnlich wie `write_to_csv()` gibt die [`write_to_parquet()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-parquet-file-path--typing-union--destinationpath--nonetype----none--directory-path--typing-union--destinationpath--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow)-Funktion einen neuen Datenfluss zurück, der einen Schritt mit einem Schreibvorgang in eine Parquet-Datei enthält, der beim Ausführen des Datenflusses ausgeführt wird.
+Ähnlich wie `write_to_csv()` gibt die [`write_to_parquet()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow)-Funktion einen neuen Datenfluss zurück, der einen Schritt mit einem Schreibvorgang in eine Parquet-Datei enthält, der beim Ausführen des Datenflusses ausgeführt wird.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),

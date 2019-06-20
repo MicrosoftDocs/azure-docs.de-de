@@ -9,11 +9,11 @@ ms.date: 09/26/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60839282"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurieren von Routenfiltern für das Microsoft-Peering: Azure-Portal
 > [!div class="op_single_selector"]

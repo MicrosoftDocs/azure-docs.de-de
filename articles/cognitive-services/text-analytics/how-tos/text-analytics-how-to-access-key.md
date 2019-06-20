@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: 813659b9b1a25e03bf599b0aa1dc9d6af67f1935
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60829112"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Suchen von Endpunkten und Zugriffsschlüsseln für die Textanalyse von Cognitive Service
 

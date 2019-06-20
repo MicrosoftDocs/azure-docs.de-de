@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 86b9609d5141798be40f53aab8b18897484bbef8
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149145"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835188"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrieren von Azure Active Directory in Azure Kubernetes Service mit der Azure CLI
 
@@ -20,10 +20,11 @@ Azure Kubernetes Service (AKS) kann für die Verwendung von Azure Active Directo
 
 In diesem Artikel wird erläutert, wie Sie die erforderlichen Azure AD-Komponenten erstellen, anschließend einen Azure AD-fähigen Cluster bereitstellen und dann eine grundlegende RBAC-Rolle im AKS-Cluster erstellen. Sie können [diese Schritte auch über das Azure-Portal ausführen][azure-ad-portal].
 
+Die vollständiges Beispielskript, das in diesem Artikel verwendet wird, finden Sie unter [Azure CLI-Beispiele: AKS-Integration in Azure AD][complete-script].
+
 Es gelten die folgenden Einschränkungen:
 
 - Azure AD kann nur aktiviert werden, wenn Sie einen neuen, RBAC-fähigen Cluster erstellen. Es ist nicht möglich, Azure AD für einen vorhandenen AKS-Cluster zu aktivieren.
-- *Gastbenutzer* in Azure AD (z.B. bei Verwendung einer Verbundanmeldung aus einem anderen Verzeichnis) werden nicht unterstützt.
 
 ## <a name="before-you-begin"></a>Voraussetzungen
 
@@ -78,7 +79,6 @@ Azure AD benötigt die Berechtigungen zum Ausführen der folgenden Aktionen:
 
 * Verzeichnisdaten lesen
 * Anmelden und Benutzerprofil lesen
-* Verzeichnisdaten lesen
 
 Weisen Sie diese Berechtigungen mit dem Befehl [az ad app permission add][az-ad-app-permission-add] zu:
 
@@ -236,8 +236,9 @@ Wenn wie in der folgenden Beispielausgabe nach erfolgreicher Anmeldung im Webbro
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* Der Benutzer, als der Sie angemeldet sind, ist kein *Gast* in der Azure AD-Instanz (dies ist häufig der Fall, wenn Sie eine Verbundanmeldung aus einem anderen Verzeichnis verwenden).
+* Sie haben die entsprechende Objekt-ID oder den UPN definiert, je nachdem, ob das Benutzerkonto im gleichen Azure AD-Mandanten vorhanden ist oder nicht.
 * Der Benutzer ist kein Mitglied der über 200 Gruppen.
+* Das Geheimnis, das in der Anwendungsregistrierung für den Server definiert ist, entspricht dem mit `--aad-server-app-secret` konfigurierten Wert.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

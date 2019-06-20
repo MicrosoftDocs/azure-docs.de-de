@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60629304"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemanforderungen für StorSimple Virtual Array
 ## <a name="overview"></a>Übersicht
@@ -52,7 +52,7 @@ Die Softwareanforderungen umfassen Informationen zu den unterstützten Webbrowse
 | --- | --- |
 | Mindestanzahl virtueller Prozessoren (Kerne) |4 |
 | Minimaler Arbeitsspeicher (RAM) |8 GB <br> Dateiserver: 8 GB für weniger als 2 Millionen Dateien und 16 GB für 2 bis 4 Millionen Dateien|
-| Festplattenspeicher<sup>1</sup> |Betriebssystemdatenträger: 80 GB  <br></br>Datendatenträger: 500 GB bis 8 TB |
+| Festplattenspeicher<sup>1</sup> |Betriebssystemdatenträger: 80 GB <br></br>Datendatenträger: 500 GB bis 8 TB |
 | Mindestanzahl von Netzwerkschnittstellen |1 |
 | Internetbandbreite<sup>2</sup> |Erforderliche minimale Bandbreite: 5 MBit/s <br> Empfohlene Bandbreite: 100 MBit/s <br> Die Geschwindigkeit der Datenübertragung wird entsprechend der Internetbandbreite skaliert. Beispiel: Bei einer Geschwindigkeit von 5 Mbit/s dauert die Übertragung von 100 GB an Daten zwei Tage. Dies kann zu Sicherungsfehlern führen, da tägliche Sicherungen nicht an einem Tag abgeschlossen werden. Mit einer Bandbreite von 100 Mbit/s können 100 GB an Daten in 2,5 Stunden übertragen werden.   |
 
@@ -72,7 +72,7 @@ Die folgenden Softwareanforderungen gelten für die iSCSI-Initiatoren, die auf S
 
 | **Unterstützte Betriebssysteme** | **Erforderliche Version** | **Weitere Anforderungen/Hinweise** |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2 |Mit StorSimple können Sie Volumes mit schlanker Speicherzuweisung und vollständig bereitgestellte Volumes erstellen. Sie können keine teilweise bereitgestellten Volumes erstellen. StorSimple iSCSI-Volumes werden nur unterstützt für:  <ul><li>Einfache Volumes auf Windows-Basisdatenträgern</li><li>Windows NTFS zum Formatieren eines Volumes</li> |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2 |Mit StorSimple können Sie Volumes mit schlanker Speicherzuweisung und vollständig bereitgestellte Volumes erstellen. Sie können keine teilweise bereitgestellten Volumes erstellen. StorSimple iSCSI-Volumes werden nur unterstützt für: <ul><li>Einfache Volumes auf Windows-Basisdatenträgern</li><li>Windows NTFS zum Formatieren eines Volumes</li> |
 
 Die folgenden Softwareanforderungen gelten für die SMB-Clients, die auf StorSimple Virtual Array zugreifen (konfiguriert als Dateiserver).
 
@@ -94,13 +94,13 @@ In der folgenden Tabelle sind die Ports aufgeführt, die in der Firewall für iS
 
 | **Portnr.<sup>1</sup>** | **ein oder aus** | **Portbereich** | **Erforderlich** | **Hinweise** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |aus |WAN |Nein  |Der ausgehende Port wird für den Internetzugriff zum Abrufen von Updates verwendet. <br></br>Der ausgehende Webproxy kann vom Benutzer konfiguriert werden. |
+| TCP 80 (HTTP) |aus |WAN |Nein |Der ausgehende Port wird für den Internetzugriff zum Abrufen von Updates verwendet. <br></br>Der ausgehende Webproxy kann vom Benutzer konfiguriert werden. |
 | TCP 443 (HTTPS) |aus |WAN |Ja |Der ausgehende Port wird für den Zugriff auf Daten in der Cloud verwendet. <br></br>Der ausgehende Webproxy kann vom Benutzer konfiguriert werden. |
 | UDP 53 (DNS) |aus |WAN |In einigen Fällen; siehe Hinweise. |Dieser Port ist nur dann erforderlich, wenn Sie einen internetbasierten DNS-Server verwenden. <br></br> Beachten Sie, dass bei der Bereitstellung eines Dateiservers die Verwendung eines lokalen DNS-Servers empfohlen wird. |
 | UDP 123 (NTP) |aus |WAN |In einigen Fällen; siehe Hinweise. |Dieser Port ist nur dann erforderlich, wenn Sie einen internetbasierten NTP-Server verwenden.<br></br> Beachten Sie, dass bei der Bereitstellung eines Dateiservers empfohlen wird, die Zeit mit Ihren Active Directory-Domänencontrollern zu synchronisieren. |
 | TCP 80 (HTTP) |Geben Sie in |LAN |Ja |Dies ist der eingehende Port für die lokale Benutzeroberfläche auf dem StorSimple-Gerät für die lokale Verwaltung. <br></br> Beachten Sie, dass beim Zugriff auf die lokale Benutzeroberfläche über HTTP automatisch eine Umleitung auf HTTPS erfolgt. |
 | TCP 443 (HTTPS) |Geben Sie in |LAN |Ja |Dies ist der eingehende Port für die lokale Benutzeroberfläche auf dem StorSimple-Gerät für die lokale Verwaltung. |
-| TCP 3260 (iSCSI) |Geben Sie in |LAN |Nein  |Dieser Port wird für den Datenzugriff über iSCSI verwendet. |
+| TCP 3260 (iSCSI) |Geben Sie in |LAN |Nein |Dieser Port wird für den Datenzugriff über iSCSI verwendet. |
 
 <sup>1</sup> Es müssen keine eingehenden Ports für das öffentliche Internet geöffnet werden.
 

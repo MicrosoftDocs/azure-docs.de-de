@@ -16,11 +16,11 @@ ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb7de72a435faf100d6992815ef8d5ec00cb3581
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66236167"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Verwenden einer systemseitig zugewiesenen verwalteten Identität eines virtuellen Linux-Computers für den Zugriff auf Azure Storage 
 
@@ -82,7 +82,7 @@ Da Dateien Blob Storage erfordern, müssen wir einen Blobcontainer erstellen, in
 Sie können die verwaltete Identität des virtuellen Computers verwenden, um die Daten in Azure Storage Blob abzurufen.   
 
 1. Navigieren Sie zurück zum neu erstellten Speicherkonto.  
-2. Klicken Sie im linken Bereich auf den Link **Zugriffssteuerung (IAM)**.  
+2. Klicken Sie im linken Bereich auf den Link **Zugriffssteuerung (IAM)** .  
 3. Klicken Sie oben auf der Seite auf **+ Rollenzuweisung hinzufügen**, um dem virtuellen Computer eine neue Rollenzuweisung hinzuzufügen.
 4. Wählen Sie unter **Rolle** in der Dropdownliste **Storage-Blobdatenleser** aus. 
 5. Wählen Sie in der nächsten Dropdownliste unter **Zugriff zuweisen zu** die Option **Virtueller Computer** aus.  

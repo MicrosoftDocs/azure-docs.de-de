@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60294668"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Anleitung: Konfigurieren der Richtlinie zum Anmelderisiko
 

@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: e4f567fe727a2ec308cef6f48e33728f7f31c217
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9eb331e303ff64f4316aab0a0af553975bb72fc1
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707296"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137480"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Entwickeln von Java MapReduce-Programmen für Apache Hadoop in HDInsight
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2017
+ms.date: 06/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 07d52544b584adb02cc60790b7cb63c8aee1e366
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883410"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66514475"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Erstellen von Application Insights-Ressourcen mithilfe von PowerShell
 
@@ -82,7 +82,7 @@ Erstellen Sie eine neue JSON-Datei, in diesem Beispiel die Datei `template1.json
                     2
                 ],
                 "metadata": {
-                    "description": "1 = Basic, 2 = Enterprise"
+                    "description": "1 = Per GB (Basic), 2 = Per Node (Enterprise)"
                 }
             },
             "dailyQuota": {
@@ -452,4 +452,3 @@ Andere Artikel zu Automation:
 * [Senden von Azure-Diagnosedaten an Application Insights](powershell-azure-diagnostics.md)
 * [Bereitstellen in Azure aus GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Erstellen von Versionsanmerkungen](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-

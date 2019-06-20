@@ -10,16 +10,16 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 96bb11dad34d6ebcfebe0956d2a08b954a37e843
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 679a3d9efbeeb75e0aa8e3986fa85b7ecf0d77bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733043"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388502"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Was ist die Bing-Entitätssuche-API?
 
-Die Bing-Entitätssuche-API sendet eine Suchabfrage an Bing und erhält Ergebnisse, die Entitäten und Orte umfassen. Zu Orten gehören Restaurants, Hotels oder andere lokale Geschäfte. Bing gibt Orte zurück, wenn die Abfrage den Namen des lokalen Geschäfts angibt oder nach einer bestimmten Art von Geschäft fragt (z.B. „Restaurants in meiner Nähe“). Bing gibt Entitäten zurück, wenn die Abfrage bekannte Personen, Orte (Touristenattraktionen, Länder, Bundesländer usw.) oder Dinge zurückgibt.
+Die Bing-Entitätssuche-API sendet eine Suchabfrage an Bing und erhält Ergebnisse, die Entitäten und Orte umfassen. Zu Orten gehören Restaurants, Hotels oder andere lokale Geschäfte. Bing gibt Orte zurück, wenn die Abfrage den Namen des lokalen Geschäfts angibt oder nach einer bestimmten Art von Geschäft fragt (z.B. „Restaurants in meiner Nähe“). Bing gibt Entitäten zurück, wenn die Abfrage bekannte Personen, Orte (Touristenattraktionen, Länder/Regionen, Bundesländer usw.) oder Dinge zurückgibt.
 
 |Feature  |BESCHREIBUNG  |
 |---------|---------|
@@ -39,5 +39,5 @@ Die Bing-Entitätssuche-API ist ein RESTful-Webdienst und kann somit problemlos 
 
 * Testen Sie die [interaktive Demo](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) für die Bing-Entitätssuche-API. 
 * Ein [Schnellstart](quickstarts/csharp.md) ermöglicht einen schnellen Einstieg in die Verwendung Ihrer ersten Anforderung.
-* Der Abschnitt mit der Referenz zur [Bing-Entitätssuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference).
+* Der Abschnitt mit der Referenz zur [Bing-Entitätssuche-API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
 * In den [Verwendungs- und Anzeigeanforderungen für Bing](./use-display-requirements.md) erfahren Sie, wie Inhalte und Informationen verwendet werden dürfen, die über die Bing-Suche-APIs gefunden wurden.

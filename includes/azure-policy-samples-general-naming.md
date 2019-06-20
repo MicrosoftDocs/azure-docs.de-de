@@ -1,20 +1,19 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-origin.date: 05/17/2018
-ms.date: 11/12/2018
-ms.author: v-biyu
+ms.date: 09/18/2018
+ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: a8f37e5c33455b2ee2335981930e3aab53e2a594
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865993"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178222"
 ---
 ### <a name="naming"></a>Benennung
 

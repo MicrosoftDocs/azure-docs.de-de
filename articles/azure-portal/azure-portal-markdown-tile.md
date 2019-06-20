@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60551591"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Verwenden einer Markdown-Kachel in Azure-Dashboards zum Anzeigen von benutzerdefinierten Inhalten
 
@@ -42,7 +42,7 @@ Auf der Markdown-Kachel können Sie eine beliebige Kombination von Nur-Text, Mar
 
 * JavaScript: `<script>`-Tags und JavaScript-Inline-Auswertungen werden entfernt.
 * iFrames: `<iframe>`-Tags werden entfernt.
-* style: `<style>`-Tags werden entfernt. Attribute von Inlineformatvorlagen in HTML-Elementen werden offiziell nicht unterstützt. Möglicherweise können Sie einige Inlineelemente von Formatvorlagen verwenden, wenn diese jedoch das Layout des Portals beeinträchtigen, können sie jederzeit nicht mehr funktionieren. Die Markdown-Kachel ist für allgemeine statische Inhalte vorgesehen, für die die Standardformatvorlagen des Portals verwendet werden.
+* style: `<style>`-Tags werden entfernt. Inlineformatvorlagenattribute in HTML-Elementen werden offiziell nicht unterstützt. Möglicherweise können Sie einige Inline-Formatvorlagenelemente verwenden, wenn diese jedoch das Layout des Portals beeinträchtigen, können sie jederzeit nicht mehr funktionieren. Die Markdown-Kachel ist für allgemeine statische Inhalte vorgesehen, für die die Standardformatvorlagen des Portals verwendet werden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

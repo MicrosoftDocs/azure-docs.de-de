@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: e662e61a9df45cf3d57d5698337a26b7b8fc55a3
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60605469"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exportieren oder Löschen von Benutzerdaten aus Custom Vision
 

@@ -8,12 +8,12 @@ ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011134"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953175"
 ---
 # <a name="how-to-annotate-data-sources"></a>Hinzufügen von Anmerkungen zu Datenquellen
 ## <a name="introduction"></a>Einführung

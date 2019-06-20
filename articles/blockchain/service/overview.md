@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
 ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544698"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Was ist der Azure Blockchain-Dienst?
@@ -51,7 +51,7 @@ Als verwalteter Dienst stellt der Azure Blockchain-Dienst sicher, dass die Knote
 
 Darüber hinaus bietet der Azure Blockchain-Dienst umfangreiche Metriken über den Azure Monitor-Dienst, die Einblicke in die CPU-, Speicher- und Speicherauslastung der Knoten sowie hilfreiche Einblicke in die Aktivitäten des Blockchainnetzwerks wie Transaktionen und abgeleitete Blöcke, Länge der Transaktionswarteschlange sowie aktive Verbindungen bieten.  Metriken können angepasst werden, um Informationen anzuzeigen, die für Ihre Blockchainanwendung wichtig sind.  Darüber hinaus können Schwellenwerte durch Warnmeldungen definiert werden, die es Benutzern ermöglichen, Aktionen auszulösen, wie z.B. das Senden einer E-Mail oder Textnachricht, das Ausführen einer Logik-App, einer Azure Function oder das Senden an einen benutzerdefinierten Webhook.
 
-![Metriken](./media/overview/metrics.png)
+![metrics](./media/overview/metrics.png)
 
 Über Azure Log Analytics können Benutzer Protokolle anzeigen, die sich auf den Quorum-Ledger beziehen, oder andere wichtige Informationen, wie z.B. versuchte Verbindungen zu den Transaktionsknoten.
 

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60525432"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Übersicht über die Geschäftskontinuität mit Azure Database for MySQL
 

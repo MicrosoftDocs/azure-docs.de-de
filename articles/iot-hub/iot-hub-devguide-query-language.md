@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
 ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61442085"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-Abfragesprache für Geräte- und Modulzwillinge, Aufträge und Nachrichtenrouting
 
@@ -330,13 +330,13 @@ Die Klausel **FROM <from_specification>** kann nur zwei Werte annehmen: **FROM-G
 
 
 ## <a name="where-clause"></a>WHERE-Klausel
-Die **WHERE <Filterbedingung>**-Klausel ist optional. Sie gibt eine oder mehrere Bedingungen an, die von den in der FROM-Sammlung enthaltenen JSON-Dokumenten erfüllt werden müssen, um als Teil des Ergebnisses zurückgegeben zu werden. Jedes JSON-Dokument muss die angegebenen Bedingungen erfüllen, um in das Ergebnis einbezogen zu werden.
+Die **WHERE <Filterbedingung>** -Klausel ist optional. Sie gibt eine oder mehrere Bedingungen an, die von den in der FROM-Sammlung enthaltenen JSON-Dokumenten erfüllt werden müssen, um als Teil des Ergebnisses zurückgegeben zu werden. Jedes JSON-Dokument muss die angegebenen Bedingungen erfüllen, um in das Ergebnis einbezogen zu werden.
 
 Die zulässigen Bedingungen werden im Abschnitt [Ausdrücke und Bedingungen](iot-hub-devguide-query-language.md#expressions-and-conditions) beschrieben.
 
 ## <a name="select-clause"></a>Die SELECT-Klausel
 
-Die **SELECT <Liste>**-Klausel ist obligatorisch und gibt an, welche Werte von der Abfrage abgerufen werden. Sie gibt die JSON-Werte an, mit denen die neuen JSON-Objekte erstellt werden sollen.
+Die **SELECT <Liste>** -Klausel ist obligatorisch und gibt an, welche Werte von der Abfrage abgerufen werden. Sie gibt die JSON-Werte an, mit denen die neuen JSON-Objekte erstellt werden sollen.
 Für jedes Element der gefilterten (und optional gruppierten) Teilmenge der FROM-Sammlung wird in der Projektionsphase ein neues JSON-Objekt generiert. Dieses Objekt wird mit den in der SELECT-Klausel angegebenen Werten erstellt.
 
 Dies ist die Grammatik der SELECT-Klausel:
@@ -366,7 +366,7 @@ SELECT [TOP <max number>] <projection list>
 Derzeit werden andere Auswahlklauseln als **SELECT*** nur in Aggregatabfragen für Gerätezwillinge unterstützt.
 
 ## <a name="group-by-clause"></a>GROUP BY-Klausel
-Die **GROUP BY <Gruppierungsspezifikation>**-Klausel ist ein optionaler Schritt, der nach dem in der WHERE-Klausel angegebenen Filter und vor der in der SELECT-Klausel angegebenen Projektion ausgeführt wird. Sie gruppiert Dokumente anhand des Werts eines Attributs. Diese Gruppen werden verwendet, um aggregierte Werte gemäß der SELECT-Klausel zu generieren.
+Die **GROUP BY <Gruppierungsspezifikation>** -Klausel ist ein optionaler Schritt, der nach dem in der WHERE-Klausel angegebenen Filter und vor der in der SELECT-Klausel angegebenen Projektion ausgeführt wird. Sie gruppiert Dokumente anhand des Werts eines Attributs. Diese Gruppen werden verwendet, um aggregierte Werte gemäß der SELECT-Klausel zu generieren.
 
 Ein Beispiel für eine Abfrage mit GROUP BY:
 

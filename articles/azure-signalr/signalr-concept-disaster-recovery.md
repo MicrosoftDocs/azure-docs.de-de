@@ -7,21 +7,21 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61402131"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienz und Notfallwiederherstellung
 
-Resilienz und Notfallwiederherstellung sind eine übliche Anforderung für Onlinesysteme. Azure SignalR Service garantiert schon heute eine Verfügbarkeit von 99,9 %, ist aber noch immer ein regionaler Dienst.
+Resilienz und Notfallwiederherstellung sind eine übliche Anforderung für Onlinesysteme. Azure SignalR Service garantiert schon heute eine Verfügbarkeit von 99,9 %, ist aber noch immer ein regionaler Dienst.
 Ihre Dienstinstanz wird immer in einer einzigen Region ausgeführt, und im Fall eines regionsweiten Ausfalls findet kein Failover zu einer anderen Region statt.
 
 Stattdessen bietet unser Dienst-SDK eine Funktion, mit der Sie mehrere SignalR Service-Instanzen unterstützen und automatisch zu anderen Instanzen wechseln können, wenn einige der Instanzen nicht verfügbar sind.
 Mit diesem Feature können Sie bei einem Notfall eine Wiederherstellung durchführen, Sie müssen jedoch selbst die richtige Systemtopologie einrichten. In diesem Dokument erfahren Sie, wie Sie dazu vorgehen.
 
-## <a name="high-available-architecture-for-signalr-service"></a>Hoch verfügbare Architektur für SignalR Service
+## <a name="high-available-architecture-for-signalr-service"></a>Hochverfügbare Architektur für SignalR Service
 
 Um regionsübergreifende Resilienz für SignalR Service zu erreichen, müssen Sie mehrere Dienstinstanzen in verschiedenen Regionen einrichten. So können beim Ausfall einer Region die anderen Regionen als Sicherung fungieren.
 Wenn Sie mehrere Dienstinstanzen mit einem App-Server verbinden, gibt es zwei Rollen: die primäre und die sekundäre Instanz.
@@ -110,12 +110,12 @@ Abb. 3: Kurz nach der Wiederherstellung der primären Instanz ![Kurz nach der Wi
 Wie Sie sehen, liegt im Normalfall nur für den primären App-Server und die primäre SignalR Service-Instanz Onlinedatenverkehr vor (blau dargestellt).
 Nach dem Failover werden auch der sekundäre App-Server und die sekundäre SignalR Service-Instanz aktiv.
 Wenn die primäre SignalR Service-Instanz wieder online ist, stellen neue Clients eine Verbindung mit der primären SignalR-Instanz her. Vorhandene Clients stellen jedoch weiterhin eine Verbindung mit der sekundären Instanz her, sodass beide Instanzen Datenverkehr verarbeiten.
-Nachdem alle vorhandenen Clients die Verbindung getrennt haben, kehrt das System zum normalen Betriebszustand zurück (Abb. 1).
+Nachdem alle vorhandenen Clients die Verbindung getrennt haben, kehrt das System zum normalen Betriebszustand zurück (Abb. 1).
 
-Für die Implementierung einer regionsübergreifenden hoch verfügbaren Architektur stehen zwei grundlegende Muster zur Verfügung:
+Für die Implementierung einer regionsübergreifenden hochverfügbaren Architektur stehen zwei grundlegende Muster zur Verfügung:
 
-1. Verwendung eines Paars von App-Server und SignalR Service-Instanz, das den gesamten Onlinedatenverkehr verarbeitet, und eines weiteren Paars als Sicherung (bezeichnet als Aktiv/Passiv-Konfiguration, siehe Abb. 1). 
-2. Verwendung von zwei (oder mehr) Paaren von App-Servern und Azure SignalR Service-Instanzen, die alle Onlinedatenverkehr verarbeiten und als Sicherung für andere Paare fungieren (bezeichnet als Aktiv/Aktiv-Konfiguration, siehe Abb. 3).
+1. Verwendung eines Paars von App-Server und SignalR Service-Instanz, das den gesamten Onlinedatenverkehr verarbeitet, und eines weiteren Paars als Sicherung (bezeichnet als Aktiv/Passiv-Konfiguration, siehe Abb. 1). 
+2. Verwendung von zwei (oder mehr) Paaren von App-Servern und Azure SignalR Service-Instanzen, die alle Onlinedatenverkehr verarbeiten und als Sicherung für andere Paare fungieren (bezeichnet als Aktiv/Aktiv-Konfiguration, siehe Abb. 3).
 
 SignalR Service kann beide Muster unterstützen. Der wesentliche Unterschied besteht in der Implementierung der App-Server.
 Wenn App-Server aktiv/passiv sind, sind auch die SignalR Service-Instanzen aktiv/passiv (weil der primäre App-Server nur seine primäre SignalR Service-Instanz zurückgibt).

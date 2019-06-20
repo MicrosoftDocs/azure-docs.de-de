@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 871d3f6c81a5ecaa1863857258ea4327db3bf10d
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991642"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808289"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösung für die Updateverwaltung in Azure
 
@@ -78,9 +78,6 @@ In der folgenden Tabelle sind die unterstützten Betriebssysteme aufgeführt:
 |Red Hat Enterprise 6 (x86/x64) und 7 (x64)     | Für Linux-Agents muss Zugriff auf ein Updaterepository bestehen.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) und 12 (x64)     | Für Linux-Agents muss Zugriff auf ein Updaterepository bestehen.        |
 |Ubuntu 14.04 LTS, 16.04 LTS und 18.04 (x86/x64)      |Für Linux-Agents muss Zugriff auf ein Updaterepository bestehen.         |
-
-> [!NOTE]
-> VM-Skalierungsgruppen von Azure können über die Updateverwaltung verwaltet werden. Die Updateverwaltung arbeitet mit den Instanzen selbst und nicht mit dem Basisimage. Sie müssen die Updates inkrementell planen, um nicht alle VM-Instanzen auf einmal zu aktualisieren.
 
 ### <a name="unsupported-client-types"></a>Nicht unterstützte Clienttypen
 
@@ -195,7 +192,7 @@ In der folgenden Tabelle sind die verbundenen Quellen beschrieben, die von der L
 
 Für jeden verwalteten Windows-Computer wird zwei Mal pro Tag ein Scanvorgang ausgeführt. Alle 15 Minuten wird die Windows-API aufgerufen, um den letzten Updatezeitpunkt abzufragen und zu ermitteln, ob sich der Status geändert hat. Wenn sich der Status geändert hat, wird eine Konformitätsprüfung eingeleitet.
 
-Für jeden verwalteten Linux-Computer wird alle drei Stunden ein Scanvorgang ausgeführt.
+Für jeden verwalteten Linux-Computer wird jede Stunde ein Scanvorgang ausgeführt.
 
 Es kann zwischen 30 Minuten und sechs Stunden dauern, bis im Dashboard aktualisierte Daten von verwalteten Computern angezeigt werden.
 
@@ -262,7 +259,7 @@ Wählen Sie **Fehlende Updates** aus, um eine Liste der Updates anzuzeigen, die 
 
 ## <a name="view-update-deployments"></a>Anzeigen von Updatebereitstellungen
 
-Wählen Sie die Registerkarte **Bereitstellung aktualisieren** aus, um die Liste mit den vorhandenen Updatebereitstellungen anzuzeigen. Wenn Sie in der Tabelle eine Updatebereitstellung auswählen, wird der Bereich **Updatebereitstellungsausführung** für diese Updatebereitstellung geöffnet.
+Wählen Sie die Registerkarte **Bereitstellung aktualisieren** aus, um die Liste mit den vorhandenen Updatebereitstellungen anzuzeigen. Wenn Sie in der Tabelle eine Updatebereitstellung auswählen, wird der Bereich **Updatebereitstellungsausführung** für diese Updatebereitstellung geöffnet. Auftragsprotokolle werden bis zu 30 Tage lang gespeichert.
 
 ![Übersicht über Ergebnisse der Updatebereitstellung](./media/automation-update-management/update-deployment-run.png)
 
@@ -306,7 +303,7 @@ Die Updateverwaltung verlässt sich zum Herunterladen und Installieren von Windo
 
 ### <a name="pre-download-updates"></a>Vorabdownload von Updates
 
-Um das automatische Herunterladen von Updates in einer Gruppenrichtlinie zu konfigurieren, können Sie die Einstellung [Automatische Updates konfigurieren](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) auf **3** festlegen. Damit werden die erforderlichen Updates im Hintergrund heruntergeladen, aber nicht installiert. Auf diese Weise behält die Updateverwaltung die Kontrolle über die Zeitpläne, während die Updates gleichzeitig außerhalb des Wartungsfensters für die Updateverwaltung heruntergeladen werden können. Dies kann Fehler durch ein **Überschreiten des Wartungsfensters** bei der Updateverwaltung verhindern.
+Um das automatische Herunterladen von Updates in einer Gruppenrichtlinie zu konfigurieren, können Sie die Einstellung [Automatische Updates konfigurieren](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) auf **3** festlegen. Damit werden die erforderlichen Updates im Hintergrund heruntergeladen, aber nicht installiert. Auf diese Weise behält die Updateverwaltung die Kontrolle über die Zeitpläne, während die Updates gleichzeitig außerhalb des Wartungsfensters für die Updateverwaltung heruntergeladen werden können. Dies kann Fehler durch ein **Überschreiten des Wartungsfensters** bei der Updateverwaltung verhindern.
 
 Sie können dies auch mit PowerShell festlegen. Führen Sie dazu den folgenden PowerShell-Befehl auf einem System aus, auf dem Sie Updates automatisch herunterladen möchten.
 
@@ -492,7 +489,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification )
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### <a name="computers-list"></a>Computerliste

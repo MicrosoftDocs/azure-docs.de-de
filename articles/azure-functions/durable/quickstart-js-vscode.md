@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281232"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921351"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Erstellen Ihrer ersten dauerhaften Funktion in JavaScript
 
@@ -117,7 +117,7 @@ Mit Azure Functions Core-Tools können Sie ein Azure Functions-Projekt auf dem l
 2. Legen Sie zum Testen der Funktion einen Breakpoint im Funktionscode fest, und drücken Sie F5, um das Funktions-App-Projekt zu starten. Die Ausgabe der Core Tools wird im Bereich **Terminal** angezeigt. Falls Sie Durable Functions zuvor noch nicht verwendet haben, wird die Durable Functions-Erweiterung installiert, und der Buildvorgang dauert ggf. einige Sekunden.
 
     > [!NOTE]
-    > Für JavaScript Durable Functions ist die Version **1.7.0** oder höher der Erweiterung **Microsoft.Azure.WebJobs.Extensions.DurableTask** erforderlich. Überprüfen Sie, ob die Version der Durable Functions-Erweiterung in Ihrer `extensions.csproj`-Datei diese Anforderung erfüllt. Wenn dies nicht der Fall ist, stoppen Sie Ihre Funktions-App, ändern Sie die Version und drücken Sie F5, um Ihre Funktions-App neu zu starten.
+    > Für JavaScript Durable Functions ist die Version **1.7.0** oder höher der Erweiterung **Microsoft.Azure.WebJobs.Extensions.DurableTask** erforderlich. Führen Sie den folgenden Befehl aus dem Stammordner Ihrer Azure Functions-App aus, um die Durable Functions-Erweiterung `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0` zu installieren.
 
 3. Kopieren Sie im Bereich **Terminal** den URL-Endpunkt Ihrer über HTTP ausgelösten Funktion.
 

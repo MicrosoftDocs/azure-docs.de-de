@@ -3,8 +3,8 @@ title: Grundlegendes zum OpenID Connect-Authentifizierungscodefluss in Azure AD 
 description: In diesem Artikel wird beschrieben, wie Sie HTTP-Nachrichten zum Autorisieren des Zugriffs auf Webanwendungen und Web-APIs in Ihrem Mandanten mithilfe von Azure Active Directory und OpenID Connect verwenden.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/4/2019
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9df592272b97bded9eba64249aa7608c72f8abdf
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261988"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121542"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorisieren des Zugriffs auf Webanwendungen mit OpenID Connect und Azure Active Directory
 
@@ -107,7 +107,7 @@ An dieser Stelle wird der Benutzer aufgefordert, seine Anmeldeinformationen einz
 
 ### <a name="sample-response"></a>Beispiel für eine Antwort
 
-Eine Antwort nach der Benutzerauthentifizierung sieht beispielsweise wie folgt aus:
+Eine Antwort, die nach der Benutzerauthentifizierung an den in der Anmeldeanforderung angegebenen `redirect_uri` gesendet wird, könnte beispielsweise wie folgt aussehen:
 
 ```
 POST / HTTP/1.1
@@ -216,7 +216,7 @@ Durch das Einschließen von Berechtigungsbereichen in die Anforderung und die Ve
 
 ### <a name="successful-response"></a>Erfolgreiche Antwort
 
-Eine erfolgreiche Antwort mit `response_mode=form_post` sieht wie folgt aus:
+Eine erfolgreiche Antwort, die mit `response_mode=form_post` an den `redirect_uri` gesendet wird, sieht wie folgt aus:
 
 ```
 POST /myapp/ HTTP/1.1

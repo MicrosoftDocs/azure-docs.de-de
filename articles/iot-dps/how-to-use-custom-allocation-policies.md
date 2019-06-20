@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: f0eb2f7358e8fb1564275e1de510f302d2eef90b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500939"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916990"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Verwenden benutzerdefinierter Zuweisungsrichtlinien
 
@@ -34,7 +34,7 @@ Die Geräte werden basierend auf einem dieser erforderlichen Suffixe der Registr
 
 In diesem Artikel führen Sie die folgenden Schritte aus:
 
-* Verwenden der Azure CLI zum Erstellen der beiden IoT-Hubs für die Contoso-Abteilungen (**Contoso-Abteilung „Toaster“** und **Contoso-Abteilung „Wärmepumpen“**)
+* Verwenden der Azure CLI zum Erstellen der beiden IoT-Hubs für die Contoso-Abteilungen (**Contoso-Abteilung „Toaster“** und **Contoso-Abteilung „Wärmepumpen“** )
 * Erstellen einer neuen Gruppenregistrierung mithilfe einer Azure-Funktion für die benutzerdefinierte Zuweisungsrichtlinie
 * Erstellen von Geräteschlüsseln für die beiden Gerätesimulationen
 * Einrichten der Entwicklungsumgebung für das Azure IoT C SDK
@@ -46,7 +46,7 @@ In diesem Artikel führen Sie die folgenden Schritte aus:
 ## <a name="prerequisites"></a>Voraussetzungen
 
 * Vollständige Bearbeitung der Schnellstartanleitung [Einrichten des IoT Hub Device Provisioning Service über das Azure-Portal](./quick-setup-auto-provision.md).
-* Visual Studio 2015 oder [Visual Studio 2017](https://www.visualstudio.com/vs/) mit der aktivierten Workload ["Desktopentwicklung mit C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/).
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 oder höher mit aktivierter Workload [Desktopentwicklung mit C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/).
 * Die neueste Version von [Git](https://git-scm.com/download/) ist installiert.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -63,7 +63,7 @@ In diesem Abschnitt verwenden Sie Azure Cloud Shell zum Erstellen von zwei neuen
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Erstellen Sie in Azure Cloud Shell mit dem Befehl [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) den IoT-Hub für die **Contoso-Abteilung „Toaster“**. Der IoT-Hub wird zu *contoso-us-resource-group* hinzugefügt.
+2. Erstellen Sie in Azure Cloud Shell mit dem Befehl [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) den IoT-Hub für die **Contoso-Abteilung „Toaster“** . Der IoT-Hub wird zu *contoso-us-resource-group* hinzugefügt.
 
     Im folgenden Beispiel wird in der Region *eastus* ein IoT-Hub mit dem Namen *contoso-toasters-hub-1098* erstellt. Sie müssen einen eigenen eindeutigen Hubnamen verwenden. Verwenden Sie im Hubnamen ein eigenes Suffix anstelle von **1098**. Im Beispielcode für die benutzerdefinierte Zuweisungsrichtlinie muss der Hubname `-toasters-` enthalten.
 
@@ -73,7 +73,7 @@ In diesem Abschnitt verwenden Sie Azure Cloud Shell zum Erstellen von zwei neuen
     
     Die Ausführung dieses Befehls kann einige Minuten in Anspruch nehmen.
 
-3. Erstellen Sie in Azure Cloud Shell mit dem Befehl [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) den IoT-Hub für die **Contoso-Abteilung „Wärmepumpen“**. Dieser IoT-Hub wird ebenfalls zu *contoso-us-resource-group* hinzugefügt.
+3. Erstellen Sie in Azure Cloud Shell mit dem Befehl [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) den IoT-Hub für die **Contoso-Abteilung „Wärmepumpen“** . Dieser IoT-Hub wird ebenfalls zu *contoso-us-resource-group* hinzugefügt.
 
     Im folgenden Beispiel wird am Standort *eastus* ein IoT-Hub mit dem Namen *contoso-heatpumps-hub-1098* erstellt. Sie müssen einen eigenen eindeutigen Hubnamen verwenden. Verwenden Sie im Hubnamen ein eigenes Suffix anstelle von **1098**. Im Beispielcode für die benutzerdefinierte Zuweisungsrichtlinie muss der Hubname `-heatpumps-` enthalten.
 
@@ -102,7 +102,7 @@ In diesem Abschnitt erstellen Sie eine neue Registrierungsgruppe, von der die be
 
     **Schlüssel automatisch generieren**: Dieses Kontrollkästchen sollte bereits aktiviert sein.
 
-    **Wählen Sie, wie Geräte den Hubs zugewiesen werden sollen**: Wählen Sie **Benutzerdefiniert (Azure-Funktion verwenden)**.
+    **Wählen Sie, wie Geräte den Hubs zugewiesen werden sollen**: Wählen Sie **Benutzerdefiniert (Azure-Funktion verwenden)** .
 
     ![Hinzufügen einer benutzerdefinierten Zuweisungsregistrierungsgruppe für den Nachweis des symmetrischen Schlüssels](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -404,7 +404,7 @@ In diesem Abschnitt aktualisieren Sie ein Bereitstellungsbeispiel mit dem Namen 
 
 Dieser Beispielcode simuliert eine Gerätestartsequenz, von der die Bereitstellungsanforderung an die Instanz des Device Provisioning Service gesendet wird. Die Startsequenz bewirkt, dass der Toaster erkannt und mithilfe der benutzerdefinierten Zuweisungsrichtlinie dem IoT-Hub zugewiesen wird.
 
-1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning Service, und notieren Sie sich den Wert unter **_ID-Bereich_**.
+1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning Service, und notieren Sie sich den Wert unter **_ID-Bereich_** .
 
     ![Extrahieren von Informationen zum Device Provisioning Service-Endpunkt aus dem Portalblatt](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

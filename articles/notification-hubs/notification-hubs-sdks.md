@@ -13,11 +13,11 @@ ms.topic: article
 ms.author: jowargo
 ms.date: 02/14/2019
 ms.openlocfilehash: 9ed69ac3526098cd5426c966952de97c948322b5
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402387"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60559941"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Azure Notification Hubs SDKs
 

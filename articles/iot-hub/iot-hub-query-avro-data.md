@@ -5,29 +5,29 @@ author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 84e1dd77c6e873dc2facb5126bbddf795192b60d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993483"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257745"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Abfragen von Avro-Daten mit Azure Data Lake Analytics
 
-In diesem Artikel geht es um die Abfrage von Avro-Daten für ein effizientes Routing von Nachrichten von Azure IoT Hub zu Azure-Diensten. Mithilfe von [Nachrichtenrouting](iot-hub-devguide-messages-d2c.md) können Sie Daten mit umfangreichen Abfragen filtern, die auf Nachrichteneigenschaften, Nachrichtentext, Gerätezwillingstags und Gerätezwillingseigenschaften basieren. Weitere Informationen zu den Abfragemöglichkeiten beim Nachrichtenrouting finden Sie im Artikel über die Abfragesyntax des Nachrichtenroutings. 
-<!--[Message Routing Query Syntax](iot-hub-devguide-routing-query-syntax.md). I don't have this article yet. -->
+In diesem Artikel geht es um die Abfrage von Avro-Daten für ein effizientes Routing von Nachrichten von Azure IoT Hub zu Azure-Diensten. Mithilfe von [Nachrichtenrouting](iot-hub-devguide-messages-d2c.md) können Sie Daten mit umfangreichen Abfragen filtern, die auf Nachrichteneigenschaften, Nachrichtentext, Gerätezwillingstags und Gerätezwillingseigenschaften basieren. Weitere Informationen zu den Abfragemöglichkeiten beim Nachrichtenrouting finden Sie im Artikel über die [Abfragesyntax des Nachrichtenroutings](iot-hub-devguide-routing-query-syntax.md).
 
-Die Herausforderung bestand darin, dass wenn Azure IoT Hub Nachrichten an Azure-Blobspeicher weiterleitet, IoT Hub den Inhalt im Avro-Format schreibt, das sowohl eine Nachrichtentext- als auch Nachrichteneigenschaft aufweist. IoT Hub unterstützt das Schreiben von Daten in Blobspeicher nur im Avro-Datenformat, und dieses Format wird für keine anderen Endpunkte verwendet. Weitere Informationen finden Sie im Artikel über das Verwenden von Azure Storage-Containern. Obwohl das Avro-Format hervorragend für die Beibehaltung von Daten und Nachrichten geeignet ist, ist es schwierig für Abfragedaten zu verwenden. Im Vergleich dazu lassen sich Daten im JSON- oder CSV-Format wesentlich einfacher abfragen.
+Die Herausforderung: Wenn Azure IoT Hub Nachrichten an Azure Blob Storage weiterleitet, schreibt IoT Hub den Inhalt standardmäßig im Avro-Format, das sowohl eine Nachrichtentext- als auch eine Nachrichteneigenschaft aufweist. Das Avro-Format wird für keinen anderen Endpunkt verwendet. Obwohl das Avro-Format hervorragend für die Beibehaltung von Daten und Nachrichten geeignet ist, ist es schwierig für Abfragedaten zu verwenden. Im Vergleich dazu lassen sich Daten im JSON- oder CSV-Format wesentlich einfacher abfragen. IoT Hub unterstützt jetzt das Schreiben von Daten in Blobspeicher sowohl im JSON- als auch im Avro-Format.
 
-<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+Weitere Informationen finden Sie unter [Verwenden von Azure Blob Storage als Routingendpunkt](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
-Um nicht relationale Big Data-Anforderungen und Formate zu unterstützen und dies in den Griff zu bekommen, können Sie viele der Big Data-Muster sowohl für die Transformation als auch für die Skalierung von Daten verwenden. Eines der Muster, „Zahlung pro Abfrage“, ist Azure Data Lake Analytics, der Themenschwerpunkt dieses Artikels. Obwohl Sie die Abfrage einfach in Hadoop oder anderen Lösungen ausführen können, ist Data Lake Analytics meist besser für diesen „Zahlung pro Abfrage“-Ansatz geeignet. 
+Um nicht relationale Big Data-Anforderungen und Formate zu unterstützen und dies in den Griff zu bekommen, können Sie viele der Big Data-Muster sowohl für die Transformation als auch für die Skalierung von Daten verwenden. Eines der Muster, „Zahlung pro Abfrage“, ist Azure Data Lake Analytics, der Themenschwerpunkt dieses Artikels. Obwohl Sie die Abfrage einfach in Hadoop oder anderen Lösungen ausführen können, ist Data Lake Analytics meist besser für diesen „Zahlung pro Abfrage“-Ansatz geeignet.
 
 In U-SQL gibt es einen „Extraktor“ für Avro. Weitere Informationen finden Sie im [Beispiel zu U-SQL Avro](https://github.com/Azure/usql/tree/master/Examples/AvroExamples).
 
 ## <a name="query-and-export-avro-data-to-a-csv-file"></a>Abfragen und Exportieren von Avro-Daten in eine CSV-Datei
+
 In diesem Abschnitt fragen Sie Avro-Daten ab und exportieren Sie in eine CSV-Datei in Azure Blob Storage, wenngleich Sie die Daten problemlos in anderen Repositorys oder Datenspeichern ablegen können.
 
 1. Richten Sie Azure IoT Hub für das Weiterleiten von Daten an einen Azure Blob Storage-Endpunkt ein, indem Sie eine Eigenschaft im Nachrichtentext verwenden, um Nachrichten auszuwählen.
@@ -49,21 +49,21 @@ In diesem Abschnitt fragen Sie Avro-Daten ab und exportieren Sie in eine CSV-Dat
 4. Konfigurieren Sie in Data Lake Analytics Azure Blob Storage als zusätzlichen Speicher, d.h. den Blobspeicher, an den Azure IoT Hub Daten weiterleitet.
 
    ![Der Bereich „Datenquellen“](./media/iot-hub-query-avro-data/query-avro-data-4.png)
- 
+
 5. Wie im [Beispiel zu U-SQL Avro](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) erörtert, benötigen Sie vier DLL-Dateien. Laden Sie diese Dateien an einen Speicherort in Ihrer Data Lake Store-Instanz hoch.
 
    ![Vier hochgeladene DLL-Dateien](./media/iot-hub-query-avro-data/query-avro-data-5.png)
 
 6. Erstellen Sie in Visual Studio ein U-SQL-Projekt.
- 
+
    Erstellen eines U-SQL-Projekts (./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. Fügen Sie den Inhalt des folgenden Skripts in die neu erstellte Datei ein. Ändern Sie die drei hervorgehobenen Abschnitte: Ihr Data Lake Analytics-Konto, die zugehörigen DLL-Dateipfade und den richtigen Pfad Ihres Speicherkontos.
-    
+
    ![Die drei zu ändernden Abschnitte](./media/iot-hub-query-avro-data/query-avro-data-7a.png)
 
    Das tatsächliche U-SQL-Skript für eine einfache Ausgabe in eine CSV-Datei:
-    
+
     ```sql
         DROP ASSEMBLY IF EXISTS [Avro];
         CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
@@ -127,21 +127,21 @@ In diesem Abschnitt fragen Sie Avro-Daten ab und exportieren Sie in eine CSV-Dat
         FROM @rs;
 
         OUTPUT @cnt TO @output_file USING Outputters.Text(); 
-    ```    
+    ```
 
     Data Lake Analytics benötigte fünf Minuten zur Ausführung des folgenden Skripts, das auf 10 analytische Einheiten und 177 verarbeitete Dateien beschränkt war. Das Ergebnis wird in der CSV-Dateiausgabe in der folgenden Abbildung angezeigt:
-    
+
     ![Ergebnisse der Ausgabe in die CSV-Datei](./media/iot-hub-query-avro-data/query-avro-data-7b.png)
 
     ![In CSV-Datei konvertierte Ausgabe](./media/iot-hub-query-avro-data/query-avro-data-7c.png)
 
     Fahren Sie mit Schritt 8 fort, wenn Sie den JSON-Code analysieren möchten.
-    
+
 8. Die meisten IoT-Nachrichten haben das JSON-Dateiformat. Durch Hinzufügen der folgenden Zeilen können Sie die Nachricht in eine JSON-Datei analysieren, sodass Sie die WHERE-Klauseln hinzufügen und nur die benötigten Daten ausgeben können.
 
     ```sql
-       @jsonify = 
-         SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body)) 
+       @jsonify =
+         SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body))
            AS message FROM @rs;
     
         /*
@@ -163,8 +163,8 @@ In diesem Abschnitt fragen Sie Avro-Daten ab und exportieren Sie in eine CSV-Dat
         OUTPUT @cnt TO @output_file USING Outputters.Text();
     ```
 
-    In der Ausgabe wird für jedes Element im `SELECT`-Befehl eine Spalte angezeigt. 
-    
+    In der Ausgabe wird für jedes Element im `SELECT`-Befehl eine Spalte angezeigt.
+
     ![Ausgabe mit einer Spalte für jedes Element](./media/iot-hub-query-avro-data/query-avro-data-8.png)
 
 ## <a name="next-steps"></a>Nächste Schritte

@@ -2,20 +2,20 @@
 title: ClaimsSchema – Azure Active Directory B2C | Microsoft-Dokumentation
 description: In diesem Artikel erfahren Sie, wie Sie das ClaimsSchema-Element einer benutzerdefinierten Richtlinie in Azure Active Directory B2C angeben.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721747"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511847"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -107,7 +107,7 @@ Das **Mask**-Element enthält die folgenden Attribute:
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Der Typ der Anspruchsmaske. Mögliche Werte: `Simple` oder `Regex`. Der Wert `Simple` gibt an, dass auf den vorderen Teil eines Zeichenfolgenanspruchs eine einfache Textmaske angewandt wird. Der Wert `Regex` gibt an, dass ein regulärer Ausdruck auf den Zeichenfolgenausdruck als Ganzes angewandt wird.  Wenn der Wert `Regex` angegeben wird, muss mit dem zu verwendenden regulären Ausdruck auch ein optionales Attribut definiert werden. |
-| `Regex` | Nein  | Wenn **`Type`** auf `Regex` festgelegt wird, geben Sie den zu verwendenden regulären Ausdruck an.
+| `Regex` | Nein | Wenn **`Type`** auf `Regex` festgelegt wird, geben Sie den zu verwendenden regulären Ausdruck an.
 
 Im folgenden Beispiel wird ein **PhoneNumber**-Anspruch mit der Maske `Simple` konfiguriert:
 
@@ -146,7 +146,7 @@ Das **Restriction**-Element enthält möglicherweise das folgende Attribut:
 
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
-| MergeBehavior | Nein  | Die Methode, die zum Zusammenführen von Enumerationswerten mit einem Anspruchstyp in einer übergeordneten Richtlinie mit dem gleichen Bezeichner verwendet wird. Verwenden Sie dieses Attribut, wenn Sie einen Anspruch überschreiben, der in der Basisrichtlinie angegeben ist. Mögliche Werte: `Append`, `Prepend` oder `ReplaceAll`. Beim Wert `Append` handelt es sich um eine Sammlung von Daten, die an das Ende der in der übergeordneten Richtlinie angegebenen Sammlung angefügt werden soll. Beim Wert `Prepend` handelt es sich um eine Sammlung von Daten, die vor der in der übergeordneten Richtlinie angegebenen Sammlung hinzugefügt werden soll. Beim Wert `ReplaceAll` handelt es sich um eine Sammlung von in der übergeordneten Richtlinie angegebenen Daten, die ignoriert werden sollen. |
+| MergeBehavior | Nein | Die Methode, die zum Zusammenführen von Enumerationswerten mit einem Anspruchstyp in einer übergeordneten Richtlinie mit dem gleichen Bezeichner verwendet wird. Verwenden Sie dieses Attribut, wenn Sie einen Anspruch überschreiben, der in der Basisrichtlinie angegeben ist. Mögliche Werte: `Append`, `Prepend` oder `ReplaceAll`. Beim Wert `Append` handelt es sich um eine Sammlung von Daten, die an das Ende der in der übergeordneten Richtlinie angegebenen Sammlung angefügt werden soll. Beim Wert `Prepend` handelt es sich um eine Sammlung von Daten, die vor der in der übergeordneten Richtlinie angegebenen Sammlung hinzugefügt werden soll. Beim Wert `ReplaceAll` handelt es sich um eine Sammlung von in der übergeordneten Richtlinie angegebenen Daten, die ignoriert werden sollen. |
 
 Das **Restriction**-Element enthält die folgenden Elemente:
 
@@ -163,7 +163,7 @@ Das **Enumeration**-Element enthält die folgenden Attribute:
 | --------- | -------- | ----------- |
 | Text | Ja | Die Anzeigezeichenfolge, die dem Benutzer auf der Benutzeroberfläche für diese Option angezeigt wird. |
 |Wert | Ja | Der Wert des Anspruchs, der der Auswahl dieser Option zugeordnet ist. |
-| SelectByDefault | Nein  | Gibt an, ob diese Option auf der Benutzeroberfläche standardmäßig ausgewählt werden soll. Mögliche Werte: „True“ oder „False“. |
+| SelectByDefault | Nein | Gibt an, ob diese Option auf der Benutzeroberfläche standardmäßig ausgewählt werden soll. Mögliche Werte: „True“ oder „False“. |
 
 Im folgenden Beispiel wird ein **city**-Dropdownlistenanspruch mit dem Standardwert `New York` konfiguriert:
 
@@ -191,7 +191,7 @@ Das **Pattern**-Element kann die folgenden Attribute enthalten:
 | Attribut | Erforderlich | BESCHREIBUNG |
 | --------- | -------- | ----------- |
 | RegularExpression | Ja | Der reguläre Ausdruck, mit dem Ansprüche dieses Typs übereinstimmen müssen, damit sie gültig sind. |
-| HelpText | Nein  | Das Muster oder der reguläre Ausdruck für diesen Anspruch. |
+| HelpText | Nein | Das Muster oder der reguläre Ausdruck für diesen Anspruch. |
 
 Im folgenden Beispiel wird ein **email**-Anspruch mit Eingabeüberprüfung mit regulärem Ausdruck und Hilfetext konfiguriert:
 

@@ -1,25 +1,19 @@
 ---
-title: Bestimmung Ihrer Veröffentlichungsoption in Azure Marketplace | Microsoft-Dokumentation
+title: Bestimmung Ihrer Veröffentlichungsoption in Azure Marketplace | Azure Marketplace
 description: Dieser Artikel beschreibt die Eignungskriterien und Veröffentlichungsbedingungen für Partner, die sich über die Veröffentlichung von Apps im Azure Marketplace informieren möchten.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: qianw211
-ms.openlocfilehash: 9dd5b3232184170a59b82d5cafdc1a4cdcb4c172
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e7867d5ea95cd3142a6f617a5554858b7a72cbc9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727994"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937664"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Leitfaden zur Veröffentlichung nach Angebotstyp
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166210"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Schnelle Überwachung der Integrität von Azure IoT Hub und Diagnose von Problemen
@@ -379,8 +379,8 @@ Im `properties` Abschnitt enthält dieses Protokoll zusätzliche Informationen z
 
 | Eigenschaft | Typ | BESCHREIBUNG |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Zeichenfolge | Entweder „true“ oder „false“; gibt an, ob Nachrichtenweiterleitung in IoT Hub aktiviert ist |
-| **parentSpanId** | Zeichenfolge | Das [span-id](https://w3c.github.io/trace-context/#parent-id)-Element der übergeordneten Nachricht, in diesem Fall die D2C-Nachrichtenablaufverfolgung |
+| **isRoutingEnabled** | string | Entweder „true“ oder „false“; gibt an, ob Nachrichtenweiterleitung in IoT Hub aktiviert ist |
+| **parentSpanId** | string | Das [span-id](https://w3c.github.io/trace-context/#parent-id)-Element der übergeordneten Nachricht, in diesem Fall die D2C-Nachrichtenablaufverfolgung |
 
 ##### <a name="iot-hub-egress-logs"></a>Ausgehende IoT Hub-Protokolle
 
@@ -411,9 +411,9 @@ Im `properties` Abschnitt enthält dieses Protokoll zusätzliche Informationen z
 
 | Eigenschaft | Typ | BESCHREIBUNG |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Zeichenfolge | Der Name des Routingendpunkts |
-| **endpointType** | Zeichenfolge | Der Typ des Routingendpunkts |
-| **parentSpanId** | Zeichenfolge | Das [span-id](https://w3c.github.io/trace-context/#parent-id)-Element der übergeordneten Nachricht, in diesem Fall die Ablaufverfolgung des IoT Hub-Nachrichteneingangs |
+| **endpointName** | string | Der Name des Routingendpunkts |
+| **endpointType** | string | Der Typ des Routingendpunkts |
+| **parentSpanId** | string | Das [span-id](https://w3c.github.io/trace-context/#parent-id)-Element der übergeordneten Nachricht, in diesem Fall die Ablaufverfolgung des IoT Hub-Nachrichteneingangs |
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lesen von Protokollen aus Azure Event Hubs
 

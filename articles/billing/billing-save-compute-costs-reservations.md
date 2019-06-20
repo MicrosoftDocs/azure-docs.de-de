@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: b20983c45cd62b9812cdb52de32a6e29da459efe
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149196"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370797"
 ---
 # <a name="what-are-azure-reservations"></a>Was sind Azure-Reservierungen?
 
@@ -46,7 +46,7 @@ Der Rabatt auf Reservierungen gilt nur für Ressourcen, denen einer der Abonneme
 
 Ein Reservierungsumfang bestimmt die Ressourcen, für die der Reservierungsrabatt gilt. Ein Reservierungsumfang kann folgende Werte aufweisen:
 
-**Bereich „Freigegeben“**: Der Reservierungsrabatt wird auf die entsprechenden Ressourcen in berechtigten Abonnements innerhalb des Abrechnungskontexts angewendet.
+**Bereich „Freigegeben“** : Der Reservierungsrabatt wird auf die entsprechenden Ressourcen in berechtigten Abonnements innerhalb des Abrechnungskontexts angewendet.
 
 - Für Kunden mit einem Enterprise Agreement ist der Abrechnungskontext die Registrierung.
  Für Kunden mit nutzungsbasierter Bezahlung handelt es sich beim Abrechnungsbereich um alle berechtigten Abonnements, die vom Kontoadministrator erstellt wurden.
@@ -75,7 +75,7 @@ Der Reservierungsrabatt gilt für die Ressourcennutzung, die den Attributen ents
 
 Reservierungsrabatte funktionieren nach dem Prinzip „*use-it-or-lose-it*“. Wenn Sie für eine Stunde nicht über die entsprechenden Ressourcen verfügen, verlieren Sie folglich eine Reservierungsmenge für diese Stunde. Ungenutzte reservierte Stunden können nicht übertragen werden.
 
-Wenn Sie eine Ressource beenden, wird der Reservierungsrabatt automatisch auf eine andere entsprechende Ressource im angegebenen Reservierungsumfang angewendet. Wenn keine übereinstimmenden Ressourcen im angegebenen Reservierungsumfang gefunden werden, gehen die reservierten Stunden *verloren*.
+Wenn Sie eine Ressource beenden, wird der Reservierungsrabatt automatisch auf eine andere entsprechende Ressource im angegebenen Reservierungsumfang angewandt. Wenn keine übereinstimmenden Ressourcen im angegebenen Reservierungsumfang gefunden werden, gehen die reservierten Stunden *verloren*.
 
 Beispielsweise können Sie später eine Ressource erstellen und über eine entsprechende Reservierung verfügen, die nicht ausgelastet ist. In diesem Beispiel gilt der Reservierungsrabatt automatisch für die neue übereinstimmende Ressource.
 

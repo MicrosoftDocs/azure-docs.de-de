@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/20/2017
+ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 68190ad15ed70ac831c21582d60bc54da5d3c14b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bd86b230d801f5fff8a9fb0de85f9f3025527382
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043922"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953457"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Einführung in Azure Cosmos DB: Tabelle-API
 
@@ -25,6 +25,9 @@ Mit [Azure Cosmos DB](introduction.md) wird die Tabellen-API für Anwendungen be
 * [Automatische sekundäre Indizierung](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 Anwendungen, die für Azure Table Storage geschrieben sind, können mit der Table-API ohne Codeänderungen zu Azure Cosmos DB migriert werden und Premium-Funktionen nutzen. Die Tabellen-API verfügt über Client-SDKs, die für .NET, Java, Python und Node.js verfügbar sind.
+
+> [!IMPORTANT]
+> Das .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) befindet sich im Wartungsmodus und wird demnächst eingestellt. Aktualisieren Sie auf die neue .NET Standard-Bibliothek [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), um weiterhin die neuesten Features zu erhalten, die von der Tabellen-API unterstützt werden.
 
 ## <a name="table-offerings"></a>Tabellenangebote
 Wenn Sie derzeit Azure Table Storage verwenden, bietet Ihnen der Wechsel zur Azure Cosmos DB-Tabellen-API folgende Vorteile:

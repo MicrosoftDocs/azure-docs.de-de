@@ -9,11 +9,11 @@ ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62119893"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Überwachen von Runbooks mit Metrikwarnungen
 

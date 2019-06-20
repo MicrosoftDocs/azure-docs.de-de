@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670879"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60556371"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Ermöglicht es, Dienste, Diensttypen und Dienstpakete zu erstellen, zu löschen und zu verwalten.
@@ -34,7 +34,7 @@ Ermöglicht es, Dienste, Diensttypen und Dienstpakete zu erstellen, zu löschen 
 | delete | Löscht einen vorhandene Service Fabric-Dienst. |
 | deployed-type | Ruft die Informationen zu einem angegebenen Diensttyp der Anwendung ab, die auf einem Knoten in einem Service Fabric-Cluster bereitgestellt wird. |
 | deployed-type-list | Ruft die Liste ab, die die Informationen zu den Diensttypen der Anwendungen enthält, die auf einem Knoten in einem Service Fabric-Cluster bereitgestellt werden. |
-| Beschreibung | Ruft die Beschreibung eines vorhandenen Service Fabric-Diensts ab. |
+| description | Ruft die Beschreibung eines vorhandenen Service Fabric-Diensts ab. |
 | get-container-logs | Ruft die Containerprotokolle für Container ab, die auf einem Service Fabric-Knoten bereitgestellt wurden. |
 | health | Ruft die Integrität des angegebenen Service Fabric-Diensts ab. |
 | info | Ruft die Informationen zu dem speziellen Dienst ab, der zur Service Fabric-Anwendung gehört. |

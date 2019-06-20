@@ -1,23 +1,18 @@
 ---
 title: Bereitstellen von Ressourcen mit REST-API und Vorlagen | Microsoft Docs
 description: Verwenden Sie Azure Resource Manager und Resource Manager-REST-API, um Ressourcen in Azure bereitzustellen. Die Ressourcen werden in einer Resource Manager-Vorlage definiert.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15e4a7058dc1e74c726644e86c58381003eee937
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 0490cf6837cb413bc2e869424cd430fd4a824dc9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66688870"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Bereitstellen von Ressourcen mit Resource Manager-Vorlagen und Resource Manager-REST-API
 
@@ -27,11 +22,25 @@ Sie können entweder Ihre Vorlage in den Anforderungstext einschließen oder ein
 
 ## <a name="deployment-scope"></a>Bereitstellungsumfang
 
-Sie können Ihre Bereitstellung entweder auf ein Azure-Abonnement oder eine Ressourcengruppe innerhalb eines Abonnements ausrichten. In den meisten Fällen wählen Sie die Bereitstellung in einer Ressourcengruppe aus. Verwenden Sie Abonnementbereitstellungen, um Richtlinien und Rollenzuweisungen im gesamten Abonnement anzuwenden. Sie verwenden Abonnementbereitstellungen auch, um eine Ressourcengruppe zu erstellen und Ressourcen für sie bereitzustellen. Abhängig vom Umfang der Bereitstellung verwenden Sie unterschiedliche Befehle.
+Sie können als Ziel für Ihre Bereitstellung eine Verwaltungsgruppe, ein Azure-Abonnement oder eine Ressourcengruppe auswählen. In den meisten Fällen wählen Sie eine Ressourcengruppe als Ziel für Bereitstellungen aus. Verwenden Sie Verwaltungsgruppen- oder Abonnementbereitstellungen, um Richtlinien und Rollenzuweisungen im angegebenen Bereich anzuwenden. Sie verwenden Abonnementbereitstellungen auch, um eine Ressourcengruppe zu erstellen und Ressourcen für sie bereitzustellen. Abhängig vom Umfang der Bereitstellung verwenden Sie unterschiedliche Befehle.
 
-Für die Bereitstellung in einer **Ressourcengruppe** verwenden Sie [Bereitstellungen – Erstellen](/rest/api/resources/deployments/createorupdate).
+Für die Bereitstellung in einer **Ressourcengruppe** verwenden Sie [Bereitstellungen – Erstellen](/rest/api/resources/deployments/createorupdate). Die Anforderung wird gesendet an:
 
-Für die Bereitstellung in einem **Abonnement** verwenden Sie [Bereitstellungen – Erstellen im Abonnementbereich](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+Für die Bereitstellung in einem **Abonnement** verwenden Sie [Bereitstellungen – Erstellen im Abonnementbereich](/rest/api/resources/deployments/createorupdateatsubscriptionscope). Die Anforderung wird gesendet an:
+
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+Für die Bereitstellung in einer **Verwaltungsgruppe** verwenden Sie [Bereitstellungen – Erstellen im Verwaltungsgruppenbereich](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). Die Anforderung wird gesendet an:
+
+```HTTP
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
 
 Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Weitere Informationen zu Abonnementbereitstellungen finden Sie unter [Erstellen von Ressourcengruppen und Ressourcen auf Abonnementebene](deploy-to-subscription.md).
 
@@ -42,7 +51,7 @@ Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Wei
 1. Erstellen Sie eine Ressourcengruppe, wenn noch keine vorhanden ist. Geben Sie Ihre Abonnement-ID, den Namen der neuen Ressourcengruppe und den Speicherort für Ihre Lösung an. Weitere Informationen finden Sie unter [Erstellen einer Ressourcengruppe](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
    ```
 
    Mit dem Anforderungstext ähnlich dem folgenden:
@@ -58,13 +67,13 @@ Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Wei
 
 1. Überprüfen Sie die Bereitstellung vor der Implementierung, indem Sie den Vorgang zum [Überprüfen einer Vorlagenbereitstellung](/rest/api/resources/deployments/validate) ausführen. Geben Sie die Parameter beim Testen der Bereitstellung genauso an wie beim Ausführen der Bereitstellung (wie im nächsten Schritt zu sehen).
 
-1. Erstellen Sie eine Bereitstellung. Geben Sie Ihre Abonnement-ID, den Namen der Ressourcengruppe und der Bereitstellung sowie einen Link zu Ihrer Vorlage an. Informationen über die Vorlagendatei finden Sie unter [Parameterdatei](#parameter-file). Weitere Informationen über die REST-API zum Erstellen einer Ressourcengruppe finden Sie unter [Erstellen einer Vorlagenbereitstellung](/rest/api/resources/deployments/createorupdate). Beachten Sie, dass **mode** auf **Incremental** festgelegt ist. Legen Sie zum Ausführen einer vollständigen Bereitstellung **mode** auf **Complete** fest. Gehen Sie bei Verwendung des Modus „Complete“ sehr umsichtig vor, da Sie versehentlich Ressourcen löschen können, die nicht in Ihrer Vorlage enthalten sind.
+1. Geben Sie zum Bereitstellen einer Vorlage Ihre Abonnement-ID, den Namen der Ressourcengruppe und den Namen der Bereitstellung im Anforderungs-URI an. 
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   Mit dem Anforderungstext ähnlich dem folgenden:
+   Geben Sie im Anforderungstext einen Link zu Ihrer Vorlage und Parameterdatei an. Beachten Sie, dass **mode** auf **Incremental** festgelegt ist. Legen Sie zum Ausführen einer vollständigen Bereitstellung **mode** auf **Complete** fest. Gehen Sie bei Verwendung des Modus „Complete“ sehr umsichtig vor, da Sie versehentlich Ressourcen löschen können, die nicht in Ihrer Vorlage enthalten sind.
 
    ```json
    {
@@ -73,11 +82,11 @@ Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Wei
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
-      }
+      },
+      "mode": "Incremental"
     }
    }
    ```
@@ -91,11 +100,11 @@ Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Wei
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
       },
+      "mode": "Incremental",
       "debugSetting": {
         "detailLevel": "requestContent, responseContent"
       }
@@ -105,7 +114,7 @@ Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Wei
 
     Sie können das Speicherkonto so einrichten, das ein SAS-Token (Shared Access Signature) verwendet wird. Weitere Informationen finden Sie unter [Delegieren des Zugriffs mit einer SAS (Shared Access Signature)](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-1. Anstatt für die Vorlage und die Parameter eine Verknüpfung mit Dateien zu erstellen, können Sie diese auch in den Anforderungstext einschließen.
+1. Anstatt für die Vorlage und die Parameter eine Verknüpfung mit Dateien zu erstellen, können Sie diese auch in den Anforderungstext einschließen. Im folgenden Beispiel ist der Anforderungstext mit der inline angegebenen Vorlage und den Parametern dargestellt:
 
    ```json
    {
@@ -168,7 +177,7 @@ Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Wei
    }
    ```
 
-1. Rufen Sie den Status der Vorlagenbereitstellung ab. Weitere Informationen finden Sie unter [Abrufen von Informationen zu einer Vorlagenbereitstellung](/rest/api/resources/deployments/get).
+1. Rufen Sie den Status der Vorlagenbereitstellung mit [Deployments - Get](/rest/api/resources/deployments/get) ab.
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -176,11 +185,11 @@ Die Beispiele in diesem Artikel verwenden Ressourcengruppenbereitstellungen. Wei
 
 ## <a name="redeploy-when-deployment-fails"></a>Erneute Bereitstellung bei Bereitstellungsfehlern
 
-Dieses Feature ist auch bekannt als *Rollback bei Fehler*. Wenn eine Bereitstellung fehlschlägt, können Sie automatisch eine frühere, erfolgreiche Bereitstellung aus Ihrem Bereitstellungsverlauf bereitstellen. Geben Sie mit der Eigenschaft `onErrorDeployment` im Anforderungstext die erneute Bereitstellung an. Diese Funktion ist nützlich, wenn Sie einen bekannten guten Zustand für die Infrastrukturbereitstellung haben und dieser wiederhergestellt werden soll. Es gibt eine Reihe von Vorbehalten und Einschränkungen:
+Dieses Feature ist auch bekannt als *Rollback bei Fehler*. Wenn eine Bereitstellung fehlschlägt, können Sie automatisch eine frühere, erfolgreiche Bereitstellung aus Ihrem Bereitstellungsverlauf bereitstellen. Geben Sie mit der Eigenschaft `onErrorDeployment` im Anforderungstext die erneute Bereitstellung an. Diese Funktionalität ist nützlich, wenn es einen bekannten guten Zustand für die Infrastrukturbereitstellung gibt, der wiederhergestellt werden soll. Es gibt eine Reihe von Vorbehalten und Einschränkungen:
 
 - Die Bereitstellung wird genauso wie zuvor mit denselben Parametern ausgeführt. Sie können die Parameter nicht ändern.
 - Die vorherige Bereitstellung wird im [vollständigen Modus](./deployment-modes.md#complete-mode) ausgeführt. Alle in der vorherigen Bereitstellung nicht enthaltenen Ressourcen werden gelöscht, und alle Ressourcenkonfigurationen werden auf ihren vorherigen Zustand zurückgesetzt. Sorgen Sie dafür, dass Sie die [Bereitstellungsmodi](./deployment-modes.md) vollständig verstehen.
-- Die erneute Bereitstellung wirkt sich nur auf die Ressourcen aus; Datenänderungen sind davon nicht betroffen.
+- Die erneute Bereitstellung wirkt sich nur auf die Ressourcen aus. Datenänderungen sind davon nicht betroffen.
 - Dieses Feature wird nur bei Bereitstellungen von Ressourcengruppen unterstützt, nicht bei Bereitstellungen auf Abonnementebene. Weitere Informationen zu Bereitstellungen auf Abonnementebene finden Sie unter [Erstellen von Ressourcengruppen und Ressourcen auf Abonnementebene](./deploy-to-subscription.md).
 
 Zur Verwendung dieser Option müssen die Bereitstellungen eindeutige Namen aufweisen, damit sie im Verlauf identifiziert werden können. Wenn die Bereitstellungen keine eindeutigen Namen aufweisen, wird die vorherige erfolgreich ausgeführte Bereitstellung im Verlauf möglicherweise durch die aktuelle fehlerhafte Bereitstellung überschrieben. Diese Option kann nur für Bereitstellungen auf Stammebene verwendet werden. Bereitstellungen aus einer geschachtelten Vorlage können nicht erneut bereitgestellt werden.
@@ -268,6 +277,5 @@ Wenn Sie einen vertraulichen Wert für einen Parameter (z.B. ein Kennwort) angeb
 
 - Wenn Sie angeben möchten, wie Ressourcen behandelt werden sollen, die in der Ressourcengruppe enthalten sind, aber nicht in der Vorlage definiert wurden, lesen Sie die Informationen unter [Azure Resource Manager-Bereitstellungsmodi](deployment-modes.md).
 - Informationen zum Arbeiten mit asynchronen REST-Vorgängen finden Sie unter [Nachverfolgen asynchroner Vorgänge in Azure](resource-manager-async-operations.md).
-- Ein Beispiel für die Bereitstellung von Ressourcen über die .NET-Clientbibliothek finden Sie unter [Bereitstellen von Ressourcen mithilfe von .NET-Bibliotheken und einer Vorlage](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Informationen zum Definieren von Parametern in der Vorlage finden Sie unter [Erstellen von Vorlagen](resource-group-authoring-templates.md#parameters).
-- Anleitungen dazu, wie Unternehmen Abonnements mit Resource Manager effektiv verwalten können, finden Sie unter [Azure-Unternehmensgerüst - Präskriptive Abonnementgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- Weitere Informationen zu Vorlagen finden Sie unter [Verstehen der Struktur und Syntax von Azure Resource Manager-Vorlagen](resource-group-authoring-templates.md).
+

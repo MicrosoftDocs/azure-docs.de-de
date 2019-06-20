@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996746"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60756544"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Systemanforderungen für Azure Data Box Edge
 

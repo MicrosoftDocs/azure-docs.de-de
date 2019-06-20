@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161821"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306911"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Hinzufügen oder Entfernen von Zertifikaten für einen Service Fabric-Cluster in Azure
 Es wird empfohlen, dass Sie sich damit vertraut machen, wie Service Fabric X.509-Zertifikate verwendet werden, und dass Sie sich mit den [Szenarien für die Clustersicherheit](service-fabric-cluster-security.md) auskennen. Sie müssen verstehen, was ein Clusterzertifikat ist, und wofür es verwendet wird, bevor Sie den Vorgang fortsetzen.
@@ -48,7 +48,7 @@ Wenn Sie beabsichtigen, das als primär markierte Zertifikat zu entfernen, müss
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Hinzufügen eines sekundären Zertifikats per Resource Manager PowerShell
 > [!TIP]
-> Mit dem Cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) gibt es jetzt eine bessere und einfachere Methode zum Hinzufügen eines sekundären Zertifikats. Sie müssen die restlichen Schritte in diesem Abschnitt nicht ausführen.  Außerdem benötigen Sie bei Verwendung des Cmdlets [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) nicht die ursprünglich für die Erstellung und Bereitstellung des Clusters verwendete Vorlage.
+> Jetzt gibt es eine bessere und einfachere Methode zum Hinzufügen eines sekundären Zertifikats mit dem Cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate). Sie müssen die restlichen Schritte in diesem Abschnitt nicht ausführen.  Außerdem benötigen Sie bei Verwendung des Cmdlets [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) nicht die ursprünglich für die Erstellung und Bereitstellung des Clusters verwendete Vorlage.
 
 Diese Schritte setzen voraus, dass Sie mit der Funktionsweise von Resource Manager vertraut sind und mindestens einen Service Fabric-Cluster mithilfe einer Resource Manager-Vorlage bereitgestellt haben. Außerdem müssen Sie die Vorlage, die Sie zum Einrichten des Clusters verwendet haben, zur Hand haben. Außerdem wird vorausgesetzt, dass Sie mit der Anwendung von JSON vertraut sind.
 
@@ -117,7 +117,7 @@ Damit Sie alles besser verfolgen können, enthält die Beispieldatei „5-VM-1-N
          }
     ``` 
 
-4. Nehmen Sie Änderungen an **allen****Microsoft.Compute/virtualMachineScaleSets**-Ressourcendefinitionen vor. Suchen Sie nach der Ressourcendefinition „Microsoft.Compute/virtualMachineScaleSets“. Scrollen Sie zu „publisher“: „Microsoft.Azure.ServiceFabric“ unter „virtualMachineProfile“.
+4. Nehmen Sie Änderungen an **allen** **Microsoft.Compute/virtualMachineScaleSets**-Ressourcendefinitionen vor. Suchen Sie nach der Ressourcendefinition „Microsoft.Compute/virtualMachineScaleSets“. Scrollen Sie zu „publisher“: „Microsoft.Azure.ServiceFabric“ unter „virtualMachineProfile“.
 
     In den Service Fabric-Herausgebereinstellungen sollte in etwa Folgendes angezeigt werden.
     
@@ -155,7 +155,7 @@ Damit Sie alles besser verfolgen können, enthält die Beispieldatei „5-VM-1-N
     Die Eigenschaften sollten nun wie folgt aussehen:    
     ![Json_Pub_Setting3][Json_Pub_Setting3]
 
-5. Nehmen Sie Änderungen an **allen****Microsoft.Compute/virtualMachineScaleSets**-Ressourcendefinitionen vor. Suchen Sie nach der Ressourcendefinition „Microsoft.Compute/virtualMachineScaleSets“. Scrollen Sie unter „OSProfile“ zu „vaultCertificates“. Dies sollte in etwa wie folgt aussehen:
+5. Nehmen Sie Änderungen an **allen** **Microsoft.Compute/virtualMachineScaleSets**-Ressourcendefinitionen vor. Suchen Sie nach der Ressourcendefinition „Microsoft.Compute/virtualMachineScaleSets“. Scrollen Sie unter „OSProfile“ zu „vaultCertificates“. Dies sollte in etwa wie folgt aussehen:
 
     ![Json_Pub_Setting4][Json_Pub_Setting4]
     
@@ -195,7 +195,7 @@ Bearbeiten Sie die Parameterdatei der Resource Manager-Vorlage, indem Sie die be
 ### <a name="deploy-the-template-to-azure"></a>Bereitstellen der Vorlage in Azure
 
 - Sie können nun Ihre Vorlage in Azure bereitstellen. Öffnen Sie eine „Azure PowerShell Version 1+“-Eingabeaufforderung.
-- Melden Sie sich bei Ihrem Azure-Konto an, und wählen Sie das spezifische Azure-Abonnement. Dies ist ein wichtiger Schritt für Sie, falls Sie auf mehrere Azure-Abonnements zugreifen können.
+- Melden Sie sich bei Ihrem Azure-Konto an, und wählen Sie das spezifische Azure-Abonnement aus. Dies ist ein wichtiger Schritt für Sie, falls Sie auf mehrere Azure-Abonnements zugreifen können.
 
 ```powershell
 Connect-AzAccount

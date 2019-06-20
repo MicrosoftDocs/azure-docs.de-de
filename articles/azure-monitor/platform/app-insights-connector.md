@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905697"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606744"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-Connector-Verwaltungslösung (Veraltet)
 
@@ -51,10 +51,10 @@ Im Gegensatz zu den meisten anderen Log Analytics-Lösungen werden die Daten fü
 
 | Verbundene Quelle | Unterstützt | BESCHREIBUNG |
 | --- | --- | --- |
-| [Windows-Agents](../../azure-monitor/platform/agent-windows.md) | Nein  | Die Lösung erfasst keine Informationen von Windows-Agents. |
-| [Linux-Agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nein  | Die Lösung erfasst keine Informationen von Linux-Agents. |
-| [SCOM-Verwaltungsgruppe](../../azure-monitor/platform/om-agents.md) | Nein  | Die Lösung erfasst keine Informationen von Agents in einer verbundenen SCOM-Verwaltungsgruppe. |
-| [Azure-Speicherkonto](collect-azure-metrics-logs.md) | Nein  | Die Lösung sammelt keine Informationen von Azure Storage. |
+| [Windows-Agents](../../azure-monitor/platform/agent-windows.md) | Nein | Die Lösung erfasst keine Informationen von Windows-Agents. |
+| [Linux-Agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nein | Die Lösung erfasst keine Informationen von Linux-Agents. |
+| [SCOM-Verwaltungsgruppe](../../azure-monitor/platform/om-agents.md) | Nein | Die Lösung erfasst keine Informationen von Agents in einer verbundenen SCOM-Verwaltungsgruppe. |
+| [Azure-Speicherkonto](collect-azure-metrics-logs.md) | Nein | Die Lösung sammelt keine Informationen von Azure Storage. |
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
@@ -128,7 +128,7 @@ Wenn Sie auf dem Blatt **Ausnahmen** auf eine beliebige Stelle klicken, wird ein
 
 ![Application Insights – Blatt „Ausnahmen“](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-Unabhängig davon, ob Sie im Dashboard **Application Insights-Connector** auf ein Element klicken, wird auf der Seite **Suche** selbst für alle Abfragen, bei denen Application Insights-Daten zurückgegeben werden, die Application Insights-Perspektive angezeigt. Wenn Sie beispielsweise Application Insights-Daten anzeigen, wird für eine **&#42;**-Abfrage auch die Registerkarte „Perspektive“ angezeigt. Dies ist in der folgenden Abbildung dargestellt:
+Unabhängig davon, ob Sie im Dashboard **Application Insights-Connector** auf ein Element klicken, wird auf der Seite **Suche** selbst für alle Abfragen, bei denen Application Insights-Daten zurückgegeben werden, die Application Insights-Perspektive angezeigt. Wenn Sie beispielsweise Application Insights-Daten anzeigen, wird für eine **&#42;** -Abfrage auch die Registerkarte „Perspektive“ angezeigt. Dies ist in der folgenden Abbildung dargestellt:
 
 ![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
@@ -142,7 +142,7 @@ Komponenten der Perspektive werden je nach Suchabfrage aktualisiert. Dies bedeut
 
 Die Blätter des Application Insights-Connectors sind so konzipiert, dass Sie zur ausgewählten Application Insights-App pivotieren können, *wenn Sie das Azure-Portal verwenden*. Sie können die Lösung als allgemeine Überwachungsplattform zur Unterstützung der Problembehandlung einer App verwenden. Wenn Sie in einer Ihrer verbundenen Anwendungen ein potenzielles Problem erkennen, können Sie entweder in der Log Analytics-Suche einen Drilldown dafür durchführen oder direkt zur Application Insights-App pivotieren.
 
-Klicken Sie zum Pivotieren auf die Auslassungspunkte (**…**) am Ende einer Zeile, und wählen Sie die Option **In Application Insights öffnen**.
+Klicken Sie zum Pivotieren auf die Auslassungspunkte ( **…** ) am Ende einer Zeile, und wählen Sie die Option **In Application Insights öffnen**.
 
 >[!NOTE]
 >Die Option **In Application Insights öffnen** ist im Azure-Portal nicht verfügbar.
@@ -151,7 +151,7 @@ Klicken Sie zum Pivotieren auf die Auslassungspunkte (**…**) am Ende einer Zei
 
 ### <a name="sample-corrected-data"></a>Datenkorrektur durch Sampling
 
-Application Insights ermöglicht eine *[Korrektur durch Stichprobenentnahme](../../azure-monitor/app/sampling.md)*, um den Telemetriedatenverkehr zu reduzieren. Wenn Sie das Sampling in Ihrer Application Insights-App aktivieren, erhalten Sie eine verringerte Anzahl von Einträgen, die sowohl in Application Insights als auch in Log Analytics gespeichert werden. Die Konsistenz der Daten wird für die Seite **Application Insights-Connector** und die Perspektiven beibehalten, aber Sie sollten Datenstichproben für Ihre benutzerdefinierten Abfragen manuell korrigieren.
+Application Insights ermöglicht eine *[Korrektur durch Stichprobenentnahme](../../azure-monitor/app/sampling.md)* , um den Telemetriedatenverkehr zu reduzieren. Wenn Sie das Sampling in Ihrer Application Insights-App aktivieren, erhalten Sie eine verringerte Anzahl von Einträgen, die sowohl in Application Insights als auch in Log Analytics gespeichert werden. Die Konsistenz der Daten wird für die Seite **Application Insights-Connector** und die Perspektiven beibehalten, aber Sie sollten Datenstichproben für Ihre benutzerdefinierten Abfragen manuell korrigieren.
 
 Hier ist ein Beispiel für die Samplingkorrektur in einer Abfrage der Protokollsuche angegeben:
 
@@ -181,7 +181,7 @@ Ein Datensatz mit dem *Typ* *ApplicationInsights* wird für jeden Eingabedatenty
 
 ### <a name="generic-fields"></a>Generische Felder
 
-| Eigenschaft | BESCHREIBUNG |
+| Eigenschaft | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -192,7 +192,7 @@ Ein Datensatz mit dem *Typ* *ApplicationInsights* wird für jeden Eingabedatenty
 | DeviceType | Clientgerät |
 | ScreenResolution |   |
 | Continent | Kontinent, von dem die Anforderung stammt |
-| Country | Land, aus dem die Anforderung stammt |
+| Country | Land oder Region, aus dem bzw. der die Anforderung stammt |
 | Province | Bundesland/Kanton/Bundesstaat bzw. Gebietsschema der Anforderung |
 | City | Stadt oder Ort der Anforderung |
 | isSynthetic | Gibt an, ob die Anforderung von einem Benutzer oder mit einer automatisierten Methode erstellt wurde. True = vom Benutzer generiert, oder false = automatisierte Methode |
@@ -201,7 +201,7 @@ Ein Datensatz mit dem *Typ* *ApplicationInsights* wird für jeden Eingabedatenty
 | IsAuthenticated | „true“ oder „false“ |
 | OperationID | Elemente mit derselben Vorgangs-ID werden im Portal als verwandte Elemente angezeigt. Normalerweise die Anforderungs-ID. |
 | ParentOperationID | ID des übergeordneten Vorgangs |
-| NameVorgang |   |
+| OperationName |   |
 | SessionId | GUID zum eindeutigen Identifizieren der Sitzung, in der die Anforderung erstellt wurde |
 | SourceSystem | ApplicationInsights |
 
@@ -249,7 +249,7 @@ Ein Datensatz mit dem *Typ* *ApplicationInsights* wird für jeden Eingabedatenty
 
 ### <a name="request-specific-fields"></a>Anforderungsfelder
 
-| Eigenschaft | BESCHREIBUNG |
+| Eigenschaft | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | Anforderung |

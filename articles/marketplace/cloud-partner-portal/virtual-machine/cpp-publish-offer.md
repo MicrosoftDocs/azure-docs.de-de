@@ -1,25 +1,18 @@
 ---
-title: Veröffentlichen eines VM-Angebots im Azure Marketplace | Microsoft-Dokumentation
+title: Veröffentlichen eines VM-Angebots im Azure Marketplace
 description: Hier erfahren Sie Schritt für Schritt, wie Sie ein vorhandenes VM-Angebot im Azure Marketplace veröffentlichen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 3cf6a3d9bcb9470fd3a6bd4fef964c1966adfa1a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: pabutler
+ms.openlocfilehash: 6796c2871cf8a5928beed2ab557cefdfe8ecaae9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639097"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938596"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Veröffentlichen eines VM-Angebots
 
@@ -27,7 +20,8 @@ ms.locfileid: "49639097"
 
 ![Schritte zur Veröffentlichung eines VM-Angebots](./media/publishvm_013.png)
 
-Die folgende Tabelle enthält die Beschreibung dieser Schritte sowie die voraussichtliche maximale Dauer des jeweiligen Schritts: <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
+Die folgende Tabelle enthält die Beschreibung dieser Schritte sowie die voraussichtliche maximale Dauer der einzelnen Schritte:
+<!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
 |  **Veröffentlichungsschritt**           | **Time**    | **Beschreibung**                                                            |

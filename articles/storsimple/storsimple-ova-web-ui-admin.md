@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60630468"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Verwaltung des StorSimple Virtual Array mithilfe der Web-UI
 ![Setup-Prozessablauf](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -84,7 +84,7 @@ Sie können Ihr virtuelles Gerät über die lokale Web-UI herunterfahren oder ne
 2. Klicken Sie unten auf der Seite auf **Herunterfahren**.
    
     ![Herunterfahren des Geräts 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Eine Warnung wird angezeigt, die besagt, dass durch ein Herunterfahren des Geräts alle ausgeführten IOs unterbrochen werden und ein Ausfall verursacht wird. Klicken Sie auf das Häkchensymbol  ![Häkchensymbol](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Eine Warnung wird angezeigt, die besagt, dass durch ein Herunterfahren des Geräts alle ausgeführten IOs unterbrochen werden und ein Ausfall verursacht wird. Klicken Sie auf das Häkchen ![Häkchensymbol](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![Warnung vor Herunterfahren des Geräts](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -99,7 +99,7 @@ Sie können Ihr virtuelles Gerät über die lokale Web-UI herunterfahren oder ne
 2. Klicken Sie unten auf der Seite auf **Neu starten**.
    
     ![Geräteneustart](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Eine Warnung wird angezeigt, die besagt, dass durch einen Neustart des Geräts alle ausgeführten IOs unterbrochen werden und ein Ausfall verursacht wird. Klicken Sie auf das Häkchensymbol  ![Häkchensymbol](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Eine Warnung wird angezeigt, die besagt, dass durch einen Neustart des Geräts alle ausgeführten IOs unterbrochen werden und ein Ausfall verursacht wird. Klicken Sie auf das Häkchen ![Häkchensymbol](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![Warnung vor Neustart](./media/storsimple-ova-web-ui-admin/image37.png)
    

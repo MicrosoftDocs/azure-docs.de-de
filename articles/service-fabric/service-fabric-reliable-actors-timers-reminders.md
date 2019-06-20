@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667428"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60726807"
 ---
 # <a name="actor-timers-and-reminders"></a>Actor-Timer und -Erinnerungen
 Akteure können regelmäßige Arbeit an sich selbst einplanen, indem sie entweder Timer oder Erinnerungen registrieren. In diesem Artikel wird gezeigt, wie Timer und Erinnerungen verwendet werden können, und es werden die Unterschiede zwischen ihnen erklärt.

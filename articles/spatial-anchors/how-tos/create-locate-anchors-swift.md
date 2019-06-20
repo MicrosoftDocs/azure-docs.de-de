@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0078aac093a19ae0d02da4e7ba07c112d563971
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5fe3ee8a98b24c26af8b08959d271226bde36cee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964819"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244359"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Erstellen von und Suchen nach Ankern mit Azure Spatial Anchors in Swift
 
@@ -160,7 +160,7 @@ Erfahren Sie mehr über die [ASACloudSpatialAnchor](https://docs.microsoft.com/o
     var localAnchor : ARAnchor? = nil
     let hits = self.sceneView.session.currentFrame?.hitTest(CGPoint(x:0.5, y:0.5), types: ARHitTestResult.ResultType.estimatedHorizontalPlane)
     if (hits!.count == 0) return
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     localAnchor = ARAnchor(transform:hits![0].worldTransform)
     self.sceneView.session.add(anchor: _localAnchor!)

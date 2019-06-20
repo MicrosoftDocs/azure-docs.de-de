@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123044"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867135"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualisieren von Datenanomalien in Echtzeitereignissen, die an Azure Event Hubs gesendet werden
 
-Mit Azure Event Hubs können Sie Azure Stream Analytics verwenden, um die eingehenden Daten zu überprüfen und die Anomalien zu extrahieren, die Sie dann in Power BI visualisieren können. Angenommen, Sie verfügen über Tausende von Geräten, die ständig Echtzeitdaten mit Millionen von Ereignissen pro Sekunde an einen Event Hub senden. Wie können Sie eine so große Datenmenge auf Anomalien bzw. Fehler in den Daten überprüfen? Was passiert beispielsweise, wenn die Geräte Kreditkartentransaktionen senden und Sie innerhalb eines Zeitintervalls von fünf Sekunden Daten von Orten in mehreren Ländern erfassen müssen, an denen Transaktionen erfolgen? Dies kann der Fall sein, wenn eine Person Kreditkarten stiehlt und dann nutzt, um weltweit gleichzeitig Artikel einzukaufen. 
+Mit Azure Event Hubs können Sie Azure Stream Analytics verwenden, um die eingehenden Daten zu überprüfen und die Anomalien zu extrahieren, die Sie dann in Power BI visualisieren können. Angenommen, Sie verfügen über Tausende von Geräten, die ständig Echtzeitdaten mit Millionen von Ereignissen pro Sekunde an einen Event Hub senden. Wie können Sie eine so große Datenmenge auf Anomalien bzw. Fehler in den Daten überprüfen? Was passiert beispielsweise, wenn die Geräte Kreditkartentransaktionen senden und Sie innerhalb eines Zeitintervalls von fünf Sekunden Daten von Orten in mehreren Ländern/Regionen erfassen müssen, an denen Transaktionen erfolgen? Dies kann der Fall sein, wenn eine Person Kreditkarten stiehlt und dann nutzt, um weltweit gleichzeitig Artikel einzukaufen. 
 
 In diesem Tutorial simulieren Sie dieses Beispiel. Sie führen eine Anwendung aus, mit der Kreditkartentransaktionen erstellt und an einen Event Hub gesendet werden. Anschließend lesen Sie den Datenstrom in Echtzeit mit Azure Stream Analytics, wobei die gültigen Transaktionen von den ungültigen Transaktionen getrennt werden, und verwenden anschließend Power BI, um die als ungültig gekennzeichneten Transaktionen visuell zu identifizieren.
 
@@ -54,7 +54,7 @@ In den folgenden Abschnitten wird beschrieben, wie Sie diese erforderlichen Schr
 3. Erstellen einer Event Hub-Instanz
 
 > [!NOTE]
-> In jedem Skript sind Variablen festgelegt, die Sie später in diesem Tutorial benötigen. Hierzu gehören der Ressourcengruppenname ($resourceGroup), der Event Hub-Namespace (**$eventHubNamespace**) und der Event Hub-Name (**$eventHubName**). Hierauf wird später in diesem Artikel über die Dollarzeichen-Präfixe ($) verwiesen, damit Sie wissen, dass sie im Skript festgelegt wurden.
+> In jedem Skript sind Variablen festgelegt, die Sie später in diesem Tutorial benötigen. Hierzu gehören der Ressourcengruppenname ($resourceGroup), der Event Hub-Namespace ( **$eventHubNamespace**) und der Event Hub-Name ( **$eventHubName**). Hierauf wird später in diesem Artikel über die Dollarzeichen-Präfixe ($) verwiesen, damit Sie wissen, dass sie im Skript festgelegt wurden.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->

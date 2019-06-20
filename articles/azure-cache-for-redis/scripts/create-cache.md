@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: yegu
 ms.openlocfilehash: f4900242c9b6e5eecd5364d74bfcd8e2bc4efb2b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607757"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>Erstellen einer Azure Cache for Redis-Instanz
 

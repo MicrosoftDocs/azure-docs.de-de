@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d27cd54486a08e18fe74c852af29d5cf6432023
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60737073"
 ---
 # <a name="http2-support-in-azure-cdn"></a>HTTP/2-Unterstützung in Azure CDN
 

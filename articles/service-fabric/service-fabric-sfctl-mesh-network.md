@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: feec5c4796c025c1707b4eb93bfe34b8d384ef3a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60694520"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Ruft die Mesh-Netzwerkressourcen ab bzw. löscht diese.

@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463003"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-Connector für Azure
 
-[1877727]:https://launchpad.support.sap.com/#/notes/1877727
-[2343511]:https://launchpad.support.sap.com/#/notes/2343511
-[2350235]:https://launchpad.support.sap.com/#/notes/2350235
-[2562184]:https://launchpad.support.sap.com/#/notes/2562184
-[2628497]:https://launchpad.support.sap.com/#/notes/2628497
-[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[1877727]: https://launchpad.support.sap.com/#/notes/1877727
+[2343511]: https://launchpad.support.sap.com/#/notes/2343511
+[2350235]: https://launchpad.support.sap.com/#/notes/2350235
+[2562184]: https://launchpad.support.sap.com/#/notes/2562184
+[2628497]: https://launchpad.support.sap.com/#/notes/2628497
+[2445033]: https://launchpad.support.sap.com/#/notes/2445033
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md

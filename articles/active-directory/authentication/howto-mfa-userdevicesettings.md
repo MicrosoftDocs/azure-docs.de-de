@@ -1,6 +1,6 @@
 ---
 title: Verwaltung von Benutzern und Geräten durch Administratoren – Azure MFA – Azure Active Directory
-description: Hier wird das Ändern von Benutzereinstellungen beschrieben, z. B. wie Benutzer dazu gebracht werden, den Nachweis-Prozess noch einmal durchzuführen.
+description: Beschreibt, wie Administratoren Benutzereinstellungen ändern und beispielsweise Benutzer dazu zwingen können, den Nachweisprozess noch einmal zu durchlaufen.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368475"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298841"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Verwalten von Benutzereinstellungen mit Azure Multi-Factor Authentication (MFA) in der Cloud
 
@@ -42,6 +42,14 @@ Durch diese Einstellung wird der Benutzer gezwungen, den Registrierungsprozess e
 7. Klicken Sie auf **Speichern**.
 8. Klicken Sie auf **Schließen**.
 
+Organisationen können diese Schritte mit PowerShell ausführen und dabei den folgenden Code als Leitfaden zum Löschen des `StrongAuthenticationMethods` Attributs verwenden:
+
+```PowerShell
+$Upn = "theuser@domain.com"
+$noMfaConfig = @()
+Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
+```
+
 ## <a name="delete-users-existing-app-passwords"></a>Löschen vorhandener App-Kennwörter eines Benutzers
 
 Diese Einstellung löscht alle App-Kennwörter, die ein Benutzer erstellt hat. Nicht-Browser-Apps, die diesen App-Kennwörtern zugeordnet waren, sind bis zur Erstellung eines neuen App-Kennworts nicht mehr funktionsfähig.
@@ -64,7 +72,7 @@ Eines der konfigurierbaren Features von Azure Multi-Factor Authentication besteh
 
 Benutzer können die zweistufige Überprüfung für eine konfigurierbare Anzahl von Tagen auf ihren regulären Geräten deaktivieren. Wenn ein Konto kompromittiert wird oder ein vertrauenswürdiges Gerät verloren geht, müssen Sie in der Lage sein, den Status „Vertrauenswürdig“ aufzuheben und die zweistufige Überprüfung wieder anzufordern.
 
-Die Einstellung **Mehrstufige Authentifizierung für alle gespeicherten Geräte wiederherstellen** bewirkt, dass der Benutzer bei der nächsten Anmeldung die zweistufige Überprüfung durchführen muss, unabhängig davon, ob das Gerät als vertrauenswürdig markiert wurde.
+Wenn **Wiederherstellen der mehrstufigen Authentifizierung für alle gespeicherten Geräte** aktiviert ist, müssen die Benutzer bei der nächsten Anmeldung die zweistufige Überprüfung ausführen, auch wenn ihr Gerät als vertrauenswürdig gekennzeichnet wurde.
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>MFA auf allen ausgesetzten Geräten für einen Benutzer wiederherstellen
 

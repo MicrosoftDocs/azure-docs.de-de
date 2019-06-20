@@ -2,20 +2,20 @@
 title: Einrichten der Anmeldung mit einem Google-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C | Microsoft-Dokumentation
 description: Einrichten der Anmeldung mit einem Google-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 94b71dc8a355b818af6789022eb297100b569e73
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 212243f38b153f75c08a9b4c58622d0444f0ac62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66510368"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Einrichten der Anmeldung mit einem Google-Konto mithilfe benutzerdefinierter Richtlinien in Azure Active Directory B2C
 

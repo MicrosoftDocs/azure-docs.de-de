@@ -3,19 +3,19 @@ title: 'Suchen ähnlicher Bilder in vorherigen Suchvorgängen mithilfe von „Im
 titleSuffix: Azure Cognitive Services
 description: Nutzen des SDK für die visuelle Bing-Suche, um URLs von Bildern abzurufen, die durch „ImageInsightsToken“ angegeben werden.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ebe54f5319986f0588e06a980a6f914beb6adbcc
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493944"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909395"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Suchen ähnlicher Bilder in vorherigen Suchvorgängen mithilfe von „ImageInsightsToken“
 
@@ -25,7 +25,7 @@ Der vollständige Quellcode für dieses Tutorial steht mit zusätzlichen Fehlerb
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-* Eine beliebige [Visual Studio 2017](https://www.visualstudio.com/downloads/)-Edition.
+* Eine beliebige Edition von [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Unter Linux/macOS können Sie diese Anwendung mit [Mono](https://www.mono-project.com/) ausführen.
 * Die NuGet-Pakete für die visuelle Suche und die Bildersuche.
     - Klicken Sie im Projektmappen-Explorer in Visual Studio mit der rechten Maustaste auf Ihr Projekt, und wählen Sie im Menü **Manage NuGet Packages** (NuGet-Pakete verwalten) aus. Installieren Sie das `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-Paket und das `Microsoft.Azure.CognitiveServices.Search.ImageSearch`-Paket. Bei der Installation der NuGet-Pakete wird auch Folgendes installiert:

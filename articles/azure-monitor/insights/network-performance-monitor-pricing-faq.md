@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
 ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60401407"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Preisänderungen für Azure-Netzwerkleistungsmonitor
 
@@ -53,11 +53,11 @@ Die Funktion „Systemmonitor“ im Netzwerkleistungsmonitor wird nun anhand der
 
 Systemmonitor überwacht die Konnektivität zwischen zwei oder mehr Orten im Netzwerk. Die Verbindung zwischen einer Gruppe von Knoten oder Agents in einem Subnetz und einer Gruppe von Knoten in einem anderen Subnetz wird als Subnetzlink bezeichnet.
 
-**Ich habe zwei Subnetze (A und B) und mehrere Agents in den einzelnen Subnetzen. Systemmonitor überwacht die Konnektivität aller Agents in Subnetz A mit allen Agents in Subnetz B. Werden Gebühren anhand der Anzahl der Verbindungen zwischen den Subnetzen berechnet?**
+**Ich verfüge über zwei Subnetze (A und B) und mehrere Agents in den einzelnen Subnetzen. Systemmonitor überwacht die Konnektivität aller Agents in Subnetz A mit allen Agents in Subnetz B. Werden Gebühren anhand der Anzahl der Verbindungen zwischen den Subnetzen berechnet?**
 
- Nein. Zu Abrechnungszwecken werden alle Verbindungen zwischen Subnetz A und Subnetz B zu einem Subnetzlink gruppiert. Ihnen wird eine einzelne Verbindung in Rechnung gestellt. Systemmonitor überwacht weiterhin die Konnektivität zwischen den verschiedenen Agents in den einzelnen Subnetzen.
+Nein. Zu Abrechnungszwecken werden alle Verbindungen zwischen Subnetz A und Subnetz B zu einem Subnetzlink gruppiert. Ihnen wird eine einzelne Verbindung in Rechnung gestellt. Systemmonitor überwacht weiterhin die Konnektivität zwischen den verschiedenen Agents in den einzelnen Subnetzen.
 
-**Wie hoch sind die Kosten für die Überwachung eines Subnetzlinks?**
+**Was sind die Kosten für die Überwachung eines Subnetzlinks?**
 
 Im Abschnitt [Pingmesh](https://azure.microsoft.com/pricing/details/network-watcher/) finden Sie die Kosten für die Überwachung eines einzelnen Subnetzlinks für den gesamten Monat.
 
@@ -68,7 +68,7 @@ Die Gebühren für die Erfassung (Datenupload zum Log Analytics-Workspace in Azu
 
 ## <a name="expressroute-monitor"></a>ExpressRoute-Monitor
 
-**Wie hoch sind die Gebühren für die Verwendung von ExpressRoute-Monitor?**
+**Was sind die Gebühren für die Verwendung von ExpressRoute-Monitor?**
 
 Gebühren für ExpressRoute-Monitor werden basierend auf der Menge der während der Überwachung generierten Daten in Rechnung gestellt. Weitere Informationen finden Sie unter „Welche Gebühren werden für die von Systemmonitor generierten Daten erhoben?“.
 
@@ -82,12 +82,12 @@ Wenn ExpressRoute eine private Peeringverbindung überwacht, wird das Volumen de
 
 |Perzentil      |Daten/Monat (MB)|
 | :---:          |           ---:|
-|50.<sup></sup> |            192|
-|60.<sup></sup> |            256|
-|70.<sup></sup> |            360|
-|80.<sup></sup> |            498|
-|90.<sup></sup> |            870|
-|95.<sup></sup> |           1560|
+|50\.<sup></sup> |            192|
+|60\.<sup></sup> |            256|
+|70\.<sup></sup> |            360|
+|80\.<sup></sup> |            498|
+|90\.<sup></sup> |            870|
+|95\.<sup></sup> |           1560|
 
 
 Gemäß der obigen Tabelle fallen beim 50. Perzentil Kosten für eine Datenmenge von 192 MB von. Bei einem Preis von 2,30 USD pro GB für den ersten Monat belaufen sich die Kosten für die Überwachung einer Verbindung auf 0,43 USD (192 * 2,30:1024).
@@ -103,7 +103,7 @@ Bei den höheren Perzentilen (siehe obige Tabelle) überwachen Kunden ihre Verbi
 
 ## <a name="service-endpoint-monitor"></a>Dienstendpunktmonitor
 
-**Wie hoch sind die Gebühren für die Verwendung des Dienstendpunktmonitors?**
+**Was sind die Gebühren für die Verwendung des Dienstendpunktmonitors?**
 
 Die Gebühren für die Nutzung des Dienstendpunktmonitors werden anhand der folgenden Elemente berechnet:
 * Anzahl der Verbindungen
@@ -113,7 +113,7 @@ Die Gebühren für die Nutzung des Dienstendpunktmonitors werden anhand der folg
 
 Eine Verbindung ist ein Test der Erreichbarkeit eines Endpunkts (URL oder Netzwerkdienst) über einen einzelnen Agent für den gesamten Monat. Beispielsweise stellt die Überwachung einer Verbindung mit „bing.com“ über drei Agents drei Verbindungen dar.
 
-**Wie hoch sind die Kosten für den Dienstendpunktmonitor?**
+**Was sind die Kosten für den Dienstendpunktmonitor?**
 
 Im Abschnitt [Verbindungsüberwachung](https://azure.microsoft.com/pricing/details/network-watcher/) finden Sie die Kosten für die Überwachung eines Endpunkts für den gesamten Monat. Die Gebühren für Daten stehen auf der [Preisseite](https://azure.microsoft.com/pricing/details/log-analytics/) für Log Analytics, im Abschnitt „Datenerfassung“, zur Verfügung.
 

@@ -18,11 +18,11 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540141"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60651719"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ Das Ziel besteht darin, mehrere SAP Advanced Business Application Programming- (
 
 _**Abbildung 2:** SAP-Multi-SID-Konfiguration in zwei Clustern_
 
-Die Vorgehensweise für die Installation eines zusätzlichen **SAP-\<SID2>**-Systems entspricht der für ein einzelnes \<SID>-System. Für ASCS/SCS-Cluster sowie im SOFS-Dateifreigabecluster sind zwei zusätzliche Vorbereitungsschritte erforderlich.
+Die Vorgehensweise für die Installation eines zusätzlichen **SAP-\<SID2>** -Systems entspricht der für ein einzelnes \<SID>-System. Für ASCS/SCS-Cluster sowie im SOFS-Dateifreigabecluster sind zwei zusätzliche Vorbereitungsschritte erforderlich.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Vorbereiten der Infrastruktur für ein SAP-Multi-SID-Szenario
 
@@ -268,7 +268,7 @@ Sie können den vorhandenen \<globalen SAP-Host> und Volume1 des ersten SAP-\<SI
 _**Abbildung 3:** Multi-SID-SOFS ist identisch mit dem Namen des globalen SAP-Hosts_
 
 > [!IMPORTANT]
->Für das zweite **SAP-\<SID2>**-System werden ebenfalls Volume1 und derselbe Netzwerkname des **\<globalen SAP-Hosts>** verwendet.
+>Für das zweite **SAP-\<SID2>** -System werden ebenfalls Volume1 und derselbe Netzwerkname des **\<globalen SAP-Hosts>** verwendet.
 >Da Sie **SAPMNT** bereits als der Freigabenamen für verschiedene SAP-Systeme festgelegt haben, müssen Sie zum Wiederverwenden des Netzwerknamens des **\<globalen SAP-Hosts>** dasselbe **Volume1** verwenden.
 >
 >Der Dateipfad für den globalen \<SID2>-Host lautet „C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\\.“.
@@ -327,7 +327,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Vorbereiten der Infrastruktur im SOFS-Cluster unter Verwendung eines anderen globalen SAP-Hosts
 
-Sie können den zweiten SOFS-Cluster konfigurieren (z.B. für die zweite SOFS-Clusterrolle mit **\<SAPGlobalHost2>** und einem anderen **Volume2** für die zweite **\<SID2>**).
+Sie können den zweiten SOFS-Cluster konfigurieren (z.B. für die zweite SOFS-Clusterrolle mit **\<SAPGlobalHost2>** und einem anderen **Volume2** für die zweite **\<SID2>** ).
 
 ![Abbildung 4: Multi-SID-SOFS ist identisch mit dem Namen des globalen SAP-Hosts 2][sap-ha-guide-figure-8015]
 

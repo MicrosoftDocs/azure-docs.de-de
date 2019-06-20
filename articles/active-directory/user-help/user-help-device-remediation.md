@@ -15,11 +15,11 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60473802"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Mögliche Ursachen für die Fehlermeldung „Der Wechsel von hier nach dort ist nicht möglich.“
 Beim Zugriff auf interne Web-Apps oder Dienste Ihrer Organisation wird unter Umständen die Fehlermeldung **Der Wechsel von hier nach dort ist nicht möglich.** angezeigt. Diese Meldung bedeutet, dass Ihre Organisation eine Richtlinie eingerichtet hat, die Ihr Gerät davon abhält, auf die Ressourcen Ihrer Organisation zuzugreifen. Es kann sein, dass Sie sich zur Behebung dieses Problems letztendlich an den Helpdesk wenden müssen, vorher gibt es aber noch ein paar Dinge, die Sie versuchen können.

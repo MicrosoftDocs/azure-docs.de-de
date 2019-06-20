@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8092cd169f93a6815e52517d805941ac7ddcbbc0
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268764"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807511"
 ---
 # <a name="what-is-azure-maps"></a>Was ist Azure Maps?
 
-Azure Maps ist eine Sammlung von Geodiensten, denen topaktuelle Kartendaten zugrunde liegen, um einen präzisen geografischen Kontext für Ihre webbasierten und mobilen Anwendungen bereitzustellen. Azure Maps beinhaltet REST-APIs zum Rendern von **Karten** in verschiedenen Stilen und mit Satellitenbildern, zur **Suche** nach Adressen, Orten und POIs auf der ganzen Welt, zur **Routenplanung** (A nach B, mehrere Punkte, Optimierung bei Verwendung mehrerer Punkte, Isochrone, gewerbliches Fahrzeug, Berücksichtigung der Verkehrslage und Matrixroutenplanung), zur Anzeige branchenführender Daten zu Verkehrsfluss und -störungen, zur Ermittlung des Benutzerstandorts mittels **Geolocation** sowie zur Konvertierung des Standorts in **Zeitzonen** und zum Abruf der Zeit an einem Standort. Darüber hinaus bietet Azure Maps Dienste für **Geofencing**, zur Speicherung von **Kartendaten** (Hosten von Standortinformationen in Azure) sowie **räumliche Vorgänge** zur Bereitstellung von Standortinformationen mittels Geoanalysen. Azure Maps-Dienste können direkt als REST-APIs oder über unsere robusten SDKs (**Web SDK** oder **Android SDK**) genutzt werden. Mit diesen Tools können Entwickler im Handumdrehen Lösungen entwickeln und skalieren, die Standortinformationen aus der Azure-Cloud in Azure-Lösungen integrieren. Registrieren Sie sich am besten gleich für ein kostenloses [Azure Maps-Konto](https://azure.microsoft.com/services/azure-maps/), und legen Sie los!
+Azure Maps ist eine Sammlung von Geodiensten, denen topaktuelle Kartendaten zugrunde liegen, um einen präzisen geografischen Kontext für Ihre webbasierten und mobilen Anwendungen bereitzustellen. Azure Maps beinhaltet REST-APIs zum Rendern von **Karten** in verschiedenen Stilen und mit Satellitenbildern, zur **Suche** nach Adressen, Orten und POIs auf der ganzen Welt, zur **Routenplanung** (A nach B, mehrere Punkte, Optimierung bei Verwendung mehrerer Punkte, Isochrone, gewerbliches Fahrzeug, Berücksichtigung der Verkehrslage und Matrixroutenplanung), zur Anzeige branchenführender Daten zu Verkehrsfluss und -störungen, **Mobilitätsdienste** zum Anfordern von Informationen zum öffentlichen Nahverkehr, zu Leihfahrrädern, Leihrollern und Leihautos, um Routen unter Nutzung alternativer Transportmittel und Echtzeitdaten zu planen, zur Ermittlung des Benutzerstandorts mittels **Geolocation** sowie zur Konvertierung des Standorts in **Zeitzonen** und zum Abruf der Zeit an einem Standort. Darüber hinaus bietet Azure Maps Dienste für **Geofencing**, zur Speicherung von **Kartendaten** (Hosten von Standortinformationen in Azure) sowie **räumliche Vorgänge** zur Bereitstellung von Standortinformationen mittels Geoanalysen. Azure Maps-Dienste können direkt als REST-APIs oder über unsere robusten SDKs (**Web SDK** oder **Android SDK**) genutzt werden. Mit diesen Tools können Entwickler im Handumdrehen Lösungen entwickeln und skalieren, die Standortinformationen aus der Azure-Cloud in Azure-Lösungen integrieren. Registrieren Sie sich am besten gleich für ein kostenloses [Azure Maps-Konto](https://azure.microsoft.com/services/azure-maps/), und legen Sie los!
 
 Im folgenden Video wird Azure Maps ausführlich beschrieben:
 
@@ -42,7 +42,18 @@ Das Azure Maps Android SDK ermöglicht die Erstellung leistungsstarker mobiler 
 
 ## <a name="services-in-azure-maps"></a>Dienste in Azure Maps
 
-Azure Maps besteht aus den folgenden sechs Diensten, die für Ihre Azure-Anwendungen geografischen Kontext liefern können.
+Azure Maps besteht aus den folgenden neun Diensten, die für Ihre Azure-Anwendungen geografischen Kontext liefern können.
+
+### <a name="data-service"></a>Datendienst
+
+Daten sind bei Karten ein Muss – und durch die Einbindung von Kundendaten in den Azure Maps-Dienst verringern Sie die Wartezeit und steigern die Produktivität. So können Sie leistungsstarke neue Szenarien erstellen, die Ihre Anwendungen noch attraktiver machen. Mit dem Datendienst können Sie räumliche Daten zur Verwendung mit räumlichen Vorgängen oder bei der Bildkomposition hochladen und speichern, um die Wartezeit zu verkürzen, die Produktivität zu erhöhen und neue Szenarios in Ihren Anwendungen zu ermöglichen. Ausführliche Informationen zu diesem Dienst finden Sie auf der Seite zu den [Datendienst-APIs](https://docs.microsoft.com/rest/api/maps/data).
+
+### <a name="mobility-service"></a>Mobility Service
+
+Azure Maps Mobility Services bietet Location Intelligence in Echtzeit für öffentliche Verkehrsmittel in der Nähe, z. B. Informationen zu Haltestellen, Routen und geschätzter Fahrtdauer. Der Dienst ermöglicht die Suche nach bestimmten Objekttypen – etwa nach Haltestellen öffentlicher Verkehrsmittel oder nach Leihfahrrädern/-rollern/-autos in der Nähe eines bestimmten Standorts – und gibt verschiedene Transportobjekte mit Objektdetails zurück. Mit diesem Dienst können Entwickler darüber hinaus Details zu Routen mit grundlegenden Informationen sowie zusätzlichen Einzelheiten anfordern, etwa Routengeometrie, Liste der Haltestellen, geplante Ankunft und Echtzeitankunft sowie Dienstwarnungen. Benutzer können zudem Informationen zur Anzahl der verfügbaren Leihfahrräder an der nächstgelegenen Station abfragen. Mobility Service bietet auch die Möglichkeit, nach verfügbaren Leihautos zu suchen, und gibt dabei Details zur künftigen Verfügbarkeit sowie zum aktuellen Kraftstoffstand zurück.
+Azure Maps Mobility Service ermöglicht die Routenplanung in Echtzeit. Dabei werden die bestmöglichen Routenoptionen sowie verschiedene Transportmittel (zu Fuß, mit dem Fahrrad und verfügbare öffentliche Verkehrsmittel im Stadtbereich) zurückgegeben. Darüber hinaus können Entwickler Einzelheiten zu Strecken mit zusätzlichen Informationen anfordern. Hierzu zählen beispielsweise die Geometrie der Route sowie ausführliche Zeitpläne.
+
+Weitere Informationen zum Dienst und zu den verschiedenen Funktionen finden Sie in der [API-Dokumentation](https://docs.microsoft.com/rest/api/maps/mobility).
 
 ### <a name="render-service"></a>Renderingdienst
 
@@ -67,6 +78,10 @@ Der Suchdienst ist für Entwickler bestimmt, um nach Adressen, Orten, Geschäfts
 ![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
 
 Außerdem verfügt der Suchdienst über erweiterte Features, z.B. Suche entlang einer Route, Suche innerhalb eines weiteren Bereichs, Zusammenfassen einer Gruppe von Suchanfragen zu einem Batch und Suche nach einem größeren Bereich anstelle eines Standorts. Die APIs für Batches und die Bereichssuche befinden sich derzeit in der Vorschauphase. Weitere Informationen zu den Suchfunktionen finden Sie auf der Seite zu [Azure Maps-Such-APIs](https://docs.microsoft.com/rest/api/maps/search).
+
+### <a name="spatial-operations"></a>Räumliche Operationen
+
+Mit „Räumliche Operationen“ in Azure Maps können Sie Standortinformationen direkt und ohne Vorbereitung analysieren, um Ihre Kunden über Veranstaltungen zu bestimmten Zeiten und an verschiedenen Orten zu informieren. Sie ermöglichen die Analyse- und Vorhersagemodellierung von Ereignissen nahezu in Echtzeit. Der Dienst ermöglicht Azure Maps-Kunden nativ die Optimierung von Location Intelligence mit einer Bibliothek aus häufig genutzten räumlichen Berechnungen, z. B. mit Diensten zum Geofencing, zur Ermittlung des am nächsten gelegenen Punkts und des Kreisabstands sowie für Puffer. Weitere Informationen zum Dienst und den verschiedenen Funktionen finden Sie in der [API-Dokumentation](https://docs.microsoft.com/rest/api/maps/spatial).
 
 ### <a name="time-zone-service"></a>Zeitzonendienst
 
@@ -123,7 +138,7 @@ Für Azure Maps wird ein schlüsselbasiertes Authentifizierungsschema verwendet.
 
 ## <a name="supported-regions"></a>Unterstützte Regionen
 
-Die Azure Maps-API ist derzeit in allen Ländern verfügbar, mit Ausnahme folgender Regionen:
+Die Azure Maps-API ist derzeit in allen Ländern/Regionen verfügbar, mit Ausnahme folgender Regionen:
 
 * Argentinien
 * China
@@ -132,7 +147,7 @@ Die Azure Maps-API ist derzeit in allen Ländern verfügbar, mit Ausnahme folge
 * Pakistan
 * Südkorea
 
-Vergewissern Sie sich, dass sich der Standort der aktuellen IP-Adresse nicht in einem der oben angegebenen nicht unterstützten Länder befindet.
+Vergewissern Sie sich, dass sich der Standort der aktuellen IP-Adresse nicht in einem/r der oben angegebenen nicht unterstützten Länder/Regionen befindet.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

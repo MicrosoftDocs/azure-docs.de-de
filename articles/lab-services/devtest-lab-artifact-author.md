@@ -57,10 +57,10 @@ Das folgende Beispiel zeigt die Abschnitte, die die grundlegende Struktur einer 
 | --- | --- | --- |
 | $schema |Nein  |Speicherort der JSON-Schemadatei Mithilfe der JSON-Schemadatei können Sie die Gültigkeit der Definitionsdatei testen. |
 | title |Ja |Der Name des im Lab angezeigten Artefakts. |
-| Beschreibung |Ja |Die Beschreibung des im Lab angezeigten Artefakts. |
+| description |Ja |Die Beschreibung des im Lab angezeigten Artefakts. |
 | iconUri |Nein  |Der URI des im Lab angezeigten Symbols |
 | targetOsType |Ja |Das Betriebssystem der VM, auf der das Artefakt installiert ist. Unterstützte Optionen sind „Windows“ und „Linux“. |
-| Parameter |Nein  |Werte, die bereitgestellt werden, wenn der Artefaktinstallationsbefehl auf einem Computer ausgeführt wird. Dieser ermöglicht die Anpassung Ihres Artefakts. |
+| parameters |Nein  |Werte, die bereitgestellt werden, wenn der Artefaktinstallationsbefehl auf einem Computer ausgeführt wird. Dieser ermöglicht die Anpassung Ihres Artefakts. |
 | runCommand |Ja |Artefaktinstallationsbefehl, der auf einem virtuellen Computer ausgeführt wird. |
 
 ### <a name="artifact-parameters"></a>Artefaktparameter
@@ -80,7 +80,7 @@ Sie definieren Parameter mit der folgenden Struktur:
 | --- | --- | --- |
 | type |Ja |Der Typ des Parameterwerts. In der folgenden Liste finden Sie die zulässigen Typen. |
 | displayName |Ja |Der Name des Parameters, der einem Benutzer im Labor angezeigt wird. |
-| Beschreibung |Ja |Die Beschreibung des Parameters, der im Labor angezeigt wird. |
+| description |Ja |Die Beschreibung des Parameters, der im Labor angezeigt wird. |
 
 Folgende Typen sind zulässig:
 

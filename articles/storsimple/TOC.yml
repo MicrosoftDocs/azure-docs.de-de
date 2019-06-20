@@ -87,14 +87,16 @@
           href: storsimple-ova-web-ui-admin.md
     - name: Versionshinweise
       items:
-        - name: Update 1.1 – aktuell
+        - name: "Update\_1.2"
+          href: storsimple-virtual-array-update-12-release-notes.md
+        - name: "Update\_1.1"
           href: storsimple-virtual-array-update-11-release-notes.md
         - name: "Update\_1"
           href: storsimple-virtual-array-update-1-release-notes.md
-        - name: Update 0.6
-          href: storsimple-virtual-array-update-06-release-notes.md
         - name: Archivieren
           items:
+            - name: Update 0.6
+              href: storsimple-virtual-array-update-06-release-notes.md
             - name: Update 0.5
               href: storsimple-virtual-array-update-05-release-notes.md
             - name: Update 0.4
@@ -103,7 +105,7 @@
               href: storsimple-ova-update-03-release-notes.md
             - name: Update 0.2 und 0.1
               href: storsimple-ova-update-01-release-notes.md
-- name: StorSimple 8000-Serie (Azure-Portal)
+- name: StorSimple 8000-Serie
   items:
     - name: Übersicht
       items:

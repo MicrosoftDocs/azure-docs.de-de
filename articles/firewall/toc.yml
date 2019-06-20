@@ -39,6 +39,8 @@
   items:
     - name: Bereitstellen mit Azure PowerShell
       href: deploy-ps.md
+    - name: Bereitstellen über die Azure-Befehlszeilenschnittstelle
+      href: deploy-cli.md
     - name: Mithilfe einer Vorlage bereitstellen
       href: deploy-template.md
     - name: Integrieren mit Lastenausgleich

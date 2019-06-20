@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/19/2019
 ms.openlocfilehash: 5681b5aa46acc1192675da0b1cceee596dfa0105
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799890"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimieren der Leistung mithilfe von In-Memory-Technologien in SQL-Datenbank
@@ -141,7 +141,7 @@ Ein Downgrade des Tarifs kann sich jedoch nachteilig auf Ihre Datenbank auswirke
 
 Entfernen Sie alle speicheroptimierten Tabellen und Tabellentypen sowie alle nativ kompilierten T-SQL Module, bevor Sie die Datenbank auf den Standard- oder Basic-Tarif herabstufen. 
 
-*Herunterskalieren von Ressourcen im Tarif „Unternehmenskritisch“*: Daten in speicheroptimierten Tabellen müssen in den In-Memory-OLTP-Speicher passen, der dem Tarif der Datenbank oder der verwalteten Instanz zugeordnet oder im Pool für elastische Datenbanken verfügbar ist. Wenn Sie versuchen, in einen niedrigeren Tarif zu wechseln oder die Datenbank in einen Pool zu verschieben, dem nicht genügend In-Memory-OLTP-Speicher zur Verfügung steht, misslingt der Vorgang.
+*Herunterskalieren von Ressourcen im Tarif „Unternehmenskritisch“* : Daten in speicheroptimierten Tabellen müssen in den In-Memory-OLTP-Speicher passen, der dem Tarif der Datenbank oder der verwalteten Instanz zugeordnet oder im Pool für elastische Datenbanken verfügbar ist. Wenn Sie versuchen, in einen niedrigeren Tarif zu wechseln oder die Datenbank in einen Pool zu verschieben, dem nicht genügend In-Memory-OLTP-Speicher zur Verfügung steht, misslingt der Vorgang.
 
 ## <a name="in-memory-columnstore"></a>In-Memory-Columnstore
 

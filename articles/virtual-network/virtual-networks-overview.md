@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 23093cd8bcb5793b9e5b9abc835f64233e666ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707027"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241745"
 ---
 # <a name="what-is-azure-virtual-network"></a>Was ist Azure Virtual Network?
 
-Mit Azure Virtual Network können zahlreiche Arten von Azure-Ressourcen (beispielsweise virtuelle Azure-Computer) sicher untereinander sowie mit dem Internet und mit lokalen Netzwerken kommunizieren. Ein virtuelles Netzwerk ist auf eine Region begrenzt. Mehrere virtuelle Netzwerke aus verschiedenen Regionen können jedoch über Peering virtueller Netzwerke miteinander verbunden werden.
+Mit Azure Virtual Network können zahlreiche Arten von Azure-Ressourcen (beispielsweise virtuelle Azure-Computer) sicher untereinander sowie mit dem Internet und mit lokalen Netzwerken kommunizieren. Ein virtuelles Netzwerk ist auf eine einzelne Azure-Region begrenzt. Eine Azure-[Region](https://azure.microsoft.com/global-infrastructure/regions/) ist eine Reihe von Datencentern, die innerhalb eines durch Wartezeit definierten Umkreises bereitgestellt und über ein dediziertes regionales Netzwerk mit geringer Wartezeit verbunden sind. 
+
+Virtuelle Netzwerke bestehen aus Subnetzen. Ein Subnetz ist ein Bereich von IP-Adressen in Ihrem virtuellen Netzwerk. Subnetze, wie auch virtuelle Netzwerke, sind auf eine einzelne Azure-Region begrenzt. 
+
+Mehrere virtuelle Netzwerke aus verschiedenen Regionen können jedoch über Peering virtueller Netzwerke miteinander verbunden werden.
 
 Azure Virtual Network bietet folgende wichtige Funktionen:
 
@@ -52,7 +56,7 @@ Azure-Ressourcen können auf eine der folgenden Arten sicher miteinander kommuni
 
 Sie können Ihre lokalen Computer und Netzwerke unter Verwendung einer beliebigen Kombination der folgenden Optionen mit einem virtuellen Netzwerk verbinden:
 
-- **Point-to-Site-VPN (virtuelles privates Netzwerk)**: Wird zwischen einem virtuellen Netzwerk und einem einzelnen Computer in Ihrem Netzwerk eingerichtet. Jeder Computer, der eine Verbindung mit einem virtuellen Netzwerk herstellen möchte, muss eine eigene Verbindung konfigurieren. Dieser Verbindungstyp ist gut geeignet, wenn Azure noch neu für Sie ist, oder wenn Sie ein Entwickler sind, da keine oder nur sehr geringe Änderungen Ihres vorhandenen Netzwerks erforderlich sind. Die Kommunikation zwischen Ihrem Computer und einem virtuellen Netzwerk wird durch einen verschlüsselten Tunnel über das Internet gesendet. Weitere Informationen finden Sie unter [Point-to-Site (VPN über IKEv2 oder SSTP)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#P2S).
+- **Point-to-Site-VPN (virtuelles privates Netzwerk)** : Wird zwischen einem virtuellen Netzwerk und einem einzelnen Computer in Ihrem Netzwerk eingerichtet. Jeder Computer, der eine Verbindung mit einem virtuellen Netzwerk herstellen möchte, muss eine eigene Verbindung konfigurieren. Dieser Verbindungstyp ist gut geeignet, wenn Azure noch neu für Sie ist, oder wenn Sie ein Entwickler sind, da keine oder nur sehr geringe Änderungen Ihres vorhandenen Netzwerks erforderlich sind. Die Kommunikation zwischen Ihrem Computer und einem virtuellen Netzwerk wird durch einen verschlüsselten Tunnel über das Internet gesendet. Weitere Informationen finden Sie unter [Point-to-Site (VPN über IKEv2 oder SSTP)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#P2S).
 - **Site-to-Site-VPN**: Wird zwischen Ihrem lokalen VPN-Gerät und einem Azure-VPN-Gateway eingerichtet, das in einem virtuellen Netzwerk bereitgestellt ist. Bei diesem Verbindungstyp können alle lokalen Ressourcen, die von Ihnen autorisiert werden, auf ein virtuelles Netzwerk zugreifen. Die Kommunikation zwischen Ihrem lokalen VPN-Gerät und einem Azure-VPN-Gateway wird durch einen verschlüsselten Tunnel über das Internet gesendet. Weitere Informationen finden Sie unter [Site-to-Site und Multi-Site (IPsec-/IKE-VPN-Tunnel)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
 - **Azure ExpressRoute**: Wird zwischen Ihrem Netzwerk und Azure über einen ExpressRoute-Partner eingerichtet. Diese Verbindung ist privat. Der Datenverkehr wird nicht über das Internet übertragen. Weitere Informationen finden Sie unter [ExpressRoute (private Verbindung)](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ExpressRoute).
 
@@ -65,7 +69,7 @@ Sie können den Netzwerkdatenverkehr zwischen Subnetzen filtern, indem Sie eine 
 
 Azure leitet standardmäßig Datenverkehr zwischen Subnetzen, verbundenen virtuellen Netzwerken, lokalen Netzwerken und dem Internet weiter. Sie können eine oder beide der folgenden Optionen implementieren, um die von Azure erstellten Standardrouten außer Kraft zu setzen:
 - **Routingtabellen**: Sie können benutzerdefinierte Routingtabellen mit Routen erstellen, über die gesteuert wird, wohin der Datenverkehr für die einzelnen Subnetze geleitet wird. Weitere Informationen zu Routingtabellen finden Sie [hier](virtual-networks-udr-overview.md#user-defined).
-- **BGP-Routen (Border Gateway Protocol)**: Wenn Sie Ihr virtuelles Netzwerk mit Ihrem lokalen Netzwerk über ein Azure-VPN-Gateway oder eine ExpressRoute-Verbindung verbinden, können Sie Ihren virtuellen Netzwerken Ihre lokalen BGP-Routen weitergeben. Weitere Informationen zur Verwendung von BGP mit dem Azure-VPN-Gateway finden Sie [hier](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Informationen zur Verwendung mit ExpressRoute finden Sie [hier](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+- **BGP-Routen (Border Gateway Protocol)** : Wenn Sie Ihr virtuelles Netzwerk mit Ihrem lokalen Netzwerk über ein Azure-VPN-Gateway oder eine ExpressRoute-Verbindung verbinden, können Sie Ihren virtuellen Netzwerken Ihre lokalen BGP-Routen weitergeben. Weitere Informationen zur Verwendung von BGP mit dem Azure-VPN-Gateway finden Sie [hier](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Informationen zur Verwendung mit ExpressRoute finden Sie [hier](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
 ## <a name="connect-virtual-networks"></a>Herstellen von Verbindungen zwischen virtuellen Netzwerken
 

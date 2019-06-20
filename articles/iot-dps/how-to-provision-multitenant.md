@@ -2,18 +2,17 @@
 title: Bereitstellen von Geräten für Mehrinstanzenfähigkeit im Azure IoT Hub Device Provisioning Service | Microsoft-Dokumentation
 description: Bereitstellen von Geräten für Mehrinstanzenfähigkeit mit Ihrer Device Provisioning Service-Instanz
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116084"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Bereitstellen für Mehrinstanzenfähigkeit 
@@ -42,6 +41,8 @@ In diesem Artikel wird ein Beispiel für ein simuliertes Gerät aus dem [Azure I
 
 * Vollständige Bearbeitung der Schnellstartanleitung [Einrichten des IoT Hub Device Provisioning Service über das Azure-Portal](./quick-setup-auto-provision.md).
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-two-regional-iot-hubs"></a>Erstellen von zwei regionalen IoT Hubs
@@ -192,7 +193,7 @@ Zur Vereinfachung der Bereinigung werden diese VMs derselben Ressourcengruppe hi
 In diesem Abschnitt klonen Sie das Azure IoT C SDK auf jedem virtuellen Computer. Das SDK enthält ein Beispiel, mit dem die Gerätebereitstellung eines Mandanten in jeder Region simuliert wird.
 
 
-1. Installieren Sie für jede VM **Cmake**, **g++**, **gcc** und [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), indem Sie die folgenden Befehle verwenden:
+1. Installieren Sie für jede VM **Cmake**, **g++** , **gcc** und [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), indem Sie die folgenden Befehle verwenden:
 
     ```bash
     sudo apt-get update
@@ -299,7 +300,7 @@ In diesem Abschnitt aktualisieren Sie ein Bereitstellungsbeispiel im Azure IoT C
 
 Der Beispielcode simuliert eine Gerätestartsequenz, über die die Bereitstellungsanforderung an die Instanz des Device Provisioning-Diensts gesendet wird. Die Startsequenz bewirkt, dass das Gerät erkannt und dem IoT Hub zugewiesen wird, der bezogen auf die Latenz am nächsten liegt.
 
-1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning Service, und notieren Sie sich den Wert unter **_ID-Bereich_**.
+1. Navigieren Sie im Azure-Portal zur Registerkarte **Übersicht** für Ihren Device Provisioning Service, und notieren Sie sich den Wert unter **_ID-Bereich_** .
 
     ![Extrahieren von Informationen zum Device Provisioning Service-Endpunkt aus dem Portalblatt](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

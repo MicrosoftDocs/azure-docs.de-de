@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7ee79da6219452ace4f7e71bd670de3cfdc968fb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232363"
 documentType: LandingData
 title: Azure SQL-Datenbank – Skalierbarkeit
 metadata:
@@ -18,43 +12,43 @@ metadata:
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 01/25/2019
   ms.author: jovanpop-msft
 sections:
-- items:
-  - type: paragraph
-    text: Mit Azure SQL-Datenbank können Sie Ihre Datenbank problemlos skalieren, indem Sie Computeleistung (zentral hochskalieren) oder Datenbankeinheiten (horizontal hochskalieren) hinzufügen.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: 'Mit Azure SQL-Datenbank können Sie Ihre Datenbank problemlos skalieren, indem Sie Computeleistung (zentral hochskalieren) oder Datenbankeinheiten (horizontal hochskalieren) hinzufügen.'
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Zentrales Hochskalieren
+            href: /azure/sql-database/sql-database-scale-resources
+            html: '<p>Fügen Sie Ressourcen in Ihrer SQL-Datenbank einfach hinzu, oder entfernen Sie sie, um das beste Preis-Leistungs-Verhältnis zu ermitteln oder Leistungsprobleme zu beheben.</p>'
+          - title: Horizontale Leseskalierung
+            href: /azure/sql-database/sql-database-read-scale-out
+            html: '<p>Der Tarif „Unternehmenskritisch“ bietet Ihnen ein kostenloses Replikat der Datenbank, in dem Sie Berichte, Analysen und andere schreibgeschützte Abfragen mit einer Kopie der Daten ausführen können.</p>'
+          - title: Datenbank-Sharding
+            href: /azure/sql-database/sql-database-elastic-scale-introduction
+            html: '<p>Sie können mehrere Datenbankshards verwenden, um Ihre Datenbank über die maximalen Compute- und Speichergrenzen für einzelne Datenbanken hinaus horizontal zu skalieren.</p>'
+          - title: Elastische Abfragen
+            href: /azure/sql-database/sql-database-elastic-query-overview
+            html: '<p>Elastische Abfragen ermöglichen Ihnen, Transact-SQL-Standardabfragen für eine Gruppe von Shards einer global verteilten Datenbank auszuführen.</p>'
+          - title: Elastische Transaktionen
+            href: /azure/sql-database/sql-database-elastic-transactions-overview
+            html: '<p>Verwenden Sie global verteilte Transaktionen, um sicherzustellen, dass in Transaktionen ein konsistenter Zugriff auf Ihre verteilten Daten erfolgt.</p>'
+          - title: Datenbankübergreifende Aufträge
+            href: /azure/sql-database/elastic-jobs-overview
+            html: <p>Verwalten Sie eine Gruppe von Datenbanken mithilfe von datenbankübergreifenden elastischen Aufträgen.</p>
+  - title: Weitere Ressourcen
     items:
-    - title: Zentrales Hochskalieren
-      href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Fügen Sie Ressourcen in Ihrer SQL-Datenbank einfach hinzu, oder entfernen Sie sie, um das beste Preis-Leistungs-Verhältnis zu ermitteln oder Leistungsprobleme zu beheben.</p>
-    - title: Horizontale Leseskalierung
-      href: /azure/sql-database/sql-database-read-scale-out
-      html: <p>Der Tarif „Unternehmenskritisch“ bietet Ihnen ein kostenloses Replikat der Datenbank, in dem Sie Berichte, Analysen und andere schreibgeschützte Abfragen mit einer Kopie der Daten ausführen können.</p>
-    - title: Datenbank-Sharding
-      href: /azure/sql-database/sql-database-elastic-scale-introduction
-      html: <p>Sie können mehrere Datenbankshards verwenden, um Ihre Datenbank über die maximalen Compute- und Speichergrenzen für einzelne Datenbanken hinaus horizontal zu skalieren.</p>
-    - title: Elastische Abfragen
-      href: /azure/sql-database/sql-database-elastic-query-overview
-      html: <p>Elastische Abfragen ermöglichen Ihnen, Transact-SQL-Standardabfragen für eine Gruppe von Shards einer global verteilten Datenbank auszuführen.</p>
-    - title: Elastische Transaktionen
-      href: /azure/sql-database/sql-database-elastic-transactions-overview
-      html: <p>Verwenden Sie global verteilte Transaktionen, um sicherzustellen, dass in Transaktionen ein konsistenter Zugriff auf Ihre verteilten Daten erfolgt.</p>
-    - title: Datenbankübergreifende Aufträge
-      href: /azure/sql-database/elastic-jobs-overview
-      html: <p>Verwalten Sie eine Gruppe von Datenbanken mithilfe von datenbankübergreifenden elastischen Aufträgen.</p>
-- title: Weitere Ressourcen
-  items:
-  - type: paragraph
-    text: Erfahren Sie etwas über weitere Features zum Skalieren Ihrer Daten.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Verbindungsserver</a> sind ein Kernfeature der SQL Server-Datenbank-Engine, mit dem Sie verteilte Abfragen von Transact-SQL-Code zu anderen Datenbank-Engines ausführen können.
-    - html: Mit der <a href="sql-database-geo-replication-overview.md">Georeplikation</a> können Sie eine beliebige Anzahl von lesbaren Replikaten in unterschiedlichen Regionen platzieren.
+      - type: paragraph
+        text: Erfahren Sie etwas über weitere Features zum Skalieren Ihrer Daten.
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Verbindungsserver</a> sind ein Kernfeature der SQL Server-Datenbank-Engine, mit dem Sie verteilte Abfragen von Transact-SQL-Code zu anderen Datenbank-Engines ausführen können.'
+          - html: Mit der <a href="sql-database-geo-replication-overview.md">Georeplikation</a> können Sie eine beliebige Anzahl von lesbaren Replikaten in unterschiedlichen Regionen platzieren.

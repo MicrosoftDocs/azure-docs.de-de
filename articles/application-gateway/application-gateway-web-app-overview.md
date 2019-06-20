@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8434340bb7ed95cc36115c05048b2b67682b5796
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 256fb42be8fec056ed7d10cfc4197a1b5a33fac1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807166"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway-Unterstützung für mehrinstanzenfähige Back-Ends wie App Service
 
@@ -31,7 +31,7 @@ Die Möglichkeit zum Angeben einer Hostüberschreibung wird in den [HTTP-Einstel
 
 - Der Hostnamen kann auf einen Wert festgelegt werden, der explizit in den HTTP-Einstellungen eingegeben wird. Hierdurch wird sichergestellt, dass der Hostheader für sämtlichen eingehenden Datenverkehr des Back-End-Pools, auf den diese HTTP-Einstellungen angewendet werden, mit diesem Wert überschrieben wird. Bei Verwendung von End-to-End-SSL wird der überschriebene Hostname in der SNI-Erweiterung verwendet. Diese Funktion ermöglicht Szenarien, bei denen eine Back-End-Poolfarm einen Hostheader erwartet, der sich vom eingehenden Hostheader des Kunden unterscheidet.
 
-- Ableiten des Hostnamens von der IP-Adresse oder dem FQDN der Back-End-Poolmitglieder: Die HTTP-Einstellungen enthalten auch eine Option zur dynamischen Auswahl des Hostnamens vom vollqualifizierten Domänennamen eines Back-End-Poolelements, sofern die Option zur Ableitung des Hostnamens von einem einzelnen Back-End-Poolelement konfiguriert ist. Bei Verwendung von End-to-End-SSL wird dieser Hostname vom FQDN abgeleitet und in der SNI-Erweiterung verwendet. Diese Funktion ermöglicht Szenarien, in denen ein Back-End-Pool mehrere mehrinstanzenfähige PaaS-Dienste (z.B. Azure Web Apps) enthalten kann und der Hostheader der Anforderung für die einzelnen Mitglieder den vom entsprechenden FQDN abgeleiteten Hostnamen enthält. Für die Implementierung dieses Szenarios wird die Option [Hostnamen aus Back-End-Adresse auswählen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-backend-address) in den HTTP-Einstellungen eingesetzt, durch die der Hostheader in der ursprünglichen Anforderung dynamisch mit dem erwähnten Hostheader im Back-End-Pool überschrieben wird.  Wenn der vollqualifizierte Domänenname Ihres Back-End-Pools beispielsweise „contoso11.azurewebsites.net“ und „contoso22.azurewebsites.net“ enthält, wird der ursprüngliche Hostheader der Anforderung (contoso.com) mit „contoso11.azurewebsites.net“ oder „contoso22.azurewebsites.net“ überschrieben, wenn die Anforderung an den entsprechenden Back-End-Server gesendet wird. 
+- Ableiten des Hostnamens von der IP-Adresse oder dem FQDN der Back-End-Poolmitglieder: Die HTTP-Einstellungen enthalten auch eine Option zur dynamischen Auswahl des Hostnamens vom vollqualifizierten Domänennamen eines Back-End-Poolelements, sofern die Option zur Ableitung des Hostnamens von einem einzelnen Back-End-Poolelement konfiguriert ist. Bei Verwendung von End-to-End-SSL wird dieser Hostname vom FQDN abgeleitet und in der SNI-Erweiterung verwendet. Diese Funktion ermöglicht Szenarien, in denen ein Back-End-Pool mehrere mehrinstanzenfähige PaaS-Dienste (z.B. Azure Web Apps) enthalten kann und der Hostheader der Anforderung für die einzelnen Mitglieder den vom entsprechenden FQDN abgeleiteten Hostnamen enthält. Für die Implementierung dieses Szenarios wird die Option [Hostnamen aus Back-End-Adresse auswählen](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) in den HTTP-Einstellungen eingesetzt, durch die der Hostheader in der ursprünglichen Anforderung dynamisch mit dem erwähnten Hostheader im Back-End-Pool überschrieben wird.  Wenn der vollqualifizierte Domänenname Ihres Back-End-Pools beispielsweise „contoso11.azurewebsites.net“ und „contoso22.azurewebsites.net“ enthält, wird der ursprüngliche Hostheader der Anforderung (contoso.com) mit „contoso11.azurewebsites.net“ oder „contoso22.azurewebsites.net“ überschrieben, wenn die Anforderung an den entsprechenden Back-End-Server gesendet wird. 
 
   ![Web-App-Szenario](./media/application-gateway-web-app-overview/scenario.png)
 

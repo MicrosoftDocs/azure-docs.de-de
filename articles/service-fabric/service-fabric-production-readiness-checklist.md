@@ -12,28 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
+ms.date: 6/05/2019
 ms.author: aljo
-ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107490"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66729864"
 ---
 # <a name="production-readiness-checklist"></a>Prüfliste für die Produktionsbereitschaft
 
 Sind Ihre Anwendung und Ihr Cluster bereit für den Produktionsdatenverkehr? Das Ausführen und Testen Ihrer Anwendung und Ihres Clusters bedeutet nicht notwendigerweise, dass Produktionsbereitschaft vorliegt. Halten Sie die Ausführung Ihrer Anwendung und Ihres Clusters reibungslos in Gang, indem Sie die folgende Prüfliste durchgehen. Wir empfehlen dringend, alle diese Punkte abzuhaken. Selbstverständlich können Sie für einen bestimmten Punkt alternative Lösungen verwenden (z.B. eigene Diagnoseframeworks).
 
 
-## <a name="pre-requisites-for-production"></a>Voraussetzungen für die Produktion
-1. Die folgenden [bewährten Methoden für die Azure Service Fabric-Sicherheit](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) gelten: 
-1. Verwenden von X.509-Zertifikaten
-1. Konfigurieren von Sicherheitsrichtlinien
-1. Konfigurieren von SSL für Azure Service Fabric
-1. Verwenden von Netzwerkisolation und -sicherheit mit Azure Service Fabric
-1. Einrichten einer Azure Key Vault-Instanz für die Sicherheit
-1. Microsoft.Network/loadBalancersAssign Benutzer zu Rollen
+## <a name="prerequisites-for-production"></a>Voraussetzungen für die Produktion
+1. Bewährte Methoden für Azure Service Fabric: [Anwendungsentwurf](./service-fabric-best-practices-applications.md), [Sicherheit](./service-fabric-best-practices-security.md), [Netzwerk](./service-fabric-best-practices-networking.md), [Kapazitätsplanung und Skalierung](./service-fabric-best-practices-capacity-scaling.md), [Infrastruktur als Code](./service-fabric-best-practices-infrastructure-as-code.md) und [Überwachung und Diagnose](./service-fabric-best-practices-monitoring.md). 
 1. Implementieren der Reliable Actors-Sicherheitskonfiguration, wenn das Actors-Programmiermodell verwendet wird
 1. Erstellen Sie für Cluster mit mehr als 20 Kernen oder 10 Knoten einen dedizierten primären Knotentyp für Systemdienste. Fügen Sie [Platzierungseinschränkungen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) hinzu, um den primären Knotentyp für Systemdienste zu reservieren.
 1. Verwenden Sie für den primären Knotentyp eine SKU des Typs D2v2 oder höher. Es wird empfohlen, eine SKU mit einer Festplattenkapazität von mindestens 50 GB auszuwählen.

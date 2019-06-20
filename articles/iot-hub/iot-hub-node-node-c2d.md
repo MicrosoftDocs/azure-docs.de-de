@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: baefd05b562d688b662bf988c7b36a0e9cd154b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e2c3c3988193242cd0afe0135b019c7e6f73b59c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65596723"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Senden von C2D-Nachrichten mit IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -44,7 +44,7 @@ Am Ende dieses Tutorials führen Sie zwei Node.js-Konsolen-Apps aus:
 
 Für dieses Tutorial benötigen Sie Folgendes:
 
-* Node.js Version 4.0.x oder höher
+* Node.js, Version 10.0.x oder höher.
 * Ein aktives Azure-Konto. (Wenn Sie nicht über ein Konto verfügen, können Sie in nur wenigen Minuten ein [kostenloses Konto](https://azure.microsoft.com/pricing/free-trial) erstellen.)
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Empfangen von Nachrichten in der simulierten Geräte-App

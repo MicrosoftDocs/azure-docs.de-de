@@ -4,25 +4,25 @@ description: In diesem Artikel wird erläutert, wie Sie die Sicherheit und Berec
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 53489ef9c1264fa31b06f4660e545e6efbd1f616
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236397"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237034"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Gewähren von Datenzugriff für eine Umgebung
 
 In diesem Artikel werden die beiden Arten von Zugriffsrichtlinien für Azure Time Series Insights Preview thematisiert.
 
-## <a name="sign-in-to-tsi"></a>Anmelden bei TSI
+## <a name="sign-in-to-time-series-insights"></a>Anmelden bei Time Series Insights
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 1. Suchen Sie Ihre Time Series Insights-Umgebung. Geben Sie in das **Suchfeld** `Time Series` ein. Wählen Sie **Time Series Environment** (Time Series-Umgebung) in den Suchergebnissen aus.

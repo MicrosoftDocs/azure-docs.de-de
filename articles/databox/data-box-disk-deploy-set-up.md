@@ -1,5 +1,5 @@
 ---
-title: Einrichten des Microsoft Azure Data Box-Datenträgers | Microsoft-Dokumentation
+title: Tutorial zum Entpacken, Verbinden und Entsperren von Azure Data Box Disk | Microsoft-Dokumentation
 description: Verwenden Sie dieses Tutorial, um zu erfahren, wie Sie Ihren Azure Data Box-Datenträger einrichten.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652149"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939645"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Entpacken, Verbinden und Entsperren von Azure Data Box Disk
 
@@ -171,7 +171,7 @@ Führen Sie die folgenden Schritte aus, um Ihre Datenträger anzuschließen und 
  
 5. Geben Sie `y` ein, um die Installation fortzusetzen. Das Skript installiert folgende Pakete: 
    - **epel-release**: Repository, das die folgenden drei Pakete enthält. 
-   - **„dislocker“ und „fuse-dislocker“**: Dieses Dienstprogramm dient zur Entschlüsselung von BitLocker-verschlüsselten Datenträgern. 
+   - **„dislocker“ und „fuse-dislocker“** : Dieses Dienstprogramm dient zur Entschlüsselung von BitLocker-verschlüsselten Datenträgern. 
    - **ntfs-3g**: Dieses Paket dient zur Bereitstellung von NTFS-Volumes. 
  
      Sobald die Pakete erfolgreich installiert wurden, wird im Terminal eine entsprechende Benachrichtigung angezeigt.     
@@ -208,12 +208,12 @@ Führen Sie die folgenden Schritte aus, um Ihre Datenträger anzuschließen und 
 
     Geben Sie folgenden Befehl ein.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
     Die Beispielausgabe wird unten gezeigt. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 

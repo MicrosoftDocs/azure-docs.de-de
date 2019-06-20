@@ -3,19 +3,19 @@ title: Was ist das Unterhaltungslernmodul? – Microsoft Cognitive Services | Mi
 titleSuffix: Azure
 description: Hier erhalten Sie Informationen zum Unterhaltungslernmodul und zu dessen Funktionsweise.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: c46ffe2076d4b1491a3b27958dfbf5ed09115eaa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: f8bc7590f2d7a622b4b1ffb21bfeccef89691fd5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221283"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389497"
 ---
 # <a name="what-is-conversation-learner"></a>Was ist das Unterhaltungslernmodul?
 

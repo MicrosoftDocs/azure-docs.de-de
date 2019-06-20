@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61471960"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Verwenden von Virtual Network-Dienstendpunkten mit Azure Service Bus
 
@@ -195,7 +195,7 @@ Gehen Sie zum Bereitstellen der Vorlage gemäß der Anleitung für [Azure Resour
 
 Weitere Informationen zu virtuellen Netzwerken finden Sie unter den folgenden Links:
 
-- [Dienstendpunkte von virtuellen Netzwerken (Vorschauversion)][vnet-sep]
+- [Azure-VNET-Dienstendpunkte][vnet-sep]
 - [Azure Service Bus IP filtering][ip-filtering] (Azure Service Bus – IP-Filterung)
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4fa3885f9c273cf6aaf9173ebd3fee3d4499be34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808101"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Ermöglichen der Kommunikation für Rolleninstanzen in Azure
 Clouddienstrollen kommunizieren über interne und externe Verbindungen miteinander. Externe Verbindungen werden als **Eingabeendpunkte** bezeichnet, interne Verbindungen dagegen als **interne Endpunkte**. In diesem Thema wird beschrieben, wie Sie die [Dienstdefinition](cloud-services-model-and-package.md#csdef) zum Erstellen von Endgeräten ändern.
 
 ## <a name="input-endpoint"></a>Eingabeendpunkt
-Eingabeendpunkte werden verwendet, wenn Sie einen Port für externe Verbindungen verfügbar machen möchten. Sie geben den Protokolltyp und den Port des Endpunkts an, der dann sowohl für die externen als auch die internen Ports für den Endpunkt gilt. Wenn Sie möchten, können Sie mit dem [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) -Attribut einen anderen internen Port für den Endpunkt angeben.
+Eingabeendpunkte werden verwendet, wenn Sie einen Port für externe Verbindungen verfügbar machen möchten. Sie geben den Protokolltyp und den Port des Endpunkts an, der dann sowohl für die externen als auch die internen Ports für den Endpunkt gilt. Wenn Sie möchten, können Sie mit dem [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) -Attribut einen anderen internen Port für den Endpunkt angeben.
 
 Der Eingabeendpunkt kann die folgenden Protokolle verwenden: **http, https, tcp, udp**.
 

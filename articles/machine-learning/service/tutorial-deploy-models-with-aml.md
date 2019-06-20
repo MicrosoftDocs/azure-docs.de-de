@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2984ed9a7edd36b166c0dff9aa87d86c6d2ab45
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9709d18b00d65578ca3a63fe5044e0b9f7b52d58
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800733"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515579"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Bereitstellen eines Bildklassifizierungsmodells in Azure Container Instances
 
@@ -35,7 +35,7 @@ In diesem Teil des Tutorials verwenden Sie den Azure Machine Learning-Dienst fü
 Container Instances ist eine hervorragende Lösung für das Testen und Verstehen des Workflows. Für skalierbare Produktionsbereitstellungen sollten Sie Azure Kubernetes Service verwenden. Weitere Informationen finden Sie unter [Bereitstellen von Modellen mit dem Azure Machine Learning Service](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Der Code in diesem Artikel wurde mit Version 1.0.8 des Azure Machine Learning SDK getestet.
+> Der Code in diesem Artikel wurde mit Version 1.0.41 des Azure Machine Learning SDK getestet.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 Wechseln Sie zu [Festlegen der Entwicklungsumgebung](#start), um die Notebookschritte durchzulesen.  
@@ -93,7 +93,7 @@ Vergewissern Sie sich vor der Bereitstellung, dass Ihr Modell lokal funktioniert
 
 ### <a name="load-test-data"></a>Laden von Testdaten
 
-Laden Sie die Testdaten aus dem Verzeichnis **./data/**, das im Rahmen des Trainingstutorials erstellt wurde:
+Laden Sie die Testdaten aus dem Verzeichnis **./data/** , das im Rahmen des Trainingstutorials erstellt wurde:
 
 ```python
 from utils import load_data

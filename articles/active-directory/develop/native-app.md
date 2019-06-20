@@ -3,8 +3,8 @@ title: Native Apps in Azure Active Directory
 description: Beschreibt, worum es sich bei nativen Apps handelt, und stellt die Grundlagen des Protokollflusses, der Registrierung und des Tokenablaufs für diesen App-Typ vor.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c15890a5693235e8f2554ba8d0fdefc161770f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545842"
 ---
 # <a name="native-apps"></a>Native Apps
 
@@ -52,7 +52,7 @@ Sehen Sie sich die Codebeispiele für Szenarien vom Typ „Systemeigene Anwendun
 
 ## <a name="app-registration"></a>App-Registrierung
 
-Informationen zum Registrieren einer Anwendung beim Azure AD v1.0-Endpunkt finden Sie unter [Schnellstart: Registrieren einer App mit dem Azure Active Directory v1.0-Endpunkt](quickstart-v1-add-azure-ad-app.md).
+Informationen zum Registrieren einer Anwendung beim Azure AD v1.0-Endpunkt finden Sie unter [Schnellstart: Registrieren einer Anwendung bei Microsoft Identity Platform](quickstart-register-app.md).
 
 * Einzelinstanzenfähige Anwendung: Sowohl die native Anwendung als auch die Web-API müssen in Azure AD im gleichen Verzeichnis registriert werden. Die Web-API kann so konfiguriert werden, dass sie einen Satz von Berechtigungen verfügbar macht, die den Ressourcenzugriff der systemeigenen Anwendung beschränken. Die Clientanwendung wählt daraufhin die gewünschten Berechtigungen aus dem Dropdownmenü „Berechtigungen für andere Anwendungen“ des Azure-Portals aus.
 * Mehrinstanzenfähige Anwendung: Die native Anwendung wird zum einen immer nur im Verzeichnis des Entwicklers oder des Herausgebers registriert. Zum anderen ist die systemeigene Anwendung so konfiguriert, dass sie die Berechtigungen angibt, die für eine ordnungsgemäße Verwendung erforderlich sind. Die Liste mit den erforderlichen Berechtigungen wird in einem Dialogfeld angezeigt, wenn ein Benutzer oder Administrator im Zielverzeichnis der Anwendung zustimmt. Dadurch wird die Anwendung in ihrer Organisation verfügbar. Einige Anwendungen benötigen nur Berechtigungen auf Benutzerebene. Diesen kann jeder Benutzer in der Organisation zustimmen. Andere Anwendungen benötigen Berechtigungen auf Administratorebene. Diesen kann ein Benutzer in der Organisation nicht zustimmen. Nur ein Verzeichnisadministrator kann seine Zustimmung für Anwendungen geben, die diese Berechtigungsebene erfordern. Wenn der Benutzer oder Administrator seine Zustimmung gibt, wird nur die Web-API in seinem Verzeichnis registriert. 

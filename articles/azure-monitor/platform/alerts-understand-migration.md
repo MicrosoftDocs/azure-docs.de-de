@@ -1,47 +1,50 @@
 ---
-title: Funktionsweise des Tools für die freiwillige Migration von Warnungen in Azure Monitor
-description: Enthält eine Beschreibung der Funktionsweise des Tools für die Migration von Warnungen und Informationen zur Behebung von Problemen.
+title: Funktionsweise des Tools für die freiwillige Migration von Azure Monitor-Warnungen
+description: Enthält eine Beschreibung der Funktionsweise des Migrationstools für Warnungen sowie Informationen zur Problembehandlung.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: a45a0cff606bc854924d5da0841b26e1cb9031bb
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: b5a13254fc9dfd58db83a1bc8b9dd071cfbbdab2
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631656"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015592"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Funktionsweise des Migrationstools
 
-Wie [bereits angekündigt](monitoring-classic-retirement.md) werden klassische Warnungen in Azure Monitor im Juli 2019 eingestellt. Das Migrationstool zum freiwilligen Auslösen der Migration steht im Azure-Portal bereit, und der Rollout erfolgt für Kunden, die klassische Warnungsregeln verwenden.
+Wie [bereits angekündigt](monitoring-classic-retirement.md) werden klassische Warnungen in Azure Monitor im September 2019 (ursprünglich Juli 2019) eingestellt. Im Azure-Portal steht ein Migrationstool für Kunden bereit, die klassische Warnungsregeln verwenden und die Migration selbst auslösen möchten.
 
-In diesem Artikel wird Schritt für Schritt beschrieben, wie das Tool für die freiwillige Migration funktioniert. Außerdem wird die Behebung einiger häufiger Probleme beschrieben.
+In diesem Artikel wird erläutert, wie das Tool für die freiwillige Migration funktioniert. Außerdem werden Abhilfemaßnahmen für einige häufige Probleme beschrieben.
+
+> [!NOTE]
+> Aufgrund einer Verzögerung beim Rollout des Migrationstools wurde der Deaktivierungstermin vom ursprünglich angekündigten Datum, dem 30. Juni 2019, auf den [31. August 2019 verschoben](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/).
 
 ## <a name="which-classic-alert-rules-can-be-migrated"></a>Welche klassischen Warnungsregeln können migriert werden?
 
-Mit dem Tool können fast alle klassischen Warnungsregeln migriert werden, aber es gibt auch einige Ausnahmen. Die folgenden Warnungsregeln können mit dem Tool nicht migriert werden (und werden auch während der automatischen Migration im Juli 2019 nicht migriert).
+Zwar können mit dem Tool fast alle klassischen Warnungsregeln migriert werden, doch gibt es einige Ausnahmen. Die folgenden Warnungsregeln können mit dem Tool nicht migriert werden (und werden auch während der automatischen Migration im September 2019 nicht migriert):
 
-- Klassische Warnungsregeln für VM-Gastmetriken (sowohl Windows als auch Linux). [Hier finden Sie eine Anleitung zur erneuten Erstellung dieser Warnungsregeln in neuen Metrikwarnungen](#guest-metrics-on-virtual-machines).
-- Klassische Warnungsregeln für Metriken von klassischem Speicher. [Hier finden Sie eine Anleitung zur Überwachung Ihrer klassischen Speicherkonten](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
-- Klassische Warnungsregeln in einigen Speicherkontometriken. [Details hierzu finden Sie weiter unten](#storage-account-metrics).
+- Klassische Warnungsregeln für VM-Gastmetriken (sowohl Windows als auch Linux). Informationen finden Sie in der [Anleitung zum erneuten Erstellen solcher Warnungsregeln in neuen Metrikwarnungen](#guest-metrics-on-virtual-machines) weiter unten in diesem Artikel.
+- Klassische Warnungsregeln für Metriken von klassischem Speicher. Informationen finden Sie in der [Anleitung zum Überwachen Ihrer klassischen Speicherkonten](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
+- Klassische Warnungsregeln in einigen Speicherkontometriken. Informationen finden Sie unter den [Details](#storage-account-metrics) weiter unten in diesem Artikel.
 
-Wenn Ihr Abonnement über klassische Regeln dieser Art verfügt, werden die anderen Regeln migriert, aber für diese Regeln ist eine manuelle Migration erforderlich. Da wir keine automatische Migration bereitstellen können, funktionieren alle vorhandenen klassischen Metrikwarnungen noch bis Juni 2020, damit Sie genügend Zeit für die Umstellung auf neue Warnungen haben. Nach Juni 2019 können aber keine neuen klassischen Warnungen mehr erstellt werden.
+Wenn Ihr Abonnement über klassische Regeln dieser Art verfügt, müssen Sie sie manuell migrieren. Da wir keine automatische Migration bereitstellen können, funktionieren alle vorhandenen klassischen Metrikwarnungen noch bis Juni 2020. Diese Verlängerung gibt Ihnen Zeit für die Umstellung auf neue Warnungen. Nach August 2019 können aber keine neuen klassischen Warnungen mehr erstellt werden.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Gastmetriken auf virtuellen Computern
 
-Um neue Metrikwarnungen für Gastmetriken erstellen zu können, müssen die Gastmetriken an den benutzerdefinierten Metrikspeicher von Azure Monitor gesendet werden. Befolgen Sie unten die Anleitung, um die Azure Monitor-Senke in den Diagnoseeinstellungen zu aktivieren.
+Bevor Sie neue Metrikwarnungen für Gastmetriken erstellen können, müssen die Gastmetriken an den benutzerdefinierten Metrikspeicher von Azure Monitor gesendet werden. Befolgen Sie die nachstehenden Anweisungen, um die Azure Monitor-Senke in den Diagnoseeinstellungen zu aktivieren:
 
 - [Aktivieren von Gastmetriken für Windows-VMs](collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Aktivieren von Gastmetriken für Linux-VMs](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf)
+- [Aktivieren von Gastmetriken für Linux-VMs](collect-custom-metrics-linux-telegraf.md)
 
-Nachdem die oben genannten Schritte abgeschlossen wurden, können neue Warnungen für Gastmetriken erstellt werden. Die klassischen Warnungen können gelöscht werden, nachdem die neuen Metrikwarnungen erstellt wurden.
+Nachdem die oben genannten Schritte ausgeführt wurden, können Sie neue Metrikwarnungen für Gastmetriken erstellen. Und nachdem Sie neue Metrikwarnungen erstellt haben, können Sie klassische Warnungen löschen.
 
 ### <a name="storage-account-metrics"></a>Speicherkontometriken
 
-Alle klassischen Warnungen in Speicherkonten können migriert werden, mit Ausnahme dieser Warnungen in den folgenden Metriken:
+Alle klassischen Warnungen in Speicherkonten können migriert werden, mit Ausnahme von Warnungen in den folgenden Metriken:
 
 - PercentAuthorizationError
 - PercentClientOtherError
@@ -55,16 +58,16 @@ Alle klassischen Warnungen in Speicherkonten können migriert werden, mit Ausnah
 
 Klassische Warnungsregeln für Metriken vom Typ „Percent“ müssen basierend auf der [Zuordnung zwischen alten und neuen Speichermetriken](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics) migriert werden. Schwellenwerte müssen entsprechend geändert werden, da die neue verfügbare Metrik eine absolute Metrik ist.
 
-Die klassischen Warnungsregeln AnonymousThrottlingError und SASThrottlingError müssen in zwei neue Warnungen aufgeteilt werden, da es keine kombinierte Metrik gibt, die über die gleiche Funktionalität verfügt. Schwellenwerte müssen entsprechend angepasst werden.
+Die klassischen Warnungsregeln für AnonymousThrottlingError und SASThrottlingError müssen in zwei neue Warnungen aufgeteilt werden, da es keine kombinierte Metrik gibt, die über die gleiche Funktionalität verfügt. Schwellenwerte müssen entsprechend angepasst werden.
 
-## <a name="roll-out-phases"></a>Rolloutphasen
+## <a name="rollout-phases"></a>Rolloutphasen
 
-Der Rollout des Migrationstools erfolgt für Kunden, die klassische Warnungsregeln verwenden, in mehreren Phasen. **Abonnementbesitzer** erhalten eine E-Mail, wenn das Abonnement für die Migration mit dem Tool bereit ist.
+Der Rollout des Migrationstools erfolgt für Kunden, die klassische Warnungsregeln verwenden, in mehreren Phasen. Abonnementbesitzer erhalten eine E-Mail, wenn das Abonnement für die Migration mit dem Tool bereit ist.
 
 > [!NOTE]
-> Während des Rollouts des Tools in Phasen ist es in den frühen Phasen ggf. der Fall, dass die meisten Ihrer Abonnements noch nicht für die Migration bereit sind.
+> Da der Rollout des Tools in Phasen erfolgt, wird Ihnen in den frühen Phasen möglicherweise angezeigt, dass die meisten Ihrer Abonnements noch nicht für die Migration bereit sind.
 
-Derzeit ist nur eine **Teilmenge** der Abonnements, die **ausschließlich** über klassische Warnungsregeln mit den folgenden Ressourcentypen verfügen, als migrationsbereit gekennzeichnet. Unterstützung für weitere Ressourcentypen wird in den nächsten Phasen hinzugefügt.
+Derzeit ist nur eine Teilmenge der Abonnements als migrationsbereit gekennzeichnet. Die Teilmenge umfasst die Abonnements, die über klassische Warnungsregeln nur für die folgenden Ressourcentypen verfügen. Unterstützung für weitere Ressourcentypen wird in den nächsten Phasen hinzugefügt.
 
 - Microsoft.apimanagement/service
 - Microsoft.batch/batchaccounts
@@ -92,26 +95,26 @@ Derzeit ist nur eine **Teilmenge** der Abonnements, die **ausschließlich** übe
 
 ## <a name="who-can-trigger-the-migration"></a>Wer kann die Migration auslösen?
 
-Alle Benutzer, die auf Abonnementebene über die integrierte Rolle **Mitwirkender an der Überwachung**  verfügen, können die Migration auslösen. Benutzer mit einer benutzerdefinierten Rolle mit den folgenden Berechtigungen können die Migration ebenfalls auslösen:
+Alle Benutzer, die auf Abonnementebene über die integrierte Rolle „Mitwirkender an der Überwachung“ verfügen, können die Migration auslösen. Benutzer, die über eine benutzerdefinierte Rolle mit den folgenden Berechtigungen verfügen, können die Migration ebenfalls auslösen:
 
 - */Lesen
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
 
-## <a name="common-issues-and-remediations"></a>Häufig Probleme und ihre Lösungen
+## <a name="common-problems-and-remedies"></a>Häufige Probleme und Abhilfemaßnahmen
 
-Nachdem Sie [die Migration ausgelöst haben](alerts-using-migration-tool.md), verwenden wir die angegebenen E-Mail-Adresse(n), um Sie über den Abschluss der Migration oder die erforderliche Ausführung einer Aktion zu benachrichtigen. Im folgenden Abschnitt sind einige häufige Probleme und die zugehörigen Lösungen beschrieben.
+Nachdem Sie [die Migration ausgelöst haben](alerts-using-migration-tool.md), erhalten Sie E-Mails an die Adressen, die Sie für die Benachrichtigung über den Abschluss der Migration oder die erforderliche Ausführung einer Aktion angegeben haben. In diesem Abschnitt sind einige häufige Probleme und der Umgang damit beschrieben.
 
 ### <a name="validation-failed"></a>Fehler bei der Überprüfung
 
 Aufgrund von einigen kürzlich durchgeführten Änderungen an den klassischen Warnungsregeln in Ihrem Abonnement kann das Abonnement nicht migriert werden. Dies ist ein vorübergehendes Problem. Sie können die Migration neu starten, nachdem der Migrationsstatus nach einigen Tagen wieder **Bereit für die Migration** lautet.
 
-### <a name="policyscope-lock-preventing-us-from-migrating-your-rules"></a>Richtlinien-/Bereichssperre verhindert die Migration Ihrer Regeln
+### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>Richtlinien- oder Bereichssperre verhindert die Migration Ihrer Regeln
 
-Im Rahmen der Migration werden neue Metrikwarnungen und neue Aktionsgruppen erstellt und klassische Warnungsregeln gelöscht (nachdem neue Regeln erstellt wurden). Es besteht aber entweder eine Richtlinien- oder Bereichssperre, die verhindert, dass wir Ressourcen erstellen können. Je nach Richtlinien- oder Bereichssperre können einige oder alle Regeln nicht migriert werden. Sie können dieses Problem beheben, indem Sie die Richtlinien- bzw. Bereichssperre vorübergehend aufheben und die Migration erneut auslösen.
+Im Rahmen der Migration werden neue Metrikwarnungen und neue Aktionsgruppen erstellt und anschließend klassische Warnungsregeln gelöscht. Es besteht aber entweder eine Richtlinien- oder Bereichssperre, die verhindert, dass wir Ressourcen erstellen können. Je nach Richtlinien- oder Bereichssperre können einige oder alle Regeln nicht migriert werden. Sie können dieses Problem beheben, indem Sie die Richtlinien- oder Bereichssperre vorübergehend aufheben und die Migration erneut auslösen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Verwenden des Migrationstools](alerts-using-migration-tool.md)
+- [How to use the migration tool](alerts-using-migration-tool.md) (Verwenden des Migrationstools)
 - [Vorbereiten der Migration](alerts-prepare-migration.md)

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65550146"
 ---
 # <a name="cloud-upload-and-storage"></a>Clouduploads und Cloudspeicherung
 
@@ -51,6 +51,17 @@ Zum Schutz Ihrer im Ruhezustand befindlichen Ressourcen sollten die Ressourcen d
 |[Clientseitige Storage-Verschlüsselung](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Durch Azure Storage angebotene clientseitige Verschlüsselung – Schlüssel wird vom Kunden in Key Vault verwaltet|Nicht unterstützt|
 
 <sup>1</sup> In Media Services v3 wird Speicherverschlüsselung (AES-256-Verschlüsselung) nur für die Abwärtskompatibilität unterstützt, wenn Ihre Ressourcen mit Media Services v2 erstellt wurden. Dies bedeutet, dass v3 mit vorhandenen speicherverschlüsselten Ressourcen funktioniert, jedoch nicht die Erstellung neuer zulässt.
+
+## <a name="storage-account-errors"></a>Speicherkontofehler
+
+Mit dem Status „Getrennt“ wird für ein Media Services-Konto angegeben, dass für das Konto aufgrund einer Änderung der Speicherzugriffsschlüssel kein Zugriff mehr auf mindestens ein angefügtes Speicherkonto besteht. Für Media Services werden aktuelle Speicherzugriffsschlüssel benötigt, um unter dem Konto viele verschiedene Aufgaben durchführen zu können.
+
+Unten sind die wichtigsten Szenarien aufgeführt, die bewirken, dass ein Media Services-Konto keinen Zugriff auf angefügte Speicherkonten hat. 
+
+|Problem|Lösung|
+|---|---|
+|Das Media Services-Konto oder angefügte Speicherkonten wurden zu separaten Abonnements migriert. |Migrieren Sie das bzw. die Speicherkonten oder das Media Services-Konto, damit diese Komponenten sich alle unter demselben Abonnement befinden. |
+|Für das Media Services-Konto wird ein angefügtes Speicherkonto unter einem anderen Abonnement verwendet, da es sich um ein frühes Media Services-Konto handelt, für das dies unterstützt wurde. Alle frühen Media Services-Konten wurden in moderne ARM-basierte Konten (Azure Resources Manager) konvertiert und weisen den Status „Getrennt“ auf. |Migrieren Sie das Speicherkonto oder Media Services-Konto, damit diese Komponenten sich alle unter demselben Abonnement befinden.|
 
 ## <a name="next-steps"></a>Nächste Schritte
 

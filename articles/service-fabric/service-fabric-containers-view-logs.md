@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60881473"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Anzeigen von Protokollen für einen Service Fabric-Containerdienst
 Azure Service Fabric ist ein Containerorchestrator und unterstützt [Linux- und Windows-Container](service-fabric-containers-overview.md).  In diesem Artikel wird beschrieben, wie Containerprotokolle eines ausgeführten Containerdiensts oder eines inaktiven Containers angezeigt werden, sodass Sie Probleme diagnostizieren und beheben können.
@@ -29,7 +29,7 @@ Der Zugriff auf Containerprotokolle ist über [Service Fabric Explorer](service-
 
 Die Containerprotokolle befinden sich auf dem Clusterknoten, auf dem die Containerdienstinstanz ausgeführt wird. Rufen Sie beispielsweise die Protokolle für den Front-End-Webcontainer der [Linux-Voting-Beispielanwendung](service-fabric-quickstart-containers-linux.md) ab. Erweitern Sie in der Strukturansicht **Cluster**>**Anwendungen**>**VotingType**>**fabric:/Voting/azurevotefront**.  Erweitern Sie anschließend die Partition (in diesem Beispiel d1aa737e-f22a-e347-be16-eec90be24bc1), und überprüfen Sie, ob der Container auf dem Clusterknoten *_lnxvm_0* ausgeführt wird.
 
-Suchen Sie in der Strukturansicht das Codepaket auf dem Knoten *_lnxvm_0*, indem Sie **Knoten**>**_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Codepakete**>**Code** erweitern.  Wählen Sie dann die Option **Containerprotokolle** aus, um die Containerprotokolle anzuzeigen.
+Suchen Sie in der Strukturansicht das Codepaket auf dem Knoten *_lnxvm_0*, indem Sie **Knoten**> **_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Codepakete**>**Code** erweitern.  Wählen Sie dann die Option **Containerprotokolle** aus, um die Containerprotokolle anzuzeigen.
 
 ![Service Fabric-Plattform][Image1]
 

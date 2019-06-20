@@ -1,6 +1,6 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,17 +9,17 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890971"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67178076"
 ---
 *Auffüllen des Caches*  
 Der Datenträger mit der Hostcache-Einstellung „ReadOnly“ bietet eine IOPS-Rate, die höher als das Datenträgerlimit ist. Um diese maximale Leseleistung aus dem Hostcache zu erzielen, müssen zuerst Sie den Cache dieses Datenträgers mit gültigen Daten auffüllen. Dies stellt sicher, dass die Lese-E/As, die das Benchmarktool auf dem Volume „CacheReads“ erzeugt, tatsächlich den Cache und nicht direkt den Datenträger abfragen. Die Cachetreffer führen zu weiteren IOPS auf dem einzelnen Datenträger mit aktiviertem Cache.
 
 > [!IMPORTANT]
->  Immer wenn die VM neu gestartet wird, müssen Sie den Cache vor dem Ausführen von Benchmarktests auffüllen.
+> Immer wenn die VM neu gestartet wird, müssen Sie den Cache vor dem Ausführen von Benchmarktests auffüllen.
 
 ## <a name="tools"></a>Tools
 
@@ -35,12 +35,12 @@ Iometer verwendet eine Testdatei, die auf dem Volume gespeichert wird, auf dem S
 
 Die Angaben „request IO size“, „% read/write“ und „% random/sequential“ werden in Iometer auf der Registerkarte „Access Specifications“ konfiguriert. Erstellen Sie eine Zugriffsspezifikation für jedes der nachstehend beschriebenen Szenarien. Erstellen Sie die Zugriffsspezifikationen, und speichern Sie sie unter einem geeigneten Namen wie „RandomWrites\_8K“, „RandomReads\_8K“. Wählen Sie beim Ausführen des Testszenarios die entsprechende Spezifikation aus.
 
-Ein Beispiel für Zugriffsspezifikationen für das Szenario „Maximale Schreib-IOPS“ wird nachstehend gezeigt:   
+Ein Beispiel für Zugriffsspezifikationen für das Szenario „Maximale Schreib-IOPS“ wird nachstehend gezeigt:  
     ![Beispiel für Zugriffsspezifikationen für maximale Schreib-IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
 #### <a name="maximum-iops-test-specifications"></a>Testspezifikationen für maximale IOPS
 
- Wählen Sie zum Demonstrieren von maximalen IOPS eine kleinere Anforderungsgröße. Wählen Sie die Anforderungsgröße 8 KB, und erstellen Sie Spezifikationen für zufällige Schreib- und Lesevorgänge.
+Wählen Sie zum Demonstrieren von maximalen IOPS eine kleinere Anforderungsgröße. Wählen Sie die Anforderungsgröße 8 KB, und erstellen Sie Spezifikationen für zufällige Schreib- und Lesevorgänge.
 
 | Zugriffsspezifikation | Anforderungsgröße | Random % | Read % |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Ein Beispiel für Zugriffsspezifikationen für das Szenario „Maximale Schreib-
 
 #### <a name="maximum-throughput-test-specifications"></a>Testspezifikationen für maximalen Durchsatz
 
- Wählen Sie zum Demonstrieren eines maximalen Durchsatzes eine höhere Anforderungsgröße. Wählen Sie die Anforderungsgröße 64 KB aus, und erstellen Sie Spezifikationen für zufällige Schreib- und Lesevorgänge.
+Wählen Sie zum Demonstrieren eines maximalen Durchsatzes eine höhere Anforderungsgröße. Wählen Sie die Anforderungsgröße 64 KB aus, und erstellen Sie Spezifikationen für zufällige Schreib- und Lesevorgänge.
 
 | Zugriffsspezifikation | Anforderungsgröße | Random % | Read % |
 | --- | --- | --- | --- |
@@ -58,7 +58,7 @@ Ein Beispiel für Zugriffsspezifikationen für das Szenario „Maximale Schreib-
 
 #### <a name="run-the-iometer-test"></a>Ausführen des Iometer-Tests
 
- Führen Sie die folgenden Schritte aus, um den Cache aufzufüllen.
+Führen Sie die folgenden Schritte aus, um den Cache aufzufüllen.
 
 1. Erstellen Sie zwei Zugriffsspezifikationen mit unten aufgeführten Werten:
 
@@ -81,13 +81,13 @@ Nachdem der Cachedatenträger aufgefüllt wurde, fahren Sie mit den nachstehende
 
 | Testszenario | Zielvolume | NAME | Ergebnis |
 | --- | --- | --- | --- |
-| Maximal Lese-IOPS |CacheReads |RandomWrites\_8K |50.000 IOPS  |
+| Maximal Lese-IOPS |CacheReads |RandomWrites\_8K |50.000 IOPS |
 | Maximal Schreib-IOPS |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
 | Maximal Kombinierte IOPS |CacheReads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
 | Maximal Lesen – MB/s |CacheReads |RandomWrites\_64K |524 MB/s |
 | Maximal Schreiben – MB/s |NoCacheWrites |RandomReads\_64K |524 MB/s |
-| Kombiniert – MB/s |CacheReads |RandomWrites\_64K |1.000 MB/s |
+| Kombiniert – MB/s |CacheReads |RandomWrites\_64K |1\.000 MB/s |
 | NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
 
 Nachstehend sehen Sie Screenshots der Iometer-Testergebnisse für kombinierte IOPS- und Durchsatz-Szenarien
@@ -116,7 +116,7 @@ Wir verwenden je vier Arbeitsthreads zum Erzeugen von Schreib- und Lesevorgänge
 
 #### <a name="maximum-write-iops"></a>Maximale Schreib-IOPS
 
- Erstellen Sie die Auftragsdatei mit den folgenden Spezifikationen, um die maximale Schreib-IOPS zu erhalten. Benennen Sie die Datei „fiowrite.ini“.
+Erstellen Sie die Auftragsdatei mit den folgenden Spezifikationen, um die maximale Schreib-IOPS zu erhalten. Benennen Sie die Datei „fiowrite.ini“.
 
 ```ini
 [global]
@@ -157,7 +157,7 @@ Während der Testausführung können Sie die Anzahl der Schreib-IOPS erkennen, d
 
 #### <a name="maximum-read-iops"></a>Maximale Lese-IOPS
 
- Erstellen Sie die Auftragsdatei mit den folgenden Spezifikationen, um die maximale Lese-IOPS zu erhalten. Benennen Sie die Datei „fioread.ini“.
+Erstellen Sie die Auftragsdatei mit den folgenden Spezifikationen, um die maximale Lese-IOPS zu erhalten. Benennen Sie die Datei „fioread.ini“.
 
 ```ini
 [global]
@@ -198,7 +198,7 @@ Während der Testausführung können Sie die Anzahl der Lese-IOPS erkennen, die 
 
 #### <a name="maximum-read-and-write-iops"></a>Maximale Lese- und Schreib-IOPS
 
- Erstellen Sie die Auftragsdatei mit den folgenden Spezifikationen, um die maximale kombinierte Lese- und Schreib-IOPS zu erhalten. Benennen Sie die Datei „fioreadwrite.ini“.
+Erstellen Sie die Auftragsdatei mit den folgenden Spezifikationen, um die maximale kombinierte Lese- und Schreib-IOPS zu erhalten. Benennen Sie die Datei „fioreadwrite.ini“.
 
 ```ini
 [global]
@@ -256,4 +256,4 @@ Während der Testausführung können Sie die Anzahl der kombinierten Lese- und S
 
 #### <a name="maximum-combined-throughput"></a>Maximaler kombinierter Durchsatz
 
- Um den maximalen kombinierten Lese- und Schreibdurchsatz zu erhalten, wählen Sie eine höhere Blockgröße und Warteschlangenlänge mit mehreren Threads, die Lese- und Schreibvorgänge ausführen. Sie können eine Blockgröße von 64 KB und Warteschlangenlänge von 128 verwenden.
+Um den maximalen kombinierten Lese- und Schreibdurchsatz zu erhalten, wählen Sie eine höhere Blockgröße und Warteschlangenlänge mit mehreren Threads, die Lese- und Schreibvorgänge ausführen. Sie können eine Blockgröße von 64 KB und Warteschlangenlänge von 128 verwenden.

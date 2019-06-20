@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation zur Azure AD-Geräteverwaltung
+title: Dokumentation zur Azure AD-Geräteidentität
 metadata:
   document_id: null
-  title: 'Dokumentation zur Azure Active Directory-Geräteverwaltung: Tutorials, Konzepte, Referenzen | Microsoft-Dokumentation'
-  description: 'Hier erfahren Sie, wie Sie die Azure Active Directory-Geräteverwaltung konfigurieren und testen.'
+  title: 'Dokumentation zur Azure Active Directory-Geräteidentitätsverwaltung: Tutorials, Konzepte, Referenzen | Microsoft-Dokumentation'
+  description: 'Hier erfahren Sie, wie Sie Geräteidentitäten in Azure AD konfigurieren und verwalten.'
   services: active-directory
   ms.subservice: devices
   author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 'Über Geräte erhalten Ihre Benutzer Zugriff auf Ihre Unternehmensressourcen. Zum Schutz der Unternehmensressourcen möchten Sie als IT-Administrator Kontrolle über diese Geräte haben. So können Sie sicherstellen, dass Ihre Benutzer auf Ihre Ressourcen über Geräte zugreifen, die Ihren Standards für Sicherheit und Konformität entsprechen.<br>Die Geräteverwaltung stellt zudem die Grundlage für gerätebasierten bedingten Zugriff dar. Mit dem gerätebasierten bedingten Zugriff können Sie sicherstellen, dass nur mit verwalteten Geräten auf Ressourcen in Ihrer Umgebung zugegriffen werden kann.'
+  description: 'Über Geräte in Azure AD erhalten Benutzer Zugriff auf Ihre Unternehmensressourcen. Zum Schutz der Unternehmensressourcen möchten Sie als IT-Administrator diese Geräteidentitäten in Azure AD verwalten. So können Sie sicherstellen, dass Ihre Benutzer auf Ihre Ressourcen über Geräte zugreifen, die Ihren Standards für Sicherheit und Konformität entsprechen.<br>Die Geräteidentitätsverwaltung stellt zudem die Grundlage für gerätebasierten bedingten Zugriff dar. Mit dem gerätebasierten bedingten Zugriff können Sie sicherstellen, dass nur mit verwalteten Geräten auf Ressourcen in Ihrer Umgebung zugegriffen werden kann.'
 sections:
   - title: Schritt-für-Schritt-Tutorials
     items:

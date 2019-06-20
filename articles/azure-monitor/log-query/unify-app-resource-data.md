@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61424641"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Vereinigen mehrerer Azure Monitor-Application Insights-Ressourcen 
 Dieser Artikel beschreibt das Abfragen und Anzeigen aller Daten in Ihren Application Insights-Anwendungsprotokollen an einem Ort, selbst wenn sie aus unterschiedlichen Azure-Abonnements stammen. Damit soll der veraltete Application Insights-Connector ersetzt werden. Die Anzahl der Application Insights-Ressourcen, die Sie in eine einzelne Abfrage einschließen können, ist auf 100 beschränkt.  
@@ -104,7 +104,7 @@ Die folgende Tabelle zeigt die Schemaunterschiede zwischen Log Analytics und App
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | Message: |
+| AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
@@ -121,10 +121,10 @@ Die folgende Tabelle zeigt die Schemaunterschiede zwischen Log Analytics und App
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | Message: | 
+| ExceptionMessage | message | 
 | ExceptionType | type |
 | OperationID | operation_id |
-| NameVorgang | operation_Name | 
+| OperationName | operation_Name | 
 | Betriebssystem | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 

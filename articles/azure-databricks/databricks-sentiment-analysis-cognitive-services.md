@@ -4,17 +4,17 @@ description: Hier erfahren Sie, wie Sie Azure Databricks mit Event Hubs und der 
 services: azure-databricks
 author: lenadroid
 ms.author: alehall
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/29/2019
+ms.openlocfilehash: b1b3572b9c485fb8d05c57649a304ff0f76fb1f6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080538"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990885"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Standpunktanalyse für Streamingdaten mit Azure Databricks
 
@@ -55,9 +55,9 @@ Vergewissern Sie sich zunächst, dass die folgenden Anforderungen erfüllt sind 
 
 Sie können diese Anforderungen erfüllen, indem Sie die Schritte im Artikel [Erstellen eines Event Hubs-Namespace und eines Event Hubs mithilfe des Azure-Portals](../event-hubs/event-hubs-create.md) ausführen.
 
-## <a name="log-in-to-the-azure-portal"></a>Anmelden beim Azure-Portal
+## <a name="sign-in-to-the-azure-portal"></a>Melden Sie sich auf dem Azure-Portal an.
 
-Melden Sie sich beim [Azure-Portal](https://portal.azure.com/)an.
+Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Erstellen eines Azure Databricks-Arbeitsbereichs
 
@@ -102,7 +102,7 @@ In diesem Abschnitt erstellen Sie einen Azure Databricks-Arbeitsbereich über da
     Übernehmen Sie alle anderen Standardwerte bis auf Folgendes:
 
    * Geben Sie einen Namen für den Cluster ein.
-   * Erstellen Sie für diesen Artikel einen Cluster mit der Laufzeit **4.0 (Beta)**.
+   * Erstellen Sie für diesen Artikel einen Cluster mit der Laufzeit **4.0 (Beta)** .
    * Aktivieren Sie das Kontrollkästchen **Terminate after \_\_ minutes of inactivity** (Nach \_\_ Minuten Inaktivität beenden). Geben Sie an, nach wie vielen Minuten der Cluster beendet werden soll, wenn er nicht verwendet wird.
 
      Klicken Sie auf **Cluster erstellen**. Sobald der Cluster ausgeführt wird, können Sie Notizbücher an den Cluster anfügen und Spark-Aufträge ausführen.
@@ -154,7 +154,7 @@ In diesem Tutorial verwenden Sie die Twitter-APIs, um Tweets an Event Hubs zu se
 
 ## <a name="get-a-cognitive-services-access-key"></a>Abrufen eines Cognitive Services-Zugriffsschlüssels
 
-In diesem Tutorial verwenden Sie die [Microsoft Cognitive Services-Textanalyse-APIs](../cognitive-services/text-analytics/overview.md), um nahezu in Echtzeit eine Standpunktanalyse für einen Datenstrom mit Tweets durchzuführen. Vor der Verwendung der APIs müssen Sie in Azure ein Microsoft Cognitive Services-Konto erstellen und einen Zugriffsschlüssel für die Nutzung der Textanalyse-APIs abrufen.
+In diesem Tutorial verwenden Sie die [Azure Cognitive Services-Textanalyse-APIs](../cognitive-services/text-analytics/overview.md), um nahezu in Echtzeit eine Standpunktanalyse für einen Datenstrom mit Tweets durchzuführen. Vor der Verwendung der APIs müssen Sie in Azure ein Azure Cognitive Services-Konto erstellen und einen Zugriffsschlüssel für die Nutzung der Textanalyse-APIs abrufen.
 
 1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 
@@ -227,7 +227,7 @@ val connStr = new ConnectionStringBuilder()
             .setSasKeyName(sasKeyName)
             .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+val pool = Executors.newScheduledThreadPool(1)
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {
@@ -308,12 +308,18 @@ Fügen Sie im Notebook **AnalyzeTweetsFromEventHub** den folgenden Code ein, und
 import org.apache.spark.eventhubs._
 
 // Build connection string with the above information
-val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-  .setEventHubName("<EVENT HUB NAME>")
-  .build
+val namespaceName = "<EVENT HUBS NAMESPACE>"
+val eventHubName = "<EVENT HUB NAME>"
+val sasKeyName = "<POLICY NAME>"
+val sasKey = "<POLICY KEY>"
+val connectionString = ConnectionStringBuilder()
+            .setNamespaceName(namespaceName)
+            .setEventHubName(eventHubName)
+            .setSasKeyName(sasKeyName)
+            .setSasKey(sasKey)
 
 val customEventhubParameters =
-  EventHubsConf(connectionString)
+  EventHubsConf(connectionString.toString())
   .setMaxEventsPerTrigger(5)
 
 val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()

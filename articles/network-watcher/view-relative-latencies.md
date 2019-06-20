@@ -3,8 +3,8 @@ title: Anzeigen der relativen Latenz für Azure-Regionen von bestimmten Standort
 description: Erfahren Sie, wie Sie relative Latenzen zwischen Internetanbietern und Azure-Regionen von bestimmten Standorten aus anzeigen können.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64939876"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Anzeigen der relativen Latenz für Azure-Regionen von bestimmten Standorten aus
 
@@ -60,7 +60,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> Die Region, die Sie im vorherigen Befehl angeben, muss nicht mit der Region übereinstimmen, die Sie beim Abrufen der Komponente zur Netzwerküberwachung angegeben haben. Der vorherige Befehl erfordert lediglich, dass Sie eine vorhandene Komponente zur Netzwerküberwachung angeben. Die Komponente zur Netzwerküberwachung kann sich in einer beliebigen Region befinden. Für `-Country` und `-State` müssen gültige Werte angegeben werden. Bei den Werten wird Groß- und Kleinschreibung unterschieden. Daten sind für eine begrenzte Anzahl von Ländern, US-Bundesstaaten und Städten verfügbar. Führen Sie die Befehle unter [Anzeigen verfügbarer Länder, US-Bundesstaaten, Städte und Anbieter](#view-available) zum Anzeigen einer Liste verfügbarer Länder, Städte und Regionen für die Verwendung mit dem vorherigen Befehl aus. 
+> Die Region, die Sie im vorherigen Befehl angeben, muss nicht mit der Region übereinstimmen, die Sie beim Abrufen der Komponente zur Netzwerküberwachung angegeben haben. Der vorherige Befehl erfordert lediglich, dass Sie eine vorhandene Komponente zur Netzwerküberwachung angeben. Die Komponente zur Netzwerküberwachung kann sich in einer beliebigen Region befinden. Für `-Country` und `-State` müssen gültige Werte angegeben werden. Bei den Werten wird Groß- und Kleinschreibung unterschieden. Daten sind für eine begrenzte Anzahl von Ländern/Regionen, US-Bundesstaaten und Städten verfügbar. Führen Sie die Befehle unter [Anzeigen verfügbarer Länder/Regionen, US-Bundesstaaten, Städte und Anbieter](#view-available) zum Anzeigen einer Liste verfügbarer Länder/Regionen, Städte und US-Bundesstaaten für die Verwendung mit dem vorherigen Befehl aus. 
 
 > [!WARNING]
 > Sie müssen für `-StartTime` und `-EndTime` ein Datum angeben, das maximal 30 Tage zurückliegt. Wenn Sie ein Datum angeben, das weiter zurückliegt, werden keine Daten zurückgegeben.
@@ -125,15 +125,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > Anders als bei Angabe eines einzelnen Standorts müssen Sie, wenn Sie keinen Standort oder mehrere Standorte angeben, wie z.B. „USA, Westen 2“, „USA, Westen“, beim Ausführen des Befehls einen Internetdienstanbieter angeben. 
 
-## <a name="view-available"></a>Anzeigen verfügbarer Länder, US-Bundesstaaten, Städte und Anbieter
+## <a name="view-available"></a>Anzeigen verfügbarer Länder/Regionen, US-Bundesstaaten, Städte und Anbieter
 
-Daten sind für bestimmte Internetdienstanbieter, Länder, US-Bundesstaaten und Städte verfügbar. Um eine Liste aller verfügbaren Internetdienstanbieter, Länder, US-Bundesstaaten und Städte anzuzeigen, für die Sie Daten anzeigen können, geben Sie den folgenden Befehl ein:
+Daten sind für bestimmte Internetdienstanbieter, Länder/Regionen, US-Bundesstaaten und Städte verfügbar. Um eine Liste aller verfügbaren Internetdienstanbieter, Länder/Regionen, US-Bundesstaaten und Städte anzuzeigen, für die Sie Daten anzeigen können, geben Sie den folgenden Befehl ein:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Daten sind nur für die Länder, US-Bundesstaaten und Städte verfügbar, die vom vorherigen Befehl zurückgegeben werden. Der vorherige Befehl erfordert, dass Sie eine vorhandene Komponente zur Netzwerküberwachung angeben. Im Beispiel wird die Komponente zur Netzwerküberwachung *NetworkWatcher_eastus* in einer Ressourcengruppe namens *NetworkWatcherRG* angegeben. Sie können jedoch eine beliebige vorhandene Komponente zur Netzwerküberwachung angeben. Wenn Sie noch nicht über eine Komponente zur Netzwerküberwachung verfügen, erstellen Sie eine, indem Sie die Aufgaben unter [Erstellen einer Komponente zur Netzwerküberwachung](#create-a-network-watcher) ausführen. 
+Daten sind nur für die Länder/Regionen, US-Bundesstaaten und Städte verfügbar, die vom vorherigen Befehl zurückgegeben werden. Der vorherige Befehl erfordert, dass Sie eine vorhandene Komponente zur Netzwerküberwachung angeben. Im Beispiel wird die Komponente zur Netzwerküberwachung *NetworkWatcher_eastus* in einer Ressourcengruppe namens *NetworkWatcherRG* angegeben. Sie können jedoch eine beliebige vorhandene Komponente zur Netzwerküberwachung angeben. Wenn Sie noch nicht über eine Komponente zur Netzwerküberwachung verfügen, erstellen Sie eine, indem Sie die Aufgaben unter [Erstellen einer Komponente zur Netzwerküberwachung](#create-a-network-watcher) ausführen. 
 
 Nachdem Sie den vorherigen Befehl ausgeführt haben, können Sie die zurückgegebene Ausgabe nach Wunsch filtern, indem Sie gültige Werte für **Country**, **State** und **City** angeben.  Um beispielsweise die Liste der in Seattle, Washington, USA, verfügbaren Internetdienstanbieter anzuzeigen, geben Sie den folgenden Befehl ein:
 

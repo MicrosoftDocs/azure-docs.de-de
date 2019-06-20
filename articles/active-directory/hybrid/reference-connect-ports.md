@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184080"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60387304"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Erforderliche Ports und Protokolle für die Hybrid-Identität
 Das folgende Dokument ist eine technische Referenz zu den erforderlichen Ports und Protokollen für die Implementierung einer Hybrid-Identitätslösung. Sehen Sie sich die folgende Abbildung und die entsprechende Tabelle an.
@@ -31,7 +31,7 @@ Das folgende Dokument ist eine technische Referenz zu den erforderlichen Ports u
 ## <a name="table-1---azure-ad-connect-and-on-premises-ad"></a>Tabelle 1: Azure AD Connect und lokales AD
 In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen dem Azure AD Connect-Server und der lokalen AD-Instanz erforderlich sind.
 
-| Protokoll | Ports | BESCHREIBUNG |
+| Protocol | Ports | BESCHREIBUNG |
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |DNS-Suchen in der Zielgesamtstruktur |
 | Kerberos |88 (TCP/UDP) |Kerberos-Authentifizierung für die AD-Gesamtstruktur |
@@ -44,7 +44,7 @@ In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Komm
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tabelle 2: Azure AD Connect und Azure AD
 In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen dem Azure AD Connect-Server und Azure AD erforderlich sind.
 
-| Protokoll | Ports | BESCHREIBUNG |
+| Protocol | Ports | BESCHREIBUNG |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Wird zum Herunterladen von Zertifikatsperrlisten zur Überprüfung von SSL-Zertifikaten verwendet |
 | HTTPS |443 (TCP/UDP) |Wird zum Synchronisieren mit Azure AD verwendet |
@@ -54,7 +54,7 @@ Eine Liste der URLs und IP-Adressen, die in der Firewall geöffnet sein müssen,
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Tabelle 3: Azure AD Connect und AD FS-Verbund-/WAP-Server
 In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen dem Azure AD Connect-Server und AD FS-Verbund-/WAP-Servern erforderlich sind.  
 
-| Protokoll | Ports | BESCHREIBUNG |
+| Protocol | Ports | BESCHREIBUNG |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Wird zum Herunterladen von Zertifikatsperrlisten zur Überprüfung von SSL-Zertifikaten verwendet |
 | HTTPS |443 (TCP/UDP) |Wird zum Synchronisieren mit Azure AD verwendet |
@@ -63,14 +63,14 @@ In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Komm
 ## <a name="table-4---wap-and-federation-servers"></a>Tabelle 4: WAP- und Verbundserver
 In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen den Verbundservern und WAP-Servern erforderlich sind.
 
-| Protokoll | Ports | BESCHREIBUNG |
+| Protocol | Ports | BESCHREIBUNG |
 | --- | --- | --- |
 | HTTPS |443 (TCP/UDP) |Wird für die Authentifizierung verwendet |
 
 ## <a name="table-5---wap-and-users"></a>Tabelle 5: WAP und Benutzer
 In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen Benutzern und den WAP-Servern erforderlich sind.
 
-| Protokoll | Ports | BESCHREIBUNG |
+| Protocol | Ports | BESCHREIBUNG |
 | --- | --- | --- |
 | HTTPS |443 (TCP/UDP) |Wird für die Geräteauthentifizierung verwendet |
 | TCP |49443 (TCP) |Wird für die Zertifikatauthentifizierung verwendet |
@@ -79,7 +79,7 @@ In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Komm
 In dieser folgenden Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen Azure AD Connect und Azure AD erforderlich sind.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabelle 6a: Passthrough-Authentifizierung mit SSO
-|Protokoll|Portnummer|BESCHREIBUNG
+|Protocol|Portnummer|BESCHREIBUNG
 | --- | --- | ---
 |HTTP|80|Ermöglicht ausgehenden HTTP-Verkehr für die Sicherheitsüberprüfung, z.B. SSL. Wird auch für die ordnungsgemäße Funktion automatischer Updates für den Connector benötigt.
 |HTTPS|443| Ermöglicht ausgehenden HTTPS-Datenverkehr für Vorgänge wie das Aktivieren und Deaktivieren des Features, das Registrieren von Connectors, das Herunterladen von Connectorupdates und das Verarbeiten aller Benutzeranmeldeanforderungen.
@@ -88,7 +88,7 @@ Darüber hinaus muss Azure AD Connect in der Lage sein, direkte IP-Verbindungen 
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabelle 6b: Kennworthashsynchronisierung mit SSO
 
-|Protokoll|Portnummer|BESCHREIBUNG
+|Protocol|Portnummer|BESCHREIBUNG
 | --- | --- | ---
 |HTTPS|443| Ermöglicht die SSO-Registrierung (nur für den SSO-Registrierungsprozess erforderlich)
 
@@ -100,7 +100,7 @@ In den folgenden Tabellen werden die Endpunkte, Ports und Protokolle beschrieben
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabelle 7a: Ports und Protokolle für den Azure AD Connect Health-Agent für (AD FS/Sync) und Azure AD
 In dieser Tabelle werden die folgenden ausgehenden Ports und Protokolle beschrieben, die für die Kommunikation zwischen Azure AD Connect Health-Agents und Azure AD erforderlich sind.  
 
-| Protokoll | Ports | BESCHREIBUNG |
+| Protocol | Ports | BESCHREIBUNG |
 | --- | --- | --- |
 | HTTPS |443 (TCP/UDP) |Ausgehend |
 | Azure-Servicebus |5671 (TCP/UDP) |Ausgehend |

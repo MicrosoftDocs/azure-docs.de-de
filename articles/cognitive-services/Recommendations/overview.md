@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 02/15/2018
 ms.author: luisca
 ms.openlocfilehash: e04cc127e08ee219fbd82470a87a79fce657231c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877575"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60386991"
 ---
 # <a name="recommendations-api-discontinued"></a>Empfehlungs-API (eingestellt)
 

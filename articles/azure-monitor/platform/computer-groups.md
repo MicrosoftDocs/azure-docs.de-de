@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
 ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549302"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60741004"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Computergruppen in Azure Monitor-Protokollabfragen
 Mit Computergruppen in Azure Monitor können Sie [Protokollabfragen](../log-query/log-query-overview.md) auf eine bestimmte Gruppe von Computern eingrenzen.  Die einzelnen Gruppen werden über eine von Ihnen definierte Abfrage mit Computern aufgefüllt oder indem Sie Gruppen aus verschiedenen Quellen importieren.  Wenn die Gruppe in eine Protokollabfrage eingeschlossen wird, sind die Ergebnisse auf Datensätze beschränkt, die den Computern in der Gruppe entsprechen.

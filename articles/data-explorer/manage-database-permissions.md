@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60758752"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Verwalten der Berechtigungen für Datenbanken in Azure-Daten-Explorer
 
@@ -76,4 +76,4 @@ Der Azure-Daten-Explorer verfügt über die folgenden Rollen:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schreiben von Abfragen](write-queries.md)
+[Write queries](write-queries.md) (Schreiben von Abfragen)

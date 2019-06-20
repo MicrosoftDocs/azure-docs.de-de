@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60303770"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Verarbeiten von großen Nachrichten durch Blockerstellung in Azure Logic Apps
 
@@ -57,7 +57,7 @@ Ist für einen Endpunkt Blockerstellung für Downloads oder Uploads aktiviert, w
 
 Außerdem müssen Sie, wenn eine HTTP-Aktion Blockerstellung noch nicht unterstützt, Blockerstellung auch in `runTimeConfiguration`-Eigenschaft der Aktion einrichten. Sie können diese Eigenschaft innerhalb der Aktion festlegen, entweder direkt im Codeansicht-Editor, wie dies weiter unten beschrieben ist, oder im Designer für Logik-Apps, wie dies hier beschrieben ist:
 
-1. Wählen Sie in der oberen rechten Ecke der HTTP-Aktion die Ellipsenschaltfläche (**...**) aus, und wählen Sie dann **Einstellungen** aus.
+1. Wählen Sie in der oberen rechten Ecke der HTTP-Aktion die Ellipsenschaltfläche ( **...** ) aus, und wählen Sie dann **Einstellungen** aus.
 
    ![Menü „Einstellungen“ für die Aktion öffnen](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -117,18 +117,18 @@ In den folgenden Schritten ist die Vorgehensweise ausführlich beschrieben, in d
 
 1. Ihre Logik-App sendet eine erste HTTP-POST- oder -PUT-Anforderung mit einem leeren Nachrichtentext. Die Anforderungsheader enthält diese Informationen zu dem Inhalt, den Ihre Logik-App in Blöcken hochladen möchte:
 
-   | Logic Apps-Feld für Anforderungsheader | Wert | Typ | BESCHREIBUNG |
+   | Logic Apps-Feld für Anforderungsheader | Wert | Type | BESCHREIBUNG |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | Zeichenfolge | Gibt an, dass der Inhalt in Blöcken (Segmenten) hochgeladen wird |
-   | **x-ms-content-length** | <*Inhaltslänge*> | Ganze Zahl  | Der Gesamtgröße des Inhalts in Bytes vor der Blockerstellung |
+   | **x-ms-transfer-mode** | chunked | String | Gibt an, dass der Inhalt in Blöcken (Segmenten) hochgeladen wird |
+   | **x-ms-content-length** | <*Inhaltslänge*> | Integer | Der Gesamtgröße des Inhalts in Bytes vor der Blockerstellung |
    ||||
 
 2. Der Endpunkt antwortet mit dem Erfolgsstatuscode „200“ und diesen optionalen Informationen:
 
-   | Endpunktfeld für Antwortheader | Typ | Erforderlich | BESCHREIBUNG |
+   | Endpunktfeld für Antwortheader | Type | Erforderlich | BESCHREIBUNG |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Ganze Zahl  | Nein  | Der vorgeschlagene Blockgröße in Bytes |
-   | **Location** | Zeichenfolge | Nein  | Die URL-Adresse, an die die HTTP-PATCH-Nachrichten gesendet werden sollen |
+   | **x-ms-chunk-size** | Integer | Nein | Der vorgeschlagene Blockgröße in Bytes |
+   | **Location** | String | Nein | Die URL-Adresse, an die die HTTP-PATCH-Nachrichten gesendet werden sollen |
    ||||
 
 3. Ihre Logik-App erstellt und sendet nacheinander HTTP-PATCH-Nachrichten, wobei jede Nachricht diese Informationen enthält:
@@ -137,11 +137,11 @@ In den folgenden Schritten ist die Vorgehensweise ausführlich beschrieben, in d
 
    * Im Header sind diese Details zu dem Inhaltsblock enthalten, der in der jeweiligen PATCH-Nachricht gesendet wurde:
 
-     | Logic Apps-Feld für Anforderungsheader | Wert | Typ | BESCHREIBUNG |
+     | Logic Apps-Feld für Anforderungsheader | Wert | Type | BESCHREIBUNG |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*Bereich*> | Zeichenfolge | Der Bytebereich für den aktuellen Inhaltsblock, einschließlich des Anfangswerts, des Endwerts und der Gesamtgröße des Inhalts, zum Beispiel: „bytes=0-1023/10100“ |
-     | **Content-Type** | <*Inhaltstyp*> | Zeichenfolge | Der Typ des segmentierten (in Blöcke aufgeteilten) Inhalts |
-     | **Content-Length** | <*Inhaltslänge*> | Zeichenfolge | Die Länge des aktuellen Blocks in Bytes |
+     | **Content-Range** | <*Bereich*> | String | Der Bytebereich für den aktuellen Inhaltsblock, einschließlich des Anfangswerts, des Endwerts und der Gesamtgröße des Inhalts, zum Beispiel: „bytes=0-1023/10100“ |
+     | **Content-Type** | <*Inhaltstyp*> | String | Der Typ des segmentierten (in Blöcke aufgeteilten) Inhalts |
+     | **Content-Length** | <*Inhaltslänge*> | String | Die Länge des aktuellen Blocks in Bytes |
      |||||
 
 4. Nach jeder PATCH-Anforderung bestätigt der Endpunkt den Empfang des entsprechenden Blocks durch Antworten mit dem Statuscode „200“.

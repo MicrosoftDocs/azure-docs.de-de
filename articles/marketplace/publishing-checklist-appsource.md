@@ -1,27 +1,22 @@
 ---
-title: Veröffentlichungsprüfliste für AppSource | Azure
+title: Veröffentlichungsprüfliste für AppSource | Azure Marketplace
 description: Veröffentlichungsprüfliste für AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5521602331b50c70ab31e6ea2f5eec8f6a3911ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7df88c941c1d42bc4a49e391fa3d64273237bd08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937576"
 ---
 # <a name="publishing-checklist-for-appsource"></a>Veröffentlichungsprüfliste für AppSource  
+
 Überprüfen Sie die erforderlichen Komponenten vor dem Start des Veröffentlichungsprozesses.  
 
 Folgende Artefakte sind erforderlich, um Ihre App in AppSource zu veröffentlichen:  

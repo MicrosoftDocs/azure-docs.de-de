@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 974062b06c58ee23a001066a70a08675e2e94e48
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 76008cdf0121ac3c9e4a2fc30d2e9fbcc561ff1d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008118"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939536"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offlinestreaming mit PlayReady für Windows 10  
 
@@ -39,9 +39,9 @@ Azure Media Services unterstützt Download und Offlinewiedergabe mit DRM-Schutz.
 
 Dieser Abschnitt enthält Hintergrundinformationen zu den möglichen Gründen für eine Wiedergabe im Offlinemodus:
 
-* In einigen Ländern ist die Verfügbarkeit und/oder Bandbreite des Internets noch begrenzt. Benutzer können sich für den vorherigen Download entscheiden, um Inhalte in ausreichender Auflösung für ein zufriedenstellendes Anzeigeerlebnis ansehen zu können. In diesem Fall geht es häufig nicht um die Verfügbarkeit des Netzwerks, sondern um die begrenzte Bandbreite des Netzwerks. OTT/OVP-Anbieter fordern eine Unterstützung des Offlinemodus.
+* In einigen Ländern/Regionen ist die Verfügbarkeit und/oder Bandbreite des Internets noch begrenzt. Benutzer können sich für den vorherigen Download entscheiden, um Inhalte in ausreichender Auflösung für ein zufriedenstellendes Anzeigeerlebnis ansehen zu können. In diesem Fall geht es häufig nicht um die Verfügbarkeit des Netzwerks, sondern um die begrenzte Bandbreite des Netzwerks. OTT/OVP-Anbieter fordern eine Unterstützung des Offlinemodus.
 * Wie auf der Aktionärshauptversammlung von Netflix im 3. Quartal 2016 bekannt gegeben, sei das Herunterladen von Inhalten laut Reed Hastings, CEO von Netflix, ein oft nachgefragtes Feature, für das das Unternehmen offen sei.
-* Einige Inhaltsanbieter verbieten möglicherweise die Bereitstellung von DRM-Lizenzen außerhalb bestimmter Landesgrenzen. Wenn ein Benutzer ins Ausland reist und trotzdem Inhalte ansehen möchte, ist ein Download für die Offlinenutzung erforderlich.
+* Einige Inhaltsanbieter verbieten möglicherweise die Bereitstellung von DRM-Lizenzen außerhalb einer Landesgrenze/Region. Wenn ein Benutzer ins Ausland reist und trotzdem Inhalte ansehen möchte, ist ein Download für die Offlinenutzung erforderlich.
  
 Die Herausforderung bei der Implementierung des Offlinemodus ist folgende:
 

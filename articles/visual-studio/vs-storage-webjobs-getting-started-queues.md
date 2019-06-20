@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999540"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60391166"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Erste Schritte mit Azure-Warteschlangenspeicher und verbundenen Visual Studio-Diensten (WebJob-Projekte)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -342,7 +342,7 @@ Nachrichten, deren Inhalt bewirkt, dass bei einer Funktion ein Fehler auftritt, 
 ### <a name="automatic-poison-message-handling"></a>Automatische Behandlung von nicht verarbeitbaren Nachrichten
 Das SDK ruft eine Funktion bis zu fünfmal auf, um eine Warteschlangennachricht zu verarbeiten. Wenn der fünfte Versuch fehlschlägt, wird die Nachricht in eine Warteschlange für nicht verarbeitete Nachrichten verschoben. Hinweise zum Konfigurieren der maximalen Anzahl von erneuten Versuchen finden Sie unter [Gewusst wie: Festlegen von Konfigurationsoptionen](#how-to-set-configuration-options).
 
-Die Warteschlange für nicht verarbeitete Nachrichten weist den Namen " *{UrsprünglicherWarteschlangenname}*-poison" auf. Sie können eine Funktion schreiben, um Nachrichten aus der Warteschlange für nicht verarbeitete Nachrichten zu verarbeiten, indem Sie diese protokollieren oder eine Benachrichtigung senden, dass ein manueller Eingriff erforderlich ist.
+Die Warteschlange für nicht verarbeitete Nachrichten weist den Namen " *{UrsprünglicherWarteschlangenname}* -poison" auf. Sie können eine Funktion schreiben, um Nachrichten aus der Warteschlange für nicht verarbeitete Nachrichten zu verarbeiten, indem Sie diese protokollieren oder eine Benachrichtigung senden, dass ein manueller Eingriff erforderlich ist.
 
 Im folgenden Beispiel schlägt die **CopyBlob** -Funktion fehl, wenn eine Warteschlangennachricht den Namen eines Blobs enthält, der nicht vorhanden ist. In diesem Fall wird die Nachricht aus der Warteschlange "copyblobqueue" in die Warteschlange "copyblobqueue-poison" verschoben. **ProcessPoisonMessage** protokolliert dann die beschädigte Nachricht.
 
@@ -544,7 +544,7 @@ Im Dashboard des WebJobs SDK werden die letzten 100 Zeilen der Konsolenausgabe a
 
 ![Toggle Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-In einem fortlaufenden WebJob werden Anwendungsprotokolle in „/data/jobs/continuous/*{Webjobname}*/job_log.txt“ im Dateisystem der Web-App angezeigt.
+In einem fortlaufenden WebJob werden Anwendungsprotokolle in „/data/jobs/continuous/ *{Webjobname}* /job_log.txt“ im Dateisystem der Web-App angezeigt.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

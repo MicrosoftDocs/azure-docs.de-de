@@ -2,20 +2,20 @@
 title: Spickzettel für Azure SQL Data Warehouse | Microsoft-Dokumentation
 description: Es wird beschrieben, wo Sie Links und bewährte Methoden finden, um schnell Azure SQL Data Warehouse-Lösungen zu erstellen.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ad205fbbd17b291bf45e0c0b057ee81b80c0730b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 38d353541b233f3cd9466e8dcf6c2b84083bd859
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762808"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515781"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Spickzettel für Azure SQL Data Warehouse
 Dieser Spickzettel bietet nützliche Tipps und bewährte Methoden zum Erstellen von Azure SQL Data Warehouse-Lösungen. Bevor Sie beginnen, können Sie mehr über jeden Schritt erfahren, indem Sie [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) lesen. In diesem Artikel wird erläutert, was SQL Data Warehouse ist, und was es nicht ist.
@@ -61,8 +61,8 @@ Abhängig von den Tabelleneigenschaften sollten Sie folgende Strategien verwende
 * Stellen Sie sicher, dass gemeinsame Hashschlüssel dasselbe Datenformat aufweisen.
 * Führen Sie Verteilungen nicht im varchar-Format durch.
 * Dimensionstabellen mit einem gemeinsamem Hashschlüssel zu einer Faktentabelle mit häufigen Verknüpfungsvorgängen können mit einer Hashverteilung versehen sein.
-* Verwenden Sie *[sys.dm_pdw_nodes_db_partition_stats]*, um eine etwaige Schiefe in den Daten zu analysieren.
-* Verwenden Sie *[sys.dm_pdw_request_steps]*, um Datenverschiebungen nach Abfragen zu analysieren, die Zeitübertragung zu überwachen und Vorgänge zu mischen. Dies ist für die Überprüfung Ihre Verteilungsstrategie hilfreich.
+* Verwenden Sie *[sys.dm_pdw_nodes_db_partition_stats]* , um eine etwaige Schiefe in den Daten zu analysieren.
+* Verwenden Sie *[sys.dm_pdw_request_steps]* , um Datenverschiebungen nach Abfragen zu analysieren, die Zeitübertragung zu überwachen und Vorgänge zu mischen. Dies ist für die Überprüfung Ihre Verteilungsstrategie hilfreich.
 
 Weitere Informationen finden Sie in den Artikeln zu [replizierte Tabellen] und [verteilte Tabellen].
 

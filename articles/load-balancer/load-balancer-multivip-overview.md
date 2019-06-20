@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
 ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163428"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60594190"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Mehrere Front-Ends für Azure Load Balancer
 

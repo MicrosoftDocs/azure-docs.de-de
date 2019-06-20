@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078270"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Verarbeiten von Ereignissen aus Azure Event Hubs mit Apache Storm in HDInsight (C#)
 
@@ -38,7 +38,7 @@ Das Microsoft.SCP.Net.SDK-NuGet-Paket, das Sie für Ihr Projekt verwenden, muss 
 > [!IMPORTANT]  
 > Im Beispiel in diesem Dokument wird ein HDInsight 3.5- oder 3.6-Cluster erwartet.
 >
-> Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. Weitere Informationen finden Sie unter [Welche Hadoop-Komponenten und -Versionen sind in HDInsight verfügbar?](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux ist das einzige Betriebssystem, das unter HDInsight Version 3.4 oder höher verwendet wird. 
 
 C#-Topologien müssen auch auf .NET 4.5 ausgerichtet sein.
 

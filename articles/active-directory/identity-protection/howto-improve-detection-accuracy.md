@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60453291"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Anleitung: Verbessern der Erkennungsgenauigkeit 
 
@@ -42,9 +42,9 @@ Da es sich bei der Erkennung um einen automatisierten Vorgang handelt, ist es m�
 
 Es gibt drei Möglichkeiten zur Verbesserung der Erkennungsgenauigkeit: Bestätigen gefährdeter Anmeldungen, Bestätigen sicherer Anmeldungen und Verwerfen von Benutzerrisiken. Dazu können Sie die folgenden Berichte verwenden:
 
-- **Bericht „Riskante Anmeldungen“**: Im Bericht zu riskanten Anmeldungen können Sie bestätigen, ob die Anmeldungen sicher oder gefährdet sind.
+- **Bericht „Riskante Anmeldungen“** : Im Bericht zu riskanten Anmeldungen können Sie bestätigen, ob die Anmeldungen sicher oder gefährdet sind.
 
-- **Bericht „Riskante Benutzer“**: Im Bericht zu riskanten Benutzern können Sie das Benutzerrisiko verwerfen. 
+- **Bericht „Riskante Benutzer“** : Im Bericht zu riskanten Benutzern können Sie das Benutzerrisiko verwerfen. 
 
 Ihr Feedback wird von Azure AD verarbeitet, um die Genauigkeit der Erkennungsergebnisse zu verbessern. In der Regel geben Sie Feedback im Rahmen einer Untersuchung zu Benutzer- oder Anmelderisiken. Weitere Informationen finden Sie unter [Untersuchen riskanter Benutzer und Anmeldungen](howto-investigate-risky-users-signins.md).
 
@@ -63,11 +63,11 @@ Wenn Sie ein Anmeldeereignis als gefährdet bestätigen, signalisieren Sie Azure
 
 So bestätigen Sie eine gefährdete Anmeldung
 
-- **Bericht „Riskante Anmeldungen“**: Mit dieser Option können Sie für ein oder mehrere Anmeldeereignisse eine risikobehaftete Anmeldung bestätigen.
+- **Bericht „Riskante Anmeldungen“** : Mit dieser Option können Sie für ein oder mehrere Anmeldeereignisse eine risikobehaftete Anmeldung bestätigen.
 
     ![Benutzerrisiko verwerfen](./media/howto-improve-detection-accuracy/07.png)
 
-- **Detailansicht des Berichts „Riskante Anmeldungen“**: Mit dieser Option können Sie für das im Bericht „Riskante Anmeldungen“ ausgewählte Anmeldeereignis ein gefährdetes Konto bestätigen. 
+- **Detailansicht des Berichts „Riskante Anmeldungen“** : Mit dieser Option können Sie für das im Bericht „Riskante Anmeldungen“ ausgewählte Anmeldeereignis ein gefährdetes Konto bestätigen. 
 
     ![Benutzerrisiko verwerfen](./media/howto-improve-detection-accuracy/04.png)
 
@@ -89,11 +89,11 @@ Wenn Sie ein Anmeldeereignis als sicher bestätigen, signalisieren Sie Azure AD,
 
 So bestätigen Sie eine sichere Anmeldung
 
-- **Bericht „Riskante Anmeldungen“**: Mit dieser Option können Sie für ein oder mehrere Anmeldeereignisse eine sichere Anmeldung bestätigen.
+- **Bericht „Riskante Anmeldungen“** : Mit dieser Option können Sie für ein oder mehrere Anmeldeereignisse eine sichere Anmeldung bestätigen.
 
     ![Benutzerrisiko verwerfen](./media/howto-improve-detection-accuracy/08.png)
 
-- **Detailansicht des Berichts „Riskante Anmeldungen“**: Mit dieser Option können Sie für das im Bericht „Riskante Anmeldungen“ ausgewählte Anmeldeereignis eine sichere Anmeldung bestätigen. 
+- **Detailansicht des Berichts „Riskante Anmeldungen“** : Mit dieser Option können Sie für das im Bericht „Riskante Anmeldungen“ ausgewählte Anmeldeereignis eine sichere Anmeldung bestätigen. 
 
     ![Benutzerrisiko verwerfen](./media/howto-improve-detection-accuracy/05.png)
 
@@ -107,7 +107,7 @@ Wenn Sie bereits Aktionen zur Problembehebung für einen riskanten Benutzer vorg
 
 So verwerfen Sie das gemeldete Benutzerrisiko
 
-- **Bericht „Riskante Benutzer“**: Mit dieser Option können Sie das Benutzerrisiko für einen oder mehrere ausgewählte Benutzer verwerfen.
+- **Bericht „Riskante Benutzer“** : Mit dieser Option können Sie das Benutzerrisiko für einen oder mehrere ausgewählte Benutzer verwerfen.
 
     ![Benutzerrisiko verwerfen](./media/howto-improve-detection-accuracy/02.png)
 

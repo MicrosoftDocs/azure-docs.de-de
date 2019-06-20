@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813297"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Testen von Batches mit 1.000 Äußerungen im LUIS-Portal
 
@@ -32,10 +32,10 @@ Senden Sie eine Batchdatei mit Äußerungen, die als *Dataset* bezeichnet wird, 
 
 |**Regeln**|
 |--|
-|* Keine doppelten Äußerungen|
+|\* Keine doppelten Äußerungen|
 |1000 Äußerungen oder weniger|
 
-* Als doppelte Äußerungen gelten exakt übereinstimmende Zeichenfolgen, nicht Übereinstimmungen, die zuerst in Token übersetzt wurden. 
+\* Als doppelte Äußerungen gelten exakt übereinstimmende Zeichenfolgen, nicht Übereinstimmungen, die zuerst in Token übersetzt wurden. 
 
 ## <a name="entities-allowed-in-batch-tests"></a>In Batchtests zulässige Entitäten
 

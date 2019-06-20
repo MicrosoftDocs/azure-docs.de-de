@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571153"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257577"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Geräteauthentifizierung mit X.509-Zertifikaten
 
@@ -40,7 +40,7 @@ Für Produktionsumgebungen sollten Sie ein X.509-CA-Zertifikat von einer öffent
 
 Für Experimente oder zur Verwendung in geschlossenen IoT-Netzwerken können Sie auch ein selbstsigniertes X.509-CA-Zertifikat erstellen.
 
-Unabhängig davon, wie Sie Ihr X.509-Zertifikat erhalten, stellen Sie sicher, dass sein entsprechender privater Schlüssel jederzeit geheim und geschützt ist.  Dies ist für die Vertrauensbildung bei der X.509-CA-Authentifizierung notwendig.
+Unabhängig davon, wie Sie Ihr X.509-CA-Zertifikat erhalten – stellen Sie sicher, dass sein entsprechender privater Schlüssel jederzeit geheim und geschützt ist.  Dies ist für die Vertrauensbildung bei der X.509-CA-Authentifizierung notwendig.
 
 Erfahren Sie, wie Sie [ein selbstsigniertes CA-Zertifikat erstellen](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), das Sie für diese gesamte Featurebeschreibung zu Experimenten verwenden können.
 

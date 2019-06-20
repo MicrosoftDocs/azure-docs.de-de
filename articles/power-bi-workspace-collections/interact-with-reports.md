@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 252296af8b2065ae22bed8b421d4d00718b78287
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705513"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagieren mit Power BI-Berichten mithilfe der JavaScript-API

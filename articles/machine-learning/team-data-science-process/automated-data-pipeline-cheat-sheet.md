@@ -12,11 +12,11 @@ ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
 ms.openlocfilehash: 1245255e65412f9bbcba3c8d9caa76b9ffd2dcc3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60826192"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Cheat Sheet für eine automatisierte Datenpipeline für Azure Machine Learning-Vorhersagen
 Das **Cheat Sheet für eine automatisierte Datenpipeline für Microsoft Azure Machine Learning** hilft Ihnen bei der Navigation durch die Technologie, mit deren Hilfe Sie Ihre Daten an Ihren Machine Learning-Webdienst senden können, in dem sie von Ihrem Predictive Analytics-Modell bewertet werden.

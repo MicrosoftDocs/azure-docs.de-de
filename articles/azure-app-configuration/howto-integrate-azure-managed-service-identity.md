@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408901"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393655"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrieren mit verwalteten Azure-Identitäten
 
@@ -49,7 +49,7 @@ Für dieses Tutorial benötigen Sie Folgendes:
 
 Um eine verwaltete Entität im Portal einzurichten, erstellen Sie wie gewohnt zuerst eine Anwendung und aktivieren dann das Feature.
 
-1. Erstellen Sie wie gewohnt im [Azure-Portal](https://aka.ms/azconfig/portal) eine App. Wechseln Sie im Portal zu dieser App.
+1. Erstellen Sie wie gewohnt im [Azure-Portal](https://portal.azure.com) eine App. Wechseln Sie im Portal zu dieser App.
 
 2. Scrollen Sie im linken Bereich nach unten zur Gruppe **Einstellungen**, und wählen Sie **Identität**.
 
@@ -59,9 +59,9 @@ Um eine verwaltete Entität im Portal einzurichten, erstellen Sie wie gewohnt zu
 
 ## <a name="grant-access-to-app-configuration"></a>Gewähren des Zugriffs auf App Configuration
 
-1. Wählen Sie im [Azure-Portal](https://aka.ms/azconfig/portal) **Alle Ressourcen** aus, und wählen Sie dann den App-Konfigurationsspeicher aus, den Sie in der Schnellstartanleitung erstellt haben.
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com) **Alle Ressourcen** aus, und wählen Sie dann den App-Konfigurationsspeicher aus, den Sie in der Schnellstartanleitung erstellt haben.
 
-2. Wählen Sie die Option **Zugriffssteuerung (IAM)**.
+2. Wählen Sie die Option **Zugriffssteuerung (IAM)** .
 
 3. Wählen Sie auf der Registerkarte **Zugriff überprüfen** im Kartenelement **Rollenzuweisung hinzufügen** den Befehl **Hinzufügen** aus.
 

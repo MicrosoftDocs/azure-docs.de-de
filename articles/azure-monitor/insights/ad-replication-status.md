@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60495172"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Überwachen des Active Directory-Replikationsstatus mit Azure Monitor
 

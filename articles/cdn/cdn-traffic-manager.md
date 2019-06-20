@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167064"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955267"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Einrichten des Failovers für mehrere Azure CDN-Endpunkte mit Azure Traffic Manager
 
@@ -62,13 +62,13 @@ Nachdem Sie Ihre CDN- und Traffic Manager-Profile eingerichtet haben, führen Si
 
     a. Ordnen Sie für den ersten CNAME-Eintrag die benutzerdefinierte Domäne mit der Unterdomäne „cdnverify“ Ihrem CDN-Endpunkt zu. Dieser Eintrag ist ein erforderlicher Schritt, um die benutzerdefinierte Domäne für den CDN-Endpunkt zu registrieren, den Sie Traffic Manager in Schritt 2 hinzugefügt haben.
 
-      Beispiel:  
+      Beispiel: 
 
       `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
     b. Ordnen Sie für den zweiten CNAME-Eintrag die benutzerdefinierte Domäne ohne die Unterdomäne „cdnverify“ Ihrem CDN-Endpunkt zu. Mit diesem Eintrag wird die benutzerdefinierte Domäne Traffic Manager zugeordnet. 
 
-      Beispiel:  
+      Beispiel: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -80,10 +80,14 @@ Nachdem Sie Ihre CDN- und Traffic Manager-Profile eingerichtet haben, führen Si
 2.  Wählen Sie in Ihrem Azure CDN-Profil den ersten CDN-Endpunkt (Akamai) aus. Wählen Sie **Benutzerdefinierte Domäne hinzufügen** aus, und geben Sie *cdndemo101.dustydogpetcare.online* ein. Vergewissern Sie sich, dass das Häkchen zum Überprüfen der benutzerdefinierten Domäne grün ist. 
 
     Azure CDN verwendet die Unterdomäne *cdnverify*, um die DNS-Zuordnung zu überprüfen und den Registrierungsvorgang abzuschließen. Weitere Informationen finden Sie unter [Erstellen eines CNAME-DNS-Eintrags](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Durch diesen Schritt kann Azure CDN die benutzerdefinierte Domäne erkennen und in der Folge auf ihre Anforderungen antworten.
+    
+ > [!NOTE]
+    > Um SSL für ein **Azure CDN aus Akamai**-Profil zu aktivieren, müssen Sie die benutzerdefinierte Domäne direkt für Ihren Endpunkt benennen. „cdnverify“ zum Aktivieren von SSL wird noch nicht unterstützt. 
+    >
 
 3.  Wechseln Sie wieder zu der Website des Domänenanbieters für Ihre benutzerdefinierte Domäne, und aktualisieren Sie die erste erstellte DNS-Zuordnung so, dass die benutzerdefinierte Domäne dem zweiten CDN-Endpunkt zugeordnet ist.
                              
-    Beispiel:  
+    Beispiel: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

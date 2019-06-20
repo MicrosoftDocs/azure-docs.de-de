@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60337543"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Probleme mit der Anwendung und Dienstverfügbarkeit von Azure Cloud Services: Häufig gestellte Fragen (FAQs)
 

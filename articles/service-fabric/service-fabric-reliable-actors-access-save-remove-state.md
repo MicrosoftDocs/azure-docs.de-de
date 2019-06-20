@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664725"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60725396"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Zugriff auf den Reliable Actors-Status, dessen Speichern und Entfernen
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) sind Singlethread-Objekte, die sich zum Kapseln von Logik und Zustand sowie zuverlässigen Beibehalten des Zustands eignen. Jede Actorinstanz verfügt über einen eigenen [Zustands-Manager](service-fabric-reliable-actors-state-management.md): Dabei handelt es sich um eine wörterbuchähnliche Datenstruktur, die zuverlässig Schlüssel-Wert-Paare speichert. Der Zustands-Manager ist ein Wrapper für einen Zustandsanbieter. Sie können ihn unabhängig von der verwendeten [Persistenzeinstellung](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) zum Speichern von Daten verwenden.

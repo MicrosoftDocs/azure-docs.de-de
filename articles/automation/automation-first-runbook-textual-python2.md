@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e79f4b58582ab6643a7a13ffee25503060a2208c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226741"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60929274"
 ---
 # <a name="my-first-python-runbook"></a>Mein erstes Python-Runbook
 

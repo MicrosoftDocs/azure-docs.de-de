@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61432897"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Einführung in die Überwachung von Clouddiensten
 
@@ -60,7 +60,7 @@ Während der Erstellung einer Rolle wird ihr von Visual Studio die Azure-Diagnos
 
 Wenn Sie noch nicht über ein **klassisches** Speicherkonto verfügen, [erstellen Sie zunächst ein Konto](../storage/common/storage-quickstart-create-account.md). Stellen Sie sicher, dass das Speicherkonto mit dem **klassischen Bereitstellungsmodell** erstellt wird.
 
-Navigieren Sie als Nächstes zur Ressource **Speicherkonto (klassisch)**. Wählen Sie **Einstellungen** > **Zugriffsschlüssel** aus, und kopieren Sie den Wert unter **Primäre Verbindungszeichenfolge**. Sie benötigen diesen Wert für den Clouddienst. 
+Navigieren Sie als Nächstes zur Ressource **Speicherkonto (klassisch)** . Wählen Sie **Einstellungen** > **Zugriffsschlüssel** aus, und kopieren Sie den Wert unter **Primäre Verbindungszeichenfolge**. Sie benötigen diesen Wert für den Clouddienst. 
 
 Es gibt zwei Konfigurationsdateien, die Sie zur Aktivierung der erweiterten Diagnose ändern müssen: **ServiceDefinition.csdef** und **ServiceConfiguration.cscfg**.
 

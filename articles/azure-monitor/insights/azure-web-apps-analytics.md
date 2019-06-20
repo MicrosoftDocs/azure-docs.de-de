@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: magoedte
 ms.openlocfilehash: 1ebe0b9d3cbe14bf35e05db3349a5aebb11b5716
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120103"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60494734"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Anzeigen von Analysedaten für Metriken über alle Azure-Web-App-Ressourcen
 

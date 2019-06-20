@@ -14,20 +14,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: f1a791e7a063c2bf2ae75cb3ca8d4fbdd35ddd90
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455200"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236477"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Kennenlernen der Data Science-VM
 
 Die Data Science-VM (DSVM) bietet zahlreiche beliebte Data Science-Tools, Machine Learning-/KI-Tools und Datenplattformen. Diese Toolkonfigurationen werden sowohl von Datenspezialisten und Entwicklern bei Microsoft als auch von der Data Science-Community gründlich getestet, um ihre Stabilität und allgemeine Verwendbarkeit zu gewährleisten.
 
-Darüber hinaus enthält die DSVM mehrere Codebeispiele und exemplarische Vorgehensweisen in Form von Jupyter-Notebooks, die lokal ausgeführt werden können. Zum besseren Verständnis der Beispiele steht eine entsprechende Dokumentation zur Verfügung. 
+Darüber hinaus enthält die DSVM mehrere Codebeispiele und exemplarische Vorgehensweisen in Form von Jupyter-Notebooks, die lokal ausgeführt werden können. Außerdem gibt es zum besseren Verständnis der Beispiele eine entsprechende Dokumentation. 
+
+> [!NOTE]
+> Sie können [Azure Notebooks](/azure/notebooks/azure-notebooks-overview) verwenden, um Jupyter-Notebooks in der Cloud zu erstellen, auszuführen und freizugeben. Sie können [Azure Notebooks eine Data Science VM zuordnen](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier), um die verfügbare Computeleistung zu erhöhen.
 
 Die Tools, Plattformen, Hilfsprogramme und Beispiele der Data Science-VM wurden in folgende Abschnitte unterteilt:
 

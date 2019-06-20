@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716001"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016474"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Schnellstart: Festlegen und Abrufen eines Geheimnisses aus Azure Key Vault per Resource Manager-Vorlage
 
@@ -61,7 +61,7 @@ Die in dieser Schnellstartanleitung verwendete Vorlage stammt von der Seite mit 
     * **Abonnement**: Wählen Sie ein Azure-Abonnement aus.
     * **Ressourcengruppe**: Wählen Sie die Option **Neu erstellen** aus, geben Sie einen eindeutigen Namen für die Ressourcengruppe ein, und klicken Sie dann auf **OK**. 
     * **Standort**: Wählen Sie einen Standort aus.  Beispiel: **USA, Mitte**.
-    * **Schlüsseltresorname**: Geben Sie einen eindeutigen Namen für den Schlüsseltresor ein.  
+    * **Schlüsseltresorname:** Geben Sie einen Namen für den Schlüsseltresor ein. Dieser muss im Namespace vault.azure.net global eindeutig sein.  
     * **Mandanten-ID**: Die Vorlagenfunktion ruft automatisch Ihre Mandanten-ID ab.  Lassen Sie den Standardwert unverändert.
     * **Ad User Id** (AD-Benutzer-ID): Geben Sie Ihre Azure AD-Benutzerobjekt-ID ein, die Sie unter [Voraussetzungen](#prerequisites) abgerufen haben.
     * **Geheimnisname**: Geben Sie einen Namen für das Geheimnis ein, das Sie im Schlüsseltresor speichern.  Beispiel: **adminpassword**.

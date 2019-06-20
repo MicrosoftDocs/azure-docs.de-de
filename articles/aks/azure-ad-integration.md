@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192122"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849892"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrieren von Azure Active Directory in Azure Kubernetes Service
 
@@ -23,7 +23,6 @@ In diesem Artikel erfahren Sie, wie Sie über das Azure-Portal die Voraussetzung
 Es gelten die folgenden Einschränkungen:
 
 - Azure AD kann nur aktiviert werden, wenn Sie einen neuen, RBAC-fähigen Cluster erstellen. Es ist nicht möglich, Azure AD für einen vorhandenen AKS-Cluster zu aktivieren.
-- *Gast*benutzer in Azure AD (z.B. bei Verwendung einer Verbundanmeldung aus einem anderen Verzeichnis) werden nicht unterstützt.
 
 ## <a name="authentication-details"></a>Authentifizierungsdetails
 
@@ -44,7 +43,7 @@ Die erste Azure AD-Anwendung wird verwendet, um eine Azure AD-Gruppenmitgliedsch
 
     * Geben Sie der Anwendung einen Namen, z.B. *AKSAzureADServer*.
     * Wählen Sie für **Unterstützte Kontotypen** die Option *Nur Konten in diesem Organisationsverzeichnis* aus.
-    * Wählen Sie als Typ für **Umleitungs-URI** die Option *Web* aus, und geben Sie einen beliebigen URI-formatierten Wert ein, z.B. *https://aksazureadserver*.
+    * Wählen Sie als Typ für **Umleitungs-URI** die Option *Web* aus, und geben Sie einen beliebigen URI-formatierten Wert ein, z.B. *https://aksazureadserver* .
     * Wählen Sie anschließend **Registrieren** aus.
 
 1. Wählen Sie **Manifest** aus, und setzen Sie den Wert von `groupMembershipClaims` auf `"All"`.
@@ -62,9 +61,9 @@ Die erste Azure AD-Anwendung wird verwendet, um eine Azure AD-Gruppenmitgliedsch
 1. Wählen Sie im linken Navigationsbereich der Azure AD-Anwendung die Option **API-Berechtigungen** und dann **+ Berechtigung hinzufügen** aus.
 
     * Wählen Sie unter **Microsoft-APIs** die Option *Microsoft Graph* aus.
-    * Wählen Sie **Delegierte Berechtigungen** aus, und aktivieren Sie **Verzeichnis > Directory.Read.All (Verzeichnisdaten lesen)**.
+    * Wählen Sie **Delegierte Berechtigungen** aus, und aktivieren Sie **Verzeichnis > Directory.Read.All (Verzeichnisdaten lesen)** .
         * Wenn keine standardmäßige delegierte Berechtigung für **Benutzer > User.Read (Anmelden und Benutzerprofil lesen)** vorhanden ist, aktivieren Sie diese Berechtigung.
-    * Wählen Sie **Anwendungsberechtigungen** aus, und aktivieren Sie **Verzeichnis > Directory.Read.All (Verzeichnisdaten lesen)**.
+    * Wählen Sie **Anwendungsberechtigungen** aus, und aktivieren Sie **Verzeichnis > Directory.Read.All (Verzeichnisdaten lesen)** .
 
         ![Festlegen von Graph-Berechtigungen](media/aad-integration/graph-permissions.png)
 
@@ -85,7 +84,7 @@ Die erste Azure AD-Anwendung wird verwendet, um eine Azure AD-Gruppenmitgliedsch
 
     * Wählen Sie **Bereich hinzufügen** aus.
 
-1. Kehren Sie zur Seite **Übersicht** der Anwendung zurück, und notieren Sie sich die **Anwendungs-ID (Client)**. Beim Bereitstellen eines Azure AD-fähigen AKS-Clusters wird dieser Wert als `Server application ID` bezeichnet.
+1. Kehren Sie zur Seite **Übersicht** der Anwendung zurück, und notieren Sie sich die **Anwendungs-ID (Client)** . Beim Bereitstellen eines Azure AD-fähigen AKS-Clusters wird dieser Wert als `Server application ID` bezeichnet.
 
    ![Abrufen der Anwendungs-ID](media/aad-integration/application-id.png)
 
@@ -97,7 +96,7 @@ Die zweite Azure AD-Anwendung wird beim Anmelden mit der Kubernetes-CLI (`kubect
 
     * Geben Sie der Anwendung einen Namen, z.B. *AKSAzureADClient*.
     * Wählen Sie für **Unterstützte Kontotypen** die Option *Nur Konten in diesem Organisationsverzeichnis* aus.
-    * Wählen Sie als Typ für **Umleitungs-URI** die Option *Web* aus, und geben Sie einen beliebigen URI-formatierten Wert ein, z.B. *https://aksazureadclient*.
+    * Wählen Sie als Typ für **Umleitungs-URI** die Option *Web* aus, und geben Sie einen beliebigen URI-formatierten Wert ein, z.B. *https://aksazureadclient* .
     * Wählen Sie anschließend **Registrieren** aus.
 
 1. Wählen Sie im linken Navigationsbereich der Azure AD-Anwendung die Option **API-Berechtigungen** und dann **+ Berechtigung hinzufügen** aus.
@@ -114,6 +113,10 @@ Die zweite Azure AD-Anwendung wird beim Anmelden mit der Kubernetes-CLI (`kubect
         Wenn die Berechtigungen erfolgreich gewährt wurden, wird die folgende Benachrichtigung im Portal angezeigt:
 
         ![Benachrichtigung über erfolgreich erteilte Berechtigungen](media/aad-integration/permissions-granted.png)
+
+1. Wählen Sie im linken Navigationsbereich der Azure AD-Anwendung **Authentifizierung** aus.
+
+    * Wählen Sie unter **Standardclienttyp** die Option **Ja** aus, um *den Client als öffentlichen Client einzustufen*.
 
 1. Notieren Sie sich die **Anwendungs-ID** im linken Navigationsbereich der Azure AD-Anwendung. Beim Bereitstellen eines Azure AD-fähigen AKS-Clusters wird dieser Wert als `Client application ID` bezeichnet.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 Anschließend wird das Authentifizierungstoken zwischengespeichert. Sie werden nur dann erneut zur Anmeldung aufgefordert, wenn das Token abgelaufen ist oder die Kubernetes-Konfigurationsdatei neu erstellt wird.
 
 Wenn nach erfolgreicher Anmeldung eine Fehlermeldung bezüglich der Autorisierung angezeigt wird, überprüfen Sie Folgendes:
-1. Der Benutzer, den Sie anmelden, ist in der Azure AD-Instanz kein Gastbenutzer (dies ist häufig der Fall, wenn Sie ein Verbundkonto aus einem anderen Verzeichnis verwenden).
-2. Der Benutzer ist kein Mitglied der über 200 Gruppen.
-3. Der geheime Schlüssel, der in der Anwendungsregistrierung für den Server definiert ist, entspricht nicht dem mit „--aad-server-app-secret“ konfigurierten Wert.
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. Sie haben die entsprechende Objekt-ID oder den UPN definiert, je nachdem, ob das Benutzerkonto im gleichen Azure AD-Mandanten vorhanden ist oder nicht.
+2. Der Benutzer ist kein Mitglied der über 200 Gruppen.
+3. Das Geheimnis, das in der Anwendungsregistrierung für den Server definiert ist, entspricht dem mit `--aad-server-app-secret` konfigurierten Wert.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

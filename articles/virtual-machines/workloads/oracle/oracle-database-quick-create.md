@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 490ac613adac968cc323c2d8351b59aece181b68
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734384"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66153896"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Erstellen einer Oracle-Datenbank auf einem virtuellem Azure-Computer
 
@@ -145,7 +145,7 @@ Die Oracle-Software ist bereits im Marketplace-Image installiert. Erstellen Sie 
 
 3. Festlegen von Oracle-Variablen
 
-Bevor Sie eine Verbindung herstellen, müssen Sie zwei Umgebungsvariablen festlegen:  *ORACLE_HOME* und *ORACLE_SID*.
+Bevor Sie eine Verbindung herstellen, müssen Sie zwei Umgebungsvariablen festlegen: *ORACLE_HOME* und *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME

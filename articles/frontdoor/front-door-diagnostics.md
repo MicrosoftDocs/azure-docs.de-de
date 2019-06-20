@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736781"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Überwachung von Metriken und Protokollen in Azure Front Door Service
 
@@ -25,7 +25,7 @@ Mit dem Azure Front Door Service können Sie Ressourcen auf die folgenden Arten 
 - **Metriken:** Application Gateway verfügt derzeit über sieben Metriken, um Leistungsindikatoren anzuzeigen.
 - **Protokolle**. Protokolle ermöglichen das Speichern und Nutzen von Leistungs-, Zugriffs- und anderen Daten einer Ressource zu Überwachungszwecken.
 
-### <a name="metrics"></a>Metriken
+### <a name="metrics"></a>metrics
 
 Metriken sind ein Feature für bestimmte Azure-Ressourcen, mit dem Sie die Leistungsindikatoren im Portal anzeigen können. Die folgenden Front Door-Metriken stehen zur Verfügung:
 
@@ -37,7 +37,7 @@ Metriken sind ein Feature für bestimmte Azure-Ressourcen, mit dem Sie die Leist
 | TotalLatency | Gesamtlatenz | Millisekunden | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Die Zeitspanne zwischen dem Empfang der Clientanforderung durch Front Door und der Bestätigung des letzten Antwortbytes von Front Door durch den Client. |
 | BackendRequestCount | Back-End-Anforderungsanzahl | Count | HttpStatus</br>HttpStatusGroup</br>Back-End | Die Anzahl der von Front Door Service an Back-Ends gesendeten Anforderungen. |
 | BackendRequestLatency | Latenz der Back-End-Anforderung | Millisekunden | Back-End | Die Zeitspanne zwischen dem Senden der Anforderung durch Front Door Service an das Back-End und dem Empfang des letzten Antwortbytes durch Front Door Service vom Back-End. |
-| BackendHealthPercentage | Prozentsatz der Back-End-Integrität | Prozent | Back-End</br>BackendPool | Der Prozentsatz der erfolgreichen Integritätstests von Front Door Service zu Back-Ends. |
+| BackendHealthPercentage | Prozentsatz der Back-End-Integrität | Percent | Back-End</br>BackendPool | Der Prozentsatz der erfolgreichen Integritätstests von Front Door Service zu Back-Ends. |
 | WebApplicationFirewallRequestCount | Anforderungsanzahl für die Web Application Firewall | Count | PolicyName</br>RuleName</br>Aktion | Die Anzahl der Clientanforderungen, die von der Anwendungssicherheitsschicht von Front Door Service verarbeitet werden. |
 
 ## <a name="activity-log"></a>Aktivitätsprotokolle

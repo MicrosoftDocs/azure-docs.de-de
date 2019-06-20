@@ -10,10 +10,10 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
 ms.openlocfilehash: 74dbe12a2df07218fbb369097b566a9dad4921c0
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539509"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]

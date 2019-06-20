@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848032"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128854"
 ---
 # <a name="monitor-batch-solutions"></a>Überwachen von Batch-Lösungen
 
@@ -41,7 +41,7 @@ Ereignisse können unter anderem über das Azure-Portal aus dem Aktivitätsproto
 
 ## <a name="batch-resource-monitoring"></a>Überwachung von Batch-Ressourcen
 
-Verwenden Sie in Ihren Batch-Anwendungen die Batch-APIs, um den Status von Ressourcen wie Aufträgen, Aufgaben, Knoten und Pools zu überwachen oder abzufragen. Beispiel: 
+Verwenden Sie in Ihren Batch-Anwendungen die Batch-APIs, um den Status von Ressourcen wie Aufträgen, Aufgaben, Knoten und Pools zu überwachen oder abzufragen. Beispiel:
 
 * [Monitor Batch solutions by counting tasks and nodes by state (Überwachen von Batch-Lösungen durch das Zählen von Tasks und Knoten nach Bundesstaat)](batch-get-resource-counts.md)
 * [Erstellen von Abfragen zum effizienten Auflisten von Batch-Ressourcen](batch-efficient-list-queries.md)

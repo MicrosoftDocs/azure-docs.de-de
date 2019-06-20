@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C – Benutzerdefinierte Richtlinien | Microsoft-Dokumentation
 description: Erfahren Sie mehr über benutzerdefinierte Azure Active Directory B2C-Richtlinien.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ddc77cbcf004ddbd1738e598d5073a11f13e2c5a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2938ae075bbd4c38b686ca6654bede678f876857
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695423"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509794"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Benutzerdefinierte Richtlinien in Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Es werden die folgenden drei Typen von Richtliniendateien verwendet:
 
 - **Basisdatei**: Sie enthält die meisten Definitionen. Es empfiehlt sich, eine minimale Anzahl von Änderungen an dieser Datei vorzunehmen, um die Problembehandlung und eine langfristige Verwaltung Ihrer Richtlinien zu unterstützen.
 - **Erweiterungsdatei**: Sie enthält die eindeutigen Konfigurationsänderungen für Ihren Mandanten.
-- **Datei der vertrauenden Seite (Relying Party, RP)**: Dabei handelt es sich um die einzige aufgabenorientierte Datei, die direkt von der Anwendung oder dem Dienst (auch als „vertrauende Seite“ bezeichnet) aufgerufen wird. Jede eindeutige Aufgabe erfordert eine eigene RP, und die Anzahl kann abhängig von den Branding-Anforderungen die „Gesamtzahl von Anwendungen multipliziert mit der Gesamtzahl von Anwendungsfällen“ betragen.
+- **Datei der vertrauenden Seite (Relying Party, RP)** : Dabei handelt es sich um die einzige aufgabenorientierte Datei, die direkt von der Anwendung oder dem Dienst (auch als „vertrauende Seite“ bezeichnet) aufgerufen wird. Jede eindeutige Aufgabe erfordert eine eigene RP, und die Anzahl kann abhängig von den Branding-Anforderungen die „Gesamtzahl von Anwendungen multipliziert mit der Gesamtzahl von Anwendungsfällen“ betragen.
 
 Benutzerflows in Azure AD B2C folgen dem oben dargestellten 3-Dateien-Muster, aber der Entwickler sieht nur die Datei der vertrauenden Seite, während das Azure-Portal Änderungen an der Erweiterungsdatei im Hintergrund vornimmt.
 

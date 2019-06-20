@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 89739aa51748e7bc69fc42b8b745994bbe50e39d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7e006b8bc05d00de3e5fba20985e30fd5e96c1df
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708682"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Einrichten des Zugriffs auf WinRM für virtuelle Computer in Azure Resource Manager
 
@@ -32,7 +32,7 @@ Sie müssen folgende Schritte ausführen, um einen virtuellen Computer mit WinRM
 4. Abrufen der URL für das selbstsignierte Zertifikat im Schlüsseltresor
 5. Verweisen auf die URL für selbstsignierte Zertifikate beim Erstellen eines virtuellen Computers
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="step-1-create-a-key-vault"></a>Schritt 1: Erstellen eines Schlüsseltresors
 Sie können den folgenden Befehl verwenden, um den Schlüsseltresor zu erstellen.

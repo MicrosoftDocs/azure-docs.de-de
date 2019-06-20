@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233124"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833912"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Verwenden von Platform-as-a-Service-Diensten (PaaS) in Azure DevTest Labs
 PaaS wird in DevTest Labs über das Umgebungenfeature unterstützt. In DevTest Labs werden Umgebungen von vorkonfigurierten Azure Resource Manager-Vorlagen in einem Git-Repository unterstützt. Umgebungen können sowohl PaaS- als auch IaaS-Ressourcen enthalten. Sie ermöglichen Ihnen die Erstellung komplexer Systeme, die Azure-Ressourcen wie virtuelle Computer, Datenbanken, virtuelle Netzwerke und Web-Apps enthalten können, die zum Zusammenwirken angepasst sind. Diese Vorlagen erlauben konsistente Bereitstellung und verbesserte Verwaltung von Umgebungen mithilfe der Quellcodeverwaltung. 
@@ -53,7 +53,7 @@ Es gibt einige benutzerdefinierte Labinformationen, die außerhalb der Ressource
 Im Artikel [Herstellen einer Verbindung zwischen einer Umgebung und dem virtuellen Netzwerk Ihres Labs in Azure DevTest Labs](connect-environment-lab-virtual-network.md) wird beschrieben, wie Sie die Resource Manager-Vorlage zur Verwendung mit dem `$(LabSubnetId)`-Token ändern. Beim Erstellen einer Umgebung wird das `$(LabSubnetId)`-Token durch die erste Subnetzmaske ersetzt, bei der die Option zur **Verwendung zum Erstellen eines virtuellen Computers** auf **true** gesetzt ist. So kann unsere Umgebung zuvor erstellte Netzwerke nutzen. Wenn Sie die gleichen Resource Manager-Vorlagen in Staging- und Produktionstestumgebungen verwenden möchten, verwenden Sie `$(LabSubnetId)` als Standardwert in einem Resource Manager-Vorlagenparameter. 
 
 #### <a name="environment-storage-account"></a>Umgebungsspeicherkonto
-DevTest Labs unterstützt die Verwendung [geschachtelter Resource Manager-Vorlagen](../azure-resource-manager/resource-group-linked-templates.md). Im Artikel [Azure DevTest Labs: Optimierte Unterstützung der Bereitstellung geschachtelter Resource Manager-Vorlagen](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments) wird erläutert, wie Sie mit `_artifactsLocation`- und `_artifactsLocationSasToken`-Token einen URI zu einer Resource Manager-Vorlage im gleichen Ordner, in dem sich die Hauptvorlage befindet, oder in einem geschachtelten Ordner erstellen. Weitere Informationen zu diesen beiden Token finden Sie im Abschnitt **Deployment artifacts** (Bereitstellungsartefakte) von [Azure Resource Manager Templates – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md) (Azure Resource Manager-Vorlagen – Leitfaden zu bewährten Methoden).
+DevTest Labs unterstützt die Verwendung [geschachtelter Resource Manager-Vorlagen](../azure-resource-manager/resource-group-linked-templates.md). Im Artikel [Bereitstellen geschachtelter Azure Resource Manager-Vorlagen für Testumgebungen](deploy-nested-template-environments.md) wird erläutert, wie Sie mit `_artifactsLocation`- und `_artifactsLocationSasToken`-Token einen URI zu einer Resource Manager-Vorlage im gleichen Ordner, in dem sich die Hauptvorlage befindet, oder in einem geschachtelten Ordner erstellen. Weitere Informationen zu diesen beiden Token finden Sie im Abschnitt **Deployment artifacts** (Bereitstellungsartefakte) von [Azure Resource Manager Templates – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md) (Azure Resource Manager-Vorlagen – Leitfaden zu bewährten Methoden).
 
 ## <a name="user-experience"></a>Benutzererfahrung
 

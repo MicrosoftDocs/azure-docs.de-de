@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
 ms.openlocfilehash: 4727c24c603e95aeee6214546e25a273aa652f4c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182828"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60417322"
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Aktivieren von Azure Active Directory Domain Services
 

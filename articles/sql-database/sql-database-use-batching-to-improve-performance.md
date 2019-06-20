@@ -13,11 +13,11 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997686"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60331127"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Gewusst wie: Verbessern der Leistung von SQL-Datenbankanwendungen mithilfe von Batchverarbeitung
 
@@ -105,7 +105,7 @@ Die folgende Tabelle zeigt einige Ad-hoc-Testergebnisse. Bei den Tests wurden je
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure zu Azure (gleiches Datencenter)**:
+**Azure zu Azure (gleiches Datencenter)** :
 
 | Vorgänge | Keine Transaktion (ms) | Transaktion (ms) |
 | --- | --- | --- |

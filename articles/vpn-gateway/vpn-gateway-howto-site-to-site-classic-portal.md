@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002839"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62105943"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Erstellen einer Site-to-Site-Verbindung über das Azure-Portal (klassisch)
 
@@ -72,7 +72,7 @@ Wenn Sie ein virtuelles Netzwerk für eine S2S-Verbindung erstellen, müssen Sie
 ### <a name="to-create-a-virtual-network"></a>So erstellen Sie ein virtuelles Netzwerk
 
 1. Navigieren Sie in einem Browser zum [Azure-Portal](https://portal.azure.com) , und melden Sie sich, falls erforderlich, mit Ihrem Azure-Konto an.
-2. Klicken Sie unten auf der Seite auf **+**. Geben Sie im Feld **Marketplace durchsuchen** die Zeichenfolge „Virtual Network“ ein. Klicken Sie in der zurückgegebenen Liste auf **Virtual Network**, um die Seite **Virtual Network** zu öffnen.
+2. Klicken Sie unten auf der Seite auf **+** . Geben Sie im Feld **Marketplace durchsuchen** die Zeichenfolge „Virtual Network“ ein. Klicken Sie in der zurückgegebenen Liste auf **Virtual Network**, um die Seite **Virtual Network** zu öffnen.
 
    ![Seite für die Suche nach einem virtuellen Netzwerk](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. Wählen Sie im unteren Bereich der Seite „Virtual Network“ in der Dropdownliste **Bereitstellungsmodell auswählen** die Option **Klassisch** aus, und klicken Sie dann auf **Erstellen**.

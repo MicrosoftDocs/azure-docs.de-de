@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882738"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833441"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Entwickeln eigener IoT Edge-Module
 
@@ -67,7 +67,7 @@ Erstellen Sie eine ModuleClient-Instanz, um Ihr Modul mit dem IoT Edge-Hub zu ve
 
 [Vorbereiten Ihrer Entwicklungs- und Testumgebung für IoT Edge](development-environment.md)
 
-[Verwenden von Visual Studio 2017 zum Entwickeln von C#-Modulen für IoT Edge](how-to-visual-studio-develop-csharp-module.md)
+[Verwenden von Visual Studio zum Entwickeln von C#-Modulen für IoT Edge](how-to-visual-studio-develop-module.md)
 
 [Verwenden von Visual Studio Code zum Entwickeln von Modulen für IoT Edge](how-to-vs-code-develop-module.md)
 

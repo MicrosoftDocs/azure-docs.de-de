@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: v-erkell
 ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60410270"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Bereitstellen des vFXT-Clusters
 

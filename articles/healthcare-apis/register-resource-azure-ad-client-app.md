@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
 ms.openlocfilehash: e8305c5a69fa3fda29f4f1292b7faa59f8ec3608
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870145"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60709607"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registrieren einer Ressourcenanwendung in Azure Active Directory
 
@@ -22,7 +22,7 @@ In diesem Artikel erfahren Sie, wie Sie eine Ressourcenanwendung (oder API-Anwen
 
 1. Klicken Sie im linken Navigationsbereich des [Azure-Portals](https://portal.azure.com) auf **Azure Active Directory**.
 
-2. Klicken Sie auf dem Blatt **Azure Active Directory** auf **App-Registrierungen (Vorschauversion)**:
+2. Klicken Sie auf dem Blatt **Azure Active Directory** auf **App-Registrierungen (Vorschauversion)** :
 
     ![Azure-Portal. Neue App-Registrierung.](media/how-to-aad/portal-aad-new-app-registration.png)
 

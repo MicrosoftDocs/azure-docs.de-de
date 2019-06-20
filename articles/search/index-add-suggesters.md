@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521885"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Hinzufügen von Vorschlagsfunktionen zu einem Index für Eingabevorschläge in Azure Search

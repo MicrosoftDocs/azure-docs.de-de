@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798515"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921234"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-Metriken in Azure Monitor (Vorschauversion)
 
@@ -38,7 +38,7 @@ Im [Azure-Portal](https://portal.azure.com) können Sie Metriken im Zeitverlauf 
 
 ![][1]
 
-Sie können auch direkt über den Namespace auf die Metriken zugreifen. Dazu wählen Sie den Namespace aus und klicken dann auf **Metriken (Vorschau)**. Um Metriken, die auf Entitätsebene gefiltert werden, anzuzeigen, wählen Sie die Entität aus und klicken dann auf **Metriken (Vorschau)**.
+Sie können auch direkt über den Namespace auf die Metriken zugreifen. Dazu wählen Sie den Namespace aus und klicken dann auf **Metriken (Vorschau)** . Um Metriken, die auf Entitätsebene gefiltert werden, anzuzeigen, wählen Sie die Entität aus und klicken dann auf **Metriken (Vorschau)** .
 
 ![][2]
 
@@ -83,14 +83,14 @@ Die beiden folgenden Arten von Fehlern werden als Benutzerfehler klassifiziert:
 |Ausgehende Nachrichten (Vorschau)|Die Anzahl von Ereignissen oder Nachrichten, die in einem bestimmten Zeitraum von Service Bus empfangen wurden<br/><br/> Einheit: Count <br/> Aggregationstyp: Gesamt <br/> Dimension: EntityName|
 | Messages (Vorschau) | Anzahl von Nachrichten in einer Warteschlange/einem Thema <br/><br/> Einheit: Count <br/> Aggregationstyp: Durchschnitt <br/> Dimension: EntityName |
 | ActiveMessages (Vorschau) | Anzahl von aktiven Nachrichten in einer Warteschlange/einem Thema <br/><br/> Einheit: Count <br/> Aggregationstyp: Durchschnitt <br/> Dimension: EntityName |
+| Unzustellbare Nachrichten (Vorschau) | Anzahl von unzustellbaren Nachrichten in einer Warteschlange/einem Thema. <br/><br/> Einheit: Count <br/> Aggregationstyp: Durchschnitt <br/>Dimension: EntityName |
+| Geplante Nachrichten (Vorschau) | Anzahl von geplanten Nachrichten in einer Warteschlange/einem Thema. <br/><br/> Einheit: Count <br/> Aggregationstyp: Durchschnitt  <br/> Dimension: EntityName |
 
 ## <a name="connection-metrics"></a>Verbindungsmetriken
 
 | Metrikname | BESCHREIBUNG |
 | ------------------- | ----------------- |
 |ActiveConnections (Vorschau)|Die Anzahl der aktiven Verbindungen in einem Namespace und bei einer Entität<br/><br/> Einheit: Count <br/> Aggregationstyp: Gesamt <br/> Dimension: EntityName|
-|Geöffnete Verbindungen (Vorschau)|Die Anzahl der geöffneten Verbindungen<br/><br/> Einheit: Count <br/> Aggregationstyp: Gesamt <br/> Dimension: EntityName|
-|Geschlossene Verbindungen (Vorschau)|Die Anzahl der geschlossenen Verbindungen<br/><br/> Einheit: Count <br/> Aggregationstyp: Gesamt <br/> Dimension: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Metriken zur Ressourcennutzung
 
@@ -115,7 +115,7 @@ Azure Service Bus unterstützt folgende Dimensionen für Metriken in Azure Monit
 1. Wählen Sie auf der Registerkarte **Metriken** der Seite **Service Bus-Namespace** die Option **Warnungen konfigurieren** aus. 
 
     ![Seite „Metriken“ – Menü „Warnungen konfigurieren“](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Wählen Sie **Ziel auswählen** aus, und führen Sie auf der Seite **Select a resource** (Ressource auswählen) die folgenden Aktionen aus: 
+2. Wählen Sie die Option **Ziel auswählen** aus, und führen Sie auf der Seite **Select a resource** (Ressource auswählen) die folgenden Aktionen aus: 
     1. Wählen Sie im Feld **Nach Ressourcentyp filtern** die Option **Service Bus-Namespaces** aus. 
     2. Wählen Sie im Feld **Nach Abonnement filtern** Ihr Abonnement aus.
     3. Wählen Sie in der Liste **Service Bus-Namespace** aus. 
@@ -160,7 +160,7 @@ Azure Service Bus unterstützt folgende Dimensionen für Metriken in Azure Monit
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Weitere Informationen finden Sie unter [Übersicht über die Azure-Überwachung](../monitoring-and-diagnostics/monitoring-overview.md).
+Siehe die [Azure Monitor – Übersicht](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

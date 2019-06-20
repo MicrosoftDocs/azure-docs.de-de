@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205749"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows- und Linux-Leistungsdatenquellen in Azure Monitor
@@ -46,9 +46,9 @@ Gehen Sie folgendermaßen vor, um einen neuen Windows-Leistungsindikator hinzuzu
 
 1. Geben Sie den Namen des Leistungsindikators im Format *Objekt(Instanz)\Indikator* in das Textfeld ein.  Wenn Sie mit der Eingabe beginnen, wird Ihnen eine Liste mit passenden allgemeinen Indikatoren angezeigt.  Sie können einen Indikator aus der Liste auswählen oder selbst einen eingeben.  Sie können auch durch die Angabe von *Objekt\Indikator* alle Instanzen eines bestimmten Leistungsindikators zurückgeben.  
 
-    Wenn SQL Server Leistungsindikatoren von benannten Instanzen erfasst, beginnen alle benannten Instanzindikatoren mit *MSSQL$*, und anschließend folgt der Name der Instanz.  Um beispielsweise den Indikator für die Protokollcache-Trefferrate für alle Datenbanken aus dem Datenbank-Leistungsobjekt für benannte SQL Server-Instanzen INST2 zu sammeln, geben Sie `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio` an.
+    Wenn SQL Server Leistungsindikatoren von benannten Instanzen erfasst, beginnen alle benannten Instanzindikatoren mit *MSSQL$* , und anschließend folgt der Name der Instanz.  Um beispielsweise den Indikator für die Protokollcache-Trefferrate für alle Datenbanken aus dem Datenbank-Leistungsobjekt für benannte SQL Server-Instanzen INST2 zu sammeln, geben Sie `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio` an.
 
-2. Klicken Sie auf **+**, oder drücken Sie die **EINGABETASTE** um der Liste den Indikator hinzuzufügen.
+2. Klicken Sie auf **+** , oder drücken Sie die **EINGABETASTE** um der Liste den Indikator hinzuzufügen.
 3. Wenn Sie einen Leistungsindikator hinzufügen, verwendet dieser den Standardwert von 10 Sekunden für das **Stichprobenintervall**.  Sie können diesen Standardwert auf einen höheren Wert von bis zu 1800 Sekunden (30 Minuten) festlegen, wenn Sie die Speicheranforderungen der gesammelten Leistungsdaten reduzieren möchten.
 4. Wenn Sie mit dem Hinzufügen von Leistungsindikatoren fertig sind, klicken Sie auf die Schaltfläche **Speichern** am oberen Bildschirmrand, um die Konfiguration zu speichern.
 
@@ -96,8 +96,8 @@ Die folgende Tabelle enthält die Objekte und Leistungsindikatoren, die Sie in d
 | Logischer Datenträger | % freier Speicher |
 | Logischer Datenträger | % verwendete Inodes |
 | Logischer Datenträger | % verwendeter Speicher |
-| Logischer Datenträger | Byte gelesen/s  |
-| Logischer Datenträger | Lesevorgänge/s  |
+| Logischer Datenträger | Byte gelesen/s |
+| Logischer Datenträger | Lesevorgänge/s |
 | Logischer Datenträger | Übertragungen/s |
 | Logischer Datenträger | Byte geschrieben/s |
 | Logischer Datenträger | Schreibvorgänge/s |
@@ -214,9 +214,9 @@ Die folgende Tabelle zeigt verschiedene Beispiele für Protokollabfragen, mit de
 | Perf &#124; where ObjectName == "Prozessor" and CounterName == "% Prozessorzeit" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(CounterValue) by Computer |Durchschnittliche CPU-Nutzung aller Computer. |
 | Perf &#124; where CounterName == "% Prozessorzeit" &#124; summarize AggregatedValue = max(CounterValue) by Computer |Maximale CPU-Nutzung aller Computer. |
 | Perf &#124; where ObjectName == "Logischer Datenträger" and CounterName == "Aktuelle Warteschlangenlänge" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(CounterValue) by InstanceName |Durchschnittliche aktuelle Länge der Datenträgerwarteschlangen aller Instanzen eines bestimmten Computers |
-| Perf &#124; where CounterName == "Übertragungen/s" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |95. Perzentil der Datenträgerübertragungen pro Sekunde auf allen Computern. |
+| Perf &#124; where CounterName == "Übertragungen/s" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |95\. Perzentil der Datenträgerübertragungen pro Sekunde auf allen Computern. |
 | Perf &#124; where CounterName == "Prozessorzeit (%)" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Durchschnittliche CPU-Nutzung pro Stunde auf allen Computern |
-| Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 70. Perzentil pro Stunde jedes prozentualen Indikators für einen bestimmten Computer |
+| Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 70\. Perzentil pro Stunde jedes prozentualen Indikators für einen bestimmten Computer |
 | Perf &#124; where CounterName == "Prozessorzeit (%)" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Durchschnittliche, minimale, maximale und 75.-Perzentil-CPU-Nutzung pro Stunde für einen bestimmten Computer |
 | Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Alle Leistungsdaten aus dem Datenbank-Leistungsobjekt für die Masterdatenbank von der benannten SQL Server-Instanz INST2.  
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050488"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60410115"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Verschieben von Daten in den vFXT-Cluster – Parallele Datenerfassung 
 

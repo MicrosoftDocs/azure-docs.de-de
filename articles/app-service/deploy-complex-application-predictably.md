@@ -16,11 +16,11 @@ ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60766926"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Vorhersagbares Bereitstellen von Microservices in Azure
 Dieses Tutorial zeigt, wie eine aus [Microservices](https://en.wikipedia.org/wiki/Microservices) bestehende Anwendung in [Azure App Service](https://azure.microsoft.com/services/app-service/) als eine Einheit und in vorhersagbarer Weise mithilfe von JSON-Ressourcengruppenvorlagen und PowerShell-Skripts bereitgestellt wird. 
@@ -193,7 +193,7 @@ Die geschachtelten Ressourcen sollten wieder eine Hierarchie aufweisen, die der 
 Die Schaltfläche **Deploy to Azure** ist großartig, aber sie können damit die Ressourcengruppenvorlage nur in "azuredeploy.json" bereitstellen, wenn Sie "azuredeploy.json" bereits in GitHub abgelegt haben. Das Azure .NET SDK stellt außerdem Tools zur Verfügung, um JSON-Vorlagendateien direkt über Ihren lokalen Computer bereitzustellen. Führen Sie dazu die folgenden Schritte aus:
 
 1. Klicken Sie in Visual Studio auf **Datei** > **Neu** > **Projekt**.
-2. Klicken Sie auf **Visual C#** > **Cloud** > **Azure-Ressourcengruppe** und dann auf **OK**.
+2. Klicken Sie auf **Visual C#**  > **Cloud** > **Azure-Ressourcengruppe** und dann auf **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. Wählen Sie unter **Azure-Vorlage auswählen** die Option **Leere Vorlage** aus, und klicken Sie auf **OK**.

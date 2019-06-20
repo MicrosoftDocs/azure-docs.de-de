@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
 ms.openlocfilehash: 3ad2f4788a765366066023724772f5432d0d56eb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60699204"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights-NuGet-Pakete
 

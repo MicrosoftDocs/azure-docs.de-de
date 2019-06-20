@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320496"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480297"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Einrichten der Notfallwiederherstellung für eine IIS-basierte Webanwendung mit mehreren Ebenen
 
@@ -60,10 +60,10 @@ Für die Beispiele in diesem Artikel wurden virtuelle VMware-Computer mit IIS 7.
 
 Szenario | Sekundärer Standort | Azure
 --- | --- | ---
-Hyper-V | JA | JA
-VMware | JA | JA
-Physischer Server | Nein  | JA
-Azure|Nicht verfügbar|JA
+Hyper-V | Ja | Ja
+VMware | Ja | Ja
+Physischer Server | Nein | Ja
+Azure|Nicht verfügbar|Ja
 
 ## <a name="replicate-virtual-machines"></a>Replizieren von virtuellen Computern
 
@@ -109,7 +109,7 @@ Falls die Verbindungszeichenfolge auf den virtuellen Datenbankcomputer mit einer
         </connectionStrings>
         </configuration>
 
-Zum Aktualisieren der Verbindungszeichenfolge auf der Webebene fügen Sie das [Skript für das IIS-Verbindungsupdate](https://aka.ms/asr-update-webtier-script-classic) nach Gruppe 3 im Wiederherstellungsplan hinzu.
+Zum Aktualisieren der Verbindungszeichenfolge auf der Webebene fügen Sie das [Skript für das IIS-Verbindungsupdate](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) nach Gruppe 3 im Wiederherstellungsplan hinzu.
 
 #### <a name="site-bindings-for-the-application"></a>Websitebindungen für die Anwendung
 Jede Website besteht aus Bindungsinformationen. Die Bindungsinformationen enthalten den Typ der Bindung, die IP-Adresse, unter der der IIS-Server auf Anforderungen für die Website lauscht, die Portnummer und den Hostnamen für die Website. Bei einem Failover müssen diese Bindungen unter Umständen aktualisiert werden, wenn sich die zugeordneten IP-Adressen ändern.

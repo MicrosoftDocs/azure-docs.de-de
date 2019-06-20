@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368576"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988605"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurieren des Azure Multi-Factor Authentication-Servers für IIS-Web-Apps
 
@@ -76,4 +76,4 @@ Nachdem Sie die URLs und Einstellungen für die formularbasierte oder die HTTP-A
 1. Klicken Sie im Abschnitt „IIS-Authentifizierung“ auf die Registerkarte **Vertrauenswürdige IPs**.
 2. Klicken Sie auf **Hinzufügen**.
 3. Im daraufhin angezeigten Dialogfeld „Vertrauenswürdige IP hinzufügen“ wählen Sie das Optionsfeld **Eine IP**, **IP-Bereich** oder **Subnetz** aus.
-4. Geben Sie die IP-Adresse, den IP-Adressbereich oder das Subnetz ein, das der Positivliste hinzugefügt werden soll. Wählen Sie im Falle eines Subnetzes die entsprechende Netzmaske aus, und klicken Sie auf **OK**. Der Eintrag wird der Positivliste hinzugefügt.
+4. Geben Sie die IP-Adresse, den IP-Adressbereich oder das Subnetz ein, die zulässig sein sollen. Wählen Sie im Falle eines Subnetzes die entsprechende Netzmaske aus, und klicken Sie auf **OK**.

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 8e09e2c33359c94275d9819b335544d15d4c7d78
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790092"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Übertragen von Daten mit der Microsoft Azure Storage Data Movement-Bibliothek

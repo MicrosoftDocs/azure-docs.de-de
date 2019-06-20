@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62095488"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-Synchronisierung: Beheben von LargeObject-Fehlern, die auf das userCertificate-Attribut zurückzuführen sind
 
@@ -92,7 +92,7 @@ Eine Synchronisierungsregel sollte vorhanden sein, die aktiviert und so konfigur
 
     | Attribut | Wert |
     | --- | --- |
-    | Richtung |**Ausgehend** |
+    | Direction |**Ausgehend** |
     | MV-Objekttyp |**Person** |
     | Connector |*Name des Azure AD-Connectors* |
     | Connector-Objekttyp |**user** |

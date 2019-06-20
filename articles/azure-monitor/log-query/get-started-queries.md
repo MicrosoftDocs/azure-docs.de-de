@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65519014"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Erste Schritte mit Azure Monitor-Protokollabfragen
 
@@ -179,12 +179,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** behält alle ursprünglichen Spalten im Resultset bei und definiert weitere Typen. Die folgende Abfrage verwendet **extend**, um eine *localtime*-Spalte hinzuzufügen, die einen lokalisierten TimeGenerated-Wert enthält.
+**extend** behält alle ursprünglichen Spalten im Resultset bei und definiert weitere Typen. Die folgende Abfrage verwendet **extend** zum Hinzufügen der Spalte *EventCode*. Beachten Sie, dass diese Spalte möglicherweise nicht am Ende der Tabellenergebnisse angezeigt wird. In diesem Fall müssen Sie zum Anzeigen die Details eines Datensatzes erweitern.
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated -8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>„summarize“: Aggregieren von Zeilengruppen

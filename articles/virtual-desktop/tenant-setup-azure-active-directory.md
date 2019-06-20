@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 88b3ffa38eb42eef42c98920b2c3193661b1c0f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2c9682746201306f1b99a04462819618225caa11
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236163"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164263"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Erstellen eines Mandanten in Windows Virtual Desktop (Vorschauversion)
 
@@ -114,7 +114,7 @@ Erstellen Sie anschließend einen neuen Windows Virtual Desktop-Mandanten, der d
 New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
 ```
 
-Die Werte in Klammern sollten durch die Werte ersetzt werden, die für Ihre Organisation und den Mandanten relevant sind. Angenommen, Sie sind der „TenantCreator“ von Windows Virtual Desktop für die Organisation Contoso. Das auszuführende Cmdlet sieht dann wie folgt aus:
+Die Werte in Klammern sollten durch die Werte ersetzt werden, die für Ihre Organisation und den Mandanten relevant sind. Der für Ihren neuen Windows Virtual Desktop-Mandanten ausgewählte Name muss global eindeutig sein. Angenommen, Sie sind der „TenantCreator“ von Windows Virtual Desktop für die Organisation Contoso. Das auszuführende Cmdlet sieht dann wie folgt aus:
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999

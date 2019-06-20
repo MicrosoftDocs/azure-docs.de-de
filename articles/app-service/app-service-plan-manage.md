@@ -17,11 +17,11 @@ ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 936abe80a66c1dbe99e7d8a255fe8995a2df0803
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60852289"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Verwalten eines App Service-Plans in Azure
 

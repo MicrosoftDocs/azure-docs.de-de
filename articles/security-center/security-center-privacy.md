@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
 ms.openlocfilehash: fcec410df631a58b76878a4cb327ca2fb04a2105
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60703471"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Verwalten von Benutzerdaten in Azure Security Center
 Dieser Artikel enthält Informationen zur Verwaltung der Benutzerdaten in Azure Security Center. Bei der Verwaltung der Benutzerdaten haben Sie auch die Möglichkeit, auf Daten zuzugreifen, Daten zu löschen oder zu exportieren.

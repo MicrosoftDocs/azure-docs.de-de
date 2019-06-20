@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Aktivieren der Kennworthashsynch
 description: Erste Schritte mit Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: ergreenl
-ms.openlocfilehash: 6778df746a64f944b51570f8774c0e84c7d88658
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 734e4bad970229ea8eb770d586062b098e586353
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194694"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234896"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Aktivieren der Kennworthashsynchronisierung für Azure Active Directory Domain Services
 In vorherigen Aufgaben haben Sie Azure Active Directory Domain Services für Ihren Azure AD-Mandanten (Azure Active Directory) aktiviert. Die nächste Aufgabe besteht darin, die Synchronisierung der Kennworthashes, die für die NTLM- (NT LAN Manager) und Kerberos-Authentifizierung erforderlich sind, mit Azure AD Domain Services zu ermöglichen. Nach der Einrichtung der Kennworthashsynchronisierung können sich Benutzer mit ihren Unternehmensanmeldeinformationen bei der verwalteten Domäne anmelden.
@@ -28,6 +28,7 @@ In vorherigen Aufgaben haben Sie Azure Active Directory Domain Services für Ihr
 Für reine Cloudbenutzerkonten müssen andere Schritte ausgeführt werden als für Benutzerkonten, die aus Ihrem lokalen Verzeichnis mit Azure AD Connect synchronisiert werden. 
 
 <br>
+
 | **Art des Benutzerkontos** | **Auszuführende Schritte** |
 | --- |---|
 | **In Azure AD erstellte Cloud-Benutzerkonten** |**&#x2713;** Befolgen Sie die Anweisungen in [diesem Artikel](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts). |
@@ -81,6 +82,6 @@ Das neue Kennwort kann wenige Minuten nach der Kennwortänderung in Azure Active
 * [Aktualisieren Ihres eigenen Kennworts](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Erste Schritte mit der Kennwortverwaltung](../active-directory/authentication/quickstart-sspr.md)
 * [Aktivieren der Kennwortsynchronisierung für Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Verwalten einer durch die Azure Active Directory-Domänendienste verwalteten Domäne](active-directory-ds-admin-guide-administer-domain.md)
+* [Verwalten einer Azure AD Domain Services-Domäne](manage-domain.md)
 * [Einbinden eines virtuellen Windows Server-Computers in eine verwaltete Domäne](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Einbinden eines virtuellen Red Hat Enterprise Linux 7-Computers in eine verwaltete Domäne](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

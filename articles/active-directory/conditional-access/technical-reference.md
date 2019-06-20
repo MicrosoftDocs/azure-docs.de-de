@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358994"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823550"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referenz zu den Einstellungen für den bedingten Azure Active Directory-Zugriff
 
@@ -33,7 +33,7 @@ Falls Sie andere Informationen benötigen, hinterlassen Sie einen Kommentar am E
 
 ## <a name="cloud-apps-assignments"></a>Zuweisungen von Cloud-Apps
 
-Mit Richtlinien für bedingten Zugriff steuern Sie, wie Ihre Benutzer auf [Cloud-Apps](conditions.md#cloud-apps) zugreifen. Wenn Sie eine Richtlinie für bedingten Zugriff konfigurieren, müssen Sie mindestens eine Cloud-App auswählen. 
+Mit Richtlinien für bedingten Zugriff steuern Sie, wie Ihre Benutzer auf [Cloud-Apps](conditions.md#cloud-apps-and-actions) zugreifen. Wenn Sie eine Richtlinie für bedingten Zugriff konfigurieren, müssen Sie mindestens eine Cloud-App auswählen. 
 
 ![Auswählen der Cloud-Apps für Ihre Richtlinie](./media/technical-reference/09.png)
 
@@ -48,7 +48,6 @@ Sie können folgenden Cloud-Apps von Microsoft eine Richtlinie für bedingten Zu
 - Microsoft Application Insights Analytics
 - Microsoft Azure Information Protection – [Weitere Informationen](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Microsoft Azure-Verwaltung – [Weitere Informationen](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Microsoft Azure RemoteApp
 - Microsoft Azure-Abonnementverwaltung
 - Microsoft Cloud App Security
 - Portal für die Zugriffssteuerung auf Microsoft Commerce-Tools
@@ -141,7 +140,7 @@ Um diese Erweiterung für Chrome-Browser automatisch bereitzustellen, erstellen 
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | NAME | 1 |
 | Type | REG_SZ (Zeichenfolge) |
 | Daten | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
@@ -150,7 +149,7 @@ Erstellen Sie den folgenden Registrierungsschlüssel, damit Chrome unter **Windo
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | NAME | 1 |
 | Type | REG_SZ (Zeichenfolge) |
 | Daten | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
@@ -167,7 +166,6 @@ Diese Einstellung hat Auswirkungen auf Zugriffsversuche von den folgenden mobile
 
 | Client-Apps | Zieldienst | Plattform |
 | --- | --- | --- |
-| Azure RemoteApp | Azure Remote-App-Dienst | Windows 10, Windows 8.1, Windows 7, iOS, Android und macOS |
 | Dynamics CRM-App | Dynamics CRM | Windows 10, Windows 8.1, iOS und Android |
 | E-Mail-/Kalender-/Kontakte-App, Outlook 2016, Outlook 2013 (mit moderner Authentifizierung)| Microsoft Office 365 Exchange Online | Windows 10 |
 | MFA- und Standort-Richtlinien für Apps Gerätebasierte Richtlinien werden nicht unterstützt.| Alle Meine Apps-App-Dienste| Android und iOS |
@@ -203,6 +201,7 @@ Sie können in der Richtlinie für bedingten Zugriff vorschreiben, dass ein Zugr
 Diese Einstellung gilt für die folgenden Client-Apps:
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow

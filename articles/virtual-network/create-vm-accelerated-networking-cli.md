@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805362"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873420"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Erstellen eines virtuellen Linux-Computers mit beschleunigtem Netzwerkbetrieb
 
@@ -224,6 +224,10 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 Der beschleunigte Netzwerkbetrieb ist nun für Ihre VM aktiviert.
+
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Verarbeiten dynamischer Bindung und Sperrung der virtuellen Funktion 
+Anwendungen müssen über die synthetische NIC ausgeführt werden, die in der VM bereitgestellt wird. Wenn die Anwendung direkt über die VF-NIC ausgeführt wird, empfängt sie nicht **alle** Pakete, die an die VM gerichtet sind, da einige Pakete über die synthetische Schnittstelle angezeigt werden.
+Wenn Sie eine Anwendung über die synthetische NIC ausführen, ist garantiert, dass die Anwendung **alle** Pakete empfängt, die für sie bestimmt sind. Es wird außerdem sichergestellt, dass die Anwendung weiterhin ausgeführt wird, auch wenn VF während der Wartung des Hosts aufgehoben wird. Anwendungen, die eine Bindung an die synthetische NIC verwenden, sind eine **obligatorische** Voraussetzung für alle Anwendungen, die **beschleunigten Netzwerkbetrieb** nutzen.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Aktivieren des beschleunigten Netzwerkbetriebs auf vorhandenen VMs
 Wenn Sie eine VM ohne beschleunigten Netzwerkbetrieb erstellt haben, können Sie dieses Feature auf dieser VM aktivieren.  Die VM muss folgende Voraussetzungen erfüllen, um den beschleunigten Netzwerkbetrieb zu unterstützen (siehe auch oben):

@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932856"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60540401"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exemplarische Vorgehensweise für eine Azure-Beispielinfrastruktur für Windows-VMs
 In diesem Artikel wird das Erstellen einer Beispielanwendungsinfrastruktur erläutert. Wir beschreiben das Entwerfen einer Infrastruktur für einen einfachen Onlineshop, wobei alle Richtlinien und Entscheidungen hinsichtlich Namenskonventionen, Verfügbarkeit, virtuelle Netzwerke und Lastenausgleiche relevant sind, und das eigentliche Bereitstellen Ihrer virtuellen Computer (VMs).
@@ -54,14 +54,14 @@ Alle oben aufgeführten Elemente werden anhand der folgenden Namenskonventionen 
 
 * Adventure Works Cycles verwendet **[IT-Workload]-[Standort]-[Azure-Ressource]** als Präfix.
   * In diesem Beispiel ist **azos** (Azure-Onlineshop) der Name der IT-Workload und **use** (USA, Osten 2) der Standort.
-* Virtuelle Netzwerke folgen der Konvention „AZOS-USE-VN **[Nummer]**“.
-* Verfügbarkeitsgruppen folgen der Konvention „azos-use-as-**[Rolle]**“.
-* Die Namen der virtuellen Computer folgen der Konvention „azos-use-vm-**[VM-Name]**“.
+* Virtuelle Netzwerke folgen der Konvention „AZOS-USE-VN **[Nummer]** “.
+* Verfügbarkeitsgruppen folgen der Konvention „azos-use-as- **[Rolle]** “.
+* Die Namen der virtuellen Computer folgen der Konvention „azos-use-vm- **[VM-Name]** “.
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure-Abonnements und -Konten
 Adventure Works Cycles verwendet das Enterprise-Abonnement mit dem Namen „Adventure Works-Enterprise-Abonnement“ zur Abrechnung dieser IT-Workload.
 
-## <a name="storage"></a>Speicher
+## <a name="storage"></a>Storage
 Adventure Works Cycles bestimmt, dass Azure Managed Disks verwendet werden soll. Beim Erstellen der virtuellen Computer werden beide verfügbaren Speicherebenen verwendet:
 
 * **Storage Standard** für Webserver, Anwendungsserver und Domänencontroller und deren Datenträger
@@ -73,7 +73,7 @@ Da das virtuelle Netzwerk keine permanente Verbindung mit dem lokalen Netzwerk v
 Sie haben ein virtuelles Netzwerk auf ausschließlicher Cloudbasis mit den folgenden Einstellungen über das Azure-Portal erstellt:
 
 * Name: AZOS-USE-VN01
-* Standort: East US 2
+* Standort: USA (Ost) 2
 * Adressraum des virtuellen Netzwerks: 10.0.0.0/8
 * Erstes Subnetz:
   * Name: FrontEnd

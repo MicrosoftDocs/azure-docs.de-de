@@ -1,25 +1,18 @@
 ---
-title: Erstellen von technischen Ressourcen für ein VM-Angebot für den Azure Marketplace | Microsoft-Dokumentation
+title: Erstellen von technischen Ressourcen für ein VM-Angebot für den Azure Marketplace
 description: In diesem Artikel wird beschrieben, wie Sie die technischen Ressourcen für ein VM-Angebot im Azure Marketplace erstellen.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/20/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.author: pabutler
+ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050100"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938408"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Erstellen von technischen Ressourcen für ein VM-Angebot
 
@@ -35,7 +28,7 @@ Sie müssen das VM-Betriebssystem, die VM-Größe, die zu öffnenden Ports und b
 > Fügen Sie unabhängig vom verwendeten Betriebssystem immer nur die von der SKU benötigte Mindestanzahl an Datenträgern hinzu. Kunden können Datenträger, die Teil eines Images sind, zum Zeitpunkt der Bereitstellung nicht entfernen. Sie haben aber immer die Möglichkeit, während oder nach der Bereitstellung Datenträger hinzuzufügen. 
 
 > [!IMPORTANT]
-> *Ändern Sie nicht die Anzahl der Datenträger in einer neuen Imageversion.*  Wenn Sie Datenträger im Image neu konfigurieren müssen, definieren Sie eine neue SKU. Das Veröffentlichen einer neuen Imageversion mit einer anderen Anzahl von Datenträgern birgt das Risiko des Fehlschlagens der neuen Bereitstellung basierend auf der neuen Imageversion bei automatischer Skalierung, automatischen Bereitstellungen von Lösungen mithilfe von Azure Resource Manager-Vorlagen und anderen Szenarien.
+> *Ändern Sie nicht die Anzahl der Datenträger in einer neuen Imageversion.* Wenn Sie Datenträger im Image neu konfigurieren müssen, definieren Sie eine neue SKU. Das Veröffentlichen einer neuen Imageversion mit einer anderen Anzahl von Datenträgern birgt das Risiko des Fehlschlagens der neuen Bereitstellung basierend auf der neuen Imageversion bei automatischer Skalierung, automatischen Bereitstellungen von Lösungen mithilfe von Azure Resource Manager-Vorlagen und anderen Szenarien.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 

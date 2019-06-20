@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790044"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Verfügbarmachen eines lokalen WCF REST-Diensts für einen externen Client mithilfe von Azure WCF Relay
 
@@ -62,7 +62,7 @@ Der Dienstvertrag gibt an, welche Vorgänge (Webdienstterminologie für Methoden
 ### <a name="create-a-relay-contract-with-an-interface"></a>Erstellen eines Relayvertrags mit einer Schnittstelle
 
 1. Öffnen Sie Visual Studio als Administrator, indem Sie im **Startmenü** mit der rechten Maustaste auf das Programm klicken und dann **Als Administrator ausführen** auswählen.
-2. Erstellen Sie ein neues Konsolenanwendungsprojekt. Klicken Sie auf das Menü **Datei**, wählen Sie **Neu** aus, und klicken Sie auf **Projekt**. Klicken Sie im Dialogfeld **Neues Projekt** auf **Visual C#** (wenn **Visual C#** nicht angezeigt wird, suchen Sie unter **Andere Sprachen**). Klicken Sie auf die Vorlage **Konsolenanwendung (.NET Framework)**, und geben Sie ihr den Namen **EchoService**. Klicken Sie auf **OK**, um das Projekt zu erstellen.
+2. Erstellen Sie ein neues Konsolenanwendungsprojekt. Klicken Sie auf das Menü **Datei**, wählen Sie **Neu** aus, und klicken Sie auf **Projekt**. Klicken Sie im Dialogfeld **Neues Projekt** auf **Visual C#** (wenn **Visual C#** nicht angezeigt wird, suchen Sie unter **Andere Sprachen**). Klicken Sie auf die Vorlage **Konsolenanwendung (.NET Framework)** , und geben Sie ihr den Namen **EchoService**. Klicken Sie auf **OK**, um das Projekt zu erstellen.
 
     ![Erstellen einer Konsolen-App][2]
 
@@ -94,7 +94,7 @@ Der Dienstvertrag gibt an, welche Vorgänge (Webdienstterminologie für Methoden
     ```
 
    > [!NOTE]
-   > In der Regel enthält der Dienstvertragsnamespace ein Benennungsschema, das Versionsinformationen umfasst. Durch das Einbeziehen von Versionsinformationen im Dienstvertragsnamespace können Dienste größere Änderungen isolieren, indem ein neuer Dienstvertrag mit einem neuen Namespace definiert und an einem neuen Endpunkt bereitgestellt wird.  Auf diese Weise können Clients weiterhin den alten Dienstvertrag verwenden, ohne dass sie aktualisiert werden müssen. Versionsinformationen können aus einer Datumsangabe oder einer Buildnummer bestehen. Weitere Informationen finden Sie unter [Dienstversionsverwaltung](https://go.microsoft.com/fwlink/?LinkID=180498). In diesem Tutorial enthält das Benennungsschema des Dienstvertragsnamespace keine Versionsinformationen.
+   > In der Regel enthält der Dienstvertragsnamespace ein Benennungsschema, das Versionsinformationen umfasst. Durch das Einbeziehen von Versionsinformationen im Dienstvertragsnamespace können Dienste größere Änderungen isolieren, indem ein neuer Dienstvertrag mit einem neuen Namespace definiert und an einem neuen Endpunkt bereitgestellt wird. Auf diese Weise können Clients weiterhin den alten Dienstvertrag verwenden, ohne dass sie aktualisiert werden müssen. Versionsinformationen können aus einer Datumsangabe oder einer Buildnummer bestehen. Weitere Informationen finden Sie unter [Dienstversionsverwaltung](https://go.microsoft.com/fwlink/?LinkID=180498). In diesem Tutorial enthält das Benennungsschema des Dienstvertragsnamespace keine Versionsinformationen.
    >
    >
 8. Deklarieren Sie innerhalb der Schnittstelle `IEchoContract` eine Methode für den einzelnen Vorgang, den der Vertrag `IEchoContract` in der Schnittstelle bereitstellt, und wenden Sie das Attribut `OperationContractAttribute` auf die Methode an, die Sie als Teil des öffentlichen WCF-Relayvertrags bereitstellen möchten:

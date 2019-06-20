@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116931"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60611356"
 ---
 # <a name="the-azure-production-network"></a>Das Azure-Produktionsnetzwerk
 Zu den Benutzern des Azure-Produktionsnetzwerks gehören sowohl externe Kunden, die auf ihre eigenen Azure-Anwendungen zugreifen, als auch interne Azure-Supportmitarbeiter, die das Produktionsnetzwerk verwalten. In diesem Artikel werden die Sicherheitszugriffsmethoden und Schutzmechanismen besprochen, mit denen Verbindungen zum Azure-Produktionsnetzwerk hergestellt werden können.
@@ -54,7 +54,7 @@ Azure implementiert stabile Softwaresicherheits- und Firewallfeatures auf versch
 ### <a name="azure-security-features"></a>Sicherheitsfeatures von Azure
 Azure verwendet hostbasierte Softwarefirewalls innerhalb des Produktionsnetzwerks. In der Azure-Hauptumgebung befinden sich mehrere grundlegende Sicherheits- und Firewallfeatures. Diese Sicherheitsfeatures spiegeln die umfassende Verteidigungsstrategie innerhalb der Azure-Umgebung wider. Die Kundendaten in Azure werden durch die folgenden Firewalls geschützt:
 
-**Hypervisorfirewall (Paketfilter)**: Diese Firewall ist im Hypervisor implementiert und wird durch den Fabric Controller-Agent (FC) konfiguriert. Die Firewall schützt den Mandanten, der auf dem virtuellen Computer ausgeführt wird, vor nicht autorisiertem Zugriff. Standardmäßig wird beim Erstellen eines virtuellen Computers sämtlicher Datenverkehr blockiert. Anschließend fügt der Fabric Controller-Agent dem Filter Regeln und Ausnahmen hinzu, um autorisierten Datenverkehr zuzulassen.
+**Hypervisorfirewall (Paketfilter)** : Diese Firewall ist im Hypervisor implementiert und wird durch den Fabric Controller-Agent (FC) konfiguriert. Die Firewall schützt den Mandanten, der auf dem virtuellen Computer ausgeführt wird, vor nicht autorisiertem Zugriff. Standardmäßig wird beim Erstellen eines virtuellen Computers sämtlicher Datenverkehr blockiert. Anschließend fügt der Fabric Controller-Agent dem Filter Regeln und Ausnahmen hinzu, um autorisierten Datenverkehr zuzulassen.
 
 Hier werden zwei Kategorien von Regeln programmiert:
 

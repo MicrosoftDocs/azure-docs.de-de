@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922284"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hochverfügbarkeit von SAP HANA auf Azure-VMs unter SUSE Linux Enterprise Server
@@ -26,17 +26,17 @@ ms.locfileid: "64922284"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]:https://launchpad.support.sap.com/#/notes/401162
+[401162]: https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -113,7 +113,7 @@ Führen Sie diese Schritte aus, um die Vorlage bereitzustellen:
     - **Systemverfügbarkeit**: Wählen Sie **HA** (Hohe Verfügbarkeit).
     - **Administratorbenutzername und Administratorkennwort:** Ein neuer Benutzer wird erstellt, der für die Anmeldung beim Computer verwendet werden kann.
     - **Neues oder vorhandenes Subnetz:** Legt fest, ob ein neues virtuelles Netzwerk und Subnetz erstellt oder ein bestehendes Subnetz verwendet werden soll. Wenn Sie bereits über ein virtuelles Netzwerk verfügen, das mit dem lokalen Netzwerk verbunden ist, wählen Sie hier **Vorhanden** aus.
-    - **Subnetz-ID**: Wenn Sie die VM in einem vorhandenen VNET bereitstellen möchten, in dem Sie ein Subnetz definiert haben, dem die VM zugewiesen werden soll, geben Sie die ID dieses spezifischen Subnetzes an. Die ID hat normalerweise das folgende Format: **/subscriptions/\<Abonnement-ID>/resourceGroups/\<Name der Ressourcengruppe>/providers/Microsoft.Network/virtualNetworks/\<Name des virtuellen Netzwerks>/subnets/\<Name des Subnetzes>**.
+    - **Subnetz-ID**: Wenn Sie die VM in einem vorhandenen VNET bereitstellen möchten, in dem Sie ein Subnetz definiert haben, dem die VM zugewiesen werden soll, geben Sie die ID dieses spezifischen Subnetzes an. Die ID hat normalerweise das folgende Format: **/subscriptions/\<Abonnement-ID>/resourceGroups/\<Name der Ressourcengruppe>/providers/Microsoft.Network/virtualNetworks/\<Name des virtuellen Netzwerks>/subnets/\<Name des Subnetzes>** .
 
 ### <a name="manual-deployment"></a>Manuelle Bereitstellung
 
@@ -204,9 +204,9 @@ Führen Sie die Schritte in [Einrichten von Pacemaker auf SUSE Linux Enterprise 
 ## <a name="install-sap-hana"></a>Installieren von SAP HANA
 
 Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
-- **[A]**: Der Schritt gilt für alle Knoten.
-- **[1]**: Der Schritt gilt nur für den Knoten 1.
-- **[2]**: Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
+- **[A]** : Der Schritt gilt für alle Knoten.
+- **[1]** : Der Schritt gilt nur für den Knoten 1.
+- **[2]** : Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
 
 1. **[A]** Richten Sie das Datenträgerlayout **Logical Volume Management (LVM)** (Logische Volumeverwaltung) ein.
 
@@ -356,9 +356,9 @@ Installieren Sie die SAP HANA-Systemreplikation gemäß Kapitel 4 des [SAP HANA 
 
 Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
-* **[A]**: Der Schritt gilt für alle Knoten.
-* **[1]**: Der Schritt gilt nur für den Knoten 1.
-* **[2]**: Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
+* **[A]** : Der Schritt gilt für alle Knoten.
+* **[1]** : Der Schritt gilt nur für den Knoten 1.
+* **[2]** : Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
 
 1. **[1]** Erstellen Sie die Mandantendatenbank.
 
@@ -401,9 +401,9 @@ Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
 Für die Schritte in diesem Abschnitt werden die folgenden Präfixe verwendet:
 
-* **[A]**: Der Schritt gilt für alle Knoten.
-* **[1]**: Der Schritt gilt nur für den Knoten 1.
-* **[2]**: Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
+* **[A]** : Der Schritt gilt für alle Knoten.
+* **[1]** : Der Schritt gilt nur für den Knoten 1.
+* **[2]** : Der Schritt gilt nur für den Knoten 2 des Pacemaker-Clusters.
 
 1. **[1]** Erstellen Sie die erforderlichen Benutzer.
 

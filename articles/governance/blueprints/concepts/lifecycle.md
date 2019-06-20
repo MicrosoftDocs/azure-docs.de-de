@@ -9,11 +9,11 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795422"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60683188"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Grundlegendes zum Lebenszyklus von Azure Blueprints
 

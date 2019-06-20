@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 67bcb33727bc808f5e5bea701daffc77dde736ff
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337480"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813759"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>Erstellungszyklus für Ihre LUIS-App
 LUIS lernt am besten in einem iterativen Zyklus aus Modelländerungen, Äußerungsbeispielen, Veröffentlichungen und dem Sammeln von Daten aus Endpunktabfragen. 

@@ -4,18 +4,18 @@ description: Überprüfen von EDI und Generieren von Bestätigungen mit dem EDIF
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.openlocfilehash: b101922d15a3f90c29eff51c223d2ea7dc30ddf2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ccad6eab68fff0891ba287a076692f9437495a4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125351"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696188"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodieren von EDIFACT-Nachrichten für Azure Logic Apps mit dem Enterprise Integration Pack
 
@@ -32,7 +32,7 @@ Sie benötigen Folgendes:
 
 ## <a name="decode-edifact-messages"></a>Decodierung von EDIFACT-Nachrichten
 
-1. [Erstellen Sie eine Logik-App](quickstart-create-first-logic-app-workflow.md).
+1. [Erstellen einer Logik-App](quickstart-create-first-logic-app-workflow.md)
 
 2. Da der Connector „EDIFACT-Nachricht decodieren“ über keine Trigger verfügt, müssen Sie einen Trigger zum Starten Ihrer Logik-App hinzufügen (beispielsweise einen Anforderungstrigger). Fügen Sie im Logik-App-Designer einen Trigger hinzu, und fügen Sie anschließend Ihrer Logik-App eine Aktion hinzu.
 
@@ -59,7 +59,7 @@ Sie benötigen Folgendes:
 
     ![Integrationskontoverbindung erstellt](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    Beispiel: 
+    Beispiel:
 
     ![Wählen Sie die zu decodierende EDIFACT-Flatfilenachricht aus.](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
@@ -81,9 +81,9 @@ Der Connector „EDIFACT-Nachricht decodieren“ führt folgende Aufgaben aus:
   * Überprüfen der Gruppenkontrollnummer in Bezug auf andere Gruppenkontrollnummern im Austausch 
   * Überprüfen der Transaktionssatz-Kontrollnummer in Bezug auf andere Transaktionssatz-Kontrollnummern in dieser Gruppe
 * Trennen des Austauschs in Transaktionssätze oder Beibehalten des gesamten Austauschs:
-  * Austausch in Transaktionssätze trennen – Transaktionssätze bei Fehler anhalten: Trennt jeden Austausch in Transaktionssätze und analysiert jeden Transaktionssatz. 
+  * Trennen des Austauschs in Transaktionssätze – Transaktionssätze bei Fehler anhalten: Trennt den Austausch in Transaktionssätze und analysiert die einzelnen Transaktionssätze. 
   Die Aktion „X12 decodieren“ gibt nur die Transaktionssätze, die die Überprüfung nicht bestehen, in `badMessages` und die restlichen Transaktionssätze in `goodMessages` aus.
-  * Austausch in Transaktionssätze trennen – Austausch bei Fehler anhalten: Trennt jeden Austausch in Transaktionssätze und analysiert jeden Transaktionssatz. 
+  * Trennen des Austauschs in Transaktionssätze – Austausch bei Fehler anhalten: Trennt den Austausch in Transaktionssätze und analysiert die einzelnen Transaktionssätze. 
   Wenn mindestens ein Transaktionssatz im Austausch die Überprüfung nicht besteht, gibt die Aktion „X12 decodieren“ alle Transaktionssätze in diesem Austausch in `badMessages` aus.
   * Austausch beibehalten – Transaktionssätze bei Fehler anhalten: Behält den Austausch bei und verarbeitet den gesamten Batchaustausch. 
   Die Aktion „X12 decodieren“ gibt nur die Transaktionssätze, die die Überprüfung nicht bestehen, in `badMessages` und die restlichen Transaktionssätze in `goodMessages` aus.

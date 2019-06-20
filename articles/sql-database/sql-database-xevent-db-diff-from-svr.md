@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65206655"
 ---
 # <a name="extended-events-in-sql-database"></a>Erweiterte Ereignisse in Azure SQL-Datenbank
@@ -90,7 +90,7 @@ Das Feature "Erweiterte Ereignisse" wird von mehreren [Katalogsichten](https://m
 | **sys.database_event_session_targets** |Gibt eine Zeile für jedes Ereignisziel einer Ereignissitzung zurück. |
 | **sys.database_event_sessions** |Gibt eine Zeile für jede Ereignissitzung in der SQL-Datenbank zurück. |
 
-In Microsoft SQL Server haben ähnliche Katalogsichten Namen, die *.server\_* anstelle von *.database\_* enthalten. Das Namensmuster entspricht **sys.server_event_%**.
+In Microsoft SQL Server haben ähnliche Katalogsichten Namen, die *.server\_* anstelle von *.database\_* enthalten. Das Namensmuster entspricht **sys.server_event_%** .
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Neue dynamische Verwaltungssichten [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
 

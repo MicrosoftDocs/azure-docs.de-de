@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100648"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61425133"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Von Splunk zur Azure Monitor-Protokollabfrage
 
@@ -33,7 +33,7 @@ In der folgenden Tabelle werden Konzepte und Datenstrukturen von Splunk und Azur
  | Bereitstellungseinheit  | cluster |  cluster |  Azure Monitor ermöglicht beliebige clusterübergreifende Abfragen. Bei Splunk ist das nicht der Fall. |
  | Datencaches |  buckets  |  Caching und Aufbewahrungsrichtlinien |  Steuert den Zeitraum und die Cachingebene für die Daten. Diese Einstellung wirkt sich direkt auf die Leistung von Abfragen und die Kosten der Bereitstellung aus. |
  | Logische Partition von Daten  |  index  |  database  |  Ermöglicht die logische Trennung der Daten. Beide Implementierungen ermöglichen partitionsübergreifende Unions und Verknüpfungen. |
- | Strukturierte Ereignismetadaten | – | Tabelle |  Bei Splunk wird das Konzept der Suchsprache für Ereignismetadaten nicht verfügbar gemacht. Azure Monitor-Protokolle weisen das Konzept einer Tabelle mit Spalten auf. Jede Ereignisinstanz ist einer Zeile zugeordnet. |
+ | Strukturierte Ereignismetadaten | – | table |  Bei Splunk wird das Konzept der Suchsprache für Ereignismetadaten nicht verfügbar gemacht. Azure Monitor-Protokolle weisen das Konzept einer Tabelle mit Spalten auf. Jede Ereignisinstanz ist einer Zeile zugeordnet. |
  | Datensatz | event | row |  Nur Terminologieänderung. |
  | Datensatzattribut | Feld |  column |  In Azure Monitor ist dies als Teil der Tabellenstruktur vordefiniert. In Splunk hat jedes Ereignis einen eigenen Satz von Feldern. |
  | Typen | datatype |  datatype |  Azure Monitor-Datentypen sind expliziter, da sie für die Spalten festgelegt sind. Beide verfügen über die Möglichkeit, dynamisch mit Datentypen und einem sich weitgehend entsprechenden Satz von Datentypen, einschließlich JSON-Unterstützung, zu arbeiten. |
@@ -55,7 +55,7 @@ In der folgenden Tabelle sind Funktionen in Azure Monitor angegeben, die Splunk-
 | substr | substring() | (1)<br>Beachten Sie auch, dass Splunk einsbasierte Indizes verwendet. Azure Monitor verwendet nullbasierte Indizes. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| match | matches regex |   (2)  |
+| match | matches regex |  (2)  |
 | regex | matches regex | In Splunk ist `regex` ein Operator. In Azure Monitor ist es ein relationaler Operator. |
 | searchmatch | == | In Splunk ermöglicht `searchmatch` eine Suche nach der exakten Zeichenfolge.
 | random | rand()<br>rand(n) | Die Splunk-Funktion gibt eine Zahl zwischen 0 (null) und 2<sup>31</sup>-1 zurück. Azure Monitor gibt eine Zahl zwischen 0,0 und 1,0 oder bei angegebenem Parameter eine Zahl zwischen 0 und n-1 zurück.

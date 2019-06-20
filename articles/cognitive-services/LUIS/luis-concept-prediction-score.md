@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: diberry
 ms.openlocfilehash: 383ce4c4248f7e21f745f503c74a29cb613983e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813987"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Vorhersageergebnisse geben die Vorhersagegenauigkeit für Absichten und Entitäten an
 
@@ -24,7 +24,7 @@ Ein Vorhersageergebnis gibt den Grad der Zuverlässigkeit an, den LUIS den Ergeb
 
 Ein Vorhersageergebnis liegt zwischen 0 (null) und 1 (eins). Ein Beispiel für eine hohe Zuverlässigkeitsbewertung von LUIS ist der Wert 0,99. Ein Beispiel für eine Bewertung mit niedriger Zuverlässigkeit ist 0,01. 
 
-|Ergebniswert|Zuverlässigkeit|
+|Ergebniswert|Confidence|
 |--|--|
 |1|definitive Übereinstimmung|
 |0,99|hohe Zuverlässigkeit|

@@ -11,11 +11,11 @@ description: Verwenden Sie einen benutzerdefinierten NuGet-Feed für den Zugriff
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, Container
 manager: ghogen
 ms.openlocfilehash: 1a000e378a9b8ecfb09d778fd6444e3f24b3df7b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772465"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60686456"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Verwenden eines benutzerdefinierten NuGet-Feeds in Azure Dev Spaces
 

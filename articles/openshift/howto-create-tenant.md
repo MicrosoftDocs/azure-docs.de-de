@@ -1,18 +1,18 @@
 ---
 title: Erstellen eines Azure AD-Mandanten für Azure Red Hat OpenShift | Microsoft-Dokumentation
 description: In diesem Artikel erfahren Sie, wie Sie einen Azure AD-Mandaten erstellen, in dem Sie Ihren Microsoft Azure Red Hat OpenShift-Cluster hosten.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551716"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66306458"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Erstellen eines Azure AD-Mandanten für Azure Red Hat OpenShift
 

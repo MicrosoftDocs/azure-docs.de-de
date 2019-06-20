@@ -3,20 +3,21 @@ title: Konfigurieren der gewichteten Roundrobin-Routingmethode für Datenverkehr
 description: In diesem Artikel wird der Lastenausgleich des Datenverkehrs mit einer Roundrobinmethode in Traffic Manager erläutert.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: 4ca43bf958606a71911bf5d35f31e4fe0b342601
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071270"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Konfigurieren der gewichteten Routingmethode für Datenverkehr in Traffic Manager
 

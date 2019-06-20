@@ -13,11 +13,11 @@ ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60783624"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Einheitliche komponentenübergreifende Transaktionsdiagnose
 

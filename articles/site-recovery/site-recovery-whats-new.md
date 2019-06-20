@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: e2145fbbb5fa09aa3321742ca8a786822f6f0641
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148662"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418385"
 ---
 # <a name="whats-new-in-site-recovery"></a>Neuerungen in Site Recovery
 

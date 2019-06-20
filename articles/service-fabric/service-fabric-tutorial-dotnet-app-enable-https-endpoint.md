@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 48dd09bf70e99adc250027df872266bea39a786b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045729"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302406"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Hinzufügen eines HTTPS-Endpunkts zu einem ASP.NET Core-Front-End-Dienst mit Web-API mithilfe von Kestrel
 
@@ -52,7 +52,7 @@ In dieser Tutorialserie lernen Sie Folgendes:
 Bevor Sie mit diesem Tutorial beginnen können, müssen Sie Folgendes tun:
 
 * Wenn Sie kein Azure-Abonnement besitzen, erstellen Sie ein [kostenloses Konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Installieren Sie Visual Studio 2017](https://www.visualstudio.com/) (Version 15.5 oder höher) mit den Workloads **Azure-Entwicklung** und **ASP.NET und Webentwicklung**.
+* [Installieren Sie Visual Studio 2019](https://www.visualstudio.com/) (Version 15.5 oder höher) mit den Workloads **Azure-Entwicklung** und **ASP.NET und Webentwicklung**.
 * [Installieren Sie das Service Fabric SDK](service-fabric-get-started.md).
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Beziehen eines Zertifikats oder Erstellen eines selbstsignierten Entwicklungszertifikats
@@ -185,7 +185,7 @@ private X509Certificate2 GetCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Gewähren von Zugriff auf den privaten Schlüssel des Zertifikats für „NETWORK SERVICE“
 
-In einem vorherigen Schritt haben Sie das Zertifikat in den Speicher `Cert:\LocalMachine\My` auf dem Entwicklungscomputer importiert.  Dem Konto, das den Dienst ausführt (standardmäßig „NETWORK SERVICE“), muss außerdem explizit Zugriff auf den privaten Schlüssel des Zertifikats gewährt werden. Dieser Schritt kann manuell über das Tool „certlm.msc“ ausgeführt werden. Es empfiehlt sich jedoch, automatisch ein PowerShell-Skript auszuführen. Hierzu können Sie unter **SetupEntryPoint** im Dienstmanifest [ein Startskript konfigurieren](service-fabric-run-script-at-service-startup.md).
+In einem vorherigen Schritt haben Sie das Zertifikat in den Speicher `Cert:\LocalMachine\My` auf dem Entwicklungscomputer importiert.  Gewähren Sie nun dem Konto, das den Dienst ausführt (standardmäßig „NETWORK SERVICE“), explizit Zugriff auf den privaten Schlüssel des Zertifikats. Dieser Schritt kann manuell über das Tool „certlm.msc“ ausgeführt werden. Es empfiehlt sich jedoch, automatisch ein PowerShell-Skript auszuführen. Hierzu können Sie unter **SetupEntryPoint** im Dienstmanifest [ein Startskript konfigurieren](service-fabric-run-script-at-service-startup.md).
 
 ### <a name="configure-the-service-setup-entry-point"></a>Konfigurieren des Setupeinstiegspunkts für Dienste
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: magoedte
 ms.openlocfilehash: a50f080ee4d72ad098ca87f5b3a62b42f8cd5907
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142734"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurieren von Service Map in Azure
@@ -129,7 +129,7 @@ Die Dienstzuordnung ruft ihre Daten vom Microsoft Dependency-Agent ab. Der Depen
 | Windows-Agents | Ja | Die Dienstzuordnung analysiert und erfasst Daten von Windows-Computern. <br><br>Zusätzlich zum [Log Analytics-Agent für Windows](../../azure-monitor/platform/log-analytics-agent.md) erfordern Windows-Agents den Microsoft Dependency-Agent. Eine vollständige Liste der Betriebssystemversionen finden Sie unter „Unterstützte Betriebssysteme“. |
 | Linux-Agents | Ja | Die Dienstzuordnung analysiert und erfasst Daten von Linux-Computern. <br><br>Zusätzlich zum [Log Analytics-Agent für Linux](../../azure-monitor/platform/log-analytics-agent.md) erfordern Linux-Agents den Microsoft Dependency-Agent. Eine vollständige Liste der Betriebssystemversionen finden Sie unter „Unterstützte Betriebssysteme“. |
 | System Center Operations Manager-Verwaltungsgruppe | Ja | Service Map analysiert und erfasst Daten von Windows- und Linux-Agents in einer verbundenen [System Center Operations Manager-Verwaltungsgruppe](../../azure-monitor/platform/om-agents.md). <br><br>Es ist eine direkte Verbindung des System Center Operations Manager-Agents mit Log Analytics erforderlich. |
-| Azure-Speicherkonto | Nein  | Da Service Map Daten von Agent-Computern erfasst, sind keine Daten aus dem Azure-Speicher zu erfassen. |
+| Azure-Speicherkonto | Nein | Da Service Map Daten von Agent-Computern erfasst, sind keine Daten aus dem Azure-Speicher zu erfassen. |
 
 Unter Windows wird der Microsoft Monitoring Agent (MMA) von System Center Operations Manager und Log Analytics zum Erfassen und Senden von Überwachungsdaten verwendet. (Dieser Agent wird je nach Kontext als System Center Operations Manager-Agent, Log Analytics-Agent, MMA oder Direkt-Agent bezeichnet.) System Center Operations Manager und Log Analytics bieten unterschiedliche vorkonfigurierte Versionen des MMA. Jede dieser Versionen kann Berichte an System Center Operations Manager, Log Analytics oder beide senden.  
 

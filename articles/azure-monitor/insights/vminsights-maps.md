@@ -11,19 +11,19 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65522177"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Verwenden der Zuordnung in Azure Monitor für VMs (Vorschauversion) zum Verstehen von Anwendungskomponenten
-Das Anzeigen der ermittelten Anwendungskomponenten auf virtuellen Windows- und Linux-Computern, die in Ihrer Azure-Umgebung ausgeführt werden, kann mit Azure Monitor für VMs auf zwei Arten erfolgen: direkt in einem virtuellen Computer oder übergreifend für eine Gruppe von VMs in Azure Monitor. 
+Das Anzeigen der ermittelten Anwendungskomponenten auf virtuellen Windows- und Linux-Computern, die in Ihrer Azure-Umgebung ausgeführt werden, kann mit Azure Monitor für VMs auf zwei Arten erfolgen: direkt über eine VM oder für mehrere VMs gleichzeitig über Azure Monitor. 
 
-Dieser Artikel soll Ihnen die unterschiedliche Benutzererfahrung der beiden Perspektiven und die Verwendung des Zuordnungsfeatures nahebringen. Informationen zum Konfigurieren von Azure Monitor for VMs finden Sie unter [Enable Azure Monitor for VMs](vminsights-onboard.md) (Aktivieren von Azure Monitor for VMs).
+Dieser Artikel soll Ihnen die unterschiedliche Benutzererfahrung der beiden Perspektiven und die Verwendung des Zuordnungsfeatures nahebringen. Informationen zum Konfigurieren von Azure Monitor for VMs finden Sie unter [Enable Azure Monitor for VMs](vminsights-enable-overview.md) (Aktivieren von Azure Monitor for VMs).
 
 ## <a name="sign-in-to-azure"></a>Anmelden bei Azure
 Melden Sie sich unter [https://portal.azure.com](https://portal.azure.com) beim Azure-Portal an.
@@ -96,6 +96,21 @@ Führen Sie die folgenden Schritte aus, um direkt aus einer VM auf Azure Monitor
 Das Zuordnungsfeature visualisiert die Abhängigkeiten der VM, d.h. die ausgeführten Prozessgruppen und Prozesse mit aktiven Netzwerkverbindungen über einen angegebenen Zeitraum.  Standardmäßig zeigt die Zuordnung die letzten 30 Minuten.  Mithilfe des **TimeRange**-Selektors in der linken oberen Ecke können Sie nach historischen Zeiträumen (maximal eine Stunde) abfragen, um anzuzeigen, wie die Abhängigkeiten in der Vergangenheit aussahen, z.B. während eines Incidents oder vor einer Änderung.  
 
 ![Übersicht zur direkten VM-Zuordnung](./media/vminsights-maps/map-direct-vm-01.png)
+
+## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Direktes Anzeigen der Zuordnung in einer VM-Skalierungsgruppe
+
+Führen Sie die folgenden Schritte aus, um direkt aus einer VM-Skalierungsgruppe auf Azure Monitor für VMs zuzugreifen.
+
+1. Klicken Sie im Azure-Portal auf **VM-Skalierungsgruppen**.
+2. Wählen Sie in der Liste eine VM und im Abschnitt **Überwachung** **Insights (Vorschau)** aus.  
+3. Wählen Sie die Registerkarte **Zuordnung** aus.
+
+Auf dieser Registerkarte werden alle Instanzen, die in der Skalierungsgruppe enthalten sind, zusammen mit den Abhängigkeiten der Gruppe als Gruppenknoten angezeigt. Auf dem erweiterten Knoten werden die Instanzen aufgelistet, die in der Skalierungsgruppe enthalten sind (jeweils zehn pro Seite). Wenn Sie eine Zuordnung für eine bestimmte Instanz laden möchten, klicken Sie erst unter der Zuordnung auf diese und dann jeweils auf der rechten Seite auf die Auslassungspunkte. Klicken Sie anschließend auf **Serverübersicht laden**. Dadurch wird die Zuordnung für diese Instanz geladen, und die Prozessgruppen und Prozesse mit aktiven Netzwerkverbindungen über einen angegebenen Zeitraum werden angezeigt. Standardmäßig zeigt die Zuordnung die letzten 30 Minuten. Mithilfe des **TimeRange**-Selektors können Sie frühere Zeiträume (maximal eine Stunde) abfragen, um herauszufinden, wie die Abhängigkeiten in der Vergangenheit aussahen, z. B. während eines Incidents oder vor einer vorgenommenen Änderung.  
+
+![Übersicht zur direkten VM-Zuordnung](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>Sie können außerdem auch die Zuordnung einer bestimmten Instanz aus der Ansicht „Instanzen“ für Ihre VM-Skalierungsgruppe aufrufen. Navigieren Sie im Abschnitt **Einstellungen** zu **Instanzen**, und klicken Sie auf **Einblicke (Vorschau)** .
 
 ## <a name="view-map-from-azure-monitor"></a>Anzeigen der Zuordnung in Azure Monitor
 In Azure Monitor stellt das Zuordnungsfeature eine globale Sicht Ihrer virtuellen Computer und ihrer Abhängigkeiten dar.  Führen Sie die folgenden Schritte aus, um in Azure Monitor auf das Zuordnungsfeature zuzugreifen. 

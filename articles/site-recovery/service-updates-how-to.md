@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: e27dee213baf8365c3ad4efc69602f66e2081abe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540926"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Dienstupdates in Azure Site Recovery
 Als Organisation müssen Sie ermitteln, wie Sie Ihre Daten schützen und die Ausführung von Apps/Workloads sicherstellen können, wenn es zu geplanten und ungeplanten Ausfällen kommt. Azure Site Recovery trägt zu Geschäftskontinuität und Notfallwiederherstellung bei, indem Ihre Apps auf VMs weiter ausgeführt werden und physische Server verfügbar bleiben, wenn ein Standort ausfällt. Site Recovery repliziert Workloads, die auf VMs und physischen Servern ausgeführt werden, damit sie an einem sekundären Ort verfügbar bleiben, wenn die Verfügbarkeit des primären Standorts nicht mehr gegeben ist. Workloads werden am primären Standort wiederhergestellt, wenn er wieder betriebsbereit ist.
@@ -118,15 +118,16 @@ Nach jedem Upgrade des Mobilitäts-Agents wird ein Neustart empfohlen, um sicher
 
 |Updaterollup  |Anbieter  |Einheitliches Setup| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Updaterollup 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Updaterollup 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Updaterollup 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) – Hotfix     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Updaterollup 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Updaterollup 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Updaterollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
-|[Updaterollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 
 ## <a name="previous-update-rollups"></a>Frühere Updaterollups
 
+- [Updaterollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [Updaterollup 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [Updaterollup 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
 - [Updaterollup 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)

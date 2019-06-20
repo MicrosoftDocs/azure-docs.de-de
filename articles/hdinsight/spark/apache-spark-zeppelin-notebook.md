@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.openlocfilehash: 9fc18b11b24791c1e154d89d757408da4ab20539
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64709550"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Verwenden von Apache Zeppelin Notebooks mit Apache Spark-Cluster in Azure HDInsight
@@ -147,7 +147,7 @@ In diesem Artikel wird beschrieben, wie Sie das Paket [spark-csv](https://search
    
     ![Verwenden externer Pakete mit Jupyter Notebooks](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Verwenden externer Pakete mit Jupyter Notebooks")
    
-    c. Verketten Sie die drei Werte, getrennt durch einen Doppelpunkt (**:**).
+    c. Verketten Sie die drei Werte, getrennt durch einen Doppelpunkt ( **:** ).
    
         com.databricks:spark-csv_2.10:1.4.0
 

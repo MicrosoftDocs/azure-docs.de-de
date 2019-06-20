@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286124"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61449022"
 ---
 # <a name="create-an-advanced-device-model"></a>Erstellen eines erweiterten Gerätemodells
 
@@ -149,7 +149,7 @@ Der Simulationsdienst kann mehrere Typen von Telemetriedaten für jedes Gerät s
 ],
 ```
 
-Die Platzhalter verwenden die spezielle Syntax **${NAME}**, bei der **NAME** ein Schlüssel aus dem Gerätezustandsobjekt ist, das von der JavaScript-Funktion **main** zurückgegeben wird. Zeichenfolgen müssen in Anführungszeichen gesetzt werden, Zahlen nicht.
+Die Platzhalter verwenden die spezielle Syntax **${NAME}** , bei der **NAME** ein Schlüssel aus dem Gerätezustandsobjekt ist, das von der JavaScript-Funktion **main** zurückgegeben wird. Zeichenfolgen müssen in Anführungszeichen gesetzt werden, Zahlen nicht.
 
 #### <a name="message-schema"></a>Nachrichtenschema
 
@@ -162,14 +162,14 @@ Die im Schema aufgeführten Felder können den folgenden Typen entsprechen:
 * Objekt – mit JSON serialisiert
 * Binär – mit base64 serialisiert
 * Text
-* Boolescher Wert
-* Ganze Zahl 
+* Boolean
+* Integer
 * Double
 * DateTime
 
 ### <a name="supported-methods"></a>Unterstützte Methoden
 
-Simulierte Geräte können auch auf Methodenaufrufe reagieren. In diesem Fall führen sie Code aus und stellen eine Antwort bereit. Ähnlich wie die Simulation ist der Methodencode in einer JavaScript-Datei gespeichert und kann mit dem Gerätezustand interagieren. Beispiel: 
+Simulierte Geräte können auch auf Methodenaufrufe reagieren. In diesem Fall führen sie Code aus und stellen eine Antwort bereit. Ähnlich wie die Simulation ist der Methodencode in einer JavaScript-Datei gespeichert und kann mit dem Gerätezustand interagieren. Beispiel:
 
 ```json
 "CloudToDeviceMethods": {
@@ -259,7 +259,7 @@ Die JavaScript-Dateien müssen eine **main**-Funktion enthalten, die zwei Parame
     * **deviceModel**, z.B. **Elevator**
 * Ein **state**-Objekt, dies ist der von der Funktion im vorherigen Aufruf zurückgegebene Wert. Dieser Gerätezustand wird vom Simulationsdienst verwaltet und verwendet, um Telemetrienachrichten zu generieren.
 
-Die **main**-Funktion gibt den neuen Gerätezustand zurück. Beispiel: 
+Die **main**-Funktion gibt den neuen Gerätezustand zurück. Beispiel:
 
 ```JavaScript
 function main(context, state) {

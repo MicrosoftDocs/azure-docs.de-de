@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66751638"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Zugriffssteuerung in Azure Data Lake Storage Gen2
 
@@ -26,9 +26,9 @@ Azure Data Lake Storage Gen2 implementiert ein Zugriffssteuerungsmodell, das sow
 
 Für die RBAC werden Rollenzuweisungen verwendet, um *Sicherheitsprinzipalen* effektiv Berechtigungen zuzuweisen. Ein *Sicherheitsprinzipal* ist ein Objekt, das einen Benutzer, eine Gruppe, einen Dienstprinzipal oder eine verwaltete Identität darstellt, der bzw. die in Azure Active Directory (AD) definiert ist und Zugriff auf Azure-Ressourcen anfordert.
 
-In der Regel sind diese Azure-Ressourcen auf Ressourcen oberster Ebene beschränkt, z. B. Azure Storage-Konten. Im Falle von Azure Storage und damit auch von Azure Data Lake Storage Gen2 wurde dieser Mechanismus auf die Dateisystemressource ausgeweitet.
+In der Regel sind diese Azure-Ressourcen auf Ressourcen oberster Ebene beschränkt, z. B. Azure Storage-Konten. Im Falle von Azure Storage und damit auch von Azure Data Lake Storage Gen2 wurde dieser Mechanismus auf die Containerressource (Dateisystem) ausgeweitet.
 
-Informationen zum Zuweisen von Rollen zu Sicherheitsprinzipalen im Bereich Ihres Speicherkontos finden Sie unter [Authentifizieren des Zugriffs auf Azure-Blobs und -Warteschlangen mithilfe von Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Informationen zum Zuweisen von Rollen zu Sicherheitsprinzipalen im Bereich Ihres Speicherkontos finden Sie unter [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Erteilen des Zugriffs auf Azure-Blob- und Warteschlangendaten mithilfe von RBAC im Azure-Portal).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Die Auswirkungen von Rollenzuweisungen auf Zugriffssteuerungslisten auf Datei- und Verzeichnisebene
 
@@ -53,7 +53,7 @@ Sie können einem Sicherheitsprinzipal eine Zugriffsebene für Dateien und Verze
 
 Wenn Sie einem Sicherheitsprinzipal eine Rolle auf Speicherkontoebene zugewiesen haben, können Sie diesem Sicherheitsprinzipal mit Zugriffssteuerungslisten Zugriff mit erhöhten Rechten auf bestimmte Dateien und Verzeichnisse gewähren.
 
-Zugriffssteuerungslisten können nicht verwendet werden, um eine Zugriffsebene bereitzustellen, die niedriger als eine durch eine Rollenzuweisung gewährte Ebene ist. Wenn Sie beispielsweise einem Sicherheitsprinzipal die Rolle [Mitwirkender an Speicherblob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) zuweisen, können Sie nicht mithilfe von Zugriffssteuerungslisten verhindern, dass dieser Sicherheitsprinzipal in ein Verzeichnis schreibt.
+Zugriffssteuerungslisten können nicht verwendet werden, um eine Zugriffsebene bereitzustellen, die niedriger als eine durch eine Rollenzuweisung gewährte Ebene ist. Wenn Sie beispielsweise einem Sicherheitsprinzipal die Rolle [Mitwirkender an Speicherblob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) zuweisen, können Sie nicht mithilfe von Zugriffssteuerungslisten verhindern, dass dieser Sicherheitsprinzipal in ein Verzeichnis schreibt.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Festlegen von Berechtigungen auf Datei- und Verzeichnisebene mithilfe von Zugriffssteuerungslisten
 
@@ -77,8 +77,6 @@ Standard-ACLs sind Vorlagen von ACLs, die einem Verzeichnis zugeordnet sind, das
 
 Zugriffs- und Standard-ACLs haben die gleiche Struktur.
 
-Zugriffs- und Standard-ACLs haben die gleiche Struktur.
-
 > [!NOTE]
 > Änderungen an der Standard-ACL für ein übergeordnetes Element haben keine Auswirkungen auf die Zugriffs- oder Standard-ACL bereits vorhandener untergeordneter Elemente.
 
@@ -92,9 +90,12 @@ Die Berechtigungen für ein Dateisystemobjekt sind **Lesen**, **Schreiben** und 
 | **Schreiben (Write, W)** | Berechtigt zum Schreiben in eine Datei sowie zum Anfügen an eine Datei | Erfordert **Schreiben** und **Ausführen**, um untergeordnete Elemente in einem Verzeichnis zu erstellen. |
 | **Ausführen (Execute, X)** | Hat im Kontext von Data Lake Storage Gen2 keine Bedeutung | Erfordert das Durchlaufen der untergeordneten Elemente eines Verzeichnisses |
 
+> [!NOTE]
+> Wenn Sie Berechtigungen ausschließlich mithilfe von ACLs (ohne RBAC) erteilen, müssen Sie zum Erteilen von Lese- oder Schreibzugriff auf eine Datei für einen Dienstprinzipal dem Dienstprinzipal die Berechtigung **Ausführen** für das Dateisystem und zu jedem Ordner in der Ordnerhierarchie erteilen, der zu der betreffenden Datei führt.
+
 #### <a name="short-forms-for-permissions"></a>Kurzformen für Berechtigungen
 
-**RWX** steht für **Lesen (Read), Schreiben (Write) und Ausführen (Execute)**. Es gibt auch ein noch kürzeres numerisches Format. Hierbei steht **4 für Lesen**, **2 für Schreiben** und **1 für Ausführen**, und Berechtigungen werden als Summe dieser Werte angegeben. Hier einige Beispiele.
+**RWX** steht für **Lesen (Read), Schreiben (Write) und Ausführen (Execute)** . Es gibt auch ein noch kürzeres numerisches Format. Hierbei steht **4 für Lesen**, **2 für Schreiben** und **1 für Ausführen**, und Berechtigungen werden als Summe dieser Werte angegeben. Hier einige Beispiele.
 
 | Numerische Form | Kurzform |      Bedeutung     |
 |--------------|------------|------------------------|

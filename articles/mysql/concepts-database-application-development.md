@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60615658"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Entwicklung von Anwendungen für Azure-Datenbank für MySQL – Überblick 
 In diesem Artikel werden Entwurfsüberlegungen besprochen, die Entwickler beim Schreiben des Anwendungscodes zum Herstellen einer Verbindung mit Azure Database for MySQL befolgen sollten. 
@@ -33,7 +33,7 @@ Azure Database for MySQL verwaltet die für einen Server verfügbaren Ressourcen
 ## <a name="security"></a>Sicherheit
 Azure Database for MySQL stellt Ressourcen zum Einschränken des Zugriffs, Schützen von Daten, Konfigurieren von Benutzern und Rollen sowie Überwachen von Aktivitäten in einer MySQL-Datenbank bereit.
 
-## <a name="authentication"></a>Authentifizierung
+## <a name="authentication"></a>Authentication
 Azure Database for MySQL unterstützt die Serverauthentifizierung von Benutzern und Anmeldungen.
 
 ## <a name="resiliency"></a>Resilienz

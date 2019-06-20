@@ -10,11 +10,11 @@ ms.date: 8/15/2018
 ms.topic: article
 ms.custom: bfmigrate
 ms.openlocfilehash: 07ecaa564f2fda21967ab6f0c30c06fa876e4171
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699193"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60780814"
 ---
 # <a name="migrate-identity-resources-to-global-azure"></a>Migrieren von Identitätsressourcen zu Azure weltweit
 
@@ -134,7 +134,7 @@ Weitere Informationen finden Sie unter:
 Azure AD Connect ist ein Tool, das Ihre Identitätsdaten zwischen einer lokalen Active Directory-Instanz und Azure Active Directory (Azure AD) synchronisiert. Die aktuelle Version von Azure AD Connect funktioniert sowohl für Azure Deutschland als auch für Azure weltweit. Azure AD Connect kann immer nur mit jeweils einer Azure AD-Instanz synchronisieren. Wenn das Synchronisieren mit Azure Deutschland und Azure weltweit gleichzeitig erfolgen soll, beachten Sie die folgenden Optionen:
 
 - Verwenden Sie einen zusätzlichen Server für eine zweite Instanz von Azure AD Connect. Es ist nicht möglich, mehrere Instanzen von Azure AD Connect auf demselben Server zu haben.
-- Definieren Sie einen neuen Anmeldenamen für Ihre Benutzer. Der Domänenteil (nach **\@**) des Anmeldenamens muss in jeder Umgebung unterschiedlich sein.
+- Definieren Sie einen neuen Anmeldenamen für Ihre Benutzer. Der Domänenteil (nach **\@** ) des Anmeldenamens muss in jeder Umgebung unterschiedlich sein.
 - Definieren Sie eine klare „Quelle der Wahrheit“, wenn Sie auch rückwärts synchronisieren (aus Azure AD in das lokale Active Directory).
 
 Wenn Sie bereits Azure AD Connect verwenden, um nach und aus Azure Deutschland zu synchronisieren, müssen Sie daran denken, alle manuell erstellten Benutzer zu migrieren. Das folgende PowerShell-Cmdlet listet alle Benutzer auf, die nicht über Azure AD Connect synchronisiert werden:

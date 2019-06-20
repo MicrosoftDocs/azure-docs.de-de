@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: 0dac2730bcc13b979de6a8faaaa53c0aaf15e902
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669349"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60621885"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric mit Azure API Management-Übersicht
 
@@ -85,7 +85,7 @@ In diesem Beispiel wird für jeden Benutzer einer Anwendung eine neue Instanz ei
  
 - `fabric:/app/users/<username>`
 
-  Jeder Dienst hat einen eindeutigen Namen, aber die Namen sind vorher nicht bekannt, da die Dienste als Antwort auf eine Benutzer- oder Administratoreingabe erstellt werden und daher nicht in APIM-Richtlinien oder Routingregeln hartcodiert werden können. Stattdessen wird der Name des Diensts, an den eine Anforderung gesendet werden soll, in der Definition der Back-End-Richtlinie über den Wert `name` generiert, der im URL-Anforderungspfad angegeben ist. Beispiel: 
+  Jeder Dienst hat einen eindeutigen Namen, aber die Namen sind vorher nicht bekannt, da die Dienste als Antwort auf eine Benutzer- oder Administratoreingabe erstellt werden und daher nicht in APIM-Richtlinien oder Routingregeln hartcodiert werden können. Stattdessen wird der Name des Diensts, an den eine Anforderung gesendet werden soll, in der Definition der Back-End-Richtlinie über den Wert `name` generiert, der im URL-Anforderungspfad angegeben ist. Beispiel:
 
   - Eine Anforderung an `/api/users/foo` wird an die Dienstinstanz `fabric:/app/users/foo` weitergeleitet.
   - Eine Anforderung an `/api/users/bar` wird an die Dienstinstanz `fabric:/app/users/bar` weitergeleitet.
@@ -104,7 +104,7 @@ In diesem Beispiel wird für jeden Benutzer der Anwendung eine neue Instanz eine
  
 - `fabric:/app/users/<username>`
 
-  Jeder Dienst hat einen eindeutigen Namen, aber die Namen sind vorher nicht bekannt, da die Dienste als Antwort auf eine Benutzer- oder Administratoreingabe erstellt werden und daher nicht in APIM-Richtlinien oder Routingregeln hartcodiert werden können. Stattdessen wird der Name des Diensts, an den eine Anforderung gesendet werden soll, in der Definition der Back-End-Richtlinie über den Wert `name` generiert, der im URL-Anforderungspfad angegeben ist. Beispiel: 
+  Jeder Dienst hat einen eindeutigen Namen, aber die Namen sind vorher nicht bekannt, da die Dienste als Antwort auf eine Benutzer- oder Administratoreingabe erstellt werden und daher nicht in APIM-Richtlinien oder Routingregeln hartcodiert werden können. Stattdessen wird der Name des Diensts, an den eine Anforderung gesendet werden soll, in der Definition der Back-End-Richtlinie über den Wert `name` generiert, der im URL-Anforderungspfad angegeben ist. Beispiel:
 
   - Eine Anforderung an `/api/users/foo` wird an die Dienstinstanz `fabric:/app/users/foo` weitergeleitet.
   - Eine Anforderung an `/api/users/bar` wird an die Dienstinstanz `fabric:/app/users/bar` weitergeleitet.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528255"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66122013"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Erstellen eines Peerings virtueller Netzwerke gemäß dem Ressourcen-Manager-Modell in verschiedenen Abonnements
 
@@ -56,7 +56,7 @@ In den folgenden Schritten werden für jedes Abonnement unterschiedliche Konten 
     - **Ressourcengruppe:** Wählen Sie **Neue erstellen** aus, und geben Sie *myResourceGroupA* ein.
     - **Standort:** *USA, Osten*
 4. Geben Sie im oben im Portal *myVnetA* im Feld **Ressourcen suchen** ein. Klicken Sie auf **myVnetA**, wenn es in den Suchergebnissen angezeigt wird. 
-5. Klicken Sie in der vertikalen Liste der Optionen auf der linken Seite auf **Zugriffssteuerung (IAM)**.
+5. Klicken Sie in der vertikalen Liste der Optionen auf der linken Seite auf **Zugriffssteuerung (IAM)** .
 6. Wählen Sie unter **myVnetA – Zugriffssteuerung (IAM)** die Option **+ Rollenzuweisung hinzufügen** aus.
 7. Wählen Sie im Feld **Rolle** die Option **Netzwerkmitwirkender** aus.
 8. Wählen Sie im Feld **Auswählen** die Option *UserB* aus, oder geben Sie die E-Mail-Adresse von UserB ein, um ihn zu suchen.
@@ -75,7 +75,7 @@ In den folgenden Schritten werden für jedes Abonnement unterschiedliche Konten 
 
 13. Geben Sie im oben im Portal *myVnetB* im Feld **Ressourcen suchen** ein. Klicken Sie auf **myVnetB**, wenn es in den Suchergebnissen angezeigt wird.
 14. Klicken Sie unter **myVnetB** in der vertikalen Liste der Optionen auf der linken Seite auf **Eigenschaften**. Kopieren Sie die **Ressourcen-ID**, die in einem späteren Schritt verwendet wird. Die Ressourcen-ID Ausgabe sieht in etwa wie das folgende Beispiel aus: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
-15. Klicken Sie unter **myVnetB** auf **Zugriffssteuerung (IAM)**, und führen Sie dann die Schritte 5 bis 10 für myVnetB aus. Geben Sie dabei in Schritt 8 **UserA** ein.
+15. Klicken Sie unter **myVnetB** auf **Zugriffssteuerung (IAM)** , und führen Sie dann die Schritte 5 bis 10 für myVnetB aus. Geben Sie dabei in Schritt 8 **UserA** ein.
 16. Melden Sie sich als UserB vom Portal ab, und melden Sie sich als UserA an.
 17. Geben Sie im oben im Portal *myVnetA* im Feld **Ressourcen suchen** ein. Klicken Sie auf **myVnetA**, wenn es in den Suchergebnissen angezeigt wird.
 18. Klicken Sie auf **myVnetA**.

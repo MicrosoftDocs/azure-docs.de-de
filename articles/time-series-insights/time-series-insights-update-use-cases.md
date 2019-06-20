@@ -2,7 +2,7 @@
 title: Anwendungsfälle für Azure Time Series Insights Preview | Microsoft-Dokumentation
 description: Grundlagen zu Anwendungsfällen für Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27c79155a4630f49faf49f30b2d46bf1e0dffd90
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c7339dc683a062d4a74708d2e9f155f20f4d0ea8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508313"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244081"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Anwendungsfälle für Azure Time Series Insights Preview
 

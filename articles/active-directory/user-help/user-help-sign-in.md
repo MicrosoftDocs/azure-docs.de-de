@@ -14,11 +14,11 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60472962"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Anmelden mit der zweistufige Überprüfung oder einer Sicherheitsinformation
 Nachdem Sie die zweistufige Überprüfung oder eine Sicherheitsinformation eingerichtet haben, können Sie sich mit der von Ihnen angegebenen Authentifizierungsmethode bei Ihrem Konto anmelden.

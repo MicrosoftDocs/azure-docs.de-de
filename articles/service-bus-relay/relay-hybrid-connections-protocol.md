@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: 913e702cc72472e81937bfe3b0939695daadc011
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706081"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay-Hybridverbindungsprotokoll
 
@@ -146,8 +146,8 @@ Der Abfragezeichenfolgenparameter verfügt über folgende Optionen.
 
 | Parameter        | Erforderlich | BESCHREIBUNG
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | JA      | Für die Listener-Rolle muss der Parameter **sb-hc-action=listen** lauten.
-| `{path}`         | JA      | Der URL-codierte Namespacepfad der vorkonfigurierten Hybridverbindung, für die dieser Listener registriert wird. Dieser Ausdruck wird an den festen Pfadteil `$hc/` angehängt.
+| `sb-hc-action`   | Ja      | Für die Listener-Rolle muss der Parameter **sb-hc-action=listen** lauten.
+| `{path}`         | Ja      | Der URL-codierte Namespacepfad der vorkonfigurierten Hybridverbindung, für die dieser Listener registriert wird. Dieser Ausdruck wird an den festen Pfadteil `$hc/` angehängt.
 | `sb-hc-token`    | Ja\*    | Der Listener muss ein gültiges URL-codiertes Service Bus Shared Access-Token für den Namespace bereitstellen, oder eine Hybridverbindung, die **Listen** (Lauschen) direkt verleiht.
 | `sb-hc-id`       | Nein       | Diese vom Client bereitgestellte optionale ID ermöglicht die End-to-End-Diagnoseablaufverfolgung.
 
@@ -243,8 +243,8 @@ Wenn ein Fehler auftritt, kann der Dienst wie folgt reagieren:
 
 | Parameter                   | Erforderlich | BESCHREIBUNG                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| sb-hc-statusCode        | JA      | Numerischer HTTP-Statuscode.                |
-| sb-hc-statusDescription | JA      | Ein visuell lesbarer Grund für die Ablehnung. |
+| sb-hc-statusCode        | Ja      | Numerischer HTTP-Statuscode.                |
+| sb-hc-statusDescription | Ja      | Ein visuell lesbarer Grund für die Ablehnung. |
 
 Der resultierende URI wird dann verwendet, um eine WebSocket-Verbindung herzustellen.
 
@@ -491,7 +491,7 @@ Das Token kann auch im HTTP-Header `ServiceBusAuthorization` oder `Authorization
 Da der Dienst quasi als Proxy fungiert (wenn auch nicht wie ein echter HTTP-Proxy), fügt er entweder einen `Via`-Header hinzu oder fügt entsprechend gemäß [RFC7230, Abschnitt 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1) Anmerkungen an den vorhandenen `Via`-Header an.
 Der Dienst fügt den Hostnamen des Relay-Namespace an `Via` an.
 
-| Code | Message  | BESCHREIBUNG                    |
+| Code | `Message`  | BESCHREIBUNG                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | Die Anforderung wurde von mindestens einem Listener verarbeitet.  |
 | 202  | Zulässig | Die Anforderung wurde von mindestens einem Listener akzeptiert. |

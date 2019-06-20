@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888586"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951713"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Sicherheitsrahmen: Authentifizierung | Gegenmaßnahmen 
 

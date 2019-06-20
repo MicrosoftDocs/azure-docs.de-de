@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017802"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60405921"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopieren von Daten aus Phoenix mithilfe von Azure Data Factory 
 
@@ -41,19 +41,19 @@ Folgende Eigenschaften werden für den mit Phoenix verknüpften Dienst unterstü
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **Phoenix** | JA |
-| host | IP-Adresse oder Hostname des Phoenix-Servers. (192.168.222.160)  | JA |
-| port | Der TCP-Port, den der Phoenix-Server verwendet, um auf Clientverbindungen zu lauschen. Der Standardwert ist 8765. Geben Sie beim Herstellen einer Verbindung mit Azure HDInsights als Port 443 an. | Nein  |
-| httpPath | Die Teil-URL, die dem Phoenix-Server entspricht. (/gateway/sandbox/phoenix/version). Geben Sie `/hbasephoenix0` an, wenn Sie einen HDInsights-Cluster verwenden.  | Nein  |
-| authenticationType | Der Authentifizierungsmechanismus, der für die Verbindung mit dem Phoenix-Server verwendet werden soll. <br/>Zulässige Werte sind: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | JA |
-| username | Der Benutzername, der für die Verbindung mit dem Phoenix-Server verwendet werden soll.  | Nein  |
-| password | Das Kennwort, das zum Benutzernamen gehört. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein  |
-| enableSsl | Gibt an, ob die Verbindungen mit dem Server mit SSL verschlüsselt werden. Der Standardwert ist „false“.  | Nein  |
-| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn SSL in einer selbstgehostetem IR verwendet wird. Der Standardwert ist die Datei „cacerts.pem“, die mit der IR installiert wird.  | Nein  |
-| useSystemTrustStore | Gibt an, ob ein Zertifizierungsstellenzertifikat aus dem Vertrauensspeicher des Systems oder aus einer angegebenen PEM-Datei verwendet werden soll. Der Standardwert ist „false“.  | Nein  |
-| allowHostNameCNMismatch | Gibt an, ob ein von der Zertifizierungsstelle ausgestellter SSL-Zertifikatsname erforderlich ist, der mit dem Hostnamen des Servers übereinstimmt, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert ist „false“.  | Nein  |
-| allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „false“.  | Nein  |
-| connectVia | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Sie können die selbstgehostete Integration Runtime oder Azure Integration Runtime verwenden (sofern Ihr Datenspeicher öffentlich zugänglich ist). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein  |
+| type | Die type-Eigenschaft muss auf Folgendes festgelegt werden: **Phoenix** | Ja |
+| host | IP-Adresse oder Hostname des Phoenix-Servers. (192.168.222.160)  | Ja |
+| port | Der TCP-Port, den der Phoenix-Server verwendet, um auf Clientverbindungen zu lauschen. Der Standardwert ist 8765. Geben Sie beim Herstellen einer Verbindung mit Azure HDInsights als Port 443 an. | Nein |
+| httpPath | Die Teil-URL, die dem Phoenix-Server entspricht. (/gateway/sandbox/phoenix/version). Geben Sie `/hbasephoenix0` an, wenn Sie einen HDInsights-Cluster verwenden.  | Nein |
+| authenticationType | Der Authentifizierungsmechanismus, der für die Verbindung mit dem Phoenix-Server verwendet werden soll. <br/>Zulässige Werte sind: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| userName | Der Benutzername, der für die Verbindung mit dem Phoenix-Server verwendet werden soll.  | Nein |
+| password | Das Kennwort, das zum Benutzernamen gehört. Markieren Sie dieses Feld als SecureString, um es sicher in Data Factory zu speichern, oder [verweisen Sie auf ein in Azure Key Vault gespeichertes Geheimnis](store-credentials-in-key-vault.md). | Nein |
+| enableSsl | Gibt an, ob die Verbindungen mit dem Server mit SSL verschlüsselt werden. Der Standardwert ist „false“.  | Nein |
+| trustedCertPath | Der vollständige Pfad der PEM-Datei mit vertrauenswürdigen Zertifizierungsstellenzertifikaten zur Überprüfung des Servers beim Verbindungsaufbau über SSL. Diese Eigenschaft kann nur festgelegt werden, wenn SSL in einer selbstgehostetem IR verwendet wird. Der Standardwert ist die Datei „cacerts.pem“, die mit der IR installiert wird.  | Nein |
+| useSystemTrustStore | Gibt an, ob ein Zertifizierungsstellenzertifikat aus dem Vertrauensspeicher des Systems oder aus einer angegebenen PEM-Datei verwendet werden soll. Der Standardwert ist „false“.  | Nein |
+| allowHostNameCNMismatch | Gibt an, ob ein von der Zertifizierungsstelle ausgestellter SSL-Zertifikatsname erforderlich ist, der mit dem Hostnamen des Servers übereinstimmt, wenn eine Verbindung über SSL hergestellt wird. Der Standardwert ist „false“.  | Nein |
+| allowSelfSignedServerCert | Gibt an, ob vom Server selbstsignierte Zertifikate zugelassen werden. Der Standardwert ist „false“.  | Nein |
+| connectVia | Die [Integration Runtime](concepts-integration-runtime.md), die zum Herstellen einer Verbindung mit dem Datenspeicher verwendet werden muss. Sie können die selbstgehostete Integration Runtime oder Azure Integration Runtime verwenden (sofern Ihr Datenspeicher öffentlich zugänglich ist). Wenn keine Option angegeben ist, wird die standardmäßige Azure Integration Runtime verwendet. |Nein |
 
 >[!NOTE]
 >Wenn Ihr Cluster keine beständigen Sitzungen wie HDInsight unterstützt, fügen Sie den Knotenindex explizit am Ende der Einstellung für den HTTP-Pfad hinzu (z.B. `/hbasephoenix0` anstelle von `/hbasephoenix`).
@@ -88,7 +88,7 @@ Legen Sie zum Kopieren von Daten aus Phoenix die „type“-Eigenschaft des Data
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **PhoenixObject** | JA |
+| type | Die type-Eigenschaft des Datasets muss auf folgenden Wert festgelegt werden: **PhoenixObject** | Ja |
 | tableName | Name der Tabelle. | Nein (wenn „query“ in der Aktivitätsquelle angegeben ist) |
 
 **Beispiel**
@@ -117,7 +117,7 @@ Legen Sie zum Kopieren von Daten aus Phoenix den Quelltyp in der Kopieraktivitä
 
 | Eigenschaft | BESCHREIBUNG | Erforderlich |
 |:--- |:--- |:--- |
-| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **PhoenixSource** | JA |
+| type | Die type-Eigenschaft der Quelle der Kopieraktivität muss auf Folgendes festgelegt werden: **PhoenixSource** | Ja |
 | query | Verwendet die benutzerdefinierte SQL-Abfrage zum Lesen von Daten. Beispiel: `"SELECT * FROM MyTable"`. | Nein (wenn „tableName“ im Dataset angegeben ist) |
 
 **Beispiel:**

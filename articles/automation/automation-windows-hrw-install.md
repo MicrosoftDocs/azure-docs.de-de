@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cc3307a4f32d77b9b8d259ac846c4db1c1ae4a99
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787975"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002508"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Bereitstellen eines Windows Hybrid Runbook Workers
 
@@ -60,8 +60,10 @@ Führen Sie die folgenden Schritte aus, um die Installation und Konfiguration de
    * *SubscriptionID* (erforderlich): Die Azure-Abonnement-ID Ihres Automation-Kontos.
    * *WorkspaceName* (optional): Name des Log Analytics-Arbeitsbereichs. Falls kein Log Analytics-Arbeitsbereich vorhanden ist, wird dieser durch das Skript erstellt und konfiguriert.
 
-     > [!NOTE]
-     > Derzeit werden für die Automation-Azure Monitor-Protokolle-Integration lediglich folgende Regionen unterstützt: **Australien, Südosten**, **USA, Osten 2**, **Asien, Südosten** und **Europa, Westen**. Falls sich Ihr Automation-Konto nicht in einer dieser Regionen befindet, erstellt das Skript zwar einen Log Analytics-Arbeitsbereich, weist Sie aber in einer Warnung darauf hin, dass keine Verknüpfung möglich ist.
+   > [!NOTE]
+   > Wenn Sie Lösungen aktivieren, werden nur bestimmte Regionen zum Verknüpfen mit einem Log Analytics-Arbeitsbereich und einem Automation-Konto unterstützt.
+   >
+   > Eine Liste der unterstützten Zuordnungspaare finden Sie unter [Regionszuordnung für Automation-Konto und Log Analytics-Arbeitsbereich](how-to/region-mappings.md).
 
 2. Öffnen Sie auf Ihrem Computer **Windows PowerShell** über den **Startbildschirm** im Administratormodus.
 3. Navigieren Sie in der PowerShell-Befehlszeilenshell zu dem Ordner, der das Skript enthält, das Sie heruntergeladen haben. Ändern Sie die Werte für die Parameter *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* und *-WorkspaceName*. Führen Sie das Skript dann aus.
@@ -91,9 +93,13 @@ Sofern Sie noch nicht über einen Log Analytics-Arbeitsbereich verfügen, erstel
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Hinzufügen der Automation-Lösung zum Log Analytics-Arbeitsbereich
 
-Lösungen fügen Azure Monitor-Protokolle weitere Funktionalität hinzu. Die Automation-Lösung fügt Azure Automation Funktionalität hinzu, einschließlich der Unterstützung für Hybrid Runbook Worker. Wenn Sie die Lösung Ihrem Arbeitsbereich hinzufügen, werden Workerkomponenten automatisch auf den Agent-Computer gepusht, den Sie im nächsten Schritt installieren.
+Die Automation Azure Monitor-Protokolllösung fügt Azure Automation Funktionalität hinzu, einschließlich Unterstützung für Hybrid Runbook Worker. Wenn Sie die Lösung Ihrem Arbeitsbereich hinzufügen, werden Workerkomponenten automatisch auf den Agent-Computer gepusht, den Sie im nächsten Schritt installieren.
 
-Befolgen Sie die Anweisungen unter **Hinzufügen einer Lösung über den Lösungskatalog**, um Ihrem Log Analytics-Arbeitsbereich die [Automation-Lösung](../log-analytics/log-analytics-add-solutions.md) hinzuzufügen.
+Um die **Automation** Azure Monitor-Protokolllösung Ihrem Arbeitsbereich hinzuzufügen, führen Sie den folgenden PowerShell-Befehl aus.
+
+```powershell-interactive
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+```
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installieren von Microsoft Monitoring Agent
 

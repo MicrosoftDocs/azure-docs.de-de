@@ -2,20 +2,20 @@
 title: Bewährte Methoden für die Auswahl einer Time Series-ID in Azure Time Series Insights (Vorschauversion) | Microsoft-Dokumentation
 description: Grundlegendes zu bewährten Methoden, wenn Sie eine Time Series-ID in Azure Time Series Insights Preview auswählen.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af540267e4afc1b248b66b1c6f4989b832c38b58
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695076"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237582"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Bewährte Methoden für die Auswahl einer Time Series-ID
 
@@ -29,6 +29,7 @@ Das Auswählen einer Time Series-ID ist wie das Auswählen eines Partitionsschl�
 > Die Time Series-ID beachtet Groß-/Kleinschreibung und ist unveränderlich (sie kann nach ihrer Festlegung nicht mehr geändert werden).
 
 Unter diesem Aspekt ist die Auswahl der geeigneten Time Series-ID entscheidend. Wenn Sie einen Time Series-ID auswählen, berücksichtigen Sie die folgenden bewährten Methoden:
+
 * Wählen Sie einen Eigenschaftsnamen mit einem breiten Wertespektrum und gleichmäßigen Zugriffsmustern. Es hat sich bewährt, einen Partitionsschlüssel mit vielen unterschiedlichen Werten (z. B. Hunderte oder Tausende) auszuwählen. Für viele Kunden wird dies etwas wie die „DeviceID“ oder „SensorID“ in Ihrem JSON-Objekt sein.
 * Die Time Series-ID sollte auf Blattknotenebene Ihres [Zeitreihenmodells](./time-series-insights-update-tsm.md) eindeutig sein.
 * Die Zeichenfolge eines Time Series-ID-Eigenschaftsnamens kann bis zu 128 Zeichen lang sein, und Time Series-ID-Eigenschaftswerte können aus bis zu 1024 Zeichen bestehen.
@@ -41,13 +42,13 @@ Darüber hinaus können Sie bis zu *drei* (3) Schlüsseleigenschaften als Ihre T
 
 Die folgenden Szenarien beschreiben die Auswahl von mehr als einer Schlüsseleigenschaft als Ihre Time Series-ID:  
 
-### <a name="scenario-1"></a>Szenario 1
+### <a name="scenario-one"></a>Szenario 1
 
-* Sie besitzen Legacygruppen von Ressourcen mit jeweils eindeutigen Schlüsseln. 
-* Eine Gruppe wird z. B. eindeutig identifiziert durch die Eigenschaft *deviceId* und eine andere durch die eindeutige Eigenschaft *objectId*. Keine der Gruppen enthält die eindeutige Eigenschaft der anderen Gruppe. In diesem Beispiel würden Sie zwei Schlüssel, die „deviceId“ und die „objectId“, als eindeutige Schlüssel auswählen. 
+* Sie besitzen Legacygruppen von Ressourcen mit jeweils eindeutigen Schlüsseln.
+* Eine Gruppe wird z. B. eindeutig identifiziert durch die Eigenschaft *deviceId* und eine andere durch die eindeutige Eigenschaft *objectId*. Keine der Gruppen enthält die eindeutige Eigenschaft der anderen Gruppe. In diesem Beispiel würden Sie zwei Schlüssel, die „deviceId“ und die „objectId“, als eindeutige Schlüssel auswählen.
 * Wir akzeptieren Nullwerte, und das Fehlen einer Eigenschaft in der Ereignisnutzlast zählt als ein `null`-Wert. Dies ist auch die geeignete Methode, um das Senden von Daten an zwei unterschiedliche Ereignisquellen zu handhaben, wobei die Daten in jeder Ereignisquelle eine eindeutige Time Series-ID haben.
 
-### <a name="scenario-2"></a>Szenario 2:
+### <a name="scenario-two"></a>Szenario 2
 
 * Ihre Anforderung ist, dass mehrere Eigenschaften innerhalb derselben Gruppe von Ressourcen eindeutig sind. 
 * Nehmen wir an, Sie sind Hersteller von intelligenten Gebäuden und stellen in jedem Raum Sensoren bereit. In jedem Raum haben Sie normalerweise dieselben Werte für *sensorId*, z. B. *sensor1*, *sensor2* und *sensor3*.

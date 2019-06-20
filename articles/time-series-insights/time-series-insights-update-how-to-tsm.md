@@ -2,7 +2,7 @@
 title: Datenmodellierung in Azure Time Series Insights (Vorschauversion) | Microsoft-Dokumentation
 description: Grundlegendes zur Datenmodellierung in Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1c8886cada80c02e99782159099aa626da35fc50
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 73384868deb8f0e33b233e363c42a12adbcbe402
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466648"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237559"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Datenmodellierung in Azure Time Series Insights Preview
 

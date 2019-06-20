@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 219899c2e336f544ff6572589cc79f84f555490d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233836"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight Accelerated Writes für Apache HBase
@@ -36,7 +36,7 @@ Das Accelerated Writes-Feature löst das Problem der höheren Schreiblatenzen, d
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Gewusst wie: Aktivieren von Accelerated Writes für HBase in HDInsight
 
-Um einen neuen HBase-Cluster mit dem Accelerated Writes-Feature zu erstellen, führen Sie die Schritte in [Einrichten von Clustern in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka usw.](../hdinsight-hadoop-provision-linux-clusters.md) bis zu **Schritt 3, Speicher** aus. Klicken Sie unter **Metastore-Einstellungen** auf das Kontrollkästchen neben **Accelerated Writes aktivieren (Vorschau)**. Fahren Sie dann mit den verbleibenden Schritten zur Erstellung des Clusters fort.
+Um einen neuen HBase-Cluster mit dem Accelerated Writes-Feature zu erstellen, führen Sie die Schritte in [Einrichten von Clustern in HDInsight mit Apache Hadoop, Apache Spark, Apache Kafka usw.](../hdinsight-hadoop-provision-linux-clusters.md) bis zu **Schritt 3, Speicher** aus. Klicken Sie unter **Metastore-Einstellungen** auf das Kontrollkästchen neben **Accelerated Writes aktivieren (Vorschau)** . Fahren Sie dann mit den verbleibenden Schritten zur Erstellung des Clusters fort.
 
 ![Aktivieren der Accelerated Writes-Option für HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 

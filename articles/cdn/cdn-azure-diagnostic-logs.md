@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66125884"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure-Diagnoseprotokolle
 
@@ -176,7 +176,7 @@ Bevor Sie im Azure-Speicherkonto auf die Basisanalysedaten zugreifen können, be
 2.  Ermitteln Sie das Speicherkonto.
 3.  Erweitern Sie den Knoten **Blobcontainer** unter diesem Speicherkonto.
 4.  Wählen Sie den Container mit dem Namen *insights-logs-coreanalytics* aus.
-5.  Im Bereich auf der rechten Seite werden Ergebnisse angezeigt. Es wird mit der ersten Ebene begonnen: *resourceId=*. Wählen Sie weiterhin jede Ebene aus, bis Sie die Datei *PT1H.json* gefunden haben. Eine Erläuterung des Pfads finden Sie unter [Blobpfadformat](cdn-azure-diagnostic-logs.md#blob-path-format).
+5.  Im Bereich auf der rechten Seite werden Ergebnisse angezeigt. Es wird mit der ersten Ebene begonnen: *resourceId=* . Wählen Sie weiterhin jede Ebene aus, bis Sie die Datei *PT1H.json* gefunden haben. Eine Erläuterung des Pfads finden Sie unter [Blobpfadformat](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Jede *PT1H.json*-Datei des Blobs steht für die Analyseprotokolle für eine Stunde eines bestimmten CDN-Endpunkts oder dessen benutzerdefinierter Domäne.
 7.  Das Schema der Inhalte dieser JSON-Datei wird im Abschnitt „Schema der Basisanalyseprotokolle“ beschrieben.
 
@@ -336,22 +336,22 @@ Die folgende Tabelle zeigt eine Liste der in den wichtigsten Analyseprotokollen 
 | RequestCountHttpStatus302 | Anzahl aller Anforderungen, die zu einer Antwort mit dem HTTP-Code 302 geführt haben | Ja | Nein  |Ja |
 | RequestCountHttpStatus304 | Anzahl aller Anforderungen, die zu einer Antwort mit dem HTTP-Code 304 geführt haben | Ja | Nein  |Ja |
 | RequestCountHttpStatus404 | Anzahl aller Anforderungen, die zu einer Antwort mit dem HTTP-Code 404 geführt haben | Ja | Nein  |Ja |
-| RequestCountCacheHit | Anzahl aller Anforderungen, die zu einem Cachetreffer geführt haben. Das Objekt wurde direkt vom POP für den Client bereitgestellt. | Ja | Ja | Nein   |
-| RequestCountCacheMiss | Anzahl aller Anforderungen, die zu einem Cachefehler geführt haben. Ein Cachefehler bedeutet, dass das Objekt nicht auf dem POP gefunden wurde, der die geringste Entfernung zum Client aufweist, und daher vom Ursprungsserver abgerufen wurde. | Ja | Ja | Nein  |
-| RequestCountCacheNoCache | Anzahl aller Anforderungen eines Objekts, die aufgrund einer Benutzerkonfiguration im Edgebereich nicht zwischengespeichert wurden. | Ja | Ja | Nein  |
-| RequestCountCacheUncacheable | Anzahl aller Anforderungen von Objekten, für die durch die Header „Cache-Control“ und „Expires“ das Zwischenspeichern verhindert wird. Mit diesen Headern wird angegeben, dass keine Zwischenspeicherung auf einem POP oder durch den HTTP-Client erfolgen soll. | Ja | Ja | Nein  |
-| RequestCountCacheOthers | Anzahl aller Anforderungen mit einem Cachestatus, der durch die obigen Metriken nicht abgedeckt ist | Nein  | Ja | Nein   |
+| RequestCountCacheHit | Anzahl aller Anforderungen, die zu einem Cachetreffer geführt haben. Das Objekt wurde direkt vom POP für den Client bereitgestellt. | Ja | Ja | Nein  |
+| RequestCountCacheMiss | Anzahl aller Anforderungen, die zu einem Cachefehler geführt haben. Ein Cachefehler bedeutet, dass das Objekt nicht auf dem POP gefunden wurde, der die geringste Entfernung zum Client aufweist, und daher vom Ursprungsserver abgerufen wurde. | Ja | Ja | Nein |
+| RequestCountCacheNoCache | Anzahl aller Anforderungen eines Objekts, die aufgrund einer Benutzerkonfiguration im Edgebereich nicht zwischengespeichert wurden. | Ja | Ja | Nein |
+| RequestCountCacheUncacheable | Anzahl aller Anforderungen von Objekten, für die durch die Header „Cache-Control“ und „Expires“ das Zwischenspeichern verhindert wird. Mit diesen Headern wird angegeben, dass keine Zwischenspeicherung auf einem POP oder durch den HTTP-Client erfolgen soll. | Ja | Ja | Nein |
+| RequestCountCacheOthers | Anzahl aller Anforderungen mit einem Cachestatus, der durch die obigen Metriken nicht abgedeckt ist | Nein | Ja | Nein  |
 | EgressTotal | Datenübertragung in ausgehender Richtung in GB | Ja |Ja |Ja |
-| EgressHttpStatus2xx | Datenübertragung in ausgehender Richtung* für Antworten mit dem HTTP-Statuscode 2xx in GB | Ja | Ja | Nein   |
-| EgressHttpStatus3xx | Datenübertragung in ausgehender Richtung für Antworten mit dem HTTP-Statuscode 3xx in GB | Ja | Ja | Nein   |
-| EgressHttpStatus4xx | Datenübertragung in ausgehender Richtung für Antworten mit dem HTTP-Statuscode 4xx in GB | Ja | Ja | Nein   |
-| EgressHttpStatus5xx | Datenübertragung in ausgehender Richtung für Antworten mit dem HTTP-Statuscode 5xx in GB | Ja | Ja | Nein  |
-| EgressHttpStatusOthers | Datenübertragung in ausgehender Richtung für Antworten mit anderen HTTP-Statuscodes in GB | Ja | Ja | Nein   |
-| EgressCacheHit | Datenübertragung in ausgehender Richtung für Antworten, die direkt aus dem CDN-Cache auf den CDN-POPs/-Edges bereitgestellt wurden | Ja | Ja | Nein  |
-| EgressCacheMiss | Datenübertragung in ausgehender Richtung für Antworten, die nicht auf dem nächstgelegenen POP-Server gefunden und daher vom Ursprungsserver abgerufen wurden | Ja | Ja | Nein  |
-| EgressCacheNoCache | Datenübertragung in ausgehender Richtung für Objekte, die aufgrund einer Benutzerkonfiguration im Edgebereich nicht zwischengespeichert wurden | Ja | Ja | Nein  |
-| EgressCacheUncacheable | Datenübertragung in ausgehender Richtung für Objekte, für die durch den Header „Cache-Control“ bzw. „Expires“ das Zwischenspeichern verhindert wird. Mit diesen Headern wird angegeben, dass keine Zwischenspeicherung auf einem POP oder durch den HTTP-Client erfolgen soll. | Ja | Ja | Nein  |
-| EgressCacheOthers | Datenübertragungen in ausgehender Richtung für andere Cacheszenarien | Nein  | Ja | Nein  |
+| EgressHttpStatus2xx | Datenübertragung in ausgehender Richtung* für Antworten mit dem HTTP-Statuscode 2xx in GB | Ja | Ja | Nein  |
+| EgressHttpStatus3xx | Datenübertragung in ausgehender Richtung für Antworten mit dem HTTP-Statuscode 3xx in GB | Ja | Ja | Nein  |
+| EgressHttpStatus4xx | Datenübertragung in ausgehender Richtung für Antworten mit dem HTTP-Statuscode 4xx in GB | Ja | Ja | Nein  |
+| EgressHttpStatus5xx | Datenübertragung in ausgehender Richtung für Antworten mit dem HTTP-Statuscode 5xx in GB | Ja | Ja | Nein |
+| EgressHttpStatusOthers | Datenübertragung in ausgehender Richtung für Antworten mit anderen HTTP-Statuscodes in GB | Ja | Ja | Nein  |
+| EgressCacheHit | Datenübertragung in ausgehender Richtung für Antworten, die direkt aus dem CDN-Cache auf den CDN-POPs/-Edges bereitgestellt wurden | Ja | Ja | Nein |
+| EgressCacheMiss | Datenübertragung in ausgehender Richtung für Antworten, die nicht auf dem nächstgelegenen POP-Server gefunden und daher vom Ursprungsserver abgerufen wurden | Ja | Ja | Nein |
+| EgressCacheNoCache | Datenübertragung in ausgehender Richtung für Objekte, die aufgrund einer Benutzerkonfiguration im Edgebereich nicht zwischengespeichert wurden | Ja | Ja | Nein |
+| EgressCacheUncacheable | Datenübertragung in ausgehender Richtung für Objekte, für die durch den Header „Cache-Control“ bzw. „Expires“ das Zwischenspeichern verhindert wird. Mit diesen Headern wird angegeben, dass keine Zwischenspeicherung auf einem POP oder durch den HTTP-Client erfolgen soll. | Ja | Ja | Nein |
+| EgressCacheOthers | Datenübertragungen in ausgehender Richtung für andere Cacheszenarien | Nein | Ja | Nein |
 
 *Datenübertragung in ausgehender Richtung bezieht sich hier auf Datenverkehr, der von CDN-POP-Servern auf dem Client bereitgestellt wird.
 

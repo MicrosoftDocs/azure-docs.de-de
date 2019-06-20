@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60242376"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Datenschutz und Passthrough-Authentifizierung von Azure Active Directory
 
@@ -93,7 +93,7 @@ Führen Sie diese Schritte aus, um für das Skript die Ausführung nach jeweils 
 1.  Speichern Sie das Skript in einer Datei mit der Erweiterung „.PS1“.
 2.  Öffnen Sie die **Systemsteuerung**, und klicken Sie auf **System und Sicherheit**.
 3.  Klicken Sie unter der Überschrift **Verwaltung** auf **Aufgaben planen**.
-4.  Klicken Sie im **Taskplaner** mit der rechten Maustaste auf **Aufgabenplanungsbibliothek**, und klicken Sie auf **Einfache Aufgabe erstellen...**.
+4.  Klicken Sie im **Taskplaner** mit der rechten Maustaste auf **Aufgabenplanungsbibliothek**, und klicken Sie auf **Einfache Aufgabe erstellen...** .
 5.  Geben Sie den Namen für die neue Aufgabe ein, und klicken Sie auf **Weiter**.
 6.  Wählen Sie unter **Aufgabentrigger** die Option **Täglich**, und klicken Sie auf **Weiter**.
 7.  Legen Sie die Wiederholung auf zwei Tage fest, und klicken Sie auf **Weiter**.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64711586"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ausführen von Runbooks in Azure Automation
 
@@ -78,6 +78,9 @@ else
 ### <a name="time-dependant-scripts"></a>Zeitabhängige Skripte
 
 Dem Erstellen von Runbooks sollten sorgfältige Überlegungen vorausgehen. Wie bereits erwähnt, müssen Runbooks so erstellt werden, dass sie stabil sind und vorübergehenden Fehlern standhalten können, die möglicherweise dazu führen, dass ein Runbook neu startet oder bei ihm ein Fehler auftritt. Wenn bei einem Runbook ein Fehler auftritt, wird es neu gestartet. Wenn ein Runbook innerhalb einer Zeiteinschränkung normal ausgeführt wird, sollte Logik zum Überprüfen der Ausführungszeit im Runbook implementiert werden, um sicherzustellen, dass Vorgänge wie Start, Herunterfahren oder horizontales Hochskalieren nur zu bestimmten Zeiten ausgeführt werden.
+
+> [!NOTE]
+> Die lokale Zeit des Azure-Sandbox-Prozesses ist auf UTC-Zeit festgelegt. Berechnungen für Datum und Uhrzeit in Ihren Runbooks müssen dies berücksichtigen.
 
 ### <a name="tracking-progress"></a>Nachverfolgung des Verlaufs
 

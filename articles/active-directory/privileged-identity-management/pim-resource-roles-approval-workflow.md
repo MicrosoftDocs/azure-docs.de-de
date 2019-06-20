@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60288482"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Genehmigen oder Ablehnen von Anforderungen für Azure-Ressourcenrollen in PIM
 

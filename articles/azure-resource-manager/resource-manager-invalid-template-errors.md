@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
 ms.openlocfilehash: ee4bce38e0fcde93ba0417617ae90dab2eefda67
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316199"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61061390"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Beheben von Fehlern aufgrund ungültiger Vorlagen
 

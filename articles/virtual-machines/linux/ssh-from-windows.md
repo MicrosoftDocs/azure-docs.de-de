@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005683"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61473638"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Verwenden von SSH-Schlüsseln mit Windows in Azure
 
@@ -68,7 +68,7 @@ So erstellen Sie ein SSH-RSA-Schlüsselpaar mit PuTTYgen:
 
 1. Starten Sie PuTTYgen.
 
-2. Klicken Sie auf **Generate (Generieren)**. PuTTYgen generiert standardmäßig einen 2048-Bit-SSH-2-RSA-Schlüssel.
+2. Klicken Sie auf **Generate (Generieren)** . PuTTYgen generiert standardmäßig einen 2048-Bit-SSH-2-RSA-Schlüssel.
 
 4. Bewegen Sie die Maus über den leeren Bereich, um Zufälligkeit für den Schlüssel zu erzeugen.
 
@@ -122,7 +122,7 @@ Wenn Sie das [PuTTY-Downloadpaket](https://www.chiark.greenend.org.uk/~sgtatham/
 
     ![Auswählen Ihrer PuTTY-Datei für private Schlüssel für die Authentifizierung](./media/ssh-from-windows/putty-auth-dialog.png)
 
-4. Klicken Sie auf **Open (Öffnen)**, um die Verbindung mit Ihrer VM herzustellen.
+4. Klicken Sie auf **Open (Öffnen)** , um die Verbindung mit Ihrer VM herzustellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

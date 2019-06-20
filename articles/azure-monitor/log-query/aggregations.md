@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65602730"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregationen in Azure Monitor-Protokollabfragen
 
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Auswerten von Untergruppen
-Verwenden Sie das Schlüsselwort `by`, um eine Zählung oder Aggregationen auf Untergruppen in Ihren Daten auszuführen. Beispielsweise um die Anzahl der unterschiedlichen Linux-Computer zu zählen, die in jedem Land Heartbeats gesendet haben:
+Verwenden Sie das Schlüsselwort `by`, um eine Zählung oder Aggregationen auf Untergruppen in Ihren Daten auszuführen. Beispielsweise um die Anzahl der unterschiedlichen Linux-Computer zu zählen, die in jedem Land bzw. jeder Region Heartbeats gesendet haben:
 
 ```Kusto
 Heartbeat 
@@ -96,7 +96,7 @@ Heartbeat
 |Niederlande      | 2                   |
 
 
-Um noch kleineren Untergruppen von Daten zu analysieren, fügen Sie zusätzliche Spaltennamen in den Abschnitt `by` ein. Beispielsweise möchten Sie die unterschiedlichen Computer von jedem Land pro OSType zählen:
+Um noch kleineren Untergruppen von Daten zu analysieren, fügen Sie zusätzliche Spaltennamen in den Abschnitt `by` ein. Beispielsweise möchten Sie die unterschiedlichen Computer von jedem Land bzw. jeder Region pro OSType zählen:
 
 ```Kusto
 Heartbeat 

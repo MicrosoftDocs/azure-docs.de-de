@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200625"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430770"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Weiterleiten von Auftragsstatus und Auftragsdatenströmen von Automation an Azure Monitor-Protokolle
 
@@ -96,7 +96,7 @@ Die Diagnose von Azure Automation erstellt zwei Arten von Datensätzen in Azure 
 | Caller_s |Der Benutzer oder das System, von dem der Vorgang initiiert wurde. Mögliche Werte sind entweder eine E-Mail-Adresse oder, bei geplanten Aufträgen, ein System. |
 | Tenant_g | GUID, die den Mandanten für den Aufrufer identifiziert. |
 | JobId_g |Die GUID, bei der es sich um die ID des Runbookauftrags handelt. |
-| ResultType |Der Status des Runbookauftrags. Mögliche Werte:<br>- Neu<br>- Gestartet<br>- Beendet<br>- Ausgesetzt<br>- Fehler<br>- Abgeschlossen |
+| ResultType |Der Status des Runbookauftrags. Mögliche Werte:<br>- Neu<br>- Erstellt<br>- Gestartet<br>- Beendet<br>- Ausgesetzt<br>- Fehler<br>- Abgeschlossen |
 | Category (Kategorie) | Klassifizierung des Datentyps. Für Automation lautet der Wert „JobLogs“. |
 | OperationName | Gibt den Typ des in Azure ausgeführten Vorgangs an. Für Automation lautet der Wert „Job“. |
 | Resource | Name des Automation-Kontos |
@@ -116,7 +116,7 @@ Die Diagnose von Azure Automation erstellt zwei Arten von Datensätzen in Azure 
 | TimeGenerated |Ausführungsdatum und -uhrzeit des Runbookauftrags. |
 | RunbookName_s |Der Name des Runbooks. |
 | Caller_s |Der Benutzer oder das System, von dem der Vorgang initiiert wurde. Mögliche Werte sind entweder eine E-Mail-Adresse oder, bei geplanten Aufträgen, ein System. |
-| StreamType_s |Der Typ des Auftragsstreams. Mögliche Werte:<br>- Status<br>- Ausgabe<br>- Warnung<br>- Fehler<br>- Debuggen<br>- Ausführlich |
+| StreamType_s |Der Typ des Auftragsstreams. Mögliche Werte:<br>\- Status<br>- Ausgabe<br>- Warnung<br>- Fehler<br>- Debuggen<br>- Ausführlich |
 | Tenant_g | GUID, die den Mandanten für den Aufrufer identifiziert. |
 | JobId_g |Die GUID, bei der es sich um die ID des Runbookauftrags handelt. |
 | ResultType |Der Status des Runbookauftrags. Mögliche Werte:<br>– In Bearbeitung |

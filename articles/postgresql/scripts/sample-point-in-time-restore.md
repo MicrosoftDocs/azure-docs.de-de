@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
 ms.openlocfilehash: 1f772f710f0146048fcde04d884fbe3458722743
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154548"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Wiederherstellen eines Azure Database for PostgreSQL-Servers mithilfe der Azure-Befehlszeilenschnittstelle
 Dieses CLI-Beispielskript stellt den früheren Zustand eines einzelnen Azure Database for PostgreSQL-Servers wieder her.

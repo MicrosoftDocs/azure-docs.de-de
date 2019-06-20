@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864472"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60586133"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure-Blaupause für Sicherheit und Compliance: IaaS-Webanwendung für FedRAMP
 

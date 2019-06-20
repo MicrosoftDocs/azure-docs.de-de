@@ -1,6 +1,6 @@
 ---
-title: Worum handelt es sich bei der Geräteverwaltung in Azure Active Directory? | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mithilfe der Geräteverwaltung Kontrolle über die Geräte erhalten, die auf Ressourcen in Ihrer Umgebung zugreifen.
+title: Was ist die Geräteidentität in Azure Active Directory? | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie mithilfe der Geräteidentitätsverwaltung Geräte verwalten können, die auf Ressourcen in Ihrer Umgebung zugreifen.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -13,35 +13,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 06/04/2019
 ms.author: joflore
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e756b260db0f6db752d345e085b16d58cee5555
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: faabc65a78626c053aecfac81b560b4731e40b95
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997290"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729993"
 ---
-# <a name="what-is-device-management-in-azure-active-directory"></a>Worum handelt es sich bei der Geräteverwaltung in Azure Active Directory?
+# <a name="what-is-a-device-identity"></a>Was ist eine Geräteidentität?
 
 In einer Welt, in der Mobilität und die Cloud an erster Stelle stehen, ermöglicht Azure Active Directory (Azure AD) das einmalige Anmelden an Geräten, Apps und Diensten an jedem Ort. Aufgrund der steigenden Zahl von Geräten, etwa in Form von „Bring Your Own Device“ (BYOD), gelten für IT-Spezialisten zwei gegensätzliche Zielsetzungen:
 
 - Schaffen von Bedingungen für Endbenutzer, unter denen sie an jedem Ort und zu jeder Zeit produktiv sein können
 - Lückenloses Schützen der Assets eines Unternehmens
 
-Über Geräte erhalten Ihre Benutzer Zugriff auf Ihre Unternehmensressourcen. Zum Schutz der Unternehmensressourcen möchten Sie als IT-Administrator Kontrolle über diese Geräte haben. So können Sie sicherstellen, dass Ihre Benutzer auf Ihre Ressourcen über Geräte zugreifen, die Ihren Standards für Sicherheit und Konformität entsprechen.
+Über Geräte in Azure AD erhalten Benutzer Zugriff auf Ihre Unternehmensressourcen. Zum Schutz der Unternehmensressourcen möchten Sie als IT-Administrator diese Geräteidentitäten verwalten. So können Sie sicherstellen, dass Ihre Benutzer auf Ihre Ressourcen über Geräte zugreifen, die Ihren Standards für Sicherheit und Konformität entsprechen.
 
-Die Geräteverwaltung stellt zudem die Grundlage für [gerätebasierten bedingten Zugriff](../conditional-access/require-managed-devices.md) dar. Mit dem gerätebasierten bedingten Zugriff können Sie sicherstellen, dass nur mit verwalteten Geräten auf Ressourcen in Ihrer Umgebung zugegriffen werden kann.
+Die Geräteidentitätsverwaltung stellt zudem die Grundlage für [gerätebasierten bedingten Zugriff](../conditional-access/require-managed-devices.md) dar. Mit dem gerätebasierten bedingten Zugriff können Sie sicherstellen, dass nur mit verwalteten Geräten auf Ressourcen in Ihrer Umgebung zugegriffen werden kann.
 
-In diesem Artikel wird erläutert, wie die Geräteverwaltung in Azure Active Directory funktioniert.
+## <a name="getting-devices-in-azure-ad"></a>Aufnehmen von Geräten in Azure AD
 
-> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
-
-## <a name="getting-devices-under-the-control-of-azure-ad"></a>Steuern der Geräte über Azure AD
-
-Um ein Gerät über Azure AD zu steuern, haben Sie zwei Möglichkeiten:
+Um ein Gerät in Azure AD aufzunehmen, haben Sie zwei Möglichkeiten:
 
 - Registrieren
 - Einbinden
@@ -54,7 +50,7 @@ Das **Einbinden** eines Geräts stellt eine Erweiterung der Registrierung eines 
 
 ## <a name="azure-ad-registered-devices"></a>Bei Azure AD registrierte Geräte
 
-Ziel von bei Azure AD registrierten Geräten ist die Bereitstellung der Unterstützung für das **Bring Your Own Device (BYOD)**-Szenario. In diesem Szenario kann ein Benutzer auf die über Azure Active Directory gesteuerten Ressourcen Ihres Unternehmens über ein persönliches Gerät zugreifen.  
+Ziel von bei Azure AD registrierten Geräten ist die Bereitstellung der Unterstützung für das **Bring Your Own Device (BYOD)** -Szenario. In diesem Szenario kann ein Benutzer auf die über Azure Active Directory gesteuerten Ressourcen Ihres Unternehmens über ein persönliches Gerät zugreifen.  
 
 ![Bei Azure AD registrierte Geräte](./media/overview/03.png)
 
@@ -66,7 +62,7 @@ Benutzer Ihres Unternehmens können einem persönlichen Gerät einfach ein Gesch
 - Beim erstmaligen Zugriff auf eine Unternehmensanwendung
 - Manuell über das Menü **Einstellungen** unter Windows 10
 
-Sie können bei Azure AD registrierte Geräte für Windows 10, iOS, Android und macOS konfigurieren.
+Sie können ein bei Azure AD registriertes Gerät für Geräte mit **Windows 10 Personal, iOS, Android und macOS** konfigurieren.
 
 ## <a name="azure-ad-joined-devices"></a>In Azure AD eingebundene Geräte
 
@@ -93,7 +89,6 @@ Die Implementierung von in Azure AD eingebundenen Geräten bietet die folgenden 
 - **Zugriff auf Windows Store für Unternehmen** über ein Azure AD-Konto. Ihre Benutzer können aus einem Bestand von durch das Unternehmen vorausgewählten Anwendungen auswählen.
 - Unterstützung von **Windows Hello** für einen sicheren und komfortablen Zugriff auf Arbeitsressourcen.
 - **Einschränkung des Zugriffs** auf Apps nur über die Geräte, die die Konformitätsrichtlinie erfüllen.
-
 - **Nahtloser Zugriff auf lokale Ressourcen**, wenn das Gerät über Sichtverbindung mit dem lokalen Domänencontroller verfügt.
 
 Azure AD Join ist zwar hauptsächlich für Unternehmen vorgesehen, die über keine lokale Windows Server Active Directory-Infrastruktur verfügen, kann aber auch in folgenden Szenarios verwendet werden:
@@ -129,9 +124,9 @@ Sie können in Azure AD eingebundene Hybridgeräte für Windows 10-Geräte und k
 
 ## <a name="summary"></a>Zusammenfassung
 
-Mit der Geräteverwaltung in Azure AD haben Sie folgende Möglichkeiten:
+Mit der Geräteidentitätsverwaltung in Azure AD haben Sie folgende Möglichkeiten:
 
-- Vereinfachen des Prozesses zum Steuern von Geräten über Azure AD
+- Vereinfachen des Prozesses zum Aufnehmen und Verwalten von Geräten in Azure AD
 - Benutzerfreundlicher Zugriff auf die cloudbasierten Ressourcen Ihres Unternehmens für Ihre Benutzer
 
 Als Faustregel sollten Sie Folgendes verwenden:
@@ -156,9 +151,9 @@ Als Faustregel sollten Sie Folgendes verwenden:
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Einen Überblick über die Verwaltung von Geräten im Azure-Portal finden Sie unter [Managing devices using the Azure portal - preview](device-management-azure-portal.md) (Verwalten von Geräten mit dem Azure-Portal – Vorschauversion).
-- Weitere Informationen zum gerätebasierten bedingten Zugriff finden Sie unter [Konfigurieren des gerätebasierten bedingten Zugriffs für Azure Active Directory](../conditional-access/require-managed-devices.md).
+- Einen Überblick über die Verwaltung von Geräteidentitäten im Azure-Portal finden Sie unter [Managing device identities using the Azure portal](device-management-azure-portal.md) (Verwalten von Geräteidentitäten mit dem Azure-Portal, in englischer Sprache).
 - Einrichtung:
-   - Informationen zu in Azure Active Directory registrierten Windows 10-Geräten finden Sie unter [How to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md) (Konfigurieren von in Azure Active Directory registrierten Windows 10-Geräten).
-   - Informationen zu in Azure Active Directory eingebundenen Geräten finden Sie unter [How to configure Azure Active Directory joined devices](../user-help/device-management-azuread-joined-devices-setup.md) (Konfigurieren von in Azure Active Directory eingebundenen Geräten).
+   - Informationen zu in Azure Active Directory registrierten Windows 10-Geräten finden Sie unter [Konfigurieren von bei Azure Active Directory registrierten Windows 10-Geräten](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
+   - Informationen zu in Azure AD eingebundenen Geräten finden Sie unter [Gewusst wie: Planen der Implementierung Ihrer Azure AD-Einbindung](azureadjoin-plan.md).
    - Informationen zu in Azure AD eingebundenen Hybridgeräten finden Sie unter [Planen der Implementierung einer Azure Active Directory-Hybrideinbindung](hybrid-azuread-join-plan.md).
+- Weitere Informationen zum gerätebasierten bedingten Zugriff finden Sie unter [Konfigurieren des gerätebasierten bedingten Zugriffs für Azure Active Directory](../conditional-access/require-managed-devices.md).

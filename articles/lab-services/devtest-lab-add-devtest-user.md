@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60311399"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Hinzufügen von Besitzern und Benutzern in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -40,19 +40,19 @@ Die folgende Tabelle zeigt die Aktionen, die von Benutzern in jeder dieser Rolle
 | **Aktionen, die Benutzer in dieser Rolle ausführen können** | **DevTest Labs-Benutzer** | **Besitzer** | **Mitwirkender** |
 | --- | --- | --- | --- |
 | **Lab-Aufgaben** | | | |
-| Benutzer zu einem Lab hinzufügen |Nein  |Ja |Nein  |
-| Kosteneinstellungen aktualisieren |Nein  |Ja |Ja |
+| Benutzer zu einem Lab hinzufügen |Nein |Ja |Nein |
+| Kosteneinstellungen aktualisieren |Nein |Ja |Ja |
 | **Grundlegende Aufgaben für virtuelle Computer** | | | |
-| Benutzerdefinierte Images hinzufügen und entfernen |Nein  |Ja |Ja |
+| Benutzerdefinierte Images hinzufügen und entfernen |Nein |Ja |Ja |
 | Formeln hinzufügen, aktualisieren und löschen |Ja |Ja |Ja |
-| Azure Marketplace-Images in eine Positivliste aufnehmen |Nein  |Ja |Ja |
+| Azure Marketplace-Images in eine Positivliste aufnehmen |Nein |Ja |Ja |
 | **Aufgaben für virtuelle Computer** | | | |
 | Virtuelle Computer erstellen |Ja |Ja |Ja |
 | Virtuelle Computer starten, beenden und löschen |Nur vom Benutzer erstellte virtuelle Computer |Ja |Ja |
-| VM-Richtlinien aktualisieren |Nein  |Ja |Ja |
+| VM-Richtlinien aktualisieren |Nein |Ja |Ja |
 | Datenträgern zu virtuellen Computern hinzufügen bzw. davon entfernen |Nur vom Benutzer erstellte virtuelle Computer |Ja |Ja |
 | **Artefakt-Aufgaben** | | | |
-| Artefaktrepositorys hinzufügen und entfernen |Nein  |Ja |Ja |
+| Artefaktrepositorys hinzufügen und entfernen |Nein |Ja |Ja |
 | Artefakte anwenden |Ja |Ja |Ja |
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Die folgenden Schritte führen Sie durch den Prozess des Hinzufügens eines Besi
 2. Wählen Sie **Alle Dienste** und dann in der Liste die Option **DevTest Labs**.
 3. Wählen Sie in der Liste der Labs das gewünschte Lab aus.
 4. Wählen Sie auf dem Blatt des Labs die Option **Konfiguration und Richtlinien** aus. 
-5. Klicken Sie auf der Seite **Konfiguration und Richtlinien** im Menü auf der linken Seite auf **Zugriffssteuerung (IAM)**. 
+5. Klicken Sie auf der Seite **Konfiguration und Richtlinien** im Menü auf der linken Seite auf **Zugriffssteuerung (IAM)** . 
 6. Klicken Sie auf der Symbolleiste auf **Rollenzuweisung hinzufügen**, um einen Benutzer einer Rolle hinzuzufügen.
 1. Gehen Sie im Fenster **Berechtigungen hinzufügen** wie folgt vor: 
     1. Wählen Sie eine Rolle aus (beispielsweise „DevTest Labs-Benutzer“). Im Abschnitt [Aktionen, die in jeder Rolle ausgeführt werden können](#actions-that-can-be-performed-in-each-role) finden Sie die verschiedenen Aktionen, die Benutzer in den Rollen „Besitzer“, „DevTest-Benutzer“ und „Beitragender“ ausführen können.

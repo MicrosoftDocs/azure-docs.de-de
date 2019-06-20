@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702786"
 ---
 # <a name="live-event-latency-in-media-services"></a>Liveereignislatenz in Media Services
 
@@ -27,7 +27,7 @@ Dieser Artikel zeigt, wie Sie eine niedrige Latenz für ein [Liveereignis](https
 Um die neue Funktion **LowLatency** zu nutzen, legen Sie **StreamOptionsFlag** für **LiveEvent** auf **LowLatency** fest. Legen Sie beim Erstellen von [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) für die HLS-Wiedergabe [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) auf „1“ fest. Sobald der Stream bereit ist, können Sie im [Azure Media Player](https://ampdemo.azureedge.net/) (AMP-Demoseite) die Option für die Wiedergabe auf „Low Latency Heuristics Profile“ (Heuristische Profile mit geringer Latenz) festlegen.
 
 > [!NOTE]
-> Derzeit dient das LowLatency-HeuristicProfile in Azure Media Player der Wiedergabe von Streams im DASH-Protokoll oder von HLS mit CMAF. Wenn Sie über HLS mit TS auf macOS- oder iOS-Geräte zielen möchten (z.B. `format=m3u8-aapl` oder `format=m3u8-aapl-v3`), sollten Sie diese Einstellung nicht verwenden, da AMP in diesem Fall direkt den vom Betriebssystem bereitgestellten nativen Player verwendet.
+> Derzeit dient das LowLatency HeuristicProfile in Azure Media Player der Wiedergabe von Streams im MPEG-DASH-Protokoll mit dem CSF- oder CMAF-Format (z.B. `format=mdp-time-csf` oder `format=mdp-time-cmaf`). 
 
 Das folgende .NET-Beispiel zeigt, wie Sie **LowLatency** für **LiveEvent** festlegen:
 

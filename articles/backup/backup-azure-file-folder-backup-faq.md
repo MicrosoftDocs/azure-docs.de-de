@@ -1,18 +1,18 @@
 ---
 title: Häufig gestellte Fragen zum Sichern von Dateien und Ordnern mit Azure Backup
 description: Hierin geht es um häufig gestellte Fragen zum Sichern von Dateien und Ordnern mit Azure Backup.
-author: lingliw
-manager: digimobile
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/28/2019
+ms.author: dacurwin
+ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148587"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808299"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Häufig gestellte Fragen zum Sichern von Dateien und Ordnern 
 
@@ -83,11 +83,11 @@ Wenn Sie einen Windows-Computer umbenennen, werden alle derzeit konfigurierten S
 - Wenn Sie Daten wiederherstellen müssen, die mit dem alten Servernamen im Tresor gesichert wurden, verwenden Sie die Option zur Wiederherstellung an einem alternativen Speicherort im Assistenten für die Datenwiederherstellung. [Weitere Informationen](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) 
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Wie lang ist die maximale Dateipfadlänge für die Sicherung?
-Der MARS-Agent basiert auf NTFS und verwendet die durch die [Windows-API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths) begrenzte Dateipfadlänge. Wenn die Dateien, die Sie sichern möchten, länger als der zulässige Wert sind, sichern Sie den übergeordneten Ordner oder das Laufwerk.  
+Der MARS-Agent basiert auf NTFS und verwendet die durch die [Windows-API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths) begrenzte Dateipfadlänge. Wenn die Dateien, die Sie sichern möchten, länger als der zulässige Wert sind, sichern Sie den übergeordneten Ordner oder das Laufwerk.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>Welche Zeichen sind in Dateipfaden zulässig?
 
-Der MARS-Agent basiert auf NTFS und erlaubt [unterstützte Zeichen](/windows/desktop/FileIO/naming-a-file#naming_conventions) in Dateinamen/Pfaden.
+Der MARS-Agent basiert auf NTFS und erlaubt [unterstützte Zeichen](/windows/desktop/FileIO/naming-a-file#naming-conventions) in Dateinamen/Pfaden.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Die Warnung „Azure-Sicherungen wurden für diesen Server nicht konfiguriert“ wird angezeigt.
 Diese Warnung tritt auf, wenn die auf dem lokalen Server gespeicherten Sicherungszeitplaneinstellungen nicht den Einstellungen im Sicherungstresor entsprechen, auch wenn Sie eine Sicherungsrichtlinie konfiguriert haben.
@@ -101,7 +101,7 @@ Diese Warnung tritt auf, wenn die auf dem lokalen Server gespeicherten Sicherung
 Die Größe des Cacheordners bestimmt die Menge der Daten, die Sie sichern.
 - Die Cacheordnervolumes sollten freien Speicherplatz haben, der mindestens 5-10 % der Gesamtgröße der Sicherungsdaten ausmacht.
 - Wenn weniger als 5-10 % Speicherplatz zur Verfügung stehen, vergrößern Sie das Volume, oder verschieben Sie den Cacheordner auf ein Volume mit ausreichend freiem Speicherplatz.
-- 
+- Wenn Sie den Windows-Systemstatus sichern, benötigen Sie zusätzlich 30-35 GB freien Speicherplatz auf dem Volume, das den Cacheordner enthält.
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Wie ändere ich den Cachespeicherort für den MARS-Agent?
 
 

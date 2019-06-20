@@ -7,17 +7,16 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: oslake
+ms.author: moslake
 ms.reviewer: genemi,ayolubek, jrasnick
-manager: digimobile
-origin.date: 03/12/2019
-ms.date: 04/08/2019
+manager: craigg
+ms.date: 03/12/2019
 ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160804"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-Alias für Azure SQL-Datenbank

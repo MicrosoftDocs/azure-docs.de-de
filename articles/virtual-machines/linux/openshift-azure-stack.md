@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: haroldw
 ms.openlocfilehash: 91b37753ae80596612eda9d3ccd34858691e35ad
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446944"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60771548"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Bereitstellen von OpenShift Container Platform oder OKD in Azure Stack
 

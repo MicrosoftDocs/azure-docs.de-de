@@ -4,7 +4,7 @@ description: Stellen Sie in wenigen Minuten Ihre erste „Hallo Welt“-PHP-App 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin;cfowler
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 48df416002a2c89e0172e82278f6154c6a6da836
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f1a5c3a57c60b30855f7bfaaa1ee3ab85285011d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630018"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298539"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Erstellen einer PHP-Web-App in Azure
 

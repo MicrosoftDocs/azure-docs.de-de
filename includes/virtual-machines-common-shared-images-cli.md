@@ -1,29 +1,31 @@
 ---
-title: Includedatei
-description: Includedatei
+title: include file
+description: include file
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2019
+ms.date: 05/21/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 9647cdd584b53f581f46f728ca2d08f9a113ce92
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 57736a3cd553e83294d5290867e261b626cb035f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814718"
 ---
 ## <a name="before-you-begin"></a>Voraussetzungen
 
-Für das Beispiel in diesem Artikel muss ein verwaltetes Image eines generalisierten virtuellen Computers vorhanden sein. Weitere Informationen finden Sie unter [Tutorial: Erstellen eines benutzerdefinierten Images eines virtuellen Azure-Computers mit der Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Wenn das verwaltete Image einen Datenträger für Daten enthält, darf dieser nicht größer als 1 TB sein.
+Für das Beispiel in diesem Artikel muss ein verwaltetes Image eines generalisierten virtuellen Computers vorhanden sein. Weitere Informationen finden Sie unter [Tutorial: Erstellen eines benutzerdefinierten Images eines virtuellen Azure-Computers mit der Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Wenn das verwaltete Image einen Datenträger für Daten enthält, darf dieser nicht größer als 1 TB sein.
 
 ## <a name="launch-azure-cloud-shell"></a>Starten von Azure Cloud Shell
 
 Azure Cloud Shell ist eine kostenlose interaktive Shell, mit der Sie die Schritte in diesem Artikel ausführen können. Sie verfügt über allgemeine vorinstallierte Tools und ist für die Verwendung mit Ihrem Konto konfiguriert. 
 
 Wählen Sie zum Öffnen von Cloud Shell oben rechts in einem Codeblock einfach die Option **Ausprobieren**. Sie können Cloud Shell auch auf einer separaten Browserregisterkarte starten, indem Sie zu [https://shell.azure.com/bash](https://shell.azure.com/bash) navigieren. Wählen Sie **Kopieren**, um die Blöcke mit dem Code zu kopieren. Fügen Sie ihn anschließend in Cloud Shell ein, und drücken Sie die EINGABETASTE, um ihn auszuführen.
+
+Wenn Sie die CLI lieber lokal installieren und verwenden, finden Sie hierzu Informationen unter [Installieren von Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-image-gallery"></a>Erstellen eines Imagekatalogs 
 
@@ -33,7 +35,7 @@ Erstellen Sie einen Imagekatalog mit [az sig create](/cli/azure/sig#az-sig-creat
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location WestCentralUS
-az sig create -g myGalleryRG --gallery-name myGallery
+az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
 ## <a name="create-an-image-definition"></a>Erstellen einer Imagedefinition
@@ -44,7 +46,7 @@ Erstellen Sie eine anfängliche Imagedefinition im Katalog mithilfe von [az sig 
 
 ```azurecli-interactive 
 az sig image-definition create \
-   -g myGalleryRG \
+   --resource-group myGalleryRG \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --publisher myPublisher \
@@ -60,16 +62,16 @@ Erstellen Sie nach Bedarf Versionen des Images mittels [az image gallery create-
 
 Zulässige Zeichen für die Imageversion sind Zahlen und Punkte. Zahlen müssen im Bereich einer ganzen 32-Bit-Zahl liegen. Format: *Hauptversion*.*Nebenversion*.*Patch*.
 
-In diesem Beispiel wird ein Image der Version *1.0.0* verwendet, und es werden zwei Replikate in der Region *USA, Westen-Mitte*, ein Replikat in der Region *USA, Süden-Mitte* und ein Replikat in der Region *USA, Osten 2* erstellt.
+In diesem Beispiel wird ein Image der Version *1.0.0* verwendet, und es werden unter Verwendung bon zonenredundantem Speicher zwei Replikate in der Region *USA, Westen-Mitte*, ein Replikat in der Region *USA, Süden-Mitte* und ein Replikat in der Region *USA, Osten 2* erstellt.
 
 
 ```azurecli-interactive 
 az sig image-version create \
-   -g myGalleryRG \
+   --resource-group myGalleryRG \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1" \
+   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1=Standard_ZRS" \
    --replica-count 2 \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
@@ -77,5 +79,24 @@ az sig image-version create \
 > [!NOTE]
 > Sie müssen warten, bis die Imageversion vollständig erstellt und repliziert wurde, bevor Sie dieses verwaltete Image verwenden können, um eine weitere Imageversion zu erstellen.
 >
-> Sie können Ihre Imageversion auch in [zonenredundantem Speicher](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) speichern, indem Sie `--storage-account-type standard_zrs` hinzufügen, wenn Sie die Imageversion erstellen.
+> Sie können alle Ihre Imageversionsreplikate auch in [zonenredundantem Speicher](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) speichern, indem Sie `--storage-account-type standard_zrs` hinzufügen, wenn Sie die Imageversion erstellen.
 >
+
+## <a name="share-the-gallery"></a>Teilen des Katalogs
+
+Wir empfehlen, dass Sie mit anderen Benutzern auf Ebene des Katalogs teilen. Um die Objekt-ID Ihres Katalogs abzurufen, verwenden Sie [az sig show](/cli/azure/sig#az-sig-show).
+
+```azurecli-interactive
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
+```
+
+Verwenden Sie die Objekt-ID als Bereich, zusammen mit einer E-Mail-Adresse und [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create), um einem Benutzer Zugriff auf den geteilten Imagekatalog zu gewähren.
+
+```azurecli-interactive
+az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>
+```
+
+

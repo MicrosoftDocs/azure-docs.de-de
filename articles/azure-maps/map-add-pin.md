@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60771667"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Hinzufügen einer Symbolebene zu einer Karte
 

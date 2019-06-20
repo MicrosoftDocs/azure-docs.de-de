@@ -1,25 +1,18 @@
 ---
-title: Erstellen eines Microsoft-Entwicklerkontos | Microsoft-Dokumentation
+title: Erstellen eines Microsoft-Entwicklerkontos | Azure Marketplace
 description: Anforderungen und Schritte für das Erstellen eines Microsoft-Entwicklerkontos.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935864"
 ---
 <a name="create-a-microsoft-developer-account"></a>Erstellen eines Microsoft-Entwicklerkontos
 ====================================
@@ -28,7 +21,7 @@ In diesem Artikel ist beschrieben, wie Sie ein genehmigter Microsoft-Entwickler 
 
 ## <a name="create-a-microsoft-account"></a>Erstellen eines Microsoft-Kontos
 
-Am Anfang des Veröffentlichungsprozesses steht die Registrierung im **Microsoft Developer Center**. Sie nutzen dieses registrierte Konto im **[Cloud-Partnerportal](https://cloudpartner.azure.com/)**, um den Veröffentlichungsprozess zu starten.
+Am Anfang des Veröffentlichungsprozesses steht die Registrierung im **Microsoft Developer Center**. Sie nutzen dieses registrierte Konto im **[Cloud-Partnerportal](https://cloudpartner.azure.com/)** , um den Veröffentlichungsprozess zu starten.
 
 ### <a name="general-account-guidelines"></a>Allgemeine Kontorichtlinien
 
@@ -106,7 +99,7 @@ Das Microsoft Developer Center wird für die einmalige Registrierung der Unterne
    ![Land/Region auswählen](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >„Verkäuferländer“: Um Ihre Dienste im Azure Marketplace verkaufen zu können, muss die registrierte Entität in einem der genehmigten Verkäuferländer ansässig sein, die in der Dropdownliste aufgeführt sind. Diese Einschränkung hat auszahlungstechnische und steuerliche Gründe. Weitere Informationen finden Sie in den Marketplace-Teilnahmerichtlinien.
+    >„Verkäuferländer/-regionen“: Um Ihre Dienste im Azure Marketplace verkaufen zu können, muss die registrierte Entität in einem der genehmigten Verkäuferländer/-regionen ansässig sein, die in der Dropdownliste aufgeführt sind. Diese Einschränkung hat auszahlungstechnische und steuerliche Gründe. Weitere Informationen finden Sie in den Marketplace-Teilnahmerichtlinien.
 
 5. Wählen Sie **Unternehmen** als „Kontotyp“ aus und wählen Sie dann **Weiter** aus.
 

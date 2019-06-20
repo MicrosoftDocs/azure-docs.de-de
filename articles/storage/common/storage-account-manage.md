@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: tamram
 ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61484246"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Verwalten von Speicherkontoeinstellungen im Azure-Portal
 
@@ -27,7 +27,7 @@ Die Einstellungen für die **Zugriffssteuerung** im Azure-Portal bieten eine ein
 > [!NOTE]
 > Die Authentifizierung von Benutzern oder Anwendungen mithilfe von Azure AD-Anmeldeinformationen bietet mehr Sicherheit und Benutzerfreundlichkeit als andere Autorisierungsmethoden. Während Sie weiterhin die Autorisierung mit gemeinsam verwendetem Schlüssel mit Ihren Anwendungen verwenden können, macht Azure AD das Speichern Ihrer Kontozugriffsschlüssel mit Ihrem Code überflüssig. Sie können auch weiterhin Shared Access Signatures für zum Gewähren eines differenzierten Zugriffs auf Ressourcen in Ihrem Speicherkonto verwenden. Azure AD bietet jedoch ähnliche Funktionen, bei denen Sie weder SAS-Token verwalten noch sich um das Widerrufen einer gefährdeten SAS kümmern müssen. 
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>`Tags`
 
 Azure Storage unterstützt Azure Resource Manager-Tags zum Organisieren von Azure-Ressourcen mittels einer benutzerdefinierten Taxonomie. Sie können Tags auf Ihre Speicherkonten anwenden, sodass Sie sie in Ihrem Abonnement logisch gruppieren können. 
 

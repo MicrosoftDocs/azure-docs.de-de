@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669978"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60516604"
 ---
 # <a name="service-movement-cost"></a>Kosten von Dienstverschiebungen
 Ein Faktor bei den Überlegungen im Cluster Resource Manager von Service Fabric zu Veränderungen an einem Cluster sind die Kosten, die mit diesen Änderungen verbunden sind. Die „Kosten“ werden dabei gegen die mögliche Verbesserung des Clusters abgewogen. Die Kosten werden berücksichtigt, wenn Dienste zum Lastenausgleich, zur Defragmentierung und aufgrund anderer Anforderungen verschoben werden. Ziel ist es, die Anforderungen auf die am wenigsten störende und kostengünstigste Weise zu erfüllen. 

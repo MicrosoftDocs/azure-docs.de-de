@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904750"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447929"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Häufig gestellte Fragen zum Solution Accelerator für Connected Factory
 
@@ -76,7 +76,7 @@ Wenn Sie die Lösung über www.azureiotsolutions.com bereitgestellt haben, könn
 1. Um zu prüfen, welche Container aktiv sind, führen Sie `docker ps` aus.
 1. Um alle Simulationscontainer anzuhalten, führen Sie `./stopsimulation` aus.
 1. Um alle Simulationscontainer zu starten, gehen Sie folgendermaßen vor:
-    * Exporten Sie eine Shellvariable mit dem Namen **IOTHUB_CONNECTIONSTRING**. Verwenden Sie den Wert der **IotHubOwnerConnectionString**-Einstellung in der Datei `<name of your deployment>.config.user`. Beispiel: 
+    * Exporten Sie eine Shellvariable mit dem Namen **IOTHUB_CONNECTIONSTRING**. Verwenden Sie den Wert der **IotHubOwnerConnectionString**-Einstellung in der Datei `<name of your deployment>.config.user`. Beispiel:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"

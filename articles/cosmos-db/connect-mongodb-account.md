@@ -5,18 +5,18 @@ author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 737e179c2c16937d00bc9b6601f12ebe392c1906
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040318"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978724"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Verbinden einer MongoDB-Anwendung mit Azure Cosmos DB
-In diesem Artikel erfahren Sie, wie Sie Ihre MongoDB-App mithilfe einer MongoDB-Verbindungszeichenfolge mit Azure Cosmos DB verbinden. Anschließend können Sie eine Azure Cosmos DB-Datenbank als Datenspeicher für Ihre MongoDB-App verwenden. 
+In diesem Artikel erfahren Sie, wie Sie Ihre MongoDB-App mithilfe einer MongoDB-Verbindungszeichenfolge mit Azure Cosmos DB verbinden. Anschließend können Sie eine Azure Cosmos-Datenbank als Datenspeicher für Ihre MongoDB-App verwenden. 
 
 Dieses Tutorial zeigt zwei Möglichkeiten, um Informationen zur Verbindungszeichenfolge abzurufen:
 
@@ -32,7 +32,7 @@ Dieses Tutorial zeigt zwei Möglichkeiten, um Informationen zur Verbindungszeich
 1. Melden Sie sich über einen Internetbrowser beim [Azure-Portal](https://portal.azure.com) an.
 2. Wählen Sie die API auf dem Blatt **Azure Cosmos DB** aus. 
 3. Klicken Sie im linken Bereich des Kontoblatts auf **Schnellstart**. 
-4. Wählen Sie Ihre Plattform aus (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). Wenn der gewünschte Treiber oder das gewünschte Tool nicht aufgeführt wird, machen Sie sich keine Sorgen: Wir stellen kontinuierlich weitere Ausschnitte von Verbindungscodes zur Verfügung. Tragen Sie im unteren Bereich ein, welche Inhalte Sie sehen möchten. Informationen darüber, wie Sie eine eigene Verbindung erstellen können, finden Sie unter [Abrufen der Informationen zur Verbindungszeichenfolge für das Konto](#GetCustomConnection).
+4. Wählen Sie Ihre Plattform aus ( **.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). Wenn der gewünschte Treiber oder das gewünschte Tool nicht aufgeführt wird, machen Sie sich keine Sorgen: Wir stellen kontinuierlich weitere Ausschnitte von Verbindungscodes zur Verfügung. Tragen Sie im unteren Bereich ein, welche Inhalte Sie sehen möchten. Informationen darüber, wie Sie eine eigene Verbindung erstellen können, finden Sie unter [Abrufen der Informationen zur Verbindungszeichenfolge für das Konto](#GetCustomConnection).
 5. Kopieren Sie den Codeausschnitt, und fügen Sie ihn in Ihre MongoDB-App ein.
 
     ![Blatt „Schnellstart“](./media/connect-mongodb-account/QuickStartBlade.png)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265609"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60631956"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Ihr Profil und Ihre Benutzer-ID für Azure Notebooks
 
@@ -57,7 +57,7 @@ Ihr Profil setzt sich aus öffentlich sichtbaren Informationen unter der URL `ht
 
 Zum Bearbeiten Ihres Profils verwenden Sie den Befehl **Edit Profile Information** (Profilinformationen bearbeiten) auf Ihrer Profilseite. Dies sind die Abschnitte Ihres Profils:
 
-| Abschnitt | Inhalt: |
+| `Section` | Inhalt: |
 | --- | --- |
 | Profilfoto | Ein Bild, das auf Ihrer Profilseite angezeigt wird. |
 | Azure-Kontoinformationen | Ihr Anzeigename, Ihre Benutzer-ID und Ihr öffentliches E-Mail-Konto. Das E-Mail-Konto stellt ein Mittel für andere Benutzer dar, mit Ihnen in Kontakt zu treten, und kann sich von dem [Konto](azure-notebooks-user-account.md) unterscheiden, das Sie für die Anmeldung bei Azure Notebooks selbst verwenden. |

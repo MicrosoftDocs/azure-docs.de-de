@@ -17,11 +17,11 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66160276"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Erweiterungen und Features für virtuelle Computer für Windows
 
@@ -368,7 +368,7 @@ Die folgenden Schritte zur Problembehandlung gelten für alle VM-Erweiterungen.
 
 ### <a name="view-extension-status"></a>Anzeigen des Erweiterungsstatus
 
-Wenn eine VM-Erweiterung für einen virtuellen Computer ausgeführt wurde, können Sie mit [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) zum Erweiterungsstatus zurückkehren. *Substatuses[0]* zeigt, dass die Bereitstellung der Erweiterung erfolgreich war. Das bedeutet, dass Sie der VM erfolgreich bereitgestellt wurde. Wenn die Ausführung der Erweiterung innerhalb der VM fehlgeschlagen ist, ist der Status *Substatuses[1]*.
+Wenn eine VM-Erweiterung für einen virtuellen Computer ausgeführt wurde, können Sie mit [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) zum Erweiterungsstatus zurückkehren. *Substatuses[0]* zeigt, dass die Bereitstellung der Erweiterung erfolgreich war. Das bedeutet, dass Sie der VM erfolgreich bereitgestellt wurde. Wenn die Ausführung der Erweiterung innerhalb der VM fehlgeschlagen ist, ist der Status *Substatuses[1]* .
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

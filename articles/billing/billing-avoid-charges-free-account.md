@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
 ms.openlocfilehash: 7bb8e4f53dd07a613ab4b9ff05600a22f76a4ba7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872703"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60617849"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Vermeiden Sie, dass Ihnen für Ihr kostenloses Azure-Konto Gebühren angezeigt werden
 
@@ -62,4 +62,4 @@ Nachdem Ihre kostenlosen Dienste und Mengen abgelaufen sind, berechnet Azure Ihn
 
 ## <a name="need-help-contact-us"></a>Sie brauchen Hilfe? Wenden Sie sich an uns.
 
-Wenn Sie Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).
+Wenn Sie weitere Fragen haben oder Hilfe benötigen, [erstellen Sie eine Supportanfrage](https://go.microsoft.com/fwlink/?linkid=2083458).

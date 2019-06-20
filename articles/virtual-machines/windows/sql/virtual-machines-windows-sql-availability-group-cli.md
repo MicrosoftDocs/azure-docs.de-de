@@ -15,10 +15,10 @@ ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518977"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Verwenden der Azure SQL VM-Befehlszeilenschnittstelle zum Konfigurieren von Always On-Verfügbarkeitsgruppen für SQL Server in einer Azure VM
@@ -125,7 +125,7 @@ Nachdem die Verfügbarkeitsgruppe manuell erstellt wurde, können Sie den Listen
    1. Navigieren Sie im [Azure-Portal](https://portal.azure.com) zu Ihrer Ressourcengruppe. 
    1. Wählen Sie die vNet-Ressource aus. 
    1. Wählen Sie im Bereich **Einstellungen** **Eigenschaften** aus. 
-   1. Bestimmen Sie die Ressourcen-ID des vNets, und hängen Sie am Ende `/subnets/<subnetname>` an, um die Subnetzressourcen-ID zu erstellen. Beispiel: 
+   1. Bestimmen Sie die Ressourcen-ID des vNets, und hängen Sie am Ende `/subnets/<subnetname>` an, um die Subnetzressourcen-ID zu erstellen. Beispiel:
         - Meine vNet-RessourcenID lautet: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
         - Mein Subnetzname ist `default`.
         - Daher heißt meine Subnetzressourcen-ID: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`

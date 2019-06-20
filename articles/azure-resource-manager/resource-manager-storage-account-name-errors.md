@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: da7147439bba668c6c614c19d91a22ee78275c69
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c3d4d764b1076c8705cfa64d6c0b38e3b8c1a801
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357342"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64716393"
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Beheben von Fehlern bei Speicherkontonamen
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: xingwan
-ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a57899e36a6716a6fd59cb018119c225b7396c0d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24870577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60649110"
 ---
 # <a name="region-or-sku-unavailable"></a>Region oder SKU nicht verfügbar
 In diesem Artikel wird beschrieben, wie Sie das Problem beheben können, dass ein Azure-Abonnement keinen Zugriff auf eine Region oder eine VM-SKU hat.

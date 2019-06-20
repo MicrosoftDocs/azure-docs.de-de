@@ -10,10 +10,10 @@ ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025339"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Verwalten der Parallelität in Azure Search
@@ -27,7 +27,7 @@ Beim Verwalten von Azure Search-Ressourcen wie Indizes und Datenquellen ist es w
 
 Die optimistische Nebenläufigkeit ist über Prüfungen von Zugriffsbedingungen in API-Aufrufen implementiert, die in Indizes, Indexer, Datenquellen und synonymMap-Ressourcen schreiben.
 
-Alle Ressourcen verfügen über ein [*Entity Tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag), das Informationen zur Objektversion bereitstellt. Indem Sie zuerst das ETag überprüfen, können Sie in typischen Workflows (abrufen, lokal ändern, aktualisieren) gleichzeitige Updates vermeiden, indem Sie sicherstellen, dass das ETag der Ressource mit dem der lokalen Kopie übereinstimmt.
+Alle Ressourcen verfügen über ein [*Entity Tag (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag), das Informationen zur Objektversion bereitstellt. Indem Sie zuerst das ETag überprüfen, können Sie in typischen Workflows (abrufen, lokal ändern, aktualisieren) gleichzeitige Updates vermeiden, indem Sie sicherstellen, dass das ETag der Ressource mit dem der lokalen Kopie übereinstimmt.
 
 + Die REST-API verwendet ein [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) im Anforderungsheader.
 + Das ETag wird vom .NET SDK über ein accessCondition-Objekt festgelegt, wobei der [If-Match | If-Match-None-Header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) für die Ressource gesetzt wird. Alle Objekte, die von [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) erben, besitzen ein accessCondition-Objekt.

@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0617dc617309d49cdc7c8cddd4e91619b873b914
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64923011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65785682"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Überwachen von Azure SQL-Datenbank mithilfe von Azure SQL-Analyse (Vorschauversion)
 
@@ -37,10 +37,10 @@ Azure SQL-Analyse ist eine Cloudüberwachungslösung, die das Streaming von Diag
 | Verbundene Quelle | Unterstützt | BESCHREIBUNG |
 | --- | --- | --- |
 | [Azure-Diagnose](../platform/collect-azure-metrics-logs.md) | **Ja** | Azure-Metrik- und Protokolldaten werden direkt von Azure an Azure Monitor-Protokolle gesendet. |
-| [Azure-Speicherkonto](../platform/collect-azure-metrics-logs.md) | Nein  | Azure Monitor liest keine Daten aus einem Speicherkonto. |
-| [Windows-Agents](../platform/agent-windows.md) | Nein  | Direkte Windows-Agents werden von der Lösung nicht verwendet. |
-| [Linux-Agents](../learn/quick-collect-linux-computer.md) | Nein  | Direkte Linux-Agents werden von der Lösung nicht verwendet. |
-| [System Center Operations Manager-Verwaltungsgruppe](../platform/om-agents.md) | Nein  | Es wird von der Lösung keine direkte Verbindung vom Operations Manager-Agent zu Azure Monitor verwendet. |
+| [Azure-Speicherkonto](../platform/collect-azure-metrics-logs.md) | Nein | Azure Monitor liest keine Daten aus einem Speicherkonto. |
+| [Windows-Agents](../platform/agent-windows.md) | Nein | Direkte Windows-Agents werden von der Lösung nicht verwendet. |
+| [Linux-Agents](../learn/quick-collect-linux-computer.md) | Nein | Direkte Linux-Agents werden von der Lösung nicht verwendet. |
+| [System Center Operations Manager-Verwaltungsgruppe](../platform/om-agents.md) | Nein | Es wird von der Lösung keine direkte Verbindung vom Operations Manager-Agent zu Azure Monitor verwendet. |
 
 ## <a name="configuration"></a>Konfiguration
 Fügen Sie mithilfe des unter [Hinzufügen von Azure Monitor-Lösungen aus dem Lösungskatalog](../../azure-monitor/insights/solutions.md) beschriebenen Prozesses Ihrem Log Analytics-Arbeitsbereich die Azure SQL-Analyse-Lösung (Vorschau) hinzu.
@@ -106,8 +106,8 @@ In der folgenden Tabelle werden Perspektiven erläutert, die für zwei Versionen
 | Ressource nach Typ | Perspektive, die alle überwachten Ressourcen zählt. | Ja | Ja |
 | Einblicke | Stellt einen hierarchischen Drilldown in die Leistung in Intelligent Insights bereit. | Ja | Ja |
 | Errors | Stellt den hierarchischen Drilldown in SQL-Fehler bereit, die in den Datenbanken aufgetreten sind. | Ja | Ja |
-| Zeitlimits | Stellt den hierarchischen Drilldown in SQL-Zeitlimits bereit, die in den Datenbanken aufgetreten sind. | Ja | Nein  |
-| Blockierungen | Stellt den hierarchischen Drilldown in SQL-Blockierungen bereit, die in den Datenbanken aufgetreten sind. | Ja | Nein  |
+| Zeitlimits | Stellt den hierarchischen Drilldown in SQL-Zeitlimits bereit, die in den Datenbanken aufgetreten sind. | Ja | Nein |
+| Blockierungen | Stellt den hierarchischen Drilldown in SQL-Blockierungen bereit, die in den Datenbanken aufgetreten sind. | Ja | Nein |
 | Datenbankwartevorgänge | Stellt den hierarchischen Drilldown in SQL-Wartestatistiken auf Datenbankebene bereit. Enthält Zusammenfassungen der gesamten Wartezeit sowie die Wartezeit pro Wartetyp. |Ja | Ja |
 | Abfragedauer | Stellt den hierarchischen Drilldown in die Statistiken zur Abfrageausführung bereit, z.B. Abfragedauer, CPU-Auslastung, Daten-E/A-Auslastung und Protokoll-E/A-Auslastung. | Ja | Ja |
 | Abfragewartevorgänge | Stellt den hierarchischen Drilldown in die Statistiken zu Abfragewartevorgängen nach Wartekategorie bereit. | Ja | Ja |
@@ -193,7 +193,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Voraussetzung für die Einrichtung dieser Warnung ist, dass überwachte Datenbanken Diagnosemetriken (Option „Alle Metriken“) an die Lösung streamen.
+> - Voraussetzung für die Einrichtung dieser Warnung ist, dass überwachte Datenbanken grundlegende Metriken an die Lösung streamen.
 > - Ersetzen Sie den MetricName-Wert „cpu_percent“ durch „dtu_consumption_percent“ um stattdessen hohe DTU-Ergebnisse zu erhalten.
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Hohe CPU-Auslastung in Pools für elastische Datenbanken in Azure SQL-Datenbank
@@ -208,7 +208,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Voraussetzung für die Einrichtung dieser Warnung ist, dass überwachte Datenbanken Diagnosemetriken (Option „Alle Metriken“) an die Lösung streamen.
+> - Voraussetzung für die Einrichtung dieser Warnung ist, dass überwachte Datenbanken grundlegende Metriken an die Lösung streamen.
 > - Ersetzen Sie den MetricName-Wert „cpu_percent“ durch „dtu_consumption_percent“ um stattdessen hohe DTU-Ergebnisse zu erhalten.
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Durchschnittlicher Speicherverbrauch für Azure SQL-Datenbank in der letzten Stunde bei über 95%
@@ -225,7 +225,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Voraussetzung für die Einrichtung dieser Warnung ist, dass überwachte Datenbanken Diagnosemetriken (Option „Alle Metriken“) an die Lösung streamen.
+> - Voraussetzung für die Einrichtung dieser Warnung ist, dass überwachte Datenbanken grundlegende Metriken an die Lösung streamen.
 > - Diese Abfrage erfordert die Einrichtung einer Warnungsregel, die eine Warnung auslöst, wenn Ergebnisse (> 0 Ergebnisse) von der Abfrage vorhanden sind, die angeben, dass die Bedingung in einigen Datenbanken vorhanden ist. Die Ausgabe ist eine Liste von Datenbankressourcen, die im definierten Zeitbereich den Speicherschwellenwert überschreiten.
 > - Die Ausgabe ist eine Liste von Datenbankressourcen, die im definierten Zeitbereich den Speicherschwellenwert überschreiten.
 

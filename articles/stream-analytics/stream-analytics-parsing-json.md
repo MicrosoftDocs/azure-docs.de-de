@@ -3,23 +3,23 @@ title: Analysieren von JSON- und AVRO-Daten in Azure Stream Analytics
 description: Dieser Artikel beschreibt, wie Sie mit komplexen Datentypen wie Arrays, JSON- und CSV-formatierten Daten arbeiten.
 services: stream-analytics
 ms.service: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.topic: conceptual
-ms.date: 08/03/2018
-ms.openlocfilehash: 3d4c1bfa8b376ec50efc7b3cddc8d22a40e70892
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 06/03/2019
+ms.openlocfilehash: ad30d363c8e3ea0264ba79db5417e572614a6739
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341411"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496832"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analysieren von JSON- und AVRO-Daten in Azure Stream Analytics
 
 Azure Stream Analytics unterstützt die Verarbeitung von Ereignissen in den Datenformaten CSV, JSON und Avro. Sowohl JSON- als auch Avro-Daten können komplexe Typen enthalten, z.B. geschachtelte Objekte (Datensätze) und Arrays.
 
 ## <a name="array-data-types"></a>Arraydatentypen
+
 Arraydatentypen sind eine geordnete Sammlung von Werten. Im Folgenden werden einige typische Vorgänge mit Arraywerten beschrieben. Diese Beispiele setzen voraus, dass die Eingabeereignisse eine Eigenschaft namens „arrayField“ besitzen, ein Arraydatentyp.
 
 In diesen Beispielen werden die Funktionen [GetArrayElement](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelement-azure-stream-analytics), [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics), [GetArrayLength](https://msdn.microsoft.com/azure/stream-analytics/reference/getarraylength-azure-stream-analytics) und der [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics)-Operator verwendet.

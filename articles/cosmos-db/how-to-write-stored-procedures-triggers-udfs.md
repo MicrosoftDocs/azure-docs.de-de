@@ -4,14 +4,14 @@ description: Erfahren Sie, wie Sie gespeicherte Prozeduren, Triggern und benutze
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/11/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268409"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968918"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Schreiben von gespeicherten Prozeduren, Triggern und benutzerdefinierten Funktionen in Azure Cosmos DB
 

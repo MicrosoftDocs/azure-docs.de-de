@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
 ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60370984"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Überprüfen der Azure-Ressourcennutzung mithilfe der REST-API
 
@@ -45,8 +45,8 @@ Die folgenden Header sind erforderlich:
 
 |Anforderungsheader|BESCHREIBUNG|  
 |--------------------|-----------------|  
-|*Inhaltstyp*:| Erforderlich. Legen Sie diese Option auf `application/json` fest. |  
-|*Autorisierung*:| Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer`-Token fest. |
+|*Content-Type:*| Erforderlich. Legen Sie diese Option auf `application/json` fest. |  
+|*Authorization:*| Erforderlich. Legen Sie diese Option auf ein gültiges `Bearer`-Token fest. |
 
 Konfigurieren Sie die Parameter des Berichts im HTTP-Anforderungstext. Im folgenden Beispiel wird der Bericht so festgelegt, dass er bei Aktivierung an jedem Tag generieren wird, als eine CSV-Datei in einen Azure Storage-Blobcontainer geschrieben wird und Informationen zu stündlichen Kosten für alle Ressourcen in der Ressourcengruppe `westus` enthält.
 
@@ -89,7 +89,7 @@ Konfigurieren Sie die Parameter des Berichts im HTTP-Anforderungstext. Im folgen
 }
 ```
 
-Das 
+Das
 
 ## <a name="filtering-reports"></a>Filtern von Berichten
 

@@ -16,11 +16,11 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23ec4d2a67beb9b5f903aa0b7f03196b47db3f78
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66226466"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Verwenden einer vom Windows-VM-System zugewiesenen verwalteten Identität für den Zugriff auf Azure Storage über SAS-Anmeldeinformationen
 
@@ -70,7 +70,7 @@ Später werden wir eine Datei in das neue Speicherkonto hoch- und daraus herunte
 Azure Storage unterstützt die Azure AD-Authentifizierung nicht nativ.  Sie können mit einer verwalteten Identität jedoch eine Speicher-SAS von Resource Manager abrufen und mit dieser SAS auf den Speicher zugreifen.  In diesem Schritt gewähren Sie der systemseitig zugewiesenen verwalteten Identität Ihres virtuellen Computers Zugriff auf die SAS des Speicherkontos.   
 
 1. Navigieren Sie zurück zum neu erstellten Speicherkonto.   
-2. Klicken Sie im linken Bereich auf den Link **Zugriffssteuerung (IAM)**.  
+2. Klicken Sie im linken Bereich auf den Link **Zugriffssteuerung (IAM)** .  
 3. Klicken Sie oben auf der Seite auf **+ Rollenzuweisung hinzufügen**, um dem virtuellen Computer eine neue Rollenzuweisung hinzuzufügen.
 4. Legen Sie **Rolle** rechts auf der Seite auf „Speicherkontomitwirkender“ fest.  
 5. Legen Sie in der nächsten Dropdownliste **Zugriff zuweisen zu** auf die Ressource „Virtueller Computer“ fest.  

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 8605fe2ea86f875b5c5fd8ea451a287442dcd51b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922485"
 ---
 # <a name="project-acoustics-unity-integration"></a>Projekt Akustik: Unity-Integration
@@ -26,7 +26,7 @@ Softwareanforderungen:
 
 ## <a name="import-the-plugin"></a>Importieren des Plug-Ins
 Importieren Sie das Akustik-Unity-Paket in Ihr Projekt. 
-* Wechseln Sie in Unity zu **Assets (Medienobjekte) > Import Package (Paket importieren) > Custom Package... (Benutzerdefiniertes Paket...)**.
+* Wechseln Sie in Unity zu **Assets (Medienobjekte) > Import Package (Paket importieren) > Custom Package... (Benutzerdefiniertes Paket...)** .
 
     ![Screenshot des Menüs zum Importieren des Unity-Pakets](media/import-package.png)  
 

@@ -2,20 +2,20 @@
 title: Übersicht über Token – Azure Active Directory B2C | Microsoft-Dokumentation
 description: Hier finden Sie Informationen zu den in Azure Active Directory B2C verwendeten Token.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509076"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Übersicht über Token in Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ Die folgende Tabelle enthält die Ansprüche, die in von Azure AD B2C ausgeste
 
 Die folgenden Eigenschaften werden zum [Verwalten der Gültigkeitsdauer von Sicherheitstoken](configure-tokens.md) verwendet, die von Azure AD B2C ausgegeben werden:
 
-- **Lebensdauer von Zugriffs- und ID-Token (Minuten)**: Die Gültigkeitsdauer des OAuth 2.0-Bearertokens, das für den Zugriff auf eine geschützte Ressource verwendet wird Der Standardwert ist 60 Minuten. Der Mindestwert ist fünf Minuten (einschließlich). Der Höchstwert ist 1.440 Minuten (einschließlich).
+- **Lebensdauer von Zugriffs- und ID-Token (Minuten)** : Die Gültigkeitsdauer des OAuth 2.0-Bearertokens, das für den Zugriff auf eine geschützte Ressource verwendet wird Der Standardwert ist 60 Minuten. Der Mindestwert ist fünf Minuten (einschließlich). Der Höchstwert ist 1.440 Minuten (einschließlich).
 
 - **Lebensdauer des Aktualisierungstokens (Tage):** Die maximale Dauer, während der ein Aktualisierungstoken zum Anfordern eines neuen Zugriffs- oder ID-Tokens verwendet werden kann. Der Zeitraum deckt auch das Abrufen eines neuen Aktualisierungstokens ab, falls Ihrer Anwendung der Bereich `offline_access` gewährt wurde. Der Standardwert ist 14 Tage. Der Mindestwert ist ein Tag (einschließlich). Der Höchstwert ist 90 Tage (einschließlich).
 
@@ -89,9 +89,9 @@ Diese Einstellungen sind für Benutzerflows zur Kennwortzurücksetzung nicht ver
 
 Die folgenden Eigenschaften werden zum [Verwalten der Tokenkompatibilität](configure-tokens.md) verwendet:
 
-- **Ausstelleranspruch (iss)**: Diese Eigenschaft gibt den Azure AD B2C-Mandanten an, der das Token ausgestellt hat. Standardwert: `https://<domain>/{B2C tenant GUID}/v2.0/`. Der Wert `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` enthält IDs für den Azure AD B2C-Mandanten und den in der Tokenanforderung verwendeten Benutzerflow. Verwenden Sie diesen Wert, wenn Ihre Anwendung oder Bibliothek Azure AD B2C benötigt, um die [OpenID Connect Discovery 1.0-Spezifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html) zu erfüllen.
+- **Ausstelleranspruch (iss)** : Diese Eigenschaft gibt den Azure AD B2C-Mandanten an, der das Token ausgestellt hat. Standardwert: `https://<domain>/{B2C tenant GUID}/v2.0/`. Der Wert `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` enthält IDs für den Azure AD B2C-Mandanten und den in der Tokenanforderung verwendeten Benutzerflow. Verwenden Sie diesen Wert, wenn Ihre Anwendung oder Bibliothek Azure AD B2C benötigt, um die [OpenID Connect Discovery 1.0-Spezifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html) zu erfüllen.
 
-- **Antragstelleranspruch (sub)**: Diese Eigenschaft gibt die Entität an, für die das Token Informationen bestätigt. Der Standardwert ist **ObjectID**. Dieser Wert füllt den Anspruch `sub` im Token mit der Objekt-ID des Benutzers auf. Der Wert **Nicht unterstützt** wird nur zur Abwärtskompatibilität angegeben. Es empfiehlt sich, baldmöglichst zu **ObjectID** zu wechseln.
+- **Antragstelleranspruch (sub)** : Diese Eigenschaft gibt die Entität an, für die das Token Informationen bestätigt. Der Standardwert ist **ObjectID**. Dieser Wert füllt den Anspruch `sub` im Token mit der Objekt-ID des Benutzers auf. Der Wert **Nicht unterstützt** wird nur zur Abwärtskompatibilität angegeben. Es empfiehlt sich, baldmöglichst zu **ObjectID** zu wechseln.
 
 - **Anspruch zur Darstellung der Richtlinien-ID:** Mit dieser Eigenschaft wird der Anspruchstyp angegeben, in den der in der Tokenanforderung verwendete Richtlinienname eingefügt wird. Standardwert: `tfp`. Der Wert `acr` wird nur zur Abwärtskompatibilität angegeben.
 

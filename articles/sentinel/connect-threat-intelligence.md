@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 266e487a7c345f75e966afbde567c5bc4683b5c0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233750"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Verknüpfen von Daten von Threat Intelligence-Anbietern 

@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 25eb111871bbe3b18f59b0d6c123c72f3e55c859
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60498691"
 ---
 # <a name="manage-server-administrators"></a>Verwalten von Serveradministratoren
 

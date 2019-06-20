@@ -9,14 +9,14 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61450663"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Schützen der Anwendung für OPC UA-Clients und OPC UA-Server 
-OPC Vault ist ein Microservice, mit dem der Zertifikatlebenszyklus für OPC UA-Server- und -Clientanwendungen in der Cloud konfiguriert, registriert und verwaltet werden kann. In diesem Artikel erfahren Sie, wie Sie eine Anwendung für OPC UA-Clients und OPC UA-Server mit einem neuen Schlüsselpaar und Zertifikat über OPC Vault schützen.
+OPC Vault ist ein Microservice, mit dem der Zertifikatlebenszyklus für OPC UA-Server- und -Clientanwendungen in der Cloud konfiguriert, registriert und verwaltet werden kann. In diesem Artikel erfahren Sie, wie Sie eine Anwendung für OPC UA-Clients und OPC UA-Server mit einem neuen Schlüsselpaar und Zertifikat über OPC Vault schützen.
 
 Während des folgenden Einrichtungsvorgangs testet OPC Client die Konnektivität mit OPC PLC. Standardmäßig ist die Konnektivität nicht möglich, da beide Komponenten noch nicht mit den richtigen Zertifikaten bereitgestellt wurden. In diesem Workflow werden die selbstsignierten Zertifikate der OPC UA-Komponenten nicht verwendet und über OPC Vault signiert. Weitere Informationen finden Sie im vorherigen [Testbed](howto-opc-vault-deploy-existing-client-plc-communication.md). Stattdessen stellt dieses Testbed die Komponenten mit einem neuen Zertifikat sowie mit einem neuen privaten Schlüssel bereit, die beide von OPC Vault generiert werden. Einige Hintergrundinformationen zur OPC UA-Sicherheit finden Sie in diesem [Whitepaper](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Die vollständigen Informationen finden Sie in der OPC UA-Spezifikation.
 

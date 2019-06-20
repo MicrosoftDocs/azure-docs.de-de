@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: c8ac14f11d7f2eeed050997de42da4f512b46bc5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767260"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60254739"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>Verwalten von Volumes mithilfe von Azure NetApp Files
 Sie können ein Volume verwalten, indem Sie es anzeigen, aktualisieren oder löschen. 

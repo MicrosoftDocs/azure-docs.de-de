@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60577860"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Sammeln verteilter Ablaufverfolgungsdaten von Go (Vorschau)
 

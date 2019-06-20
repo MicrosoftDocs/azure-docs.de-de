@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65238124"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Sichern einer SAP HANA-Datenbank
@@ -40,7 +40,7 @@ ms.locfileid: "65238124"
 - Sie können Datenbankprotokolle alle 15 Minuten sichern. Protokollsicherungen werden erst nach dem erfolgreichen Abschluss einer vollständigen Sicherung der Datenbank übertragen.
 - Sie können vollständige und differenzielle Sicherungen ausführen. Inkrementelle Sicherungen werden derzeit nicht unterstützt.
 - Nachdem Sie die Sicherungsrichtlinie auf SAP HANA-Sicherungen angewendet haben, kann sie nicht mehr geändert werden. Wenn Sie Sicherungen mit unterschiedlichen Einstellungen ausführen möchten, müssen Sie eine neue Richtlinie erstellen oder eine andere Richtlinie zuweisen. 
-    - Klicken Sie zum Erstellen einer neuen Richtlinie im Tresor auf **Richtlinien** > **Sicherungsrichtlinien** > **+ Hinzufügen** > **SAP HANA in Azure-VM**, und legen Sie die Richtlinieneinstellungen fest.
+    - Klicken Sie zum Erstellen einer neuen Richtlinie im Tresor auf **Richtlinien** > **Sicherungsrichtlinien** >  **+ Hinzufügen** > **SAP HANA in Azure-VM**, und legen Sie die Richtlinieneinstellungen fest.
     - Wenn Sie eine andere Richtlinie zuweisen möchten, klicken Sie in den Eigenschaften des virtuellen Computers, auf dem die Datenbank ausgeführt wird, auf den Namen der aktuellen Richtlinie. Auf der Seite **Sicherungsrichtlinie** können Sie dann eine andere Richtlinie für die Sicherung auswählen.
 
 
@@ -176,7 +176,7 @@ Führen Sie die folgenden Schritte aus, wenn Sie (mit HANA Studio) eine lokale S
 
 1. Warten Sie, bis alle vollständigen Sicherungen oder Protokollsicherungen für die Datenbank abgeschlossen sind. Überprüfen Sie den Status in SAP HANA Studio.
 2. Deaktivieren Sie Protokollsicherungen, und legen Sie den Sicherungskatalog auf das Dateisystem für die entsprechende Datenbank fest.
-3. Doppelklicken Sie hierzu auf **systemdb** > **Konfiguration** > **Datenbank auswählen** > **Filter (Protokoll)**.
+3. Doppelklicken Sie hierzu auf **systemdb** > **Konfiguration** > **Datenbank auswählen** > **Filter (Protokoll)** .
 4. Legen Sie **enable_auto_log_backup** auf **No** fest.
 5. Legen Sie **log_backup_using_backint** auf **False** fest.
 6. Erstellen Sie eine vollständige Ad-hoc-Sicherung der Datenbank.

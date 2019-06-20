@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61485395"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Behandeln von RDP-Verbindungsfehlern bei virtuellen Azure-Computern anhand der Ereignis-ID 
 
@@ -61,7 +61,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Aufgabenkategorie:** Keine <br />
 **Ebene:**         Error <br />
 **Schlüsselwörter:**      Klassisch <br />
-**Benutzer:**          N/V <br />
+**Benutzer:**          – <br />
 **Computer:**      *Computer* <br />
 **Beschreibung:** Der RD-Sitzungshostserver konnte das abgelaufene selbstsignierte Zertifikat nicht ersetzen, das für die Authentifizierung des RD-Sitzungshostservers bei SSL-Verbindungen verwendet wird. Der relevante Statuscode war „Zugriff verweigert“.
 
@@ -72,7 +72,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Aufgabenkategorie:** Keine <br />
 **Ebene:**         Error <br />
 **Schlüsselwörter:**      Klassisch <br />
-**Benutzer:**          N/V <br />
+**Benutzer:**          – <br />
 **Computer:**      *Computer* <br />
 **Beschreibung:** Der RD-Sitzungshostserver konnte kein neues selbstsigniertes Zertifikat für die Authentifizierung des RD-Sitzungshostservers bei SSL-Verbindungen erstellen, der relevante Statuscode war „Objekt bereits vorhanden“.
 
@@ -83,7 +83,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Aufgabenkategorie:** Keine <br />
 **Ebene:**         Error <br />
 **Schlüsselwörter:**      Klassisch <br />
-**Benutzer:**          N/V <br />
+**Benutzer:**          – <br />
 **Computer:**      *Computer* <br />
 **Beschreibung:** Der RD-Sitzungshostserver konnte kein neues selbstsigniertes Zertifikat für die Authentifizierung des RD-Sitzungshostservers bei SSL-Verbindungen erstellen. Der relevante Statuscode war „Keyset nicht vorhanden“.
 

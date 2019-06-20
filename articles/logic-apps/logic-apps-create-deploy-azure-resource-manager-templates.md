@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: 21603ff213bc8babb4145209a76aee0b4150cc12
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60681754"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Bereitstellen von Logik-Apps mit Azure Resource Manager-Vorlagen
 

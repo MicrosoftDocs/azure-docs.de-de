@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 234febe92727e5a47d4cfc5b836cd5593e99b5b5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238367"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604295"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrieren erfasster Event Hubs-Daten zu einer SQL Data Warehouse-Instanz mithilfe von Event Grid und Azure Functions
 
@@ -39,7 +39,7 @@ In diesem Tutorial führen Sie die folgenden Aktionen aus:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Visual Studio 2017 (ab Version 15.3.2)](https://www.visualstudio.com/vs/). Achten Sie bei der Installation darauf, folgende Workloads zu installieren: .NET-Desktopentwicklung, Azure-Entwicklung, ASP.NET- und Webentwicklung, Node.js-Entwicklung, Python-Entwicklung.
+- [Visual studio 2019](https://www.visualstudio.com/vs/). Achten Sie bei der Installation darauf, folgende Workloads zu installieren: .NET-Desktopentwicklung, Azure-Entwicklung, ASP.NET- und Webentwicklung, Node.js-Entwicklung, Python-Entwicklung.
 - Laden Sie das [Git-Beispiel](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) herunter. Die Beispiellösung umfasst folgende Komponenten:
     - *WindTurbineDataGenerator:* Ein einfacher Verleger, der Beispieldaten einer Windturbine an einen Capture-fähigen Event Hub sendet.
     - *FunctionDWDumper:* Eine Azure-Funktion, die eine Event Grid-Benachrichtigung erhält, wenn im Azure Storage-Blob eine Avro-Datei erfasst wird. Sie erhält den URI-Pfad des Blobs, liest dessen Inhalt und pusht die Daten an eine SQL Data Warehouse-Instanz.
@@ -106,7 +106,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Veröffentlichen von Code in der Functions-App
 
-1. Öffnen Sie die Projektmappe *EventHubsCaptureEventGridDemo.sln* in Visual Studio 2017 (15.3.2 oder höher). 
+1. Öffnen Sie die Projektmappe *EventHubsCaptureEventGridDemo.sln* in Visual Studio 2019.
 
 1. Klicken Sie im Projektmappen-Explorer mit der rechten Maustaste auf *FunctionEGDWDumper*, und wählen Sie **Veröffentlichen** aus.
 

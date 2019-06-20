@@ -1,6 +1,6 @@
 ---
-title: Aufbewahrungsrichtlinien für Azure Active Directory-Berichte | Microsoft Docs
-description: Aufbewahrungsrichtlinien für Berichtdaten in Azure Active Directory
+title: Wie lange speichert Azure AD die Berichtsdaten? | Microsoft-Dokumentation
+description: Erfahren Sie, wie lange Azure die verschiedenen Arten von Berichtsdaten speichert.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,14 +17,14 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65781044"
 ---
-# <a name="azure-active-directory-report-retention-policies"></a>Aufbewahrungsrichtlinien für Azure Active Directory-Berichte
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Wie lange speichert Azure AD die Berichtsdaten?
 
 Dieser Artikel enthält Informationen zu den Datenaufbewahrungsrichtlinien für die unterschiedlichen Aktivitätsberichte in Azure Active Directory. 
 

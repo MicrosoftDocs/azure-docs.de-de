@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471759"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951918"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patchen des Windows-Betriebssystem in Ihrem Service Fabric-Cluster
 
 > 
 > [!IMPORTANT]
 > Die Anwendungsversion 1.2.* wird ab dem 30. April 2019 nicht mehr unterstützt. Führen Sie ein Upgrade auf die aktuelle Version aus.
-
-> 
-> [!IMPORTANT]
-> Eine Patchorchestrierungsanwendung unter Linux ist veraltet. Weitere Informationen zum Orchestrieren von Updates unter Linux finden Sie unter [Automatische Betriebssystemimageupgrades mit Azure-VM-Skalierungsgruppen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
 
 
 [Automatische Betriebssystemimageupgrades mit Azure-VM-Skalierungsgruppen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) ist die bewährte Methode, um Ihre Betriebssysteme in Azure gepatcht zu halten. Die Patch Orchestration Application (POA) ist ein Wrapper für den RepairManager-Systemdienst von Service Fabric, der Konfigurationen basierend auf Patchplänen für Betriebssysteme für nicht in Azure gehostete Cluster ermöglicht. POA ist für nicht in Azure gehostete Cluster nicht erforderlich, aber die Planung von Patchinstallationen durch Upgradedomänen ist erforderlich, um die Service Fabric-Clusterhosts ohne Ausfallzeiten zu patchen.
@@ -145,9 +141,7 @@ Automatische Windows-Updates können zu einer Verringerung der Verfügbarkeit f�
 
 ## <a name="download-the-app-package"></a>Herunterladen des App-Pakets
 
-Die Anwendung kann zusammen mit Installationsskripts über den [Archivlink](https://go.microsoft.com/fwlink/?linkid=869566) heruntergeladen werden.
-
-Die Anwendung im SFPKG-Format kann über den [SFPKG-Link](https://aka.ms/POA/POA.sfpkg) heruntergeladen werden. Dies ist praktisch für die [Azure Resource Manager-basierte Anwendungsbereitstellung](service-fabric-application-arm-resource.md).
+Um das Anwendungspaket herunterzuladen, rufen Sie die GitHub-[Releaseseite](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) der Patch Orchestration Application auf.
 
 ## <a name="configure-the-app"></a>Konfigurieren der App
 
@@ -209,13 +203,15 @@ Die App für die Patchorchestrierung macht eine REST-API verfügbar, um dem Benu
       {
         "OperationResult": 0,
         "NodeName": "_stg1vm_1",
-        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "OperationTime": "2019-05-13T08:44:56.4836889Z",
+        "OperationStartTime": "2019-05-13T08:44:33.5285601Z",
         "UpdateDetails": [
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
             "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
-            "ResultCode": 0
+            "ResultCode": 0,
+            "HResult": 0
           }
         ],
         "OperationType": 1,
@@ -238,6 +234,9 @@ ResultCode | Das Gleiche wie bei OperationResult | Diese Feld gibt das Ergebnis 
 OperationType | 1: Installation<br> 0: Suchen und Herunterladen| „Installation“ ist der einzige Wert für OperationType, der standardmäßig in den Ergebnissen angezeigt wird.
 WindowsUpdateQuery | Der Standardwert ist „IsInstalled=0“. |Windows Update-Abfrage, die für die Suche nach Updates verwendet wurde. Weitere Informationen finden Sie unter [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 RebootRequired | TRUE: Neustart war erforderlich<br> FALSE: Neustart war nicht erforderlich | Gibt an, ob ein Neustart erforderlich war, um die Installation des Updates abzuschließen.
+OperationStartTime | Datetime | Gibt den Zeitpunkt an, zu dem der Vorgang (Herunterladen/Installation) gestartet wurde.
+OperationTime | Datetime | Gibt den Zeitpunkt an, zu dem der Vorgang (Herunterladen/Installation) abgeschlossen wurde.
+HRESULT | 0 – erfolgreich<br> Sonstiges – Fehler| Gibt den Grund des Fehlers beim Windows Update mit UpdateID „7392acaf-6a85-427c-8a8d-058c25beb0d6“ an.
 
 Wenn noch keine Aktualisierung geplant ist, ist die JSON-Ausgabe leer.
 
@@ -259,11 +258,63 @@ Führen Sie zum Aktivieren des Reverseproxys auf dem Cluster die Schritte unter 
 
 ## <a name="diagnosticshealth-events"></a>Diagnose/Integritätsereignisse
 
+Im folgenden Abschnitt wird erläutert, wie das Debuggen / die Diagnose von Problemen mit Patchupdates über die Patch Orchestration Application in Service Fabric-Clustern durchgeführt wird.
+
+> [!NOTE]
+> Sie sollten Version v1.4.0 der POA installieren, um viele der unten aufgerufenen Verbesserungen bei der Selbstdiagnose nutzen zu können.
+
+Der NodeAgentNTService erstellt [Reparaturtasks](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) zum Installieren von Updates auf den Knoten. Jeder Task wird dann vom Koordinatordienst anhand der Richtlinie zur Taskgenehmigung vorbereitet. Die vorbereiteten Tasks werden schließlich vom Repair Manager genehmigt, der keinen Task genehmigt, wenn der Cluster sich in einem fehlerhaften Zustand befindet. Sie erfahren nun Schritt für Schritt, wie Updates auf einem Knoten durchgeführt werden.
+
+1. Der auf jedem Knoten ausgeführte NodeAgentNTService sucht zum geplanten Zeitpunkt nach verfügbaren Windows Updates. Wenn Updates verfügbar sind, werden sie auf den Knoten heruntergeladen.
+2. Sobald die Updates heruntergeladen sind, erstellt NodeAgentNTService einen entsprechenden Reparaturtask für den Knoten mit dem Namen „POS___<eindeutige ID>“. Sie können diese Reparaturtasks mithilfe des Cmdlets [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) oder in SFX im Detailbereich des Knotens anzeigen. Nach Erstellen des Reparaturtasks erfolgt ein schneller Wechsel zum [Claimed-Zustand](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+3. Der Koordinatordienst sucht in regelmäßigen Abständen nach Reparaturtasks im Claimed-Zustand und aktualisiert sie auf Grundlage der TaskApprovalPolicy zum Preparing-Zustand. Wenn die TaskApprovalPolicy als NodeWise konfiguriert ist, wird ein Reparaturtask, der einem Knoten entspricht, nur dann vorbereitet, wenn sich derzeit kein anderer Reparaturtask im Zustand Preparing/Approved/Executing/Restoring befindet. Ebenso ist dann, wenn die TaskApprovalPolicy als UpgradeWise konfiguriert ist, jederzeit sichergestellt, dass Tasks im oben genannten Zustand nur für Knoten vorhanden sind, die zu derselben Upgradedomäne gehören. Sobald ein Reparaturtask in den Preparing-Zustand gesetzt wird, ist der entsprechende Service Fabric-Knoten mit der Absicht „Neustart“ [deaktiviert](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps).
+
+   POA (v1.4.0 und höher) sendet Ereignisse mit der Eigenschaft „ClusterPatchingStatus“ an den Koordinatordienst, um die Knoten anzuzeigen, die gepatcht werden. Das untere Bild zeigt, dass Updates auf „_poanode_0“ installiert werden:
+
+    [![Abbildung des Clusterpatchzustands](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+
+4. Sobald der Knoten deaktiviert ist, wird der Reparaturtask in den Executing-Zustand gesetzt. Beachten Sie: Sobald ein Reparaturtask im Preparing-Zustand stecken bleibt, weil ein Knoten im Deaktivierungszustand stecken bleibt, kann dies zum Blockieren neuer Reparaturtasks führen und so das Patchen des Clusters anhalten.
+5. Sobald ein Reparaturtask sich im Executing-Zustand befindet, beginnt die Patchinstallation auf diesem Knoten. Sobald der Patch installiert ist, kann der Knoten je nach Patch neu gestartet werden oder auch nicht. Posten Sie, dass der Reparaturtask in den Restoring-Zustand gesetzt wird, sodass der Knoten wieder aktiviert und dann als abgeschlossen gekennzeichnet wird.
+
+   In v1.4.0 und höheren Versionen der Anwendung können Sie den Zustand des Updates den Integritätsereignissen im NodeAgentService unter der Eigenschaft „WUOperationStatus-[Knotenname]“ entnehmen. Die hervorgehobenen Abschnitte in den folgenden Abbildungen zeigen den Zustand des Windows Updates für Knoten „poanode_0“ und „poanode_2“:
+
+   [![Abbildung des Zustands des Windows Update-Vorgangs](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+
+   [![Abbildung des Zustands des Windows Update-Vorgangs](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+
+   Sie können die Details auch mithilfe von PowerShell ermitteln, indem Sie eine Verbindung mit dem Cluster herstellen und den Zustand des Reparaturtasks mit [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) abrufen. Im unten stehenden Beispiel befindet sich der Task „POS__poanode_2_125f2969-933 c-4774-85d1-ebdf85e79f15“ im DownloadComplete-Zustand. Dies bedeutet, dass Updates auf den Knoten „poanode_2“ heruntergeladen wurden und versucht wird, sie zu installieren, sobald der Task in den Executing-Zustand gesetzt ist.
+
+   ``` powershell
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
+
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k.ExecutorData
+    {"ExecutorSubState":2,"ExecutorTimeoutInMinutes":90,"RestartRequestedTime":"0001-01-01T00:00:00"}
+    ```
+
+   Um noch mehr herauszufinden, melden Sie sich bei den spezifischen virtuellen Computern an, und entnehmen Sie den Windows-Ereignisprotokollen weitere Informationen zu dem Problem. Der oben genannte Reparaturtask kann nur diese Executor-Unterzustände haben:
+
+      ExecutorSubState | Detail
+    -- | -- 
+      None=1 |  Bedeutet, dass kein laufender Vorgang auf dem Knoten vorlag. Mögliche Statusübergänge.
+      DownloadCompleted=2 | Downloadvorgang wurde erfolgreich, mit Teilfehler oder Fehler abgeschlossen.
+      InstallationApproved=3 | Downloadvorgang wurde früher abgeschlossen und Repair Manager hat die Installation genehmigt.
+      InstallationInProgress=4 | Entspricht dem Zustand der Ausführung des Reparaturtasks.
+      InstallationCompleted=5 | Installation wurde erfolgreich, mit Teilerfolg oder Fehler abgeschlossen.
+      RestartRequested=6 | Patchinstallation wurde abgeschlossen und eine Neustartaktion auf dem Knoten steht aus.
+      RestartNotNeeded=7 |  Neustart war nach dem Abschluss der Patchinstallation nicht erforderlich.
+      RestartCompleted=8 | Neustart wurde erfolgreich abgeschlossen.
+      OperationCompleted=9 | Windows Update-Vorgang wurde erfolgreich abgeschlossen.
+      OperationAborted=10 | Windows Update-Vorgang wurde abgebrochen.
+
+6. In v1.4.0 der Anwendung und höher wird bei Abschluss eines Updateversuchs auf einem Knoten ein Ereignis mit der Eigenschaft „WUOperationStatus-[Knotenname]“ auf dem NodeAgentService gepostet, um mitzuteilen, wann der nächste Versuch gestartet wird, das Update herunterzuladen und zu installieren. Siehe Abbildung unten:
+
+     [![Abbildung des Zustands des Windows Update-Vorgangs](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+
 ### <a name="diagnostic-logs"></a>Diagnoseprotokolle
 
 Protokolle für die App für die Patchorchestrierung werden als Teil der Service Fabric-Laufzeitprotokolle erfasst.
 
-Hinweis für Benutzer, die Protokolle über das gewünschte Diagnosetool/die gewünschte Diagnosepipeline erfassen möchten: Die Anwendung für die Patchorchestrierung protokolliert Ereignisse über [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) unter Verwendung der folgenden festen Anbieter-IDs:
+Hinweis für Benutzer, die Protokolle über das gewünschte Diagnosetool/die gewünschte Diagnosepipeline erfassen möchten: Die Patch Orchestration Application protokolliert Ereignisse über [event source](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) unter Verwendung der folgenden festen Anbieter-IDs:
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -273,12 +324,6 @@ Hinweis für Benutzer, die Protokolle über das gewünschte Diagnosetool/die gew
 ### <a name="health-reports"></a>Integritätsberichte
 
 Die App für die Patchorchestrierung veröffentlicht in folgenden Fällen auch Integritätsberichte für den Koordinatordienst oder den Knoten-Agent-Dienst:
-
-#### <a name="a-windows-update-operation-failed"></a>Fehler bei einem Windows Update-Vorgang
-
-Wenn beim Windows Update-Vorgang auf einem Knoten ein Fehler auftritt, wird ein Integritätsbericht für den Knoten-Agent-Dienst generiert. Der Integritätsbericht enthält den Namen des problematischen Knotens.
-
-Der Bericht wird automatisch gelöscht, sobald das Patchen des problematischen Knotens erfolgreich abgeschlossen wurde.
 
 #### <a name="the-node-agent-ntservice-is-down"></a>Ausfall des Knoten-Agent-NT-Diensts
 
@@ -347,6 +392,18 @@ F: **Kann die App für die Patchorchestrierung für das Patchen des Entwicklungs
 
 A. Nein, die App für die Patchorchestrierung kann nicht für Patchvorgänge in Einzelknotenclustern verwendet werden. Diese Einschränkung ist entwurfsbedingt, da es zu Ausfallzeiten bei [Service Fabric-Systemdiensten](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) oder anderen Kunden-Apps kommen kann, sodass ein Reparaturauftrag für einen Patch nie vom Reparatur-Manager genehmigt werden würde.
 
+F: **Wie patche ich Clusterknoten unter Linux?**
+
+A. Weitere Informationen zum Orchestrieren von Updates unter Linux finden Sie unter [Automatische Betriebssystemimageupgrades mit Azure-VM-Skalierungsgruppen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+
+F.**Warum dauert der Updatezyklus so lange?**
+
+A. Fragen Sie den JSON-Ergebnistext ab, sehen Sie die Updatezykluseinträge aller Knoten durch, und dann können Sie versuchen, mithilfe von OperationStartTime und OperationTime(OperationCompletionTime) herauszufinden, wieviel Zeit die Updateinstallation auf jedem Knoten in Anspruch genommen hat. Wenn innerhalb eines großen Zeitfensters kein Update stattfand, könnte eine Ursache sein, dass der Cluster sich im Fehlerzustand befand und der Repair Manager darum keine anderen POA-Reparaturtasks genehmigt hat. Wenn die Updateinstallation auf einem beliebigen Knoten lange gedauert hat, wurde der Knoten möglicherweise seit längerer Zeit nicht mehr aktualisiert, sodass die Installation vieler Updates ausstand, was viel Zeit in Anspruch genommen hat. Es ist auch möglich, dass das Patchen auf einem Knoten blockiert ist, weil der Knoten im Deaktivierungszustand stecken geblieben ist, was in der Regel vorkommt, weil das Deaktivieren des Knotens zu Quorums-/Datenverlustsituationen führt.
+
+F: **Warum muss der Knoten deaktiviert werden, wenn POA ihn patcht?**
+
+A. Patch Orchestration Application deaktiviert den Knoten mit „Neustart“-Absicht, wodurch alle auf dem Knoten ausgeführten Service Fabric-Dienste beendet / neu zugewiesen werden. Dies soll sicherstellen, dass Anwendungen keine Mischung aus alten und neuen DLLs verwenden, darum sollte kein Knoten gepatcht werden, ohne deaktiviert zu werden.
+
 ## <a name="disclaimers"></a>Haftungsausschlüsse
 
 - Die App für die Patchorchestrierung akzeptiert den Endbenutzer-Lizenzvertrag von Windows Update im Namen des Benutzers. Diese Einstellung kann optional in der Konfiguration der Anwendung deaktiviert werden.
@@ -386,6 +443,9 @@ Ein fehlerhaftes Windows Update kann die Integrität einer Anwendung oder eines 
 Ein Administrator muss eingreifen und ermitteln, weshalb die Integrität der Anwendung oder des Clusters aufgrund von Windows Update beeinträchtigt wurde.
 
 ## <a name="release-notes"></a>Versionsinformationen
+
+>[!NOTE]
+> Versionshinweise und Releases ab Version 1.4.0 finden Sie auf der GitHub-[Releaseseite](https://github.com/microsoft/Service-Fabric-POA/releases/).
 
 ### <a name="version-110"></a>Version 1.1.0
 - Öffentliche Version

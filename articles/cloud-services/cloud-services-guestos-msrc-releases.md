@@ -11,17 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 5/23/2019
 ms.author: raiye
-ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465551"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241326"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbetriebssystem
 Die folgenden Tabellen zeigen die Microsoft Security Response Center-Updates (MSRC), die auf das Azure-Gastbetriebssystem angewendet wurden. Durchsuchen Sie diesen Artikel, um zu ermitteln, ob ein bestimmtes Update für das Gastbetriebssystem gilt, das Sie verwenden. Updates werden für die [Familie][family-explain], in der sie eingeführt wurden, immer in die jeweils neueste Version übertragen.
+
+## <a name="may-2019-guest-os"></a>Gastbetriebssystem für Mai 2019
+
+>[!NOTE]
+>Das Gastbetriebssystem für Mai wird derzeit auf Clouddienst-VMs eingeführt, die für automatische Updates konfiguriert sind. Wenn die Bereitstellung abgeschlossen ist, wird diese Version für manuelle Updates über das Azure-Portal und Konfigurationsdateien verfügbar gemacht. Die folgenden Patches sind im Gastbetriebssystem für Mai enthalten. Änderungen der Liste vorbehalten.
+
+| Produktkategorie | Übergeordneter KB-Artikel | Beschreibung des Sicherheitsrisikos | Gastbetriebssystem | Datum der ersten Einführung |
+| --- | --- | --- | --- | --- |
+|  Rel 19-05   |  [4498206 ]  |  Internet Explorer-Rollup für Mai   |  2,86, 3.73, 4.66  |  14. Mai 2019  |
+|  Rel 19-05   |  [4505050 ]  |  Internet Explorer-Rollup für Mai   |  2,86, 3.73, 4.66  |  18. Mai 2019  |
+|  Rel 19-05   |  [4497932 ]  |  Flash-Update für Mai   |  3.73, 4.66, 5.31  |  14. Mai 2019  |
+|  Rel 19-05   |  [4499175 ]  |  Sicherheitsrelevanter Rollup für Mai   |  2.86  |  14. Mai 2019  |
+|  Rel 19-05   |  [4495612 ]  |  Sicherheitsrelevanter Rollup für .NET 3.5 für Mai   |  2.86  |  14. Mai 2019  |
+|  Rel 19-05   |  [4495593 ]  |  Sicherheitsrelevanter Rollup für .NET 4.5.2 für Mai   |  2.86  |  14. Mai 2019  |
+|  Rel 19-05   |  [4499158 ]  |  Sicherheitsrelevanter Rollup für Mai   |  3.73  |  14. Mai 2019  |
+|  Rel 19-05   |  [4495607 ]  |  Sicherheitsrelevanter Rollup für .NET 3.5 für Mai   |  3.73  |  14. Mai 2019  |
+|  Rel 19-05   |  [4495591 ]  |  Sicherheitsrelevanter Rollup für .NET 4.5.2 für Mai   |  3.73  |  14. Mai 2019  |
+|  Rel 19-05   |  [4492872 ]  |  Internet Explorer-Rollup   |  3.73  |  16. April 2019  |
+|  Rel 19-05   |  [4499165 ]  |  Sicherheitsrelevanter Rollup für März   |  4.66  |  14. Mai 2019  |
+|  Rel 19-05   |  [4495615 ]  |  Sicherheitsrelevanter Rollup für .NET 3.5 für Mai   |  4.66  |  14. Mai 2019  |
+|  Rel 19-05   |  [4495589 ]  |  Sicherheitsrelevanter Rollup für .NET 4.5.2 für Mai   |  4.66  |  14. Mai 2019  |
+|  Rel 19-05   |  [4498947 ]  |  SSU für Mai   |  5.31  |  14. Mai 2019  |
+|  Rel 19-05   |  [4494175 ]  |  Microcodeupdate für Mai   |  5.31  |  14. Mai 2019  |
+|  Rel 19-05   |  [4505052 ]  |  Sicherheitsrelevanter Rollup für Mai   |  5.31  |  19. Mai 2019  |
+|  Rel 19-05   |  [4499728 ]  |  SSU für Mai   |  6.7  |  19. Mai 2019  |
+|  Rel 19-05   |  [4505056 ]  |  Sicherheitsrelevanter Rollup für Mai   |  6.7  |  19. Mai 2019  |
+|  Rel 19-05   |  [4494174 ]  |  Microcodeupdate für Mai   |  6.7  |  14. Mai 2019  |
+|  Rel 19-05   |  [4495590 ]  |  Sicherheitsrelevanter Rollup für .NET für Mai   |  6.7  |  14. Mai 2019  |
+
+[KB4493510]: https://support.microsoft.com/kb/KB4493510
+[KB4493472]: https://support.microsoft.com/kb/KB4493472
+[KB4493451]: https://support.microsoft.com/kb/KB4493451
+[KB4493446]: https://support.microsoft.com/kb/KB4493446
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="april-2019-guest-os"></a>Gastbetriebssystem April 2019
 

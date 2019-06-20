@@ -18,11 +18,11 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60296315"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming von Einstellungen und Daten – Häufig gestellte Fragen
 Dieser Artikel enthält Antworten auf Fragen zur Synchronisierung von Einstellungen und App-Daten, die von IT-Administratoren häufig gestellt werden.
@@ -31,11 +31,11 @@ Dieser Artikel enthält Antworten auf Fragen zur Synchronisierung von Einstellun
 **Windows-Einstellungen**: Die PC-Einstellungen, die in das Windows-Betriebssystem integriert sind. Im Allgemeinen sind dies Einstellungen, mit denen Ihr PC personalisiert wird. Sie lassen sich in die folgenden Kategorien unterteilen:
 
 * *Design*: beispielsweise Desktopdesign und Taskleisteneinstellungen.
-* *Internet Explorer-Einstellungen:*: zuletzt geöffnete Registerkarten, Favoriten usw.
+* *Internet Explorer-Einstellungen:* : zuletzt geöffnete Registerkarten, Favoriten usw.
 * *Einstellungen des Microsoft Edge-Browsers:* beispielsweise Favoriten und Leseliste.
-* *Kennwörter:*: Internet-Kennwörter, WLAN-Profile usw.
-* *Spracheinstellungen:*: Einstellungen für Tastaturlayouts, Systemsprache, Datum und Uhrzeit usw.
-* *Funktionen für die erleichterte Bedienung:*: Design mit hohem Kontrast, Sprachausgabe, Bildschirmlupe usw.
+* *Kennwörter:* : Internet-Kennwörter, WLAN-Profile usw.
+* *Spracheinstellungen:* : Einstellungen für Tastaturlayouts, Systemsprache, Datum und Uhrzeit usw.
+* *Funktionen für die erleichterte Bedienung:* : Design mit hohem Kontrast, Sprachausgabe, Bildschirmlupe usw.
 * *Andere Windows-Einstellungen*, z.B. Mauseinstellungen.
 
 **Anwendungsdaten:** Universelle Windows-Apps können Einstellungsdaten in einen Roamingordner schreiben. Alle Daten, die in diesen Ordner geschrieben werden, werden automatisch synchronisiert. App-Entwickler können eine App entwerfen, um diese Funktion zu nutzen. Weitere Informationen zur Entwicklung einer universellen Windows-App, die Roaming verwendet, finden Sie unter [Speichern und Abrufen von Einstellungen und anderen App-Daten](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) und im [Entwicklerblog zum Roaming von Windows 8-App-Daten](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
@@ -76,7 +76,7 @@ In den Windows 10-Versionen ab November 2015 wird Enterprise State Roaming nur f
 Wenn sich mehrere Azure AD-Konten von verschiedenen Azure AD-Mandanten auf demselben Gerät befinden, müssen Sie die Registrierung des Geräts aktualisieren, um mit dem Azure Rights Management-Dienst für jeden Azure AD-Mandanten zu kommunizieren.  
 
 1. Suchen Sie die GUID für jeden Azure AD-Mandanten. Öffnen Sie das Azure-Portal, und wählen Sie einen Azure AD-Mandanten aus. Die GUID für den Mandanten befindet sich auf der Seite „Eigenschaften“ für den ausgewählten Mandanten (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), mit der Bezeichnung **Verzeichnis-ID**. 
-2. Wenn Sie die GUID ermittelt haben, müssen Sie den folgenden Registrierungsschlüssel hinzufügen: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<Mandanten-ID-GUID>**.
+2. Wenn Sie die GUID ermittelt haben, müssen Sie den folgenden Registrierungsschlüssel hinzufügen: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<Mandanten-ID-GUID>** .
    Erstellen Sie im Schlüssel **Mandanten-ID-GUID** einen neuen mehrteiligen Zeichenfolgenwert (REG-MULTI-SZ) namens **AllowedRMSServerUrls**. Geben Sie als Daten die URLs der Lizenzverteilungspunkte der anderen Azure-Mandanten an, auf die das Gerät zugreift.
 3. Sie können die Lizenzverteilungspunkt-URLs ermitteln, indem Sie das Cmdlet **Get-AadrmConfiguration** aus dem AADRM-Modul ausführen. Falls sich die Werte für **LicensingIntranetDistributionPointUrl** und **LicensingExtranetDistributionPointUrl** unterscheiden, müssen Sie beide Werte angeben. Wenn die Werte gleich sind, müssen Sie den Wert nur einmal angeben.
 

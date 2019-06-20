@@ -16,11 +16,11 @@ ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339260"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60811051"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Einführung in Netzwerke mit Service Fabric Mesh-Anwendungen
 In diesem Artikel erfahren Sie mehr zu den verschiedenen Typen von Lastenausgleich, wie Gateways das Netzwerk mit Ihren Anwendungen mit anderen Netzwerken verbinden und wie Datenverkehr zwischen den Diensten in Ihren Anwendungen weitergeleitet wird.

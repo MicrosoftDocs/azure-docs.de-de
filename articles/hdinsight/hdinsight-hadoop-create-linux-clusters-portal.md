@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715190"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393998"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Erstellen von Linux-basierten Clustern in HDInsight mit dem Azure-Portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -42,7 +42,7 @@ Das Azure-Portal macht die meisten Clustereigenschaften verfügbar. Mithilfe von
    
     ![Erstellen eines neuen Clusters im Azure-Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "Erstellen eines neuen Clusters im Azure-Portal")
 
-1. Wählen Sie auf der Seite **HDInsight** die Option **Benutzerdefiniert (Größe, Einstellungen, Apps)**.
+1. Wählen Sie auf der Seite **HDInsight** die Option **Benutzerdefiniert (Größe, Einstellungen, Apps)** .
 
 1. Wählen Sie **1 Grundlagen**. Geben Sie anschließend die folgenden Informationen ein.
 

@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ad7c87161c550c4728978e9c975252cab34f76ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389804"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357809"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Verwenden von Bedingungen in Azure Resource Manager-Vorlagen
 
 Es wird beschrieben, wie Sie Azure-Ressourcen basierend auf Bedingungen bereitstellen.
 
-Im Tutorial [Festlegen der Reihenfolge für die Ressourcenbereitstellung](./resource-manager-tutorial-create-templates-with-dependent-resources.md) erstellen Sie einen virtuellen Computer, ein virtuelles Netzwerk und einige andere abhängige Ressourcen, z.B. ein Speicherkonto. Anstatt jedes Mal ein neues Speicherkonto zu erstellen, können Benutzer zwischen dem Erstellen eines neuen Speicherkontos und dem Verwenden eines vorhandenen Speicherkontos wählen. Sie definieren einen zusätzlichen Parameter, um dieses Ziel zu erreichen. Wenn der Wert des Parameters „new“ lautet, wird ein neues Speicherkonto erstellt.
+Im Tutorial [Festlegen der Reihenfolge für die Ressourcenbereitstellung](./resource-manager-tutorial-create-templates-with-dependent-resources.md) erstellen Sie einen virtuellen Computer, ein virtuelles Netzwerk und einige andere abhängige Ressourcen, z.B. ein Speicherkonto. Anstatt jedes Mal ein neues Speicherkonto zu erstellen, können Benutzer zwischen dem Erstellen eines neuen Speicherkontos und dem Verwenden eines vorhandenen Speicherkontos wählen. Sie definieren einen zusätzlichen Parameter, um dieses Ziel zu erreichen. Wenn der Wert des Parameters „new“ lautet, wird ein neues Speicherkonto erstellt. Andernfalls wird ein vorhandenes Speicherkonto mit dem angegebenen Namen verwendet.
 
 ![Diagramm der Bedingungen zum Verwenden der Resource Manager-Vorlage](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -35,6 +35,13 @@ Dieses Tutorial enthält die folgenden Aufgaben:
 > * Ändern der Vorlage
 > * Bereitstellen der Vorlage
 > * Bereinigen von Ressourcen
+
+In diesem Tutorial wird nur ein grundlegendes Szenario der Verwendung von Bedingungen behandelt. Weitere Informationen finden Sie unter
+
+* [Vorlagendateistruktur: Bedingung](./resource-group-authoring-templates.md#condition).
+* [Bedingtes Bereitstellen einer Ressource in einer Azure Resource Manager-Vorlage](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Vorlagenfunktion: If](./resource-group-template-functions-logical.md#if) (Wenn).
+* [Vergleichsfunktionen für Azure Resource Manager-Vorlagen](./resource-group-template-functions-comparison.md)
 
 Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 
@@ -48,6 +55,7 @@ Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie F
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault dient zum Schützen von kryptografischen Schlüsseln und anderen Geheimnissen. Weitere Informationen finden Sie unter [Tutorial: Integrieren von Azure Key Vault in die Resource Manager-Vorlagenbereitstellung](./resource-manager-tutorial-use-key-vault.md). Wir empfehlen Ihnen auch, Ihr Kennwort alle drei Monate zu aktualisieren.
 
 ## <a name="open-a-quickstart-template"></a>Öffnen einer Schnellstartvorlage
@@ -60,6 +68,7 @@ Damit Sie die Anweisungen in diesem Artikel ausführen können, benötigen Sie F
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Wählen Sie **Öffnen** aus, um die Datei zu öffnen.
 4. Es gibt fünf Ressourcen, die von der Vorlage definiert werden:
 
@@ -82,12 +91,11 @@ Nehmen Sie zwei Änderungen an der vorhandenen Vorlage vor:
 Hier ist das Verfahren zum Vornehmen von Änderungen angegeben:
 
 1. Öffnen Sie **azuredeploy.json** in Visual Studio Code.
-2. Ersetzen Sie **variables('storageAccountName')** in der gesamten Vorlage durch **parameters('storageAccountName')**.  Es gibt drei Darstellungen von **variables('storageAccountName')**.
+2. Ersetzen Sie die drei **variables('storageAccountName')** in der gesamten Vorlage durch **parameters('storageAccountName')** .
 3. Entfernen Sie die folgende Variablendefinition:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-    ```
+    ![Diagramm der Bedingungen zum Verwenden der Resource Manager-Vorlage](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+
 4. Fügen Sie der Vorlage die folgenden beiden Parameter hinzu:
 
     ```json
@@ -95,13 +103,14 @@ Hier ist das Verfahren zum Vornehmen von Änderungen angegeben:
       "type": "string"
     },
     "newOrExisting": {
-      "type": "string", 
+      "type": "string",
       "allowedValues": [
-        "new", 
+        "new",
         "existing"
       ]
     },
     ```
+
     Die aktualisierte Parameterdefinition sieht wie folgt aus:
 
     ![Resource Manager-Nutzungsbedingung](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
@@ -117,7 +126,7 @@ Hier ist das Verfahren zum Vornehmen von Änderungen angegeben:
     Die aktualisierte Speicherkontodefinition sieht wie folgt aus:
 
     ![Resource Manager-Nutzungsbedingung](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Aktualisieren Sie **storageUri** mit dem folgenden Wert:
+6. Aktualisieren Sie die Eigenschaft **storageUri** der VM-Ressourcendefinition mit dem folgenden Wert:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -129,11 +138,7 @@ Hier ist das Verfahren zum Vornehmen von Änderungen angegeben:
 
 ## <a name="deploy-the-template"></a>Bereitstellen der Vorlage
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Stellen Sie die Vorlage gemäß der Anleitung unter [Bereitstellen der Vorlage](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) bereit.
-
-Beim Bereitstellen der Vorlage mit Azure PowerShell müssen Sie einen zusätzlichen Parameter angeben. Verwenden Sie aus Sicherheitsgründen ein generiertes Kennwort für das Administratorkonto des virtuellen Computers. Siehe [Voraussetzungen](#prerequisites).
+Befolgen Sie die Anweisungen in [Bereitstellen der Vorlage](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template), um die Cloud Shell zu öffnen und die geänderte Vorlage hochzuladen, und führen Sie dann das folgende PowerShell-Skript aus, um die Vorlage bereitzustellen.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -162,12 +167,12 @@ Versuchen Sie, eine andere Bereitstellung zu erstellen, bei der **newOrExisting*
 
 ## <a name="clean-up-resources"></a>Bereinigen von Ressourcen
 
-Wenn Sie die Azure-Ressourcen nicht mehr benötigen, löschen Sie die Ressourcengruppe, um die bereitgestellten Ressourcen zu bereinigen.
+Wenn Sie die Azure-Ressourcen nicht mehr benötigen, löschen Sie die Ressourcengruppe, um die bereitgestellten Ressourcen zu bereinigen. Um die Ressourcengruppe zu löschen, wählen Sie **Testen Sie es.** aus, um die Cloud Shell zu öffnen. Um das PowerShell-Skript einzufügen, klicken Sie mit der rechten Maustaste auf den Shellberich, und wählen Sie **Einfügen** aus.
 
-1. Wählen Sie im Azure-Portal im linken Menü die Option **Ressourcengruppe** aus.
-2. Geben Sie den Namen der Ressourcengruppe in das Feld **Nach Name filtern** ein.
-3. Wählen Sie den Namen der Ressourcengruppe aus.  Es werden insgesamt sechs Ressourcen in der Ressourcengruppe angezeigt.
-4. Wählen Sie **Ressourcengruppe löschen** aus dem Menü ganz oben aus.
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>Nächste Schritte
 
