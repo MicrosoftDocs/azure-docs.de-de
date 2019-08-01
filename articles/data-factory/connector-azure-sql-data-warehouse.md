@@ -596,7 +596,7 @@ Beim Kopieren von Daten aus bzw. nach Azure SQL Data Warehouse werden die folgen
 | bit | Boolean |
 | char | String, Char[] |
 | date | DateTime |
-| DateTime | DateTime |
+| Datetime                              | DateTime                       |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |
