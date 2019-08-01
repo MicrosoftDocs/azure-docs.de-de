@@ -110,3 +110,5 @@ Testen Sie den Vorgang im Azure-Portal.  Alternativ können Sie ihn auch im **En
 
 > [!div class="nextstepaction"]
 > [Transformieren und Schützen einer veröffentlichten API](transform-api.md)
+
+<!-- Test -->
