@@ -33,7 +33,7 @@ Zum Erstellen von benutzerdefinierten Rollen benötigen Sie Folgendes:
 
 - Berechtigungen zum Erstellen von benutzerdefinierten Rollen, etwa [Besitzer](built-in-roles.md#owner) oder [Benutzerzugriffsadministrator](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) oder [Azure CLI](/cli/azure/install-azure-cli).
-- Im Fall, dass das Azure CLI genutzt wird ist es erforderlich, das Toll 'jq' installiert ist. 
+- Im Fall, dass das Azure CLI genutzt wird ist es erforderlich, dass das Tool 'jq' installiert ist. 
      Es kann wie folgt installiert werden
      **Debian/Ubuntu**
      - sudo apt-get install jq
@@ -42,7 +42,7 @@ Zum Erstellen von benutzerdefinierten Rollen benötigen Sie Folgendes:
      - sudo yum install jq
 
      **SUSE SLES** 
-     - sudo zypper install jq- Im Fall, dass das Azure CLI genutzt wird ist es erforderlich, das Toll 'jq' vorhanden ist. Es kann nachträglich 
+     - sudo zypper install jq
 
 ## <a name="list-custom-roles"></a>Auflisten benutzerdefinierter Rollen
 
