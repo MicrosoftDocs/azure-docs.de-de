@@ -29,7 +29,7 @@ Die Größe Ihres Containerimages wirkt sich auf die Dauer des Bereitstellungsvo
 
 ### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>Wie kann ich die Bereitstellung meines Containers beschleunigen?
 
-Da die Imagegröße einer der wichtigsten Faktoren für die Bereitstellungszeiten ist, suchen Sie nach Möglichkeiten zum Verringern der Größe. Entfernen Sie unnötige Ebenen, oder verringern Sie die Größe der Ebenen im Image (durch Auswahl eines leichteren Basisbetriebssystem-Images). Wenn Sie beispielsweise Linux-Container ausführen, erwägen Sie die Verwendung von Alpine als Basisimage anstelle eines vollständigen Ubuntu-Servers. Ebenso können Sie für Windows-Container nach Möglichkeit ein Nano Server-Basisimage einsetzen. 
+Da die Imagegröße einer der wichtigsten Faktoren für die Bereitstellungszeiten ist, suchen Sie nach Möglichkeiten zum Verringern der Größe. Entfernen Sie unnötige Ebenen oder verringern Sie die Größe der Ebenen im Image (durch Auswahl eines leichteren Basisbetriebssystem-Images). Wenn Sie beispielsweise Linux-Container ausführen, erwägen Sie die Verwendung von Alpine als Basisimage anstelle eines vollständigen Ubuntu-Servers. Ebenso können Sie für Windows-Container nach Möglichkeit ein Nano Server-Basisimage einsetzen. 
 
 Sie sollten auch die Liste der vorab zwischengespeicherten Images in Azure-Containerimages überprüfen, die über die API [List Cached Images](/rest/api/container-instances/listcachedimages) (Zwischengespeicherte Images auflisten) verfügbar ist. Für eines der vorab zwischengespeicherten Images können Sie möglicherweise eine Imageebene deaktivieren. 
 
@@ -59,7 +59,7 @@ Verwenden Sie das kleinste Image, das Ihre Anforderungen erfüllt. Unter Linux k
 
 ### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>Wie viele Kerne und Arbeitsspeicher sollte ich für meine Container oder die Containergruppe zuweisen?
 
-Das hängt ganz von Ihrer Workload ab. Fangen Sie klein an, und testen Sie die Leistung, um herauszufinden, ob sie für Ihre Container ausreicht. [Überwachen Sie die Auslastung der CPU- und Arbeitsspeicherressourcen](container-instances-monitor.md), und fügen Sie Kerne oder Arbeitsspeicher je nach Art der Prozesse hinzu, die Sie im Container bereitstellen. 
+Das hängt ganz von Ihrer Workload ab. Fangen Sie klein an und testen Sie die Leistung, um herauszufinden, ob sie für Ihre Container ausreicht. [Überwachen Sie die Auslastung der CPU- und Arbeitsspeicherressourcen](container-instances-monitor.md), und fügen Sie Kerne oder Arbeitsspeicher je nach Art der Prozesse hinzu, die Sie im Container bereitstellen. 
 
 Stellen Sie außerdem sicher, dass Sie die [Ressourcenverfügbarkeit](container-instances-region-availability.md#availability---general) für die Region prüfen, in der die Bereitstellung erfolgt, um die Obergrenzen für CPU-Kerne und Arbeitsspeicher pro Containergruppe zu ermitteln. 
 
