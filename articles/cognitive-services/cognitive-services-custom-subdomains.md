@@ -43,7 +43,7 @@ Nein. Der regionale Endpunkt funktioniert weiterhin für neue und vorhandene Cog
 
 Regionale Endpunkte und benutzerdefinierte Unterdomänennamen werden unterstützt und können austauschbar verwendet werden. Dennoch ist der vollständige Endpunkt erforderlich.
 
-Informationen zu Regionen sind auf dem Blatt **Übersicht** für Ihre Ressource im [Azure-Portal](https://portal.azure.com) verfügbar. Eine vollständige Liste der regionalen Endpunkte finden Sie unter [Gibt es eine Liste der regionalen Endpunkte?](#is-there-a-list-of-regional-endpoints)
+Informationen zu Regionen sind auf dem Blatt **Übersicht** für Ihre Ressource im [Azure-Portal](https://aws.amazon.com) verfügbar. Eine vollständige Liste der regionalen Endpunkte finden Sie unter [Gibt es eine Liste der regionalen Endpunkte?](#is-there-a-list-of-regional-endpoints)
 
 ## <a name="are-custom-subdomain-names-regional"></a>Sind benutzerdefinierte Unterdomänennamen regional?
 
@@ -61,9 +61,9 @@ Nein. Nachdem Sie einen benutzerdefinierten Unterdomänennamen erstellt und eine
 
 Jeder benutzerdefinierte Unterdomänenname ist eindeutig. Wenn Sie also einen einer Cognitive Services-Ressource zugeordneten benutzerdefinierten Unterdomänennamen wieder verwenden möchten, müssen Sie die vorhandene Ressource löschen. Nachdem die Ressource gelöscht wurde, können Sie den benutzerdefinierten Unterdomänennamen wieder verwenden.
 
-## <a name="is-there-a-list-of-regional-endpoints"></a>Gibt es eine Liste regionaler Endpunkte?
+## <a name="is-there-a-list-of-regional-endpoints"></a>Gibt es eine Liste regionaler end points?
 
-Ja. Dies ist eine Liste der regionalen Endpunkte, die Sie mit Azure Cognitive Services-Ressourcen verwenden können.
+Ja. Dies ist eine Liste der regionalen end points, die Sie mit Azure Cognitive Services-Ressourcen verwenden können.
 
 > [!NOTE]
 > Der Translator-Dienst und die Bing-Suche-APIs verwenden globale Endpunkte.
