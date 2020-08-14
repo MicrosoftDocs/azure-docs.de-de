@@ -154,7 +154,7 @@ az group create --name myResourceGroup --location eastus
 Stellen Sie die Vorlage mit dem Befehl [az deployment group create][az-deployment-group-create] bereit.
 
 ```azurecli-interactive
-az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
 Innerhalb weniger Sekunden sollten Sie eine erste Antwort von Azure erhalten.
